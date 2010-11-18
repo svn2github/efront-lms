@@ -137,6 +137,7 @@ if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user[
 
   $data = array();
   foreach ($userCourses as $courseId => $value) {
+
    $data[$courseId] = array(_NAME => $value['name'],
          _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),
          _REGISTRATIONDATE => formatTimestamp($value['active_in_course']),
@@ -174,7 +175,7 @@ if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user[
   }
   $pdf->printDataSection(_TRAINING.': '._COURSES, $data, $formatting, $subSections);
 
-  $data = array();
+  $data = $subSections = array();
   foreach ($userLessons as $lessonId => $value) {
    $data[$lessonId] = array(_NAME => $value['name'],
         _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),

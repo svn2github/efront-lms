@@ -660,22 +660,22 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  } catch(Exception $e) {
   $avatarFile = new EfrontFile(G_SYSTEMAVATARSPATH."unknown_small.png");
  }
- $info = array(_USERNAME => $userInfo['general']['fullname'],
-      _USERTYPE => $userInfo['general']['user_types_ID'] ? $userInfo['general']['user_types_ID'] : $roles[$userInfo['general']['user_type']],
-      _ACTIVE => $userInfo['general']['active'] ? _YES : _NO,
-      _JOINED => $userInfo['general']['joined_str'],
-      _TOTALLOGINTIME => $userInfo['general']['total_login_time']['time_string']);
+ $info = array(array(_USERNAME, $userInfo['general']['fullname']),
+      array(_USERTYPE, $userInfo['general']['user_types_ID'] ? $userInfo['general']['user_types_ID'] : $roles[$userInfo['general']['user_type']]),
+      array(_ACTIVE, $userInfo['general']['active'] ? _YES : _NO),
+      array(_JOINED, $userInfo['general']['joined_str']),
+      array(_TOTALLOGINTIME, $userInfo['general']['total_login_time']['time_string']));
  $pdf -> printInformationSection(_GENERALUSERINFO, $info, $avatarFile);
- $info = array(_FORUMPOSTS => sizeof($userInfo['communication']['forum_messages']),
-      _FORUMLASTMESSAGE => formatTimestamp($userInfo['communication']['last_message']['timestamp']),
-      _PERSONALMESSAGES => sizeof($userInfo['communication']['personal_messages']),
-      _MESSAGESFOLDERS => sizeof($userInfo['communication']['personal_folders']),
-      _FILES => sizeof($userInfo['communication']['files']),
-      _FOLDERS => sizeof($userInfo['communication']['folders']),
-      _TOTALSIZE => $userInfo['communication']['total_size']._KB,
-      _CHATMESSAGES => sizeof($userInfo['communication']['chat_messages']),
-      _CHATLASTMESSAGE => formatTimestamp($userInfo['communication']['last_chat']['timestamp']),
-      _COMMENTS => sizeof($userInfo['communication']['comments']));
+ $info = array(array(_FORUMPOSTS, sizeof($userInfo['communication']['forum_messages'])),
+      array(_FORUMLASTMESSAGE, formatTimestamp($userInfo['communication']['last_message']['timestamp'])),
+      array(_PERSONALMESSAGES, sizeof($userInfo['communication']['personal_messages'])),
+      array(_MESSAGESFOLDERS, sizeof($userInfo['communication']['personal_folders'])),
+      array(_FILES, sizeof($userInfo['communication']['files'])),
+      array(_FOLDERS, sizeof($userInfo['communication']['folders'])),
+      array(_TOTALSIZE, $userInfo['communication']['total_size']._KB),
+      array(_CHATMESSAGES, sizeof($userInfo['communication']['chat_messages'])),
+      array(_CHATLASTMESSAGE, formatTimestamp($userInfo['communication']['last_chat']['timestamp'])),
+      array(_COMMENTS, sizeof($userInfo['communication']['comments'])));
  if ($GLOBALS['configuration']['disable_forum']) {
   unset($info[_FORUMPOSTS]);
   unset($info[_FORUMLASTMESSAGE]);
@@ -692,149 +692,105 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   unset($info[_COMMENTS]);
  }
  $pdf -> printInformationSection(_USERCOMMUNICATIONINFO, $info);
- $info = array(_LASTLOGIN => formatTimestamp($userInfo['usage']['last_login']['timestamp']),
-      _TOTALLOGINS => sizeof($userInfo['usage']['logins']),
-      _MONTHLOGINS => sizeof($userInfo['usage']['month_logins']),
-      _WEEKLOGINS => sizeof($userInfo['usage']['week_logins']),
-      _MEANDURATION => $userInfo['usage']['mean_duration']._MINUTESSHORTHAND,
-      _MONTHMEANDURATION => $userInfo['usage']['month_mean_duration']._MINUTESSHORTHAND,
-      _WEEKMEANDURATION => $userInfo['usage']['week_mean_duration']._MINUTESSHORTHAND,
-      _LASTIPUSED => $userInfo['usage']['last_ip']);
+ $info = array(array(_LASTLOGIN, formatTimestamp($userInfo['usage']['last_login']['timestamp'])),
+      array(_TOTALLOGINS, sizeof($userInfo['usage']['logins'])),
+      array(_MONTHLOGINS, sizeof($userInfo['usage']['month_logins'])),
+      array(_WEEKLOGINS, sizeof($userInfo['usage']['week_logins'])),
+      array(_MEANDURATION, $userInfo['usage']['mean_duration']._MINUTESSHORTHAND),
+      array(_MONTHMEANDURATION, $userInfo['usage']['month_mean_duration']._MINUTESSHORTHAND),
+      array(_WEEKMEANDURATION, $userInfo['usage']['week_mean_duration']._MINUTESSHORTHAND),
+      array(_LASTIPUSED, $userInfo['usage']['last_ip']));
  $pdf -> printInformationSection(_USERUSAGEINFO, $info);
- if ($infoUser -> user['user_type'] != 'administrator') {
-  $result = eF_getTableDataFlat("lessons", "id, name, active");
-  $lessonNames = array_combine($result['id'], $result['name']);
+ if ($infoUser -> user['user_type'] != 'administrator' && (!empty($userCourses) || !empty($userLessons))) {
+  $formatting = array(_NAME => array('width' => '40%', 'fill' => false),
+       _CATEGORY => array('width' => '25%','fill' => false),
+       _REGISTRATIONDATE => array('width' => '13%','fill' => false),
+       _COMPLETED => array('width' => '13%','fill' => false, 'align' => 'C'),
+       _SCORE => array('width' => '9%','fill' => false, 'align' => 'R'));
+  $data = array();
   $coursesAvgScore = $lessonsAvgScore = $projectsAvgScore = $testsAvgScore = 0;
   $data = array();
-  $constraints = array('instance' => false, 'archive' => false, 'active' => true);
+  $constraints = array('archive' => false, 'active' => true);
   $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
   $constraints['return_objects'] = false;
-  $userCourses = $infoUser -> getUserCoursesAggregatingResults($constraints);
-  foreach ($userCourses as $key => $value) {
-   $data[$key] = array(_NAME => $value['name'],
-        _COMPLETED => $value['completed'] ? _YES : _NO,
-        _SCORE => formatScore($value['score'])."%",
-        _COMPLETEDON => formatTimestamp($value['to_timestamp']));
+  $userCourses = $infoUser -> getUserCourses($constraints);
+  foreach ($userCourses as $courseId => $value) {
    $coursesAvgScore += $value['score'];
-  }
-  $pdf -> printDataSection(_COURSES, $data);
-  $data = array();
-  $userLessons = $infoUser -> getUserStatusInLessons();
-  foreach ($userLessons as $key => $lesson) {
-   $lesson = $lesson -> lesson;
-   if ($lesson['active']) {
-    $data[$key] = array(_NAME => $lesson['name'],
-         _TIMEINLESSON => $lesson['time_in_lesson']['time_string'],
-         _COMPLETED => $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO,
-         _OVERALL => formatScore($lesson['overall_progress']['percentage'])."%",
-         _TESTS => formatScore($lesson['test_status']['mean_score'])."%",
-         _PROJECTS => formatScore($lesson['project_status']['mean_score'])."%");
-    if ($GLOBALS['configuration']['disable_tests']) {
-     unset($data[$key][_TESTS]);
+   $data[$courseId] = array(_NAME => $value['name'],
+         _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
+         _REGISTRATIONDATE => formatTimestamp($value['active_in_course']),
+         _COMPLETED => $value['to_timestamp'] ? formatTimestamp($value['to_timestamp']) : '-',
+         _SCORE => formatScore($value['score']).'%',
+         'active' => $value['active']);
+   $courseLessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($value));
+   if (!empty($courseLessons)) {
+    $subsectionFormatting = array(_NAME => array('width' => '78%', 'fill' => true),
+             _COMPLETED => array('width' => '13%', 'fill' => true, 'align' => 'C'),
+             _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'));
+    $result = EfrontStats :: getStudentsDoneTests($courseLessons, $infoUser -> user['login']);
+    $userDoneTests = array();
+    foreach ($result[$infoUser -> user['login']] as $value) {
+     $userDoneTests[$value['lessons_ID']][] = $value;
     }
-    if ($GLOBALS['configuration']['disable_projects']) {
-     unset($data[$key][_PROJECTS]);
+    $subSectionData = array();
+    foreach ($courseLessons as $lessonId => $courseLesson) {
+     $courseLesson = $courseLesson->lesson;
+     $subSectionData[$lessonId] = array(_NAME => $courseLesson['name'],
+                _COMPLETED => $courseLesson['timestamp_completed'] ? formatTimestamp($courseLesson['timestamp_completed']) : '-',
+                _SCORE => formatScore($courseLesson['score']).'%');
+/*
+					if (isset($userDoneTests[$value['id']])) {
+						$testSubsectionFormatting = array(_TESTNAME	=> array('width' => '78%', 'fill' => true),
+														  _STATUS	=> array('width' => '13%', 'fill' => true, 'align' => 'C'),
+														  _SCORE	=> array('width' => '9%',  'fill' => true, 'align' => 'R'));
+						$testsSubSectionData = array();
+						foreach ($userDoneTests[$value['id']] as $test) {
+							$testsAvgScore += $test['score'];
+							$testsSubSectionData[] = array(_TESTNAME => $test['name'],
+														   _STATUS   => $test['status'],
+														   _SCORE 	 => formatScore($test['score']).'%');
+						}
+						$testSubSections[$lessonId] = array('data' => $testsSubSectionData, 'formatting' => $testSubsectionFormatting, 'title' => _TESTSFORLESSON.': '.$courseLesson['name']);
+					}
+*/
     }
-    $lessonsAvgScore += $lesson['score'];
-   }
-  }
-  $pdf -> printDataSection(_LESSONS, $data);
-  if (!$GLOBALS['configuration']['disable_tests']) {
-   $data = array();
-   $doneTests = EfrontStats :: getStudentsDoneTests(false, $infoUser -> user['login']);
-   foreach ($doneTests[$infoUser -> user['login']] as $key => $test) {
-    $data[$key] = array(_LESSON => $lessonNames[$test['lessons_ID']],
-         _TESTNAME => $test['name'],
-         _SCORE => formatScore($test['score'])."%",
-         _DATE => formatTimestamp($test['timestamp'], 'time_nosec'));
-    $testsAvgScore += $test['score'];
-   }
-   $pdf -> printDataSection(_TESTS, $data);
-   //transpose tests array, from (login => array(test id => test)) to array(lesson id => array(login => array(test id => test)))
-   $temp = array();
-   foreach ($doneTests as $login => $userTests) {
-    foreach ($userTests as $contentId => $test) {
-     $temp[$test['lessons_ID']][$login][$contentId] = $test;
-    }
-   }
-   $doneTests = $temp;
-  }
-  if (!$GLOBALS['configuration']['disable_projects']) {
-   $data = array();
-   $assignedProjects = EfrontStats :: getStudentsAssignedProjects(false, $infoUser -> user['login']);
-   foreach ($assignedProjects[$infoUser -> user['login']] as $key => $project) {
-    $data[$key] = array(_LESSON => $lessonNames[$project['lessons_ID']],
-         _TITLE => $project['title'],
-         _SCORE => formatScore($project['grade'])."%");
-    $projectsAvgScore += $project['grade'];
-   }
-   $pdf -> printDataSection(_PROJECTS, $data);
-   //transpose projects array, from (login => array(project id => project)) to array(lesson id => array(login => array(project id => project)))
-   $temp = array();
-   foreach ($assignedProjects as $login => $userProjects) {
-    foreach ($userProjects as $projectId => $project) {
-     $temp[$project['lessons_ID']][$login][$projectId] = $project;
-    }
-   }
-   $assignedProjects = $temp;
-  }
-  $info = array(_COURSESAVERAGE => formatScore($coursesAvgScore).'%',
-       _LESSONSAVERAGE => formatScore($lessonsAvgScore).'%',
-       _TESTSAVERAGE => formatScore($testsAvgScore).'%',
-       _PROJECTSAVERAGE => formatScore($projectsAvgScore).'%');
-  $pdf -> printInformationSection(_AVERAGESCORES, $info);
-  foreach ($userCourses as $id => $course) {
-   $info = array(_COMPLETED => $course['completed'] ? _YES.', '._ON.' '.formatTimestamp($course['to_timestamp']) : _NO,
-        _SCORE => formatScore($course['score'])."%");
-   $pdf -> printInformationSection($course['name'], $info);
-   $constraints = array('instance' => $id, 'archive' => false, 'active' => true);
-   $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
-   $instances = $infoUser -> getUserCourses($constraints);
-   if (sizeof($instances) > 1) {
-    $data = array();
-    foreach ($instances as $key => $value) {
-     $data[$key] = array(_INSTANCE => $value -> course['name'],
-          _COMPLETED => $value -> course['completed'] ? _YES.', '._ON.' '.formatTimestamp($value -> course['to_timestamp']) : _NO,
-          _SCORE => formatScore($value -> course['score'])."%");
-    }
-    $pdf -> printDataSection(_COURSEINSTANCES, $data);
-   }
-   foreach ($instances as $instance) {
-    $data = array();
-    $lessons = $infoUser -> getUserStatusInCourseLessons($instance);
-    foreach ($lessons as $key => $lesson) {
-     $data[$key] = array(_NAME => $lesson -> lesson['name'],
-          _COMPLETED => $lesson -> lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson -> lesson['timestamp_completed']) : _NO,
-          _SCORE => formatScore($lesson -> lesson['score'])."%");
-    }
-    $pdf -> printDataSection(_LESSONS, $data);
+    $subSections[$courseId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _LESSONSFORCOURSE.': '.$value['name'], 'subSections' => $testSubSections);
    }
   }
-  foreach ($userLessons as $id => $lesson) {
-   $lesson = $lesson -> lesson;
-   $info = array(_TIMEINLESSON => $lesson['time_in_lesson']['time_string'],
-        _COMPLETED => $lesson['completed'] ? _YES.', '._ON.' '.formatTimestamp($lesson['timestamp_completed']) : _NO,
-        _SCORE => formatScore($lesson['score'])."%",
-        _CONTENT => formatScore($lesson['overall_progress']['percentage'])."%" );
-   $pdf -> printInformationSection($lesson['name'], $info);
-   if (sizeof($doneTests[$id][$infoUser -> user['login']]) > 0 && $GLOBALS['configuration']['disable_tests'] != 1) {
-    $data = array();
-    foreach ($doneTests[$id][$infoUser -> user['login']] as $key => $test) {
-     $data[$key] = array(_NAME => $test['name'],
-          _SCORE => formatScore($test['score'])."%",
-          _COMPLETEDON => formatTimestamp($test['timestamp']));
+  $pdf->printDataSection(_TRAINING.': '._COURSES, $data, $formatting, $subSections);
+  $data = $subSections = $userDoneTests = array();
+  $result = EfrontStats :: getStudentsDoneTests($userLessons, $editedUser -> user['login']);
+  foreach ($result[$infoUser -> user['login']] as $value) {
+   $userDoneTests[$value['lessons_ID']][] = $value;
+  }
+  foreach ($userLessons as $lessonId => $value) {
+   $value = $value -> lesson;
+   $lessonsAvgScore += $value['score'];
+   $data[$lessonId] = array(_NAME => $value['name'],
+          _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
+          _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
+          _COMPLETED => $value['timestamp_completed']? formatTimestamp($value['timestamp_completed']) : '-',
+          _SCORE => formatScore($value['score']).'%');
+   if (isset($userDoneTests[$value['id']])) {
+    $subsectionFormatting = array(_TESTNAME => array('width' => '78%', 'fill' => true),
+             _STATUS => array('width' => '13%', 'fill' => true, 'align' => 'C'),
+             _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'));
+    $subSectionData = array();
+    foreach ($userDoneTests[$value['id']] as $test) {
+     $testsAvgScore += $test['score'];
+     $subSectionData[] = array(_TESTNAME => $test['name'],
+             _STATUS => $test['status'],
+             _SCORE => formatScore($test['score']).'%');
     }
-    $pdf -> printDataSection(_TESTS, $data);
-   }
-   if (sizeof($assignedProjects[$id][$infoUser -> user['login']]) > 0 && $GLOBALS['configuration']['disable_projects'] != 1) {
-    $data = array();
-    foreach ($assignedProjects[$id][$infoUser -> user['login']] as $key => $project) {
-     $data[$key] = array(_NAME => $project['title'],
-          _SCORE => formatScore($project['grade'])."%");
-    }
-    $pdf -> printDataSection(_PROJECTS, $data);
+    $subSections[$lessonId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _TESTSFORLESSON.': '.$value['name']);
    }
   }
+  $pdf->printDataSection(_TRAINING.': '._LESSONS, $data, $formatting, $subSections);
+  $info = array(array(_COURSESAVERAGE, $coursesAvgScore.'%'),
+       array(_LESSONSAVERAGE, $lessonsAvgScore.'%'),
+       array(_TESTSAVERAGE, $testsAvgScore).'%');
+  $pdf -> printInformationSection(_OVERALL, $info);
  }
- $pdf -> OutputPdf('report_'.formatLogin($infoUser -> user['login']));
+ $pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');
+ exit;
 }

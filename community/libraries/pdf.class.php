@@ -71,9 +71,9 @@ class EfrontPdf
    $this->printSectionImage($imageFile);
 
    foreach ($info as $row) {
-    if ($row[1]) { //If there are information print it; otherwise, print an empty line, in order to keep distances as designed
+    if ($row[1]) { //If there are information print it; otherwise, print an empty line when there is an image, in order to keep distances as designed
      $this->printSimpleContent($row[0].': '.$row[1]);
-    } else {
+    } elseif ($imageFile) {
      $this->printSimpleContent('');
     }
    }
@@ -118,7 +118,9 @@ class EfrontPdf
      $this->pdf->setTextColor(0,0,0);
      $this->pdf->SetFont('', 'B', $this->defaultSettings['content_font_size']);
      $this->printMultiContent($subSections[$rowIndex]['title'], $subSectionTitleFormat, 1);
+
      $this->printDataSection('', $subSectionData, $subSectionFormatting, $subSections[$rowIndex]['subSections']);
+
      $this->printMultiContent('', array('fill' => 0) + $subSectionTitleFormat, 1);
     }
    }

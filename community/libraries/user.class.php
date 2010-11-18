@@ -3007,12 +3007,13 @@ class EfrontStudent extends EfrontLessonUser
   if (!($course instanceof EfrontCourse)) {
    $course = new EfrontCourse($course);
   }
-  if (in_array($course -> course['id'], array_keys($this -> getUserCourses()))) {
+  $constraints = array('archive' => false, 'active' => true, 'return_objects' => false);
+  $userCourses = $this -> getUserCourses($constraints);
+  if (in_array($course -> course['id'], array_keys($userCourses))) {
    //keep completed date when it is set (when only score changed for example)
-   $result = eF_getTableData("users_to_courses","to_timestamp","users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id']);
-   $checkCompleted = $result[0]['to_timestamp'];
+   $checkCompleted = $userCourses[$course -> course['id']]['to_timestamp'];
    $fields = array('completed' => 1,
-       'to_timestamp' => $checkCompleted != "" ? $checkCompleted :time(),
+       'to_timestamp' => $checkCompleted ? $checkCompleted :time(),
        'score' => $score,
        'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
@@ -3023,7 +3024,7 @@ class EfrontStudent extends EfrontLessonUser
    }
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $course -> course['id'], "lessons_name" => $course -> course['name']));
    // Assign the related course skills to the employee
-   return $result;
+   return true;
   } else {
    return false;
   }

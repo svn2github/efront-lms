@@ -209,7 +209,9 @@ if ($_GET['op'] == 'course_info') {
     $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
     $users = $currentCourse -> getCourseUsers($constraints);
     foreach ($users as $user) {
-     $user -> completeCourse($currentCourse, 100);
+     if (!$user -> user['completed']) {
+      $user -> completeCourse($currentCourse, 100);
+     }
     }
     echo json_encode(array('status' => true));
    } catch (Exception $e) {

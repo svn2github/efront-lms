@@ -86,6 +86,7 @@
 - Fixed status report not updating missing language even after changing _HEADERLANGUAGETAG
 - Fixed issue about Date field in e-mail headers that could result in spam marked e-mails (http://pear.php.net/manual/en/package.mail.mail.send.php) 
 - Fixed issue about score 10000 in raw text questions when redo only wrong (ticket 709)
+- Added ability to toggle between "tree" and "simple" view in organization charts (enterprise edition)
 - Added a 'To' field when sending e-mails with 'undisclosed-recipients' for avoiding mail server to reject the e-mail
 - Fixed bug in counting maximum number of license users
 

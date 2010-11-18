@@ -92,25 +92,25 @@ class FUZE_Tools {
   if (!$timestamp) { $timestamp = time(); }
   $current_timestamp = time();
   $difference = abs($current_timestamp - $timestamp);
-  ## amount of seconds in different time periods
+  // amount of seconds in different time periods
   $minute = 60;
   $hour = 60*$minute;
   $day = 24*$hour;
   $week = 7*$day;
   $month = 30*$day;
   $year = 365*$day;
-  ## The array that holds the time parts
+  // The array that holds the time parts
   $time_parts = array('now' => false, 'future' => false, 'year' => false, 'month' => false, 'week' => false, 'day' => false, 'hour' => false, 'minute' => false);
   if ($current_timestamp > $timestamp) {
-   ## Some time in the past ...
+   // Some time in the past ...
    $time_parts ['future'] = false;
   }
   elseif ($current_timestamp < $timestamp) {
-   ## Some time in the future ...
+   // Some time in the future ...
    $time_parts ['future'] = true;
   }
   else {
-   ## Right this moment ...
+   // Right this moment ... 
    $time_parts ['now'] = true;
   }
   $time_parts ['year'] = floor($difference/$year);

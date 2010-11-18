@@ -39,7 +39,7 @@ class FUZE_Meeting_AttendeeDAO extends FUZE_AbstractDAO {
   if (is_array($res) && count($res)) {
    $this->_to->set('sys_id', $res[0]['sys_id']);
    $this->_to->set('meeting_id', $res[0]['meeting_id']);
-   ## Getting firstname, surname of the attendee
+   // Getting firstname, surname of the attendee
    $res = eF_getTableData("`users`","`name`,`surname`","`id`={$res[0]['sys_id']} AND `archive` = 0");
    if (is_array($res) && count($res)) {
     $this->_to->set('firstname', $res[0]['name']);

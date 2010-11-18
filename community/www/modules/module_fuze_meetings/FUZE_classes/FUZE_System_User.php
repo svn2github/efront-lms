@@ -87,5 +87,5 @@ class FUZE_System_User extends FUZE_AbstractClass {
  // END GETTER METHODS
  ///////////////////////////////////////////////////////////////////////////
 
- ## NO SETTER METHODS HERE. ALL SYSTEM USERS ARE MANAGED BY EFRONT
+ // NO SETTER METHODS HERE. ALL SYSTEM USERS ARE MANAGED BY EFRONT
 }

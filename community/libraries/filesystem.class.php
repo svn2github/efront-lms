@@ -1663,7 +1663,7 @@ class EfrontDirectory extends ArrayObject
         $tooltipString = '
             <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
                 '.$this -> offsetGet('name').'
-                <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/><span class = "tooltipSpan">';
+                <span class = "tooltipSpan">';
         foreach ($this as $key => $value) {
             if ($value) {
                 switch ($key) {
@@ -2586,7 +2586,7 @@ class FileSystemTree extends EfrontTree
         }
         $extraColumnsString = '';
         foreach ($extraColumns as $value) {
-   $extraColumnsString = '<td class = "topTitle" name = "'.$value.'">'.$value.'</td>';
+   $extraColumnsString = '<td class = "topTitle centerAlign" name = "'.$value.'">'.$value.'</td>';
         }
         $filesCode = '
                         <table class = "sortedTable" style = "width:100%" size = "'.$size.'" id = "'.$tableId.'" useAjax = "1" rowsPerPage = "20" other = "'.urlencode($currentDirectory).'" url = "'.$url.'&" nomass = "1" currentDir = "'.(isset($currentDir['path']) ? $currentDir['path'] : '').'">
@@ -2689,13 +2689,13 @@ class FileSystemTree extends EfrontTree
             if ($options['show_name']) {
                 $filesCode .= '<td><span id = "span_'.urlencode($identifier).'" style = "display:none;">'.urlencode($identifier).'</span>';
                 if ($value['type'] == 'file') {
-                    if (!$show_tooltip) {
+                    if ($show_tooltip) {
                         $filesCode .= $value -> toHTMLTooltipLink($link, true, $tableId);
                     } else {
                         if (strpos($value['mime_type'], "image") !== false || strpos($value['mime_type'], "text") !== false || strpos($value['mime_type'], "pdf") !== false || strpos($value['mime_type'], "flash") !== false) {
-                            $filesCode .= '<a class="editLink" href = "'.$link.'" target = "PREVIEW_FRAME" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');">'.$value['name'].'</a>';
+                            $filesCode .= '<a href = "'.$link.'" target = "PREVIEW_FRAME" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');">'.$value['name'].'</a>';
                         } else {
-                            $filesCode .= '<a class="editLink" target = "PREVIEW_FRAME" href = "'.$url.'&download='.urlencode($identifier).'">'.$value['name'].'</a>';
+                            $filesCode .= '<a target = "PREVIEW_FRAME" href = "'.$url.'&download='.urlencode($identifier).'">'.$value['name'].'</a>';
                         }
                     }
                 } else {
@@ -2705,7 +2705,7 @@ class FileSystemTree extends EfrontTree
             }
             $extraColumnsString = '';
             foreach ($extraColumns as $column) {
-             $extraColumnsString = '<td>'.$value[$column].'</td>';
+             $extraColumnsString = '<td class = "centerAlign">'.$value[$column].'</td>';
             }
             $filesCode .= ''.($options['show_size'] ? '<td>'.($value['type'] == 'file' ? $value['size'].' '._KB : '').'</td>' : '').'
                           '.($options['show_date'] ? '<td>'.formatTimestamp($value['timestamp'], 'time_nosec').'</td>' : '').'

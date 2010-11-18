@@ -34,7 +34,7 @@ class FUZE_User_ManagerDAO extends FUZE_AbstractDAO {
    }
   }
   $this->_to->set('users', $this->_users);
-  ## Retrieving active user count.
+  // Retrieving active user count.
   $res = eF_getTableData("`_mod_fm_user`", "COUNT(*) AS `amount`", "`suspended` != 1");
   if (is_array($res) && count($res)) {
    $active_user_count = $res[0]['amount'];
@@ -49,7 +49,7 @@ class FUZE_User_ManagerDAO extends FUZE_AbstractDAO {
    isset($args ['password']) && !empty($args ['password']) &&
    isset($args ['sys_id']) && !empty($args ['sys_id'])
    ) {
-
+    // At this point we initiate the communication with app at proxy
     $options = array();
     $options [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_TYPE] = Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE;
     $options [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS] = array();
@@ -67,7 +67,7 @@ class FUZE_User_ManagerDAO extends FUZE_AbstractDAO {
     }
 
     if (is_array($response)) {
-     ## An ola kala kai to response einai tis morfis pou prepei
+     // An ola kala kai to response einai tis morfis pou prepei
      $bind = array();
      $bind ['login_url'] = $response ['login_url'];
      $bind ['password'] = $args ['password'];

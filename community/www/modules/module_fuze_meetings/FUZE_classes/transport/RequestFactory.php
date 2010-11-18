@@ -27,6 +27,7 @@ class RequestFactory {
  public static function getRequestHandle($options) {
   $handle = false;
   if (is_array($options) && count($options)) {
+   // We prefer to use cURL if available
    if (function_exists('curl_init')) {
     /* DO NOTHING IN CASE OF AN EXCEPTION, LET THE EXCEPTION BUBBLE UP TO HIGHER LEVEL */
     $handle = new Request_Adapter_Curl($options);

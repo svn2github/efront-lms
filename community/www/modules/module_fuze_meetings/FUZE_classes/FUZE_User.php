@@ -282,8 +282,8 @@ class FUZE_User extends FUZE_AbstractClass {
 
  public function suspend() {
   if (!$this->_suspended) {
-   ## At this point we cancel all the meetings scheduled by
-   ## this user.
+   // At this point we cancel all the meetings scheduled by 
+   // this user.
    $this->_removeAllMeetings();
    $this->_suspended = 1;
    $this->_to->set('suspended', $this->_suspended);
@@ -295,7 +295,7 @@ class FUZE_User extends FUZE_AbstractClass {
   if ($this->_suspended) {
    $this->_suspended = 0;
    $this->_to->set('suspended', $this->_suspended);
-   ## At the same time we make the user look like a new user
+   // At the same time we make the user look like a new user
    $this->_date_added = time();
    $this->_to->set('date_added', $this->_date_added);
    $this->_to->setChanged();
@@ -307,10 +307,10 @@ class FUZE_User extends FUZE_AbstractClass {
    foreach ($this->_meetings AS $meeting_id => $meeting) {
     $meeting = $this->getMeeting($meeting_id);
     if ($meeting) {
-     ## All calendar events set for this meeting should also
-     ## be removed from system. This is carried out inside
-     ## the meeting object currently, but it should possibly
-     ## be moved inside the FUZE_User object logic.
+     // All calendar events set for this meeting should also
+     // be removed from system. This is carried out inside 
+     // the meeting object currently, but it should possibly 
+     // be moved inside the FUZE_User object logic.
      $meeting->cancel();
     }
    }

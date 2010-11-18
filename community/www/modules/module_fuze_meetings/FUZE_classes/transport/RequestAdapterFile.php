@@ -19,6 +19,7 @@ class Request_Adapter_File extends Request_Adapter_Abstract {
  public function runRequest() {
   $response = false;
   if ($this->_request_type <> Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_TYPE_REGISTER) {
+   // Initially a request token has to be acquired by app server
    $this->_request_token = $this->_getRequestToken();
    $options = array();
    if ($this->_request_token) {
@@ -49,6 +50,7 @@ class Request_Adapter_File extends Request_Adapter_Abstract {
      $options ['url'] = Request_Adapter_Abstract::REQUEST_ADAPTER_URL_MEETING_UPDATE;
     }
    }
+   // Using the request token and the other parameters we run the final request.
    if (isset($options ['url']) && isset($this->_request_token)) {
     if ($response = $this->_fetchReply($options)) {
      if ($response = json_decode($response)) {
@@ -63,21 +65,19 @@ class Request_Adapter_File extends Request_Adapter_Abstract {
    }
   }
   else {
+   // This is ran only during registration when we have not yet acquired consumer key and secret.
+   // Therefore the OAuth step is skipped.
    if ($response = $this->_registerAccount()) {
     $response = $response;
    }
   }
   return $response;
  }
-
  protected function _fetchReply($options, $debug = false) {
   $response = false;
-
   $resource = $options['url'] . '?' . $options ['params'];
   $response = file_get_contents($resource);
-
   if ($debug) { echo 'Options: '; print_r($options); echo '<p>Response: '; var_dump($response); echo '</p>'; }
-
   $response = json_decode($response);
   if (!$response) {
    $response = array('success' => false, 'error_msg' => '_MOD_FUZE_REQUEST_ERROR_RESPONSE_MALFORMAT');

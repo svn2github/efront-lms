@@ -4672,7 +4672,7 @@ class EfrontLesson
     $tooltipString = '
      <a href = "'.$link.'" class = "'.implode(" ", $classes).'" style = "vertical-align:middle;">
       '.$this -> lesson['name'].'
-      <img class = "tooltip" border = "0" src="images/others/tooltip_arrow.gif"/><span class = "tooltipSpan">
+      <span class = "tooltipSpan">
       '.implode("", $tooltipInfo).'</span></a>';
    } else {
     $tooltipString = '

@@ -72,44 +72,44 @@
       </fieldset>
             <fieldset class = "fieldsetSeparator">
             <legend>{$smarty.const._MESSAGE}</legend>
-      <table class="formElements">
-       <tr>
-        <td class = "fixedLabelCell">{$T_DIGESTS_FORM.header.label}:&nbsp;</td>
-        <td colspan="2">{$T_DIGESTS_FORM.header.html}</td>
-        <td align="right"><table><tr><td>{$T_DIGESTS_FORM.html_message.label}</td><td>{$T_DIGESTS_FORM.html_message.html}</td></tr></table></td>
-       </tr>
-       {if $T_DIGESTS_FORM.header.error}
-       <tr>
-        <td></td>
-        <td colspan="3" class = "formError">{$T_DIGESTS_FORM.header.error}</td>
-       </tr>
-       {/if}
-       <tr><td></td><td>
+      <table class="formElements" style = "width:100%">
+       <tr><td class = "labelCell">{$T_DIGESTS_FORM.header.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_DIGESTS_FORM.header.html}</td></tr>
+       <tr><td class = "labelCell">{$T_DIGESTS_FORM.html_message.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_DIGESTS_FORM.html_message.html}</td></tr>
+{*
+       <tr><td class = "labelCell">{$T_DIGESTS_FORM.send_bcc.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_DIGESTS_FORM.send_bcc.html}</td></tr>
+*}
+       <tr><td></td>
+        <td>
         <span>
          <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
          <a href = "javascript:toggleEditor('messageBody','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
         </span>
        </td></tr>
        <tr>
-        <td class = "fixedLabelCell">{$T_DIGESTS_FORM.message.label}:&nbsp;</td>
-        <td colspan="3">{$T_DIGESTS_FORM.message.html}</td>
+        <td class = "labelCell">{$T_DIGESTS_FORM.message.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_DIGESTS_FORM.message.html}</td>
        </tr>
        <tr>
-        <td class = "fixedLabelCell">{$T_DIGESTS_FORM.templ_add.label}:&nbsp;</td>
-        <td width="5%">{$T_DIGESTS_FORM.templ_add.html}</td>
-        <td align="left"><a href = "javascript:void(0)" onClick = "addTemplatizedText($('template_add'))"><img src = "images/16x16/add.png" alt = "{$smarty.const._ADDTEXTTEMPLATE}" title = "{$smarty.const._ADDTEXTTEMPLATE}" border =0></a></td>
-        <td></td>
+        <td class = "labelCell">{$T_DIGESTS_FORM.templ_add.label}:&nbsp;</td>
+        <td class = "elementCell">
+         {$T_DIGESTS_FORM.templ_add.html}
+         <img onClick = "addTemplatizedText($('template_add'))" src = "images/16x16/add.png" alt = "{$smarty.const._ADDTEXTTEMPLATE}" title = "{$smarty.const._ADDTEXTTEMPLATE}">
+        </td>
        </tr>
        {if !$T_CONFIGURATION.onelanguage}
        <tr>
-        <td class = "fixedLabelCell">{$T_DIGESTS_FORM.languages_NAME.label}:&nbsp;</td>
-        <td width="5%">{$T_DIGESTS_FORM.languages_NAME.html}</td>
-        <td align="left"><table><tr><td><img src = "images/16x16/help.png" alt = "{$smarty.const._HELP}" title = "{$smarty.const._HELP}" onclick = "eF_js_showHideDiv(this, 'language_set_info', event)"><div id = 'language_set_info' onclick = "eF_js_showHideDiv(this, 'language_set_info', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:450px;height:100px;position:absolute;display:none">{$smarty.const._NOTIFICATIONLANGUAGETEMPLATEINFO}</div></td></tr></table></td>
-        <td></td>
+        <td class = "labelCell">{$T_DIGESTS_FORM.languages_NAME.label}:&nbsp;</td>
+        <td class = "elementCell">
+         {$T_DIGESTS_FORM.languages_NAME.html}
+         <a href= "" class = "info"><img src = "images/16x16/help.png" alt = "{$smarty.const._HELP}" title = "{$smarty.const._HELP}" onclick = "eF_js_showHideDiv(this, 'language_set_info', event)" ><span class = "tooltipSpan">{$smarty.const._NOTIFICATIONLANGUAGETEMPLATEINFO}</div></a>
+        </td>
        </tr>
        {/if}
-       <tr><td colspan = 4>&nbsp;</td></tr>
-       <tr><td></td><td colspan=4>{$T_DIGESTS_FORM.submit_digest.html}</td></tr>
+       <tr><td></td>
+        <td class = "submitCell">{$T_DIGESTS_FORM.submit_digest.html}</td></tr>
       </table>
       </fieldset>
   </form>

@@ -368,7 +368,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
 
             $form -> addElement('advcheckbox', 'send_immediately', _SENDIMMEDIATELY, null, 'class = "inputCheckbox" id="send_immediately"');
             $form -> addElement('advcheckbox', 'html_message', _SENDMESSAGEASHTML, null, 'id = "html_message_id" ');
-            //$form -> addElement('advcheckbox', 'recipients_mass_mail', null, null, 'active_users', 'id = "event_recipients" onclick = "eF_js_showMassMailOption(\'active_users\')"');
+            //$form -> addElement('advcheckbox', 'send_bcc', _BCCRECIPIENTS, null);
 
 
             // User groups

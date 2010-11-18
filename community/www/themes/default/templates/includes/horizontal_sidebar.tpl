@@ -25,9 +25,9 @@
 
   <td width="10%" align="center">
   {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
-   <a href="{if $smarty.session.s_type == "administrator"}administrator.php?ctg=users&edit_user={$smarty.session.s_login}{else}{$smarty.session.s_type}.php?ctg=personal{/if}" class = "info nonEmptyLesson" id="nameSurname" onmouseover="$('tooltipImg').style.visibility = 'visible';" onmouseout="$('tooltipImg').style.visibility = 'hidden';" alt="goto my account" title="goto my account">&nbsp;&nbsp;#filter:login-{$smarty.session.s_login}#&nbsp;&nbsp;<img id="tooltipImg" class = "tooltip" border = '0' src='images/others/tooltip_arrow.gif'><span class = 'tooltipSpan' id='userInfo' style="font-size: 10px" width="100%" align="center">{$T_TYPE}</span></a>
+   <a href="{if $smarty.session.s_type == "administrator"}administrator.php?ctg=users&edit_user={$smarty.session.s_login}{else}{$smarty.session.s_type}.php?ctg=personal{/if}" class = "info nonEmptyLesson" id="nameSurname" onmouseover="$('tooltipImg').style.visibility = 'visible';" onmouseout="$('tooltipImg').style.visibility = 'hidden';" alt="goto my account" title="goto my account">&nbsp;&nbsp;#filter:login-{$smarty.session.s_login}#&nbsp;&nbsp;<span class = 'tooltipSpan' id='userInfo' style="font-size: 10px" width="100%" align="center">{$T_TYPE}</span></a>
   {else}
-   &nbsp;&nbsp;#filter:login-{$smarty.session.s_login}#&nbsp;&nbsp;<img id="tooltipImg" class = "tooltip" border = '0' src='images/others/tooltip_arrow.gif'><span class = 'tooltipSpan' id='userInfo' style="font-size: 10px" width="100%" align="center">{$T_TYPE}</span>
+   &nbsp;&nbsp;#filter:login-{$smarty.session.s_login}#&nbsp;&nbsp;<span class = 'tooltipSpan' id='userInfo' style="font-size: 10px" width="100%" align="center">{$T_TYPE}</span>
   {/if}
    <script>
           document.getElementById('userInfo').style.left = "-25px";

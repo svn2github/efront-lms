@@ -38,7 +38,7 @@ class module_fuze_meetings extends EfrontModule {
  private $_current_lesson_students;
  private $_current_lesson_professors;
  private $_f_user_manager;
- ## Used only in the case that the curent user is having a student role
+ // Used only in the case that the curent user is having a student role
  private $_current_student_meetings;
  private $_current_student_five_next_meetings;
  public function __construct() {
@@ -68,7 +68,7 @@ class module_fuze_meetings extends EfrontModule {
     $this->_current_user_lessons_as_professor = array_keys($this->_current_user->getLessons(false,'professor'));
     $this->_current_user_lessons_as_student = array_keys($this->_current_user->getLessons(false,'student'));
     if ($this->_current_user_role == 'student') {
-     ## We need to initialise the meetings that are scheduled for this student and lesson
+     // We need to initialise the meetings that are scheduled for this student and lesson
      $this->_current_student_meetings = array();
      $this->_current_student_five_next_meetings = array();
      $timestamp = time() - 300; // 5 minutes ago
@@ -79,10 +79,10 @@ class module_fuze_meetings extends EfrontModule {
      try {
       $res = eF_getTableData($_sql_tables, $_sql_fields, $_sql_where, $_sql_order);
       foreach ($res AS $entry) {
-       $this->_current_student_meetings [$entry ['_mid']] = null; //$entry ['_mid'];
+       $this->_current_student_meetings [$entry ['_mid']] = null;
        if (count($this->_current_student_five_next_meetings) < 5) {
-        ## We only get the 5 next meetings to present on cpanel.
-        $this->_current_student_five_next_meetings [$entry ['_mid']] = null; //$entry ['_mid'];
+        // We only get the 5 next meetings to present on cpanel.
+        $this->_current_student_five_next_meetings [$entry ['_mid']] = null;
        }
       }
      }
@@ -153,7 +153,7 @@ class module_fuze_meetings extends EfrontModule {
 
 	 * 
 
-	 * @see libraries/EfrontModule#getNavigationLinks()
+	 * @see libraries/EfrontModule::getNavigationLinks()
 
 	 * @access public
 
@@ -236,8 +236,8 @@ class module_fuze_meetings extends EfrontModule {
   $smarty->assign("MOD_FM_BASEDIR", $this->moduleBaseDir);
   if ($this->_f_account->isRegistered()) {
    if ($this->_current_user->getType() == 'administrator') {
-    ###########################################################
-    ## Fetching all professor id's and names, the local accounts
+    ///////////////////////////////////////////////////////////
+    // Fetching all professor id's and names, the local accounts
     $local_accounts = array();
     $res = eF_getTableData("`users`","`id`,CONCAT(`surname`,', ',`name`) AS `nick`","`user_type` = 'professor' AND `active` = 1", "`nick`");
     if ($res && is_array($res) && count($res)) {
@@ -246,20 +246,20 @@ class module_fuze_meetings extends EfrontModule {
      }
     }
     $smarty->assign("MOD_FM_ADMIN_CPANEL_ACCOUNTS",$local_accounts);
-    ## DONE with collecting professor local data
-    ###########################################################
-    ###########################################################
-    ## Fetching FUZE account count
-    ##
-    ## TO-DO
-    ## At this point we could cross-reference the FUZE accounts
-    ## against the local accounts and do a little tidying up of
-    ## the FUZE accounts in case some local accounts have been
-    ## removed from the system.
+    // DONE with collecting professor local data
+    ///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
+    // Fetching FUZE account count
+    //
+    // TO-DO
+    // At this point we could cross-reference the FUZE accounts
+    // against the local accounts and do a little tidying up of
+    // the FUZE accounts in case some local accounts have been 
+    // removed from the system.
     $fuze_active_accounts = $this->_getActiveUserCount();
     $smarty->assign("MOD_FM_ADMIN_CPANEL_ACCOUNTS_AMOUNT",$fuze_active_accounts);
-    ## DONE with FUZE account data retrieval
-    ###########################################################
+    // DONE with FUZE account data retrieval
+    ///////////////////////////////////////////////////////////
           $tpl = $this->moduleBaseDir . 'views/smarty.admin.mod_fm_cpanel.tpl';
    }
    elseif ($this->_current_user_role == 'professor') {
@@ -299,10 +299,10 @@ class module_fuze_meetings extends EfrontModule {
  }
 
  public function getSmartyTpl() {
-
+  // This is to load the textareas using tiny_MCE
   global $load_editor;
   $load_editor = true;
-
+  // END tiny_MCE
   $template = false;
   $smarty = $this -> getSmartyVar();
   $smarty->assign("MOD_FM_BASEURL", $this->moduleBaseUrl);
@@ -310,8 +310,8 @@ class module_fuze_meetings extends EfrontModule {
   $smarty->assign("MOD_FM_BASEDIR", $this->moduleBaseDir);
   $controller_action = false;
   if (isset($_GET['action'])) { $controller_action = strtolower($_GET['action']); }
-  #######################################################################
-  ## Functionality available to administrators starts here ##############
+  ///////////////////////////////////////////////////////////
+  // Functionality available to administrators starts here //
   if ($this->_current_user->getType() == 'administrator') {
    if (!$this->_f_account->isRegistered()) {
     // Only a register action can be accepted here
@@ -337,17 +337,17 @@ class module_fuze_meetings extends EfrontModule {
     }
    }
   }
-  ## Functionality available to administrators ends here ################
-  #######################################################################
+  // Functionality available to administrators ends here ////
+  ///////////////////////////////////////////////////////////
 
-  #######################################################################
-  ## Functionality available to professors starts here ##################
+  ///////////////////////////////////////////////////////////
+  // Functionality available to professors starts here //////
 
-  ## - Professors cannot use any of the module functionality unless an
-  ## administrator has first registered this eFront copy with service.
+  // - Professors cannot use any of the module functionality unless an
+  //   administrator has first registered this eFront copy with service.
 
-  ## - Professors can use the module only if they have an account. If not
-  ## they can only use the function for creating a new account.
+  // - Professors can use the module only if they have an account. If not
+  //   they can only use the function for creating a new account.
 
   if ($this->_current_user_role == 'professor' && $this->_f_account->isRegistered()) {
    if ($controller_action == 'user_create') {
@@ -416,25 +416,25 @@ class module_fuze_meetings extends EfrontModule {
    }
   }
 
-  ## Functionality available to professors ends here ####################
-  #######################################################################
+  // Functionality available to professors ends here ////////
+  ///////////////////////////////////////////////////////////
 
-  #######################################################################
-  ## Functionality available to students starts here ####################
+  ///////////////////////////////////////////////////////////
+  // Functionality available to students starts here ////////
 
-  ## - Students cannot use any of the module functionality unless an
-  ## administrator has first registered this eFront copy with service.
+  // - Students cannot use any of the module functionality unless an
+  //   administrator has first registered this eFront copy with service.
 
-  ## - Students can use the module only if they are invited to one or
-  ## more of the planned meetings. Otherwise they only get an empty
-  ## frame on their control panel.
+  // - Students can use the module only if they are invited to one or
+  //   more of the planned meetings. Otherwise they only get an empty 
+  //   frame on their control panel.
 
   if ($this->_current_user_role == 'student' && $this->_f_account->isRegistered()) {
    /* NOTHING DEFINED AS DEFAULT VIEW FOR STUDENTS */
   }
 
-  ## Functionality available to students ends here ######################
-  #######################################################################
+  // Functionality available to students ends here //////////
+  ///////////////////////////////////////////////////////////
 
   return $template;
  }
@@ -461,7 +461,7 @@ class module_fuze_meetings extends EfrontModule {
     $system_user = false;
    }
    if ($system_user) {
-    ## Preparing the arguments that we'll use for the creation of the fuze user.
+    // Preparing the arguments that we'll use for the creation of the fuze user.
     $args = array();
     $args ['email'] = $system_user->getSysEmail();
     $args ['firstname'] = $system_user->getFirstName();
@@ -478,12 +478,12 @@ class module_fuze_meetings extends EfrontModule {
       $response ['fuze_email'] = $fuze_user->getFuzeEmail();
       $response ['fuze_password'] = $fuze_user->getPassword();
       $response ['login_url'] = $fuze_user->getLoginUrl();
-      ###########################################################
-      ## Fetching FUZE account count
+      ///////////////////////////////////////////////////////////
+      // Fetching FUZE account count
       $fuze_active_accounts = $this->_getActiveUserCount();
       $response ['active_user_count'] = $fuze_active_accounts;
-      ## DONE with FUZE account data retrieval
-      ###########################################################
+      // DONE with FUZE account data retrieval
+      ///////////////////////////////////////////////////////////
      }
      else {
       $response ['error_msg'] = _FUZE_ADMIN_CREATE_USER_ERROR;
@@ -498,29 +498,29 @@ class module_fuze_meetings extends EfrontModule {
    }
   }
   else {
-   ## We already have an account for this user but the
-   ## local account has been suspended. We just have to
-   ## reinstate it.
+   // We already have an account for this user but the 
+   // local account has been suspended. We just have to 
+   // reinstate it.
    $fuze_user->unsuspend();
    $response ['success'] = true;
    $response ['date_added'] = $fuze_user->getTranslatedDateAdded($this->_current_user_timezone);
    $response ['fuze_email'] = $fuze_user->getFuzeEmail();
    $response ['fuze_password'] = $fuze_user->getPassword();
    $response ['login_url'] = $fuze_user->getLoginUrl();
-   ###########################################################
-   ## Fetching FUZE account count
+   ///////////////////////////////////////////////////////////
+   // Fetching FUZE account count
    // The change has not yet propagated to DB at this point so we subtract manually.
    $fuze_active_accounts = $this->_getActiveUserCount() + 1;
    $response ['active_user_count'] = $fuze_active_accounts;
-   ## DONE with FUZE account data retrieval
-   ###########################################################
+   // DONE with FUZE account data retrieval
+   ///////////////////////////////////////////////////////////
   }
 
   return $response;
  }
 
  protected function _admin_register() {
-
+  // We need to collect the data necessary for the registration
   $params = array();
   $params ['contact_name'] = $this->_current_user->user['surname'] . ', ' . $this->_current_user->user['name'];
   $params ['contact_email'] = $this->_current_user->user['email'];
@@ -531,8 +531,8 @@ class module_fuze_meetings extends EfrontModule {
    $response = array('success' => true);
    $response ['professor_ids'] = array();
    $response ['professor_names'] = array();
-   ###########################################################
-   ## Fetching all professor id's and names
+   ///////////////////////////////////////////////////////////
+   // Fetching all professor id's and names
    $res = eF_getTableData("`users`","`id`,CONCAT(`surname`,', ',`name`) AS `nick`","`user_type` = 'professor'", "`nick`");
    if ($res && is_array($res) && count($res)) {
     foreach ($res AS $entry) {
@@ -540,8 +540,8 @@ class module_fuze_meetings extends EfrontModule {
      $response ['professor_names'][] = $entry ['nick'];
     }
    }
-   ## DONE with collecting professor data
-   ###########################################################
+   // DONE with collecting professor data
+   ///////////////////////////////////////////////////////////
   }
   else {
    $response = array('success' => false, 'error_msg' => $response);
@@ -560,18 +560,17 @@ class module_fuze_meetings extends EfrontModule {
   }
   $response = array('success' => false);
   if ($fuze_user && !$fuze_user->isSuspended()) {
-   //$currentUserTimezone = $currentUser->user['timezone'];
    $response ['success'] = true;
    $response ['date_added'] = $fuze_user->getTranslatedDateAdded($this->_current_user_timezone, 'D, d M Y [H:i:s]');
    $response ['fuze_email'] = $fuze_user->getFuzeEmail();
    $response ['fuze_password'] = $fuze_user->getPassword();
    $response ['login_url'] = $fuze_user->getLoginUrl();
-   ###########################################################
-   ## Fetching FUZE account count
+   ///////////////////////////////////////////////////////////
+   // Fetching FUZE account count
    $fuze_active_accounts = $this->_getActiveUserCount();
    $response ['active_user_count'] = $fuze_active_accounts;
-   ## DONE with FUZE account data retrieval
-   ###########################################################
+   // DONE with FUZE account data retrieval
+   ///////////////////////////////////////////////////////////
   }
 
   return $response;
@@ -589,13 +588,13 @@ class module_fuze_meetings extends EfrontModule {
   if ($fuze_user) {
    if ($this->_f_user_manager->suspendUserBySysId($id)) {
     $response ['success'] = true;
-    ###########################################################
-    ## Fetching FUZE account count
+    ///////////////////////////////////////////////////////////
+    // Fetching FUZE account count
     // The change has not yet propagated to DB at this point so we subtract manually.
     $fuze_active_accounts = $this->_getActiveUserCount() - 1;
     $response ['active_user_count'] = $fuze_active_accounts;
-    ## DONE with FUZE account data retrieval
-    ###########################################################
+    // DONE with FUZE account data retrieval
+    ///////////////////////////////////////////////////////////
    }
   }
 
@@ -607,7 +606,7 @@ class module_fuze_meetings extends EfrontModule {
  ///////////////////////////////////////////////////////////////////////////
 
  protected function _prof_default_cpanel($smarty, $fuze_user) {
-  ## Taking the next 5 meetings for this user and lesson
+  // Taking the next 5 meetings for this user and lesson
   $meetings = $fuze_user->getMeetingsByLessonPage(0, 5, $this->_current_lesson_id);
   $time_description = false;
   $latest_meetings = array();
@@ -617,7 +616,7 @@ class module_fuze_meetings extends EfrontModule {
     $latest_meetings [$meeting_id]['subject'] = $meeting->getSubject();
     if ($meeting->isHappeningNow()) {
      $latest_meetings [$meeting_id]['starttime'] = _FUZE_TIME_CPANEL_NOW;
-     $latest_meetings [$meeting_id]['link'] = _FUZE_PROF_CPANEL_GO_TO_MEETING; //$meeting->getLaunchUrl();
+     $latest_meetings [$meeting_id]['link'] = _FUZE_PROF_CPANEL_GO_TO_MEETING;
      $latest_meetings [$meeting_id]['meetingid'] = $meeting->getId();
     }
     else {
@@ -630,7 +629,7 @@ class module_fuze_meetings extends EfrontModule {
     }
    }
   }
-  ## In case no meetings were found
+  // In case no meetings were found
   else {
    $time_description = _FUZE_PROF_MEETING_AMOUNT_MEETING_NONE;
   }
@@ -658,7 +657,7 @@ class module_fuze_meetings extends EfrontModule {
     $system_user = false;
    }
    if ($system_user) {
-    ## Preparing the arguments that we'll use for the creation of the fuze user.
+    // Preparing the arguments that we'll use for the creation of the fuze user.
     $args = array();
     $args ['email'] = $system_user->getSysEmail();
     $args ['firstname'] = $system_user->getFirstName();
@@ -683,17 +682,17 @@ class module_fuze_meetings extends EfrontModule {
     $response ['error_msg'] = _FUZE_PROF_CREATE_USER_ERROR;
    }
   }
-  ###########################################################
-  ## No facility in place for reinstating suspended accounts
-  ## for users of type 'professor'
-  ###########################################################
+  ///////////////////////////////////////////////////////////
+  // No facility in place for reinstating suspended accounts
+  // for users of type 'professor'
+  ///////////////////////////////////////////////////////////
 
   return $response;
  }
 
  protected function _prof_internal_schedule_prep($smarty) {
   $template = false;
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -701,8 +700,8 @@ class module_fuze_meetings extends EfrontModule {
    catch (Exception $e) { /* DO NOTHING */ }
   }
   if ($fuze_user && !$fuze_user->isSuspended()) {
-   ## Na vro ta stoixeia olon ton mathimaton ta opoia didaskei autos o
-   ## kathigitis giati ta xreiazome sto select gia to scheduling.
+   // Na vro ta stoixeia olon ton mathimaton ta opoia didaskei autos o 
+   // kathigitis giati ta xreiazome sto select gia to scheduling.
    $smarty->assign('_FUZE_PROF_SCHEDULE_LESSON_ID',$this->_current_lesson_id);
    $smarty->assign('_FUZE_PROF_SCHEDULE_LESSON_NAME',$this->_current_lesson->lesson['name']);
    $all_lessons = $fuze_user->getLessons();
@@ -726,7 +725,7 @@ class module_fuze_meetings extends EfrontModule {
   $args ['send_invites'] = $_GET['send_invites'];
   $args ['add_events'] = $_GET['add_events'];
   $args ['launch'] = false;
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -756,10 +755,10 @@ class module_fuze_meetings extends EfrontModule {
  }
 
  protected function _prof_schedule_set_lesson($lesson_id) {
-  ## This is a hack to allow us to use a different lesson than the one
-  ## the professor is using right now.
-  ## We should unset this upon saving the data for the meeting or when
-  ## calling the schedule_prep method.
+  // This is a hack to allow us to use a different lesson than the one 
+  // the professor is using right now.
+  // We should unset this upon saving the data for the meeting or when 
+  // calling the schedule_prep method. 
   $_SESSION['_mod_fm_schedule_lesson_id'] = $lesson_id;
  }
 
@@ -793,7 +792,7 @@ class module_fuze_meetings extends EfrontModule {
  }
 
  protected function _prof_fetch_users() {
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -850,7 +849,7 @@ class module_fuze_meetings extends EfrontModule {
 
  protected function _prof_internal_host_prep($smarty) {
   $template = false;
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -858,8 +857,8 @@ class module_fuze_meetings extends EfrontModule {
    catch (Exception $e) { /* DO NOTHING */ }
   }
   if ($fuze_user && !$fuze_user->isSuspended()) {
-   ## Na vro ta stoixeia olon ton mathimaton ta opoia didaskei autos o
-   ## kathigitis giati ta xreiazome sto select gia tin epomeni othoni.
+   // Na vro ta stoixeia olon ton mathimaton ta opoia didaskei autos o 
+   // kathigitis giati ta xreiazome sto select gia tin epomeni othoni.
    $smarty->assign('_FUZE_PROF_SCHEDULE_LESSON_ID',$this->_current_lesson_id);
    $smarty->assign('_FUZE_PROF_SCHEDULE_LESSON_NAME',$this->_current_lesson->lesson['name']);
    $all_lessons = $fuze_user->getLessons();
@@ -881,7 +880,7 @@ class module_fuze_meetings extends EfrontModule {
   $args ['lesson_id'] = $_GET['lesson_id'];
   $args ['students'] = $students;
   $args ['launch'] = true;
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -922,7 +921,7 @@ class module_fuze_meetings extends EfrontModule {
  protected function _prof_internal_start() {
   $response = array('success' => false);
   $meeting_id = $_GET['meetingid'];
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -975,7 +974,7 @@ class module_fuze_meetings extends EfrontModule {
 	 */
  protected function _prof_internal_all_meetings($smarty) {
   $template = false;
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -999,7 +998,7 @@ class module_fuze_meetings extends EfrontModule {
 
 	 */
  protected function _prof_fetch_meetings() {
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -1069,7 +1068,7 @@ class module_fuze_meetings extends EfrontModule {
 	 */
  protected function _prof_meeting_cancel() {
   $response = array('success' => false);
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -1084,10 +1083,10 @@ class module_fuze_meetings extends EfrontModule {
    }
    catch (Exception $e) { /* DO NOTHING */ }
    if ($meeting_item) {
-    ## Check that the meeting owner is the current user
+    // Check that the meeting owner is the current user
     $user_id = $meeting_item->getUserId();
     if ($user_id == $fuze_user->getId()) {
-     ## Check that the meeting is not happening right this minute
+     // Check that the meeting is not happening right this minute
      if ($meeting_item->isHappeningNow()) {
       $response ['error_msg'] = _FUZE_PROF_ERROR_REMOVE_HAPPENING_NOW;
      }
@@ -1135,7 +1134,7 @@ class module_fuze_meetings extends EfrontModule {
 	 */
  protected function _prof_meeting_edit_prep($smarty) {
   $template = false;
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -1174,9 +1173,9 @@ class module_fuze_meetings extends EfrontModule {
       $data_array ['lesson_id'] = $meeting_item->getLessonId();
       $data_array ['meeting_date'] = $meeting_item->getStartTimeTranslated($this->_current_user_timezone, 'Y-m-d');
       $data_array ['meeting_time'] = $meeting_item->getStartTimeTranslated($this->_current_user_timezone, 'H:i');
-      ## Setting the session lesson so we can retrieve the
-      ## right subset of students when on prep page, regardless
-      ## of what lesson is active currently.
+      // Setting the session lesson so we can retrieve the 
+      // right subset of students when on prep page, regardless
+      // of what lesson is active currently.
       $_SESSION['_mod_fm_schedule_lesson_id'] = $data_array ['lesson_id'];
       $smarty->assign("_FUZE_PROF_MEETING_EDIT_MEETING", $data_array);
      }
@@ -1188,8 +1187,8 @@ class module_fuze_meetings extends EfrontModule {
      $smarty->assign("_FUZE_PROF_MEETING_EDIT_ERROR", _FUZE_PROF_MEETING_EDIT_ERROR);
     }
    }
-   ## Na vro ta stoixeia olon ton mathimaton ta opoia didaskei autos o
-   ## kathigitis giati ta xreiazome sto select gia to scheduling.
+   // Na vro ta stoixeia olon ton mathimaton ta opoia didaskei autos o 
+   // kathigitis giati ta xreiazome sto select gia to scheduling.
    $all_lessons = $fuze_user->getLessons();
    $smarty->assign('_FUZE_PROF_SCHEDULE_LESSON_LIST', $all_lessons);
    $template = $this->moduleBaseDir . 'views/smarty.professor.mod_fm_edit.tpl';
@@ -1217,7 +1216,7 @@ class module_fuze_meetings extends EfrontModule {
   $args ['send_invites'] = $_GET['send_invites'];
   $args ['add_events'] = $_GET['add_events'];
   $meeting_id = $_GET['meeting_id'];
-  ## Instantiating the FUZE account user here.
+  // Instantiating the FUZE account user here.
   if ($this->_current_user_id) {
    try {
     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
@@ -1235,12 +1234,12 @@ class module_fuze_meetings extends EfrontModule {
    if ($meeting_item) {
     if ($meeting_item->getUserId() == $fuze_user->getID()) {
      if (!$meeting_item->isHappeningNow()) {
-      ## Getting old subject and starttime
+      // Getting old subject and starttime
       $args ['old_subject'] = $meeting_item->getSubject();
       $args ['old_starttime'] = $meeting_item->getStartTime();
       $args ['fuze_meeting_id'] = $meeting_item->getFuzeMeetingId();
       $args ['local_meeting_id'] = $meeting_item->getId();
-      ## Getting old attendees
+      // Getting old attendees
       $args ['remaining_students'] = array();
       $args ['removed_students'] = array();
       $args ['new_students'] = array();
@@ -1263,7 +1262,7 @@ class module_fuze_meetings extends EfrontModule {
         $args ['new_students'][] = $student_id;
        }
       }
-      ## Then we get the students that are to be removed
+      // Then we get the students that are to be removed
       foreach ($old_students AS $student_id) {
        if (!in_array($student_id, $args['students'])) {
         $args ['removed_students'][] = $student_id;
@@ -1314,12 +1313,12 @@ class module_fuze_meetings extends EfrontModule {
  // STUDENT PROCEDURES BELOW
  ///////////////////////////////////////////////////////////////////////////
  protected function _student_default_cpanel($smarty) {
-  ## Instantiating the next 5 meetings for this user and lesson
+  // Instantiating the next 5 meetings for this user and lesson
   $tmp_meetings = $this->_current_student_five_next_meetings;
   $this->_current_student_five_next_meetings = array();
   foreach ($tmp_meetings AS $meeting_id => $meeting) {
    if (!($meeting instanceof FUZE_Meeting)) {
-    ## The meeting needs to be instantiated here
+    // The meeting needs to be instantiated here
     try {
      $meeting_item = new FUZE_Meeting($meeting_id);
      $this->_current_student_five_next_meetings [$meeting_id] = $meeting_item;
@@ -1349,7 +1348,7 @@ class module_fuze_meetings extends EfrontModule {
     }
    }
   }
-  ## In case no meetings were found
+  // In case no meetings were found
   else {
    $time_description = _FUZE_PROF_MEETING_AMOUNT_MEETING_NONE;
   }

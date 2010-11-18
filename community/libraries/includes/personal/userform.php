@@ -93,305 +93,118 @@ $smarty -> assign("T_EMPLOYEE_FORM_CAPTION", _USERFORM.": " . formatLogin($edite
 
 
 if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user['login']) {
-/*
-	$pdf = new EfrontPdf(_EMPLOYEEFORM . ": " . formatLogin($editedUser -> user['login']));
-	try {
-		$avatarFile = new EfrontFile($infoUser -> user['avatar']);
-	} catch(Exception $e) {
-		$avatarFile = new EfrontFile(G_SYSTEMAVATARSPATH."unknown_small.png");
-	}
-	$info = array(_NAME		=> formatLogin($editedUser -> user['login']),
-				  _BIRTHDAY	=> formatTimestamp($editedEmployee -> employee['birthday']),
-				  _ADDRESS	=> $editedEmployee -> employee['address'],
-				  _CITY		=> $editedEmployee -> employee['city'],
-				  _HIREDON  => formatTimestamp($editedEmployee -> employee['hired_on']),
-				  _LEFTON   => formatTimestamp($editedEmployee -> employee['left_on']));
-	$pdf -> printInformationSection(_GENERALUSERINFO, $info, $avatarFile);
 
-
-	$pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');
-	exit;
-*/
- $heightForHeaders = 10;
- $headerFont = 10;
- $smallHeaderFont = 8;
- $contentFont = 6;
- $defaultFont = 'dejavusans';
-
- $logoFile = EfrontSystem::getSystemLogo();
-/*
-	try {
-		list($halfPageWidth, $height) = getimagesize($logoFile['path']);
-	} catch (Exception $e) {
-		list($halfPageWidth, $height) = array(200, 150);
-	}
-*/
- $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
- $pdf->setFontSubsetting(false);
- $pdf->SetCreator(PDF_CREATOR);
-
- $pdf->setPrintHeader(false);
- $pdf->setPrintFooter(false);
-
- $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
- $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
- $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
- $pdf->setFontSubsetting(false);
-
- $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
- $pdf->SetAuthor(formatLogin($currentUser -> user['login']));
- $pdf->SetTitle(_EMPLOYEEFORM . ": " . formatLogin($editedUser -> user['login']));
- $pdf->SetSubject(_EMPLOYEEFORM);
- $pdf->SetKeywords('pdf, '._EMPLOYEEFORM);
- $pdf->AddPage();
-
- $pdf->Image($logoFile['path'], '', '', 0, 0, '', '', 'T');
-
- $pdf->SetFont($defaultFont, 'B', 16, '', true);
- $pdf->Cell(0, 0, $GLOBALS['configuration']['site_name'], 0, 2);
- $pdf->SetFont($defaultFont, '', $headerFont, '', true);
- $pdf->Cell(0, 0, $GLOBALS['configuration']['site_motto'], 0, 2);
-
- $pdf->Ln(12); //separator
- $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
- $pdf->SetFillColor(220, 220, 220);
- $pdf->Cell(0, $heightForHeaders, _EMPLOYEEFORM.": ".formatLogin($editedUser -> user['login']), 'BT', 1, 'C', true);
- $pdf->SetFillColor(240, 240, 240);
+ $pdf = new EfrontPdf(_EMPLOYEEFORM . ": " . formatLogin($editedUser -> user['login']));
  try {
-  $avatarFile = new EfrontFile($editedUser -> user['avatar']);
+  $avatarFile = new EfrontFile($infoUser -> user['avatar']);
  } catch(Exception $e) {
   $avatarFile = new EfrontFile(G_SYSTEMAVATARSPATH."unknown_small.png");
  }
 
- $pdf->Ln(6); //separator
- $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
- $pdf->Cell(0, $heightForHeaders, _GENERALUSERINFO, 0, 1);
+ $info = array(array(_NAME, formatLogin($editedUser -> user['login'])),
+      array(_BIRTHDAY, formatTimestamp($editedEmployee -> employee['birthday'])),
+      array(_ADDRESS, $editedEmployee -> employee['address']),
+      array(_CITY, $editedEmployee -> employee['city']),
+      array(_HIREDON, formatTimestamp($editedEmployee -> employee['hired_on'])),
+      array(_LEFTON, formatTimestamp($editedEmployee -> employee['left_on'])));
+ $pdf -> printInformationSection(_GENERALUSERINFO, $info, $avatarFile);
 
- $pdf->SetFont($defaultFont, '', $contentFont, '', true);
- $pdf->Image($avatarFile['path'], '', '', 0, 0, '', '', 'T');
- $pdf->Cell(0, 0, _NAME.": ".formatLogin($editedUser -> user['login']), 0, 2);
- !$editedEmployee -> employee['birthday'] OR $pdf->Cell(0, 0, _BIRTHDAY.": ".formatTimestamp($editedEmployee -> employee['birthday']), 0, 2);
- !$editedEmployee -> employee['address'] OR $pdf->Cell(0, 0, _ADDRESS.": ".$editedEmployee -> employee['address'], 0, 2);
- !$editedEmployee -> employee['city'] OR $pdf->Cell(0, 0, _CITY.": ".$editedEmployee -> employee['city'], 0, 2);
- !$editedEmployee -> employee['hired_on'] OR $pdf->Cell(0, 0, _HIREDON.": ".formatTimestamp($editedEmployee -> employee['hired_on']), 0, 2);
- !$editedEmployee -> employee['left_on'] OR $pdf->Cell(0, 0, _LEFTON.": ".formatTimestamp($editedEmployee -> employee['left_on']), 0, 1);
- $pdf->Ln(10); //separator
-
- $halfPageWidth = round($pdf -> GetPageWidth()/2)-5;
- if (isset($jobs) && !empty($jobs)) {
-  $pdf->Ln(6); //separator
-  $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
-  $pdf->Cell(0, $heightForHeaders, _PLACEMENTS, 0, 1);
-  $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-  foreach ($jobs as $value) {
-   $column1 = $value['name'].': ';
-   $column2 = strip_tags($value['description']).(!$value['supervisor'] OR _SUPERVISOR);
-   $pdf->MultiCell(min($halfPageWidth, $pdf->GetStringWidth($column1)+5), 0, $column1, 0, 'L', 0, 0);
-   $pdf->MultiCell(min($halfPageWidth, $pdf->GetStringWidth($column2)+5), 0, $column2, 0, 'L', 0, 1);
-  }
+ $info = array();
+ foreach ($jobs as $value) {
+  $info[] = array($value['name'], strip_tags($value['description']).(!$value['supervisor'] OR _SUPERVISOR));
  }
+ $pdf -> printInformationSection(_PLACEMENTS, $info);
 
- if (isset($evaluations) && !empty($evaluations)) {
-  $pdf->Ln(6); //separator
-  $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
-  $pdf->Cell(0, $heightForHeaders, _EVALUATIONS, 0, 1);
-  $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-  foreach ($evaluations as $value) {
-   $column1 = formatLogin($value['author']).' '.formatTimestamp($value['timestamp']).': ';
-   $column2 = strip_tags($value['specification']);
-   $pdf->MultiCell(min($halfPageWidth, $pdf->GetStringWidth($column1)+5), 0, $column1, 0, 'L', 0, 0);
-   $pdf->MultiCell(min($halfPageWidth, $pdf->GetStringWidth($column2)+5), 0, $column2, 0, 'L', 0, 1);
-  }
+ $info = array();
+ foreach ($evaluations as $value) {
+  $info[] = array(formatLogin($value['author']).' '.formatTimestamp($value['timestamp']), $value['specification']);
  }
+ $pdf -> printInformationSection(_EVALUATIONS, $info);
 
- if (isset($skills) && !empty($skills)) {
-  $pdf->Ln(6); //separator
-  $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
-  $pdf->Cell(0, $heightForHeaders, _SKILLS, 0, 1);
-  $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-  foreach ($skills as $value) {
-   $column1 = strip_tags($value['description']).': ';
-   $column2 = strip_tags($value['specification']);
-   $pdf->MultiCell(min($halfPageWidth, $pdf->GetStringWidth($column1)+5), 0, $column1, 0, 'L', 0, 0);
-   $pdf->MultiCell(min($halfPageWidth, $pdf->GetStringWidth($column2)+5), 0, $column2, 0, 'L', 0, 1);
-  }
+ $info = array();
+ foreach ($skills as $value) {
+  $info[] = array($value['description'], $value['specification']);
  }
+ $pdf -> printInformationSection(_SKILLS, $info);
+
 
  if ($editedUser -> user['user_type'] != 'administrator' && (!empty($userCourses) || !empty($userLessons))) {
-  $pdf->Ln(6); //separator
-  $pdf->SetFont($defaultFont, 'B', $headerFont, '', true);
-  $pdf->Cell(0, $heightForHeaders, _TRAINING, 0, 1);
+  $formatting = array(_NAME => array('width' => '40%', 'fill' => false),
+       _CATEGORY => array('width' => '25%','fill' => false),
+       _REGISTRATIONDATE => array('width' => '13%','fill' => false),
+       _COMPLETED => array('width' => '13%','fill' => false, 'align' => 'C'),
+       _SCORE => array('width' => '9%','fill' => false, 'align' => 'R'));
 
-  $pageWidth = $pdf -> GetPageWidth();
-  $columnWidth1 = ($pageWidth-20)*0.40;
-  $columnWidth2 = ($pageWidth-20)*0.25;
-  $columnWidth3 = ($pageWidth-20)*0.13;
-  $columnWidth4 = ($pageWidth-20)*0.13;
-  $columnWidth5 = ($pageWidth-20)*0.09;
+  $data = array();
+  foreach ($userCourses as $courseId => $value) {
+   $data[$courseId] = array(_NAME => $value['name'],
+         _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),
+         _REGISTRATIONDATE => formatTimestamp($value['active_in_course']),
+         _COMPLETED => $value['to_timestamp'] ? formatTimestamp($value['to_timestamp']) : '-',
+         _SCORE => formatScore($value['score']).'%',
+         'active' => $value['active']);
 
-  $columnWidth6 = ($pageWidth-20)*0.78;
-  //$columnWidth7 = ($pageWidth-20)*0.38;
-  $columnWidth8 = ($pageWidth-20)*0.13;
-  $columnWidth9 = ($pageWidth-20)*0.09;
 
-  $columnWidth10 = ($pageWidth-20)*0.78;
-  $columnWidth11 = ($pageWidth-20)*0.13;
-  $columnWidth12 = ($pageWidth-20)*0.09;
-
-  if (sizeof($userCourses) > 0) {
-   $pdf->SetFont($defaultFont, 'B', $smallHeaderFont, '', true);
-   $pdf->MultiCell(0, 0, _COURSES, 0, 'L', 0, 1);
-
-   $pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-   $pdf->MultiCell($columnWidth1, 0, _NAME, 0, 'L', 0, 0);
-   $pdf->MultiCell($columnWidth2, 0, _CATEGORY, 0, 'L', 0, 0);
-   $pdf->MultiCell($columnWidth3, 0, _REGISTRATIONDATE, 0, 'C', 0, 0);
-   $pdf->MultiCell($columnWidth4, 0, _COMPLETED, 0, 'C', 0, 0);
-   $pdf->MultiCell($columnWidth5, 0, _SCORE, 0, 'R', 0, 1);
-
-   $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-   $count = 0;
-
-   foreach ($userCourses as $value) {
-    $printedLessons ? $border = 'T' : $border = ''; //Used to draw a bottom border where applicable
-    $printedLessons = false;
-    if ($value['active']) {
-     ($count++%2) ? $pdf -> setTextColor(18,52,86) : $pdf -> setTextColor(101,67,33);
-    } else {
-     $pdf -> setTextColor(255,0,0);
-    }
-    $pdf->MultiCell($columnWidth1, 0, $value['name'], $border, 'L', 0, 0);
-    $pdf->MultiCell($columnWidth2, 0, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]), $border, 'L', 0, 0);
-    $pdf->MultiCell($columnWidth3, 0, formatTimestamp($value['active_in_course']), $border, 'C', 0, 0);
-    $pdf->MultiCell($columnWidth4, 0, $value['to_timestamp']? formatTimestamp($value['to_timestamp']) : '-', $border, 'C', 0, 0);
-    $pdf->MultiCell($columnWidth5, 0, formatScore($value['score']).'%', $border, 'R', 0, 1);
-
-    if (isset($courseLessons[$value['id']]) && !empty($courseLessons[$value['id']])) {
-     $pdf->setTextColor(0,0,0);
-     $pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-     $pdf->MultiCell(0, 0, _LESSONSFORCOURSE.' '.$value['name'], 'T', 'L', true, 1);
-
-     $pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-     $pdf->MultiCell($columnWidth6, 0, _NAME, 0, 'L', true, 0);
-     //$pdf->MultiCell($columnWidth7, 0, _CATEGORY, 0, 'L', true, 0);
-     $pdf->MultiCell($columnWidth8, 0, _COMPLETED, 0, 'C', true, 0);
-     $pdf->MultiCell($columnWidth9, 0, _SCORE, 0, 'R', true, 1);
-
-     $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-
-     foreach ($courseLessons[$value['id']] as $courseLesson) {
-      ($count++%2) ? $pdf -> setTextColor(18,52,86) : $pdf -> setTextColor(101,67,33);
-
-      $pdf->MultiCell($columnWidth6, 0, $courseLesson['name'], 0, 'L', true, 0);
-      //$pdf->MultiCell($columnWidth7, 0, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$courseLesson['directions_ID']]), 0, 'L', true, 0);
-      $pdf->MultiCell($columnWidth8, 0, $courseLesson['timestamp_completed'] ? formatTimestamp($courseLesson['timestamp_completed']) : '-', 0, 'C', true, 0);
-      $pdf->MultiCell($columnWidth9, 0, formatScore($value['score']).'%', 0, 'R', true, 1);
-      $printedLessons = true;
+   if (isset($courseLessons[$value['id']]) && !empty($courseLessons[$value['id']])) {
+    $subsectionFormatting = array(_NAME => array('width' => '78%', 'fill' => true),
+             _COMPLETED => array('width' => '13%', 'fill' => true, 'align' => 'C'),
+             _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'));
+    $subSectionData = array();
+    foreach ($courseLessons[$value['id']] as $lessonId => $courseLesson) {
+     $subSectionData[$lessonId] = array(_NAME => $courseLesson['name'],
+                _COMPLETED => $courseLesson['timestamp_completed'] ? formatTimestamp($courseLesson['timestamp_completed']) : '-',
+                _SCORE => formatScore($courseLesson['score']).'%');
 /*
-						if (isset($userDoneTests[$courseLesson['id']])) {
-							$pdf->SetFillColor(220, 220, 220);
-							$pdf->setTextColor(0,0,0);
-							$pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-							$pdf->MultiCell(0, 0, _TESTSFORLESSON.' '.$courseLesson['name'], 0, 'L', true, 1);
-
-							$pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-							$pdf->MultiCell($columnWidth10, 0, _TESTNAME, 0, 'L', true, 0);
-							$pdf->MultiCell($columnWidth11, 0, _STATUS, 0, 'C', true, 0);
-							$pdf->MultiCell($columnWidth12, 0, _SCORE, 0, 'R', true, 1);
-
-							$pdf->SetFont($defaultFont, '', $contentFont, '', true);
-							foreach ($userDoneTests[$courseLesson['id']] as $test) {
-								($count++%2) ? $pdf -> setTextColor(18,52,86) : $pdf -> setTextColor(101,67,33);
-								$pdf->MultiCell($columnWidth10, 0, $test['name'], 0, 'L', true, 0);
-								$pdf->MultiCell($columnWidth11, 0, $test['status'], 0, 'C', true, 0);
-								$pdf->MultiCell($columnWidth12, 0, formatScore($test['score']).'%', 0, 'R', true, 1);
-							}
-							$pdf->SetFillColor(240, 240, 240);
+					if (isset($userDoneTests[$value['id']])) {
+						$testSubsectionFormatting = array(_TESTNAME	=> array('width' => '78%', 'fill' => true),
+														  _STATUS	=> array('width' => '13%', 'fill' => true, 'align' => 'C'),
+														  _SCORE	=> array('width' => '9%',  'fill' => true, 'align' => 'R'));
+						$testsSubSectionData = array();
+						foreach ($userDoneTests[$value['id']] as $test) {
+							$testsSubSectionData[] = array(_TESTNAME => $test['name'],
+														   _STATUS   => $test['status'],
+														   _SCORE 	 => formatScore($test['score']).'%');
 						}
-*/
-
-     }
-    }
-
-   }
-
-  }
-
-
-  if (sizeof($userLessons) > 0) {
-   $pdf -> setTextColor(0,0,0);
-   $pdf->Ln(6); //separator
-   $pdf->SetFont($defaultFont, 'B', $smallHeaderFont, '', true);
-   $pdf->MultiCell(0, 0, _LESSONS, 0, 'L', 0, 1);
-
-   $pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-   $pdf->MultiCell($columnWidth1, 0, _NAME, 0, 'L', 0, 0);
-   $pdf->MultiCell($columnWidth2, 0, _CATEGORY, 0, 'L', 0, 0);
-   $pdf->MultiCell($columnWidth3, 0, _REGISTRATIONDATE, 0, 'C', 0, 0);
-   $pdf->MultiCell($columnWidth4, 0, _COMPLETED, 0, 'C', 0, 0);
-   $pdf->MultiCell($columnWidth5, 0, _SCORE, 0, 'R', 0, 1);
-
-   $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-   foreach ($userLessons as $value) {
-    if ($value['active']) {
-     ($count++%2) ? $pdf -> setTextColor(18,52,86) : $pdf -> setTextColor(101,67,33);
-    } else {
-     $pdf -> setTextColor(255,0,0);
-    }
-    $pdf->MultiCell($columnWidth1, 0, $value['name'], 0, 'L', 0, 0);
-    $pdf->MultiCell($columnWidth2, 0, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]), 0, 'L', 0, 0);
-    $pdf->MultiCell($columnWidth3, 0, formatTimestamp($value['active_in_lesson']), 0, 'C', 0, 0);
-    $pdf->MultiCell($columnWidth4, 0, $value['timestamp_completed'] ? formatTimestamp($value['timestamp_completed']) : '-', 0, 'C', 0, 0);
-    $pdf->MultiCell($columnWidth5, 0, formatScore($value['score']).'%', 0, 'R', 0, 1);
-/*
-				if (isset($userDoneTests[$value['id']])) {
-					$pdf -> setTextColor(0,0,0);
-					$pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-					$pdf->MultiCell(0, 0, _TESTSFORLESSON.' '.$value['name'], 0, 'L', true, 1);
-
-					$pdf->SetFont($defaultFont, 'B', $contentFont, '', true);
-					$pdf->MultiCell($columnWidth10, 0, _TESTNAME, 0, 'L', true, 0);
-					$pdf->MultiCell($columnWidth11, 0, _STATUS, 0, 'L', true, 0);
-					$pdf->MultiCell($columnWidth12, 0, _SCORE, 0, 'L', true, 1);
-
-					$pdf->SetFont($defaultFont, '', $contentFont, '', true);
-					foreach ($userDoneTests[$value['id']] as $test) {
-						($count++%2) ? $pdf -> setTextColor(18,52,86) : $pdf -> setTextColor(101,67,33);
-						$pdf->MultiCell($columnWidth10, 0, $test['name'], 0, 'L', true, 0);
-						$pdf->MultiCell($columnWidth11, 0, $test['status'], 0, 'L', true, 0);
-						$pdf->MultiCell($columnWidth12, 0, formatScore($test['score']).'%', 0, 'L', true, 1);
+						$testSubSections[$lessonId] = array('data' => $testsSubSectionData, 'formatting' => $testSubsectionFormatting, 'title' => _TESTSFORLESSON.': '.$courseLesson['name']);
 					}
-				}
 */
+    }
+    $subSections[$courseId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _LESSONSFORCOURSE.': '.$value['name'], 'subSections' => $testSubSections);
    }
   }
-  $pdf -> setTextColor(0,0,0);
+  $pdf->printDataSection(_TRAINING.': '._COURSES, $data, $formatting, $subSections);
 
-  $pdf->Ln(6); //separator
-  $pdf->SetFont($defaultFont, 'B', $smallHeaderFont, '', true);
-  $pdf->MultiCell(0, 0, _OVERALL, 0, 'L', 0, 1);
+  $data = array();
+  foreach ($userLessons as $lessonId => $value) {
+   $data[$lessonId] = array(_NAME => $value['name'],
+        _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),
+        _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
+        _COMPLETED => $value['timestamp_completed']? formatTimestamp($value['timestamp_completed']) : '-',
+        _SCORE => formatScore($value['score']).'%');
+/*
+			if (isset($userDoneTests[$value['id']])) {
+				$subsectionFormatting = array(_TESTNAME	=> array('width' => '78%', 'fill' => true),
+											  _STATUS	=> array('width' => '13%', 'fill' => true, 'align' => 'C'),
+											  _SCORE	=> array('width' => '9%',  'fill' => true, 'align' => 'R'));
+				$subSectionData = array();
+				foreach ($userDoneTests[$value['id']] as $test) {
+					$subSectionData[] = array(_TESTNAME	=> $test['name'],
+											  _STATUS   => $test['status'],
+											  _SCORE 	=> formatScore($test['score']).'%');
+				}
+				$subSections[$lessonId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _TESTSFORLESSON.': '.$value['name']);
+			}
+*/
+  }
+  $pdf->printDataSection(_TRAINING.': '._LESSONS, $data, $formatting, $subSections);
 
-  $pdf->SetFont($defaultFont, '', $contentFont, '', true);
-   $column1 = _COURSESAVERAGE.': ';
-   $column2 = $averages['courses'].'%';
-   $column3 = _LESSONSAVERAGE.': ';
-   $column4 = $averages['lessons'].'%';
-   $maxStringWidth = max($pdf->GetStringWidth($column1),
-          $pdf->GetStringWidth($column2),
-          $pdf->GetStringWidth($column3),
-          $pdf->GetStringWidth($column4)) + 3;
-   if ($averages['courses']) {
-    $pdf->MultiCell(min($halfPageWidth, $maxStringWidth), 0, $column1, 0, 'L', 0, 0);
-    $pdf->MultiCell(min($halfPageWidth, $maxStringWidth), 0, $column2, 0, 'L', 0, 1);
-   }
-   if ($averages['courses']) {
-    $pdf->MultiCell(min($halfPageWidth, $maxStringWidth), 0, $column3, 0, 'L', 0, 0);
-    $pdf->MultiCell(min($halfPageWidth, $maxStringWidth), 0, $column4, 0, 'L', 0, 1);
-   }
 
-
+  $info = array(array(_COURSESAVERAGE, $averages['courses'].'%'),
+       array(_LESSONSAVERAGE, $averages['lessons'].'%'));
+  $pdf -> printInformationSection(_OVERALL, $info);
  }
 
- $pdf->Output('user_form_'.$editedUser -> user['login'].'.pdf', 'D');
+ $pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');
  exit;
+
 }

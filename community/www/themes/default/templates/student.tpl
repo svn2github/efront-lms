@@ -282,7 +282,6 @@
                                                     {else}
                                                          <a href = "javascript:void(0)" class = "info nonEmptyLesson">{$lesson.name}
                                                     {/if}
-                                                    <img class = "tooltip" border = "0" src="/images/others/tooltip_arrow.gif"/>
                                                     <span class = "tooltipSpan">
                                     {if isset($lesson.info.general_description)}<strong>{$smarty.const._GENERALDESCRIPTION|cat:'</strong>:&nbsp;'|cat:$lesson.info.general_description}<br />{/if}
                                     {if isset($lesson.info.assessment)} <strong>{$smarty.const._ASSESSMENT|cat:'</strong>:&nbsp;'|cat:$lesson.info.assessment}<br/>{/if}

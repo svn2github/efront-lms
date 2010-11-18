@@ -540,7 +540,7 @@ function add_new_job_row(row) {
         if (isInfoToolDisabled) {
          newCellHTML = '<span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span>';
         } else {
-         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" url = "ask_information.php?branch_ID='+$("branches_"+row)+'&job_description='+$("job_descriptions_"+row)+'&type=job_description" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.gif" style="display:none" /><img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif"/><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
+         newCellHTML = '<table><tr><td><span id = "job_descriptions_'+row+'_span">' + jobDescriptionsHTML +'</span></td><td><a class = "info" url = "ask_information.php?branch_ID='+$("branches_"+row)+'&job_description='+$("job_descriptions_"+row)+'&type=job_description" ><img class="sprite16 sprite16-help" src = "themes/default/images/others/transparent.gif" style="display:none" /><span class = "tooltipSpan" id="job_analytical_description_'+row+'"></span></a></td></tr></table>';
         }
         newCellHTML = newCellHTML.replace('row', row);
         newCellHTML = newCellHTML.replace('row', row);

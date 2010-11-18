@@ -53,7 +53,7 @@ class FUZE_MeetingDAO extends FUZE_AbstractDAO {
     }
    }
    $this->_to->set('attendees', $this->_attendees);
-   ## We also need to get the lesson name
+   // We also need to get the lesson name
    $res = eF_getTableData("`lessons`","`name`","`id` = {$this->extractFromTO('lesson_id')}");
    if (is_array($res) && count($res)) {
     $this->_to->set('lesson_name', $res[0]['name']);
@@ -81,10 +81,10 @@ class FUZE_MeetingDAO extends FUZE_AbstractDAO {
 	 */
  public function cancel() {
   $success = false;
-  ## We need to modify all attendees that the meeting is now cancelled
-  ## but we're doing that only after the meeting has been successfully 
-  ## removed. We need, however, to retrieve the attendees' email
-  ## addresses here.
+  // We need to modify all attendees that the meeting is now cancelled
+  // but we're doing that only after the meeting has been successfully 
+  // removed. We need, however, to retrieve the attendees' email
+  // addresses here.
   $_sql_prof_id = $this->extractFromTO('user_id');
   $attendees = array();
   $_sql_tables = "`_mod_fm_meeting_attendee` AS `_mfma`, `users` AS `_up`, `users` AS `_us`, `_mod_fm_user` AS `_mfu`";
@@ -100,16 +100,16 @@ class FUZE_MeetingDAO extends FUZE_AbstractDAO {
     $attendees [$key]['student_email'] = $entry ['_semail'];
    }
   }
-  ## We need to remove the calendar entry
+  // We need to remove the calendar entry
   $calendar_id = $this->extractFromTO('calendar_id');
   if ($calendar_id) {
    eF_deleteTableData("`calendar`","`id` = " . $calendar_id);
   }
-  ## Then we remove the meeting itself
+  // Then we remove the meeting itself
   if ($res = eF_deleteTableData("`_mod_fm_meeting`","`id` = " . $this->_controller_id)) {
    $success = true;
    if (count($attendees)) {
-    ## We notify attendees by email
+    // We notify attendees by email
     $meeting_name = $this->extractFromTO('subject');
     $meeting_starttime = date('r', $this->extractFromTO('starttime'));
     $meeting_lesson_name = $this->extractFromTO('lesson_name');
@@ -118,9 +118,9 @@ class FUZE_MeetingDAO extends FUZE_AbstractDAO {
     $email_content = str_ireplace('###LESSON_NAME###', $meeting_lesson_name, $email_content);
     $email_content = str_ireplace('###MEETING_NAME###', $meeting_name, $email_content);
     $email_content = str_ireplace('###MEETING_STARTTIME###', $meeting_starttime, $email_content);
-    ## Rather ineffective as we need to send each email separately
-    ## because of different user_name embedded in text in each one
-    ## of the emails.
+    // Rather ineffective as we need to send each email separately
+    // because of different user_name embedded in text in each one
+    // of the emails.
     foreach ($attendees AS $email_attrs) {
      $this_email_content = $email_content;
      $this_email_content = str_ireplace('###USER_NAME###', $email_attrs ['student_name'], $this_email_content);

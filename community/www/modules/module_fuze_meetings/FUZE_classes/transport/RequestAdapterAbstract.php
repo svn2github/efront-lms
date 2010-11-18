@@ -21,13 +21,13 @@ abstract class Request_Adapter_Abstract {
  protected $_user_agent;
  protected $_timestamp;
  protected $_nonce;
- protected $_request_type; # Holds the value for the current request type
+ protected $_request_type; // Holds the value for the current request type
  protected $_params;
  protected $_request_token;
  protected $_crypt;
  protected $_oauth_consumer_key;
  protected $_oauth_consumer_secret;
- ## This is the single use key for encrypting data sent and received during registration
+ // This is the single use key for encrypting data sent and received during registration
  const REQUEST_ADAPTER_REGISTRATION_KEY = 'f9o68a@134Cf9b014DF50d7a1AQ*29+e849_3#cb565q14$nDlIO0olI.LiAsD';
  const REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL = 'email';
  const REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD = 'password';
@@ -48,8 +48,8 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_REQUEST_PARAMS_INTERNATIONALDIAL = 'includeinternationaldial';
  const REQUEST_ADAPTER_REQUEST_PARAMS_INTERNATIONALDIAL_DEFAULT = true;
 
- ## Edo orizontai ta URL's pou xrisimopoiountai gia ta requests analoga me
- ## ton typo tou request.
+ // Edo orizontai ta URL's pou xrisimopoiountai gia ta requests analoga me
+ // ton typo tou request.
  const REQUEST_ADAPTER_URL_OAUTH_AUTH = 'http://fuze.efront.actonbit.gr/api/get_request_token/';
  const REQUEST_ADAPTER_URL_REGISTER = 'http://fuze.efront.actonbit.gr/api/account_register/';
  const REQUEST_ADAPTER_URL_MEETING_LAUNCH = 'http://fuze.efront.actonbit.gr/api/meeting_launch/';
@@ -60,11 +60,11 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_URL_ACCOUNT_CANCEL = 'http://fuze.efront.actonbit.gr/api/account_cancel/';
  const REQUEST_ADAPTER_URL_USER_CREATE = 'http://fuze.efront.actonbit.gr/api/user_create/';
  const REQUEST_ADAPTER_URL_USER_CANCEL = 'http://fuze.efront.actonbit.gr/api/user_cancel/';
- ## TO-DO
+ // TO-DO 
+ // Na oriso kai ta upoloipa URL's, ena gia tin kathe exposed method.
 
-
- ## Edo orizontai oi tupoi ton diathesimon methods. Ta URL's gia to 
- ## kathena apo ta methods orizetai parapano.
+ // Edo orizontai oi tupoi ton diathesimon methods. Ta URL's gia to 
+ // kathena apo ta methods orizetai parapano.
  const REQUEST_ADAPTER_REQUEST_TYPE = '_request_adapter_request_type';
  const REQUEST_ADAPTER_REQUEST_TYPE_REGISTER = '_request_adapter_request_type_register';
  const REQUEST_ADAPTER_REQUEST_TYPE_MEETING_LAUNCH = '_request_adapter_request_type_meeting_launch';
@@ -75,13 +75,13 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_REQUEST_TYPE_ACCOUNT_CANCEL = '_request_adapter_request_type_account_cancel';
  const REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE = '_request_adapter_request_type_user_create';
  const REQUEST_ADAPTER_REQUEST_TYPE_USER_CANCEL = '_request_adapter_request_type_user_cancel';
- ## TO-DO
+ // TO-DO
+ // Na oriso kai to upoloipo functionality
+ //const REQUEST_ADAPTER_REQUEST_TYPE_SCHEDULE = '_request_adapter_request_type_schedule';
+ //const REQUEST_ADAPTER_REQUEST_TYPE_START = '_request_adapter_request_type_start';
 
-
-
-
- ## Edo orizontai oi statheres pou xrisimopoiountai sta options pou pername ston constructor
- ## gia na perasoume tis times gia credentials kai parameters analoga me to request type.
+ // Edo orizontai oi statheres pou xrisimopoiountai sta options pou pername ston constructor
+ // gia na perasoume tis times gia credentials kai parameters analoga me to request type.
  const REQUEST_ADAPTER_REQUEST_UNAME = '_request_adapter_request_uname';
  const REQUEST_ADAPTER_REQUEST_PASS = '_request_adapter_request_pass';
  const REQUEST_ADAPTER_REQUEST_PARAMS = '_request_adapter_request_params';
@@ -100,31 +100,16 @@ abstract class Request_Adapter_Abstract {
   $this->_crypt = new FUZE_CryptXOR();
   $this->_user_agent = 'eFront FUZEBOX.moduleClient/1.0a [el] (' . $_SERVER["SERVER_ADDR"] . '; ' . $_SERVER["SERVER_NAME"] . '; ' . $_SERVER["SERVER_SOFTWARE"] . '; +http://fuze.efrontlearning.net/)';
   $this->_timestamp = time();
+  // Fetching consumer_key and consumer_secret from DB
   $f_account = new FUZE_Account();
   if ($f_account->isRegistered()) {
    $this->_oauth_consumer_key = $f_account->getConsumerKey();
    $this->_oauth_consumer_secret = $f_account->getConsumerSecret();
-   /*
-
-			$this->_oauth_consumer_key = 'ZWNjYzRhNjU0YzRjZmM5MzNjMjM4ZGY0MzczNDBkNTYxZThmYzkzMzkxOGJiODNlM2ZmMGViZGNlNDNlNjhkMg--';
-
-			$this->_oauth_consumer_secret = 'a3e37e21c1fd304638ce86d075ebcc1af0705631';
-
-			*/
   }
   else {
    $this->_oauth_consumer_key = false;
    $this->_oauth_consumer_secret = false;
   }
-  /*
-
-		const OAUTH_CONSUMER_KEY = 'ZWNjYzRhNjU0YzRjZmM5MzNjMjM4ZGY0MzczNDBkNTYxZThmYzkzMzkxOGJiODNlM2ZmMGViZGNlNDNlNjhkMg--';
-
-		const OAUTH_CONSUMER_SECRET = 'a3e37e21c1fd304638ce86d075ebcc1af0705631';
-
-		const OAUTH_AUTH_URL = 'http://fuze.efront.actonbit.gr/api/get_request_token/';
-
-		*/
  }
  /**
 
@@ -143,13 +128,13 @@ abstract class Request_Adapter_Abstract {
 	 */
  protected function _getRequestToken() {
   $token = false;
+  // Preparing the inital request so we can get a request token by the proxy.
   $this->_nonce = substr(md5(uniqid(rand(0,$this->_timestamp))),0,rand(5,10)) . '.' . md5($this->_timestamp . 'salt#1' . $this->_user_agent . 'salt#2');
   $options = array();
   $options ['url'] = Request_Adapter_Abstract::REQUEST_ADAPTER_URL_OAUTH_AUTH;
   $options ['params'] = $this->_signRequest();
   $options ['user_agent'] = $this->_user_agent;
   $response = $this->_fetchReply($options);
-  //var_dump($response); die('in Request_Adapter_Abstract');
   if ($response = json_decode($response)) {
    if ($response->success) {
     $token = $response->token;
@@ -227,7 +212,9 @@ abstract class Request_Adapter_Abstract {
 	 */
  protected function _prepareRequest($options) {
   if (is_array($options) && isset($options[self::REQUEST_ADAPTER_REQUEST_TYPE]) && isset($options[self::REQUEST_ADAPTER_REQUEST_PARAMS]) && is_array($options[self::REQUEST_ADAPTER_REQUEST_PARAMS]) ) {
+   // The case when we have a registration request.
    if ($options[self::REQUEST_ADAPTER_REQUEST_TYPE] == self::REQUEST_ADAPTER_REQUEST_TYPE_REGISTER) {
+    // We need to have contact_name, contact_email, g_version and g_edition
     $params = $options[Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS];
     if (isset($params['contact_name']) && !empty($params['contact_name']) &&
      isset($params['contact_email']) && !empty($params['contact_email']) &&
@@ -244,6 +231,7 @@ abstract class Request_Adapter_Abstract {
      throw new Exception("Wrong parameters found during request adapter initialisation.");
     }
    }
+   // The case when we have a new user request.
    elseif ($options[self::REQUEST_ADAPTER_REQUEST_TYPE] == self::REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE) {
     $this->_request_type = self::REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE;
     $params = $options[Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS];
@@ -358,6 +346,8 @@ abstract class Request_Adapter_Abstract {
     }
    }
    elseif ($options[self::REQUEST_ADAPTER_REQUEST_TYPE] == self::REQUEST_ADAPTER_REQUEST_TYPE_MEETING_UPDATE) {
+    // Identical to meeting_schedule as per the parameters with the exception 
+    // of metting_id that is present only for update.
     $this->_request_type = self::REQUEST_ADAPTER_REQUEST_TYPE_MEETING_UPDATE;
     $params = $options[Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS];
     if (isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL]) && !empty($params[Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL]) &&
@@ -383,7 +373,7 @@ abstract class Request_Adapter_Abstract {
    }
   }
   else {
-   ## In case the request type or the necessary parameters are not defined.
+   // In case the request type or the necessary parameters are not defined.
    throw new Exception("Wrong parameters found during request adapter initialisation.");
   }
  }
@@ -419,6 +409,7 @@ abstract class Request_Adapter_Abstract {
 
 	 */
  protected function _prepareParams($params) {
+  // Update the timestamp value
   $this->_timestamp = time();
   $key = hash_hmac('sha1', $this->_oauth_consumer_key, hash_hmac('sha1', $this->_oauth_consumer_secret, $this->_timestamp) );
   $params = $this->_encryptData($params,$key);
@@ -472,7 +463,7 @@ abstract class Request_Adapter_Abstract {
   }
   $concat = substr($concat,0,-1);
   $base_string = 'POST&' . $this->_oauth_urlencode(Request_Adapter_Abstract::REQUEST_ADAPTER_URL_OAUTH_AUTH) . '&' . $this->_oauth_urlencode($concat);
-  $signature = hash_hmac('sha1', $base_string, $this->_oauth_urlencode($this->_oauth_consumer_secret).'&',true); # raw encoded
+  $signature = hash_hmac('sha1', $base_string, $this->_oauth_urlencode($this->_oauth_consumer_secret).'&',true); // raw encoded
   $signature = $this->_oauth_urlencode(base64_encode($signature));
   $signed = $concat . '&oauth_signature=' . $signature;
   return $signed;

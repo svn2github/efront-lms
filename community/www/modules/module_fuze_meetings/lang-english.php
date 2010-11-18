@@ -17,7 +17,7 @@ define("_FUZE_ADMIN_USER_CREATE_BTN","Create a trial account for this user");
 define("_FUZE_ADMIN_USER_SUSPEND_BTN","Suspend this FUZE account");
 define("_FUZE_ADMIN_USER_LOGIN_BTN","Login on FUZE as this user");
 
-
+// ADMIN ERRORS
 define("_FUZE_ADMIN_ERROR_REGISTRATION_UNKNOWN","An unknown error occured during registration, please try again later.");
 define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Could not fetch user data currently, please try again later.");
 
@@ -139,7 +139,7 @@ define("_FUZE_PROF_ERROR_REMOVE_AUTHORISATION", "You are not permitted to remove
 define("_FUZE_PROF_ERROR_REMOVE_HAPPENING_NOW", "You are not permitted to remove a meeting that is due for now.");
 define("_FUZE_PROF_MEETING_EDIT_ERROR", "You are not permitted to edit this meeting or this meeting could not be found in the system.");
 
-## EMAIL & CALENDAR NOTIFICATIONS
+// EMAIL & CALENDAR NOTIFICATIONS
 // PREPARING VARIABLES
 $email_site_name = trim($GLOBALS['configuration']['site_name']);
 $email_site_motto = trim($GLOBALS['configuration']['site_motto']);

@@ -17,7 +17,7 @@ define("_FUZE_ADMIN_USER_CREATE_BTN","Δημιουργία λογαριασμο�
 define("_FUZE_ADMIN_USER_SUSPEND_BTN","Διακοπή αυτού του FUZE λογαριασμού");
 define("_FUZE_ADMIN_USER_LOGIN_BTN","Συνδεθείτε στο FUZE ως αυτός ο χρήστης");
 
-
+// ADMIN ERRORS
 define("_FUZE_ADMIN_ERROR_REGISTRATION_UNKNOWN","Παρουσιάστηκε άγνωστο σφάλμα κατά τη διαδικασία εγγραφής, παρακαλώ δοκιμάστε αργότερα.");
 define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Δεν ήταν δυνατή η συλλογή δεδομένων για αυτόν το χρήστη, παρακαλώ δοκιμάστε αργότερα.");
 
@@ -134,13 +134,13 @@ define("_FUZE_PROF_ERROR_REMOVE_AUTHORISATION", "Δεν επιτρέπεται �
 define("_FUZE_PROF_ERROR_REMOVE_HAPPENING_NOW", "Δεν επιτρέπεται να διαγράψετε συναντήσεις οι οποίες είναι προγραμματισμένες για τόσο σύντομα.");
 define("_FUZE_PROF_MEETING_EDIT_ERROR", "Δεν επιτρέπεται να τροποποιήσετε αυτήν τη συνάντηση ή δε βρέθηκε αρχείο αυτής της συνάντησης.");
 
-## EMAIL & CALENDAR NOTIFICATIONS
+// EMAIL & CALENDAR NOTIFICATIONS
 // PREPARING VARIABLES
 $email_site_name = trim($GLOBALS['configuration']['site_name']);
 $email_site_motto = trim($GLOBALS['configuration']['site_motto']);
 $email_timestamp = date('r', time());
-$email_host = G_SERVERNAME; //$GLOBALS['HTTP_ENV_VARS']['HTTP_HOST'];
-$email_host_address = $email_host; //'http://' . $email_host . '/www/';
+$email_host = G_SERVERNAME;
+$email_host_address = $email_host;
 $email_contact_address = $email_host_address . 'index.php?ctg=contact';
 $html_wrapper_prefix = '<HTML><HEAD></HEAD><BODY>';
 $html_wrapper_suffix = '</BODY></HTML>';

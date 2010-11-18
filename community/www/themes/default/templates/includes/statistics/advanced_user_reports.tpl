@@ -57,7 +57,6 @@
        <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.course_status}
         {if !$T_CONFIGURATION.disable_tooltip}
-         <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
          <span class = "tooltipSpan"></span>
         {/if}
        </a>
@@ -67,7 +66,6 @@
        <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.lesson_status}
         {if !$T_CONFIGURATION.disable_tooltip}
-         <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
          <span class = "tooltipSpan"></span>
         {/if}
        </a>
@@ -81,7 +79,6 @@
      {/if}
      {if $item.column == $T_EDIT_LINK || !$T_EDIT_LINK && $item.column=='branch'}
       {if !$T_CONFIGURATION.disable_tooltip}
-       <img class = "tooltip" border = "0" src = "images/others/tooltip_arrow.gif" height = "15" width = "15"/>
        <span class = "tooltipSpan"></span>
       {/if}
       </a>

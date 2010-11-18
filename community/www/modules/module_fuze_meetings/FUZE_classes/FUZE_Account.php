@@ -114,8 +114,8 @@ class FUZE_Account extends FUZE_AbstractClass {
       $success = true;
     }
     elseif (is_string($account_details)) {
-
-
+     // This means that some error occured in the process and 
+     // now the error message has propagated here.
      $success = $account_details;
     }
   }

@@ -2,8 +2,8 @@
 <module>
 	<title>The FUZE meetings module</title>
 	<author>Athanasios Fotoglidis</author>
-	<date>2010-11-17</date>
-	<version>1.0.2</version>
+	<date>2010-11-18</date>
+	<version>1.0.3</version>
 	<description>This module allows the configuration and managements of conference meetings via the FUZE service.</description>
 	<className>module_fuze_meetings</className>
 	<requires>3.6.7</requires>

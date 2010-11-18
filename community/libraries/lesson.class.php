@@ -2149,51 +2149,6 @@ class EfrontLesson
   return $lessonUsers;
  }
  public function getLessonTimesForUsers() {
-/*
-
-		$scormTimes = eF_getTableData("scorm_data sd, content c", "sd.total_time", "c.id=sd.content_ID and users_LOGIN = '".$user['login']."' and c.lessons_ID=".$this -> lesson['id']);
-
-		$scormSeconds = 0;
-
-		foreach ($scormTimes as $value) {
-
-			$scormSeconds += convertTimeToSeconds($value['total_time']);
-
-		}
-
-		$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
-
-		$userTimes = $userTimes[$this -> lesson['id']][$user['login']];
-
-
-
-		if ($userTimes['total_seconds'] < $scormSeconds) {
-
-			$newTimes = convertSecondsToTime($scormSeconds);
-
-			$newTimes['total_seconds'] = $scormSeconds;
-
-			$newTimes['accesses']	   = $userTimes['accesses'];
-
-			$userTimes = $newTimes;
-
-		}
-
-
-
-		$userTimes['time_string'] = '';
-
-		if ($userTimes['total_seconds']) {
-
-			!$userTimes['hours']   OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
-
-			!$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
-
-			!$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
-
-		}
-
-*/
   $usersTimes = array();
   $timesReport = new EfrontTimes();
   $result = $timesReport -> getLessonSessionTimesForUsers($this -> lesson['id']);

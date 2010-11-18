@@ -2445,7 +2445,7 @@ class EfrontCompletedTest extends EfrontTest
         //Correct each question and handle uploaded files, if any (@todo)
   $this -> completedTest['score'] = 0; //Added to check EC-73
         foreach ($this -> questions as $id => $question) {
-         $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers		
+         $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
          if ($question -> question['type'] == 'raw_text') {
     if ($question -> settings['force_correct'] != 1) {
      if ($recentlyCompleted -> redoOnlyWrong != 1) {

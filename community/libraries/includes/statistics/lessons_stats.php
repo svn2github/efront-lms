@@ -770,6 +770,119 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workBook -> close();
     exit(0);
 } else if (isset($_GET['pdf']) && $_GET['pdf'] == 'lesson') {
+ $groupname = $branchName = false;
+ try {
+  $group = new EfrontGroup($_GET['group_filter']);
+  $groupname = $group -> group['name'];
+ } catch (Exception $e) {/*Do nothing if group filters are not specified*/}
+ $reportTitle = _REPORT.": ".$infoLesson -> lesson['name'];
+ if ($groupname) {
+  $reportTitle .= " "._FORGROUP.": ".$groupname;
+  !$branchName OR $reportTitle .= _ANDBRANCH.": ".$branchName;
+ } elseif ($branchName) {
+  $reportTitle .= " "._FORBRANCH.": ".$branchName;
+ }
+ $directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
+ $languages = EfrontSystem :: getLanguages(true);
+    // Get only filtered users
+    $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+    $filteredUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+    $students = array();
+    $professors = array();
+    foreach ($filteredUsers as $user) {
+     if ($user['user_type'] == "student") {
+      $students[$user['login']] = $user;
+     } else if ($user['user_type'] == "professor") {
+      $professors[$user['login']] = $user;
+     }
+    }
+    if ($groupname || $branchName) {
+     $studentsSize = sizeof($students);
+        $professorsSize = sizeof($professors);
+    } else {
+        $studentsSize = sizeof($infoLesson -> getUsers('student'));
+        $professorsSize = sizeof($infoLesson -> getUsers('professor'));
+    }
+ $pdf = new EfrontPdf($reportTitle);
+ $info = array(array(_LESSON, $infoLesson -> lesson['name']),
+      array(_CATEGORY, $directionName[0]['name']),
+      array(_STUDENTS, $studentsSize),
+      array(_PROFESSORS, $professorsSize),
+      array(_LANGUAGE, $languages[$infoLesson -> lesson['languages_NAME']]),
+      array(_ACTIVENEUTRAL, $infoLesson -> lesson['active'] ? _YES : _NO));
+ $pdf -> printInformationSection(_BASICINFO, $info);
+ if ($lessonInfo['comments'] || $lessonInfo['messages'] || $lessonInfo['chatmessages']) {
+  $info = array(array(_COMMENTS, ($lessonInfo['comments'])),
+       array(_MESSAGES, $lessonInfo['messages']),
+       array(_CHATMESSAGES, $lessonInfo['chatmessages']));
+  $pdf -> printInformationSection(_LESSONPARTICIPATIONINFO, $info);
+ }
+ $info = array(array(_THEORY, $lessonInfo['theory']),
+      array(_EXAMPLES, $lessonInfo['examples']));
+ if ($GLOBALS['configuration']['disable_projects'] != 1) {
+  $info[] = array(_PROJECTS, $lessonInfo['projects']);
+ }
+ if ($GLOBALS['configuration']['disable_tests'] != 1) {
+  $info[] = array(_TESTS, $lessonInfo['tests']);
+ }
+ $pdf -> printInformationSection(_LESSONCONTENTINFO, $info);
+ $formatting = array(_USER => array('width' => '25%', 'fill' => false),
+      _TIMEINLESSON => array('width' => '15%', 'fill' => false),
+      _CONTENT => array('width' => '10%', 'fill' => false, 'align' => 'C'),
+      _TESTS => array('width' => '10%', 'fill' => false, 'align' => 'C'),
+      _PROJECTS => array('width' => '10%', 'fill' => false, 'align' => 'C'),
+      _COMPLETED => array('width' => '20%', 'fill' => false),
+      _SCORE => array('width' => '10%', 'fill' => false, 'align' => 'R'));
+ $data = array();
+ foreach ($students as $user) {
+  $data[] = array(_USER => formatLogin($user['login']),
+      _TIMEINLESSON => $user['time_in_lesson']['time_string'],
+      _CONTENT => formatScore($user['overall_progress']['percentage'])."%",
+      _TESTS => formatScore($user['test_status']['percentage'])."%",
+      _PROJECTS => formatScore($user['project_status']['percentage'])."%",
+      _COMPLETED => $user['completed'] ? _YES.', '._ON.' '.formatTimestamp($user['timestamp_completed']) : _NO,
+      _SCORE => formatScore($user['score'])."%");
+    }
+ $pdf->printDataSection(_USERSINFO, $data, $formatting);
+ $data = array();
+ foreach ($professors as $user) {
+  $data[] = array(_USER => formatLogin($user['login']),
+      _TIMEINLESSON => $user['time_in_lesson']['time_string']);
+    }
+ $pdf->printDataSection(_PROFESSORSINFO, $data, $formatting);
+    if ($GLOBALS['configuration']['disable_tests'] != 1) {
+  $formatting = array(_USER => array('width' => '25%', 'fill' => false),
+       _SCORE => array('width' => '15%', 'fill' => false));
+  foreach ($testsInfo as $id => $info) {
+   $data = array();
+   foreach ($info['done'] as $results) {
+    $avgScore[] = $results['score'];
+    $data[] = array(_USER => formatLogin($results['users_LOGIN']),
+        _SCORE => formatScore(round($results['score'], 2))."%");
+   }
+   $data[] = array(_USER => '',
+       _SCORE => formatScore(round(array_sum($avgScore) / sizeof($avgScore), 2))."%");
+   $pdf->printDataSection(_TESTSINFORMATION.': '.$info['general']['name'], $data, $formatting);
+  }
+  if (sizeof($lessonQuestions) > 0) {
+   $formatting = array(_QUESTION => array('width' => '50%', 'fill' => false),
+        _QUESTIONTYPE => array('width' => '20%', 'fill' => false),
+        _DIFFICULTY => array('width' => '10%', 'fill' => false, 'align' => 'C'),
+        _TIMESDONE => array('width' => '10%', 'fill' => false, 'align' => 'C'),
+        _AVERAGESCORE => array('width' => '10%', 'fill' => false, 'align' => 'C'));
+   $data = array();
+   foreach ($questionsInfo as $id => $questionInfo) {
+    $data[] = array(_QUESTION => $questionInfo['text'],
+        _QUESTIONTYPE => Question :: $questionTypes[$questionInfo['type']],
+        _DIFFICULTY => Question :: $questionDifficulties[$questionInfo['difficulty']],
+        _TIMESDONE => $questionInfo['times_done'],
+        _AVERAGESCORE => formatScore($questionInfo['avg_score'])."%");
+      }
+   $pdf->printDataSection(_QUESTIONSINFORMATION, $data, $formatting);
+        }
+    }
+ $pdf -> OutputPdf('lesson_form_'.$infoLesson -> lesson['name'].'.pdf');
+ exit;
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true);
     $pdf -> SetCreator(PDF_CREATOR);
     $pdf -> SetAuthor(PDF_AUTHOR);
@@ -780,20 +893,25 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $pdf -> SetHeaderMargin(PDF_MARGIN_HEADER);
     $pdf -> SetFooterMargin(PDF_MARGIN_FOOTER);
     $pdf -> setImageScale(PDF_IMAGE_SCALE_RATIO); //set image scale factor
+
     $pdf -> setHeaderFont(Array('FreeSerif', 'I', 11));
     $pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
     $pdf -> setHeaderData('','','', _STATISTICSFORLESSON.": ".$infoLesson -> lesson['name']);
+
     //initialize document
     $pdf -> AliasNbPages();
     $pdf -> AddPage();
+
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0, 0, 0);
+
     if (isset($_GET['group_filter']) && $_GET['group_filter']) {
         try {
             $group = new EfrontGroup($_GET['group_filter']);
             $groupname = str_replace(" ", "_" , $group -> group['name']);
         } catch (Exception $e) {
             $groupname = false;
+
         }
     }
     if (G_VERSIONTYPE == 'enterprise' && isset($_GET['branch_filter']) && $_GET['branch_filter']) {
@@ -804,6 +922,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $branchName = false;
         }
     }
+
     if ($groupname || $branchName) {
         $celltitle = "";
         if ($groupname) {
@@ -820,43 +939,55 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     } else {
         $pdf -> Cell(100, 10, _BASICINFO, 0, 1, L, 0);
     }
+
     $directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
     $languages = EfrontSystem :: getLanguages(true);
+
     // Get only filtered users
     $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
     $filteredUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+
     $students = array();
     $professors = array();
     foreach ($filteredUsers as $user) {
      if ($user['user_type'] == "student") {
       $students[$user['login']] = $user;
+
      } else if ($user['user_type'] == "professor") {
       $professors[$user['login']] = $user;
      }
     }
+
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> Cell(70, 5, _LESSON, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoLesson -> lesson['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _CATEGORY, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $directionName[0]['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+
     if ($groupname || $branchName) {
         $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($students).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
         $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($professors).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+
     } else {
         $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($infoLesson -> getUsers('student')).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
         $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($infoLesson -> getUsers('professor')).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     }
+
     $pdf -> Cell(70, 5, _PRICE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoLesson -> lesson['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _LANGUAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $languages[$infoLesson -> lesson['languages_NAME']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _ACTIVENEUTRAL, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoLesson -> lesson['active'] ? _YES : _NO, 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0,0,0);
     $pdf -> Cell(100, 10, _LESSONPARTICIPATIONINFO, 0, 1, L, 0);
+
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> Cell(70, 5, _COMMENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $lessonInfo['comments'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _MESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $lessonInfo['messages'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(70, 5, _CHATMESSAGES, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $lessonInfo['chatmessages'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
+
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0,0,0);
     $pdf -> Cell(100, 10, _LESSONCONTENTINFO, 0, 1, L, 0);
+
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> Cell(90, 5, _THEORY, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(40, 5, $lessonInfo['theory'].' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
     if ($GLOBALS['configuration']['disable_projects'] != 1) {
@@ -871,6 +1002,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $pdf -> AddPage('L');
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> Cell(60, 12, _USERSINFO, 0, 1, L, 0);
+
     $pdf -> SetFont("FreeSerif", "B", 10);
     $pdf -> Cell(70, 7, _HUMANNAME, 0, 0, L, 0);
     //$pdf -> Cell(50, 7, _LESSONROLE,0, 0, L, 0);
@@ -882,9 +1014,12 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     if ($GLOBALS['configuration']['disable_projects'] != 1) {
         $pdf -> Cell(30, 7, _PROJECTS, 0, 0, C, 0);
     }
+
     $pdf -> Cell(30, 7, _COMPLETED, 0, 0, C, 0);
     $pdf -> Cell(30, 7, _GRADE, 0, 1, C, 0);
+
     $roles = EfrontLessonUser :: getLessonsRoles(true);
+
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> SetTextColor(0, 0, 255);
     foreach ($students as $user) {
@@ -901,12 +1036,15 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $pdf -> Cell(30, 7, formatScore($user['completed'])."%", 0, 0, C, 0);
         $pdf -> Cell(30, 7, formatScore($user['score'])."%", 0, 1, C, 0);
     }
+
     $pdf -> SetFont("FreeSerif", "B", 12);
     $pdf -> SetTextColor(0, 0, 0);
     $pdf -> Cell(60, 12, _PROFESSORSINFO, 0, 1, L, 0);
+
     $pdf -> SetFont("FreeSerif", "B", 10);
     $pdf -> Cell(70, 7, _HUMANNAME, 0, 0, L, 0);
     $pdf -> Cell(30, 7, _TIME, 0, 1, L, 0);
+
     $pdf -> SetFont("FreeSerif", "", 10);
     $pdf -> SetTextColor(0, 0, 255);
     foreach ($professors as $user) {
@@ -920,6 +1058,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $pdf -> AddPage('L');
             $pdf -> SetFont("FreeSerif", "B", 12);
             $pdf -> Cell(60, 12, _TESTSINFORMATION, 0, 1, L, 0);
+
             foreach ($testsInfo as $id => $info) {
                 $pdf -> SetFont("FreeSerif", "B", 10);
                 $pdf -> Cell(60, 12, $info['general']['name'], 0, 1, L, 0);

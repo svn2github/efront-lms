@@ -1336,7 +1336,7 @@ class module_fuze_meetings extends EfrontModule {
      $latest_meetings [$meeting_id]['starttime'] = _FUZE_TIME_CPANEL_NOW;
      $latest_meetings [$meeting_id]['link'] = _FUZE_STUDENT_CPANEL_GO_TO_MEETING;
      $attendee_email = urlencode($this->_current_user_email);
-     $latest_meetings [$meeting_id]['url'] = $meeting->getAttendUrl() . "?ae={$this->_current_user_email}&an={$attendee_email}";
+     $latest_meetings [$meeting_id]['url'] = $meeting->getAttendUrl() . "?email={$this->_current_user_email}&name={$attendee_email}";
     }
     else {
      $latest_meetings [$meeting_id]['link'] = 0;

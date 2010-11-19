@@ -119,7 +119,7 @@
           {$smarty.const._TIMESMORE}
          {/if}
       {else}
-       {$smarty.const._FEEDBACKISDONE}
+       <div class = "mediumHeader">{$smarty.const._THANKYOUFORCOMPLETING} "{$T_TEST_DATA->test.name}"</div>
       {/if}
      </td></tr>
       <tr><td>

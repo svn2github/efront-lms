@@ -282,178 +282,42 @@ if (isset($_GET['excel'])) {
     $workBook -> close();
     exit(0);
 } else if (isset($_GET['pdf'])) {
-    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true);
-    $pdf -> SetCreator(PDF_CREATOR);
-    $pdf -> SetAuthor(PDF_AUTHOR);
-    //set margins
-    $pdf -> SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-    //set auto page breaks
-    $pdf -> SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-    $pdf -> SetHeaderMargin(PDF_MARGIN_HEADER);
-    $pdf -> SetFooterMargin(PDF_MARGIN_FOOTER);
-    $pdf -> setImageScale(PDF_IMAGE_SCALE_RATIO); //set image scale factor
-    $pdf -> setHeaderFont(Array('FreeSerif', 'I', 11));
-    $pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-    $pdf -> setHeaderData('','','', _STATISTICSFORCOURSE.": ".$infoCourse -> course['name']);
-    //initialize document
-    $pdf -> AliasNbPages();
-    $pdf -> AddPage();
-    $pdf -> SetFont("FreeSerif", "B", 12);
-    $pdf -> SetTextColor(0, 0, 0);
-    if (isset($_GET['group_filter']) && $_GET['group_filter']) {
-        try {
-            $group = new EfrontGroup($_GET['group_filter']);
-            $groupname = str_replace(" ", "_" , $group -> group['name']);
-        } catch (Exception $e) {
-            $groupname = false;
-        }
-    }
-    if (G_VERSIONTYPE == 'enterprise' && isset($_GET['branch_filter']) && $_GET['branch_filter']) {
-        try {
-            $branch = new EfrontBranch($_GET['branch_filter']);
-            $branchName = $branch -> branch['name'];
-        } catch (Exception $e) {
-            $branchName = false;
-        }
-    }
-    if ($groupname || $branchName) {
-        $celltitle = "";
-        if ($groupname) {
-            $celltitle .= _BASICINFO . " " . _FORGROUP . ": ". $groupname . " ";
-        }
-        if ($branchName) {
-            if ($celltitle != "") {
-                $celltitle .= _ANDBRANCH. ": ". $branchName . " ";
-            } else {
-                $celltitle .= _BASICINFO . " " . _FORBRANCH . ": ". $branchName . " ";
-            }
-        }
-        $pdf -> Cell(100, 10, $celltitle, 0, 1, L, 0);
-    } else {
-        $pdf -> Cell(100, 10, _BASICINFO, 0, 1, L, 0);
-    }
-    $pdf -> SetFont("FreeSerif", "", 10);
-    $pdf -> Cell(70, 5, _COURSE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoCourse -> course['name'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _CATEGORY, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['direction'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _LESSONS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['lessons'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    if ($groupname || $branchName) {
-        $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($studentLogins).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, sizeof($professorLogins).' ', 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    } else {
-        $pdf -> Cell(70, 5, _STUDENTS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['students'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-        $pdf -> Cell(70, 5, _PROFESSORS, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['professors'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    }
-    $pdf -> Cell(70, 5, _PRICE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $infoCourse -> course['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    $pdf -> Cell(70, 5, _LANGUAGE, 0, 0, L, 0);$pdf -> SetTextColor(0, 0, 255);$pdf -> Cell(70, 5, $basicInfo['language'], 0, 1, L, 0);$pdf -> SetTextColor(0, 0, 0);
-    //users
-    $pdf -> AddPage('L');
-    $pdf -> SetFont("FreeSerif", "B", 12);
-    $pdf -> Cell(100, 10, _USERSINFO, 0, 1, L, 0);
-    $pdf -> SetFont("FreeSerif", "B", 10);
-    $pdf -> Cell(45, 7, _LOGIN, 0, 0, L, 0);
-    $pdf -> Cell(45, 7, _FIRSTNAME, 0, 0, L, 0);
-    $pdf -> Cell(45, 7, _SURNAME, 0, 0, L, 0);
-    $pdf -> Cell(45, 7, _COURSEROLE, 0, 0, L, 0);
-    $pdf -> Cell(45, 7, _SCORE, 0, 0, C, 0);
-    $pdf -> Cell(45, 7, _COMPLETED, 0, 1, C, 0);
-    $roles = EfrontLessonUser :: getLessonsRoles(true);
-    $pdf -> SetFont("FreeSerif", "", 10);
-    $pdf -> SetTextColor(0, 0, 255);
+ $groupname = $branchName = false;
+ try {
+  $group = new EfrontGroup($_GET['group_filter']);
+  $groupname = $group -> group['name'];
+ } catch (Exception $e) {/*Do nothing if group filters are not specified*/}
+ $reportTitle = _REPORT.": ".$infoCourse -> course['name'];
+ if ($groupname) {
+  $reportTitle .= " "._FORGROUP.": ".$groupname;
+  !$branchName OR $reportTitle .= _ANDBRANCH.": ".$branchName;
+ } elseif ($branchName) {
+  $reportTitle .= " "._FORBRANCH.": ".$branchName;
+ }
+//	$directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
+ $languages = EfrontSystem :: getLanguages(true);
+ $pdf = new EfrontPdf($reportTitle);
+ $info = array(array(_COURSE, $infoCourse -> course['name']),
+      array(_CATEGORY, $directionsPaths[$infoCourse -> course['directions_ID']]),
+      array(_LESSONS, $infoCourse -> course['num_lessons']),
+      array(_LANGUAGE, $languages[$infoCourse -> course['languages_NAME']]));
+ $pdf -> printInformationSection(_BASICINFO, $info);
+ $roles = EfrontLessonUser :: getLessonsRoles(true);
+ $formatting = array(_USER => array('width' => '25%', 'fill' => false),
+      _COURSEROLE => array('width' => '25%', 'fill' => false),
+      _COMPLETED => array('width' => '25%', 'fill' => false),
+      _SCORE => array('width' => '25%', 'fill' => false, 'align' => 'R'));
+ $data = array();
     $constraints = array('table_filters' => $stats_filters);
     $constraints['return_objects'] = false;
     $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
-    foreach ($users as $login => $info) {
-        $pdf -> Cell(45, 7, $info['login'], 0, 0, L, 0);
-        $pdf -> Cell(45, 7, $info['name'], 0, 0, L, 0);
-        $pdf -> Cell(45, 7, $info['surname'], 0, 0, L, 0);
-        $pdf -> Cell(45, 7, $roles[$info['user_type']], 0, 0, L, 0);
-        $pdf -> Cell(45, 7, formatScore($info['score'])."%", 0, 0, C, 0);
-        $pdf -> Cell(45, 7, $info['completed'] ? _YES : _NO, 0, 1, C, 0);
+ foreach ($users as $login => $info) {
+  $data[] = array(_USER => formatLogin( $info['login']),
+      _COURSEROLE=> $roles[$info['role']],
+      _COMPLETED => $info['completed'] ? _YES.', '._ON.' '.formatTimestamp($info['to_timestamp']) : _NO,
+      _SCORE => formatScore($info['score'])."%");
     }
-//COMMENTED OUT BECAUSE WE CHANGED THE REPORTING METHOD NOT TO INCLUDE LESSONS
-/*
-
-    //lessons
-
-    $pdf -> AddPage('L');
-
-    $pdf -> SetTextColor(0, 0, 0);
-
-    $pdf -> SetFont("FreeSerif", "B", 12);
-
-    $pdf -> Cell(100, 10, _LESSONS, 0, 1, L, 0);
-
-
-
-    $pdf -> SetFont("FreeSerif", "B", 10);
-
-    $pdf -> Cell(60, 7, _LESSON, 0, 0, L, 0);
-
-    if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
-
-        $pdf -> Cell(60, 7, _CONTENT, 0, 0, C, 0);
-
-        $pdf -> Cell(60, 7, _TESTS, 0, 0, C, 0);
-
-        $pdf -> Cell(60, 7, _PROJECTS, 0, 1, C, 0);
-
-    } elseif ($GLOBALS['configuration']['disable_tests'] != 1) {
-
-        $pdf -> Cell(60, 7, _CONTENT, 0, 0, C, 0);
-
-        $pdf -> Cell(60, 7, _TESTS, 0, 1, C, 0);
-
-    } elseif ($GLOBALS['configuration']['disable_projects']) {
-
-        $pdf -> Cell(60, 7, _CONTENT, 0, 0, C, 0);
-
-        $pdf -> Cell(60, 7, _PROJECTS, 0, 1, C, 0);
-
-    } else {
-
-        $pdf -> Cell(60, 7, _CONTENT, 0, 1, C, 0);
-
-    }
-
-
-
-    $pdf -> SetFont("FreeSerif", "", 10);
-
-    $pdf -> SetTextColor(0, 0, 255);
-
-    foreach ($lessonsInfo as $id => $info) {
-
-        $pdf -> Cell(60, 7, $info['name'], 0, 0, L, 0);
-
-        if ($GLOBALS['configuration']['disable_tests'] != 1 && $GLOBALS['configuration']['disable_projects'] != 1) {
-
-            $pdf -> Cell(60, 7, $info['content'].' ', 0, 0, C, 0);
-
-            $pdf -> Cell(60, 7, $info['tests'].' ', 0, 0, C, 0);
-
-            $pdf -> Cell(60, 7, $info['projects'].' ', 0, 1, C, 0);
-
-        } elseif ($GLOBALS['configuration']['disable_tests'] != 1) {
-
-            $pdf -> Cell(60, 7, $info['content'].' ', 0, 0, C, 0);
-
-            $pdf -> Cell(60, 7, $info['tests'].' ', 0, 1, C, 0);
-
-        } elseif ($GLOBALS['configuration']['disable_projects']) {
-
-            $pdf -> Cell(60, 7, $info['content'].' ', 0, 0, C, 0);
-
-            $pdf -> Cell(60, 7, $info['projects'].' ', 0, 1, C, 0);
-
-        } else {
-
-            $pdf -> Cell(60, 7, $info['content'].' ', 0, 1, C, 0);
-
-        }
-
-    }
-
-*/
-    $pdf -> Output();
-    exit(0);
+ $pdf->printDataSection(_USERSINFO, $data, $formatting);
+ $pdf -> OutputPdf('course_form_'.$infoCours -> course['name'].'.pdf');
+ exit;
 }

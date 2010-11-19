@@ -67,7 +67,9 @@ if ($_GET['op'] == 'course_info') {
         }
 
         $currentCourse -> persist();
-        echo urldecode($_GET['value']);
+        $value = htmlspecialchars(rawurldecode($_GET['value']));
+  $value = str_replace ("\n","<br />", $value);
+        echo $value;
         exit;
     }
 

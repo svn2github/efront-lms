@@ -2846,7 +2846,7 @@ define("_MYGROUPS", "my Groups");
 define("_AVAILABLE", "Available");
 define("_NEVER", "Never");
 define("_CLASSMATES","Classmates");
-define("_LESSONPEOPLE", "Lesson users");
+define("_LESSONPEOPLE", "People connection");
 define("_NORMALIZEDIMENSIONS","Normalize dimensions");
 define("_WASASSIGNEDTHECOURSE","was assigned the course");
 define("_WILLBETEACHINGCOURSE","will be teaching the course");
@@ -3951,4 +3951,6 @@ define("_PROJECTSAVERAGE", "Average score in all projects");
 define("_SWITCHTOTREEVIEW", "Switch to tree view");
 define("_SWITCHTOSIMPLEVIEW", "Switch to simple view");
 define("_BCCRECIPIENTS", "Undisclosed recipients (bcc)");
+define("_RESULTSFOR", "Results for");
+define("_THANKYOUFORCOMPLETING", "Thank you for completing");
 ?>

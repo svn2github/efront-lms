@@ -16,7 +16,7 @@
   </span>
  </div>
  {else}
- <div>{$smarty.const._NOREPORTSINTHESYSTEM}<a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&tab=builder&add=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDREPORT}', 0)">{$smarty.const._CREATEONE}</a></div>
+ <div>{$smarty.const._NOREPORTSFOUNDINTHESYSTEM}. {if $smarty.session.s_type=='administrator'}<a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&tab=builder&add=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDREPORT}', 0)">{$smarty.const._YOUMAYCREATEONE}</a>{/if}</div>
  {/if}
  {if $T_REPORT}
 

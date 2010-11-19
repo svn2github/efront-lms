@@ -3953,4 +3953,6 @@ define("_SWITCHTOSIMPLEVIEW", "Switch to simple view");
 define("_BCCRECIPIENTS", "Undisclosed recipients (bcc)");
 define("_RESULTSFOR", "Results for");
 define("_THANKYOUFORCOMPLETING", "Thank you for completing");
+define("_NOREPORTSFOUNDINTHESYSTEM", "No reports found in the system");
+define("_YOUMAYCREATEONE", "You may create one");
 ?>

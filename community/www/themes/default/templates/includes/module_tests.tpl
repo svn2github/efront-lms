@@ -1325,7 +1325,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          {/if}
              </td></tr>
          {foreachelse}
-         <tr class = "defaultRowHeight oddRowColor"><td colspan = "7" class = "emptyCategory">{$smarty.const._NOTESTSSETFORTHISUNIT}</td></tr>
+         <tr class = "defaultRowHeight oddRowColor"><td colspan = "7" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
          {/foreach}
      </table>
  {/capture}

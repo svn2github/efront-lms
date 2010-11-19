@@ -384,7 +384,7 @@ class EfrontUnit extends ArrayObject
 
      */
     public function delete() {
-        if ($this['ctg_type'] == 'tests') {
+        if ($this['ctg_type'] == 'tests' || $this['ctg_type'] == 'feedback') {
             $result = eF_getTableData("tests", "id, content_ID", "content_ID=".$this['id']);
             if (sizeof($result) > 0) {
                 $test = new EfrontTest($result[0]);

@@ -89,7 +89,7 @@
 - Added ability to toggle between "tree" and "simple" view in organization charts (enterprise edition)
 - Added a 'To' field when sending e-mails with 'undisclosed-recipients' for avoiding mail server to reject the e-mail
 - Fixed bug in counting maximum number of license users
-
+- Fixed issue about not deleting a feedback from tests table when deleting a feedback unit
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

@@ -37,13 +37,14 @@ if ($currentUser -> user['user_type'] == 'administrator') {
  }
 }
 
-if ($currentUser -> user['user_type'] != 'administrator' && $isSupervisor) {
- if ($currentUser -> aspects['hcd'] -> supervisesEmployee($_GET['sel_user'])) {
-  $validUsers[] = $_GET['sel_user'];
- }
-}
 
 if (isset($_GET['sel_user'])) {
+ if ($currentUser -> user['user_type'] != 'administrator' && $isSupervisor) {
+  if ($currentUser -> aspects['hcd'] -> supervisesEmployee($_GET['sel_user'])) {
+   $validUsers[] = $_GET['sel_user'];
+  }
+ }
+
  if (in_array($_GET['sel_user'], array_keys($validUsers))) {
   $infoUser = EfrontUserFactory :: factory($_GET['sel_user']);
  } else {

@@ -1,35 +1,56 @@
-=== Version 3.6.7 ===
-- Updated calendar to support for globals, private and various types of events
+=== Version 3.6.7 build 9006 ===
+- Added latest TCPDF libraries
+- Added brand new PDF certificates
+- Converted PDF reports to use the new pdf libraries
+- Updated calendar to support for globals, group, course, branch and private events
+- New time reporting infrastructure
+- Enabled restriction on access to content files without a user being logged in
+- Added handle to move blocks in control panel and dashboard
+- Added new theme: blue_html5 and made it default
+- Added new module: workbook
+- Added new module: jobs manager (Enterprise edition)
+- Added new module: crossword (thanks skippybosco)
+- Added new module: administrator tools
+- Added new module: journal
+- Added capability for mass deleting personal messages
+- Added bulk course completion option
+- 'All material' is now by default selected
+- Projects now allow for decimal or fractional score
+- Added option in system settings for periodic updater period
+- Added projects icon on the student's control panel so that the user can access expired projects
+- Expand/collapse status in "My courses" list now remembers status via cookie
+- Upgraded tinymce editor to 3.3.9.2
+- Community++ edition now supports subscriptions (Community++ and above editions)
+- Added question response details option in test reports (Community++ and above editions)
+- Added checkbox in course/lessons reports to get users from subbranches as well (Enterprise edition)
+- Added supervisor approval for course enrollments functionality (Enterprise edition)
+- Added new user form page and PDF export (Enterprise edition)
+- Added ability to toggle between "tree" and "simple" view in organization charts (Enterprise edition)
+- Installing modules now handles existing folder error
 - Fixed group assignment with common user type causing error when the group has courses
 - Fixed issue about editing popup parameters in scorm units
 - Fix for IE7 bug issuing false non-secure items warning under https when viewing the sorted table.
-- Fixed issue in course completion page about students with professor role to a course
-- Fixed issue about not displaying in list a forum of deactivated/archived lesson
+- Fixed course completion page for students with professor role to a course
+- Fixed not displaying in list a forum of deactivated/archived lesson
 - Fixed the "material in progress" select box disappearing when the user has completed all assigned lessons/courses and has also access to others as a professor
 - Fixed issue in course reports about js error in toggling course row in user (ticket 470)
-- Fixed issue about assigning all courses with a user
+- Fixed issue about assigning all courses to a user
 - Fixed stripping html tags in notifications without html option checked
-- Fixed issue in educational version about autocompleting recipients
-- Fixed issue about downloading language files
+- Fixed issue about autocompleting recipients (educational edition)
+- Fixed downloading language files issue
 - Fixed administrator user types displaying course-specific tabs in learning status page
-- Community++ now supports subscriptions
 - Fixed issue about displaying test name in preview/print test
 - Fixed issue in search_courses about join
-- Installing modules now handles existing folder error
 - Fixed course import leaving out lesson files
-- Fixed issue about exporting certificates to pdf format(EC-142)
+- Fixed exporting certificates to pdf format issue
 - Fixed issue about displaying footer when option is unchecked in System settings
-- Enabled restriction on access to content files without a user being logged in
 - Removed "lesson users" option from professor's administration when a lesson is in course
 - Lessons in "my courses" list is now being sorted by name
-- Projects now allow for decimal or fractional score
-- Fixed shared files inconsistency with lesson
-- Removed force_br_newlines that causes problems in alignment in IE
-- Added padding 0 for <p> in editor needed for the above change
-- Fixed issue about redo only wrong answered questions in tests
-- Fixed issue about converting external links with encrypt url option
+- Fixed shared files inconsistency with respective lesson
+- Removed force_br_newlines that causes problems in alignment in IE and added padding 0 for <p> in editor needed for this
+- Fixed problems when redoing only wrong answered questions in tests
+- Fixed converting external links with encrypt url option issue
 - Fixed issue with group key lessons assignment when assign_profile_to_new is set
-- Added question response details option in test reports
 - Fixed lesson/course skills being deleted along with lesson/course in enterprise edition
 - Fixed issue about sorting files by name by default
 - Fixed archive users being taken into account during lesson assignment
@@ -39,29 +60,13 @@
 - Added option in editing job position about applying new lessons/courses to users already belongs position
 - Fixed unique lessons sharing arbitrary folder error
 - Fixed issue in statistics about role different from basic type
-- Added capability for mass deleting personal messages
 - Fixed issue about notifications for specific course event
-- Added latest TCPDF libraries
-- Added bulk course completion option
 - Fixed issue in doing surveys for students when there not in lesson
-- 'All material' is now by default selected
-- Added checkbox in course/lessons reports to get users from subbranches as well (enterprise edition)
 - Fixed issue with first unseen unit when first node of lesson was seen and inactive
-- New time reporting infrastructure
-- Added option in system settings for periodic updater period
-- Added projects icon on the student's control panel so he/she can access expired projects
-- Added new theme: blue_html5 and made it default
-- Added new module: workbook
-- Added new module: jobs manager
-- Added new module: crossword
-- Added new module: administrator tools
-- Added new module: journal
 - Removed ability to switch embed type for SCORM 2004 contents
 - Fixed not registering events for employee hire on/left on changes (Enterprise edition)
 - Extended payment notifications to include lesson/course information
-- Expand/collapse status in "My courses" list now remembers status via cookie
 - Lessons and courses now autocomplete by default
-- Upgraded tinymce editor to 3.3.9.2
 - Added an entry for phplivedocx_config.php in check status
 - Fixed completeCourse keeping completed date when it is set (when only score changed for example)
 - Fixed when updating a course's category, propagate the change to the course's instances as well
@@ -69,26 +74,22 @@
 - Added event for user deactivation
 - Fixed issue about system timelines and custom user types that had no access permissions
 - Fixed course notifications being sent out to archived users
-- Added code for checking if unique_key in groups is unique
+- Added code for checking if unique_key in groups is actually unique
 - Fixed issues in custom user type creation
-- Added supervisor approval for course enrollments functionality (Enterprise edition)
 - Fixed issue in event messages about link to work for different roles between lessons
 - Removed ability to switch course only / direct access to lessons that are part of courses / have already users enrolled
 - Files are optionally exported along with lesson
 - Fixed importing lesson not respecting share folder setting
-- Fixed issue about hired and left date in events
-- Fixed issue about displaying archived users in job positions
-- Added handle to move blocks in control panel and dashboard
-- Added brand new PDF certificates
-- Simplified advanced group properties (enterprise edition)
+- Fixed issue about hired and left date in events (Enterprise edition)
+- Fixed issue about displaying archived users in job positions (Enterprise edition)
+- Simplified advanced group properties (Enterprise edition)
 - Fixed issue about IIS 7.x and setting header Content-length in certificates creation
-- Fixed job descriptions not assigning associated courses/lessons to all users (enterprise edition)
+- Fixed job descriptions not assigning associated courses/lessons to all users (Enterprise edition)
 - Fixed status report not updating missing language even after changing _HEADERLANGUAGETAG
 - Fixed issue about Date field in e-mail headers that could result in spam marked e-mails (http://pear.php.net/manual/en/package.mail.mail.send.php) 
-- Fixed issue about score 10000 in raw text questions when redo only wrong (ticket 709)
-- Added ability to toggle between "tree" and "simple" view in organization charts (enterprise edition)
+- Fixed issue about scores > 100 in raw text questions when redo only wrong (ticket 709)
 - Added a 'To' field when sending e-mails with 'undisclosed-recipients' for avoiding mail server to reject the e-mail
-- Fixed bug in counting maximum number of license users
+- Fixed bug when counting maximum number of license users
 - Fixed issue about not deleting a feedback from tests table when deleting a feedback unit
 - Fixed issue about feedback in reports
 - Lesson modes in course can't be changed when there are users enrolled to the course (educational/enterprise editions)

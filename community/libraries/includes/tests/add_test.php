@@ -138,7 +138,7 @@ if (!$skillgap_tests) {
     $form -> addElement('advcheckbox', 'assign_to_new', null, null, null, array(0, 1));
     $form -> addElement('advcheckbox', 'automatic_assignment', null, null, null, array(0, 1));
 
-    $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON lessons.id = lessons_ID", "questions.*, lessons.name", "");
+    $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON lessons.id = lessons_ID", "questions.*, lessons.name", "lessons.archive=0");
 }
 $unitsToQuestionsDifficulties = array();
 foreach ($result as $value) {

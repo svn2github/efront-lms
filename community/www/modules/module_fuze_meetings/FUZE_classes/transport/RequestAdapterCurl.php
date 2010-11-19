@@ -95,7 +95,7 @@ class Request_Adapter_Curl extends Request_Adapter_Abstract {
 
 	 * 
 
-	 * @access private
+	 * @access protected
 
 	 */
  protected function _fetchReply ($options, $debug = false) {

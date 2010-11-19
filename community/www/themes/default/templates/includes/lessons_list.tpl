@@ -161,7 +161,7 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
       <table class = "lessonListOptions">
         <tr>
       {if $T_SUPERVISOR_APPROVALS}
-                 <td class = "lessonListOption"><a href = "javascript:void(0)" title="{$smarty.const._SUPERVISORAPPROVAL}" onclick = "eF_js_showDivPopup('asd', 2, 'supervisor_approvals_list')"><img class = "handle" src = "images/32x32/success.png" title = "{$smarty.const._SUPERVISORAPPROVAL}" alt = "{$smarty.const._SUPERVISORAPPROVAL}"></a></td>
+                 <td class = "lessonListOption"><a href = "javascript:void(0)" title="{$smarty.const._SUPERVISORAPPROVAL}" onclick = "eF_js_showDivPopup('{$smarty.const._SUPERVISORAPPROVAL}', 2, 'supervisor_approvals_list')"><img class = "handle" src = "images/32x32/success.png" title = "{$smarty.const._SUPERVISORAPPROVAL}" alt = "{$smarty.const._SUPERVISORAPPROVAL}"></a></td>
                  <td>
                   <script>translations['_SOMEPROBLEMOCCURED'] = '{$smarty.const._SOMEPROBLEMOCCURED}';</script>
                   <a href = "javascript:void(0)" title="{$smarty.const._SUPERVISORAPPROVAL}" onclick = "eF_js_showDivPopup('asd', 1, 'supervisor_approvals_list')">{$smarty.const._SUPERVISORAPPROVAL}</a>

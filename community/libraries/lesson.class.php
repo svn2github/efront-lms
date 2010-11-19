@@ -676,6 +676,7 @@ class EfrontLesson
   is_dir(G_LESSONSPATH) OR mkdir(G_LESSONSPATH, 0755);
   $fields['metadata'] = self::createLessonMetadata($fields);
   $fields['directions_ID'] = self::computeNewLessonDirectionsId($fields);
+  $fields['created'] = time();
   $fields['id'] = self::computeNewLessonId();
   $fields = self::validateAndSanitizeLessonFields($fields);
   $lessonId = eF_insertTableData("lessons", $fields);

@@ -288,6 +288,8 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     foreach ($employees as $key => $value) {
      if (!$value['active']) {
       unset($employees[$key]);
+     } else if (!$GLOBALS['configuration']['show_unassigned_users_to_supervisors'] && !$value['job_description_ID']) {
+      unset($employees[$key]);
      }
     }
 

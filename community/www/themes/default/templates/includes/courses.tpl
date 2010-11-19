@@ -45,7 +45,7 @@
     </tr>
    {foreach name = 'lessons_list2' key = 'key' item = 'lesson' from = $T_DATA_SOURCE}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$lesson.active}deactivatedTableElement{/if}">
-     <td>{$lesson.name}</td>
+     <td><a href = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$lesson.id}" class = "editLink">{$lesson.name}</a></td>
      <td>{$lesson.directionsPath}</td>
      <td>#filter:timestamp-{$lesson.created}#</td>
      <td class = "centerAlign">

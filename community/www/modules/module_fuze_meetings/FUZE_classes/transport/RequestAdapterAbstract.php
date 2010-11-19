@@ -60,8 +60,6 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_URL_ACCOUNT_CANCEL = 'http://fuze.efront.actonbit.gr/api/account_cancel/';
  const REQUEST_ADAPTER_URL_USER_CREATE = 'http://fuze.efront.actonbit.gr/api/user_create/';
  const REQUEST_ADAPTER_URL_USER_CANCEL = 'http://fuze.efront.actonbit.gr/api/user_cancel/';
- // TO-DO 
- // Na oriso kai ta upoloipa URL's, ena gia tin kathe exposed method.
 
  // Edo orizontai oi tupoi ton diathesimon methods. Ta URL's gia to 
  // kathena apo ta methods orizetai parapano.
@@ -75,10 +73,6 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_REQUEST_TYPE_ACCOUNT_CANCEL = '_request_adapter_request_type_account_cancel';
  const REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE = '_request_adapter_request_type_user_create';
  const REQUEST_ADAPTER_REQUEST_TYPE_USER_CANCEL = '_request_adapter_request_type_user_cancel';
- // TO-DO
- // Na oriso kai to upoloipo functionality
- //const REQUEST_ADAPTER_REQUEST_TYPE_SCHEDULE = '_request_adapter_request_type_schedule';
- //const REQUEST_ADAPTER_REQUEST_TYPE_START = '_request_adapter_request_type_start';
 
  // Edo orizontai oi statheres pou xrisimopoiountai sta options pou pername ston constructor
  // gia na perasoume tis times gia credentials kai parameters analoga me to request type.

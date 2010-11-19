@@ -1061,7 +1061,8 @@ class EfrontEvent
       // All excluded events are not of the form: The user did sth. For example: Project X expired
       if ($this -> event['type'] != EfrontEvent::PROJECT_EXPIRY && $this -> event['type'] != EfrontEvent::LESSON_PROGRAMMED_EXPIRY && $this -> event['type'] != EfrontEvent::LESSON_PROGRAMMED_START ) {
           //changed to $_SESSION['s_type'] to work for different roles between lessons
-       $this -> event['message'] = _NAMEARTICLE . " <b><a  href = \"".$_SESSION['s_type'].".php?ctg=social&op=show_profile&user=".$this->event['users_LOGIN']. "&popup=1\" onclick = \"eF_js_showDivPopup('" . _USERPROFILE . "', 1)\"  target = \"POPUP_FRAME\"> ".formatLogin($this -> event['users_LOGIN'])."</a></b> ";
+          formatLogin($this -> event['users_LOGIN']) ? $formattedLogin = formatLogin($this -> event['users_LOGIN']) : $formattedLogin = $this->event['users_name'].' '.$this->event['users_surname'].' ('.$this->event['users_LOGIN'].')';
+       $this -> event['message'] = _NAMEARTICLE . " <b><a  href = \"".$_SESSION['s_type'].".php?ctg=social&op=show_profile&user=".$this->event['users_LOGIN']. "&popup=1\" onclick = \"eF_js_showDivPopup('" . _USERPROFILE . "', 1)\"  target = \"POPUP_FRAME\"> ".$formattedLogin."</a></b> ";
       }
          if ($this -> event['type'] == EfrontEvent::SYSTEM_JOIN) {
           $this -> event['message'] .= _HASJOINEDTHESYSTEM;

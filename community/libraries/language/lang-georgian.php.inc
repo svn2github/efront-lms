@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","გაკვეთილის მასალა");//
 define("_NOQUESTIONSSETFORTHISUNIT","შეკითხვები არ განსაზღვრულა");//There are no questions defined
 define("_ADDQUESTION","შეკითხვის დამატება");//Add question
 define("_PREVIEW","ესკიზი");//Preview
-define("_RENAME","");//Rename (New)
-define("_CLONE","");//Clone (New)
+define("_RENAME","");//Rename
+define("_CLONE","");//Clone
 define("_NOTESTSSETFORTHISUNIT","ტესტები ვერ მოიძებნა");//No tests found
 define("_ADDTEST","ტესტის დამატება");//Add test
 define("_UNITANDSUBUNITSTESTS","ბლოკებისა და ქვებლოკების ტესტები");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","ბლოკის მონიშვნა დასა�
 define("_CONDITIONSCOMPLETED","პირობები შესრულდა");//Conditions completed
 define("_OUTOF",", სულ");//out of
 define("_LESSONPROGRESS","მოსწრება გაკვეთილზე");//Lesson progress
-define("_YOUMUSTSEEUNIT","უნდა გაეცნოთ ბლოკს");//You must see unit
-define("_YOUMUSTSEEALLUNITS","უნდა გაეცნოთ ყველა ბლოკს");//You must see all units
+define("_YOUMUSTSEEUNIT","უნდა გაეცნოთ ბლოკს");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","უნდა გაეცნოთ ყველა ბლოკს");//You must complete all units
 define("_OFLESSONUNITS","ბლოკს");//of lesson units
-define("_YOUMUSTSEE","უნდა გაეცნოთ გაკვეთილის");//You must see
+define("_YOUMUSTSEE","უნდა გაეცნოთ გაკვეთილის");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","უნდა გაიაროთ ყველა ტესტი საშუალო ქულებით");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","უნდა გაიაროთ ტესტი");//You must complete test
 define("_WITHSCORE","ქულებით");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","გაკვეთილის გაგრძელე�
 define("_STARTLESSON","გაკვეთილის დაწყება");//Start lesson
 define("_TRACKING","თვალმიდევნება");//Tracking
 define("_FORMATCERTIFICATE","სერთიფიკატის ფორმატი");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","");//Clone certificate template (New)
-define("_CERTIFICATENAME","");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","");//Clone certificate template
+define("_CERTIFICATENAME","");//Certificate name
+define("_CERTIFICATEDESCRIPTION","");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","");//Existing certificate templates
 define("_TRAFFIC","აქტიობა");//Traffic
 define("_LESSONTRAFFIC","აქტიობა გაკვეთილზე");//Lesson traffic
 define("_EDITTEST","ტესტის რედაქტირება");//Edit test
 define("_EDITQUESTION","შეკითხვის რედაქტირება");//Edit question
 define("_CERTIFICATE","სერთიფიკატი");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","სერთიფიკატი განახლდა");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","პირობის რედაქტირება");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP სერვერის კონფიგურაცია");//SMTP server configuration
 define("_SMTPSERVER","SMTP სერვერი");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","თქვენ�
 define("_IFEMPTYNEWPASSWORD","წითელი ფერით გამოყოფილი ველები სავალდებულოა. თუ პაროლი არ მითითებულა, იგი იქნება იგივე, რაც სახელი.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","გთხოვთ გადაამოწმოთ თქვენი CSV ფაილის ფორმატი");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","თარგებში ისარგებლეთ ცვლადებით #user_name# - მონაწილის სახელი, #user_surname# - გვარი, #course_name# - კურსის დასახელება, #grade# - შეფასება და #date# - თარიღი.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","ხმები");//Votes
 define("_PERCENTAGE","პროცენტი");//Percentage
 define("_CERTIFICATEISSUED","სერთიფიკატი გაიცა");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","დარჩა");//Remain
 define("_WEEKS","კვირა");//weeks
 define("_WEEKs","კვირა");//week
 define("_DAYS","დღე");//days
-define("_DAYSCAPITAL","");//Days (New)
+define("_DAYSCAPITAL","");//Days
 define("_DAY","დღე");//Day
 define("_EVALUATIONDATAUPDATED","შეფასების მონაცემები განახლდა");//Evaluation data updated successfully
 define("_EVALUATION","შეფასება");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","ჯგუფი განახლდა");//
 define("_ASSIGNLESSONSTOGROUPUSERS","შერჩეული გაკვეთილების გაპიროვნება ჯგუფის მონაწილეებზე");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","ჯგუფის გასაღების ავტომატური შექმნა");//Automatically generate group key
 define("_UNIQUEGROUPKEY","ჯგუფის უნიკალური გასაღები");//Unique group key
-define("_UNIQUEGROUPKEYINFO","ჯგუფის ეს უნიკალური გასაღები შესაძლებელია მიეცეს მონაწილეებს, რაც მათ რეგისტრაციის გვერდზე გასაღების პიქტოგრამაზე დაწკაპვით მითიტებულ ჯგუფებში რეგისტრაციის საშუალებას მისცემს");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","ჯგუფის ეს უნიკალური გასაღები შესაძლებელია მიეცეს მონაწილეებს, რაც მათ რეგისტრაციის გვერდზე გასაღების პიქტოგრამაზე დაწკაპვით მითიტებულ ჯგუფებში რეგისტრაციის საშუალებას მისცემს");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","ნაგულისხმები სისტემური ჯგუფი");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","ამ პარამეტრის ჩართვისას სისტემის ყველა ახალი მონაწილე ავტომატურად გაერთიანდება მითითებულ ჯგუფში. ნაგულისხმებად სისტემური ჯგუფი მხოლოდ ერთი შეიძლება იყოს. ახალი ნაგულისხმები ჯგუფის მითითებისას წინა ჯგუფი სრულად ჩანაცვლდება.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","ამ პარამეტრის ჩართვისას სისტემის ყველა ახალი მონაწილე ავტომატურად გაერთიანდება მითითებულ ჯგუფში. ნაგულისხმებად სისტემური ჯგუფი მხოლოდ ერთი შეიძლება იყოს. ახალი ნაგულისხმები ჯგუფის მითითებისას წინა ჯგუფი სრულად ჩანაცვლდება.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","ჯგუფის გასაღები");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","სისტემური ადმინის მიერ მოწოდებული ჯგუფის ამ უნიკალური გასაღებით მითითებული ჯგუფის ყველა გაკვეთილზე შეგიძლიათ რეგისტრაცია");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","თქვენი მითითებული ჯგუფის გასაღები უმართებლოა");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","ჩასმა ჯგუფში");//Insert into gr
 define("_NOSPECIFICGROUP","ჯგუფი არ მითითებულა");//No specific group
 define("_VIEWINSERTGROUPKEY","ჯგუფის გასაღების პარამეტრების ჩვენება");//Show group key option
 define("_MAXGROUPKEYUSAGE","გასაღებით სარგებლობის მაქსიმუმი");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","როცა ეს მნიშვნელობა 0-ზე მეტია, იგი მიუთითებს რამდენჯერ შეუძლია ისარგებლოს მონაწილემ გასაღებით თვითრეგისტრაციისთვის ამ ჯგუფში. თუ მითითებულია 0 - ასეთი შეზღუდვები მოხსნილია.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","როცა ეს მნიშვნელობა 0-ზე მეტია, იგი მიუთითებს რამდენჯერ შეუძლია ისარგებლოს მონაწილემ გასაღებით თვითრეგისტრაციისთვის ამ ჯგუფში. თუ მითითებულია 0 - ასეთი შეზღუდვები მოხსნილია.");//Leave blank for no limit
 define("_REMAININGKEYUSES","გასაღებით სარგებლობის დარჩენილი რაოდენობა");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","ჯგუფის გასაღების ვადა გავიდა");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","სამწუხაროდ ეს ტესტი დაზიანებულია, და, შესაბამისად - მიუწვდომელი. გთხოვთ ამოიღოთ ამ ტესტის შედეგები შესრულებული ტესტების სიიდან.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","");//my Groups
 define("_AVAILABLE","მისაწვდომობა");//Available
 define("_NEVER","არასოდეს");//Never
 define("_CLASSMATES","");//Classmates
-define("_LESSONPEOPLE","");//Lesson users
+define("_LESSONPEOPLE","");//People connection
 define("_NORMALIZEDIMENSIONS","გამოსახულების ზომა \"როგორც არის\"");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","");//was assigned the course
 define("_WILLBETEACHINGCOURSE","");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","");//Change condition order
 define("_INDEX","");//Index
 define("_EVENTDATETIME","");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","");//Visible from (New)
-define("_EXPIRESAT","");//Expires at (New)
-define("_CALENDARDISPLAYDATE","");//Calendar display date (New)
-define("_GLOBAL","");//Global (New)
-define("_ALLDAY","");//All day (New)
-define("_CREATECALENDAREVENT","");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","");//Overwrite existing folder (New)
-define("_LANDINGPAGE","");//Landing page (New)
-define("_EXPORTTOXLS","");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","");//Survey failed to be published (New)
-define("_PRINTCHART","");//Print chart (New)
-define("_RESPONSEDETAILS","");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","");//Sort by (New)
-define("_TRAINING","");//Training (New)
-define("_COMPLETEDLESSONS","");//Completed lessons (New)
-define("_INCOMPLETELESSONS","");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","");//Completed courses (New)
-define("_INCOMPLETECOURSES","");//Incomplete courses (New)
-define("_EDITCOLUMN","");//Edit column (New)
-define("_LESSONSFORCOURSE","");//Lessons for course (New)
-define("_TESTSFORLESSON","");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","");//Complete for all users (New)
-define("_LESSONTIMES","");//Lesson times (New)
-define("_MINUTESPERDAY","");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","");//Supervisor approval (New)
-define("_APPROVE","");//Approve (New)
-define("_GROUPKEYEXISTS","");//Unique key already exists (New)
-define("_PARTOFCOURSES","");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","");//All course users (New)
+define("_VISIBLEFROM","");//Visible from
+define("_EXPIRESAT","");//Expires at
+define("_CALENDARDISPLAYDATE","");//Calendar display date
+define("_GLOBAL","");//Global
+define("_ALLDAY","");//All day
+define("_CREATECALENDAREVENT","");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","");//Overwrite existing folder
+define("_LANDINGPAGE","");//Landing page
+define("_EXPORTTOXLS","");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","");//Survey failed to be published
+define("_PRINTCHART","");//Print chart
+define("_RESPONSEDETAILS","");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","");//This can only add (not remove) a new selection to a user
+define("_SORTBY","");//Sort by
+define("_TRAINING","");//Training
+define("_COMPLETEDLESSONS","");//Completed lessons
+define("_INCOMPLETELESSONS","");//Incomplete lessons
+define("_COMPLETEDCOURSES","");//Completed courses
+define("_INCOMPLETECOURSES","");//Incomplete courses
+define("_EDITCOLUMN","");//Edit column
+define("_LESSONSFORCOURSE","");//Lessons for course
+define("_TESTSFORLESSON","");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","");//Complete for all users
+define("_LESSONTIMES","");//Lesson times
+define("_MINUTESPERDAY","");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","");//Insert
+define("_ASSIGNMENTAPPROVEDBY","");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","");//was deactivated from system
+define("_SUPERVISORAPPROVAL","");//Supervisor approval
+define("_APPROVE","");//Approve
+define("_GROUPKEYEXISTS","");//Unique key already exists
+define("_PARTOFCOURSES","");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","");//Courses (incomplete/total)
+define("_EXPORTFILES","");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","");//All course users
+define("_MOVEBLOCK","");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","");//You are already member of this group (New)
+define("_AVERAGESCORES","");//Average scores (New)
+define("_PROJECTSAVERAGE","");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","");//Switch to simple view (New)
+define("_BCCRECIPIENTS","");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","");//Results for (New)
+define("_THANKYOUFORCOMPLETING","");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","");//You may create one (New)
 ?>

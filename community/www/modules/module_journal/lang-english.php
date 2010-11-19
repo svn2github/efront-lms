@@ -40,5 +40,8 @@ define("_JOURNAL_HOW_TO_OPEN_POPUP2", "At first, add the following piece of HTML
 define("_JOURNAL_HOW_TO_OPEN_POPUP3", "As a second and final step, add the following Javascript code snippet.");
 define("_JOURNAL_HOW_TO_OPEN_POPUP4", "Note that, if for any reason, you as a professor, want to place a link to Journal module, the HTML code needed is the following.");
 define("_JOURNAL_COPY_TO_CLIPBOARD", "Copy to clipboard");
+define("_JOURNAL_STUDENTS_JOURNAL", "Students' journal");
+define("_JOURNAL_STUDENT_NAME", "Student Name");
+define("_JOURNAL_NO_STUDENTS_FOUND", "No students found");
 
 ?>

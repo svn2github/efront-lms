@@ -196,6 +196,25 @@ class module_journal extends EfrontModule{
    exit(0);
   }
 
+  if(isset($_GET['check_students_journals']) && $_GET['check_students_journals'] == '1'){
+
+   $professorJournalLessons = $this->getProfessorJournalLessons($currentUser);
+   $journalLessonsStudents = $this->getJournalLessonsStudents($professorJournalLessons);
+
+   $smarty->assign("T_JOURNAL_STUDENTS", $journalLessonsStudents);
+  }
+
+  if(isset($_GET['preview_journal']) && $_GET['preview_journal'] == '1' &&
+   isset($_GET['student']) && eF_checkParameter($_GET['student'], 'login')){
+
+   $userLogin = $_GET['student'];
+
+   $professorJournalLessons = $this->getProfessorJournalLessons($currentUser);
+   $studentEntries = $this->getStudentEntries($userLogin, $professorJournalLessons);
+
+   $smarty->assign("T_JOURNAL_STUDENT_ENTRIES", $studentEntries);
+  }
+
   if(isset($_REQUEST['autosave']) && $_REQUEST['autosave'] == "1" && isset($_REQUEST['entry_body']) && isset($_REQUEST['edit_entry'])){
 
    if($_REQUEST['edit_entry'] != "-1"){
@@ -637,11 +656,23 @@ class module_journal extends EfrontModule{
    $currentUserRole = $currentUser->getRole($currentLesson);
    $onClick = "location='".$currentUserRole.".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();";
 
-   return array(
-    array('title' => _MYCOURSES, 'onclick' => $onClick),
-    array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
-    array('title' => _JOURNAL_NAME, 'link' => $this->moduleBaseUrl)
-   );
+   if(isset($_GET['check_students_journals'])){
+
+    return array(
+     array('title' => _MYCOURSES, 'onclick' => $onClick),
+     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
+     array('title' => _JOURNAL_NAME, 'link' => $this->moduleBaseUrl),
+     array('title' => _JOURNAL_STUDENTS_JOURNAL, 'link' => $_SERVER['REQUEST_URI'])
+    );
+   }
+   else{
+
+    return array(
+     array('title' => _MYCOURSES, 'onclick' => $onClick),
+     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
+     array('title' => _JOURNAL_NAME, 'link' => $this->moduleBaseUrl)
+    );
+   }
   }
  }
 
@@ -739,6 +770,79 @@ class module_journal extends EfrontModule{
   }
 
   return $lessons;
+ }
+
+ function getProfessorJournalLessons($currentUser){
+
+  $userLessons = $currentUser->getLessons(false, 'professor');
+  $lessons = array();
+
+  foreach($userLessons as $key => $value){
+
+   $lesson = new EfrontLesson($key);
+   $installed = $lesson->getOptions(array('module_journal'));
+
+   if(count($installed) != 0 && $installed['module_journal'] == 1)
+    array_push($lessons, $key);
+  }
+
+  return $lessons;
+ }
+
+ function getJournalLessonsStudents($professorJournalLessons){
+
+  $students = array();
+
+  foreach($professorJournalLessons as $lessonID){
+
+   $lesson = new EfrontLesson($lessonID);
+   $lessonStudents = $lesson->getUsers('student');
+
+   foreach($lessonStudents as $userLogin => $value){
+
+    if(!in_array($userLogin, array_keys($students)))
+     $students[$userLogin] = array('login' => $userLogin);
+   }
+  }
+
+  return $students;
+ }
+
+ function getStudentEntries($userLogin, $professorJournalLessons){
+
+  $where = "users_LOGIN='".$userLogin."' and (";
+
+  for($count = 0; $count < count($professorJournalLessons); $count++){
+
+   if($count != count($professorJournalLessons) -1)
+    $where .= "lessons_ID=".$professorJournalLessons[$count]." OR ";
+   else
+    $where .= "lessons_ID=".$professorJournalLessons[$count];
+  }
+
+  $where .= ")";
+
+  $result = eF_getTableData("module_journal_entries", "*", $where, "id");
+  $entries = array();
+
+  foreach($result as $value){
+
+   $date_ = explode(' ', $value['entry_date']);
+   $datestamp = $date_[0];
+   $timestamp = $date_[1];
+   $datestamp = explode('-', $datestamp);
+   $timestampMktime = explode(':', $timestamp);
+   $dateFormatted = formatTimestamp(mktime($timestampMktime[0], $timestampMktime[1], $timestampMktime[2],
+            $datestamp[1], $datestamp[2], $datestamp[0]), 'time');
+   $value['entry_date_formatted'] = $dateFormatted;
+
+   $lesson = new EfrontLesson($value['lessons_ID']);
+   $value['lesson'] = $lesson->lesson['name'];
+
+   $entries[$value['id']] = $value;
+  }
+
+  return $entries;
  }
 }
 

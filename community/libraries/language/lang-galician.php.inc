@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Información da lección");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Non hai preguntas definidas");//There are no questions defined
 define("_ADDQUESTION","Engadir unha pregunta");//Add question
 define("_PREVIEW","Previsualizar");//Preview
-define("_RENAME","Renomear");//Rename (New)
-define("_CLONE","Clon");//Clone (New)
+define("_RENAME","Renomear");//Rename
+define("_CLONE","Clon");//Clone
 define("_NOTESTSSETFORTHISUNIT","Non se encontrou ningún test");//No tests found
 define("_ADDTEST","Engadir unha proba");//Add test
 define("_UNITANDSUBUNITSTESTS","Probas de unidade e subunidades");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Definir a unidade como non terminada");//Set the unit as n
 define("_CONDITIONSCOMPLETED","Completáronse as condicións");//Conditions completed
 define("_OUTOF","de");//out of
 define("_LESSONPROGRESS","Progreso da lección");//Lesson progress
-define("_YOUMUSTSEEUNIT","Debes ver a unidade");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Debes ver todas as unidades");//You must see all units
+define("_YOUMUSTSEEUNIT","Debes ver a unidade");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Debes ver todas as unidades");//You must complete all units
 define("_OFLESSONUNITS","de unidades da lección");//of lesson units
-define("_YOUMUSTSEE","Debes ver");//You must see
+define("_YOUMUSTSEE","Debes ver");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Debes terminar todas as probas coa puntuación media");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Debes terminar a proba");//You must complete test
 define("_WITHSCORE","coa puntuación");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Continuar coa lección");//Resume lesson
 define("_STARTLESSON","Comezar a lección");//Start lesson
 define("_TRACKING","Seguimento");//Tracking
 define("_FORMATCERTIFICATE","Certificado de formato");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Formato modelo de certificado");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Conxunto de expiración do certificado");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Use o método LiveDocX para a creación de certificacións");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Use o método de XML para a creación de certificacións");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Engadir modelo de certificado (formato xml)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Editar modelo de certificado (formato xml)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Renomear modelo de certificado");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Clon modelo de certificado");//Clone certificate template (New)
-define("_CERTIFICATENAME","Nome do certificado");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","descrición Certificado");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","descrición en XML non pode ser en branco");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Existentes modelos de certificado");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Formato modelo de certificado");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Conxunto de expiración do certificado");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Use o método LiveDocX para a creación de certificacións");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Use o método de XML para a creación de certificacións");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Engadir modelo de certificado (formato xml)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Editar modelo de certificado (formato xml)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Renomear modelo de certificado");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Clon modelo de certificado");//Clone certificate template
+define("_CERTIFICATENAME","Nome do certificado");//Certificate name
+define("_CERTIFICATEDESCRIPTION","descrición Certificado");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","descrición en XML non pode ser en branco");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Existentes modelos de certificado");//Existing certificate templates
 define("_TRAFFIC","Tráfico");//Traffic
 define("_LESSONTRAFFIC","Tráfico da lección");//Lesson traffic
 define("_EDITTEST","Editar o texto");//Edit test
 define("_EDITQUESTION","Editar a pregunta");//Edit question
 define("_CERTIFICATE","Certificado");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","O certificado foi actualizado correctamente");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","modelo de certificado foi engadido correctamente");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Houbo un problema, engadindo modelo de certificado");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","modelo de certificado foi actualizado correctamente");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Houbo un problema durante a actualización do modelo de certificado");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","modelo de certificado foi renomeado con éxito");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Houbo un problema ao cambiar o nome modelo de certificado");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","modelo de certificado foi clonada con éxito");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Houbo un problema, mentres que a clonación modelo de certificado");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","modelo de certificado foi eliminado correctamente");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Houbo un problema, aínda que a exclusión do modelo de certificado");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Non ten o dereito de modificar este modelo de certificado");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","modelo de certificado foi engadido correctamente");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Houbo un problema, engadindo modelo de certificado");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","modelo de certificado foi actualizado correctamente");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Houbo un problema durante a actualización do modelo de certificado");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","modelo de certificado foi renomeado con éxito");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Houbo un problema ao cambiar o nome modelo de certificado");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","modelo de certificado foi clonada con éxito");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Houbo un problema, mentres que a clonación modelo de certificado");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","modelo de certificado foi eliminado correctamente");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Houbo un problema, aínda que a exclusión do modelo de certificado");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Non ten o dereito de modificar este modelo de certificado");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Editar a condición");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Configuración do servidor SMTP");//SMTP server configuration
 define("_SMTPSERVER","Servidor SMTP");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Os campos do seu 
 define("_IFEMPTYNEWPASSWORD","Os campos en vermello son obrigatorios. Se non se fornece un contrasinal o contrasinal inicial será o mesmo que o nome de inicio de sesión.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Verifique o formato do seu ficheiro CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Seguindo o modelo, use #organization# para o nome da organización, #user_name# para o nome da persoa usuaria, #user_surname# para os apelidos, #course_name# para o nome do curso, #grade# para a nota e #date# para a data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","No modelo, &lt;Organization&gt; usar &lt;/ organización&gt; para o nome da organización, &lt;Student&gt; &lt;/ estudante&gt; o nome completo do alumno, &lt;course&gt; &lt;/ curso&gt; para o nome do curso, &lt;/ grao&gt; &lt;grade&gt; para a clase, &lt; &lt;&gt; serial /&gt; serie de número de serie, &lt;data&gt;&gt; &lt;/ a data para a data, &lt;LOGO&gt;&gt; &lt;/ logotipo para logotipo e &lt;background&gt; &lt;/ fondo&gt; para o fondo.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","No modelo, &lt;Organization&gt; usar &lt;/ organización&gt; para o nome da organización, &lt;Student&gt; &lt;/ estudante&gt; o nome completo do alumno, &lt;course&gt; &lt;/ curso&gt; para o nome do curso, &lt;/ grao&gt; &lt;grade&gt; para a clase, &lt; &lt;&gt; serial /&gt; serie de número de serie, &lt;data&gt;&gt; &lt;/ a data para a data, &lt;LOGO&gt;&gt; &lt;/ logotipo para logotipo e &lt;background&gt; &lt;/ fondo&gt; para o fondo.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Votos");//Votes
 define("_PERCENTAGE","Porcentaxe");//Percentage
 define("_CERTIFICATEISSUED","Certificado emitido");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Resta");//Remain
 define("_WEEKS","semanas");//weeks
 define("_WEEKs","semana");//week
 define("_DAYS","días");//days
-define("_DAYSCAPITAL","Días");//Days (New)
+define("_DAYSCAPITAL","Días");//Days
 define("_DAY","Día");//Day
 define("_EVALUATIONDATAUPDATED","Os datos de avaliación foron actualizados correctamente");//Evaluation data updated successfully
 define("_EVALUATION","Avaliación");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","O grupo foi actualizado correctamente");//Gro
 define("_ASSIGNLESSONSTOGROUPUSERS","Asignar as leccións seleccionadas ás persoas usuarias do grupo");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Xerar automaticamente a chave de grupo");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Chave de grupo única");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Esra chave única de grupo pode serlle fornecida ás persoas usuarias para permitirlles que se autorexistren nun grupo concreto, premendo na icona da chave na páxina de inicio de sesión");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Esra chave única de grupo pode serlle fornecida ás persoas usuarias para permitirlles que se autorexistren nun grupo concreto, premendo na icona da chave na páxina de inicio de sesión");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Grupo do sistema predeterminado");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Ao marcar isto fará que todas as persoas usuarias do sistema novas sexan engadidas a este grupo automaticamente. Só un dos grupos pode ser o predeterminado do sistema. Isto implica tamén que as novas seleccións de grupo predeterminado substitúan ás antigas");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Ao marcar isto fará que todas as persoas usuarias do sistema novas sexan engadidas a este grupo automaticamente. Só un dos grupos pode ser o predeterminado do sistema. Isto implica tamén que as novas seleccións de grupo predeterminado substitúan ás antigas");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Chave de grupo");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Se envía aquí unha chave de grupo única, proporcionada pola administración do sistema, poderá autorexistrarse en todas as leccións dese grupo en concreto");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","A chave de grupo que introducíu non é válida");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Inserida/o no grupo");//Insert into group
 define("_NOSPECIFICGROUP","Sen un grupo específico");//No specific group
 define("_VIEWINSERTGROUPKEY","Mostrar a opción de chave de grupo");//Show group key option
 define("_MAXGROUPKEYUSAGE","Máximo de usos de chave");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Se configura este campo cun valor maior do que cero, limitará o número de veces que se pode usar a chave de grupo no proceso de autorexistro das persoas usuarias neste grupo. Se este campo se define como cero entón non se aplicará este límite");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Se configura este campo cun valor maior do que cero, limitará o número de veces que se pode usar a chave de grupo no proceso de autorexistro das persoas usuarias neste grupo. Se este campo se define como cero entón non se aplicará este límite");//Leave blank for no limit
 define("_REMAININGKEYUSES","Usos restantes da chave de grupo");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","A chave de grupo caducou");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Sentímolo, mais esta proba está danada e por tanto non é accesíbel. Visite a listaxe de probas feitas para eliminar a execución desta proba.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","My Groups");//my Groups
 define("_AVAILABLE","Dispoñíbel");//Available
 define("_NEVER","Nunca");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","Lección persoas");//Lesson users
+define("_LESSONPEOPLE","Lección persoas");//People connection
 define("_NORMALIZEDIMENSIONS","Normalized dimensões");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","foi concedido o curso");//was assigned the course
 define("_WILLBETEACHINGCOURSE","está ensinando o curso");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Cambiar a orde condición");//Change condition o
 define("_INDEX","Índice");//Index
 define("_EVENTDATETIME","Evento data e hora");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","O arquivo de certificado foi ausente ou corrupto e, polo tanto, foi Repostería");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Visible dende");//Visible from (New)
-define("_EXPIRESAT","Remata o");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Calendario da data de exhibición");//Calendar display date (New)
-define("_GLOBAL","Global");//Global (New)
-define("_ALLDAY","Todos os días");//All day (New)
-define("_CREATECALENDAREVENT","Crear un calendario de eventos");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Substituír carpeta existente");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Landing page");//Landing page (New)
-define("_EXPORTTOXLS","Exportar xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Enquisa non será publicado");//Survey failed to be published (New)
-define("_PRINTCHART","gráfico de impresión");//Print chart (New)
-define("_RESPONSEDETAILS","detalles da resposta");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Amosando soamente entidades activas");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Amosando soamente entidades inactivos");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Amosando ambas as entidades activas e inactivas");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Este evento non existe máis");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","cola de mensaxes claras");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar para usuarios xa pertence a este cargo");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Isto só pode engadir (non eliminar) unha nova selección para un usuario");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Ordenar por");//Sort by (New)
-define("_TRAINING","Formación");//Training (New)
-define("_COMPLETEDLESSONS","Terminado aulas");//Completed lessons (New)
-define("_INCOMPLETELESSONS","clases incompleta");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","cursos concluidos");//Completed courses (New)
-define("_INCOMPLETECOURSES","cursos incompletos");//Incomplete courses (New)
-define("_EDITCOLUMN","Na columna Editar");//Edit column (New)
-define("_LESSONSFORCOURSE","Leccións para o curso");//Lessons for course (New)
-define("_TESTSFORLESSON","Probas para a aula");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Completa para todos os usuarios");//Complete for all users (New)
-define("_LESSONTIMES","Lección veces");//Lesson times (New)
-define("_MINUTESPERDAY","Minutos cada día");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Log usuario para fóra despois (minutos)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Update período (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Os valores recomendados son nada menos que 10000ms e non máis de 360000ms. Tamén debe ser definido inferior ao tempo de logout automático.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Máis de 1 ramas (locais) asociado a este curso, amosando a primeira");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Inserir");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Asignación aprobada polo");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","supervisor inmediato do emprego");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","desativação do usuario");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","foi desactivada desde o sistema");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Supervisor de aprobación");//Supervisor approval (New)
-define("_APPROVE","Aprobar");//Approve (New)
-define("_GROUPKEYEXISTS","Clave única xa existe");//Unique key already exists (New)
-define("_PARTOFCOURSES","Parte dos cursos");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Esta aula é parte dos cursos de un ou máis, así que non pode cambiar o modo de");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Hai usuarios rexistrarte para esta lección. Por favor, non atribuír-los antes de cambiar os modos");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Cursos (incompleto / total)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Exportar arquivos");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Curso de validez previsto");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Curso programado inicio");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","inicio calendario de curso");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","validez prevista de curso");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Todos os usuarios da materia");//All course users (New)
+define("_VISIBLEFROM","Visible dende");//Visible from
+define("_EXPIRESAT","Remata o");//Expires at
+define("_CALENDARDISPLAYDATE","Calendario da data de exhibición");//Calendar display date
+define("_GLOBAL","Global");//Global
+define("_ALLDAY","Todos os días");//All day
+define("_CREATECALENDAREVENT","Crear un calendario de eventos");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Substituír carpeta existente");//Overwrite existing folder
+define("_LANDINGPAGE","Landing page");//Landing page
+define("_EXPORTTOXLS","Exportar xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Enquisa non será publicado");//Survey failed to be published
+define("_PRINTCHART","gráfico de impresión");//Print chart
+define("_RESPONSEDETAILS","detalles da resposta");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Amosando soamente entidades activas");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Amosando soamente entidades inactivos");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Amosando ambas as entidades activas e inactivas");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Este evento non existe máis");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","cola de mensaxes claras");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar para usuarios xa pertence a este cargo");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Isto só pode engadir (non eliminar) unha nova selección para un usuario");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Ordenar por");//Sort by
+define("_TRAINING","Formación");//Training
+define("_COMPLETEDLESSONS","Terminado aulas");//Completed lessons
+define("_INCOMPLETELESSONS","clases incompleta");//Incomplete lessons
+define("_COMPLETEDCOURSES","cursos concluidos");//Completed courses
+define("_INCOMPLETECOURSES","cursos incompletos");//Incomplete courses
+define("_EDITCOLUMN","Na columna Editar");//Edit column
+define("_LESSONSFORCOURSE","Leccións para o curso");//Lessons for course
+define("_TESTSFORLESSON","Probas para a aula");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Completa para todos os usuarios");//Complete for all users
+define("_LESSONTIMES","Lección veces");//Lesson times
+define("_MINUTESPERDAY","Minutos cada día");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Log usuario para fóra despois (minutos)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Update período (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Os valores recomendados son nada menos que 10000ms e non máis de 360000ms. Tamén debe ser definido inferior ao tempo de logout automático.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Máis de 1 ramas (locais) asociado a este curso, amosando a primeira");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Inserir");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Asignación aprobada polo");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","supervisor inmediato do emprego");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","desativação do usuario");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","foi desactivada desde o sistema");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Supervisor de aprobación");//Supervisor approval
+define("_APPROVE","Aprobar");//Approve
+define("_GROUPKEYEXISTS","Clave única xa existe");//Unique key already exists
+define("_PARTOFCOURSES","Parte dos cursos");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Esta aula é parte dos cursos de un ou máis, así que non pode cambiar o modo de");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Hai usuarios rexistrarte para esta lección. Por favor, non atribuír-los antes de cambiar os modos");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Cursos (incompleto / total)");//Courses (incomplete/total)
+define("_EXPORTFILES","Exportar arquivos");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Curso de validez previsto");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Curso programado inicio");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","inicio calendario de curso");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","validez prevista de curso");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Todos os usuarios da materia");//All course users
+define("_MOVEBLOCK","Mover o bloque");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Ampliar o colapso do bloque /");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Estándar tipo alumno");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Se ten definido unha clave de grupo para este grupo, os usuarios que usan a clave será inscrito para clases / cursos que teñen este tipo. Se ten definido a este grupo a ser por defecto, os novos usuarios serán asignados ás clases do grupo con este tipo");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Non empregue tipo estándar");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Vostede foi engadida con éxito ao grupo");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Este grupo está inactivo");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","A clave non pode ser usado cada vez máis");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","A selección que fixo non é válido. Por favor, seleccione unha opción da lista");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Xa é membro deste grupo");//You are already member of this group (New)
+define("_AVERAGESCORES","Os valores medios");//Average scores (New)
+define("_PROJECTSAVERAGE","Media da puntuación en todos os proxectos");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Cambiar para exhibición en árbore");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Poderá cambiar o modo simple");//Switch to simple view (New)
+define("_BCCRECIPIENTS","destinatarios Undisclosed (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Resultados para");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Grazas por completar");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Non hai relatos atopados no sistema");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Podes crear unha");//You may create one (New)
 ?>

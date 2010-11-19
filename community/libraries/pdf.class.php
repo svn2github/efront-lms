@@ -72,9 +72,9 @@ class EfrontPdf
 
    foreach ($info as $row) {
     if ($row[1]) { //If there are information print it; otherwise, print an empty line when there is an image, in order to keep distances as designed
-     $this->printSimpleContent($row[0].': '.$row[1]);
+     !$imageFile ? $this->printSimpleContent($row[0].': '.$row[1]) : $this->printSimpleContent($row[0].': '.$row[1], false);
     } elseif ($imageFile) {
-     $this->printSimpleContent('');
+     $this->printSimpleContent('', false);
     }
    }
   }
@@ -197,9 +197,10 @@ class EfrontPdf
   $idx = 1;
   unset($titleRow['active']);
   foreach ($titleRow as $columnTitle => $foo) {
+   $rowHeight = $this->calculateRowHeight($titleRow, $formatting[$columnTitle]);
    $idx++ == sizeof($titleRow) ? $newLine = 1 : $newLine = 0;
    $this->printMultiContent($columnTitle,
-          $formatting[$columnTitle] + array('bold' => 'B'),
+          array('bold' => 'B', 'height' => $rowHeight) + $formatting[$columnTitle],
           $newLine);
   }
  }
@@ -277,9 +278,13 @@ class EfrontPdf
   $this->pdf->SetFillColor(240, 240, 240);
  }
 
- private function printSimpleContent($text) {
+ private function printSimpleContent($text, $multi = true) {
   $this->pdf->SetFont('', '', $this->defaultSettings['content_font_size']);
-  $this->pdf->MultiCell(0, 0, $text, 0, 'L', 0, 1);
+  if ($multi) {
+   $this->pdf->MultiCell(0, 0, $text, 0, 'L', 0, 1);
+  } else {
+   $this->pdf->Cell(0, 0, $text, 0, 2);
+  }
  }
 
  private function printMultiContent($text, $formatting, $newLine = 0) {

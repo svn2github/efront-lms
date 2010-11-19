@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","مواد درس");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","هیچ پرسش های تعریف شده وجود دارد.");//There are no questions defined
 define("_ADDQUESTION","اضافه کردن سوال");//Add question
 define("_PREVIEW","پیش نمایش");//Preview
-define("_RENAME","تغییر نام");//Rename (New)
-define("_CLONE","کلون");//Clone (New)
+define("_RENAME","تغییر نام");//Rename
+define("_CLONE","کلون");//Clone
 define("_NOTESTSSETFORTHISUNIT","هیچ تست نشد");//No tests found
 define("_ADDTEST","افزودن تست");//Add test
 define("_UNITANDSUBUNITSTESTS","واحد subunits و آزمون");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","مجموعه واحد را تکمیل کنید");//Set the
 define("_CONDITIONSCOMPLETED","شرایط تکمیل");//Conditions completed
 define("_OUTOF","خارج از");//out of
 define("_LESSONPROGRESS","پیشرفت درس");//Lesson progress
-define("_YOUMUSTSEEUNIT","شما باید دستگاه را ببینید");//You must see unit
-define("_YOUMUSTSEEALLUNITS","شما باید همه ی واحد را ببینید");//You must see all units
+define("_YOUMUSTSEEUNIT","شما باید دستگاه را ببینید");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","شما باید همه ی واحد را ببینید");//You must complete all units
 define("_OFLESSONUNITS","واحدهای درسی");//of lesson units
-define("_YOUMUSTSEE","شما باید ببینید");//You must see
+define("_YOUMUSTSEE","شما باید ببینید");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","شما باید تمام آزمایشات را با میانگین نمره کامل");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","شما باید تست کامل");//You must complete test
 define("_WITHSCORE","با نمره");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","درس رزومه");//Resume lesson
 define("_STARTLESSON","شروع درس");//Start lesson
 define("_TRACKING","ردیابی");//Tracking
 define("_FORMATCERTIFICATE","گواهی قطع");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","فرمت قالب گواهینامه");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","گذاردن تاریخ اعتبار گواهی نامه");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","استفاده از روش LiveDocX برای ایجاد گواهی نامه");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","استفاده از روش کاپرفیلد برای ایجاد گواهی نامه");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","اضافه کردن قالب گواهینامه (قالب کاپرفیلد)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","ویرایش قالب ها گواهی نامه (قالب کاپرفیلد)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","تغییر نام قالب گواهینامه");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","کلون قالب گواهینامه");//Clone certificate template (New)
-define("_CERTIFICATENAME","نام مدرک");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","توضیحات گواهی");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","توضیحات کاپرفیلد نمی تواند خالی باشد");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","موجود گواهی قالب");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","فرمت قالب گواهینامه");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","گذاردن تاریخ اعتبار گواهی نامه");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","استفاده از روش LiveDocX برای ایجاد گواهی نامه");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","استفاده از روش کاپرفیلد برای ایجاد گواهی نامه");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","اضافه کردن قالب گواهینامه (قالب کاپرفیلد)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","ویرایش قالب ها گواهی نامه (قالب کاپرفیلد)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","تغییر نام قالب گواهینامه");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","کلون قالب گواهینامه");//Clone certificate template
+define("_CERTIFICATENAME","نام مدرک");//Certificate name
+define("_CERTIFICATEDESCRIPTION","توضیحات گواهی");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","توضیحات کاپرفیلد نمی تواند خالی باشد");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","موجود گواهی قالب");//Existing certificate templates
 define("_TRAFFIC","ترافیک");//Traffic
 define("_LESSONTRAFFIC","ترافیک درس");//Lesson traffic
 define("_EDITTEST","تست ویرایش");//Edit test
 define("_EDITQUESTION","سوال ویرایش");//Edit question
 define("_CERTIFICATE","گواهی نامه");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","با موفقیت به روز شده در گواهی نامه");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","قالب گواهی با موفقیت اضافه شد");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","بود در حالی که مشکل اضافه کردن قالب گواهی وجود دارد");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","قالب گواهی با موفقیت به روز شد");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","بود در حالی که مشکل به روز رسانی قالب گواهی وجود دارد");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","قالب گواهی موفقیت تغییر نام داد");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","بود در حالی که مشکل تغییر نام قالب گواهی وجود دارد");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","قالب گواهی با موفقیت کلون شد");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","مشکل بود در حالی که شبیه سازی قالب گواهی وجود دارد");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","قالب گواهی با موفقیت حذف شد");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","بود در حالی که مشکل حذف قالب گواهی وجود دارد");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","شما از حقوق را نداشته باشند این گواهی برای تغییر قالب");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","قالب گواهی با موفقیت اضافه شد");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","بود در حالی که مشکل اضافه کردن قالب گواهی وجود دارد");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","قالب گواهی با موفقیت به روز شد");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","بود در حالی که مشکل به روز رسانی قالب گواهی وجود دارد");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","قالب گواهی موفقیت تغییر نام داد");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","بود در حالی که مشکل تغییر نام قالب گواهی وجود دارد");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","قالب گواهی با موفقیت کلون شد");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","مشکل بود در حالی که شبیه سازی قالب گواهی وجود دارد");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","قالب گواهی با موفقیت حذف شد");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","بود در حالی که مشکل حذف قالب گواهی وجود دارد");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","شما از حقوق را نداشته باشند این گواهی برای تغییر قالب");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","شرایط ویرایش");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP پیکربندی سرور");//SMTP server configuration
 define("_SMTPSERVER","سرور SMTP");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","در زمینه �
 define("_IFEMPTYNEWPASSWORD","در زمینه های قرمز اجباری. اگر رمز عبور داده شده است وجود دارد ، که رمز عبور اولیه خواهد بود که همان ورود به سایت تنظیم.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","لطفا در قالب فایل CSV شما را بررسی");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","در این الگو ، استفاده از سازمان # # برای نام سازمان ، # # را برای user_name نام کاربر ، # # را برای user_surname نام خانوادگی کاربر ، # # را برای course_name نام در دوره ، کلاس را برای کلاس # # # # و تاریخ برای تاریخ.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","در قالب ، استفاده &lt;organization&gt;&lt;/ سازمان&gt; به نام سازمان ، &lt;student&gt;&lt;/ دانشجو&gt; برای نام و نام خانوادگی دانش آموز ، &lt;course&gt;&lt;/ دوره&gt; نام برای دوره است ، &lt;grade&gt;&lt;/ درجه&gt; برای کلاس ، &lt; &lt;&gt; سریال&gt; سریال برای شماره سریال ، &lt;date&gt;&lt;/&gt; تاریخ برای امروز ، &lt;logo&gt;&lt;/&gt; آرم و لوگو برای &lt;background&gt;&lt;/&gt; پس زمینه برای پس زمینه.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","در قالب ، استفاده &lt;organization&gt;&lt;/ سازمان&gt; به نام سازمان ، &lt;student&gt;&lt;/ دانشجو&gt; برای نام و نام خانوادگی دانش آموز ، &lt;course&gt;&lt;/ دوره&gt; نام برای دوره است ، &lt;grade&gt;&lt;/ درجه&gt; برای کلاس ، &lt; &lt;&gt; سریال&gt; سریال برای شماره سریال ، &lt;date&gt;&lt;/&gt; تاریخ برای امروز ، &lt;logo&gt;&lt;/&gt; آرم و لوگو برای &lt;background&gt;&lt;/&gt; پس زمینه برای پس زمینه.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","رای");//Votes
 define("_PERCENTAGE","درصد");//Percentage
 define("_CERTIFICATEISSUED","گواهی صادر شد");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","باقی مانده");//Remain
 define("_WEEKS","هفته");//weeks
 define("_WEEKs","هفته");//week
 define("_DAYS","روز");//days
-define("_DAYSCAPITAL","روز");//Days (New)
+define("_DAYSCAPITAL","روز");//Days
 define("_DAY","اخبار روز");//Day
 define("_EVALUATIONDATAUPDATED","داده ها با موفقیت به روز شده در تاریخ ارزیابی");//Evaluation data updated successfully
 define("_EVALUATION","ارزیابی");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","گروه با موفقیت به روزآور�
 define("_ASSIGNLESSONSTOGROUPUSERS","اختصاص انتخاب درس به اعضای گروه");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","کلید به طور خودکار گروه تولید");//Automatically generate group key
 define("_UNIQUEGROUPKEY","منحصر به فرد اصلی گروه");//Unique group key
-define("_UNIQUEGROUPKEYINFO","کلید در این گروه منحصر به فرد می تواند به کاربران ارائه می شود تا آنها را قادر به ثبت نام خود را به یک گروه خاص با کلیک کردن بر روی آیکون کلید در صفحه ورود به سایت");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","کلید در این گروه منحصر به فرد می تواند به کاربران ارائه می شود تا آنها را قادر به ثبت نام خود را به یک گروه خاص با کلیک کردن بر روی آیکون کلید در صفحه ورود به سایت");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","گروه پیش فرض سیستم");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","در این بررسی به همه اعضای جدید از این سیستم را به صورت خودکار به این گروه واگذار کنند. فقط یک گروه می تواند به گروه پیش فرض سیستم. به عنوان یک مفهوم انتخاب گروه پیش فرض جدید جایگزین آنهایی قبلی.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","در این بررسی به همه اعضای جدید از این سیستم را به صورت خودکار به این گروه واگذار کنند. فقط یک گروه می تواند به گروه پیش فرض سیستم. به عنوان یک مفهوم انتخاب گروه پیش فرض جدید جایگزین آنهایی قبلی.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","کلید های گروه");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","ارسال شده توسط در اینجا یک کلید با گروه منحصر به فرد توسط مدیر سیستم شما قادر به ثبت نام خود را به تمام دروس از گروه خاصی که به شما ارائه");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","گروه کلید شما وارد شده است که صحیح نیست");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","درج به گروه");//Insert into group
 define("_NOSPECIFICGROUP","هیچ گروه خاص");//No specific group
 define("_VIEWINSERTGROUPKEY","نشان دادن کلید انتخاب گروه");//Show group key option
 define("_MAXGROUPKEYUSAGE","استفاده حداکثر کلیدی");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","تنظیم این زمینه را به یک مقدار بزرگتر از صفر ، به تعداد دفعاتی که کلید در گروه می تواند توسط کاربران را به خود مورد استفاده قرار گیرد ، محدود کردن ثبت نام به این گروه. در صورتی که زمینه را به صفر تنظیم شده است ، پس هیچ گونه محدودیت اجرا خواهد شد.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","تنظیم این زمینه را به یک مقدار بزرگتر از صفر ، به تعداد دفعاتی که کلید در گروه می تواند توسط کاربران را به خود مورد استفاده قرار گیرد ، محدود کردن ثبت نام به این گروه. در صورتی که زمینه را به صفر تنظیم شده است ، پس هیچ گونه محدودیت اجرا خواهد شد.");//Leave blank for no limit
 define("_REMAININGKEYUSES","کلید در گروه باقی مانده استفاده می کند");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","کلید گروه به پایان رسیده");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","متاسفیم ، اما این تست شده است خراب شده و در نتیجه دور از دسترس. لطفا از لیست انجام آزمایشات به این حکم اعدام را حذف آزمون مراجعه کنید.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","گروه های من");//my Groups
 define("_AVAILABLE","در دسترس");//Available
 define("_NEVER","هرگز");//Never
 define("_CLASSMATES","همکلاسی");//Classmates
-define("_LESSONPEOPLE","مردم درس");//Lesson users
+define("_LESSONPEOPLE","مردم درس");//People connection
 define("_NORMALIZEDIMENSIONS","ابعاد هنجار");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","البته اختصاص داده شد");//was assigned the course
 define("_WILLBETEACHINGCOURSE","تدریس خواهد شد البته");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","تغییر وضعیت سفارش");//Change cond
 define("_INDEX","شاخص");//Index
 define("_EVENTDATETIME","تاریخ و زمان رویداد");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","پرونده گواهی بود گم شده و یا فاسد شده بود و به این ترتیب تغییر دهید");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","قابل مشاهده از");//Visible from (New)
-define("_EXPIRESAT","منقضی می شود در");//Expires at (New)
-define("_CALENDARDISPLAYDATE","تقویم تاریخ نمایش");//Calendar display date (New)
-define("_GLOBAL","جهانی");//Global (New)
-define("_ALLDAY","تمام روز");//All day (New)
-define("_CREATECALENDAREVENT","ایجاد رویداد تقویم");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","پوشه جاینوشت موجود");//Overwrite existing folder (New)
-define("_LANDINGPAGE","صفحه فرود");//Landing page (New)
-define("_EXPORTTOXLS","صادرات به xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","بررسی موفق به انتشار");//Survey failed to be published (New)
-define("_PRINTCHART","چارت نسخه قابل چاپ");//Print chart (New)
-define("_RESPONSEDETAILS","جزئیات پاسخ");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","نمایش تنها نهاد فعال");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","نمایش تنها اشخاص غیر فعال");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","نمایش هر دو نهاد فعال و غیر فعال");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","این رویداد دیگر وجود ندارد");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","پاک کردن پیام های صف");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","درخواست برای کاربران در حال حاضر به سمت این شغل به آن تعلق دارد");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","این تنها می تواند (حذف نمی شود) اضافه کردن انتخاب های جدید به کاربر");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","مرتب کردن بر اساس");//Sort by (New)
-define("_TRAINING","آموزش");//Training (New)
-define("_COMPLETEDLESSONS","درس های پایان یافته");//Completed lessons (New)
-define("_INCOMPLETELESSONS","درس ناقص");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","دوره های پایان یافته");//Completed courses (New)
-define("_INCOMPLETECOURSES","دوره های ناقص");//Incomplete courses (New)
-define("_EDITCOLUMN","ویرایش ستون");//Edit column (New)
-define("_LESSONSFORCOURSE","دروس دوره");//Lessons for course (New)
-define("_TESTSFORLESSON","تست درس");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","کامل برای همه کاربران");//Complete for all users (New)
-define("_LESSONTIMES","زمان محلی درس");//Lesson times (New)
-define("_MINUTESPERDAY","دقیقه در هر روز");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","ورود کاربر بعد از (دقیقه)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","دوره روز رسانی (کارشناسی ارشد)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","مقادیر توصیه شده کمتر نیست از 10000ms و نه بیش از 360000ms. همچنین باید مجموعه ای کمتر از زمان خروج از سیستم خودکار.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","بیش از 1 شاخه (مکان) در ارتباط با این دوره ، نشان دادن یکی از اولین");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","درج");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","واگذاری مصوب");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","سرپرست فوری کارکنان");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","بی اثر سازی کاربر");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","غیر فعال بود از سیستم");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","موافقت استاد راهنما");//Supervisor approval (New)
-define("_APPROVE","تصویب");//Approve (New)
-define("_GROUPKEYEXISTS","کلید منحصر به فرد از قبل وجود دارد");//Unique key already exists (New)
-define("_PARTOFCOURSES","بخشی از دوره های");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","در این درس بخشی از یک یا چند دوره ، پس از آن می توانید حالت تغییر نمی کند");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","کاربران ثبت نام شده هستند به این درس وجود دارد. لطفا unassign آنها را قبل از تغییر حالت های");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","دوره (ناقص / کل ارسال ها)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","صادرات فایل");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","دوره برنامه ریزی انقضا");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","دوره برنامه ریزی شده آغاز");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","شروع برنامه ریزی شده از دوره");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","انقضا برنامه ریزی شده از دوره");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","البته تمام کاربران");//All course users (New)
+define("_VISIBLEFROM","قابل مشاهده از");//Visible from
+define("_EXPIRESAT","منقضی می شود در");//Expires at
+define("_CALENDARDISPLAYDATE","تقویم تاریخ نمایش");//Calendar display date
+define("_GLOBAL","جهانی");//Global
+define("_ALLDAY","تمام روز");//All day
+define("_CREATECALENDAREVENT","ایجاد رویداد تقویم");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","پوشه جاینوشت موجود");//Overwrite existing folder
+define("_LANDINGPAGE","صفحه فرود");//Landing page
+define("_EXPORTTOXLS","صادرات به xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","بررسی موفق به انتشار");//Survey failed to be published
+define("_PRINTCHART","چارت نسخه قابل چاپ");//Print chart
+define("_RESPONSEDETAILS","جزئیات پاسخ");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","نمایش تنها نهاد فعال");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","نمایش تنها اشخاص غیر فعال");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","نمایش هر دو نهاد فعال و غیر فعال");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","این رویداد دیگر وجود ندارد");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","پاک کردن پیام های صف");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","درخواست برای کاربران در حال حاضر به سمت این شغل به آن تعلق دارد");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","این تنها می تواند (حذف نمی شود) اضافه کردن انتخاب های جدید به کاربر");//This can only add (not remove) a new selection to a user
+define("_SORTBY","مرتب کردن بر اساس");//Sort by
+define("_TRAINING","آموزش");//Training
+define("_COMPLETEDLESSONS","درس های پایان یافته");//Completed lessons
+define("_INCOMPLETELESSONS","درس ناقص");//Incomplete lessons
+define("_COMPLETEDCOURSES","دوره های پایان یافته");//Completed courses
+define("_INCOMPLETECOURSES","دوره های ناقص");//Incomplete courses
+define("_EDITCOLUMN","ویرایش ستون");//Edit column
+define("_LESSONSFORCOURSE","دروس دوره");//Lessons for course
+define("_TESTSFORLESSON","تست درس");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","کامل برای همه کاربران");//Complete for all users
+define("_LESSONTIMES","زمان محلی درس");//Lesson times
+define("_MINUTESPERDAY","دقیقه در هر روز");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","ورود کاربر بعد از (دقیقه)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","دوره روز رسانی (کارشناسی ارشد)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","مقادیر توصیه شده کمتر نیست از 10000ms و نه بیش از 360000ms. همچنین باید مجموعه ای کمتر از زمان خروج از سیستم خودکار.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","بیش از 1 شاخه (مکان) در ارتباط با این دوره ، نشان دادن یکی از اولین");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","درج");//Insert
+define("_ASSIGNMENTAPPROVEDBY","واگذاری مصوب");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","سرپرست فوری کارکنان");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","بی اثر سازی کاربر");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","غیر فعال بود از سیستم");//was deactivated from system
+define("_SUPERVISORAPPROVAL","موافقت استاد راهنما");//Supervisor approval
+define("_APPROVE","تصویب");//Approve
+define("_GROUPKEYEXISTS","کلید منحصر به فرد از قبل وجود دارد");//Unique key already exists
+define("_PARTOFCOURSES","بخشی از دوره های");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","در این درس بخشی از یک یا چند دوره ، پس از آن می توانید حالت تغییر نمی کند");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","کاربران ثبت نام شده هستند به این درس وجود دارد. لطفا unassign آنها را قبل از تغییر حالت های");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","دوره (ناقص / کل ارسال ها)");//Courses (incomplete/total)
+define("_EXPORTFILES","صادرات فایل");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","دوره برنامه ریزی انقضا");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","دوره برنامه ریزی شده آغاز");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","شروع برنامه ریزی شده از دوره");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","انقضا برنامه ریزی شده از دوره");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","البته تمام کاربران");//All course users
+define("_MOVEBLOCK","انتقال بلاک");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","باز / فروپاشی بلوک");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","پیش فرض نوع یادگیرنده");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","اگر شما از مجموعه گروه یک کلید برای این گروه ، پس از آن که کاربران با استفاده از کلید خواهد شد ثبت نام به درس / دوره داشتن این نوع. در صورتی که مجموعه این گروه به طور پیش فرض ، پس از آن کاربران جدید خواهد شد با این نوع درس به این گروه اختصاص داده");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","آیا استفاده از نوع پیش فرض فعال نمی");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","شما با موفقیت به گروه اضافه شده");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","این گروه غیر فعال است");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","کلید را نمی توان مورد استفاده قرار هر بار بیشتر");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","انتخاب شما ساخته شده معتبر نیست. لطفا انتخاب یکی از گزینه های لیست");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","شما در حال حاضر از اعضای این گروه");//You are already member of this group (New)
+define("_AVERAGESCORES","میانگین نمرات");//Average scores (New)
+define("_PROJECTSAVERAGE","میانگین نمره در همه پروژه ها");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","تغییر به نمای درختی");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","به نمای ساده");//Switch to simple view (New)
+define("_BCCRECIPIENTS","نامعلوم گیرندگان (بازال)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","نتایج برای");//Results for (New)
+define("_THANKYOUFORCOMPLETING","با تشکر از شما برای تکمیل");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","هیچ گزارشی موجود در سیستم");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","شما ممکن است ایجاد یک");//You may create one (New)
 ?>

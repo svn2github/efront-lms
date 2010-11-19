@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Lesmateriaal");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Er zijn geen vragen gedefinieerd");//There are no questions defined
 define("_ADDQUESTION","Vraag toevoegen");//Add question
 define("_PREVIEW","Voorvertoning");//Preview
-define("_RENAME","Andere naam geven");//Rename (New)
-define("_CLONE","Kloon");//Clone (New)
+define("_RENAME","Andere naam geven");//Rename
+define("_CLONE","Kloon");//Clone
 define("_NOTESTSSETFORTHISUNIT","Geen tests gevonden");//No tests found
 define("_ADDTEST","Voeg toets toe");//Add test
 define("_UNITANDSUBUNITSTESTS","Eenheid en subeenheden toets");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Markeer als niet voltooid");//Set the unit as not complete
 define("_CONDITIONSCOMPLETED","Voorwaarden voldaan");//Conditions completed
 define("_OUTOF","uit");//out of
 define("_LESSONPROGRESS","Les vooruitgang");//Lesson progress
-define("_YOUMUSTSEEUNIT","U moet eenheid zien");//You must see unit
-define("_YOUMUSTSEEALLUNITS","U moet alle eenheden zien");//You must see all units
+define("_YOUMUSTSEEUNIT","U moet eenheid zien");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","U moet alle eenheden zien");//You must complete all units
 define("_OFLESSONUNITS","van les-eenheden");//of lesson units
-define("_YOUMUSTSEE","U moet zien");//You must see
+define("_YOUMUSTSEE","U moet zien");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","U moet voor alle toetsen slagen met een gemiddelde score van");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","U moet toets afronden");//You must complete test
 define("_WITHSCORE","met score");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Vervolg les");//Resume lesson
 define("_STARTLESSON","Start les");//Start lesson
 define("_TRACKING","Volgen");//Tracking
 define("_FORMATCERTIFICATE","Formaat certificaat");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Formaat certificaatsjabloon");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Stel certificaat verlopen");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Gebruik de LiveDocX methode voor het maken certificaties");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Gebruik maken van de XML-methode voor het maken certificaties");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Voeg certificaatsjabloon (xml-formaat)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Edit certificaatsjabloon (xml-formaat)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Hernoemen certificaatsjabloon");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Kloon certificaatsjabloon");//Clone certificate template (New)
-define("_CERTIFICATENAME","Naam van het certificaat");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Certificaat beschrijving");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML-beschrijving kan niet leeg zijn");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Bestaande certificaat sjablonen");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Formaat certificaatsjabloon");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Stel certificaat verlopen");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Gebruik de LiveDocX methode voor het maken certificaties");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Gebruik maken van de XML-methode voor het maken certificaties");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Voeg certificaatsjabloon (xml-formaat)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Edit certificaatsjabloon (xml-formaat)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Hernoemen certificaatsjabloon");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Kloon certificaatsjabloon");//Clone certificate template
+define("_CERTIFICATENAME","Naam van het certificaat");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Certificaat beschrijving");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML-beschrijving kan niet leeg zijn");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Bestaande certificaat sjablonen");//Existing certificate templates
 define("_TRAFFIC","Verkeer");//Traffic
 define("_LESSONTRAFFIC","Les verkeer");//Lesson traffic
 define("_EDITTEST","Toets bewerken");//Edit test
 define("_EDITQUESTION","Vraag bewerken");//Edit question
 define("_CERTIFICATE","Certificaat");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Certificaat bijgewerkt");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Certificaatsjabloon werd met succes toegevoegd");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Er was een probleem tijdens het toevoegen van certificaatsjabloon");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Certificaatsjabloon is succesvol bijgewerkt");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Er was een probleem tijdens het bijwerken van certificaatsjabloon");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Certificaatsjabloon succes werd omgedoopt tot");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Er was een probleem, terwijl hernoemen certificaatsjabloon");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Certificaatsjabloon is succesvol gekloond");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Er was een probleem, terwijl het klonen certificaatsjabloon");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certificaatsjabloon werd met succes verwijderd");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Er was een probleem tijdens het verwijderen van certificaatsjabloon");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Je hoeft niet de rechten om dit certificaat sjabloon wijzigen");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Certificaatsjabloon werd met succes toegevoegd");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Er was een probleem tijdens het toevoegen van certificaatsjabloon");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Certificaatsjabloon is succesvol bijgewerkt");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Er was een probleem tijdens het bijwerken van certificaatsjabloon");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Certificaatsjabloon succes werd omgedoopt tot");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Er was een probleem, terwijl hernoemen certificaatsjabloon");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Certificaatsjabloon is succesvol gekloond");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Er was een probleem, terwijl het klonen certificaatsjabloon");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certificaatsjabloon werd met succes verwijderd");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Er was een probleem tijdens het verwijderen van certificaatsjabloon");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Je hoeft niet de rechten om dit certificaat sjabloon wijzigen");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Voorwaarde bewerken");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP-server configuratie");//SMTP server configuration
 define("_SMTPSERVER","SMTP-server");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","De velden in uw C
 define("_IFEMPTYNEWPASSWORD","Velden in rood zijn verplicht. Als er geen wachtwoord gegeven, het eerste wachtwoord wordt hetzelfde ingesteld als de login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Controleer het formaat van uw CSV-bestand");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Gebruik in de template #organization# voor organisatienaam, #user_name# voor gebruikersnaam, #user_surname# voor de gebruikers voornaam, #course_name# voor de cursusnaam, #grade# voor niveau en #date# voor datum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","In de template, het gebruik &lt;organization&gt; &lt;/ organisatie&gt; voor de naam van de organisatie, &lt;student&gt; &lt;/ student&gt; voor de volledige naam student, &lt;course&gt; &lt;/ cursus&gt; voor de naam cursus, &lt;grade&gt; &lt;/ rang&gt; voor rang, &lt; seriële&gt; &lt;/ serial&gt; voor het serienummer, &lt;date&gt; &lt;/ date&gt; voor datum, &lt;logo&gt; &lt;/ logo&gt; voor het logo en &lt;background&gt; &lt;/ achtergrond&gt; voor de achtergrond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","In de template, het gebruik &lt;organization&gt; &lt;/ organisatie&gt; voor de naam van de organisatie, &lt;student&gt; &lt;/ student&gt; voor de volledige naam student, &lt;course&gt; &lt;/ cursus&gt; voor de naam cursus, &lt;grade&gt; &lt;/ rang&gt; voor rang, &lt; seriële&gt; &lt;/ serial&gt; voor het serienummer, &lt;date&gt; &lt;/ date&gt; voor datum, &lt;logo&gt; &lt;/ logo&gt; voor het logo en &lt;background&gt; &lt;/ achtergrond&gt; voor de achtergrond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Stemmen");//Votes
 define("_PERCENTAGE","Percentage");//Percentage
 define("_CERTIFICATEISSUED","Certificaat afgegeven");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Blijven");//Remain
 define("_WEEKS","weken");//weeks
 define("_WEEKs","week");//week
 define("_DAYS","dagen");//days
-define("_DAYSCAPITAL","Dagen");//Days (New)
+define("_DAYSCAPITAL","Dagen");//Days
 define("_DAY","Dag");//Day
 define("_EVALUATIONDATAUPDATED","Evaluatie gegevens bijgewerkt");//Evaluation data updated successfully
 define("_EVALUATION","Evaluatie");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Groep is bijgewerkt");//Group was successfull
 define("_ASSIGNLESSONSTOGROUPUSERS","Wijs geselecteerde lessen toe aan de groep gebruikers");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Automatisch genereren van groepssleutel");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Unieke groepssleutel");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Deze unieke groepssleutel kan worden verstrekt aan de gebruikers zodat zij zich kan inschrijven voor een bepaalde groep door te klikken op de sleutel-pictogram op de login pagina");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Deze unieke groepssleutel kan worden verstrekt aan de gebruikers zodat zij zich kan inschrijven voor een bepaalde groep door te klikken op de sleutel-pictogram op de login pagina");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Standaard systeem groep");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Door dit te selecteren maakt dat alle nieuwe gebruikers van het systeem automatisch worden toegewezen aan deze groep. Slechts een groep kan de standaard systeem groep zijn. Implicatie van het instellen van een nieuwe standaard groep zal de voorgaande vervangen.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Door dit te selecteren maakt dat alle nieuwe gebruikers van het systeem automatisch worden toegewezen aan deze groep. Slechts een groep kan de standaard systeem groep zijn. Implicatie van het instellen van een nieuwe standaard groep zal de voorgaande vervangen.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Groepssleutel");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Door het invoeren van een unieke groepssleutel, die aan u is verstrekt door de systeembeheerder, kunt u zichzelf inschrijven voor alle lessen van die specifieke groep");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","De groepssleutel die u hebt ingevoerd is niet geldig");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Invoegen in groep");//Insert into group
 define("_NOSPECIFICGROUP","Geen specifieke groep");//No specific group
 define("_VIEWINSERTGROUPKEY","Toon groepssleutel optie");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maximale sleutel gebruikt");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Instellen van dit gebied naar een waarde groter dan nul is, zal het aantal keren dat de groepssleutel kan worden gebruikt beperkt, door gebruikers zichzelf registreren bij deze groep, . Als het veld is ingesteld op nul, dan is er geen limiet afgedwongen.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Instellen van dit gebied naar een waarde groter dan nul is, zal het aantal keren dat de groepssleutel kan worden gebruikt beperkt, door gebruikers zichzelf registreren bij deze groep, . Als het veld is ingesteld op nul, dan is er geen limiet afgedwongen.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Resterende groepssleutel gebruik");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","De groepssleutel is verstreken");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Het spijt ons, maar deze toets is beschadigd en dus ontoegankelijk. Bezoek de afgelegde toetsen om deze toets uit de lijst te verwijderen.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","mijn Groepen");//my Groups
 define("_AVAILABLE","Beschikbaar");//Available
 define("_NEVER","Nooit");//Never
 define("_CLASSMATES","Klasgenoten");//Classmates
-define("_LESSONPEOPLE","Deelnemers les");//Lesson users
+define("_LESSONPEOPLE","Deelnemers les");//People connection
 define("_NORMALIZEDIMENSIONS","Normale afmetingen");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","werd toegewezen aan de cursus");//was assigned the course
 define("_WILLBETEACHINGCOURSE","zal de cursus doen");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Verander voorwaarde om");//Change condition orde
 define("_INDEX","Index");//Index
 define("_EVENTDATETIME","Gebeurtenis datum en tijd");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Het certificaat bestand ontbreekt of is beschadigd en is daarom gereset");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Zichtbaar is vanaf");//Visible from (New)
-define("_EXPIRESAT","Loopt af op");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Kalender display datum");//Calendar display date (New)
-define("_GLOBAL","Global");//Global (New)
-define("_ALLDAY","De hele dag");//All day (New)
-define("_CREATECALENDAREVENT","Maak agenda-item");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Overschrijven bestaande map");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Landing page");//Landing page (New)
-define("_EXPORTTOXLS","Exporteren naar xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Enquête niet worden gepubliceerd");//Survey failed to be published (New)
-define("_PRINTCHART","Print grafiek");//Print chart (New)
-define("_RESPONSEDETAILS","Reactie details");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Waarbij alleen actieve entiteiten");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Resultaat alleen inactieve entiteiten");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Resultaat zowel actieve als inactieve entiteiten");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Dit evenement bestaat niet meer");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Duidelijke wachtrijberichten");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Van toepassing op gebruikers al behoort tot deze Vacature");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Dit kan alleen maar (niet verwijderen) een nieuwe selectie aan een gebruiker");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Sorteren op");//Sort by (New)
-define("_TRAINING","Training");//Training (New)
-define("_COMPLETEDLESSONS","Afgesloten lessen");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Onvolledige lessen");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Gevolgde cursussen");//Completed courses (New)
-define("_INCOMPLETECOURSES","Onvolledige cursussen");//Incomplete courses (New)
-define("_EDITCOLUMN","Kolom Bewerken");//Edit column (New)
-define("_LESSONSFORCOURSE","Lessen voor de cursus");//Lessons for course (New)
-define("_TESTSFORLESSON","Tests voor de les");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Compleet voor alle gebruikers");//Complete for all users (New)
-define("_LESSONTIMES","Lestijden");//Lesson times (New)
-define("_MINUTESPERDAY","Minuten per dag");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Afmelden gebruiker na (minuten)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Updater periode (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Aanbevolen waarden zijn niet minder dan 10000ms en niet meer dan 360000ms. Het moet ook worden ingesteld op minder dan de auto afmelden tijd.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Meer dan 1 vestigingen (locaties) in verband met deze cursus, waarin de eerste");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Plaats");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Opdracht goedgekeurd door");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","directe leidinggevende Werknemer");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Gebruiker deactivering");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","werd uitgeschakeld uit het systeem");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Toezichthouder de goedkeuring");//Supervisor approval (New)
-define("_APPROVE","Goed te keuren");//Approve (New)
-define("_GROUPKEYEXISTS","Unieke sleutel bestaat al");//Unique key already exists (New)
-define("_PARTOFCOURSES","Een deel van de cursussen");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Deze les is onderdeel van een of meer cursussen, zodat het niet kan veranderen modus");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Er zijn gebruikers ingeschreven op deze les. Gelieve UNASSIGN voordat schakelmodes");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Cursussen (onvolledige / totaal)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Export bestanden");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Natuurlijk geplande vervaldatum");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Natuurlijk gepland begin");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","Geplande aanvang van de cursus");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","Geplande verstrijken van natuurlijk");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Alle cursus gebruikers");//All course users (New)
+define("_VISIBLEFROM","Zichtbaar is vanaf");//Visible from
+define("_EXPIRESAT","Loopt af op");//Expires at
+define("_CALENDARDISPLAYDATE","Kalender display datum");//Calendar display date
+define("_GLOBAL","Global");//Global
+define("_ALLDAY","De hele dag");//All day
+define("_CREATECALENDAREVENT","Maak agenda-item");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Overschrijven bestaande map");//Overwrite existing folder
+define("_LANDINGPAGE","Landing page");//Landing page
+define("_EXPORTTOXLS","Exporteren naar xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Enquête niet worden gepubliceerd");//Survey failed to be published
+define("_PRINTCHART","Print grafiek");//Print chart
+define("_RESPONSEDETAILS","Reactie details");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Waarbij alleen actieve entiteiten");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Resultaat alleen inactieve entiteiten");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Resultaat zowel actieve als inactieve entiteiten");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Dit evenement bestaat niet meer");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Duidelijke wachtrijberichten");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Van toepassing op gebruikers al behoort tot deze Vacature");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Dit kan alleen maar (niet verwijderen) een nieuwe selectie aan een gebruiker");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Sorteren op");//Sort by
+define("_TRAINING","Training");//Training
+define("_COMPLETEDLESSONS","Afgesloten lessen");//Completed lessons
+define("_INCOMPLETELESSONS","Onvolledige lessen");//Incomplete lessons
+define("_COMPLETEDCOURSES","Gevolgde cursussen");//Completed courses
+define("_INCOMPLETECOURSES","Onvolledige cursussen");//Incomplete courses
+define("_EDITCOLUMN","Kolom Bewerken");//Edit column
+define("_LESSONSFORCOURSE","Lessen voor de cursus");//Lessons for course
+define("_TESTSFORLESSON","Tests voor de les");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Compleet voor alle gebruikers");//Complete for all users
+define("_LESSONTIMES","Lestijden");//Lesson times
+define("_MINUTESPERDAY","Minuten per dag");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Afmelden gebruiker na (minuten)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Updater periode (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Aanbevolen waarden zijn niet minder dan 10000ms en niet meer dan 360000ms. Het moet ook worden ingesteld op minder dan de auto afmelden tijd.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Meer dan 1 vestigingen (locaties) in verband met deze cursus, waarin de eerste");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Plaats");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Opdracht goedgekeurd door");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","directe leidinggevende Werknemer");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Gebruiker deactivering");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","werd uitgeschakeld uit het systeem");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Toezichthouder de goedkeuring");//Supervisor approval
+define("_APPROVE","Goed te keuren");//Approve
+define("_GROUPKEYEXISTS","Unieke sleutel bestaat al");//Unique key already exists
+define("_PARTOFCOURSES","Een deel van de cursussen");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Deze les is onderdeel van een of meer cursussen, zodat het niet kan veranderen modus");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Er zijn gebruikers ingeschreven op deze les. Gelieve UNASSIGN voordat schakelmodes");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Cursussen (onvolledige / totaal)");//Courses (incomplete/total)
+define("_EXPORTFILES","Export bestanden");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Natuurlijk geplande vervaldatum");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Natuurlijk gepland begin");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Geplande aanvang van de cursus");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Geplande verstrijken van natuurlijk");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Alle cursus gebruikers");//All course users
+define("_MOVEBLOCK","Verplaats blok");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Expand / Collapse blok");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Standaard type leerling");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Als u een groep selecteren sleutel voor deze groep, dan kunnen gebruikers die gebruik maken van de toets zal worden ingeschreven om lessen / cursussen met dit type. Als u hebt ingesteld van deze groep om in gebreke bent, zal dan nieuwe gebruikers worden toegewezen aan de lessen van de groep met dit type");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Gebruik geen standaard type");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","U bent succesvol toegevoegd aan de groep");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Deze groep is niet actief");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","De sleutel kan niet meer worden gebruikt tijden");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","De selectie die u gemaakt is niet geldig. Neem dat alsjeblieft een optie uit de lijst");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","U bent al lid van deze groep");//You are already member of this group (New)
+define("_AVERAGESCORES","Gemiddelde scores");//Average scores (New)
+define("_PROJECTSAVERAGE","Gemiddelde score in alle projecten");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Over te schakelen naar boomstructuur");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Overschakelen naar eenvoudige weergave");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Geheime ontvangers (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Resultaten voor");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Dank u voor het invullen van");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Geen meldingen in het systeem gevonden");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Je mag er een maken");//You may create one (New)
 ?>

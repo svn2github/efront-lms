@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","درس المواد");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","لا توجد اسءله محددة");//There are no questions defined
 define("_ADDQUESTION","اضافة سؤال");//Add question
 define("_PREVIEW","العرض الاولي");//Preview
-define("_RENAME","إعادة تسمية");//Rename (New)
-define("_CLONE","استنساخ");//Clone (New)
+define("_RENAME","إعادة تسمية");//Rename
+define("_CLONE","استنساخ");//Clone
 define("_NOTESTSSETFORTHISUNIT","ولا وجدت التجارب");//No tests found
 define("_ADDTEST","اضافة للتجارب");//Add test
 define("_UNITANDSUBUNITSTESTS","ومفارز وحدة التجارب");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","مجموعة الوحدة على انها لم تكتمل"
 define("_CONDITIONSCOMPLETED","اكملت الشروط");//Conditions completed
 define("_OUTOF","من");//out of
 define("_LESSONPROGRESS","الدرس التقدم");//Lesson progress
-define("_YOUMUSTSEEUNIT","يجب أن أنظر وحده");//You must see unit
-define("_YOUMUSTSEEALLUNITS","يجب ان نرى جميع وحدات");//You must see all units
+define("_YOUMUSTSEEUNIT","يجب أن أنظر وحده");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","يجب ان نرى جميع وحدات");//You must complete all units
 define("_OFLESSONUNITS","وحدات من الدرس");//of lesson units
-define("_YOUMUSTSEE","يجب ان انظر");//You must see
+define("_YOUMUSTSEE","يجب ان انظر");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","يجب استكمال جميع الاختبارات يعني بالنتيجه");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","يجب استكمال الاختبار");//You must complete test
 define("_WITHSCORE","مع تسجيل");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","استئناف الدرس");//Resume lesson
 define("_STARTLESSON","بداية الدرس");//Start lesson
 define("_TRACKING","تتبع");//Tracking
 define("_FORMATCERTIFICATE","نموذج شهادة");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","شكل شهادة قالب");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","تعيين شهادة انتهاء");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","استخدام الأسلوب LiveDocX لخلق شهادات");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","استخدام الأسلوب إكس إم إل لخلق شهادات");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","إضافة قالب الشهادة (شكل أكس أم أل)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","تحرير قالب الشهادة (شكل أكس أم أل)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","إعادة تسمية الشهادة قالب");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","استنساخ شهادة قالب");//Clone certificate template (New)
-define("_CERTIFICATENAME","اسم الشهادة");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","وصف الشهادة");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","يمكن إكس إم إل الوصف لا يكون فارغا");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","القائمة قوالب الشهادات");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","شكل شهادة قالب");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","تعيين شهادة انتهاء");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","استخدام الأسلوب LiveDocX لخلق شهادات");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","استخدام الأسلوب إكس إم إل لخلق شهادات");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","إضافة قالب الشهادة (شكل أكس أم أل)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","تحرير قالب الشهادة (شكل أكس أم أل)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","إعادة تسمية الشهادة قالب");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","استنساخ شهادة قالب");//Clone certificate template
+define("_CERTIFICATENAME","اسم الشهادة");//Certificate name
+define("_CERTIFICATEDESCRIPTION","وصف الشهادة");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","يمكن إكس إم إل الوصف لا يكون فارغا");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","القائمة قوالب الشهادات");//Existing certificate templates
 define("_TRAFFIC","المرور");//Traffic
 define("_LESSONTRAFFIC","درس حركة المرور");//Lesson traffic
 define("_EDITTEST","تحرير اختبار");//Edit test
 define("_EDITQUESTION","مسألة تحرير");//Edit question
 define("_CERTIFICATE","شهادة");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","نجحت عملية تحديث الشهاده");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","تمت إضافة القالب بنجاح شهادة");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","كانت هناك مشكلة مع إضافة قالب الشهادة");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","تم تحديثها بنجاح شهادة قالب");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","كانت هناك مشكلة أثناء تحديث قالب الشهادة");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","تم تغيير اسمها بنجاح شهادة قالب");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","كانت هناك مشكلة أثناء إعادة تسمية قالب الشهادة");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","تم استنساخ بنجاح شهادة قالب");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","كانت هناك مشكلة في حين الاستنساخ قالب الشهادة");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","تم حذف بنجاح شهادة قالب");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","كانت هناك مشكلة أثناء حذف قالب الشهادة");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","ليس لديك الحق في تعديل هذا القالب شهادة");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","تمت إضافة القالب بنجاح شهادة");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","كانت هناك مشكلة مع إضافة قالب الشهادة");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","تم تحديثها بنجاح شهادة قالب");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","كانت هناك مشكلة أثناء تحديث قالب الشهادة");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","تم تغيير اسمها بنجاح شهادة قالب");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","كانت هناك مشكلة أثناء إعادة تسمية قالب الشهادة");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","تم استنساخ بنجاح شهادة قالب");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","كانت هناك مشكلة في حين الاستنساخ قالب الشهادة");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","تم حذف بنجاح شهادة قالب");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","كانت هناك مشكلة أثناء حذف قالب الشهادة");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","ليس لديك الحق في تعديل هذا القالب شهادة");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","تحرير الشرط");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","مركز خدمة بروتوكول نقل البريد الالكتروني");//SMTP server configuration
 define("_SMTPSERVER","خادم بروتوكول نقل البريد الالكتروني");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","الميادين 
 define("_IFEMPTYNEWPASSWORD","الأحمر في مجالات الزاميه. واذا لم يكن هناك كلمة سر ونظرا ل، الاولى سيتم تحديد كلمة السر نفس تسجيل الدخول.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","يرجى التحقق من الشكل الخاص بك من ملف CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","# # USER_NAME استخدام لاسم المستخدم ، # # user_surname المستخدم للقب ، course_name # # لاسم وبطبيعة الحال ، ل# # الدرجة والرتبه و# # للتاريخ حتى الآن.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","في القالب ، استخدم &lt;organization&gt;&lt;منظمة /&gt; لاسم المنظمة ، &lt;student&gt;&lt;الطالب /&gt; عن اسم الطالب الكامل ، &lt;course&gt;&lt;طبعا /&gt; الاسم بالطبع ، و&lt;grade&gt;&lt;/ الصف&gt; للصف ، &lt; &lt;مسلسل /&gt; مسلسل عن الرقم التسلسلي ، &lt;date&gt;&lt;/ التاريخ للتاريخ ، &lt;logo&gt;&lt;شعار / ل&lt;الشعار و&lt;background&gt;/&gt; خلفية عن الخلفية.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","في القالب ، استخدم &lt;organization&gt;&lt;منظمة /&gt; لاسم المنظمة ، &lt;student&gt;&lt;الطالب /&gt; عن اسم الطالب الكامل ، &lt;course&gt;&lt;طبعا /&gt; الاسم بالطبع ، و&lt;grade&gt;&lt;/ الصف&gt; للصف ، &lt; &lt;مسلسل /&gt; مسلسل عن الرقم التسلسلي ، &lt;date&gt;&lt;/ التاريخ للتاريخ ، &lt;logo&gt;&lt;شعار / ل&lt;الشعار و&lt;background&gt;/&gt; خلفية عن الخلفية.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","الاصوات");//Votes
 define("_PERCENTAGE","النسبه المءويه");//Percentage
 define("_CERTIFICATEISSUED","اصدار شهادة");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","يظل");//Remain
 define("_WEEKS","اسابيع");//weeks
 define("_WEEKs","الاسبوع");//week
 define("_DAYS","ايام");//days
-define("_DAYSCAPITAL","أيام");//Days (New)
+define("_DAYSCAPITAL","أيام");//Days
 define("_DAY","يوم");//Day
 define("_EVALUATIONDATAUPDATED","نجح تحديث بيانات التقييم");//Evaluation data updated successfully
 define("_EVALUATION","تقييم");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","المجموعة بنجاح تحديث");//Gr
 define("_ASSIGNLESSONSTOGROUPUSERS","تخصيص دروس لمجموعة مختارة من المستخدمين");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","تلقائيا المجموعة الرئيسية");//Automatically generate group key
 define("_UNIQUEGROUPKEY","مجموعة فريدة الرئيسية");//Unique group key
-define("_UNIQUEGROUPKEYINFO","هذه المجموعة الفريدة رئيسية يمكن أن تقدم إلى المستخدمين لتمكينهم من تسجيل أنفسهم لمجموعة معينة من خلال النقر على أيقونة الرئيسية على صفحة تسجيل الدخول");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","هذه المجموعة الفريدة رئيسية يمكن أن تقدم إلى المستخدمين لتمكينهم من تسجيل أنفسهم لمجموعة معينة من خلال النقر على أيقونة الرئيسية على صفحة تسجيل الدخول");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","تقصير نظام المجموعة");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","التحقق من كل ذلك سوف يجعل من المستخدمين الجدد للنظام أن يكون تلقائيا المسندة إلى هذه المجموعة. مجموعة واحدة فقط يمكن أن يكون النظام الافتراضي. كما ملمحة جديدة تحل محل التقصير مجموعة الاختيارات السابقة.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","التحقق من كل ذلك سوف يجعل من المستخدمين الجدد للنظام أن يكون تلقائيا المسندة إلى هذه المجموعة. مجموعة واحدة فقط يمكن أن يكون النظام الافتراضي. كما ملمحة جديدة تحل محل التقصير مجموعة الاختيارات السابقة.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","المجموعة الرئيسية");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","هنا عن طريق تقديم مجموعة فريدة الرئيسية المقدمة لك من قبل مدير النظام كنت قادرا على تسجيل نفسك لجميع الدروس من تلك المجموعة");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","المجموعة الرئيسية التي قمت بإدخالها غير صحيحة");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","تضاف الى مجموعة");//Insert into group
 define("_NOSPECIFICGROUP","أي مجموعة معينة");//No specific group
 define("_VIEWINSERTGROUPKEY","وتظهر مجموعة الخيارات الرئيسية");//Show group key option
 define("_MAXGROUPKEYUSAGE","أقصى قدر من الاستخدامات الرئيسية");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","هذا المجال لتحديد قيمة أكبر من الصفر ، وتحديد عدد المرات المجموعة الرئيسية التي يمكن استخدامها من قبل المستخدمين في تقرير المصير ، سجل في هذه المجموعة. إذا كان المجال هو مجموعة من الصفر ، ثم لا يحد ستنفذ.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","هذا المجال لتحديد قيمة أكبر من الصفر ، وتحديد عدد المرات المجموعة الرئيسية التي يمكن استخدامها من قبل المستخدمين في تقرير المصير ، سجل في هذه المجموعة. إذا كان المجال هو مجموعة من الصفر ، ثم لا يحد ستنفذ.");//Leave blank for no limit
 define("_REMAININGKEYUSES","ويستخدم ما تبقى من المجموعة الرئيسية");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","المجموعة الرئيسية قد انتهت صلاحيتها");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","عذرا ، لكن هذا الاختبار هو فساد ، وبالتالي يتعذر الوصول إليها. يرجى زيارة عمله اختبارات قائمة على حذف هذا الاختبار التنفيذ.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","مجموعاتي");//my Groups
 define("_AVAILABLE","متوفر");//Available
 define("_NEVER","أبدا");//Never
 define("_CLASSMATES","زملاء الدراسة");//Classmates
-define("_LESSONPEOPLE","الناس الدرس");//Lesson users
+define("_LESSONPEOPLE","الناس الدرس");//People connection
 define("_NORMALIZEDIMENSIONS","تطبيع الأبعاد");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","تم تعيين مسار");//was assigned the course
 define("_WILLBETEACHINGCOURSE","سيتم تدريس الدورة");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","تغيير حالة النظام");//Change cond
 define("_INDEX","مؤشر");//Index
 define("_EVENTDATETIME","الحدث التاريخ والوقت");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","وكان ملف الشهادة مفقود أو معطوب وبالتالي تم إعادة تعيين");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","مرئية من");//Visible from (New)
-define("_EXPIRESAT","تنتهي في");//Expires at (New)
-define("_CALENDARDISPLAYDATE","التقويم عرض التاريخ");//Calendar display date (New)
-define("_GLOBAL","العالمية");//Global (New)
-define("_ALLDAY","كل يوم");//All day (New)
-define("_CREATECALENDAREVENT","خلق الحدث التقويم");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","الكتابة فوق مجلد موجود");//Overwrite existing folder (New)
-define("_LANDINGPAGE","الصفحة المقصودة");//Landing page (New)
-define("_EXPORTTOXLS","التصدير إلى إكسلس");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","فشل المسح أن ينشر");//Survey failed to be published (New)
-define("_PRINTCHART","طباعة المخطط");//Print chart (New)
-define("_RESPONSEDETAILS","تفاصيل الرد");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","عرض الكيانات النشطة فقط");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","عرض الكيانات الوحيدة غير نشط");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","عرض كلا الكيانين نشطة وغير نشطة");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","هذا الحدث لم يعد موجودا");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","رسائل واضحة قائمة الانتظار");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","تطبق على المستخدمين ينتمي بالفعل لهذا المنصب وظيفة");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","هذا يمكن إضافة فقط (وليس إزالة) مجموعة جديدة لمستخدم");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","الترتيب حسب");//Sort by (New)
-define("_TRAINING","التدريب");//Training (New)
-define("_COMPLETEDLESSONS","أكمل الدروس");//Completed lessons (New)
-define("_INCOMPLETELESSONS","دروس غير مكتملة");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","استكملت المقررات");//Completed courses (New)
-define("_INCOMPLETECOURSES","غير مكتملة المقررات");//Incomplete courses (New)
-define("_EDITCOLUMN","تحرير عمود");//Edit column (New)
-define("_LESSONSFORCOURSE","دروس للدورة");//Lessons for course (New)
-define("_TESTSFORLESSON","اختبارات عن الدرس");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","الكامل لجميع المستخدمين");//Complete for all users (New)
-define("_LESSONTIMES","الدرس مرات");//Lesson times (New)
-define("_MINUTESPERDAY","دقيقة يوميا");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","سجل المستخدم الخروج بعد (دقيقة)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","المحدث الفترة (ماجستير)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","القيم الموصى بها ليست أقل من 10000ms وليس أكثر من 360000ms. كما يجب تعيين أقل من السيارات وقت الخروج.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","أكثر من 1 فروع (المواقع) المرتبط بهذه الدورة ، عرض أول واحد");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","إدراج");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","وافق الاحالة");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","الموظف المشرف المباشر");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","مستخدم التعطيل");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","والمعطلة من نظام");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","موافقة المشرف");//Supervisor approval (New)
-define("_APPROVE","الموافقة على");//Approve (New)
-define("_GROUPKEYEXISTS","فريد المفتاح موجود بالفعل");//Unique key already exists (New)
-define("_PARTOFCOURSES","جزء من الدورات");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","هذا الدرس هو جزء من المقررات واحد أو أكثر ، لذلك فإنه لا يمكن تغيير وضع");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","هناك المستخدمين المسجلين لهذا الدرس. يرجى إلغاء تعيين لهم قبل التبديل وسائط");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","الدورات (غير مكتملة / المجموع)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","تصدير ملفات");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","بالطبع من المقرر انقضاء");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","بالطبع المقرر بداية");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","من المقرر بدء البرنامج الدراسي");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","من المقرر انتهاء بالطبع");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","بالطبع جميع المستخدمين");//All course users (New)
+define("_VISIBLEFROM","مرئية من");//Visible from
+define("_EXPIRESAT","تنتهي في");//Expires at
+define("_CALENDARDISPLAYDATE","التقويم عرض التاريخ");//Calendar display date
+define("_GLOBAL","العالمية");//Global
+define("_ALLDAY","كل يوم");//All day
+define("_CREATECALENDAREVENT","خلق الحدث التقويم");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","الكتابة فوق مجلد موجود");//Overwrite existing folder
+define("_LANDINGPAGE","الصفحة المقصودة");//Landing page
+define("_EXPORTTOXLS","التصدير إلى إكسلس");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","فشل المسح أن ينشر");//Survey failed to be published
+define("_PRINTCHART","طباعة المخطط");//Print chart
+define("_RESPONSEDETAILS","تفاصيل الرد");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","عرض الكيانات النشطة فقط");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","عرض الكيانات الوحيدة غير نشط");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","عرض كلا الكيانين نشطة وغير نشطة");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","هذا الحدث لم يعد موجودا");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","رسائل واضحة قائمة الانتظار");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","تطبق على المستخدمين ينتمي بالفعل لهذا المنصب وظيفة");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","هذا يمكن إضافة فقط (وليس إزالة) مجموعة جديدة لمستخدم");//This can only add (not remove) a new selection to a user
+define("_SORTBY","الترتيب حسب");//Sort by
+define("_TRAINING","التدريب");//Training
+define("_COMPLETEDLESSONS","أكمل الدروس");//Completed lessons
+define("_INCOMPLETELESSONS","دروس غير مكتملة");//Incomplete lessons
+define("_COMPLETEDCOURSES","استكملت المقررات");//Completed courses
+define("_INCOMPLETECOURSES","غير مكتملة المقررات");//Incomplete courses
+define("_EDITCOLUMN","تحرير عمود");//Edit column
+define("_LESSONSFORCOURSE","دروس للدورة");//Lessons for course
+define("_TESTSFORLESSON","اختبارات عن الدرس");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","الكامل لجميع المستخدمين");//Complete for all users
+define("_LESSONTIMES","الدرس مرات");//Lesson times
+define("_MINUTESPERDAY","دقيقة يوميا");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","سجل المستخدم الخروج بعد (دقيقة)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","المحدث الفترة (ماجستير)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","القيم الموصى بها ليست أقل من 10000ms وليس أكثر من 360000ms. كما يجب تعيين أقل من السيارات وقت الخروج.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","أكثر من 1 فروع (المواقع) المرتبط بهذه الدورة ، عرض أول واحد");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","إدراج");//Insert
+define("_ASSIGNMENTAPPROVEDBY","وافق الاحالة");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","الموظف المشرف المباشر");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","مستخدم التعطيل");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","والمعطلة من نظام");//was deactivated from system
+define("_SUPERVISORAPPROVAL","موافقة المشرف");//Supervisor approval
+define("_APPROVE","الموافقة على");//Approve
+define("_GROUPKEYEXISTS","فريد المفتاح موجود بالفعل");//Unique key already exists
+define("_PARTOFCOURSES","جزء من الدورات");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","هذا الدرس هو جزء من المقررات واحد أو أكثر ، لذلك فإنه لا يمكن تغيير وضع");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","هناك المستخدمين المسجلين لهذا الدرس. يرجى إلغاء تعيين لهم قبل التبديل وسائط");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","الدورات (غير مكتملة / المجموع)");//Courses (incomplete/total)
+define("_EXPORTFILES","تصدير ملفات");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","بالطبع من المقرر انقضاء");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","بالطبع المقرر بداية");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","من المقرر بدء البرنامج الدراسي");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","من المقرر انتهاء بالطبع");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","بالطبع جميع المستخدمين");//All course users
+define("_MOVEBLOCK","تحرك كتلة");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","توسيع كتلة / طي");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","نوع المتعلم الافتراضي");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","إذا قمت بتعيين مفتاح المجموعة لهذه المجموعة ، ثم المستخدمين أن استخدام المفتاح سوف يكون مسجلا للدروس / دورات وجود هذا النوع. إذا قمت بتعيين هذه المجموعة لتكون الافتراضية ، سيتم تعيين المستخدمين فوق جديد لدروس المجموعة مع هذا النوع");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","لا تستخدم النوع الافتراضي");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","لقد كنت وأضاف إلى الفريق بنجاح");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","هذه المجموعة غير نشط");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","ويمكن أن مفتاح أي لا يمكن استخدامها أكثر من مرة");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","اختيار أجريتها غير صالح. الرجاء اختيار أحد الخيارات من قائمة");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","كنت بالفعل عضوا في هذه المجموعة");//You are already member of this group (New)
+define("_AVERAGESCORES","متوسطات");//Average scores (New)
+define("_PROJECTSAVERAGE","متوسط درجات في جميع المشاريع");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","التبديل إلى طريقة العرض شجرة");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","التبديل إلى طريقة بسيطة");//Switch to simple view (New)
+define("_BCCRECIPIENTS","لم يكشف عنه المتلقين (مخفية)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","نتائج");//Results for (New)
+define("_THANKYOUFORCOMPLETING","شكرا لكم لاستكمال");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","لا توجد تقارير في النظام");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","يمكنك إنشاء واحد");//You may create one (New)
 ?>

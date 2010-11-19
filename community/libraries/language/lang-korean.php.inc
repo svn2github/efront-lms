@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","수업 자료");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","아무 질문에 정의되어있다");//There are no questions defined
 define("_ADDQUESTION","추가 질문");//Add question
 define("_PREVIEW","미리보기");//Preview
-define("_RENAME","이름 바꾸기");//Rename (New)
-define("_CLONE","클론");//Clone (New)
+define("_RENAME","이름 바꾸기");//Rename
+define("_CLONE","클론");//Clone
 define("_NOTESTSSETFORTHISUNIT","아니 시험 발견");//No tests found
 define("_ADDTEST","추가 시험");//Add test
 define("_UNITANDSUBUNITSTESTS","단위 및 subunits 테스트");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","단위로 설정이 완료되지");//Set the unit as not c
 define("_CONDITIONSCOMPLETED","약관 완성");//Conditions completed
 define("_OUTOF","밖의");//out of
 define("_LESSONPROGRESS","수업 진행");//Lesson progress
-define("_YOUMUSTSEEUNIT","당신이 단위를 볼 수 있어야합니다");//You must see unit
-define("_YOUMUSTSEEALLUNITS","모든 단위를보고합니다");//You must see all units
+define("_YOUMUSTSEEUNIT","당신이 단위를 볼 수 있어야합니다");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","모든 단위를보고합니다");//You must complete all units
 define("_OFLESSONUNITS","수업 단위의");//of lesson units
-define("_YOUMUSTSEE","당신이 볼 수 있어야합니다");//You must see
+define("_YOUMUSTSEE","당신이 볼 수 있어야합니다");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","그 말은 모든 테스트를 완료해야 점수");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","테스트를 완료해야합니다");//You must complete test
 define("_WITHSCORE","점수");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","이력서 강의");//Resume lesson
 define("_STARTLESSON","수업 시작");//Start lesson
 define("_TRACKING","현황");//Tracking
 define("_FORMATCERTIFICATE","형식 인증");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","형식 인증서 템플릿");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","설정 인증서 만료");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","인증을 만들기위한 LiveDocX 메서드를 사용하여");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","인증을 만드는에 대한 XML 메서드를 사용하여");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","추가 인증서 템플릿 (XML 형식)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","(XML 형식) 인증서 템플릿 수정");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","이름 바꾸기 인증서 템플릿");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","클론 인증서 템플릿");//Clone certificate template (New)
-define("_CERTIFICATENAME","인증서 이름");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","인증서 설명");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","의 XML 설명은 비워둘 수 없습니다");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","인증서를 기존 템플릿");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","형식 인증서 템플릿");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","설정 인증서 만료");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","인증을 만들기위한 LiveDocX 메서드를 사용하여");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","인증을 만드는에 대한 XML 메서드를 사용하여");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","추가 인증서 템플릿 (XML 형식)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","(XML 형식) 인증서 템플릿 수정");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","이름 바꾸기 인증서 템플릿");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","클론 인증서 템플릿");//Clone certificate template
+define("_CERTIFICATENAME","인증서 이름");//Certificate name
+define("_CERTIFICATEDESCRIPTION","인증서 설명");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","의 XML 설명은 비워둘 수 없습니다");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","인증서를 기존 템플릿");//Existing certificate templates
 define("_TRAFFIC","교통");//Traffic
 define("_LESSONTRAFFIC","수업 트래픽");//Lesson traffic
 define("_EDITTEST","편집 테스트");//Edit test
 define("_EDITQUESTION","질문 수정");//Edit question
 define("_CERTIFICATE","인증서");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","인증서가 성공적으로 업데이 트");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 추가되었습니다");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","인증서 템플릿을 추가하는 동안 문제가 발생했습니다");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 업데이 트되었습니다");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","인증서 템플릿을 업데이 트하는 동안 문제가 발생했습니다");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 이름이 바뀌었습니다");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","인증서 템플릿 이름을 변경하는 동안 문제가 발생했습니다");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 복제되었다");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","인증서 템플릿을 복제하는 동안 문제가 발생했습니다");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","인증서 템플릿이 삭제되었습니다");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","인증서 템플릿을 삭제하는 동안 문제가 발생했습니다");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","이 인증서 템플릿을 수정할 수있는 권한이 없습니다");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 추가되었습니다");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","인증서 템플릿을 추가하는 동안 문제가 발생했습니다");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 업데이 트되었습니다");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","인증서 템플릿을 업데이 트하는 동안 문제가 발생했습니다");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 이름이 바뀌었습니다");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","인증서 템플릿 이름을 변경하는 동안 문제가 발생했습니다");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","인증서 템플릿이 성공적으로 복제되었다");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","인증서 템플릿을 복제하는 동안 문제가 발생했습니다");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","인증서 템플릿이 삭제되었습니다");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","인증서 템플릿을 삭제하는 동안 문제가 발생했습니다");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","이 인증서 템플릿을 수정할 수있는 권한이 없습니다");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","편집 상태");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP 서버를 구성");//SMTP server configuration
 define("_SMTPSERVER","SMTP 서버");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV 파일에있�
 define("_IFEMPTYNEWPASSWORD","필드가 빨간색으로 의무가없습니다. 경우에는 비밀 번호가 부여되면, 초기 비밀 번호 로그인과 같은 설정됩니다.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","CSV 파일의 형식을 확인하십시오");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","에있는 템플릿, 단체의 이름은 #, 사용자의 이름 # USER_NAME이 #, 대한 사용자의 성씨 # user_surname #, # 날짜 학년 # course_name # # 학년 과정의 이름과 날짜를 # # # 조직을 사용합니다.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","템플릿에, 조직의 이름에 사용 &lt;organization&gt;의 &lt;/ 조직&gt;, &lt;학년을위한 과정의 이름, &lt;grade&gt; &lt;/ 학년&gt;에 대한 학생의 전체 이름, &lt;course&gt; &lt;/ 코스&gt;에 대한 &lt;student&gt; &lt;/ 학생&gt; 시리얼&gt;의 &lt;/ 일련 번호에 대한 시리얼&gt;, 날짜에 대해 &lt;date&gt; &lt;/ 날짜&gt;, 배경에 대한 로고 및 &lt;background&gt; &lt;/ 배경&gt;에 대한 &lt;logo&gt; &lt;/ 로고&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","템플릿에, 조직의 이름에 사용 &lt;organization&gt;의 &lt;/ 조직&gt;, &lt;학년을위한 과정의 이름, &lt;grade&gt; &lt;/ 학년&gt;에 대한 학생의 전체 이름, &lt;course&gt; &lt;/ 코스&gt;에 대한 &lt;student&gt; &lt;/ 학생&gt; 시리얼&gt;의 &lt;/ 일련 번호에 대한 시리얼&gt;, 날짜에 대해 &lt;date&gt; &lt;/ 날짜&gt;, 배경에 대한 로고 및 &lt;background&gt; &lt;/ 배경&gt;에 대한 &lt;logo&gt; &lt;/ 로고&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","투표수");//Votes
 define("_PERCENTAGE","비율");//Percentage
 define("_CERTIFICATEISSUED","인증서 발급");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","남아있다");//Remain
 define("_WEEKS","주");//weeks
 define("_WEEKs","주");//week
 define("_DAYS","일");//days
-define("_DAYSCAPITAL","일");//Days (New)
+define("_DAYSCAPITAL","일");//Days
 define("_DAY","일");//Day
 define("_EVALUATIONDATAUPDATED","평가 데이터를 성공적으로 업데이 트되었습니다");//Evaluation data updated successfully
 define("_EVALUATION","평가");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","그룹이 성공적으로 업데이 트했습
 define("_ASSIGNLESSONSTOGROUPUSERS","할당을 그룹 사용자에게 강의 선택");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","자동 그룹 키를 생성");//Automatically generate group key
 define("_UNIQUEGROUPKEY","독특한 그룹 키");//Unique group key
-define("_UNIQUEGROUPKEYINFO","이 독특한 그룹 키를 사용자에게 특정 그룹의 주요 eFront 로그인 페이지에서 열쇠 아이콘을 클릭하여 자신을 등록할 수 있도록 제공될 수있습니다");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","이 독특한 그룹 키를 사용자에게 특정 그룹의 주요 eFront 로그인 페이지에서 열쇠 아이콘을 클릭하여 자신을 등록할 수 있도록 제공될 수있습니다");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","기본 eFront 시스템 그룹");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","이 그룹에 할당되고 자동으로 시스템의 모든 새로운 사용자를 만들 것입니다이 확인했다. 오직 한 그룹은 기본 시스템 그룹이있을 수있습니다. 로서 의미가 새로운 기본 그룹 선택 이전의 것들을 대체합니다.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","이 그룹에 할당되고 자동으로 시스템의 모든 새로운 사용자를 만들 것입니다이 확인했다. 오직 한 그룹은 기본 시스템 그룹이있을 수있습니다. 로서 의미가 새로운 기본 그룹 선택 이전의 것들을 대체합니다.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","그룹의 핵심");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","여기에 독특한 그룹 핵심 당신에게 당신이 그 특정 그룹의 모든 강의를 직접 등록할 수있는 시스템 관리자가 제공하는 제출함으로써");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","귀하가 입력한 키가 유효하지 않습니다 그룹");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","그룹에 삽입");//Insert into group
 define("_NOSPECIFICGROUP","특정 그룹");//No specific group
 define("_VIEWINSERTGROUPKEY","쇼 그룹 주요 옵션");//Show group key option
 define("_MAXGROUPKEYUSAGE","최대 키를 사용");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","");//Leave blank for no limit
 define("_REMAININGKEYUSES","나머지 그룹 키를 사용");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","이 그룹의 핵심이 만료되었습니다");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","죄송하지만,이 시험이 손상되고 따라서 액세스할 수없습니다. 이 테스트를 실행 목록을 삭제하는 일을 테스트를 방문하십시오.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","내 그룹");//my Groups
 define("_AVAILABLE","사용 가능");//Available
 define("_NEVER","절대");//Never
 define("_CLASSMATES","급우");//Classmates
-define("_LESSONPEOPLE","수업 사용자");//Lesson users
+define("_LESSONPEOPLE","수업 사용자");//People connection
 define("_NORMALIZEDIMENSIONS","정상화 치수");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","코스를 할당했습니다");//was assigned the course
 define("_WILLBETEACHINGCOURSE","과정을 가르치는 것입니다");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","변경 조건 주문");//Change condition order
 define("_INDEX","색인");//Index
 define("_EVENTDATETIME","이벤트 날짜 및 시간");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","인증서 파일이 없거나 손상되어 있었는데 이렇게 재설정되었습니다");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","에서 볼 수");//Visible from (New)
-define("_EXPIRESAT","만료시");//Expires at (New)
-define("_CALENDARDISPLAYDATE","캘린더 표시 날짜");//Calendar display date (New)
-define("_GLOBAL","글로벌");//Global (New)
-define("_ALLDAY","하루 종일");//All day (New)
-define("_CREATECALENDAREVENT","캘린더 이벤트를 만듭니다");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","덮어쓰기 기존 폴더");//Overwrite existing folder (New)
-define("_LANDINGPAGE","방문 페이지");//Landing page (New)
-define("_EXPORTTOXLS","xls로 내보내기");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","설문 조사는 출판되어야하지 못했습니다");//Survey failed to be published (New)
-define("_PRINTCHART","인쇄 차트");//Print chart (New)
-define("_RESPONSEDETAILS","응답 내용");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","만 활성 엔티티보기");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","단지 비활성 개체보기");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","모두 운영중 및 운영 중지 엔티티보기");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","이 이벤트가 더 이상 존재");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","지우기 대기열 메시지");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","적용 사용자에게 이미이 직급에 속해");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","이것은 사용자에게 (삭제하지 않음) 새로운 선택을 추가할 수 있습니다");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","정렬");//Sort by (New)
-define("_TRAINING","훈련");//Training (New)
-define("_COMPLETEDLESSONS","완료 레슨");//Completed lessons (New)
-define("_INCOMPLETELESSONS","불완전 레슨");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","수료 과정");//Completed courses (New)
-define("_INCOMPLETECOURSES","불완전 코스");//Incomplete courses (New)
-define("_EDITCOLUMN","열 편집");//Edit column (New)
-define("_LESSONSFORCOURSE","코스 수업");//Lessons for course (New)
-define("_TESTSFORLESSON","수업을위한 테스트");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","모든 사용자에 대해 완료");//Complete for all users (New)
-define("_LESSONTIMES","수업 시간");//Lesson times (New)
-define("_MINUTESPERDAY","하루 분");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","(분) 후에 로그아웃 사용자");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","업데 이터 기간 (석사)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","권장 값은 더 이상 360000ms없고 10000ms 미만입니다. 그것은 또한 자동 로그아웃 시간보다 적게 설정해야합니다.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","보여주는이 과정과 관련된 이상 한 지점 (위치), 첫번째");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","삽입");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","임무는 승인");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","직원의 즉각 감독관");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","사용자 비활성화");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","시스템에서 비활성화되었습니다");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","관리자 승인");//Supervisor approval (New)
-define("_APPROVE","승인");//Approve (New)
-define("_GROUPKEYEXISTS","고유 키가 이미 존재합니다");//Unique key already exists (New)
-define("_PARTOFCOURSES","일부 과목");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","이 강의는 하나 이상의 과정의 일부이므로 모드를 변경할 수 없습니다");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","사용자가이 수업에 등록이 있습니다. 모드를 전환하기 전에 그들을 할당 해제하십시오");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","코스 (불완전한 / 총)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","내보내기 파일");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","코스 만료 예정");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","코스 시작 예정");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","물론 예약 시작");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","물론 예약 만료");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","물론 모든 사용자");//All course users (New)
+define("_VISIBLEFROM","에서 볼 수");//Visible from
+define("_EXPIRESAT","만료시");//Expires at
+define("_CALENDARDISPLAYDATE","캘린더 표시 날짜");//Calendar display date
+define("_GLOBAL","글로벌");//Global
+define("_ALLDAY","하루 종일");//All day
+define("_CREATECALENDAREVENT","캘린더 이벤트를 만듭니다");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","덮어쓰기 기존 폴더");//Overwrite existing folder
+define("_LANDINGPAGE","방문 페이지");//Landing page
+define("_EXPORTTOXLS","xls로 내보내기");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","설문 조사는 출판되어야하지 못했습니다");//Survey failed to be published
+define("_PRINTCHART","인쇄 차트");//Print chart
+define("_RESPONSEDETAILS","응답 내용");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","만 활성 엔티티보기");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","단지 비활성 개체보기");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","모두 운영중 및 운영 중지 엔티티보기");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","이 이벤트가 더 이상 존재");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","지우기 대기열 메시지");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","적용 사용자에게 이미이 직급에 속해");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","이것은 사용자에게 (삭제하지 않음) 새로운 선택을 추가할 수 있습니다");//This can only add (not remove) a new selection to a user
+define("_SORTBY","정렬");//Sort by
+define("_TRAINING","훈련");//Training
+define("_COMPLETEDLESSONS","완료 레슨");//Completed lessons
+define("_INCOMPLETELESSONS","불완전 레슨");//Incomplete lessons
+define("_COMPLETEDCOURSES","수료 과정");//Completed courses
+define("_INCOMPLETECOURSES","불완전 코스");//Incomplete courses
+define("_EDITCOLUMN","열 편집");//Edit column
+define("_LESSONSFORCOURSE","코스 수업");//Lessons for course
+define("_TESTSFORLESSON","수업을위한 테스트");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","모든 사용자에 대해 완료");//Complete for all users
+define("_LESSONTIMES","수업 시간");//Lesson times
+define("_MINUTESPERDAY","하루 분");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","(분) 후에 로그아웃 사용자");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","업데 이터 기간 (석사)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","권장 값은 더 이상 360000ms없고 10000ms 미만입니다. 그것은 또한 자동 로그아웃 시간보다 적게 설정해야합니다.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","보여주는이 과정과 관련된 이상 한 지점 (위치), 첫번째");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","삽입");//Insert
+define("_ASSIGNMENTAPPROVEDBY","임무는 승인");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","직원의 즉각 감독관");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","사용자 비활성화");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","시스템에서 비활성화되었습니다");//was deactivated from system
+define("_SUPERVISORAPPROVAL","관리자 승인");//Supervisor approval
+define("_APPROVE","승인");//Approve
+define("_GROUPKEYEXISTS","고유 키가 이미 존재합니다");//Unique key already exists
+define("_PARTOFCOURSES","일부 과목");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","이 강의는 하나 이상의 과정의 일부이므로 모드를 변경할 수 없습니다");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","사용자가이 수업에 등록이 있습니다. 모드를 전환하기 전에 그들을 할당 해제하십시오");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","코스 (불완전한 / 총)");//Courses (incomplete/total)
+define("_EXPORTFILES","내보내기 파일");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","코스 만료 예정");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","코스 시작 예정");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","물론 예약 시작");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","물론 예약 만료");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","물론 모든 사용자");//All course users
+define("_MOVEBLOCK","블록으로 이동");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","확장 / 축소 블록");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","기본 학습자 유형");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","그럼, 수업 /이 유형을하는 과정에 등록의 열쇠는 것입니다 사용하는 사용자를이 그룹에 대한 그룹 키를 설정한 경우. 당신은 기본적으로이 그룹을 설정한 경우, 새로운 사용자가이 형식으로 그룹의 수업에 할당됩니다");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","기본 유형을 사용하지 마십시오");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","당신은 성공적으로 그룹에 추가되었습니다");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","이 그룹은 비활성화되어 있습니다");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","열쇠는 더 이상 시간을 사용하실 수 없습니다");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","당신이 만든 선택이 유효하지 않습니다. 목록에서 옵션을 선택하세요");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","당신은 이미이 그룹의 멤버");//You are already member of this group (New)
+define("_AVERAGESCORES","평균 점수");//Average scores (New)
+define("_PROJECTSAVERAGE","모든 프로젝트에서 평균 점수");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","스위치 트리보기에");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","전환 간단하게 볼 수 있습니다");//Switch to simple view (New)
+define("_BCCRECIPIENTS","비공개 수신자 (숨은 참조)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","에 대한 검색 결과");//Results for (New)
+define("_THANKYOUFORCOMPLETING","완료 주셔서 감사합니다");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","대한보고는 시스템에서 찾은");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","하나를 만들 수 있습니다");//You may create one (New)
 ?>

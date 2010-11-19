@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","नालचिक सामग्री");//Lesson ma
 define("_NOQUESTIONSSETFORTHISUNIT","प्रश्न परिभाषित नहीं हैं");//There are no questions defined
 define("_ADDQUESTION","प्रश्न जोड़ें");//Add question
 define("_PREVIEW","पूर्वावलोकन");//Preview
-define("_RENAME","नाम बदलें");//Rename (New)
-define("_CLONE","क्लोन");//Clone (New)
+define("_RENAME","नाम बदलें");//Rename
+define("_CLONE","क्लोन");//Clone
 define("_NOTESTSSETFORTHISUNIT","परीक्षण नहीं मिला");//No tests found
 define("_ADDTEST","परीक्षण में जोड़ें");//Add test
 define("_UNITANDSUBUNITSTESTS","यूनिट और subunits परीक्षण");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","यूनिट के रूप में सेट प�
 define("_CONDITIONSCOMPLETED","शर्तों को पूरा");//Conditions completed
 define("_OUTOF","बाहर");//out of
 define("_LESSONPROGRESS","नालचिक प्रगति");//Lesson progress
-define("_YOUMUSTSEEUNIT","आपको देखना होगा कि इकाई");//You must see unit
-define("_YOUMUSTSEEALLUNITS","आपको देखना होगा कि सभी यूनिटों");//You must see all units
+define("_YOUMUSTSEEUNIT","आपको देखना होगा कि इकाई");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","आपको देखना होगा कि सभी यूनिटों");//You must complete all units
 define("_OFLESSONUNITS","इकाइयों का सबक");//of lesson units
-define("_YOUMUSTSEE","आपको देखना होगा कि");//You must see
+define("_YOUMUSTSEE","आपको देखना होगा कि");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","आप सभी को पूरा करना चाहिए परीक्षणों के साथ स्कोर का मतलब है");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","आपको पूर्ण परीक्षण");//You must complete test
 define("_WITHSCORE","स्कोर के साथ");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","चालू सबक");//Resume lesson
 define("_STARTLESSON","आरंभ सबक");//Start lesson
 define("_TRACKING","ट्रैकिंग");//Tracking
 define("_FORMATCERTIFICATE","प्रमाण पत्र प्रारूप");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","प्रारूप प्रमाणपत्र टेम्पलेट");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","सेट प्रमाणपत्र समय समाप्ति");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","प्रमाणपत्र बनाने के लिए LiveDocX विधि का प्रयोग करें");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","प्रमाणपत्र बनाने के लिए XML विधि का प्रयोग करें");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","जोड़ें प्रमाणपत्र टेम्पलेट (xml प्रारूप)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","प्रमाणपत्र टेम्पलेट संपादित करें (xml प्रारूप)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","नाम बदलने के प्रमाणपत्र टेम्पलेट");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","क्लोन प्रमाणपत्र टेम्पलेट");//Clone certificate template (New)
-define("_CERTIFICATENAME","प्रमाणपत्र नाम");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","प्रमाण पत्र विवरण");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML विवरण रिक्त नहीं हो सकता");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","मौजूदा प्रमाणपत्र टेम्पलेट्स");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","प्रारूप प्रमाणपत्र टेम्पलेट");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","सेट प्रमाणपत्र समय समाप्ति");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","प्रमाणपत्र बनाने के लिए LiveDocX विधि का प्रयोग करें");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","प्रमाणपत्र बनाने के लिए XML विधि का प्रयोग करें");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","जोड़ें प्रमाणपत्र टेम्पलेट (xml प्रारूप)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","प्रमाणपत्र टेम्पलेट संपादित करें (xml प्रारूप)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","नाम बदलने के प्रमाणपत्र टेम्पलेट");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","क्लोन प्रमाणपत्र टेम्पलेट");//Clone certificate template
+define("_CERTIFICATENAME","प्रमाणपत्र नाम");//Certificate name
+define("_CERTIFICATEDESCRIPTION","प्रमाण पत्र विवरण");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML विवरण रिक्त नहीं हो सकता");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","मौजूदा प्रमाणपत्र टेम्पलेट्स");//Existing certificate templates
 define("_TRAFFIC","आवागमन");//Traffic
 define("_LESSONTRAFFIC","यातायात नालचिक");//Lesson traffic
 define("_EDITTEST","संपादित करें का परीक्षण");//Edit test
 define("_EDITQUESTION","प्रश्न का संपादन करें");//Edit question
 define("_CERTIFICATE","प्रमाणपत्र");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","प्रमाणपत्र अद्यतन सफलतापूर्वक");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक जोड़ दिया गया");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट जोड़ने में समस्या थी");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक अद्यतन किया गया");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट को अद्यतन करने में समस्या थी");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक नाम दिया गया था");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाण पत्र टेम्पलेट का नाम बदलने में समस्या थी");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक क्लोन किया गया था");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट क्लोनिंग समस्या थी");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट को सफलतापूर्वक नष्ट किया गया");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट को हटाने में समस्या थी");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","आप अधिकार नहीं है इस प्रमाणपत्र टेम्पलेट को संशोधित करना");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक जोड़ दिया गया");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट जोड़ने में समस्या थी");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक अद्यतन किया गया");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट को अद्यतन करने में समस्या थी");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक नाम दिया गया था");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाण पत्र टेम्पलेट का नाम बदलने में समस्या थी");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट सफलतापूर्वक क्लोन किया गया था");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट क्लोनिंग समस्या थी");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट को सफलतापूर्वक नष्ट किया गया");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट को हटाने में समस्या थी");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","आप अधिकार नहीं है इस प्रमाणपत्र टेम्पलेट को संशोधित करना");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","स्थिति संपादित करें");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP सर्वर विन्यास");//SMTP server configuration
 define("_SMTPSERVER","SMTP सर्वर");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","csv फ़ाइ�
 define("_IFEMPTYNEWPASSWORD","लाल क्षेत्रों में अनिवार्य हैं . यदि नहीं है पासवर्ड दिया , प्रारम्भिक पासवर्ड सेट किया जाएगा प्रवेश के समान ही है .");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","कृपया जाँचें कि आपके CSV फ़ाइल प्रारूप");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","# # का उपयोग करें user_name के लिए उपयोगकर्ता का नाम , # # user_surname के लिए उपयोगकर्ता के उपनाम , # # course_name के लिए पाठ्यक्रम का नाम , ग्रेड # # # के लिए ग्रेड के लिए तिथि और तिथि # .");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","टेम्पलेट में उपयोग &lt;organization&gt; &lt;/ संगठन&gt; संगठन का नाम लिए, &lt;student&gt; &lt;/ छात्र&gt; छात्र पूरा नाम, &lt;course&gt; &lt;/ पाठ्यक्रम&gt; के लिए है पाठ्यक्रम, ग्रेड, &lt;के लिए नाम &lt;grade&gt; &lt;/ ग्रेड के लिए&gt; धारावाहिक&gt; &lt;/ सीरियल नंबर के लिए धारावाहिक&gt;, &lt;date&gt; &lt;/ तारीख के लिए तारीख&gt;, &lt;logo&gt; &lt;/ लोगो और &lt;background&gt; पृष्ठभूमि के लिए &lt;/ पृष्ठभूमि&gt; के लिए लोगो&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","टेम्पलेट में उपयोग &lt;organization&gt; &lt;/ संगठन&gt; संगठन का नाम लिए, &lt;student&gt; &lt;/ छात्र&gt; छात्र पूरा नाम, &lt;course&gt; &lt;/ पाठ्यक्रम&gt; के लिए है पाठ्यक्रम, ग्रेड, &lt;के लिए नाम &lt;grade&gt; &lt;/ ग्रेड के लिए&gt; धारावाहिक&gt; &lt;/ सीरियल नंबर के लिए धारावाहिक&gt;, &lt;date&gt; &lt;/ तारीख के लिए तारीख&gt;, &lt;logo&gt; &lt;/ लोगो और &lt;background&gt; पृष्ठभूमि के लिए &lt;/ पृष्ठभूमि&gt; के लिए लोगो&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","वोट");//Votes
 define("_PERCENTAGE","प्रतिशत");//Percentage
 define("_CERTIFICATEISSUED","प्रमाणपत्र जारी");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","शेष रहना");//Remain
 define("_WEEKS","सप्ताह");//weeks
 define("_WEEKs","सप्ताह");//week
 define("_DAYS","दिन");//days
-define("_DAYSCAPITAL","दिन");//Days (New)
+define("_DAYSCAPITAL","दिन");//Days
 define("_DAY","दिन");//Day
 define("_EVALUATIONDATAUPDATED","मूल्यांकन डेटा अद्यतन सफलतापूर्वक");//Evaluation data updated successfully
 define("_EVALUATION","मूल्यांकन");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","समूह सफलतापूर्व�
 define("_ASSIGNLESSONSTOGROUPUSERS","निरुपित समूह के उपयोगकर्ताओं के लिए पाठ का चयन");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","स्वतः समूह कुंजी उत्पन्न");//Automatically generate group key
 define("_UNIQUEGROUPKEY","अद्वितीय समूह कुंजी");//Unique group key
-define("_UNIQUEGROUPKEYINFO","यह अद्वितीय समूह कुंजी उपयोगकर्ताओं के लिए उन्हें एक विशेष समूह में प्रवेश पृष्ठ पर चाबी आइकन पर क्लिक करके खुद को पंजीकृत करने के लिए सक्षम करने के लिए प्रदान किया जा सकता है");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","यह अद्वितीय समूह कुंजी उपयोगकर्ताओं के लिए उन्हें एक विशेष समूह में प्रवेश पृष्ठ पर चाबी आइकन पर क्लिक करके खुद को पंजीकृत करने के लिए सक्षम करने के लिए प्रदान किया जा सकता है");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","डिफ़ॉल्ट सिस्टम समूह");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","स्वचालित रूप से इस समूह में नियुक्त करने की प्रणाली के सभी नए उपयोगकर्ताओं को इस जाँच कर देगा. केवल एक समूह डिफ़ॉल्ट सिस्टम समूह की जा सकती है. जैसा कि एक निहितार्थ नया डिफ़ॉल्ट समूह चयन पिछले वाले की जगह ले.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","स्वचालित रूप से इस समूह में नियुक्त करने की प्रणाली के सभी नए उपयोगकर्ताओं को इस जाँच कर देगा. केवल एक समूह डिफ़ॉल्ट सिस्टम समूह की जा सकती है. जैसा कि एक निहितार्थ नया डिफ़ॉल्ट समूह चयन पिछले वाले की जगह ले.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","समूह कुंजी");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","यहाँ एक अद्वितीय समूह कुंजी आपको आपको लगता है कि विशेष समूह के सभी पाठ करने के लिए खुद को पंजीकृत करने में सक्षम होते हैं सिस्टम व्यवस्थापक द्वारा प्रदान की जमा करके");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","आपके द्वारा दर्ज किया कुंजी मान्य नहीं है इस समूह");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","डालें समूह में");//Insert int
 define("_NOSPECIFICGROUP","कोई विशिष्ट समूह");//No specific group
 define("_VIEWINSERTGROUPKEY","दिखाएँ समूह कुंजी विकल्प");//Show group key option
 define("_MAXGROUPKEYUSAGE","अधिकतम कुंजी का उपयोग करता है");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","एक मूल्य शून्य से अधिक करने के लिए, समूह कुंजी आत्म करने के लिए उपयोगकर्ताओं द्वारा प्रयोग किया जा सकता है समय की संख्या का परिसीमन करेगा इस क्षेत्र Setting इस समूह में रजिस्टर. अगर इस क्षेत्र को शून्य करने के लिए है, तो ऐसी कोई सीमा से लागू हो जाएगा सेट कर दिया जाता है.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","एक मूल्य शून्य से अधिक करने के लिए, समूह कुंजी आत्म करने के लिए उपयोगकर्ताओं द्वारा प्रयोग किया जा सकता है समय की संख्या का परिसीमन करेगा इस क्षेत्र Setting इस समूह में रजिस्टर. अगर इस क्षेत्र को शून्य करने के लिए है, तो ऐसी कोई सीमा से लागू हो जाएगा सेट कर दिया जाता है.");//Leave blank for no limit
 define("_REMAININGKEYUSES","शेष समूह कुंजी का उपयोग करता है");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","इस समूह के प्रमुख समाप्त हो गया है");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","हमें खेद है, लेकिन इस परीक्षण भ्रष्ट है और इस प्रकार दुर्गम. कृपया इस परीक्षा निष्पादन को नष्ट करने के लिए किया परीक्षणों की सूची पर जाएँ.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","मेरे समूह");//my Groups
 define("_AVAILABLE","उपलब्ध");//Available
 define("_NEVER","कभी नहीं");//Never
 define("_CLASSMATES","सहपाठी");//Classmates
-define("_LESSONPEOPLE","लोगों को सबक");//Lesson users
+define("_LESSONPEOPLE","लोगों को सबक");//People connection
 define("_NORMALIZEDIMENSIONS","Normalized आयाम");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","बेशक सौंपा गया");//was assigned the course
 define("_WILLBETEACHINGCOURSE","पाठ्यक्रम होगा");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","हालत बदलने के आदेश
 define("_INDEX","सूची");//Index
 define("_EVENTDATETIME","घटना दिनांक और समय");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","प्रमाणपत्र फाइल गायब है या भ्रष्ट था और इस तरह रीसेट हो गया");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","से दृश्य");//Visible from (New)
-define("_EXPIRESAT","पर अवसान");//Expires at (New)
-define("_CALENDARDISPLAYDATE","कैलेंडर प्रदर्शित तिथि");//Calendar display date (New)
-define("_GLOBAL","वैश्विक");//Global (New)
-define("_ALLDAY","सभी दिन");//All day (New)
-define("_CREATECALENDAREVENT","कैलेंडर घटना बनाएँ");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","अधिलेखित मौजूदा फ़ोल्डर");//Overwrite existing folder (New)
-define("_LANDINGPAGE","लैंडिंग पृष्ठ");//Landing page (New)
-define("_EXPORTTOXLS","xls को निर्यात करें");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","सर्वेक्षण के प्रकाशित होने में विफल");//Survey failed to be published (New)
-define("_PRINTCHART","प्रिंट चार्ट");//Print chart (New)
-define("_RESPONSEDETAILS","प्रतिक्रिया विवरण");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","केवल सक्रिय संस्थाओं दिखा रहा है");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","केवल निष्क्रिय संस्थाओं दिखा रहा है");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","दोनों सक्रिय और निष्क्रिय संस्थाओं दिखा रहा है");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","इस घटना अब मौजूद नहीं है");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","स्पष्ट संदेश कतार");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","उपयोगकर्ताओं के लिए लागू पहले से ही इस काम की स्थिति के अंतर्गत आता है");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","यह केवल (नहीं निकालने के लिए) एक उपयोगकर्ता के लिए कर सकते हैं एक नए चयन जोड़ने के लिए");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","द्वारा क्रमबद्ध करें");//Sort by (New)
-define("_TRAINING","प्रशिक्षण");//Training (New)
-define("_COMPLETEDLESSONS","पूरा सबक");//Completed lessons (New)
-define("_INCOMPLETELESSONS","अधूरा सबक");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","पूरा पाठ्यक्रम");//Completed courses (New)
-define("_INCOMPLETECOURSES","अधूरा कोर्स");//Incomplete courses (New)
-define("_EDITCOLUMN","संपादन स्तंभ");//Edit column (New)
-define("_LESSONSFORCOURSE","पाठ्यक्रम के लिए सबक");//Lessons for course (New)
-define("_TESTSFORLESSON","पाठ के लिए टेस्ट");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","सभी उपयोगकर्ताओं के लिए पूर्ण");//Complete for all users (New)
-define("_LESSONTIMES","सबक बार");//Lesson times (New)
-define("_MINUTESPERDAY","दिन प्रति मिनट");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","लॉग (मिनट) के बाद बाहर उपयोगकर्ता");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Updater अवधि (एमएस)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","की सिफारिश मान नहीं 10000ms से कम नहीं हैं और अधिक नहीं 360000ms. यह भी ऑटो लॉगआउट समय की तुलना में कम सेट किया जाना चाहिए.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","अधिक से अधिक 1 (स्थानों) शाखाओं इस पाठ्यक्रम के साथ जुड़े, दिखा एक पहले");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","सम्मिलित करें");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","काम के द्वारा अनुमोदित");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","कर्मचारी के तत्काल पर्यवेक्षक");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","उपयोगकर्ता क्रियाशीलता छोड़ना");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","था प्रणाली से निष्क्रिय");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","पर्यवेक्षक अनुमोदन");//Supervisor approval (New)
-define("_APPROVE","स्वीकृत");//Approve (New)
-define("_GROUPKEYEXISTS","अद्वितीय कुंजी पहले से मौजूद है");//Unique key already exists (New)
-define("_PARTOFCOURSES","पाठ्यक्रम का हिस्सा");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","यह सबक एक या एक से अधिक पाठ्यक्रम का हिस्सा है, तो यह मोड नहीं बदल सकते");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","वहाँ रहे हैं उपयोगकर्ताओं को यह सबक करने के लिए दाखिला लिया. उन्हें मोड स्विचन से पहले कृपया तालिका को मिटाने");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","पाठ्यक्रम (अधूरा / सम्पूर्ण)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","निर्यात फ़ाइलों");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","कोर्स समाप्ति अनुसूचित");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","पाठ्यक्रम शुरू अनुसूचित");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","पाठ्यक्रम के अनुसूचित शुरू");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","निश्चित रूप से अनुसूचित समाप्ति");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","सभी पाठ्यक्रम उपयोगकर्ताओं");//All course users (New)
+define("_VISIBLEFROM","से दृश्य");//Visible from
+define("_EXPIRESAT","पर अवसान");//Expires at
+define("_CALENDARDISPLAYDATE","कैलेंडर प्रदर्शित तिथि");//Calendar display date
+define("_GLOBAL","वैश्विक");//Global
+define("_ALLDAY","सभी दिन");//All day
+define("_CREATECALENDAREVENT","कैलेंडर घटना बनाएँ");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","अधिलेखित मौजूदा फ़ोल्डर");//Overwrite existing folder
+define("_LANDINGPAGE","लैंडिंग पृष्ठ");//Landing page
+define("_EXPORTTOXLS","xls को निर्यात करें");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","सर्वेक्षण के प्रकाशित होने में विफल");//Survey failed to be published
+define("_PRINTCHART","प्रिंट चार्ट");//Print chart
+define("_RESPONSEDETAILS","प्रतिक्रिया विवरण");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","केवल सक्रिय संस्थाओं दिखा रहा है");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","केवल निष्क्रिय संस्थाओं दिखा रहा है");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","दोनों सक्रिय और निष्क्रिय संस्थाओं दिखा रहा है");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","इस घटना अब मौजूद नहीं है");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","स्पष्ट संदेश कतार");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","उपयोगकर्ताओं के लिए लागू पहले से ही इस काम की स्थिति के अंतर्गत आता है");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","यह केवल (नहीं निकालने के लिए) एक उपयोगकर्ता के लिए कर सकते हैं एक नए चयन जोड़ने के लिए");//This can only add (not remove) a new selection to a user
+define("_SORTBY","द्वारा क्रमबद्ध करें");//Sort by
+define("_TRAINING","प्रशिक्षण");//Training
+define("_COMPLETEDLESSONS","पूरा सबक");//Completed lessons
+define("_INCOMPLETELESSONS","अधूरा सबक");//Incomplete lessons
+define("_COMPLETEDCOURSES","पूरा पाठ्यक्रम");//Completed courses
+define("_INCOMPLETECOURSES","अधूरा कोर्स");//Incomplete courses
+define("_EDITCOLUMN","संपादन स्तंभ");//Edit column
+define("_LESSONSFORCOURSE","पाठ्यक्रम के लिए सबक");//Lessons for course
+define("_TESTSFORLESSON","पाठ के लिए टेस्ट");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","सभी उपयोगकर्ताओं के लिए पूर्ण");//Complete for all users
+define("_LESSONTIMES","सबक बार");//Lesson times
+define("_MINUTESPERDAY","दिन प्रति मिनट");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","लॉग (मिनट) के बाद बाहर उपयोगकर्ता");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Updater अवधि (एमएस)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","की सिफारिश मान नहीं 10000ms से कम नहीं हैं और अधिक नहीं 360000ms. यह भी ऑटो लॉगआउट समय की तुलना में कम सेट किया जाना चाहिए.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","अधिक से अधिक 1 (स्थानों) शाखाओं इस पाठ्यक्रम के साथ जुड़े, दिखा एक पहले");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","सम्मिलित करें");//Insert
+define("_ASSIGNMENTAPPROVEDBY","काम के द्वारा अनुमोदित");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","कर्मचारी के तत्काल पर्यवेक्षक");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","उपयोगकर्ता क्रियाशीलता छोड़ना");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","था प्रणाली से निष्क्रिय");//was deactivated from system
+define("_SUPERVISORAPPROVAL","पर्यवेक्षक अनुमोदन");//Supervisor approval
+define("_APPROVE","स्वीकृत");//Approve
+define("_GROUPKEYEXISTS","अद्वितीय कुंजी पहले से मौजूद है");//Unique key already exists
+define("_PARTOFCOURSES","पाठ्यक्रम का हिस्सा");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","यह सबक एक या एक से अधिक पाठ्यक्रम का हिस्सा है, तो यह मोड नहीं बदल सकते");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","वहाँ रहे हैं उपयोगकर्ताओं को यह सबक करने के लिए दाखिला लिया. उन्हें मोड स्विचन से पहले कृपया तालिका को मिटाने");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","पाठ्यक्रम (अधूरा / सम्पूर्ण)");//Courses (incomplete/total)
+define("_EXPORTFILES","निर्यात फ़ाइलों");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","कोर्स समाप्ति अनुसूचित");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","पाठ्यक्रम शुरू अनुसूचित");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","पाठ्यक्रम के अनुसूचित शुरू");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","निश्चित रूप से अनुसूचित समाप्ति");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","सभी पाठ्यक्रम उपयोगकर्ताओं");//All course users
+define("_MOVEBLOCK","ब्लॉक हटो");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","विस्तार / ढहने ब्लॉक");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","डिफ़ॉल्ट प्रकार शिक्षार्थी");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","यदि आप इस समूह के लिए एक समूह कुंजी सेट है, तो उपयोगकर्ता है कि महत्वपूर्ण सबक / इस प्रकार के पाठ्यक्रमों में दाखिला होने दिया जाएगा का उपयोग करें. यदि आप इस समूह की स्थापना की है के लिए डिफ़ॉल्ट है, तो नए उपयोगकर्ताओं को इस प्रकार के साथ समूह के सबक को सौंपा जाएगा");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","डिफ़ॉल्ट प्रकार का उपयोग न करें");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","आप सफलतापूर्वक किया गया है समूह में जोड़ा");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","इस समूह निष्क्रिय है");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","चाबी किसी भी अधिक बार नहीं किया जा सकता");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","चयन आपके द्वारा किए गए वैध नहीं है. सूची से एक विकल्प चुनने दें");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","आप पहले से ही इस समूह के सदस्य हैं");//You are already member of this group (New)
+define("_AVERAGESCORES","औसत स्कोर");//Average scores (New)
+define("_PROJECTSAVERAGE","सभी परियोजनाओं में औसत स्कोर");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","ट्री दृश्य में स्विच करें");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","साधारण दृश्य में जाएँ");//Switch to simple view (New)
+define("_BCCRECIPIENTS","अज्ञात प्राप्तकर्ता (बीसीसी)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","के लिए परिणाम");//Results for (New)
+define("_THANKYOUFORCOMPLETING","आप को पूरा करने के लिए धन्यवाद");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","कोई रिपोर्ट प्रणाली में पाया");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","आप एक बना सकते हैं");//You may create one (New)
 ?>

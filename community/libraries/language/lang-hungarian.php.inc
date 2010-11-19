@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Leckét anyagi");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nincsenek kérdések meghatározása");//There are no questions defined
 define("_ADDQUESTION","Add kérdés");//Add question
 define("_PREVIEW","Előnézeti");//Preview
-define("_RENAME","Átnevezése");//Rename (New)
-define("_CLONE","Klón");//Clone (New)
+define("_RENAME","Átnevezése");//Rename
+define("_CLONE","Klón");//Clone
 define("_NOTESTSSETFORTHISUNIT","A vizsgálatokat nem talált");//No tests found
 define("_ADDTEST","Add teszt");//Add test
 define("_UNITANDSUBUNITSTESTS","Egység és alegységek tesztek");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Állítsa be a egység nem fejeződött be");//Set the uni
 define("_CONDITIONSCOMPLETED","Feltételek befejezett");//Conditions completed
 define("_OUTOF","out of");//out of
 define("_LESSONPROGRESS","Lesson haladás");//Lesson progress
-define("_YOUMUSTSEEUNIT","You must see egység");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Be kell látni az összes egység");//You must see all units
+define("_YOUMUSTSEEUNIT","You must see egység");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Be kell látni az összes egység");//You must complete all units
 define("_OFLESSONUNITS","A tanulság egységek");//of lesson units
-define("_YOUMUSTSEE","You must see");//You must see
+define("_YOUMUSTSEE","You must see");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Végre kell hajtania az összes teszt az átlagos pontszám");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Meg kell teljes vizsgálati");//You must complete test
 define("_WITHSCORE","A pontszám");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Folytatás lecke");//Resume lesson
 define("_STARTLESSON","Start lecke");//Start lesson
 define("_TRACKING","Nyomonkövetés");//Tracking
 define("_FORMATCERTIFICATE","Formátumot bizonyítvány");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Formátum tanúsítványsablon");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Meghatározott tanúsítvány lejártát");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Használja a LiveDocX módszer létrehozására minősítések");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Használja az XML módszer létrehozására minősítések");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Add tanúsítványsablon (xml formátumban)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Edit tanúsítványsablon (xml formátumban)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Átnevezése tanúsítványsablon");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Klón tanúsítványsablon");//Clone certificate template (New)
-define("_CERTIFICATENAME","Tanúsítvány neve");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Tanúsítvány leírása");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML-leírás nem lehet üres");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Meglévő tanúsítványsablonok");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Formátum tanúsítványsablon");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Meghatározott tanúsítvány lejártát");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Használja a LiveDocX módszer létrehozására minősítések");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Használja az XML módszer létrehozására minősítések");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Add tanúsítványsablon (xml formátumban)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Edit tanúsítványsablon (xml formátumban)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Átnevezése tanúsítványsablon");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Klón tanúsítványsablon");//Clone certificate template
+define("_CERTIFICATENAME","Tanúsítvány neve");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Tanúsítvány leírása");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML-leírás nem lehet üres");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Meglévő tanúsítványsablonok");//Existing certificate templates
 define("_TRAFFIC","Forgalmas");//Traffic
 define("_LESSONTRAFFIC","Lesson forgalom");//Lesson traffic
 define("_EDITTEST","Edit teszt");//Edit test
 define("_EDITQUESTION","Edit kérdése");//Edit question
 define("_CERTIFICATE","Tanúsítványt");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Sikeresen frissítve bizonyítvány");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Tanúsítványsablon sikeresen hozzáadva");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Ott volt a probléma, míg hozzá tanúsítványsablon");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Tanúsítványsablon sikeresen frissítve");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Volt egy probléma frissítése közben tanúsítványsablon");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen átnevezték");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Volt egy probléma, átnevezése közben tanúsítványsablon");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen klónoztak");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Ott volt a probléma, míg klónozás tanúsítványsablon");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen törölve");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Ott volt a probléma, míg törlése tanúsítványsablon");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Nem kell a jogot, hogy módosítsa ezt a tanúsítványsablon");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Tanúsítványsablon sikeresen hozzáadva");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Ott volt a probléma, míg hozzá tanúsítványsablon");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Tanúsítványsablon sikeresen frissítve");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Volt egy probléma frissítése közben tanúsítványsablon");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen átnevezték");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Volt egy probléma, átnevezése közben tanúsítványsablon");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen klónoztak");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Ott volt a probléma, míg klónozás tanúsítványsablon");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen törölve");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Ott volt a probléma, míg törlése tanúsítványsablon");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Nem kell a jogot, hogy módosítsa ezt a tanúsítványsablon");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Edit feltétel");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP szerver konfiguráció");//SMTP server configuration
 define("_SMTPSERVER","SMTP szerver");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","A mezőket a csv 
 define("_IFEMPTYNEWPASSWORD","Piros mezők kitöltése kötelező. Ha nincs jelszó megadva, a kezdeti jelszót lesz ugyanaz, mint a logika.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kérjük, ellenőrizze a formátuma a CSV fájl");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","A sablon használata # # a szervezet szervezet neve, a user_name # # a felhasználó nevét, user_surname # # a felhasználó név, course_name # # a tanfolyam neve, a # # fokozat fokozat és a # # date dátum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","A sablon használata &lt;organization&gt; &lt;/ szervezet&gt; A szervezet neve, &lt;student&gt; &lt;/ diák&gt; a hallgató teljes neve, &lt;course&gt; &lt;/ tanfolyam&gt; a tanfolyam nevét, &lt;grade&gt; &lt;/ fokozat&gt; a fokozat, &lt; soros&gt; &lt;/ soros&gt; sorszámhoz, &lt;date&gt; &lt;/ date&gt; dátum, &lt;logo&gt; &lt;/ logó&gt; A logó és &lt;background&gt; &lt;/ háttér&gt; a háttérben.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","A sablon használata &lt;organization&gt; &lt;/ szervezet&gt; A szervezet neve, &lt;student&gt; &lt;/ diák&gt; a hallgató teljes neve, &lt;course&gt; &lt;/ tanfolyam&gt; a tanfolyam nevét, &lt;grade&gt; &lt;/ fokozat&gt; a fokozat, &lt; soros&gt; &lt;/ soros&gt; sorszámhoz, &lt;date&gt; &lt;/ date&gt; dátum, &lt;logo&gt; &lt;/ logó&gt; A logó és &lt;background&gt; &lt;/ háttér&gt; a háttérben.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Szavazattal");//Votes
 define("_PERCENTAGE","Százalékponttal");//Percentage
 define("_CERTIFICATEISSUED","Kiállított igazolás");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Marad");//Remain
 define("_WEEKS","héttel");//weeks
 define("_WEEKs","hetes");//week
 define("_DAYS","napig");//days
-define("_DAYSCAPITAL","Napok");//Days (New)
+define("_DAYSCAPITAL","Napok");//Days
 define("_DAY","Nap");//Day
 define("_EVALUATIONDATAUPDATED","Értékelési adatok frissítése sikerült");//Evaluation data updated successfully
 define("_EVALUATION","Értékelést");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Csoport sikeresen frissítve");//Group was su
 define("_ASSIGNLESSONSTOGROUPUSERS","Hozzárendelni a kiválasztott tanulságokat csoportos felhasználók");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Automatikusan generál csoport legfontosabb");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Egyedi csoport legfontosabb");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Ez az egyedülálló csoport kulcs lehet nyújtani a felhasználók számára, hogy lehetővé tegye számukra, hogy regisztrálja magát egy adott csoport által a kulcs ikonra kattintva a bejelentkező oldalra");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Ez az egyedülálló csoport kulcs lehet nyújtani a felhasználók számára, hogy lehetővé tegye számukra, hogy regisztrálja magát egy adott csoport által a kulcs ikonra kattintva a bejelentkező oldalra");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Rendszer alapértelmezett csoport");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Checking ezzel minden új felhasználó a rendszer automatikusan hozzárendelt ebbe a csoportba. Csak egy csoport lehet a hiba rendszer csoportot. Mint vonatkozások új alapértelmezett beállításokat csoport helyett az előzőek.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Checking ezzel minden új felhasználó a rendszer automatikusan hozzárendelt ebbe a csoportba. Csak egy csoport lehet a hiba rendszer csoportot. Mint vonatkozások új alapértelmezett beállításokat csoport helyett az előzőek.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Csoport / fő lecke");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Benyújtásával itt egy egyedi kulcsot csoport biztosítja Önnek a rendszergazda meg tudja-e regisztrálnia kell magát, hogy az összes tanulságait, hogy az adott csoport");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","A csoport fő beírt nem érvényes");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Insert into csoport");//Insert into group
 define("_NOSPECIFICGROUP","Nincs konkrét csoport");//No specific group
 define("_VIEWINSERTGROUPKEY","Mutasd csoport fő lehetőség");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maximális elemnél");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Ha e mező értéke nullánál nagyobb, majd behatárolják, hogy hányszor csoport billentyű használható a felhasználók a saját regisztrálja magát ebbe a csoportba. Ha a mező értéke nulla, akkor nincs ilyen korlátozás fog végrehajtani.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Ha e mező értéke nullánál nagyobb, majd behatárolják, hogy hányszor csoport billentyű használható a felhasználók a saját regisztrálja magát ebbe a csoportba. Ha a mező értéke nulla, akkor nincs ilyen korlátozás fog végrehajtani.");//Leave blank for no limit
 define("_REMAININGKEYUSES","A fennmaradó csoport elemnél");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","A csoport kulcs lejárt");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Sajnáljuk, de ez a teszt sérült, és így nem érhető el. Kérjük, látogasson el a végzett vizsgálatok listáját törölni ezt a teszt végrehajtása során.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Groups my");//my Groups
 define("_AVAILABLE","Elérhető");//Available
 define("_NEVER","Soha");//Never
 define("_CLASSMATES","Osztálytársával");//Classmates
-define("_LESSONPEOPLE","Lesson felhasználók");//Lesson users
+define("_LESSONPEOPLE","Lesson felhasználók");//People connection
 define("_NORMALIZEDIMENSIONS","Normalizáljuk méretek");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","folyamán osztották");//was assigned the course
 define("_WILLBETEACHINGCOURSE","lesz tanítás során");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Változás a feltétellel, hogy");//Change condi
 define("_INDEX","Index");//Index
 define("_EVENTDATETIME","Esemény dátumát és időpontját");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","A tanúsítvány fájl hibás vagy nem, és így került vissza");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Látható");//Visible from (New)
-define("_EXPIRESAT","Lejár");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Naptár kijelzés dátum");//Calendar display date (New)
-define("_GLOBAL","Globális");//Global (New)
-define("_ALLDAY","Egész nap");//All day (New)
-define("_CREATECALENDAREVENT","Létrehozása naptári esemény");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Felülírja a meglévő mappa");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Nyitóoldal");//Landing page (New)
-define("_EXPORTTOXLS","Exportálás xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Felmérést nem kell közzétenni");//Survey failed to be published (New)
-define("_PRINTCHART","Print térkép");//Print chart (New)
-define("_RESPONSEDETAILS","Response részletek");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES",", Amely csak aktív elemek");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES",", Amely csak inaktív személyek");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Mutatja mind az aktív és inaktív személyek");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Ez az esemény már nem létezik");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Világos sor üzenetek");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Alkalmazás a felhasználók már tartozik a munkaköri pozíció");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Ez csak hozzá (nem távolítja el) egy sor új, hogy a felhasználó");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Rendezés");//Sort by (New)
-define("_TRAINING","Képzés");//Training (New)
-define("_COMPLETEDLESSONS","Befejezett tanulságok");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Befejezetlen tanulságokat");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Befejezett tanfolyamok");//Completed courses (New)
-define("_INCOMPLETECOURSES","Hiányos tanfolyamok");//Incomplete courses (New)
-define("_EDITCOLUMN","Szerkesztés oszlopban");//Edit column (New)
-define("_LESSONSFORCOURSE","Tanulságok tanfolyam");//Lessons for course (New)
-define("_TESTSFORLESSON","Vizsgálatok lecke");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Teljes minden felhasználó számára");//Complete for all users (New)
-define("_LESSONTIMES","Lecke száma");//Lesson times (New)
-define("_MINUTESPERDAY","Perc / nap");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Kijelentkezni felhasználó után (perc)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Updater idő (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Ajánlott értékek nem kevesebb, mint 10000ms és nem több, mint 360000ms. Azt is be kell állítani kisebb, mint az automatikus kijelentkezési idő.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Több mint 1 ágak (helyszín) társított Természetesen mutatja az első");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Beszúrás");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Megbízás által jóváhagyott");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Munkavállalói közvetlen felettese");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Felhasználó hatástalanítás");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","volt kapcsolva a rendszer");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Biztos jóváhagyása");//Supervisor approval (New)
-define("_APPROVE","Jóváhagyja");//Approve (New)
-define("_GROUPKEYEXISTS","Egyedi kulcs már létezik");//Unique key already exists (New)
-define("_PARTOFCOURSES","Rész a tanfolyamok");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ez a lecke része egy vagy több kurzus, így nem módok");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Vannak felhasználók iratkozott be ezt a leckét. Kérjük hozzárendelése előtt kapcsolási mód");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Tanfolyamok (teljes / összes)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Fájlok exportálása");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Természetesen ütemezett lejárati");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Természetesen tervezett kezdete");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","Tervezett kezdési természetesen");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","Ütemezett lejárati természetesen");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Minden tanfolyam felhasználó");//All course users (New)
+define("_VISIBLEFROM","Látható");//Visible from
+define("_EXPIRESAT","Lejár");//Expires at
+define("_CALENDARDISPLAYDATE","Naptár kijelzés dátum");//Calendar display date
+define("_GLOBAL","Globális");//Global
+define("_ALLDAY","Egész nap");//All day
+define("_CREATECALENDAREVENT","Létrehozása naptári esemény");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Felülírja a meglévő mappa");//Overwrite existing folder
+define("_LANDINGPAGE","Nyitóoldal");//Landing page
+define("_EXPORTTOXLS","Exportálás xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Felmérést nem kell közzétenni");//Survey failed to be published
+define("_PRINTCHART","Print térkép");//Print chart
+define("_RESPONSEDETAILS","Response részletek");//Response details
+define("_SHOWINGONLYACTIVEENTITIES",", Amely csak aktív elemek");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES",", Amely csak inaktív személyek");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Mutatja mind az aktív és inaktív személyek");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Ez az esemény már nem létezik");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Világos sor üzenetek");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Alkalmazás a felhasználók már tartozik a munkaköri pozíció");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Ez csak hozzá (nem távolítja el) egy sor új, hogy a felhasználó");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Rendezés");//Sort by
+define("_TRAINING","Képzés");//Training
+define("_COMPLETEDLESSONS","Befejezett tanulságok");//Completed lessons
+define("_INCOMPLETELESSONS","Befejezetlen tanulságokat");//Incomplete lessons
+define("_COMPLETEDCOURSES","Befejezett tanfolyamok");//Completed courses
+define("_INCOMPLETECOURSES","Hiányos tanfolyamok");//Incomplete courses
+define("_EDITCOLUMN","Szerkesztés oszlopban");//Edit column
+define("_LESSONSFORCOURSE","Tanulságok tanfolyam");//Lessons for course
+define("_TESTSFORLESSON","Vizsgálatok lecke");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Teljes minden felhasználó számára");//Complete for all users
+define("_LESSONTIMES","Lecke száma");//Lesson times
+define("_MINUTESPERDAY","Perc / nap");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Kijelentkezni felhasználó után (perc)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Updater idő (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Ajánlott értékek nem kevesebb, mint 10000ms és nem több, mint 360000ms. Azt is be kell állítani kisebb, mint az automatikus kijelentkezési idő.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Több mint 1 ágak (helyszín) társított Természetesen mutatja az első");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Beszúrás");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Megbízás által jóváhagyott");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Munkavállalói közvetlen felettese");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Felhasználó hatástalanítás");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","volt kapcsolva a rendszer");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Biztos jóváhagyása");//Supervisor approval
+define("_APPROVE","Jóváhagyja");//Approve
+define("_GROUPKEYEXISTS","Egyedi kulcs már létezik");//Unique key already exists
+define("_PARTOFCOURSES","Rész a tanfolyamok");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ez a lecke része egy vagy több kurzus, így nem módok");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Vannak felhasználók iratkozott be ezt a leckét. Kérjük hozzárendelése előtt kapcsolási mód");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Tanfolyamok (teljes / összes)");//Courses (incomplete/total)
+define("_EXPORTFILES","Fájlok exportálása");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Természetesen ütemezett lejárati");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Természetesen tervezett kezdete");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Tervezett kezdési természetesen");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Ütemezett lejárati természetesen");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Minden tanfolyam felhasználó");//All course users
+define("_MOVEBLOCK","Mozgás blokk");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Kibontása / összecsukása blokk");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Alapértelmezett tanuló típus");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Ha beállította a csoport legfontosabb ennek a csoportnak, majd a felhasználókat, hogy használja a kulcs lesz beiratkozott a tanóra / tanfolyamok ilyen típusú. Ha be van állítva ez a csoport, hogy az alapértelmezett, akkor az új felhasználók lesz kijelölve a csoport tanulságokat az ilyen típusú");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Ne használja alapértelmezett típus");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Sikeresen hozzá a csoport");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Ez a csoport inaktív");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","A kulcs nem használható többé-szer");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","A kiválasztás tett nem érvényes. Kérjük, válasszon egy lehetőséget a listáról");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Ön már tagja ennek a csoportnak");//You are already member of this group (New)
+define("_AVERAGESCORES","Átlagos pontszámok");//Average scores (New)
+define("_PROJECTSAVERAGE","Átlagos pontszám az összes projekt");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Váltás fanézetben");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Váltás egyszerű képet");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Nyilvánosságra nem hozott címzettek (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Eredmények");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Köszönjük, hogy kitöltötte");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Nem jelentések található a rendszerben");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Létre lehet hozni egy");//You may create one (New)
 ?>

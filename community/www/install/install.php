@@ -381,6 +381,16 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     if ($values['upgrade_search']) {
      //EfrontSearch::reBuiltIndex();
     }
+    if (version_compare($dbVersion, '3.6.7') == -1) {
+     $courses = eF_getTableData("courses","*");
+     foreach ($courses as $key => $value) {
+      $options = unserialize($value['options']);
+      if (!isset($options['certificate_export_method'])) {
+        $options['certificate_export_method'] = 'rtf';
+        eF_updateTableData('courses',array('options' => serialize($options)),'id='.$value['id']);
+      }
+     }
+    }
     $options = EfrontConfiguration :: getValues();
     //This means that the version upgrading from is 3.5
     if ($dbVersion == '3.5') {
@@ -1093,9 +1103,7 @@ php_value register_globals Off
     !$data[$i]['certificate'] OR $options['certificate'] = $data[$i]['certificate'];
     !$data[$i]['auto_certificate'] OR $options['auto_certificate'] = $data[$i]['auto_certificate'];
     !$data[$i]['auto_complete'] OR $options['auto_complete'] = $data[$i]['auto_complete'];
-    !$data[$i]['certificate_tpl_id'] OR $options['certificate_tpl_id'] = $data[$i]['certificate_tpl_id'];
-    !$data[$i]['certificate_tpl_id_rtf'] OR $options['certificate_tpl_id_rtf'] = $data[$i]['certificate_tpl_id_rtf'];
-    !$data[$i]['certificate_export_method'] OR $options['certificate_export_method'] = $data[$i]['certificate_export_method'];
+    //isset($options['certificate_export_method']) OR $options['certificate_export_method'] = 'rtf';
     !$data[$i]['duration'] OR $options['duration'] = $data[$i]['duration'];
     $data[$i]['options'] = serialize($options);
     //Unset old and deprecated fields
@@ -1103,8 +1111,6 @@ php_value register_globals Off
     unset($data[$i]['auto_certificate']);
     unset($data[$i]['auto_complete']);
     unset($data[$i]['certificate_tpl_id']);
-    unset($data[$i]['certificate_tpl_id_rtf']);
-    unset($data[$i]['certificate_export_method']);
     unset($data[$i]['duration']);
     unset($data[$i]['certificate_tpl']);
     unset($data[$i]['from_timestamp']);

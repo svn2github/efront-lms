@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Obrazovni materijal");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nema pitanja definiranih");//There are no questions defined
 define("_ADDQUESTION","Dodaj pitanje");//Add question
 define("_PREVIEW","Preview");//Preview
-define("_RENAME","Preimenovati");//Rename (New)
-define("_CLONE","Klon");//Clone (New)
+define("_RENAME","Preimenovati");//Rename
+define("_CLONE","Klon");//Clone
 define("_NOTESTSSETFORTHISUNIT","Nije pronađen testovi");//No tests found
 define("_ADDTEST","Dodaj test");//Add test
 define("_UNITANDSUBUNITSTESTS","Jedinica i podjedinica testovi");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Postavite kao jedinica nije dovršen");//Set the unit as n
 define("_CONDITIONSCOMPLETED","Uvjeti dovršen");//Conditions completed
 define("_OUTOF","izvan");//out of
 define("_LESSONPROGRESS","Obrazovni tijeku");//Lesson progress
-define("_YOUMUSTSEEUNIT","Morate vidjeti jedinica");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Morate vidjeti sve jedinice");//You must see all units
+define("_YOUMUSTSEEUNIT","Morate vidjeti jedinica");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Morate vidjeti sve jedinice");//You must complete all units
 define("_OFLESSONUNITS","od lekciju jedinice");//of lesson units
-define("_YOUMUSTSEE","Morate vidjeti");//You must see
+define("_YOUMUSTSEE","Morate vidjeti");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Morate popuniti sve testove s znači rezultat");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Morate kompletan test");//You must complete test
 define("_WITHSCORE","s rezultat");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Nastavi lekciju");//Resume lesson
 define("_STARTLESSON","Start lekciju");//Start lesson
 define("_TRACKING","Praćenje");//Tracking
 define("_FORMATCERTIFICATE","Format certifikata");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Oblik potvrde predložak");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Postavi certifikat isteka");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Koristite LiveDocX metoda za stvaranje certifikata");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Koristite XML metoda za stvaranje certifikata");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Dodaj certifikat predložak (XML format)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Uredi certifikat predložak (XML format)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Preimenuj certifikat predložak");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Klon certifikat predložak");//Clone certificate template (New)
-define("_CERTIFICATENAME","Potvrda ime");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Potvrda opisa");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML opis ne može biti prazno");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Postojeći certifikat predloške");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Oblik potvrde predložak");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Postavi certifikat isteka");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Koristite LiveDocX metoda za stvaranje certifikata");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Koristite XML metoda za stvaranje certifikata");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Dodaj certifikat predložak (XML format)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Uredi certifikat predložak (XML format)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Preimenuj certifikat predložak");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Klon certifikat predložak");//Clone certificate template
+define("_CERTIFICATENAME","Potvrda ime");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Potvrda opisa");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML opis ne može biti prazno");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Postojeći certifikat predloške");//Existing certificate templates
 define("_TRAFFIC","Traffic");//Traffic
 define("_LESSONTRAFFIC","Obrazovni prometa");//Lesson traffic
 define("_EDITTEST","Uredi test");//Edit test
 define("_EDITQUESTION","Uredi pitanje");//Edit question
 define("_CERTIFICATE","Certifikat");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Uspješno ažurirana list");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Certifikat Predložak je uspješno dodana");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Došlo je do problema prilikom dodavanja certifikata predložak");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Certifikat predložak uspješno je ažurirana");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Došlo je do problema pri ažuriranju certifikat predložak");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Certifikat predložak uspješno je preimenovan u");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Došlo je do problema prilikom preimenovanja certifikat predložak");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Certifikat je uspješno kloniran predložak");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Došlo je do problema, dok kloniranje certifikat predložak");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certifikat Predložak je uspješno obrisan");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Došlo je do problema pri brisanju certifikat predložak");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Nemate prava za izmjenu ove potvrde predložak");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Certifikat Predložak je uspješno dodana");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Došlo je do problema prilikom dodavanja certifikata predložak");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Certifikat predložak uspješno je ažurirana");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Došlo je do problema pri ažuriranju certifikat predložak");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Certifikat predložak uspješno je preimenovan u");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Došlo je do problema prilikom preimenovanja certifikat predložak");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Certifikat je uspješno kloniran predložak");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Došlo je do problema, dok kloniranje certifikat predložak");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certifikat Predložak je uspješno obrisan");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Došlo je do problema pri brisanju certifikat predložak");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Nemate prava za izmjenu ove potvrde predložak");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Uredi uvjet");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP poslužitelj za konfiguriranje");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Polja u CSV datot
 define("_IFEMPTYNEWPASSWORD","Polja u crvenim su obavezne. Ukoliko ne postoji lozinka given, početno lozinka će biti postavljen isti kao i za prijavu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Provjerite format CSV datoteku");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Koristite # # korisničko_ime za korisničkog imena, # # user_surname za korisnika prezime, # # course_name za tečaj ime, grade # # za ocjenu i datum # # za datum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","U predložak, koristiti &lt;organization&gt; &lt;/ organizacije&gt; za organizaciju ime, &lt;student&gt; &lt;/ student&gt; za studentske puno ime i prezime, &lt;course&gt; &lt;/ naravno&gt; za tečaj ime, &lt;grade&gt; &lt;/ razred&gt; za razred, &lt; serijski&gt; &lt;/ serijski&gt; za serijski broj, &lt;date&gt; &lt;/ datum&gt; za datum, &lt;logo&gt; &lt;/ Logo&gt; za logotip i &lt;background&gt; &lt;/ pozadina&gt; za pozadinu.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","U predložak, koristiti &lt;organization&gt; &lt;/ organizacije&gt; za organizaciju ime, &lt;student&gt; &lt;/ student&gt; za studentske puno ime i prezime, &lt;course&gt; &lt;/ naravno&gt; za tečaj ime, &lt;grade&gt; &lt;/ razred&gt; za razred, &lt; serijski&gt; &lt;/ serijski&gt; za serijski broj, &lt;date&gt; &lt;/ datum&gt; za datum, &lt;logo&gt; &lt;/ Logo&gt; za logotip i &lt;background&gt; &lt;/ pozadina&gt; za pozadinu.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Votes");//Votes
 define("_PERCENTAGE","Postotak");//Percentage
 define("_CERTIFICATEISSUED","Certifikat izdaje");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Ostati");//Remain
 define("_WEEKS","tjedna");//weeks
 define("_WEEKs","tjedan");//week
 define("_DAYS","dana");//days
-define("_DAYSCAPITAL","Dana");//Days (New)
+define("_DAYSCAPITAL","Dana");//Days
 define("_DAY","Dan");//Day
 define("_EVALUATIONDATAUPDATED","Evaluacija podataka uspješno ažuriran");//Evaluation data updated successfully
 define("_EVALUATION","Evaluacija");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Grupa je uspješno ažuriran");//Group was su
 define("_ASSIGNLESSONSTOGROUPUSERS","Dodjela sati u odabranoj skupini korisnika");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Automatski generirati ključ grupa");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Jedinstveni ključ grupa");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Ova jedinstvena grupa ključ može biti dostavljen korisnicima omogućiti im da se registrirate kako bi određenu grupu tako da kliknete na ikonu na tipku stranicu za prijavu");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Ova jedinstvena grupa ključ može biti dostavljen korisnicima omogućiti im da se registrirate kako bi određenu grupu tako da kliknete na ikonu na tipku stranicu za prijavu");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Zadani sustav grupa");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Provjera To će učiniti sve nove korisnike sustava koji će se automatski dodijeljen ovoj grupi. Samo jednu grupu mogu biti zadani sustav grupi. Kao implikacija novih grupa odabire zadane zamijeniti prethodni motivacija.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Provjera To će učiniti sve nove korisnike sustava koji će se automatski dodijeljen ovoj grupi. Samo jednu grupu mogu biti zadani sustav grupi. Kao implikacija novih grupa odabire zadane zamijeniti prethodni motivacija.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Grupa ključ");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Podnošenjem ovdje jedinstvena grupa ključ koji ste dobili od administratora sustava ste u mogućnosti prijaviti se na sve lekcije za tu određenu grupu");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","Ta grupa ključ koji ste unijeli nije valjan");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Umetni u grupi");//Insert into group
 define("_NOSPECIFICGROUP","Nema specifičnih grupa");//No specific group
 define("_VIEWINSERTGROUPKEY","Show grupa ključ opciju");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maksimalna tipka koristi");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Postavljanje ove oblasti na vrijednost veću od nule, bit ograničavaju broj puta skupini ključ se može koristiti od strane korisnika na samoodređenje registrirati se na ovu grupu. Ako je polje je postavljeno na nula, tada se takav ograničenje će biti sprovedene.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Postavljanje ove oblasti na vrijednost veću od nule, bit ograničavaju broj puta skupini ključ se može koristiti od strane korisnika na samoodređenje registrirati se na ovu grupu. Ako je polje je postavljeno na nula, tada se takav ograničenje će biti sprovedene.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Preostale grupe tipka koristi");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","Grupa na ključ je istekla");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Žao nam je, ali ovaj test je oštećen, a time i nedostupni. Molimo posjetite gotovi testovi liste izbrisati ovaj test pogubljenje.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","My Groups");//my Groups
 define("_AVAILABLE","Dostupan");//Available
 define("_NEVER","Nikada");//Never
 define("_CLASSMATES","Razredu");//Classmates
-define("_LESSONPEOPLE","Obrazovni ljudi");//Lesson users
+define("_LESSONPEOPLE","Obrazovni ljudi");//People connection
 define("_NORMALIZEDIMENSIONS","Normalizirani dimenzije");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","je dodijeljen tečaj");//was assigned the course
 define("_WILLBETEACHINGCOURSE","će se nastava kolegija");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Promjena stanja kako bi");//Change condition ord
 define("_INDEX","Indeks");//Index
 define("_EVENTDATETIME","Događaj datum i vrijeme");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Potvrdu je nedostaje ili je oštećen i time je vratiti");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Vidljivo iz");//Visible from (New)
-define("_EXPIRESAT","Istječe u");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Kalendar prikazuje datum");//Calendar display date (New)
-define("_GLOBAL","Globalna");//Global (New)
-define("_ALLDAY","Cjelodnevni");//All day (New)
-define("_CREATECALENDAREVENT","Napravite kalendar događaja");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Prepiši postojeće mape");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Odredišna stranica");//Landing page (New)
-define("_EXPORTTOXLS","Izvoz u xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Pregled nije uspio biti objavljen");//Survey failed to be published (New)
-define("_PRINTCHART","Ispis karta");//Print chart (New)
-define("_RESPONSEDETAILS","Odgovor detalji");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Prikaz samo aktivnih subjekata");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Prikazane su samo neaktivne osobe");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Prikaz aktivne i neaktivne osobe");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Ovaj događaj ne postoji");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Vedro red poruka");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Nanesite na korisnici već pripada ovom radnom mjestu");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","To može samo dodati (ne ukloni) novi odabir korisnika");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Poredaj po");//Sort by (New)
-define("_TRAINING","Trening");//Training (New)
-define("_COMPLETEDLESSONS","Završeni lekcije");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Nepotpuni lekcije");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Završeni tečajevi");//Completed courses (New)
-define("_INCOMPLETECOURSES","Nepotpuni tečajeve");//Incomplete courses (New)
-define("_EDITCOLUMN","Uredi stupcu");//Edit column (New)
-define("_LESSONSFORCOURSE","Lekcije za tečaj");//Lessons for course (New)
-define("_TESTSFORLESSON","Testovi za sat");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Kompletna za sve korisnike");//Complete for all users (New)
-define("_LESSONTIMES","Lekcija puta");//Lesson times (New)
-define("_MINUTESPERDAY","Minuta po danu");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Odjavite se korisnik nakon (min)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Updater razdoblju (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Preporučene vrijednosti su ne manje od 10000ms i ne više od 360000ms. Također mora biti postavljen manji od vremena auto odjava.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Više od 1 grana (lokacija) u vezi s ovim, naravno, pokazuje prva");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Umetnuti");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Dodjela odobren od strane");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Zaposlenika neposrednog rukovodioca");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Upute deaktiviranja");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","je deaktiviran iz sustava");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Supervizor odobrenje");//Supervisor approval (New)
-define("_APPROVE","Odobriti");//Approve (New)
-define("_GROUPKEYEXISTS","Jedinstveni ključ već postoji");//Unique key already exists (New)
-define("_PARTOFCOURSES","Dio kolegija");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ovaj sat je dio jednog ili više tečajeva, tako da ne mogu promijeniti način");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Postoje korisnici upisani na ovu lekciju. Molimo vas da ih unassign Prije uključivanja načina");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Tečajevi (nepotpuni / ukupno)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Izvoz datoteka");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Tečaj zakazana isteka");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Tečaj zakazan početak");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","Planirani početak tečaja");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","Planirani isteka naravno");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Svi Naravno, korisnici");//All course users (New)
+define("_VISIBLEFROM","Vidljivo iz");//Visible from
+define("_EXPIRESAT","Istječe u");//Expires at
+define("_CALENDARDISPLAYDATE","Kalendar prikazuje datum");//Calendar display date
+define("_GLOBAL","Globalna");//Global
+define("_ALLDAY","Cjelodnevni");//All day
+define("_CREATECALENDAREVENT","Napravite kalendar događaja");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Prepiši postojeće mape");//Overwrite existing folder
+define("_LANDINGPAGE","Odredišna stranica");//Landing page
+define("_EXPORTTOXLS","Izvoz u xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Pregled nije uspio biti objavljen");//Survey failed to be published
+define("_PRINTCHART","Ispis karta");//Print chart
+define("_RESPONSEDETAILS","Odgovor detalji");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Prikaz samo aktivnih subjekata");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Prikazane su samo neaktivne osobe");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Prikaz aktivne i neaktivne osobe");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Ovaj događaj ne postoji");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Vedro red poruka");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Nanesite na korisnici već pripada ovom radnom mjestu");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","To može samo dodati (ne ukloni) novi odabir korisnika");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Poredaj po");//Sort by
+define("_TRAINING","Trening");//Training
+define("_COMPLETEDLESSONS","Završeni lekcije");//Completed lessons
+define("_INCOMPLETELESSONS","Nepotpuni lekcije");//Incomplete lessons
+define("_COMPLETEDCOURSES","Završeni tečajevi");//Completed courses
+define("_INCOMPLETECOURSES","Nepotpuni tečajeve");//Incomplete courses
+define("_EDITCOLUMN","Uredi stupcu");//Edit column
+define("_LESSONSFORCOURSE","Lekcije za tečaj");//Lessons for course
+define("_TESTSFORLESSON","Testovi za sat");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Kompletna za sve korisnike");//Complete for all users
+define("_LESSONTIMES","Lekcija puta");//Lesson times
+define("_MINUTESPERDAY","Minuta po danu");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Odjavite se korisnik nakon (min)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Updater razdoblju (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Preporučene vrijednosti su ne manje od 10000ms i ne više od 360000ms. Također mora biti postavljen manji od vremena auto odjava.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Više od 1 grana (lokacija) u vezi s ovim, naravno, pokazuje prva");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Umetnuti");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Dodjela odobren od strane");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Zaposlenika neposrednog rukovodioca");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Upute deaktiviranja");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","je deaktiviran iz sustava");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Supervizor odobrenje");//Supervisor approval
+define("_APPROVE","Odobriti");//Approve
+define("_GROUPKEYEXISTS","Jedinstveni ključ već postoji");//Unique key already exists
+define("_PARTOFCOURSES","Dio kolegija");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ovaj sat je dio jednog ili više tečajeva, tako da ne mogu promijeniti način");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Postoje korisnici upisani na ovu lekciju. Molimo vas da ih unassign Prije uključivanja načina");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Tečajevi (nepotpuni / ukupno)");//Courses (incomplete/total)
+define("_EXPORTFILES","Izvoz datoteka");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Tečaj zakazana isteka");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Tečaj zakazan početak");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Planirani početak tečaja");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Planirani isteka naravno");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Svi Naravno, korisnici");//All course users
+define("_MOVEBLOCK","Premjestiti blok");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Proširi / kolaps blok");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Default učenik tip");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Ako ste postavili grupa ključ za ovu grupu, a zatim korisnici koji koriste ključ će biti upisani na lekcije / tečajevi imaju ovu vrstu. Ako ste postavili ovu grupu da se zadani, a zatim novi korisnici će biti dodijeljen grupe lekcije s tom vrstom");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Ne koristite zadani tip");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Uspješno ste dodani u grupu");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Ova grupa je neaktivan");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","Ključ ne može se koristiti više puta");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Izbor ste napravili ne vrijedi. Molimo izabrati opciju s popisa");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Vi ste već član ove grupe");//You are already member of this group (New)
+define("_AVERAGESCORES","Prosječne ocjene");//Average scores (New)
+define("_PROJECTSAVERAGE","Prosječna ocjena u svim projektima");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Prebaci se na stabla");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Prebaci se na jednostavan pogled");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Neobjavljen primatelja (bcc)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Rezultati za");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Hvala vam za dovršetak");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Nema izvješća nalaze u sustavu");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Možete stvoriti jedan");//You may create one (New)
 ?>

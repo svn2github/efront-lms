@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","课程目录");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","无题目定义");//There are no questions defined
 define("_ADDQUESTION","新增测验作业");//Add question
 define("_PREVIEW","预览");//Preview
-define("_RENAME","重命名");//Rename (New)
-define("_CLONE","克隆");//Clone (New)
+define("_RENAME","重命名");//Rename
+define("_CLONE","克隆");//Clone
 define("_NOTESTSSETFORTHISUNIT","无考试");//No tests found
 define("_ADDTEST","新增考试");//Add test
 define("_UNITANDSUBUNITSTESTS","单元和子单元考试");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","标记为未学习");//Set the unit as not completed
 define("_CONDITIONSCOMPLETED","条件完成");//Conditions completed
 define("_OUTOF","/");//out of
 define("_LESSONPROGRESS","课程进度");//Lesson progress
-define("_YOUMUSTSEEUNIT","你必须看到单元");//You must see unit
-define("_YOUMUSTSEEALLUNITS","你必须看到，各单元");//You must see all units
+define("_YOUMUSTSEEUNIT","你必须看到单元");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","你必须看到，各单元");//You must complete all units
 define("_OFLESSONUNITS","课单元");//of lesson units
-define("_YOUMUSTSEE","您必须见");//You must see
+define("_YOUMUSTSEE","您必须见");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","您必须完成所有考试，平均得分");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","您必须完成考试");//You must complete test
 define("_WITHSCORE","与评分");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","继续学习");//Resume lesson
 define("_STARTLESSON","开始学习");//Start lesson
 define("_TRACKING","跟踪");//Tracking
 define("_FORMATCERTIFICATE","格式证书");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","格式的证书模板");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","设置证书过期");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","用于创建认证的LiveDocX方法");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","用于创建认证的XML方法");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","添加证书模板（XML格式）");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","编辑证书模板（XML格式）");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","重命名证书模板");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","克隆证书模板");//Clone certificate template (New)
-define("_CERTIFICATENAME","证书名称");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","证书的说明");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML描述不能为空");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","现有证书模板");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","格式的证书模板");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","设置证书过期");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","用于创建认证的LiveDocX方法");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","用于创建认证的XML方法");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","添加证书模板（XML格式）");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","编辑证书模板（XML格式）");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","重命名证书模板");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","克隆证书模板");//Clone certificate template
+define("_CERTIFICATENAME","证书名称");//Certificate name
+define("_CERTIFICATEDESCRIPTION","证书的说明");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML描述不能为空");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","现有证书模板");//Existing certificate templates
 define("_TRAFFIC","访问统计");//Traffic
 define("_LESSONTRAFFIC","课程访问信息");//Lesson traffic
 define("_EDITTEST","编辑考试");//Edit test
 define("_EDITQUESTION","编辑题目");//Edit question
 define("_CERTIFICATE","证书");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","成功更新证书");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","已成功添加证书模板");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","有一个问题，同时增加的证书模板");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","证书模板已成功更新");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","有一个问题，同时更新证书模板");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","证书模板成功更名");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","有一个问题，同时重新命名证书模板");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","证书模板成功地克隆");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","有一个问题，同时克隆证书模板");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","已成功删除证书模板");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","有一个问题，同时删除证书模板");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","您没有权利修改此证书模板");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","已成功添加证书模板");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","有一个问题，同时增加的证书模板");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","证书模板已成功更新");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","有一个问题，同时更新证书模板");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","证书模板成功更名");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","有一个问题，同时重新命名证书模板");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","证书模板成功地克隆");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","有一个问题，同时克隆证书模板");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","已成功删除证书模板");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","有一个问题，同时删除证书模板");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","您没有权利修改此证书模板");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","编辑规则");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP服务器配置");//SMTP server configuration
 define("_SMTPSERVER","SMTP服务器");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","该领域在您�
 define("_IFEMPTYNEWPASSWORD","红色领域是强制性的。如果没有密码，给出初始密码将被设置相同的登录。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","请选中格式的CSV文件");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","使用用户名＃ ＃为使用者的名称，编号user_surname ＃为用户的姓， ＃ course_name ＃课程的名称，编号＃级，一级和＃日期＃日期。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","在模板，使用&lt;organization&gt; &lt;/组织&gt;为组织的名称，&lt;student&gt; &lt;/学生&gt;学生的姓名，&lt;course&gt; &lt;/课程&gt;的课程的名称，等级，&lt;&lt;grade&gt; &lt;/年级&gt;串行&gt; &lt;/使用序列号序列&gt;，&lt;日期&gt; &lt;/使用日期&gt;，&lt;logo&gt; &lt;/为徽标和&lt;background&gt; &lt;/背景背景“&gt;标识&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","在模板，使用&lt;organization&gt; &lt;/组织&gt;为组织的名称，&lt;student&gt; &lt;/学生&gt;学生的姓名，&lt;course&gt; &lt;/课程&gt;的课程的名称，等级，&lt;&lt;grade&gt; &lt;/年级&gt;串行&gt; &lt;/使用序列号序列&gt;，&lt;日期&gt; &lt;/使用日期&gt;，&lt;logo&gt; &lt;/为徽标和&lt;background&gt; &lt;/背景背景“&gt;标识&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","投票数");//Votes
 define("_PERCENTAGE","百分比");//Percentage
 define("_CERTIFICATEISSUED","颁发证书");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","保持");//Remain
 define("_WEEKS","周");//weeks
 define("_WEEKs","周");//week
 define("_DAYS","天");//days
-define("_DAYSCAPITAL","天");//Days (New)
+define("_DAYSCAPITAL","天");//Days
 define("_DAY","白天");//Day
 define("_EVALUATIONDATAUPDATED","评价数据更新成功");//Evaluation data updated successfully
 define("_EVALUATION","评价");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","集团已成功更新");//Group was successfu
 define("_ASSIGNLESSONSTOGROUPUSERS","分配的若干课程，以集团用户");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","自动生成组密钥");//Automatically generate group key
 define("_UNIQUEGROUPKEY","独特的组密钥");//Unique group key
-define("_UNIQUEGROUPKEYINFO","这种独特的组密钥可以提供给用户，使他们能够登记某一特定群体按一下钥匙图标登录页上的");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","这种独特的组密钥可以提供给用户，使他们能够登记某一特定群体按一下钥匙图标登录页上的");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","默认系统组");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","选中这将使所有新用户的系统将自动分配给该组。只有一组可预设的系统组。作为一个新的默认组蕴涵选择取代以往。");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","选中这将使所有新用户的系统将自动分配给该组。只有一组可预设的系统组。作为一个新的默认组蕴涵选择取代以往。");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","组密钥");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","提出了一个独特的群体在这里主要提供给您的系统管理员，您可以注册自己的所有经验课程，特别组");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","该集团已进入关键你是无效的");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","插入组");//Insert into group
 define("_NOSPECIFICGROUP","没有具体的组");//No specific group
 define("_VIEWINSERTGROUPKEY","查看组关键选择");//Show group key option
 define("_MAXGROUPKEYUSAGE","最大关键用途");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","制定这一领域的大于零的值，将划定若干倍的组密钥可用于向用户自行注册到该组。如果该字段设置为零，那么没有这种限制将被强制执行。");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","制定这一领域的大于零的值，将划定若干倍的组密钥可用于向用户自行注册到该组。如果该字段设置为零，那么没有这种限制将被强制执行。");//Leave blank for no limit
 define("_REMAININGKEYUSES","其余组主要用途");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","该集团主要已过期");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","很抱歉，但这个考试被损坏，从而无法使用。请访问做考试名单删除此考试执行。");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","我的群组");//my Groups
 define("_AVAILABLE","状态");//Available
 define("_NEVER","从不");//Never
 define("_CLASSMATES","同学录");//Classmates
-define("_LESSONPEOPLE","课程人");//Lesson users
+define("_LESSONPEOPLE","课程人");//People connection
 define("_NORMALIZEDIMENSIONS","归层面");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","被指定课程");//was assigned the course
 define("_WILLBETEACHINGCOURSE","将教学课程");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","更改条件顺序");//Change condition order
 define("_INDEX","指数");//Index
 define("_EVENTDATETIME","事件的日期和时间");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","该证书文件丢失或损坏，因此被重置");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","可见的");//Visible from (New)
-define("_EXPIRESAT","到期日");//Expires at (New)
-define("_CALENDARDISPLAYDATE","日历显示日期");//Calendar display date (New)
-define("_GLOBAL","全球");//Global (New)
-define("_ALLDAY","整天");//All day (New)
-define("_CREATECALENDAREVENT","创建日历事件");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","覆盖现有的文件夹");//Overwrite existing folder (New)
-define("_LANDINGPAGE","着陆页");//Landing page (New)
-define("_EXPORTTOXLS","导出到XLS");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","调查也没有将出版");//Survey failed to be published (New)
-define("_PRINTCHART","打印图表");//Print chart (New)
-define("_RESPONSEDETAILS","响应的详细信息");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","仅显示活性体");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","仅显示无效实体");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","显示实体都有效和无效");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","此事件已不存在");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","清除队列中的消息");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","应用到用户已经属于此职务");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","这只能增加（不是删除）一个新的选择给用户");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","排序方式");//Sort by (New)
-define("_TRAINING","培训");//Training (New)
-define("_COMPLETEDLESSONS","填妥的教训");//Completed lessons (New)
-define("_INCOMPLETELESSONS","不完整的教训");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","完成的课程");//Completed courses (New)
-define("_INCOMPLETECOURSES","不完整的课程");//Incomplete courses (New)
-define("_EDITCOLUMN","编辑栏");//Edit column (New)
-define("_LESSONSFORCOURSE","当然教训");//Lessons for course (New)
-define("_TESTSFORLESSON","试验的教训");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","全面地对所有用户");//Complete for all users (New)
-define("_LESSONTIMES","上课时间");//Lesson times (New)
-define("_MINUTESPERDAY","每天纪要");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","登录后（分钟）进行用户");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","更新程序周期（ms）");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","推荐值并不比10000ms少，不超过360000ms。它还必须设置自动注销时间比少。");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","超过1家分行（处）与此相关的课程，显示了第一个");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","插入");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","批准转让");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","员工的顶头上司");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","用户停用");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","从系统被停用");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","监的批准");//Supervisor approval (New)
-define("_APPROVE","批准");//Approve (New)
-define("_GROUPKEYEXISTS","独特的键已经存在");//Unique key already exists (New)
-define("_PARTOFCOURSES","部分课程");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","这个教训是一门或多门课程的一部分，因此它不能改变模式");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","有网友参加这一课。请取消指定切换模式之前，他们");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","课程（完整/总数）");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","导出文件");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","课程期满");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","课程开始预定");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","预定开始当然");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","期满当然");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","所有课程的用户");//All course users (New)
+define("_VISIBLEFROM","可见的");//Visible from
+define("_EXPIRESAT","到期日");//Expires at
+define("_CALENDARDISPLAYDATE","日历显示日期");//Calendar display date
+define("_GLOBAL","全球");//Global
+define("_ALLDAY","整天");//All day
+define("_CREATECALENDAREVENT","创建日历事件");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","覆盖现有的文件夹");//Overwrite existing folder
+define("_LANDINGPAGE","着陆页");//Landing page
+define("_EXPORTTOXLS","导出到XLS");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","调查也没有将出版");//Survey failed to be published
+define("_PRINTCHART","打印图表");//Print chart
+define("_RESPONSEDETAILS","响应的详细信息");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","仅显示活性体");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","仅显示无效实体");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","显示实体都有效和无效");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","此事件已不存在");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","清除队列中的消息");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","应用到用户已经属于此职务");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","这只能增加（不是删除）一个新的选择给用户");//This can only add (not remove) a new selection to a user
+define("_SORTBY","排序方式");//Sort by
+define("_TRAINING","培训");//Training
+define("_COMPLETEDLESSONS","填妥的教训");//Completed lessons
+define("_INCOMPLETELESSONS","不完整的教训");//Incomplete lessons
+define("_COMPLETEDCOURSES","完成的课程");//Completed courses
+define("_INCOMPLETECOURSES","不完整的课程");//Incomplete courses
+define("_EDITCOLUMN","编辑栏");//Edit column
+define("_LESSONSFORCOURSE","当然教训");//Lessons for course
+define("_TESTSFORLESSON","试验的教训");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","全面地对所有用户");//Complete for all users
+define("_LESSONTIMES","上课时间");//Lesson times
+define("_MINUTESPERDAY","每天纪要");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","登录后（分钟）进行用户");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","更新程序周期（ms）");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","推荐值并不比10000ms少，不超过360000ms。它还必须设置自动注销时间比少。");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","超过1家分行（处）与此相关的课程，显示了第一个");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","插入");//Insert
+define("_ASSIGNMENTAPPROVEDBY","批准转让");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","员工的顶头上司");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","用户停用");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","从系统被停用");//was deactivated from system
+define("_SUPERVISORAPPROVAL","监的批准");//Supervisor approval
+define("_APPROVE","批准");//Approve
+define("_GROUPKEYEXISTS","独特的键已经存在");//Unique key already exists
+define("_PARTOFCOURSES","部分课程");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","这个教训是一门或多门课程的一部分，因此它不能改变模式");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","有网友参加这一课。请取消指定切换模式之前，他们");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","课程（完整/总数）");//Courses (incomplete/total)
+define("_EXPORTFILES","导出文件");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","课程期满");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","课程开始预定");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","预定开始当然");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","期满当然");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","所有课程的用户");//All course users
+define("_MOVEBLOCK","移动块");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","展开/折叠块");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","默认学习型");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","如果您设置了该组的组密钥，那么用户使用该密钥将被录取到教训/课程有这种类型。如果您已设定此组是默认，则新用户将被分配给该组的教训与此类型");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","不要使用默认类型");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","您已成功地添加到组");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","这组无效");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","该键不能使用的任何更多的时间");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","你做的选择是无效的。请从列表中选择一个选项");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","您已经是这个组的成员");//You are already member of this group (New)
+define("_AVERAGESCORES","平均分数");//Average scores (New)
+define("_PROJECTSAVERAGE","在所有项目的平均评分");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","切换到树视图");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","切换到简单视图");//Switch to simple view (New)
+define("_BCCRECIPIENTS","未公开的收件人（密件抄送）");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","结果");//Results for (New)
+define("_THANKYOUFORCOMPLETING","感谢您完成");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","没有报告发现，在系统");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","您可以创建一");//You may create one (New)
 ?>

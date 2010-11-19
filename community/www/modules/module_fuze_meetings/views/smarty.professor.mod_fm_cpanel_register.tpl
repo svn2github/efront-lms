@@ -56,10 +56,10 @@
  _mod_fm_prof_html += '				<table cellpadding="0" cellspacing="0" style="width:100%;">';
  _mod_fm_prof_html += '					<tr>';
  _mod_fm_prof_html += '						<td style="width:1px; padding-right:10px;">';
- _mod_fm_prof_html += '							<input type="button" id="_mod_fm_prof_cpanel_host_btn" value="{/literal}{$smarty.const._FUZE_PROF_MEETING_HOST}{literal}" onclick="javascript:_mod_fm_prof_host();"/>';
+ _mod_fm_prof_html += '							<input type="button" class="flatButton" id="_mod_fm_prof_cpanel_host_btn" value="{/literal}{$smarty.const._FUZE_PROF_MEETING_HOST}{literal}" onclick="javascript:_mod_fm_prof_host();"/>';
  _mod_fm_prof_html += '						</td>';
  _mod_fm_prof_html += '						<td>';
- _mod_fm_prof_html += '							<input type="button" id="_mod_fm_prof_cpanel_host_btn" value="{/literal}{$smarty.const._FUZE_PROF_MEETING_SCHEDULE}{literal}" onclick="javascript:_mod_fm_prof_schedule();"/>';
+ _mod_fm_prof_html += '							<input type="button" class="flatButton" id="_mod_fm_prof_cpanel_host_btn" value="{/literal}{$smarty.const._FUZE_PROF_MEETING_SCHEDULE}{literal}" onclick="javascript:_mod_fm_prof_schedule();"/>';
  _mod_fm_prof_html += '						</td>';
  _mod_fm_prof_html += '					</tr>';
 
@@ -70,10 +70,10 @@
  _mod_fm_prof_html += '					</tr>';
 
  _mod_fm_prof_html += '					<tr>';
- _mod_fm_prof_html += '						<td colspan="2" style="padding:2px; border:solid 1px #888; background:#F0F0F0;">';
+ _mod_fm_prof_html += '						<td colspan="2" style="padding:2px; background:#F0F0F0;">';
 
  _mod_fm_prof_html += '							<table cellpadding="2" cellspacing="0" style="width:100%;">';
- _mod_fm_prof_html += '								<tr style="font-weight:bold; background:#AAAAAA;">';
+ _mod_fm_prof_html += '								<tr style="font-weight:bold; background:#CCCCCC;">';
  _mod_fm_prof_html += '									<td style="width:250px; text-align:center;">';
  _mod_fm_prof_html += '										{/literal}{$smarty.const._FUZE_PROF_MEETING_CPANEL_TABLE_TITLE}{literal}';
  _mod_fm_prof_html += '									</td>';
@@ -84,8 +84,8 @@
  _mod_fm_prof_html += '										{/literal}{$smarty.const._FUZE_PROF_MEETING_CPANEL_TABLE_LINK}{literal}';
  _mod_fm_prof_html += '									</td>';
  _mod_fm_prof_html += '								</tr>';
- _mod_fm_prof_html += '								<tr>';
- _mod_fm_prof_html += '									<td colspan="3">{/literal}{$smarty.const._FUZE_PROF_MEETING_AMOUNT_MEETING_NONE}{literal}</td>';
+ _mod_fm_prof_html += '								<tr class="defaultRowHeight oddRowColor">';
+ _mod_fm_prof_html += '									<td class="emptyCategory" colspan = "100%">{/literal}{$smarty.const._NODATAFOUND}{literal}</td>';
  _mod_fm_prof_html += '								</tr>';
  _mod_fm_prof_html += '							</table>';
 
@@ -94,7 +94,7 @@
 
  _mod_fm_prof_html += '					<tr>';
  _mod_fm_prof_html += '						<td>';
- _mod_fm_prof_html += '							<a href="">{/literal}{$smarty.const._FUZE_PROF_MEETING_EDIT}{literal}</a>';
+ _mod_fm_prof_html += '							<a href="{/literal}{$MOD_FM_BASEURL}{literal}">{/literal}{$smarty.const._FUZE_PROF_MEETING_EDIT}{literal}</a>';
  _mod_fm_prof_html += '						</td>';
  _mod_fm_prof_html += '					</tr>';
  _mod_fm_prof_html += '				</table>';

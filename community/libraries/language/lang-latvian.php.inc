@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Nodarbība materiāls");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nav jautājumiem definēts");//There are no questions defined
 define("_ADDQUESTION","Pievienot jautājumu");//Add question
 define("_PREVIEW","Preview");//Preview
-define("_RENAME","Pārdēvēt");//Rename (New)
-define("_CLONE","Klons");//Clone (New)
+define("_RENAME","Pārdēvēt");//Rename
+define("_CLONE","Klons");//Clone
 define("_NOTESTSSETFORTHISUNIT","Nr testu atrasts");//No tests found
 define("_ADDTEST","Pievienot tests");//Add test
 define("_UNITANDSUBUNITSTESTS","Nodaļa un apakšvienībās testi");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Iestatīt vienības, kas nav pabeigts");//Set the unit as 
 define("_CONDITIONSCOMPLETED","Nosacījumi, kas pabeigti");//Conditions completed
 define("_OUTOF","no");//out of
 define("_LESSONPROGRESS","Nodarbība progress");//Lesson progress
-define("_YOUMUSTSEEUNIT","Jums nepieciešams skatīt vienība");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Jums nepieciešams redzēt visas vienības");//You must see all units
+define("_YOUMUSTSEEUNIT","Jums nepieciešams skatīt vienība");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Jums nepieciešams redzēt visas vienības");//You must complete all units
 define("_OFLESSONUNITS","no stunda vienības");//of lesson units
-define("_YOUMUSTSEE","Jums nepieciešams skatīt");//You must see
+define("_YOUMUSTSEE","Jums nepieciešams skatīt");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Jums ir jāaizpilda visi testi ar vidējo punktu skaitu");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Jums ir jāaizpilda tests");//You must complete test
 define("_WITHSCORE","ar score");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Resume stunda");//Resume lesson
 define("_STARTLESSON","Sākums stunda");//Start lesson
 define("_TRACKING","Izsekošana");//Tracking
 define("_FORMATCERTIFICATE","Format sertifikāts");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Formāts sertifikātu veidnes");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Iestatīt sertifikāta derīguma");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Izmantojiet LiveDocX metodi, lai radītu sertifikāciju");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Izmantot XML metodi, lai radītu sertifikāciju");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Pievienot sertifikāta paraugu (XML formātā)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Edit sertifikāta paraugu (XML formātā)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Pārdēvēt sertifikātu veidnes");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Klons sertifikātu veidnes");//Clone certificate template (New)
-define("_CERTIFICATENAME","Sertifikāta nosaukums");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Sertifikāta apraksts");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML aprakstu nevar būt tukšs");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Esošās apliecības veidnes");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Formāts sertifikātu veidnes");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Iestatīt sertifikāta derīguma");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Izmantojiet LiveDocX metodi, lai radītu sertifikāciju");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Izmantot XML metodi, lai radītu sertifikāciju");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Pievienot sertifikāta paraugu (XML formātā)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Edit sertifikāta paraugu (XML formātā)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Pārdēvēt sertifikātu veidnes");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Klons sertifikātu veidnes");//Clone certificate template
+define("_CERTIFICATENAME","Sertifikāta nosaukums");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Sertifikāta apraksts");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML aprakstu nevar būt tukšs");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Esošās apliecības veidnes");//Existing certificate templates
 define("_TRAFFIC","Traffic");//Traffic
 define("_LESSONTRAFFIC","Nodarbība satiksmes");//Lesson traffic
 define("_EDITTEST","Edit tests");//Edit test
 define("_EDITQUESTION","Edit jautājums");//Edit question
 define("_CERTIFICATE","Certificate");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Veiksmīgi atjaunināti sertifikāts");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi pievienots");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Radās problēma, vienlaikus pievienojot apliecības paraugu");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi atjaunināts");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Radās problēma, kamēr atjaunināt apliecību veidnes");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi pārdēvēta");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Radās problēma, pārdēvējot sertifikātu veidnes");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi klonēta");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Radās problēma, klonēšanas sertifikātu veidnes");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi izdzēsts");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Radās problēma, dzēšot sertifikātu veidnes");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Jums nav tiesību mainīt šo sertifikātu veidni");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi pievienots");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Radās problēma, vienlaikus pievienojot apliecības paraugu");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi atjaunināts");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Radās problēma, kamēr atjaunināt apliecību veidnes");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi pārdēvēta");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Radās problēma, pārdēvējot sertifikātu veidnes");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi klonēta");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Radās problēma, klonēšanas sertifikātu veidnes");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi izdzēsts");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Radās problēma, dzēšot sertifikātu veidnes");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Jums nav tiesību mainīt šo sertifikātu veidni");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Edit nosacījums");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP servera konfigurēšana");//SMTP server configuration
 define("_SMTPSERVER","SMTP serveris");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Laukus jūsu csv 
 define("_IFEMPTYNEWPASSWORD","Lauki, ar sarkanu ir obligāta. Ja nav parole, ņemot vērā, sākotnējā parole tiks noteikta tāda pati kā pieteikumvārdu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lūdzu pārbaudiet formātu jūsu CSV fails");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Tā kā veidni, izmantojiet # organizācija # par organizācijas nosaukums, # Lietotāja_vārds # lietotāja vārdu, # # user_surname lietotāja uzvārds, # course_name # par kursa nosaukumu, # grade # kategorijas un # datuma # par datumu.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Šajā veidnē, izmantojiet &lt;organization&gt; &lt;/ organizācijas&gt; par organizācijas nosaukumu, &lt;student&gt; &lt;/ students&gt; studenta vārdu un uzvārdu, &lt;course&gt; &lt;/ kursu&gt; par kursa nosaukums, &lt;grade&gt; &lt;/ kategorijas&gt; A kategorijas, &lt; sērijas&gt; &lt;/ sērijas&gt; kārtas numuram, &lt;datums&gt; &lt;/ datums&gt; datuma, &lt;logo&gt; &lt;/ logo&gt; par logo un &lt;background&gt; &lt;/ fona&gt; fona.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","Šajā veidnē, izmantojiet &lt;organization&gt; &lt;/ organizācijas&gt; par organizācijas nosaukumu, &lt;student&gt; &lt;/ students&gt; studenta vārdu un uzvārdu, &lt;course&gt; &lt;/ kursu&gt; par kursa nosaukums, &lt;grade&gt; &lt;/ kategorijas&gt; A kategorijas, &lt; sērijas&gt; &lt;/ sērijas&gt; kārtas numuram, &lt;datums&gt; &lt;/ datums&gt; datuma, &lt;logo&gt; &lt;/ logo&gt; par logo un &lt;background&gt; &lt;/ fona&gt; fona.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Balsis");//Votes
 define("_PERCENTAGE","Procenti");//Percentage
 define("_CERTIFICATEISSUED","Sertifikāts, kas izdots");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Palikt");//Remain
 define("_WEEKS","nedēļas");//weeks
 define("_WEEKs","nedēļu");//week
 define("_DAYS","dienas");//days
-define("_DAYSCAPITAL","Dienas");//Days (New)
+define("_DAYSCAPITAL","Dienas");//Days
 define("_DAY","Diena");//Day
 define("_EVALUATIONDATAUPDATED","Novērtēšanas datu atjaunošana veiksmīgi");//Evaluation data updated successfully
 define("_EVALUATION","Evaluation");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Grupa tika veiksmīgi atjaunināts");//Group 
 define("_ASSIGNLESSONSTOGROUPUSERS","Piešķirt izvēlētās nodarbības ar grupas lietotājiem");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Automātiski ģenerēt grupas galvenie");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Unikāls grupas galvenie");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Šis unikālais grupas galvenie var sniegt lietotājiem, lai viņi varētu reģistrēt sevi ar kādu konkrētu grupu, noklikšķinot uz atslēgas ikonas ieejas lapu");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Šis unikālais grupas galvenie var sniegt lietotājiem, lai viņi varētu reģistrēt sevi ar kādu konkrētu grupu, noklikšķinot uz atslēgas ikonas ieejas lapu");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Noklusētā sistēmas grupa");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Pārbaudot to, sagatavot jaunus lietotājus par sistēmu, kas automātiski piešķir šai grupai. Tikai viens grupu var noklusēto sistēmas grupā. Kā ietekmes jaunu noklusēto grupu atlasi nomainīt iepriekšējiem.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Pārbaudot to, sagatavot jaunus lietotājus par sistēmu, kas automātiski piešķir šai grupai. Tikai viens grupu var noklusēto sistēmas grupā. Kā ietekmes jaunu noklusēto grupu atlasi nomainīt iepriekšējiem.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Grupas galvenie");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Iesniedzot šeit unikālu grupas galvenie, kas jums ar sistēmas administratoru, jūs varat reģistrēties sev visiem mācība, ka īpaša grupa");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","Grupa galveno esat ievadījis nav derīgs");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Jāiekopē grupa");//Insert into group
 define("_NOSPECIFICGROUP","Nr konkrētās grupas");//No specific group
 define("_VIEWINSERTGROUPKEY","Show grupas galvenie izvēle");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maksimālais atslēgu izmanto");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Nosakot šajā jomā, kuru vērtība ir lielāka par nulli, būs norobežot, cik reizes grupas galvenie var izmantot lietotājiem self-reģistru, lai šī grupa. Ja lauks ir nulle, tad šāds ierobežojums tiks izpildīts.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Nosakot šajā jomā, kuru vērtība ir lielāka par nulli, būs norobežot, cik reizes grupas galvenie var izmantot lietotājiem self-reģistru, lai šī grupa. Ja lauks ir nulle, tad šāds ierobežojums tiks izpildīts.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Atlikušās grupas galvenie lietojumi");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","Grupa atslēga ir beidzies");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Mēs atvainojamies, bet šis tests ir bojāts, un tādējādi nav iespējama. Lūdzu, apmeklējiet darīts testu saraksts, lai izdzēstu šo testu izpildi.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Manas grupas");//my Groups
 define("_AVAILABLE","Pieejams");//Available
 define("_NEVER","Nekad");//Never
 define("_CLASSMATES","Klasesbiedriem");//Classmates
-define("_LESSONPEOPLE","Nodarbību cilvēki");//Lesson users
+define("_LESSONPEOPLE","Nodarbību cilvēki");//People connection
 define("_NORMALIZEDIMENSIONS","Normalizētiem izmēri");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","tika nodota kurss");//was assigned the course
 define("_WILLBETEACHINGCOURSE","būs mācību kurss");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Mainīt nosacījums, lai");//Change condition or
 define("_INDEX","Indekss");//Index
 define("_EVENTDATETIME","Notikuma datums un laiks");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifikāts fails ir pazudis vai bojāts un tāpēc bija reset");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Redzama no");//Visible from (New)
-define("_EXPIRESAT","Beidzas");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Kalendāra ekrāns dienas");//Calendar display date (New)
-define("_GLOBAL","Pasaules");//Global (New)
-define("_ALLDAY","Visu dienu");//All day (New)
-define("_CREATECALENDAREVENT","Izveidot kalendāra notikumu");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Pārrakstīt esošās mapes");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Galamērķa lapas");//Landing page (New)
-define("_EXPORTTOXLS","Eksports uz xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Pētījums nav publicēts");//Survey failed to be published (New)
-define("_PRINTCHART","Drukāt diagramma");//Print chart (New)
-define("_RESPONSEDETAILS","Atbildot informācija");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Rāda tikai aktīvās vienības");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Rāda tikai neaktīva vienībām");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Rāda gan aktīvo, gan neaktīvo vienību");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Šis notikums vairs nepastāv");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Notīrīt rindas ziņas");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Piesakies uz lietotājiem, kas jau pieder šo darbu nostāju");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Tas var tikai pievienot (nav atcelt) jaunu atlases lietotājam");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Kārtot pēc");//Sort by (New)
-define("_TRAINING","Apmācība");//Training (New)
-define("_COMPLETEDLESSONS","Pabeigts nodarbības");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Nepilnīga nodarbības");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Studiju kursu");//Completed courses (New)
-define("_INCOMPLETECOURSES","Nepilnīga kursi");//Incomplete courses (New)
-define("_EDITCOLUMN","Kolonnā Rediģēt");//Edit column (New)
-define("_LESSONSFORCOURSE","Nodarbības laikā");//Lessons for course (New)
-define("_TESTSFORLESSON","Testi nodarbība");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Complete visiem lietotājiem");//Complete for all users (New)
-define("_LESSONTIMES","Nodarbība reizes");//Lesson times (New)
-define("_MINUTESPERDAY","Minūtes dienā");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Iziet lietotājam pēc (minūtes)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Updater periods (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Ieteicams vērtības ir ne mazāk kā 10000ms un ne vairāk kā 360000ms. Tā arī ir jānosaka mazāka par auto logout laiks.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Vairāk nekā 1 filiāles (atrašanās vietas), kas saistīti ar šo kursu, kurā viena pirmā");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Ievietot");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Pielietojums apstiprināts ar");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Darbinieka tiešo vadītāju");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Lietotāju atslēgšanu");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","bija deaktivēta no sistēmas");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Vadītāja apstiprinājums");//Supervisor approval (New)
-define("_APPROVE","Apstiprina");//Approve (New)
-define("_GROUPKEYEXISTS","Atslēgas jau pastāv");//Unique key already exists (New)
-define("_PARTOFCOURSES","Daļa no kursiem");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Šī mācība ir daļa no viena vai vairākiem kursiem, tāpēc nevar mainīt režīmu");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Ir lietotājiem uzņemti ar šo stundu. Lūdzu unassign tos pirms pārslēgšanas režīmi");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Kursi (nepilnīga / kopā)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Eksportēt failus");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Protams, plānots beigām");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Protams, plānots sākumā");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","Plānotais pasākuma sākuma, protams,");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","Plānotais beigām, protams,");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Visiem kursu lietotājiem");//All course users (New)
+define("_VISIBLEFROM","Redzama no");//Visible from
+define("_EXPIRESAT","Beidzas");//Expires at
+define("_CALENDARDISPLAYDATE","Kalendāra ekrāns dienas");//Calendar display date
+define("_GLOBAL","Pasaules");//Global
+define("_ALLDAY","Visu dienu");//All day
+define("_CREATECALENDAREVENT","Izveidot kalendāra notikumu");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Pārrakstīt esošās mapes");//Overwrite existing folder
+define("_LANDINGPAGE","Galamērķa lapas");//Landing page
+define("_EXPORTTOXLS","Eksports uz xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Pētījums nav publicēts");//Survey failed to be published
+define("_PRINTCHART","Drukāt diagramma");//Print chart
+define("_RESPONSEDETAILS","Atbildot informācija");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Rāda tikai aktīvās vienības");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Rāda tikai neaktīva vienībām");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Rāda gan aktīvo, gan neaktīvo vienību");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Šis notikums vairs nepastāv");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Notīrīt rindas ziņas");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Piesakies uz lietotājiem, kas jau pieder šo darbu nostāju");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Tas var tikai pievienot (nav atcelt) jaunu atlases lietotājam");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Kārtot pēc");//Sort by
+define("_TRAINING","Apmācība");//Training
+define("_COMPLETEDLESSONS","Pabeigts nodarbības");//Completed lessons
+define("_INCOMPLETELESSONS","Nepilnīga nodarbības");//Incomplete lessons
+define("_COMPLETEDCOURSES","Studiju kursu");//Completed courses
+define("_INCOMPLETECOURSES","Nepilnīga kursi");//Incomplete courses
+define("_EDITCOLUMN","Kolonnā Rediģēt");//Edit column
+define("_LESSONSFORCOURSE","Nodarbības laikā");//Lessons for course
+define("_TESTSFORLESSON","Testi nodarbība");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Complete visiem lietotājiem");//Complete for all users
+define("_LESSONTIMES","Nodarbība reizes");//Lesson times
+define("_MINUTESPERDAY","Minūtes dienā");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Iziet lietotājam pēc (minūtes)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Updater periods (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Ieteicams vērtības ir ne mazāk kā 10000ms un ne vairāk kā 360000ms. Tā arī ir jānosaka mazāka par auto logout laiks.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Vairāk nekā 1 filiāles (atrašanās vietas), kas saistīti ar šo kursu, kurā viena pirmā");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Ievietot");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Pielietojums apstiprināts ar");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Darbinieka tiešo vadītāju");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Lietotāju atslēgšanu");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","bija deaktivēta no sistēmas");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Vadītāja apstiprinājums");//Supervisor approval
+define("_APPROVE","Apstiprina");//Approve
+define("_GROUPKEYEXISTS","Atslēgas jau pastāv");//Unique key already exists
+define("_PARTOFCOURSES","Daļa no kursiem");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Šī mācība ir daļa no viena vai vairākiem kursiem, tāpēc nevar mainīt režīmu");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Ir lietotājiem uzņemti ar šo stundu. Lūdzu unassign tos pirms pārslēgšanas režīmi");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Kursi (nepilnīga / kopā)");//Courses (incomplete/total)
+define("_EXPORTFILES","Eksportēt failus");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Protams, plānots beigām");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Protams, plānots sākumā");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Plānotais pasākuma sākuma, protams,");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Plānotais beigām, protams,");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Visiem kursu lietotājiem");//All course users
+define("_MOVEBLOCK","Pārvietot bloku");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Izvērst / sakļaut bloka");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Default skolēnu veids");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Ja esat iestatījis grupas galvenie šai grupai, tad lietotāji, kas izmanto atslēgu tiks uzņemti ar mācību / kursiem šāda veida. Ja esat iestatījis šai grupai ir noklusējuma, tad jaunie lietotāji tiks piešķirts grupas nodarbības ar šāda veida");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Nelietojiet noklusējuma tipu");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Jūs esat veiksmīgi pievienojis grupai");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Šī grupa ir neaktīva");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","Atslēgu nevar izmantot vairāk reizes");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Atlases veicāt nav derīgs. Lūdzu, izvēlieties iespēju sarakstā");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Jūs jau iesaistījās grupas");//You are already member of this group (New)
+define("_AVERAGESCORES","Vidējais punktu skaits");//Average scores (New)
+define("_PROJECTSAVERAGE","Vidējais punktu skaits visos projektos");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Pārslēgties uz koka skatījumu");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Pārslēgties uz vienkāršu");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Neizpaužama saņēmējiem (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Rezultāti");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Paldies par pabeigtu");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Neviens ziņojums atrodams sistēmā");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Jūs varat izveidot vienu");//You may create one (New)
 ?>

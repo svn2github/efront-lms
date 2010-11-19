@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Materiál lekcie");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Žiadne otázky niesú definované");//There are no questions defined
 define("_ADDQUESTION","Pridať otázku");//Add question
 define("_PREVIEW","Náhľad");//Preview
-define("_RENAME","Premenovať");//Rename (New)
-define("_CLONE","Klon");//Clone (New)
+define("_RENAME","Premenovať");//Rename
+define("_CLONE","Klon");//Clone
 define("_NOTESTSSETFORTHISUNIT","Nebol nájdený žiadny test");//No tests found
 define("_ADDTEST","Pridať test");//Add test
 define("_UNITANDSUBUNITSTESTS","Jednotky a podjednotky testov");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Nastav jednotku ako nedokončenú");//Set the unit as not 
 define("_CONDITIONSCOMPLETED","Podmienky splnené");//Conditions completed
 define("_OUTOF","z");//out of
 define("_LESSONPROGRESS","Pokrok v lekcií");//Lesson progress
-define("_YOUMUSTSEEUNIT","Musíte vidieť jednotky");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Musíte vidieť všetky jednotky");//You must see all units
+define("_YOUMUSTSEEUNIT","Musíte vidieť jednotky");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Musíte vidieť všetky jednotky");//You must complete all units
 define("_OFLESSONUNITS","z jednotiek lekcie");//of lesson units
-define("_YOUMUSTSEE","Musíte vidieť");//You must see
+define("_YOUMUSTSEE","Musíte vidieť");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Musíte urobiť všetky testy s priemerným skóre");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Musíte dokončiť test");//You must complete test
 define("_WITHSCORE","sa skóre");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Pokračovať v lekcii");//Resume lesson
 define("_STARTLESSON","Začiatok lekcie");//Start lesson
 define("_TRACKING","Sledovanie");//Tracking
 define("_FORMATCERTIFICATE","Formát certifikátu");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Formát šablóny certifikátu");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Nastaviť osvedčenia platnosti");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Pomocou metódy LiveDocX pre vytváranie certifikácií");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Pomocou metódy XML pre vytváranie certifikácií");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Pridať šablónu certifikátu (formát XML)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Úpravy šablóny certifikátu (formát XML)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Premenovanie šablóny certifikátu");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Klon šablóny certifikátu");//Clone certificate template (New)
-define("_CERTIFICATENAME","Názov certifikátu");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Certifikát popis");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML popis nemôže byť prázdny");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Existujúce šablón certifikátov");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Formát šablóny certifikátu");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Nastaviť osvedčenia platnosti");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Pomocou metódy LiveDocX pre vytváranie certifikácií");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Pomocou metódy XML pre vytváranie certifikácií");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Pridať šablónu certifikátu (formát XML)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Úpravy šablóny certifikátu (formát XML)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Premenovanie šablóny certifikátu");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Klon šablóny certifikátu");//Clone certificate template
+define("_CERTIFICATENAME","Názov certifikátu");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Certifikát popis");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML popis nemôže byť prázdny");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Existujúce šablón certifikátov");//Existing certificate templates
 define("_TRAFFIC","Prevádzka (traffic)");//Traffic
 define("_LESSONTRAFFIC","Hodiny prevádzky");//Lesson traffic
 define("_EDITTEST","Upraviť test");//Edit test
 define("_EDITQUESTION","Upraviť otázku");//Edit question
 define("_CERTIFICATE","Certifikát");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Úspešne aktualizovaný certifikát");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne pridaný");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Tam bol problém pri pridávaní šablóny certifikátu");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne aktualizovaný");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Tam bol problém pri aktualizácii šablóny certifikátu");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne premenovaný");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Tam bol problém pri premenovaní šablóny certifikátu");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne klonovanie");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Tam bol problém pri klonovaní šablóny certifikátu");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne odstránený");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Tam bol problém pri mazaní šablóny certifikátu");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Nemáte právo zmeniť tento certifikát šablónu");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne pridaný");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Tam bol problém pri pridávaní šablóny certifikátu");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne aktualizovaný");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Tam bol problém pri aktualizácii šablóny certifikátu");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne premenovaný");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Tam bol problém pri premenovaní šablóny certifikátu");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne klonovanie");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Tam bol problém pri klonovaní šablóny certifikátu");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Šablóny certifikátu bol úspešne odstránený");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Tam bol problém pri mazaní šablóny certifikátu");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Nemáte právo zmeniť tento certifikát šablónu");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Upraviť podmienku");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP server pre konfiguráciu");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Polia vo vašom c
 define("_IFEMPTYNEWPASSWORD","Oblasti načerveno sú povinné. Ak nieje dodané heslo, štartovacie heslo bude nastavená rovnako ako prihlásenie (login).");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Skontrolujte si prosím formát vášho CSV súboru");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","V šablóne, použite # # organizácii pre organizáciu mene, meno_používateľa # # pre užívateľské meno, # # user_surname pre užívateľa priezvisko, # # za course_name samozrejme meno, # # trieda pre triedu a dátum # # dátum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","V šablóne, použite &lt;organization&gt; &lt;/ organizácie&gt; pre názov organizácie, &lt;student&gt; &lt;/ študent&gt; pre študenta celé meno, &lt;course&gt; &lt;/ kurz&gt; pre predmet meno, &lt;grade&gt; &lt;/ triedy&gt; pre triedy, &lt; sériový&gt; &lt;/ sériové&gt; pre poradové číslo, &lt;dátum&gt; &lt;/ data&gt; pre dátum, &lt;logo&gt; &lt;/ logo&gt; pre logo a &lt;background&gt; &lt;/ pozadia&gt; na pozadí.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","V šablóne, použite &lt;organization&gt; &lt;/ organizácie&gt; pre názov organizácie, &lt;student&gt; &lt;/ študent&gt; pre študenta celé meno, &lt;course&gt; &lt;/ kurz&gt; pre predmet meno, &lt;grade&gt; &lt;/ triedy&gt; pre triedy, &lt; sériový&gt; &lt;/ sériové&gt; pre poradové číslo, &lt;dátum&gt; &lt;/ data&gt; pre dátum, &lt;logo&gt; &lt;/ logo&gt; pre logo a &lt;background&gt; &lt;/ pozadia&gt; na pozadí.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Hlasovania");//Votes
 define("_PERCENTAGE","Percento");//Percentage
 define("_CERTIFICATEISSUED","Osvedčenie vydané");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Zostať");//Remain
 define("_WEEKS","týždňov");//weeks
 define("_WEEKs","týždeň");//week
 define("_DAYS","dní");//days
-define("_DAYSCAPITAL","Dni");//Days (New)
+define("_DAYSCAPITAL","Dni");//Days
 define("_DAY","deň");//Day
 define("_EVALUATIONDATAUPDATED","Vyhodnotenie údajov úspešne aktualizované");//Evaluation data updated successfully
 define("_EVALUATION","Vyhodnotenie");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Skupina bola úspešne aktualizovaná");//Gro
 define("_ASSIGNLESSONSTOGROUPUSERS","Priradenie vybraných lekcií pre skupiny užívateľov");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Automaticky vygenerovať skupinový kľúč");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Unikátny skupinový kľúč");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Tento unikátny skupinový kľúč môže byť pre užívateľov, ktorým umožní zaregistrovanie sa k určitej skupine kliknutím na ikonu kľúča na prihlasovacej stránke");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Tento unikátny skupinový kľúč môže byť pre užívateľov, ktorým umožní zaregistrovanie sa k určitej skupine kliknutím na ikonu kľúča na prihlasovacej stránke");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Predvolený systémová skupina");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Zaškrtnutím tejto voľby budú všetci nové užívateľia systému automaticky priradený k tejto skupine. Iba jedna skupina môže byť nastavená ako predvolená skupina. Ako dôsledok,výber novej predvolenej skupiny nahradí predchádzajúcu.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Zaškrtnutím tejto voľby budú všetci nové užívateľia systému automaticky priradený k tejto skupine. Iba jedna skupina môže byť nastavená ako predvolená skupina. Ako dôsledok,výber novej predvolenej skupiny nahradí predchádzajúcu.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Skupinový kľúč");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Odoslaním unikátneho skupinového kľúču, ktorý ste obdržali od správcu systému sa budete môcť zaregistrovať sami na všetky lekcie patriace určitým skupinám");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","Skupinový kľúč ktorý ste zadali, nie je platný");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Vložte do skupiny");//Insert into group
 define("_NOSPECIFICGROUP","Žiadna špecifická skupina");//No specific group
 define("_VIEWINSERTGROUPKEY","Zobraziť možnosti skupinových kľúčov");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maximálny počet pouzití kľuča");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Nastavenie tejto oblasti na hodnotu vyššiu ako nula, bude vymedzovať, koľkokrát môžu používať oužívatelia skupinové kľúče pre samo-zaregistrovanie sa do skupiny. Ak je pole nastavené na nulu, potom žiadny takýto limit nebude vykonaný.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Nastavenie tejto oblasti na hodnotu vyššiu ako nula, bude vymedzovať, koľkokrát môžu používať oužívatelia skupinové kľúče pre samo-zaregistrovanie sa do skupiny. Ak je pole nastavené na nulu, potom žiadny takýto limit nebude vykonaný.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Zvyšné skupinové kľúče");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","Skupinový kľúč vypršal");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Ospravedlňujeme sa, ale tento test je poškodený a teda neprístupný. Navštívte zoznam urobených testov pre odstránenie tohto výkonu.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Moje skupiny");//my Groups
 define("_AVAILABLE","Dostupné");//Available
 define("_NEVER","Nikdy");//Never
 define("_CLASSMATES","Spolužiaci");//Classmates
-define("_LESSONPEOPLE","Lekcia ľudí");//Lesson users
+define("_LESSONPEOPLE","Lekcia ľudí");//People connection
 define("_NORMALIZEDIMENSIONS","Štandardné rozmery");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","bol priradený kurz");//was assigned the course
 define("_WILLBETEACHINGCOURSE","bude výučba predmetu");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Zmena stavu, aby");//Change condition order
 define("_INDEX","Index");//Index
 define("_EVENTDATETIME","Udalosť Dátum a čas");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Certifikát bol súbor poškodený alebo nebol nájdený, a tak bol reset");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Viditeľné");//Visible from (New)
-define("_EXPIRESAT","Uplynie na");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Kalendár zobrazenie dátumu");//Calendar display date (New)
-define("_GLOBAL","Globálne");//Global (New)
-define("_ALLDAY","Celý deň");//All day (New)
-define("_CREATECALENDAREVENT","Vytvoriť kalendár udalostí");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Prepísať existujúci priečinok");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Vstupné stránky");//Landing page (New)
-define("_EXPORTTOXLS","Export do xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Prieskum sa nepodarilo ktoré majú byť uverejnené");//Survey failed to be published (New)
-define("_PRINTCHART","Tlač grafu");//Print chart (New)
-define("_RESPONSEDETAILS","Odpoveď podrobnosti");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Ukázať iba aktívne subjekty");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Zobrazujú sa iba neaktívne osoby");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Ukázať aktívne aj neaktívne osoby");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Táto akcia sa už neexistuje");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Zrejmé, fronty správ");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Platí pre užívateľa už patrí do tejto pracovnej pozície");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","To môže pridať len (nie odstrániť) nový výber, aby užívateľ");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Zoradiť podľa");//Sort by (New)
-define("_TRAINING","Školenia");//Training (New)
-define("_COMPLETEDLESSONS","Dokončené lekcie");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Neúplné lekcie");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Absolvovaných predmetov");//Completed courses (New)
-define("_INCOMPLETECOURSES","Neúplné kurzy");//Incomplete courses (New)
-define("_EDITCOLUMN","Upraviť stĺpca");//Edit column (New)
-define("_LESSONSFORCOURSE","Poučenie o kurze");//Lessons for course (New)
-define("_TESTSFORLESSON","Testy na lekcie");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Kompletné pre všetkých používateľov");//Complete for all users (New)
-define("_LESSONTIMES","Vyučovacích hodín,");//Lesson times (New)
-define("_MINUTESPERDAY","Minút denne");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Odhlásiť užívateľa po (minúty)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Updater obdobie (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Odporúčané hodnoty nie sú o nič menej než 10000ms a nie viac ako 360000ms. Je tiež potrebné nastaviť kratšia ako doba auto odhlásiť.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Viac ako 1 pobočiek (miest), spojené s týmto samozrejme, ukazovať prvé");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Vložiť");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Priradenie schválený");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Zamestnanca priameho nadriadeného");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Užívateľ deaktivácia");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","bol deaktivovaný zo systému");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Vedúci schválenie");//Supervisor approval (New)
-define("_APPROVE","Schválenie");//Approve (New)
-define("_GROUPKEYEXISTS","Unikátny kľúč už existuje");//Unique key already exists (New)
-define("_PARTOFCOURSES","Časť predmetov");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Táto lekcia je súčasťou jedného alebo viacerých kurzov, tak to nemôže zmeniť režim");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Tam sú užívatelia zapísaní na tejto lekcii. Prosím, priradenie je pred prepínanie režimov");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Kurzy (neúplný / spolu)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Export súborov");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Samozrejme plánovanej konca");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Samozrejme plánovaným začiatkom");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","Plánované začatie kurzu");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","Plánované konca samozrejme");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Všetky samozrejme užívatelia");//All course users (New)
+define("_VISIBLEFROM","Viditeľné");//Visible from
+define("_EXPIRESAT","Uplynie na");//Expires at
+define("_CALENDARDISPLAYDATE","Kalendár zobrazenie dátumu");//Calendar display date
+define("_GLOBAL","Globálne");//Global
+define("_ALLDAY","Celý deň");//All day
+define("_CREATECALENDAREVENT","Vytvoriť kalendár udalostí");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Prepísať existujúci priečinok");//Overwrite existing folder
+define("_LANDINGPAGE","Vstupné stránky");//Landing page
+define("_EXPORTTOXLS","Export do xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Prieskum sa nepodarilo ktoré majú byť uverejnené");//Survey failed to be published
+define("_PRINTCHART","Tlač grafu");//Print chart
+define("_RESPONSEDETAILS","Odpoveď podrobnosti");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Ukázať iba aktívne subjekty");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Zobrazujú sa iba neaktívne osoby");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Ukázať aktívne aj neaktívne osoby");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Táto akcia sa už neexistuje");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Zrejmé, fronty správ");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Platí pre užívateľa už patrí do tejto pracovnej pozície");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","To môže pridať len (nie odstrániť) nový výber, aby užívateľ");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Zoradiť podľa");//Sort by
+define("_TRAINING","Školenia");//Training
+define("_COMPLETEDLESSONS","Dokončené lekcie");//Completed lessons
+define("_INCOMPLETELESSONS","Neúplné lekcie");//Incomplete lessons
+define("_COMPLETEDCOURSES","Absolvovaných predmetov");//Completed courses
+define("_INCOMPLETECOURSES","Neúplné kurzy");//Incomplete courses
+define("_EDITCOLUMN","Upraviť stĺpca");//Edit column
+define("_LESSONSFORCOURSE","Poučenie o kurze");//Lessons for course
+define("_TESTSFORLESSON","Testy na lekcie");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Kompletné pre všetkých používateľov");//Complete for all users
+define("_LESSONTIMES","Vyučovacích hodín,");//Lesson times
+define("_MINUTESPERDAY","Minút denne");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Odhlásiť užívateľa po (minúty)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Updater obdobie (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Odporúčané hodnoty nie sú o nič menej než 10000ms a nie viac ako 360000ms. Je tiež potrebné nastaviť kratšia ako doba auto odhlásiť.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Viac ako 1 pobočiek (miest), spojené s týmto samozrejme, ukazovať prvé");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Vložiť");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Priradenie schválený");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Zamestnanca priameho nadriadeného");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Užívateľ deaktivácia");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","bol deaktivovaný zo systému");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Vedúci schválenie");//Supervisor approval
+define("_APPROVE","Schválenie");//Approve
+define("_GROUPKEYEXISTS","Unikátny kľúč už existuje");//Unique key already exists
+define("_PARTOFCOURSES","Časť predmetov");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Táto lekcia je súčasťou jedného alebo viacerých kurzov, tak to nemôže zmeniť režim");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Tam sú užívatelia zapísaní na tejto lekcii. Prosím, priradenie je pred prepínanie režimov");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Kurzy (neúplný / spolu)");//Courses (incomplete/total)
+define("_EXPORTFILES","Export súborov");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Samozrejme plánovanej konca");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Samozrejme plánovaným začiatkom");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Plánované začatie kurzu");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Plánované konca samozrejme");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Všetky samozrejme užívatelia");//All course users
+define("_MOVEBLOCK","Presun bloku");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Rozbaliť / zbaliť blok");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Predvolený typ študenta");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Ak máte nastaviť skupinu kľúč pre túto skupinu, potom používatelia, ktoré používajú kľúč bude zapísaný do lekcií / kurzy tohto typu. Ak ste nastavili tejto skupiny bude predvolený, potom noví užívatelia budú účelovo viazané na skupiny lekcie s týmto typom");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Nepoužívajte predvolený typ");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Bol ste úspešne pridaná do skupiny");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Táto skupina je neaktívny");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","Kľúč nemožno použiť žiadne viackrát");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Výber ste vykonali nie je platný. Prosím, vyberte požadovanú možnosť zo zoznamu");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Ste už členom tejto skupiny");//You are already member of this group (New)
+define("_AVERAGESCORES","Priemerné skóre");//Average scores (New)
+define("_PROJECTSAVERAGE","Priemerné hodnotenie vo všetkých projektoch");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Prepnúť na stromové zobrazenie");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Prepnúť na jednoduché zobrazenie");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Nezverejnených príjemcu (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Výsledky pre");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Ďakujeme vám za vyplnenie");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Žiadne správy nájsť v systéme");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Môžete vytvoriť jeden");//You may create one (New)
 ?>

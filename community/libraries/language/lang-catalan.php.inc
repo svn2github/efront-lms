@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Lliçó de material");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","No hi ha qüestions que es determinaran");//There are no questions defined
 define("_ADDQUESTION","Afegir pregunta");//Add question
 define("_PREVIEW","Vista prèvia");//Preview
-define("_RENAME","Canviar el nom de");//Rename (New)
-define("_CLONE","Clon");//Clone (New)
+define("_RENAME","Canviar el nom de");//Rename
+define("_CLONE","Clon");//Clone
 define("_NOTESTSSETFORTHISUNIT","No van trobar proves");//No tests found
 define("_ADDTEST","Afegir prova");//Add test
 define("_UNITANDSUBUNITSTESTS","Unitat i subunitats proves");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Ajust la unitat en la qual no es completa");//Set the unit
 define("_CONDITIONSCOMPLETED","Condicions acabat");//Conditions completed
 define("_OUTOF","d&#39;");//out of
 define("_LESSONPROGRESS","Lliçó progrés");//Lesson progress
-define("_YOUMUSTSEEUNIT","Heu de veure la unitat");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Vostè ha de consultar a totes les unitats");//You must see all units
+define("_YOUMUSTSEEUNIT","Heu de veure la unitat");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Vostè ha de consultar a totes les unitats");//You must complete all units
 define("_OFLESSONUNITS","de lliçons");//of lesson units
-define("_YOUMUSTSEE","Heu de veure");//You must see
+define("_YOUMUSTSEE","Heu de veure");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Vostè ha de completar totes les proves amb puntuació mitjana");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Vostè ha de completar la prova");//You must complete test
 define("_WITHSCORE","amb puntuació");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Reprèn la lliçó");//Resume lesson
 define("_STARTLESSON","Inicia la lliçó");//Start lesson
 define("_TRACKING","Rastreig");//Tracking
 define("_FORMATCERTIFICATE","Format certificat");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Format de plantilla de certificats");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Establir la caducitat del certificat");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Utilitzeu el mètode LiveDocX per a la creació de certificacions");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Utilitzeu el mètode de XML per a la creació de certificacions");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Afegir plantilla de certificat (format xml)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Edita plantilla de certificat (format xml)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Canviar el nom de plantilla de certificats");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Clon plantilla de certificat");//Clone certificate template (New)
-define("_CERTIFICATENAME","Certificat nom");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Certificat de descripció");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","descripció XML no pot estar buit");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Actuals plantilles de certificats");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Format de plantilla de certificats");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Establir la caducitat del certificat");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Utilitzeu el mètode LiveDocX per a la creació de certificacions");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Utilitzeu el mètode de XML per a la creació de certificacions");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Afegir plantilla de certificat (format xml)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Edita plantilla de certificat (format xml)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Canviar el nom de plantilla de certificats");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Clon plantilla de certificat");//Clone certificate template
+define("_CERTIFICATENAME","Certificat nom");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Certificat de descripció");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","descripció XML no pot estar buit");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Actuals plantilles de certificats");//Existing certificate templates
 define("_TRAFFIC","Trànsit");//Traffic
 define("_LESSONTRAFFIC","Lliçó de trànsit");//Lesson traffic
 define("_EDITTEST","Edició de prova");//Edit test
 define("_EDITQUESTION","Edita pregunta");//Edit question
 define("_CERTIFICATE","Certificat");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Certificat actualitzat amb èxit");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","plantilla de certificat s&#39;ha afegit correctament");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Hi va haver un problema i alhora afegeix plantilla de certificat");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","plantilla de certificats s&#39;ha actualitzat correctament");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Hi va haver un problema al actualitzar plantilla de certificat");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","plantilla de certificat va ser rebatejada amb èxit");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Hi va haver un problema en canviar el nom de plantilla de certificats");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","plantilla de certificat es va clonar amb èxit");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Hi ha hagut un problema mentre que la clonació plantilla de certificat");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","plantilla de certificats s&#39;ha eliminat amb èxit");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Hi va haver un problema en eliminar plantilla de certificat");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","No té el dret de modificar aquesta plantilla de certificat");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","plantilla de certificat s&#39;ha afegit correctament");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Hi va haver un problema i alhora afegeix plantilla de certificat");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","plantilla de certificats s&#39;ha actualitzat correctament");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Hi va haver un problema al actualitzar plantilla de certificat");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","plantilla de certificat va ser rebatejada amb èxit");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Hi va haver un problema en canviar el nom de plantilla de certificats");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","plantilla de certificat es va clonar amb èxit");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Hi ha hagut un problema mentre que la clonació plantilla de certificat");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","plantilla de certificats s&#39;ha eliminat amb èxit");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Hi va haver un problema en eliminar plantilla de certificat");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","No té el dret de modificar aquesta plantilla de certificat");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Edita condició");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Configurar un servidor SMTP");//SMTP server configuration
 define("_SMTPSERVER","Servidor SMTP");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Els camps en el f
 define("_IFEMPTYNEWPASSWORD","Els camps en vermell són obligatoris. Si no hi ha contrasenya donada, la contrasenya inicial serà el mateix que l&#39;inici de sessió.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Si us plau, comproveu el format del vostre fitxer CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","A la plantilla, utilitzeu # # organització per a l&#39;organització el nom, l&#39;usuari # # per al nom d&#39;usuari, # # per user_surname cognom de l&#39;usuari, # # course_name per descomptat el nom, grau # # # per al grau i la data per a la data #.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","A la plantilla, utilitzeu &lt;organización&gt; &lt;/ organització&gt; de nom de l&#39;organització, &lt;Student&gt; &lt;/ estudiant&gt; el nom complet de l&#39;estudiant, &lt;Course&gt; &lt;/ curs&gt; per al nom del curs, &lt;grade&gt; &lt;/ grau&gt; de grau, &lt; &lt;serie&gt; /&gt; de sèrie per al número de sèrie, &lt;fecha&gt; &lt;/&gt; la data per a la data, &lt;logo&gt; &lt;/&gt; logotip &lt;logotip i &lt;background&gt; /&gt; de fons per al fons.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","A la plantilla, utilitzeu &lt;organización&gt; &lt;/ organització&gt; de nom de l&#39;organització, &lt;Student&gt; &lt;/ estudiant&gt; el nom complet de l&#39;estudiant, &lt;Course&gt; &lt;/ curs&gt; per al nom del curs, &lt;grade&gt; &lt;/ grau&gt; de grau, &lt; &lt;serie&gt; /&gt; de sèrie per al número de sèrie, &lt;fecha&gt; &lt;/&gt; la data per a la data, &lt;logo&gt; &lt;/&gt; logotip &lt;logotip i &lt;background&gt; /&gt; de fons per al fons.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Vots");//Votes
 define("_PERCENTAGE","Percentatge");//Percentage
 define("_CERTIFICATEISSUED","Certificat expedit");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Romandre");//Remain
 define("_WEEKS","setmana");//weeks
 define("_WEEKs","setmana");//week
 define("_DAYS","dia");//days
-define("_DAYSCAPITAL","Dies");//Days (New)
+define("_DAYSCAPITAL","Dies");//Days
 define("_DAY","Dia");//Day
 define("_EVALUATIONDATAUPDATED","Avaluació de dades actualitzada amb èxit");//Evaluation data updated successfully
 define("_EVALUATION","Avaluació");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Grup s&#39;ha actualitzat");//Group was succe
 define("_ASSIGNLESSONSTOGROUPUSERS","Seleccioneu Assignar lliçons als usuaris del grup");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Generar automàticament grup clau");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Únic grup clau");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Aquest singular grup clau es pot proporcionar als usuaris per tal que puguin registrar a un grup fent clic a la icona de clau a la pàgina d&#39;accés");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Aquest singular grup clau es pot proporcionar als usuaris per tal que puguin registrar a un grup fent clic a la icona de clau a la pàgina d&#39;accés");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Sistema de grup per defecte");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Comprovar això farà que tots els nous usuaris del sistema, que s&#39;assigna automàticament a aquest grup. Només un grup pot ser el grup per defecte del sistema. Com una implicació nou grup predeterminat seleccions substituir els anteriors.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Comprovar això farà que tots els nous usuaris del sistema, que s&#39;assigna automàticament a aquest grup. Només un grup pot ser el grup per defecte del sistema. Com una implicació nou grup predeterminat seleccions substituir els anteriors.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Grup clau");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Al presentar aquí un grup únic clau facilitada per l&#39;administrador del sistema que pugui registrar a totes les lliçons d&#39;aquest grup");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","El grup clau que ha introduït no és vàlid");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Insereix en el grup");//Insert into group
 define("_NOSPECIFICGROUP","N grup específic");//No specific group
 define("_VIEWINSERTGROUPKEY","Mostra opció grup clau");//Show group key option
 define("_MAXGROUPKEYUSAGE","Màxim clau usos");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Configuració d&#39;aquest camp a un valor més gran que zero, es delimita el nombre de vegades que el grup clau es pot utilitzar pels usuaris a la lliure registre a aquest grup. Si el camp està a zero, aleshores no hi ha límit de ser executada.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Configuració d&#39;aquest camp a un valor més gran que zero, es delimita el nombre de vegades que el grup clau es pot utilitzar pels usuaris a la lliure registre a aquest grup. Si el camp està a zero, aleshores no hi ha límit de ser executada.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Usos restants del grup clau");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","El grup clau ha caducat");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Ho sentim, però aquesta prova està malmès i, per tant inaccessibles. Si us plau visiti el fet proves per esborrar aquesta llista d&#39;execució de prova.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Els meus Grups");//my Groups
 define("_AVAILABLE","Disponible");//Available
 define("_NEVER","Mai");//Never
 define("_CLASSMATES","Companys de classe");//Classmates
-define("_LESSONPEOPLE","Lliçó de persones");//Lesson users
+define("_LESSONPEOPLE","Lliçó de persones");//People connection
 define("_NORMALIZEDIMENSIONS","Dimensions normalitzats");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","va ser assignat el curs");//was assigned the course
 define("_WILLBETEACHINGCOURSE","estaran ensenyant el curs");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Canvia l&#39;ordre d&#39;estat");//Change condit
 define("_INDEX","Índex");//Index
 define("_EVENTDATETIME","Data i hora");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","L&#39;arxiu de certificat es troba o està malmès i per tant es restableix");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Visible des");//Visible from (New)
-define("_EXPIRESAT","Expira a");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Calendari de visualització de la data");//Calendar display date (New)
-define("_GLOBAL","Mundial");//Global (New)
-define("_ALLDAY","Cada dia");//All day (New)
-define("_CREATECALENDAREVENT","Crear un esdeveniment del calendari");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Sobreescriuen la carpeta");//Overwrite existing folder (New)
-define("_LANDINGPAGE","La pàgina de destinació");//Landing page (New)
-define("_EXPORTTOXLS","Exportar a xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Enquesta no es publicaran");//Survey failed to be published (New)
-define("_PRINTCHART","Imprimir taula");//Print chart (New)
-define("_RESPONSEDETAILS","Resposta detalls");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Es mostren només les entitats actives");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Es mostren només les entitats inactives");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Mostrant les dues entitats actives i inactives");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Aquest esdeveniment ja no existeix");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Esborrar missatges de la cua");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar als usuaris que ja pertany a aquest lloc de treball");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Això només es pot afegir (no eliminar) una nova selecció a un usuari");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Ordenar per");//Sort by (New)
-define("_TRAINING","Capacitació");//Training (New)
-define("_COMPLETEDLESSONS","lliçons Completat");//Completed lessons (New)
-define("_INCOMPLETELESSONS","lliçons incompleta");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","cursos completats");//Completed courses (New)
-define("_INCOMPLETECOURSES","cursos incomplets");//Incomplete courses (New)
-define("_EDITCOLUMN","Modificar la columna");//Edit column (New)
-define("_LESSONSFORCOURSE","Lliçons per al curs");//Lessons for course (New)
-define("_TESTSFORLESSON","Proves per a la lliçó");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Completa per a tots els usuaris");//Complete for all users (New)
-define("_LESSONTIMES","Durada de les classes");//Lesson times (New)
-define("_MINUTESPERDAY","Minuts per dia");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Registre d&#39;usuari després (minuts)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","període d&#39;actualització (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Els valors recomanats són ni menys que 10000ms i no 360000ms més. També s&#39;ha d&#39;establir menor que el temps de desconnexió automàtica.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Més d&#39;un sucursals (ubicacions) associades a aquest curs, que mostra la primera");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Insereix");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Assignació aprovat per");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","supervisor immediat de l&#39;empleat");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Desactivació de l&#39;usuari");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","va ser desactivat del sistema");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Supervisor de l&#39;aprovació");//Supervisor approval (New)
-define("_APPROVE","Aprovar");//Approve (New)
-define("_GROUPKEYEXISTS","Clau única ja existeix");//Unique key already exists (New)
-define("_PARTOFCOURSES","Part dels cursos");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Aquesta lliçó és part d&#39;un o més cursos, de manera que no pot canviar la manera de");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Hi ha usuaris inscrits a aquesta lliçó. Si us plau, abans de cancel lar l&#39;assignació de canviar els modes");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Cursos (incomplet / total)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Exportació d&#39;arxius");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Curs de caducitat previst");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Curs d&#39;inici programada");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","inici programada, per descomptat,");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","venciment programat, per descomptat,");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Tots els usuaris del curs");//All course users (New)
+define("_VISIBLEFROM","Visible des");//Visible from
+define("_EXPIRESAT","Expira a");//Expires at
+define("_CALENDARDISPLAYDATE","Calendari de visualització de la data");//Calendar display date
+define("_GLOBAL","Mundial");//Global
+define("_ALLDAY","Cada dia");//All day
+define("_CREATECALENDAREVENT","Crear un esdeveniment del calendari");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Sobreescriuen la carpeta");//Overwrite existing folder
+define("_LANDINGPAGE","La pàgina de destinació");//Landing page
+define("_EXPORTTOXLS","Exportar a xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Enquesta no es publicaran");//Survey failed to be published
+define("_PRINTCHART","Imprimir taula");//Print chart
+define("_RESPONSEDETAILS","Resposta detalls");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Es mostren només les entitats actives");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Es mostren només les entitats inactives");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Mostrant les dues entitats actives i inactives");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Aquest esdeveniment ja no existeix");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Esborrar missatges de la cua");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar als usuaris que ja pertany a aquest lloc de treball");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Això només es pot afegir (no eliminar) una nova selecció a un usuari");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Ordenar per");//Sort by
+define("_TRAINING","Capacitació");//Training
+define("_COMPLETEDLESSONS","lliçons Completat");//Completed lessons
+define("_INCOMPLETELESSONS","lliçons incompleta");//Incomplete lessons
+define("_COMPLETEDCOURSES","cursos completats");//Completed courses
+define("_INCOMPLETECOURSES","cursos incomplets");//Incomplete courses
+define("_EDITCOLUMN","Modificar la columna");//Edit column
+define("_LESSONSFORCOURSE","Lliçons per al curs");//Lessons for course
+define("_TESTSFORLESSON","Proves per a la lliçó");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Completa per a tots els usuaris");//Complete for all users
+define("_LESSONTIMES","Durada de les classes");//Lesson times
+define("_MINUTESPERDAY","Minuts per dia");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Registre d&#39;usuari després (minuts)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","període d&#39;actualització (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Els valors recomanats són ni menys que 10000ms i no 360000ms més. També s&#39;ha d&#39;establir menor que el temps de desconnexió automàtica.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Més d&#39;un sucursals (ubicacions) associades a aquest curs, que mostra la primera");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Insereix");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Assignació aprovat per");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","supervisor immediat de l&#39;empleat");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Desactivació de l&#39;usuari");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","va ser desactivat del sistema");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Supervisor de l&#39;aprovació");//Supervisor approval
+define("_APPROVE","Aprovar");//Approve
+define("_GROUPKEYEXISTS","Clau única ja existeix");//Unique key already exists
+define("_PARTOFCOURSES","Part dels cursos");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Aquesta lliçó és part d&#39;un o més cursos, de manera que no pot canviar la manera de");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Hi ha usuaris inscrits a aquesta lliçó. Si us plau, abans de cancel lar l&#39;assignació de canviar els modes");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Cursos (incomplet / total)");//Courses (incomplete/total)
+define("_EXPORTFILES","Exportació d&#39;arxius");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Curs de caducitat previst");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Curs d&#39;inici programada");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","inici programada, per descomptat,");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","venciment programat, per descomptat,");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Tots els usuaris del curs");//All course users
+define("_MOVEBLOCK","Moure el bloc");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Expand / collapse bloc");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Per defecte de tipus alumne");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Si heu configurat una clau de grup d&#39;aquest grup, els usuaris que utilitzen la clau serà inscrit a classes a les formacions d&#39;aquest tipus. Si heu establert aquest grup per defecte, els usuaris nous se&#39;ls assignarà a les lliçons del grup amb aquest tipus");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","No utilitzar el tipus per defecte");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Vostè ha estat afegit amb èxit al grup");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Aquest grup està inactiu");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","La clau no pot utilitzar vegades més");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","La selecció realitzada no és vàlida. Si us plau, escolliu una opció de la llista");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Vostè és ja membre d&#39;aquest grup");//You are already member of this group (New)
+define("_AVERAGESCORES","Mitjana de les puntuacions");//Average scores (New)
+define("_PROJECTSAVERAGE","Mitjana dels resultats en tots els projectes");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Canviar a la vista d&#39;arbre");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Canviar a primera vista");//Switch to simple view (New)
+define("_BCCRECIPIENTS","els beneficiaris no divulgada (CCO)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Resultats de");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Gràcies per completar");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","No hi ha informes que es troben en el sistema");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Vostè pot crear un");//You may create one (New)
 ?>

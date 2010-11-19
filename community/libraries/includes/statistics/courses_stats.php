@@ -312,9 +312,16 @@ if (isset($_GET['excel'])) {
     $constraints['return_objects'] = false;
     $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
  foreach ($users as $login => $info) {
+  if ($info['completed'] && $info['to_timestamp']) {
+   $completedString = _YES.', '._ON.' '.formatTimestamp($info['to_timestamp']);
+  } elseif ($info['completed']) {
+   $completedString = _YES;
+  } else {
+   $completedString = _NO;
+  }
   $data[] = array(_USER => formatLogin( $info['login']),
       _COURSEROLE=> $roles[$info['role']],
-      _COMPLETED => $info['completed'] ? _YES.', '._ON.' '.formatTimestamp($info['to_timestamp']) : _NO,
+      _COMPLETED => $completedString,
       _SCORE => formatScore($info['score'])."%");
     }
  $pdf->printDataSection(_USERSINFO, $data, $formatting);

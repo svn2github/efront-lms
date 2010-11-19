@@ -211,21 +211,42 @@ class module_fuze_meetings extends EfrontModule {
  public function getLessonCenterLinkInfo() {
   $center_link_info = false;
   if ($this->_current_user_role == 'professor') {
-   $center_link_info = array(
+   if ($this->_f_account && $this->_f_account->isRegistered()) {
+    $fuze_user = false;
+    try {
+     $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
+    }
+    catch (Exception $e) { /* DO NOTHING */ }
+    if ($fuze_user) {
+     $center_link_info = array(
          'title' => _FUZE_MEETINGS,
          'image' => $this->moduleBaseDir.'images/logo_32.png',
          'link' => $this->moduleBaseUrl
         );
+    }
+   }
   }
   return $center_link_info;
  }
 
  public function getModule() { return true; }
 
- public function getLessonModule() { return true; }
+ public function getLessonModule() {
+  if ($this->_f_account && $this->_f_account->isRegistered()) {
+   return true;
+  }
+  else {
+   return false;
+  }
+ }
 
  public function getLessonSmartyTpl() {
-  return $this->getControlPanelSmartyTpl();
+  if ($this->_f_account && $this->_f_account->isRegistered()) {
+   return $this->getControlPanelSmartyTpl();
+  }
+  else {
+   return false;
+  }
  }
 
  public function getControlPanelSmartyTpl() {

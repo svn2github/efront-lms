@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Ders İçeriği");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Tanımlanmış soru bulunmamaktadır");//There are no questions defined
 define("_ADDQUESTION","Soru ekle");//Add question
 define("_PREVIEW","Önizleme");//Preview
-define("_RENAME","Yeni ad vermek");//Rename (New)
-define("_CLONE","Klon");//Clone (New)
+define("_RENAME","Yeni ad vermek");//Rename
+define("_CLONE","Klon");//Clone
 define("_NOTESTSSETFORTHISUNIT","Test bulunamadı");//No tests found
 define("_ADDTEST","Test Ekle");//Add test
 define("_UNITANDSUBUNITSTESTS","Birim ve alt birim testleri");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Üniteyi tamamlamamış olarak işaretle");//Set the unit 
 define("_CONDITIONSCOMPLETED","Tamamlan koşullar");//Conditions completed
 define("_OUTOF","of");//out of
 define("_LESSONPROGRESS","Ders ilerleme");//Lesson progress
-define("_YOUMUSTSEEUNIT","Sen birimi görmek gerekir");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Tüm birimler görmek gerekir");//You must see all units
+define("_YOUMUSTSEEUNIT","Sen birimi görmek gerekir");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Tüm birimler görmek gerekir");//You must complete all units
 define("_OFLESSONUNITS","ders birimlerin");//of lesson units
-define("_YOUMUSTSEE","Seni görmek gerekir");//You must see
+define("_YOUMUSTSEE","Seni görmek gerekir");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Yani skor tüm testleri tamamlandı gerekir");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Test zorundadırlar");//You must complete test
 define("_WITHSCORE","puanla");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Derse devam");//Resume lesson
 define("_STARTLESSON","Dersi başlat");//Start lesson
 define("_TRACKING","Takip");//Tracking
 define("_FORMATCERTIFICATE","Sertifikayı biçimle");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Format sertifika şablonu");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Set sertifika son");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","sertifikalar oluşturmak için LiveDocX yöntemi kullanın");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","sertifikalar oluşturmak için XML yöntemi kullanın");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Eklemek sertifika şablonu (xml formatında)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","(Xml formatında) sertifika şablonunu düzenleme");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Adlandırmak sertifika şablonu");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Klon sertifika şablonu");//Clone certificate template (New)
-define("_CERTIFICATENAME","Sertifika ismi");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Sertifika açıklama");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML açıklaması boş olamaz");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Sertifika Mevcut şablonları");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Format sertifika şablonu");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Set sertifika son");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","sertifikalar oluşturmak için LiveDocX yöntemi kullanın");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","sertifikalar oluşturmak için XML yöntemi kullanın");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Eklemek sertifika şablonu (xml formatında)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","(Xml formatında) sertifika şablonunu düzenleme");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Adlandırmak sertifika şablonu");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Klon sertifika şablonu");//Clone certificate template
+define("_CERTIFICATENAME","Sertifika ismi");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Sertifika açıklama");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML açıklaması boş olamaz");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Sertifika Mevcut şablonları");//Existing certificate templates
 define("_TRAFFIC","Trafik");//Traffic
 define("_LESSONTRAFFIC","Ders trafiği");//Lesson traffic
 define("_EDITTEST","Testi düzenle");//Edit test
 define("_EDITQUESTION","Soru düzenle");//Edit question
 define("_CERTIFICATE","Sertifika");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Başarı belgesi güncellendi");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifika şablonunu başarıyla eklendi");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","sertifika şablonu eklerken bir sorun oldu");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifika şablonunu başarıyla güncellendi");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","sertifika şablonu güncelleme sırasında bir sorun oldu");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifika şablonunu başarıyla değiştirildi");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","sertifika şablonu yeniden adlandırma yaparken bir sorun oldu");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifika şablonunu başarıyla klonlandı");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","sertifika şablonu klonlama sırasında bir sorun oldu");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifika şablonu başarı ile silindi");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","sertifika şablonu silerken bir sorun oldu");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Bu sertifika şablonu değiştirme haklarına sahip değilsiniz");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","Sertifika şablonunu başarıyla eklendi");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","sertifika şablonu eklerken bir sorun oldu");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","Sertifika şablonunu başarıyla güncellendi");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","sertifika şablonu güncelleme sırasında bir sorun oldu");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","Sertifika şablonunu başarıyla değiştirildi");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","sertifika şablonu yeniden adlandırma yaparken bir sorun oldu");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","Sertifika şablonunu başarıyla klonlandı");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","sertifika şablonu klonlama sırasında bir sorun oldu");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifika şablonu başarı ile silindi");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","sertifika şablonu silerken bir sorun oldu");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Bu sertifika şablonu değiştirme haklarına sahip değilsiniz");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Şartları düzenle");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP sunucusu Yapılandırma");//SMTP server configuration
 define("_SMTPSERVER","SMTP sunucusu");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV dosyasında a
 define("_IFEMPTYNEWPASSWORD","Alanları kırmızı zorunlu bulunmaktadır. Eğer verilen bir şifre, ilk şifre giriş aynı ayarlanacak.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lütfen CSV dosya biçimini kontrol");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Bu şablonu, organizasyon adı #, kullanıcı adı # # kullanıcı_adı için kullanıcının soyadı # # user_surname için tarih notu # # # # course_name notu ders adı için # ve tarih # # organizasyon için kullanın.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","şablonunda, örgütün adını kullanmak &lt;organization&gt; &lt;/ kuruluş&gt;, &lt;sınıf için ders adı, &lt;grade&gt; &lt;/ sınıf&gt; öğrenci tam adı, &lt;course&gt; &lt;/ ders&gt; için &lt;student&gt; &lt;/ öğrenci&gt; seri&gt; &lt;/ seri numarası seri&gt;, tarih &lt;tarih&gt; &lt;/ tarih&gt;, arka plan için logo ve &lt;background&gt; &lt;/ arka plan&gt; için &lt;logo&gt; &lt;/ logosu&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","şablonunda, örgütün adını kullanmak &lt;organization&gt; &lt;/ kuruluş&gt;, &lt;sınıf için ders adı, &lt;grade&gt; &lt;/ sınıf&gt; öğrenci tam adı, &lt;course&gt; &lt;/ ders&gt; için &lt;student&gt; &lt;/ öğrenci&gt; seri&gt; &lt;/ seri numarası seri&gt;, tarih &lt;tarih&gt; &lt;/ tarih&gt;, arka plan için logo ve &lt;background&gt; &lt;/ arka plan&gt; için &lt;logo&gt; &lt;/ logosu&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Oy");//Votes
 define("_PERCENTAGE","Yüzde");//Percentage
 define("_CERTIFICATEISSUED","Belge");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Geriye kalan");//Remain
 define("_WEEKS","hafta");//weeks
 define("_WEEKs","hafta");//week
 define("_DAYS","gün");//days
-define("_DAYSCAPITAL","Gün");//Days (New)
+define("_DAYSCAPITAL","Gün");//Days
 define("_DAY","Gün");//Day
 define("_EVALUATIONDATAUPDATED","Değerlendirme verileri başarıyla güncellendi");//Evaluation data updated successfully
 define("_EVALUATION","Değerlendirme");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Grup başarıyla güncellendi");//Group was s
 define("_ASSIGNLESSONSTOGROUPUSERS","Ata grubu kullanıcılara ders seçilen");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Otomatik olarak grup anahtarı oluşturmak");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Benzersiz grup anahtar");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Bu eşsiz grubu anahtar kullanıcıları için bir gruba giriş sayfasında anahtar ikonu tıklayarak kayıt sağlamak için verilmez");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Bu eşsiz grubu anahtar kullanıcıları için bir gruba giriş sayfasında anahtar ikonu tıklayarak kayıt sağlamak için verilmez");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Varsayılan sistem grup");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Otomatik olarak bu gruba atanır, sistem her yeni kullanıcı olun, bu kontrol. Sadece bir grubu varsayılan sistem grubu olabilir. Bir ima yeni varsayılan grup seçimleri öncekilerin değiştirin.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Otomatik olarak bu gruba atanır, sistem her yeni kullanıcı olun, bu kontrol. Sadece bir grubu varsayılan sistem grubu olabilir. Bir ima yeni varsayılan grup seçimleri öncekilerin değiştirin.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Grup tuşu");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Burada bir grup tuşu ile bu grubun tüm dersler için kendiniz kayıt yapabilirsiniz, sistem yöneticisi tarafından sağlanan göndererek");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","Girdiğiniz anahtar geçerli değil Grup");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Ekle grup halinde");//Insert into group
 define("_NOSPECIFICGROUP","Özel bir grup");//No specific group
 define("_VIEWINSERTGROUPKEY","Göster grup tuşu seçeneğini");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maksimum anahtar kullanır");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Bir değer sıfırdan büyük için, grup anahtarı kendi kullanıcıları tarafından kullanılabilir kere sayısını sınırlandırmak bu alanda Ayar-Bu gruba kayıt. Eğer alanı sıfır, sonra böyle bir sınırı yürürlüğe girecektir ayarlanır.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Bir değer sıfırdan büyük için, grup anahtarı kendi kullanıcıları tarafından kullanılabilir kere sayısını sınırlandırmak bu alanda Ayar-Bu gruba kayıt. Eğer alanı sıfır, sonra böyle bir sınırı yürürlüğe girecektir ayarlanır.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Kalan grup anahtar kullanır");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","Grup kilit süresi doldu");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Maalesef bu testi bozuktur ve bu nedenle erişilemiyor. Lütfen bu testi uygulama silmek için yapılan testler listesini ziyaret edin.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Gruplarım");//my Groups
 define("_AVAILABLE","Mevcut");//Available
 define("_NEVER","Asla");//Never
 define("_CLASSMATES","Sınıf");//Classmates
-define("_LESSONPEOPLE","Ders kişi");//Lesson users
+define("_LESSONPEOPLE","Ders kişi");//People connection
 define("_NORMALIZEDIMENSIONS","Normalleştirilmiş boyutları");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","kurs verildi");//was assigned the course
 define("_WILLBETEACHINGCOURSE","ders öğretmek olacaktır");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Durum değişikliği sipariş");//Change conditi
 define("_INDEX","Indeks");//Index
 define("_EVENTDATETIME","Olay tarihi ve saati");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Sertifika dosya eksik veya bozuk ve böylece sıfırlandığını");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Visible");//Visible from (New)
-define("_EXPIRESAT","Sona az");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Takvim görüntüleme tarihi");//Calendar display date (New)
-define("_GLOBAL","Küresel");//Global (New)
-define("_ALLDAY","Bütün gün");//All day (New)
-define("_CREATECALENDAREVENT","takvim etkinliği oluşturma");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Üzerine mevcut klasör");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Açılış sayfası");//Landing page (New)
-define("_EXPORTTOXLS","Ihracat xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Anket yayınlanacak başarısız");//Survey failed to be published (New)
-define("_PRINTCHART","Baskı grafiği");//Print chart (New)
-define("_RESPONSEDETAILS","Yanıt ayrıntılar");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","sadece aktif kişiler gösteriliyor");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","sadece pasif varlıklar gösteriliyor");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Aktif ve pasif varlıkları gösteriliyor");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Bu olay artık yok");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Net kuyruk mesajları");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Uygulamak kullanıcılara zaten bu iş pozisyonuna ait");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Bu yalnızca bir kullanıcı için (kaldırmaz) yeni bir seçim ekleyebilirsiniz");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Sıralamak");//Sort by (New)
-define("_TRAINING","Eğitim");//Training (New)
-define("_COMPLETEDLESSONS","Tamamlanmış dersleri");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Eksik dersler");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Tamamlanmış içerisinde");//Completed courses (New)
-define("_INCOMPLETECOURSES","Eksik içerisinde");//Incomplete courses (New)
-define("_EDITCOLUMN","Düzenle sütununda");//Edit column (New)
-define("_LESSONSFORCOURSE","ders için Dersler");//Lessons for course (New)
-define("_TESTSFORLESSON","dersi testleri");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Tüm kullanıcılar için komple");//Complete for all users (New)
-define("_LESSONTIMES","Ders saatleri");//Lesson times (New)
-define("_MINUTESPERDAY","Günde Dakika");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","(Dakika) sonra çıkın kullanıcı");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Güncelleyici süre (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Önerilen değerlerin fazla 360000ms ve hiçbir 10000ms daha azdır. Aynı zamanda otomatik çıkış zamanından daha az ayarlanması gerekir.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","gösteren bu ders ile ilgili fazla 1 dal (nokta), ilk");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Eklemek");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Atama tarafından onaylanan");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Bir acil danışmanı");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Kullanıcı devre dışı bırakma");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","sistemi devre dışı edildi");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Danışman onayı");//Supervisor approval (New)
-define("_APPROVE","Onaylamak");//Approve (New)
-define("_GROUPKEYEXISTS","Benzersiz anahtar zaten var");//Unique key already exists (New)
-define("_PARTOFCOURSES","derslerin Bölüm");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Bu derste, bir veya daha fazla dersten bir parçasıdır, bu nedenle modunu değiştiremezsiniz");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Kullanıcıların bu derse kayıtlı bulunmaktadır. modları geçmeden onları unassign Lütfen");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Ders (eksik / toplam)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Ihracat dosyaları");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Elbette son planlanmış");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Dersin başından planlanmış");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","tabii Planlanmış başlangıç");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","tabii Planlanmış son");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Tüm ders kullanıcılar");//All course users (New)
+define("_VISIBLEFROM","Visible");//Visible from
+define("_EXPIRESAT","Sona az");//Expires at
+define("_CALENDARDISPLAYDATE","Takvim görüntüleme tarihi");//Calendar display date
+define("_GLOBAL","Küresel");//Global
+define("_ALLDAY","Bütün gün");//All day
+define("_CREATECALENDAREVENT","takvim etkinliği oluşturma");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Üzerine mevcut klasör");//Overwrite existing folder
+define("_LANDINGPAGE","Açılış sayfası");//Landing page
+define("_EXPORTTOXLS","Ihracat xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Anket yayınlanacak başarısız");//Survey failed to be published
+define("_PRINTCHART","Baskı grafiği");//Print chart
+define("_RESPONSEDETAILS","Yanıt ayrıntılar");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","sadece aktif kişiler gösteriliyor");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","sadece pasif varlıklar gösteriliyor");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Aktif ve pasif varlıkları gösteriliyor");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Bu olay artık yok");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Net kuyruk mesajları");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Uygulamak kullanıcılara zaten bu iş pozisyonuna ait");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Bu yalnızca bir kullanıcı için (kaldırmaz) yeni bir seçim ekleyebilirsiniz");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Sıralamak");//Sort by
+define("_TRAINING","Eğitim");//Training
+define("_COMPLETEDLESSONS","Tamamlanmış dersleri");//Completed lessons
+define("_INCOMPLETELESSONS","Eksik dersler");//Incomplete lessons
+define("_COMPLETEDCOURSES","Tamamlanmış içerisinde");//Completed courses
+define("_INCOMPLETECOURSES","Eksik içerisinde");//Incomplete courses
+define("_EDITCOLUMN","Düzenle sütununda");//Edit column
+define("_LESSONSFORCOURSE","ders için Dersler");//Lessons for course
+define("_TESTSFORLESSON","dersi testleri");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Tüm kullanıcılar için komple");//Complete for all users
+define("_LESSONTIMES","Ders saatleri");//Lesson times
+define("_MINUTESPERDAY","Günde Dakika");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","(Dakika) sonra çıkın kullanıcı");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Güncelleyici süre (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Önerilen değerlerin fazla 360000ms ve hiçbir 10000ms daha azdır. Aynı zamanda otomatik çıkış zamanından daha az ayarlanması gerekir.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","gösteren bu ders ile ilgili fazla 1 dal (nokta), ilk");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Eklemek");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Atama tarafından onaylanan");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Bir acil danışmanı");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Kullanıcı devre dışı bırakma");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","sistemi devre dışı edildi");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Danışman onayı");//Supervisor approval
+define("_APPROVE","Onaylamak");//Approve
+define("_GROUPKEYEXISTS","Benzersiz anahtar zaten var");//Unique key already exists
+define("_PARTOFCOURSES","derslerin Bölüm");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Bu derste, bir veya daha fazla dersten bir parçasıdır, bu nedenle modunu değiştiremezsiniz");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Kullanıcıların bu derse kayıtlı bulunmaktadır. modları geçmeden onları unassign Lütfen");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Ders (eksik / toplam)");//Courses (incomplete/total)
+define("_EXPORTFILES","Ihracat dosyaları");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Elbette son planlanmış");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Dersin başından planlanmış");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","tabii Planlanmış başlangıç");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","tabii Planlanmış son");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Tüm ders kullanıcılar");//All course users
+define("_MOVEBLOCK","blok taşı");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Genişletmek / çöküşü engellemek");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Varsayılan öğrenci tipi");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Eğer, ders bu tip olan kurslara kayıt anahtarı olacaktır kullananları bu grup için bir grup anahtar seti var. Varsayılan olarak bu gruba set varsa, o zaman yeni kullanıcılar bu tip grup dersleri için atanacak");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Varsayılan tür kullanmayın");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Başarılı bir grup eklendi");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Bu grup etkin değil");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","Tuşu herhangi bir kez daha kullanılamaz");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Yaptığınız seçim geçerli değil. Listeden bir seçenek seçin lütfen");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Zaten bu grubun üyesi");//You are already member of this group (New)
+define("_AVERAGESCORES","Ortalama puanlarının");//Average scores (New)
+define("_PROJECTSAVERAGE","Tüm projelerde ortalama puanı");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Geçiş ağaç görünümü için");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Geçiş basit görmek için");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Açıklanmayan alıcı (bcc)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Sonuçlar");//Results for (New)
+define("_THANKYOUFORCOMPLETING","doldurduğunuz için teşekkürler");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Hiçbir rapor sistemi bulundu");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Bir oluşturabilir");//You may create one (New)
 ?>

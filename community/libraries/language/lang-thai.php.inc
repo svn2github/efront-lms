@@ -258,8 +258,8 @@ define("_LESSONMATERIAL"," <center>ลำดับเนื้อหาและ
 define("_NOQUESTIONSSETFORTHISUNIT","ยังไม่มีการตั้งข้อคำถาม");//There are no questions defined
 define("_ADDQUESTION","ตั้งคำถาม");//Add question
 define("_PREVIEW","ดูตัวอย่าง");//Preview
-define("_RENAME","ตั้งชื่อใหม่");//Rename (New)
-define("_CLONE","โคลน");//Clone (New)
+define("_RENAME","ตั้งชื่อใหม่");//Rename
+define("_CLONE","โคลน");//Clone
 define("_NOTESTSSETFORTHISUNIT","ไม่พบแบบทดสอบ");//No tests found
 define("_ADDTEST","สร้างแบบทดสอบ");//Add test
 define("_UNITANDSUBUNITSTESTS","แบบทดสอบประจำเนื้อหา-หน่วยเรียน");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","คลิกตั้งค่าย้อนกลับ�
 define("_CONDITIONSCOMPLETED","ได้ผ่านเกณฑ์:เงื่อนไขแล้ว");//Conditions completed
 define("_OUTOF","จากทั้งหมด");//out of
 define("_LESSONPROGRESS","ความก้าวหน้าทางการเรียน");//Lesson progress
-define("_YOUMUSTSEEUNIT","คุณต้องเรียนเนื้อหา-หน่วยเรียน");//You must see unit
-define("_YOUMUSTSEEALLUNITS","คุณต้องเรียนให้ครบทุกเนื้อหา-หน่วยเรียน");//You must see all units
+define("_YOUMUSTSEEUNIT","คุณต้องเรียนเนื้อหา-หน่วยเรียน");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","คุณต้องเรียนให้ครบทุกเนื้อหา-หน่วยเรียน");//You must complete all units
 define("_OFLESSONUNITS","จากเนื้อหา-หน่วยเรียนทั้งหมด");//of lesson units
-define("_YOUMUSTSEE","คุณต้องเรียน");//You must see
+define("_YOUMUSTSEE","คุณต้องเรียน");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","คุณต้องทำแบบทดสอบให้เสร็จทั้งหมดและได้คะแนนผ่านเกณฑ์เฉลี่ย");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","คุณต้องทำแบบทดสอบให้เสร็จคือ");//You must complete test
 define("_WITHSCORE","โดยต้องได้คะแนนไม่ต่ำกว่า");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","ให้ย้อนกลับไปเริ่ม�
 define("_STARTLESSON","เริ่มเรียนเนื้อหา-หน่วยเรียน");//Start lesson
 define("_TRACKING","การติดตาม");//Tracking
 define("_FORMATCERTIFICATE","รูปแบบใบประกาศนียบัตร");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองการจัดรูปแบบ");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","ใบรับรองหมดอายุตั้ง");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","ใช้วิธีการที่ LiveDocX สำหรับการสร้างการรับรอง");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","ใช้วิธีการที่ XML สำหรับการสร้างการรับรอง");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองเพิ่ม (รูปแบบ XML)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","แก้ไขแม่แบบใบรับรอง (รูปแบบ XML)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองการเปลี่ยนชื่อ");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองโคลน");//Clone certificate template (New)
-define("_CERTIFICATENAME","ชื่อหนังสือรับรอง");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","รายละเอียดหนังสือรับรอง");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","รายละเอียดของ XML ต้องไม่ว่างเปล่า");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","ใบรับรองแม่แบบที่มีอยู่");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองการจัดรูปแบบ");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","ใบรับรองหมดอายุตั้ง");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","ใช้วิธีการที่ LiveDocX สำหรับการสร้างการรับรอง");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","ใช้วิธีการที่ XML สำหรับการสร้างการรับรอง");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองเพิ่ม (รูปแบบ XML)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","แก้ไขแม่แบบใบรับรอง (รูปแบบ XML)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองการเปลี่ยนชื่อ");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","แม่แบบหนังสือรับรองโคลน");//Clone certificate template
+define("_CERTIFICATENAME","ชื่อหนังสือรับรอง");//Certificate name
+define("_CERTIFICATEDESCRIPTION","รายละเอียดหนังสือรับรอง");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","รายละเอียดของ XML ต้องไม่ว่างเปล่า");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","ใบรับรองแม่แบบที่มีอยู่");//Existing certificate templates
 define("_TRAFFIC","ภาพรวมทางสถิติทั้งหมด");//Traffic
 define("_LESSONTRAFFIC","การเข้าใช้งานในเนื้อหา-หน่วยเรียน");//Lesson traffic
 define("_EDITTEST","แก้ไขแบบทดสอบ");//Edit test
 define("_EDITQUESTION","แก้ไขคำถาม");//Edit question
 define("_CERTIFICATE","ใบประกาศนียบัตร");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","ได้ปรับปรุงใบประกาศเรียบร้อยแล้ว");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกบันทึกเรียบร้อยแล้ว");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","เกิดปัญหาในขณะที่เพิ่มแม่แบบหนังสือรับรองได้");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองได้รับการปรับปรุงเรียบร้อยแล้ว");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","เกิดปัญหาขณะอัปเดตแม่แบบหนังสือรับรองได้");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองได้เปลี่ยนชื่อเรียบร้อยแล้ว");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","มีปัญหาในการเปลี่ยนชื่อแม่แบบหนังสือรับรองได้");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองเดิมใช้การโคลนสำเร็จ");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","มีปัญหาในขณะที่การโคลนแม่แบบหนังสือรับรองได้");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกลบแล้ว");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","ในขณะที่เกิดปัญหาในการลบแม่แบบหนังสือรับรองได้");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","คุณไม่ได้รับสิทธิ์ในการปรับเปลี่ยนแม่แบบใบรับรองนี้");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกบันทึกเรียบร้อยแล้ว");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","เกิดปัญหาในขณะที่เพิ่มแม่แบบหนังสือรับรองได้");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","แม่แบบหนังสือรับรองได้รับการปรับปรุงเรียบร้อยแล้ว");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","เกิดปัญหาขณะอัปเดตแม่แบบหนังสือรับรองได้");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองได้เปลี่ยนชื่อเรียบร้อยแล้ว");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","มีปัญหาในการเปลี่ยนชื่อแม่แบบหนังสือรับรองได้");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองเดิมใช้การโคลนสำเร็จ");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","มีปัญหาในขณะที่การโคลนแม่แบบหนังสือรับรองได้");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกลบแล้ว");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","ในขณะที่เกิดปัญหาในการลบแม่แบบหนังสือรับรองได้");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","คุณไม่ได้รับสิทธิ์ในการปรับเปลี่ยนแม่แบบใบรับรองนี้");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","แก้ไขเกณฑ์:เงื่อนไข");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","การตั้งค่าเครื่องแม่ข่ายบริการ SMTP");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","รูปแบ�
 define("_IFEMPTYNEWPASSWORD","เขตข้อมูลกรอบสีแดงคือค่าบังคับใช้. หากไม่ตั้งรหัสผ่านไว้ ระบบจะตั้งให้อัตโนมัติเหมือนกับชื่อเข้าระบบ.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","กรุณาตรวจสอบรูปแบบไฟล์ CSV ของคุณว่าถูกต้องหรือไม่");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","รูปแบบไฟล์ต้นแบบที่กำหนดให้คือ, ใช้ #organization# สำหรับ organization&#039;s name, #user_name# สำหรับ user&#039;s name, #user_surname# สำหรับ user&#039;s surname, #course_name# สำหรับ course&#039;s name, #grade# สำหรับ grade and #date# สำหรับ date.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","ในแม่แบบ, &lt;organization&gt; ใช้ &lt;/ องค์กร&gt; สำหรับชื่อขององค์กร, &lt;student&gt; &lt;/ นักศึกษา&gt; สำหรับชื่อเต็มของนักเรียน, &lt;course&gt; &lt;/ หลักสูตร&gt; สำหรับชื่อหลักสูตรของ &lt;grade&gt; &lt;/ เกรด&gt; สำหรับชั้นประถมศึกษาปี, &lt; &lt;&gt; Serial /&gt; serial สำหรับหมายเลขประจำเครื่อง &lt;date&gt; &lt;/&gt; วันที่สำหรับวันที่ &lt;logo&gt; &lt;/&gt; โลโก้สำหรับ &lt;โลโก้และ &lt;background&gt; /&gt; พื้นหลังสำหรับพื้นหลัง");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","ในแม่แบบ, &lt;organization&gt; ใช้ &lt;/ องค์กร&gt; สำหรับชื่อขององค์กร, &lt;student&gt; &lt;/ นักศึกษา&gt; สำหรับชื่อเต็มของนักเรียน, &lt;course&gt; &lt;/ หลักสูตร&gt; สำหรับชื่อหลักสูตรของ &lt;grade&gt; &lt;/ เกรด&gt; สำหรับชั้นประถมศึกษาปี, &lt; &lt;&gt; Serial /&gt; serial สำหรับหมายเลขประจำเครื่อง &lt;date&gt; &lt;/&gt; วันที่สำหรับวันที่ &lt;logo&gt; &lt;/&gt; โลโก้สำหรับ &lt;โลโก้และ &lt;background&gt; /&gt; พื้นหลังสำหรับพื้นหลัง");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","ผู้ตอบ");//Votes
 define("_PERCENTAGE","ค่าร้อยละ");//Percentage
 define("_CERTIFICATEISSUED","ใบประกาศนียบัตรที่ออกให้แล้ว");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","คงเหลือ");//Remain
 define("_WEEKS","สัหดาห์");//weeks
 define("_WEEKs","สัปดาห์");//week
 define("_DAYS","วัน");//days
-define("_DAYSCAPITAL","วัน");//Days (New)
+define("_DAYSCAPITAL","วัน");//Days
 define("_DAY","วัน");//Day
 define("_EVALUATIONDATAUPDATED","ปรับข้อมูลการประเมินผลเรียบร้อยแล้ว");//Evaluation data updated successfully
 define("_EVALUATION","การประเมินผล");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","ปรับปรุงกลุ่มเร
 define("_ASSIGNLESSONSTOGROUPUSERS","ลงทะเบียนเนื้อหา-หน่วยเรียนที่เลือกไว้ ให้แก่กลุ่มสมาชิก");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","สร้างรหัสกลุ่มให้โดยอัตโนมัติ");//Automatically generate group key
 define("_UNIQUEGROUPKEY","รหัสอนุญาตเฉพาะกลุ่มสมาชิก");//Unique group key
-define("_UNIQUEGROUPKEYINFO","รหัสเฉพาะกลุ่มสมาชิก จะเป็นการกำหนดรหัสไว้เพื่อให้ทำการลงทะเบียนได้เฉพาะในกลุ่มที่กำหนด โดยการคลิกที่สัญรูปกุญแจในหน้าเข้าสู่ระบบ");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","รหัสเฉพาะกลุ่มสมาชิก จะเป็นการกำหนดรหัสไว้เพื่อให้ทำการลงทะเบียนได้เฉพาะในกลุ่มที่กำหนด โดยการคลิกที่สัญรูปกุญแจในหน้าเข้าสู่ระบบ");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","กลุ่มเริ่มต้นของระบบ");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","รหัสกลุ่ม");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","คุณใส่รหัสกลุ่มไม่ถูกต้อง");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","ใส่ไว้ในกลุ่ม");//Insert in
 define("_NOSPECIFICGROUP","ไม่ระบุกลุ่ม");//No specific group
 define("_VIEWINSERTGROUPKEY","แสดงค่ารหัสกลุ่ม");//Show group key option
 define("_MAXGROUPKEYUSAGE","ใช้รหัสกลุ่มได้ไม่เกิน");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","การตั้งค่าในที่นี้ต้องใส่จำนวนมากกว่า 0 เพื่อสามารถกำหนดจำนวนครั้งการใช้ที่เป็นไปตามจำนวนผู้ลงทะเบียนเรียนที่กำหนดในแต่ละกลุ่มเรียน หาก กำหนดเป็น 0 จะหมายถึง ไม่จำกัดจำนวนผู้ลงทะเบียนเข้าเรียนในกลุ่ม");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","การตั้งค่าในที่นี้ต้องใส่จำนวนมากกว่า 0 เพื่อสามารถกำหนดจำนวนครั้งการใช้ที่เป็นไปตามจำนวนผู้ลงทะเบียนเรียนที่กำหนดในแต่ละกลุ่มเรียน หาก กำหนดเป็น 0 จะหมายถึง ไม่จำกัดจำนวนผู้ลงทะเบียนเข้าเรียนในกลุ่ม");//Leave blank for no limit
 define("_REMAININGKEYUSES","จำนวนครั้ง การใช้รหัสร่วมของกลุ่มยังคงเหลืออีก");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","รหัสกลุ่มหมดอายุแล้ว");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","ต้องขออภัย แต่การทดสอบนี้จะถูกยับยั้งและไม่สามารถเข้าใช้ได้อีก โปรดไปที่แบบทดสอบที่ทำยังไม่เสร็จแล้วนี้ และลบออกไปก่อน.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","กลุ่มของฉัน");//my Groups
 define("_AVAILABLE","การใช้");//Available
 define("_NEVER","ไม่เคย");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","คนบทเรียน");//Lesson users
+define("_LESSONPEOPLE","คนบทเรียน");//People connection
 define("_NORMALIZEDIMENSIONS","ขนาดปกติ");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ได้กำหนดหลักสูตร");//was assigned the course
 define("_WILLBETEACHINGCOURSE","จะมีการสอนหลักสูตร");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","เงื่อนไขการเปลี่
 define("_INDEX","ดัชนี");//Index
 define("_EVENTDATETIME","กิจกรรมวันที่และเวลา");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","ไฟล์ใบรับรองหายไปหรือเสียหายจึงได้ตั้ง");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","มองเห็นได้จาก");//Visible from (New)
-define("_EXPIRESAT","หมดอายุวันที่");//Expires at (New)
-define("_CALENDARDISPLAYDATE","วันที่แสดงปฏิทิน");//Calendar display date (New)
-define("_GLOBAL","ทั่วโลก");//Global (New)
-define("_ALLDAY","ตลอดทั้งวัน");//All day (New)
-define("_CREATECALENDAREVENT","สร้างปฏิทินกิจกรรม");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","เขียนทับโฟลเดอร์ที่มีอยู่");//Overwrite existing folder (New)
-define("_LANDINGPAGE","หน้าที่เชื่อมโยงไป");//Landing page (New)
-define("_EXPORTTOXLS","ส่งออกไปยัง xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","การสำรวจล้มเหลวในการได้รับการเผยแพร่");//Survey failed to be published (New)
-define("_PRINTCHART","แผนภูมิการพิมพ์");//Print chart (New)
-define("_RESPONSEDETAILS","รายละเอียดการตอบสนอง");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","แสดงหน่วยงานที่ทำงานอยู่เท่านั้น");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","แสดงกิจการที่ไม่ได้ใช้งานเท่านั้น");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","แสดงหน่วยงานที่ใช้งานอยู่และไม่ได้ใช้งานทั้ง");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","เหตุการณ์นี้ไม่มีแล้ว");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","ลบข้อความคิว");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","นำไปใช้กับผู้ใช้แล้วอยู่ในตำแหน่งงานนี้");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","นี้สามารถเพิ่ม (ไม่เอา) เลือกใหม่ให้กับผู้ใช้");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","เรียงลำดับตาม");//Sort by (New)
-define("_TRAINING","การอบรม");//Training (New)
-define("_COMPLETEDLESSONS","บทเรียนเสร็จสมบูรณ์");//Completed lessons (New)
-define("_INCOMPLETELESSONS","บทเรียนที่ไม่สมบูรณ์");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","มาเฟีย");//Completed courses (New)
-define("_INCOMPLETECOURSES","หลักสูตรที่ไม่สมบูรณ์");//Incomplete courses (New)
-define("_EDITCOLUMN","แก้ไขคอลัมน์");//Edit column (New)
-define("_LESSONSFORCOURSE","บทเรียนสำหรับหลักสูตร");//Lessons for course (New)
-define("_TESTSFORLESSON","การทดสอบบทเรียน");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","เสร็จสมบูรณ์สำหรับผู้ใช้ทั้งหมด");//Complete for all users (New)
-define("_LESSONTIMES","เวลาบทเรียน");//Lesson times (New)
-define("_MINUTESPERDAY","นาทีต่อวัน");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","หลังจากที่ผู้ใช้ออกจากระบบ (นาที)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","ระยะเวลา Updater (MS)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","ค่าที่แนะนำจะไม่ต่ำกว่า 10000ms และไม่เกิน 360000ms นอกจากนี้ยังจะต้องตั้งค่าน้อยกว่าเวลาออกจากระบบอัตโนมัติ");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","มากกว่า 1 สาขา (สถานที่) ที่เชื่อมโยงกับหลักสูตรนี้แสดงเป็นคนแรก");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","แทรก");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","กำหนดรับการอนุมัติจาก");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","ผู้บังคับบัญชาของพนักงานได้ทันที");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","การเสื่อมของผู้ใช้");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","ถูกปิดการใช้งานจากระบบ");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","อนุมัติ Supervisor");//Supervisor approval (New)
-define("_APPROVE","อนุมัติ");//Approve (New)
-define("_GROUPKEYEXISTS","คีย์ที่ไม่ซ้ำกันอยู่แล้ว");//Unique key already exists (New)
-define("_PARTOFCOURSES","บางส่วนของหลักสูตร");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","บทเรียนนี้เป็นส่วนหนึ่งของหลักสูตรอย่างน้อยหนึ่งจึงไม่สามารถเปลี่ยนโหมด");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","มีผู้ใช้ที่ลงทะเบียนเรียนกับบทเรียนนี้ กรุณา unassign พวกเขาก่อนที่จะเปลี่ยนโหมด");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","หลักสูตร (ไม่สมบูรณ์ / รวมทั้งหมด)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","ส่งออกไฟล์");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","หลักสูตรกำหนดวันหมดอายุ");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","หลักสูตรกำหนดเวลาเริ่มต้น");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","เริ่มต้นที่กำหนดเวลาไว้แน่นอน");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","หมดอายุที่กำหนดเวลาไว้แน่นอน");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","ผู้ใช้ทุกรายแน่นอน");//All course users (New)
+define("_VISIBLEFROM","มองเห็นได้จาก");//Visible from
+define("_EXPIRESAT","หมดอายุวันที่");//Expires at
+define("_CALENDARDISPLAYDATE","วันที่แสดงปฏิทิน");//Calendar display date
+define("_GLOBAL","ทั่วโลก");//Global
+define("_ALLDAY","ตลอดทั้งวัน");//All day
+define("_CREATECALENDAREVENT","สร้างปฏิทินกิจกรรม");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","เขียนทับโฟลเดอร์ที่มีอยู่");//Overwrite existing folder
+define("_LANDINGPAGE","หน้าที่เชื่อมโยงไป");//Landing page
+define("_EXPORTTOXLS","ส่งออกไปยัง xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","การสำรวจล้มเหลวในการได้รับการเผยแพร่");//Survey failed to be published
+define("_PRINTCHART","แผนภูมิการพิมพ์");//Print chart
+define("_RESPONSEDETAILS","รายละเอียดการตอบสนอง");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","แสดงหน่วยงานที่ทำงานอยู่เท่านั้น");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","แสดงกิจการที่ไม่ได้ใช้งานเท่านั้น");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","แสดงหน่วยงานที่ใช้งานอยู่และไม่ได้ใช้งานทั้ง");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","เหตุการณ์นี้ไม่มีแล้ว");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","ลบข้อความคิว");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","นำไปใช้กับผู้ใช้แล้วอยู่ในตำแหน่งงานนี้");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","นี้สามารถเพิ่ม (ไม่เอา) เลือกใหม่ให้กับผู้ใช้");//This can only add (not remove) a new selection to a user
+define("_SORTBY","เรียงลำดับตาม");//Sort by
+define("_TRAINING","การอบรม");//Training
+define("_COMPLETEDLESSONS","บทเรียนเสร็จสมบูรณ์");//Completed lessons
+define("_INCOMPLETELESSONS","บทเรียนที่ไม่สมบูรณ์");//Incomplete lessons
+define("_COMPLETEDCOURSES","มาเฟีย");//Completed courses
+define("_INCOMPLETECOURSES","หลักสูตรที่ไม่สมบูรณ์");//Incomplete courses
+define("_EDITCOLUMN","แก้ไขคอลัมน์");//Edit column
+define("_LESSONSFORCOURSE","บทเรียนสำหรับหลักสูตร");//Lessons for course
+define("_TESTSFORLESSON","การทดสอบบทเรียน");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","เสร็จสมบูรณ์สำหรับผู้ใช้ทั้งหมด");//Complete for all users
+define("_LESSONTIMES","เวลาบทเรียน");//Lesson times
+define("_MINUTESPERDAY","นาทีต่อวัน");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","หลังจากที่ผู้ใช้ออกจากระบบ (นาที)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","ระยะเวลา Updater (MS)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","ค่าที่แนะนำจะไม่ต่ำกว่า 10000ms และไม่เกิน 360000ms นอกจากนี้ยังจะต้องตั้งค่าน้อยกว่าเวลาออกจากระบบอัตโนมัติ");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","มากกว่า 1 สาขา (สถานที่) ที่เชื่อมโยงกับหลักสูตรนี้แสดงเป็นคนแรก");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","แทรก");//Insert
+define("_ASSIGNMENTAPPROVEDBY","กำหนดรับการอนุมัติจาก");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","ผู้บังคับบัญชาของพนักงานได้ทันที");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","การเสื่อมของผู้ใช้");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","ถูกปิดการใช้งานจากระบบ");//was deactivated from system
+define("_SUPERVISORAPPROVAL","อนุมัติ Supervisor");//Supervisor approval
+define("_APPROVE","อนุมัติ");//Approve
+define("_GROUPKEYEXISTS","คีย์ที่ไม่ซ้ำกันอยู่แล้ว");//Unique key already exists
+define("_PARTOFCOURSES","บางส่วนของหลักสูตร");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","บทเรียนนี้เป็นส่วนหนึ่งของหลักสูตรอย่างน้อยหนึ่งจึงไม่สามารถเปลี่ยนโหมด");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","มีผู้ใช้ที่ลงทะเบียนเรียนกับบทเรียนนี้ กรุณา unassign พวกเขาก่อนที่จะเปลี่ยนโหมด");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","หลักสูตร (ไม่สมบูรณ์ / รวมทั้งหมด)");//Courses (incomplete/total)
+define("_EXPORTFILES","ส่งออกไฟล์");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","หลักสูตรกำหนดวันหมดอายุ");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","หลักสูตรกำหนดเวลาเริ่มต้น");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","เริ่มต้นที่กำหนดเวลาไว้แน่นอน");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","หมดอายุที่กำหนดเวลาไว้แน่นอน");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","ผู้ใช้ทุกรายแน่นอน");//All course users
+define("_MOVEBLOCK","ย้ายบล็อก");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Expand บล็อกยุบ /");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","ประเภทของผู้เรียนเริ่มต้น");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","หากคุณมีชุดกุญแจกลุ่มสำหรับกลุ่มนี้จากนั้นผู้ใช้ที่ใช้คีย์จะได้รับการลงทะเบียนเข้าสู่บทเรียน / หลักสูตรมีประเภทนี้ หากคุณตั้งกลุ่มนี้จะเริ่มต้นจากนั้นผู้ใช้ใหม่จะถูกกำหนดให้เป็นบทเรียนของกลุ่มที่มีประเภทนี้");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","อย่าใช้ค่าเริ่มต้น");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","คุณมีการเพิ่มประสบความสำเร็จกับกลุ่ม");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","กลุ่มนี้ไม่ได้ใช้งาน");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","ที่สำคัญไม่สามารถใช้เวลาเพิ่มเติมใด ๆ");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","เลือกที่คุณทำไม่ถูกต้อง กรุณาเลือกตัวเลือกจากรายการ");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","คุณเป็นสมาชิกอยู่แล้วของกลุ่มนี้");//You are already member of this group (New)
+define("_AVERAGESCORES","คะแนนเฉลี่ย");//Average scores (New)
+define("_PROJECTSAVERAGE","คะแนนเฉลี่ยในทุกโครงการ");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","สลับไปที่มุมมองแบบต้นไม้");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","เปลี่ยนเป็นมุมมองง่ายๆ");//Switch to simple view (New)
+define("_BCCRECIPIENTS","ผู้รับไม่เปิดเผย (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","ผลการค้นหาสำหรับ");//Results for (New)
+define("_THANKYOUFORCOMPLETING","ขอขอบคุณสำหรับการให้");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","รายงานไม่พบในระบบ");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","คุณอาจสร้าง");//You may create one (New)
 ?>

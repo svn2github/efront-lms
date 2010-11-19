@@ -137,6 +137,53 @@
 {/capture}
 {eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_popup_info image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
 
+{elseif isset($smarty.get.check_students_journals)}
+
+{capture name = 't_check_students_journals_info'}
+
+<table class="sortedTable" style="width:100%">
+ <tr>
+  <td class="topTitle">{$smarty.const._JOURNAL_STUDENT_NAME}</td>
+  <td class="topTitle centerAlign noSort">{$smarty.const._PREVIEW}</td>
+ </tr>
+{foreach name = "students_loop" key = "login" item = "student" from = $T_JOURNAL_STUDENTS}
+ <tr id="row_{$student.login}" class="{cycle values = "oddRowColor, evenRowColor"}">
+  <td>#filter:login-{$student.login}#</td>
+  <td class="centerAlign"><a href="{$T_JOURNAL_BASEURL}&preview_journal=1&student={$student.login}&popup=1" onclick="eF_js_showDivPopup('{$smarty.const._PREVIEW}', 3)" target="POPUP_FRAME"><img src="{$T_JOURNAL_BASELINK|cat:'images/info.png'}" alt="{$smarty.const._PREVIEW}" title="{$smarty.const._PREVIEW}" style="vertical-align:middle" /></a></td>
+ </tr>
+{foreachelse}
+ <tr class="defaultRowHeight oddRowColor">
+  <td class="emptyCategory" colspan="100%">{$smarty.const._JOURNAL_NO_STUDENTS_FOUND}</td>
+ </tr>
+{/foreach}
+</table>
+
+{/capture}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_check_students_journals_info image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+
+{elseif isset($smarty.get.preview_journal)}
+
+{capture name = 't_preview_journal_code'}
+
+<table class="contentArea">
+{foreach name = 'entries_loop' key = "id" item = "entry" from = $T_JOURNAL_STUDENT_ENTRIES}
+ <tr>
+  <td>{$entry.entry_date_formatted} ({$entry.lesson})</td>
+ </tr>
+ <tr>
+  <td>{$entry.entry_body}</td>
+ </tr>
+ <tr>
+  <td><div class="print_separator"></div></td>
+ </tr>
+{foreachelse}
+<img src="{$T_JOURNAL_BASELINK|cat:'images/warning.png'}" alt="{$smarty.const._JOURNAL_NO_ENTRIES_FOUND}" title="{$smarty.const._JOURNAL_NO_ENTRIES_FOUND}" style="vertical-align:middle" />&nbsp;<div style="display: inline; font-style: italic;">{$smarty.const._JOURNAL_NO_ENTRIES_FOUND}</div>
+{/foreach}
+</table>
+
+{/capture}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_preview_journal_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+
 {else}
 {capture name = 't_journal_student_code'}
 
@@ -149,6 +196,10 @@
     <option value="medium" {if $T_JOURNAL_DIMENSIONS == 'medium'}selected="selected"{/if}>{$smarty.const._JOURNAL_MEDIUM_DIMENSION}</option>
     <option value="large" {if $T_JOURNAL_DIMENSIONS == 'large'}selected="selected"{/if}>{$smarty.const._JOURNAL_LARGE_DIMENSION}</option>
    </select>
+{if $smarty.session.s_type == "professor"}
+   &nbsp;<div class="options_separator"></div>
+   <img src="{$T_JOURNAL_BASELINK|cat:'images/analysis.png'}" alt="{$smarty.const._JOURNAL_STUDENTS_JOURNAL}" title="{$smarty.const._JOURNAL_STUDENTS_JOURNAL}" style="vertical-align:middle" />&nbsp;<a href="{$T_JOURNAL_BASEURL}&check_students_journals=1">{$smarty.const._JOURNAL_STUDENTS_JOURNAL}</a>
+{/if}
 {if $T_POPUP_MODE == false}
    &nbsp;<div class="options_separator"></div>&nbsp;
    <img src="{$T_JOURNAL_BASELINK|cat:'images/popup.png'}" alt="{$smarty.const._JOURNAL_OPEN_POPUP}" title="{$smarty.const._JOURNAL_OPEN_POPUP}" style="vertical-align:middle" />&nbsp;<a href="javascript:void(0);" onclick="openPopup('{$T_JOURNAL_BASEURL}&popup=1&journal_popup=1');">{$smarty.const._JOURNAL_OPEN_POPUP}</a>

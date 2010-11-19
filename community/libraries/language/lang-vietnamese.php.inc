@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Bài học vật liệu");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Không có câu hỏi xác định");//There are no questions defined
 define("_ADDQUESTION","Thêm câu hỏi");//Add question
 define("_PREVIEW","Xem trước");//Preview
-define("_RENAME","Đổi tên");//Rename (New)
-define("_CLONE","Clone");//Clone (New)
+define("_RENAME","Đổi tên");//Rename
+define("_CLONE","Clone");//Clone
 define("_NOTESTSSETFORTHISUNIT","Không có bài thi được tìm thấy");//No tests found
 define("_ADDTEST","Thêm bài kiểm tra");//Add test
 define("_UNITANDSUBUNITSTESTS","Đơn vị và các bài kiểm tra subunits");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Thiết lập các đơn vị như là không hoàn thành
 define("_CONDITIONSCOMPLETED","Điều kiện hoàn thành");//Conditions completed
 define("_OUTOF","out of");//out of
 define("_LESSONPROGRESS","Bài Học tiến");//Lesson progress
-define("_YOUMUSTSEEUNIT","Bạn phải xem đơn vị");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Bạn phải xem tất cả các đơn vị");//You must see all units
+define("_YOUMUSTSEEUNIT","Bạn phải xem đơn vị");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Bạn phải xem tất cả các đơn vị");//You must complete all units
 define("_OFLESSONUNITS","Bài học của các đơn vị");//of lesson units
-define("_YOUMUSTSEE","Bạn phải xem");//You must see
+define("_YOUMUSTSEE","Bạn phải xem");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Bạn phải hoàn thành tất cả các bài kiểm tra với điểm số có nghĩa là");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Bạn phải hoàn tất thử nghiệm");//You must complete test
 define("_WITHSCORE","với điểm số");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Tiếp tục lại bài học");//Resume lesson
 define("_STARTLESSON","Bắt đầu bài học");//Start lesson
 define("_TRACKING","Theo dõi");//Tracking
 define("_FORMATCERTIFICATE","Định dạng cấp giấy chứng nhận");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","Định dạng mẫu giấy chứng nhận");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","Đặt giấy chứng nhận hết hạn");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Sử dụng các phương pháp LiveDocX để tạo chứng nhận");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Sử dụng các phương pháp XML để tạo chứng nhận");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","Thêm giấy chứng nhận mẫu (định dạng xml)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Chỉnh sửa mẫu chứng chỉ (xml định dạng)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","Đổi tên giấy chứng nhận mẫu");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","Clone Giấy chứng nhận mẫu");//Clone certificate template (New)
-define("_CERTIFICATENAME","Giấy chứng nhận tên");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Giấy chứng nhận mô tả");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML mô tả không thể để trống");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Hiện tại các mẫu giấy chứng nhận");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","Định dạng mẫu giấy chứng nhận");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","Đặt giấy chứng nhận hết hạn");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Sử dụng các phương pháp LiveDocX để tạo chứng nhận");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Sử dụng các phương pháp XML để tạo chứng nhận");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","Thêm giấy chứng nhận mẫu (định dạng xml)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Chỉnh sửa mẫu chứng chỉ (xml định dạng)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","Đổi tên giấy chứng nhận mẫu");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","Clone Giấy chứng nhận mẫu");//Clone certificate template
+define("_CERTIFICATENAME","Giấy chứng nhận tên");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Giấy chứng nhận mô tả");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","XML mô tả không thể để trống");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Hiện tại các mẫu giấy chứng nhận");//Existing certificate templates
 define("_TRAFFIC","Giao thông");//Traffic
 define("_LESSONTRAFFIC","Bài Học lưu lượng truy cập");//Lesson traffic
 define("_EDITTEST","Hiệu chỉnh thử nghiệm");//Edit test
 define("_EDITQUESTION","Chỉnh sửa câu hỏi");//Edit question
 define("_CERTIFICATE","Giấy chứng nhận");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Cấp giấy chứng nhận đã cập nhật thành công");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được thêm thành công");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Có một vấn đề trong khi thêm mẫu chứng chỉ");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được cập nhật thành công");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Có vấn đề khi cập nhật mẫu chứng chỉ");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được đổi tên thành công");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Có một vấn đề trong khi đổi tên mẫu chứng chỉ");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được nhân bản vô tính thành công");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Có một vấn đề trong khi sao chép mẫu chứng chỉ");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được xoá");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Có một vấn đề trong khi xóa mẫu chứng chỉ");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Bạn không có quyền sửa đổi mẫu chứng chỉ");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được thêm thành công");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Có một vấn đề trong khi thêm mẫu chứng chỉ");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được cập nhật thành công");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Có vấn đề khi cập nhật mẫu chứng chỉ");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được đổi tên thành công");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Có một vấn đề trong khi đổi tên mẫu chứng chỉ");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được nhân bản vô tính thành công");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Có một vấn đề trong khi sao chép mẫu chứng chỉ");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","mẫu Giấy chứng nhận đã được xoá");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Có một vấn đề trong khi xóa mẫu chứng chỉ");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Bạn không có quyền sửa đổi mẫu chứng chỉ");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Sửa đổi điều kiện");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","Cấu hình máy chủ SMTP");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Các lĩnh vực 
 define("_IFEMPTYNEWPASSWORD","Các trường trong màu đỏ là bắt buộc. Nếu không có mật khẩu đã cho, ban đầu sẽ được thiết lập mật khẩu giống như đăng nhập.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Xin vui lòng kiểm tra định dạng của tập tin CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Trong bản mẫu, hãy sử dụng # # cho các tổ chức của tổ chức tên, USER_NAME # # cho người sử dụng tên của người, # # user_surname cho Họ của người sử dụng, # # course_name cho các khóa học của họ tên, lớp # # # cho các lớp và ngày cho ngày #.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Trong các mẫu, sử dụng &lt;organization&gt; &lt;/ tổ chức&gt; cho tên của tổ chức, &lt;student&gt; &lt;/ học sinh&gt; tên đầy đủ của học sinh, &lt;khóa học /&gt; &lt;course&gt; tên của khóa học, &lt;grade&gt; &lt;/ lớp&gt; lớp, &lt; &lt;&gt; nối tiếp /&gt; nối tiếp cho số, &lt;date&gt; &lt;/&gt; ngày cho ngày, &lt;logo&gt; &lt;/&gt; logo cho logo và &lt;background&gt; &lt;/&gt; nền cho nền.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","Trong các mẫu, sử dụng &lt;organization&gt; &lt;/ tổ chức&gt; cho tên của tổ chức, &lt;student&gt; &lt;/ học sinh&gt; tên đầy đủ của học sinh, &lt;khóa học /&gt; &lt;course&gt; tên của khóa học, &lt;grade&gt; &lt;/ lớp&gt; lớp, &lt; &lt;&gt; nối tiếp /&gt; nối tiếp cho số, &lt;date&gt; &lt;/&gt; ngày cho ngày, &lt;logo&gt; &lt;/&gt; logo cho logo và &lt;background&gt; &lt;/&gt; nền cho nền.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Phiếu bầu");//Votes
 define("_PERCENTAGE","Tỷ lệ phần trăm");//Percentage
 define("_CERTIFICATEISSUED","Giấy chứng nhận ban hành");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Còn lại");//Remain
 define("_WEEKS","tuần");//weeks
 define("_WEEKs","tuần");//week
 define("_DAYS","ngày");//days
-define("_DAYSCAPITAL","Ngày");//Days (New)
+define("_DAYSCAPITAL","Ngày");//Days
 define("_DAY","Ngày");//Day
 define("_EVALUATIONDATAUPDATED","Đánh giá các dữ liệu cập nhật thành công");//Evaluation data updated successfully
 define("_EVALUATION","Đánh giá");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Nhóm đã được cập nhật thành công
 define("_ASSIGNLESSONSTOGROUPUSERS","Chỉ định lựa chọn các bài học cho nhóm người sử dụng");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Tự động tạo các nhóm trọng điểm");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Nhóm đặc biệt quan trọng");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Điều này đặc biệt quan trọng nhóm có thể được cung cấp cho người sử dụng để kích hoạt chúng để đăng ký cho mình một nhóm bằng cách nhấp vào biểu tượng chìa khóa trên trang đăng nhập");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Điều này đặc biệt quan trọng nhóm có thể được cung cấp cho người sử dụng để kích hoạt chúng để đăng ký cho mình một nhóm bằng cách nhấp vào biểu tượng chìa khóa trên trang đăng nhập");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Mặc định hệ thống nhóm");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Việc kiểm tra này sẽ làm cho tất cả các người dùng mới của hệ thống tự động sẽ được phân định vào nhóm này. Chỉ có một nhóm có thể được mặc định hệ thống nhóm. Implication mới như là một nhóm các lựa chọn mặc định thay thế trước những người thân.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Việc kiểm tra này sẽ làm cho tất cả các người dùng mới của hệ thống tự động sẽ được phân định vào nhóm này. Chỉ có một nhóm có thể được mặc định hệ thống nhóm. Implication mới như là một nhóm các lựa chọn mặc định thay thế trước những người thân.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Nhóm chủ chốt");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Bằng cách gửi vào đây một nhóm chủ chốt duy nhất cung cấp cho bạn các quản trị hệ thống của bạn có thể đăng ký cho mình đến tất cả các bài học của những nhóm cụ thể");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","Nhóm chủ chốt mà bạn đã nhập không hợp lệ");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Chèn vào nhóm");//Insert into group
 define("_NOSPECIFICGROUP","Không có nhóm cụ thể");//No specific group
 define("_VIEWINSERTGROUPKEY","Hiển thị nhóm phím tùy chọn");//Show group key option
 define("_MAXGROUPKEYUSAGE","Tối đa sử dụng các phím");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Lĩnh vực này để thiết lập một giá trị lớn hơn số không, sẽ phân định các số lần của nhóm chủ chốt có thể được sử dụng của người dùng tự đăng ký vào nhóm này. Nếu các lĩnh vực được đặt thành số không, sau đó không có giới hạn như vậy sẽ được thi hành.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Lĩnh vực này để thiết lập một giá trị lớn hơn số không, sẽ phân định các số lần của nhóm chủ chốt có thể được sử dụng của người dùng tự đăng ký vào nhóm này. Nếu các lĩnh vực được đặt thành số không, sau đó không có giới hạn như vậy sẽ được thi hành.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Nhóm còn lại sử dụng chính");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","Nhóm chủ chốt đã hết hạn");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Chúng tôi xin lỗi, nhưng kiểm tra này là hỏng và vì vậy không. Xin vui lòng truy cập vào thực hiện các bài kiểm tra để xóa danh sách kiểm tra này thực hiện.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Nhóm của tôi");//my Groups
 define("_AVAILABLE","Có sẵn");//Available
 define("_NEVER","Không bao giờ");//Never
 define("_CLASSMATES","Bạn học");//Classmates
-define("_LESSONPEOPLE","Bài học người");//Lesson users
+define("_LESSONPEOPLE","Bài học người");//People connection
 define("_NORMALIZEDIMENSIONS","Normalized kích thước");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","được phân công các khóa học");//was assigned the course
 define("_WILLBETEACHINGCOURSE","sẽ được giảng dạy các khóa học");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","Thay đổi điều kiện tự");//Change condi
 define("_INDEX","Index");//Index
 define("_EVENTDATETIME","Sự kiện ngày và thời gian");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Giấy chứng nhận tập tin bị mất hoặc bị hỏng và do đó được đặt lại");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Nhìn từ");//Visible from (New)
-define("_EXPIRESAT","Hết hạn tại");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Lịch hiển thị ngày");//Calendar display date (New)
-define("_GLOBAL","Toàn cầu");//Global (New)
-define("_ALLDAY","Tất cả các ngày");//All day (New)
-define("_CREATECALENDAREVENT","Tạo sự kiện lịch");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","Ghi đè lên thư mục hiện tại");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Trang đích");//Landing page (New)
-define("_EXPORTTOXLS","Xuất khẩu sang xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Điều tra không được công bố");//Survey failed to be published (New)
-define("_PRINTCHART","In biểu đồ");//Print chart (New)
-define("_RESPONSEDETAILS","Đáp ứng các chi tiết");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Chỉ hiển thị các thực thể đang hoạt động");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Chỉ hiển thị các thực thể không hoạt động");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Hiện cả hai thực thể đang hoạt động và không hoạt động");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Sự kiện này không còn tồn tại");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","Hàng đợi thông điệp rõ ràng");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Áp dụng đối với người sử dụng đã thuộc về vị trí công việc này");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Điều này chỉ có thể thêm (không loại bỏ) một lựa chọn mới cho người dùng");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Sắp xếp theo");//Sort by (New)
-define("_TRAINING","Đào tạo");//Training (New)
-define("_COMPLETEDLESSONS","Hoàn thành các bài học");//Completed lessons (New)
-define("_INCOMPLETELESSONS","Chưa hoàn tất bài học");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","Hoàn thành các khóa học");//Completed courses (New)
-define("_INCOMPLETECOURSES","Chưa hoàn tất các khóa học");//Incomplete courses (New)
-define("_EDITCOLUMN","Hiệu chỉnh cột");//Edit column (New)
-define("_LESSONSFORCOURSE","Bài học cho các khóa học");//Lessons for course (New)
-define("_TESTSFORLESSON","Các xét nghiệm cho bài học");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Hoàn chỉnh cho tất cả người dùng");//Complete for all users (New)
-define("_LESSONTIMES","Bài học lần");//Lesson times (New)
-define("_MINUTESPERDAY","Phút mỗi ngày");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","Đăng xuất người dùng sau (phút)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","Cập nhật thời gian (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Được giới thiệu các giá trị không kém hơn so với 10000ms và không quá 360000ms. Nó cũng phải được đặt ít hơn thời gian tự động đăng xuất.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Hơn 1 chi nhánh (địa điểm) liên quan đến khóa học này, hiển thị đầu tiên");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Chèn");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Phân phê duyệt");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Nhân viên giám sát trực tiếp");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","Chấm dứt hoạt người dùng");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","đã ngừng hoạt động từ hệ thống");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","Giám sát phê duyệt");//Supervisor approval (New)
-define("_APPROVE","Chấp thuận");//Approve (New)
-define("_GROUPKEYEXISTS","Chính duy nhất đã tồn tại");//Unique key already exists (New)
-define("_PARTOFCOURSES","Một phần của các khóa học");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Bài học này là một phần của các khóa học một hoặc nhiều hơn, vì vậy nó không thể thay đổi chế độ");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Có người dùng đăng ký cho bài học này. Xin vui lòng unassign chúng trước khi chuyển đổi phương thức");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Các khóa học (không đầy đủ / tổng số)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Xuất các tập tin");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Khóa học dự kiến hết hạn");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Khóa học dự kiến bắt đầu");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","Dự kiến bắt đầu của khóa học");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","Dự kiến kết thúc khóa học");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Tất cả các khóa học người dùng");//All course users (New)
+define("_VISIBLEFROM","Nhìn từ");//Visible from
+define("_EXPIRESAT","Hết hạn tại");//Expires at
+define("_CALENDARDISPLAYDATE","Lịch hiển thị ngày");//Calendar display date
+define("_GLOBAL","Toàn cầu");//Global
+define("_ALLDAY","Tất cả các ngày");//All day
+define("_CREATECALENDAREVENT","Tạo sự kiện lịch");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Ghi đè lên thư mục hiện tại");//Overwrite existing folder
+define("_LANDINGPAGE","Trang đích");//Landing page
+define("_EXPORTTOXLS","Xuất khẩu sang xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Điều tra không được công bố");//Survey failed to be published
+define("_PRINTCHART","In biểu đồ");//Print chart
+define("_RESPONSEDETAILS","Đáp ứng các chi tiết");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Chỉ hiển thị các thực thể đang hoạt động");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Chỉ hiển thị các thực thể không hoạt động");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Hiện cả hai thực thể đang hoạt động và không hoạt động");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Sự kiện này không còn tồn tại");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","Hàng đợi thông điệp rõ ràng");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Áp dụng đối với người sử dụng đã thuộc về vị trí công việc này");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Điều này chỉ có thể thêm (không loại bỏ) một lựa chọn mới cho người dùng");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Sắp xếp theo");//Sort by
+define("_TRAINING","Đào tạo");//Training
+define("_COMPLETEDLESSONS","Hoàn thành các bài học");//Completed lessons
+define("_INCOMPLETELESSONS","Chưa hoàn tất bài học");//Incomplete lessons
+define("_COMPLETEDCOURSES","Hoàn thành các khóa học");//Completed courses
+define("_INCOMPLETECOURSES","Chưa hoàn tất các khóa học");//Incomplete courses
+define("_EDITCOLUMN","Hiệu chỉnh cột");//Edit column
+define("_LESSONSFORCOURSE","Bài học cho các khóa học");//Lessons for course
+define("_TESTSFORLESSON","Các xét nghiệm cho bài học");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Hoàn chỉnh cho tất cả người dùng");//Complete for all users
+define("_LESSONTIMES","Bài học lần");//Lesson times
+define("_MINUTESPERDAY","Phút mỗi ngày");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","Đăng xuất người dùng sau (phút)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Cập nhật thời gian (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Được giới thiệu các giá trị không kém hơn so với 10000ms và không quá 360000ms. Nó cũng phải được đặt ít hơn thời gian tự động đăng xuất.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Hơn 1 chi nhánh (địa điểm) liên quan đến khóa học này, hiển thị đầu tiên");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Chèn");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Phân phê duyệt");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Nhân viên giám sát trực tiếp");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Chấm dứt hoạt người dùng");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","đã ngừng hoạt động từ hệ thống");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Giám sát phê duyệt");//Supervisor approval
+define("_APPROVE","Chấp thuận");//Approve
+define("_GROUPKEYEXISTS","Chính duy nhất đã tồn tại");//Unique key already exists
+define("_PARTOFCOURSES","Một phần của các khóa học");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Bài học này là một phần của các khóa học một hoặc nhiều hơn, vì vậy nó không thể thay đổi chế độ");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Có người dùng đăng ký cho bài học này. Xin vui lòng unassign chúng trước khi chuyển đổi phương thức");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Các khóa học (không đầy đủ / tổng số)");//Courses (incomplete/total)
+define("_EXPORTFILES","Xuất các tập tin");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Khóa học dự kiến hết hạn");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Khóa học dự kiến bắt đầu");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Dự kiến bắt đầu của khóa học");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Dự kiến kết thúc khóa học");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Tất cả các khóa học người dùng");//All course users
+define("_MOVEBLOCK","Di chuyển khối");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Mở rộng / sụp đổ khối");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Default loại học");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Nếu bạn đã thiết lập một khóa nhóm cho nhóm này, sau đó người dùng sử dụng phím sẽ được ghi danh với những bài học / các khóa học có loại hình này. Nếu bạn đã đặt nhóm này được mặc định, sau đó người dùng mới sẽ được giao cho các bài học của nhóm với loại này");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","Không sử dụng kiểu mặc định");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Bạn đã được thêm thành công vào nhóm");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Nhóm này không hoạt động");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","Các phím không thể được sử dụng bất kỳ lần");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Việc lựa chọn bạn đã thực hiện là không hợp lệ. Hãy chọn một tùy chọn từ danh sách");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Bạn đã thành viên của nhóm này");//You are already member of this group (New)
+define("_AVERAGESCORES","Điểm trung bình");//Average scores (New)
+define("_PROJECTSAVERAGE","Điểm trung bình trong tất cả các dự án");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Chuyển sang xem dạng cây");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Chuyển sang chế độ xem đơn giản");//Switch to simple view (New)
+define("_BCCRECIPIENTS","Không tiết lộ người nhận (BCC)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Kết quả");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Cảm ơn bạn đã hoàn thành");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Không có báo cáo tìm thấy trong hệ thống");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Bạn có thể tạo ra một");//You may create one (New)
 ?>

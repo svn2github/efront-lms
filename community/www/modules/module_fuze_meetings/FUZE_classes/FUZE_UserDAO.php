@@ -328,6 +328,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
        isset($response['launch_now_url']) && !empty($response['launch_now_url'])
        ) {
         // We create the new entry in the meeting table
+        $meeting_id = false;
         $bind = array();
         $bind ['user_id'] = $this->_controller_id;
         $bind ['subject'] = $args ['subject'];
@@ -345,6 +346,19 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
         }
         catch (Exception $e) {
          $function_response ['error_msg'] = $e->getMessage();
+        }
+
+        if ($meeting_id) {
+         // We create the entries in the attendee table
+         $bind = array();
+         foreach ($args['students'] AS $student_id) {
+          $array = array();
+          $array ['meeting_id'] = $meeting_id;
+          $array ['sys_id'] = $student_id;
+          $bind [] = $array;
+         }
+         $table_name = '`_mod_fm_meeting_attendee`';
+         eF_insertTableDataMultiple($table_name, $bind);
         }
       }
       else {

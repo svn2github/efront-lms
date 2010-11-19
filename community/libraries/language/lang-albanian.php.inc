@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","Mësim materiale");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","Nuk ka pyetje të përcaktuar");//There are no questions defined
 define("_ADDQUESTION","Shto pyetje");//Add question
 define("_PREVIEW","Preview");//Preview
-define("_RENAME","Riemërtoj");//Rename (New)
-define("_CLONE","Klon");//Clone (New)
+define("_RENAME","Riemërtoj");//Rename
+define("_CLONE","Klon");//Clone
 define("_NOTESTSSETFORTHISUNIT","Nuk ka analiza të gjetur");//No tests found
 define("_ADDTEST","Shto test");//Add test
 define("_UNITANDSUBUNITSTESTS","Njësia subunits dhe analiza");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","Set e jo si njësi e përfunduar");//Set the unit as not c
 define("_CONDITIONSCOMPLETED","Kushtet e përfunduar");//Conditions completed
 define("_OUTOF","jashtë");//out of
 define("_LESSONPROGRESS","Mësim përparim");//Lesson progress
-define("_YOUMUSTSEEUNIT","Ju duhet të shikoni njësi");//You must see unit
-define("_YOUMUSTSEEALLUNITS","Ju duhet të shikoni të gjitha njësitë");//You must see all units
+define("_YOUMUSTSEEUNIT","Ju duhet të shikoni njësi");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","Ju duhet të shikoni të gjitha njësitë");//You must complete all units
 define("_OFLESSONUNITS","mësim të njësive");//of lesson units
-define("_YOUMUSTSEE","Ju duhet të shikoni");//You must see
+define("_YOUMUSTSEE","Ju duhet të shikoni");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Ju duhet të plotësoni të gjitha testeve do të thotë me rezultatin");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Ju duhet të plotësoni test");//You must complete test
 define("_WITHSCORE","me rezultatin");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","Resume mësim");//Resume lesson
 define("_STARTLESSON","Fillimi mësim");//Start lesson
 define("_TRACKING","Ndjekja");//Tracking
 define("_FORMATCERTIFICATE","Formati çertifikatë");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","template Format certifikatë");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","zgjatjen e certifikatës");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","Përdor metodën e LiveDocX për krijimin e çertifikatat");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","Përdor metodën e XML për krijimin e çertifikatat");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","template Shto vërtetim (format xml)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","Edit template vërtetim (format xml)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","template Rename certifikatë");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","template Clone certifikatë");//Clone certificate template (New)
-define("_CERTIFICATENAME","Emri Certifikata");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","Përshkrimi Certifikata");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","përshkrim XML nuk mund të jetë bosh");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","Ekzistuese certifikatë templates");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","template Format certifikatë");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","zgjatjen e certifikatës");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","Përdor metodën e LiveDocX për krijimin e çertifikatat");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","Përdor metodën e XML për krijimin e çertifikatat");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","template Shto vërtetim (format xml)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","Edit template vërtetim (format xml)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","template Rename certifikatë");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","template Clone certifikatë");//Clone certificate template
+define("_CERTIFICATENAME","Emri Certifikata");//Certificate name
+define("_CERTIFICATEDESCRIPTION","Përshkrimi Certifikata");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","përshkrim XML nuk mund të jetë bosh");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","Ekzistuese certifikatë templates");//Existing certificate templates
 define("_TRAFFIC","Trafikut");//Traffic
 define("_LESSONTRAFFIC","Mësim të trafikut");//Lesson traffic
 define("_EDITTEST","Edit test");//Edit test
 define("_EDITQUESTION","Edit pyetje");//Edit question
 define("_CERTIFICATE","Certificate");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","Ri-freskua me sukses çertifikatë");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","template Certifikata u shtua me sukses");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","Nuk ishte një problem gjatë shtimit template certifikatë");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","template Certifikata u ri-freskua me sukses");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa përditësimin template certifikatë");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","template Certifikata u emërtua me sukses");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa riemërimin template certifikatë");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","template Certifikata është klonuar me sukses");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa klonimit template certifikatë");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","template Certifikata u fshi me sukses");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","Nuk ishte një problem gjatë fshirjes template certifikatë");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","Ju nuk keni të drejtat për të ndryshuar këtë template certifikatë");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","template Certifikata u shtua me sukses");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","Nuk ishte një problem gjatë shtimit template certifikatë");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","template Certifikata u ri-freskua me sukses");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa përditësimin template certifikatë");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","template Certifikata u emërtua me sukses");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa riemërimin template certifikatë");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","template Certifikata është klonuar me sukses");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa klonimit template certifikatë");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","template Certifikata u fshi me sukses");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","Nuk ishte një problem gjatë fshirjes template certifikatë");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","Ju nuk keni të drejtat për të ndryshuar këtë template certifikatë");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","Edit kusht");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","SMTP server Konfigurimi");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Në fushat e juaj
 define("_IFEMPTYNEWPASSWORD","Fushat në të kuqe janë të detyrueshme. Në rast se nuk ka dhënë password, password fillestare do te behet e njëjta si të identifikoheni.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Ju lutem kontrolloni format e juaj CSV file");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Në shabllonin, përdorni # # organizatë për emrin e organizatës, për # # user_name user&#39;s name, # # user_surname për user&#39;s mbiemrin, # # course_name për emrin e kursit, # # grade për klasën dhe për # # data data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Në template, &lt;organization&gt; përdorim &lt;/ organizatë&gt; për emrin e organizatës, &lt;student&gt; &lt;/ student&gt; për emrin e plotë studentit, &lt;course&gt; &lt;/ kurs&gt; për emrin e kursit, &lt;grade&gt; &lt;/ klasën&gt; për klasën, &lt; &lt;serial&gt; /&gt; serial per numrin serial, &lt;date&gt; &lt;/&gt; sot për sot, &lt;logo&gt; &lt;/&gt; logo për logo dhe &lt;background&gt; &lt;/&gt; sfond për sfond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","Në template, &lt;organization&gt; përdorim &lt;/ organizatë&gt; për emrin e organizatës, &lt;student&gt; &lt;/ student&gt; për emrin e plotë studentit, &lt;course&gt; &lt;/ kurs&gt; për emrin e kursit, &lt;grade&gt; &lt;/ klasën&gt; për klasën, &lt; &lt;serial&gt; /&gt; serial per numrin serial, &lt;date&gt; &lt;/&gt; sot për sot, &lt;logo&gt; &lt;/&gt; logo për logo dhe &lt;background&gt; &lt;/&gt; sfond për sfond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","Vota");//Votes
 define("_PERCENTAGE","Përqindja");//Percentage
 define("_CERTIFICATEISSUED","Certifikata e lëshuar");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","Mbetem");//Remain
 define("_WEEKS","javë");//weeks
 define("_WEEKs","javë");//week
 define("_DAYS","ditë");//days
-define("_DAYSCAPITAL","Ditët");//Days (New)
+define("_DAYSCAPITAL","Ditët");//Days
 define("_DAY","Dita");//Day
 define("_EVALUATIONDATAUPDATED","Përditësuar të dhënat e vlerësimit me sukses");//Evaluation data updated successfully
 define("_EVALUATION","Vlerësimit");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","Grupi u ri-freskua me sukses");//Group was su
 define("_ASSIGNLESSONSTOGROUPUSERS","Cakto për të zgjedhur mësimet grup përdoruesit");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","Automatikisht gjenerojnė grupi kyç");//Automatically generate group key
 define("_UNIQUEGROUPKEY","Unique grupi kyç");//Unique group key
-define("_UNIQUEGROUPKEYINFO","Ky grup unik kyçe mund të sigurohet për përdoruesit e tyre për të bërë të mundur të regjistrojnë veten në një grup të veçantë duke klikuar ikonën në kyçe faqja e hyrjes");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","Ky grup unik kyçe mund të sigurohet për përdoruesit e tyre për të bërë të mundur të regjistrojnë veten në një grup të veçantë duke klikuar ikonën në kyçe faqja e hyrjes");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","Default sistemit grup");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Kontroll këtë do ta bëjë të gjithë përdoruesit e re e sistemit të caktuar të jetë automatikisht në këtë grup. Vetëm një grup mund të jetë sistem default grup. Si një ndërlikim të ri default grup zgjedhje të zëvendësojnë të mëparshmet.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","Kontroll këtë do ta bëjë të gjithë përdoruesit e re e sistemit të caktuar të jetë automatikisht në këtë grup. Vetëm një grup mund të jetë sistem default grup. Si një ndërlikim të ri default grup zgjedhje të zëvendësojnë të mëparshmet.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","Grupi kryesor");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","Me paraqitjen e këtu një grup unik kyç për të ju ofruar nga administrator i sistemit të jeni në gjendje të regjistrojnë veten në të gjitha mësimet e grup të veçantë që");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","Grupi kryesor keni futur nuk është e vlefshme");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","Fut në grup");//Insert into group
 define("_NOSPECIFICGROUP","Jo grupi specifik");//No specific group
 define("_VIEWINSERTGROUPKEY","Show grupi kyç opsion");//Show group key option
 define("_MAXGROUPKEYUSAGE","Maksimumi kyçe përdor");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","Vendosja në këtë fushë një vlerë më e madhe se zero, do të caktoj kufijtë e disa herë me grupin kryesor mund të përdoren nga përdoruesit për të vetë-regjistrohen në këtë grup. Nëse këtë fushë është vendosur në zero, atëherë nuk do të jenë të tilla kufizojnë zbatohet.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","Vendosja në këtë fushë një vlerë më e madhe se zero, do të caktoj kufijtë e disa herë me grupin kryesor mund të përdoren nga përdoruesit për të vetë-regjistrohen në këtë grup. Nëse këtë fushë është vendosur në zero, atëherë nuk do të jenë të tilla kufizojnë zbatohet.");//Leave blank for no limit
 define("_REMAININGKEYUSES","Mbetura grupi kyç përdor");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","Grupi kryesor ka skaduar");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","Ne jemi të vjen keq, por kjo provë të korruptuar dhe kështu është i paarritshëm. Ju lutem vizitoni të bërë testet lista te fshini kete test ekzekutimit.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","Grupet e mia");//my Groups
 define("_AVAILABLE","I disponueshëm");//Available
 define("_NEVER","Kurrë");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","Njerëz mësim");//Lesson users
+define("_LESSONPEOPLE","Njerëz mësim");//People connection
 define("_NORMALIZEDIMENSIONS","Normalizuar dimensionet");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","ishte caktuar kurs");//was assigned the course
 define("_WILLBETEACHINGCOURSE","do të jetë mësim kurs");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","qëllim Ndryshimi kusht");//Change condition ord
 define("_INDEX","Indeks");//Index
 define("_EVENTDATETIME","Event data dhe kohë");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Skedari çertifikatë ishte zhdukur apo të korruptuar dhe kështu u reset");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Dukshme nga");//Visible from (New)
-define("_EXPIRESAT","Skadon me");//Expires at (New)
-define("_CALENDARDISPLAYDATE","Data Kalendari display");//Calendar display date (New)
-define("_GLOBAL","Global");//Global (New)
-define("_ALLDAY","Gjithë ditën");//All day (New)
-define("_CREATECALENDAREVENT","Krijo ngjarje Kalendari");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","dosje prishësh ekzistues");//Overwrite existing folder (New)
-define("_LANDINGPAGE","Faqe ulje");//Landing page (New)
-define("_EXPORTTOXLS","Eksportit të xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","Anketa dështuar që do të publikohet");//Survey failed to be published (New)
-define("_PRINTCHART","tabelë Print");//Print chart (New)
-define("_RESPONSEDETAILS","Detajet Përgjigje");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","Duke shfaqur vetëm subjekteve aktive");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","Duke shfaqur vetëm subjekteve joaktive");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","Treguar të dy njësitë aktive dhe joaktive");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","Kjo ngjarje nuk ekziston më");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","radhë mesazhe të qarta");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Apliko për përdoruesit tashmë i takon në këtë vend të punës");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Kjo mund të shtoni vetëm (nuk hiqni) një përzgjedhje të re në një përdorues");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","Renditur sipas");//Sort by (New)
-define("_TRAINING","Trajnimi");//Training (New)
-define("_COMPLETEDLESSONS","mësimet Kompletuar");//Completed lessons (New)
-define("_INCOMPLETELESSONS","mësimet e pakompletuar");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","kurse Kompletuar");//Completed courses (New)
-define("_INCOMPLETECOURSES","kurse pakompletuar");//Incomplete courses (New)
-define("_EDITCOLUMN","Edit column");//Edit column (New)
-define("_LESSONSFORCOURSE","Mësime për kursin");//Lessons for course (New)
-define("_TESTSFORLESSON","Testet për mësim");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","Të plotë për të gjithë përdoruesit");//Complete for all users (New)
-define("_LESSONTIMES","herë Mësim");//Lesson times (New)
-define("_MINUTESPERDAY","Minuta në ditë");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","përdorues Identifikohu nga pas (minuta)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","periudhë Updater (ms)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","vlerat e rekomanduara janë jo më pak se 10000ms dhe jo më shumë se 360000ms. Ai gjithashtu duhet të jetë vendosur më pak se koha e daljes auto.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Më shumë se 1 degë (vende), lidhur me këtë kurs, duke treguar një e parë");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","Fut");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","Caktimi i miratuar nga");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","mbikëqyrësi i drejtpërdrejtë punonjësit");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","transferim në rezervë User");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","është çaktivizuar nga sistemi");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","miratim Mbikëqyrësi");//Supervisor approval (New)
-define("_APPROVE","Miratimi i");//Approve (New)
-define("_GROUPKEYEXISTS","kyç Unique tashmë ekziston");//Unique key already exists (New)
-define("_PARTOFCOURSES","Pjesë e kurseve");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ky mësim është pjesë e një ose më shumë kurse, kështu që nuk mund të ndryshoni mode");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Nuk janë përdoruesit e regjistruar në këtë mësim. Ju lutemi të unassign ato para switching modes");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","Kurse (jo të plota / total)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","Export fotografi");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","Kursi planifikuar skadimit");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","Kursi planifikuar fillim");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","fillim Caktuar sigurisht");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","skadimit Caktuar sigurisht");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","Të gjithë përdoruesit kurs");//All course users (New)
+define("_VISIBLEFROM","Dukshme nga");//Visible from
+define("_EXPIRESAT","Skadon me");//Expires at
+define("_CALENDARDISPLAYDATE","Data Kalendari display");//Calendar display date
+define("_GLOBAL","Global");//Global
+define("_ALLDAY","Gjithë ditën");//All day
+define("_CREATECALENDAREVENT","Krijo ngjarje Kalendari");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","dosje prishësh ekzistues");//Overwrite existing folder
+define("_LANDINGPAGE","Faqe ulje");//Landing page
+define("_EXPORTTOXLS","Eksportit të xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","Anketa dështuar që do të publikohet");//Survey failed to be published
+define("_PRINTCHART","tabelë Print");//Print chart
+define("_RESPONSEDETAILS","Detajet Përgjigje");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Duke shfaqur vetëm subjekteve aktive");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Duke shfaqur vetëm subjekteve joaktive");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Treguar të dy njësitë aktive dhe joaktive");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Kjo ngjarje nuk ekziston më");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","radhë mesazhe të qarta");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Apliko për përdoruesit tashmë i takon në këtë vend të punës");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Kjo mund të shtoni vetëm (nuk hiqni) një përzgjedhje të re në një përdorues");//This can only add (not remove) a new selection to a user
+define("_SORTBY","Renditur sipas");//Sort by
+define("_TRAINING","Trajnimi");//Training
+define("_COMPLETEDLESSONS","mësimet Kompletuar");//Completed lessons
+define("_INCOMPLETELESSONS","mësimet e pakompletuar");//Incomplete lessons
+define("_COMPLETEDCOURSES","kurse Kompletuar");//Completed courses
+define("_INCOMPLETECOURSES","kurse pakompletuar");//Incomplete courses
+define("_EDITCOLUMN","Edit column");//Edit column
+define("_LESSONSFORCOURSE","Mësime për kursin");//Lessons for course
+define("_TESTSFORLESSON","Testet për mësim");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Të plotë për të gjithë përdoruesit");//Complete for all users
+define("_LESSONTIMES","herë Mësim");//Lesson times
+define("_MINUTESPERDAY","Minuta në ditë");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","përdorues Identifikohu nga pas (minuta)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","periudhë Updater (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","vlerat e rekomanduara janë jo më pak se 10000ms dhe jo më shumë se 360000ms. Ai gjithashtu duhet të jetë vendosur më pak se koha e daljes auto.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Më shumë se 1 degë (vende), lidhur me këtë kurs, duke treguar një e parë");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","Fut");//Insert
+define("_ASSIGNMENTAPPROVEDBY","Caktimi i miratuar nga");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","mbikëqyrësi i drejtpërdrejtë punonjësit");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","transferim në rezervë User");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","është çaktivizuar nga sistemi");//was deactivated from system
+define("_SUPERVISORAPPROVAL","miratim Mbikëqyrësi");//Supervisor approval
+define("_APPROVE","Miratimi i");//Approve
+define("_GROUPKEYEXISTS","kyç Unique tashmë ekziston");//Unique key already exists
+define("_PARTOFCOURSES","Pjesë e kurseve");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Ky mësim është pjesë e një ose më shumë kurse, kështu që nuk mund të ndryshoni mode");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Nuk janë përdoruesit e regjistruar në këtë mësim. Ju lutemi të unassign ato para switching modes");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Kurse (jo të plota / total)");//Courses (incomplete/total)
+define("_EXPORTFILES","Export fotografi");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","Kursi planifikuar skadimit");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Kursi planifikuar fillim");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","fillim Caktuar sigurisht");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","skadimit Caktuar sigurisht");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Të gjithë përdoruesit kurs");//All course users
+define("_MOVEBLOCK","Move bllok");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","Expand / bllok kolaps");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","Lloji Default nxënës");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","Nëse ju keni vendosur një kyç grup për këtë grup, atëherë përdoruesit që përdorin kyçe do të jenë të regjistruar në mësime / kurse duke pasur këtë lloj. Nëse keni vendosur këtë grup të jetë i default, atëherë përdoruesit e rinj do të caktohen në mësimet e grupit me këtë lloj");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","A nuk e përdorin lloj default");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Ju keni qenë shtua me sukses në grupin");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","Ky grup është joaktiv");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","Kryesore nuk mund të përdoret çdo herë më shumë");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Zgjedhja që bëri nuk është e vlefshme. Ju lutem të vini një opsion nga lista");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Ju jeni tashmë anëtar i këtij grupi");//You are already member of this group (New)
+define("_AVERAGESCORES","rezultatet mesatare");//Average scores (New)
+define("_PROJECTSAVERAGE","Nota mesatare në të gjitha projektet e");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","Switch për të parë pema");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","Kalo në pamje të thjeshtë");//Switch to simple view (New)
+define("_BCCRECIPIENTS","marrësit e pazbuluar (VNV)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","Rezultatet për");//Results for (New)
+define("_THANKYOUFORCOMPLETING","Ju faleminderit për plotësimin");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Nuk ka raporte të gjendet në sistemin e");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","Ju mund të krijojë një");//You may create one (New)
 ?>

@@ -789,7 +789,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $pdf->printDataSection(_TRAINING.': '._LESSONS, $data, $formatting, $subSections);
   $info = array(array(_COURSESAVERAGE, $coursesAvgScore.'%'),
        array(_LESSONSAVERAGE, $lessonsAvgScore.'%'),
-       array(_TESTSAVERAGE, $testsAvgScore).'%');
+       array(_TESTSAVERAGE, $testsAvgScore.'%'));
   $pdf -> printInformationSection(_OVERALL, $info);
  }
  $pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');

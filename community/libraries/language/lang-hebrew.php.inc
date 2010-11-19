@@ -258,8 +258,8 @@ define("_LESSONMATERIAL","שיעור החומר");//Lesson material
 define("_NOQUESTIONSSETFORTHISUNIT","ישנן שאלות לא מוגדר");//There are no questions defined
 define("_ADDQUESTION","הוסף שאלה");//Add question
 define("_PREVIEW","תצוגה מקדימה");//Preview
-define("_RENAME","שינוי שם");//Rename (New)
-define("_CLONE","שיבוט");//Clone (New)
+define("_RENAME","שינוי שם");//Rename
+define("_CLONE","שיבוט");//Clone
 define("_NOTESTSSETFORTHISUNIT","בדיקות לא נמצאה");//No tests found
 define("_ADDTEST","הוסף הבדיקה");//Add test
 define("_UNITANDSUBUNITSTESTS","בדיקות יחידה ו subunits");//Unit and subunits tests
@@ -1002,10 +1002,10 @@ define("_NOTSAWUNIT","בחר את יחידת לא הושלמה");//Set the unit 
 define("_CONDITIONSCOMPLETED","תנאים הושלמה");//Conditions completed
 define("_OUTOF","מתוך");//out of
 define("_LESSONPROGRESS","שיעור ההתקדמות");//Lesson progress
-define("_YOUMUSTSEEUNIT","אתה חייב לראות את יחידת");//You must see unit
-define("_YOUMUSTSEEALLUNITS","אתה חייב לראות את כל יחידות");//You must see all units
+define("_YOUMUSTSEEUNIT","אתה חייב לראות את יחידת");//You must complete unit
+define("_YOUMUSTSEEALLUNITS","אתה חייב לראות את כל יחידות");//You must complete all units
 define("_OFLESSONUNITS","השיעור של יחידות");//of lesson units
-define("_YOUMUSTSEE","אתה חייב לראות");//You must see
+define("_YOUMUSTSEE","אתה חייב לראות");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","עליך להשלים את כל הבדיקות מתכוון עם ניקוד");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","עליך להשלים את הבדיקה");//You must complete test
 define("_WITHSCORE","עם ניקוד");//with score
@@ -1015,35 +1015,35 @@ define("_RESUMELESSON","שיעור חדש");//Resume lesson
 define("_STARTLESSON","התחל שיעור");//Start lesson
 define("_TRACKING","מעקב");//Tracking
 define("_FORMATCERTIFICATE","עיצוב תעודה");//Format certificate
-define("_FORMATCERTIFICATETEMPLATE","עיצוב תבנית תעודה");//Format certificate template (New)
-define("_SETCERTIFICATEEXPIRATION","הגדרת תפוגה תעודת");//Set certificate expiration (New)
-define("_FORMATCERTIFICATELIVEDOCXMETHOD","השתמש בשיטה LiveDocX ליצירת הסמכות");//Use the LiveDocX method for creating certifications (New)
-define("_FORMATCERTIFICATEFPDFMETHOD","השתמש בשיטת ה-XML ליצירת הסמכות");//Use the XML method for creating certifications (New)
-define("_ADDCERTIFICATETEMPLATEXML","הוסף תבנית תעודה (בפורמט XML)");//Add certificate template (xml format) (New)
-define("_EDITCERTIFICATETEMPLATEXML","ערוך תבנית תעודה (בפורמט XML)");//Edit certificate template (xml format) (New)
-define("_RENAMECERTIFICATETEMPLATEXML","שינוי שם התבנית תעודה");//Rename certificate template (New)
-define("_CLONECERTIFICATETEMPLATEXML","שיבוט תבנית תעודה");//Clone certificate template (New)
-define("_CERTIFICATENAME","תעודת שם");//Certificate name (New)
-define("_CERTIFICATEDESCRIPTION","תעודת תיאור");//Certificate description (New)
-define("_ADDCERTIFICATETEMPLATEEMPTYXML","תיאור XML לא יכול להיות ריק");//XML description cannot be empty (New)
-define("_EXISTINGCERTIFICATETEMPLATESXML","קיימת תעודת תבניות");//Existing certificate templates (New)
+define("_FORMATCERTIFICATETEMPLATE","עיצוב תבנית תעודה");//Format certificate template
+define("_SETCERTIFICATEEXPIRATION","הגדרת תפוגה תעודת");//Set certificate expiration
+define("_FORMATCERTIFICATELIVEDOCXMETHOD","השתמש בשיטה LiveDocX ליצירת הסמכות");//Use the LiveDocX method for creating certifications
+define("_FORMATCERTIFICATEFPDFMETHOD","השתמש בשיטת ה-XML ליצירת הסמכות");//Use the XML method for creating certifications
+define("_ADDCERTIFICATETEMPLATEXML","הוסף תבנית תעודה (בפורמט XML)");//Add certificate template (xml format)
+define("_EDITCERTIFICATETEMPLATEXML","ערוך תבנית תעודה (בפורמט XML)");//Edit certificate template (xml format)
+define("_RENAMECERTIFICATETEMPLATEXML","שינוי שם התבנית תעודה");//Rename certificate template
+define("_CLONECERTIFICATETEMPLATEXML","שיבוט תבנית תעודה");//Clone certificate template
+define("_CERTIFICATENAME","תעודת שם");//Certificate name
+define("_CERTIFICATEDESCRIPTION","תעודת תיאור");//Certificate description
+define("_ADDCERTIFICATETEMPLATEEMPTYXML","תיאור XML לא יכול להיות ריק");//XML description cannot be empty
+define("_EXISTINGCERTIFICATETEMPLATESXML","קיימת תעודת תבניות");//Existing certificate templates
 define("_TRAFFIC","תנועה");//Traffic
 define("_LESSONTRAFFIC","שיעור תנועה");//Lesson traffic
 define("_EDITTEST","עריכת הבדיקה");//Edit test
 define("_EDITQUESTION","עריכת השאלה");//Edit question
 define("_CERTIFICATE","תעודה");//Certificate
 define("_SUCCESFULLYUPDATEDCERTIFICATE","עודכנו בהצלחה תעודה");//Certificate was successfully updated
-define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","תבנית תעודת נוספה בהצלחה");//Certificate template was successfully added (New)
-define("_PROBLEMADDEDCERTIFICATETEMPLATE","היתה בעיה בזמן הוספת תבנית תעודה");//There was a problem while adding certificate template (New)
-define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","תבנית תעודת עודכנה בהצלחה");//Certificate template was successfully updated (New)
-define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","היתה בעיה בעת עדכון תבנית תעודה");//There was a problem while updating certificate template (New)
-define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","תבנית תעודת הוחלף בהצלחה");//Certificate template was successfully renamed (New)
-define("_PROBLEMRENAMECERTIFICATETEMPLATE","היתה בעיה בעת שינוי תבנית תעודה");//There was a problem while renaming certificate template (New)
-define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","תבנית תעודת שוכפלה בהצלחה");//Certificate template was successfully cloned (New)
-define("_PROBLEMCLONECERTIFICATETEMPLATE","היתה בעיה בעת שיבוט תבנית תעודה");//There was a problem while cloning certificate template (New)
-define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","תבנית תעודת נמחק בהצלחה");//Certificate template was successfully deleted (New)
-define("_PROBLEMDELETECERTIFICATETEMPLATE","הייתה בעיה, למרות שמחיקת תבנית תעודה");//There was a problem while deleting certificate template (New)
-define("_CERTIFICATETEMPLATENOACCESS","אין לך את הזכות לשנות תבנית זו תעודת");//You don't have the rights to modify this certificate template (New)
+define("_SUCCESSFULLYADDEDCERTIFICATETEMPLATE","תבנית תעודת נוספה בהצלחה");//Certificate template was successfully added
+define("_PROBLEMADDEDCERTIFICATETEMPLATE","היתה בעיה בזמן הוספת תבנית תעודה");//There was a problem while adding certificate template
+define("_SUCCESSFULLYUPDATEDCERTIFICATETEMPLATE","תבנית תעודת עודכנה בהצלחה");//Certificate template was successfully updated
+define("_PROBLEMUPDATEDCERTIFICATETEMPLATE","היתה בעיה בעת עדכון תבנית תעודה");//There was a problem while updating certificate template
+define("_SUCCESSFULLYRENAMECERTIFICATETEMPLATE","תבנית תעודת הוחלף בהצלחה");//Certificate template was successfully renamed
+define("_PROBLEMRENAMECERTIFICATETEMPLATE","היתה בעיה בעת שינוי תבנית תעודה");//There was a problem while renaming certificate template
+define("_SUCCESSFULLYCLONECERTIFICATETEMPLATE","תבנית תעודת שוכפלה בהצלחה");//Certificate template was successfully cloned
+define("_PROBLEMCLONECERTIFICATETEMPLATE","היתה בעיה בעת שיבוט תבנית תעודה");//There was a problem while cloning certificate template
+define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","תבנית תעודת נמחק בהצלחה");//Certificate template was successfully deleted
+define("_PROBLEMDELETECERTIFICATETEMPLATE","הייתה בעיה, למרות שמחיקת תבנית תעודה");//There was a problem while deleting certificate template
+define("_CERTIFICATETEMPLATENOACCESS","אין לך את הזכות לשנות תבנית זו תעודת");//You don't have the rights to modify this certificate template
 define("_EDITCONDITION","מצב עריכה");//Edit condition
 define("_SMTPSERVERCONFIGURATIONS","תצורת שרת SMTP");//SMTP server configuration
 define("_SMTPSERVER","שרת SMTP");//SMTP server
@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","השדות בקו
 define("_IFEMPTYNEWPASSWORD","השדות באדום הם שדות חובה. אם אין נתון סיסמא, את הסיסמא הראשונית יוגדר זהה הכניסה.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","אנא בדוק את הפורמט של קובץ CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","בתבנית, השתמש הארגון # # עבור הארגון שם, USER_NAME # # עבור שם המשתמש, user_surname # # עבור המשתמש שם משפחה, course_name # # עבור קורס שם, כיתה # # עבור כיתה ו # # עבור התאריך היום.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","בתבנית, &lt;organization&gt; להשתמש &lt;/ ארגון&gt; השם של הארגון, &lt;student&gt; &lt;/ סטודנט&gt; עבור השם המלא של הסטודנט, &lt;course&gt; &lt;/ כמובן&gt; השם של הקורס, &lt;grade&gt; &lt;/ כיתה&gt; לכיתה, &lt; &lt;&lt;סדרתי /&gt; הסידורי של המספר הסידורי, &lt;תאריך&gt; &lt;/&gt; תאריך לפגישה, &lt;logo&gt; &lt;/&gt; הלוגו &lt;הלוגו &lt;background&gt; /&gt; רקע רקע.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background. (New)
+define("_CERTIFICATEINSTRUCTIONSXML","בתבנית, &lt;organization&gt; להשתמש &lt;/ ארגון&gt; השם של הארגון, &lt;student&gt; &lt;/ סטודנט&gt; עבור השם המלא של הסטודנט, &lt;course&gt; &lt;/ כמובן&gt; השם של הקורס, &lt;grade&gt; &lt;/ כיתה&gt; לכיתה, &lt; &lt;&lt;סדרתי /&gt; הסידורי של המספר הסידורי, &lt;תאריך&gt; &lt;/&gt; תאריך לפגישה, &lt;logo&gt; &lt;/&gt; הלוגו &lt;הלוגו &lt;background&gt; /&gt; רקע רקע.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
 define("_VOTES","הצבעות");//Votes
 define("_PERCENTAGE","אחוז");//Percentage
 define("_CERTIFICATEISSUED","האישור שהוצאו");//Certificate issued
@@ -1653,7 +1653,7 @@ define("_TIMEREMAIN","להישאר");//Remain
 define("_WEEKS","שבועות");//weeks
 define("_WEEKs","שבוע");//week
 define("_DAYS","ימים");//days
-define("_DAYSCAPITAL","ימים");//Days (New)
+define("_DAYSCAPITAL","ימים");//Days
 define("_DAY","יום");//Day
 define("_EVALUATIONDATAUPDATED","הערכת הנתונים המעודכנים בהצלחה");//Evaluation data updated successfully
 define("_EVALUATION","הערכה");//Evaluation
@@ -2799,9 +2799,9 @@ define("_SUCCESFULLYUPDATEDGROUP","קבוצת עודכנו בהצלחה");//Grou
 define("_ASSIGNLESSONSTOGROUPUSERS","הקצה שנבחרו שיעורים לקבוצה משתמשים");//Assign selected lessons to group users
 define("_AUTOMATICALLYGENERATEGROUPKEY","אוטומטית ליצור קבוצת מפתח");//Automatically generate group key
 define("_UNIQUEGROUPKEY","ייחודיים לקבוצה מפתח");//Unique group key
-define("_UNIQUEGROUPKEYINFO","קבוצה מיוחדת זו מפתח יכול להינתן למשתמשים כדי לאפשר להם לרשום את עצמם קבוצה מסוימת, על ידי לחיצה על מקש סמל בדף הכניסה");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the login page
+define("_UNIQUEGROUPKEYINFO","קבוצה מיוחדת זו מפתח יכול להינתן למשתמשים כדי לאפשר להם לרשום את עצמם קבוצה מסוימת, על ידי לחיצה על מקש סמל בדף הכניסה");//This unique group key can be provided to users to enable them to register themselves to a particular group by clicking the key icon on the courses list, after they login
 define("_ISTHEDEFAULTEFRONTSYSTEMGROUP","ברירת המחדל של המערכת קבוצה");//Default system group
-define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","בדיקה זו יהפכו את כל המשתמשים החדשים של המערכת באופן אוטומטי שהוקצתה לקבוצה זו. רק קבוצה אחת יכולה להיות ברירת המחדל של המערכת קבוצה. בתור ברירת המחדל של קבוצת משמעות הבחירות להחליף את אלו קודם.");//Checking this will make all new users of the system to be automatically assigned to this group. Only one group can be the default system group. As an implication new default group selections replace the previous ones.
+define("_ISTHEDEFAULTEFRONTSYSTEMGROUPINFO","בדיקה זו יהפכו את כל המשתמשים החדשים של המערכת באופן אוטומטי שהוקצתה לקבוצה זו. רק קבוצה אחת יכולה להיות ברירת המחדל של המערכת קבוצה. בתור ברירת המחדל של קבוצת משמעות הבחירות להחליף את אלו קודם.");//Checking this will make all new users to be automatically assigned to this group. Only one group can be the default system group. As a result, new default group selections replace the previous ones.
 define("_ENTERGROUPKEY","קבוצת מפתח");//Group/Lesson key
 define("_ENTERGROUPKEYINFO","על ידי הגשת כאן קבוצה ייחודית מפתח שסופקה לך על ידי מנהל המערכת תוכל לרשום לעצמך את כל השיעורים של קבוצה מסוימת");//By submitting here a unique group key provided to you by the system administrator you are able to register yourself to all lessons of that particular group
 define("_WRONGGROUPLESSONKEY","הקבוצה המפתח שהזנת אינו חוקי");//The group key you have entered is not valid
@@ -2817,7 +2817,7 @@ define("_INSERTINTOGROUP","הכנס לתוך קבוצת");//Insert into group
 define("_NOSPECIFICGROUP","אין קבוצה ספציפית");//No specific group
 define("_VIEWINSERTGROUPKEY","הצג קבוצה מפתח אפשרות");//Show group key option
 define("_MAXGROUPKEYUSAGE","מקסימום מפתח משתמש");//Maximum key uses
-define("_MAXGROUPKEYUSAGEINFO","הגדרת שדה זה לערך הגדול מאפס, יהיה לתחום את מספר הפעמים הקבוצה מפתח ניתן להשתמש על ידי משתמשים כדי לרשום את עצמי לקבוצה זו. אם השדה מוגדר אפס, אזי אין מגבלה כזו תהיה נאכפת.");//Setting this field to a value greater than zero, will delimit the number of times the group key can be used by users to self-register to this group. If the field is set to zero, then no such limit will be enforced.
+define("_MAXGROUPKEYUSAGEINFO","הגדרת שדה זה לערך הגדול מאפס, יהיה לתחום את מספר הפעמים הקבוצה מפתח ניתן להשתמש על ידי משתמשים כדי לרשום את עצמי לקבוצה זו. אם השדה מוגדר אפס, אזי אין מגבלה כזו תהיה נאכפת.");//Leave blank for no limit
 define("_REMAININGKEYUSES","נותרו קבוצה המפתח משתמש");//Remaining group key uses
 define("_THEGROUPKEYHASEXPIRED","הקבוצה מפתח פגה");//The group key has expired
 define("_TESTCORRUPTEDORNOTACOMPLETEDTEST","אנחנו מצטערים, אבל במבחן הזה פגום ולכן אין גישה אליו. אנא בקר את רשימת בדיקות לעשות כדי למחוק את ביצוע הבדיקה.");//We are sorry, but this test is corrupted and thus inaccessible. Please visit the done tests list to delete this test execution.
@@ -2846,7 +2846,7 @@ define("_MYGROUPS","קבוצות שלי");//my Groups
 define("_AVAILABLE","זמין");//Available
 define("_NEVER","אף פעם");//Never
 define("_CLASSMATES","Classmates");//Classmates
-define("_LESSONPEOPLE","שיעור האנשים");//Lesson users
+define("_LESSONPEOPLE","שיעור האנשים");//People connection
 define("_NORMALIZEDIMENSIONS","מנורמל מימדים");//Normalize dimensions
 define("_WASASSIGNEDTHECOURSE","הוטלה כמובן");//was assigned the course
 define("_WILLBETEACHINGCOURSE","יהיה ללמד את הקורס");//will be teaching the course
@@ -3883,57 +3883,76 @@ define("_CHANGECONDITIONORDER","שינוי סדר במצב");//Change condition 
 define("_INDEX","מדד");//Index
 define("_EVENTDATETIME","אירוע התאריך והשעה");//Event date and time
 define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","קובץ האישור היה חסר או פגום, ולכן היה לאפס");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","גלוי מ");//Visible from (New)
-define("_EXPIRESAT","יפוג ב");//Expires at (New)
-define("_CALENDARDISPLAYDATE","לוח שנה תאריך לתצוגה");//Calendar display date (New)
-define("_GLOBAL","עולמי");//Global (New)
-define("_ALLDAY","כל יום");//All day (New)
-define("_CREATECALENDAREVENT","יצירת אירוע בלוח השנה");//Create calendar event (New)
-define("_OVERWRITEIFFOLDEREXISTS","החלף הקיים בתיקיה");//Overwrite existing folder (New)
-define("_LANDINGPAGE","דף נחיתה");//Landing page (New)
-define("_EXPORTTOXLS","יצוא ל-xls");//Export to xls (New)
-define("_SURVEYFAILEDTOBEPUBLISHED","סקר לא יפורסם");//Survey failed to be published (New)
-define("_PRINTCHART","הדפסת תרשים");//Print chart (New)
-define("_RESPONSEDETAILS","בתגובה פרטי");//Response details (New)
-define("_SHOWINGONLYACTIVEENTITIES","מציג רק גופים פעילים");//Showing only active entities (New)
-define("_SHOWINGONLYINACTIVEENTITIES","מציג רק גופים פעילים");//Showing only inactive entities (New)
-define("_SHOWINGALLENTITIES","מציג שני גופים פעילים ולא פעילים");//Showing both active and inactive entities (New)
-define("_EVENTDOESNOTEXIST","אירוע זה כבר לא קיים");//This event no longer exists (New)
-define("_CLEARQUEUEMESSAGES","נקה הודעות תור");//Clear queue messages (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","לחול על משתמשים כבר שייך עמדה זו עבודה");//Apply to users already belongs to this job position (New)
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","זה יכול רק להוסיף (לא להסיר) מבחר חדש למשתמש");//This can only add (not remove) a new selection to a user (New)
-define("_SORTBY","מיין לפי");//Sort by (New)
-define("_TRAINING","הכשרה");//Training (New)
-define("_COMPLETEDLESSONS","השלמת שיעורים");//Completed lessons (New)
-define("_INCOMPLETELESSONS","הושלמה שיעורים");//Incomplete lessons (New)
-define("_COMPLETEDCOURSES","השלמת הקורסים");//Completed courses (New)
-define("_INCOMPLETECOURSES","הושלמה קורסים");//Incomplete courses (New)
-define("_EDITCOLUMN","עריכת עמודה");//Edit column (New)
-define("_LESSONSFORCOURSE","שיעורים עבור קורס");//Lessons for course (New)
-define("_TESTSFORLESSON","בדיקות לשיעור");//Tests for lesson (New)
-define("_SETALLUSERSSTATUSCOMPLETED","השלם עבור כל המשתמשים");//Complete for all users (New)
-define("_LESSONTIMES","שיעור פעמים");//Lesson times (New)
-define("_MINUTESPERDAY","דקות ביום");//Minutes per day (New)
-define("_LOGOUTUSERAFTERMINUTES","היכנס המשתמש לאחר (דקות)");//Log out user after (minutes) (New)
-define("_UPDATERPERIODSECONDS","תקופת Updater (MS)");//Updater period (ms) (New)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","ערכים מומלצים הם לא פחות מאשר 10000ms ולא יותר מ 360000ms. כמו כן, יש להגדיר פחות זמן להתנתקות אוטומטי.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time. (New)
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","יותר מ 1 ענפים (מיקומים) הקשורים בקורס זה, מציג את הראשון");//More than 1 branches (locations) associated with this course, showing the first one (New)
-define("_INSERT","להכניס");//Insert (New)
-define("_ASSIGNMENTAPPROVEDBY","ההקצאה אושרה על ידי");//Assignment approved by (New)
-define("_EMPLOYEEIMMEDIATESUPERVISOR","לממונה הישיר של העובד");//Employee's immediate supervisor (New)
-define("_SYSTEM_USER_DEACTIVATED","משתמש שחרור משרות");//User deactivation (New)
-define("_WASDEACTIVATEDFROMTHESYSTEM","היה מנוטרל מן המערכת");//was deactivated from system (New)
-define("_SUPERVISORAPPROVAL","המפקח לאישור");//Supervisor approval (New)
-define("_APPROVE","לאשר");//Approve (New)
-define("_GROUPKEYEXISTS","מפתח ייחודי כבר קיים");//Unique key already exists (New)
-define("_PARTOFCOURSES","חלק מהקורסים");//Part of courses (New)
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","שיעור זה הוא חלק בקורסים אחד או יותר, כך שזה לא יכול לשנות את מצב");//This lesson is part of one or more courses, so it cannot change mode (New)
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","ישנם משתמשים נרשמו לשיעור זה. אנא unassign אותם לפני המעבר מצבי");//There are users enrolled to this lesson. Please unassign them before switching modes (New)
-define("_COURSESINCOMPLETETOTAL","קורסים (שלם / סהכ)");//Courses (incomplete/total) (New)
-define("_EXPORTFILES","ייצוא קבצים");//Export files (New)
-define("_PROGRAMMEDCOURSEEXPIRY","הקורס אמור תפוגה");//Course scheduled expiration (New)
-define("_PROGRAMMEDCOURSESTART","הקורס מתוכנן בתחילת");//Course scheduled beginning (New)
-define("_SCHEDULEDSTARTOFCOURSE","להתחיל מתוזמנת כמובן");//Scheduled start of course (New)
-define("_SCHEDULEDEXPIRYOFCOURSE","פקיעת מתוזמנת כמובן");//Scheduled expiration of course (New)
-define("_ALLCOURSEUSERS","כל כמובן משתמשים");//All course users (New)
+define("_VISIBLEFROM","גלוי מ");//Visible from
+define("_EXPIRESAT","יפוג ב");//Expires at
+define("_CALENDARDISPLAYDATE","לוח שנה תאריך לתצוגה");//Calendar display date
+define("_GLOBAL","עולמי");//Global
+define("_ALLDAY","כל יום");//All day
+define("_CREATECALENDAREVENT","יצירת אירוע בלוח השנה");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","החלף הקיים בתיקיה");//Overwrite existing folder
+define("_LANDINGPAGE","דף נחיתה");//Landing page
+define("_EXPORTTOXLS","יצוא ל-xls");//Export to xls
+define("_SURVEYFAILEDTOBEPUBLISHED","סקר לא יפורסם");//Survey failed to be published
+define("_PRINTCHART","הדפסת תרשים");//Print chart
+define("_RESPONSEDETAILS","בתגובה פרטי");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","מציג רק גופים פעילים");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","מציג רק גופים פעילים");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","מציג שני גופים פעילים ולא פעילים");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","אירוע זה כבר לא קיים");//This event no longer exists
+define("_CLEARQUEUEMESSAGES","נקה הודעות תור");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","לחול על משתמשים כבר שייך עמדה זו עבודה");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","זה יכול רק להוסיף (לא להסיר) מבחר חדש למשתמש");//This can only add (not remove) a new selection to a user
+define("_SORTBY","מיין לפי");//Sort by
+define("_TRAINING","הכשרה");//Training
+define("_COMPLETEDLESSONS","השלמת שיעורים");//Completed lessons
+define("_INCOMPLETELESSONS","הושלמה שיעורים");//Incomplete lessons
+define("_COMPLETEDCOURSES","השלמת הקורסים");//Completed courses
+define("_INCOMPLETECOURSES","הושלמה קורסים");//Incomplete courses
+define("_EDITCOLUMN","עריכת עמודה");//Edit column
+define("_LESSONSFORCOURSE","שיעורים עבור קורס");//Lessons for course
+define("_TESTSFORLESSON","בדיקות לשיעור");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","השלם עבור כל המשתמשים");//Complete for all users
+define("_LESSONTIMES","שיעור פעמים");//Lesson times
+define("_MINUTESPERDAY","דקות ביום");//Minutes per day
+define("_LOGOUTUSERAFTERMINUTES","היכנס המשתמש לאחר (דקות)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","תקופת Updater (MS)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","ערכים מומלצים הם לא פחות מאשר 10000ms ולא יותר מ 360000ms. כמו כן, יש להגדיר פחות זמן להתנתקות אוטומטי.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","יותר מ 1 ענפים (מיקומים) הקשורים בקורס זה, מציג את הראשון");//More than 1 branches (locations) associated with this course, showing the first one
+define("_INSERT","להכניס");//Insert
+define("_ASSIGNMENTAPPROVEDBY","ההקצאה אושרה על ידי");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","לממונה הישיר של העובד");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","משתמש שחרור משרות");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","היה מנוטרל מן המערכת");//was deactivated from system
+define("_SUPERVISORAPPROVAL","המפקח לאישור");//Supervisor approval
+define("_APPROVE","לאשר");//Approve
+define("_GROUPKEYEXISTS","מפתח ייחודי כבר קיים");//Unique key already exists
+define("_PARTOFCOURSES","חלק מהקורסים");//Part of courses
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","שיעור זה הוא חלק בקורסים אחד או יותר, כך שזה לא יכול לשנות את מצב");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","ישנם משתמשים נרשמו לשיעור זה. אנא unassign אותם לפני המעבר מצבי");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","קורסים (שלם / סהכ)");//Courses (incomplete/total)
+define("_EXPORTFILES","ייצוא קבצים");//Export files
+define("_PROGRAMMEDCOURSEEXPIRY","הקורס אמור תפוגה");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","הקורס מתוכנן בתחילת");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","להתחיל מתוזמנת כמובן");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","פקיעת מתוזמנת כמובן");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","כל כמובן משתמשים");//All course users
+define("_MOVEBLOCK","העבר לחסום");//Move block (New)
+define("_EXPANDCOLLAPSEBLOCK","הרחב / כווץ לחסום");//Expand/collapse block (New)
+define("_DEFAULTLEARNERTYPE","סוג ברירת המחדל של הלומד");//Default learner type (New)
+define("_DEFAULTLEARNERTYPEINFO","אם קבעת מפתח בקבוצה עבור הקבוצה הזו, ואז משתמשים העושים שימוש המפתח יהיה רשום על שיעורים / קורסים שיש מסוג זה. אם יש לך להגדיר את הקבוצה הזאת להיות ברירת המחדל, ואז משתמשים חדשים יוקצה שיעורים של הקבוצה עם סוג זה");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
+define("_DONTUSEDEFAULTGROUP","אל תשתמש סוג ברירת המחדל");//Don't use default type (New)
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","אתה נוספו בהצלחה לקבוצה");//You have been successfully added to the group (New)
+define("_THISGROUPISINACTIVE","קבוצה זו אינה פעילה");//This group is inactive (New)
+define("_MAXIMUMKEYUSAGESREACHED","המפתח לא ניתן להשתמש בכל הזמנים יותר");//The key cannot be used any more times (New)
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","הבחירה שעשית אינו חוקי. נא לבחור אפשרות מתוך הרשימה");//The selection you made is not valid. Please pick an option from the list (New)
+define("_YOUAREALREADYMEMBEROFTHISGROUP","אתה חבר כבר בקבוצה זו");//You are already member of this group (New)
+define("_AVERAGESCORES","ממוצע ציונים");//Average scores (New)
+define("_PROJECTSAVERAGE","ממוצע דירוג בכל הפרוייקטים");//Average score in all projects (New)
+define("_SWITCHTOTREEVIEW","תצוגת עץ");//Switch to tree view (New)
+define("_SWITCHTOSIMPLEVIEW","עבור לתצוגת פשוטה");//Switch to simple view (New)
+define("_BCCRECIPIENTS","נמענים שלא פורסם (עותק מוסתר)");//Undisclosed recipients (bcc) (New)
+define("_RESULTSFOR","תוצאות עבור");//Results for (New)
+define("_THANKYOUFORCOMPLETING","תודה על מילוי");//Thank you for completing (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","דיווחים לא נמצאו במערכת");//No reports found in the system (New)
+define("_YOUMAYCREATEONE","אתה יכול ליצור אחד");//You may create one (New)
 ?>

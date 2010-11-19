@@ -165,12 +165,6 @@ if (isset($_GET['delete_direction']) && eF_checkParameter($_GET['delete_directio
   foreach ($courses as $key => $course) {
    $courses[$key] = $course -> course;
   }
-  if (G_VERSIONTYPE == 'enterprise') {
-   $result = eF_getTableDataFlat("lessons LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_lesson_offers_skill.lesson_ID = lessons.id","lessons.id, count(skill_ID) as skills_offered","lessons.directions_ID=".$editDirection['id'],"","id");
-   foreach ($result['id'] as $key => $lesson_id) {
-    $lessons -> lesson[$lesson_id]['skills_offered'] = $result['skills_offered'][$key];
-   }
-  }
 
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable') {
    isset($_GET['limit']) ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
@@ -222,8 +216,14 @@ if (isset($_GET['delete_direction']) && eF_checkParameter($_GET['delete_directio
    try {
     if (isset($_GET['id']) && eF_checkParameter($_GET['id'], 'id') && isset($_GET['directions_ID']) && eF_checkParameter($_GET['directions_ID'], 'id')) {
      $lesson = new EfrontLesson($_GET['id']);
+     if ($_GET['directions_ID'] != $lesson -> lesson['directions_ID']) {
+      $updateLessonInstancesCategory = true; //This means we need to update instances to match the course's new category
+     }
      $lesson -> lesson['directions_ID'] = $_GET['directions_ID'];
      $lesson -> persist();
+     if (isset($updateLessonInstancesCategory) && $updateLessonInstancesCategory) {
+      eF_updateTableData("lessons", array("directions_ID" => $lesson -> lesson['directions_ID']), "instance_source=".$lesson -> lesson['id']);
+     }
     }
     exit;
    } catch (Exception $e) {

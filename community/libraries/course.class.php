@@ -1844,8 +1844,22 @@ class EfrontCourse
    $value -> course['active'] = 0;
    $value -> course['archive'] = time();
    $value -> persist();
+   $value -> archiveUniqueLessons();
   }
   $this -> persist();
+ }
+ /**
+	 * Delete course lessons that where created especially for it
+	 *
+	 * @since 3.6.1
+	 * @access private
+	 */
+ private function archiveUniqueLessons() {
+  $result = eF_getTableData("lessons", "*", "originating_course=".$this -> course['id']);
+  foreach ($result as $value) {
+   $value = new EfrontLesson($value);
+   $value -> archive();
+  }
  }
  /**
 	 * Unarchive course
@@ -1873,6 +1887,20 @@ class EfrontCourse
   } else { //If some other category exists, assign it there
    $this -> course['directions_ID'] = $result['id'][0];
    $this -> persist();
+  }
+  $this -> unarchiveUniqueLessons();
+ }
+ /**
+	 * Delete course lessons that where created especially for it
+	 *
+	 * @since 3.6.1
+	 * @access private
+	 */
+ private function unarchiveUniqueLessons() {
+  $result = eF_getTableData("lessons", "*", "originating_course=".$this -> course['id']);
+  foreach ($result as $value) {
+   $value = new EfrontLesson($value);
+   $value -> unarchive();
   }
  }
  /**

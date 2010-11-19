@@ -202,8 +202,8 @@ if (isset($_GET['fct'])) {
     }
     if ($form -> isSubmitted() && $form -> validate()) {
      try {
-      unset($cart['lesson'][$key]);
-      unset($cart['course'][$key]);
+      unset($cart['lesson']);
+      unset($cart['course']);
             //First, assign free lessons/courses, whatever happens
             if (sizeof($freeLessons) > 0) {
                 $currentUser -> addLessons($freeLessons, array_fill(0, sizeof($freeLessons), 'student'), true);

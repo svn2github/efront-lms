@@ -3,7 +3,7 @@
 define("_FUZE_MEETINGS","FUZE conferences");
 
 // ADMIN INTERFACE STUFF
-define("_FUZE_ADMIN_NOT_REGISTERED_YET","You are not registered with the FUZE Conferencing service yet. Please press the button below to register.");
+define("_FUZE_ADMIN_NOT_REGISTERED_YET","You are not registered with the FUZE Meetings service yet. Please press the button below to register.");
 define("_FUZE_ADMIN_USER_AMOUNT","FUZE accounts found on the system");
 define("_FUZE_ADMIN_USER_SELECT_DEFAULT","Please select a professor");
 define("_FUZE_ADMIN_USER_NOT_FOUND","This user does not have a FUZE account.");

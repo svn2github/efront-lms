@@ -127,7 +127,7 @@ if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user[
 
  $info = array();
  foreach ($skills as $value) {
-  $info[] = array($value['description'], $value['specification']);
+  $info[] = array($value['description'].' ', $value['specification'].' '); //Append space, in order to always appear
  }
  $pdf -> printInformationSection(_SKILLS, $info);
 

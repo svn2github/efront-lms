@@ -386,8 +386,10 @@ if ($_GET['op'] == 'course_info') {
 
     $xmlExport->drawLines($pdf);
     $xmlExport->showLabels($pdf);
-    $xmlExport->showImages($pdf);
-    $xmlExport->showLogo($pdf);
+    if (extension_loaded('gd')) {
+     $xmlExport->showImages($pdf);
+     $xmlExport->showLogo($pdf);
+    }
     $xmlExport->showOrganization($pdf);
     $xmlExport->showDate($pdf, $certificateDate);
     $xmlExport->showSerialNumber($pdf, $serialNumber);

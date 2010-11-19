@@ -78,6 +78,8 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $tableName = 'skillsTable';
    include("sorted_table.php");
   } else if ($_GET['ajax'] == 'lessonsTable') {
+   $courseUsers = $editCourse -> countCourseUsers(array('archive' => false));
+   $smarty -> assign("T_COURSE_HAS_USERS", $courseUsers['count']);
 
       $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
       $lessons = $editCourse -> getCourseLessonsIncludingUnassigned($constraints);

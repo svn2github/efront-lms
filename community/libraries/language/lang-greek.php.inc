@@ -3955,4 +3955,5 @@ define("_RESULTSFOR", "Αποτελέσματα για");
 define("_THANKYOUFORCOMPLETING", "Ευχαριστούμε που ολοκληρώσατε το");
 define("_NOREPORTSFOUNDINTHESYSTEM", "Δε βρέθηκαν αναφορές στο σύστημα");
 define("_YOUMAYCREATEONE", "Μπορείτε να κατασκευάσετε μία");
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY", "Δεν μπορείτε να αλλάξετε κατάσταση στο μάθημα γιατί η δέσμη έχει χρήστες");
 ?>

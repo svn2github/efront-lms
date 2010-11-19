@@ -317,6 +317,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
      $smarty -> assign("T_EMPLOYEES_SIZE", 0);
      $smarty -> assign("T_NOBRANCHJOBSERROR", 1);
     }
+
     $smarty -> display($_SESSION['s_type'].'.tpl');
     exit;
    }

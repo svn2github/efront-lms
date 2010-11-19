@@ -3955,4 +3955,5 @@ define("_RESULTSFOR", "Results for");
 define("_THANKYOUFORCOMPLETING", "Thank you for completing");
 define("_NOREPORTSFOUNDINTHESYSTEM", "No reports found in the system");
 define("_YOUMAYCREATEONE", "You may create one");
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY", "You cannot change lesson mode because there are users enrolled to the course");
 ?>

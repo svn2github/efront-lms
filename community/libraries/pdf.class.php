@@ -196,8 +196,9 @@ class EfrontPdf
   $this->pdf->setTextColor(0,0,0);
   $idx = 1;
   unset($titleRow['active']);
+
+  $rowHeight = $this->calculateRowHeight(array_combine(array_keys($titleRow), array_keys($titleRow)), $formatting);
   foreach ($titleRow as $columnTitle => $foo) {
-   $rowHeight = $this->calculateRowHeight($titleRow, $formatting[$columnTitle]);
    $idx++ == sizeof($titleRow) ? $newLine = 1 : $newLine = 0;
    $this->printMultiContent($columnTitle,
           array('bold' => 'B', 'height' => $rowHeight) + $formatting[$columnTitle],
@@ -212,7 +213,9 @@ class EfrontPdf
     if (!($imageFile instanceOf EfrontFile)) {
      $imageFile = new EfrontFile($imageFile);
     }
-    $this->pdf->Image($imageFile['path'], '', '', 0, 0, '', '', 'T');
+    if (extension_loaded('gd')) {
+     $this->pdf->Image($imageFile['path'], '', '', 0, 0, '', '', 'T');
+    }
    }
   } catch (Exception $e) {/*do nothing if the image could not be embedded*/}
  }
@@ -245,8 +248,9 @@ class EfrontPdf
   $this->pdf->AddPage();
 
   $logoFile = EfrontSystem::getSystemLogo();
-  $this->pdf->Image($logoFile['path'], '', '', 0, 0, '', '', 'T');
-
+  if (extension_loaded('gd')) {
+   $this->pdf->Image($logoFile['path'], '', '', 0, 0, '', '', 'T');
+  }
   $this->pdf->SetFont($this->defaultSettings['default_font']);
 
   $this->printLargeTitle($GLOBALS['configuration']['site_name']);
@@ -263,6 +267,7 @@ class EfrontPdf
  private function printMediumTitle($text) {
   $this->pdf->SetFont('', 'B', $this->defaultSettings['medium_header_font_size']);
   $this->pdf->Cell(0, 0, $text, 0, 2);
+  $this->pdf->SetFont('', 'B', $this->defaultSettings['content_font_size']);
  }
 
  private function printSmallTitle($text) {

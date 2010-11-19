@@ -7,7 +7,7 @@
  <table class = "statisticsTools statisticsSelectList">
   <tr>
    <td id = "right">{$smarty.const._TOOLS}:&nbsp;
-                        <a href = "javascript:void(0)" onclick = 'win = window.open("{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_EDITEDUSER->user.login}&op=status&tab=user_form&popup=1&printable=1", "printable", "width=800,height=600,scrollbars=yes,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"");'>
+                        <a href = "javascript:void(0)" onclick = 'win = window.open("{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_EDITEDUSER->user.login}&op=status&tab=user_form&popup=1&printable=1", "printable", "width=800,height=600,scrollbars=yes,resizable=yes,status=yes,toolbar=no,location=no,menubar=yes,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"");'>
                             <img src = "images/16x16/printer.png" title = "{$smarty.const._PRINTEMPLOYEEFORM}" alt = "{$smarty.const._PRINTEMPLOYEEFORM}" />
                         </a>
                         <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_EDITEDUSER->user.login}&pdf=1&op=status">

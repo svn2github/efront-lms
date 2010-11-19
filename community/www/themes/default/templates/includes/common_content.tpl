@@ -344,14 +344,17 @@
   {/capture}
 
   {capture name = "t_end_of_lesson_code"}
-   <p class = "smallHeader">{$smarty.const._FINISHLESSONMESSAGE}</p>
-   <p class = "smallHeader">
-    <input type = "button" class = "flatButton" value = "{$smarty.const._NEXTLESSON}" onclick = "nextLesson(this)">
-            {if !isset($T_CURRENT_LESSON->options.show_dashboard) || $T_CURRENT_LESSON->options.show_dashboard}
-    <input type = "button" class = "flatButton" value = "{$smarty.const._CONTROLPANEL}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=control_panel'">
-   {/if}
-    <input type = "button" class = "flatButton" value = "{$smarty.const._MYCOURSES}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=lessons'">
-   </p>
+   <div>
+    <p class = "smallHeader">{$smarty.const._FINISHLESSONMESSAGE}</p>
+    <p class = "smallHeader">
+     <input type = "button" class = "flatButton" value = "{$smarty.const._NEXTLESSON}" onclick = "nextLesson(this)">
+             {if !isset($T_CURRENT_LESSON->options.show_dashboard) || $T_CURRENT_LESSON->options.show_dashboard}
+     <input type = "button" class = "flatButton" value = "{$smarty.const._CONTROLPANEL}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=control_panel'">
+    {/if}
+     <input type = "button" class = "flatButton" value = "{$smarty.const._MYCOURSES}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=lessons'">
+    </p>
+    <p class = "smallHeader"><a href = "javascript:void(0)" onclick = "setCookie('hide_complete_lesson_{$T_CURRENT_LESSON->lesson.id}', true);new Effect.Fade($('completed_block').down());" class = "infoCell">{$smarty.const._HIDE}</a></p>
+   </div>
   {/capture}
 
   {*moduleShowUnit: A specific content page*}
@@ -379,7 +382,10 @@
       {/if}
         {else}
          <span id = "completed_block" {if !$T_USER_PROGRESS.lesson_passed && !$T_USER_PROGRESS.completed}style = "display:none"{/if}>
+      {assign var = "cookie_value" value = "hide_complete_lesson_`$T_CURRENT_LESSON->lesson.id`"}
+      {if !$smarty.cookies.$cookie_value}
           {eF_template_printBlock title = $smarty.const._LESSONFINISHED data = $smarty.capture.t_end_of_lesson_code image = '32x32/information.png'}
+         {/if}
          </span>
       {eF_template_printBlock title = $unit_name data=$smarty.capture.t_content_code image=$image options = $unit_options settings = $T_UNIT_SETTINGS}
         {/if}

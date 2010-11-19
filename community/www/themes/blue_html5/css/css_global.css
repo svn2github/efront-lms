@@ -141,9 +141,12 @@ table.hideLeft td.left,
 table.hideRight td.right{display:none}
 table.hideBoth td.right,
 table.hideBoth td.left{visibility:hidden}
-table.hideBoth td.center{width:80%; vertical-align:middle;}
+table.hideLeft td.center,
+table.hideRight td.center,
+table.hideBoth td.center{width:80%;}
 table.centerFull td.right,
 table.centerFull td.left{display:none}
+table.centerFull td.center{width:100%;}
 table.hideCenter td.center{display:none}
 
 

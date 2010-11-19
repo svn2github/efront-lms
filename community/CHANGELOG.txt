@@ -91,6 +91,7 @@
 - Fixed bug in counting maximum number of license users
 - Fixed issue about not deleting a feedback from tests table when deleting a feedback unit
 - Fixed issue about feedback in reports
+- Lesson modes in course can't be changed when there are users enrolled to the course (educational/enterprise editions)
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

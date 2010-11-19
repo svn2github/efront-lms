@@ -28,6 +28,7 @@ class EfrontCourseException extends Exception
  const INVALID_PARAMETER = 255;
  const PARTIAL_IMPORT = 256;
  const INVALID_USER_TYPE = 257;
+ const COURSE_NOT_EMPTY = 258;
  const GENERAL_ERROR = 299;
  const INVALID_LOGIN = 300;
 }
@@ -3332,6 +3333,10 @@ class EfrontCourse
 	 * @access private
 	 */
  private function setUniqueLessonMode($lesson) {
+  $courseUsers = $this -> countCourseUsers(array('archive' => false));
+  if ($courseUsers['count'] > 0) {
+   throw new Exception(_YOUCANNOTCHANGEMODECOURSENOTEMPTY, EfrontCourseException::COURSE_NOT_EMPTY);
+  }
   //First, search for any instances that where already defined for this lesson and course in the past
   $result = eF_getTableData("lessons", "*", "instance_source=".$lesson -> lesson['id']." and originating_course=".$this -> course['id']);
   if (sizeof($result) > 0) {
@@ -3343,7 +3348,8 @@ class EfrontCourse
   }
   $this -> replaceLessonInCourseOrder($lesson, $lessonInstance);
   $this -> replaceLessonInCourseRules($lesson, $lessonInstance); //Must be put *before* removeLessons()
-  $this -> removeLessons($lesson);
+  //$this -> removeLessons($lesson);		//commented out because it was messing up with order
+  eF_deleteTableData("lessons_to_courses", "courses_ID=".$this -> course['id']." and lessons_ID=".$lesson->lesson['id']);
  }
  /**
 	 * Set the lesson mode to 'shared' in the course
@@ -3353,10 +3359,15 @@ class EfrontCourse
 	 * @access private
 	 */
  private function setSharedLessonMode($lesson) {
+  $courseUsers = $this -> countCourseUsers(array('archive' => false));
+  if ($courseUsers['count'] > 0) {
+   throw new Exception(_YOUCANNOTCHANGEMODECOURSENOTEMPTY, EfrontCourseException::COURSE_NOT_EMPTY);
+  }
   $this -> addLessons($lesson -> lesson['instance_source']);
   $this -> replaceLessonInCourseOrder($lesson, $lesson -> lesson['instance_source']);
   $this -> replaceLessonInCourseRules($lesson, $lesson -> lesson['instance_source']); //Must be put *before* removeLessons()
-  $this -> removeLessons($lesson);
+  //$this -> removeLessons($lesson);		//commented out because it was messing up with order
+  eF_deleteTableData("lessons_to_courses", "courses_ID=".$this -> course['id']." and lessons_ID=".$lesson->lesson['id']);
  }
  /**
 	 * Replace a lesson reference in rules for another lesson

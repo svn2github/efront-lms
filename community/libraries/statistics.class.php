@@ -2303,7 +2303,7 @@ class EfrontStats
      */
     public static function getTestInfo($tests = false, $categories = false, $show_all = false, $lesson = false) {
         if ($tests == false) {
-            $tests = eF_getTableDataFlat("tests, content", "tests.id", "tests.content_ID=content.id and tests.lessons_ID != 0"); //This way we get tests that have a corresponding unit
+            $tests = eF_getTableDataFlat("tests, content", "tests.id", "tests.content_ID=content.id and content.ctg_type = 'tests' and tests.lessons_ID != 0"); //This way we get tests that have a corresponding unit
             $tests = $tests['id'];
         } elseif (!is_array($tests)) {
             $tests = array($tests);

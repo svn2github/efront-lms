@@ -209,8 +209,8 @@ class news extends EfrontEntity
      */
     public function handleForm($form) {
      $values = $form -> exportValues();
-        $timestamp = mktime($values['timestamp']['h'], $values['timestamp']['i'], 0, $values['timestamp']['M'], $values['timestamp']['d'], $values['timestamp']['Y']);
-        $expire = mktime($values['expire']['h'], $values['expire']['i'], 0, $values['expire']['M'], $values['expire']['d'], $values['expire']['Y']);
+        $timestamp = mktime($values['timestamp']['H'], $values['timestamp']['i'], 0, $values['timestamp']['M'], $values['timestamp']['d'], $values['timestamp']['Y']);
+        $expire = mktime($values['expire']['H'], $values['expire']['i'], 0, $values['expire']['M'], $values['expire']['d'], $values['expire']['Y']);
         if (isset($_GET['edit'])) {
             $this -> news["title"] = $values['title'];
             $this -> news["data"] = $values['data'];

@@ -2033,9 +2033,9 @@ class EfrontLesson
  public function getTests($returnObjects = false, $onlyActive = false) {
   $tests = array();
   if (!$onlyActive) {
-   $test_data = eF_getTableData("tests t, content c", "t.*", "t.lessons_ID = ".$this -> lesson['id']." and t.content_id = c.id and c.lessons_ID=".$this -> lesson['id']);
+   $test_data = eF_getTableData("tests t, content c", "t.*", "t.lessons_ID = ".$this -> lesson['id']." and t.content_id = c.id and c.ctg_type='tests' and c.lessons_ID=".$this -> lesson['id']);
   } else {
-   $test_data = eF_getTableData("tests t, content c", "t.*", "t.active = 1 and c.active = 1 and t.lessons_ID = ".$this -> lesson['id']." and t.content_id = c.id and c.lessons_ID=".$this -> lesson['id']);
+   $test_data = eF_getTableData("tests t, content c", "t.*", "t.active = 1 and c.active = 1 and t.lessons_ID = ".$this -> lesson['id']." and t.content_id = c.id and c.ctg_type='tests' and c.lessons_ID=".$this -> lesson['id']);
   }
   foreach ($test_data as $t){
    if (!$returnObjects){

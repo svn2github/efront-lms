@@ -9,6 +9,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 /* Create a new courses/instances list for mass assignments */
 if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
  try {
+  $directionsTree = new EfrontDirectionsTree();
+  $directionPaths = $directionsTree -> toPathString();
+  $smarty -> assign("T_DIRECTION_PATHS", $directionPaths);
   if ($_GET['ajax'] == 'coursesTable') {
    $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => false);
   }

@@ -90,7 +90,7 @@
 - Added a 'To' field when sending e-mails with 'undisclosed-recipients' for avoiding mail server to reject the e-mail
 - Fixed bug in counting maximum number of license users
 - Fixed issue about not deleting a feedback from tests table when deleting a feedback unit
-- Fixed issue about feedback selection in feedback reports
+- Fixed issue about feedback in reports
 
 === Version 3.6.6 8242 ===
 - Added users reports generator (enterprise/educational editions)

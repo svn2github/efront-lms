@@ -805,7 +805,7 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function login($password, $encrypted = false) {
-  session_regenerate_id(); //If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
+  //session_regenerate_id();		//If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
   unset($_SESSION['previousMainUrl']);
   unset($_SESSION['previousSideUrl']);
   unset($_SESSION['s_lesson_user_type']);

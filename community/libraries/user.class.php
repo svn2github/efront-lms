@@ -1501,9 +1501,10 @@ abstract class EfrontUser
   return $order;
  }
  public static function convertDatabaseResultToUserObjects($result) {
+  $roles = EfrontLessonUser::getRoles();
   $userObjects = array();
   foreach ($result as $value) {
-   $userObjects[$value['login']] = EfrontUserFactory::factory($value, false, ($value['role'] ? $value['role'] : false));
+   $userObjects[$value['login']] = EfrontUserFactory::factory($value, false, ($value['role'] ? $roles[$value['role']] : false));
   }
   return $userObjects;
  }

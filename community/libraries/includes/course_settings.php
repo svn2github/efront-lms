@@ -224,6 +224,7 @@ if ($_GET['op'] == 'course_info') {
 
   $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
+
    //pr($studentRoles);
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);

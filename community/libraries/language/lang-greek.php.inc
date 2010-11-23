@@ -1,5 +1,5 @@
 <?php
-if (is_file($GLOBALS['path']."language/custom-greek.php")){
+if (is_file($GLOBALS['path']."language/custom-greek.php.inc")){
     include($GLOBALS['path']."language/custom-greek.php.inc");
 }
 define("_EFRONTURL", "http://www.efrontlearning.net");

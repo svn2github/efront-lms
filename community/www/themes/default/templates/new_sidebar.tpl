@@ -24,6 +24,11 @@
  translations['user_stats'] = '{$smarty.const._USERSTATISTICS}';
  translations['user_settings'] = '{$smarty.const._USERPROFILE}';
  translations['logout_user'] = '{$smarty.const._LOGOUTUSER}';
+ translations['_ADMINISTRATOR'] = '{$smarty.const._ADMINISTRATOR}';
+ translations['_PROFESSOR'] = '{$smarty.const._PROFESSOR}';
+ translations['_STUDENT'] = '{$smarty.const._STUDENT}';
+
+
 
     // Global variables
     var menuCount = '{$T_MENUCOUNT}'; // How many menus are initially loaded?

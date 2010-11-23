@@ -189,7 +189,6 @@ function getPeriodicData() {
    method:'get',
    asynchronous:true,
    onSuccess: function (transport) {
-
    if (transport.responseText.evalJSON().messages > 0) {
     if ($('unread_img')) {
      $('unread_img').update('<img class = "sprite16 sprite16-mail" src = "themes/default/images/others/transparent.gif" style = "vertical-align:middle" onLoad="javascript:if (document.getElementById(\'hasLoaded\') && !usingHorizontalInterface){fixUpperMenu();fixCurtains();}"/>');
@@ -214,11 +213,11 @@ function getPeriodicData() {
     str += '<a href = "javascript:void(0)" alt="'+s.name+' '+s.surname+'" title="'+s.name+' '+s.surname+'" onclick = "eF_js_showDivPopup(\'\', 0, \'user_table\');';
     str += 'show_user_box(\'' + translations['user'] + ' '+s.login+'\', \''+s.login+'\', \'' + translations['sendmessage'] + '\', \'' + translations['web'] + '\', \''+s.user_type+'\', \''+time+'\', \''+translations['user_stats']+'\',\''+translations['user_settings']+'\',\''+translations['logout_user']+'\');">';
     if (s.user_type == 'administrator') {
-     str += '<span style = "color:magenta">'+(s.formattedLogin)+'</span>';
+     str += '<span style = "color:magenta">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
     } else if (s.user_type == 'professor') {
-     str += '<span style = "color:green">'+(s.formattedLogin)+'</span>';
+     str += '<span style = "color:green">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
     } else {
-     str += '<span style = "color:blue">'+(s.formattedLogin)+'</span>';
+     str += '<span style = "color:blue">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
     }
     str += '</a>, ';
    });

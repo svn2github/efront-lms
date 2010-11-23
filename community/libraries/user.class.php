@@ -958,16 +958,17 @@ abstract class EfrontUser
  public static function getUsersOnline($interval = false) {
   $usersOnline = array();
   //A user may have multiple active entries on the user_times table, one for system, one for unit etc. Pick the most recent
-  $result = eF_getTableData("user_times", "users_LOGIN, timestamp_now, session_timestamp", "session_expired=0", "timestamp_now desc");
+  $result = eF_getTableData("user_times,users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp", "users.login=user_times.users_LOGIN and session_expired=0", "timestamp_now desc");
   foreach ($result as $value) {
    if (!isset($parsedUsers[$value['users_LOGIN']])) {
     //print("\ntime difference for user: ".$value['users_LOGIN'].' and interval '.$interval.' and time()='.time().' - '.$value['timestamp_now'].': '.(time() - $value['timestamp_now'])."\n");
+    $value['login'] = $value['users_LOGIN'];
     if (time() - $value['timestamp_now'] < $interval || !$interval) {
      $usersOnline[] = array('login' => $value['users_LOGIN'],
              //'name'		   => $value['name'],
              //'surname'	   => $value['surname'],
              'formattedLogin'=> formatLogin(false, $value),
-             //'user_type'	 => $value['user_type'],
+             'user_type' => $value['user_type'],
              'timestamp_now' => $value['timestamp_now'],
              'time' => eF_convertIntervalToTime(time() - $value['session_timestamp']));
     } else {

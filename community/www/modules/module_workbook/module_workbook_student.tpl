@@ -247,9 +247,14 @@
 
    if(obj.getElementsByTagName("input")[i].type == "radio"){
 
-    if(obj.getElementsByTagName("input")[i].checked){
+    if(obj.getElementsByTagName("input")[i].checked)
      parameters += obj.getElementsByTagName("input")[i].name + "=" + obj.getElementsByTagName("input")[i].value + "&";
-    }
+   }
+
+   if(obj.getElementsByTagName("input")[i].type == "text"){
+
+    if(obj.getElementsByTagName("input")[i].value != '')
+     parameters += obj.getElementsByTagName("input")[i].name + "=" + obj.getElementsByTagName("input")[i].value + "&";
    }
   }
 
@@ -257,6 +262,11 @@
 
    if(obj.getElementsByTagName("textarea")[i].value != '')
     parameters += obj.getElementsByTagName("textarea")[i].name + "=" + obj.getElementsByTagName("textarea")[i].value + "&";
+  }
+
+  for(i = 0; i < obj.getElementsByTagName("select").length; i++){
+
+   parameters += obj.getElementsByTagName("select")[i].name + "=" + obj.getElementsByTagName("select")[i].value + "&";
   }
 
   if(parameters == '&' || (checkbox_flag == true && checkbox_checked == false)){
@@ -399,12 +409,23 @@
      parameters += obj.getElementsByTagName("input")[i].name + "=" + obj.getElementsByTagName("input")[i].value + "&";
     }
    }
+
+   if(obj.getElementsByTagName("input")[i].type == "text"){
+
+    if(obj.getElementsByTagName("input")[i].value != '')
+     parameters += obj.getElementsByTagName("input")[i].name + "=" + obj.getElementsByTagName("input")[i].value + "&";
+   }
   }
 
   for(i = 0; i < obj.getElementsByTagName("textarea").length; i++){
 
    if(obj.getElementsByTagName("textarea")[i].value != '')
     parameters += obj.getElementsByTagName("textarea")[i].name + "=" + obj.getElementsByTagName("textarea")[i].value + "&";
+  }
+
+  for(i = 0; i < obj.getElementsByTagName("select").length; i++){
+
+   parameters += obj.getElementsByTagName("select")[i].name + "=" + obj.getElementsByTagName("select")[i].value + "&";
   }
 
   if(!(parameters == '&' || (checkbox_flag == true && checkbox_checked == false))){

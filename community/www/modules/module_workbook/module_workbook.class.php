@@ -502,14 +502,38 @@ class module_workbook extends EfrontModule{
 
     if($value['item_question'] != '-1'){
 
-     if($workbookAnswers[$value['id']] == '')
-      $workbookHTML .= '<div>'.$value['question_text'].'</div>';
+     $questionType = $lessonQuestions[$value['item_question']]['type'];
+
+     if($workbookAnswers[$value['id']] == ''){
+
+      if($questionType == 'drag_drop'){
+
+       $dragDrop = eF_getTableData("questions", "options, answer, text", "id=".$value['item_question']);
+       $options = unserialize($dragDrop[0]['options']);
+       $answer = unserialize($dragDrop[0]['answer']);
+       shuffle($options);
+       shuffle($answer);
+
+       $workbookHTML .= $dragDrop[0]['text'];
+
+       for($i = 0; $i < count($options); $i++){
+
+        $workbookHTML .= '<div>'.$options[$i].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        $workbookHTML .= $answer[$i].'</div>';
+       }
+      }
+      else{
+       $workbookHTML .= '<div>'.$value['question_text'].'</div>';
+      }
+     }
      else
       $workbookHTML .= '<div>'.$workbookAnswers[$value['id']].'</div>';
     }
 
     $workbookHTML .= '</div><br/>';
    }
+
+   $workbookHTML = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $workbookHTML);
 
    $htmltodoc = new HTML_TO_DOC();
    $fileName = _WORKBOOK_NAME.'_'.$this->getWorkbookLessonName($currentLessonID);
@@ -559,14 +583,38 @@ class module_workbook extends EfrontModule{
 
     if($value['item_question'] != '-1'){
 
-     if($workbookAnswers[$value['id']] == '')
-      $workbookHTML .= '<div>'.$value['question_text'].'</div>';
+     $questionType = $lessonQuestions[$value['item_question']]['type'];
+
+     if($workbookAnswers[$value['id']] == ''){
+
+      if($questionType == 'drag_drop'){
+
+       $dragDrop = eF_getTableData("questions", "options, answer, text", "id=".$value['item_question']);
+       $options = unserialize($dragDrop[0]['options']);
+       $answer = unserialize($dragDrop[0]['answer']);
+       shuffle($options);
+       shuffle($answer);
+
+       $workbookHTML .= $dragDrop[0]['text'];
+
+       for($i = 0; $i < count($options); $i++){
+
+        $workbookHTML .= '<div>'.$options[$i].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        $workbookHTML .= $answer[$i].'</div>';
+       }
+      }
+      else{
+       $workbookHTML .= '<div>'.$value['question_text'].'</div>';
+      }
+     }
      else
       $workbookHTML .= '<div>'.$workbookAnswers[$value['id']].'</div>';
     }
 
     $workbookHTML .= '</div><br/>';
    }
+
+   $workbookHTML = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $workbookHTML);
 
    $pdf->writeHTML($workbookHTML, true, false, true, false, '');
 
@@ -887,6 +935,11 @@ class module_workbook extends EfrontModule{
   return $this->moduleBaseDir.'css/workbook.css';
  }
 
+ public function addScripts(){
+
+  return array("scriptaculous/dragdrop", "includes/tests");
+ }
+
  public function onExportLesson($lessonId){
 
   $data = eF_getTableData("module_workbook_items", "*", "lessons_ID=".$lessonId);
@@ -974,7 +1027,8 @@ class module_workbook extends EfrontModule{
 
  function getLessonQuestions($lessonID){
 
-  $type = "(type='multiple_one' OR type='multiple_many' OR type='raw_text') AND ";
+  $type = "(type='multiple_one' OR type='multiple_many' OR type='raw_text' OR type='empty_spaces' ";
+  $type .= "OR type='match' OR type='true_false' OR type='drag_drop') AND ";
   $result = eF_getTableData("questions", "id, text, type", $type."lessons_ID=".$lessonID);
   $questions = array();
 
@@ -1080,6 +1134,20 @@ class module_workbook extends EfrontModule{
 
   else if($questionType == 'raw_text')
    $question = new RawTextQuestion($questionID);
+
+  else if($questionType == 'empty_spaces')
+   $question = new EmptySpacesQuestion($questionID);
+
+  else if($questionType == 'match'){
+   $question = new MatchQuestion($questionID);
+   $question->shuffle();
+  }
+
+  else if($questionType == 'true_false')
+   $question = new TrueFalseQuestion($questionID);
+
+  else if($questionType == 'drag_drop')
+   $question = new DragDropQuestion($questionID);
 
   $form = new HTML_QuickForm("questionForm", "post", "", "", null, true);
   return $question->toHTML($form);

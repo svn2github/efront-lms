@@ -2871,7 +2871,7 @@ class EfrontCourse
  public static function getCoursesWithPendingUsers($constraints = array()) {
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseConstraintsToSqlParameters($constraints);
   $where[] = "uc.courses_ID=c.id and uc.from_timestamp=0";
-  $where[] = "uc.users_LOGIN=u.login and u.archive=0";
+  $where[] = "uc.users_LOGIN=u.login and u.archive=0 and uc.archive=0";
   $result = eF_getTableData("users u, courses c, users_to_courses uc", "c.*, uc.users_LOGIN", implode(" and ", $where), $orderby, $groupby, $limit);
   return $result;
  }

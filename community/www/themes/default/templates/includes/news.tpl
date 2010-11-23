@@ -37,7 +37,12 @@
 
   {eF_template_printBlock title = $smarty.const._ANNOUNCEMENT data = $smarty.capture.t_add_code image = '32x32/announcements.png' help ='Announcements'}
  {elseif $smarty.get.view}
-  {eF_template_printBlock title = $T_NEWS.title data = $T_NEWS.data image = '32x32/announcements.png' help ='Announcements'}
+  {if $T_NEWS.data == ""}
+   {assign var= "news_data" value=$smarty.const._NODATAFOUND}
+  {else}
+   {assign var= "news_data" value=$T_NEWS.data}
+  {/if}
+  {eF_template_printBlock title = $T_NEWS.title data = $news_data image = '32x32/announcements.png' help ='Announcements'}
  {else}
      {capture name = "t_news_code"}
          {if !$_student_ && $_change_}

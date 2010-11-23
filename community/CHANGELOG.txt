@@ -1,3 +1,9 @@
+=== Version 3.6.8 build ===
+- Fixed issue about displaying announcement title in popup when there is not body data
+- Fixed issue in Lesson registration block in admin control panel about courses enrollments not approved from admin
+- Added code for deleting rows from module_hcd_course_to_job_description and module_hcd_course_to_branch when deleting a course
+- Fixed issue about displaying the online users in sidebar
+
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries
 - Added brand new PDF certificates

@@ -343,6 +343,7 @@ try {
                 parse_str($_POST['leftList']);
                 parse_str($_POST['centerList']);
                 parse_str($_POST['rightList']);
+                mb_internal_encoding('utf-8'); //This must be put here due to PHP bug #48697
 
                 !isset($leftList) ? $leftList = array() : null;
                 !isset($centerList) ? $centerList = array() : null;

@@ -43,6 +43,7 @@ try {
         parse_str($_POST['firstlist']);
         parse_str($_POST['secondlist']);
         parse_str($_POST['visibility']);
+        mb_internal_encoding('utf-8'); //This must be put here due to PHP bug #48697
         if ($visibility) {
             $positions = serialize(array('first' => array_unique($firstlist), 'second' => array_unique($secondlist), 'visibility' => $visibility));
         } else {

@@ -15,10 +15,10 @@
 
   <div class="tabber">
    {eF_template_printBlock tabber = "main" title=$smarty.const._GENERALSETTINGS data=$smarty.capture.general_main image='32x32/settings.png'}
-   {eF_template_printBlock tabber = "security" title=$smarty.const._SECURITYSETTINGS data=$smarty.capture.general_security image='32x32/generic.png'}
-   {eF_template_printBlock tabber = "locale" title=$smarty.const._LOCALE data=$smarty.capture.general_locale image='32x32/languages.png'}
-   {eF_template_printBlock tabber = "smtp" title=$smarty.const._EMAILSETTINGS data=$smarty.capture.general_smtp image='32x32/mail.png'}
-   {eF_template_printBlock tabber = "php" title=$smarty.const._PHP data=$smarty.capture.external_php image='32x32/php.png'}
+   {eF_template_printBlock tabber = "security" title=$smarty.const._SECURITYSETTINGS data=$smarty.capture.general_security image='32x32/generic.png' help = 'System_settings#Security_settings'}
+   {eF_template_printBlock tabber = "locale" title=$smarty.const._LOCALE data=$smarty.capture.general_locale image='32x32/languages.png' help = 'System_settings#Locale_settings'}
+   {eF_template_printBlock tabber = "smtp" title=$smarty.const._EMAILSETTINGS data=$smarty.capture.general_smtp image='32x32/mail.png' help = 'System_settings#E-mail_settings'}
+   {eF_template_printBlock tabber = "php" title=$smarty.const._PHP data=$smarty.capture.external_php image='32x32/php.png' help = 'System_settings#PHP'}
   </div>
 
  {elseif $smarty.get.op == 'user'}
@@ -33,9 +33,9 @@
   {/capture}
 
   <div class="tabber">
-   {eF_template_printBlock tabber = "main" title=$smarty.const._USERACTIVATIONSETTINGS data=$smarty.capture.user_main image='32x32/user.png'}
-   {eF_template_printBlock tabber = "multiple_logins" title=$smarty.const._MULTIPLELOGINS data=$smarty.capture.user_multiple_logins image='32x32/users.png'}
-   {eF_template_printBlock tabber = "webserver_authentication" title=$smarty.const._WEBSERVERAUTHENTICATION data=$smarty.capture.user_webserver_authentication image='32x32/generic.png'}
+   {eF_template_printBlock tabber = "main" title=$smarty.const._USERACTIVATIONSETTINGS data=$smarty.capture.user_main image='32x32/user.png' help = 'System_settings#User_activation.2Fregistration'}
+   {eF_template_printBlock tabber = "multiple_logins" title=$smarty.const._MULTIPLELOGINS data=$smarty.capture.user_multiple_logins image='32x32/users.png' help = 'System_settings#Multiple_logins'}
+   {eF_template_printBlock tabber = "webserver_authentication" title=$smarty.const._WEBSERVERAUTHENTICATION data=$smarty.capture.user_webserver_authentication image='32x32/generic.png' help = 'System_settings#Web_server_authentication'}
   </div>
  {elseif $smarty.get.op == 'appearance'}
   {capture name = "appearance_main"}

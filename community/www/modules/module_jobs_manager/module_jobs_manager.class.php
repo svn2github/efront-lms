@@ -32,7 +32,7 @@ class module_jobs_manager extends EfrontModule {
   if ($current_user->getType() == 'administrator') {
    $links['id'] = 'jobs_manager_link_id1';
    $links['title'] = _JOBS_MANAGER; //'The Jobs Manager';
-   $links['image'] = $this -> moduleBaseDir . 'images/16x16/logo16'; //. 'images/16x16/logo16';
+   $links['image'] = $this -> moduleBaseDir . 'images/logo16'; //. 'images/16x16/logo16';
    $links['eFrontExtensions'] = '1';
    $links['link'] = $this->moduleBaseUrl;
    $links = array('other' => array('menuTitle' => "Modules", 'links' => array($links)));

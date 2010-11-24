@@ -203,7 +203,7 @@
     <option value="{$lesson.id}" {if $T_JOURNAL_ENTRIES_FROM == $lesson.id}selected="selected"{/if}>{$lesson.name}</option>
 {/foreach}
    </select>
-{if $smarty.session.s_type == "professor"}
+{if $smarty.session.s_type == "professor" && $T_JOURNAL_ALLOW_PROFESSOR_PREVIEW == 1}
    &nbsp;<div class="options_separator"></div>
    <img src="{$T_JOURNAL_BASELINK|cat:'images/analysis.png'}" alt="{$smarty.const._JOURNAL_STUDENTS_JOURNAL}" title="{$smarty.const._JOURNAL_STUDENTS_JOURNAL}" style="vertical-align:middle" />&nbsp;<a href="{$T_JOURNAL_BASEURL}&check_students_journals=1">{$smarty.const._JOURNAL_STUDENTS_JOURNAL}</a>
 {/if}

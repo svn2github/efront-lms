@@ -255,6 +255,8 @@ class module_fuze_meetings extends EfrontModule {
   $smarty->assign("MOD_FM_BASEURL", $this->moduleBaseUrl);
   $smarty->assign("MOD_FM_BASELINK", $this->moduleBaseLink);
   $smarty->assign("MOD_FM_BASEDIR", $this->moduleBaseDir);
+  $smarty->assign("MOD_FM_MODULES_BASEURL", G_MODULESURL);
+  $smarty->assign("MOD_FM_MODULES_BASEPATH", G_MODULESPATH);
   if ($this->_f_account->isRegistered()) {
    if ($this->_current_user->getType() == 'administrator') {
     ///////////////////////////////////////////////////////////
@@ -329,6 +331,8 @@ class module_fuze_meetings extends EfrontModule {
   $smarty->assign("MOD_FM_BASEURL", $this->moduleBaseUrl);
   $smarty->assign("MOD_FM_BASELINK", $this->moduleBaseLink);
   $smarty->assign("MOD_FM_BASEDIR", $this->moduleBaseDir);
+  $smarty->assign("MOD_FM_MODULES_BASEURL", G_MODULESURL);
+  $smarty->assign("MOD_FM_MODULES_BASEPATH", G_MODULESPATH);
   $controller_action = false;
   if (isset($_GET['action'])) { $controller_action = strtolower($_GET['action']); }
   ///////////////////////////////////////////////////////////
@@ -402,6 +406,9 @@ class module_fuze_meetings extends EfrontModule {
     // configured and is to start immediately after configuring.
     $response = $this->_prof_internal_host();
     die(json_encode($response));
+   }
+   elseif ($controller_action == 'launcher') {
+    $template = $this->_prof_internal_launcher($smarty);
    }
    elseif ($controller_action == 'fetch_users') {
     $template = $this->_prof_fetch_users();
@@ -982,6 +989,26 @@ class module_fuze_meetings extends EfrontModule {
   return $response;
  }
 
+ protected function _prof_internal_launcher($smarty) {
+  $template = false;
+  // Instantiating the FUZE account user here.
+  if ($this->_current_user_id) {
+   try {
+    $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
+   }
+   catch (Exception $e) { /* DO NOTHING */ }
+  }
+  if ($fuze_user && !$fuze_user->isSuspended()) {
+   // Get the FUZE url to embed in launcher window
+   $url = $_GET['url'];
+   $smarty->assign('_FUZE_PROF_LAUNCHER_URL',$url);
+
+   $template = $this->moduleBaseDir . 'views/smarty.professor.launcher.tpl';
+  }
+
+  return $template;
+ }
+
  /**
 
 	 * Shows all meetings that are to be held in a future time.
@@ -1357,7 +1384,7 @@ class module_fuze_meetings extends EfrontModule {
      $latest_meetings [$meeting_id]['starttime'] = _FUZE_TIME_CPANEL_NOW;
      $latest_meetings [$meeting_id]['link'] = _FUZE_STUDENT_CPANEL_GO_TO_MEETING;
      $attendee_email = urlencode($this->_current_user_email);
-     $latest_meetings [$meeting_id]['url'] = $meeting->getAttendUrl() . "?email={$this->_current_user_email}&name={$attendee_email}";
+     $latest_meetings [$meeting_id]['url'] = $meeting->getAttendUrl() . "?email={$attendee_email}&name={$this->_current_user_fullname}";
     }
     else {
      $latest_meetings [$meeting_id]['link'] = 0;
@@ -1375,6 +1402,8 @@ class module_fuze_meetings extends EfrontModule {
   }
   $smarty->assign('_FUZE_STUDENT_CPANEL_MEETINGS', $latest_meetings);
   $smarty->assign('_FUZE_STUDENT_CPANEL_SCHEDULE_TIME_DESC', $time_description);
+  $smarty->assign("MOD_FM_MODULES_BASEURL", G_MODULESURL);
+  $smarty->assign("MOD_FM_MODULES_BASEPATH", G_MODULESPATH);
   return $this->moduleBaseDir . 'views/smarty.student.mod_fm_cpanel.tpl';
  }
  ///////////////////////////////////////////////////////////////////////////

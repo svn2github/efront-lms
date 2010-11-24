@@ -9,14 +9,10 @@ function cancelCourseAssignment(el, course, user) {
  ajaxRequest(el, url, parameters, onCourseAssignment);
 }
 function onCourseAssignment(el, response) {
- try {
-  if (response.evalJSON(true) && response.evalJSON(true).status) {
-   new Effect.Fade(el.up().up());
-  } else {
-   alert(translations['_SOMEPROBLEMOCCURED']);
-  }
- } catch (e) {
-  alert('asd');
+ if (response.evalJSON(true) && response.evalJSON(true).status) {
+  new Effect.Fade(el.up().up());
+ } else {
+  alert(translations['_SOMEPROBLEMOCCURED']);
  }
 }
 

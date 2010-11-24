@@ -364,9 +364,13 @@ class EfrontImportCsv extends EfrontImport
       $groups[$groups_ID][] = $value['users_login'];
      }
      foreach ($groups as $id => $groupUsers) {
-      $group = new EfrontGroup($id);
-      $this -> log["success"][] = _NEWGROUPASSIGNMENT . " " . $group -> group['name'];
-      $group -> addUsers($groupUsers);
+      try {
+       $group = new EfrontGroup($id);
+       $this -> log["success"][] = _NEWGROUPASSIGNMENT . " " . $group -> group['name'];
+       $group -> addUsers($groupUsers);
+      } catch (Exception $e) {
+       $this -> log["failure"][] = _LINE . " ".($key+2).": " . $e -> getMessage();// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
+      }
      }
      break;
     case "users":

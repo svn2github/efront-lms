@@ -142,7 +142,9 @@
      if (response.success) {
       _mod_fm_prof_mask_off(); // Mask off
       var meeting_url = response.url;
-      popupCenter(meeting_url, '', 750, 600);
+      meeting_url = escape(meeting_url);
+      var popup_url = '{/literal}{$MOD_FM_MODULES_BASEURL}{literal}module_fuze_meetings/FUZE_launcher.php?url='+meeting_url;
+      popupFullScreen(popup_url);
       return false;
      }
      else {
@@ -155,10 +157,22 @@
   }
  }
 
+ function popupFullScreen(url) {
+  var top = 0;
+  var left = 0;
+  w = screen.width;
+  h = screen.height;
+  var target = window.open(url, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+ }
+
  function popupCenter(url, title, w, h) {
   var left = (screen.width/2) - (w/2);
   var top = (screen.height/2) - (h/2);
-  var target = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+  left = 0;
+  top = 0;
+  w = screen.width;
+  h = screen.height;
+  var target = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, maximize=1, width='+w+', height='+h+', top='+top+', left='+left);
  }
 
  function _mod_fm_toggle_student(id) {

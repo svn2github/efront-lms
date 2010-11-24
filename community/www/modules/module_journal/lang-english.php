@@ -33,6 +33,7 @@ define("_JOURNAL_SHOW_PAGE", "Show page");
 define("_JOURNAL_SHOW_ENTRIES_FROM", "Show entries from");
 define("_JOURNAL_ALL_LESSONS", "All my lessons");
 define("_JOURNAL_ALLOW_PRINT_EXPORT", "Allow print/export");
+define("_JOURNAL_ALLOW_PROFESSOR_PREVIEW", "Preview students' journal");
 define("_JOURNAL_OPEN_POPUP", "Open journal in popup window");
 define("_JOURNAL_POPUP_INFO", "How to open Journal in the workflow of the lesson material");
 define("_JOURNAL_HOW_TO_OPEN_POPUP1", "In order to place a link in the logical flow of the lesson material, enabling students to open Journal without visiting the control panel of a course, just follow the instructions below.");

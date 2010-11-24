@@ -3,6 +3,7 @@
 - Fixed issue in Lesson registration block in admin control panel about courses enrollments not approved from admin
 - Added code for deleting rows from module_hcd_course_to_job_description and module_hcd_course_to_branch when deleting a course
 - Fixed issue about displaying the online users in sidebar
+- Fixed issue about unit names containing double quotes in IE
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries
@@ -12,6 +13,7 @@
 - New time reporting infrastructure
 - Enabled restriction on access to content files without a user being logged in
 - Added handle to move blocks in control panel and dashboard
+- Added new tooltip libraries
 - Added new theme: blue_html5 and made it default
 - Added new module: workbook
 - Added new module: jobs manager (Enterprise edition)

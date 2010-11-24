@@ -18,4 +18,3 @@
      <div style = "text-align:center;">{$T_PAYPAL_SUBSCRIPTION_FORMS[$key].order.html}</div>
     </form>
 </div>
-asd

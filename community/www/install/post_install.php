@@ -6,11 +6,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 /**
 
- * This function is called by the installation script. Add here calls to any functions you wish to be ran 
+ * This function is called by the installation script. Add here calls to any functions you wish to be ran
 
  * right after the installation finishes
 
- * 
+ *
 
  * @since 3.6.2
 
@@ -18,8 +18,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 function runPostInstallationFunctions() {
 //	addRestrictedAdministrator();
 //	customizeSite();
-//	ReplaceProfessorUser();
+//	replaceProfessorUser();
 //	removeRssEntry();
+//	setDefaultThemeAsDefault();
+}
+function setDefaultThemeAsDefault() {
+ EfrontConfiguration :: setValue('theme', 1);
 }
 function addRestrictedAdministrator() {
  $values['core_access'] = array("configuration" => 'hidden',
@@ -38,8 +42,12 @@ function customizeSite() {
  EfrontConfiguration :: setValue('site_motto', 'Corporate Learning Portal');
  EfrontConfiguration :: setValue('disable_help', '1');
 }
-function ReplaceProfessorUser() {
- $professorData = array('login' => 'coursemanager',
+
+function replaceProfessorUser() {
+ try {
+  $oldUser = EfrontUserFactory::factory('professor');
+
+  $professorData = array('login' => 'coursemanager',
                            'password' => 'coursemanager',
                            'email' => $GLOBALS['configuration']['system_email'],
                            'name' => 'Default',
@@ -48,9 +56,11 @@ function ReplaceProfessorUser() {
                            'active' => '1',
                            'user_type'=> 'professor',
                            'additional_accounts' => serialize(array('admin', 'student')));
- $professor = EfrontUser :: createUser($professorData);
- $oldUser = EfrontUserFactory::factory('professor');
- $oldUser -> delete();
+  $professor = EfrontUser :: createUser($professorData);
+
+  $oldUser = EfrontUserFactory::factory('professor');
+  $oldUser -> delete();
+ } catch (Exception $e) {/*Do nothing*/}
 }
 function removeRssEntry() {
  eF_executeNew("drop table if exists module_rss_feeds");

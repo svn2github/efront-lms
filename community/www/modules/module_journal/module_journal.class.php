@@ -58,8 +58,21 @@ class module_journal extends EfrontModule{
   if(isset($_GET['edit_allow_export']) && $_GET['edit_allow_export'] == '1' && isset($_GET['allow'])){
 
    try{
-    $object = eF_getTableData("module_journal_allow_export", "id");
-    eF_updateTableData("module_journal_allow_export", array("allow" => $_GET['allow']), "id=".$object[0]['id']);
+    $object = eF_getTableData("module_journal_settings", "id", "name='export'");
+    eF_updateTableData("module_journal_settings", array("value" => $_GET['allow']), "id=".$object[0]['id']);
+   }
+   catch(Exception $e){
+    handleAjaxExceptions($e);
+   }
+
+   exit;
+  }
+
+  if(isset($_GET['edit_professor_preview']) && $_GET['edit_professor_preview'] == '1' && isset($_GET['preview'])){
+
+   try{
+    $object = eF_getTableData("module_journal_settings", "id", "name='preview'");
+    eF_updateTableData("module_journal_settings", array("value" => $_GET['preview']), "id=".$object[0]['id']);
    }
    catch(Exception $e){
     handleAjaxExceptions($e);
@@ -364,8 +377,11 @@ class module_journal extends EfrontModule{
    $rules = $this->getRules();
    $smarty->assign("T_JOURNAL_RULES", $rules);
 
-   $object = eF_getTableData("module_journal_allow_export", "*");
-   $smarty->assign("T_JOURNAL_ALLOW_EXPORT", $object[0]['allow']);
+   $object = eF_getTableData("module_journal_settings", "value", "name='export'");
+   $smarty->assign("T_JOURNAL_ALLOW_EXPORT", $object[0]['value']);
+
+   $object = eF_getTableData("module_journal_settings", "value", "name='preview'");
+   $smarty->assign("T_JOURNAL_ALLOW_PROFESSOR_PREVIEW", $object[0]['value']);
 
    if($currentUser->getRole($this->getCurrentLesson()) == 'professor' || $currentUser->getRole($this->getCurrentLesson()) == 'student'){
 
@@ -565,14 +581,16 @@ class module_journal extends EfrontModule{
      PRIMARY KEY (`id`)
      ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
 
-  eF_executeNew("DROP TABLE IF EXISTS `module_journal_allow_export`");
-  $t3 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_journal_allow_export` (
+  eF_executeNew("DROP TABLE IF EXISTS `module_journal_settings`");
+  $t3 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_journal_settings` (
      `id` int(11) NOT NULL AUTO_INCREMENT,
-     `allow` tinyint(1) NOT NULL,
+     `name` varchar(45) NOT NULL,
+     `value` tinyint(1) NOT NULL,
      PRIMARY KEY (`id`)
      ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
 
-  eF_insertTableData("module_journal_allow_export", array('allow' => 1));
+  eF_insertTableData("module_journal_settings", array('name' => 'export', 'value' => 1));
+  eF_insertTableData("module_journal_settings", array('name' => 'preview', 'value' => 1));
 
   return($t1 && $t2 && $t3);
  }
@@ -581,9 +599,33 @@ class module_journal extends EfrontModule{
 
   $t1 = eF_executeNew("DROP TABLE IF EXISTS `module_journal_rules`");
   $t2 = eF_executeNew("DROP TABLE IF EXISTS `module_journal_entries`");
-  $t3 = eF_executeNew("DROP TABLE IF EXISTS `module_journal_allow_export`");
+  $t3 = eF_executeNew("DROP TABLE IF EXISTS `module_journal_settings`");
 
   return($t1 && $t2 && $t3);
+ }
+
+ public function onUpgrade(){
+
+  $t1 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_journal_settings` (
+     `id` int(11) NOT NULL AUTO_INCREMENT,
+     `name` varchar(45) NOT NULL,
+     `value` tinyint(1) NOT NULL,
+     PRIMARY KEY (`id`)
+     ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
+
+  $resultNew = eF_getTableData("module_journal_settings", "*");
+
+  if(count($resultNew) == 0){
+
+   $result = eF_getTableData("module_journal_allow_export", "*");
+
+   eF_insertTableData("module_journal_settings", array('name' => 'export', 'value' => $result[0]['allow']));
+   eF_insertTableData("module_journal_settings", array('name' => 'preview', 'value' => 1));
+  }
+
+  $t2 = eF_executeNew("DROP TABLE IF EXISTS `module_journal_allow_export`");
+
+  return($t1 && $t2);
  }
 
  public function getCenterLinkInfo(){

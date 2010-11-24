@@ -20,5 +20,4 @@ define("_CROSSWORD_SUCCESSFULLY","Options were successfully saved");
 define("_CROSSWORD_GAME_SUCCESSFULLY","Crossword completed successfully");
 define("_CROSSWORD_TIMES","times");
 define("_CROSSWORD_TIME","Time");
-
 ?>

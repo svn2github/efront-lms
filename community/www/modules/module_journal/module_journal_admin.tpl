@@ -51,6 +51,11 @@
    &nbsp;&nbsp;<img src="{$T_JOURNAL_BASELINK|cat:'images/export.png'}" alt="{$smarty.const._JOURNAL_ALLOW_PRINT_EXPORT}" title="{$smarty.const._JOURNAL_ALLOW_PRINT_EXPORT}" style="vertical-align:middle" />&nbsp;{$smarty.const._JOURNAL_ALLOW_PRINT_EXPORT}
    <input class="inputCheckbox" type="checkbox" name="allow_print_export" id="allow_print_export" style="border:0px;" onclick="allowPrintExport(this);" {if ($T_JOURNAL_ALLOW_EXPORT == 1)} checked="checked"{/if} />
   </td>
+  <td style="border-right: 1px solid #333333;"></td>
+  <td>
+   &nbsp;&nbsp;<img src="{$T_JOURNAL_BASELINK|cat:'images/analysis.png'}" alt="{$smarty.const._JOURNAL_ALLOW_PROFESSOR_PREVIEW}" title="{$smarty.const._JOURNAL_ALLOW_PROFESSOR_PREVIEW}" style="vertical-align:middle" />&nbsp;{$smarty.const._JOURNAL_ALLOW_PROFESSOR_PREVIEW}
+   <input class="inputCheckbox" type="checkbox" name="allow_professor_preview" id="allow_professor_preview" style="border:0px;" onclick="allowProfessorPreview(this);" {if ($T_JOURNAL_ALLOW_PROFESSOR_PREVIEW == 1)} checked="checked"{/if} />
+  </td>
  </tr>
 </table>
 
@@ -118,26 +123,26 @@
   var checked = $('allow_print_export').checked;
   checked ? url += '&allow=1' : url += '&allow=0';
 
-  var img_id = 'img_allow_print_export';
-  var position = eF_js_findPos(el);
-  var img = document.createElement("img");
+  new Ajax.Request(url, {
+   method: 'get',
+   asynchronous: true,
+   onSuccess: function (transport){
+    ;
+   }
+  });
+ }
 
-  img.style.position = 'absolute';
-  img.style.top = Element.positionedOffset(Element.extend(el)).top + 'px';
-  img.style.left = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
+ function allowProfessorPreview(el){
 
-  img.setAttribute("id", img_id);
-  img.setAttribute('src', '{/literal}{$T_JOURNAL_BASELINK}{literal}images/progress.gif');
-  el.parentNode.appendChild(img);
+  var url = '{/literal}{$T_JOURNAL_BASEURL}{literal}&edit_professor_preview=1';
+  var checked = $('allow_professor_preview').checked;
+  checked ? url += '&preview=1' : url += '&preview=0';
 
   new Ajax.Request(url, {
    method: 'get',
    asynchronous: true,
-   onSuccess: function (transport) {
-    img.style.display = 'none';
-    img.setAttribute('src', '{/literal}{$T_JOURNAL_BASELINK}{literal}images/success.png');
-    new Effect.Appear(img_id);
-    window.setTimeout('Effect.Fade("'+img_id+'")', 1500);
+   onSuccess: function (transport){
+    ;
    }
   });
  }

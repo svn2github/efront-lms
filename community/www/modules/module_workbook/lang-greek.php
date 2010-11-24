@@ -1,0 +1,53 @@
+<?php
+
+define("_WORKBOOK_NAME", "Workbook");
+define("_WORKBOOK_NOACCESS", "Δεν μπορείτε να προσπελάσετε αυτήν τη σελίδα");
+define("_WORKBOOK_LESSON_NAME", "Όνομα Workbook");
+define("_WORKBOOK_ALLOW_PRINT", "Δυνατότητα εκτύπωσης");
+define("_WORKBOOK_ALLOW_EXPORT", "Δυνατότητα αποθήκευσης");
+define("_WORKBOOK_SETTINGS_SUCCESSFULLY_EDITED", "Οι ρυθμίσεις ανανεώθηκαν επιτυχώς");
+define("_WORKBOOK_SETTINGS_EDIT_PROBLEM", "Οι ρυθμίσεις δεν ανανεώθηκαν επιτυχώς");
+define("_WORKBOOK_ADD_ITEM", "Προσθήκη αντικειμένου");
+define("_WORKBOOK_EDIT_ITEM", "Επεξεργασία αντικειμένου");
+define("_WORKBOOK_UPDATE_ITEM", "Ανανέωση αντικειμένου");
+define("_WORKBOOK_ADD_ITEM_FORM", "Φόρμα προσθήκης αντικειμένου");
+define("_WORKBOOK_EDIT_ITEM_FORM", "Φόρμα επεξεργασίας αντικειμένου");
+define("_WORKBOOK_OPEN_POPUP", "Άνοιγμα σε pop-up");
+define("_WORKBOOK_POPUP_INFO", "Πως να ανοίγετε το Workbook στην ροή υλικού του μαθήματος");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP1", "Προκειμένου να τοποθετήσετε ενα link στην ροή υλικού του μαθήματος, δίνοντας την δυνατότητα στους μαθητές να ανοίγουν το Workbook χωρίς να επισκέπτονται τον πίνακα ελέγχου του μαθήματος, ακολουθήστε τις παρακάτω οδηγίες.");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP2", "Αρχικά, τοποθετήστε το παρακάτω κομμάτι HTML κώδικα στο σημείο όπου επιθυμείτε να τοποθετήσετε το link στο Workbook.");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP3", "Σαν δεύτερο και τελευταίο βήμα, τοποθετήστε το παρακάτω κομμάτι Javascript κώδικα.");
+define("_WORKBOOK_HOW_TO_OPEN_POPUP4", "Σημειώστε ότι, αν για κάποιο λόγο, εσείς σαν καθηγητής, επιθυμείτε να τοποθετήσετε ένα link στο Workbook, ο HTML κώδικας που χρειάζεστε είναι ο ακόλουθος.");
+define("_WORKBOOK_COPY_TO_CLIPBOARD", "Αντιγραφή");
+define("_WORKBOOK_ITEM_TITLE", "Τίτλος αντικειμένου");
+define("_WORKBOOK_ITEM_TEXT", "Περιγραφή αντικειμένου");
+define("_WORKBOOK_ITEM_QUESTION", "Ερώτηση αντικειμένου");
+define("_WORKBOOK_ITEM_CHECK_ANSWER", "Έλεγχος απάντησης");
+define("_WORKBOOK_ITEM_GRADE_ANSWER", "Βαθμολόγηση απάντησης");
+define("_WORKBOOK_ITEM_EMPTY_FIELDS", "Απαιτείται ένα από τα πεδία (τίτλος, περιγραφή, ερώτηση)");
+define("_WORKBOOK_ITEM_SUCCESSFULLY_ADDED", "Το αντικείμενο προστέθηκε επιτυχώς");
+define("_WORKBOOK_ITEM_SUCCESSFULLY_EDITED", "Το αντικείμενο ανανεώθηκε επιτυχώς");
+define("_WORKBOOK_ITEM_ADD_PROBLEM", "Το αντικείμενο δεν προστέθηκε επιτυχώς");
+define("_WORKBOOK_ITEM_EDIT_PROBLEM", "Το αντικείμενο δεν ανανεώθηκε επιτυχώς");
+define("_WORKBOOK_REUSE_ITEM", "Επαναχρησιμοποίηση αντικειμένου");
+define("_WORKBOOK_ITEM_ID", "Κωδικός αντικειμένου");
+define("_WORKBOOK_ITEM_ID2", "Κωδικός: ");
+define("_WORKBOOK_INVALID_UNIQUE_ID", "Λανθασμένος κωδικός αντικειμένου");
+define("_WORKBOOK_NO_ITEMS_FOUND", "Δεν βρέθηκαν αντικείμενα");
+define("_WORKBOOK_ITEMS_COUNT", "Αντικείμενο #");
+define("_WORKBOOK_MOVE_ITEM", "Μετακίνηση αντικειμένου");
+define("_WORKBOOK_CANNOT_MOVE_ITEM", "Υπάρχει μόνο ένα αντικείμενο, επομένως δεν μπορείτε να το μετακινήσετε");
+define("_WORKBOOK_ITEM_NEW_POSITION", "Νέα θέση");
+define("_WORKBOOK_ITEM_SUCCESSFULLY_MOVED", "Το αντικείμενο μετακινήθηκε επιτυχώς");
+define("_WORKBOOK_SWITCH_TO", "Μετάβαση σε");
+define("_WORKBOOK_DOWNLOAD_AS", "Αποθήκευση ως");
+define("_WORKBOOK_QUESTION_NOT_ANSWERED", "Δεν έχετε απαντήσει την ερώτηση");
+define("_WORKBOOK_INVALID_ANSWER", "Η απάντησή σας δεν είναι σωστή. Προσπαθήστε ξανά.");
+define("_WORKBOOK_SUCCESSFULLY_PUBLISHED", "Το Workbbok δημοσιεύτηκε επιτυχώς");
+define("_WORKBOOK_PUBLISH_PROBLEM", "Το Workbbok δεν δημοσιεύτηκε επιτυχώς");
+define("_WORKBOOK_UNDER_DEVELOPMENT", "Υπό κατασκευή");
+define("_WORKBOOK_CHECK_PROGRESS", "Έλεγχος προόδου");
+define("_WORKBOOK_STUDENT_NAME", "Μαθητής");
+define("_WORKBOOK_NO_STUDENTS_FOUND", "Δεν βρέθηκαν μαθητές");
+
+?>

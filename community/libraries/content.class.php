@@ -2215,11 +2215,11 @@ class EfrontContentTree extends EfrontTree
             $linkClass = array();
             $liClass = array();
             $tooltip = array();
-            $fullName = $current['name']; //Full name will be needed for the link title, which is never truncated
+            $fullName = htmlspecialchars($current['name']); //Full name will be needed for the link title, which is never truncated
             //Decide whether the unit name will be truncated
-            $unitName = $current['name'];
+            $unitName = htmlspecialchars($current['name']);
             if (isset($options['truncateNames']) && mb_strlen($current['name']) > $options['truncateNames']) {
-                $unitName = mb_substr($current['name'], 0, $options['truncateNames']).'...';
+                $unitName = mb_substr(htmlspecialchars($current['name']), 0, $options['truncateNames']).'...';
             }
             //Create the activate/deactivate link
             //isset($options['activate'])      && $options['activate']                                                                             ? $activateLink    = '<a href = "'.basename($_SERVER['PHP_SELF']).'?ctg='.$contentType.'&op=unit_order&activate_unit='.$current['id'].'"><img style = "vertical-align:middle" src = "images/16x16/trafficlight_green.png" title = "'._ACTIVATE.'" alt = "'._ACTIVATE.'" border = "0" /></a>'  : $activateLink = '';

@@ -14,7 +14,7 @@
   {/capture}
 
   <div class="tabber">
-   {eF_template_printBlock tabber = "main" title=$smarty.const._GENERALSETTINGS data=$smarty.capture.general_main image='32x32/settings.png'}
+   {eF_template_printBlock tabber = "main" title=$smarty.const._GENERALSETTINGS data=$smarty.capture.general_main image='32x32/settings.png' help = 'System_settings#General_settings'}
    {eF_template_printBlock tabber = "security" title=$smarty.const._SECURITYSETTINGS data=$smarty.capture.general_security image='32x32/generic.png' help = 'System_settings#Security_settings'}
    {eF_template_printBlock tabber = "locale" title=$smarty.const._LOCALE data=$smarty.capture.general_locale image='32x32/languages.png' help = 'System_settings#Locale_settings'}
    {eF_template_printBlock tabber = "smtp" title=$smarty.const._EMAILSETTINGS data=$smarty.capture.general_smtp image='32x32/mail.png' help = 'System_settings#E-mail_settings'}
@@ -49,9 +49,9 @@
   {/capture}
 
   <div class="tabber">
-   {eF_template_printBlock tabber = "main" title=$smarty.const._APPEARANCE data=$smarty.capture.appearance_main image='32x32/layout.png'}
-   {eF_template_printBlock tabber = "logo" title=$smarty.const._LOGO data=$smarty.capture.appearance_logo image='32x32/themes.png'}
-   {eF_template_printBlock tabber = "favicon" title=$smarty.const._FAVICON data=$smarty.capture.appearance_favicon image='32x32/themes.png'}
+   {eF_template_printBlock tabber = "main" title=$smarty.const._APPEARANCE data=$smarty.capture.appearance_main image='32x32/layout.png' help = 'System_settings#Appearance_2'}
+   {eF_template_printBlock tabber = "logo" title=$smarty.const._LOGO data=$smarty.capture.appearance_logo image='32x32/themes.png' help = 'System_settings#Logo'}
+   {eF_template_printBlock tabber = "favicon" title=$smarty.const._FAVICON data=$smarty.capture.appearance_favicon image='32x32/themes.png' help = 'System_settings#Favicon'}
   </div>
  {elseif $smarty.get.op == 'external'}
   {capture name = "external_main"}
@@ -64,19 +64,19 @@
    {eF_template_printForm form=$T_EXTERNAL_LIVEDOCX_FORM}
   {/capture}
   <div class="tabber">
-   {eF_template_printBlock tabber = "options" title=$smarty.const._EXTERNALTOOLS data=$smarty.capture.external_main image='32x32/generic.png'}
-   {eF_template_printBlock tabber = "math" title=$smarty.const._MATHSETTINGS data=$smarty.capture.external_math image='32x32/generic.png'}
-   {eF_template_printBlock tabber = "livedocx" title=$smarty.const._PHPLIVEDOCX data=$smarty.capture.external_livedocx image='32x32/generic.png'}
-   {eF_template_printBlock tabber = "ldap" title=$smarty.const._LDAP data=$smarty.capture.external_ldap image='32x32/generic.png'}
+   {eF_template_printBlock tabber = "options" title=$smarty.const._EXTERNALTOOLS data=$smarty.capture.external_main image='32x32/generic.png' help = 'System_settings#External_tools_2'}
+   {eF_template_printBlock tabber = "math" title=$smarty.const._MATHSETTINGS data=$smarty.capture.external_math image='32x32/generic.png' help = 'System_settings#Math_Settings'}
+   {eF_template_printBlock tabber = "livedocx" title=$smarty.const._PHPLIVEDOCX data=$smarty.capture.external_livedocx image='32x32/generic.png' help = 'System_settings#PHP_Livedocx'}
+   {eF_template_printBlock tabber = "ldap" title=$smarty.const._LDAP data=$smarty.capture.external_ldap image='32x32/generic.png' help = 'System_settings#LDAP'}
   </div>
  {elseif $smarty.get.op == 'customization'}
   {capture name = "customization_disable"}
    {eF_template_printForm form=$T_CUSTOMIZATION_DISABLE_FORM}
   {/capture}
   <div class="tabber">
-   {eF_template_printBlock tabber = "disable" title=$smarty.const._DISABLEOPTIONS data=$smarty.capture.customization_disable image='32x32/generic.png'}
-   {eF_template_printBlock tabber = "social" title=$smarty.const._SOCIALOPTIONS data=$smarty.capture.customization_social image='32x32/social.png'}
-   {eF_template_printBlock tabber = "enterprise" title=$smarty.const._ENTERPRISEOPTIONS data=$smarty.capture.customization_enterprise image='32x32/enterprise.png'}
+   {eF_template_printBlock tabber = "disable" title=$smarty.const._DISABLEOPTIONS data=$smarty.capture.customization_disable image='32x32/generic.png' help = 'System_settings#Disable_options'}
+   {eF_template_printBlock tabber = "social" title=$smarty.const._SOCIALOPTIONS data=$smarty.capture.customization_social image='32x32/social.png' help = 'System_settings#Social_options'}
+   {eF_template_printBlock tabber = "enterprise" title=$smarty.const._ENTERPRISEOPTIONS data=$smarty.capture.customization_enterprise image='32x32/enterprise.png' help = 'System_settings#Enterprise_options'}
   </div>
  {/if}
 {/capture}

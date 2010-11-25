@@ -201,7 +201,7 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     }
     $handleString = '';
     if ($params['help'] && $GLOBALS['configuration']['disable_help'] == 0) {
-        $handleString .= '<a href = "javascript:void(0);"><img src = "images/16x16/help.png"  title = "'.$GLOBALS['configuration']['help_url'].'/'.$params['help'].'" onclick = "PopupCenter(\''.$GLOBALS['configuration']['help_url'].'?title='.$params['help'].'&useskin=cologneblue&printable=yes\', \'helpwindow\', \'800\', \'500\')"></a>';
+        $handleString .= '<a href = "javascript:void(0);"><img src = "images/16x16/help.png"  title = "'.$GLOBALS['configuration']['help_url'].'/'.$params['help'].'" onclick = "PopupCenter(\''.$GLOBALS['configuration']['help_url'].'?useskin=cologneblue&printable=yes&title='.$params['help'].'\', \'helpwindow\', \'800\', \'500\')"></a>';
     }
     if (!$nohandle) {
         if ($cookieValue == 'hidden' || (!$cookieValue && isset($expand) && !$expand)) {

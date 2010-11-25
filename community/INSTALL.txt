@@ -1,82 +1,60 @@
 EFRONT VERSION 3.6 QUICK INSTALLATION GUIDE
 -----------------------------------------
 
-Prerequisites
-=============
-Latest version of XAMPP or:
-- PHP 5.2.0 or higher (PHP 5.1.x or 5.0.x are supported but using a version earlier than 5.2 is not recommended)
-- Mysql 5.0 (MySQL 4.1 can be used but is not recommended)
-- Apache 2 (Apache 1.3.xx can be used but is not recommended)
+Requirements
+============
+Hardware: There are no limits on the type of hardware used to host an eFront installation. However, as your needs grow, so will the need for additional resources. A simple eFront installation requires about 50M of free disk space and 32M of free system memory. However, a minimum of 128M free memory available to PHP is recommended. Disk space should be allocated according to usage
+Software: eFront requires an environment running the following:
+- PHP version 5.1+ (PHP 5.2+ recommended)
+- Mysql Server 4+ (Mysql 5 is strongly recommended, and mandatory for eFront Enterprise installations)
+- Web server (Apache 2+ recommended, although eFront can work with Apache 1.x, IIS, nginx or lighttpd)
+eFront may be installed either on a Windows or on a Linux environment. However, if you are going to use non-latin language settings, 1 is preferred over windows due to the latter's poor support for UTF-8 filenames
 
+Setting up Apache/Mysql/PHP (AMP)
+=================================
+If you already have a working AMP environment, or installing on a hosted server, please proceed to the next step
+The easiest way to obtain a working AMP installation is by installing XAMPP, http://www.apachefriends.org/en/xampp.html We suggest that you follow the installation instructions suitable for your working environment (windows, mac or linux)
 
-Installation step-by-step guide
-===============================
-1. Download eFront zip archive, from https://sourceforge.net/projects/efrontlearning/ (or from the provided URL, if you are using a commercial version)
-2. Follow the "Microsoft Windows" or the "Linux" instructions at the next sections, to setup a working environment for efront
-3. Using your browser, access the location http://localhost/install/install.php. If you are setting efront on a host that has a domain name, for example "www.example.com", then you should access it with this name, http://www.example.com/install/install.php 
-4. Click the "Install" button
-5. The first step lists the prerquisites and settings required in order for the system to work correctly. If there aren't any errors, you may click on continue. If you see red "forbidden" icons or yellow "warning" icons, please consult the "troubleshooting" section below
-6. At the second step, you must insert the database settings. Database type is always "MySQL". Database host is usually "localhost" (in some cases it may be a single dot "."). For default XAMPP installations, the database user is "root" and password may be left blank. You can set any name for the database, preferrably "efront".Finally, in this step you must provide the administrator account details. Also you may click on the checkbox to allow the system to create default lessons and users. Clicking "Install" will finalize installation
-7. Installation is now complete. You may click on the provided link to automatically delete the installation directory and redirect to the system's first page, http://localhost/index.php
-8. If you are using a commercial version of eFront, login with the administrator account and click on the "Registration" icon. Insert the key that was provided to you in the text box and click "submit". This will unlock your version's functionality 
+Preparing eFront setup on Windows Server with Apache
+====================================================
+1. Uncompress eFront files to a system folder, for example C:\efront
+2. Using a text editor, open apache's configuration file, httpd.conf. This file is usually located in C:/Program Files/Apache Software Foundation/Apache2.2/conf/ (or c:\xampp\apache\conf\httpd.conf for XAMPP installations)
+3. Change the line where it says DocumentRoot "C:/xampp/htdocs" to DocumentRoot "C:/efront/www" (since we placed eFront folder at C:\) and the line <Directory "C:/xampp/htdocs"> to <Directory "C:/efront/www">
+4. Restart Apache, by right clicking on the apache icon on the bottom right corner of your desktop, or from the XAMPP control panel if you have installed xampp
+5. Proceed to "Installing eFront using the web interface wizard" below
 
-Setup a working environment (Microsoft Windows)
-===============================================
-1. Create a folder, for example c:\efront, and uncompress the eFront files in this folder, thus creating the following structure:
-C:\efront\backups
-C:\efront\libraries
-C:\efront\PEAR
-C:\efront\upload
-C:\efront\www
-C:\efront\Zend
-2. If you don't have already a working Apache/Mysql/PHP environment, download and install XAMPP for Windows, from http://www.apachefriends.org/en/xampp-windows.html 
-3. After installing XAMPP, you must edit the file c:\xampp\apache\conf\httpd.conf (with any text editor, like Notepad)
-and perform the following chages:
-   - Change the line where it says:
-     DocumentRoot "C:/xampp/htdocs"
-     to:
-     DocumentRoot "C:/efront/www"
-   - Change the line where it says:
-     <Directory "C:/xampp/htdocs">
-     to:
-     <Directory "C:/efront/www">
-4. Using the XAMPP control panel (or manually) restart Apache service
+Preparing eFront setup on Linux Server with Apache
+==================================================
+1. Uncompress eFront files to the desired location, for example /var/www/html/efront or /opt/lampp/efront/www
+2. Edit apache's configuration file, usually httpd.conf, which for xampp installations resides in /opt/lampp/etc/httpd.conf.
+3. Assuming a XAMPP installation, change the line where it says: DocumentRoot "/opt/lampp/htdocs/" to DocumentRoot "/opt/lampp/efront/www" and the line where it says <Directory "/opt/lampp/htdocs"> to <Directory "/opt/lampp/efront/www">. You should use directories according to your own file structure
+4. Restart apache, usually running the command service httpd reload or something similar (consult your distribution's documentation)
+5. Set the filesystem permissions as follows (assuming that "apache" is the user that runs the web server process):
+  chown apache:apache libraries/ (only for the duration of the installation)
+  chown apache:apache libraries/smarty/themes_cache
+  chown -R apache:apache libraries/language/
+  chown -R apache:apache backups/
+  chown -R apache:apache upload/
+  chown -R apache:apache www/content/
+  chown -R apache:apache www/modules/
+  chown -R apache:apache www/themes/
+  chown -R apache:apache www/certificate_templates/
+  chown -R apache:apache www/editor/tiny_mce/
+  chown apache:apache www/phplivedocx/samples/mail-merge/convert/
+6. You may now proceed to "Installing eFront using the web interface wizard" below
 
+Installing eFront using the web interface wizard
+================================================
+1. Point your browser to the page http://<sitename>/install/install.php. If you are installing on your local PC, this would be http://localhost/install/install.php
+2. Click the «Install» button
+3. Step 1 of the installation lists the prerequisites and settings required in order for the system to work correctly. If there aren't any missing settings (marked with the "forbidden" sign), you may click on the continue button. Otherwise, you must fix these before continuing with the installation (see also Troubleshooting below). If you click on the "Check current PHP settings" link, you will see the current PHP info page. You may also use the "Error reporting" handle to change the error reporting level, in case you are experiencing trouble with the installation
+4. On step 2 of the installation, you must define the database connection details, the default administrator username, password and email, as well as whether you want to create default users and content. Pressing "Install" will complete the installation process
+5. After completing the installation process, you will be prompted to erase the installation directory and redirected to the system main page. Enjoy!
 
-Setup a working environment (Linux)
-===================================
-1. Uncompress eFront files in the desired folder, for example /opt/lampp/efront, thus creating the following structure:
-/opt/lampp/efront/backups
-/opt/lampp/efront/libraries
-/opt/lampp/efront/PEAR
-/opt/lampp/efront/upload
-/opt/lampp/efront/www
-/opt/lampp/efront/Zend
-2. If you don't have already a working Apache/Mysql/PHP environment, download and install XAMPP for Linux, from http://www.apachefriends.org/en/xampp-linux.html 
-3. After installing XAMPP, you must edit the file /opt/lampp/etc/httpd.conf (with any text editor)
-and perform the following chages:
-   - Change the line where it says:
-     DocumentRoot "/opt/lampp/htdocs/"
-     to:
-     DocumentRoot "/opt/lampp/efront/www"
-   - Change the line where it says:
-     <Directory "/opt/lampp/htdocs">
-     to:
-     <Directory "/opt/lampp/efront/www">
-4. Using the XAMPP control panel (or manually) restart Apache service
-
-Note: Several directories should be writable by the web server, but the most important is libraries/smarty,
-since it is needed in order to perform installation. You will see a list of directories that are not writable, in
-step 1 of the installation process
 
 Troubleshooting
 ===============
-1. One or more red "forbidden" icons appear in step 1 of Installation, at the "Mandatory PHP extesions" section (usually the ZIP extension)
- This means that a mandatory PHP extension is missing. These extensions are needed by efront to function correctly, and are all default
- in PHP 5.2+ installations. If you are on a hosted environment, then ask your hosting provider to install them. If you are on a local windows
- environment, then visit www.php.net and download the corresponding .dll file, which you should place inside PHP's ext/ folder. If you 
- are on a 1 environment, running "pecl install <extension name>" should do the job
-2. One or more red "forbidden" icons appear in step 1 of Installation, at the "Mandatory PHP Settings" section (usually the magic_quotes_gpc setting)
+1. One or more red "forbidden" icons appear in step 1 of Installation, at the "Mandatory PHP Settings" section (usually the magic_quotes_gpc setting)
  This means that some PHP settings that are mandatory for efront to function properly are not set or are set in different values than the recommended, and the system failed to fix them automatically
  Recommended settings are:
  magic_quotes_gpc = Off
@@ -99,17 +77,20 @@ Troubleshooting
   - Upload this file inside efront's www/ folder
   - Reload the page with step 1 to see if the settings changed. If you get a "Server Error" message, remove the file you uploaded
  d) If none of the above methods work, contact your hosting provider and ask them how to set them
-3. One or more red "forbidden" icons appear in step 1 of Installation, at the "Filesystem Permissions" section (usually in Linux installations)
+2. One or more red "forbidden" icons appear in step 1 of Installation, at the "Filesystem Permissions" section (usually in Linux installations)
  These are the folders that efront must have write access to, so you should edit these folder's permissions to "writable" for the web server (for example, by changing ownership). 
  The "libraries/" folder may be set to non-writable after the installation finishes
-4. One or more yellow "warning" icons appear in step 1 of Installation, at the "Optional PHP extesions" section
+3. One or more yellow "warning" icons appear in step 1 of Installation, at the "Optional PHP extesions" section
  These are PHP extensions that are not mandatory for efront. If you don't have them installed, you may safely ignore them and proceed with the installation
-5. One or more yellow "warning" icons appear in step 1 of Installation, at the "Recommended PHP Settings" section
+4. One or more yellow "warning" icons appear in step 1 of Installation, at the "Recommended PHP Settings" section
   These are PHP settings that are recommended to be set in specific values or ranges, but efront will work anyway. The most important is "memory_limit" which may give you errors if it is set too low
-6. I get a "Parse error: syntax error, unexpected '{' in some/dir/efront/www/index.php on line 34"
+5. I get a "Parse error: syntax error, unexpected '{' in some/dir/efront/www/index.php on line 34"
  This means that your server is set to execute scripts with PHP4. eFront requires PHP 5 to work, contact your system administrator to resolve this issue
-7. After installing XAMPP, I can't start apache, what's wrong?
+6. After installing XAMPP, I can't start apache, what's wrong?
  If you are running skype, it might be blocking apache's default port. Try restarting your computer
+7. My language is listed in the "unavailable" list.
+ If your language is listed in the "unavailable languages" list, this means that the system was unable to locate the correct locale for your language. In this case, you should edit the corresponding language file (for example, efront/libraries/language/lang-english.php.inc) and change the constant _HEADERLANGUAGETAG to the corresponding language locale installed in your system. On a 1 environment, you can see this list by typing locale -a. For example, for english this may be "en_US.utf8"
+
 
 More information
 ================

@@ -487,7 +487,11 @@ function globalAjaxPost(id, el, table_id) {
   type = el.name;
  }
  if (type == "skill" || type == "lesson" || type == "course") {
-  var baseUrl = sessionType + '.php?ctg=module_hcd&op=job_descriptions&edit_job_description='+editJobDescription+'&postAjaxRequest=1&'+type+'=1';
+  if (type == "skill") {
+   var baseUrl = sessionType + '.php?ctg=module_hcd&op=job_descriptions&edit_job_description='+editJobDescription+'&postAjaxRequest=1&'+type+'=1&apply_to_all_jd=' + document.getElementById(type + '_changes_apply_to').checked;
+  } else {
+   var baseUrl = sessionType + '.php?ctg=module_hcd&op=job_descriptions&edit_job_description='+editJobDescription+'&postAjaxRequest=1&'+type+'=1';
+  }
   if (id) {
    var checked = $(type+'_'+id).checked;
    var url = baseUrl + '&add_'+type+'ID=' + id + '&insert='+checked;
@@ -532,6 +536,18 @@ function globalAjaxPost(id, el, table_id) {
  } else {
   return false;
  }
+}
+function applyToAllJobDescriptionsInfo(el, jobDescription) {
+ if (el.checked) {
+  newValue = "checked";
+  alert(futureAssignmentsWill + jobDescription);
+ } else {
+  newValue = "";
+  alert(futureAssignmentsWillNot + jobDescription);
+ }
+ $('skill_changes_apply_to').checked = newValue;
+ //$('lesson_changes_apply_to').checked = newValue;
+ //$('course_changes_apply_to').checked = newValue;	
 }
 function applyToAllJobPositionUsers(el, position_id) {
  Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));

@@ -4,6 +4,9 @@
 - Added code for deleting rows from module_hcd_course_to_job_description and module_hcd_course_to_branch when deleting a course
 - Fixed issue about displaying the online users in sidebar
 - Fixed issue about unit names containing double quotes in IE
+- Fixed issue with assigning skills to all job positions 'described as' (#785)
+- Removed group reports link from sidebar in community++ edition
+- Fixed issue about displaying certificate expiration title in community++ edition
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries

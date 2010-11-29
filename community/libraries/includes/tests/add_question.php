@@ -29,15 +29,7 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
 }
 //Default url for the file manager
 $url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_question']) ? 'edit_question='.$_GET['edit_question'] : 'add_question=1');
-$filesystem = new FileSystemTree($basedir, true);
-$filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($filesystem -> tree)));
-
-foreach ($filesystemIterator as $key => $value) {
-    $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
-  $value -> offsetSet(_INSERT, '<div style="text-align:center"><img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" /></div>');
-}
-$extraColumns = array(_INSERT);
-//$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
 /**The file manager*/
 include "file_manager.php";
 

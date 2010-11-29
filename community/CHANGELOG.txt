@@ -7,6 +7,7 @@
 - Fixed issue with assigning skills to all job positions 'described as' (#785)
 - Removed group reports link from sidebar in community++ edition
 - Fixed issue about displaying certificate expiration title in community++ edition
+- Fixed issue about file manager in content page about not displaying files in subfolders correctly
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries

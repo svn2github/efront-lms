@@ -288,6 +288,55 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_SQL_FORM", $sqlForm -> toArray());
+   if (isset($_GET['lessons_ID'])) {
+    $currentLesson = new EfrontLesson($_GET['lessons_ID']);
+    $smarty -> assign("T_CURRENT_LESSON", $currentLesson);
+    $roles = EfrontUser::getRoles(true);
+    $smarty -> assign("T_ROLES", $roles);
+    try {
+     if ($_GET['ajax'] == 'usersTable') {
+      $constraints = array('archive' => false, 'active' => 1, 'return_objects' => false) + createConstraintsFromSortedTable();
+      $dataSource = $currentLesson -> getLessonUsersIncludingUnassigned($constraints);
+      $totalEntries = $currentLesson -> countLessonUsersIncludingUnassigned($constraints);
+      $smarty -> assign("T_SORTED_TABLE", $_GET['ajax']);
+      $smarty -> assign("T_TABLE_SIZE", $tableSize);
+      $smarty -> assign("T_DATA_SOURCE", $dataSource);
+     }
+     if (isset($_GET['ajax']) && isset($_GET['reset_user'])) {
+      $user = EfrontUserFactory :: factory($_GET['reset_user']);
+      $user -> resetProgressInLesson($currentLesson);
+      exit;
+     }
+     if (isset($_GET['postAjaxRequest'])) {
+      if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
+       isset($_GET['user_type']) && in_array($_GET['user_type'], array_keys($roles)) ? $userType = $_GET['user_type'] : $userType = 'student';
+       $result = eF_getTableData("users_to_lessons", "*", "archive = 0 and users_LOGIN='".$_GET['login']."' and lessons_ID=".$currentLesson -> lesson['id']);
+       if (sizeof($result) == 0) {
+        $currentLesson -> addUsers($_GET['login'], $userType);
+       } elseif ($result[0]['user_type'] != $userType) {
+        $currentLesson -> setRoles($_GET['login'], $userType);
+       } else {
+        $currentLesson -> removeUsers($_GET['login']);
+       }
+      } else if (isset($_GET['addAll'])) {
+       $constraints = array('archive' => false, 'active' => 1, 'has_lesson' => 0, 'return_objects' => false) + createConstraintsFromSortedTable();
+       $dataSource = $currentLesson -> getLessonUsersIncludingUnassigned($constraints);
+       $userTypes = array();
+       foreach ($dataSource as $user) {
+        $user['user_types_ID'] ? $userTypes[] = $user['user_types_ID'] : $userTypes[] = $user['user_type'];
+       }
+       $currentLesson -> addUsers($dataSource, $userTypes);
+      } else if (isset($_GET['removeAll'])) {
+       $constraints = array('archive' => false, 'active' => 1, 'has_lesson' => 1, 'return_objects' => false) + createConstraintsFromSortedTable();
+       $dataSource = $currentLesson -> getLessonUsersIncludingUnassigned($constraints);
+       $currentLesson -> archiveLessonUsers($dataSource);
+      }
+      exit;
+     }
+    } catch (Exception $e) {
+     handleAjaxExceptions($e);
+    }
+   }
      } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
             $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

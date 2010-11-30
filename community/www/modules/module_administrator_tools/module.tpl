@@ -105,12 +105,43 @@
 {/if}
 {/capture}
 
+{capture name = 't_unenroll_courses_code'}
+<table class = "formElements">
+ <tr><td class = "labelCell">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ENTITYTYPE}:&nbsp;</td>
+  <td class = "elementCell">
+   <select onchange = "window.location='{$T_MODULE_ADMINISTRATOR_TOOLS_BASEURL}&tab=unenroll_courses&type='+this.options[this.options.selectedIndex].value">
+    <option value = "0">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_SELECTASSIGNMENTTYPE}</option>
+    <option value = "group" {if $smarty.get.type=='group'}selected{/if}>{$smarty.const._GROUP}</option>
+    <option value = "branch" {if $smarty.get.type=='branch'}selected{/if}>{$smarty.const._BRANCH}</option>
+    <option value = "job" {if $smarty.get.type=='job'}selected{/if}>{$smarty.const._JOBDESCRIPTIONS}</option>
+   </select>
+  </td></tr>
+ {if $T_ENTITIES_LIST}
+ <tr><td class = "labelCell">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ENTITYENTRY}:&nbsp;</td>
+  <td class = "elementCell">
+   <select onchange = "window.location='{$T_MODULE_ADMINISTRATOR_TOOLS_BASEURL}&tab=unenroll_courses&type={$smarty.get.type}&entry='+this.options[this.options.selectedIndex].value">
+    <option value = "0">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_SELECTANENTRY}</option>
+   {foreach name = 'jobs_list' item = "item" key = "key" from = $T_ENTITIES_LIST}
+    <option value = "{$key}" {if $smarty.get.entry==$key}selected{/if}>{$item}</option>
+   {/foreach}
+   </select>
+  </td></tr>
+  {if $smarty.get.entry}
+  <tr><td></td>
+   <td class = "submitCell"><input type = "submit" class = "flatButton" onclick = "if (confirm('{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_AREYOUSUREYOUWANTTOREMOVEENTITYUSERSFROMENTITYCOURSES}')) removeUsersFromEntity(this)" value = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_REMOVECOURSESFROMUSERS}"/>
+   </td></tr>
+  {/if}
+ {/if}
+</table>
+{/capture}
+
 {capture name = 't_administrator_tools_code'}
  <div class = "tabber">
   {eF_template_printBlock tabber = "change_login" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN data = $smarty.capture.t_change_login_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "global_settings" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS data = $smarty.capture.t_global_settings_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}
+  {eF_template_printBlock tabber = "unenroll_courses" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_UNENROLLJOBCOURSES data = $smarty.capture.t_unenroll_courses_code image='32x32/courses.png'}
  </div>
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}

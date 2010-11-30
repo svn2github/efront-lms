@@ -15,7 +15,7 @@
     <tr class = "{cycle values = "oddRowColor,evenRowColor"} defaultRowHeight">
     <td><span style = "display:none">{$event.timestamp}</span>#filter:timestamp_time_nosec-{$event.timestamp}#</td>
     <td>{$event.data}</td>
-    <td>{if $event.type == 'private'}{$smarty.const._PRIVATE}{elseif $event.type}{$event.name}{else}{$smarty.const._GLOBAL}{/if}</td>
+    <td>{if $event.type == 'private'}{$smarty.const._PRIVATE}{elseif $event.type == 'global'}{$smarty.const._GLOBAL}{elseif $event.type}{$event.name}{/if}</td>
     <td>#filter:login-{$event.users_LOGIN}#</td>
     <td class = "centerAlign nowrap">
    {if ($smarty.session.s_type == 'administrator' || $smarty.session.s_login == $event.users_LOGIN) && $_change_}

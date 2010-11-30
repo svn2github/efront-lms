@@ -49,5 +49,6 @@ define("_WORKBOOK_UNDER_DEVELOPMENT", "Under development");
 define("_WORKBOOK_CHECK_PROGRESS", "Check progress");
 define("_WORKBOOK_STUDENT_NAME", "Student Name");
 define("_WORKBOOK_NO_STUDENTS_FOUND", "No students found");
+define("_WORKBOOK_UNIT_TO_COMPLETE", "Unit to complete");
 
 ?>

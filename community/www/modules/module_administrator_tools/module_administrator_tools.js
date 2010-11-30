@@ -45,6 +45,12 @@ function ajaxPost(login, el, table_id) {
  ajaxRequest(el, url, parameters);
 }
 
+function removeUsersFromEntity(el) {
+ var url = location.toString();
+ var parameters = {remove_users_from_courses:1, method: 'get'};
+ ajaxRequest(el, url, parameters);
+}
+
 if ($('module_administrator_tools_autocomplete_lessons_div')) {
  new Ajax.Autocompleter("autocomplete",
          "module_administrator_tools_autocomplete_lessons_div",

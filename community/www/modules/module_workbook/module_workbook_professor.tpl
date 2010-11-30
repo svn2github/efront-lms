@@ -100,6 +100,10 @@
    <td class="elementCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.allow_export.html}</td>
   </tr>
   <tr>
+   <td class="labelCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.unit_to_complete.label}:&nbsp;</td>
+   <td class="elementCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.unit_to_complete.html}</td>
+  </tr>
+  <tr>
    <td colspan="2">&nbsp;</td>
   </tr>
   <tr>

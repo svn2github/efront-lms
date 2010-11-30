@@ -8,6 +8,9 @@
 - Removed group reports link from sidebar in community++ edition
 - Fixed issue about displaying certificate expiration title in community++ edition
 - Fixed issue about file manager in content page about not displaying files in subfolders correctly
+- Revert insert to editor icon in operations column since it was not appeared in subfolders
+- Fixed issue about news with cleared expire date not displayed in control panel
+- Fixed issue about calendar events from news not displayed in students
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries

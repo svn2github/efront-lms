@@ -81,17 +81,17 @@ if (is_file($path."configuration.php")) {
 }
 if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) {
  if (is_file('../php.ini') && !is_file('php.ini') && copy('../php.ini', 'php.ini')) {
-  header("location:".$_SERVER['PHP_SELF']."?step=1");
+  header("location:".$_SERVER['PHP_SELF']."?step=1".(isset($_GET['upgrade']) ? '&upgrade=1' : ''));
  }
  $exclude_normal = true;
  require_once $path."includes/check_status.php";
  if ($_GET['mode'] != 'none' && sizeof($settings_mandatory) > 0) {
   if (!$_GET['mode']) {
    Installation :: fix($settings_mandatory, 'local');
-   header("location:".$_SERVER['PHP_SELF']."?step=1&mode=htaccess");
+   header("location:".$_SERVER['PHP_SELF']."?step=1&mode=htaccess".(isset($_GET['upgrade']) ? '&upgrade=1' : ''));
   } else {
    Installation :: fix($settings_mandatory, 'htaccess');
-   header("location:".$_SERVER['PHP_SELF']."?step=1&mode=none");
+   header("location:".$_SERVER['PHP_SELF']."?step=1&mode=none".(isset($_GET['upgrade']) ? '&upgrade=1' : ''));
   }
  } else if ($_GET['mode'] == 'none' && sizeof($settings_mandatory) > 0) {
   $message = 'The system tried to automatically fix the errors shown below by applying custom php.ini and .htaccess files, but was unable to. Please fix the following errors manually.';

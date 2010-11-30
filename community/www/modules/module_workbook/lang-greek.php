@@ -49,5 +49,6 @@ define("_WORKBOOK_UNDER_DEVELOPMENT", "Υπό κατασκευή");
 define("_WORKBOOK_CHECK_PROGRESS", "Έλεγχος προόδου");
 define("_WORKBOOK_STUDENT_NAME", "Μαθητής");
 define("_WORKBOOK_NO_STUDENTS_FOUND", "Δεν βρέθηκαν μαθητές");
+define("_WORKBOOK_UNIT_TO_COMPLETE", "Ενότητα που θα ολοκληρωθεί");
 
 ?>

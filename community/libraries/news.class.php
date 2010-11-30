@@ -232,7 +232,7 @@ class news extends EfrontEntity
                          'timestamp' => $timestamp,
                          'active' => 1,
              'private' => 0,
-             'type' => $fields['lessons_ID'] ? 'lesson' : '',
+             'type' => $fields['lessons_ID'] ? 'lesson' : 'global',
              'foreign_ID' => $fields['lessons_ID'] ? $fields['lessons_ID'] : 0,
                          'users_LOGIN' => $_SESSION['s_login']);
          calendar :: create($calendarFields);
@@ -313,7 +313,7 @@ class news extends EfrontEntity
 	*/
     public static function getNews($lessonId, $checkExpire = false) {
   if ($checkExpire) {
-   $expireString = " and (n.expire=0 OR n.expire >=".time().") AND n.timestamp<=".time();
+   $expireString = " and (n.expire=0 OR n.expire is null OR n.expire >=".time().") AND n.timestamp<=".time();
    //$expireString = " AND n.timestamp<=".time();   // check why it was here hot talking into account expire. makriria 15/3/2010
   }
   if (is_array($lessonId) && !empty($lessonId)) {

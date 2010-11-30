@@ -31,7 +31,9 @@ class module_administrator_tools extends EfrontModule {
         return array("administrator");
     }
  public function getModuleJs() {
-  return $this->moduleBaseDir."module_administrator_tools.js";
+  if (strpos($_SERVER['REQUEST_URI'], $this -> moduleBaseUrl) !== false) {
+   return $this->moduleBaseDir."module_administrator_tools.js";
+  }
  }
     public function addScripts() {
      return array("scriptaculous/effects", "scriptaculous/controls");
@@ -337,6 +339,45 @@ class module_administrator_tools extends EfrontModule {
      handleAjaxExceptions($e);
     }
    }
+   if ($_GET['type'] == 'job') {
+    foreach (EfrontJob::getAllJobs() as $key => $value) {
+     $entities[$value['job_description_ID']] = $value['description'];
+    }
+    if ($_GET['entry']) {
+     $entity = new EfrontJob($_GET['entry']);
+     $courses = $entity -> getJobCourses(array('archive' => false));
+     $users = $entity -> getEmployees();
+    }
+   } elseif ($_GET['type'] == 'branch') {
+    foreach (EfrontBranch::getAllBranches() as $key => $value) {
+     $entities[$value['branch_ID']] = $value['name'];
+    }
+    if ($_GET['entry']) {
+     $entity = new EfrontBranch($_GET['entry']);
+     $courses = $entity -> getBranchCourses(array('archive' => false));
+     $users = $entity -> getEmployees();
+    }
+   } elseif ($_GET['type'] == 'group') {
+    foreach (EfrontGroup::getGroups() as $key => $value) {
+     $entities[$value['id']] = $value['name'];
+    }
+    if ($_GET['entry']) {
+     $entity = new EfrontGroup($_GET['entry']);
+     $courses = $entity -> getGroupCourses(array('archive' => false));
+     $users = $entity -> getGroupUsers();
+    }
+   }
+   if ($_GET['ajax'] && $_GET['remove_users_from_courses']) {
+    try {
+     foreach ($courses as $course) {
+      $course->removeUsers($users);
+     }
+     exit;
+    } catch (Exception $e) {
+     handleAjaxExceptions($e);
+    }
+   }
+   $smarty -> assign("T_ENTITIES_LIST", $entities);
      } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
             $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

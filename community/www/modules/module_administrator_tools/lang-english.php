@@ -15,4 +15,11 @@ define("_MODULE_ADMINISTRATOR_TOOLS_ROWSAFFECTED", "rows affected");
 define("_MODULE_ADMINISTRATOR_TOOLS_EMPTYSET", "Empty set");
 define("_MODULE_ADMINISTRATOR_TOOLS_BULKCOMPLETECOURSES", "Bulk complete lessons and courses");
 define("_MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE", "Set course lesson users");
+define("_MODULE_ADMINISTRATOR_TOOLS_UNENROLLJOBCOURSES", "Unenroll job courses");
+define("_MODULE_ADMINISTRATOR_TOOLS_ENTITYTYPE", "Entity type");
+define("_MODULE_ADMINISTRATOR_TOOLS_ENTITYENTRY", "Entity entry");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTANENTRY", "Select an entry");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTASSIGNMENTTYPE", "Select an assignment type");
+define("_MODULE_ADMINISTRATOR_TOOLS_REMOVECOURSESFROMUSERS", "Unenroll users");
+define("_MODULE_ADMINISTRATOR_TOOLS_AREYOUSUREYOUWANTTOREMOVEENTITYUSERSFROMENTITYCOURSES", "This operation will unenroll all users that are part of this entity from all of its courses. Are you sure?");
 ?>

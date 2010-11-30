@@ -94,6 +94,14 @@ class module_workbook extends EfrontModule{
    $isWorkbookCompleted = $this->isWorkbookCompleted($currentUser->user['login'], $currentLessonID);
    $studentProgress = $this->getStudentProgress($currentUser->user['login'], $currentLessonID);
 
+   if($isWorkbookCompleted['is_completed'] == 1){
+
+    $unitToComplete = $workbookSettings['unit_to_complete'];
+
+    if($unitToComplete != -1)
+     $currentUser->setSeenUnit($unitToComplete, $currentLessonID, true);
+   }
+
    echo $studentProgress.'-'.$isWorkbookCompleted['id'];
    exit;
   }
@@ -106,14 +114,34 @@ class module_workbook extends EfrontModule{
     $this->setMessageVar($message, $message_type);
    }
 
+   $content = new EfrontContentTree($currentLessonID);
+   $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($content->tree),
+        RecursiveIteratorIterator::SELF_FIRST), array('ctg_type' => 'theory'));
+
+   $contentOptions = $content->toHTMLSelectOptions($iterator);
+   $contentOptions = array(-1 => '-------------') + $contentOptions;
+
+   $workbookSettings = $this->getWorkbookSettings($currentLessonID);
+
+   if($isWorkbookPublished == 1){
+
+    $contentOptions[$workbookSettings['unit_to_complete']] = str_replace('&nbsp;', '',
+            $contentOptions[$workbookSettings['unit_to_complete']]);
+    $contentOptions[$workbookSettings['unit_to_complete']] = str_replace('&raquo;', '',
+            $contentOptions[$workbookSettings['unit_to_complete']]);
+   }
+
    $form = new HTML_QuickForm("edit_settings_form", "post", $this->moduleBaseUrl."&edit_settings=1", "", null, true);
    $form->addElement('text', 'lesson_name', _WORKBOOK_LESSON_NAME, 'class="inputText"');
    $form->addRule('lesson_name', _THEFIELD.' "'._WORKBOOK_LESSON_NAME.'" '._ISMANDATORY, 'required', null, 'client');
    $form->addElement('advcheckbox', 'allow_print', _WORKBOOK_ALLOW_PRINT, null, 'class="inputCheckBox"', array(0, 1));
    $form->addElement('advcheckbox', 'allow_export', _WORKBOOK_ALLOW_EXPORT, null, 'class="inputCheckBox"', array(0, 1));
+   $form->addElement('select', 'unit_to_complete', _WORKBOOK_UNIT_TO_COMPLETE, $contentOptions);
    $form->addElement('submit', 'submit', _UPDATE, 'class="flatButton"');
 
-   $workbookSettings = $this->getWorkbookSettings($currentLessonID);
+   if($isWorkbookPublished == 1)
+    $form->freeze('unit_to_complete');
+
    $form->setDefaults($workbookSettings);
 
    if($form->isSubmitted() && $form->validate()){
@@ -122,7 +150,8 @@ class module_workbook extends EfrontModule{
     $fields = array(
       "lesson_name" => $values['lesson_name'],
       "allow_print" => $values['allow_print'],
-      "allow_export" => $values['allow_export']
+      "allow_export" => $values['allow_export'],
+      "unit_to_complete" => $values['unit_to_complete']
      );
 
     if(eF_updateTableData("module_workbook_settings", $fields, "id=".$workbookSettings['id'])){
@@ -477,6 +506,11 @@ class module_workbook extends EfrontModule{
 
    foreach($workbookItems as $key => $value)
     eF_deleteTableData("module_workbook_answers", "item_id=".$key." AND users_LOGIN='".$currentUser->user['login']."'");
+
+   $unitToComplete = $workbookSettings['unit_to_complete'];
+
+   if($unitToComplete != -1)
+    $currentUser->setSeenUnit($unitToComplete, $currentLessonID, false);
   }
 
   if(isset($_GET['download_as']) && $_GET['download_as'] == 'doc'){
@@ -792,6 +826,7 @@ class module_workbook extends EfrontModule{
      `lesson_name` varchar(255) NOT NULL,
      `allow_print` tinyint(1) NOT NULL DEFAULT '1',
      `allow_export` tinyint(1) NOT NULL DEFAULT '1',
+     `unit_to_complete` int(11) NOT NULL DEFAULT '-1',
      PRIMARY KEY (`id`)
      ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
 
@@ -858,6 +893,30 @@ class module_workbook extends EfrontModule{
   $t6 = eF_executeNew("DROP TABLE IF EXISTS `module_workbook_autosave`");
 
   return($t1 && $t2 && $t3 && $t4 && $t5 && $t6);
+ }
+
+ public function onUpgrade(){
+
+  $columns = mysql_query("show columns from `module_workbook_settings`");
+  $alter = true;
+  $found = false;
+
+  if($columns){
+
+   while(($col = mysql_fetch_assoc($columns))){
+
+    if($col['Field'] == 'unit_to_complete'){
+
+     $found = true;
+     break;
+    }
+   }
+
+   if($found == false) // field does not exist
+    $alter = eF_executeNew("ALTER TABLE `module_workbook_settings` ADD COLUMN `unit_to_complete` INT(11) NOT NULL DEFAULT '-1' AFTER `allow_export`");
+  }
+
+  return($columns && $alter);
  }
 
  public function getLessonCenterLinkInfo(){
@@ -1019,7 +1078,8 @@ class module_workbook extends EfrontModule{
     'id' => $result[0]['id'],
     'lesson_name' => $result[0]['lesson_name'],
     'allow_print' => $result[0]['allow_print'],
-    'allow_export' => $result[0]['allow_export']
+    'allow_export' => $result[0]['allow_export'],
+    'unit_to_complete' => $result[0]['unit_to_complete']
    );
 
   return $settings;

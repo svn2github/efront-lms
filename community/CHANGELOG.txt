@@ -11,6 +11,7 @@
 - Revert insert to editor icon in operations column since it was not appeared in subfolders
 - Fixed issue about news with cleared expire date not displayed in control panel
 - Fixed issue about calendar events from news not displayed in students
+- Fixed issue about displaying general forums in students/professors
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries

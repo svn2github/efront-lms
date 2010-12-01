@@ -2844,6 +2844,28 @@ abstract class EfrontLessonUser extends EfrontUser
    return false;
   }
  }
+ public function hasLesson($lesson) {
+  if ($lesson instanceOf EfrontLesson) {
+   $lesson = $lesson -> lesson['id'];
+  } elseif (!eF_checkParameter($lesson, 'id')) {
+   throw new EfrontLessonException(_INVALIDID.": $lesson", EfrontLessonException :: INVALID_ID);
+  }
+  $result = eF_getTableData("users_to_lessons", "lessons_ID", "lessons_ID=$lesson and users_LOGIN='".$this -> user['login']."' and archive=0");
+  return sizeof($result) > 0;
+ }
+ public function getUserTypeInLesson($lesson) {
+  if ($lesson instanceOf EfrontLesson) {
+   $lesson = $lesson -> lesson['id'];
+  } elseif (!eF_checkParameter($lesson, 'id')) {
+   throw new EfrontLessonException(_INVALIDID.": $lesson", EfrontLessonException :: INVALID_ID);
+  }
+  $result = eF_getTableData("users_to_lessons", "user_type", "lessons_ID=$lesson and users_LOGIN='".$this -> user['login']."' and archive=0");
+  if (!empty($result)) {
+   return $result[0]['user_type'];
+  } else {
+   return false;
+  }
+ }
 }
 /**
  * Class for professor users

@@ -101,27 +101,28 @@ try {
 
          */
         try {
-            $lessonTests = $infoLesson -> getTests(true);
-            $scormTests = $infoLesson -> getScormTests();
+         $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
+         $statsFiltersUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+         $lessonTests = $infoLesson -> getTests(true);
+         $scormTests = $infoLesson -> getScormTests();
             if (sizeof($lessonTests) > 0 || sizeof($scormTests) > 0) {
                 if (sizeof($lessonTests) > 0) {
                     $testsInfo = EfrontStats :: getTestInfo(array_keys($lessonTests), false, false, $infoLesson -> lesson['id']);
                 } else {
                     $testsInfo = array();
                 }
+
                 if (sizeof($scormTestsInfo = EfrontStats :: getScormTestInfo($scormTests)) > 0) {
                     $testsInfo = $testsInfo + $scormTestsInfo;
                 }
 
-                if (isset($groupUsers)) {
-                    foreach ($testsInfo as $id => $test) {
-                        foreach ($test['done'] as $key => $value) {
-                            if (!in_array($value['users_LOGIN'], $groupUsers['student'])) {
-                                unset($testsInfo[$id]['done'][$key]);
-                            }
-                        }
-                    }
-                }
+          foreach ($testsInfo as $id => $test) {
+           foreach ($test['done'] as $key => $value) {
+            if (!in_array($value['users_LOGIN'], array_keys($statsFiltersUsers))) {
+             unset($testsInfo[$id]['done'][$key]);
+            }
+           }
+          }
 
                 $smarty -> assign("T_TESTS_INFO", $testsInfo);
             }
@@ -219,7 +220,7 @@ try {
             }
             $traffic['users'] = $infoLesson -> getLessonTimesForUsers();
             foreach ($traffic['users'] as $key => $user) {
-                if (isset($groupUsers) && !in_array($key, $groupUsers['professor']) && !in_array($key, $groupUsers['student'])) {
+                if (isset($statsFiltersUsers) && !in_array($key, array_keys($statsFiltersUsers))) {
                     unset($traffic['users'][$key]);
                 } else {
                     $traffic['users'][$key]['active'] = $users[$key];
@@ -312,8 +313,6 @@ try {
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }
-        $groups = EfrontGroup :: getGroups();
-        $smarty -> assign("T_GROUPS", $groups);
     }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);

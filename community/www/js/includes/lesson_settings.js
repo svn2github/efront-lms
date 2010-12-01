@@ -39,14 +39,14 @@ function ajaxPost(login, el, table_id) {
 
 function updatePositions(el, lessonId) {
  var str = '';
-    $('firstlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className == 'plus' ? 0 : 1) + '&'});
-    $('secondlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className == 'plus' ? 0 : 1) + '&'});
+    $('layoutfirstlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className == 'plus' ? 0 : 1) + '&'});
+    $('layoutsecondlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className == 'plus' ? 0 : 1) + '&'});
     str = str.substring(0, str.length - 1); //Remove trailing &
 
  parameters = {lessons_ID:lessonId,
       set_default:1,
-      firstlist: Sortable.serialize('firstlist'),
-      secondlist: Sortable.serialize('secondlist'),
+      firstlist: Sortable.serialize('layoutfirstlist').replace(/layoutfirstlist/g, 'firstlist').replace(/layoutsecondlist/g, 'secondlist'),
+      secondlist: Sortable.serialize('layoutsecondlist').replace(/layoutsecondlist/g, 'secondlist').replace(/layoutfirstlist/g, 'firstlist'),
       visibility: str,
       method: 'post'};
     var url = 'set_positions.php';
@@ -62,11 +62,11 @@ function onResetProgress(el, response) {
  new Effect.Fade(el, {afterFinish:function (s) {setImageSrc(el, 16, 'refresh');el.show();}});
 }
 
-if ($('firstlist')) {
- Sortable.create("firstlist", {
-     containment:["firstlist","secondlist"], constraint:false
+if ($('layoutfirstlist')) {
+ Sortable.create("layoutfirstlist", {
+     containment:["layoutfirstlist","layoutsecondlist"], constraint:false
  });
- Sortable.create("secondlist", {
-     containment:["firstlist", "secondlist"], constraint:false
+ Sortable.create("layoutsecondlist", {
+     containment:["layoutfirstlist", "layoutsecondlist"], constraint:false
  });
 }

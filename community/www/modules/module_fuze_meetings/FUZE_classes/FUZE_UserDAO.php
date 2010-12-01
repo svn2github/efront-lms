@@ -128,7 +128,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
      $this->_meetings_per_lesson [''.$lesson_id] = array();
      // we're only interested in meetings that are being held 
      // right now or are scheduled for the future.
-     $timestamp = time() - 300; // 5 minutes ago
+     $timestamp = time() - 600; // 10 minutes ago
      $res = eF_getTableData("`_mod_fm_meeting`","`id`","`starttime` > " . $timestamp . " AND `lesson_id` = " . $lesson_id . " AND `user_id` = " . $this->_controller_id, "`starttime`");
      if (is_array($res) && count($res)) {
       foreach ($res AS $meeting) {
@@ -141,7 +141,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
    // Get future meetings only (all future meetings)
    // We're only interested in the meetings that are scheduled
    // starting 5 minutes ago and any time in the future.
-   $timestamp = time() - 300; // 5 minutes ago
+   $timestamp = time() - 600; // 10 minutes ago
    $res = eF_getTableData("`_mod_fm_meeting`","`id`","`starttime` > " . $timestamp . " AND `user_id` = " . $this->_controller_id);
    if (is_array($res) && count($res)) {
     foreach ($res AS $meeting) {
@@ -263,6 +263,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
             $meeting_lesson_name = $res [0]['name'];
            }
            // We notify attendees by email
+           $meeting_link = $response ['meetingurl'];
            $meeting_name = $args ['subject'];
            $meeting_starttime = date('r', $args ['starttime']);
            $email_subject = str_ireplace('###MEETING_NAME###', $meeting_name, _FUZE_EMAIL_MEETING_NOTIFICATION_NEW_SUBJECT);
@@ -270,6 +271,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
            $email_content = str_ireplace('###LESSON_NAME###', $meeting_lesson_name, $email_content);
            $email_content = str_ireplace('###MEETING_NAME###', $meeting_name, $email_content);
            $email_content = str_ireplace('###MEETING_STARTTIME###', $meeting_starttime, $email_content);
+           $email_content = str_ireplace('###MEETING_LINK###', $meeting_link, $email_content);
 
            // Rather ineffective as we need to send each email separately
            // because of different user_name embedded in text in each one
@@ -360,6 +362,10 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
          $table_name = '`_mod_fm_meeting_attendee`';
          eF_insertTableDataMultiple($table_name, $bind);
         }
+
+        ///////////////////////////////////////////////
+        // NO NEED TO SEND OUT EMAIL NOTIFICATIONS ////
+        ///////////////////////////////////////////////
       }
       else {
        $msg = constant($response);
@@ -464,6 +470,15 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
 
       // We notify attendees by email if this is requested.
       if ($args ['send_invites']) {
+       // We need to retrieve the attend_url for this meeting
+       $meeting_link = false;
+       $_sql_tables = "`_mod_fm_meeting`";
+       $_sql_fields = "`attend_url` AS `_aurl`";
+       $_sql_conditions = "`id` = {$args ['local_meeting_id']}";
+       $res = eF_getTableData($_sql_tables, $_sql_fields, $_sql_conditions);
+       if (is_array($res) && count($res)) {
+        $meeting_link = $res[0]['_aurl'];
+       }
        // first we get all necessary info on new students that will be sent a clean email notification
        if (count($args ['new_students'])) {
         $students_transliteration = implode(',',$args ['new_students']);
@@ -497,6 +512,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
          $email_content = str_ireplace('###LESSON_NAME###', $meeting_lesson_name, $email_content);
          $email_content = str_ireplace('###MEETING_NAME###', $meeting_name, $email_content);
          $email_content = str_ireplace('###MEETING_STARTTIME###', $meeting_starttime, $email_content);
+         $email_content = str_ireplace('###MEETING_LINK###', $meeting_link, $email_content);
 
          // Rather ineffective as we need to send each email separately
          // because of different user_name embedded in text in each one
@@ -556,7 +572,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
         }
        }
 
-       // finally we send to those that are still invited but we want to nitify o the changes.
+       // finally we send to those that are still invited but we want to notify of the changes.
        if (count($args ['remaining_students'])) {
         $students_transliteration = implode(',',$args ['remaining_students']);
         $attendees = array();
@@ -589,6 +605,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
          $email_content = str_ireplace('###LESSON_NAME###', $meeting_lesson_name, $email_content);
          $email_content = str_ireplace('###MEETING_NAME###', $meeting_name, $email_content);
          $email_content = str_ireplace('###MEETING_STARTTIME###', $meeting_starttime, $email_content);
+         $email_content = str_ireplace('###MEETING_LINK###', $meeting_link, $email_content);
 
          // Rather ineffective as we need to send each email separately
          // because of different user_name embedded in text in each one
@@ -647,7 +664,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
   $offset = $args ['offset'];
   $limit = $args ['limit'];
 
-  $timestamp = time() - 300; // 5 minutes ago
+  $timestamp = time() - 600; // 10 minutes ago
   $_sql_table = "`_mod_fm_meeting` AS `_mfm`";
   $_sql_fields = "`_mfm`.`id` AS `_mid`";
   $_sql_conditions = "`_mfm`.`starttime` > {$timestamp} AND `_mfm`.`user_id` = {$this->_controller_id}";

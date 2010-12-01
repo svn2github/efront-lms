@@ -149,11 +149,6 @@ class FUZE_Tools {
   return $temp_array[$tuple];
  }
  public static function send_email ($sender, $recipients, $html, $text, $subject) {
-  include ('../../../../../libraries/configuration.php');
-  include ('../../../../libraries/configuration.php');
-  include ('../../../libraries/configuration.php');
-  include ('../../libraries/configuration.php');
-  include ('../libraries/configuration.php');
   set_include_path('../../../../../libraries/../PEAR/' . PATH_SEPARATOR .
        '../../../../libraries/../PEAR/' . PATH_SEPARATOR .
        '../../../libraries/../PEAR/' . PATH_SEPARATOR .

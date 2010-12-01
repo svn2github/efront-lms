@@ -106,9 +106,6 @@ try {
       handleAjaxExceptions($e);
      }
 
-     $groups = EfrontGroup :: getGroups();
-     $smarty -> assign("T_GROUPS", $groups);
-
  }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);

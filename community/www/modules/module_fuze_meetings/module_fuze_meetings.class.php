@@ -56,6 +56,7 @@ class module_fuze_meetings extends EfrontModule {
    $this->_current_user = $this->getCurrentUser();
    $this->_current_user_id = $this->_current_user->user['id'];
    $this->_current_user_timezone = $this->_current_user->user['timezone'];
+   if (!trim($this->_current_user_timezone)) $this->_current_user_timezone = 'UTC';
    $this->_current_user_login = $this->_current_user->user['login'];
    $this->_current_user_fullname = $this->_current_user->user ['name'] . ' ' . $this->_current_user->user ['surname'];
    $this->_current_user_email = $this->_current_user->user ['email'];
@@ -1492,10 +1493,13 @@ class module_fuze_meetings extends EfrontModule {
   return $this->_f_account;
  }
  private function _get_rough_time_description ($time_parts) {
-  if ($time_parts['now'] || (!$time_parts['year'] && !$time_parts['month'] && !$time_parts['week'] && !$time_parts['day'] && !$time_parts['hour'] && !$time_parts['minute'])) {
+  if ($time_parts['now']) {
    return _FUZE_TIME_NEXT_MEETING . ' ' . _FUZE_TIME_IN_IS . ' ' . _FUZE_TIME_NOW;
   }
-  if (!$time_parts['future'] && (!$time_parts['year'] && !$time_parts['month'] && !$time_parts['week'] && !$time_parts['day'] && !$time_parts['hour'] && ($time_parts['minute'] < 5))) {
+  if ($time_parts['future'] && !$time_parts['year'] && !$time_parts['month'] && !$time_parts['week'] && !$time_parts['day'] && !$time_parts['hour'] && $time_parts['minute'] < 3) {
+   return _FUZE_TIME_NEXT_MEETING . ' ' . _FUZE_TIME_IN_IS . ' ' . _FUZE_TIME_NOW;
+  }
+  if (!$time_parts['future'] && (!$time_parts['year'] && !$time_parts['month'] && !$time_parts['week'] && !$time_parts['day'] && !$time_parts['hour'] && ($time_parts['minute'] < 10))) {
    return _FUZE_TIME_NEXT_MEETING . ' ' . _FUZE_TIME_IN_IS . ' ' . _FUZE_TIME_NOW;
   }
   $time_description = '';

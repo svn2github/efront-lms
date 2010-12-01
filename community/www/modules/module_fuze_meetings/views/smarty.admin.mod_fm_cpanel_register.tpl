@@ -92,7 +92,6 @@
 
  function _mod_fm_register() {
   var url = '{/literal}{$MOD_FM_BASEURL}{literal}&action=register';
-  //var el = $('mod_fm_registration_msg_div');
   var el = $('_mod_fm_registration_cpanel_div');
   el.innerHTML = progressHTML;
   new Ajax.Request(url, {

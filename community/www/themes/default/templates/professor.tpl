@@ -672,7 +672,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
     {elseif $smarty.get.option == 'course'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course">'|cat:$smarty.const._COURSESTATISTICS|cat:'</a>'}
         {if isset($smarty.get.sel_course)}
-            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course&sel_course='|cat:$smarty.get.sel_course|cat:'">'|cat:$T_COURSE_INFO.name|cat:'</a>'}
+            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course&sel_course='|cat:$smarty.get.sel_course|cat:'">'|cat:$T_CURRENT_COURSE->course.name|cat:'</a>'}
         {/if}
     {elseif $smarty.get.option == 'advanced_user_reports'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=advanced_user_reports">'|cat:$smarty.const._ADVANCEDUSERREPORTS|cat:'</a>'}

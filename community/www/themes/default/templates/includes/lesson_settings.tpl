@@ -121,7 +121,7 @@
     {elseif isset($T_OP) && $T_OP == 'lesson_layout'}
          {capture name = "t_layout_code"}
                     {capture name = "layout_moduleIconFunctions"}
-                        <li id = "firstlist_moduleIconFunctions">
+                        <li id = "layoutfirstlist_moduleIconFunctions">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -134,7 +134,7 @@
                         </li>
                     {/capture}
                     {capture name = "layout_moduleContentTree"}
-                        <li id = "firstlist_moduleContentTree">
+                        <li id = "layoutfirstlist_moduleContentTree">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -148,7 +148,7 @@
                     {/capture}
      {if $T_CONFIGURATION.disable_projects != 1}
                     {capture name = "layout_moduleProjectsList"}
-                        <li id = "firstlist_moduleProjectsList">
+                        <li id = "layoutfirstlist_moduleProjectsList">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -164,7 +164,7 @@
      {/if}
                     {if $T_CONFIGURATION.disable_news != 1}
       {capture name = "layout_moduleNewsList"}
-                        <li id = "secondlist_moduleNewsList">
+                        <li id = "layoutsecondlist_moduleNewsList">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -180,7 +180,7 @@
      {/if}
      {if $T_CONFIGURATION.disable_messages != 1}
                     {capture name = "layout_modulePersonalMessagesList"}
-                        <li id = "secondlist_modulePersonalMessagesList">
+                        <li id = "layoutsecondlist_modulePersonalMessagesList">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -196,7 +196,7 @@
      {/if}
      {if $T_CONFIGURATION.disable_forum != 1}
                     {capture name = "layout_moduleForumList"}
-                        <li id = "secondlist_moduleForumList">
+                        <li id = "layoutsecondlist_moduleForumList">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -212,7 +212,7 @@
      {/if}
      {if $T_CONFIGURATION.disable_comments != 1}
                     {capture name = "layout_moduleComments"}
-                        <li id = "secondlist_moduleComments">
+                        <li id = "layoutsecondlist_moduleComments">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -228,7 +228,7 @@
      {/if}
      {if $T_CONFIGURATION.disable_calendar != 1}
                     {capture name = "layout_moduleCalendar"}
-                        <li id = "secondlist_moduleCalendar">
+                        <li id = "layoutsecondlist_moduleCalendar">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -243,7 +243,7 @@
                     {/capture}
      {/if}
                     {capture name = "layout_moduleDigitalLibrary"}
-                        <li id = "secondlist_moduleDigitalLibrary">
+                        <li id = "layoutsecondlist_moduleDigitalLibrary">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -259,7 +259,7 @@
                 {foreach name = 'lesson_modules_list' item = "module" key = "class_name" from = $T_LESSON_MODULES}
                     {assign var = module_name value = $class_name|replace:"_":""}
                     {capture name = "layout_"|cat:$module_name}
-                        <li id = "secondlist_{$class_name|replace:"_":""}">
+                        <li id = "layoutsecondlist_{$class_name|replace:"_":""}">
                             <table class = "innerTable" style = "width:300px">
                                 <tr class = "handle">
                                     <th class = "innerTableHeader">
@@ -275,7 +275,7 @@
             <div id = "sortableList" class = "lessonLayout">
              <table>
               <tr><td>
-                      <ul class = "sortable" id = "firstlist">
+                      <ul class = "sortable" id = "layoutfirstlist">
                       {if !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.first) && !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleIconFunctions}{/if}
                       {if !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.first) && !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleContentTree}{/if}
                       {if !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleProjectsList}{/if}
@@ -287,7 +287,7 @@
                       {/foreach}
                       </ul>
                   </td><td>
-                      <ul class = "sortable" id = "secondlist">
+                      <ul class = "sortable" id = "layoutsecondlist">
                       {if !in_array('moduleNewsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleNewsList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleNewsList}{/if}
                       {if !in_array('modulePersonalMessagesList', $T_DEFAULT_POSITIONS.first) && !in_array('modulePersonalMessagesList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_modulePersonalMessagesList}{/if}
                       {if !in_array('moduleForumList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleForumList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleForumList}{/if}
@@ -308,7 +308,7 @@
                       {/foreach}
                       </ul>
                  </td></tr>
-                 <tr><td colspan = "2" id = "submitLayout"><input type = "button" value = "{$smarty.const._SAVECHANGES}" onclick = "updatePositions(this, {$T_LESSON_ID})" class = "flatButton"/></td></tr>
+                 <tr><td colspan = "2" id = "submitLayout"><input type = "button" value = "{$smarty.const._SAVECHANGES}" onclick = "updatePositions(this, '{$T_LESSON_ID}')" class = "flatButton"/></td></tr>
              </table>
             <br/>
             </div>

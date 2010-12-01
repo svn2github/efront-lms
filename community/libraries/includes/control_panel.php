@@ -58,8 +58,8 @@ try {
                 //Get lesson news as well
                 $news = array_merge($news, news :: getNews($currentLesson -> lesson['id'], true));
             }
-            if (!$_student_ && !isset($currentUser -> coreAccess['news']) || $currentUser -> coreAccess['news'] == 'change') {
-                $newsOptions[] = array('text' => _ANNOUNCEMENTADD, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._ANNOUNCEMENTADD."', 1)", 'target' => 'POPUP_FRAME');
+            if (!$_student_ && (!isset($currentUser -> coreAccess['news']) || $currentUser -> coreAccess['news'] == 'change')) {
+             $newsOptions[] = array('text' => _ANNOUNCEMENTADD, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._ANNOUNCEMENTADD."', 1)", 'target' => 'POPUP_FRAME');
             }
             $newsOptions[] = array('text' => _ANNOUNCEMENTGO, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news");
             $smarty -> assign("T_NEWS", $news);

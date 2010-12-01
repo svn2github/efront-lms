@@ -40,6 +40,7 @@ try {
 }
 try {
     if (isset($_POST['firstlist']) && isset($_POST['secondlist'])) {
+
         parse_str($_POST['firstlist']);
         parse_str($_POST['secondlist']);
         parse_str($_POST['visibility']);

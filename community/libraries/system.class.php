@@ -219,7 +219,7 @@ class EfrontSystem
           try {
            $tableExists = eF_describeTable($tableName);
           } catch (Exception $e) {}
-          if ($tableExists !== false) {
+          if ($tableExists !== false && !preg_match("/^\w+_view$/", $tableName)) {
            eF_insertTableDataMultiple($tableName, $data);
           }
       }

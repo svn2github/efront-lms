@@ -550,34 +550,31 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   $showUnassigned = false;
  }
  require_once("includes/personal/user_courses.php");
- if (isset($_GET['ajax']) && $_GET['ajax'] == 'confirm_user') {
+ if (isset($_GET['ajax']) && $_GET['ajax'] == 'toggle_user') {
+  $response = array('status' => 1);
   try {
    if ($_GET['type'] == 'course') {
-    $course = new EfrontCourse($_GET['id']);
-    $course -> confirm($editedUser);
+    $editCourse = new EfrontCourse($_GET['id']);
+    if ($editCourse -> isUserActiveInCourse($editedUser)) {
+     $editCourse -> unConfirm($editedUser);
+     $response['access'] = 0;
+    } else {
+     $editCourse -> confirm($editedUser);
+     $response['access'] = 1;
+    }
    } else {
-    $lesson = new EfrontLesson($_GET['id']);
-    $lesson -> confirm($editedUser);
-    //eF_updateTableData("users_to_lessons", array("from_timestamp" => time()), "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_GET['id']." and from_timestamp=0");
+    $editLesson = new EfrontLesson($_GET['id']);
+    if ($editLesson -> isUserActiveInLesson($editedUser)) {
+     $editLesson -> unConfirm($editedUser);
+     $response['access'] = 0;
+    } else {
+     $editLesson -> confirm($editedUser);
+     $response['access'] = 1;
+    }
    }
+   echo json_encode($response);
   } catch (Exception $e) {
-   header("HTTP/1.0 500");
-   echo $e -> getMessage().' ('.$e -> getCode().')';
-  }
-  exit;
- } else if (isset($_GET['ajax']) && $_GET['ajax'] == 'unconfirm_user') {
-  try {
-   if ($_GET['type'] == 'course') {
-    $course = new EfrontCourse($_GET['id']);
-    $course -> unConfirm($editedUser);
-   } else {
-    $lesson = new EfrontLesson($_GET['id']);
-    $lesson -> unConfirm($editedUser);
-    //eF_updateTableData("users_to_lessons", array("from_timestamp" => time()), "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_GET['id']." and from_timestamp=0");
-   }
-  } catch (Exception $e) {
-   header("HTTP/1.0 500");
-   echo $e -> getMessage().' ('.$e -> getCode().')';
+   handleAjaxExceptions($e);
   }
   exit;
  }

@@ -87,12 +87,12 @@ function showSystemStats(interval) {
  document.systemperiod.from_Month.options[fromDate.getMonth()].selected = 'selected';
  document.systemperiod.to_Month.options[toDate.getMonth()].selected = 'selected';
  for (var i = 0; i < document.systemperiod.from_Year.options.length; i++) {
-  if (document.systemperiod.from_Year.options.value == fromDate.getFullYear()) {
+  if (document.systemperiod.from_Year.options[i].value == fromDate.getFullYear()) {
    document.systemperiod.from_Year.options[i].selected = 'selected';
   }
  }
  for (var i = 0; i < document.systemperiod.to_Year.options.length; i++) {
-  if (document.systemperiod.to_Year.options.value == toDate.getFullYear()) {
+  if (document.systemperiod.to_Year.options[i].value == toDate.getFullYear()) {
    document.systemperiod.to_Year.options[i].selected = 'selected';
   }
  }

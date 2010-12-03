@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","The fields in you
 define("_IFEMPTYNEWPASSWORD","Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP");
 define("_PLEASECHECKYOURCSVFILEFORMAT","Please check the format of your CSV file");
 define("_CERTIFICATEINSTRUCTIONS", "In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.");
-define("_CERTIFICATEINSTRUCTIONSXML", "In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.");
+define("_CERTIFICATEINSTRUCTIONSXML", "In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.");
 define("_VOTES","Votes");
 define("_PERCENTAGE","Percentage");
 define("_CERTIFICATEISSUED", "Certificate issued");
@@ -3956,4 +3956,7 @@ define("_THANKYOUFORCOMPLETING", "Thank you for completing");
 define("_NOREPORTSFOUNDINTHESYSTEM", "No reports found in the system");
 define("_YOUMAYCREATEONE", "You may create one");
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY", "You cannot change lesson mode because there are users enrolled to the course");
+define("_THEUSERDOESNOTHAVETHISCOURSE", "The user does not have this course");
+define("_THEUSERDOESNOTHAVETHISLESSON", "The user does not have this lesson");
+define("_USERACCESSGRANTED", "User access granted");
 ?>

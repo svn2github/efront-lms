@@ -35,6 +35,7 @@ class EfrontUserException extends Exception
  const RESTRICTED_USER_TYPE = 416;
  const USER_INACTIVE = 417;
  const USER_NOT_LOGGED_IN = 418;
+ const USER_NOT_HAVE_COURSE = 419;
  const GENERAL_ERROR = 499;
 }
 
@@ -805,7 +806,7 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function login($password, $encrypted = false) {
-  //session_regenerate_id();		//If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
+  session_regenerate_id(); //If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
   unset($_SESSION['previousMainUrl']);
   unset($_SESSION['previousSideUrl']);
   unset($_SESSION['s_lesson_user_type']);

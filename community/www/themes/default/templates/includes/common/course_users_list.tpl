@@ -78,9 +78,9 @@ if (typeof(currentUserLogin) == 'undefined') var currentUserLogin ='';
    <td class = "active_in_course">
    {if !$T_COURSE_HAS_INSTANCES || $T_SORTED_TABLE == 'instanceUsersTable'}
     {if !$user.active_in_course && $user.has_course}
-     <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "confirmUser(this, '{$user.login}', 'user')"{/if}/>
+     <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$user.login}', 'user')"{/if}/>
     {elseif $user.has_course}
-     <img src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHECOURSE}" alt = "{$smarty.const._USERHASTHECOURSE}" {if $_change_handles_}class = "ajaxHandle" onclick = "unConfirmUser(this, '{$user.login}', 'user')"{/if}/>
+     <img src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHECOURSE}" alt = "{$smarty.const._USERHASTHECOURSE}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$user.login}', 'user')"{/if}/>
     {/if}
    {/if}
    </td>

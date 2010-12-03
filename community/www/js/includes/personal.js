@@ -875,23 +875,23 @@ function deleteEvaluation(el, evaluation_id) {
     parameters = {delete_evaluation:evaluation_id, ajax:1, method: 'get'};
  ajaxRequest(el, url, parameters, function(el, transport) {new Effect.Fade(el.up().up());});
 }
-function confirmUser(el, id, type) {
- parameters = {ajax:'confirm_user', type: type, id: id, method: 'get'};
+function toggleUserAccess(el, id, type) {
+ parameters = {ajax:'toggle_user', type: type, id: id, method: 'get'};
  var url = location.toString();
- ajaxRequest(el, url, parameters, onConfirmUser);
+ ajaxRequest(el, url, parameters, onToggleUserAccess);
 }
-function onConfirmUser(el, response) {
- setImageSrc(el, 16, 'success');
-    el.writeAttribute({title:userHasLesson, alt:userHasLesson});
-}
-function unConfirmUser(el, id, type) {
- parameters = {ajax:'unconfirm_user', type: type, id: id, method: 'get'};
- var url = location.toString();
- ajaxRequest(el, url, parameters, onUnConfirmUser);
-}
-function onUnConfirmUser(el, response) {
- setImageSrc(el, 16, 'warning');
-    el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});
+function onToggleUserAccess(el, response) {
+ if (response.evalJSON(true).status) {
+  if (response.evalJSON(true).access == 1) {
+   setImageSrc(el, 16, 'success');
+      el.writeAttribute({title:translationsToJS['_USERACCESSGRANTED'], alt:translationsToJS['_USERACCESSGRANTED']});
+  } else {
+   setImageSrc(el, 16, 'warning');
+      el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});
+  }
+ } else {
+  alert('Some problem emerged');
+ }
 }
 // social
 var __initStatus;

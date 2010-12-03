@@ -191,24 +191,23 @@ function onAddInstance(el, response) {
  }
 }
 
-
-function confirmUser(el, user) {
- parameters = {ajax:'confirm_user', user: user, method: 'get'};
+function toggleUserAccess(el, id, type) {
+ parameters = {ajax:'toggle_user', type: type, user: id, method: 'get'};
  var url = location.toString();
- ajaxRequest(el, url, parameters, onConfirmUser);
+ ajaxRequest(el, url, parameters, onToggleUserAccess);
 }
-function onConfirmUser(el, response) {
- setImageSrc(el, 16, 'success');
-    el.writeAttribute({title:translationsToJS['_USERHASTHECOURSE'], alt:translationsToJS['_USERHASTHECOURSE']});
-}
-function unConfirmUser(el, user) {
- parameters = {ajax:'unconfirm_user', user: user, method: 'get'};
- var url = location.toString();
- ajaxRequest(el, url, parameters, onUnConfirmUser);
-}
-function onUnConfirmUser(el, response) {
- setImageSrc(el, 16, 'warning');
-    el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});
+function onToggleUserAccess(el, response) {
+ if (response.evalJSON(true).status) {
+  if (response.evalJSON(true).access == 1) {
+   setImageSrc(el, 16, 'success');
+      el.writeAttribute({title:translationsToJS['_USERACCESSGRANTED'], alt:translationsToJS['_USERACCESSGRANTED']});
+  } else {
+   setImageSrc(el, 16, 'warning');
+      el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});
+  }
+ } else {
+  alert('Some problem emerged');
+ }
 }
 function resetProgress(el, login) {
  var url = location.toString();

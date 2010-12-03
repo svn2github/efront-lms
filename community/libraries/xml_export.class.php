@@ -54,6 +54,24 @@ class XMLExport{
    return '';
  }
 
+ public function getOrientation(){
+
+  $orientation = $this->template->certificate->orientation;
+
+  if($orientation){
+
+   if($orientation['name'] == 'portrait')
+    return 'P';
+
+   else if($orientation['name'] == 'landscape')
+    return 'L';
+   else
+    return 'L';
+  }
+  else
+   return 'L';
+ }
+
  public function setBackground($pdf){
 
   $background = $this->template->certificate->background;

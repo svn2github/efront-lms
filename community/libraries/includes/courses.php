@@ -158,10 +158,16 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
             $editCourse -> handlePostAjaxRequestForSkills();
   } else if (isset($_GET['postAjaxRequest']) && $_GET['postAjaxRequest'] == 'users') {
       $editCourse -> handlePostAjaxRequestForUsers();
-  } elseif ($_GET['ajax'] == 'confirm_user') {
-   $editCourse -> confirm($_GET['user']);
-  } elseif ($_GET['ajax'] == 'unconfirm_user') {
-   $editCourse -> unConfirm($_GET['user']);
+  } elseif ($_GET['ajax'] == 'toggle_user') {
+   $response = array('status' => 1);
+   if ($editCourse -> isUserActiveInCourse($_GET['user'])) {
+    $editCourse -> unConfirm($_GET['user']);
+    $response['access'] = 0;
+   } else {
+    $editCourse -> confirm($_GET['user']);
+    $response['access'] = 1;
+   }
+   echo json_encode($response);
   } elseif (isset($_GET['reset_user'])) {
    $user = EfrontUserFactory :: factory($_GET['reset_user']);
    $user -> resetProgressInCourse($editCourse, true);

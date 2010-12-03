@@ -378,6 +378,88 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_ENTITIES_LIST", $entities);
+   $directionsTree = new EfrontDirectionsTree();
+   $directionPaths = $directionsTree -> toPathString();
+   $form = new HTML_QuickForm("category_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=category_reports", "", null, true);
+   $form -> addElement('select', 'category', _CATEGORY, $directionPaths);
+   $form -> addElement('checkbox', 'incomplete', _MODULE_ADMINISTRATOR_TOOLS_SHOWINCOMPLETE);
+   $form -> addElement('date', 'from_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDFROM);
+   $form -> addElement('date', 'to_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDTO);
+   $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+   $form -> setDefaults(array("from_timestamp" => mktime(0,0,0,date("m")-1,date("d"), date("Y")), "to_timestamp" => time()));
+   if ($form -> isSubmitted() && $form -> validate()) {
+    $values = $form -> exportValues();
+    $_SESSION['from_timestamp'] = mktime(0, 0, 0, $_POST['from_timestamp']['M'], $_POST['from_timestamp']['D'], $_POST['from_timestamp']['Y']);
+    $_SESSION['to_timestamp'] = mktime(23, 59, 59, $_POST['to_timestamp']['M'], $_POST['to_timestamp']['D'], $_POST['to_timestamp']['Y']);
+    $_SESSION['category'] = $values['category'];
+    $_SESSION['incomplete'] = $values['incomplete'];
+    $smarty -> assign("T_SHOW_TABLE", true);
+   }
+   if (isset($_GET['ajax']) && $_GET['ajax'] == 'categoryUsersTable' || $_GET['ajax'] == 'xls' || $_GET['ajax'] == 'show_xls') {
+    $smarty -> assign("T_SHOW_TABLE", true);
+    $smarty -> assign("T_DIRECTIONS_TREE", $directionPaths);
+    $branchesTree = new EfrontBranchesTree();
+    $branchesPaths = $branchesTree -> toPathString();
+    $category = new EfrontDirection($_SESSION['category']);
+    $categoryCourses = $category -> getCourses(false, true);
+    $result = eF_getTableDataFlat("users_to_courses uc, courses c", "distinct c.id", 'c.id=uc.courses_ID and c.archive=0 and uc.archive=0 and uc.completed=1 and uc.to_timestamp >= '.$_SESSION['from_timestamp'].' and uc.to_timestamp <= '.$_SESSION['to_timestamp']);
+    $categoryCourses = array_intersect(array_unique(array_keys($categoryCourses)), $result['id']); //count only courses that have users completed them
+    if ($_SESSION['incomplete']) {
+     $constraints = array('archive' => false, 'condition' => '(to_timestamp is null OR to_timestamp = 0 OR (to_timestamp >= '.$_SESSION['from_timestamp'].' and to_timestamp <= '.$_SESSION['to_timestamp'].'))');
+    } else {
+     $constraints = array('archive' => false, 'condition' => 'completed=1 and to_timestamp >= '.$_SESSION['from_timestamp'].' and to_timestamp <= '.$_SESSION['to_timestamp']);
+    }
+    foreach ($categoryCourses as $courseId) {
+     $course = new EfrontCourse($courseId);
+     foreach ($course -> getCourseUsers($constraints) as $value) {
+      $userBranches = $value -> aspects['hcd'] -> getBranches();
+      $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
+      $value -> user['course_id']= $course->course['id'];
+      $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
+      $value -> user['course'] = $course->course['name'];
+      $value -> user['directions_ID'] = $course->course['directions_ID'];
+      $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
+      $value -> user['branch_ID'] = current($userBranches['employee']);
+      $value -> user['supervisor'] = current($userSupervisors);
+      $courseUsers[] = $value -> user;
+     }
+    }
+    if ($_GET['ajax'] == 'xls') {
+     $xlsFilePath = $currentUser -> getDirectory().'report.xls';
+     $_GET['limit'] = sizeof($courseUsers);
+     $_GET['sort'] = 'category';
+     list($tableSize, $dataSource) = filterSortPage($courseUsers);
+     $header = array('category' => _CATEGORY,
+         'course' => _NAME,
+         'login' => _USER,
+         'to_timestamp' => _COMPLETED,
+         'score' => _SCORE,
+         'supervisor' => _SUPERVISOR,
+         'branch' => _BRANCH);
+     foreach ($dataSource as $value) {
+      $rows[] = array(_CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['category']),
+           _COURSE => $value['course'],
+           _USER => formatLogin($value['login']),
+           _COMPLETED => formatTimestamp($value['to_timestamp']),
+           _SCORE => formatScore($value['score']).'%',
+           _SUPERVISOR => formatLogin($value['supervisor']),
+           _BRANCH => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['branch']));
+     }
+     EfrontSystem :: exportToXls($rows, $xlsFilePath);
+     exit;
+    } else if ($_GET['ajax'] == 'show_xls') {
+     $xlsFilePath = $currentUser -> getDirectory().'report.xls';
+     $file = new EfrontFile($xlsFilePath);
+     $file -> sendFile(true);
+     exit;
+    } else {
+     list($tableSize, $dataSource) = filterSortPage($courseUsers);
+     $smarty -> assign("T_SORTED_TABLE", $_GET['ajax']);
+     $smarty -> assign("T_TABLE_SIZE", $tableSize);
+     $smarty -> assign("T_DATA_SOURCE", $dataSource);
+    }
+   }
+   $smarty -> assign("T_CATEGORY_FORM", $form->toArray());
      } catch (Exception $e) {
             $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
             $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
@@ -428,7 +510,9 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['configuration']['chat_enabled']) {
       $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      }
+
      $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+
      $lessonSettings['digital_library'] = array('text' => _DIGITALLIBRARY, 'image' => "32x32/file_explorer.png", 'onClick' => 'activate(this, \'digital_library\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      if ($GLOBALS['configuration']['disable_calendar'] != 1) {
       $lessonSettings['calendar'] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'onClick' => 'activate(this, \'calendar\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
@@ -442,6 +526,7 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['configuration']['disable_bookmarks'] != 1) {
       $lessonSettings['bookmarking'] = array('text' => _BOOKMARKS, 'image' => "32x32/bookmark.png", 'onClick' => 'activate(this, \'bookmarking\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
      }
+
      $lessonSettings['reports'] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'onClick' => 'activate(this, \'reports\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
      $lessonSettings['content_report'] = array('text' => _CONTENTREPORT, 'image' => "32x32/warning.png", 'onClick' => 'activate(this, \'content_report\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
      $lessonSettings['print_content'] = array('text' => _PRINTCONTENT, 'image' => "32x32/printer.png", 'onClick' => 'activate(this, \'print_content\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
@@ -455,6 +540,7 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
       $lessonSettings['show_horizontal_bar'] = array('text' => _SHOWHORIZONTALBAR, 'image' => "32x32/export.png", 'onClick' => 'activate(this, \'show_horizontal_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
      }
+
      foreach (eF_loadAllModules(true) as $module) {
       if ($module -> isLessonModule()) {
        // The $setLanguage variable is defined in globals.php
@@ -474,10 +560,14 @@ class module_administrator_tools extends EfrontModule {
        $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => 'inactiveImage');
       }
      }
+
      $lessonSettings[$key]['onClick'] = 'activate(this, \''.$key.'\')';
      $lessonSettings[$key]['style'] = 'color:inherit';
+
      return $lessonSettings;
+
     }
+
     /*
 
      * This function is used to define a smarty template for the main module pages

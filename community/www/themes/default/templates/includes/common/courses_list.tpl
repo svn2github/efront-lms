@@ -154,9 +154,9 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}
          <td class = "active_in_course">
     {if !$course.active_in_course && $course.has_course}
-              <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "confirmUser(this, '{$course.id}', 'course')"{/if}/>
+              <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$course.id}', 'course')"{/if}/>
              {elseif $course.has_course}
-              <img src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHECOURSE}" alt = "{$smarty.const._USERHASTHECOURSE}" {if $_change_handles_}class = "ajaxHandle" onclick = "unConfirmUser(this, '{$course.id}', 'course')"{/if}/>
+              <img src = "images/16x16/success.png" title = "{$smarty.const._USERACCESSGRANTED}" alt = "{$smarty.const._USERACCESSGRANTED}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$course.id}', 'course')"{/if}/>
              {/if}
          </td>
 {/if}
@@ -297,9 +297,9 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {if in_array('active_in_lesson', $T_DATASOURCE_COLUMNS)}
    <td class = "active_in_lesson">
     {if !$lesson.active_in_lesson && $lesson.has_lesson}
-              <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "confirmUser(this, '{$lesson.id}', 'lesson')"{/if}/>
+              <img src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$lesson.id}', 'lesson')"{/if}/>
              {elseif $lesson.has_lesson}
-              <img src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHElesson}" alt = "{$smarty.const._USERHASTHElesson}" {if $_change_handles_}class = "ajaxHandle" onclick = "unConfirmUser(this, '{$lesson.id}', 'lesson')"{/if}/>
+              <img src = "images/16x16/success.png" title = "{$smarty.const._USERACCESSGRANTED}" alt = "{$smarty.const._USERACCESSGRANTED}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$lesson.id}', 'lesson')"{/if}/>
              {/if}
    </td>
 {/if}

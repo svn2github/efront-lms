@@ -229,6 +229,10 @@ var enableMyJobSelect = false;
   {assign var = "_change_handles_" value = false}
  {/if}
  {capture name = "t_courses_list_code"}
+  <script>
+   translationsToJS['_USERACCESSGRANTED'] = '{$smarty.const._USERACCESSGRANTED}';
+   translationsToJS['_APPLICATIONPENDING'] = '{$smarty.const._APPLICATIONPENDING}';
+  </script>
   {include file = "includes/common/courses_list.tpl"}
  {/capture}
  {capture name = "t_lessons_code"}

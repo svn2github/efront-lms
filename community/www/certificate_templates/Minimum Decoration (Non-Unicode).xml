@@ -8,6 +8,7 @@
 		<date font="Times" weight="" size="15" color="#575757" x="225" y="182"></date>
 		<serial font="Times" weight="" size="14" color="#575757" x="107" y="182"></serial>
 		<logo file="default" x="14" y="14"></logo>
+		<orientation name="landscape"></orientation>
 		<creator name="eFront"></creator>
 		<author name="eFront"></author>
 		<subject name="Certificate for "></subject>

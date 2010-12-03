@@ -1876,6 +1876,34 @@ class EfrontLesson
   }
   return $userLessonCourses;
  }
+ /** Check if user is active in this lesson
+
+	 *
+
+	 * This function will return true if the user can normally access this lesson, or
+
+	 * false if he/she needs registration confirmation by the admin or supervisor
+
+	 *
+
+	 * @param mixed $login Either the user login, or an EfrontLessonUser object
+
+	 * @since 3.6.7
+
+	 * @access public
+
+	 */
+ public function isUserActiveInLesson($login) {
+  $login = EfrontUser::convertArgumentToUserLogin($login);
+  $result = eF_getTableData("users_to_lessons", "from_timestamp", "archive = 0 and users_LOGIN='$login' and lessons_ID=".$this -> lesson['id']);
+  if (empty($result)) {
+   throw new EfrontUserException(_THEUSERDOESNOTHAVETHISLESSON.': '.$this -> lesson['id'], EfrontUserException::USER_NOT_HAVE_LESSON);
+  } else if ($result[0]['from_timestamp'] > 0) {
+   return true;
+  } else {
+   return false;
+  }
+ }
  /**
 
 	 * Confirm user registration

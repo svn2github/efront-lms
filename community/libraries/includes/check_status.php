@@ -149,7 +149,7 @@ $settings['allow_url_fopen'] = array('value' => $ini_settings['allow_url_fopen']
                                          'recommended' => 'On',
                                          'status' => $ini_settings['allow_url_fopen']['local_value'] ? 1 : 0,
                                          'name' => 'allow_url_fopen',
-                                         'help' => 'allow_url_fopen must be enabled in order to use PDF certificates');
+                                         'help' => 'allow_url_fopen must be enabled in order to use phplivedocx to create PDF certificates');
 foreach ($settings_mandatory as $key => $value) {
     if (isset($exclude_normal) && $exclude_normal && $value['status']) { //Use $exclude_normal in order to not list sections without problem
         unset($settings_mandatory[$key]);

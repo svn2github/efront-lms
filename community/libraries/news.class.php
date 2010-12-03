@@ -228,12 +228,12 @@ class news extends EfrontEntity
             $this -> news = $news;
         }
         if ($values['calendar']) {
-         $calendarFields = array('data' => $fields['data'],
+         $calendarFields = array('data'=> $this -> news["data"],
                          'timestamp' => $timestamp,
                          'active' => 1,
              'private' => 0,
-             'type' => $fields['lessons_ID'] ? 'lesson' : 'global',
-             'foreign_ID' => $fields['lessons_ID'] ? $fields['lessons_ID'] : 0,
+             'type' => isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] ? 'lesson' : 'global',
+             'foreign_ID' => isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : 0,
                          'users_LOGIN' => $_SESSION['s_login']);
          calendar :: create($calendarFields);
         }

@@ -51,6 +51,14 @@ function removeUsersFromEntity(el) {
  ajaxRequest(el, url, parameters);
 }
 
+function exportUsersToXls(el) {
+ var parameters = {ajax:'xls', method:'get'}
+ ajaxRequest(el, location.toString(), parameters, onExportUsersToXls);
+}
+function onExportUsersToXls(el, response) {
+ $('popup_frame').src = location.toString()+'&ajax=show_xls';
+}
+
 if ($('module_administrator_tools_autocomplete_lessons_div')) {
  new Ajax.Autocompleter("autocomplete",
          "module_administrator_tools_autocomplete_lessons_div",

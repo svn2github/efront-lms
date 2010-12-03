@@ -64,7 +64,10 @@
   {/if}
   {/capture}
   {capture name = 't_users_to_courses_code'}
-  <script>translationsToJS['_USERHASTHECOURSE'] = '{$smarty.const._USERHASTHECOURSE}'; translationsToJS['_APPLICATIONPENDING'] = '{$smarty.const._APPLICATIONPENDING}';</script>
+  <script>
+   translationsToJS['_USERACCESSGRANTED'] = '{$smarty.const._USERACCESSGRANTED}';
+   translationsToJS['_APPLICATIONPENDING'] = '{$smarty.const._APPLICATIONPENDING}';
+  </script>
   {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
 <!--ajax:usersTable-->
    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" activeFilter = "1" sortBy = "6" order="desc" useAjax = "1" id = "usersTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" {if isset($T_BRANCHES_FILTER)}branchFilter="{$T_BRANCHES_FILTER}"{/if} {if isset($T_JOBS_FILTER)}jobFilter="{$T_JOBS_FILTER}"{/if} url = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$smarty.get.edit_course}&">
@@ -97,9 +100,9 @@
      <td style = "white-space:nowrap">#filter:timestamp-{$user.timestamp_completed}#</td>
            <td class = "centerAlign">
      {if $user.active_in_course}
-               <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHECOURSE}" alt = "{$smarty.const._USERHASTHECOURSE}" onclick = "unConfirmUser(this, '{$user.login}')"/>
+               <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._USERACCESSGRANTED}" alt = "{$smarty.const._USERACCESSGRANTED}" onclick = "toggleUserAccess(this, '{$user.login}', 'course')"/>
                  {elseif !$user.active_in_course|@is_null}
-               <img class = "ajaxHandle" src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" onclick = "confirmUser(this, '{$user.login}')"/>
+               <img class = "ajaxHandle" src = "images/16x16/warning.png" title = "{$smarty.const._APPLICATIONPENDING}" alt = "{$smarty.const._APPLICATIONPENDING}" onclick = "toggleUserAccess(this, '{$user.login}', 'course')"/>
               {/if}
            </td>
            <td class = "centerAlign">

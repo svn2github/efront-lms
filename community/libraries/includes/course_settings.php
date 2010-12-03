@@ -367,8 +367,9 @@ if ($_GET['op'] == 'course_info') {
     $author = $xmlExport->getAuthor();
     $subjct = $xmlExport->getSubject($userName.' '.$userSurName);
     $keywrd = $xmlExport->getKeywords();
+    $orientation = $xmlExport->getOrientation();
 
-    $pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $pdf = new TCPDF($orientation, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator($creator);
     $pdf->SetAuthor($author);
     $pdf->SetTitle($subjct);
@@ -416,8 +417,9 @@ if ($_GET['op'] == 'course_info') {
     $author = $xmlExport->getAuthor();
     $subjct = $xmlExport->getSubject();
     $keywrd = $xmlExport->getKeywords();
+    $orientation = $xmlExport->getOrientation();
 
-    $pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $pdf = new TCPDF($orientation, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator($creator);
     $pdf->SetAuthor($author);
     $pdf->SetTitle($subjct);

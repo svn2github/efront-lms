@@ -1277,8 +1277,11 @@ php_value register_globals Off
      'certificate_xml' => $mainTemplateXMLFileContents,
      'certificate_type' => 'main',
      'users_LOGIN' => ''
-     );
-     eF_insertTableData("certificate_templates", $dbFields);
+    );
+   $templateExists = eF_getTableData("certificate_templates", "id",
+          "certificate_type='main' and certificate_name='".$mainTemplateName."'");
+   if(count($templateExists) == 0)
+    eF_insertTableData("certificate_templates", $dbFields);
   }
  }
 }

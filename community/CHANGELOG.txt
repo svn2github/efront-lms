@@ -12,6 +12,8 @@
 - Fixed issue about news with cleared expire date not displayed in control panel
 - Fixed issue about calendar events from news not displayed in students
 - Fixed issue about displaying general forums in students/professors
+- Fixed issue about displaying archived assigns for lessons/users in users table list (number of lessons/courses columns)
+- Fixed issue about editing an announcement and adding it also in calendar
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries

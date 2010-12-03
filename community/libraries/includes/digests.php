@@ -607,9 +607,14 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
               $subject = $form->exportValue('header');
               $message = $form->exportValue('message');
               $html_message = $form -> exportValue('html_message');
-              if ($html_message) {
-               $message = str_replace("\n", "<br>", $message);
-              }
+              //Caused #833
+            /*		if ($html_message) {
+
+            			$message = str_replace("\n", "<br>", $message);
+
+            		}
+
+			*/
               $notification_type = $form->exportValue('type');
               // Notification on date
               if ($notification_type == "0") {
@@ -719,16 +724,12 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                  EfrontNotification::editEventNotification($_GET['edit_notification'], $events_type, $subject, $message, $condition, $_POST['event_recipients'], $html_message, $after_time, $send_immediately);
                 }
                }
-
                $message = _NOTIFICATIONSETUPSUCCESSFULLY;
                $message_type = 'success';
               }
-
-
               eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=". $message . "&message_type=" . $message_type);
              }
             }
-
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
 
             $renderer -> setRequiredTemplate (

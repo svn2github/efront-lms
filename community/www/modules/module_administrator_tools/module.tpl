@@ -135,6 +135,44 @@
 </table>
 {/capture}
 
+{capture name = "t_category_reports_code"}
+ {eF_template_printForm form = $T_CATEGORY_FORM}
+ {if $T_SHOW_TABLE}
+  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'categoryUsersTable'}
+<!--ajax:categoryUsersTable-->
+ <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" order="desc" id = "categoryUsersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$T_MODULE_ADMINISTRATOR_TOOLS_BASEURL}&">
+  <tr><td class="topTitle" name = "course">{$smarty.const._COURSE}</td>
+   <td class="topTitle" name = "category">{$smarty.const._CATEGORY}</td>
+   <td class="topTitle" name = "login">{$smarty.const._USER}</td>
+   {*<td class="topTitle">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_EMPLOYEEID}</td>*}
+   <td class="topTitle centerAlign" name = "to_timestamp">{$smarty.const._COMPLETED}</td>
+   <td class="topTitle centerAlign" name = "score">{$smarty.const._SCORE}</td>
+   <td class="topTitle" name = "supervisor">{$smarty.const._SUPERVISOR}</td>
+   <td class="topTitle" name = "branch">{$smarty.const._BRANCH}</td>
+   </tr>
+  {foreach name = 'course_users_list' item = "item" key = "key" from = $T_DATA_SOURCE}
+  <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$item.active}deactivatedTableElement{/if}">
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.course_id}">{$item.course}</a></td>
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=directions&edit_direction={$item.directions_ID}">{$item.category}</a></td>
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}">#filter:login-{$item.login}#</a></td>
+   {*<td>{$item.login}!!</td>*}
+   <td class = "centerAlign">#filter:timestamp-{$item.to_timestamp}#</td>
+   <td class = "centerAlign">#filter:score-{$item.score}#%</td>
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}">#filter:login-{$item.supervisor}#</a></td>
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$item.branch_ID}">{$item.branch}</a></td>
+  </tr>
+  {foreachelse}
+  <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
+  {/foreach}
+ </table>
+<!--/ajax:categoryUsersTable-->
+  {/if}
+ <div class = ""><span>{$smarty.const._OPERATIONS}:</span>
+  <img class = "ajaxHandle" src = "images/file_types/xls.png" alt = "{$smarty.const._EXPORTTOXLS}" title = "{$smarty.const._EXPORTTOXLS}" onclick = "exportUsersToXls(this);"/>
+ </div>
+ {/if}
+{/capture}
+
 {capture name = 't_administrator_tools_code'}
  <div class = "tabber">
   {eF_template_printBlock tabber = "change_login" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN data = $smarty.capture.t_change_login_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
@@ -142,6 +180,7 @@
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}
   {eF_template_printBlock tabber = "unenroll_courses" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_UNENROLLJOBCOURSES data = $smarty.capture.t_unenroll_courses_code image='32x32/courses.png'}
+  {eF_template_printBlock tabber = "category_reports" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CATEGORYREPORTS data = $smarty.capture.t_category_reports_code image='32x32/courses.png'}
  </div>
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}

@@ -201,12 +201,13 @@
                                          {/if}
            </td></tr>
                                 {/capture}
-<table style = "width:100%"><tr><td>
+    <table style = "width:100%">
+     <tr><td class = "moduleCell">
                         <div id="sortableList">
                             <div style="float: right; width:49%;height: 100%;">
                                 <ul class="sortable" id="secondlist" style="height:100%;width:100%;">
  {foreach name=positions_first key=key item=module from=$T_POSITIONS_SECOND}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_{$module}">
+                     <li id="secondlist_{$module}">
                          <table class = "singleColumnData">
                              {$smarty.capture.$module}
                          </table>
@@ -214,41 +215,41 @@
  {/foreach}
 
  {if !in_array('moduleCalendar', $T_POSITIONS) && $smarty.capture.moduleCalendar && $T_CONFIGURATION.disable_calendar != 1}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleCalendar">
+                     <li id="secondlist_moduleCalendar">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleCalendar}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleForumList', $T_POSITIONS) && $smarty.capture.moduleForumList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleForumList">
+                     <li id="secondlist_moduleForumList">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleForumList}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleProjectsList', $T_POSITIONS) && $smarty.capture.moduleProjectsList && $T_CONFIGURATION.disable_projects != 1}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_moduleProjectsList">
+                     <li id="firstlist_moduleProjectsList">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleProjectsList}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleNewsList', $T_POSITIONS) && $smarty.capture.moduleNewsList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleNewsList">
+                     <li id="secondlist_moduleNewsList">
                          <table class = "singleColumnData">
                              {$smarty.capture.moduleNewsList}
                          </table>
                      </li>
  {/if}
  {if !in_array('moduleCommentsList', $T_POSITIONS) && $smarty.capture.moduleCommentsList && $T_CONFIGURATION.disable_comments != 1}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleCommentsList">
+                     <li id="secondlist_moduleCommentsList">
                          <table class = "singleColumnData">
                           {$smarty.capture.moduleCommentsList}
                       </table>
                      </li>
  {/if}
-                                    <li id = "second_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
+                                    <li id = "second_empty" style = "display:none;"></li>
                                 </ul>
                             </div>
 
@@ -256,7 +257,7 @@
                             <div style="width:50%; height:100%;margin-left:1px;">
                                 <ul class="sortable" id="firstlist" style="height:100%;width:100%;">
     {foreach name=positions_first key=key item=module from=$T_POSITIONS_FIRST}
-                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="firstlist_{$module}">
+                        <li id="firstlist_{$module}">
                             <table class = "singleColumnData">
                                 {$smarty.capture.$module}
                             </table>
@@ -264,28 +265,28 @@
     {/foreach}
 
  {if !in_array('moduleWall', $T_POSITIONS) && $smarty.capture.moduleWall}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleWall">
+                     <li id="secondlist_moduleWall">
                          <table class = "singleColumnData">
                           {$smarty.capture.moduleWall}
                       </table>
                      </li>
  {/if}
  {if !in_array('moduleRelatedPeople', $T_POSITIONS) && $smarty.capture.moduleRelatedPeople}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleRelatedPeople">
+                     <li id="secondlist_moduleRelatedPeople">
                          <table class = "singleColumnData">
                           {$smarty.capture.moduleRelatedPeople}
                       </table>
                      </li>
  {/if}
  {if !in_array('moduleEventsList', $T_POSITIONS) && $smarty.capture.moduleEventsList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleEventsList">
+                     <li id="secondlist_moduleEventsList">
                          <table class = "singleColumnData">
                           {$smarty.capture.moduleEventsList}
                       </table>
                      </li>
  {/if}
  {if !in_array('moduleMessagesList', $T_POSITIONS) && $smarty.capture.moduleMessagesList}
-                     <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_moduleMessagesList">
+                     <li id="secondlist_moduleMessagesList">
                          <table class = "singleColumnData">
                           {$smarty.capture.moduleMessagesList}
                       </table>
@@ -296,7 +297,7 @@
  {foreach name = 'module_inner_tables_list' key = key item = module from = $T_INNERTABLE_MODULES}
         {assign var = module_name value = $key|replace:"_":""}
         {if !in_array($module_name, $T_POSITIONS)}
-                        <li onmousedown = "showBorders(event)" onmouseup = "hideBorders(event)" id="secondlist_{$module_name}">
+                        <li id="secondlist_{$module_name}">
                             <table class = "singleColumnData">
                                 {$smarty.capture.$module_name}
                             </table>
@@ -304,7 +305,7 @@
      {/if}
     {/foreach}
 
-         <li id = "first_empty" style = "display:none;height:5px;border:1px dashed gray"></li>
+         <li id = "first_empty" style = "display:none;"></li>
                                 </ul>
                             </div>
 

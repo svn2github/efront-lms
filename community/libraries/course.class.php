@@ -1457,6 +1457,26 @@ class EfrontCourse
            "lessons_name" => $this -> course['name']));
   }
  }
+ /** Check if user is active in this course
+	 *
+	 * This function will return true if the user can normally access this course, or
+	 * false if he/she needs registration confirmation by the admin or supervisor
+	 *
+	 * @param mixed $login Either the user login, or an EfrontLessonUser object
+	 * @since 3.6.7
+	 * @access public
+	 */
+ public function isUserActiveInCourse($login) {
+  $login = EfrontUser::convertArgumentToUserLogin($login);
+  $result = eF_getTableData("users_to_courses", "from_timestamp", "archive = 0 and users_LOGIN='$login' and courses_ID=".$this -> course['id']);
+  if (empty($result)) {
+   throw new EfrontUserException(_THEUSERDOESNOTHAVETHISCOURSE.': '.$this -> course['id'], EfrontUserException::USER_NOT_HAVE_COURSE);
+  } else if ($result[0]['from_timestamp'] > 0) {
+   return true;
+  } else {
+   return false;
+  }
+ }
  /**
 	 * Confirm user registration
 	 *

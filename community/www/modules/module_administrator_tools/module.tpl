@@ -149,17 +149,19 @@
    <td class="topTitle centerAlign" name = "score">{$smarty.const._SCORE}</td>
    <td class="topTitle" name = "supervisor">{$smarty.const._SUPERVISOR}</td>
    <td class="topTitle" name = "branch">{$smarty.const._BRANCH}</td>
+   <td class="topTitle centerAlign" name = "historic">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY}</td>
    </tr>
   {foreach name = 'course_users_list' item = "item" key = "key" from = $T_DATA_SOURCE}
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$item.active}deactivatedTableElement{/if}">
-   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.course_id}">{$item.course}</a></td>
+   <td ><a style = "{if !$item.course_active}color:red{/if}" class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.course_id}">{$item.course}</a></td>
    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=directions&edit_direction={$item.directions_ID}">{$item.category}</a></td>
    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}">#filter:login-{$item.login}#</a></td>
    {*<td>{$item.login}!!</td>*}
    <td class = "centerAlign">#filter:timestamp-{$item.to_timestamp}#</td>
-   <td class = "centerAlign">#filter:score-{$item.score}#%</td>
+   <td class = "centerAlign">{if !$item.historic}#filter:score-{$item.score}#%{/if}</td>
    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}">#filter:login-{$item.supervisor}#</a></td>
    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$item.branch_ID}">{$item.branch}</a></td>
+   <td class = "centerAlign">{if $item.historic}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>
   </tr>
   {foreachelse}
   <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>

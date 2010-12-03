@@ -225,7 +225,7 @@ class news extends EfrontEntity
                 "lessons_ID" => isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : 0,
                             "users_LOGIN" => $_SESSION['s_login']);
             $news = self :: create($fields, isset($_POST['email']));
-            $this -> news = $news;
+            $this -> news = $news -> news;
         }
         if ($values['calendar']) {
          $calendarFields = array('data'=> $this -> news["data"],

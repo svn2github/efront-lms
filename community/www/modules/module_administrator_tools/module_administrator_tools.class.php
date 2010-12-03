@@ -383,16 +383,18 @@ class module_administrator_tools extends EfrontModule {
    $form = new HTML_QuickForm("category_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=category_reports", "", null, true);
    $form -> addElement('select', 'category', _CATEGORY, $directionPaths);
    $form -> addElement('checkbox', 'incomplete', _MODULE_ADMINISTRATOR_TOOLS_SHOWINCOMPLETE);
+   $form -> addElement('checkbox', 'inactive', _MODULE_ADMINISTRATOR_TOOLS_SHOWINACTIVECOURSES);
    $form -> addElement('date', 'from_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDFROM);
    $form -> addElement('date', 'to_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDTO);
    $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
    $form -> setDefaults(array("from_timestamp" => mktime(0,0,0,date("m")-1,date("d"), date("Y")), "to_timestamp" => time()));
    if ($form -> isSubmitted() && $form -> validate()) {
     $values = $form -> exportValues();
-    $_SESSION['from_timestamp'] = mktime(0, 0, 0, $_POST['from_timestamp']['M'], $_POST['from_timestamp']['D'], $_POST['from_timestamp']['Y']);
-    $_SESSION['to_timestamp'] = mktime(23, 59, 59, $_POST['to_timestamp']['M'], $_POST['to_timestamp']['D'], $_POST['to_timestamp']['Y']);
+    $_SESSION['from_timestamp'] = mktime(0, 0, 0, $_POST['from_timestamp']['M'], $_POST['from_timestamp']['d'], $_POST['from_timestamp']['Y']);
+    $_SESSION['to_timestamp'] = mktime(23, 59, 59, $_POST['to_timestamp']['M'], $_POST['to_timestamp']['d'], $_POST['to_timestamp']['Y']);
     $_SESSION['category'] = $values['category'];
     $_SESSION['incomplete'] = $values['incomplete'];
+    $_SESSION['inactive'] = $values['inactive'];
     $smarty -> assign("T_SHOW_TABLE", true);
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'categoryUsersTable' || $_GET['ajax'] == 'xls' || $_GET['ajax'] == 'show_xls') {
@@ -401,9 +403,17 @@ class module_administrator_tools extends EfrontModule {
     $branchesTree = new EfrontBranchesTree();
     $branchesPaths = $branchesTree -> toPathString();
     $category = new EfrontDirection($_SESSION['category']);
-    $categoryCourses = $category -> getCourses(false, true);
-    $result = eF_getTableDataFlat("users_to_courses uc, courses c", "distinct c.id", 'c.id=uc.courses_ID and c.archive=0 and uc.archive=0 and uc.completed=1 and uc.to_timestamp >= '.$_SESSION['from_timestamp'].' and uc.to_timestamp <= '.$_SESSION['to_timestamp']);
-    $categoryCourses = array_intersect(array_unique(array_keys($categoryCourses)), $result['id']); //count only courses that have users completed them
+    $directionsTree = new EfrontDirectionsTree();
+    $children = $directionsTree -> getNodeChildren($_SESSION['category']);
+    foreach (new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($children)), array('id')) as $value) {
+     $siblings[] = $value;
+    }
+    $result = eF_getTableDataFlat("courses", "id", "archive = 0 && directions_ID in (".implode(",", $siblings).")");
+    $categoryCourses = $result['id'];
+    $resultCourses = eF_getTableDataFlat("users_to_courses uc, courses c", "distinct c.id", 'c.id=uc.courses_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and c.archive=0 and uc.archive=0 and uc.completed=1 and uc.to_timestamp >= '.$_SESSION['from_timestamp'].' and uc.to_timestamp <= '.$_SESSION['to_timestamp']);
+    $resultEvents = eF_getTableDataFlat("events e, courses c", "distinct c.id", 'c.id=e.lessons_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and c.archive=0 and e.type=54 and e.timestamp >= '.$_SESSION['from_timestamp'].' and e.timestamp <= '.$_SESSION['to_timestamp']);
+    $result = array_unique(array_merge($resultCourses['id'], $resultEvents['id']));
+    $categoryCourses = array_intersect(array_unique($categoryCourses), $result); //count only courses that have users completed them
     if ($_SESSION['incomplete']) {
      $constraints = array('archive' => false, 'condition' => '(to_timestamp is null OR to_timestamp = 0 OR (to_timestamp >= '.$_SESSION['from_timestamp'].' and to_timestamp <= '.$_SESSION['to_timestamp'].'))');
     } else {
@@ -414,6 +424,7 @@ class module_administrator_tools extends EfrontModule {
      foreach ($course -> getCourseUsers($constraints) as $value) {
       $userBranches = $value -> aspects['hcd'] -> getBranches();
       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
+      $value -> user['course_active']= $course->course['active'];
       $value -> user['course_id']= $course->course['id'];
       $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
       $value -> user['course'] = $course->course['name'];
@@ -421,7 +432,33 @@ class module_administrator_tools extends EfrontModule {
       $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
       $value -> user['branch_ID'] = current($userBranches['employee']);
       $value -> user['supervisor'] = current($userSupervisors);
-      $courseUsers[] = $value -> user;
+      $value -> user['historic'] = false;
+      $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
+      $courseUsers[$unique] = $value -> user;
+     }
+     $result = eF_getTableData("events", "*", 'type=54 and lessons_ID='.$courseId.' and timestamp >= '.$_SESSION['from_timestamp'].' and timestamp <= '.$_SESSION['to_timestamp']);
+     foreach ($result as $entry) {
+      try {
+       $value = EfrontUserFactory::factory($entry['users_LOGIN']);
+       $userBranches = $value -> aspects['hcd'] -> getBranches();
+       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
+       $value -> user['course_active']= $course->course['active'];
+       $value -> user['course_id']= $course->course['id'];
+       $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
+       $value -> user['course'] = $course->course['name'];
+       $value -> user['directions_ID'] = $course->course['directions_ID'];
+       $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
+       $value -> user['branch_ID'] = current($userBranches['employee']);
+       $value -> user['supervisor'] = current($userSupervisors);
+       $value -> user['to_timestamp'] = $entry['timestamp'];
+       $value -> user['completed'] = 1;
+       $value -> user['score'] = '';
+       $value -> user['historic'] = true;
+       $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
+       if (!isset($courseUsers[$unique])) {
+        $courseUsers[$unique] = $value -> user;
+       }
+      } catch (Exception $e) {/*Bypass non-existing users*/}
      }
     }
     if ($_GET['ajax'] == 'xls') {
@@ -435,15 +472,17 @@ class module_administrator_tools extends EfrontModule {
          'to_timestamp' => _COMPLETED,
          'score' => _SCORE,
          'supervisor' => _SUPERVISOR,
-         'branch' => _BRANCH);
+         'branch' => _BRANCH,
+         'historic' => _MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY);
      foreach ($dataSource as $value) {
       $rows[] = array(_CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['category']),
            _COURSE => $value['course'],
            _USER => formatLogin($value['login']),
            _COMPLETED => formatTimestamp($value['to_timestamp']),
-           _SCORE => formatScore($value['score']).'%',
+           _SCORE => $value['historic'] ? '' : formatScore($value['score']).'%',
            _SUPERVISOR => formatLogin($value['supervisor']),
-           _BRANCH => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['branch']));
+           _BRANCH => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['branch']),
+           _MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY => $value['historic'] ? _YES : _NO);
      }
      EfrontSystem :: exportToXls($rows, $xlsFilePath);
      exit;
@@ -491,9 +530,12 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['configuration']['disable_tests'] != 1) {
       $lessonSettings['tests'] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'onClick' => 'activate(this, \'tests\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      }
+
+
      if ($GLOBALS['configuration']['disable_feedback'] != 1) {
       $lessonSettings['feedback'] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'onClick' => 'activate(this, \'feedback\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      }
+
      $lessonSettings['rules'] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'onClick' => 'activate(this, \'rules\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      if ($GLOBALS['configuration']['disable_forum'] != 1) {
       $lessonSettings['forum'] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'onClick' => 'activate(this, \'forum\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
@@ -510,6 +552,12 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['configuration']['chat_enabled']) {
       $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      }
+
+
+
+
+
+
 
      $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
 

@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Областит�
 define("_IFEMPTYNEWPASSWORD","Полетата в червено са задължителни. Ако няма парола дадени, първоначалната парола ще бъде същата като за вход.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Моля проверете формата на вашите CSV файл");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Ползвайте # # потребителско_име за потребителско име, # # user_surname за потребителя, презиме, # # course_name за хода на името, # # клас за клас и # # дата за дата.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","В шаблона, използвайте &lt;organization&gt; &lt;/ организация&gt; за име на организацията, &lt;student&gt; &lt;/ студентски&gt; за пълното име студента, &lt;course&gt; &lt;/ курс&gt; за името курса, &lt;grade&gt; &lt;/ клас&gt; за клас, &lt; сериен&gt; &lt;/ серийни&gt; за пореден номер, &lt;date&gt; &lt;/ дата&gt; за датата, &lt;logo&gt; &lt;/ лого&gt; за лого и &lt;background&gt; &lt;/ фон&gt; за фон.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","В шаблона, използвайте &lt;organization&gt; &lt;/ организация&gt; за име на организацията, &lt;student&gt; &lt;/ студентски&gt; за пълното име студента, &lt;course&gt; &lt;/ курс&gt; за името курса, &lt;grade&gt; &lt;/ клас&gt; за клас, &lt; сериен&gt; &lt;/ серийни&gt; за пореден номер, &lt;date&gt; &lt;/ дата&gt; за датата, &lt;logo&gt; &lt;/ лого&gt; за лого и &lt;background&gt; &lt;/ фон&gt; за фон.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Гласове");//Votes
 define("_PERCENTAGE","Процент");//Percentage
 define("_CERTIFICATEISSUED","Сертификат, издаден");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Курс редовни началото");//Co
 define("_SCHEDULEDSTARTOFCOURSE","Планирана началото на курс");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Планирана изтичане на курс");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Всички разбира потребители");//All course users
-define("_MOVEBLOCK","Преместване на блок");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Статията за думата блок");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","По подразбиране учащите тип");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Ако сте задали група от ключово значение за тази група, потребителите, които използват ключ, ще бъдат записани на уроци / курсове като този тип. Ако сте задали тази група да бъде по подразбиране, а след това новите потребители ще бъде назначен за уроците на групата с този тип");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Да не се използва подразбиращият се тип");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Успешно добавен към групата");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Тази група не е активна");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Ключът не може да бъде използвано повече пъти");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Изборът сте направили не е валиден. Моля изберете опция от списъка");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Вие вече сте член на тази група");//You are already member of this group (New)
-define("_AVERAGESCORES","Средни резултати");//Average scores (New)
-define("_PROJECTSAVERAGE","Средна оценка на всички проекти");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Превключи на дървовиден изглед");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Преминаване към проста цел");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Поверителна получатели (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Резултати за");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Благодаря ви за завършване");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Не доклади открит в системата");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Можете да си създадете");//You may create one (New)
+define("_MOVEBLOCK","Преместване на блок");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Статията за думата блок");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","По подразбиране учащите тип");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Ако сте задали група от ключово значение за тази група, потребителите, които използват ключ, ще бъдат записани на уроци / курсове като този тип. Ако сте задали тази група да бъде по подразбиране, а след това новите потребители ще бъде назначен за уроците на групата с този тип");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Да не се използва подразбиращият се тип");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Успешно добавен към групата");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Тази група не е активна");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Ключът не може да бъде използвано повече пъти");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Изборът сте направили не е валиден. Моля изберете опция от списъка");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Вие вече сте член на тази група");//You are already member of this group
+define("_AVERAGESCORES","Средни резултати");//Average scores
+define("_PROJECTSAVERAGE","Средна оценка на всички проекти");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Превключи на дървовиден изглед");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Преминаване към проста цел");//Switch to simple view
+define("_BCCRECIPIENTS","Поверителна получатели (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Резултати за");//Results for
+define("_THANKYOUFORCOMPLETING","Благодаря ви за завършване");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Не доклади открит в системата");//No reports found in the system
+define("_YOUMAYCREATEONE","Можете да си създадете");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим урок, защото има потребители включени в курса");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Потребителят не е този курс");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Потребителят не е този урок");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Потребителски достъп, предоставен");//User access granted (New)
 ?>

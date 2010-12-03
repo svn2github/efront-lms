@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","De velden in uw C
 define("_IFEMPTYNEWPASSWORD","Velden in rood zijn verplicht. Als er geen wachtwoord gegeven, het eerste wachtwoord wordt hetzelfde ingesteld als de login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Controleer het formaat van uw CSV-bestand");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Gebruik in de template #organization# voor organisatienaam, #user_name# voor gebruikersnaam, #user_surname# voor de gebruikers voornaam, #course_name# voor de cursusnaam, #grade# voor niveau en #date# voor datum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","In de template, het gebruik &lt;organization&gt; &lt;/ organisatie&gt; voor de naam van de organisatie, &lt;student&gt; &lt;/ student&gt; voor de volledige naam student, &lt;course&gt; &lt;/ cursus&gt; voor de naam cursus, &lt;grade&gt; &lt;/ rang&gt; voor rang, &lt; seriële&gt; &lt;/ serial&gt; voor het serienummer, &lt;date&gt; &lt;/ date&gt; voor datum, &lt;logo&gt; &lt;/ logo&gt; voor het logo en &lt;background&gt; &lt;/ achtergrond&gt; voor de achtergrond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","In de template, het gebruik &lt;organization&gt; &lt;/ organisatie&gt; voor de naam van de organisatie, &lt;student&gt; &lt;/ student&gt; voor de volledige naam student, &lt;course&gt; &lt;/ cursus&gt; voor de naam cursus, &lt;grade&gt; &lt;/ rang&gt; voor rang, &lt; seriële&gt; &lt;/ serial&gt; voor het serienummer, &lt;date&gt; &lt;/ date&gt; voor datum, &lt;logo&gt; &lt;/ logo&gt; voor het logo en &lt;background&gt; &lt;/ achtergrond&gt; voor de achtergrond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Stemmen");//Votes
 define("_PERCENTAGE","Percentage");//Percentage
 define("_CERTIFICATEISSUED","Certificaat afgegeven");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Natuurlijk gepland begin");//Course scheduled b
 define("_SCHEDULEDSTARTOFCOURSE","Geplande aanvang van de cursus");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Geplande verstrijken van natuurlijk");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Alle cursus gebruikers");//All course users
-define("_MOVEBLOCK","Verplaats blok");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Expand / Collapse blok");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Standaard type leerling");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Als u een groep selecteren sleutel voor deze groep, dan kunnen gebruikers die gebruik maken van de toets zal worden ingeschreven om lessen / cursussen met dit type. Als u hebt ingesteld van deze groep om in gebreke bent, zal dan nieuwe gebruikers worden toegewezen aan de lessen van de groep met dit type");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Gebruik geen standaard type");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","U bent succesvol toegevoegd aan de groep");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Deze groep is niet actief");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","De sleutel kan niet meer worden gebruikt tijden");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","De selectie die u gemaakt is niet geldig. Neem dat alsjeblieft een optie uit de lijst");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","U bent al lid van deze groep");//You are already member of this group (New)
-define("_AVERAGESCORES","Gemiddelde scores");//Average scores (New)
-define("_PROJECTSAVERAGE","Gemiddelde score in alle projecten");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Over te schakelen naar boomstructuur");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Overschakelen naar eenvoudige weergave");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Geheime ontvangers (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Resultaten voor");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Dank u voor het invullen van");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Geen meldingen in het systeem gevonden");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Je mag er een maken");//You may create one (New)
+define("_MOVEBLOCK","Verplaats blok");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Expand / Collapse blok");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Standaard type leerling");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Als u een groep selecteren sleutel voor deze groep, dan kunnen gebruikers die gebruik maken van de toets zal worden ingeschreven om lessen / cursussen met dit type. Als u hebt ingesteld van deze groep om in gebreke bent, zal dan nieuwe gebruikers worden toegewezen aan de lessen van de groep met dit type");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Gebruik geen standaard type");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","U bent succesvol toegevoegd aan de groep");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Deze groep is niet actief");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","De sleutel kan niet meer worden gebruikt tijden");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","De selectie die u gemaakt is niet geldig. Neem dat alsjeblieft een optie uit de lijst");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","U bent al lid van deze groep");//You are already member of this group
+define("_AVERAGESCORES","Gemiddelde scores");//Average scores
+define("_PROJECTSAVERAGE","Gemiddelde score in alle projecten");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Over te schakelen naar boomstructuur");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Overschakelen naar eenvoudige weergave");//Switch to simple view
+define("_BCCRECIPIENTS","Geheime ontvangers (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Resultaten voor");//Results for
+define("_THANKYOUFORCOMPLETING","Dank u voor het invullen van");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Geen meldingen in het systeem gevonden");//No reports found in the system
+define("_YOUMAYCREATEONE","Je mag er een maken");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Je kunt niet veranderen les modus omdat er gebruikers zijn ingeschreven aan de cursus");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","De gebruiker beschikt niet over deze cursus");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","De gebruiker beschikt niet over deze les");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Gebruiker toegang verleend");//User access granted (New)
 ?>

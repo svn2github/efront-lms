@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","A mezőket a csv 
 define("_IFEMPTYNEWPASSWORD","Piros mezők kitöltése kötelező. Ha nincs jelszó megadva, a kezdeti jelszót lesz ugyanaz, mint a logika.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kérjük, ellenőrizze a formátuma a CSV fájl");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","A sablon használata # # a szervezet szervezet neve, a user_name # # a felhasználó nevét, user_surname # # a felhasználó név, course_name # # a tanfolyam neve, a # # fokozat fokozat és a # # date dátum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","A sablon használata &lt;organization&gt; &lt;/ szervezet&gt; A szervezet neve, &lt;student&gt; &lt;/ diák&gt; a hallgató teljes neve, &lt;course&gt; &lt;/ tanfolyam&gt; a tanfolyam nevét, &lt;grade&gt; &lt;/ fokozat&gt; a fokozat, &lt; soros&gt; &lt;/ soros&gt; sorszámhoz, &lt;date&gt; &lt;/ date&gt; dátum, &lt;logo&gt; &lt;/ logó&gt; A logó és &lt;background&gt; &lt;/ háttér&gt; a háttérben.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","A sablon használata &lt;organization&gt; &lt;/ szervezet&gt; A szervezet neve, &lt;student&gt; &lt;/ diák&gt; a hallgató teljes neve, &lt;course&gt; &lt;/ tanfolyam&gt; a tanfolyam nevét, &lt;grade&gt; &lt;/ fokozat&gt; a fokozat, &lt; soros&gt; &lt;/ soros&gt; sorszámhoz, &lt;date&gt; &lt;/ date&gt; dátum, &lt;logo&gt; &lt;/ logó&gt; A logó és &lt;background&gt; &lt;/ háttér&gt; a háttérben.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Szavazattal");//Votes
 define("_PERCENTAGE","Százalékponttal");//Percentage
 define("_CERTIFICATEISSUED","Kiállított igazolás");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Természetesen tervezett kezdete");//Course sch
 define("_SCHEDULEDSTARTOFCOURSE","Tervezett kezdési természetesen");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Ütemezett lejárati természetesen");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Minden tanfolyam felhasználó");//All course users
-define("_MOVEBLOCK","Mozgás blokk");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Kibontása / összecsukása blokk");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Alapértelmezett tanuló típus");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Ha beállította a csoport legfontosabb ennek a csoportnak, majd a felhasználókat, hogy használja a kulcs lesz beiratkozott a tanóra / tanfolyamok ilyen típusú. Ha be van állítva ez a csoport, hogy az alapértelmezett, akkor az új felhasználók lesz kijelölve a csoport tanulságokat az ilyen típusú");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Ne használja alapértelmezett típus");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Sikeresen hozzá a csoport");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Ez a csoport inaktív");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","A kulcs nem használható többé-szer");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","A kiválasztás tett nem érvényes. Kérjük, válasszon egy lehetőséget a listáról");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Ön már tagja ennek a csoportnak");//You are already member of this group (New)
-define("_AVERAGESCORES","Átlagos pontszámok");//Average scores (New)
-define("_PROJECTSAVERAGE","Átlagos pontszám az összes projekt");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Váltás fanézetben");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Váltás egyszerű képet");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Nyilvánosságra nem hozott címzettek (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Eredmények");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Köszönjük, hogy kitöltötte");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Nem jelentések található a rendszerben");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Létre lehet hozni egy");//You may create one (New)
+define("_MOVEBLOCK","Mozgás blokk");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Kibontása / összecsukása blokk");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Alapértelmezett tanuló típus");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Ha beállította a csoport legfontosabb ennek a csoportnak, majd a felhasználókat, hogy használja a kulcs lesz beiratkozott a tanóra / tanfolyamok ilyen típusú. Ha be van állítva ez a csoport, hogy az alapértelmezett, akkor az új felhasználók lesz kijelölve a csoport tanulságokat az ilyen típusú");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Ne használja alapértelmezett típus");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Sikeresen hozzá a csoport");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Ez a csoport inaktív");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","A kulcs nem használható többé-szer");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","A kiválasztás tett nem érvényes. Kérjük, válasszon egy lehetőséget a listáról");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Ön már tagja ennek a csoportnak");//You are already member of this group
+define("_AVERAGESCORES","Átlagos pontszámok");//Average scores
+define("_PROJECTSAVERAGE","Átlagos pontszám az összes projekt");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Váltás fanézetben");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Váltás egyszerű képet");//Switch to simple view
+define("_BCCRECIPIENTS","Nyilvánosságra nem hozott címzettek (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Eredmények");//Results for
+define("_THANKYOUFORCOMPLETING","Köszönjük, hogy kitöltötte");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Nem jelentések található a rendszerben");//No reports found in the system
+define("_YOUMAYCREATEONE","Létre lehet hozni egy");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nem tudja megváltoztatni leckét mód, mert vannak olyan felhasználók iratkozott be a kurzusra");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","A felhasználó nem ezt az utat");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","A felhasználó nem rendelkezik ezzel a leckét");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Felhasználó számára biztosított hozzáféréshez");//User access granted (New)
 ?>

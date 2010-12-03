@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Các lĩnh vực 
 define("_IFEMPTYNEWPASSWORD","Các trường trong màu đỏ là bắt buộc. Nếu không có mật khẩu đã cho, ban đầu sẽ được thiết lập mật khẩu giống như đăng nhập.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Xin vui lòng kiểm tra định dạng của tập tin CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Trong bản mẫu, hãy sử dụng # # cho các tổ chức của tổ chức tên, USER_NAME # # cho người sử dụng tên của người, # # user_surname cho Họ của người sử dụng, # # course_name cho các khóa học của họ tên, lớp # # # cho các lớp và ngày cho ngày #.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Trong các mẫu, sử dụng &lt;organization&gt; &lt;/ tổ chức&gt; cho tên của tổ chức, &lt;student&gt; &lt;/ học sinh&gt; tên đầy đủ của học sinh, &lt;khóa học /&gt; &lt;course&gt; tên của khóa học, &lt;grade&gt; &lt;/ lớp&gt; lớp, &lt; &lt;&gt; nối tiếp /&gt; nối tiếp cho số, &lt;date&gt; &lt;/&gt; ngày cho ngày, &lt;logo&gt; &lt;/&gt; logo cho logo và &lt;background&gt; &lt;/&gt; nền cho nền.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","Trong các mẫu, sử dụng &lt;organization&gt; &lt;/ tổ chức&gt; cho tên của tổ chức, &lt;student&gt; &lt;/ học sinh&gt; tên đầy đủ của học sinh, &lt;khóa học /&gt; &lt;course&gt; tên của khóa học, &lt;grade&gt; &lt;/ lớp&gt; lớp, &lt; &lt;&gt; nối tiếp /&gt; nối tiếp cho số, &lt;date&gt; &lt;/&gt; ngày cho ngày, &lt;logo&gt; &lt;/&gt; logo cho logo và &lt;background&gt; &lt;/&gt; nền cho nền.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Phiếu bầu");//Votes
 define("_PERCENTAGE","Tỷ lệ phần trăm");//Percentage
 define("_CERTIFICATEISSUED","Giấy chứng nhận ban hành");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Khóa học dự kiến bắt đầu");//Course
 define("_SCHEDULEDSTARTOFCOURSE","Dự kiến bắt đầu của khóa học");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Dự kiến kết thúc khóa học");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Tất cả các khóa học người dùng");//All course users
-define("_MOVEBLOCK","Di chuyển khối");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Mở rộng / sụp đổ khối");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Default loại học");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Nếu bạn đã thiết lập một khóa nhóm cho nhóm này, sau đó người dùng sử dụng phím sẽ được ghi danh với những bài học / các khóa học có loại hình này. Nếu bạn đã đặt nhóm này được mặc định, sau đó người dùng mới sẽ được giao cho các bài học của nhóm với loại này");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Không sử dụng kiểu mặc định");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Bạn đã được thêm thành công vào nhóm");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Nhóm này không hoạt động");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Các phím không thể được sử dụng bất kỳ lần");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Việc lựa chọn bạn đã thực hiện là không hợp lệ. Hãy chọn một tùy chọn từ danh sách");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Bạn đã thành viên của nhóm này");//You are already member of this group (New)
-define("_AVERAGESCORES","Điểm trung bình");//Average scores (New)
-define("_PROJECTSAVERAGE","Điểm trung bình trong tất cả các dự án");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Chuyển sang xem dạng cây");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Chuyển sang chế độ xem đơn giản");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Không tiết lộ người nhận (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Kết quả");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Cảm ơn bạn đã hoàn thành");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Không có báo cáo tìm thấy trong hệ thống");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Bạn có thể tạo ra một");//You may create one (New)
+define("_MOVEBLOCK","Di chuyển khối");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Mở rộng / sụp đổ khối");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Default loại học");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Nếu bạn đã thiết lập một khóa nhóm cho nhóm này, sau đó người dùng sử dụng phím sẽ được ghi danh với những bài học / các khóa học có loại hình này. Nếu bạn đã đặt nhóm này được mặc định, sau đó người dùng mới sẽ được giao cho các bài học của nhóm với loại này");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Không sử dụng kiểu mặc định");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Bạn đã được thêm thành công vào nhóm");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Nhóm này không hoạt động");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Các phím không thể được sử dụng bất kỳ lần");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Việc lựa chọn bạn đã thực hiện là không hợp lệ. Hãy chọn một tùy chọn từ danh sách");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Bạn đã thành viên của nhóm này");//You are already member of this group
+define("_AVERAGESCORES","Điểm trung bình");//Average scores
+define("_PROJECTSAVERAGE","Điểm trung bình trong tất cả các dự án");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Chuyển sang xem dạng cây");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Chuyển sang chế độ xem đơn giản");//Switch to simple view
+define("_BCCRECIPIENTS","Không tiết lộ người nhận (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Kết quả");//Results for
+define("_THANKYOUFORCOMPLETING","Cảm ơn bạn đã hoàn thành");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Không có báo cáo tìm thấy trong hệ thống");//No reports found in the system
+define("_YOUMAYCREATEONE","Bạn có thể tạo ra một");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Bạn không thể thay đổi chế độ bài học vì có người dùng đăng ký cho khóa học");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Người sử dụng không có khóa học này");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Người sử dụng không có bài học này");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Người sử dụng truy cập cấp");//User access granted (New)
 ?>

@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","השדות בקו
 define("_IFEMPTYNEWPASSWORD","השדות באדום הם שדות חובה. אם אין נתון סיסמא, את הסיסמא הראשונית יוגדר זהה הכניסה.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","אנא בדוק את הפורמט של קובץ CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","בתבנית, השתמש הארגון # # עבור הארגון שם, USER_NAME # # עבור שם המשתמש, user_surname # # עבור המשתמש שם משפחה, course_name # # עבור קורס שם, כיתה # # עבור כיתה ו # # עבור התאריך היום.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","בתבנית, &lt;organization&gt; להשתמש &lt;/ ארגון&gt; השם של הארגון, &lt;student&gt; &lt;/ סטודנט&gt; עבור השם המלא של הסטודנט, &lt;course&gt; &lt;/ כמובן&gt; השם של הקורס, &lt;grade&gt; &lt;/ כיתה&gt; לכיתה, &lt; &lt;&lt;סדרתי /&gt; הסידורי של המספר הסידורי, &lt;תאריך&gt; &lt;/&gt; תאריך לפגישה, &lt;logo&gt; &lt;/&gt; הלוגו &lt;הלוגו &lt;background&gt; /&gt; רקע רקע.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","בתבנית, &lt;organization&gt; להשתמש &lt;/ ארגון&gt; השם של הארגון, &lt;student&gt; &lt;/ סטודנט&gt; עבור השם המלא של הסטודנט, &lt;course&gt; &lt;/ כמובן&gt; השם של הקורס, &lt;grade&gt; &lt;/ כיתה&gt; לכיתה, &lt; &lt;&lt;סדרתי /&gt; הסידורי של המספר הסידורי, &lt;תאריך&gt; &lt;/&gt; תאריך לפגישה, &lt;logo&gt; &lt;/&gt; הלוגו &lt;הלוגו &lt;background&gt; /&gt; רקע רקע.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","הצבעות");//Votes
 define("_PERCENTAGE","אחוז");//Percentage
 define("_CERTIFICATEISSUED","האישור שהוצאו");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","הקורס מתוכנן בתחילת");//Course
 define("_SCHEDULEDSTARTOFCOURSE","להתחיל מתוזמנת כמובן");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","פקיעת מתוזמנת כמובן");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","כל כמובן משתמשים");//All course users
-define("_MOVEBLOCK","העבר לחסום");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","הרחב / כווץ לחסום");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","סוג ברירת המחדל של הלומד");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","אם קבעת מפתח בקבוצה עבור הקבוצה הזו, ואז משתמשים העושים שימוש המפתח יהיה רשום על שיעורים / קורסים שיש מסוג זה. אם יש לך להגדיר את הקבוצה הזאת להיות ברירת המחדל, ואז משתמשים חדשים יוקצה שיעורים של הקבוצה עם סוג זה");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","אל תשתמש סוג ברירת המחדל");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","אתה נוספו בהצלחה לקבוצה");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","קבוצה זו אינה פעילה");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","המפתח לא ניתן להשתמש בכל הזמנים יותר");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","הבחירה שעשית אינו חוקי. נא לבחור אפשרות מתוך הרשימה");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","אתה חבר כבר בקבוצה זו");//You are already member of this group (New)
-define("_AVERAGESCORES","ממוצע ציונים");//Average scores (New)
-define("_PROJECTSAVERAGE","ממוצע דירוג בכל הפרוייקטים");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","תצוגת עץ");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","עבור לתצוגת פשוטה");//Switch to simple view (New)
-define("_BCCRECIPIENTS","נמענים שלא פורסם (עותק מוסתר)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","תוצאות עבור");//Results for (New)
-define("_THANKYOUFORCOMPLETING","תודה על מילוי");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","דיווחים לא נמצאו במערכת");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","אתה יכול ליצור אחד");//You may create one (New)
+define("_MOVEBLOCK","העבר לחסום");//Move block
+define("_EXPANDCOLLAPSEBLOCK","הרחב / כווץ לחסום");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","סוג ברירת המחדל של הלומד");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","אם קבעת מפתח בקבוצה עבור הקבוצה הזו, ואז משתמשים העושים שימוש המפתח יהיה רשום על שיעורים / קורסים שיש מסוג זה. אם יש לך להגדיר את הקבוצה הזאת להיות ברירת המחדל, ואז משתמשים חדשים יוקצה שיעורים של הקבוצה עם סוג זה");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","אל תשתמש סוג ברירת המחדל");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","אתה נוספו בהצלחה לקבוצה");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","קבוצה זו אינה פעילה");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","המפתח לא ניתן להשתמש בכל הזמנים יותר");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","הבחירה שעשית אינו חוקי. נא לבחור אפשרות מתוך הרשימה");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","אתה חבר כבר בקבוצה זו");//You are already member of this group
+define("_AVERAGESCORES","ממוצע ציונים");//Average scores
+define("_PROJECTSAVERAGE","ממוצע דירוג בכל הפרוייקטים");//Average score in all projects
+define("_SWITCHTOTREEVIEW","תצוגת עץ");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","עבור לתצוגת פשוטה");//Switch to simple view
+define("_BCCRECIPIENTS","נמענים שלא פורסם (עותק מוסתר)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","תוצאות עבור");//Results for
+define("_THANKYOUFORCOMPLETING","תודה על מילוי");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","דיווחים לא נמצאו במערכת");//No reports found in the system
+define("_YOUMAYCREATEONE","אתה יכול ליצור אחד");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","אתה לא יכול לשנות את מצב השיעור כי יש משתמשים נרשמו לקורס");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","המשתמש אינו חייב את זה כמובן");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","המשתמש אינו חייב את השיעור הזה");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","גישה הוראות שניתנו");//User access granted (New)
 ?>

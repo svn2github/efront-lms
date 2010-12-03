@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Els camps en el f
 define("_IFEMPTYNEWPASSWORD","Els camps en vermell són obligatoris. Si no hi ha contrasenya donada, la contrasenya inicial serà el mateix que l&#39;inici de sessió.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Si us plau, comproveu el format del vostre fitxer CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","A la plantilla, utilitzeu # # organització per a l&#39;organització el nom, l&#39;usuari # # per al nom d&#39;usuari, # # per user_surname cognom de l&#39;usuari, # # course_name per descomptat el nom, grau # # # per al grau i la data per a la data #.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","A la plantilla, utilitzeu &lt;organización&gt; &lt;/ organització&gt; de nom de l&#39;organització, &lt;Student&gt; &lt;/ estudiant&gt; el nom complet de l&#39;estudiant, &lt;Course&gt; &lt;/ curs&gt; per al nom del curs, &lt;grade&gt; &lt;/ grau&gt; de grau, &lt; &lt;serie&gt; /&gt; de sèrie per al número de sèrie, &lt;fecha&gt; &lt;/&gt; la data per a la data, &lt;logo&gt; &lt;/&gt; logotip &lt;logotip i &lt;background&gt; /&gt; de fons per al fons.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","A la plantilla, utilitzeu &lt;organización&gt; &lt;/ organització&gt; de nom de l&#39;organització, &lt;Student&gt; &lt;/ estudiant&gt; el nom complet de l&#39;estudiant, &lt;Course&gt; &lt;/ curs&gt; per al nom del curs, &lt;grade&gt; &lt;/ grau&gt; de grau, &lt; &lt;serie&gt; /&gt; de sèrie per al número de sèrie, &lt;fecha&gt; &lt;/&gt; la data per a la data, &lt;logo&gt; &lt;/&gt; logotip &lt;logotip i &lt;background&gt; /&gt; de fons per al fons.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Vots");//Votes
 define("_PERCENTAGE","Percentatge");//Percentage
 define("_CERTIFICATEISSUED","Certificat expedit");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Curs d&#39;inici programada");//Course schedule
 define("_SCHEDULEDSTARTOFCOURSE","inici programada, per descomptat,");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","venciment programat, per descomptat,");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Tots els usuaris del curs");//All course users
-define("_MOVEBLOCK","Moure el bloc");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Expand / collapse bloc");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Per defecte de tipus alumne");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Si heu configurat una clau de grup d&#39;aquest grup, els usuaris que utilitzen la clau serà inscrit a classes a les formacions d&#39;aquest tipus. Si heu establert aquest grup per defecte, els usuaris nous se&#39;ls assignarà a les lliçons del grup amb aquest tipus");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","No utilitzar el tipus per defecte");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Vostè ha estat afegit amb èxit al grup");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Aquest grup està inactiu");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","La clau no pot utilitzar vegades més");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","La selecció realitzada no és vàlida. Si us plau, escolliu una opció de la llista");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Vostè és ja membre d&#39;aquest grup");//You are already member of this group (New)
-define("_AVERAGESCORES","Mitjana de les puntuacions");//Average scores (New)
-define("_PROJECTSAVERAGE","Mitjana dels resultats en tots els projectes");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Canviar a la vista d&#39;arbre");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Canviar a primera vista");//Switch to simple view (New)
-define("_BCCRECIPIENTS","els beneficiaris no divulgada (CCO)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Resultats de");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Gràcies per completar");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","No hi ha informes que es troben en el sistema");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Vostè pot crear un");//You may create one (New)
+define("_MOVEBLOCK","Moure el bloc");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Expand / collapse bloc");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Per defecte de tipus alumne");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Si heu configurat una clau de grup d&#39;aquest grup, els usuaris que utilitzen la clau serà inscrit a classes a les formacions d&#39;aquest tipus. Si heu establert aquest grup per defecte, els usuaris nous se&#39;ls assignarà a les lliçons del grup amb aquest tipus");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","No utilitzar el tipus per defecte");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Vostè ha estat afegit amb èxit al grup");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Aquest grup està inactiu");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","La clau no pot utilitzar vegades més");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","La selecció realitzada no és vàlida. Si us plau, escolliu una opció de la llista");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Vostè és ja membre d&#39;aquest grup");//You are already member of this group
+define("_AVERAGESCORES","Mitjana de les puntuacions");//Average scores
+define("_PROJECTSAVERAGE","Mitjana dels resultats en tots els projectes");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Canviar a la vista d&#39;arbre");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Canviar a primera vista");//Switch to simple view
+define("_BCCRECIPIENTS","els beneficiaris no divulgada (CCO)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Resultats de");//Results for
+define("_THANKYOUFORCOMPLETING","Gràcies per completar");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","No hi ha informes que es troben en el sistema");//No reports found in the system
+define("_YOUMAYCREATEONE","Vostè pot crear un");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","No es pot canviar la manera de lliçó, perquè hi ha usuaris inscrits al curs");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","L&#39;usuari no té aquest curs");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","L&#39;usuari no té aquesta lliçó");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","l&#39;accés d&#39;usuari atorgats");//User access granted (New)
 ?>

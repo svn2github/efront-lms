@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Felterne i din cs
 define("_IFEMPTYNEWPASSWORD","Felter med rødt er obligatoriske. Hvis der er nogen adgangskode givet, skal den oprindelige password vil blive fastsat den samme som login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kontroller formatet for din CSV-fil");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Brug # user_name # for brugerens navn, # user_surname # for brugerens efternavn, # course_name # for naturligvis navn, # # klasse for klasse og # dato # til dato.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","I skabelonen, skal du bruge &lt;organization&gt; &lt;/ organisation&gt; for organisationens navn, &lt;student&gt; &lt;/ studerende&gt; for elevens fulde navn, &lt;course&gt; &lt;/ kursus&gt; for kursets navn, &lt;grade&gt; &lt;/ stilling&gt; for kvalitet, &lt; seriel&gt; &lt;/ seriel&gt; for løbenummer, &lt;dato&gt; &lt;/ dato&gt; for dato, &lt;logo&gt; &lt;/ logo&gt; for logo og &lt;background&gt; &lt;/ baggrund&gt; for baggrunden.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","I skabelonen, skal du bruge &lt;organization&gt; &lt;/ organisation&gt; for organisationens navn, &lt;student&gt; &lt;/ studerende&gt; for elevens fulde navn, &lt;course&gt; &lt;/ kursus&gt; for kursets navn, &lt;grade&gt; &lt;/ stilling&gt; for kvalitet, &lt; seriel&gt; &lt;/ seriel&gt; for løbenummer, &lt;dato&gt; &lt;/ dato&gt; for dato, &lt;logo&gt; &lt;/ logo&gt; for logo og &lt;background&gt; &lt;/ baggrund&gt; for baggrunden.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Afstemninger");//Votes
 define("_PERCENTAGE","Procent");//Percentage
 define("_CERTIFICATEISSUED","Certificate \"udstedt");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Kursus planlagt begyndelse");//Course scheduled
 define("_SCHEDULEDSTARTOFCOURSE","Anslået start på kursus");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Planlagt udløb selvfølgelig");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Alle kursus-brugere");//All course users
-define("_MOVEBLOCK","Flyt blok");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Udvid / skjul blok");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Standard elev type");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Hvis du har indstillet en gruppe nøgle til denne gruppe, så brugerne, der bruger nøgle vil blive indskrevet til undervisning / kurser, der har denne type. Hvis du har indstillet denne gruppe at være standard, vil nye brugere tildeles til koncernens lektioner med denne type");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Må ikke bruge standard-type");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Du er blevet føjet til gruppen");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Denne gruppe er inaktiv");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Nøglen kan ikke bruges nogen gange mere");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Udvælgelsen du har lavet, er ikke gyldig. Vælg venligst en indstilling på listen");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Du er allerede medlem af denne gruppe");//You are already member of this group (New)
-define("_AVERAGESCORES","Gennemsnitlig score");//Average scores (New)
-define("_PROJECTSAVERAGE","Gennemsnitlig score i alle projekter");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Skift til trævisning");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Skift til simpel visning");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Frigivne modtagere (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Resultater for");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Tak til udfyldelse");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Ingen rapporter fundet i systemet");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Du kan oprette en");//You may create one (New)
+define("_MOVEBLOCK","Flyt blok");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Udvid / skjul blok");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Standard elev type");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Hvis du har indstillet en gruppe nøgle til denne gruppe, så brugerne, der bruger nøgle vil blive indskrevet til undervisning / kurser, der har denne type. Hvis du har indstillet denne gruppe at være standard, vil nye brugere tildeles til koncernens lektioner med denne type");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Må ikke bruge standard-type");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Du er blevet føjet til gruppen");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Denne gruppe er inaktiv");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Nøglen kan ikke bruges nogen gange mere");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Udvælgelsen du har lavet, er ikke gyldig. Vælg venligst en indstilling på listen");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Du er allerede medlem af denne gruppe");//You are already member of this group
+define("_AVERAGESCORES","Gennemsnitlig score");//Average scores
+define("_PROJECTSAVERAGE","Gennemsnitlig score i alle projekter");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Skift til trævisning");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Skift til simpel visning");//Switch to simple view
+define("_BCCRECIPIENTS","Frigivne modtagere (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Resultater for");//Results for
+define("_THANKYOUFORCOMPLETING","Tak til udfyldelse");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Ingen rapporter fundet i systemet");//No reports found in the system
+define("_YOUMAYCREATEONE","Du kan oprette en");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan ikke ændre lektion tilstand, fordi der er brugere tilmeldt til kurset");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Brugeren ikke har dette kursus");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Brugeren ikke har denne lektion");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Bruger gives adgang");//User access granted (New)
 ?>

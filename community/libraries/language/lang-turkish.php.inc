@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV dosyasında a
 define("_IFEMPTYNEWPASSWORD","Alanları kırmızı zorunlu bulunmaktadır. Eğer verilen bir şifre, ilk şifre giriş aynı ayarlanacak.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lütfen CSV dosya biçimini kontrol");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Bu şablonu, organizasyon adı #, kullanıcı adı # # kullanıcı_adı için kullanıcının soyadı # # user_surname için tarih notu # # # # course_name notu ders adı için # ve tarih # # organizasyon için kullanın.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","şablonunda, örgütün adını kullanmak &lt;organization&gt; &lt;/ kuruluş&gt;, &lt;sınıf için ders adı, &lt;grade&gt; &lt;/ sınıf&gt; öğrenci tam adı, &lt;course&gt; &lt;/ ders&gt; için &lt;student&gt; &lt;/ öğrenci&gt; seri&gt; &lt;/ seri numarası seri&gt;, tarih &lt;tarih&gt; &lt;/ tarih&gt;, arka plan için logo ve &lt;background&gt; &lt;/ arka plan&gt; için &lt;logo&gt; &lt;/ logosu&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","şablonunda, örgütün adını kullanmak &lt;organization&gt; &lt;/ kuruluş&gt;, &lt;sınıf için ders adı, &lt;grade&gt; &lt;/ sınıf&gt; öğrenci tam adı, &lt;course&gt; &lt;/ ders&gt; için &lt;student&gt; &lt;/ öğrenci&gt; seri&gt; &lt;/ seri numarası seri&gt;, tarih &lt;tarih&gt; &lt;/ tarih&gt;, arka plan için logo ve &lt;background&gt; &lt;/ arka plan&gt; için &lt;logo&gt; &lt;/ logosu&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Oy");//Votes
 define("_PERCENTAGE","Yüzde");//Percentage
 define("_CERTIFICATEISSUED","Belge");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Dersin başından planlanmış");//Course sched
 define("_SCHEDULEDSTARTOFCOURSE","tabii Planlanmış başlangıç");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","tabii Planlanmış son");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Tüm ders kullanıcılar");//All course users
-define("_MOVEBLOCK","blok taşı");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Genişletmek / çöküşü engellemek");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Varsayılan öğrenci tipi");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Eğer, ders bu tip olan kurslara kayıt anahtarı olacaktır kullananları bu grup için bir grup anahtar seti var. Varsayılan olarak bu gruba set varsa, o zaman yeni kullanıcılar bu tip grup dersleri için atanacak");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Varsayılan tür kullanmayın");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Başarılı bir grup eklendi");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Bu grup etkin değil");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Tuşu herhangi bir kez daha kullanılamaz");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Yaptığınız seçim geçerli değil. Listeden bir seçenek seçin lütfen");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Zaten bu grubun üyesi");//You are already member of this group (New)
-define("_AVERAGESCORES","Ortalama puanlarının");//Average scores (New)
-define("_PROJECTSAVERAGE","Tüm projelerde ortalama puanı");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Geçiş ağaç görünümü için");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Geçiş basit görmek için");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Açıklanmayan alıcı (bcc)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Sonuçlar");//Results for (New)
-define("_THANKYOUFORCOMPLETING","doldurduğunuz için teşekkürler");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Hiçbir rapor sistemi bulundu");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Bir oluşturabilir");//You may create one (New)
+define("_MOVEBLOCK","blok taşı");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Genişletmek / çöküşü engellemek");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Varsayılan öğrenci tipi");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Eğer, ders bu tip olan kurslara kayıt anahtarı olacaktır kullananları bu grup için bir grup anahtar seti var. Varsayılan olarak bu gruba set varsa, o zaman yeni kullanıcılar bu tip grup dersleri için atanacak");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Varsayılan tür kullanmayın");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Başarılı bir grup eklendi");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Bu grup etkin değil");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Tuşu herhangi bir kez daha kullanılamaz");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Yaptığınız seçim geçerli değil. Listeden bir seçenek seçin lütfen");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Zaten bu grubun üyesi");//You are already member of this group
+define("_AVERAGESCORES","Ortalama puanlarının");//Average scores
+define("_PROJECTSAVERAGE","Tüm projelerde ortalama puanı");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Geçiş ağaç görünümü için");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Geçiş basit görmek için");//Switch to simple view
+define("_BCCRECIPIENTS","Açıklanmayan alıcı (bcc)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Sonuçlar");//Results for
+define("_THANKYOUFORCOMPLETING","doldurduğunuz için teşekkürler");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Hiçbir rapor sistemi bulundu");//No reports found in the system
+define("_YOUMAYCREATEONE","Bir oluşturabilir");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","kullanıcı var, çünkü ders modunu değiştiremezsiniz ders alındı");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Kullanıcı bu ders yok");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Kullanıcı bu dersi yok");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Kullanıcı erişim izni");//User access granted (New)
 ?>

@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","该领域在您�
 define("_IFEMPTYNEWPASSWORD","红色领域是强制性的。如果没有密码，给出初始密码将被设置相同的登录。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","请选中格式的CSV文件");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","使用用户名＃ ＃为使用者的名称，编号user_surname ＃为用户的姓， ＃ course_name ＃课程的名称，编号＃级，一级和＃日期＃日期。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","在模板，使用&lt;organization&gt; &lt;/组织&gt;为组织的名称，&lt;student&gt; &lt;/学生&gt;学生的姓名，&lt;course&gt; &lt;/课程&gt;的课程的名称，等级，&lt;&lt;grade&gt; &lt;/年级&gt;串行&gt; &lt;/使用序列号序列&gt;，&lt;日期&gt; &lt;/使用日期&gt;，&lt;logo&gt; &lt;/为徽标和&lt;background&gt; &lt;/背景背景“&gt;标识&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","在模板，使用&lt;organization&gt; &lt;/组织&gt;为组织的名称，&lt;student&gt; &lt;/学生&gt;学生的姓名，&lt;course&gt; &lt;/课程&gt;的课程的名称，等级，&lt;&lt;grade&gt; &lt;/年级&gt;串行&gt; &lt;/使用序列号序列&gt;，&lt;日期&gt; &lt;/使用日期&gt;，&lt;logo&gt; &lt;/为徽标和&lt;background&gt; &lt;/背景背景“&gt;标识&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","投票数");//Votes
 define("_PERCENTAGE","百分比");//Percentage
 define("_CERTIFICATEISSUED","颁发证书");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","课程开始预定");//Course scheduled beginni
 define("_SCHEDULEDSTARTOFCOURSE","预定开始当然");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","期满当然");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","所有课程的用户");//All course users
-define("_MOVEBLOCK","移动块");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","展开/折叠块");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","默认学习型");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","如果您设置了该组的组密钥，那么用户使用该密钥将被录取到教训/课程有这种类型。如果您已设定此组是默认，则新用户将被分配给该组的教训与此类型");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","不要使用默认类型");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","您已成功地添加到组");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","这组无效");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","该键不能使用的任何更多的时间");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","你做的选择是无效的。请从列表中选择一个选项");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","您已经是这个组的成员");//You are already member of this group (New)
-define("_AVERAGESCORES","平均分数");//Average scores (New)
-define("_PROJECTSAVERAGE","在所有项目的平均评分");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","切换到树视图");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","切换到简单视图");//Switch to simple view (New)
-define("_BCCRECIPIENTS","未公开的收件人（密件抄送）");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","结果");//Results for (New)
-define("_THANKYOUFORCOMPLETING","感谢您完成");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","没有报告发现，在系统");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","您可以创建一");//You may create one (New)
+define("_MOVEBLOCK","移动块");//Move block
+define("_EXPANDCOLLAPSEBLOCK","展开/折叠块");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","默认学习型");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","如果您设置了该组的组密钥，那么用户使用该密钥将被录取到教训/课程有这种类型。如果您已设定此组是默认，则新用户将被分配给该组的教训与此类型");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","不要使用默认类型");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","您已成功地添加到组");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","这组无效");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","该键不能使用的任何更多的时间");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","你做的选择是无效的。请从列表中选择一个选项");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","您已经是这个组的成员");//You are already member of this group
+define("_AVERAGESCORES","平均分数");//Average scores
+define("_PROJECTSAVERAGE","在所有项目的平均评分");//Average score in all projects
+define("_SWITCHTOTREEVIEW","切换到树视图");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","切换到简单视图");//Switch to simple view
+define("_BCCRECIPIENTS","未公开的收件人（密件抄送）");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","结果");//Results for
+define("_THANKYOUFORCOMPLETING","感谢您完成");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","没有报告发现，在系统");//No reports found in the system
+define("_YOUMAYCREATEONE","您可以创建一");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","你不能改变的教训模式，因为有用户参加该课程");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","用户不具有此课程");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","用户没有这个教训");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","授予用户访问");//User access granted (New)
 ?>

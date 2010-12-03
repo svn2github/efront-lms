@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Fälten i CSV-fil
 define("_IFEMPTYNEWPASSWORD","Fält i rött är obligatoriska. Om det inte finns ett angivet lösenord, kommer samma lösenord som vid inloggningen att användas.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Kontrollera formatet av din CSV-fil");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Använd # user_name # för användarens namn, # user_surname # för användarens efternamn, # course_name # för kursen namn, # # klass för klass och datum # # för dagen.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","I mallen, använd &lt;organization&gt; &lt;/ organisation&gt; för organisations namn, &lt;student&gt; &lt;/ student&gt; för elevens fullständiga namn, &lt;course&gt; &lt;/ kurs&gt; för kursens namn, &lt;grade&gt; &lt;/ grad&gt; för betyg, &lt; seriell&gt; &lt;/ seriell&gt; för löpnummer, &lt;datum&gt; &lt;/ datum&gt; för datum, &lt;logo&gt; &lt;/ logo&gt; för logotyp och &lt;background&gt; &lt;/&gt; bakgrund för bakgrund.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","I mallen, använd &lt;organization&gt; &lt;/ organisation&gt; för organisations namn, &lt;student&gt; &lt;/ student&gt; för elevens fullständiga namn, &lt;course&gt; &lt;/ kurs&gt; för kursens namn, &lt;grade&gt; &lt;/ grad&gt; för betyg, &lt; seriell&gt; &lt;/ seriell&gt; för löpnummer, &lt;datum&gt; &lt;/ datum&gt; för datum, &lt;logo&gt; &lt;/ logo&gt; för logotyp och &lt;background&gt; &lt;/&gt; bakgrund för bakgrund.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Omröstningar");//Votes
 define("_PERCENTAGE","Procent");//Percentage
 define("_CERTIFICATEISSUED","Intyg utfärdat");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Kurs planerna inleds");//Course scheduled begin
 define("_SCHEDULEDSTARTOFCOURSE","Schemalagd kursstart");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Schemalagd utgången naturligtvis");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Alla användare av kursen");//All course users
-define("_MOVEBLOCK","Flytta blocket");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Visa / Dölj block");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Standard eleven typ");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Om du har ställt en grupp viktiga för denna grupp, då användare som använder nyckeln kommer att vara inskriven på lektioner / utbildningar med denna typ. Om du har ställt denna grupp att vara standard, då kommer nya användare tilldelas gruppens lektioner med denna typ");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Använd inte standard typ");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Du har lagts till i gruppen");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Denna grupp är inaktiv");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Nyckeln kan inte användas fler gånger");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Det val du gjort är inte giltig. Vänligen välj ett alternativ i listan");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Du är redan medlem i denna grupp");//You are already member of this group (New)
-define("_AVERAGESCORES","Genomsnittlig betyg");//Average scores (New)
-define("_PROJECTSAVERAGE","Genomsnittliga poängen i alla projekt");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Växla till trädvyn");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Växla till enkelt visa");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Hemlig mottagare (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Resultat för");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Tack för att slutföra");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Inga rapporter finns i systemet");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Du kan skapa en");//You may create one (New)
+define("_MOVEBLOCK","Flytta blocket");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Visa / Dölj block");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Standard eleven typ");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Om du har ställt en grupp viktiga för denna grupp, då användare som använder nyckeln kommer att vara inskriven på lektioner / utbildningar med denna typ. Om du har ställt denna grupp att vara standard, då kommer nya användare tilldelas gruppens lektioner med denna typ");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Använd inte standard typ");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Du har lagts till i gruppen");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Denna grupp är inaktiv");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Nyckeln kan inte användas fler gånger");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Det val du gjort är inte giltig. Vänligen välj ett alternativ i listan");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Du är redan medlem i denna grupp");//You are already member of this group
+define("_AVERAGESCORES","Genomsnittlig betyg");//Average scores
+define("_PROJECTSAVERAGE","Genomsnittliga poängen i alla projekt");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Växla till trädvyn");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Växla till enkelt visa");//Switch to simple view
+define("_BCCRECIPIENTS","Hemlig mottagare (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Resultat för");//Results for
+define("_THANKYOUFORCOMPLETING","Tack för att slutföra");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Inga rapporter finns i systemet");//No reports found in the system
+define("_YOUMAYCREATEONE","Du kan skapa en");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan inte ändra lektion läge, eftersom det finns användare inskrivna på kursen");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Användaren har inte denna kurs");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Användaren har inte denna lektion");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Användarnas tillgång beviljas");//User access granted (New)
 ?>

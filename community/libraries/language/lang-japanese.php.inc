@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","csvファイル�
 define("_IFEMPTYNEWPASSWORD","赤のフィールドは必須項目です。与えられたパスワードがない場合は、最初のパスワードは同じに設定してログインしてください。");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","確認してください。 csvファイルの形式をして");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","＃ ＃ user_nameに使用するユーザーの名前、 ＃ ＃ user_surnameのユーザーの姓、 ＃ ＃ forコースのcourse_nameの名前を、 ＃グレード＃ ＃日付＃日付等級とします。");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","テンプレートでは、組織の名前の使用&lt;organization&gt;の未満/組織&gt;、未満級コースの名前、&lt;grade&gt;未満/グレードへ&gt;学生の氏名、&lt;course&gt;未満/コースへ&gt; &lt;student&gt;未満/学生&gt;シリアル&gt;の未満/シリアル番号のシリアル&gt;、日付の&lt;日付未満/日付&gt;、背景にロゴと&lt;background&gt;未満/背景へ&gt; &lt;logo&gt;未満/ロゴ&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","テンプレートでは、組織の名前の使用&lt;organization&gt;の未満/組織&gt;、未満級コースの名前、&lt;grade&gt;未満/グレードへ&gt;学生の氏名、&lt;course&gt;未満/コースへ&gt; &lt;student&gt;未満/学生&gt;シリアル&gt;の未満/シリアル番号のシリアル&gt;、日付の&lt;日付未満/日付&gt;、背景にロゴと&lt;background&gt;未満/背景へ&gt; &lt;logo&gt;未満/ロゴ&gt;。");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","投票");//Votes
 define("_PERCENTAGE","割合");//Percentage
 define("_CERTIFICATEISSUED","証明書の発行");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","コースが始まる予定");//Course schedule
 define("_SCHEDULEDSTARTOFCOURSE","もちろん、スケジュール開始");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","もちろん、スケジュールされた有効期限");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","すべてのコースユーザー");//All course users
-define("_MOVEBLOCK","ブロック移動");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","展開/崩壊ブロック");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","デフォルトの学習型");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","あなたがして、レッスン/このタイプを持ってコースに在籍キーがされる使用するユーザーをこのグループのグループキーを設定している場合。あなたがデフォルトにこのグループに設定されている場合は、新しいユーザーがこのタイプのグループのレッスンに割り当てられます。");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","デフォルトの型を使用しないでください。");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","あなたが正常にグループに追加されている");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","このグループは非アクティブです");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","キーは、複数回使用することはできません");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","あなたが選択した内容が有効ではありません。リストからオプションを選択してください");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","あなたは既にこのグループのメンバーである");//You are already member of this group (New)
-define("_AVERAGESCORES","平均スコア");//Average scores (New)
-define("_PROJECTSAVERAGE","すべてのプロジェクトの平均スコア");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","スイッチツリービューに");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","スイッチ単純なビューに");//Switch to simple view (New)
-define("_BCCRECIPIENTS","非公開受信者（BCC）を");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","検索結果");//Results for (New)
-define("_THANKYOUFORCOMPLETING","完了していただきありがとうございます");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","報告はシステムで検出された");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","あなたは、1つを作成することができます");//You may create one (New)
+define("_MOVEBLOCK","ブロック移動");//Move block
+define("_EXPANDCOLLAPSEBLOCK","展開/崩壊ブロック");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","デフォルトの学習型");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","あなたがして、レッスン/このタイプを持ってコースに在籍キーがされる使用するユーザーをこのグループのグループキーを設定している場合。あなたがデフォルトにこのグループに設定されている場合は、新しいユーザーがこのタイプのグループのレッスンに割り当てられます。");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","デフォルトの型を使用しないでください。");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","あなたが正常にグループに追加されている");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","このグループは非アクティブです");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","キーは、複数回使用することはできません");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","あなたが選択した内容が有効ではありません。リストからオプションを選択してください");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","あなたは既にこのグループのメンバーである");//You are already member of this group
+define("_AVERAGESCORES","平均スコア");//Average scores
+define("_PROJECTSAVERAGE","すべてのプロジェクトの平均スコア");//Average score in all projects
+define("_SWITCHTOTREEVIEW","スイッチツリービューに");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","スイッチ単純なビューに");//Switch to simple view
+define("_BCCRECIPIENTS","非公開受信者（BCC）を");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","検索結果");//Results for
+define("_THANKYOUFORCOMPLETING","完了していただきありがとうございます");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","報告はシステムで検出された");//No reports found in the system
+define("_YOUMAYCREATEONE","あなたは、1つを作成することができます");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","ユーザが存在するため、レッスンモードを変更することはできませんコースに在籍");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","ユーザーはこのコースを持っていない");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","ユーザーはこのレッスンを持っていない");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","ユーザーのアクセスが許可さ");//User access granted (New)
 ?>

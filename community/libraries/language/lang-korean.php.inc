@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","CSV 파일에있�
 define("_IFEMPTYNEWPASSWORD","필드가 빨간색으로 의무가없습니다. 경우에는 비밀 번호가 부여되면, 초기 비밀 번호 로그인과 같은 설정됩니다.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","CSV 파일의 형식을 확인하십시오");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","에있는 템플릿, 단체의 이름은 #, 사용자의 이름 # USER_NAME이 #, 대한 사용자의 성씨 # user_surname #, # 날짜 학년 # course_name # # 학년 과정의 이름과 날짜를 # # # 조직을 사용합니다.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","템플릿에, 조직의 이름에 사용 &lt;organization&gt;의 &lt;/ 조직&gt;, &lt;학년을위한 과정의 이름, &lt;grade&gt; &lt;/ 학년&gt;에 대한 학생의 전체 이름, &lt;course&gt; &lt;/ 코스&gt;에 대한 &lt;student&gt; &lt;/ 학생&gt; 시리얼&gt;의 &lt;/ 일련 번호에 대한 시리얼&gt;, 날짜에 대해 &lt;date&gt; &lt;/ 날짜&gt;, 배경에 대한 로고 및 &lt;background&gt; &lt;/ 배경&gt;에 대한 &lt;logo&gt; &lt;/ 로고&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","템플릿에, 조직의 이름에 사용 &lt;organization&gt;의 &lt;/ 조직&gt;, &lt;학년을위한 과정의 이름, &lt;grade&gt; &lt;/ 학년&gt;에 대한 학생의 전체 이름, &lt;course&gt; &lt;/ 코스&gt;에 대한 &lt;student&gt; &lt;/ 학생&gt; 시리얼&gt;의 &lt;/ 일련 번호에 대한 시리얼&gt;, 날짜에 대해 &lt;date&gt; &lt;/ 날짜&gt;, 배경에 대한 로고 및 &lt;background&gt; &lt;/ 배경&gt;에 대한 &lt;logo&gt; &lt;/ 로고&gt;.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","투표수");//Votes
 define("_PERCENTAGE","비율");//Percentage
 define("_CERTIFICATEISSUED","인증서 발급");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","코스 시작 예정");//Course scheduled begin
 define("_SCHEDULEDSTARTOFCOURSE","물론 예약 시작");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","물론 예약 만료");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","물론 모든 사용자");//All course users
-define("_MOVEBLOCK","블록으로 이동");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","확장 / 축소 블록");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","기본 학습자 유형");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","그럼, 수업 /이 유형을하는 과정에 등록의 열쇠는 것입니다 사용하는 사용자를이 그룹에 대한 그룹 키를 설정한 경우. 당신은 기본적으로이 그룹을 설정한 경우, 새로운 사용자가이 형식으로 그룹의 수업에 할당됩니다");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","기본 유형을 사용하지 마십시오");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","당신은 성공적으로 그룹에 추가되었습니다");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","이 그룹은 비활성화되어 있습니다");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","열쇠는 더 이상 시간을 사용하실 수 없습니다");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","당신이 만든 선택이 유효하지 않습니다. 목록에서 옵션을 선택하세요");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","당신은 이미이 그룹의 멤버");//You are already member of this group (New)
-define("_AVERAGESCORES","평균 점수");//Average scores (New)
-define("_PROJECTSAVERAGE","모든 프로젝트에서 평균 점수");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","스위치 트리보기에");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","전환 간단하게 볼 수 있습니다");//Switch to simple view (New)
-define("_BCCRECIPIENTS","비공개 수신자 (숨은 참조)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","에 대한 검색 결과");//Results for (New)
-define("_THANKYOUFORCOMPLETING","완료 주셔서 감사합니다");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","대한보고는 시스템에서 찾은");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","하나를 만들 수 있습니다");//You may create one (New)
+define("_MOVEBLOCK","블록으로 이동");//Move block
+define("_EXPANDCOLLAPSEBLOCK","확장 / 축소 블록");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","기본 학습자 유형");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","그럼, 수업 /이 유형을하는 과정에 등록의 열쇠는 것입니다 사용하는 사용자를이 그룹에 대한 그룹 키를 설정한 경우. 당신은 기본적으로이 그룹을 설정한 경우, 새로운 사용자가이 형식으로 그룹의 수업에 할당됩니다");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","기본 유형을 사용하지 마십시오");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","당신은 성공적으로 그룹에 추가되었습니다");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","이 그룹은 비활성화되어 있습니다");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","열쇠는 더 이상 시간을 사용하실 수 없습니다");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","당신이 만든 선택이 유효하지 않습니다. 목록에서 옵션을 선택하세요");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","당신은 이미이 그룹의 멤버");//You are already member of this group
+define("_AVERAGESCORES","평균 점수");//Average scores
+define("_PROJECTSAVERAGE","모든 프로젝트에서 평균 점수");//Average score in all projects
+define("_SWITCHTOTREEVIEW","스위치 트리보기에");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","전환 간단하게 볼 수 있습니다");//Switch to simple view
+define("_BCCRECIPIENTS","비공개 수신자 (숨은 참조)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","에 대한 검색 결과");//Results for
+define("_THANKYOUFORCOMPLETING","완료 주셔서 감사합니다");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","대한보고는 시스템에서 찾은");//No reports found in the system
+define("_YOUMAYCREATEONE","하나를 만들 수 있습니다");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","사용자가 있기 때문에 당신은 강의 모드를 변경할 수 없습니다 코스 등록");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","사용자는이 과정이 없습니다");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","사용자는이 수업이 없습니다");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","사용자 액세스 부여");//User access granted (New)
 ?>

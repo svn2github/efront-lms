@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Pole v CSV soubor
 define("_IFEMPTYNEWPASSWORD","Oblasti načerveno jsou povinné. Neexistuje-li heslo, puvodní heslo bude nastaveno stejně jako login..");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Prosím zkontrolujte formát vašeho CSV souboru");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Použijte # # uživatelské_jméno na jméno uživatele, # # user_surname pro uživatele příjmení, # # course_name pro jméno kurzu, # # třídy pro třídu a datum # # pro data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","V šabloně, použijte &lt;organization&gt; &lt;/ organizace&gt; pro název organizace, &lt;student&gt; &lt;/ student&gt; pro studenta celé jméno, &lt;course&gt; &lt;/ kurz&gt; pro předmět jméno, &lt;grade&gt; &lt;/ třídy&gt; pro třídy, &lt; sériový&gt; &lt;/ sériové&gt; pro pořadové číslo, &lt;datum&gt; &lt;/ data&gt; pro datum, &lt;logo&gt; &lt;/ logo&gt; pro logo a &lt;background&gt; &lt;/ pozadí&gt; na pozadí.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","V šabloně, použijte &lt;organization&gt; &lt;/ organizace&gt; pro název organizace, &lt;student&gt; &lt;/ student&gt; pro studenta celé jméno, &lt;course&gt; &lt;/ kurz&gt; pro předmět jméno, &lt;grade&gt; &lt;/ třídy&gt; pro třídy, &lt; sériový&gt; &lt;/ sériové&gt; pro pořadové číslo, &lt;datum&gt; &lt;/ data&gt; pro datum, &lt;logo&gt; &lt;/ logo&gt; pro logo a &lt;background&gt; &lt;/ pozadí&gt; na pozadí.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Hlasování");//Votes
 define("_PERCENTAGE","Procento");//Percentage
 define("_CERTIFICATEISSUED","Certifikát vydaný");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Samozřejmě plánovaným začátkem");//Course
 define("_SCHEDULEDSTARTOFCOURSE","Plánované zahájení kurzu");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Plánované konce samozřejmě");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Všechny samozřejmě uživatelé");//All course users
-define("_MOVEBLOCK","Přesun bloku");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Rozbalit / sbalit blok");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Výchozí typ studenta");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Máte-li nastavit skupinu klíč pro tuto skupinu, pak uživatelé, které používají klíč bude zapsán do lekcí / kursy tohoto typu. Pokud jste nastavili této skupiny bude výchozí, pak noví uživatelé budou účelově vázány na skupiny lekce s tímto typem");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Nepoužívejte výchozí typ");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Byl jste úspěšně přidána do skupiny");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Tato skupina je neaktivní");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Klíč nelze použít žádné vícekrát");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Výběr jste provedli není platný. Prosím, vyberte požadovanou možnost ze seznamu");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Jste již členem této skupiny");//You are already member of this group (New)
-define("_AVERAGESCORES","Průměrné skóre");//Average scores (New)
-define("_PROJECTSAVERAGE","Průměrné hodnocení ve všech projektech");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Přepnout na stromové zobrazení");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Přepnout na jednoduché zobrazení");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Nezveřejněných příjemce (bcc)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Výsledky pro");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Děkujeme vám za vyplnění");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Žádné zprávy nalézt v systému");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Můžete vytvořit jeden");//You may create one (New)
+define("_MOVEBLOCK","Přesun bloku");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Rozbalit / sbalit blok");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Výchozí typ studenta");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Máte-li nastavit skupinu klíč pro tuto skupinu, pak uživatelé, které používají klíč bude zapsán do lekcí / kursy tohoto typu. Pokud jste nastavili této skupiny bude výchozí, pak noví uživatelé budou účelově vázány na skupiny lekce s tímto typem");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Nepoužívejte výchozí typ");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Byl jste úspěšně přidána do skupiny");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Tato skupina je neaktivní");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Klíč nelze použít žádné vícekrát");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Výběr jste provedli není platný. Prosím, vyberte požadovanou možnost ze seznamu");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Jste již členem této skupiny");//You are already member of this group
+define("_AVERAGESCORES","Průměrné skóre");//Average scores
+define("_PROJECTSAVERAGE","Průměrné hodnocení ve všech projektech");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Přepnout na stromové zobrazení");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Přepnout na jednoduché zobrazení");//Switch to simple view
+define("_BCCRECIPIENTS","Nezveřejněných příjemce (bcc)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Výsledky pro");//Results for
+define("_THANKYOUFORCOMPLETING","Děkujeme vám za vyplnění");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Žádné zprávy nalézt v systému");//No reports found in the system
+define("_YOUMAYCREATEONE","Můžete vytvořit jeden");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nemůžete změnit lekci režim, protože tam jsou uživatelé zapsaní do kurzu");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Uživatel nemá tento kurz");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Uživatel nemá v této lekci");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Uživatel přístup umožněn");//User access granted (New)
 ?>

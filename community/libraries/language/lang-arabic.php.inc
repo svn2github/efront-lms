@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","الميادين 
 define("_IFEMPTYNEWPASSWORD","الأحمر في مجالات الزاميه. واذا لم يكن هناك كلمة سر ونظرا ل، الاولى سيتم تحديد كلمة السر نفس تسجيل الدخول.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","يرجى التحقق من الشكل الخاص بك من ملف CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","# # USER_NAME استخدام لاسم المستخدم ، # # user_surname المستخدم للقب ، course_name # # لاسم وبطبيعة الحال ، ل# # الدرجة والرتبه و# # للتاريخ حتى الآن.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","في القالب ، استخدم &lt;organization&gt;&lt;منظمة /&gt; لاسم المنظمة ، &lt;student&gt;&lt;الطالب /&gt; عن اسم الطالب الكامل ، &lt;course&gt;&lt;طبعا /&gt; الاسم بالطبع ، و&lt;grade&gt;&lt;/ الصف&gt; للصف ، &lt; &lt;مسلسل /&gt; مسلسل عن الرقم التسلسلي ، &lt;date&gt;&lt;/ التاريخ للتاريخ ، &lt;logo&gt;&lt;شعار / ل&lt;الشعار و&lt;background&gt;/&gt; خلفية عن الخلفية.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","في القالب ، استخدم &lt;organization&gt;&lt;منظمة /&gt; لاسم المنظمة ، &lt;student&gt;&lt;الطالب /&gt; عن اسم الطالب الكامل ، &lt;course&gt;&lt;طبعا /&gt; الاسم بالطبع ، و&lt;grade&gt;&lt;/ الصف&gt; للصف ، &lt; &lt;مسلسل /&gt; مسلسل عن الرقم التسلسلي ، &lt;date&gt;&lt;/ التاريخ للتاريخ ، &lt;logo&gt;&lt;شعار / ل&lt;الشعار و&lt;background&gt;/&gt; خلفية عن الخلفية.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","الاصوات");//Votes
 define("_PERCENTAGE","النسبه المءويه");//Percentage
 define("_CERTIFICATEISSUED","اصدار شهادة");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","بالطبع المقرر بداية");//Course
 define("_SCHEDULEDSTARTOFCOURSE","من المقرر بدء البرنامج الدراسي");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","من المقرر انتهاء بالطبع");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","بالطبع جميع المستخدمين");//All course users
-define("_MOVEBLOCK","تحرك كتلة");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","توسيع كتلة / طي");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","نوع المتعلم الافتراضي");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","إذا قمت بتعيين مفتاح المجموعة لهذه المجموعة ، ثم المستخدمين أن استخدام المفتاح سوف يكون مسجلا للدروس / دورات وجود هذا النوع. إذا قمت بتعيين هذه المجموعة لتكون الافتراضية ، سيتم تعيين المستخدمين فوق جديد لدروس المجموعة مع هذا النوع");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","لا تستخدم النوع الافتراضي");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","لقد كنت وأضاف إلى الفريق بنجاح");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","هذه المجموعة غير نشط");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","ويمكن أن مفتاح أي لا يمكن استخدامها أكثر من مرة");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","اختيار أجريتها غير صالح. الرجاء اختيار أحد الخيارات من قائمة");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","كنت بالفعل عضوا في هذه المجموعة");//You are already member of this group (New)
-define("_AVERAGESCORES","متوسطات");//Average scores (New)
-define("_PROJECTSAVERAGE","متوسط درجات في جميع المشاريع");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","التبديل إلى طريقة العرض شجرة");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","التبديل إلى طريقة بسيطة");//Switch to simple view (New)
-define("_BCCRECIPIENTS","لم يكشف عنه المتلقين (مخفية)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","نتائج");//Results for (New)
-define("_THANKYOUFORCOMPLETING","شكرا لكم لاستكمال");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","لا توجد تقارير في النظام");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","يمكنك إنشاء واحد");//You may create one (New)
+define("_MOVEBLOCK","تحرك كتلة");//Move block
+define("_EXPANDCOLLAPSEBLOCK","توسيع كتلة / طي");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","نوع المتعلم الافتراضي");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","إذا قمت بتعيين مفتاح المجموعة لهذه المجموعة ، ثم المستخدمين أن استخدام المفتاح سوف يكون مسجلا للدروس / دورات وجود هذا النوع. إذا قمت بتعيين هذه المجموعة لتكون الافتراضية ، سيتم تعيين المستخدمين فوق جديد لدروس المجموعة مع هذا النوع");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","لا تستخدم النوع الافتراضي");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","لقد كنت وأضاف إلى الفريق بنجاح");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","هذه المجموعة غير نشط");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","ويمكن أن مفتاح أي لا يمكن استخدامها أكثر من مرة");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","اختيار أجريتها غير صالح. الرجاء اختيار أحد الخيارات من قائمة");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","كنت بالفعل عضوا في هذه المجموعة");//You are already member of this group
+define("_AVERAGESCORES","متوسطات");//Average scores
+define("_PROJECTSAVERAGE","متوسط درجات في جميع المشاريع");//Average score in all projects
+define("_SWITCHTOTREEVIEW","التبديل إلى طريقة العرض شجرة");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","التبديل إلى طريقة بسيطة");//Switch to simple view
+define("_BCCRECIPIENTS","لم يكشف عنه المتلقين (مخفية)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","نتائج");//Results for
+define("_THANKYOUFORCOMPLETING","شكرا لكم لاستكمال");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","لا توجد تقارير في النظام");//No reports found in the system
+define("_YOUMAYCREATEONE","يمكنك إنشاء واحد");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","لا يمكنك تغيير وضع الدرس لأن هناك المستخدمين المسجلين في البرنامج الدراسي");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","المستخدم لا يملك هذا البرنامج الدراسي");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","المستخدم لا يملك هذا الدرس");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","منح المستخدم الوصول");//User access granted (New)
 ?>

@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","I campi della fil
 define("_IFEMPTYNEWPASSWORD","Campi in rosso sono obbligatori. Se non vi è alcuna password fornite, la password iniziale verrà impostata la stessa del login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Vi preghiamo di controllare il formato del tuo file CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Uso nome_utente # # per nome dell&#39;utente, # # user_surname per l&#39;utente di nome, cognome, # # course_name corso per il nome, # # grado per grado e # # data per data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Nel modello, &lt;organization&gt; utilizzare &lt;/&gt; organizzazione per il nome dell&#39;organizzazione, &lt;student&gt; &lt;/ studente&gt; per nome e cognome dello studente, &lt;course&gt; &lt;/ corso&gt; per il nome del corso, &lt;grade&gt; &lt;/ grado&gt; di grado, &lt; &lt;&gt; seriale /&gt; seriale per il numero di serie, &lt;date&gt; &lt;/&gt; data per data, &lt;logo&gt; &lt;/&gt; logo per &lt;logo e &lt;background&gt; /&gt; sfondo per lo sfondo.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","Nel modello, &lt;organization&gt; utilizzare &lt;/&gt; organizzazione per il nome dell&#39;organizzazione, &lt;student&gt; &lt;/ studente&gt; per nome e cognome dello studente, &lt;course&gt; &lt;/ corso&gt; per il nome del corso, &lt;grade&gt; &lt;/ grado&gt; di grado, &lt; &lt;&gt; seriale /&gt; seriale per il numero di serie, &lt;date&gt; &lt;/&gt; data per data, &lt;logo&gt; &lt;/&gt; logo per &lt;logo e &lt;background&gt; /&gt; sfondo per lo sfondo.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Votazioni");//Votes
 define("_PERCENTAGE","Percentuale");//Percentage
 define("_CERTIFICATEISSUED","Certificato rilasciato");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Corso di linea a partire");//Course scheduled b
 define("_SCHEDULEDSTARTOFCOURSE","prevista per l&#39;avvio del corso");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","scadenza prevista del corso");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Tutti gli utenti corso");//All course users
-define("_MOVEBLOCK","Muovi il blocco");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Espansione / compressione del blocco");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Default discente tipo");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Se è stata impostata una chiave di gruppo per questo gruppo, gli utenti che utilizzano la chiave sarà iscritta a lezioni / corsi che hanno questo tipo. Se avete impostato questo gruppo da default, quindi i nuovi utenti saranno assegnati a lezioni di gruppo con questo tipo");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Non utilizzare il tipo di default");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Sei stato correttamente aggiunto al gruppo");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Questo gruppo è inattivo");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","La chiave non può essere utilizzato tutte le volte di più");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","La selezione effettuata non è valida. Si prega di scegliere un&#39;opzione dalla lista");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Sei già membro di questo gruppo");//You are already member of this group (New)
-define("_AVERAGESCORES","Punteggi medi");//Average scores (New)
-define("_PROJECTSAVERAGE","Valutazione media in tutti i progetti");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Passare alla visualizzazione ad albero");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Passare alla visualizzazione semplice");//Switch to simple view (New)
-define("_BCCRECIPIENTS","destinatari Undisclosed (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Risultati di");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Grazie per aver completato");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Nessun rapporto si trovano nel sistema");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","È possibile creare uno");//You may create one (New)
+define("_MOVEBLOCK","Muovi il blocco");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Espansione / compressione del blocco");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Default discente tipo");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Se è stata impostata una chiave di gruppo per questo gruppo, gli utenti che utilizzano la chiave sarà iscritta a lezioni / corsi che hanno questo tipo. Se avete impostato questo gruppo da default, quindi i nuovi utenti saranno assegnati a lezioni di gruppo con questo tipo");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Non utilizzare il tipo di default");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Sei stato correttamente aggiunto al gruppo");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Questo gruppo è inattivo");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","La chiave non può essere utilizzato tutte le volte di più");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","La selezione effettuata non è valida. Si prega di scegliere un&#39;opzione dalla lista");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Sei già membro di questo gruppo");//You are already member of this group
+define("_AVERAGESCORES","Punteggi medi");//Average scores
+define("_PROJECTSAVERAGE","Valutazione media in tutti i progetti");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Passare alla visualizzazione ad albero");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Passare alla visualizzazione semplice");//Switch to simple view
+define("_BCCRECIPIENTS","destinatari Undisclosed (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Risultati di");//Results for
+define("_THANKYOUFORCOMPLETING","Grazie per aver completato");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Nessun rapporto si trovano nel sistema");//No reports found in the system
+define("_YOUMAYCREATEONE","È possibile creare uno");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Non è possibile modificare la modalità di lezione, perché ci sono gli utenti iscritti al corso");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","L&#39;utente non dispone di questo corso");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","L&#39;utente non dispone di questa lezione");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","L&#39;accesso degli utenti concesso");//User access granted (New)
 ?>

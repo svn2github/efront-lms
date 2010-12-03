@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Në fushat e juaj
 define("_IFEMPTYNEWPASSWORD","Fushat në të kuqe janë të detyrueshme. Në rast se nuk ka dhënë password, password fillestare do te behet e njëjta si të identifikoheni.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Ju lutem kontrolloni format e juaj CSV file");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Në shabllonin, përdorni # # organizatë për emrin e organizatës, për # # user_name user&#39;s name, # # user_surname për user&#39;s mbiemrin, # # course_name për emrin e kursit, # # grade për klasën dhe për # # data data.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Në template, &lt;organization&gt; përdorim &lt;/ organizatë&gt; për emrin e organizatës, &lt;student&gt; &lt;/ student&gt; për emrin e plotë studentit, &lt;course&gt; &lt;/ kurs&gt; për emrin e kursit, &lt;grade&gt; &lt;/ klasën&gt; për klasën, &lt; &lt;serial&gt; /&gt; serial per numrin serial, &lt;date&gt; &lt;/&gt; sot për sot, &lt;logo&gt; &lt;/&gt; logo për logo dhe &lt;background&gt; &lt;/&gt; sfond për sfond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","Në template, &lt;organization&gt; përdorim &lt;/ organizatë&gt; për emrin e organizatës, &lt;student&gt; &lt;/ student&gt; për emrin e plotë studentit, &lt;course&gt; &lt;/ kurs&gt; për emrin e kursit, &lt;grade&gt; &lt;/ klasën&gt; për klasën, &lt; &lt;serial&gt; /&gt; serial per numrin serial, &lt;date&gt; &lt;/&gt; sot për sot, &lt;logo&gt; &lt;/&gt; logo për logo dhe &lt;background&gt; &lt;/&gt; sfond për sfond.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Vota");//Votes
 define("_PERCENTAGE","Përqindja");//Percentage
 define("_CERTIFICATEISSUED","Certifikata e lëshuar");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Kursi planifikuar fillim");//Course scheduled b
 define("_SCHEDULEDSTARTOFCOURSE","fillim Caktuar sigurisht");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","skadimit Caktuar sigurisht");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Të gjithë përdoruesit kurs");//All course users
-define("_MOVEBLOCK","Move bllok");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Expand / bllok kolaps");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Lloji Default nxënës");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Nëse ju keni vendosur një kyç grup për këtë grup, atëherë përdoruesit që përdorin kyçe do të jenë të regjistruar në mësime / kurse duke pasur këtë lloj. Nëse keni vendosur këtë grup të jetë i default, atëherë përdoruesit e rinj do të caktohen në mësimet e grupit me këtë lloj");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","A nuk e përdorin lloj default");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Ju keni qenë shtua me sukses në grupin");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Ky grup është joaktiv");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Kryesore nuk mund të përdoret çdo herë më shumë");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Zgjedhja që bëri nuk është e vlefshme. Ju lutem të vini një opsion nga lista");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Ju jeni tashmë anëtar i këtij grupi");//You are already member of this group (New)
-define("_AVERAGESCORES","rezultatet mesatare");//Average scores (New)
-define("_PROJECTSAVERAGE","Nota mesatare në të gjitha projektet e");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Switch për të parë pema");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Kalo në pamje të thjeshtë");//Switch to simple view (New)
-define("_BCCRECIPIENTS","marrësit e pazbuluar (VNV)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Rezultatet për");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Ju faleminderit për plotësimin");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Nuk ka raporte të gjendet në sistemin e");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Ju mund të krijojë një");//You may create one (New)
+define("_MOVEBLOCK","Move bllok");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Expand / bllok kolaps");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Lloji Default nxënës");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Nëse ju keni vendosur një kyç grup për këtë grup, atëherë përdoruesit që përdorin kyçe do të jenë të regjistruar në mësime / kurse duke pasur këtë lloj. Nëse keni vendosur këtë grup të jetë i default, atëherë përdoruesit e rinj do të caktohen në mësimet e grupit me këtë lloj");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","A nuk e përdorin lloj default");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Ju keni qenë shtua me sukses në grupin");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Ky grup është joaktiv");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Kryesore nuk mund të përdoret çdo herë më shumë");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Zgjedhja që bëri nuk është e vlefshme. Ju lutem të vini një opsion nga lista");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Ju jeni tashmë anëtar i këtij grupi");//You are already member of this group
+define("_AVERAGESCORES","rezultatet mesatare");//Average scores
+define("_PROJECTSAVERAGE","Nota mesatare në të gjitha projektet e");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Switch për të parë pema");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Kalo në pamje të thjeshtë");//Switch to simple view
+define("_BCCRECIPIENTS","marrësit e pazbuluar (VNV)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Rezultatet për");//Results for
+define("_THANKYOUFORCOMPLETING","Ju faleminderit për plotësimin");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Nuk ka raporte të gjendet në sistemin e");//No reports found in the system
+define("_YOUMAYCREATEONE","Ju mund të krijojë një");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Ju nuk mund të ndryshoni mode mësim, sepse ka shumë përdorues të regjistruar në kursin e");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Ky përdorues nuk e ka këtë kurs");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Ky përdorues nuk e ka këtë mësim");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","qasje User dhënë");//User access granted (New)
 ?>

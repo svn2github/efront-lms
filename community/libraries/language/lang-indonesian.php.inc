@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Kolom di csv haru
 define("_IFEMPTYNEWPASSWORD","Kolom merah adalah wajib. Jika tidak ada kata sandi diberikan, pada awalnya akan menetapkan sandi yang sama sebagai login.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Silakan cek format file CSV Anda");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Dalam template, gunakan # organisasi # untuk nama organisasi, # # user_name nama pengguna, # user_surname # untuk pengguna surname, # # untuk course_name nama saja, # # untuk grade grade dan # # untuk tanggal tanggal.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Dalam template, gunakan &lt;organization&gt; &lt;organisasi /&gt; untuk nama organisasi, &lt;student&gt; &lt;siswa /&gt; untuk nama lengkap siswa, &lt;/ program&gt; &lt;course&gt; untuk nama kursus itu, &lt;/ grade&gt; &lt;grade&gt; untuk kelas, &lt; &lt;&gt; serial /&gt; serial untuk nomor seri, &lt;date&gt; &lt;&gt; tanggal / untuk tanggal, &lt;logo&gt; &lt;&gt; logo / untuk &lt;logo dan &lt;background&gt; /&gt; latar belakang untuk latar belakang.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","Dalam template, gunakan &lt;organization&gt; &lt;organisasi /&gt; untuk nama organisasi, &lt;student&gt; &lt;siswa /&gt; untuk nama lengkap siswa, &lt;/ program&gt; &lt;course&gt; untuk nama kursus itu, &lt;/ grade&gt; &lt;grade&gt; untuk kelas, &lt; &lt;&gt; serial /&gt; serial untuk nomor seri, &lt;date&gt; &lt;&gt; tanggal / untuk tanggal, &lt;logo&gt; &lt;&gt; logo / untuk &lt;logo dan &lt;background&gt; /&gt; latar belakang untuk latar belakang.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Dinilai");//Votes
 define("_PERCENTAGE","Persentase");//Percentage
 define("_CERTIFICATEISSUED","Sertifikat yang dikeluarkan");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Kursus dijadwalkan awal");//Course scheduled be
 define("_SCHEDULEDSTARTOFCOURSE","Dijadwalkan mulai kursus");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Dijadwalkan berakhirnya program");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Semua pengguna program");//All course users
-define("_MOVEBLOCK","Pindahkan blok");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Expand / runtuhnya blok");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Default pelajar tipe");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Jika Anda telah menetapkan kunci grup untuk grup ini, maka pengguna yang menggunakan kunci tersebut akan terdaftar untuk pelajaran / program memiliki jenis ini. Jika Anda telah mengatur grup ini akan default, maka pengguna baru akan ditugaskan untuk pelajaran kelompok dengan tipe ini");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Jangan gunakan default tipe");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Anda telah berhasil ditambahkan ke grup");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Kelompok ini tidak aktif");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Kuncinya tidak dapat digunakan setiap kali lebih");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Pemilihan yang Anda buat tidak valid. Silakan pilih opsi dari daftar");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Anda sudah menjadi anggota grup ini");//You are already member of this group (New)
-define("_AVERAGESCORES","Rata-rata skor");//Average scores (New)
-define("_PROJECTSAVERAGE","Skor rata-rata di semua proyek");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Beralih ke tampilan struktur pohon");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Beralih ke tampilan sederhana");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Undisclosed penerima (bcc)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Hasil untuk");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Terima kasih untuk menyelesaikan");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Tidak ada laporan yang ditemukan dalam sistem");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Anda dapat membuat satu");//You may create one (New)
+define("_MOVEBLOCK","Pindahkan blok");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Expand / runtuhnya blok");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Default pelajar tipe");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Jika Anda telah menetapkan kunci grup untuk grup ini, maka pengguna yang menggunakan kunci tersebut akan terdaftar untuk pelajaran / program memiliki jenis ini. Jika Anda telah mengatur grup ini akan default, maka pengguna baru akan ditugaskan untuk pelajaran kelompok dengan tipe ini");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Jangan gunakan default tipe");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Anda telah berhasil ditambahkan ke grup");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Kelompok ini tidak aktif");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Kuncinya tidak dapat digunakan setiap kali lebih");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Pemilihan yang Anda buat tidak valid. Silakan pilih opsi dari daftar");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Anda sudah menjadi anggota grup ini");//You are already member of this group
+define("_AVERAGESCORES","Rata-rata skor");//Average scores
+define("_PROJECTSAVERAGE","Skor rata-rata di semua proyek");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Beralih ke tampilan struktur pohon");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Beralih ke tampilan sederhana");//Switch to simple view
+define("_BCCRECIPIENTS","Undisclosed penerima (bcc)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Hasil untuk");//Results for
+define("_THANKYOUFORCOMPLETING","Terima kasih untuk menyelesaikan");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Tidak ada laporan yang ditemukan dalam sistem");//No reports found in the system
+define("_YOUMAYCREATEONE","Anda dapat membuat satu");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Anda tidak dapat mengubah modus pelajaran karena ada user mendaftar ke kursus");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Pengguna tidak memiliki kursus ini");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Pengguna tidak memiliki pelajaran ini");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Pengguna akses diberikan");//User access granted (New)
 ?>

@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","در زمینه �
 define("_IFEMPTYNEWPASSWORD","در زمینه های قرمز اجباری. اگر رمز عبور داده شده است وجود دارد ، که رمز عبور اولیه خواهد بود که همان ورود به سایت تنظیم.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","لطفا در قالب فایل CSV شما را بررسی");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","در این الگو ، استفاده از سازمان # # برای نام سازمان ، # # را برای user_name نام کاربر ، # # را برای user_surname نام خانوادگی کاربر ، # # را برای course_name نام در دوره ، کلاس را برای کلاس # # # # و تاریخ برای تاریخ.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","در قالب ، استفاده &lt;organization&gt;&lt;/ سازمان&gt; به نام سازمان ، &lt;student&gt;&lt;/ دانشجو&gt; برای نام و نام خانوادگی دانش آموز ، &lt;course&gt;&lt;/ دوره&gt; نام برای دوره است ، &lt;grade&gt;&lt;/ درجه&gt; برای کلاس ، &lt; &lt;&gt; سریال&gt; سریال برای شماره سریال ، &lt;date&gt;&lt;/&gt; تاریخ برای امروز ، &lt;logo&gt;&lt;/&gt; آرم و لوگو برای &lt;background&gt;&lt;/&gt; پس زمینه برای پس زمینه.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","در قالب ، استفاده &lt;organization&gt;&lt;/ سازمان&gt; به نام سازمان ، &lt;student&gt;&lt;/ دانشجو&gt; برای نام و نام خانوادگی دانش آموز ، &lt;course&gt;&lt;/ دوره&gt; نام برای دوره است ، &lt;grade&gt;&lt;/ درجه&gt; برای کلاس ، &lt; &lt;&gt; سریال&gt; سریال برای شماره سریال ، &lt;date&gt;&lt;/&gt; تاریخ برای امروز ، &lt;logo&gt;&lt;/&gt; آرم و لوگو برای &lt;background&gt;&lt;/&gt; پس زمینه برای پس زمینه.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","رای");//Votes
 define("_PERCENTAGE","درصد");//Percentage
 define("_CERTIFICATEISSUED","گواهی صادر شد");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","دوره برنامه ریزی شده آغاز"
 define("_SCHEDULEDSTARTOFCOURSE","شروع برنامه ریزی شده از دوره");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","انقضا برنامه ریزی شده از دوره");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","البته تمام کاربران");//All course users
-define("_MOVEBLOCK","انتقال بلاک");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","باز / فروپاشی بلوک");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","پیش فرض نوع یادگیرنده");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","اگر شما از مجموعه گروه یک کلید برای این گروه ، پس از آن که کاربران با استفاده از کلید خواهد شد ثبت نام به درس / دوره داشتن این نوع. در صورتی که مجموعه این گروه به طور پیش فرض ، پس از آن کاربران جدید خواهد شد با این نوع درس به این گروه اختصاص داده");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","آیا استفاده از نوع پیش فرض فعال نمی");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","شما با موفقیت به گروه اضافه شده");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","این گروه غیر فعال است");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","کلید را نمی توان مورد استفاده قرار هر بار بیشتر");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","انتخاب شما ساخته شده معتبر نیست. لطفا انتخاب یکی از گزینه های لیست");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","شما در حال حاضر از اعضای این گروه");//You are already member of this group (New)
-define("_AVERAGESCORES","میانگین نمرات");//Average scores (New)
-define("_PROJECTSAVERAGE","میانگین نمره در همه پروژه ها");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","تغییر به نمای درختی");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","به نمای ساده");//Switch to simple view (New)
-define("_BCCRECIPIENTS","نامعلوم گیرندگان (بازال)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","نتایج برای");//Results for (New)
-define("_THANKYOUFORCOMPLETING","با تشکر از شما برای تکمیل");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","هیچ گزارشی موجود در سیستم");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","شما ممکن است ایجاد یک");//You may create one (New)
+define("_MOVEBLOCK","انتقال بلاک");//Move block
+define("_EXPANDCOLLAPSEBLOCK","باز / فروپاشی بلوک");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","پیش فرض نوع یادگیرنده");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","اگر شما از مجموعه گروه یک کلید برای این گروه ، پس از آن که کاربران با استفاده از کلید خواهد شد ثبت نام به درس / دوره داشتن این نوع. در صورتی که مجموعه این گروه به طور پیش فرض ، پس از آن کاربران جدید خواهد شد با این نوع درس به این گروه اختصاص داده");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","آیا استفاده از نوع پیش فرض فعال نمی");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","شما با موفقیت به گروه اضافه شده");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","این گروه غیر فعال است");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","کلید را نمی توان مورد استفاده قرار هر بار بیشتر");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","انتخاب شما ساخته شده معتبر نیست. لطفا انتخاب یکی از گزینه های لیست");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","شما در حال حاضر از اعضای این گروه");//You are already member of this group
+define("_AVERAGESCORES","میانگین نمرات");//Average scores
+define("_PROJECTSAVERAGE","میانگین نمره در همه پروژه ها");//Average score in all projects
+define("_SWITCHTOTREEVIEW","تغییر به نمای درختی");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","به نمای ساده");//Switch to simple view
+define("_BCCRECIPIENTS","نامعلوم گیرندگان (بازال)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","نتایج برای");//Results for
+define("_THANKYOUFORCOMPLETING","با تشکر از شما برای تکمیل");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","هیچ گزارشی موجود در سیستم");//No reports found in the system
+define("_YOUMAYCREATEONE","شما ممکن است ایجاد یک");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","شما می توانید حالت درس را تغییر ندهید زیرا کاربران ثبت نام وجود دارد به دوره");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","کاربر نشانی از این دوره را نداشته باشند");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","کاربر نشانی از این درس را ندارید");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","دسترسی کاربر اعطا");//User access granted (New)
 ?>

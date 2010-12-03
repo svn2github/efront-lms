@@ -21,7 +21,6 @@ try {
  handleAjaxExceptions($e);
 }
 
-
 /*****************************************************
 
  ON AJAX REQUESTING the branch's job descriptions select
@@ -192,6 +191,10 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
    $smarty -> assign("T_DATASOURCE_OPERATIONS", array('propagate'));
    if (isset($_GET['ajax']) && ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable')) {
     try {
+     if ($currentEmployee -> isSupervisor() ) {
+      $smarty -> assign("T_IS_SUPERVISOR", true);
+     }
+
      if ($_GET['ajax'] == 'coursesTable') {
       $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => false);
      }

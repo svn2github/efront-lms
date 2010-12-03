@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Laukus jūsu csv 
 define("_IFEMPTYNEWPASSWORD","Lauki, ar sarkanu ir obligāta. Ja nav parole, ņemot vērā, sākotnējā parole tiks noteikta tāda pati kā pieteikumvārdu.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Lūdzu pārbaudiet formātu jūsu CSV fails");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","Tā kā veidni, izmantojiet # organizācija # par organizācijas nosaukums, # Lietotāja_vārds # lietotāja vārdu, # # user_surname lietotāja uzvārds, # course_name # par kursa nosaukumu, # grade # kategorijas un # datuma # par datumu.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","Šajā veidnē, izmantojiet &lt;organization&gt; &lt;/ organizācijas&gt; par organizācijas nosaukumu, &lt;student&gt; &lt;/ students&gt; studenta vārdu un uzvārdu, &lt;course&gt; &lt;/ kursu&gt; par kursa nosaukums, &lt;grade&gt; &lt;/ kategorijas&gt; A kategorijas, &lt; sērijas&gt; &lt;/ sērijas&gt; kārtas numuram, &lt;datums&gt; &lt;/ datums&gt; datuma, &lt;logo&gt; &lt;/ logo&gt; par logo un &lt;background&gt; &lt;/ fona&gt; fona.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","Šajā veidnē, izmantojiet &lt;organization&gt; &lt;/ organizācijas&gt; par organizācijas nosaukumu, &lt;student&gt; &lt;/ students&gt; studenta vārdu un uzvārdu, &lt;course&gt; &lt;/ kursu&gt; par kursa nosaukums, &lt;grade&gt; &lt;/ kategorijas&gt; A kategorijas, &lt; sērijas&gt; &lt;/ sērijas&gt; kārtas numuram, &lt;datums&gt; &lt;/ datums&gt; datuma, &lt;logo&gt; &lt;/ logo&gt; par logo un &lt;background&gt; &lt;/ fona&gt; fona.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Balsis");//Votes
 define("_PERCENTAGE","Procenti");//Percentage
 define("_CERTIFICATEISSUED","Sertifikāts, kas izdots");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Protams, plānots sākumā");//Course scheduled
 define("_SCHEDULEDSTARTOFCOURSE","Plānotais pasākuma sākuma, protams,");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Plānotais beigām, protams,");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Visiem kursu lietotājiem");//All course users
-define("_MOVEBLOCK","Pārvietot bloku");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Izvērst / sakļaut bloka");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","Default skolēnu veids");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Ja esat iestatījis grupas galvenie šai grupai, tad lietotāji, kas izmanto atslēgu tiks uzņemti ar mācību / kursiem šāda veida. Ja esat iestatījis šai grupai ir noklusējuma, tad jaunie lietotāji tiks piešķirts grupas nodarbības ar šāda veida");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Nelietojiet noklusējuma tipu");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Jūs esat veiksmīgi pievienojis grupai");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Šī grupa ir neaktīva");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Atslēgu nevar izmantot vairāk reizes");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Atlases veicāt nav derīgs. Lūdzu, izvēlieties iespēju sarakstā");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Jūs jau iesaistījās grupas");//You are already member of this group (New)
-define("_AVERAGESCORES","Vidējais punktu skaits");//Average scores (New)
-define("_PROJECTSAVERAGE","Vidējais punktu skaits visos projektos");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Pārslēgties uz koka skatījumu");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Pārslēgties uz vienkāršu");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Neizpaužama saņēmējiem (BCC)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Rezultāti");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Paldies par pabeigtu");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Neviens ziņojums atrodams sistēmā");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Jūs varat izveidot vienu");//You may create one (New)
+define("_MOVEBLOCK","Pārvietot bloku");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Izvērst / sakļaut bloka");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Default skolēnu veids");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Ja esat iestatījis grupas galvenie šai grupai, tad lietotāji, kas izmanto atslēgu tiks uzņemti ar mācību / kursiem šāda veida. Ja esat iestatījis šai grupai ir noklusējuma, tad jaunie lietotāji tiks piešķirts grupas nodarbības ar šāda veida");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Nelietojiet noklusējuma tipu");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Jūs esat veiksmīgi pievienojis grupai");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Šī grupa ir neaktīva");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Atslēgu nevar izmantot vairāk reizes");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Atlases veicāt nav derīgs. Lūdzu, izvēlieties iespēju sarakstā");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Jūs jau iesaistījās grupas");//You are already member of this group
+define("_AVERAGESCORES","Vidējais punktu skaits");//Average scores
+define("_PROJECTSAVERAGE","Vidējais punktu skaits visos projektos");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Pārslēgties uz koka skatījumu");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Pārslēgties uz vienkāršu");//Switch to simple view
+define("_BCCRECIPIENTS","Neizpaužama saņēmējiem (BCC)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Rezultāti");//Results for
+define("_THANKYOUFORCOMPLETING","Paldies par pabeigtu");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Neviens ziņojums atrodams sistēmā");//No reports found in the system
+define("_YOUMAYCREATEONE","Jūs varat izveidot vienu");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Jūs nevarat mainīt nodarbību režīmā, jo ir lietotāji uzņemti uz kursiem");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Lietotājam nav šo kursu");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Lietotājam nav šīs nodarbības");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Lietotāju pieeju, kāda");//User access granted (New)
 ?>

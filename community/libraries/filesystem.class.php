@@ -1132,7 +1132,13 @@ class EfrontFile extends ArrayObject
      */
     public function sendFile($attachment = false) {
      if ($attachment) {
-      $this['name'] = urlencode(str_replace(" ", "_", $this['name']));
+   $browser = detectBrowser();
+   //because of #834
+   if ($browser != 'firefox') {
+    $this['name'] = urlencode(str_replace(" ", "_", $this['name']));
+   } else {
+    $this['name'] = str_replace(" ", "_", $this['name']);
+   }
    header("Content-Description: File Transfer");
    header("Content-Type: application/octet-stream");
    header('Content-Disposition: attachment; filename="'.$this['name'].'"');

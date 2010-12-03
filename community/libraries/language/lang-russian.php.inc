@@ -1211,7 +1211,7 @@ define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Поля в ва�
 define("_IFEMPTYNEWPASSWORD","Поля, выделенные красным цветом являются обязательными. Если пароль не указан, он будет таким же, как и имя учетной записи. Если вы хотите, чтобы пользователи авторизовались через LDAP, укажите ldap вместо пароля.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Пожалуйста, проверьте формат вашего файла CSV");//Please check the format of your CSV file
 define("_CERTIFICATEINSTRUCTIONS","В шаблоне используйте #user_name# для имени пользователя, #user_surname# для фамилии, #course_name# для наименования курса, #grade# для оценки и #date# для даты.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","В шаблон, используйте &lt;организация&gt; &lt;/ организации&gt; по названию организации, &lt;Student&gt; &lt;/ студент&gt; полное имя студента, &lt;Course&gt; &lt;/ курс&gt; по названию курса, &lt;grade&gt; &lt;/ сорт&gt; для классов, &lt; Серийный&gt; &lt;/ серийный&gt; для серийный номер, &lt;date&gt; &lt;/ дата&gt; на дату, &lt;logo&gt; &lt;/ логотип&gt; для логотипа и &lt;background&gt; &lt;/ фон&gt; для фона.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo and &lt;background&gt;&lt;/background&gt; for background.
+define("_CERTIFICATEINSTRUCTIONSXML","В шаблон, используйте &lt;организация&gt; &lt;/ организации&gt; по названию организации, &lt;Student&gt; &lt;/ студент&gt; полное имя студента, &lt;Course&gt; &lt;/ курс&gt; по названию курса, &lt;grade&gt; &lt;/ сорт&gt; для классов, &lt; Серийный&gt; &lt;/ серийный&gt; для серийный номер, &lt;date&gt; &lt;/ дата&gt; на дату, &lt;logo&gt; &lt;/ логотип&gt; для логотипа и &lt;background&gt; &lt;/ фон&gt; для фона.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Голосов");//Votes
 define("_PERCENTAGE","Доля");//Percentage
 define("_CERTIFICATEISSUED","Сертификат, выдан");//Certificate issued
@@ -3936,23 +3936,27 @@ define("_PROGRAMMEDCOURSESTART","Курс запланированного на�
 define("_SCHEDULEDSTARTOFCOURSE","Запланированные начала курса");//Scheduled start of course
 define("_SCHEDULEDEXPIRYOFCOURSE","Запланированные истечении курса");//Scheduled expiration of course
 define("_ALLCOURSEUSERS","Все конечно пользователей");//All course users
-define("_MOVEBLOCK","Переместить блок");//Move block (New)
-define("_EXPANDCOLLAPSEBLOCK","Развернуть / Свернуть блок");//Expand/collapse block (New)
-define("_DEFAULTLEARNERTYPE","По умолчанию ученик типа");//Default learner type (New)
-define("_DEFAULTLEARNERTYPEINFO","Если у вас есть набор групп для этой группы, то пользователи, которые используют ключ будет зачислен на уроки / курсы с этого типа. Если у вас есть набор в эту группу, чтобы быть по умолчанию, то новых пользователей будет назначен уроки группы с этим типом");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type (New)
-define("_DONTUSEDEFAULTGROUP","Не использовать по умолчанию тип");//Don't use default type (New)
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Вы успешно добавлен в группу");//You have been successfully added to the group (New)
-define("_THISGROUPISINACTIVE","Эта группа является неактивным");//This group is inactive (New)
-define("_MAXIMUMKEYUSAGESREACHED","Ключ не может быть использован любой более раз");//The key cannot be used any more times (New)
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Выбор вы сделали не верно. Пожалуйста, выберите вариант из списка");//The selection you made is not valid. Please pick an option from the list (New)
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Вы уже член этой группы");//You are already member of this group (New)
-define("_AVERAGESCORES","Средние показатели");//Average scores (New)
-define("_PROJECTSAVERAGE","Средний балл во всех проектах");//Average score in all projects (New)
-define("_SWITCHTOTREEVIEW","Переключить на дереве");//Switch to tree view (New)
-define("_SWITCHTOSIMPLEVIEW","Переключиться на простой вид");//Switch to simple view (New)
-define("_BCCRECIPIENTS","Нераскрытой получателей (ОЦК)");//Undisclosed recipients (bcc) (New)
-define("_RESULTSFOR","Результаты для");//Results for (New)
-define("_THANKYOUFORCOMPLETING","Благодарим вас за заполнение");//Thank you for completing (New)
-define("_NOREPORTSFOUNDINTHESYSTEM","Никаких сообщений, обнаруженных в системе");//No reports found in the system (New)
-define("_YOUMAYCREATEONE","Вы можете создать один");//You may create one (New)
+define("_MOVEBLOCK","Переместить блок");//Move block
+define("_EXPANDCOLLAPSEBLOCK","Развернуть / Свернуть блок");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","По умолчанию ученик типа");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Если у вас есть набор групп для этой группы, то пользователи, которые используют ключ будет зачислен на уроки / курсы с этого типа. Если у вас есть набор в эту группу, чтобы быть по умолчанию, то новых пользователей будет назначен уроки группы с этим типом");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Не использовать по умолчанию тип");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Вы успешно добавлен в группу");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Эта группа является неактивным");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Ключ не может быть использован любой более раз");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Выбор вы сделали не верно. Пожалуйста, выберите вариант из списка");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Вы уже член этой группы");//You are already member of this group
+define("_AVERAGESCORES","Средние показатели");//Average scores
+define("_PROJECTSAVERAGE","Средний балл во всех проектах");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Переключить на дереве");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Переключиться на простой вид");//Switch to simple view
+define("_BCCRECIPIENTS","Нераскрытой получателей (ОЦК)");//Undisclosed recipients (bcc)
+define("_RESULTSFOR","Результаты для");//Results for
+define("_THANKYOUFORCOMPLETING","Благодарим вас за заполнение");//Thank you for completing
+define("_NOREPORTSFOUNDINTHESYSTEM","Никаких сообщений, обнаруженных в системе");//No reports found in the system
+define("_YOUMAYCREATEONE","Вы можете создать один");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Вы не можете изменить урок режиме, поскольку Есть пользователи, поступил на курс");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не оставил этот курс");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Пользователь не оставил этот урок");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Доступ пользователей предоставляются");//User access granted (New)
 ?>

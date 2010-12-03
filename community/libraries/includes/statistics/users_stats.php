@@ -693,13 +693,16 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   unset($info[_COMMENTS]);
  }
  $pdf -> printInformationSection(_USERCOMMUNICATIONINFO, $info);
+ $meanDuration = $timesReport->formatTimeForReporting($userInfo['usage']['mean_duration']*60);
+ $monthDuration = $timesReport -> formatTimeForReporting($userInfo['usage']['month_mean_duration']*60);
+ $weekDuration = $timesReport -> formatTimeForReporting($userInfo['usage']['week_mean_duration']*60);
  $info = array(array(_LASTLOGIN, formatTimestamp($userInfo['usage']['last_login']['timestamp'])),
       array(_TOTALLOGINS, sizeof($userInfo['usage']['logins'])),
       array(_MONTHLOGINS, sizeof($userInfo['usage']['month_logins'])),
       array(_WEEKLOGINS, sizeof($userInfo['usage']['week_logins'])),
-      array(_MEANDURATION, $userInfo['usage']['mean_duration']._MINUTESSHORTHAND),
-      array(_MONTHMEANDURATION, $userInfo['usage']['month_mean_duration']._MINUTESSHORTHAND),
-      array(_WEEKMEANDURATION, $userInfo['usage']['week_mean_duration']._MINUTESSHORTHAND),
+      array(_MEANDURATION, $meanDuration['time_string']),
+      array(_MONTHMEANDURATION, $monthDuration['time_string']),
+      array(_WEEKMEANDURATION, $weekDuration['time_string']),
       array(_LASTIPUSED, $userInfo['usage']['last_ip']));
  $pdf -> printInformationSection(_USERUSAGEINFO, $info);
  if ($infoUser -> user['user_type'] != 'administrator' && (!empty($userCourses) || !empty($userLessons))) {

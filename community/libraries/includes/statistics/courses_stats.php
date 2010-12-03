@@ -295,7 +295,7 @@ if (isset($_GET['excel'])) {
  $languages = EfrontSystem :: getLanguages(true);
  $pdf = new EfrontPdf($reportTitle);
  $info = array(array(_COURSE, $infoCourse -> course['name']),
-      array(_CATEGORY, $directionsPaths[$infoCourse -> course['directions_ID']]),
+      array(_CATEGORY, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPaths[$infoCourse -> course['directions_ID']])),
       array(_LESSONS, $infoCourse -> course['num_lessons']),
       array(_LANGUAGE, $languages[$infoCourse -> course['languages_NAME']]));
  $pdf -> printInformationSection(_BASICINFO, $info);
@@ -322,6 +322,6 @@ if (isset($_GET['excel'])) {
       _SCORE => formatScore($info['score'])."%");
     }
  $pdf->printDataSection(_USERSINFO, $data, $formatting);
- $pdf -> OutputPdf('course_form_'.$infoCours -> course['name'].'.pdf');
+ $pdf -> OutputPdf('course_form_'.$infoCourse -> course['name'].'.pdf');
  exit;
 }

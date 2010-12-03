@@ -441,7 +441,7 @@ class module_administrator_tools extends EfrontModule {
       try {
        $value = EfrontUserFactory::factory($entry['users_LOGIN']);
        $userBranches = $value -> aspects['hcd'] -> getBranches();
-       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
+       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();//pr($entry['users_LOGIN']);pr($userSupervisors);pr(current($userSupervisors));
        $value -> user['course_active']= $course->course['active'];
        $value -> user['course_id']= $course->course['id'];
        $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
@@ -462,7 +462,8 @@ class module_administrator_tools extends EfrontModule {
      }
     }
     if ($_GET['ajax'] == 'xls') {
-     $xlsFilePath = $currentUser -> getDirectory().'report.xls';
+     $xlsFilePath = $currentUser -> getDirectory().'category_report.xls';
+     unlink($xlsFilePath);
      $_GET['limit'] = sizeof($courseUsers);
      $_GET['sort'] = 'category';
      list($tableSize, $dataSource) = filterSortPage($courseUsers);
@@ -487,7 +488,7 @@ class module_administrator_tools extends EfrontModule {
      EfrontSystem :: exportToXls($rows, $xlsFilePath);
      exit;
     } else if ($_GET['ajax'] == 'show_xls') {
-     $xlsFilePath = $currentUser -> getDirectory().'report.xls';
+     $xlsFilePath = $currentUser -> getDirectory().'category_report.xls';
      $file = new EfrontFile($xlsFilePath);
      $file -> sendFile(true);
      exit;
@@ -530,6 +531,7 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['configuration']['disable_tests'] != 1) {
       $lessonSettings['tests'] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'onClick' => 'activate(this, \'tests\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      }
+
 
 
      if ($GLOBALS['configuration']['disable_feedback'] != 1) {

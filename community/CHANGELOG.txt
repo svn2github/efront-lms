@@ -1,4 +1,4 @@
-=== Version 3.6.7 build ===
+=== Version 3.6.7 build 9127 ===
 - Fixed issue about displaying announcement title in popup when there is not body data
 - Fixed issue in Lesson registration block in admin control panel about courses enrollments not approved from admin
 - Added code for deleting rows from module_hcd_course_to_job_description and module_hcd_course_to_branch when deleting a course
@@ -15,6 +15,11 @@
 - Fixed issue about displaying archived assigns for lessons/users in users table list (number of lessons/courses columns)
 - Fixed issue about editing an announcement and adding it also in calendar
 - Fixed issue about filename displayed when downloading file (#834)
+- Applied workaround for PHP bug #48697 regarding mbstring internal encoding being reset after calling parse_str
+- Fixed lesson layout not being saved
+- Fixed toggling between normal access and restricted access in user courses/lessons
+- Fixed drag and drop placemarks in user dashboard
+- Fixed administrator not overriding "show unassigned users to supervisors" setting (Enterprise edition)
 
 === Version 3.6.7 build 9006 ===
 - Added latest TCPDF libraries

@@ -1,4 +1,4 @@
-=== Version 3.6.7 build 9135 ===
+=== Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data
 - Fixed issue in Lesson registration block in admin control panel about courses enrollments not approved from admin
 - Added code for deleting rows from module_hcd_course_to_job_description and module_hcd_course_to_branch when deleting a course

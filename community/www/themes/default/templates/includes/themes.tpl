@@ -202,9 +202,6 @@
  {capture name = "t_theme_divs_code"}
  <div class = "tabber">
         <div class="tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'layout')} tabbertabdefault{/if}" title = "{$smarty.const._LAYOUT}">{$smarty.capture.t_layout_tab}</div>
-{if 0 && !$T_REMOTE_THEME}
-        <div class="tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'external')} tabbertabdefault{/if}" title = "{$smarty.const._EXTERNALPAGES}">{$smarty.capture.t_theme_external_tab}</div>
-{/if}
         <div class="tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'set_theme')} tabbertabdefault{/if}" title = "{$smarty.const._CHANGETHEME}">{$smarty.capture.t_change_theme_tab}</div>
  </div>
  {/capture}

@@ -706,11 +706,12 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
       array(_LASTIPUSED, $userInfo['usage']['last_ip']));
  $pdf -> printInformationSection(_USERUSAGEINFO, $info);
  if ($infoUser -> user['user_type'] != 'administrator' && (!empty($userCourses) || !empty($userLessons))) {
-  $formatting = array(_NAME => array('width' => '40%', 'fill' => false),
-       _CATEGORY => array('width' => '25%','fill' => false),
+  $formatting = array(_NAME => array('width' => '35%', 'fill' => false),
+       _CATEGORY => array('width' => '20%','fill' => false),
        _REGISTRATIONDATE => array('width' => '13%','fill' => false),
        _COMPLETED => array('width' => '13%','fill' => false, 'align' => 'C'),
-       _SCORE => array('width' => '9%','fill' => false, 'align' => 'R'));
+       _SCORE => array('width' => '9%','fill' => false, 'align' => 'R'),
+       _TIME => array('width' => '10%','fill' => false, 'align' => 'R'));
   $data = array();
   $coursesAvgScore = $lessonsAvgScore = $projectsAvgScore = $testsAvgScore = 0;
   $data = array();
@@ -719,6 +720,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $constraints['return_objects'] = false;
   $userCourses = $infoUser -> getUserCourses($constraints);
   foreach ($userCourses as $courseId => $value) {
+   $coursesTotalSec = 0;
    $coursesAvgScore += $value['score'];
    $data[$courseId] = array(_NAME => $value['name'],
          _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
@@ -728,9 +730,10 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
          'active' => $value['active']);
    $courseLessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($value));
    if (!empty($courseLessons)) {
-    $subsectionFormatting = array(_NAME => array('width' => '78%', 'fill' => true),
+    $subsectionFormatting = array(_NAME => array('width' => '68%', 'fill' => true),
              _COMPLETED => array('width' => '13%', 'fill' => true, 'align' => 'C'),
-             _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'));
+             _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'),
+             _TIME => array('width' => '10%', 'fill' => true, 'align' => 'R'));
     $result = EfrontStats :: getStudentsDoneTests($courseLessons, $infoUser -> user['login']);
     $userDoneTests = array();
     foreach ($result[$infoUser -> user['login']] as $value) {
@@ -739,9 +742,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $subSectionData = array();
     foreach ($courseLessons as $lessonId => $courseLesson) {
      $courseLesson = $courseLesson->lesson;
+     $coursesTotalSec += $courseLesson['time_in_lesson']['total_seconds'];
      $subSectionData[$lessonId] = array(_NAME => $courseLesson['name'],
                 _COMPLETED => $courseLesson['timestamp_completed'] ? formatTimestamp($courseLesson['timestamp_completed']) : '-',
-                _SCORE => formatScore($courseLesson['score']).'%');
+                _SCORE => formatScore($courseLesson['score']).'%',
+                _TIME => $courseLesson['time_in_lesson']['time_string']);
 /*
 					if (isset($userDoneTests[$value['id']])) {
 						$testSubsectionFormatting = array(_TESTNAME	=> array('width' => '78%', 'fill' => true),
@@ -758,6 +763,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
 					}
 */
     }
+    $timeArray = $timesReport -> formatTimeForReporting($coursesTotalSec);
+    $data[$courseId][_TIME] = $timeArray['time_string'];
     $subSections[$courseId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _LESSONSFORCOURSE.': '.$value['name'], 'subSections' => $testSubSections);
    }
   }
@@ -767,6 +774,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   foreach ($result[$infoUser -> user['login']] as $value) {
    $userDoneTests[$value['lessons_ID']][] = $value;
   }
+  $userLessons = $infoUser -> getUserStatusInLessons();
   foreach ($userLessons as $lessonId => $value) {
    $value = $value -> lesson;
    $lessonsAvgScore += $value['score'];
@@ -774,7 +782,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
           _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
           _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
           _COMPLETED => $value['timestamp_completed']? formatTimestamp($value['timestamp_completed']) : '-',
-          _SCORE => formatScore($value['score']).'%');
+          _SCORE => formatScore($value['score']).'%',
+          _TIME => $value['time_in_lesson']['time_string']);
    if (isset($userDoneTests[$value['id']])) {
     $subsectionFormatting = array(_TESTNAME => array('width' => '78%', 'fill' => true),
              _STATUS => array('width' => '13%', 'fill' => true, 'align' => 'C'),

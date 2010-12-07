@@ -223,7 +223,7 @@ foreach ($pear as $key => $value) {
 $smarty -> assign("T_PEAR", $pear);
 
 $languages = array("english","arabic","bulgarian","chinese_traditional","chinese_simplified","croatian","czech","danish","dutch","finnish","french","german","greek","hindi","italian","japanese","norwegian","polish","portuguese","romanian","russian","spanish","swedish",
-       "albanian","catalan","brazilian","filipino","galician","georgian","hebrew","hungarian","indonesian","latvian","lithuanian","persian","serbian","slovak","slovenian","thai","turkish","vietnamese");
+       "albanian","catalan","brazilian","filipino","galician","georgian","hebrew","hungarian","indonesian","latvian","lithuanian","persian","serbian","slovak","slovenian","thai","turkish","ukrainian","vietnamese");
 sort($languages);
 foreach ($languages as $value){
  if ($value == "chinese_traditional" || $value == "chinese_simplified") {

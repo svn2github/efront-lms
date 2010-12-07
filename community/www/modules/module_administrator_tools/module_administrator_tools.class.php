@@ -384,8 +384,8 @@ class module_administrator_tools extends EfrontModule {
    $form -> addElement('select', 'category', _CATEGORY, $directionPaths);
    $form -> addElement('checkbox', 'incomplete', _MODULE_ADMINISTRATOR_TOOLS_SHOWINCOMPLETE);
    $form -> addElement('checkbox', 'inactive', _MODULE_ADMINISTRATOR_TOOLS_SHOWINACTIVECOURSES);
-   $form -> addElement('date', 'from_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDFROM);
-   $form -> addElement('date', 'to_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDTO);
+   $form -> addElement('date', 'from_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDFROM, array('minYear' => 1970, 'maxYear' => date("Y")));
+   $form -> addElement('date', 'to_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDTO, array('minYear' => 1970, 'maxYear' => date("Y")));
    $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
    $form -> setDefaults(array("from_timestamp" => mktime(0,0,0,date("m")-1,date("d"), date("Y")), "to_timestamp" => time()));
    if ($form -> isSubmitted() && $form -> validate()) {
@@ -410,8 +410,11 @@ class module_administrator_tools extends EfrontModule {
     }
     $result = eF_getTableDataFlat("courses", "id", "archive = 0 && directions_ID in (".implode(",", $siblings).")");
     $categoryCourses = $result['id'];
-    $resultCourses = eF_getTableDataFlat("users_to_courses uc, courses c", "distinct c.id", 'c.id=uc.courses_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and c.archive=0 and uc.archive=0 and uc.completed=1 and uc.to_timestamp >= '.$_SESSION['from_timestamp'].' and uc.to_timestamp <= '.$_SESSION['to_timestamp']);
-    $resultEvents = eF_getTableDataFlat("events e, courses c", "distinct c.id", 'c.id=e.lessons_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and c.archive=0 and e.type=54 and e.timestamp >= '.$_SESSION['from_timestamp'].' and e.timestamp <= '.$_SESSION['to_timestamp']);
+    $resultCourses = eF_getTableDataFlat("users_to_courses uc, courses c", "distinct c.id", 'c.id=uc.courses_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and uc.archive=0 and uc.completed=1 and uc.to_timestamp >= '.$_SESSION['from_timestamp'].' and uc.to_timestamp <= '.$_SESSION['to_timestamp']);
+    $resultEvents = eF_getTableDataFlat("events e, courses c", "distinct c.id", 'c.id=e.lessons_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and e.type=54 and e.timestamp >= '.$_SESSION['from_timestamp'].' and e.timestamp <= '.$_SESSION['to_timestamp']);
+    if (empty($resultEvents)) {
+     $resultEvents['id'] = array();
+    }
     $result = array_unique(array_merge($resultCourses['id'], $resultEvents['id']));
     $categoryCourses = array_intersect(array_unique($categoryCourses), $result); //count only courses that have users completed them
     if ($_SESSION['incomplete']) {
@@ -437,6 +440,7 @@ class module_administrator_tools extends EfrontModule {
       $courseUsers[$unique] = $value -> user;
      }
      $result = eF_getTableData("events", "*", 'type=54 and lessons_ID='.$courseId.' and timestamp >= '.$_SESSION['from_timestamp'].' and timestamp <= '.$_SESSION['to_timestamp']);
+     //exit;
      foreach ($result as $entry) {
       try {
        $value = EfrontUserFactory::factory($entry['users_LOGIN']);

@@ -95,17 +95,19 @@ class EfrontSystem
      $directory = new EfrontDirectory($tempDir);
      $tables = $GLOBALS['db'] -> GetCol("show tables"); //Get the database tables
         foreach ($tables as $table) {
-            $data = eF_getTableData($table, "count(*)");
-            $unfold = 1000;
-            $limit = ceil($data[0]['count(*)'] / $unfold);
-            for ($i = 0; $i < $limit; $i++) {
-                $data = eF_getTableData($table, "*", "", "'' limit $unfold offset ".($i*$unfold));
-                file_put_contents($tempDir.'db_backup/'.$table.'.'.$i, serialize($data), FILE_APPEND);
-            }
-            $result = eF_ExecuteNew("show create table $table");
-            $temp = $result -> GetAll();
-            $definition[] = "drop table ".$temp[0]['Table'];
-            $definition[] = $temp[0]['Create Table'];
+         if (!preg_match("/^\w+_view$/", $table)) {
+          $data = eF_getTableData($table, "count(*)");
+          $unfold = 1000;
+          $limit = ceil($data[0]['count(*)'] / $unfold);
+          for ($i = 0; $i < $limit; $i++) {
+           $data = eF_getTableData($table, "*", "", "'' limit $unfold offset ".($i*$unfold));
+           file_put_contents($tempDir.'db_backup/'.$table.'.'.$i, serialize($data), FILE_APPEND);
+          }
+          $result = eF_ExecuteNew("show create table $table");
+          $temp = $result -> GetAll();
+          $definition[] = "drop table ".$temp[0]['Table'];
+          $definition[] = $temp[0]['Create Table'];
+         }
         }
 /*
 

@@ -316,7 +316,7 @@
   {/capture}
 
   {capture name = 't_unit_operations'}
-   {if $T_CURRENT_LESSON->options.print_content}
+   {if $T_CURRENT_LESSON->options.print_content && !$T_SCORM}
     <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=content&view_unit={$T_UNIT.id}&popup=1&print=1", onclick = "eF_js_showDivPopup('{$smarty.const._PRINTERFRIENDLY}', 2)" target = "POPUP_FRAME">{$smarty.const._PRINTERFRIENDLY}</a></div>
    {/if}
    {if $T_CONFIGURATION.disable_comments != 1 && $T_CURRENT_LESSON->options.comments && $_change_ && !$T_RULE_CHECK_FAILED}

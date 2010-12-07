@@ -1,3 +1,7 @@
+=== Version 3.6.8 ===
+- Added time in lesson/course for user reports in pdf export
+- Fixed issue about adding block in different theme from the current(file was saved in the folder of current theme)
+
 === Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data
 - Fixed issue in Lesson registration block in admin control panel about courses enrollments not approved from admin

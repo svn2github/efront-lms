@@ -109,75 +109,6 @@ try {
         } catch (Exception $e) {
          handleAjaxExceptions($e);
         }
-
-        if (isset($_GET['add_page']) || (isset($_GET['edit_page']) && in_array($_GET['edit_page'], $pages) && eF_checkParameter($_GET['edit_page'], 'filename'))) {
-            if (isset($currentUser -> coreAccess['cms']) && $currentUser -> coreAccess['cms'] != 'change') {
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-            }
-            $load_editor = true;
-            isset($_GET['edit_page']) ? $post_target = '&edit_page='.$_GET['edit_page'] : $post_target = '&add_page=1';
-
-            $form = new HTML_QuickForm("add_page_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$currentSetTheme -> {$currentSetTheme -> entity}['id']."&tab=external".$post_target, "", null, true);
-            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-            $form -> addElement('text', 'name', _FILENAME, 'class = "inputText"');
-            $form -> addRule('name', _THEFIELD.' '._FILENAME.' '._ISMANDATORY, 'required', null, 'client');
-            $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
-            $form -> addElement('textarea', 'page', _PAGECONTENT, 'id="editor_cms_data" class = "inputContentTextarea templateEditor" style = "width:100%;height:30em;"');
-
-            if (isset($_GET['edit_page'])) {
-                $pageContent = file_get_contents(G_EXTERNALPATH."".$_GET['edit_page'].".php");
-                $defaults['name'] = $_GET['edit_page'];
-                $defaults['page'] = preg_replace("/.*<<<EOT(.*)EOT.*/s", "\$1", $pageContent);//, false, $matches);
-                $form -> setDefaults($defaults);
-            } else {
-                $defaults['page'] = '<a href="'.G_SERVERNAME.'index.php?index_page">'._EFRONTLOGIN.'</a>';
-                $form -> setDefaults($defaults);
-            }
-            $form -> addElement('submit', 'submit_cms', _SUBMIT, 'class = "flatButton"');
-
-            if ($form -> isSubmitted() && $form -> validate()) {
-                $values = $form -> exportValues();
-                $filename = G_EXTERNALPATH.$values['name'].'.php';
-                if (is_file(G_ADMINPATH.'cms_templates/default_template.php')) {
-                    $defaultContent = file_get_contents(G_ADMINPATH.'cms_templates/default_template.php');
-                    $newContent = preg_replace("/put_content_here/", $values['page'], $defaultContent);
-                } else {
-                    $newContent = $values['page'];
-                }
-                file_put_contents($filename, $newContent);
-                chmod($filename, 0644);
-                try {
-                    eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$currentSetTheme -> {$currentSetTheme -> entity}['id']."&tab=external&message=".urlencode(_SUCCESFULLYADDEDPAGE)."&message_type=success");
-                } catch (Exception $e) {
-                    $message = $e -> getMessage().'('.$e -> getCode().')';
-                    $message_type = 'failure';
-                }
-            }
-
-            $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-
-            $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
-            $form -> setRequiredNote(_REQUIREDNOTE);
-            $form -> accept($renderer);
-            $smarty -> assign('T_CMS_FORM', $renderer -> toArray());
-
-            $basedir = G_EXTERNALPATH;
-            try {
-                $filesystem = new FileSystemTree($basedir);
-                $filesystem -> handleAjaxActions($currentUser);
-
-                if (isset($_GET['edit_page'])) {
-                    $url = basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$currentSetTheme -> {$currentSetTheme -> entity}['id'].'&tab=external&edit_page='.$_GET['edit_page'];
-                }else{
-                    $url = basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$currentSetTheme -> {$currentSetTheme -> entity}['id'].'&tab=external&add_page=1';
-                }
-                $options = array('share' => false);
-
-                include "file_manager.php";
-            } catch (Exception $e) {
-             handleNormalFlowExceptions($e);
-            }
-        }
     }
     /************ Change logo/favicon part *************/
     if (isset($currentSetTheme -> remote) && $currentSetTheme -> remote) {
@@ -196,9 +127,8 @@ try {
     isset($layoutTheme -> layout['custom_blocks']) && is_array($layoutTheme -> layout['custom_blocks']) ? $customBlocks = $layoutTheme -> layout['custom_blocks'] : $customBlocks = array();
 
     if (isset($_GET['add_block']) || isset($_GET['edit_header']) || isset($_GET['edit_footer']) || (isset($_GET['edit_block']) && in_array($_GET['edit_block'], array_keys($customBlocks)))) {
-
-        $basedir = G_EXTERNALPATH;
-
+        //$basedir = G_EXTERNALPATH;
+  $basedir = G_THEMESPATH.$layoutTheme -> themes['path'].'external/';
         try {
             if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
                 throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
@@ -240,7 +170,7 @@ try {
 
         $load_editor = true;
 
-        $layout_form = new HTML_QuickForm("add_block_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['edit_block']) ? '&edit_block='.$_GET['edit_block'] : '&add_block=1'), "", null, true);
+        $layout_form = new HTML_QuickForm("add_block_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['edit_block']) ? '&edit_block='.$_GET['edit_block'] : '&add_block=1').(isset($_GET['theme_layout']) ? '&theme_layout='.$_GET['theme_layout'] : ''), "", null, true);
         $layout_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 
         $layout_form -> addElement('text', 'title', _BLOCKTITLE, 'class = "inputText"');
@@ -273,7 +203,7 @@ try {
             $layoutTheme -> layout['custom_blocks'] = $customBlocks;
             $layoutTheme -> persist();
 
-            eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']);
+            eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['theme_layout']) ? '&theme_layout='.$_GET['theme_layout'] : ''));
         }
 
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

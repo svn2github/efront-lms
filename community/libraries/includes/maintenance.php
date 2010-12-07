@@ -236,7 +236,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
 
     $eventsSize = eF_countTableData("events", "timestamp");
     $smarty -> assign("T_EVENTS_SIZE", $eventsSize[0]['count']);
-    $lastEventEntry = eF_getTableData("events", "timestamp", "", "timestamp", false, 1);
+    $lastEventEntry = eF_getTableData("events", "timestamp", "timestamp != 0", "timestamp", false, 1);
     $smarty -> assign("T_LAST_EVENTS_ENTRY", $lastEventEntry[0]['timestamp']);
     $form = new HTML_QuickForm("cleanup_events_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=maintenance&tab=cleanup", "", null, true);
  $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');

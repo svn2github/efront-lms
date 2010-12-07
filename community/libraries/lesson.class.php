@@ -2946,7 +2946,17 @@ class EfrontLesson
   if (!isset($this -> chatroom['id'])) {
    $chatroom_info = eF_getTableData("chatrooms", "id", "lessons_ID = '".$this -> lesson['id']."'");
    $this -> chatroom = array();
-   $this -> chatroom['id'] = $chatroom_info[0]['id'];
+   if ($chatroom_info[0]['id'] != '') {
+    $this -> chatroom['id'] = $chatroom_info[0]['id'];
+   } else {
+    //create chatroom if for any reason it does not exist
+                $fields_insert = array ('name' => $this -> lesson['name'], //***Check here
+                      'type' => 'public',
+                      'lessons_ID' => $this -> lesson['id'],
+                                     'create_timestamp' => time());
+    $chatroomID = eF_insertTableData("chatrooms", $fields_insert);
+    return $chatroomID;
+   }
   }
   return $this -> chatroom['id'];
  }

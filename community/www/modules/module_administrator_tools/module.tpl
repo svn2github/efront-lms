@@ -182,7 +182,7 @@
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}
   {eF_template_printBlock tabber = "unenroll_courses" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_UNENROLLJOBCOURSES data = $smarty.capture.t_unenroll_courses_code image='32x32/courses.png'}
-  {*{eF_template_printBlock tabber = "category_reports" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CATEGORYREPORTS data = $smarty.capture.t_category_reports_code image='32x32/courses.png'}*}
+  {eF_template_printBlock tabber = "category_reports" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CATEGORYREPORTS data = $smarty.capture.t_category_reports_code image='32x32/courses.png'}
  </div>
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}

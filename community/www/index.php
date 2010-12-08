@@ -256,7 +256,9 @@ if ($form -> isSubmitted() && $form -> validate()) {
   }
   // Check if the mobile version of eFront is required - if so set a session variable accordingly
   //eF_setMobile();
-  if ($GLOBALS['configuration']['show_license_note'] && $user -> user['viewed_license'] == 0) {
+  if ($GLOBALS['configuration']['force_change_password'] && !$user -> isLdapUser && $user -> user['need_pwd_change']) {
+   eF_redirect("index.php?ctg=password_change");
+  } else if ($GLOBALS['configuration']['show_license_note'] && $user -> user['viewed_license'] == 0) {
    eF_redirect("index.php?ctg=agreement");
   } elseif ($_SESSION['login_mode']) {
       eF_redirect("index.php?ctg=checkout&checkout=1");
@@ -330,6 +332,40 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
   $agreementForm -> accept($renderer);
   $smarty -> assign('T_AGREEMENT_FORM', $renderer -> toArray());
+ } catch (Exception $e) {
+  eF_redirect("index.php?message=".urlencode($e -> getMessage()." (".$e -> getCode().")")."&message_type=failure");
+ }
+} else if (isset($_GET['ctg']) && $_GET['ctg'] == 'password_change' && $_SESSION['s_login']) {
+ try {
+  $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+  $changePasswordForm = new HTML_QuickForm("change_password_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=password_change", "", "class = 'indexForm'", true);
+  $changePasswordForm -> addElement('password', 'old_password', _OLDPASSWORD, 'class = "inputText"');
+  $changePasswordForm -> addElement('password', 'password', _NEWPASSWORD, 'class = "inputText"');
+  $changePasswordForm -> addElement('password', 'passrepeat', _REPEATPASSWORD, 'class = "inputText"');
+  $changePasswordForm -> addRule('password', _THEFIELD.' '._PASSWORD.' '._ISMANDATORY, 'required', null, 'client');
+  $changePasswordForm -> addRule('passrepeat', _THEFIELD.' '._REPEATPASSWORD.' '._ISMANDATORY, 'required', null, 'client');
+  $changePasswordForm -> addRule(array('password', 'passrepeat'), _PASSWORDSDONOTMATCH, 'compare', null, 'client');
+  $changePasswordForm -> addRule('passrepeat', str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS), 'minlength', $GLOBALS['configuration']['password_length'], 'client');
+  $changePasswordForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+  if ($changePasswordForm -> isSubmitted() && $changePasswordForm -> validate()) {
+   $newPassword = $changePasswordForm -> exportValue('password');
+   $newPassword = EfrontUser :: createPassword($newPassword);
+   if ($user -> user['password'] != EfrontUser :: createPassword($changePasswordForm -> exportValue('old_password'))) {
+    $message = _WRONGPASSWORD;
+    $message_type = 'failure';
+   }else if ($user -> user['password'] == $newPassword) {
+    $message = _PASSWORDISTHESAME;
+    $message_type = 'failure';
+   } else {
+    $user -> user['password'] = $newPassword;
+    $user -> user['need_pwd_change'] = 0;
+    $user -> persist();
+    LoginRedirect($user -> user['user_type']);
+   }
+  }
+  $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+  $changePasswordForm -> accept($renderer);
+  $smarty -> assign('T_CHANGE_PASSWORD_FORM', $changePasswordForm -> toArray());
  } catch (Exception $e) {
   eF_redirect("index.php?message=".urlencode($e -> getMessage()." (".$e -> getCode().")")."&message_type=failure");
  }
@@ -540,6 +576,9 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
                                "languages_NAME" => $values['languages_NAME'],
           "user_type" => $values['user_type'],
           "user_types_ID" => $values['user_types_ID']);
+   if (!isset($_GET['ldap']) && $GLOBALS['configuration']['force_change_password']) {
+    $user_data['need_pwd_change'] = 1;
+   }
             foreach ($user_profile as $field) { //Get the custom fields values
              $user_data[$field['name']] = $values[$field['name']];
             }
@@ -570,7 +609,9 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      } else {
       $newUser -> login($user_data['password'], $encrypted);
      }
-     if ($GLOBALS['configuration']['show_license_note'] && $newUser -> user['viewed_license'] == 0) {
+     if ($GLOBALS['configuration']['force_change_password'] && !$newUser -> isLdapUser && $newUser -> user['need_pwd_change']) {
+      eF_redirect("index.php?ctg=password_change");
+     } else if ($GLOBALS['configuration']['show_license_note'] && $newUser -> user['viewed_license'] == 0) {
       eF_redirect("index.php?ctg=agreement&message=".urlencode($message)."&message_type=".$message_type);
      } else if ($_SESSION['login_mode']) {
          eF_redirect("index.php?ctg=checkout&checkout=1&message=".urlencode($message)."&message_type=".$message_type);

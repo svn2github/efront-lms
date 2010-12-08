@@ -2318,13 +2318,13 @@ class EfrontCompletedTest extends EfrontTest
         foreach ($this -> questions as $id => $question) {
          $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
          if ($question -> question['type'] == 'raw_text') {
-    if ($question -> settings['force_correct'] != 1) {
+    if (!$question -> settings['force_correct'] || $question -> settings['force_correct'] == 'manual') {
      if ($recentlyCompleted -> redoOnlyWrong != 1) {
       $this -> completedTest['pending'] = 1;
       $question -> pending = 1;
      }
      $question -> handleQuestionFiles($this -> getDirectory());
-    } else {
+    } elseif ($question -> settings['force_correct'] == 'none' || $question -> settings['force_correct'] == 1) { //1 is for backwards compatibility
      $results['score'] = 1;
     }
             }
@@ -5701,7 +5701,25 @@ class RawTextQuestion extends Question implements iQuestion
 
      */
     public function correct() {
-        if ($this -> score) {
+  if ($this -> settings['force_correct'] == 'auto') {
+   $splitAnswerWords = preg_split("/\p{Z}|\p{P}/u", $this->userAnswer, -1, PREG_SPLIT_NO_EMPTY);
+   $totalScore = 0;
+   foreach($this -> settings['autocorrect'] as $value) {
+    if ($value['contains']) {
+     $wordsThatCount = array_unique(array_intersect($splitAnswerWords, $value['words']));
+    } else {
+     $wordsThatCount = array_unique(array_diff($value['words'], $splitAnswerWords));
+    }
+    foreach ($wordsThatCount as $word) {
+     $totalScore+=$value['score'];
+    }
+   }
+   if ($totalScore >= $this->settings['threshold']) {
+    $results = array('correct' => '', 'score' => 1);
+   } else {
+    $results = array('correct' => '', 'score' => 0);
+   }
+  } elseif ($this -> score) {
             $results = array('correct' => '', 'score' => round($this -> score /100,2));
         } else {
             $results = array('correct' => '', 'score' => 0);
@@ -6300,7 +6318,7 @@ abstract class Question
 
      */
     public $options = array();
- public $settings = array('force_correct' => 0,
+ public $settings = array('force_correct' => 'manual',
         'answers_or' => 0);
     /**
 

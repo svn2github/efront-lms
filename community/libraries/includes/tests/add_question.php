@@ -29,7 +29,16 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
 }
 //Default url for the file manager
 $url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_question']) ? 'edit_question='.$_GET['edit_question'] : 'add_question=1');
-$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+$filesystem = new FileSystemTree($basedir, true);
+$filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($filesystem -> tree)));
+
+foreach ($filesystemIterator as $key => $value) {
+    $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
+  $value -> offsetSet(_INSERT, '<div style="text-align:center"><img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" /></div>');
+}
+$extraColumns = array(_INSERT);
+//$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+
 /**The file manager*/
 include "file_manager.php";
 
@@ -78,8 +87,6 @@ if (!$skillgap_tests) {
         $form -> setDefaults(array('content_ID' => $_GET['from_unit'])); //If a content is specified, then set it to be selected as well
     }
 }
-//$form -> addElement('text', 'code', _QUESTIONCODE, "");
-//$form -> addRule('code', _INVALIDFIELDDATA, 'checkParameter', 'text');
 $form -> addElement('select', 'question_type', _QUESTIONTYPE, $questionTypes, 'id = "question_type" onchange = "window.location = \''.basename($_SERVER['PHP_SELF']).'?ctg=tests&add_question=1&from_unit='.$_GET['from_unit'].'&question_type=\'+this.options[this.selectedIndex].value"'); //Depending on user selection, changing the question type reloads the page with the corresponding form fields
 $form -> addElement('select', 'difficulty', _DIFFICULTY, Question::$questionDifficulties);
 $form -> addElement('text', 'estimate_min', _ESTIMATETIMETOCOMPLETE, 'size = "3"');
@@ -229,25 +236,42 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         break;
 
     case 'raw_text':
-  $form -> addElement('advcheckbox', 'force_correct', _DONOTTAKEACCOUNTINCORRECTING, null, 'class = "inputCheckBox"', array(0, 1));
+  $form -> addElement('select', 'force_correct', _QUESTIONCORRECTION, array('manual' => _MANUAL, 'auto' => _AUTOMATIC, 'none' => _DONOTTAKEACCOUNTINCORRECTING), 'onchange = "if (this.options[this.options.selectedIndex].value==\'auto\') {$(\'autocorrect\').show();} else {$(\'autocorrect\').hide();}"');
         $form -> addElement('textarea', 'example_answer', _EXAMPLEANSWER, 'class = "inputTextarea_QuestionExample" style = "width:100%" ');
 
         if ($form -> isSubmitted() || isset($currentQuestion)) {
-            if (isset($currentQuestion) && !$form -> isSubmitted()) {
-                $form -> setDefaults(array('example_answer' => $currentQuestion -> question['answer'], 'force_correct' => $currentQuestion -> settings['force_correct']));
-                //if (strpos($currentQuestion -> question['answer'],"<a href") !== false) {
-                //    $smarty -> assign("T_QUESTION_TYPE_CODE", "M");
-                //} else {
-                //    $smarty -> assign("T_QUESTION_TYPE_CODE", "A");
-                //}
+
+         if (isset($currentQuestion) && !$form -> isSubmitted()) {
+                $form -> setDefaults(array('example_answer' => $currentQuestion -> question['answer'],
+                         'force_correct' => $currentQuestion -> settings['force_correct']));
+                if ($currentQuestion -> settings['force_correct'] == 'auto') {
+                 $smarty -> assign("T_QUESTION_SETTINGS", $currentQuestion -> settings);
+                }
+            }
+            foreach ($_POST['autocorrect_contains'] as $key => $value) {
+    if ($_POST['autocorrect_words'][$key]) {
+              $words = explode("|", $_POST['autocorrect_words'][$key]);
+              array_walk($words, create_function('&$v, $k', '$v = trim($v);'));
+              $autocorrect[] = array('contains' => $_POST['autocorrect_contains'][$key],
+                      'score' => is_numeric($_POST['autocorrect_score'][$key]) ? $_POST['autocorrect_score'][$key] : 0,
+                      'words' => $words);
+    }
             }
 
             if ($form -> validate()) {
+             if ($currentQuestion) {
+              $settings = $currentQuestion -> settings;
+             }
+             $settings['force_correct'] = $form -> exportValue('force_correct');
+             $settings['threshold'] = is_numeric($_POST['autocorrect_threshold']) ? $_POST['autocorrect_threshold'] : 0;
+             $settings['autocorrect'] = $autocorrect;
+
                 $question_values = array('type' => 'raw_text',
                                          'options' => '',
                                          'answer' => $form -> exportValue('example_answer'),
-           'settings' => serialize(array('force_correct' => $form -> exportValue('force_correct'))));
+           'settings' => serialize($settings));
             }
+
         }
 
         break;
@@ -448,6 +472,7 @@ $renderer->setRequiredTemplate(
         );
 $form -> accept($renderer);
 $smarty -> assign('T_QUESTION_FORM', $renderer -> toArray());
+$smarty -> assign('T_QUESTION_FORM_SIMPLE', $form -> toArray());
 //Filemanager settings and inclusion
 if ($currentUser -> getType() == "administrator") {
     $basedir = G_ADMINPATH;

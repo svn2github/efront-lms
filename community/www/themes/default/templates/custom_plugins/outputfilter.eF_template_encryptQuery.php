@@ -3,7 +3,7 @@
 
 */
 function smarty_outputfilter_eF_template_encryptQuery($compiled, &$smarty) {
-    $re = "/(href\s*=\s*['\"][^>]*\?)(.*)(['\"])/U";
+    $re = "/(href\s*=\s*['\"](?!javascript:void\(0\))[^>]*\?)(.*)(['\"])/U";
     //preg_match_all($re, $compiled, $matches);		//This does nothing, but is left here commented-out in case we want to quickly check which urls are matched
     $compiled = preg_replace_callback($re, "local_encryptQueryReplace", $compiled);
     return $compiled;

@@ -552,10 +552,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     <form {$T_QUESTION_FORM.attributes}>
      {$T_QUESTION_FORM.hidden}
         <table class = "formElements" style = "width:100%">
-{*
-   <tr><td class = "labelCell">{$T_QUESTION_FORM.code.label}:&nbsp;</td>
-             <td class = "elementCell">{$T_QUESTION_FORM.code.html}</td></tr>
-*}
         {if $T_QUESTION_FORM.content_ID}
             <tr><td class = "labelCell">{$T_QUESTION_FORM.content_ID.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.content_ID.html}</td></tr>
@@ -563,12 +559,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
         {/if}
          <tr><td class = "labelCell">{$T_QUESTION_FORM.question_type.label}:&nbsp;</td>
     <td class = "elementCell">{$T_QUESTION_FORM.question_type.html}</td></tr>
-{*
-        {if isset($T_QUESTION_TYPE_CODE)}
-   <tr><td class = "labelCell">{$smarty.const._QUESTIONTYPECODE}:&nbsp;</td>
-             <td class = "elementCell">{$T_QUESTION_TYPE_CODE}</td></tr>
-        {/if}
-*}
   {if $T_QUESTION_FORM.question_type.error}<tr><td></td><td class = "formError">{$T_QUESTION_FORM.question_type.error}</td></tr>{/if}
          <tr><td class = "labelCell">{$T_QUESTION_FORM.difficulty.label}:&nbsp;</td>
           <td class = "elementCell">{$T_QUESTION_FORM.difficulty.html}</td></tr>
@@ -597,11 +587,63 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          <tr><td class = "labelCell">{$T_QUESTION_FORM.question_text.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.question_text.html}</td></tr>
   {if $T_QUESTION_FORM.question_text.error}<tr><td></td><td class = "formError">{$T_QUESTION_FORM.question_text.error}</td></tr>{/if}
-         <tr><td colspan = "2">&nbsp;</td></tr>
  {if $smarty.get.question_type == 'raw_text'}
    <tr><td class = "labelCell">{$T_QUESTION_FORM.force_correct.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.force_correct.html}</td></tr>
   {if $T_QUESTION_FORM.force_correct.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.force_correct.error}</td></tr>{/if}
+   <tr id = "autocorrect" {if !$T_QUESTION_SETTINGS.autocorrect}style = "display:none"{/if}>
+    <td class = "labelCell">{$smarty.const._AUTOCORRECTOPTIONS}:&nbsp;</td>
+    <td class = "elementCell">
+     <table>
+     {foreach name = "autocorrect_list" item = "item" key = "key" from = $T_QUESTION_SETTINGS.autocorrect}
+      <tr id = "autocorrect_options" class = "autocorrect_options">
+       <td>
+        <select name = "autocorrect_contains[]">
+         <option value = "1" {if $item.contains == 1}selected{/if}>{$smarty.const._CONTAINS}</option>
+         <option value = "0" {if $item.contains == 0}selected{/if}>{$smarty.const._NOTCONTAINS}</option>
+        </select>
+       </td><td>
+        <input value = "{$item.words|@implode:'|'}" type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "if (this.value == '{$smarty.const._SEPARATEWORDSWITHPIPE}') {ldelim}this.value = '';Element.extend(this).removeClassName('emptyCategory infoCell');{rdelim}" class = "inputText"/>
+       </td><td>
+        <select name = "autocorrect_score[]">
+         <option value = "">{$smarty.const._POINTS}</option>
+         {section loop = "11" name = "options"}
+         <option value = "{$smarty.section.options.iteration-6}" {if $item.score == $smarty.section.options.iteration-6}selected{/if}>{$smarty.section.options.iteration-6}</option>
+         {/section}
+        </select>
+        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEOPTION}" title = "{$smarty.const._REMOVEOPTION}" onclick = "if ($('autocorrect').select('tr.autocorrect_options').length > 1) this.up().up().remove(); else alert('{$smarty.const._YOUCANNOTREMOVETHELASTELEMENT}');"/>
+      </td></tr>
+     {foreachelse}
+      <tr id = "autocorrect_options" class = "autocorrect_options">
+       <td>
+        <select name = "autocorrect_contains[]">
+         <option value = "0">{$smarty.const._CONTAINS}</option>
+         <option value = "1">{$smarty.const._NOTCONTAINS}</option>
+        </select>
+       </td><td>
+        <input type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "if (this.value == '{$smarty.const._SEPARATEWORDSWITHPIPE}') {ldelim}this.value = '';Element.extend(this).removeClassName('emptyCategory infoCell');{rdelim}" class = "inputText emptyCategory infoCell"/>
+       </td><td>
+        <select name = "autocorrect_score[]">
+         <option value = "">{$smarty.const._POINTS}</option>
+         {section loop = "11" name = "options"}
+         <option value = "{$smarty.section.options.iteration-6}">{$smarty.section.options.iteration-6}</option>
+         {/section}
+        </select>
+        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEOPTION}" title = "{$smarty.const._REMOVEOPTION}" onclick = "if ($('autocorrect').select('tr.autocorrect_options').length > 1) this.up().up().remove(); else alert('{$smarty.const._YOUCANNOTREMOVETHELASTELEMENT}');"/>
+      </td></tr>
+     {/foreach}
+      <tr><td colspan = "3">
+       <img class = "ajaxHandle" src = "images/16x16/add.png" alt = "{$smarty.const._ADDOPTION}" title = "{$smarty.const._ADDOPTION}" onclick = "$('autocorrect_score').up().insert({ldelim}before:$('autocorrect_options').cloneNode(true){rdelim})"/>
+       <a href = "javascript:void(0)" onclick = "Element.extend(this).up().up().insert({ldelim}before:$('autocorrect_options').cloneNode(true){rdelim});">{$smarty.const._ADDOPTION}</a>
+      </td></tr>
+      <tr id = "autocorrect_score"><td colspan = "2" class = "labelCell">
+        {$smarty.const._CONSIDERCORRECTWHENSCOREISGREATERTHAN}:&nbsp;
+       </td><td>
+        <input type = "text" name = "autocorrect_threshold" size="4" value = "{$T_QUESTION_SETTINGS.threshold}"/>
+      </td></tr>
+     </table>
+     <hr/>
+    </td></tr>
          <tr><td class = "labelCell">{$smarty.const._EXAMPLEANSWER}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.example_answer.html}</td></tr>
   {if $T_QUESTION_FORM.example_answer.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.example_answer.error}</td></tr>{/if}

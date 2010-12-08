@@ -1048,6 +1048,7 @@ CREATE TABLE completed_tests (
 -- dashboard_positions: The positions of the elements on the user's dashboard
 -- need_mod_init: A special flag used by the jfusion plugin
 -- autologin: A special url for logging automatically
+-- need_pwd_change: If it's 1, then this user must change his/her password on next login
 CREATE TABLE users (
   id mediumint(8) unsigned NOT NULL auto_increment,
   login varchar(100) NOT NULL,
@@ -1073,6 +1074,7 @@ CREATE TABLE users (
   dashboard_positions text,
   need_mod_init tinyint(1) default '0',
   autologin char(32),
+  need_pwd_change tinyint(1) default '0',
   PRIMARY KEY (login),
   KEY (id),
   index(active)

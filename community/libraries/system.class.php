@@ -837,8 +837,12 @@ class EfrontSystem
    $columnIndex = 0;
    foreach ($rowData as $cell) {
     $maxColumnWidths[$columnIndex][] = mb_strlen($cell);
-    $alignments[$columnIndex] ? $align = $alignments[$columnIndex] : $align = 'left';
-    $workSheet -> write($rowIndex, $columnIndex++, $cell, $workBook -> addFormat(array('HAlign' => $align)));
+    if ($alignments[$columnIndex]) {
+     $align = $alignments[$columnIndex];
+     $workSheet -> write($rowIndex, $columnIndex++, $cell, $workBook -> addFormat(array('HAlign' => $align)));
+    } else {
+     $workSheet -> write($rowIndex, $columnIndex++, $cell);
+    }
    }
    $rowIndex++;
   }

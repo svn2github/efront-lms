@@ -11,6 +11,7 @@ $generalSecurityForm -> addElement("static", "", _COMMASEPARATEDLISTASTERISKEXTE
 $generalSecurityForm -> addElement("text", "file_black_list", _DISALLOWEDEXTENSIONS, 'class = "inputText"');
 $generalSecurityForm -> addElement("static", "", _COMMASEPARATEDLISTASTERISKEXTENSIONEXAMPLE.' '._DENIALTAKESPRECEDENCE);
 $generalSecurityForm -> addElement("text", "password_length", _MINIMUMPASSWORDLENGTH,'size = "5"');
+$generalSecurityForm -> addElement("advcheckbox", "force_change_password", _FORCECHANGEPASSWORD, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("text", "autologout_time", _LOGOUTUSERAFTERMINUTES, 'size = "5"');
 $generalSecurityForm -> addElement("text", "updater_period", _UPDATERPERIODSECONDS, 'size = "8"');
 $generalSecurityForm -> addElement("static", "", _RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME);

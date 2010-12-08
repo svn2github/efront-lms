@@ -904,7 +904,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         $defined = 1;
        }
       } else {
-       throw EfrontNotificationException(_UNKNOWNRECIPIENT, EfrontNotificationException::NORECIPIENTLOGIN_DEFINED);
+       throw new EfrontNotificationException(_UNKNOWNRECIPIENT, EfrontNotificationException::NORECIPIENTLOGIN_DEFINED);
       }
      }
      if (!$defined) {
@@ -912,7 +912,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
       if (!empty($recipient)) {
        $recipient = $recipient[0];
       } else {
-       throw EfrontNotificationException(_UNKNOWNRECIPIENT, EfrontNotificationException::NORECIPIENTLOGIN_DEFINED);
+       throw new EfrontNotificationException(_UNKNOWNRECIPIENT, EfrontNotificationException::NORECIPIENTLOGIN_DEFINED);
       }
      }
      // create the array of substitutions for this particular user and replace them in the subject/message texts

@@ -191,6 +191,17 @@
      {eF_template_printBlock title = $smarty.const._IMPORTANTNOTICE content = $smarty.capture.agreement_code image = "32x32/exclamation.png"}
      {assign var = "layoutClass" value = "hideBoth"}
     {/capture}
+{elseif $smarty.get.ctg == 'password_change' && $smarty.session.s_login}
+    {capture name = "center_code"}
+        {if $T_MESSAGE}
+          {eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}
+        {/if}
+  {capture name = 'change_password_code'}
+   {eF_template_printForm form = $T_CHANGE_PASSWORD_FORM}
+     {/capture}
+     {eF_template_printBlock title = $smarty.const._CHANGEPASSWORD content = $smarty.capture.change_password_code image = "32x32/exclamation.png"}
+     {assign var = "layoutClass" value = "hideBoth"}
+    {/capture}
 {/if}
 
 {if $T_CONFIGURATION.lock_down}

@@ -50,6 +50,7 @@ class EfrontConfiguration
         'ip_black_list' => '',
         'ip_white_list' => '*.*.*.*',
         'password_length' => '6',
+        'force_change_password' => '0',
      'password_reminder' => '1',
   'autologout_time' => '5',
         'encrypt_url' => '0', //0: don't encrypt. 1: encrypt

@@ -66,4 +66,8 @@ define("_BBB_EMAILSENTSUCCESFFULLY", "emails στάλθηκαν επιτυχώς
 define("_BBBMEETINGHASFINISHED","Η συνεδριάση που επιλέξατε έχει ήδη ολοκληρωθεί");
 define("_BBB_AREYOUSUREYOUWANTTOSTARTTHECONFERENCE", "Είστε σίγουροι ότι θέλετε να ξεκινήσετε τη συνεδρίαση; (Μετά από την έναρξη, οι συμμετέχοντες θα μπορούν να εισέλθουν στη συνεδρίαση μέχρι τη λήξη της)");
 define("_BBB_RESETDEFAULTSERVER","Επαναφορά προεπιλεγμένου εξυπηρετητή");
+
+// meeting launch time ETA
+define("_BBB_IN","Σε");
+define("_BBB_NOW","Τώρα!");
 ?>

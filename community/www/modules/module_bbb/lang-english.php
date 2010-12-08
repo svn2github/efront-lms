@@ -69,4 +69,8 @@ define("_BBB_EMAILSENTSUCCESFFULLY", "emails sent successfully");
 define("_BBBMEETINGHASFINISHED","The conference you have selected has finished");
 define("_BBB_AREYOUSUREYOUWANTTOSTARTTHECONFERENCE", "Are you sure you want to start the conference? (After this action, viewers will be allowed to join the meeting until its expiration time)");
 define("_BBB_RESETDEFAULTSERVER","Reset default server");
+
+// meeting launch time ETA
+define("_BBB_IN","In");
+define("_BBB_NOW","Now!");
 ?>

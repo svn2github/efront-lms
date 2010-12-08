@@ -211,7 +211,7 @@ try {
         $smarty -> assign('T_ADD_BLOCK_FORM', $renderer -> toArray());
 
     } else {
-        $form = new HTML_QuickForm("import_settings_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$layoutTheme -> {$layoutTheme -> entity}['id'], "", null, true);
+        $form = new HTML_QuickForm("import_settings_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=themes&theme='.$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['theme_layout']) ? '&theme_layout='.$_GET['theme_layout'] : ''), "", null, true);
 
         $form -> addElement('file', 'file_upload', _SETTINGSFILE, 'class = "inputText"'); //Lesson file
         $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
@@ -222,18 +222,19 @@ try {
         if ($form -> isSubmitted() && $form -> validate()) {
             try {
                 $values = $form -> exportValues();
-                $filesystem = new FileSystemTree(G_EXTERNALPATH);
-                $uploadedFile = $filesystem -> uploadFile('file_upload', G_EXTERNALPATH);
+                $basedir = G_THEMESPATH.$layoutTheme -> themes['path'].'external/';
+                $filesystem = new FileSystemTree($basedir);
+                $uploadedFile = $filesystem -> uploadFile('file_upload', $basedir);
                 $uploadedFile -> uncompress();
                 $uploadedFile -> delete();
 
-                $settings = file_get_contents(G_EXTERNALPATH.'layout_settings.php.inc');
+                $settings = file_get_contents($basedir.'layout_settings.php.inc');
                 if ($settings = unserialize($settings)) {
                     $layoutTheme -> layout = $settings;
                     $layoutTheme -> persist();
                 }
 
-                eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id']."&message=".rawurlencode(_SETTINGSIMPORTEDSUCCESFULLY)."&message_type=success");
+                eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=themes&theme=".$layoutTheme -> {$layoutTheme -> entity}['id'].(isset($_GET['theme_layout']) ? '&theme_layout='.$_GET['theme_layout'] : '')."&message=".rawurlencode(_SETTINGSIMPORTEDSUCCESFULLY)."&message_type=success");
                 //$message      = _SETTINGSIMPORTEDSUCCESFULLY;
                 //$message_type = 'success';
             } catch (Exception $e) {

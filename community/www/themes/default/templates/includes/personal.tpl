@@ -121,7 +121,7 @@ var enableMyJobSelect = false;
     {/foreach}
     {foreach name = 'profile_fields' key = key item = item from = $T_USER_PROFILE_DATES }
      <tr><td class = "labelCell">{$item.name}:&nbsp;</td>
-      <td class = "elementCell">{eF_template_html_select_date prefix=$item.prefix emptyvalues="1" time=$item.value start_year="-45" end_year="+10" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+      <td class = "elementCell">{eF_template_html_select_date prefix=$item.prefix emptyvalues="1" time=$item.value start_year="-80" end_year="+10" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     {/foreach}
     {if (!isset($smarty.get.add_user))}
     <tr><td class = "labelCell">{$smarty.const._REGISTRATIONDATE}:&nbsp;</td>

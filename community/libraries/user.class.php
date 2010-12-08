@@ -1123,6 +1123,7 @@ abstract class EfrontUser
       'status' => $this -> user['status'],
       'balance' => $this -> user['balance'],
       'archive' => $this -> user['archive'],
+      'need_pwd_change' => $this -> user['need_pwd_change'] ? 1 : 0,
       'additional_accounts' => $this -> user['additional_accounts'],
       'short_description' => $this -> user['short_description'],
       'autologin' => $this -> user['autologin']);

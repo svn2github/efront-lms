@@ -231,7 +231,7 @@ class module_flashcards extends EfrontModule {
     }
     $str = implode(",",array_keys($decksArray));
     $decks = eF_getTableData("module_flashcards_decks","*","content_ID IN (".$str.")");
-    $mastery = eF_getTableDataFlat("module_flashcards_users_to_cards","*","content_ID IN (".$str.")");
+    $mastery = eF_getTableDataFlat("module_flashcards_users_to_cards","*","content_ID IN (".$str.") and users_LOGIN='".$_SESSION['s_login']."'");
     $masteryArray = array_combine(array_values($mastery['cards_ID']) , array_values($mastery['success']));
     $questionsDiff = eF_getTableDataFlat("questions","*","content_ID IN (".$str.")");
     $questionsDiffArray = array_combine(array_values($questionsDiff['id']) , array_values($questionsDiff['difficulty']));

@@ -427,6 +427,7 @@ class module_administrator_tools extends EfrontModule {
      foreach ($course -> getCourseUsers($constraints) as $value) {
       $userBranches = $value -> aspects['hcd'] -> getBranches();
       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
+      $userSupervisor = current($userSupervisors);
       $value -> user['course_active']= $course->course['active'];
       $value -> user['course_id']= $course->course['id'];
       $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
@@ -434,7 +435,7 @@ class module_administrator_tools extends EfrontModule {
       $value -> user['directions_ID'] = $course->course['directions_ID'];
       $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
       $value -> user['branch_ID'] = current($userBranches['employee']);
-      $value -> user['supervisor'] = current($userSupervisors);
+      $value -> user['supervisor'] = $userSupervisor;
       $value -> user['historic'] = false;
       $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
       $courseUsers[$unique] = $value -> user;
@@ -446,6 +447,7 @@ class module_administrator_tools extends EfrontModule {
        $value = EfrontUserFactory::factory($entry['users_LOGIN']);
        $userBranches = $value -> aspects['hcd'] -> getBranches();
        $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();//pr($entry['users_LOGIN']);pr($userSupervisors);pr(current($userSupervisors));
+       $userSupervisor = current($userSupervisors);
        $value -> user['course_active']= $course->course['active'];
        $value -> user['course_id']= $course->course['id'];
        $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
@@ -453,7 +455,7 @@ class module_administrator_tools extends EfrontModule {
        $value -> user['directions_ID'] = $course->course['directions_ID'];
        $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
        $value -> user['branch_ID'] = current($userBranches['employee']);
-       $value -> user['supervisor'] = current($userSupervisors);
+       $value -> user['supervisor'] = $userSupervisor;
        $value -> user['to_timestamp'] = $entry['timestamp'];
        $value -> user['completed'] = 1;
        $value -> user['score'] = '';
@@ -470,7 +472,7 @@ class module_administrator_tools extends EfrontModule {
      unlink($xlsFilePath);
      $_GET['limit'] = sizeof($courseUsers);
      $_GET['sort'] = 'category';
-     list($tableSize, $dataSource) = filterSortPage($courseUsers);
+     list($tableSize, $courseUsers) = filterSortPage($courseUsers);
      $header = array('category' => _CATEGORY,
          'course' => _NAME,
          'login' => _USER,
@@ -479,7 +481,7 @@ class module_administrator_tools extends EfrontModule {
          'supervisor' => _SUPERVISOR,
          'branch' => _BRANCH,
          'historic' => _MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY);
-     foreach ($dataSource as $value) {
+     foreach ($courseUsers as $value) {
       $rows[] = array(_CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['category']),
            _COURSE => $value['course'],
            _USER => formatLogin($value['login']),
@@ -497,10 +499,10 @@ class module_administrator_tools extends EfrontModule {
      $file -> sendFile(true);
      exit;
     } else {
-     list($tableSize, $dataSource) = filterSortPage($courseUsers);
+     list($tableSize, $courseUsers) = filterSortPage($courseUsers);
      $smarty -> assign("T_SORTED_TABLE", $_GET['ajax']);
      $smarty -> assign("T_TABLE_SIZE", $tableSize);
-     $smarty -> assign("T_DATA_SOURCE", $dataSource);
+     $smarty -> assign("T_DATA_SOURCE", $courseUsers);
     }
    }
    $smarty -> assign("T_CATEGORY_FORM", $form->toArray());
@@ -535,6 +537,7 @@ class module_administrator_tools extends EfrontModule {
      if ($GLOBALS['configuration']['disable_tests'] != 1) {
       $lessonSettings['tests'] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'onClick' => 'activate(this, \'tests\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
      }
+
 
 
 

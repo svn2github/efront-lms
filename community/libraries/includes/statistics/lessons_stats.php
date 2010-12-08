@@ -677,12 +677,13 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     //add a separate sheet for each distinct student of that lesson
     //$doneTests        = EfrontStats :: getStudentsDoneTests($infoLesson -> lesson['id']);
     $assignedProjects = EfrontStats :: getStudentsAssignedProjects($infoLesson -> lesson['id']);
-    foreach ($students as $user) {
-        $workSheet = & $workBook -> addWorksheet($user['login']);
-        $workSheet -> setInputEncoding('utf-8');
 
-        $row = 0;
-        $workSheet -> write($row, 0, $infoLesson -> lesson['name'], $headerBigFormat);
+//Changed adding a worksheet for each user in lesson reports because it could crash file with more than 2000 users (#854)    
+    $workSheet = & $workBook -> addWorksheet('Students');
+ $workSheet -> setInputEncoding('utf-8');
+ $row = 0;
+ $workSheet -> write($row, 0, $infoLesson -> lesson['name'], $headerBigFormat);
+    foreach ($students as $user) {
         $workSheet -> mergeCells($row, 0, $row++, 9);
         $workSheet -> write($row, 0, formatLogin($user['login']), $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row++, 9);
@@ -765,6 +766,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         }
 
 */
+        $row++;
     }
     $workBook -> close();
     exit(0);

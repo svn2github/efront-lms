@@ -722,15 +722,27 @@ class module_BBB extends EfrontModule {
             $smarty = $this -> getSmartyVar();
             $currentLesson = $this -> getCurrentLesson();
             if ($currentUser -> getRole($this -> getCurrentLesson()) == "student") {
-                $BBB = eF_getTableData("module_BBB_users_to_meeting JOIN module_BBB ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
+             $fifteen_minutes_ago = time() - 15*60;
+                $BBB = eF_getTableData("module_BBB_users_to_meeting JOIN module_BBB ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND `timestamp` > {$fifteen_minutes_ago} AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
                 $smarty -> assign("T_BBB_CURRENTLESSONTYPE", "student");
                 $now = time();
-
+                //print_r($BBB); die();
                 $BBB_server = eF_getTableData("configuration", "value", "name = 'module_BBB_server'");
                 foreach ($BBB as $key => $meeting) {
-                    $BBB[$key]['time_remaining'] = eF_convertIntervalToTime(time() - $meeting['timestamp'], true). ' '._AGO;
-                    $BBB[$key]['joiningUrl'] = $this -> createBBBUrl($currentUser, $meeting, true);
-     $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']); // TESTING					
+                 // Chaning so we cover two distinct cases
+                 // The meeting has not started yet and is planned for some point in future
+                 if ($meeting['timestamp'] > time()) {
+                  $BBB[$key]['time_remaining'] = _BBB_IN . ' ' . eF_convertIntervalToTime($meeting['timestamp'] - time(), true);
+                  $BBB[$key]['joiningUrl'] = $this -> createBBBUrl($currentUser, $meeting, true);
+      $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']); // TESTING
+                 }
+                 // The meeting is planned for some point in the past
+                 if ($meeting['timestamp'] <= time() && $meeting['timestamp'] > $fifteen_minutes_ago) {
+                  $BBB[$key]['time_remaining'] = _BBB_NOW;
+                  //$BBB[$key]['time_remaining'] = eF_convertIntervalToTime(time() - $meeting['timestamp'], true). ' '._AGO;
+                  $BBB[$key]['joiningUrl'] = $this -> createBBBUrl($currentUser, $meeting, true);
+      $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']); // TESTING
+                 }
                 }
             } else {
                 $BBB = eF_getTableData("module_BBB", "*", "lessons_ID = '".$currentLesson -> lesson['id']."'", "timestamp DESC");

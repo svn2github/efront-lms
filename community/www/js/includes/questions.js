@@ -263,3 +263,9 @@ function onCheckSuggestedSkills(el, response) {
 function onNoSkillsProposed(el, response) {
  alert(noSkillsFoundOrNoSkillsCorrelated);
 }
+
+
+function addAutoCorrectChoice() {
+ el = new Element('select').insert(new Element('option', {value:0}).update('Contains')).insert(new Element('option', {value:1}).update('Not Contains'));
+ $('autocorrect').insert(el);
+}

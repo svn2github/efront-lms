@@ -3956,7 +3956,21 @@ define("_THANKYOUFORCOMPLETING", "Ευχαριστούμε που ολοκληρ
 define("_NOREPORTSFOUNDINTHESYSTEM", "Δε βρέθηκαν αναφορές στο σύστημα");
 define("_YOUMAYCREATEONE", "Μπορείτε να κατασκευάσετε μία");
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY", "Δεν μπορείτε να αλλάξετε κατάσταση στο μάθημα γιατί η δέσμη έχει χρήστες");
+define("_YOUCANNOTREMOVETHELASTELEMENT", "Δεν μπορείτε να αφαιρέσετε το τελευταίο στοιχείο");
+define("_CONTAINS", "Περιέχει");
+define("_NOTCONTAINS", "Δεν περιέχει");
+define("_REMOVEOPTION", "Αφαίρεση επιλογής");
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN", "Να θεωρηθεί σωστό όταν το άθροισμα των πόντων είναι μεγαλύτερο ή ίσο με");
+define("_AUTOMATIC", "Αυτόματη");
+define("_AUTOCORRECTOPTIONS", "Επιλογές αυτόματης διόρθωσης");
+define("_QUESTIONCORRECTION", "Διόρθωση ερώτησης");
+define("_SEPARATEWORDSWITHPIPE", "Διαχωρίστε τις λέξεις με |");
+define("_POINTS", "Πόντοι");
 define("_THEUSERDOESNOTHAVETHISCOURSE", "Ο χρήστης δεν είναι εγγεγραμμένος σε αυτήν τη δέσμη");
 define("_THEUSERDOESNOTHAVETHISLESSON", "Ο χρήστης δεν είναι εγγεγραμμένος σε αυτό το μάθημα");
 define("_USERACCESSGRANTED", "Ο χρήστης έχει πρόσβαση");
+define("_FORCECHANGEPASSWORD", "Επέβαλε αλλαγή κωδικού κατά την πρώτη είσοδο");
+define("_CHANGEPASSWORD", "Αλλαγή κωδικού");
+define("_OLDPASSWORD", "Παλιός κωδικός");
+define("_NEWPASSWORD", "Νέος κωδικός");
 ?>

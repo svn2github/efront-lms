@@ -3,7 +3,7 @@
 
 * Logs out a user.
 
-* 
+*
 
 * This page provides a list of logged in users, where the administrator may pick one to log out.
 

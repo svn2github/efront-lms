@@ -5710,7 +5710,7 @@ class RawTextQuestion extends Question implements iQuestion
     } else {
      $wordsThatCount = array_unique(array_diff($value['words'], $splitAnswerWords));
     }
-    foreach ($wordsThatCount as $word) {
+    if (!empty($wordsThatCount)) {
      $totalScore+=$value['score'];
     }
    }

@@ -617,8 +617,8 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <tr id = "autocorrect_options" class = "autocorrect_options">
        <td>
         <select name = "autocorrect_contains[]">
-         <option value = "0">{$smarty.const._CONTAINS}</option>
-         <option value = "1">{$smarty.const._NOTCONTAINS}</option>
+         <option value = "1">{$smarty.const._CONTAINS}</option>
+         <option value = "0">{$smarty.const._NOTCONTAINS}</option>
         </select>
        </td><td>
         <input type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "if (this.value == '{$smarty.const._SEPARATEWORDSWITHPIPE}') {ldelim}this.value = '';Element.extend(this).removeClassName('emptyCategory infoCell');{rdelim}" class = "inputText emptyCategory infoCell"/>

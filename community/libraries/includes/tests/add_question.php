@@ -248,6 +248,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
                  $smarty -> assign("T_QUESTION_SETTINGS", $currentQuestion -> settings);
                 }
             }
+
             foreach ($_POST['autocorrect_contains'] as $key => $value) {
     if ($_POST['autocorrect_words'][$key]) {
               $words = explode("|", $_POST['autocorrect_words'][$key]);

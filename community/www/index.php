@@ -576,9 +576,6 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
                                "languages_NAME" => $values['languages_NAME'],
           "user_type" => $values['user_type'],
           "user_types_ID" => $values['user_types_ID']);
-   if (!isset($_GET['ldap']) && $GLOBALS['configuration']['force_change_password']) {
-    $user_data['need_pwd_change'] = 1;
-   }
             foreach ($user_profile as $field) { //Get the custom fields values
              $user_data[$field['name']] = $values[$field['name']];
             }

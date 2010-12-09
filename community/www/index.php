@@ -160,10 +160,10 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  $smarty -> assign("T_POSITIONS", $GLOBALS['currentTheme'] -> layout['positions']);
     $directionsTree = new EfrontDirectionsTree();
  $options = array('lessons_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&lessons_ID=',
-                            'courses_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&courses_ID=',
-                            'search' => true,
-                         'catalog' => true,
-                            'url' => $_SERVER['PHP_SELF'],
+       'courses_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&courses_ID=',
+       'search' => true,
+       'catalog' => true,
+       'url' => $_SERVER['PHP_SELF'],
        'collapse' => $GLOBALS['configuration']['collapse_catalog'],
        'buy_link' => true,
        'course_lessons' => false);

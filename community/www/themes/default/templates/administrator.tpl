@@ -92,11 +92,7 @@
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'logout_user')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=logout_user">'|cat:$smarty.const._LOGOUTUSER|cat:'</a>'}
-    {capture name = 'moduleLogoutUser'}
-     <tr><td class = "moduleCell">
-      {include file = "includes/logout_user.tpl"}
-     </td></tr>
-    {/capture}
+    {include file = "includes/logout_user.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'forum')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=forum">'|cat:$smarty.const._FORUMS|cat:'</a>'}

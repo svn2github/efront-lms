@@ -190,7 +190,7 @@ class EfrontTimes
 
 
 
- public function formatTimeForReporting($seconds) {
+ public static function formatTimeForReporting($seconds) {
   $totalTime = array('seconds' => 0, 'minutes' => 0, 'hours' => 0, 'total_seconds' => 0);
   if ($seconds >= 60) {
    $totalTime['seconds'] = $seconds % 60;

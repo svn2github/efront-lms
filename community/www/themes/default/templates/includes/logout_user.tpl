@@ -1,24 +1,29 @@
-{* smarty template for logout user *}
+{capture name = 'moduleLogoutUser'}
+    <tr><td class = "moduleCell">
+  {capture name = 't_logout_user_code'}
+    <table class = "sortedTable" style = "width:100%">
+     <tr class = "topTitle">
+      <td class = "topTitle">{$smarty.const._USER}</td>
+      <td class = "topTitle">{$smarty.const._USERTYPE}</td>
+      <td class = "topTitle">{$smarty.const._ONLINETIME}</td>
+      <td class = "topTitle">{$smarty.const._ONLINESINCE}</td>
+      <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
+     </tr>
+   {foreach name = "online_users_list" item = "item" key = "key" from = $T_ONLINE_USERS}
+     <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+      <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}" class = "editLink">#filter:login-{$item.login}#</a></td>
+      <td>{$T_ROLES[$item.user_type]}</td>
+      <td>{$item.time.time_string}</td>
+      <td>#filter:timestamp_time-{$item.session_timestamp}#</td>
+      <td class = "centerAlign">
+       <img src = "images/16x16/logout.png" alt = "{$smarty.const._LOGOUTUSER}" title = "{$smarty.const._LOGOUTUSER}" onclick = "logoutUser('{$item.login}');"/>
+      </td>
+     </tr>
 
-{capture name = 't_logout_user_code'}
-	{$T_LOGOUT_USER_FORM.javascript}
-	<form {$T_LOGOUT_USER_FORM.attributes}>
-	{$T_LOGOUT_USER_FORM.hidden}
-		<table class = "formElements">
-		    <tr><td class = "labelCell">{$smarty.const._CHOOSEUSERTODISCONNECT}:&nbsp;</td><td>{$T_LOGOUT_USER_FORM.user_type.html}</td></tr>
-		    <tr><td></td><td class = "submitCell">{$T_LOGOUT_USER_FORM.submit_logout_user.html}</td></tr>    
-		</table>
-	</form>
+   {/foreach}
+    </table>
+  {/capture}
+
+  {eF_template_printBlock title = $smarty.const._LOGOUTUSER data = $smarty.capture.t_logout_user_code image = '32x32/logout.png'}
+    </td></tr>
 {/capture}
-
-
-{eF_template_printBlock title = $smarty.const._LOGOUTUSER data = $smarty.capture.t_logout_user_code image = '32x32/logout.png'}
-
-{if $T_MESSAGE}
-    {if $T_MESSAGE_TYPE == 'success'}
-        <script>
-            re = /\?/;
-            !re.test(parent.location) ? parent.location = parent.location+'?reset_popup=1' : parent.location = parent.location+'&reset_popup=1';            
-        </script>
-    {/if}
-{/if}

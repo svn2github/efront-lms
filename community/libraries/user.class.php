@@ -974,7 +974,8 @@ abstract class EfrontUser
              'formattedLogin'=> formatLogin(false, $value),
              'user_type' => $value['user_type'],
              'timestamp_now' => $value['timestamp_now'],
-             'time' => eF_convertIntervalToTime(time() - $value['session_timestamp']));
+             'session_timestamp' => $value['session_timestamp'],
+             'time' => EfrontTimes::formatTimeForReporting(time() - $value['session_timestamp']));
     } else {
      EfrontUserFactory :: factory($value['users_LOGIN']) -> logout();
     }

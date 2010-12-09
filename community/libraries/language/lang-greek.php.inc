@@ -3973,4 +3973,6 @@ define("_FORCECHANGEPASSWORD", "Επέβαλε αλλαγή κωδικού κα�
 define("_CHANGEPASSWORD", "Αλλαγή κωδικού");
 define("_OLDPASSWORD", "Παλιός κωδικός");
 define("_NEWPASSWORD", "Νέος κωδικός");
+define("_ONLINETIME", "Χρόνος σύνδεσης");
+define("_ONLINESINCE", "Συνδεδεμένος από");
 ?>

@@ -14,6 +14,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
 $smarty -> assign("T_ONLINE_USERS", $onlineUsers);
 $smarty -> assign("T_ROLES", EfrontUser::getRoles(true));
+$loadScripts[] = 'includes/logout_user';
 if (isset($_GET['ajax']) && isset($_GET['logout']) && $_GET['logout'] != $currentUser -> user['login']) {
  try {
   $user = EfrontUserFactory :: factory($_GET['logout']);

@@ -231,14 +231,6 @@ try {
         include "file_manager.php";
  }
  elseif ($ctg == 'logout_user') {
-
-  // Done here to include administrator.php access control
-  if ($_GET['ajax'] == "ajax" && eF_checkParameter($_GET['user'], "login")) {
-   $user = EfrontUserFactory :: factory($_GET['user']);
-   $user -> logout();
-   exit;
-  }
-
      /***/
      require_once 'logout_user.php';
  }

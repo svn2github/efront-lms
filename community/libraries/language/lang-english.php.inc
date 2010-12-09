@@ -3973,4 +3973,6 @@ define("_FORCECHANGEPASSWORD", "Force password change upon initial login");
 define("_CHANGEPASSWORD", "Change password");
 define("_OLDPASSWORD", "Old password");
 define("_NEWPASSWORD", "New password");
+define("_ONLINETIME", "Time online");
+define("_ONLINESINCE", "Online since");
 ?>

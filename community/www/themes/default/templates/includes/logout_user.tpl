@@ -16,7 +16,9 @@
       <td>{$item.time.time_string}</td>
       <td>#filter:timestamp_time-{$item.session_timestamp}#</td>
       <td class = "centerAlign">
-       <img src = "images/16x16/logout.png" alt = "{$smarty.const._LOGOUTUSER}" title = "{$smarty.const._LOGOUTUSER}" onclick = "logoutUser('{$item.login}');"/>
+       {if $item.login != $smarty.session.s_login}
+       <img class = "ajaxHandle" src = "images/16x16/logout.png" alt = "{$smarty.const._LOGOUTUSER}" title = "{$smarty.const._LOGOUTUSER}" onclick = "logoutUser(this, '{$item.login}');"/>
+       {/if}
       </td>
      </tr>
 

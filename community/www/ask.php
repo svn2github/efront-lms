@@ -783,7 +783,7 @@ function askInformation() {
       case 'course_dependency' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._DEPENDSON."</span><span>: $value</span></div>"; break;
       case 'from_timestamp' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._AVAILABLEFROM."</span><span>: ".formatTimestamp($value, 'time_nosec')."</span></div>";break;
       case 'to_timestamp' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._AVAILABLEUNTIL."</span><span>: ".formatTimestamp($value, 'time_nosec')."</span></div>"; break;
-      case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._GENERALDESCRIPTION."</span><span>: $value</span></div>"; break;
+      case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._DESCRIPTION."</span><span>: $value</span></div>"; break;
       case 'assessment' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>"; break;
       case 'objectives' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>"; break;
       case 'lesson_topics' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>"; break;
@@ -818,7 +818,7 @@ function askInformation() {
       case 'professors' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PROFESSORS."</span><span>: $value</span></div>"; break;
       case 'lessons_number' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONS."</span><span>: $value</span></div>"; break;
       case 'instances' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._COURSEINSTANCES."</span><span>: $value</span></div>"; break;
-      case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._GENERALDESCRIPTION."</span><span>: $value</span></div>"; break;
+      case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._DESCRIPTION."</span><span>: $value</span></div>"; break;
       case 'assessment' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>"; break;
       case 'objectives' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>"; break;
       case 'lesson_topics' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>"; break;

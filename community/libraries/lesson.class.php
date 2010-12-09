@@ -4651,7 +4651,7 @@ class EfrontLesson
       case 'course_dependency' : $tooltipInfo[] = '<strong>'._DEPENDSON."</strong>: $value<br/>"; break;
       case 'from_timestamp' : $tooltipInfo[] = '<strong>'._AVAILABLEFROM."</strong>: ".formatTimestamp($value, 'time_nosec')."<br/>";break;
       case 'to_timestamp' : $tooltipInfo[] = '<strong>'._AVAILABLEUNTIL."</strong>: ".formatTimestamp($value, 'time_nosec')."<br/>"; break;
-      case 'general_description': $tooltipInfo[] = '<strong>'._GENERALDESCRIPTION."</strong>: $value<br/>"; break;
+      case 'general_description': $tooltipInfo[] = '<strong>'._DESCRIPTION."</strong>: $value<br/>"; break;
       case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
       case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
       case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;

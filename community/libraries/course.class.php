@@ -2759,7 +2759,7 @@ class EfrontCourse
       case 'professors' : $tooltipInfo[] = '<strong>'._PROFESSORS."</strong>: $value<br/>"; break;
       case 'lessons_number' : $tooltipInfo[] = '<strong>'._LESSONS."</strong>: $value<br/>"; break;
       case 'instances' : $tooltipInfo[] = '<strong>'._COURSEINSTANCES."</strong>: $value<br/>"; break;
-      case 'general_description': $tooltipInfo[] = '<strong>'._GENERALDESCRIPTION."</strong>: $value<br/>"; break;
+      case 'general_description': $tooltipInfo[] = '<strong>'._DESCRIPTION."</strong>: $value<br/>"; break;
       case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
       case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
       case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;

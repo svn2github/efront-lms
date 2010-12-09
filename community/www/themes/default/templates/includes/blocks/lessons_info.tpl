@@ -2,13 +2,17 @@
 
  {if $T_LESSON_INFO}
          {foreach name = 'info_list' item = "item" key = "key" from = $T_LESSON_INFO->metadataArray}
-          <div class = "lessonInfo"><span class = "infoTitle">{$T_LESSON_INFO->metadataAttributes.$key}:</span> {$item}</div>
+          {if $item}<div class = "lessonInfo"><span class = "infoTitle">{$T_LESSON_INFO->metadataAttributes.$key}:</span> {$item}</div>{/if}
          {/foreach}
-          <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}</div>
+          {if $T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}</div>{/if}
           {if $T_ADDITIONAL_LESSON_INFO.professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO.professors_string}</div>{/if}
-          <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALUNITS}:</span> {$T_ADDITIONAL_LESSON_INFO.content}</div>
-          {if $T_ADDITIONAL_LESSON_INFO.tests}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALTESTS}:</span> {$T_ADDITIONAL_LESSON_INFO.tests}</div>{/if}
-          {if $T_ADDITIONAL_LESSON_INFO.projects}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALPROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO.projects}</div>{/if}
+          {if $T_ADDITIONAL_LESSON_INFO.content || $T_ADDITIONAL_LESSON_INFO.tests || $T_ADDITIONAL_LESSON_INFO.projects}
+           <div class = "lessonInfo">
+     {if $T_ADDITIONAL_LESSON_INFO.content}<span class = "infoTitle">{$smarty.const._UNITS}:</span> {$T_ADDITIONAL_LESSON_INFO.content}{/if}
+     {if $T_ADDITIONAL_LESSON_INFO.tests}{if $T_ADDITIONAL_LESSON_INFO.content},{/if} <span class = "infoTitle">{$smarty.const._TESTS}:</span> {$T_ADDITIONAL_LESSON_INFO.tests}{/if}
+     {if $T_ADDITIONAL_LESSON_INFO.projects}{if $T_ADDITIONAL_LESSON_INFO.content || $T_ADDITIONAL_LESSON_INFO.tests},{/if} <span class = "infoTitle">{$smarty.const._PROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO.projects}{/if}
+     </div>
+    {/if}
          {if $T_CONTENT_TREE}
           <fieldset class = "fieldsetSeparator">
               <legend>{$smarty.const._LESSONCONTENT}</legend>

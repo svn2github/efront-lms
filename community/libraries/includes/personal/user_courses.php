@@ -113,13 +113,16 @@ try {
   $roles = EfrontLessonUser :: getLessonsRoles(true);
   $smarty -> assign("T_ROLES_ARRAY", $roles);
 
+  $directionsTree = new EfrontDirectionsTree();
+  $smarty -> assign("T_DIRECTION_PATHS", $directionsTree->toPathString());
+
   $rolesBasic = EfrontLessonUser :: getLessonsRoles();
   $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
   $smarty -> assign("T_EDITED_USER_TYPE", $courseUser -> user['user_types_ID'] ? $editedUser -> user['user_types_ID'] : $courseUser -> user['user_type']);
 
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable') {
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'completed','active_in_lesson', 'user_type', 'score', 'has_lesson'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'directions_ID', 'completed','active_in_lesson', 'user_type', 'score', 'has_lesson'));
    if ($showUnassigned) {
     $lessons = $courseUser -> getUserStatusInIndependentLessons() + $courseUser -> getNonLessons(true);
    } else {
@@ -153,7 +156,7 @@ try {
 
 
   if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
-   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
+   $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'directions_ID', 'location', 'active_in_course', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'has_course'));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
     $_GET['sort'] != 'null' OR $_GET['sort'] = 'has_course';
     $constraints = array('archive' => false, 'instance' => false) + createConstraintsFromSortedTable();

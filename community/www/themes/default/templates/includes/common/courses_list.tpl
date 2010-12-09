@@ -17,6 +17,7 @@ table#coursesTable,table#instancesTable {width:100%;}
 table#coursesTable td.name,table#instancesTable td.name{width:30%;}
 table#coursesTable td.location,table#instancesTable td.location{width:15%;}
 table#coursesTable td.directions_name,table#instancesTable td.directions_name{width:15%;}
+table#coursesTable td.directions_ID,table#instancesTable td.directions_ID{width:15%;}
 table#coursesTable td.user_type, table#instancesTable td.user_type{width:15%;}
 table#coursesTable td.num_students,table#instancesTable td.num_students{width:5%;text-align:center;}
 table#coursesTable td.num_lessons,table#instancesTable td.num_lessons{width:5%;text-align:center;}
@@ -41,6 +42,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 
 
 {if in_array('directions_name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle directions_name" name = "directions_name">{$smarty.const._PARENTDIRECTIONS}</td>{/if}
+{if in_array('directions_ID', $T_DATASOURCE_COLUMNS)} <td class = "topTitle directions_ID" name = "directions_ID">{$smarty.const._PARENTDIRECTIONS}</td>{/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
 {if in_array('num_students', $T_DATASOURCE_COLUMNS)} <td class = "topTitle num_students" name = "num_students">{$smarty.const._PARTICIPATION}</td>{/if}
 {if in_array('num_lessons', $T_DATASOURCE_COLUMNS)} <td class = "topTitle num_lessons" name = "num_lessons">{$smarty.const._LESSONS}</td>{/if}
@@ -85,6 +87,11 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {if in_array('directions_name', $T_DATASOURCE_COLUMNS)}
          <td class = "directions_name">
           {$course.directions_name}
+         </td>
+{/if}
+{if in_array('directions_ID', $T_DATASOURCE_COLUMNS)}
+         <td class = "directions_ID">
+          {$T_DIRECTION_PATHS[$course.directions_ID]}
          </td>
 {/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
@@ -240,6 +247,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
 {literal}
 table#lessonsTable,table#courseLessonsTable {width:100%;}
 table#lessonsTable td.name, table#courseLessons td.name{width:50%;}
+table#lessonsTable td.directions_ID,table#courseLessons td.directions_ID{width:15%;}
 table#lessonsTable td.active_in_lesson,table#courseLessonsTable td.active_in_lesson{width:5%;text-align:center;}
 table#lessonsTable td.user_type, table#courseLessonsTable td.user_type{width:25%;}
 table#lessonsTable td.time_in_lesson, table#courseLessons td.time_in_lesson{width:25%;}
@@ -254,6 +262,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 </style>
      <tr class = "topTitle">
 {if in_array('name', $T_DATASOURCE_COLUMNS)} <td class = "topTitle name" name = "name">{$smarty.const._LESSON}</td>{/if}
+{if in_array('directions_ID', $T_DATASOURCE_COLUMNS)} <td class = "topTitle directions_ID" name = "directions_ID">{$smarty.const._PARENTDIRECTIONS}</td>{/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
 {if in_array('active_in_lesson', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_lesson" name = "active_in_lesson">{$smarty.const._ENABLED}</td>{/if}
 {if in_array('time_in_lesson', $T_DATASOURCE_COLUMNS)} <td class = "topTitle time_in_lesson" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>{/if}
@@ -279,6 +288,11 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
     <span>{$lesson.name}</span>
     {/if}
    </td>
+{/if}
+{if in_array('directions_ID', $T_DATASOURCE_COLUMNS)}
+         <td class = "directions_ID">
+          {$T_DIRECTION_PATHS[$lesson.directions_ID]}
+         </td>
 {/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)}
          <td class = "user_type">

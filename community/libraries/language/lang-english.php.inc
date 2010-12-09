@@ -3975,4 +3975,5 @@ define("_OLDPASSWORD", "Old password");
 define("_NEWPASSWORD", "New password");
 define("_ONLINETIME", "Time online");
 define("_ONLINESINCE", "Online since");
+define("_MANUALLY", "Manually");
 ?>

@@ -3975,4 +3975,5 @@ define("_OLDPASSWORD", "Παλιός κωδικός");
 define("_NEWPASSWORD", "Νέος κωδικός");
 define("_ONLINETIME", "Χρόνος σύνδεσης");
 define("_ONLINESINCE", "Συνδεδεμένος από");
+define("_MANUALLY", "Χειροκίνητα");
 ?>

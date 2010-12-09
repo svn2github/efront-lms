@@ -91,7 +91,8 @@ class module_workbook extends EfrontModule{
 
   if(isset($_REQUEST['get_progress']) && $_REQUEST['get_progress'] == '1'){
 
-   $isWorkbookCompleted = $this->isWorkbookCompleted($currentUser->user['login'], $currentLessonID);
+   $isWorkbookCompleted = $this->isWorkbookCompleted($currentUser->user['login'], $currentLessonID,
+             array_keys($workbookItems), $nonOptionalQuestionsNr);
    $studentProgress = $this->getStudentProgress($currentUser->user['login'], $currentLessonID);
 
    if($isWorkbookCompleted['is_completed'] == 1){
@@ -801,7 +802,8 @@ class module_workbook extends EfrontModule{
     $studentProgress = $this->getStudentProgress($currentUser->user['login'], $currentLessonID);
     $smarty->assign("T_WORKBOOK_STUDENT_PROGRESS", $studentProgress);
 
-    $isWorkbookCompleted = $this->isWorkbookCompleted($currentUser->user['login'], $currentLessonID);
+    $isWorkbookCompleted = $this->isWorkbookCompleted($currentUser->user['login'], $currentLessonID,
+             array_keys($workbookItems), $nonOptionalQuestionsNr);
     $smarty->assign("T_WORKBOOK_IS_COMPLETED", $isWorkbookCompleted);
    }
   }
@@ -1310,14 +1312,33 @@ class module_workbook extends EfrontModule{
   }
  }
 
- function isWorkbookCompleted($userLogin, $lessonID){
+ function isWorkbookCompleted($userLogin, $lessonID, $itemIDs, $nonOptionalQuestionsNr){
 
-  $result = eF_getTableData("module_workbook_progress", "id, non_optional", "lessons_ID=".$lessonID." AND users_LOGIN='".$userLogin."'");
+  if($nonOptionalQuestionsNr == 0){
 
-  if(count($result) != 0 && $result[0]['non_optional'] == '0')
-   return array('id' => $result[0]['id'], 'is_completed' => 1);
-  else
-   return array('id' => $result[0]['id'], 'is_completed' => 0);
+   $countAnswered = 0;
+   $workbookAnswers = $this->getWorkbookAnswers($userLogin, $itemIDs);
+
+   foreach($itemIDs as $id){
+
+    if($workbookAnswers[$id] != '')
+     $countAnswered++;
+   }
+
+   if($countAnswered == count($itemIDs))
+    return array('id' => '', 'is_completed' => 1);
+   else
+    return array('id' => '', 'is_completed' => 0);
+  }
+  else{
+   $result = eF_getTableData("module_workbook_progress", "id, non_optional",
+            "lessons_ID=".$lessonID." AND users_LOGIN='".$userLogin."'");
+
+   if(count($result) != 0 && $result[0]['non_optional'] == '0')
+    return array('id' => $result[0]['id'], 'is_completed' => 1);
+   else
+    return array('id' => $result[0]['id'], 'is_completed' => 0);
+  }
  }
 
  function isWorkbookPublished($lessonID){

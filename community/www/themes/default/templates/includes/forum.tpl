@@ -338,7 +338,7 @@
                                              <br/> {$smarty.const._BY} #filter:user_loginNoIcon-{$subforum.last_post.users_LOGIN}#
                                              <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$subforum.last_post.f_topics_ID}&view_message={$subforum.last_post.id}">&raquo;</a>
                              {else}
-                                             -
+                                             <span class = "emptyCategory">{$smarty.const._NEVER}</span>
         {/if}
                                              </td>
             <td class = "centerAlign">
@@ -511,7 +511,7 @@
                              <br/> {$smarty.const._BY} #filter:user_loginNoIcon-{$subforum.last_post.users_LOGIN}#
                              <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$subforum.last_post.f_topics_ID}&view_message={$subforum.last_post.id}">&raquo;</a></td>
                       {else}
-                       -
+                       <span class = "emptyCategory">{$smarty.const._NEVER}</span>
                       {/if}
        </td>
        <td class = "centerAlign">

@@ -236,7 +236,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         break;
 
     case 'raw_text':
-  $form -> addElement('select', 'force_correct', _QUESTIONCORRECTION, array('manual' => _MANUAL, 'auto' => _AUTOMATIC, 'none' => _DONOTTAKEACCOUNTINCORRECTING), 'onchange = "if (this.options[this.options.selectedIndex].value==\'auto\') {$(\'autocorrect\').show();} else {$(\'autocorrect\').hide();}"');
+  $form -> addElement('select', 'force_correct', _QUESTIONCORRECTION, array('manual' => _MANUALLY, 'auto' => _AUTOMATIC, 'none' => _DONOTTAKEACCOUNTINCORRECTING), 'onchange = "if (this.options[this.options.selectedIndex].value==\'auto\') {$(\'autocorrect\').show();} else {$(\'autocorrect\').hide();}"');
         $form -> addElement('textarea', 'example_answer', _EXAMPLEANSWER, 'class = "inputTextarea_QuestionExample" style = "width:100%" ');
 
         if ($form -> isSubmitted() || isset($currentQuestion)) {

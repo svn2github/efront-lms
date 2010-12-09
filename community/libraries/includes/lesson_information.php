@@ -1,7 +1,7 @@
 <?php
 /**
 
-* 
+*
 
 * @package eFront
 
@@ -107,7 +107,7 @@ if ($_GET['edit_info'] && $_change_ && !$_student_) {
         }
 } else {
     $currentContent = new EfrontContentTree($currentLesson);
-    $lesson_info_categories = array('general_description' => _GENERALDESCRIPTION,
+    $lesson_info_categories = array('general_description' => _DESCRIPTION,
                                     'objectives' => _OBJECTIVES,
                                     'assessment' => _ASSESSMENT,
                                     'lesson_topics' => _LESSONTOPICS,

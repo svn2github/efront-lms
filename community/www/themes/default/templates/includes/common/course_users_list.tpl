@@ -105,7 +105,7 @@ if (typeof(currentUserLogin) == 'undefined') var currentUserLogin ='';
    <td class = "to_timestamp">{if $user.has_course}#filter:timestamp-{$user.to_timestamp}#{/if}</td>
 {/if}
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
-   <td class = "score">{if $user.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.role] == 'student')}#filter:score-{$user.score}#%{/if}</td>
+   <td class = "score">{if $user.has_course && (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.role] == 'student')}{if $user.completed}#filter:score-{$user.score}#%{else}-{/if}{/if}</td>
 {/if}
 {if in_array('operations', $T_DATASOURCE_COLUMNS)}
    <td class = "operations">{strip}
@@ -230,7 +230,7 @@ table#lessonsTable td.score,table#courseLessons td.score{width:5%;text-align:cen
 {if in_array('score', $T_DATASOURCE_COLUMNS)}
    <td class = "score">
    {if (!$T_BASIC_ROLES_ARRAY || $T_BASIC_ROLES_ARRAY[$user.user_type] == 'student')}
-    #filter:score-{$lesson.score}#%
+    {if $lesson.completed}#filter:score-{$lesson.score}#%{else}-{/if}
    {/if}
    </td>
 {/if}

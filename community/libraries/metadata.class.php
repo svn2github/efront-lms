@@ -20,7 +20,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
  *
 
- * @package eFront 
+ * @package eFront
 
  */
 abstract class EfrontInformation
@@ -29,7 +29,7 @@ abstract class EfrontInformation
 
      * Metadata array.
 
-     * 
+     *
 
      * This array holds the actual metadata, while the keys are the Dublin Core atributes.
 
@@ -47,7 +47,7 @@ abstract class EfrontInformation
 
      * Metadata attributes
 
-     * 
+     *
 
      * This array holds the metadata attributes along with their equivalent textual representation
 
@@ -65,7 +65,7 @@ abstract class EfrontInformation
 
      * Instantiate class
 
-     * 
+     *
 
      * This function is used to instantiate the class object. If $metadata is specified
 
@@ -81,7 +81,7 @@ abstract class EfrontInformation
 
      * $metadata = new DublinCoreMetadata($md);			//Instantiate Dublin Core (DC) metadata representation
 
-     * </code> 
+     * </code>
 
      *
 
@@ -109,7 +109,7 @@ abstract class EfrontInformation
 
      * This function is used to update the information, based on the $attributes array.
 
-     * This is an array of attribute/value pairs, where attributes are part of the information 
+     * This is an array of attribute/value pairs, where attributes are part of the information
 
      * type (for example Dublin Core attributes).
 
@@ -117,15 +117,15 @@ abstract class EfrontInformation
 
      * <code>
 
-     * $metadata = new DublinCoreMetadata($md);					//Instantiate Dublin Core (DC) metadata representation 
+     * $metadata = new DublinCoreMetadata($md);					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 
      * </code>
 
-     *   
+     *
 
      * @param array $attributes The new attribute/value pairs
 
@@ -145,7 +145,7 @@ abstract class EfrontInformation
 
      * Convert information to XML
 
-     * 
+     *
 
      * This function is used to convert the current information (or metadata) attribute/value pairs
 
@@ -157,7 +157,7 @@ abstract class EfrontInformation
 
      * $metadata = new DublinCoreMetadata($md);					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 
@@ -183,13 +183,13 @@ abstract class EfrontInformation
 
      * Convert XML to information
 
-     * 
+     *
 
-     * This function is used to convert an XML representation to inner information (or metadata) 
+     * This function is used to convert an XML representation to inner information (or metadata)
 
      * attribute/value pairs
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -197,9 +197,9 @@ abstract class EfrontInformation
 
      * $metadata = new DublinCoreMetadata();					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> fromXML($xml);								//Load metadata XML 
+     * $metadata -> fromXML($xml);								//Load metadata XML
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 
@@ -226,7 +226,7 @@ abstract class EfrontInformation
 
      * Create a form for information manipulation
 
-     * 
+     *
 
      * This function sets up required fields for manipulating information
 
@@ -261,7 +261,7 @@ abstract class EfrontInformation
 
      * Print HTML code for information
 
-     * 
+     *
 
      * This function prints HTML code suitable for viewing and editing information.
 
@@ -273,7 +273,7 @@ abstract class EfrontInformation
 
      * $metadata = new DublinCoreMetadata($md);					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> toHTML($form);								//Populate form fields 
+     * $metadata -> toHTML($form);								//Populate form fields
 
      * </code>
 
@@ -283,7 +283,7 @@ abstract class EfrontInformation
 
      * parameter is provided, so that this Javascript code may be optionally excluded. This way,
 
-     * if we want to have many information instances in one page, only the last one should print 
+     * if we want to have many information instances in one page, only the last one should print
 
      * the Javascript code.
 
@@ -295,7 +295,7 @@ abstract class EfrontInformation
 
      * $metadata = new LearningObjectInformation($info);		//Instantiate Learning Object (LO) information representation
 
-     * $metadata -> toHTML($form, false);						//Populate form fields but don't print JS 
+     * $metadata -> toHTML($form, false);						//Populate form fields but don't print JS
 
      * $metadata = new DublinCoreMetadata($md);					//Instantiate Dublin Core (DC) metadata representation
 
@@ -309,7 +309,7 @@ abstract class EfrontInformation
 
      * @param boolean $printJS Whether to print the accompanying Javascript functions
 
-     * @param boolean $showTools Whether to show add/edit/delete handles  
+     * @param boolean $showTools Whether to show add/edit/delete handles
 
      * @return string The HTML code
 
@@ -319,7 +319,7 @@ abstract class EfrontInformation
 
      */
     public function toHTML(& $form, $printJS = true, $showTools = true) {
-        $this -> toHTMLQuickForm($form); //Assign proper elements to the form 
+        $this -> toHTMLQuickForm($form); //Assign proper elements to the form
      $renderer = new HTML_QuickForm_Renderer_ArraySmarty($foo); //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
      $form -> accept($renderer); //Render the form
      $formArray = $renderer -> toArray(); //Get the rendered form fields
@@ -351,12 +351,12 @@ abstract class EfrontInformation
                   </span>
                   ';
             }
-         $html .= '            				
+         $html .= '
                    <span style = "display:none;">
               <img class = "ajaxHandle" src = "images/16x16/success.png" id = "submit_'.$attribute.'" alt = "'._SAVE.'" title = "'._SAVE.'" onclick = "submitField(this, \''.$attribute.'\');" />
                  <img class = "ajaxHandle" src = "images/16x16/error_delete.png" id = "cancel_'.$attribute.'" alt = "'._CANCEL.'" title = "'._CANCEL.'" onclick = "toggleFields(\''.$attribute.'\')" />
                 </span>
-      </td></tr>';		                                					                                				  
+      </td></tr>';
      }
      $html .= '
                 </table>';
@@ -409,7 +409,7 @@ abstract class EfrontInformation
 
  *
 
- * @package eFront 
+ * @package eFront
 
  */
 class DublinCoreMetadata extends EfrontInformation
@@ -418,9 +418,9 @@ class DublinCoreMetadata extends EfrontInformation
 
      * Dublin Core attributes for XML metadata
 
-     * 
+     *
 
-     * This array holds the Dublin Core attributes as keys and their equivalent textual 
+     * This array holds the Dublin Core attributes as keys and their equivalent textual
 
      * representations as values.
 
@@ -454,7 +454,7 @@ class DublinCoreMetadata extends EfrontInformation
 
      * Instantiate class
 
-     * 
+     *
 
      * This is the class constructor for Dublin Core metadata. If the $metadata array
 
@@ -470,7 +470,7 @@ class DublinCoreMetadata extends EfrontInformation
 
      * </code>
 
-     * 
+     *
 
      * @param array $metadata An optional metadata array
 
@@ -487,7 +487,7 @@ class DublinCoreMetadata extends EfrontInformation
 
      * Convert information to XML
 
-     * 
+     *
 
      * This function is used to convert the current information (or metadata) attribute/value pairs
 
@@ -499,9 +499,9 @@ class DublinCoreMetadata extends EfrontInformation
 
      * $metadata = new DublinCoreMetadata();					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> fromXML($xml);								//Load metadata XML 
+     * $metadata -> fromXML($xml);								//Load metadata XML
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 
@@ -529,13 +529,13 @@ class DublinCoreMetadata extends EfrontInformation
 
      * Convert XML to information
 
-     * 
+     *
 
-     * This function is used to convert an XML representation to inner information (or metadata) 
+     * This function is used to convert an XML representation to inner information (or metadata)
 
      * attribute/value pairs
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -543,9 +543,9 @@ class DublinCoreMetadata extends EfrontInformation
 
      * $metadata = new DublinCoreMetadata();					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> fromXML($xml);								//Load metadata XML 
+     * $metadata -> fromXML($xml);								//Load metadata XML
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 
@@ -575,7 +575,7 @@ class DublinCoreMetadata extends EfrontInformation
 
  *
 
- * @package eFront 
+ * @package eFront
 
  */
 class LearningObjectInformation extends EfrontInformation
@@ -584,7 +584,7 @@ class LearningObjectInformation extends EfrontInformation
 
      * Learning object information
 
-     * 
+     *
 
      * This array holds attributes that describe a learning object. Keys are the attributes and values are
 
@@ -596,12 +596,12 @@ class LearningObjectInformation extends EfrontInformation
 
      * @since 3.5.0
 
-     * @access public 
+     * @access public
 
      * @static
 
      */
-    public static $learningObjectAttributes = array('general_description' => _GENERALDESCRIPTION,
+    public static $learningObjectAttributes = array('general_description' => _DESCRIPTION,
                                                     'objectives' => _OBJECTIVES,
                                                     'assessment' => _ASSESSMENT,
                                                     'lesson_topics' => _TOPICS,
@@ -612,7 +612,7 @@ class LearningObjectInformation extends EfrontInformation
 
      * Instantiate class
 
-     * 
+     *
 
      * This is the class constructor for Learning Object (LO) information. If the $metadata array
 
@@ -628,7 +628,7 @@ class LearningObjectInformation extends EfrontInformation
 
      * </code>
 
-     * 
+     *
 
      * @param array $metadata An optional metadata/information array
 
@@ -645,7 +645,7 @@ class LearningObjectInformation extends EfrontInformation
 
      * Convert information to XML
 
-     * 
+     *
 
      * This function is used to convert the current information (or metadata) attribute/value pairs
 
@@ -657,9 +657,9 @@ class LearningObjectInformation extends EfrontInformation
 
      * $metadata = new LearningObjectInformation();				//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> fromXML($xml);								//Load metadata XML 
+     * $metadata -> fromXML($xml);								//Load metadata XML
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 
@@ -685,13 +685,13 @@ class LearningObjectInformation extends EfrontInformation
 
      * Convert XML to information
 
-     * 
+     *
 
-     * This function is used to convert an XML representation to inner information (or metadata) 
+     * This function is used to convert an XML representation to inner information (or metadata)
 
      * attribute/value pairs
 
-     * 
+     *
 
      * <br/>Example:
 
@@ -699,9 +699,9 @@ class LearningObjectInformation extends EfrontInformation
 
      * $metadata = new DublinCoreMetadata();					//Instantiate Dublin Core (DC) metadata representation
 
-     * $metadata -> fromXML($xml);								//Load metadata XML 
+     * $metadata -> fromXML($xml);								//Load metadata XML
 
-     * $metadata -> update(array('title' => 'new title'));		//Update a DC field  
+     * $metadata -> update(array('title' => 'new title'));		//Update a DC field
 
      * $xml = $metadata -> toXML();								//Return the XML representation of the changed metadata
 

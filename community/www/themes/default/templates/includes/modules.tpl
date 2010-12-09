@@ -18,7 +18,7 @@
                                     <td class = "topTitle">{$smarty.const._NAME}</td>
                                     <td class = "topTitle">{$smarty.const._TITLE}</td>
                                     <td class = "topTitle">{$smarty.const._AUTHOR}</td>
-                                    <td class = "topTitle">{$smarty.const._VERSION}</td>
+                                    <td class = "topTitle centerAlign">{$smarty.const._VERSION}</td>
                                     <td class = "topTitle centerAlign">{$smarty.const._STATUS}</td>
                                     <td class = "topTitle centerAlign">{$smarty.const._FUNCTIONS}</td>
                                 </tr>
@@ -27,7 +27,7 @@
                                     <td>{$T_MODULES[modules_list].className}</td>
                                     <td>{$T_MODULES[modules_list].title}</td>
                                     <td>{$T_MODULES[modules_list].author}</td>
-                                    <td>{$T_MODULES[modules_list].version}</td>
+                                    <td class = "centerAlign">{$T_MODULES[modules_list].version}</td>
                                     <td class = "centerAlign">
 
                                 {if !$T_MODULES[modules_list].errors}

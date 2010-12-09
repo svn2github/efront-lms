@@ -62,7 +62,7 @@ var detailsConst = '{$smarty.const._DETAILS}';
                 <a href = "javascript:void(0)" class = "info nonEmptyLesson">
                     {$smarty.const._COURSES}
                     <span class="tooltipSpan">
-                        {if isset($lesson.info.general_description)}<strong>{$smarty.const._GENERALDESCRIPTION|cat:'</strong>:&nbsp;'|cat:$lesson.info.general_description}<br/>{/if}
+                        {if isset($lesson.info.general_description)}<strong>{$smarty.const._DESCRIPTION|cat:'</strong>:&nbsp;'|cat:$lesson.info.general_description}<br/>{/if}
                         {if isset($lesson.info.assessment)} <strong>{$smarty.const._ASSESSMENT|cat:'</strong>:&nbsp;'|cat:$lesson.info.assessment}<br/> {/if}
                         {if isset($lesson.info.objectives)} <strong>{$smarty.const._OBJECTIVES|cat:'</strong>:&nbsp;'|cat:$lesson.info.objectives}<br/> {/if}
                         {if isset($lesson.info.lesson_topics)} <strong>{$smarty.const._LESSONTOPICS|cat:'</strong>:&nbsp;'|cat:$lesson.info.lesson_topics}<br/> {/if}

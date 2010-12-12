@@ -312,6 +312,9 @@ abstract class EfrontUser
   foreach ($cached_modules as $module) {
    $module -> onNewUser($userProperties['login']);
   }
+  if (function_exists('apc_delete')) {
+   apc_delete('_usernames');
+  }
   return $newUser;
  }
  /**
@@ -1132,6 +1135,9 @@ abstract class EfrontUser
       'short_description' => $this -> user['short_description'],
       'autologin' => $this -> user['autologin']);
   eF_updateTableData("users", $fields, "login='".$this -> user['login']."'");
+  if (function_exists('apc_delete')) {
+   apc_delete('_usernames');
+  }
   return true;
  }
  /**

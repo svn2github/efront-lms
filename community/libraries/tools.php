@@ -307,20 +307,27 @@ function formatLogin($login, $fields = array(), $duplicate = true) {
     } else {
      if (!isset($GLOBALS['_usernames'])) {
       $GLOBALS['_usernames'] = array();
-      $result = eF_getTableDataFlat("users", "login, name, surname, user_type");
-   foreach ($result['login'] as $key => $value) {
-       $replacements = array($result['surname'][$key], $result['name'][$key], $value, mb_substr($result['name'][$key], 0, 1), $roles[$result['user_type'][$key]]);
-       $format = trim(str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']));
-       $GLOBALS['_usernames'][$value] = $format;
-   }
-   if ($GLOBALS['configuration']['username_format_resolve'] && $duplicate) {
-    $common = array_diff_assoc($GLOBALS['_usernames'], array_unique($GLOBALS['_usernames']));
-    foreach ($common as $key => $value) {
-     $originalKey = array_search($value, $GLOBALS['_usernames']);
-     $GLOBALS['_usernames'][$originalKey] = $value.' ('.$originalKey.')';
-     $GLOBALS['_usernames'][$key] = $value.' ('.$key.')';
-    }
-   }
+      if (function_exists('apc_fetch') && $usernames = apc_fetch('_usernames')) {
+       $GLOBALS['_usernames'] = $usernames;
+      } else {
+       $result = eF_getTableDataFlat("users", "login, name, surname, user_type");
+       foreach ($result['login'] as $key => $value) {
+        $replacements = array($result['surname'][$key], $result['name'][$key], $value, mb_substr($result['name'][$key], 0, 1), $roles[$result['user_type'][$key]]);
+        $format = trim(str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']));
+        $GLOBALS['_usernames'][$value] = $format;
+       }
+       if ($GLOBALS['configuration']['username_format_resolve'] && $duplicate) {
+        $common = array_diff_assoc($GLOBALS['_usernames'], array_unique($GLOBALS['_usernames']));
+        foreach ($common as $key => $value) {
+         $originalKey = array_search($value, $GLOBALS['_usernames']);
+         $GLOBALS['_usernames'][$originalKey] = $value.' ('.$originalKey.')';
+         $GLOBALS['_usernames'][$key] = $value.' ('.$key.')';
+        }
+       }
+       if (function_exists('apc_store')) {
+        apc_store('_usernames', $GLOBALS['_usernames']);
+       }
+      }
      }
      return $GLOBALS['_usernames'][$login];
     }

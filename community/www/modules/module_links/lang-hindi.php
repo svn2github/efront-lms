@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","ΰ¤•ΰ¤΅ΰ¤Όΰ¤Ώΰ¤―ΰ¤Ύΰ¤");//Links
+define("_LINKS_LINKS","ΰ¤•ΰ¤΅ΰ¤Όΰ¤Ώΰ¤―ΰ¤Ύΰ¤");//Links
 define("_LINKS_LESSONLINK","ΰ¤•ΰ¤΅ΰ¤Όΰ¤Ώΰ¤―ΰ¤Ύΰ¤");//Links
 define("_LINKS_MODULE","ΰ¤•ΰ¤΅ΰ¤Όΰ¤Ώΰ¤―ΰ¤Ύΰ¤ ΰ¤®ΰ¥‰ΰ¤΅ΰ¥ΰ¤―ΰ¥‚ΰ¤²");//Links Module
 define("_LINKS_MAIN","ΰ¤®ΰ¥ΰ¤–ΰ¥ΰ¤― ΰ¤ΰ¥ƒΰ¤·ΰ¥ΰ¤ ");//Main page

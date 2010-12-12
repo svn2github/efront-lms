@@ -138,6 +138,8 @@ class EfrontModuleException extends Exception
 
  * - getLandingPageSmartyTpl()
 
+ * - getTabSmartyTpl($tabberId)
+
  * - getModuleJS()
 
  * - getModuleCSS()
@@ -174,9 +176,9 @@ class EfrontModuleException extends Exception
 
  * - onCompleteLesson($lessonId, $login)
 
- * - onNewPageLoad() {
+ * - onNewPageLoad()
 
- *
+ * - onSetTheme($theme)
 
  */
 abstract class EfrontModule
@@ -291,6 +293,12 @@ abstract class EfrontModule
     public function getCurrentUser() {
         global $currentUser;
         return $currentUser;
+    }
+ public function getCurrentCourse() {
+  if (isset($_SESSION['s_courses_ID'])) {
+         $currentCourse = new EfrontCourse($_SESSION['s_courses_ID']);
+         return $currentCourse;
+  }
     }
     public function getCurrentLesson() {
         global $currentLesson;
@@ -609,6 +617,36 @@ abstract class EfrontModule
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
         return false;
     }
+    /**
+
+     * This should return an array with tab information. For example:
+
+     * <code>
+
+     *  public function getTabSmartyTpl($tabberIdentifier) {
+
+     *		$smarty = $this -> getSmartyVar();
+
+     *		if ($tabberIdentifier == 'branches') {
+
+     *			$smarty -> assign("T_USERS", eF_getTableData("users", "login"));
+
+     *		}
+
+     *		return array('tab' => 'rss_branch', 'title' => 'RSS Branch', 'file' => $this -> moduleBaseDir."module_rss_branch_tab.tpl");
+
+     *  }
+
+     *</code>
+
+     *
+
+     * @param $tabberIdentifier A string with the unique identifier of the tab set
+
+     */
+    public function getTabSmartyTpl($tabberIdentifier) {
+        return false;
+    }
     // Get module javascript code
     public function getModuleJS() {
         return false;
@@ -855,6 +893,38 @@ abstract class EfrontModule
     public function onDeleteLesson($lessonId) {
         return false;
     }
+    // Code to execute when a course with id = $courseId is deleted
+    public function onDeleteCourse($courseId) {
+        return false;
+    }
+    // Code to execute when a course certificate is revoked
+    public function onRevokeCourseCertificate($login, $courseId) {
+        return false;
+    }
+    // Code to execute when a course certificate is issued
+    public function onIssueCourseCertificate($login, $courseId, $certificateArray) {
+     return false;
+    }
+    // Code to execute when a course certificate is prepared
+    public function onPrepareCourseCertificate($login, $courseId, $certificateData) {
+     return false;
+    }
+    // Code to execute when exporting a course
+    public function onExportCourse($courseId) {
+     return false;
+    }
+    // Code to execute when importing a course
+    public function onImportCourse($courseId, $data) {
+     return false;
+    }
+ // Code to execute when a course is created
+    public function onNewCourse($courseId) {
+        return false;
+    }
+ // Code to execute when a course is completed
+    public function onCompleteCourse($courseId, $login) {
+        return false;
+    }
     // Code to execute when a lesson with id = $lessonId is exported. This
     // function should return an array with all information (like DB values)
     // that need to be stored into the exported lesson file
@@ -907,5 +977,26 @@ abstract class EfrontModule
     // For system events - every time a new page is loaded
     public function onNewPageLoad() {
         return false;
+    }
+    /**
+
+     * This function is called when the system theme is set. If you are trying to change
+
+     * the current theme, remember to unset the $_SESSION['s_theme'] variable
+
+     *
+
+     * @param $theme The current system theme that was just set
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
+    public function onSetTheme($theme) {
+     return false;
+    }
+    public function onDeleteTheme($theme) {
+     return false;
     }
 }

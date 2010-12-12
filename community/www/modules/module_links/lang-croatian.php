@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","Linkovi");//Links
+define("_LINKS_LINKS","Linkovi");//Links
 define("_LINKS_LESSONLINK","Linkovi");//Links
 define("_LINKS_MODULE","Linkovi Modul");//Links Module
 define("_LINKS_MAIN","Glavna stranica");//Main page

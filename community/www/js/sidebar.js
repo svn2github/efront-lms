@@ -210,8 +210,12 @@ function getPeriodicData() {
      var time = translations['userjustloggedin'];
     }
 
-    str += '<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\'\', 0, \'user_table\');';
-    str += 'show_user_box(\'' + translations['user'] + ' '+s.login+'\', \''+s.login+'\', \'' + translations['sendmessage'] + '\', \'' + translations['web'] + '\', \''+s.user_type+'\', \''+time+'\', \''+translations['user_stats']+'\',\''+translations['user_settings']+'\',\''+translations['logout_user']+'\');">';
+    //str += '<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\'\', 0, \'user_table\');';
+    //str += 'show_user_box(\'' + translations['user'] + ' '+s.login+'\', \''+s.login+'\', \'' + translations['sendmessage'] + '\', \'' + translations['web'] + '\', \''+s.user_type+'\', \''+time+'\', \''+translations['user_stats']+'\',\''+translations['user_settings']+'\',\''+translations['logout_user']+'\');">';
+    //Changed because of this http://forum.efrontlearning.net/viewtopic.php?f=1&p=13756#p13756
+    str += "<a href = 'javascript:void(0)' onclick = 'eF_js_showDivPopup(\"\", 0, \"user_table\");";
+    str += "show_user_box(\"" + translations["user"] + " "+s.login+"\", \""+s.login+"\", \"" + translations["sendmessage"] + "\", \"" + translations["web"] + "\", \""+s.user_type+"\", \""+time+"\", \""+translations["user_stats"]+"\",\""+translations["user_settings"]+"\",\""+translations["logout_user"]+"\");'>";
+
     if (s.user_type == 'administrator') {
      str += '<span style = "color:magenta">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
     } else if (s.user_type == 'professor') {

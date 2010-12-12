@@ -311,3 +311,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
 
     $smarty -> assign('T_COMPLETE_LESSON_FORM', $renderer -> toArray());
 }
+
+$moduleTabs = array();
+foreach (eF_loadAllModules(true, true) as $module) {
+ if ($moduleTab = $module -> getTabSmartyTpl('rules')) {
+  $moduleTabs[] = $moduleTab;
+ }
+}
+$smarty -> assign("T_MODULE_RULES_TABS", $moduleTabs);

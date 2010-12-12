@@ -1645,32 +1645,45 @@ function eF_getModuleMenu($modules, $menu_category) {
 * Used for checking for events to be executed
 
 */
-function eF_loadAllModules($onlyActive = false) {
+function eF_loadAllModules($onlyActive = false, $disregardUser = false) {
     if ($onlyActive) {
      $modulesDB = eF_getTableData("modules","*","active=1");
     } else {
      $modulesDB = eF_getTableData("modules","*","");
     }
     $modules = array();
-    global $currentUser;
-    if ($currentUser) {
-    // Get all modules enabled
+    if (!$disregardUser) {
+     global $currentUser;
+     if ($currentUser) {
+      // Get all modules enabled
+      foreach ($modulesDB as $module) {
+       $folder = $module['position'];
+       $className = $module['className'];
+       // If a module is to be updated then its class should not be loaded now
+       if (!($currentUser -> getType() == "administrator" && $_GET['ctg'] == "control_panel" && $_GET['op'] == "modules" && $_GET['upgrade'] == $className)) {
+        if(is_file(G_MODULESPATH.$folder."/".$className.".class.php")) {
+         require_once G_MODULESPATH.$folder."/".$className.".class.php";
+         if (class_exists($className)) {
+          $modules[$className] = new $className("", $folder);
+         } else {
+          $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
+          $message_type = 'failure';
+         }
+        } else {
+         $message = _ERRORLOADINGMODULE;
+         $message_type = "failure";
+        }
+       }
+      }
+     }
+    } else {
      foreach ($modulesDB as $module) {
       $folder = $module['position'];
       $className = $module['className'];
-      // If a module is to be updated then its class should not be loaded now
-      if (!($currentUser -> getType() == "administrator" && $_GET['ctg'] == "control_panel" && $_GET['op'] == "modules" && $_GET['upgrade'] == $className)) {
-       if(is_file(G_MODULESPATH.$folder."/".$className.".class.php")) {
-        require_once G_MODULESPATH.$folder."/".$className.".class.php";
-        if (class_exists($className)) {
-         $modules[$className] = new $className("", $folder);
-        } else {
-         $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
-         $message_type = 'failure';
-        }
-       } else {
-        $message = _ERRORLOADINGMODULE;
-        $message_type = "failure";
+      if (is_file(G_MODULESPATH.$folder."/".$className.".class.php")) {
+       require_once G_MODULESPATH.$folder."/".$className.".class.php";
+       if (class_exists($className)) {
+        $modules[$className] = new $className("", $folder);
        }
       }
      }

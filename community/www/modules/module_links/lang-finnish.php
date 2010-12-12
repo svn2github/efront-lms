@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","Linkit");//Links
+define("_LINKS_LINKS","Linkit");//Links
 define("_LINKS_LESSONLINK","Linkit");//Links
 define("_LINKS_MODULE","Linkit-moduuli");//Links Module
 define("_LINKS_MAIN","PRH");//Main page

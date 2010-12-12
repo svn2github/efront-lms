@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","Σύνδεσμοι");
+define("_LINKS_LINKS","Σύνδεσμοι");
 define("_LINKS_LESSONLINK", "Σύνδεσμοι");
 define("_LINKS_MODULE", "Άρθρωμα Σύνδεσμοι");
 define("_LINKS_MAIN","Κύρια σελίδα");

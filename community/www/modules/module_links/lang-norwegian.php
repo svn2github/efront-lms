@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","Linker");//Links
+define("_LINKS_LINKS","Linker");//Links
 define("_LINKS_LESSONLINK","Linker");//Links
 define("_LINKS_MODULE","Lenker Modul");//Links Module
 define("_LINKS_MAIN","Hovedside");//Main page

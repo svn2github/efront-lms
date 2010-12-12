@@ -352,6 +352,7 @@ try {
 
     if (isset($_GET['set_browser']) && in_array($_GET['set_browser'], $legalValues) && isset($_GET['browser']) && in_array($_GET['browser'], array_keys(themes :: $browsers))) {
         try {
+         unset($_SESSION['s_theme']);
             $theme = new themes($_GET['set_browser']);
             foreach ($themes as $key => $value) {
                 $value = new themes($value['id']);
@@ -377,6 +378,7 @@ try {
     }
     if (isset($_GET['set_theme']) && in_array($_GET['set_theme'], $legalValues)) {
         try {
+         unset($_SESSION['s_theme']);
             $cacheTree = new FileSystemTree(G_THEMECACHE, true);
             foreach (new EfrontDirectoryOnlyFilterIterator($cacheTree -> tree) as $value) {
                 $value -> delete();

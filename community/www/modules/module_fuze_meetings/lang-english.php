@@ -23,6 +23,7 @@ define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Could not fetch user data curr
 
 
 // PROFESSOR INTERFACE STUFF
+define("_FUZE_PROF_LOGIN","Login on FUZE");
 define("_FUZE_PROF_ACCOUNT_CREATE","Create a FUZE account now!");
 define("_FUZE_PROF_ACCOUNT_BULLET_1","Use your FUZE meetings account to schedule online meetings, share your screen or make a presentation.");
 define("_FUZE_PROF_ACCOUNT_BULLET_2","Your account will automatically be mapped with your new FUZE meetings account. You are just one click away!");
@@ -133,6 +134,7 @@ define("_MOD_FUZE_AUTHENTICATION_TIMESTAMP_ERROR", "Request authentication error
 define("_FUZE_PROF_CREATE_USER_ERROR", "This account cannot be created currently.");
 define("_FUZE_ADMIN_CREATE_USER_ERROR", "This account cannot be created currently.");
 define("_FUZE_PROF_SCHEDULE_ERROR", "This meeting cannot be arranged currently.");
+define("_FUZE_ALL_UPGRADE_ERROR", "Cannot login to this account currently.");
 define("_FUZE_PROF_HOST_ERROR", "This meeting cannot be arranged currently.");
 define("_FUZE_PROF_LAUNCH_ERROR", "This meeting cannot be launched currently.");
 define("_FUZE_PROF_ERROR_REMOVE_AUTHORISATION", "You are not permitted to remove this meeting.");

@@ -173,20 +173,26 @@
        onSuccess: function(response) {
         var response = response.responseText.evalJSON();
         if (response.success) {
-         _mod_fm_prof_mask_off(); // Mask off
+         _mod_fm_prof_mask_off();
          window.location = 'professor.php?ctg=control_panel';
          return false;
         }
         else {
-         alert(response.error_msg);
-         _mod_fm_prof_mask_off(); // Mask off
+         if (response.url) {
+          var _mod_fm_user_login_url = response.url;
+          popupFullScreenScroll(_mod_fm_user_login_url);
+         }
+         else {
+          alert(response.error_msg);
+         }
+         _mod_fm_prof_mask_off();
         }
        }
       });
      }
      else {
       alert('{/literal}{$smarty.const._FUZE_PROF_SCHEDULE_DATE_TIME_ERROR}{literal}');
-      _mod_fm_prof_mask_off(); // Mask off
+      _mod_fm_prof_mask_off();
      }
     }
    });
@@ -276,20 +282,12 @@
    if (_mod_fm_schedule_is_selected(unselected_checkboxes[i])) { _mod_fm_schedule_unselect_student(unselected_checkboxes[i]); }
   }
  }
- function _mod_fm_schedule() {
-  var meeting_name = $('_mod_fm_prof_schedule_form_meeting_name').getValue();
-  var meeting_lesson = $('_mod_fm_schedule_lesson_list').getValue();
-  var student_list = _mod_fm_student_list_selected;
-  var meeting_year = $('starttime_Year').getValue();
-  var meeting_month = $('starttime_Month').getValue();
-  var meeting_day = $('starttime_Day').getValue();
-  var meeting_hour = $('starttime_Hour').getValue();
-  var meeting_minute = $('starttime_Minute').getValue();
-  console.log('Selected lesson: '+meeting_lesson);
-  console.log('Selected students: '+student_list);
-  console.log('Meeting name: '+meeting_name);
-  console.log('Meeting date: '+meeting_year+'-'+meeting_month+'-'+meeting_day+' '+meeting_hour+':'+meeting_minute+':00');
+ function popupFullScreenScroll(url) {
+  var top = 0;
+  var left = 0;
+  w = screen.width;
+  h = screen.height;
+  var target = window.open(url, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
  }
-
 {/literal}
 </script>

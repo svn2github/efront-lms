@@ -30,7 +30,7 @@ function requestVideo(id) {
    <param name="movie" value="http://www.youtube.com/v/{$T_VIDEOLINK}"></param>
    <param name="allowFullScreen" value="true"></param>
    <param name="allowscriptaccess" value="always"></param>
-   <embed src="http://www.youtube.com/v/{$T_VIDEOLINK}" type="application/x-shockwave-flash" allowfullscreen="true" width="400" height="323"></embed>
+   <embed src="http://www.youtube.com/v/{$T_VIDEOLINK}" type="application/x-shockwave-flash" allowfullscreen="true" wmode="opaque" width="400" height="323"></embed>
   </object>
  </td>
 </tr>

@@ -23,6 +23,7 @@ define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Δεν ήταν δυνατή �
 
 
 // PROFESSOR INTERFACE STUFF
+define("_FUZE_PROF_LOGIN","Συνδεθείτε στο FUZE");
 define("_FUZE_PROF_ACCOUNT_CREATE","Ανοίξτε το δικό σας FUZE λογαριασμό τώρα!");
 define("_FUZE_PROF_ACCOUNT_BULLET_1","Χρησιμοποιήστε το FUZE λογαριασμό σας για να προγραμματίσετε συναντήσεις, να μοιραστείτε την οθόνη σας ή να κάνετε μια παρουσίαση.");
 define("_FUZE_PROF_ACCOUNT_BULLET_2","Ο λογαριασμός σας θα συσχετισθεί αυτομάτως με το νέο σας λογαρισμό FUZE.");
@@ -127,6 +128,7 @@ define("_MOD_FUZE_AUTHENTICATION_TIMESTAMP_ERROR", "Σφάλμα πιστοπο�
 // OTHER ERRORS
 define("_FUZE_PROF_CREATE_USER_ERROR", "Δεν είναι δυνατόν να δημιουργηθεί αυτός ο λογαριασμός αυτή τη στιγμή.");
 define("_FUZE_ADMIN_CREATE_USER_ERROR", "Δεν είναι δυνατόν να δημιουργηθεί αυτός ο λογαριασμός αυτή τη στιγμή.");
+define("_FUZE_ALL_UPGRADE_ERROR", "Δεν είναι δυνατή η σύνδεση σε αυτόν τον λογαριασμό αυτή τη στιγμή.");
 define("_FUZE_PROF_SCHEDULE_ERROR", "Δεν είναι δυνατόν να δημιουργηθεί αυτή η συνάντηση αυτή τη στιγμή.");
 define("_FUZE_PROF_HOST_ERROR", "Δεν είναι δυνατόν να δημιουργηθεί αυτή η συνάντηση αυτή τη στιγμή.");
 define("_FUZE_PROF_LAUNCH_ERROR", "Δεν είναι δυνατόν να γίνει εκκίνηση αυτής της συνάντησης αυτή τη στιγμή.");

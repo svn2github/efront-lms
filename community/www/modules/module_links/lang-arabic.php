@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","صلات");//Links
+define("_LINKS_LINKS","صلات");//Links
 define("_LINKS_LESSONLINK","صلات");//Links
 define("_LINKS_MODULE","روابط الوحدة");//Links Module
 define("_LINKS_MAIN","الصفحة الرئيسية");//Main page

@@ -25,8 +25,8 @@ class Request_Adapter_Curl extends Request_Adapter_Abstract {
    if ($this->_request_token) {
     $options ['params'] = $this->_prepareParams($this->_params);
     $options ['user_agent'] = $this->_user_agent;
-    if ($this->_request_type == Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_TYPE_ACCOUNT_CANCEL) {
-     $options ['url'] = Request_Adapter_Abstract::REQUEST_ADAPTER_URL_ACCOUNT_CANCEL;
+    if ($this->_request_type == Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_TYPE_USER_LOGIN) {
+     $options ['url'] = Request_Adapter_Abstract::REQUEST_ADAPTER_URL_USER_LOGIN;
     }
     elseif ($this->_request_type == Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE) {
      $options ['url'] = Request_Adapter_Abstract::REQUEST_ADAPTER_URL_USER_CREATE;

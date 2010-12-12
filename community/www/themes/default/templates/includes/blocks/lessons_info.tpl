@@ -7,11 +7,11 @@
           {if $T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}</div>{/if}
           {if $T_ADDITIONAL_LESSON_INFO.professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO.professors_string}</div>{/if}
           {if $T_ADDITIONAL_LESSON_INFO.content || $T_ADDITIONAL_LESSON_INFO.tests || $T_ADDITIONAL_LESSON_INFO.projects}
-           <div class = "lessonInfo">
+           {strip}<div class = "lessonInfo">
      {if $T_ADDITIONAL_LESSON_INFO.content}<span class = "infoTitle">{$smarty.const._UNITS}:</span> {$T_ADDITIONAL_LESSON_INFO.content}{/if}
      {if $T_ADDITIONAL_LESSON_INFO.tests}{if $T_ADDITIONAL_LESSON_INFO.content},{/if} <span class = "infoTitle">{$smarty.const._TESTS}:</span> {$T_ADDITIONAL_LESSON_INFO.tests}{/if}
      {if $T_ADDITIONAL_LESSON_INFO.projects}{if $T_ADDITIONAL_LESSON_INFO.content || $T_ADDITIONAL_LESSON_INFO.tests},{/if} <span class = "infoTitle">{$smarty.const._PROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO.projects}{/if}
-     </div>
+     {/strip}</div>
     {/if}
          {if $T_CONTENT_TREE}
           <fieldset class = "fieldsetSeparator">
@@ -139,11 +139,15 @@
             <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_LESSON_INFO[$id]->metadataAttributes.$key}:</span> {$item}</div>
            {/foreach}
             {assign var = "language" value = $T_ADDITIONAL_LESSON_INFO[$id].language}
-            <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$language]}</div>
+            {if $language}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$language]}</div>{/if}
             {if $T_ADDITIONAL_LESSON_INFO[$id].professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].professors_string}</div>{/if}
-            <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALUNITS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].content}</div>
-            {if $T_ADDITIONAL_LESSON_INFO[$id].tests}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALTESTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].tests}</div>{/if}
-            {if $T_ADDITIONAL_LESSON_INFO[$id].projects}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._TOTALPROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].projects}</div>{/if}
+            {if $T_ADDITIONAL_LESSON_INFO[$id].content || $T_ADDITIONAL_LESSON_INFO[$id].tests || $T_ADDITIONAL_LESSON_INFO[$id].projects}
+             {strip}<div class = "lessonInfo">
+       {if $T_ADDITIONAL_LESSON_INFO[$id].content}<span class = "infoTitle">{$smarty.const._UNITS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].content}{/if}
+       {if $T_ADDITIONAL_LESSON_INFO[$id].tests}{if $T_ADDITIONAL_LESSON_INFO[$id].content},{/if} <span class = "infoTitle">{$smarty.const._TESTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].tests}{/if}
+       {if $T_ADDITIONAL_LESSON_INFO[$id].projects}{if $T_ADDITIONAL_LESSON_INFO[$id].content || $T_ADDITIONAL_LESSON_INFO[$id].tests},{/if} <span class = "infoTitle">{$smarty.const._PROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].projects}{/if}
+       {/strip}</div>
+      {/if}
            {if $T_CONTENT_TREE[$id]}
             <fieldset class = "fieldsetSeparator">
                 <legend>{$smarty.const._LESSONCONTENT}</legend>

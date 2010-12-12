@@ -151,9 +151,15 @@ class FUZE_MeetingDAO extends FUZE_AbstractDAO {
      catch (Exception $e) {
       $response = $e->getMessage();
      }
-     if (is_array($response) && isset($response ['launch_now_url'])) {
-      $function_response ['success'] = true;
-      $function_response ['url'] = $response ['launch_now_url'];
+     if (is_array($response)) {
+      if (isset($response ['launch_now_url'])) {
+       $function_response ['success'] = true;
+       $function_response ['url'] = $response ['launch_now_url'];
+      }
+      elseif (isset($response ['upgrade_url'])) {
+       $function_response ['success'] = false;
+       $function_response ['url'] = $response ['upgrade_url'];
+      }
      }
      else {
       $msg = constant($response);

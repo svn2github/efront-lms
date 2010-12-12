@@ -47,6 +47,7 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_REQUEST_PARAMS_TOLLFREE_DEFAULT = true;
  const REQUEST_ADAPTER_REQUEST_PARAMS_INTERNATIONALDIAL = 'includeinternationaldial';
  const REQUEST_ADAPTER_REQUEST_PARAMS_INTERNATIONALDIAL_DEFAULT = true;
+ const REQUEST_ADAPTER_REQUEST_PARAMS_CREATOR = 'creator';
 
  // Edo orizontai ta URL's pou xrisimopoiountai gia ta requests analoga me
  // ton typo tou request.
@@ -58,8 +59,9 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_URL_MEETING_STATUS = 'http://fuze.efront.actonbit.gr/api/meeting_status/';
  const REQUEST_ADAPTER_URL_MEETING_UPDATE = 'http://fuze.efront.actonbit.gr/api/meeting_update/';
  const REQUEST_ADAPTER_URL_ACCOUNT_CANCEL = 'http://fuze.efront.actonbit.gr/api/account_cancel/';
- const REQUEST_ADAPTER_URL_USER_CREATE = 'http://fuze.efront.actonbit.gr/api/user_create/';
  const REQUEST_ADAPTER_URL_USER_CANCEL = 'http://fuze.efront.actonbit.gr/api/user_cancel/';
+ const REQUEST_ADAPTER_URL_USER_CREATE = 'http://fuze.efront.actonbit.gr/api/user_create/';
+ const REQUEST_ADAPTER_URL_USER_LOGIN = 'http://fuze.efront.actonbit.gr/api/user_login/';
 
  // Edo orizontai oi tupoi ton diathesimon methods. Ta URL's gia to 
  // kathena apo ta methods orizetai parapano.
@@ -71,8 +73,9 @@ abstract class Request_Adapter_Abstract {
  const REQUEST_ADAPTER_REQUEST_TYPE_MEETING_STATUS = '_request_adapter_request_type_meeting_status';
  const REQUEST_ADAPTER_REQUEST_TYPE_MEETING_UPDATE = '_request_adapter_request_type_meeting_update';
  const REQUEST_ADAPTER_REQUEST_TYPE_ACCOUNT_CANCEL = '_request_adapter_request_type_account_cancel';
- const REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE = '_request_adapter_request_type_user_create';
  const REQUEST_ADAPTER_REQUEST_TYPE_USER_CANCEL = '_request_adapter_request_type_user_cancel';
+ const REQUEST_ADAPTER_REQUEST_TYPE_USER_CREATE = '_request_adapter_request_type_user_create';
+ const REQUEST_ADAPTER_REQUEST_TYPE_USER_LOGIN = '_request_adapter_request_type_user_login';
 
  // Edo orizontai oi statheres pou xrisimopoiountai sta options pou pername ston constructor
  // gia na perasoume tis times gia credentials kai parameters analoga me to request type.
@@ -232,12 +235,14 @@ abstract class Request_Adapter_Abstract {
     if (isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_FIRSTNAME]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_FIRSTNAME]) &&
      isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_LASTNAME]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_LASTNAME]) &&
      isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL]) &&
-     isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD])
+     isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD]) &&
+     isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_CREATOR]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_CREATOR])
      ) {
       $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_FIRSTNAME] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_FIRSTNAME];
       $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_LASTNAME] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_LASTNAME];
       $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL];
       $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD];
+      $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_CREATOR] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_CREATOR];
     }
     else {
      throw new Exception("Wrong parameters found during request adapter initialisation.");
@@ -256,10 +261,14 @@ abstract class Request_Adapter_Abstract {
      throw new Exception("Wrong parameters found during request adapter initialisation.");
     }
    }
-   elseif ($options[self::REQUEST_ADAPTER_REQUEST_TYPE] == self::REQUEST_ADAPTER_REQUEST_TYPE_ACCOUNT_CANCEL) {
-    $this->_request_type = self::REQUEST_ADAPTER_REQUEST_TYPE_ACCOUNT_CANCEL;
+   elseif ($options[self::REQUEST_ADAPTER_REQUEST_TYPE] == self::REQUEST_ADAPTER_REQUEST_TYPE_USER_LOGIN) {
+    $this->_request_type = self::REQUEST_ADAPTER_REQUEST_TYPE_USER_LOGIN;
     $params = $options[Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS];
-    if (true) {
+    if (isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL]) && !empty($params[Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL]) &&
+     isset($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD]) && !empty($params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD])
+     ) {
+      $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_EMAIL];
+      $this->_params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD] = $params [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS_PASSWORD];
     }
     else {
      throw new Exception("Wrong parameters found during request adapter initialisation.");

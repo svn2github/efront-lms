@@ -212,8 +212,10 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
             $showContent = '';
         }
     }
-    //This is hidden (css) unless it's inside a sortable ul
- $handleString .= '<img class = "blockMoveHandle" src = "images/16x16/attachment.png" alt = "'._MOVEBLOCK.'" title = "'._MOVEBLOCK.'" onmousedown = "createSortable(\'firstlist\');createSortable(\'secondlist\');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)">';
+    if ($GLOBALS['configuration']['disable_move_blocks'] != 1) {
+     //This is hidden (css) unless it's inside a sortable ul
+  $handleString .= '<img class = "blockMoveHandle" src = "images/16x16/attachment.png" alt = "'._MOVEBLOCK.'" title = "'._MOVEBLOCK.'" onmousedown = "createSortable(\'firstlist\');createSortable(\'secondlist\');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)">';
+    }
     $str = '
     <div class = "block" style = "'.$params['style'].';" id = "'.urlencode($params['title']).'" >
         <div class = "blockContents" >

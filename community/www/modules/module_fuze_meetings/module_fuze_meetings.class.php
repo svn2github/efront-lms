@@ -361,6 +361,10 @@ class module_fuze_meetings extends EfrontModule {
      $response = $this->_admin_user_show($id);
      die(json_encode($response));
     }
+    elseif ($controller_action == 'user_login') {
+     $response = $this->_admin_user_login($id);
+     die(json_encode($response));
+    }
    }
   }
   // Functionality available to administrators ends here ////
@@ -379,6 +383,10 @@ class module_fuze_meetings extends EfrontModule {
    if ($controller_action == 'user_create') {
     $id = $_GET['local_id'];
     $response = $this->_prof_user_create($id);
+    die(json_encode($response));
+   }
+   elseif ($controller_action == 'user_login') {
+    $response = $this->_prof_user_login();
     die(json_encode($response));
    }
    elseif ($controller_action == 'meeting_schedule_prep') {
@@ -497,6 +505,7 @@ class module_fuze_meetings extends EfrontModule {
     $args ['lastname'] = $system_user->getLastName();
     $args ['password'] = md5(uniqid('user',time()));
     $args ['sys_id'] = $id;
+    $args ['creator'] = 'administrator';
 
     $function_response = $this->_f_user_manager->addUser($args);
     if ($function_response ['success']) {
@@ -630,6 +639,31 @@ class module_fuze_meetings extends EfrontModule {
   return $response;
  }
 
+ protected function _admin_user_login($id) {
+  $fuze_user = false;
+  if ($id) {
+   try {
+    $fuze_user = $this->_f_user_manager->getUserBySysId($id);
+   }
+   catch (Exception $e) { /* DO NOTHING */ }
+  }
+  $response = array('success' => false);
+  if ($fuze_user) {
+   $function_response = $fuze_user->getUpgradeUrl();
+   if ($function_response ['success']) {
+    $response ['success'] = true;
+    $response ['url'] = $function_response ['url'];
+   }
+   else {
+    if ($function_response ['error_msg']) {
+     $response ['error_msg'] = $function_response ['error_msg'];
+    }
+   }
+  }
+
+  return $response;
+ }
+
  ///////////////////////////////////////////////////////////////////////////
  // PROFESSOR PROCEDURES BELOW
  ///////////////////////////////////////////////////////////////////////////
@@ -693,6 +727,8 @@ class module_fuze_meetings extends EfrontModule {
     $args ['lastname'] = $system_user->getLastName();
     $args ['password'] = md5(uniqid('user',time()));
     $args ['sys_id'] = $id;
+    $args ['creator'] = 'professor';
+
     $function_response = $this->_f_user_manager->addUser($args);
     if ($function_response ['success']) {
      $fuze_user = $function_response ['user_item'];
@@ -715,6 +751,31 @@ class module_fuze_meetings extends EfrontModule {
   // No facility in place for reinstating suspended accounts
   // for users of type 'professor'
   ///////////////////////////////////////////////////////////
+
+  return $response;
+ }
+
+ protected function _prof_user_login() {
+  $fuze_user = false;
+  if ($this->_current_user_id) {
+   try {
+    $fuze_user = $this->_f_user_manager->getUserBySysId($this->_current_user_id);
+   }
+   catch (Exception $e) { /* DO NOTHING */ }
+  }
+  $response = array('success' => false);
+  if ($fuze_user && !$fuze_user->isSuspended()) {
+   $function_response = $fuze_user->getUpgradeUrl();
+   if ($function_response ['success']) {
+    $response ['success'] = true;
+    $response ['url'] = $function_response ['url'];
+   }
+   else {
+    if ($function_response ['error_msg']) {
+     $response ['error_msg'] = $function_response ['error_msg'];
+    }
+   }
+  }
 
   return $response;
  }
@@ -771,6 +832,9 @@ class module_fuze_meetings extends EfrontModule {
     else {
      $response ['error_msg'] = _FUZE_PROF_SCHEDULE_ERROR;
     }
+   }
+   elseif (isset($function_response ['url']) && !empty($function_response ['url'])) {
+    $response ['url'] = $function_response ['url'];
    }
    else {
     $response ['error_msg'] = $function_response ['error_msg'];
@@ -932,9 +996,9 @@ class module_fuze_meetings extends EfrontModule {
       $response ['error_msg'] = $e->getMessage();
      }
     }
-    else {
-     $response ['error_msg'] = _FUZE_PROF_HOST_ERROR;
-    }
+   }
+   elseif (isset($function_response ['url']) && !empty($function_response ['url'])) {
+    $response ['url'] = $function_response ['url'];
    }
    else {
     $response ['error_msg'] = $function_response ['error_msg'];
@@ -973,6 +1037,9 @@ class module_fuze_meetings extends EfrontModule {
       else {
        $response ['error_msg'] = _FUZE_PROF_LAUNCH_ERROR;
       }
+     }
+     elseif (isset($function_response ['url']) && !empty($function_response ['url'])) {
+      $response ['url'] = $function_response ['url'];
      }
      else {
       $response ['error_msg'] = $function_response ['error_msg'];
@@ -1619,6 +1686,7 @@ class module_fuze_meetings extends EfrontModule {
   $sql .= '`login_url` VARCHAR(255) NOT NULL,';
   $sql .= '`fuze_email` VARCHAR(255) NOT NULL,';
   $sql .= '`date_added` INT(11) UNSIGNED NOT NULL,';
+  $sql .= '`creator` ENUM (\'administrator\',\'professor\') NOT NULL,';
   $sql .= '`suspended` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,';
   $sql .= 'PRIMARY KEY (`id`)';
   $sql .= ')Engine=InnoDB charset=utf8;';

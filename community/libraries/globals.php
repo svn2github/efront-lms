@@ -247,7 +247,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 9152;
+    $build = 9242;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -320,7 +320,37 @@ function setupThemes() {
     /** The default theme url*/
     define("G_DEFAULTTHEMEURL", "themes/default/");
     try {
-        $currentTheme = new themes($GLOBALS['configuration']['theme']);
+     if (isset($_GET['preview_theme'])) {
+      try {
+       $currentTheme = new themes($_GET['preview_theme']);
+      } catch (Exception $e) {}
+     } elseif (isset($_SESSION['s_theme'])) {
+      $currentTheme = new themes($_SESSION['s_theme']);
+     } else {
+      $currentTheme = new themes($GLOBALS['configuration']['theme']);
+      $allThemes = themes :: getAll();
+      $browser = detectBrowser();
+      foreach ($allThemes as $value) {
+       if (isset($value['options']['browsers'][$browser])) {
+        try {
+         $browserTheme = new themes($value['id']);
+         $currentTheme = $browserTheme;
+        } catch (Exception $e) {}
+       }
+      }
+      foreach (eF_loadAllModules(true, true) as $module) {
+       try {
+        if ($moduleTheme = $module -> onSetTheme($currentTheme)) {
+         if (!($moduleTheme instanceOf themes)) {
+          $currentTheme = new themes($moduleTheme);
+         } else {
+          $currentTheme = $moduleTheme;
+         }
+        }
+       } catch (Exception $e) {}
+      }
+      $_SESSION['s_theme'] = $currentTheme -> {$currentTheme -> entity}['id'];
+     }
     } catch (Exception $e) {
         try {
             $result = eF_getTableData("themes", "*", "name = 'default'");
@@ -333,22 +363,6 @@ function setupThemes() {
         }
         $currentTheme = new themes('default');
     }
-    $allThemes = themes :: getAll();
-    $browser = detectBrowser();
-    foreach ($allThemes as $value) {
-        if (isset($value['options']['browsers'][$browser])) {
-            try {
-                $browserTheme = new themes($value['id']);
-                $currentTheme = $browserTheme;
-            } catch (Exception $e) {}
-        }
-    }
-    if (isset($_GET['preview_theme'])) {
-        try {
-            $currentTheme = new themes($_GET['preview_theme']);
-        } catch (Exception $e) {}
-    }
-//pr($currentTheme);
     $currentThemeName = $currentTheme -> {$currentTheme -> entity}['name'];
     /**The current theme*/
     define("G_CURRENTTHEME", $currentThemeName);

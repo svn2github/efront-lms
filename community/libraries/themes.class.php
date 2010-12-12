@@ -1,7 +1,7 @@
 <?php
 /**
 
- * 
+ *
 
  */
 //This file cannot be called directly, only included.
@@ -10,7 +10,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -25,7 +25,7 @@ class EfrontThemesException extends Exception
 }
 /**
 
- * 
+ *
 
  * @author user
 
@@ -36,7 +36,7 @@ class themes extends EfrontEntity
 {
     /**
 
-     * 
+     *
 
      * @var unknown_type
 
@@ -44,7 +44,7 @@ class themes extends EfrontEntity
     public $options = array();
     /**
 
-     * 
+     *
 
      * @var unknown_type
 
@@ -52,7 +52,7 @@ class themes extends EfrontEntity
     public $layout = array();
     /**
 
-     * 
+     *
 
      * @var unknown_type
 
@@ -67,7 +67,7 @@ class themes extends EfrontEntity
                               'mobile' => _MOBILECLIENT);
     /**
 
-     * 
+     *
 
      * @param $param
 
@@ -87,7 +87,7 @@ class themes extends EfrontEntity
         if (strpos($this -> {$this -> entity}['path'], 'http') === 0) {
             $this -> remote = 1;
         }
-/*        
+/*
 
         //Check whether this is a remote theme
 
@@ -103,7 +103,7 @@ class themes extends EfrontEntity
 
             }
 
-        }            
+        }
 
 */
         $this -> options = unserialize($this -> {$this -> entity}['options']);
@@ -114,7 +114,7 @@ class themes extends EfrontEntity
         if (!$this -> layout) {
             $this -> layout = array();
         }
-        //Check validity of current logo 
+        //Check validity of current logo
         try {
             if (isset($this -> options['logo'])) {
                 new EfrontFile($this -> options['logo']);
@@ -175,7 +175,7 @@ class themes extends EfrontEntity
    //$pathInfo = pathinfo($themeFile['path']);
    //copy(G_DEFAULTTHEMEPATH.'css/css_global.php', $pathInfo['dirname'].'/'.$pathInfo['filename'].'/css/css_global.php');
    $themeFile -> delete();
-                $file = new EfrontFile($themeFile['directory'].'/'.str_replace('.zip', '', $themeFile['name'])."/theme.xml");
+   $file = new EfrontFile($themeFile['directory'].'/'.str_replace('.zip', '', $themeFile['name'])."/theme.xml");
         } catch (EfrontFileException $e) {
              //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
              if ($e -> getCode() != 4) {
@@ -194,7 +194,7 @@ class themes extends EfrontEntity
 
 	            $this -> options = array_merge($this -> options, $xmlValues);
 
-	            $this -> layout  = 
+	            $this -> layout  =
 
 	            $this -> persist();
 
@@ -227,10 +227,14 @@ class themes extends EfrontEntity
         $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
         $directory -> delete();
         eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);
+     $modules = eF_loadAllModules();
+  foreach($modules as $key => $module) {
+   $module -> onDeleteTheme($this -> {$this -> entity}['id']);
+  }
     }
     /**
 
-     * 
+     *
 
      * @return unknown_type
 
@@ -253,7 +257,7 @@ class themes extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @return unknown_type
 
@@ -268,7 +272,7 @@ class themes extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @param $fields
 
@@ -276,14 +280,14 @@ class themes extends EfrontEntity
 
      */
     public static function validateFields($fields) {
-        //Check validity of parameters        
+        //Check validity of parameters
         if (!isset($fields['name']) || !eF_checkParameter($fields['name'], 'alnum_general')) {
             throw new Exception(_INVALIDNAME, EfrontEntityException :: INVALID_PARAMETER);
         }
         if (!isset($fields['options'])) {
             $fields['options'] = array();
         }
-        //!isset($fields['active']) ? $fields['active'] = 1 : null;        
+        //!isset($fields['active']) ? $fields['active'] = 1 : null;
         if (!isset($fields['options']['sidebar_width']) || $fields['options']['sidebar_width'] < 50 || $fields['options']['sidebar_width'] > 500) {
             $fields['options']['sidebar_width'] = 175;
         }
@@ -324,14 +328,14 @@ class themes extends EfrontEntity
             $fields['layout']['positions']['rightList'] = array($fields['layout']['positions']['rightList']);
         }
         //$fields['layout']['positions']['layout'] = $fields['layout']['selected_layout'];
-//pr($fields);exit;        
+//pr($fields);exit;
         $fields['options'] = serialize($fields['options']);
         $fields['layout'] = serialize($fields['layout']);
         return $fields;
     }
     /**
 
-     * 
+     *
 
      * @param $fields
 
@@ -357,7 +361,7 @@ class themes extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @param $file
 
@@ -369,7 +373,7 @@ class themes extends EfrontEntity
             $file = $file['path'];
         }
         $xml = new SimpleXMLIterator(file_get_contents($file));
-        //Remove comment nodes        
+        //Remove comment nodes
         foreach (new RecursiveIteratorIterator($xml, RecursiveIteratorIterator :: SELF_FIRST) as $key => $value) {
             unset($value->comment);
         }
@@ -385,7 +389,7 @@ class themes extends EfrontEntity
     }
     /**
 
-     * 
+     *
 
      * @return unknown_type
 

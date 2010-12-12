@@ -292,16 +292,16 @@
                                 <h3>{$smarty.const._JOBDESCRIPTIONS}</h3>
                                 {eF_template_printBlock title = $smarty.const._JOBDESCRIPTIONS|cat:$smarty.const._OFBRANCH|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_jobs image = '32x32/note.png'}
                             </div>
-{*
-                            <div class="tabbertab {if ($smarty.get.tab == "lessons")} tabbertabdefault {/if}">
-                                <h3>{$smarty.const._LESSONS}</h3>
-                                {eF_template_printBlock title = $smarty.const._LESSONS|cat:$smarty.const._OFBRANCH|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_lessons image = '32x32/lesson.png'}
-                            </div>
-*}
                             <div class="tabbertab {if ($smarty.get.tab == "courses")} tabbertabdefault {/if}">
                                 <h3>{$smarty.const._COURSES}</h3>
                                 {eF_template_printBlock title = $smarty.const._COURSES|cat:$smarty.const._OFBRANCH|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_courses image = '32x32/courses.png'}
                             </div>
+          {foreach name = "module_tabs_list" item = "tab" key = "key" from=$T_MODULE_BRANCH_TABS}
+              {capture name = "module_tab"}
+                  {include file = $tab.file}
+              {/capture}
+                                {eF_template_printBlock tabber = $tab.tab title = $tab.title data = $smarty.capture.module_tab image = $tab.image}
+       {/foreach}
 
                         </div>
     {/capture}

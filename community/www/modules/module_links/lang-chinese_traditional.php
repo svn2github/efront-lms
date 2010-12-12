@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","鏈接");//Links
+define("_LINKS_LINKS","鏈接");//Links
 define("_LINKS_LESSONLINK","鏈接");//Links
 define("_LINKS_MODULE","鏈接模塊");//Links Module
 define("_LINKS_MAIN","主網頁");//Main page

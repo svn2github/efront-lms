@@ -184,7 +184,12 @@ class FUZE_Meeting extends FUZE_AbstractClass {
    }
   }
   else {
-   $response ['error_msg'] = $function_response ['error_msg'];
+   if ($function_response ['url']) {
+    $response ['url'] = $function_response ['url'];
+   }
+   else {
+    $response ['error_msg'] = $function_response ['error_msg'];
+   }
   }
 
   return $response;

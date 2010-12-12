@@ -142,6 +142,7 @@ class EfrontConfiguration
   'disable_help' => '0',
   'disable_feedback' => '0',
   'disable_payments' => '0',
+     'disable_move_blocks' => '0',
 
         //Social - Facebook settings
         'facebook_api_key' => '',

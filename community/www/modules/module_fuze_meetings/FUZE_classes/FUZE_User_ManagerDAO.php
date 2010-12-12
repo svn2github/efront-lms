@@ -47,7 +47,8 @@ class FUZE_User_ManagerDAO extends FUZE_AbstractDAO {
    isset($args ['lastname']) && !empty($args ['lastname']) &&
    isset($args ['email']) && !empty($args ['email']) &&
    isset($args ['password']) && !empty($args ['password']) &&
-   isset($args ['sys_id']) && !empty($args ['sys_id'])
+   isset($args ['sys_id']) && !empty($args ['sys_id']) &&
+   isset($args ['creator']) && !empty($args ['creator'])
    ) {
     // At this point we initiate the communication with app at proxy
     $options = array();
@@ -57,6 +58,7 @@ class FUZE_User_ManagerDAO extends FUZE_AbstractDAO {
     $options [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS]['lastname'] = $args ['lastname'];
     $options [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS]['email'] = $args ['email'];
     $options [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS]['password'] = $args ['password'];
+    $options [Request_Adapter_Abstract::REQUEST_ADAPTER_REQUEST_PARAMS]['creator'] = $args ['creator'];
 
     $handle = RequestFactory::getRequestHandle($options);
     try {
@@ -74,6 +76,7 @@ class FUZE_User_ManagerDAO extends FUZE_AbstractDAO {
      $bind ['fuze_email'] = $args ['email'];
      $bind ['sys_id'] = $args ['sys_id'];
      $bind ['date_added'] = time();
+     $bind ['creator'] = $args ['creator'];
      $table_name = '`_mod_fm_user`';
      $user_id = false;
      try {

@@ -2078,6 +2078,52 @@ class EfrontLesson
  }
  /**
 
+	 * Get the tests and the feedbacks of the lesson
+
+	 *
+
+	 * This returns the tests and the feedbacks of the lesson
+
+	 * <br/>Example:
+
+	 * <code>
+
+	 * $lesson = new EfrontLesson(12);
+
+	 * $tests = $lesson -> getTestsAndFeedbacks(true);
+
+	 * </code>
+
+	 * @param boolean returnObjects. Flag to indicate whether to return a list of objects or a list of ids
+
+	 * @param boolean $onlyActive Whether to return only active tests/feedbacks or all
+
+	 * @return array the lesson's tests/feedbacks (either an array of ids or an array of EfrontTest objects)
+
+	 * @since 3.5.0
+
+	 * @access public
+
+	 */
+ public function getTestsAndFeedbacks($returnObjects = false, $onlyActive = false) {
+  $tests = array();
+  if (!$onlyActive) {
+   $test_data = eF_getTableData("tests t, content c", "t.*", "t.lessons_ID = ".$this -> lesson['id']." and t.content_id = c.id and (c.ctg_type='tests' or c.ctg_type='feedback') and c.lessons_ID=".$this -> lesson['id']);
+  } else {
+   $test_data = eF_getTableData("tests t, content c", "t.*", "t.active = 1 and c.active = 1 and t.lessons_ID = ".$this -> lesson['id']." and t.content_id = c.id and (c.ctg_type='tests' or c.ctg_type='feedback') and c.lessons_ID=".$this -> lesson['id']);
+  }
+  foreach ($test_data as $t){
+   if (!$returnObjects){
+    $tests[] = $t['id'];
+   } else{
+    $test = new EfrontTest($t['id']);
+    $tests[$t['id']] = $test;
+   }
+  }
+  return $tests;
+ }
+ /**
+
 	 * Get the scorm tests of the lesson
 
 	 *

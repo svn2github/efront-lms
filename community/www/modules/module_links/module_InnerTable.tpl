@@ -2,8 +2,8 @@
 {capture name = 't_inner_table_code}
     <table>
         {section name = 'links_list' loop = $T_LINKS_INNERTABLE max = 5}
-            <tr><td>{$smarty.section.links_list.iteration}. 
-                <a href = "{$T_LINKS_INNERTABLE[links_list].link}">{$T_LINKS_INNERTABLE[links_list].display}</a>
+            <tr><td>{$smarty.section.links_list.iteration}.
+                <a target="_blank" href = "{$T_LINKS_INNERTABLE[links_list].link}">{$T_LINKS_INNERTABLE[links_list].display}</a>
                 </td>
             </tr>
         {sectionelse}

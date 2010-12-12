@@ -30,11 +30,11 @@
                         </td></tr>
                     </table>
         {/if}
-                    <div class = "blockHeader" style = "margin-top:10px">{$smarty.const._LINKS}</div>
+                    <div class = "blockHeader" style = "margin-top:10px">{$smarty.const._LINKS_LINKS}</div>
                     <table style = "margin-left:30px;padding:3px 3px 3px 3px;">
                     {section name = 'links_list' loop = $T_LINKS.id}
-                        <tr><td>{$smarty.section.links_list.iteration}. 
-                                <a href = "{$T_LINKS.link[links_list]}">{$T_LINKS.display[links_list]}</a>
+                        <tr><td>{$smarty.section.links_list.iteration}.
+                                <a target="_blank" href = "{$T_LINKS.link[links_list]}">{$T_LINKS.display[links_list]}</a>
                             </td>
                         {if $smarty.session.s_type != 'student'}
                             <td><a href = "{$T_LINKS_BASEURL}&edit_link={$T_LINKS.id[links_list]}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._LINKS_EDITLINK}" title = "{$smarty.const._LINKS_EDITLINK}" border = "0"/></a>
@@ -50,5 +50,3 @@
     {/capture}
     {eF_template_printBlock title=$smarty.const._LINKS_LINKLIST data=$smarty.capture.t_links_list_code absoluteImagePath = 1 image = $T_LINKS_BASELINK|cat:'images/link.png'}
 {/if}
-
-

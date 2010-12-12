@@ -140,7 +140,7 @@
     onSuccess: function(response) {
      var response = response.responseText.evalJSON();
      if (response.success) {
-      _mod_fm_prof_mask_off(); // Mask off
+      _mod_fm_prof_mask_off();
       var meeting_url = response.url;
       meeting_url = escape(meeting_url);
       var popup_url = '{/literal}{$MOD_FM_MODULES_BASEURL}{literal}module_fuze_meetings/FUZE_launcher.php?url='+meeting_url;
@@ -148,13 +148,27 @@
       return false;
      }
      else {
-      alert(response.error_msg);
-      _mod_fm_prof_mask_off(); // Mask off
+      if (response.url) {
+       var _mod_fm_user_login_url = response.url;
+       popupFullScreenScroll(_mod_fm_user_login_url);
+      }
+      else {
+       alert(response.error_msg);
+      }
+      _mod_fm_prof_mask_off();
      }
     }
    });
 
   }
+ }
+
+ function popupFullScreenScroll(url) {
+  var top = 0;
+  var left = 0;
+  w = screen.width;
+  h = screen.height;
+  var target = window.open(url, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
  }
 
  function popupFullScreen(url) {

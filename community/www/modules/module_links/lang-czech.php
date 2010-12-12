@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","Odkazy");//Links
+define("_LINKS_LINKS","Odkazy");//Links
 define("_LINKS_LESSONLINK","Odkazy");//Links
 define("_LINKS_MODULE","Odkazy Modul");//Links Module
 define("_LINKS_MAIN","Hlavní stránka");//Main page

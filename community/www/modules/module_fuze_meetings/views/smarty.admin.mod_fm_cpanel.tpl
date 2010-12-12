@@ -246,11 +246,54 @@
 
  function _mod_fm_user_login() {
   var id = $('mod_fm_admin_account_select').getValue();
-  if (id != 0) {
-   var user_login_url = $('mod_fm_account_data_login_url').getValue();
-   popupCenter(user_login_url, '', 600, 600);
-   return false;
+  if (id != '0') {
+   _mod_fm_admin_disable_elements();
+   // Mask on
+   _mod_fm_admin_mask_show();
+   var url = '{/literal}{$MOD_FM_BASEURL}{literal}&action=user_login&local_id='+id;
+   new Ajax.Request(url, {
+    method: 'get',
+    asynchronous: true,
+    onFailure: function() {_mod_fm_admin_mask_hide();},
+    onSuccess: function(response) {
+     var response = response.responseText.evalJSON();
+     if (response.success) {
+      var _mod_fm_user_login_url = response.url;
+      popupFullScreenScroll(_mod_fm_user_login_url);
+      $('mod_fm_admin_user_remove_btn').disabled = false;
+      $('mod_fm_admin_user_remove_btn').className = 'flatButton';
+      $('mod_fm_admin_user_login_btn').disabled = false;
+      $('mod_fm_admin_user_login_btn').className = 'flatButton';
+     }
+     else {
+      $('mod_fm_admin_user_remove_btn').disabled = false;
+      $('mod_fm_admin_user_remove_btn').className = 'flatButton';
+      $('mod_fm_admin_user_login_btn').disabled = false;
+      $('mod_fm_admin_user_login_btn').className = 'flatButton';
+      if (response.error_msg) {
+       alert(response.error_msg);
+      }
+     }
+     _mod_fm_admin_mask_hide();
+    }
+   });
   }
+ }
+
+ function popupFullScreen(url) {
+  var top = 0;
+  var left = 0;
+  w = screen.width;
+  h = screen.height;
+  var target = window.open(url, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+ }
+
+ function popupFullScreenScroll(url) {
+  var top = 0;
+  var left = 0;
+  w = screen.width;
+  h = screen.height;
+  var target = window.open(url, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
  }
 
  function popupCenter(url, title, w, h) {

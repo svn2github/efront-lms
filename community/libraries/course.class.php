@@ -1948,6 +1948,10 @@ class EfrontCourse
   $this -> deleteUniqueLessons();
   calendar::deleteCourseCalendarEvents($this);
   eF_deleteTableData("courses", "id=".$this -> course['id']);
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   $module -> onDeleteCourse($this -> course['id']);
+  }
   EfrontSearch :: removeText('courses', $this -> course['id'], '');
  }
  /**
@@ -2071,6 +2075,10 @@ class EfrontCourse
           "users_LOGIN" => $login,
           "lessons_ID" => $this -> course['id'],
           "lessons_name" => $this -> course['name']));
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   $module -> onRevokeCourseCertificate($login, $this -> course['id']);
+  }
   return true;
  }
  /**
@@ -2101,6 +2109,10 @@ class EfrontCourse
           "lessons_name" => $this -> course['name'],
           "entity_ID" => $certificateArray['serial_number'],
           "entity_name" => $certificateArray['grade']));
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   $module -> onIssueCourseCertificate($login, $this -> course['id'], $certificateArray);
+  }
   return true;
  }
  /**
@@ -2130,6 +2142,10 @@ class EfrontCourse
       'grade' => $userStats[$this -> course['id']][$login]['score'],
       'date' => time());
   $data = serialize($data);
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   $module -> onPrepareCourseCertificate($login, $this -> course['id'], $data);
+  }
   return $data;
  }
  /**
@@ -2597,6 +2613,12 @@ class EfrontCourse
   foreach ($this -> getCourseLessons() as $value) {
    $data['lessons_to_courses'][] = array('courses_ID' => $this -> course['id'], 'lessons_ID' => $value->lesson['id']);
   }
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   if ($moduleData = $module -> onExportCourse($this -> course['id'])) {
+    $data[$module -> className] = $moduleData;
+   }
+  }
   file_put_contents($courseTempDir['path'].'/data.dat', serialize($data));
  }
  private function createCourseExportFile($courseTempDir) {
@@ -2643,6 +2665,15 @@ class EfrontCourse
    $this -> removeLessons(array_keys($this -> getCourseLessons()));
   }
   $this -> importLessonsToCourse($data, $courseFile);
+  // MODULES - Import module data
+  // Get all modules (NOT only the ones that have to do with the user type)
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   if (isset($data[$module->className])) {
+    $module -> onImportCourse($this -> course['id'], $data[$module->className]);
+    unset($data[$module->className]);
+   }
+  }
   $courseFile -> delete();
   return $course;
  }
@@ -2810,7 +2841,16 @@ class EfrontCourse
   // Insert the corresponding lesson skill to the skill and lesson_offers_skill tables. Automatic skill generation only for the educational version
   EfrontSearch :: insertText($fields['name'], $newId, "courses", "title");
   $course = new EfrontCourse($newId);
+  self::notifyModuleListenersForCourseCreation($course);
   return $course;
+ }
+ private static function notifyModuleListenersForCourseCreation($course) {//PROTONC
+  // Get all modules (NOT only the ones that have to do with the user type)
+  $modules = eF_loadAllModules();
+  // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
+  foreach ($modules as $module) {
+   $module -> onNewCourse($course -> course['id']);
+  }
  }
  /**
 	 * Create course metadata

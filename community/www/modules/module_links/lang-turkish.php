@@ -1,5 +1,5 @@
 <?php
-define("_LINKS","Bağlantılar");
+define("_LINKS_LINKS","Bağlantılar");
 define("_LINKS_LESSONLINK", "Bağlantılar");
 define("_LINKS_MODULE", "Bağlantılar Modülü");
 define("_LINKS_MAIN", "Ana Sayfa");

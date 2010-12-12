@@ -26,6 +26,7 @@ class FUZE_User extends FUZE_AbstractClass {
  private $_lastname;
  private $_timezone;
  private $_date_added;
+ private $_creator;
  private $_suspended;
  private $_meetings;
  private $_future_meetings;
@@ -55,6 +56,7 @@ class FUZE_User extends FUZE_AbstractClass {
    $this->_lastname = $this->_to->get('lastname');
    $this->_timezone = $this->_to->get('timezone');
    $this->_date_added = $this->_to->get('date_added');
+   $this->_creator = $this->_to->get('creator');
    $this->_suspended = $this->_to->get('suspended');
    $this->_meetings = $this->_to->get('meetings');
    $this->_future_meetings = $this->_to->get('future_meetings');
@@ -72,6 +74,7 @@ class FUZE_User extends FUZE_AbstractClass {
    $this->_lastname = '';
    $this->_timezone = '';
    $this->_date_added = '';
+   $this->_creator = '';
    $this->_suspended = false;
    throw new Exception("FUZE user not found.");
   }
@@ -124,6 +127,10 @@ class FUZE_User extends FUZE_AbstractClass {
 
  public function getLoginUrl() {
   return $this->_login_url;
+ }
+
+ public function getCreator() {
+  return $this->_creator;
  }
 
  public function getTranslatedDateAdded($to_tz = false, $format = false) {
@@ -331,7 +338,12 @@ class FUZE_User extends FUZE_AbstractClass {
     $response ['meeting_item'] = $meeting_item;
    }
    else {
-    $response ['error_msg'] = $add_meeting_response ['error_msg'];
+    if ($add_meeting_response ['url']) {
+     $response ['url'] = $add_meeting_response ['url'];
+    }
+    else {
+     $response ['error_msg'] = $add_meeting_response ['error_msg'];
+    }
    }
   }
   catch (Exception $e) {
@@ -387,5 +399,26 @@ class FUZE_User extends FUZE_AbstractClass {
   }
 
   return $success;
+ }
+
+ public function getUpgradeUrl() {
+  $args ['fuze_email'] = $this->_fuze_email;
+  $args ['fuze_passwd'] = $this->_password;
+  $response = array('success' => false);
+  try {
+   $get_upgrade_url_response = $this->_dao->getUpgradeUrl($args);
+   if ($get_upgrade_url_response ['success']) {
+    $response ['success'] = true;
+    $response ['url'] = $get_upgrade_url_response ['url'];
+   }
+   else {
+    $response ['error_msg'] = $get_upgrade_url_response ['error_msg'];
+   }
+  }
+  catch (Exception $e) {
+   return array('success' => false, 'error_msg' => _FUZE_ALL_UPGRADE_ERROR);
+  }
+
+  return $response;
  }
 }

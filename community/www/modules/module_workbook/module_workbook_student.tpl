@@ -124,6 +124,9 @@
  <div class="item_header_student">
   <img src="{$T_WORKBOOK_BASELINK|cat:'images/item_logo.png'}" alt="{$item.item_title}" title="{$item.item_title}" style="vertical-align:middle; border: 0px;" />&nbsp;
   {$smarty.const._WORKBOOK_ITEMS_COUNT}{$item.position}{if $item.item_title != ''}&nbsp;-&nbsp;{$item.item_title}{/if}
+{if $item.question_type == 'raw_text' && $T_WORKBOOK_SETTINGS.edit_answers == '1'}
+  <a href="javascript:void(0);" id="edit_answer_{$id}" onclick="editAnswer(document.getElementById('item_{$id}'), {$id});" {if $html_solved == ''}style="display: none;"{/if}><img src="{$T_WORKBOOK_BASELINK|cat:'images/edit.png'}" alt="{$smarty.const._EDIT}" title="{$smarty.const._EDIT}" style="vertical-align:middle; border: 0px; margin-left: 10px;" /></a>
+{/if}
  </div>
  <div class="separator" style="height: 5px;"></div>
 {if $item.item_text != ''}
@@ -133,10 +136,10 @@
 {if $item.item_question != -1}
 {if $html_solved == ''}
  <div class="item_question_student" id="item_{$id}">
-  <form action="javascript:submitForm(document.getElementById('answer_item_form_{$id}'), {$id});" name="answer_item_form_{$id}" id="answer_item_form_{$id}">
+  <form action="javascript:submitForm(document.getElementById('answer_item_form_{$id}'), {$id}, '{$item.question_type}');" name="answer_item_form_{$id}" id="answer_item_form_{$id}">
    {if $autosave_text == ''}{$item.question_text}{else}{$autosave_text}{/if}
    <div class="separator" style="height: 5px;"></div>
-   <input class="flatButton" name="submit" value="{$smarty.const._WORKBOOK_ITEM_CHECK_ANSWER}" type="button" onclick="javascript:submitForm(document.getElementById('answer_item_form_{$id}'), {$id});"/>
+   <input class="flatButton" name="submit" value="{$smarty.const._WORKBOOK_ITEM_CHECK_ANSWER}" type="button" onclick="javascript:submitForm(document.getElementById('answer_item_form_{$id}'), {$id}, '{$item.question_type}');"/>
    <div class="wrong_answer" id="wrong_empty_answer_{$id}"></div>
   </form>
  </div>
@@ -223,7 +226,7 @@
    location = url;
  }
 
- function submitForm(obj, item_id){
+ function submitForm(obj, item_id, question_type){
 
   var url = '{/literal}{$T_WORKBOOK_BASEURL}{literal}&item_submitted=' + item_id;
   var parameters = "&";
@@ -276,11 +279,12 @@
    window.setTimeout('Effect.Fade("wrong_empty_answer_' + item_id + '")', 2000);
   }
   else
-   makeRequest(url, parameters, item_id);
+   makeRequest(url, parameters, item_id, question_type);
  }
 
- function makeRequest(url, parameters, item_id){
+ function makeRequest(url, parameters, item_id, question_type){
 
+  var editAnswers = '{/literal}{$T_WORKBOOK_SETTINGS.edit_answers}{literal}';
   http_request = false;
 
   if(window.XMLHttpRequest){ // Mozilla, Safari, ...
@@ -349,6 +353,11 @@
         }
        }
       });
+
+      if(question_type == 'raw_text' && editAnswers == '1'){
+       var edit_answer = document.getElementById('edit_answer_' + item_id);
+       edit_answer.style.display = 'inline';
+      }
      }
     }
     else{
@@ -369,7 +378,7 @@
 
    var form_action = forms[i].action;
 
-   if(form_action.search('submitForm') != -1){
+   if(form_action.search('submitForm') != -1 || form_action.search('submitEditForm') != -1){
 
     var form_id = forms[i].id;
     var form_obj = document.getElementById(form_id);
@@ -462,6 +471,151 @@
   if(!http_request){
    alert('Cannot create XMLHTTP instance');
    return false;
+  }
+
+  http_request.open('GET', url + parameters, true);
+  http_request.send(null);
+ }
+
+ function editAnswer(obj, item_id){
+
+  var url = '{/literal}{$T_WORKBOOK_BASEURL}{literal}&item_to_update=' + item_id;
+  var parameters = "&";
+
+  var edit_answer = document.getElementById('edit_answer_' + item_id);
+  edit_answer.style.display = 'none';
+
+  for(i = 0; i < obj.getElementsByTagName("input").length; i++){
+
+   if(obj.getElementsByTagName("input")[i].type == "hidden"){
+
+    if(obj.getElementsByTagName("input")[i].value != '')
+     parameters += obj.getElementsByTagName("input")[i].name + "=" + obj.getElementsByTagName("input")[i].value + "&";
+   }
+  }
+
+  makeRequestEditAnswer(url, parameters, item_id);
+ }
+
+ function makeRequestEditAnswer(url, parameters, item_id){
+
+  http_request = false;
+
+  if(window.XMLHttpRequest){ // Mozilla, Safari, ...
+
+   http_request = new XMLHttpRequest();
+
+   if(http_request.overrideMimeType){
+    http_request.overrideMimeType('text/html');
+   }
+  }
+  else if(window.ActiveXObject){ // IE
+
+   try{
+    http_request = new ActiveXObject("Msxml2.XMLHTTP");
+   }
+   catch(e){
+    try{
+     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    catch(e){}
+   }
+  }
+
+  if(!http_request){
+   alert('Cannot create XMLHTTP instance');
+   return false;
+  }
+
+  http_request.onreadystatechange = function(){
+
+   if(http_request.readyState == 4){
+
+    if(http_request.status == 200){
+
+     var result = http_request.responseText;
+     var editForm = '<form action="javascript:submitEditForm(document.getElementById(\'edit_answer_form_' + item_id + '\'), ' + item_id + ');" name="edit_answer_form_' + item_id + '" id="edit_answer_form_' + item_id + '">';
+     var editForm2 = '<input class="flatButton" name="submit" value="{/literal}{$smarty.const._WORKBOOK_ITEM_CHECK_ANSWER}{literal}" type="button" onclick="javascript:submitEditForm(document.getElementById(\'edit_answer_form_' + item_id + '\'), ' + item_id + ');"/>';
+
+     var all = editForm + result + '<div class="separator" style="height: 5px;"></div>' + editForm2 +
+       '<div class="wrong_answer" id="wrong_empty_answer_' + item_id + '"></div>' + '</form>';
+
+     document.getElementById('item_' + item_id).innerHTML = all;
+    }
+   }
+  }
+
+  http_request.open('GET', url + parameters, true);
+  http_request.send(null);
+ }
+
+ function submitEditForm(obj, item_id){
+
+  var url = '{/literal}{$T_WORKBOOK_BASEURL}{literal}&item_updated=' + item_id;
+  var parameters = "&";
+
+  for(i = 0; i < obj.getElementsByTagName("textarea").length; i++){
+
+   if(obj.getElementsByTagName("textarea")[i].value != '')
+    parameters += obj.getElementsByTagName("textarea")[i].name + "=" + obj.getElementsByTagName("textarea")[i].value + "&";
+  }
+
+  if(parameters == '&'){
+   var empty_answer = document.getElementById('wrong_empty_answer_' + item_id);
+   empty_answer.style.display = 'inline-block';
+   empty_answer.innerHTML = '{/literal}{$smarty.const._WORKBOOK_QUESTION_NOT_ANSWERED}{literal}';
+   window.setTimeout('Effect.Fade("wrong_empty_answer_' + item_id + '")', 2000);
+  }
+  else
+   makeRequestSubmitEditedAnswer(url, parameters, item_id);
+ }
+
+ function makeRequestSubmitEditedAnswer(url, parameters, item_id){
+
+  http_request = false;
+
+  if(window.XMLHttpRequest){ // Mozilla, Safari, ...
+
+   http_request = new XMLHttpRequest();
+
+   if(http_request.overrideMimeType){
+    http_request.overrideMimeType('text/html');
+   }
+  }
+  else if(window.ActiveXObject){ // IE
+
+   try{
+    http_request = new ActiveXObject("Msxml2.XMLHTTP");
+   }
+   catch(e){
+    try{
+     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    catch(e){}
+   }
+  }
+
+  if(!http_request){
+   alert('Cannot create XMLHTTP instance');
+   return false;
+  }
+
+  http_request.onreadystatechange = function(){
+
+   if(http_request.readyState == 4){
+
+    if(http_request.status == 200){
+
+     result = http_request.responseText;
+     document.getElementById('item_' + item_id).innerHTML = result;
+
+     var edit_answer = document.getElementById('edit_answer_' + item_id);
+     edit_answer.style.display = 'inline';
+    }
+    else{
+     alert('There was a problem with the request.');
+    }
+   }
   }
 
   http_request.open('GET', url + parameters, true);

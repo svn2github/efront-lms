@@ -258,6 +258,9 @@ class EfrontSystem
   }
   $dir = new EfrontDirectory($tempDir);
   $dir -> delete();
+  if (function_exists('apc_delete')) {
+   apc_delete('_usernames');
+  }
   return true;
  }
  /**
@@ -380,6 +383,7 @@ class EfrontSystem
                  }
                 }
                 try {
+
 
 
 

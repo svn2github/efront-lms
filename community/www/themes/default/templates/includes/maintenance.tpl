@@ -212,6 +212,8 @@
           <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'tests')"/></td></tr>
       <tr><td class = "labelCell">{$smarty.const._CLEARQUERYCACHE}:&nbsp;</td>
           <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'query')"/></td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLEAROPCODECACHE}:&nbsp;</td>
+          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CLEAR}" onclick = "clearCache(this, 'apc')"/></td></tr>
         </table>
  {/capture}
 

@@ -502,6 +502,11 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
       file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
      }
     } catch (Exception $e) {}
+    //Upgrade for 3.6.8's default/site/theme logo: If a logo is set, then set this as the 'site logo' and set 'use_logo' to 1 (which means 'use site logo')
+    if ($GLOBALS['configuration']['logo'] && !$GLOBALS['configuration']['site_logo']) {
+     EfrontConfiguration :: setValue('use_logo', 1);
+     EfrontConfiguration :: setValue('site_logo', $GLOBALS['configuration']['logo']);
+    }
     $defaultConfig['editor_type'] == 'tinymce_new' ? $editorDir = 'tiny_mce_new' : $editorDir = 'tiny_mce';
     try {
      $cacheEditor = new FileSystemTree(G_ROOTPATH.'www/editor/'.$editorDir, true);
@@ -942,8 +947,8 @@ class Installation
    if ($settings['register_globals']) {
     $localPhpIniString .= "register_globals = Off\n";
    }
-   file_put_contents("../php.ini", $localPhpIniString, FILE_APPEND);
-   file_put_contents("php.ini", $localPhpIniString, FILE_APPEND);
+   file_put_contents("../php.ini", "\n".$localPhpIniString, FILE_APPEND);
+   file_put_contents("php.ini", "\n".$localPhpIniString, FILE_APPEND);
    file_put_contents("../editor/tiny_mce/php.ini", $localPhpIniString, FILE_APPEND);
   } else if ($mode == 'htaccess') {
    $localHtaccess = "<IfModule mod_php5.c>

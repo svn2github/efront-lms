@@ -3976,4 +3976,8 @@ define("_NEWPASSWORD", "Νέος κωδικός");
 define("_ONLINETIME", "Χρόνος σύνδεσης");
 define("_ONLINESINCE", "Συνδεδεμένος από");
 define("_MANUALLY", "Χειροκίνητα");
+define("_CLEAROPCODECACHE", "Διαγραφή opcode cache");
+define("_USELOGO", "Χρησιμοποίηση logo");
+define("_DEFAULTLOGO", "Προκαθορισμένο logo");
+define("_UPLOADSITELOGO", "Ανεβάστε site logo");
 ?>

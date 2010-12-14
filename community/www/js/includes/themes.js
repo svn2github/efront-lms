@@ -262,16 +262,18 @@ function onUpdateLayoutPostions(el, response) {
 
 */
 function addBlock(list, block) {
- var li = new Element('li', {id:list+'_'+block}).insert(new Element('div').addClassName('layoutBlock').insert(new Element('div').update(blocks.get(block).substring(0,50))));
- li.observe('dblclick', function (event) {if (!this.descendantOf($('toolsList'))) {$('toolsList').insert(this.remove())}}); //On double click, remove blocks frmo layout and put them in the tools list
- if (!isNaN(parseInt(block))) { //This means that this is a custom block, since for custom blocks indexes are numeric (as opposed to default blocks, which are 'login', 'online' etc)
-  currentPositions.get('enabled') && currentPositions.get('enabled')[block] ? toggleImg = 'success' : toggleImg = 'forbidden';
-  li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.gif', alt: toggletag, title: toggletag}).addClassName('sprite16').addClassName('sprite16-'+toggleImg).addClassName('tool').observe('click', function (event) {toggleBlockAccess(this, block);}));
-  li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.gif', alt: edittag, title: edittag}).addClassName('sprite16').addClassName('sprite16-edit').addClassName('tool').observe('click', function (event) {location = location.toString()+'&edit_block='+block;}));
-  li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.gif', alt: deletetag, title: deletetag}).addClassName('sprite16').addClassName('sprite16-error_delete').addClassName('tool').observe('click', function (event) {if (confirm(irreversible)) deleteBlock(this, block);}));
+ if (block) {
+  var li = new Element('li', {id:list+'_'+block}).insert(new Element('div').addClassName('layoutBlock').insert(new Element('div').update(blocks.get(block).substring(0,50))));
+  li.observe('dblclick', function (event) {if (!this.descendantOf($('toolsList'))) {$('toolsList').insert(this.remove())}}); //On double click, remove blocks frmo layout and put them in the tools list
+  if (!isNaN(parseInt(block))) { //This means that this is a custom block, since for custom blocks indexes are numeric (as opposed to default blocks, which are 'login', 'online' etc)
+   currentPositions.get('enabled') && currentPositions.get('enabled')[block] ? toggleImg = 'success' : toggleImg = 'forbidden';
+   li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.gif', alt: toggletag, title: toggletag}).addClassName('sprite16').addClassName('sprite16-'+toggleImg).addClassName('tool').observe('click', function (event) {toggleBlockAccess(this, block);}));
+   li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.gif', alt: edittag, title: edittag}).addClassName('sprite16').addClassName('sprite16-edit').addClassName('tool').observe('click', function (event) {location = location.toString()+'&edit_block='+block;}));
+   li.childElements()[0].insert(new Element('img', {src: 'themes/default/images/others/transparent.gif', alt: deletetag, title: deletetag}).addClassName('sprite16').addClassName('sprite16-error_delete').addClassName('tool').observe('click', function (event) {if (confirm(irreversible)) deleteBlock(this, block);}));
+  }
+  $(list).insert(li);
+  remainingBlocks.unset(block);
  }
- $(list).insert(li);
- remainingBlocks.unset(block);
 }
 function toggleBlockAccess(el, block) {
  parameters = {toggle_block:block, method: 'get'};

@@ -269,6 +269,8 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
                 eF_deleteTableData("cache");
             } else if ($_GET['cache'] == 'query') {
              eF_executeNew("reset query cache");
+            } else if ($_GET['cache'] == 'apc' && function_exists('apc_clear_cache')) {
+             apc_clear_cache('user');
             }
         } catch (Exception $e) {
          handleAjaxExceptions($e);

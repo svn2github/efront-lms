@@ -50,5 +50,9 @@ define("_WORKBOOK_CHECK_PROGRESS", "Check progress");
 define("_WORKBOOK_STUDENT_NAME", "Student Name");
 define("_WORKBOOK_NO_STUDENTS_FOUND", "No students found");
 define("_WORKBOOK_UNIT_TO_COMPLETE", "Unit to complete");
+define("_WORKBOOK_EDIT_ANSWERS", "Edit answers");
+define("_WORKBOOK_RESET_MESSAGE_1", "There are no answers, by any student. You can safely reset the Workbook. Are you sure?");
+define("_WORKBOOK_RESET_MESSAGE_2", "One student has already answered some of the questions. The reset process has as implication, the permanent deletion of the student's answers. Are you sure?");
+define("_WORKBOOK_RESET_MESSAGE_3", "students have already answered some of the questions. The reset process has as implication, the permanent deletion of the students' answers. Are you sure?");
 
 ?>

@@ -2,8 +2,6 @@
 
 class module_BBB extends EfrontModule {
 
-
-    // Mandatory functions required for module function
     public function getName() {
         return _BBB;
     }
@@ -16,43 +14,41 @@ class module_BBB extends EfrontModule {
         return true;
     }
 
-    // Optional functions
-    // What should happen on installing the module
     public function onInstall() {
-        eF_executeNew("drop table if exists module_BBB");
-        $a = eF_executeNew("CREATE TABLE module_BBB (
-                          id int(11) NOT NULL auto_increment,
-                          name varchar(255) NOT NULL,
-                          timestamp int(11) NOT NULL,
-                          lessons_ID int(11) NOT NULL,
-                          confKey varchar(255) NOT NULL,
-                          durationHours int(1) NOT NULL,
-                          durationMinutes int(2),
-                          confType tinyint(1) default 0,
-                          maxParts int(3) default 20,
-                          maxMics int(3) default 20,
-                          lobby tinyint(1) default 0,
-                          status int(1) default 0,
+        eF_executeNew("drop table if exists `module_BBB`");
+        $a = eF_executeNew("CREATE TABLE `module_BBB` (
+                          `id` int(11) NOT NULL auto_increment,
+                          `name` varchar(255) NOT NULL,
+                          `timestamp` int(11) NOT NULL,
+                          `lessons_ID` int(11) NOT NULL,
+                          `confKey` varchar(255) NOT NULL,
+                          `durationHours` int(1) NOT NULL,
+                          `durationMinutes` int(2),
+                          `confType` tinyint(1) default 0,
+                          `maxParts` int(3) default 20,
+                          `maxMics` int(3) default 20,
+                          `lobby` tinyint(1) default 0,
+                          `status` int(1) default 0,
                           PRIMARY KEY (id)
                         ) DEFAULT CHARSET=utf8;");
-        eF_executeNew("drop table if exists module_BBB_users_to_meeting ");
-        $b = eF_executeNew("CREATE TABLE module_BBB_users_to_meeting (
-                        users_LOGIN varchar(255) NOT NULL,
-                        meeting_ID int(11) NOT NULL,
-                        KEY (users_LOGIN,meeting_ID)
+        eF_executeNew("drop table if exists `module_BBB_users_to_meeting` ");
+        $b = eF_executeNew("CREATE TABLE `module_BBB_users_to_meeting` (
+                        `users_LOGIN` varchar(255) NOT NULL,
+                        `meeting_ID` int(11) NOT NULL,
+                        KEY (`users_LOGIN`,`meeting_ID`)
                        ) DEFAULT CHARSET=utf8;");
 
 
-        if (!($c = eF_executeNew("INSERT INTO configuration VALUES ('module_BBB_server','http://yourserver.com/');"))) {
-            $c = eF_executeNew("UPDATE configuration SET value = 'http://yourserver.com/' WHERE name = 'module_BBB_server';");
+        if (!($c = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server','http://yourserver.com/');"))) {
+            $c = eF_executeNew("UPDATE `configuration` SET value = 'http://yourserver.com/' WHERE name = 'module_BBB_server';");
         }
 
-        if (!($d = eF_executeNew("INSERT INTO configuration VALUES ('module_BBB_salt','29ae87201c1d23f7099f3dfb92f63578');"))) {
-            $d = eF_executeNew("UPDATE configuration SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
+        if (!($d = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_salt','29ae87201c1d23f7099f3dfb92f63578');"))) {
+            $d = eF_executeNew("UPDATE `configuration` SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
         }
 
-        if (!($e = eF_executeNew("INSERT INTO configuration VALUES ('module_BBB_server_version', '1');"))) {
-            $e = eF_executeNew("UPDATE configuration SET value = '1' WHERE name = 'module_BBB_server_version';");
+        if (!($e = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server_version', '1');"))) {
+            $e = eF_executeNew("UPDATE `configuration` SET `value` = '1' WHERE `name` = 'module_BBB_server_version';");
         }
 
         return $a && $b && $c && $d && $e;
@@ -60,11 +56,11 @@ class module_BBB extends EfrontModule {
 
     // And on deleting the module
     public function onUninstall() {
-        $a = eF_executeNew("DROP TABLE module_BBB;");
-        $b = eF_executeNew("DROP TABLE module_BBB_users_to_meeting;");
-        $c = eF_executeNew("DELETE FROM configuration WHERE name='module_BBB_server';");
-  $d = eF_executeNew("DELETE FROM configuration WHERE name='module_BBB_salt';");
-  $e = eF_executeNew("DELETE FROM configuration WHERE name='module_BBB_server_version';");
+        $a = eF_executeNew("DROP TABLE `module_BBB`;");
+        $b = eF_executeNew("DROP TABLE `module_BBB_users_to_meeting`;");
+        $c = eF_executeNew("DELETE FROM `configuration` WHERE `name` = 'module_BBB_server';");
+  $d = eF_executeNew("DELETE FROM `configuration` WHERE `name` = 'module_BBB_salt';");
+  $e = eF_executeNew("DELETE FROM `configuration` WHERE `name` = 'module_BBB_server_version';");
 
         return $a && $b && $c && $d && $e;
     }
@@ -142,8 +138,8 @@ class module_BBB extends EfrontModule {
 
         } else {
             $basicNavArray = array (
-                                    array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($this -> getCurrentLesson()).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-                                    array ('title' => _HOME, 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
+                                    array ('title' => _MYCOURSES, 'onclick' => "location='".$currentUser -> getRole($this -> getCurrentLesson()).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+                                    array ('title' => $this->getCurrentLesson() -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
                                     array ('title' => _BBB, 'link' => $this -> moduleBaseUrl));
          if (isset($_GET['edit_BBB'])) {
              $basicNavArray[] = array ('title' => _BBB_MANAGEMENT, 'link' => $this -> moduleBaseUrl . "&edit_BBB=". $_GET['edit_BBB']);
@@ -715,61 +711,60 @@ class module_BBB extends EfrontModule {
     }
 
     /* CURRENT-LESSON ATTACHED MODULE PAGES */
-    public function getLessonModule() {
+public function getLessonModule() {
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getRole($this -> getCurrentLesson()) != "administrator") {
             // Get smarty variable
             $smarty = $this -> getSmartyVar();
             $currentLesson = $this -> getCurrentLesson();
+            $fifteen_minutes_ago = time() - 15*60;
             if ($currentUser -> getRole($this -> getCurrentLesson()) == "student") {
-             $fifteen_minutes_ago = time() - 15*60;
+             // User's role is that of a student
                 $BBB = eF_getTableData("module_BBB_users_to_meeting JOIN module_BBB ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND `timestamp` > {$fifteen_minutes_ago} AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
                 $smarty -> assign("T_BBB_CURRENTLESSONTYPE", "student");
-                $now = time();
-                //print_r($BBB); die();
                 $BBB_server = eF_getTableData("configuration", "value", "name = 'module_BBB_server'");
                 foreach ($BBB as $key => $meeting) {
-                 // Chaning so we cover two distinct cases
                  // The meeting has not started yet and is planned for some point in future
                  if ($meeting['timestamp'] > time()) {
                   $BBB[$key]['time_remaining'] = _BBB_IN . ' ' . eF_convertIntervalToTime($meeting['timestamp'] - time(), true);
                   $BBB[$key]['joiningUrl'] = $this -> createBBBUrl($currentUser, $meeting, true);
-      $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']); // TESTING
+      $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']);
                  }
                  // The meeting is planned for some point in the past
                  if ($meeting['timestamp'] <= time() && $meeting['timestamp'] > $fifteen_minutes_ago) {
                   $BBB[$key]['time_remaining'] = _BBB_NOW;
-                  //$BBB[$key]['time_remaining'] = eF_convertIntervalToTime(time() - $meeting['timestamp'], true). ' '._AGO;
                   $BBB[$key]['joiningUrl'] = $this -> createBBBUrl($currentUser, $meeting, true);
-      $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']); // TESTING
+      $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']);
                  }
                 }
-            } else {
-                $BBB = eF_getTableData("module_BBB", "*", "lessons_ID = '".$currentLesson -> lesson['id']."'", "timestamp DESC");
+            }
+            else {
+             // User's role is that of a professor
+                $BBB = eF_getTableData("module_BBB", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND `timestamp` > {$fifteen_minutes_ago}", "timestamp DESC");
                 $smarty -> assign("T_BBB_CURRENTLESSONTYPE", "professor");
                 $now = time();
                 foreach ($BBB as $key => $meeting) {
-                    if ($meeting['timestamp'] < $now) {
-                        $BBB[$key]['mayStart'] = 1;
-                        // always start_meeting = 1 url so that only one professor might start the meeting
-
+                 if ($meeting ['timestamp'] > $now) {
+                  $BBB [$key]['mayStart'] = 0;
+                  $BBB[$key]['time_remaining'] = _BBB_IN . ' ' . eF_convertIntervalToTime($meeting['timestamp'] - time(), true);
+                 }
+                 else {
+                  $BBB [$key]['mayStart'] = 1;
+                  $BBB[$key]['time_remaining'] = _BBB_NOW;
+                  // always start_meeting = 1 url so that only one professor might start the meeting
       $BBB_meeting_creation_URL = $this -> createBBBUrl($currentUser, $meeting, FALSE);
       $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB_meeting_creation_URL);
-     } else {
-                        $BBB[$key]['mayStart'] = 0;
-                    }
-
-                    $BBB[$key]['time_remaining'] = eF_convertIntervalToTime(time() - $meeting['timestamp'], true). ' '._AGO;
+                 }
                 }
             }
 
             $smarty -> assign("T_MODULE_BBB_INNERTABLE_OPTIONS", array(array('text' => _BBB_BBBLIST, 'image' => $this -> moduleBaseLink."images/go_into.png", 'href' => $this -> moduleBaseUrl)));
             $smarty -> assign("T_BBB_INNERTABLE", $BBB);
             return true;
-        } else {
+        }
+        else {
             return false;
         }
-
     }
 
     public function getLessonSmartyTpl() {

@@ -1,5 +1,5 @@
 <?php
-define("_BBB","Conferences");
+define("_BBB","BBB Conferences");
 define("_BBB_SYSTEMLINK1", "BBB system link1");
 define("_BBB_SYSTEMLINK2", "BBB system link2");
 define("_BBB_LESSONLINK", "Lesson BBB");
@@ -18,7 +18,7 @@ define("_BBB_DATE", "Date");
 define("_BBB_NOBBBFOUND", "There are no conference entries");
 define("_BBB_QUESTIONS", "Questions");
 define("_BBB_ANSWERS", "Answers");
-define("_BBB_BBBLIST", "Conferences list");
+define("_BBB_BBBLIST", "BBB conference list");
 define("_BBB_ADDBBB", "Add conference");
 define("_BBB_EDITBBB", "Edit conference");
 define("_BBB_DELETEBBB", "Delete conference");

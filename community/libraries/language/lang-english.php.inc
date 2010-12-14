@@ -3976,4 +3976,8 @@ define("_NEWPASSWORD", "New password");
 define("_ONLINETIME", "Time online");
 define("_ONLINESINCE", "Online since");
 define("_MANUALLY", "Manually");
+define("_CLEAROPCODECACHE", "Clear opcode cache");
+define("_USELOGO", "Use logo");
+define("_DEFAULTLOGO", "Default logo");
+define("_UPLOADSITELOGO", "Upload site logo");
 ?>

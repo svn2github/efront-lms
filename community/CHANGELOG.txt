@@ -8,6 +8,8 @@
 - Fixed issue about editing feedback by creating function getTestsAndFeedbacks
 - Added option for globally disabling move blocks
 - Fixed issue about youtube video z-index in module for IE
+- Added newline at the beggining of string for appending local ini files (#864)
+- Fixed issue about displaying tick icon in student lessons list for completed lessons when show_percentage is disabled
 
 === Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data

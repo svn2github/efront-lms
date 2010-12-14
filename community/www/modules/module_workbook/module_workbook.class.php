@@ -137,6 +137,7 @@ class module_workbook extends EfrontModule{
    $form->addRule('lesson_name', _THEFIELD.' "'._WORKBOOK_LESSON_NAME.'" '._ISMANDATORY, 'required', null, 'client');
    $form->addElement('advcheckbox', 'allow_print', _WORKBOOK_ALLOW_PRINT, null, 'class="inputCheckBox"', array(0, 1));
    $form->addElement('advcheckbox', 'allow_export', _WORKBOOK_ALLOW_EXPORT, null, 'class="inputCheckBox"', array(0, 1));
+   $form->addElement('advcheckbox', 'edit_answers', _WORKBOOK_EDIT_ANSWERS, null, 'class="inputCheckBox"', array(0, 1));
    $form->addElement('select', 'unit_to_complete', _WORKBOOK_UNIT_TO_COMPLETE, $contentOptions);
    $form->addElement('submit', 'submit', _UPDATE, 'class="flatButton"');
 
@@ -152,6 +153,7 @@ class module_workbook extends EfrontModule{
       "lesson_name" => $values['lesson_name'],
       "allow_print" => $values['allow_print'],
       "allow_export" => $values['allow_export'],
+      "edit_answers" => $values['edit_answers'],
       "unit_to_complete" => $values['unit_to_complete']
      );
 
@@ -694,6 +696,12 @@ class module_workbook extends EfrontModule{
    $smarty->assign("T_WORKBOOK_PREVIEW_ANSWERS", $workbookAnswers);
   }
 
+  if(isset($_GET['get_reset_message']) && $_GET['get_reset_message'] == '1'){
+
+   echo $this->getResetMessage(array_keys($workbookItems));
+   exit;
+  }
+
   if(isset($_GET['item_submitted'])){
 
    $itemID = $_GET['item_submitted'];
@@ -752,6 +760,39 @@ class module_workbook extends EfrontModule{
 
    eF_deleteTableData("module_workbook_autosave", "item_id=".$itemID." AND users_LOGIN='".$currentUser->user['login']."'");
    eF_insertTableData("module_workbook_autosave", $fields);
+
+   exit(0);
+  }
+
+  if(isset($_GET['item_to_update'])){
+
+   $itemID = $_GET['item_to_update'];
+   $questionID = $workbookItems[$itemID]['item_question'];
+
+   $question = QuestionFactory::factory($questionID);
+   $form = new HTML_QuickForm("questionForm", "post", "", "", null, true);
+   $form->setDefaults($_GET);
+
+   print $question->toHTML($form);
+   exit(0);
+  }
+
+  if(isset($_GET['item_updated'])){
+
+   $itemID = $_GET['item_updated'];
+   $questionID = $workbookItems[$itemID]['item_question'];
+
+   $question = QuestionFactory::factory($questionID);
+   $question->setDone($_GET['question'][$questionID]);
+   $form = new HTML_QuickForm("questionForm", "post", "", "", null, true);
+
+   $answerToUpdate = eF_getTableData("module_workbook_answers", "id",
+          "item_id=".$itemID." AND users_LOGIN='".$currentUser->user['login']."'");
+
+   eF_updateTableData("module_workbook_answers", array('html_solved'=>$question->toHTMLSolved($form)), "id=".$answerToUpdate[0]['id']);
+
+   echo $question->toHTMLSolved($form);
+   eF_deleteTableData("module_workbook_autosave", "item_id=".$itemID." AND users_LOGIN='".$currentUser->user['login']."'");
 
    exit(0);
   }
@@ -828,6 +869,7 @@ class module_workbook extends EfrontModule{
      `lesson_name` varchar(255) NOT NULL,
      `allow_print` tinyint(1) NOT NULL DEFAULT '1',
      `allow_export` tinyint(1) NOT NULL DEFAULT '1',
+     `edit_answers` tinyint(1) NOT NULL DEFAULT '1',
      `unit_to_complete` int(11) NOT NULL DEFAULT '-1',
      PRIMARY KEY (`id`)
      ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
@@ -900,25 +942,29 @@ class module_workbook extends EfrontModule{
  public function onUpgrade(){
 
   $columns = mysql_query("show columns from `module_workbook_settings`");
-  $alter = true;
-  $found = false;
+  $alter1 = true;
+  $found1 = false;
+  $alter2 = true;
+  $found2 = false;
 
   if($columns){
 
    while(($col = mysql_fetch_assoc($columns))){
 
-    if($col['Field'] == 'unit_to_complete'){
+    if($col['Field'] == 'unit_to_complete')
+     $found1 = true;
 
-     $found = true;
-     break;
-    }
+    if($col['Field'] == 'edit_answers')
+     $found2 = true;
    }
 
-   if($found == false) // field does not exist
-    $alter = eF_executeNew("ALTER TABLE `module_workbook_settings` ADD COLUMN `unit_to_complete` INT(11) NOT NULL DEFAULT '-1' AFTER `allow_export`");
+   if($found1 == false)
+    $alter1 = eF_executeNew("ALTER TABLE `module_workbook_settings` ADD COLUMN `unit_to_complete` INT(11) NOT NULL DEFAULT '-1' AFTER `allow_export`");
+   if($found2 == false)
+    $alter2 = eF_executeNew("ALTER TABLE `module_workbook_settings` ADD COLUMN `edit_answers` tinyint(1) NOT NULL DEFAULT '1' AFTER `allow_export`");
   }
 
-  return($columns && $alter);
+  return($columns && $alter1 && $alter2);
  }
 
  public function getLessonCenterLinkInfo(){
@@ -1081,6 +1127,7 @@ class module_workbook extends EfrontModule{
     'lesson_name' => $result[0]['lesson_name'],
     'allow_print' => $result[0]['allow_print'],
     'allow_export' => $result[0]['allow_export'],
+    'edit_answers' => $result[0]['edit_answers'],
     'unit_to_complete' => $result[0]['unit_to_complete']
    );
 
@@ -1180,8 +1227,16 @@ class module_workbook extends EfrontModule{
   $result = eF_getTableData("module_workbook_items", "*", "lessons_ID=".$lessonID, "position");
   $items = array();
 
-  foreach($result as $value)
+  foreach($result as $value){
+
+   if($value['item_question'] != '-1'){
+
+    $questionDetails = $this->getReusedQuestionDetails($value['item_question']);
+    $value['question_type'] = $questionDetails['type'];
+   }
+
    $items[$value['id']] = $value;
+  }
 
   return $items;
  }
@@ -1366,6 +1421,36 @@ class module_workbook extends EfrontModule{
   }
 
   return $answers;
+ }
+
+ function getResetMessage($itemIDs){
+
+  $studentsLogins = array();
+
+  for($i = 0; $i < count($itemIDs); $i++){
+
+   $result = eF_getTableData("module_workbook_answers", "users_LOGIN", "item_id=".$itemIDs[$i]);
+
+   if(count($result) != 0){
+
+    foreach($result as $key => $value){
+
+     if(!in_array($value['users_LOGIN'], $studentsLogins))
+      array_push($studentsLogins, $value['users_LOGIN']);
+    }
+   }
+  }
+
+  if(count($studentsLogins) == 0)
+   $message = _WORKBOOK_RESET_MESSAGE_1;
+
+  else if(count($studentsLogins) == 1)
+   $message = _WORKBOOK_RESET_MESSAGE_2;
+
+  else
+   $message = count($studentsLogins).' '._WORKBOOK_RESET_MESSAGE_3;
+
+  return $message;
  }
 }
 

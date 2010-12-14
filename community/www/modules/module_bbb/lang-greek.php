@@ -1,5 +1,5 @@
 <?php
-define("_BBB","Συσκέψεις");
+define("_BBB","BBB Συσκέψεις");
 
 define("_BBB_LESSONLINK", "BBB μαθημάτων");
 define("_BBB_MODULE", "BBB άρθρωμα");
@@ -16,7 +16,7 @@ define("_BBB_DATE", "Ημερομηνία");
 define("_BBB_NOBBBFOUND", "Δεν έχουν προγραμματιστεί συσκέψεις");
 define("_BBB_QUESTIONS", "Ερωτήσεις");
 define("_BBB_ANSWERS", "Απαντήσεις");
-define("_BBB_BBBLIST", "Λίστα συσκέψεων");
+define("_BBB_BBBLIST", "Λίστα συσκέψεων BBB");
 define("_BBB_ADDBBB", "Προσθήκη σύσκεψης");
 define("_BBB_EDITBBB", "Επεξεργασία σύσκεψης");
 define("_BBB_DELETEBBB", "Διαγραφή σύσκεψης");

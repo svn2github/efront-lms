@@ -46,7 +46,13 @@ $smarty -> assign("T_APPEARANCE_MAIN_FORM", $appearanceMainForm -> toArray());
 
 $appearanceLogoForm = new Html_QuickForm("appearance_logo_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=logo", "", null, true);
 $appearanceLogoForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-$appearanceLogoForm -> addElement('file', 'logo', _FILENAME);
+try {
+ $file = new EfrontFile($configuration['site_logo']);
+ $appearanceLogoForm -> addElement("static", "formelement", '<img src = "images/logo/'.$file['name'].'" alt = "'._SITELOGO.'" title = "'._SITELOGO.'"/>');
+} catch (Exception $e) {
+
+}
+$appearanceLogoForm -> addElement('file', 'site_logo', _UPLOADSITELOGO);
 $appearanceLogoForm -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 //Don't show normalization if GD isn't set.
 if (extension_loaded('gd') || extension_loaded('gd2')) {
@@ -58,7 +64,7 @@ if (extension_loaded('gd') || extension_loaded('gd2')) {
  $appearanceLogoForm -> addElement("advcheckbox", "normalize_dimensions", _NORMALIZEDIMENSIONS, null, 'class = "inputCheckBox"', array(0, 1));
  $appearanceLogoForm -> setDefaults(array('normalize_dimensions' => 1));
 }
-$appearanceLogoForm -> addElement("advcheckbox", "default_logo", _USEDEFAULTLOGO, null, 'class = "inputCheckBox" id = "set_default_logo" onclick = "$(\'logo_settings\').select(\'input\').each(function(s) {if (s.type != \'submit\' && s.id != \'set_default_logo\') s.disabled ? s.disabled = \'\' : s.disabled = \'disabled\' })"', array(0, 1));
+$appearanceLogoForm -> addElement("select", "use_logo", _USELOGO, array(0 => _DEFAULTLOGO, 1 => _SITELOGO, 2 => _THEMELOGO));
 
 $smarty -> assign("T_MAX_UPLOAD_SIZE", FileSystemTree :: getUploadMaxSize());
 try {
@@ -68,33 +74,44 @@ try {
 } catch (EfrontFileException $e) {
  $appearanceLogoForm -> setDefaults(array('logo_max_width' => 200, 'logo_max_height' => 150));
 }
+
+$appearanceLogoForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $appearanceLogoForm -> freeze();
 } else {
  $appearanceLogoForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
- if ($appearanceLogoForm -> isSubmitted() && $appearanceLogoForm -> validate()) { //If the form is submitted and validated
-  if ($appearanceLogoForm -> exportValue('default_logo')) {
-   EfrontConfiguration :: setValue('logo', '');
-  } else {
-   $logoDirectory = new EfrontDirectory(G_LOGOPATH);
-   $filesystem = new FileSystemTree(G_LOGOPATH);
-   try {
-    $logoFile = $filesystem -> uploadFile('logo', $logoDirectory);
-    if (strpos($logoFile['mime_type'], 'image') === false) {
-     throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
-    }
-    EfrontConfiguration :: setValue('logo', $logoFile['id']);
-   } catch (EfrontFileException $e) {
-    if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;} //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
-   }
-   // Normalize avatar picture to the dimensions set in the System Configuration menu. NOTE: the picture will be modified to match existing settings. Future higher settings will be disregarded, while lower ones might affect the quality of the displayed image
-   if ($appearanceLogoForm -> exportValue("normalize_dimensions") == 1) {
-    eF_normalizeImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $appearanceLogoForm->exportValue("logo_max_width"), $appearanceLogoForm->exportValue("logo_max_height"));
-   } else {
-    list($width, $height) = getimagesize(G_LOGOPATH . $logoFile['name']);
-    eF_createImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $width, $height, $appearanceLogoForm->exportValue("logo_max_width"), $appearanceLogoForm->exportValue("logo_max_height"));
-   }
+ if ($appearanceLogoForm -> isSubmitted() && $appearanceLogoForm -> validate()) {
+  $values = $appearanceLogoForm -> exportValues();
+  unset($values['submit']);
+  unset($values['logo']); //This is set separately, otherwise settings replace its value
+  foreach ($values as $key => $value) {
+   $result = EfrontConfiguration :: setValue($key, $value);
   }
+
+  if ($values['use_logo'] == 0) {
+   EfrontConfiguration :: setValue('logo', '');
+  } elseif ($values['use_logo'] == 1) {
+   EfrontConfiguration :: setValue('logo', $GLOBALS['configuration']['site_logo']);
+  }
+  $logoDirectory = new EfrontDirectory(G_LOGOPATH);
+  $filesystem = new FileSystemTree(G_LOGOPATH);
+  try {
+   $logoFile = $filesystem -> uploadFile('site_logo', $logoDirectory);
+   if (strpos($logoFile['mime_type'], 'image') === false) {
+    throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
+   }
+   EfrontConfiguration :: setValue('site_logo', $logoFile['id']);
+  } catch (EfrontFileException $e) {
+   if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;} //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
+  }
+  // Normalize avatar picture to the dimensions set in the System Configuration menu. NOTE: the picture will be modified to match existing settings. Future higher settings will be disregarded, while lower ones might affect the quality of the displayed image
+  if ($values["normalize_dimensions"] == 1) {
+   eF_normalizeImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $values["logo_max_width"], $values["logo_max_height"]);
+  } else {
+   list($width, $height) = getimagesize(G_LOGOPATH . $logoFile['name']);
+   eF_createImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $width, $height, $values["logo_max_width"], $values["logo_max_height"]);
+  }
+
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=logo&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
  }
 }

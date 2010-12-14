@@ -83,7 +83,12 @@ class EfrontConfiguration
   'motto_on_header' => '1',
      'lessons_directory' => '1', //0 means 'no', 1 means 'yes', and 2 means 'only after login'
      'collapse_catalog' => '0', // 0 means 'no', 1 means 'yes' and  2 means 'only for lessons'
-        'logo' => '',
+        'logo' => '', // if empty, the default logo is used
+     'site_logo' => '0', // The actual site logo in use
+     'use_logo' => '0', // 0 means 'default logo', 1 means 'site logo', 2 means 'theme logo'
+        'logo_max_width' => '200',
+        'logo_max_height' => '150',
+        'normalize_dimensions' => '1',
         'favicon' => '',
         'username_format' => '#surname# #n#. (#login#)', //Possible values: #name#, #n#, #surname#, #login#
         'username_format_resolve'=> '1', //If 2 formatted usernames are the same, include the login too

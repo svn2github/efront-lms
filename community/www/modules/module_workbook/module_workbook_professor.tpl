@@ -100,6 +100,10 @@
    <td class="elementCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.allow_export.html}</td>
   </tr>
   <tr>
+   <td class="labelCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.edit_answers.label}:&nbsp;</td>
+   <td class="elementCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.edit_answers.html}</td>
+  </tr>
+  <tr>
    <td class="labelCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.unit_to_complete.label}:&nbsp;</td>
    <td class="elementCell">{$T_WORKBOOK_EDIT_SETTINGS_FORM.unit_to_complete.html}</td>
   </tr>
@@ -351,7 +355,7 @@
    <img src="{$T_WORKBOOK_BASELINK|cat:'images/success.png'}" alt="{$smarty.const._PUBLISH}" title="{$smarty.const._PUBLISH}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&publish_workbook=1" >{$smarty.const._PUBLISH}</a>
 {else}
    {if sizeof($T_WORKBOOK_LESSONS) != 2}&nbsp;<div class="options_separator"></div>&nbsp;{/if}
-   <img src="{$T_WORKBOOK_BASELINK|cat:'images/forbidden.png'}" alt="{$smarty.const._RESET}" title="{$smarty.const._RESET}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&reset_workbook_professor=1" onclick="return confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}');">{$smarty.const._RESET}</a>
+   <img src="{$T_WORKBOOK_BASELINK|cat:'images/forbidden.png'}" alt="{$smarty.const._RESET}" title="{$smarty.const._RESET}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&reset_workbook_professor=1" onclick="var msg = getResetMessage(); return confirm(msg);">{$smarty.const._RESET}</a>
 {/if}
    &nbsp;<div class="options_separator"></div>&nbsp;
    <img src="{$T_WORKBOOK_BASELINK|cat:'images/analysis.png'}" alt="{$smarty.const._WORKBOOK_CHECK_PROGRESS}" title="{$smarty.const._WORKBOOK_CHECK_PROGRESS}" style="vertical-align:middle" />&nbsp;<a href="{$T_WORKBOOK_BASEURL}&check_workbook_progress=1">{$smarty.const._WORKBOOK_CHECK_PROGRESS}</a>
@@ -477,6 +481,25 @@
 
   if(lesson_id != '-1' && lesson_id != '-2')
    location = url;
+ }
+
+ function getResetMessage(){
+
+  var url = '{/literal}{$T_WORKBOOK_BASEURL}{literal}&get_reset_message=1';
+  var message = '';
+
+  new Ajax.Request(url, {
+   method: 'get',
+   asynchronous: false,
+   onFailure: function(transport){
+    alert(decodeURIComponent(transport.responseText));
+   },
+   onSuccess: function(transport){
+    message = decodeURIComponent(transport.responseText);
+   }
+  });
+
+  return message;
  }
 
 {/literal}

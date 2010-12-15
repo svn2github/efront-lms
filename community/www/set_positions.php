@@ -57,12 +57,7 @@ try {
         }
         //administrator control panel positions
         else if ($currentUser -> user['user_type'] == 'administrator' && !isset($_POST['lessons_ID'])) {
-            $result = eF_getTableData("configuration", "value", "name = '".$currentUser -> user['login']."_positions'");
-            if (sizeof($result) > 0) {
-                $result = eF_updateTableData("configuration", array('value' => $positions), "name = '".$currentUser -> user['login']."_positions'");
-            } else {
-                $result = eF_insertTableData("configuration", array('name' => $currentUser -> user['login'].'_positions', 'value' => $positions));
-            }
+            EfrontConfiguration::setValue($currentUser -> user['login']."_positions", $positions);
         }
         //lesson control panel positions
         else {

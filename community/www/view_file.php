@@ -31,8 +31,13 @@ try {
 //pr($_SERVER);pr($_GET);exit;
 try {
  if (isset($_GET['server'])) {
-  $urlParts = parse_url($_SERVER['REQUEST_URI']);
+  $url = $_SERVER['REQUEST_URI'];
+  if (strpos($url, 'http') !== 0) { //Otherwise, depending on the QUERY_STRING, parse_url() may not work
+   $url = G_PROTOCOL.'://'.$_SERVER["HTTP_HOST"].$url;
+  }
+  $urlParts = parse_url($url);
   $filePath = G_ROOTPATH.'www/'.str_replace(G_SERVERNAME, '', G_PROTOCOL.'://'.$_SERVER['HTTP_HOST'].$urlParts['path']);
+  file_put_contents('text'.time().'.txt', 'URI: '.$_SERVER['REQUEST_URI']."\nParts:".serialize($urlParts)."\nPath:".$filePath);
   try {
    $file = new EfrontFile(urldecode($filePath));
   } catch (Exception $e) {

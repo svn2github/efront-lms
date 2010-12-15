@@ -28,7 +28,7 @@ $debug_TimeStart = microtime(true);
 $debugMode = 0;
 
 //Set the default content type to be utf-8, as everything in the system
-header('Content-Type: text/html; charset=utf-8');
+//header('Content-Type: text/html; charset=utf-8');
 
 error_reporting( E_ERROR );
 //error_reporting( E_ALL );ini_set("display_errors", true);define("NO_OUTPUT_BUFFERING", true);        //Uncomment this to get a full list of errors
@@ -248,7 +248,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 9278;
+    $build = 9295;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

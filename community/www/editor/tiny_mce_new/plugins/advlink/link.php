@@ -31,12 +31,12 @@ if ($_SESSION['s_lessons_ID']) {
 <table><tr><td valign="top">
 <table border="0" style="width: 100%;">
 <TR>
-    <TD style = "vertical-align:top;width:50%">{#advanced_dlg.file}: <span class="help">{#advlink_dlg.selectonewantaslink}.</span><br>
-        <iframe name="LNKPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px; width: 320px; height:450px; z-index:1"></iframe>
+    <TD style = "vertical-align:top;width:50%"><?php echo _FILE ?>: <span class="help"><?php echo _SELECTTHEONEYOUWANTASLINK ?>.</span><br>
+        <iframe name="LNKPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px; width: 310px; height:450px; z-index:1"></iframe>
     </TD>
 <?php if ($_SESSION['s_lessons_ID']) {?>
-    <TD style = "vertical-align:top;width:50%">{#advanced_dlg.unit}: <span class="help">{#advlink_dlg.selectonewantaslink}.</span><br>
-        <iframe name="LNKPICKCONTENT" src="<?php echo $contentIframeUrl;?>" style="border: solid black 1px; width: 290px; height:450px; z-index:1"></iframe>
+    <TD style = "vertical-align:top;width:50%"><?php echo _UNIT ?>: <span class="help"><?php echo _SELECTTHEONEYOUWANTASLINK ?>.</span><br>
+        <iframe name="LNKPICKCONTENT" src="<?php echo $contentIframeUrl;?>" style="border: solid black 1px; width: 280px; height:450px; z-index:1"></iframe>
     </TD>
 <?php }?>
 </TR>

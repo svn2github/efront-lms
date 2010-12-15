@@ -30,8 +30,7 @@ if ($_SESSION['s_lessons_ID']) {
 </head>
 <body style="display: none">
 <table><tr><td valign="top">
-<div class="title">{#java_dlg.insert_java}</div>
-{#advanced_dlg.select_file} :<br>
+<?php echo _SELECT ?> :<br>
 <iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 450px; height:235px; z-index:1"></iframe>
 
 </td><td valign="top">

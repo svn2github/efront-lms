@@ -32,7 +32,7 @@ if ($_SESSION['s_lessons_ID']) {
 <body id="advimage" style="display: none">
 <!--- new stuff --->
 <table><tr><td valign="top">
-{#advanced_dlg.select_file}:<br>
+<?php echo _SELECT ?>:<br>
 <iframe name="IMGPICK" src="<?php echo $iframeUrl;?>" style="border: solid black 1px;  width: 450px; height:365px; z-index:1"></iframe>
 </td><td valign="top">
     <form onsubmit="ImageDialog.insert();return false;" action="#">

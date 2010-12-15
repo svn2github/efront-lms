@@ -307,7 +307,7 @@ function formatLogin($login, $fields = array(), $duplicate = true) {
     } else {
      if (!isset($GLOBALS['_usernames'])) {
       $GLOBALS['_usernames'] = array();
-      if (function_exists('apc_fetch') && $usernames = apc_fetch('_usernames')) {
+      if (function_exists('apc_fetch') && $usernames = apc_fetch(G_DBNAME.':_usernames')) {
        $GLOBALS['_usernames'] = $usernames;
       } else {
        $result = eF_getTableDataFlat("users", "login, name, surname, user_type");
@@ -325,7 +325,7 @@ function formatLogin($login, $fields = array(), $duplicate = true) {
         }
        }
        if (function_exists('apc_store')) {
-        apc_store('_usernames', $GLOBALS['_usernames']);
+        apc_store(G_DBNAME.':_usernames', $GLOBALS['_usernames']);
        }
       }
      }
@@ -901,11 +901,6 @@ function eF_getLdapValues($filter, $attributes)
 
 */
 function eF_ldapConnect() {
-    $server = eF_getTableData("configuration", "value", "name='ldap_server'");
-    $port = eF_getTableData("configuration", "value", "name='ldap_port'");
-    $binddn = eF_getTableData("configuration", "value", "name='ldap_binddn'");
-    $bind_pwd = eF_getTableData("configuration", "value", "name='ldap_password'");
-    $protocol = eF_getTableData("configuration", "value", "name='ldap_protocol'");
     $ds = ldap_connect($GLOBALS['configuration']['ldap_server'], $GLOBALS['configuration']['ldap_port']);
     ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, $GLOBALS['configuration']['ldap_protocol']);
     ldap_set_option($ds, LDAP_OPT_TIMELIMIT, 10);
@@ -2257,7 +2252,7 @@ function eF_getTimezones() {
 
  */
 function detectBrowser() {
-    $mobileAgents = array('iphone', 'ipod', 'blackberry', 'htc', 'palm', 'windows ce', 'opera mini', 'android', 'midp', 'symbian');
+    $mobileAgents = array('iphone', 'ipad', 'ipod', 'blackberry', 'htc', 'palm', 'windows ce', 'opera mini', 'android', 'midp', 'symbian');
     $agent = $_SERVER['HTTP_USER_AGENT'];
     switch (true) {
         case preg_match("/(".implode("|", $mobileAgents).")/i", $agent) != 0: $browser = 'mobile'; break;

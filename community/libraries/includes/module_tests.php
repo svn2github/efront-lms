@@ -35,7 +35,7 @@ try {
      if (!isset($currentContent)) {
          $currentContent = new EfrontContentTree($currentLesson);
      }
-     $lessonTests = $legalValues = $currentLesson -> getTestsAndFeedbacks(); //Lesson's tests	    
+     $lessonTests = $legalValues = $currentLesson -> getTestsAndFeedbacks(); //Lesson's tests
   $legalQuestions = eF_getTableDataFlat('questions', "id", 'lessons_ID='.$currentLesson -> lesson['id']);
   $legalUnits = array(); //Lesson's units
   foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {

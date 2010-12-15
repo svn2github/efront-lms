@@ -35,6 +35,11 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
   if ($values['reset_license_note']) {
    eF_updateTableData("users", array("viewed_license" => 0), "viewed_license = 1");
   }
+  if ($values['username_format']) {
+   if (function_exists('apc_delete')) {
+    apc_delete('_usernames');
+   }
+  }
   unset($values['reset_license_note']); //Unset it, since we don't need to store this value to the database
   unset($values['submit']);
   foreach ($values as $key => $value) {

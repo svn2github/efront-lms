@@ -2401,6 +2401,13 @@ class EfrontCompletedTest extends EfrontTest
                 'pending' => $this -> completedTest['pending'] ? $this -> completedTest['pending'] : 0,
                 'score' => $this -> completedTest['score'] ? $this -> completedTest['score'] : null);
             eF_updateTableData("completed_tests", $fields, "id=".$this -> completedTest['id']);
+            if ($this -> options['maintain_history'] !== '') {
+          $result = eF_getTableDataFlat("completed_tests", "id", "status != 'incomplete' and status != 'paused' and users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
+          if (sizeof($result['id']) > $this -> options['maintain_history']) {
+              $deleteThreshold = $result['id'][$this -> options['maintain_history']];
+              eF_updateTableData("completed_tests", array("test" => '', 'status' => 'deleted'), "status != 'incomplete' and status != 'paused' and users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']." and id <= $deleteThreshold and id != ".$this -> completedTest['id']);
+          }
+            }
         } else {
          $fields = array('tests_ID' => $this -> completedTest['testsId'],
                             'users_LOGIN' => $this -> completedTest['login'],
@@ -2414,13 +2421,6 @@ class EfrontCompletedTest extends EfrontTest
          $id = eF_insertTableData("completed_tests", $fields);
          $this -> completedTest['id'] = $id;
          $this -> save();
-            if ($this -> options['maintain_history']) {
-          $result = eF_getTableDataFlat("completed_tests", "id", "users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
-          if (sizeof($result['id']) > $this -> options['maintain_history']) {
-              $deleteThreshold = $result['id'][$this -> options['maintain_history']];
-              eF_updateTableData("completed_tests", array("test" => '', 'status' => 'deleted'), "users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']." and id <= $deleteThreshold");
-          }
-            }
         }
     }
     /**
@@ -2563,7 +2563,7 @@ class EfrontCompletedTest extends EfrontTest
         $timeSpent['hours'] ? $completedString .= $timeSpent['hours']._HOURSSHORTHAND : null;
         $timeSpent['minutes'] ? $completedString .= $timeSpent['minutes']._MINUTESSHORTHAND.' ' : null;
         $timeSpent['seconds'] ? $completedString .= $timeSpent['seconds']._SECONDSSHORTHAND : null;
-        if ($status['timesDone'] > 1) {
+        if ($status['timesDone'] > 1 && $this -> options['maintain_history'] !== '0') {
             $jumpString = '
                 '._JUMPTOEXECUTION.':
                 <select style = "vertical-align:middle" onchange = "location.toString().match(/show_solved_test/) ? location = location.toString().replace(/show_solved_test=\d+/, \'show_solved_test=\'+this.options[this.selectedIndex].value) : location = location + \'&show_solved_test=\'+this.options[this.selectedIndex].value">';
@@ -2581,10 +2581,12 @@ class EfrontCompletedTest extends EfrontTest
                             <a href = "javascript:void(0)" id="redoLinkHref" onclick = "redoTest(this)" style = "vertical-align:middle">'._USERREDOTEST.'</a></span>';
    }
   }
-        $editHandlesString .= '
+   if ($this -> options['maintain_history'] !== '0') {
+         $editHandlesString .= '
                         <span>
                             <img src = "images/16x16/arrow_right.png" alt = "'._TESTANALYSIS.'" title = "'._TESTANALYSIS.'" border = "0" style = "vertical-align:middle">
                             <a href = "'.$url.'&test_analysis=1" id="testAnalysisLinkHref" style = "vertical-align:middle">'._TESTANALYSIS.'</a></span>';
+   }
         if ($editHandles) {
             if ($this -> completedTest['feedback']) {
                 $editHandlesString .= '

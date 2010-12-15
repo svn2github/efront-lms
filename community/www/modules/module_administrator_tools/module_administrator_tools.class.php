@@ -281,7 +281,7 @@ class module_administrator_tools extends EfrontModule {
       }
       $smarty -> assign("T_SQL_RESULT", $result);
      } catch (Exception $e) {
-      pr($e);
+      $smarty -> assign("T_SQL_RESULT", $e->getMessage());
      }
     } catch (Exception $e) {
      $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());

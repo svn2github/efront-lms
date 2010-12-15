@@ -49,9 +49,7 @@ $appearanceLogoForm -> registerRule('checkParameter', 'callback', 'eF_checkParam
 try {
  $file = new EfrontFile($configuration['site_logo']);
  $appearanceLogoForm -> addElement("static", "formelement", '<img src = "images/logo/'.$file['name'].'" alt = "'._SITELOGO.'" title = "'._SITELOGO.'"/>');
-} catch (Exception $e) {
-
-}
+} catch (Exception $e) {}
 $appearanceLogoForm -> addElement('file', 'site_logo', _UPLOADSITELOGO);
 $appearanceLogoForm -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 //Don't show normalization if GD isn't set.

@@ -177,6 +177,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
  }
  if (($form -> isSubmitted() && $form -> validate()) || isset($_GET['unattended'])) {
   try {
+   if (function_exists('apc_clear_cache')) {
+    apc_clear_cache('user');
+   }
    $db = ADONewConnection($form -> exportValue('db_type')); //Set Connection parameter to "mysql"
    if (isset($_GET['unattended'])) {
     if (isset($_GET['upgrade'])) {

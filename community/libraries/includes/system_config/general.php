@@ -156,8 +156,7 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
     } elseif ($key == 'max_file_size') {
      EfrontConfiguration :: setValue($key, FileSystemTree :: getUploadMaxSize());
     } else {
-     eF_deleteTableData("configuration", "name = '$key'");
-     unset($configuration[$key]);
+     EfrontConfiguration :: deleteValue($key);
     }
    } else {
     if ($key == 'memory_limit' || $key == 'max_execution_time') { //You can't set these values below the php.ini setting

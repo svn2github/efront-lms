@@ -277,8 +277,7 @@ try {
         $innerTableIdentifier = $currentUser -> user['user_type'].'_cpanel';
         //Calculate element positions, so they can be rearreanged accordingly to the user selection
         if ($_admin_) {
-            $elementPositions = eF_getTableData("configuration", "value", "name='".$_SESSION['s_login']."_positions'");
-            $elementPositions[0]['positions'] = $elementPositions[0]['value'];
+            $elementPositions[0]['positions'] = $GLOBALS['configuration'][$_SESSION['s_login']."_positions"];
         } else {
             $elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
             if ($_student_ && sizeof($elementPositions) == 0 && $currentLesson -> options['default_positions']) {

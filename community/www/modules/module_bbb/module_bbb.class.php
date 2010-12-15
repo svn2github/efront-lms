@@ -217,7 +217,7 @@ class module_BBB extends EfrontModule {
 
      * Parses the options stored for the meeting in the DB and retuns the correct
 
-     * URL according to role of the user, whether the meeting has started or 
+     * URL according to role of the user, whether the meeting has started or
 
      * whether that incomprehensible flag by the guy who did dimdim is true or false.
 
@@ -340,9 +340,9 @@ class module_BBB extends EfrontModule {
                 if ($server_name[strlen($server_name)-1] == "/") {
                     $server_name = substr($server_name, 0, strlen($server_name)-1);
                 }
-                eF_updateTableData("configuration", array("value" => $server_name), "name = 'module_BBB_server'");
-    eF_updateTableData("configuration", array("value" => $salt_string), "name = 'module_BBB_salt'");
-    eF_updateTableData("configuration", array("value" => $version_choice), "name = 'module_BBB_server_version'");
+                EfrontConfiguration::setValue("module_BBB_server", $server_name);
+                EfrontConfiguration::setValue("module_BBB_salt", $salt_string);
+                EfrontConfiguration::setValue("module_BBB_server_version", $version_choice);
                 $this -> setMessageVar(_BBB_SUCCESFULLYCHANGEDSERVER, "success");
             }
 

@@ -68,6 +68,10 @@ if (!$_student_) {
    $status = $testInstance -> getStatus($currentUser -> user['login']);
    $smarty -> assign("T_TEST_STATUS", $status);
 
+   if ($testInstance -> options['maintain_history'] === '0') {
+    $testInstance -> redo($testInstance->completedTest['login']);
+   }
+
             if (isset($_GET['test_analysis'])) {
                 require_once 'charts/php-ofc-library/open-flash-chart.php';
 
@@ -123,7 +127,7 @@ if (!$_student_) {
             break;
     }
 
-    if (isset($_GET['ajax'])) {
+    if (isset($_GET['ajax']) && ($testInstance instanceOf EfrontCompletedTest)) { //in case redo() was called from maintain_history === 0
         $testInstance -> handleAjaxActions();
     }
 

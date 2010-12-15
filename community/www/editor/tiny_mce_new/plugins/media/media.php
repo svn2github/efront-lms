@@ -29,7 +29,7 @@ if ($_SESSION['s_lessons_ID']) {
 </head>
 <body style="display: none">
 <table><tr><td valign="top">
-{#advanced_dlg.select_file}:<br>
+<?php echo _SELECT ?>:<br>
 <iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 450px; height:435px; z-index:1"></iframe>
 </td><td valign="top">
     <form onsubmit="insertMedia();return false;" action="#">

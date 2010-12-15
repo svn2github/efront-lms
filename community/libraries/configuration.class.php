@@ -238,8 +238,15 @@ class EfrontConfiguration
 
     */
     public static function getValues() {
-        $options = eF_getTableDataFlat("configuration", "*");
-        sizeof($options) > 0 ? $options = array_combine($options['name'], $options['value']) : $options = array();
+     if (function_exists('apc_fetch') && $apcOptions = apc_fetch(G_DBNAME.':configuration')) {
+      $options = $apcOptions;
+     } else {
+         $options = eF_getTableDataFlat("configuration", "*");
+         sizeof($options) > 0 ? $options = array_combine($options['name'], $options['value']) : $options = array();
+         if (function_exists('apc_store')) {
+          apc_store(G_DBNAME.':configuration', $options);
+         }
+     }
         foreach (EfrontConfiguration :: $defaultOptions as $key => $value) {
             if (!isset($options[$key])) {
                 EfrontConfiguration::setValue($key, $value);
@@ -316,6 +323,9 @@ class EfrontConfiguration
 
     */
     public static function setValue($name, $value) {
+     if (function_exists('apc_delete')) {
+      apc_delete(G_DBNAME.':configuration');
+     }
         $result = eF_getTableData("configuration", "value", "name = '$name'");
         if (sizeof($result) > 0) {
             $result = eF_updateTableData("configuration", array('value' => $value), "name = '$name'");
@@ -326,6 +336,30 @@ class EfrontConfiguration
         if ($result) {
          $GLOBALS['configuration'][$name] = $value; //Reset existing value
         }
-        return $result;
+        return true;
+    }
+    /**
+
+     * Delete configuration value
+
+     *
+
+     * This function deletes the specified value from the configuration table and variable
+
+     * @param string $name The variable name
+
+     * @since 3.6.8
+
+     * @access public
+
+     * @static
+
+     */
+    public static function deleteValue($name) {
+     if (function_exists('apc_delete')) {
+      apc_delete('configuration');
+     }
+     eF_deleteTableData("configuration", "name = '$name'");
+     unset($GLOBALS['configuration'][$name]);
     }
 }

@@ -179,7 +179,7 @@ class module_dimdim extends EfrontModule {
 
      * Parses the options stored for the meeting in the DB and retuns the correct
 
-     * URL according to role of the user, whether the meeting has started or 
+     * URL according to role of the user, whether the meeting has started or
 
      * wheter
 
@@ -255,7 +255,7 @@ class module_dimdim extends EfrontModule {
                 if ($server_name[strlen($server_name)-1] == "/") {
                     $server_name = substr($server_name, 0, strlen($server_name)-1);
                 }
-                eF_updateTableData("configuration", array("value" => $server_name), "name = 'module_dimdim_server'");
+    EfrontConfiguration::setValue("module_dimdim_server", $server_name);
                 $this -> setMessageVar(_DIMDIM_SUCCESFULLYCHANGEDSERVER, "success");
             }
 

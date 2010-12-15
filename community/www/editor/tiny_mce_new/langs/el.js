@@ -169,6 +169,10 @@ fileexists : 'This filename already exists',
 filesaved : 'Template was saved successfully',
 problem : 'Problem in saving template'
 },
+java:{
+title : 'Εισαγωγή Java',
+image_desc : 'Εισαγωγή Java'
+},
 advlist:{
 types:"Types",
 def:"Default",

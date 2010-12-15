@@ -86,7 +86,7 @@ In case of error it returns also a message entity with description of the error 
 */
  $path = "../libraries/";
  require_once $path."configuration.php";
-    $data = eF_getTableData("configuration", "value", "name='api'"); //Read current values
+    $data = $GLOBALS['configuration']['api'];
     $api = $data[0]['value'];
     if ($api == 1) {
         if (isset($_GET['action'])) {

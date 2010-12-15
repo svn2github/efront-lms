@@ -258,8 +258,8 @@ class EfrontSystem
   }
   $dir = new EfrontDirectory($tempDir);
   $dir -> delete();
-  if (function_exists('apc_delete')) {
-   apc_delete('_usernames');
+  if (function_exists('apc_clear_cache')) {
+   apc_clear_cache('user');
   }
   return true;
  }

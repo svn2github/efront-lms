@@ -35,6 +35,7 @@ try {
   require_once "catalog_page.php";
 
  } else {
+  $myCoursesOptions = array();
 
   $directionsTree = new EfrontDirectionsTree();
 
@@ -50,6 +51,9 @@ try {
 		 $userLessonProgress = EfrontStats :: getUsersLessonStatus($userLessons, $currentUser -> user['login'], $options);
 		 $userLessons        = array_intersect_key($userLessons, $userLessonProgress); //Needed because EfrontStats :: getUsersLessonStatus might remove automatically lessons, based on time constraints
 		 */
+  if ($currentUser -> coreAccess['dashboard'] != 'hidden') {
+   $myCoursesOptions[] = array('text' => _MYACCOUNT, 'image' => "32x32/user.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=personal");
+  }
   $constraints = array('archive' => false, 'active' => true, 'sort' => 'name');
   $userCourses = $currentUser -> getUserCourses($constraints);
   foreach ($userCourses as $key => $course) {
@@ -78,23 +82,6 @@ try {
    }
    $userCourses[$key] = $course;
   }
-  //$userCourses        = $currentUser -> getCourses(true, false, $options);
-  //$userCourseProgress = EfrontStats :: getUsersCourseStatus($userCourses, $currentUser -> user['login'], $options);
-  //$userCourses        = array_intersect_key($userCourses, $userCourseProgress); //Needed because EfrontStats :: getUsersCourseStatus might remove automatically courses, based on time constraints
-  //debug(false);exit;
-  /*
-		 $temp = array();
-		 foreach ($userLessonProgress as $lessonId => $user) {
-		 $temp[$lessonId] = $user[$currentUser -> user['login']];
-		 }
-		 $userProgress['lessons'] = $temp;
-
-		 $temp = array();
-		 foreach ($userCourseProgress as $courseId => $user) {
-		 $temp[$courseId] = $user[$currentUser -> user['login']];
-		 }
-		 $userProgress['courses'] = $temp;
-		 */
   $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
                               'courses_link' => false,
                   'catalog' => false,
@@ -122,10 +109,16 @@ try {
     }
    }
   }
-  //pr($innertable_modules);
   if (!empty($innertable_modules)) {
    $smarty -> assign("T_INNERTABLE_MODULES", $innertable_modules);
   }
+  if ($GLOBALS['configuration']['insert_group_key']) {
+   $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
+  }
+  if ($GLOBALS['configuration']['lessons_directory']) {
+   $myCoursesOptions[] = array('text' => _COURSECATALOG, 'image' => "32x32/catalog.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
+  }
+  $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
  }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);

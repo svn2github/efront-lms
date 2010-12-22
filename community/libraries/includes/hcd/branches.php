@@ -456,12 +456,12 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
  $smarty -> assign('T_BRANCH_FORM', $form -> toArray());
 
  $moduleTabs = array();
- foreach (eF_loadAllModules(true, true) as $module) {
+ foreach ($currentUser -> getModules() as $module) {
   if ($moduleTab = $module -> getTabSmartyTpl('branches')) {
    $moduleTabs[] = $moduleTab;
   }
  }
- $smarty -> assign("T_MODULE_BRANCH_TABS", $moduleTabs);
+ $smarty -> assign("T_MODULE_TABS", $moduleTabs);
 
 
 

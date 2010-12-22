@@ -54,10 +54,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
- eF_redirect($_SESSION['s_type'].".php");
+ eF_redirect(basename($_SERVER['PHP_SELF']));
 }
 !isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
+if ($currentUser -> user['user_type'] == 'administrator' && $_GET['ctg'] == 'personal') {
+ eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=users&edit_user='.$currentUser -> user['login']);
+}
 //error_reporting(E_ALL);
 //echo "<pre>";print_r($_POST);print_r($_GET);
 //print_r($_FILES);

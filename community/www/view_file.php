@@ -37,7 +37,6 @@ try {
   }
   $urlParts = parse_url($url);
   $filePath = G_ROOTPATH.'www/'.str_replace(G_SERVERNAME, '', G_PROTOCOL.'://'.$_SERVER['HTTP_HOST'].$urlParts['path']);
-  file_put_contents('text'.time().'.txt', 'URI: '.$_SERVER['REQUEST_URI']."\nParts:".serialize($urlParts)."\nPath:".$filePath);
   try {
    $file = new EfrontFile(urldecode($filePath));
   } catch (Exception $e) {

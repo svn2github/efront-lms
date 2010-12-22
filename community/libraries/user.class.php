@@ -1800,6 +1800,9 @@ abstract class EfrontLessonUser extends EfrontUser
     $this -> resetProgressInLesson($lesson);
    }
   }
+  foreach (eF_loadAllModules(true, true) as $key => $module) {
+   $module -> onResetProgressInCourse($course -> course['id'], $this -> user['login']);
+  }
  }
  public function resetProgressInAllCourses() {
   $tracking_info = array("issued_certificate" => "",
@@ -1809,6 +1812,9 @@ abstract class EfrontLessonUser extends EfrontUser
           "completed" => 0,
           "score" => 0);
   eF_updateTableData("users_to_courses", $tracking_info, "users_LOGIN='".$this -> user['login']."'");
+  foreach (eF_loadAllModules(true, true) as $key => $module) {
+   $module -> onResetProgressInAllCourses($this -> user['login']);
+  }
  }
  /**
 	 * Get the users's lessons list
@@ -2675,6 +2681,48 @@ abstract class EfrontLessonUser extends EfrontUser
   } else {
    $roles = self :: $lessonRoles;
   }
+  if (sizeof($roles) > 0) {
+   $getNames ? $roles = array('student' => _STUDENT, 'professor' => _PROFESSOR) + array_combine($roles['id'], $roles['name']) : $roles = array('student' => 'student', 'professor' => 'professor') + array_combine($roles['id'], $roles['basic_user_type']);
+  } else {
+   $getNames ? $roles = array('student' => _STUDENT, 'professor' => _PROFESSOR) : $roles = array('student' => 'student', 'professor' => 'professor');
+  }
+  return $roles;
+ }
+ /**
+	* Get the user's role on a course
+	*
+	* This function returns the user role for the specified course
+	*
+	* @param int $courseId The course id to get the role for
+	* @return string The user role for the course
+	* @since 3.6.8
+	* @access public
+	*/
+ public function getCourseRoles($courseId) {//PROTONC
+  $roles = EfrontUser::getAvailableRoles();//roles are roles - course or lesson does not matter
+  if ($courseId instanceof EfrontCourse) {
+   $courseId = $courseId -> course['id'];
+  }
+  $result = eF_getTableData("users_to_courses", "user_type", "users_LOGIN='".$this -> user['login']."' and courses_ID=".$courseId);
+  if (count($result) > 0) {
+   return $roles[$result[0]['user_type']];
+  } else {
+   return false;
+  }
+ }
+ /**
+	* Get roles applicable to lessons
+	*
+	* This function is used to get the roles in the system, that derive from professor and student
+	*
+	* @param boolean $getNames Whether to return id/basic user type pairs or id/name pairs
+	* @return array The lesson-oriented roles
+	* @since 3.6.8
+	* @access public
+	* @static
+	*/
+ public static function getAvailableRoles($getNames = false) {//PROTONC
+  $roles = eF_getTableDataFlat("user_types", "*", "active=1 AND basic_user_type!='administrator'"); //Get available roles
   if (sizeof($roles) > 0) {
    $getNames ? $roles = array('student' => _STUDENT, 'professor' => _PROFESSOR) + array_combine($roles['id'], $roles['name']) : $roles = array('student' => 'student', 'professor' => 'professor') + array_combine($roles['id'], $roles['basic_user_type']);
   } else {

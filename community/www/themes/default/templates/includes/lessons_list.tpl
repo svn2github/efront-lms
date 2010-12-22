@@ -187,7 +187,13 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
 
 
        {/foreach}
-       {eF_template_printBlock title=$smarty.const._OPTIONS columns=4 links=$T_COURSES_LIST_OPTIONS image='32x32/options.png'}
+       {capture name = "moduleSideOperations"}
+    <tr>
+     <td id = "sideColumn">
+         {eF_template_printBlock title=$smarty.const._TOOLS columns=2 links=$T_COURSES_LIST_OPTIONS image='32x32/options.png'}
+        </td>
+       </tr>
+       {/capture}
     {eF_template_printBlock title = $smarty.const._MYCOURSES data = $smarty.capture.t_directions_tree_code image = '32x32/theory.png'}
 
    {elseif $T_OP == 'search'}

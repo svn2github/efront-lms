@@ -3864,98 +3864,99 @@ define("_ORSPECIFYANEWGROUPTOADDTO","Ou especificar um novo grupo para adicionar
 define("_ADDTO","Adicionar ao");//Add to
 define("_REMOVEFROM","Retire do");//Remove from
 define("_GROUPOPERATIONS","operações do Grupo");//Group operations
-define("_CERTIFICATEOPERATIONS","Certificado de operações");//Certificate operations
-define("_LESSONOPERATIONS","Lição operações");//Lesson operations
-define("_COURSEOPERATIONS","Curso de operações");//Course operations
+
+define("_CERTIFICATEOPERATIONS","Operaçõesde Certificado");//Certificate operations
+define("_LESSONOPERATIONS","Operações de Lição");//Lesson operations
+define("_COURSEOPERATIONS","Operações de curso");//Course operations
 define("_EXPORTTOCSV","Exportar para CSV");//Export to csv
 define("_NOEVENTCODEDEFINED","Nenhum código de evento definido");//No event code defined
 define("_FILESIMPORTEDSUCCESSFULLY","Arquivos importados com sucesso");//Files imported successfully
-define("_CONVERTFOLDERSTOHIERARCHY","Converta pastas a hierarquia aninhada");//Convert folders to nested hierarchy
-define("_UNCOMPRESSRECURSIVELYIMPORT","Descompacte o arquivo zip (s) e conteúdo de importação");//Uncompress zip file(s) and import contents
-define("_THEMELOCKED","O tema é bloqueado");//The theme is locked
-define("_BLANKREPORT","relatório em branco");//Blank report
-define("_CUSTOMREPORTS","Os relatórios personalizados");//Custom reports
-define("_ADMINISTRATORCONFIRMENROLLED","O administrador do sistema irá ativar a sua revisão e matrículas");//The system administrator will review and activate your enrollments
-define("_REFRESHTABLE","tabela de atualização");//Refresh table
+define("_CONVERTFOLDERSTOHIERARCHY","Converte pastas a hierarquia aninhada");//Convert folders to nested hierarchy
+define("_UNCOMPRESSRECURSIVELYIMPORT","Descompacte o arquivo(s) zip e importe o conteúdo");//Uncompress zip file(s) and import contents
+define("_THEMELOCKED","O tema está bloqueado");//The theme is locked
+define("_BLANKREPORT","Relatório em branco");//Blank report
+define("_CUSTOMREPORTS","Relatórios personalizados");//Custom reports
+define("_ADMINISTRATORCONFIRMENROLLED","O administrador do sistema irá revisar e ativar as suas matrículas");//The system administrator will review and activate your enrollments
+define("_REFRESHTABLE","Atualizar a tabéla");//Refresh table
 define("_REMOVEFROMSET","Retire do conjunto");//Remove from set
-define("_BRANCHTREE","Ramo de árvore");//Branch tree
-define("_CHANGECONDITIONORDER","Alterar a ordem condição");//Change condition order
+define("_BRANCHTREE","Árvore do filial");//Branch tree
+define("_CHANGECONDITIONORDER","Alterar a ordem da condição");//Change condition order
 define("_INDEX","Índice");//Index
-define("_EVENTDATETIME","Evento data e hora");//Event date and time
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","O arquivo de certificado foi ausente ou corrompido e, portanto, foi reposto");//The certificate file was missing or corrupt and thus was reset
+define("_EVENTDATETIME","Data e hora do evento");//Event date and time
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","O arquivo de certificado foi ausente ou corrompido e, portanto, foi reposicionado");//The certificate file was missing or corrupt and thus was reset
 define("_VISIBLEFROM","Visível a partir de");//Visible from
 define("_EXPIRESAT","Expira em");//Expires at
-define("_CALENDARDISPLAYDATE","Calendário da data de exibição");//Calendar display date
+define("_CALENDARDISPLAYDATE","Exibição da data de Calendário");//Calendar display date
 define("_GLOBAL","Global");//Global
 define("_ALLDAY","Todos os dias");//All day
-define("_CREATECALENDAREVENT","Criar um calendário de eventos");//Create calendar event
+define("_CREATECALENDAREVENT","Criar um evento de calendário");//Create calendar event
 define("_OVERWRITEIFFOLDEREXISTS","Substituir pasta existente");//Overwrite existing folder
 define("_LANDINGPAGE","Landing page");//Landing page
 define("_EXPORTTOXLS","Exportar para xls");//Export to xls
 define("_SURVEYFAILEDTOBEPUBLISHED","Inquérito não será publicado");//Survey failed to be published
-define("_PRINTCHART","gráfico de impressão");//Print chart
-define("_RESPONSEDETAILS","detalhes da resposta");//Response details
+define("_PRINTCHART","Imprimir gráfico");//Print chart
+define("_RESPONSEDETAILS","Detalhes da resposta");//Response details
 define("_SHOWINGONLYACTIVEENTITIES","Mostrando somente entidades ativas");//Showing only active entities
 define("_SHOWINGONLYINACTIVEENTITIES","Mostrando somente entidades inativos");//Showing only inactive entities
 define("_SHOWINGALLENTITIES","Mostrando ambas as entidades ativas e inativas");//Showing both active and inactive entities
 define("_EVENTDOESNOTEXIST","Este evento não existe mais");//This event no longer exists
-define("_CLEARQUEUEMESSAGES","fila de mensagens claras");//Clear queue messages
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar para usuários já pertence a este cargo");//Apply to users already belongs to this job position
+define("_CLEARQUEUEMESSAGES","Exclue fila de mensagens");//Clear queue messages
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Aplicar para usuários, que já pertence a este cargo");//Apply to users already belongs to this job position
 define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Isso só pode adicionar (não remover) uma nova seleção para um usuário");//This can only add (not remove) a new selection to a user
-define("_SORTBY","Classificar por");//Sort by
-define("_TRAINING","Formação");//Training
-define("_COMPLETEDLESSONS","Terminado aulas");//Completed lessons
-define("_INCOMPLETELESSONS","aulas incompleta");//Incomplete lessons
-define("_COMPLETEDCOURSES","cursos concluídos");//Completed courses
-define("_INCOMPLETECOURSES","cursos incompletos");//Incomplete courses
-define("_EDITCOLUMN","Na coluna Editar");//Edit column
+define("_SORTBY","Ordem por");//Sort by
+define("_TRAINING","Treinamento");//Training
+define("_COMPLETEDLESSONS","Aulas terminadas");//Completed lessons
+define("_INCOMPLETELESSONS","Aulas incompletas");//Incomplete lessons
+define("_COMPLETEDCOURSES","Cursos concluídos");//Completed courses
+define("_INCOMPLETECOURSES","Cursos incompletos");//Incomplete courses
+define("_EDITCOLUMN","Editar a coluna");//Edit column
 define("_LESSONSFORCOURSE","Lições para o curso");//Lessons for course
-define("_TESTSFORLESSON","Testes para a aula");//Tests for lesson
-define("_SETALLUSERSSTATUSCOMPLETED","Completa para todos os usuários");//Complete for all users
-define("_LESSONTIMES","Lição vezes");//Lesson times
+define("_TESTSFORLESSON","Testes para a lição");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Complete para todos os usuários");//Complete for all users
+define("_LESSONTIMES","Vezes na lição");//Lesson times
 define("_MINUTESPERDAY","Minutos por dia");//Minutes per day
-define("_LOGOUTUSERAFTERMINUTES","Log usuário para fora depois (minutos)");//Log out user after (minutes)
-define("_UPDATERPERIODSECONDS","Updater período (ms)");//Updater period (ms)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Os valores recomendados são nada menos do que 10000ms e não mais de 360000ms. Também deve ser definido inferior ao tempo de logout automático.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mais de 1 ramos (locais) associado a este curso, mostrando a primeira");//More than 1 branches (locations) associated with this course, showing the first one
+define("_LOGOUTUSERAFTERMINUTES","Desconecte usuário depois (minutos)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Período de atualização (ms)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Os valores recomendados não devem ser menos do que 10000ms e não mais de 360000ms. Também deve ser definido inferior ao tempo de logout automático.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mais de 1 filial (local) associado a este curso, mostrando o primeiro");//More than 1 branches (locations) associated with this course, showing the first one
 define("_INSERT","Inserir");//Insert
 define("_ASSIGNMENTAPPROVEDBY","Atribuição aprovado pelo");//Assignment approved by
-define("_EMPLOYEEIMMEDIATESUPERVISOR","supervisor imediato do empregado");//Employee's immediate supervisor
-define("_SYSTEM_USER_DEACTIVATED","desativação do usuário");//User deactivation
+define("_EMPLOYEEIMMEDIATESUPERVISOR","Supervisor imediato do empregado");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Desativação do usuário");//User deactivation
 define("_WASDEACTIVATEDFROMTHESYSTEM","foi desativada a partir do sistema");//was deactivated from system
-define("_SUPERVISORAPPROVAL","Supervisor de aprovação");//Supervisor approval
+define("_SUPERVISORAPPROVAL","Aprovação do supervisor");//Supervisor approval
 define("_APPROVE","Aprovar");//Approve
 define("_GROUPKEYEXISTS","Chave única já existe");//Unique key already exists
 define("_PARTOFCOURSES","Parte dos cursos");//Part of courses
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Essa aula faz parte dos cursos de um ou mais, por isso não pode mudar o modo de");//This lesson is part of one or more courses, so it cannot change mode
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Existem usuários se inscreveram para esta lição. Por favor, não atribuir-los antes de alternar os modos");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Essa aula faz parte de um ou mais cursos, por isso não pode mudar o modo dele");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Existem usuários se inscreveram para esta lição. Por favor, desmatricule-los antes de alternar os modos");//There are users enrolled to this lesson. Please unassign them before switching modes
 define("_COURSESINCOMPLETETOTAL","Cursos (incompleto / total)");//Courses (incomplete/total)
 define("_EXPORTFILES","Exportar arquivos");//Export files
-define("_PROGRAMMEDCOURSEEXPIRY","Curso de validade previsto");//Course scheduled expiration
-define("_PROGRAMMEDCOURSESTART","Curso programado início");//Course scheduled beginning
-define("_SCHEDULEDSTARTOFCOURSE","início agendado de curso");//Scheduled start of course
-define("_SCHEDULEDEXPIRYOFCOURSE","validade prevista de curso");//Scheduled expiration of course
-define("_ALLCOURSEUSERS","Todos os utilizadores da disciplina");//All course users
+define("_PROGRAMMEDCOURSEEXPIRY","Validade previsto do curso");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Início programado do curso ");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Início agendado de curso");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Vencimento do curso previsto");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Todos os usuários do curso");//All course users
 define("_MOVEBLOCK","Mover o bloco");//Move block
-define("_EXPANDCOLLAPSEBLOCK","Expandir o colapso do bloco /");//Expand/collapse block
-define("_DEFAULTLEARNERTYPE","Padrão tipo aluno");//Default learner type
-define("_DEFAULTLEARNERTYPEINFO","Se você tiver definido uma chave de grupo para este grupo, os usuários que usam a chave será inscrito para aulas / cursos que têm este tipo. Se você tiver definido a este grupo a ser padrão, os novos usuários serão atribuídos às aulas do grupo com este tipo");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
-define("_DONTUSEDEFAULTGROUP","Não use tipo padrão");//Don't use default type
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Você foi adicionada com sucesso ao grupo");//You have been successfully added to the group
+define("_EXPANDCOLLAPSEBLOCK","Expandir o colapsar o bloco /");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Tipo aluno padrão");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Se você tiver definido uma chave de grupo para este grupo, os usuários que usam a chave serem inscritos para aulas / cursos que têm este tipo. Se você tiver definido a este grupo a ser padrão, os novos usuários serão atribuídos às aulas do grupo com este tipo");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Não use o tipo padrão");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Você foi adicionado com sucesso ao grupo");//You have been successfully added to the group
 define("_THISGROUPISINACTIVE","Este grupo está inativo");//This group is inactive
-define("_MAXIMUMKEYUSAGESREACHED","A chave não pode ser usado todas as vezes mais");//The key cannot be used any more times
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","A seleção que você fez não é válido. Por favor, escolha uma opção na lista");//The selection you made is not valid. Please pick an option from the list
+define("_MAXIMUMKEYUSAGESREACHED","A chave não pode ser usada mais");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","A seleção que você fez não é válida. Por favor, escolhe uma opção na lista");//The selection you made is not valid. Please pick an option from the list
 define("_YOUAREALREADYMEMBEROFTHISGROUP","Você já é membro deste grupo");//You are already member of this group
 define("_AVERAGESCORES","Os valores médios");//Average scores
-define("_PROJECTSAVERAGE","Média da pontuação em todos os projectos");//Average score in all projects
+define("_PROJECTSAVERAGE","Média da pontuação em todos os projetos");//Average score in all projects
 define("_SWITCHTOTREEVIEW","Alternar para exibição em árvore");//Switch to tree view
-define("_SWITCHTOSIMPLEVIEW","Alterne para o modo simples");//Switch to simple view
-define("_BCCRECIPIENTS","destinatários Undisclosed (BCC)");//Undisclosed recipients (bcc)
+define("_SWITCHTOSIMPLEVIEW","Alternar para o modo simples");//Switch to simple view
+define("_BCCRECIPIENTS","Recipientes obfuscados (BCC)");//Undisclosed recipients (bcc)
 define("_RESULTSFOR","Resultados para");//Results for
 define("_THANKYOUFORCOMPLETING","Obrigado por completar");//Thank you for completing
-define("_NOREPORTSFOUNDINTHESYSTEM","Não há relatos encontrados no sistema");//No reports found in the system
-define("_YOUMAYCREATEONE","Você pode criar uma");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Você não pode alterar o modo de aula, porque há usuários se inscreveram para o curso");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Não há relatórios no sistema");//No reports found in the system
+define("_YOUMAYCREATEONE","Você pode criar um");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Você não pode alterar o modo de aula, porque há usuários matriculadas no curso");//You cannot change lesson mode because there are users enrolled to the course (New)
 define("_THEUSERDOESNOTHAVETHISCOURSE","O usuário não tem este curso");//The user does not have this course (New)
 define("_THEUSERDOESNOTHAVETHISLESSON","O usuário não tem esta lição");//The user does not have this lesson (New)
 define("_USERACCESSGRANTED","O acesso do usuário concedida");//User access granted (New)

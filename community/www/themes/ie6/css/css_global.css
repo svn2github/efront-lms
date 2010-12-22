@@ -87,14 +87,16 @@ table.pageLayout td.left{width:250px;vertical-align:top;}
 table.pageLayout td.right{width:250px;vertical-align:top;}
 table.pageLayout td.center{vertical-align:top;}
 table.pageLayout td.header{height:50px;border-bottom: 0px solid #999999;background:#FAFAFA url('../images/css_images/gradient_large.jpg') repeat-x top;}
-table.pageLayout td.header *{vertical-align:middle;}
 table.pageLayout td.header #logo{padding:5px;float:left;}
 table.pageLayout td.header #info{padding:5px;float:left;}
 table.pageLayout td.header #site_name{font-size:26px;}
-table.pageLayout td.header #logout_link{padding-right:2px}
+table.pageLayout td.header #logout_link{padding-right:2px;float:right;margin-top:5px}
+table.pageLayout td.header #logout_link .headerText{border-left:1px solid black;padding-left:5px;}
+table.pageLayout td.header #logout_link .headerText:first-child{border-left:0px solid black;padding-left:0px;}
 table.pageLayout td.header #logout_link a img{border-width:0px}
 table.pageLayout td.header #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
 table.pageLayout td.header #path{clear:left;padding-top:2px;background:#FAFAFA url('../images/css_images/gradient_medium.jpg') repeat-x top;height:35px;border-top: 1px solid #999999;}
+table.pageLayout td.header #path #tab_handles_div{float:right}
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right}
 table.pageLayout td.footer{height:20px;text-align:right;vertical-align:bottom;}

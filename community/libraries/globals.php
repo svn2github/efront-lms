@@ -175,6 +175,8 @@ if (isset($smarty)) {
     $smarty -> load_filter('output', 'eF_template_formatScore');
     //Selectively include some javascripts based on whether they are actually needed
     $smarty -> load_filter('output', 'eF_template_includeScripts');
+ //For sorted tables (data grids), filter out part that are not displayed
+ //$smarty -> load_filter('output', 'eF_template_parseGrid');
     $browser = detectBrowser();
     if ($browser == 'ie6') {
         define("MSIE_BROWSER", 1);
@@ -248,7 +250,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 9295;
+    $build = 9344;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -441,7 +443,7 @@ function defaultExceptionHandler($e) {
 function shutDownFunction() {
  if (function_exists('error_get_last')) {
   $error = error_get_last();
-  if ($error['type'] == 1) {
+  if ($error['type'] == E_ERROR || $error['type'] == E_COMPILE_ERROR || $error['type'] == E_CORE_ERROR) {
    echo EfrontSystem :: printErrorMessage($error['message'].' in '.$error['file'].' line '.$error['line']);
   }
  }

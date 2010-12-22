@@ -318,4 +318,4 @@ foreach (eF_loadAllModules(true, true) as $module) {
   $moduleTabs[] = $moduleTab;
  }
 }
-$smarty -> assign("T_MODULE_RULES_TABS", $moduleTabs);
+$smarty -> assign("T_MODULE_TABS", $moduleTabs);

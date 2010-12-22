@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Demo Module</title>
+	<author>Periklis Venakis</author>
+	<date>2010 12 21</date>
+	<version>0.1</version>
+	<description>Demo implementation module</description>
+	<className>module_demo</className>
+	<requires>3.6.8</requires>
+</module>

@@ -100,10 +100,32 @@ foreach ($loadedModules as $module) {
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 
 /*Horizontal menus*/
-if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
- // Used inside new_sidebar_frame to opt out code
- $horizontal_inframe_version = true;
- include "new_sidebar.php";
+if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
+ $entity = getUserTimeTarget($_SERVER['REQUEST_URI']);
+ $lastTime = getUserLastTimeInTarget($entity);
+ if ($lastTime === false) {
+  $fields = array("session_timestamp" => time(),
+      "session_id" => session_id(),
+      "session_expired" => 0,
+      "users_LOGIN" => $_SESSION['s_login'],
+      "timestamp_now" => time(),
+      "time" => 0,
+      "lessons_ID" => $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : null,
+      "courses_ID" => $_SESSION['s_courses_ID'] ? $_SESSION['s_courses_ID'] : null,
+      "entity" => current($entity),
+      "entity_id" => key($entity));
+  eF_insertTableData("user_times", $fields);
+  $_SESSION['time'] = 0;
+ } else {
+  $_SESSION['time'] = $lastTime;
+ }
+ $_SESSION['timestamp'] = time();
+
+ $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
+ if ($accounts = unserialize($currentUser -> user['additional_accounts'])) {
+  $result = eF_getTableData("users", "login, user_type", 'login in ("'.implode('","', array_values($accounts)).'")');
+     $smarty -> assign("T_MAPPED_ACCOUNTS", $result);
+ }
 }
 
 !isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];

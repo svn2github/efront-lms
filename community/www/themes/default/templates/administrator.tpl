@@ -333,6 +333,8 @@
          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=export_course'>`$smarty.const._EXPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
      {elseif $T_OP == import_course}
          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=import_course'>`$smarty.const._IMPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+     {elseif $T_MODULE_TABPAGE}
+      {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=`$T_MODULE_TABPAGE.tab_page`'>`$T_MODULE_TABPAGE.title`</a>"}
      {/if}
  {/if}
     {include file = "includes/courses.tpl"}

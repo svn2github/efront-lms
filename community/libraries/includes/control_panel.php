@@ -390,7 +390,7 @@ try {
                 $currentLesson -> options['glossary'] ? $controlPanelOptions[11] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=glossary") : null;
             }
             if ($currentUser -> coreAccess['statistics'] != 'hidden') {
-                $controlPanelOptions[14] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
+                $controlPanelOptions[14] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=lesson");
             }
             if ($currentUser -> coreAccess['settings'] != 'hidden') {
                 $controlPanelOptions[13] = array('text' => _SCHEDULING, 'image' => "32x32/schedule.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scheduling");
@@ -411,9 +411,6 @@ try {
                 $resultForum = eF_getTableData("f_forums","id","lessons_ID=".$_SESSION['s_lessons_ID']);
                 $currentLesson -> options['forum'] ? $controlPanelOptions[18] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$resultForum[0]['id']) : null;
             }
-            if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
-                $controlPanelOptions[6] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
-            }
             ksort($controlPanelOptions);
         } else {
             $controlPanelOptions = $headerOptions;
@@ -422,19 +419,9 @@ try {
                 $controlPanelOptions[] = $option;
                 $headerOptions[] = $option;
             }
-            if ($currentUser -> coreAccess['statistics'] != 'hidden' && $currentLesson -> options['reports']) {
-                $option = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
-                $controlPanelOptions[] = $option;
-                $headerOptions[] = $option;
-            }
             if ($currentUser -> coreAccess['forum'] != 'hidden' && $GLOBALS['configuration']['disable_forum'] != 1 && $currentLesson -> options['forum']) {
                 $resultForum = eF_getTableData("f_forums","id","lessons_ID=".$_SESSION['s_lessons_ID']);
                 $option = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$resultForum[0]['id']);
-                $controlPanelOptions[] = $option;
-                $headerOptions[] = $option;
-            }
-            if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
-                $option = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
                 $controlPanelOptions[] = $option;
                 $headerOptions[] = $option;
             }

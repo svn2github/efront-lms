@@ -374,6 +374,8 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
           {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=export_course'>`$smarty.const._EXPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == import_course}
           {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=import_course'>`$smarty.const._IMPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+      {elseif $T_MODULE_TABPAGE}
+       {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=`$T_MODULE_TABPAGE.tab_page`'>`$T_MODULE_TABPAGE.title`</a>"}
       {/if}
   {/if}
   {if $T_OP == 'search'}
@@ -818,7 +820,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  </table>
 {/capture}
 {capture name = "t_path_additional_code"}
- <span id = "tab_handles" class = "headerText">{if $T_THEME_SETTINGS->options.sidebar_interface != 0}&nbsp;|&nbsp;{/if}
+ <span id = "tab_handles" class = "headerText">
  {if $smarty.session.s_lessons_ID != '' && !$T_CONFIGURATION.disable_bookmarks}
   <img class = "ajaxHandle" src = "images/16x16/bookmark.png" alt = "{$smarty.const._SHOWBOOKMARKS}" title = "{$smarty.const._SHOWBOOKMARKS}" onclick = "getBookmarks(this);"/>
  {/if}

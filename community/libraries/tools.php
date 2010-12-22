@@ -1751,33 +1751,6 @@ if (!function_exists('json_encode'))
         }
     }
 }
-function printInPdfRows($str, $pdf, $row_chars = false) {
-    // Set the characters per pdf row
-    if ($row_chars) {
-        $max_chars_per_line = $row_chars;
-    } else {
-        $max_chars_per_line = 150;
-    }
-    $str_len = strlen($str);
-    if ($str_len > $max_chars_per_line) {
-        $spec_array = explode(" ",$str);
-        $i = 0;
-        do {
-            $char_sum = 0;
-            $row = "";
-            while ($char_sum < $max_chars_per_line && $str_len > 0 && isset($spec_array[$i])) {
-                $len = strlen($spec_array[$i]);
-                $char_sum += $len;
-                $row .= ($spec_array[$i++] . " ");
-                $str_len -= ($len+1);
-            }
-            $pdf->Cell(170, 5, $row, 0, 1, L, 0);
-        } while($str_len > 0);
-    } else {
-        $pdf->Cell(170, 5, $str, 0, 1, L, 0);
-    }
-    return true;
-}
 // Normalize picture to $maxNewWidth x $maxNewHeightof dimensions
 function eF_getNormalizedDims($filename, $maxNewWidth, $maxNewHeight) {
     list($width, $height) = getimagesize($filename);

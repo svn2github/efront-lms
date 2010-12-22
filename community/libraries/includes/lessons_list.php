@@ -118,6 +118,19 @@ try {
   if ($GLOBALS['configuration']['lessons_directory']) {
    $myCoursesOptions[] = array('text' => _COURSECATALOG, 'image' => "32x32/catalog.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
   }
+  if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
+   $myCoursesOptions[] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
+  }
+  if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {
+   $myCoursesOptions[] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
+  }
+  if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
+   $myCoursesOptions[] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum");
+  }
+        if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden') {
+         $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
+  }
+  $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
   $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
  }
 } catch (Exception $e) {

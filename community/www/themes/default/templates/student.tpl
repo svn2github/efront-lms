@@ -568,7 +568,7 @@ function changeItemColor(item, color) {
  </table>
 {/capture}
 {capture name = "t_path_additional_code"}
- <span id = "tab_handles" class = "headerText">{if $T_THEME_SETTINGS->options.sidebar_interface != 0}&nbsp;|&nbsp;{/if}
+ <span id = "tab_handles" class = "headerText">
  {if $smarty.session.s_lessons_ID != '' && !$T_CONFIGURATION.disable_bookmarks && $T_CURRENT_LESSON->options.bookmarking}
   <img class = "ajaxHandle" src = "images/16x16/bookmark.png" alt = "{$smarty.const._SHOWBOOKMARKS}" title = "{$smarty.const._SHOWBOOKMARKS}" onclick = "getBookmarks(this);"/>
  {/if}

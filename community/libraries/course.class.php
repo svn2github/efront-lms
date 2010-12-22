@@ -2318,8 +2318,14 @@ class EfrontCourse
              <img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "handle"></a>
              <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=import_course">
                                                     <img src = "images/16x16/import.png" title = "'._IMPORTCOURSE.'" alt = "'._IMPORTCOURSE.'" class = "handle"></a>';
-                }
-    $courseString .= '<span>)</span>';
+    }
+    foreach ($GLOBALS['currentUser'] -> getModules() as $module) {
+     if ($moduleTabPage = $module -> getTabPageSmartyTpl('course_settings')) {
+      $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op='.$moduleTabPage['tab_page'].'">
+             <img src = "'.$moduleTabPage['image'].'" title = "'.$moduleTabPage['title'].'" alt = "'.$moduleTabPage['title'].'" class = "handle"></a>';
+     }
+    }
+                $courseString .= '<span>)</span>';
    }
   } else {
    if ($this -> course['completed']) {

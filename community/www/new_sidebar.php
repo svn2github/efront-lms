@@ -71,9 +71,6 @@ if (!isset($horizontal_inframe_version) || !$horizontal_inframe_version) {
      $_SESSION['previousSideUrl'] = $_SERVER['REQUEST_URI'];
  }
 }
-if (strlen($configuration['css']) > 0 && is_file(G_CUSTOMCSSPATH.$configuration['css'])) {
-    $smarty -> assign("T_CUSTOM_CSS", $configuration['css']);
-}
 //---------------------------------------------End of Initialization-------------------------------------------------
 ///MODULE1
 $modules = $currentUser -> getModules();

@@ -288,4 +288,9 @@
    </fieldset>
   {/capture}
   {eF_template_printBlock title = $smarty.const._IMPORTCOURSE data = $smarty.capture.t_import_course_code image = '32x32/import.png' main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS help='Course_actions'}
+{elseif $T_MODULE_TABPAGE}
+        {capture name = "module_tab_page"}
+            {include file = $T_MODULE_TABPAGE.file}
+        {/capture}
+  {eF_template_printBlock title = $T_MODULE_TABPAGE.title data = $smarty.capture.module_tab_page image = $T_MODULE_TABPAGE.image main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS1}
 {/if}

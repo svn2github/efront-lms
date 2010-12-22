@@ -186,9 +186,10 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     if (isset($params['main_options']) && sizeof($params['main_options']) > 0) {
      foreach ($params['main_options'] as $key => $value) {
          isset($value['onClick']) ? $value['onclick'] = $value['onClick'] : null; //sometimes onClick is used instead of onclick.
-      $mainOptions .= '
+         !isset($value['absoluteImagePath']) && $value['image'] ? $value['image'] = 'images/'.$value['image'] : null; //if absoluteImagePath is specified, it means that $value['image'] contains an absolute path (or anyway it refers to an image not under www/images/)
+         $mainOptions .= '
                         <span '.($value['selected'] ? 'class = "selected"': null).'>
-                            <a href = "'.$value['link'].'"><img src = "images/'.$value['image'].'" alt = "'.$value['title'].'" title = "'.$value['title'].'"/></a>
+                            <a href = "'.$value['link'].'"><img src = "'.$value['image'].'" alt = "'.$value['title'].'" title = "'.$value['title'].'"/></a>
                             <a href = "'.$value['link'].'" onclick = "'.$value['onclick'].'">'.$value['title'].'</a>
                         </span>';
      }
@@ -202,6 +203,7 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     $handleString = '';
     if ($params['help'] && $GLOBALS['configuration']['disable_help'] == 0) {
         $handleString .= '<a href = "javascript:void(0);"><img src = "images/16x16/help.png"  title = "'.$GLOBALS['configuration']['help_url'].'/'.$params['help'].'" onclick = "PopupCenter(\''.$GLOBALS['configuration']['help_url'].'?useskin=cologneblue&printable=yes&title='.$params['help'].'\', \'helpwindow\', \'800\', \'500\')"></a>';
+     //$handleString .= '<a href = "javascript:void(0);"><img src = "images/16x16/help.png"  title = "'.$GLOBALS['configuration']['help_url'].'/'.$params['help'].'" onclick = "PopupCenter(\''.$GLOBALS['configuration']['help_url'].'/'.$params['help'].'?simple\', \'helpwindow\', \'800\', \'500\')"></a>'; //change also 'help_url'	to 'http://docs.efrontlearning.net'
     }
     if (!$nohandle) {
         if ($cookieValue == 'hidden' || (!$cookieValue && isset($expand) && !$expand)) {

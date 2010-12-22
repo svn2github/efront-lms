@@ -195,7 +195,7 @@
         <div class = "tabber">
    {eF_template_printBlock tabber = "rules" title=$smarty.const._CONTENTTRAVERSINGRULES data=$smarty.capture.t_lesson_rules image='32x32/content.png'}
    {eF_template_printBlock tabber = "conditions" title=$smarty.const._LESSONCONDITIONS data=$smarty.capture.t_conditions_code image='32x32/graduation.png'}
-      {foreach name = "module_tabs_list" item = "tab" key = "key" from=$T_MODULE_RULES_TABS}
+      {foreach name = "module_tabs_list" item = "tab" key = "key" from=$T_MODULE_TABS}
           {capture name = "module_tab"}
               {include file = $tab.file}
           {/capture}

@@ -296,7 +296,7 @@
                                 <h3>{$smarty.const._COURSES}</h3>
                                 {eF_template_printBlock title = $smarty.const._COURSES|cat:$smarty.const._OFBRANCH|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_courses image = '32x32/courses.png'}
                             </div>
-          {foreach name = "module_tabs_list" item = "tab" key = "key" from=$T_MODULE_BRANCH_TABS}
+          {foreach name = "module_tabs_list" item = "tab" key = "key" from=$T_MODULE_TABS}
               {capture name = "module_tab"}
                   {include file = $tab.file}
               {/capture}

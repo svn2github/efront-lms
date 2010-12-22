@@ -105,15 +105,16 @@ table.pageLayout td.layoutColumn{padding:2px;vertical-align:top;}
 table.pageLayout td.left{width:250px;}
 table.pageLayout td.right{width:250px;}
 table.pageLayout td.header{height:70px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA url('../images/css_images/background.gif') repeat-x top;}
-table.pageLayout td.header *{vertical-align:middle}
 table.pageLayout td.header #logo{padding:2px;float:left;}
 table.pageLayout td.header #info{padding:2px;float:left;}
 table.pageLayout td.header #site_name{font-size:26px;}
-table.pageLayout td.header #logout_link{padding-right:2px}
+table.pageLayout td.header #logout_link{padding-right:2px;float:right;margin-top:5px}
+table.pageLayout td.header #logout_link .headerText{border-left:1px solid black;padding-left:5px;}
+table.pageLayout td.header #logout_link .headerText:first-child{border-left:0px solid black;padding-left:0px;}
 table.pageLayout td.header #logout_link a img{border-width:0px}
 table.pageLayout td.header #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
-table.pageLayout td.header #path{clear:left;padding-top:5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;
-background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
+table.pageLayout td.header #path{clear:left;padding-top:5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;background:url('../images/css_images/gradient.gif') repeat-x top;height:25px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349}
+table.pageLayout td.header #path #tab_handles_div{float:right}
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right; padding-right:4px;}
 table.pageLayout td.footer{color:#FFFFFF;height:15px;font-size:12px;border-top: 1px solid #1f3349;border-bottom: 1px solid #1f3349;padding:5px;text-align: right;background:url('../images/css_images/gradient.gif') repeat-x top;}

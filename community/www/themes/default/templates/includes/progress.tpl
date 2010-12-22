@@ -140,6 +140,12 @@
                  </table>
              </form>
          </fieldset>
+      {foreach name = "module_fieldsets_list" item = "fieldset" key = "key" from=$T_MODULE_FIELDSETS}
+          <fieldset class = "fieldsetSeparator">
+           <legend>{$fieldset.title}</legend>
+              {include file = $fieldset.file}
+          </fieldset>
+   {/foreach}
      {/capture}
      {eF_template_printBlock title = "`$smarty.const._PROGRESSFORUSER`: <span class = 'innerTableName'>&quot;#filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#&quot;</span>" data = $smarty.capture.t_edit_progress_code image = '32x32/users.png' help = 'Users_status'}
  {else}

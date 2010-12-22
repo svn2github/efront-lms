@@ -765,9 +765,6 @@ $smarty -> assign('T_MESSAGE_TYPE', $message_type);
 $smarty -> assign('T_LDAPSUPPORT', $configuration['activate_ldap']);
 $smarty -> assign('T_ONLY_LDAP', $configuration['only_ldap']);
 $smarty -> assign('T_EXTERNALLYSIGNUP', $configuration['signup']);
-if (strlen($configuration['css']) > 0 && is_file(G_CUSTOMCSSPATH.$configuration['css'])) { //Load custom css, if one exists
- $smarty -> assign("T_CUSTOM_CSS", $configuration['css']);
-}
 $debug_timeBeforeSmarty = microtime(true) - $debug_TimeStart;
 $benchmark -> set('script');
 $loadScripts[] = 'includes/catalog';
@@ -792,31 +789,33 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'checkout' && $_GET['checkout'] && $_
 } else {
     $smarty -> assign("T_CART", cart :: prepareCart());
 }
-if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2 && $GLOBALS['currentTheme'] -> options['show_header'] == 2) {
- if (isset ($_SESSION['s_login'])) {
-  try {
-   $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
-   if (isset($currentUser)) {
-    if (unserialize($currentUser -> user['additional_accounts'])) {
-     $accounts = unserialize($currentUser -> user['additional_accounts']);
-     $queryString = "'".implode("','", array_values($accounts))."'";
-     $result = eF_getTableData("users", "login, user_type", "login in (".$queryString.")");
-        $smarty -> assign("T_BAR_ADDITIONAL_ACCOUNTS", $result);
-    }
-   }
-  } catch (Exception $e) {
+if (isset ($_SESSION['s_login']) && ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2 && $GLOBALS['currentTheme'] -> options['show_header'] == 2)) {
+ try {
+  $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+  $entity = getUserTimeTarget($_SERVER['REQUEST_URI']);
+  $lastTime = getUserLastTimeInTarget($entity);
+  if ($lastTime === false) {
+   $fields = array("session_timestamp" => time(),
+       "session_id" => session_id(),
+       "session_expired" => 0,
+       "users_LOGIN" => $_SESSION['s_login'],
+       "timestamp_now" => time(),
+       "time" => 0,
+       "lessons_ID" => $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : null,
+       "courses_ID" => $_SESSION['s_courses_ID'] ? $_SESSION['s_courses_ID'] : null,
+       "entity" => current($entity),
+       "entity_id" => key($entity));
+   eF_insertTableData("user_times", $fields);
+   $_SESSION['time'] = 0;
+  } else {
+   $_SESSION['time'] = $lastTime;
   }
- }
- if (((isset($GLOBALS['currentLesson']) && $GLOBALS['currentLesson'] -> options['online']) && $GLOBALS['currentLesson'] -> options['online'] == 1) || (isset($_SESSION['s_type']) && $_SESSION['s_type'] == 'administrator')) {
-  $loadScripts[] = 'sidebar';
-     //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
-     $onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
-     $size = sizeof($onlineUsers);
-     if ($size) {
-         $smarty -> assign("T_ONLINE_USERS_COUNT", $size);
-     }
-     $smarty -> assign("T_ONLINE_USERS_LIST", $onlineUsers);
- }
+  $_SESSION['timestamp'] = time();
+  if ($accounts = unserialize($currentUser -> user['additional_accounts'])) {
+   $result = eF_getTableData("users", "login, user_type", 'login in ("'.implode('","', array_values($accounts)).'")');
+   $smarty -> assign("T_MAPPED_ACCOUNTS", $result);
+  }
+ } catch (Exception $e) {}
 }
 if (isset($_SESSION['s_login']) && $_SESSION['s_login']) { //This way, logged in users that stay on index.php are not logged out
     $loadScripts[] = 'sidebar';

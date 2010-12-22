@@ -86,7 +86,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('advcheckbox', 'pdf_check', _UPLOADPDFFORCONTENT, null, 'class = "inputCheckbox" onclick="togglePdf()"', array(0, 1));
      $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
      $form -> addElement('select', 'ctg_type', _CONTENTTYPE, array('theory' => _THEORY, 'examples'=> _EXAMPLES), 'class = "inputSelect"'); //A select drop down for content type.... Exercises went away in version 3 (2007/07/10) makriria
-     $form -> addElement('select', 'parent_content_ID', _UNITPARENT, array(0 => _NOPARENT)+$currentContent -> toHTMLSelectOptions());
+
+     //in order to display inactive parent units (#903)
+     $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)); //Default iterator excludes non-active units
+     $form -> addElement('select', 'parent_content_ID', _UNITPARENT, array(0 => _NOPARENT)+$currentContent -> toHTMLSelectOptions($iterator));
      $form -> addElement('file', 'pdf_upload', _PDFFILE, null);
      $form -> addElement('submit', 'submit_insert_content', _SAVECHANGES, 'class = "flatButton"');
 
@@ -111,9 +114,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      //Set elements rules
      $form -> addRule('name', _THEFIELD.' "'._UNITNAME.'" '._ISMANDATORY, 'required', null, 'client'); //The name is mandatory
      //$form -> addRule('ctg_type', _THEFIELD.' '._CONTENTTYPE.' '._ISMANDATORY, 'required', null, 'client');       //The content type is mandatry
-     $form -> addRule('parent_content_ID', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
-     $form -> addRule('parent_content_ID', _INVALIDID, 'numeric');
-
+     if (!isset($_GET['edit'])) { // changed in case parent unit is inactive
+      $form -> addRule('parent_content_ID', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
+      $form -> addRule('parent_content_ID', _INVALIDID, 'numeric');
+     }
      //Add the content's questions, in order to setup "complete with question" field
      if (sizeof($currentLesson -> getQuestions()) > 0) {
       $pathStrings = $currentContent -> toPathStrings();

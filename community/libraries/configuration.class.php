@@ -85,7 +85,7 @@ class EfrontConfiguration
      'collapse_catalog' => '0', // 0 means 'no', 1 means 'yes' and  2 means 'only for lessons'
         'logo' => '', // if empty, the default logo is used
      'site_logo' => '0', // The actual site logo in use
-     'use_logo' => '0', // 0 means 'default logo', 1 means 'site logo', 2 means 'theme logo'
+     'use_logo' => '2', // 0 means 'default logo', 1 means 'site logo', 2 means 'theme logo'
         'logo_max_width' => '200',
         'logo_max_height' => '150',
         'normalize_dimensions' => '1',

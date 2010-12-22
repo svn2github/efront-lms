@@ -1210,8 +1210,8 @@ define("_VERSION","Version");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Ihre CSV-Datei muss die folgenden Felder enthalten");//The fields in your csv file must contain the following fields
 define("_IFEMPTYNEWPASSWORD","Felder in rot müssen ausgefüllt werden. Wenn kein Passwort angegeben wurde, wird das erste Passwort gesetzt wie das login.Bitte 'ldap' als Passwort angeben, wenn sich die Nutzer über LDAP anmelden sollen.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Bitte überprüfen Sie das Format der CSV-Datei");//Please check the format of your CSV file
-define("_CERTIFICATEINSTRUCTIONS","Verwenden Sie #user_name# für Benutzernamen, #user_surname# für Benutzer-Name, #course_name# für den Kurstitel, #grade# für Note und #date# für Datum.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
-define("_CERTIFICATEINSTRUCTIONSXML","In der Vorlage, Verwendung &lt;Organisationsname&gt; &lt;/ Organisation&gt; Organisation für den Namen, &lt;Student&gt; &lt;/ Student&gt; für Schüler der volle Name, &lt;Course&gt; &lt;/ Kurs&gt; Kurs für den Namen, &lt;grade&gt; &lt;/ Klasse&gt; für Qualität, &lt; seriellen&gt; &lt;/ serielle&gt; für die laufende Nummer, &lt;date&gt; &lt;/ Datum&gt; nach Datum, &lt;Logo&gt; &lt;/ Logo&gt; für Logo und &lt;background&gt; &lt;/ Hintergrund&gt; für den Hintergrund.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
+define("_CERTIFICATEINSTRUCTIONS", "Im Template benutzen Sie bitte #organization# für den Organisationsnamen, #user_name# für den Nutzervornamen, #user_surname# für den Nutzernamen, #course_name# für die Kursbezeichnung, #grade# für die Note und #date# für das Datum.");
+define("_CERTIFICATEINSTRUCTIONSXML", "Im Template benutzen Sie bitte &lt;organization&gt;&lt;/organization&gt; für den Organisationsnamen, &lt;student&gt;&lt;/student&gt; für den Namen des Studenten, &lt;course&gt;&lt;/course&gt; für die Kursbezeichnung, &lt;grade&gt;&lt;/grade&gt; für die Note, &lt;serial&gt;&lt;/serial&gt; für die Seriennummer, &lt;date&gt;&lt;/date&gt; für das Datum, &lt;logo&gt;&lt;/logo&gt; für das Logo, &lt;background&gt;&lt;/background&gt; für den Hintergrund und &lt;orientation&gt;&lt;/orientation&gt; für die Seitenausrichtung.");
 define("_VOTES","Stimmen");//Votes
 define("_PERCENTAGE","Prozent");//Percentage
 define("_CERTIFICATEISSUED","Zertifikat ausgestellt");//Certificate issued
@@ -3351,7 +3351,7 @@ define("_WASASSIGNEDTOGROUP","wurde zugeordnet zur Gruppe,");//was assigned to g
 define("_REMOVALFROMGROUP","Aus der Gruppe entfernt");//Removal from group
 define("_WASREMOVEDFROMGROUP","wurde aus der Gruppe entfernt");//was removed from group
 define("_ONNEWSKILL","Fähigkeiten-Zuordnung");//Skill assignment
-define("_WASASSIGNEDSKILL","wurde zugewiesen zu der Fähigkliet");//was assigned skill
+define("_WASASSIGNEDSKILL","wurde zugewiesen zu der Fähigkeit");//was assigned skill
 define("_ONSKILLREMOVAL","Fähigkeits-Entfernung");//Skill removal
 define("_DOESNOTHAVEANYMORESKILL","hat keine weitere Fähigkeit");//does not have anymore skill
 define("_ONSKILLEDIT","Nutzer-Fähigkeit bearbeitet");//User skill edited
@@ -3511,9 +3511,9 @@ define("_NOCERTIFICATESHAVEBEENISSUEDYET","Für diesen Nutzer wurden bisher kein
 define("_SUPERVISORTOACTIVATE","Muss durch den Supervisor aktiviert werden");//To be activated by supervisor
 define("_NOSUPERVISORSFOUND","Keine Filial-Supervisoren gefunden");//No branch supervisors found
 define("_PRINTCONTENT","Inhalt drucken");//Print content
-define("_VERIFYFOLLOWINGINFOISCORRECT","Bitte vergewissern Sie sich, dass die folgende Inmformation korrekt ist");//Please verify that the following information is correct
+define("_VERIFYFOLLOWINGINFOISCORRECT","Bitte vergewissern Sie sich, dass die folgende Information korrekt ist");//Please verify that the following information is correct
 define("_NOCATEGORIESDEFINED","Es sind keine Kategorien definiert");//There are no categories defined
-define("_SUPERVISORMAILUSERACTIVATION","E;mail Aktivierung durch Supervisor");//Supervisor email activation
+define("_SUPERVISORMAILUSERACTIVATION","E-mail Aktivierung durch Supervisor");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","Aktivierungs-Mail für das Mitarbeiter-Konto");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","Diese mail ermöglicht die Aktivierung des neuen System-Nutzers");//This email enables you to activate the new system user
 define("_ASSIGNEDTOBRANCH","zugeordnet der Abteilung");//assigned to branch
@@ -3686,7 +3686,7 @@ define("_SETFOUNDEMPLOYEESINTOGROUP","Nutzer einordnen zur Gruppe");//Insert use
 define("_INSERTINTONEWGROUP","In neue Gruppe einordnen");//Insert into new group
 define("_INSERTINTOEXISTINGGROUP","In existierende Gruppe einordnen");//Insert into existing group
 define("_NEWGROUPNAME","Neuer Gruppen-Name");//New group name
-define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Sie müssen entweder eine existierende GRuppe auswählen oder einen neue Gruppe-Namen angeben");//You should either select an existing group or provide a new group name
+define("_YOUSHOULDPROVIDEEXISTINGORNEWGROUP","Sie müssen entweder eine existierende Gruppe auswählen oder einen neuen Gruppe-Namen angeben");//You should either select an existing group or provide a new group name
 define("_SUBMITANDEDITGROUP","Gruppe speichern und bearbeiten");//Submit and edit group
 define("_SEARCHGROUPUSERS","Nutzer suchen, um sie der Gruppe zuzuordnen");//Search users to add to group
 define("_AFTER","Danach");//After
@@ -3699,7 +3699,7 @@ define("_OLDESTLOG","Ältester Log-Eintrag");//Oldest log entry
 define("_PURGELOGSOLDERTHAN","Lösche Logs älter als");//Purge logs older than
 define("_SUCCESSFULLYPURGEDLOGS","Logs erfolgreich gelöscht");//Successfully purged logs
 define("_ONLYXCANBEAPPLIEDATATIME","Nur %x Einheiten wurden bearbeitet, was auch die Grenze für diese Operation darstellt");//Only %x entities where processed, which is the limit for this operation
-define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Sie können diesem Curriculum keine Nuter zuordnen, da es keine Kurse enthält");//You cannot assign users to this curriculum because it has no courses
+define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Sie können diesem Curriculum keine Nutzer zuordnen, da es keine Kurse enthält");//You cannot assign users to this curriculum because it has no courses
 define("_CURRICULUMPROPERTIES","Eigenschaften Curriculum");//Curriculum properties
 define("_ENTRIES","Einträge");//Entries
 define("_ENTERPRISEOPTIONS","Enterprise Optionen");//Enterprise options
@@ -3743,16 +3743,16 @@ define("_ALLMATERIAL","Gesamtes Material");//All material
 define("_CACHEENTRYNOTFOUND","Cache Eintrag nicht gefunden");//Cache entry not found
 define("_CACHEENTRYEXPIRED","Cache Eintrag abgelaufen");//Cache entry expired
 define("_CACHEENTRYINVALID","Cache Eintrag ungültig");//Cache entry is invalid
-define("_PURGENOTIFICATIONS","Lösch-Benachrichtigungen");//Purge notifications
+define("_PURGENOTIFICATIONS","Lösche Benachrichtigungen");//Purge notifications
 define("_NOTIFICATIONSSIZE","Größe Benachrichtigungen");//Notifications size
 define("_OLDESTNOTIFICATION","Älteste Benachrichtigung");//Oldest notification
 define("_PURGENOTIFICATIONSOLDERTHAN","Benachrichtigungen löschen, die älter sind als");//Purge notifications older than
 define("_CURRENTUSERS","Aktuell");//Current
 define("_SELECTEDCOURSES","Ausgewählte Kurse");//Selected courses
-define("_MODULEFILESPRESENTNOTINSTALLED","Modul-Datein sind vorhanden aber nicht installiert");//Module files are present, but it is not installed
-define("_DISABLEPAYMENTSNOTICE","Dies setzt alle Lektionen und Kurse Preis auf 0");//This will set all lessons and courses price to 0
-define("_SPECIFYIDFORSREENMATCHING","Geben Sie passende Objekt für Bildschirm und / oder Gewicht id");//Specify object id for screen matching dimensions
-define("_COMMASEPARATEDLIST","Durch Komma getrennte Liste");//Comma separated list
+define("_MODULEFILESPRESENTNOTINSTALLED","Modul-Dateien sind vorhanden aber nicht installiert");//Module files are present, but it is not installed
+define("_DISABLEPAYMENTSNOTICE","Dies setzt alle Lektions- und Kurspreise auf 0");//This will set all lessons and courses price to 0
+define("_SPECIFYIDFORSREENMATCHING","Geben Sie die für die für die Bildschirmgrösse passende Objekt-ID an");//Specify object id for screen matching dimensions
+define("_COMMASEPARATEDLIST","Kommaseparierte Liste");//Comma separated list
 define("_WEBSERVERAUTHENTICATION","Webserver Authentifizierung");//Web server authentication
 define("_USERSETTINGS","Nutzereinstellungen");//User settings
 define("_THIRDPARTYTOOLS","Werkzeuge anderer Hersteller");//3rd party tools
@@ -3766,11 +3766,11 @@ define("_EMAILSETTINGS","Email Einstellungen");//Email settings
 define("_ERRORPAGEFORINVALIDLOGIN","Error Seite, die angezeigt wird, wenn der Nutzername leer ist oder fehlt");//Error page displayed when the username is missing or empty
 define("_ERRORPAGEFORUNAUTHORIZED","Error Seite, die angezeigt wird, wenn der Nutzer nicht angelegt werden konnte");//Error page displayed when the user could not be created
 define("_VARIABLEFORUSERNAME","Variable, die den Nutzer-Namen enthält");//Variable that contains the username
-define("_INCLUDEFILETHATHANDLESUSERCREATION","Include file that handles user creation");//Include file that handles user creation
+define("_INCLUDEFILETHATHANDLESUSERCREATION","Datei einschließen, die die Nutzer-Erstellung verwaltet");//Include file that handles user creation
 define("_WEBSERVERREGISTRATION","Webserver Registrierung");//Web server registration
 define("_USEORLOGICTOCORRECTANSWERS","Logisches OR benutzen, um die korrekte Antwort zu generieren");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Die Variable %x muss &quot;%y&quot; enthalten, um fortgesetzt werden zu können");//The variable %x must contain &quot;%y&quot; in order to continue
-define("_OPENUNITINPOPUP","Einheit in einem Pop-Up öffnen");//Open unit in popup window
+define("_OPENUNITINPOPUP","Einheit in einem Pop-Up-Fenster öffnen");//Open unit in popup window
 define("_USERALREADYEXISTSARCHIVED","Ein Nutzer mit den angegebenen Nutzerdaten existiert bereits (Archiv)");//A user with the specified login already exists (archived)
 define("_EVENTSSIZE","Ereignisgröße");//Events size
 define("_OLDESTEVENT","Ältestes Ereignis");//Oldest event
@@ -3787,22 +3787,22 @@ define("_SCORES","Ergebnisse");//Scores
 define("_PROPAGATECOURSE","Kurs bekannt machen");//Propagate course
 define("_LESSONSTRUCTURE","Lektionsstruktur");//Lesson structure
 define("_ADMINISTRATORCANNOTACCESSLESSONPAGE","Ein Administrator kann auf Lektionsseiten nicht zugreifen");//An administrator cannot access lesson pages
-define("_FAILEDPERMISSIONSMESSAGE","%x Ordner und %y dateien sind durch den Webserver nicht beschreibbar.<br> Klicken Sie <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>hier</a> um einen kompletten Bericht herunter zu laden");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
+define("_FAILEDPERMISSIONSMESSAGE","%x Ordner und %y Dateien sind durch den Webserver nicht beschreibbar.<br> Klicken Sie <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>hier</a> um einen kompletten Bericht herunter zu laden");//%x directories and %y files are not writable by the web server.<br> Click <a href = 'view_file.php?file=%z&action=download' target = '_NEW'>here</a> to download a complete report
 define("_CLICKHERETOSETPERMISSIONS","Klicken Sie hier zum Setzen der Schreibrechte");//Click here to set write permissions
-define("_CLICKHERETOUNSETPERMISSIONS","Klicken Sie hier um Schreibrechte aufzuheben");//Click here to unset write permissions
+define("_CLICKHERETOUNSETPERMISSIONS","Klicken Sie hier, um Schreibrechte aufzuheben");//Click here to unset write permissions
 define("_SETPERMISSIONS","Berechtigungen setzen");//Set permissions
 define("_UNSETPERMISSIONS","Berechtigungen aufheben");//Unset permissions
-define("_SETPERMISSIONSINSTRUCTIONS","Dieser Vorgang wird versuchen, für alle Ordner und Dateien Schreibrechte auf dem Webserver zu setzen. Dies ist Vorasussetzung für automatische Updates und kann nützlich sein für den Fall, das Sie während des Upgrade-Prozesses oder danach Probleme haben.  Andererseits kann es unter bestimmten Umständen ein Sicherheitsrisiko darstellen, die Dateien und Ordner beschreibbar zu lassen.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
+define("_SETPERMISSIONSINSTRUCTIONS","Dieser Vorgang wird versuchen, für alle Ordner und Dateien Schreibrechte auf dem Webserver zu setzen. Dies ist Voraussetzung für automatische Updates und kann nützlich sein für den Fall, das Sie während des Upgrade-Prozesses oder danach Probleme haben.  Andererseits kann es unter bestimmten Umständen ein Sicherheitsrisiko darstellen, die Dateien und Ordner beschreibbar zu lassen.");//This operation will try setting permissions to all files and folders to be writable by the web server. This is mandatory if you wish to perform automatic upgrades and may be useful in cases you are experiencing troubles during or after upgrading. On the other hand, leaving all files writable may pose a security threat under certain circumstances.
 define("_UNSETPERMISSIONSINSTRUCTIONS","Dieser Vorgang wird versuchen, für alle Ordner und Dateien Schreibrechte auf dem Webserver aufzuheben, außer für solche, die Voraussetzung für ein korrektes Funktionieren des Systems sind. Dies ist die sicherste Einstellung, verhindert allerdings automatische Upgrades.");//This operation will try setting permissions to all files and folders to be non-writable by the web server, except for those mandatory for the system to function properly. This is the most secure setting but will prevent the system from upgrading automatically
 define("_CLICKHERETOCHECKPERMISSIONS","Hier klicken, um die Berechtigungen zu überprüfen");//Click here to check permissions
 define("_CHECKPERMISSIONS","Berechtigungen überprüfen");//Check permissions
 define("_CHECKPERMISSIONSINSTRUCTIONS","Dieser Vorgang wird überprüfen, welche Ordner und Dateien Ihres Systems durch den Webserver nicht beschreibbar sind.");//This operation will check which files and folders of your system are not writable by the web server
 define("_OPERATIONOUTCOME","Ergebnis der Überprüfung");//Operation outcome
 define("_NOOPERATIONPERFORMEDYET","Bisher keine Überprüfung vollzogen");//No operation performed yet
-define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Einioge Dateien/Ordner sind nicht beschreibbar. Gehen Sie bitte zum Bereich Wartung -> Bereinigen, um die Berechtigungen zu überprüfen und gegebenenfalls zu ändern.");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
+define("_SOMEFILESARENOTWRITABLEVISITMAINTENANCECLEANUPPERMISSIONS","Einige Dateien/Ordner sind nicht beschreibbar. Gehen Sie bitte zum Bereich Wartung -> Bereinigen, um die Berechtigungen zu überprüfen und gegebenenfalls zu ändern.");//Some files/folders are not writable. Please visit the 'permissions' section in maintenance -> cleanup to check permissions and review these files
 define("_OTHERWISEPLEASEREGISTER","Anderenfalls können Sie ein <button onclick = \"location='index.php?ctg=signup'\">neues Konto</button> erstellen");//Otherwise, you may create a <button onclick = \"location='index.php?ctg=signup'\">new account</button>
 define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Sie sind in kostenlose Lektionen und Kurse eingeschrieben. Bitte überprüfen Sie unten Ihre Auswahl nicht kostenloser Lektionen und Kurse");//You were enrolled to free lessons and courses. Please review below your selection of non free lessons and courses
-define("_SUPERVISORS","Supervisors");//Supervisors
+define("_SUPERVISORS","Supervisoren");//Supervisors
 define("_COURSEOPTIONS","Kursoptionen");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Ausführung für alle Nutzer zurücksetzen");//Reset executions for all users
 define("_ADVANCEDUSERREPORTS","Nutzer-Bericht-Generator");//Users reports generator
@@ -3854,7 +3854,7 @@ define("_PLEASESELECTACONDITION","Bitte eine Bedingung auswählen");//Please sel
 define("_BASIC","Basic");//Basic
 define("_LEARNING","Learning");//Learning
 define("_ENTERPRISE","Enterprise");//Enterprise
-define("_DRAGITEMSTOCHANGEORDER","Bitte Objekte ziehen, um die Reihenfolge zu ändern");//Drag items to change order
+define("_DRAGITEMSTOCHANGEORDER","Bitte Objekte verschieben, um die Reihenfolge zu ändern");//Drag items to change order
 define("_CUSTOMFIELDS","Benutzerdefinierte Felder");//Custom fields
 define("_FORMATTEDLOGIN","Formatiertes Login");//Formatted login
 define("_DEFAULTSORT","Standardsortierung");//Default sort
@@ -3888,75 +3888,75 @@ define("_EXPIRESAT","Läuft bei");//Expires at
 define("_CALENDARDISPLAYDATE","Kalenderanzeige Datum");//Calendar display date
 define("_GLOBAL","Global");//Global
 define("_ALLDAY","Den ganzen Tag");//All day
-define("_CREATECALENDAREVENT","Erstellen Kalenderereignis");//Create calendar event
-define("_OVERWRITEIFFOLDEREXISTS","Überschreiben vorhandener Ordner");//Overwrite existing folder
+define("_CREATECALENDAREVENT","Kalenderereignis erstellen");//Create calendar event
+define("_OVERWRITEIFFOLDEREXISTS","Überschreibe vorhandene Ordner");//Overwrite existing folder
 define("_LANDINGPAGE","Zielseite");//Landing page
 define("_EXPORTTOXLS","Export nach xls");//Export to xls
-define("_SURVEYFAILEDTOBEPUBLISHED","Survey nicht veröffentlicht werden");//Survey failed to be published
-define("_PRINTCHART","Chart drucken");//Print chart
-define("_RESPONSEDETAILS","Response Details");//Response details
-define("_SHOWINGONLYACTIVEENTITIES","Es werden nur aktive Einheiten");//Showing only active entities
-define("_SHOWINGONLYINACTIVEENTITIES","Es werden nur inaktive Personen");//Showing only inactive entities
-define("_SHOWINGALLENTITIES","Anzeigen in aktive und inaktive Personen");//Showing both active and inactive entities
-define("_EVENTDOESNOTEXIST","Diese Veranstaltung ist nicht mehr vorhanden");//This event no longer exists
-define("_CLEARQUEUEMESSAGES","Clear Queue-Einträge");//Clear queue messages
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Übernehmen, um Benutzer gehört bereits zu dieser Arbeit Stellung");//Apply to users already belongs to this job position
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Dies kann nur hinzufügen (nicht entfernen) eine neue Auswahl eines Benutzers");//This can only add (not remove) a new selection to a user
-define("_SORTBY","Sortiert nach");//Sort by
-define("_TRAINING","Training");//Training
-define("_COMPLETEDLESSONS","Abgeschlossen Unterricht");//Completed lessons
-define("_INCOMPLETELESSONS","Unvollständige Unterricht");//Incomplete lessons
-define("_COMPLETEDCOURSES","Abgeschlossene Kurse");//Completed courses
-define("_INCOMPLETECOURSES","Unvollständige Kurse");//Incomplete courses
-define("_EDITCOLUMN","Bearbeiten Spalte");//Edit column
-define("_LESSONSFORCOURSE","Lektionen für den Kurs");//Lessons for course
-define("_TESTSFORLESSON","Tests für die Lektion");//Tests for lesson
-define("_SETALLUSERSSTATUSCOMPLETED","Komplett für alle Benutzer");//Complete for all users
-define("_LESSONTIMES","Kurszeiten");//Lesson times
-define("_MINUTESPERDAY","Minuten pro Tag");//Minutes per day
-define("_LOGOUTUSERAFTERMINUTES","Benutzer abmelden nach (Minuten)");//Log out user after (minutes)
-define("_UPDATERPERIODSECONDS","Updater Zeit (ms)");//Updater period (ms)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Empfohlene Werte sind nicht weniger als 10.000 ms und nicht mehr als 360000ms. Es muss auch festgelegt weniger als die Autologout Zeit.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Mehr als 1 Filialen (Standorte) mit diesem Kurs findet, zeigt die erste");//More than 1 branches (locations) associated with this course, showing the first one
-define("_INSERT","Legen Sie");//Insert
-define("_ASSIGNMENTAPPROVEDBY","Zuordnung genehmigt");//Assignment approved by
-define("_EMPLOYEEIMMEDIATESUPERVISOR","Jahreswagen unmittelbaren Vorgesetzten");//Employee's immediate supervisor
-define("_SYSTEM_USER_DEACTIVATED","User Deaktivierung");//User deactivation
-define("_WASDEACTIVATEDFROMTHESYSTEM","wurde vom System deaktiviert");//was deactivated from system
-define("_SUPERVISORAPPROVAL","Supervisor Genehmigung");//Supervisor approval
-define("_APPROVE","Genehmigen");//Approve
-define("_GROUPKEYEXISTS","Eindeutiger Schlüssel ist bereits vorhanden");//Unique key already exists
-define("_PARTOFCOURSES","Ein Teil der Kurse");//Part of courses
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Diese Lektion ist Teil eines oder mehrerer Kurse, so kann es nicht ändern Modus");//This lesson is part of one or more courses, so it cannot change mode
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Es gibt Benutzer eingeschrieben zu dieser Lektion. Bitte aufheben ihnen Vor dem Umschalten auf");//There are users enrolled to this lesson. Please unassign them before switching modes
-define("_COURSESINCOMPLETETOTAL","Kurse (unvollständig / total)");//Courses (incomplete/total)
-define("_EXPORTFILES","Exportieren von Dateien");//Export files
-define("_PROGRAMMEDCOURSEEXPIRY","Kurs geplant Ablauf");//Course scheduled expiration
-define("_PROGRAMMEDCOURSESTART","Kurs geplant Anfang");//Course scheduled beginning
-define("_SCHEDULEDSTARTOFCOURSE","Voraussichtlicher Beginn des Kurs");//Scheduled start of course
-define("_SCHEDULEDEXPIRYOFCOURSE","Geplante Ablauf natürlich");//Scheduled expiration of course
-define("_ALLCOURSEUSERS","Alle Nutzer natürlich");//All course users
-define("_MOVEBLOCK","Block verschieben");//Move block
-define("_EXPANDCOLLAPSEBLOCK","Expand / Collapse Block");//Expand/collapse block
-define("_DEFAULTLEARNERTYPE","Default Lernertyp");//Default learner type
-define("_DEFAULTLEARNERTYPEINFO","Wenn Sie eine Gruppe Schlüssel für diese Gruppe eingerichtet, so dass die Benutzer-Taste wird eingeschrieben sein, um Unterricht / Kurse mit dieser Art zu verwenden. Wenn Sie diese Gruppe eingestellt haben, Verzug, dann werden neue Benutzer zu der Gruppe Unterricht mit dieser Art zugeordnet werden");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
-define("_DONTUSEDEFAULTGROUP","Verwenden Sie keine Standard-Typ");//Don't use default type
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Sie haben sich erfolgreich in die Gruppe aufgenommen");//You have been successfully added to the group
-define("_THISGROUPISINACTIVE","Diese Gruppe ist inaktiv");//This group is inactive
-define("_MAXIMUMKEYUSAGESREACHED","Der Schlüssel kann nicht mehr mal verwendet werden");//The key cannot be used any more times
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Die Auswahl, die Sie gemacht ist nicht gültig. Bitte wählen Sie eine Option aus der Liste");//The selection you made is not valid. Please pick an option from the list
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Sie sind bereits Mitglied dieser Gruppe");//You are already member of this group
-define("_AVERAGESCORES","Durchschnittswerte");//Average scores
-define("_PROJECTSAVERAGE","Durchschnitt in allen Projekten");//Average score in all projects
-define("_SWITCHTOTREEVIEW","Wechseln Sie zu Baumansicht");//Switch to tree view
-define("_SWITCHTOSIMPLEVIEW","Wechseln Sie zu einfache Sicht");//Switch to simple view
-define("_BCCRECIPIENTS","Undisclosed Empfänger (bcc)");//Undisclosed recipients (bcc)
-define("_RESULTSFOR","Ergebnisse für");//Results for
-define("_THANKYOUFORCOMPLETING","Vielen Dank für Ihre");//Thank you for completing
-define("_NOREPORTSFOUNDINTHESYSTEM","Keine Berichte gefunden im System");//No reports found in the system
-define("_YOUMAYCREATEONE","Sie können erstellen");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kannst nicht ändern Lektion Modus, da Benutzer eingeschrieben sind, den Kurs");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_SURVEYFAILEDTOBEPUBLISHED", "Umfrage konnte nicht veröffentlicht werden");
+define("_PRINTCHART","Diagramm drucken");
+define("_RESPONSEDETAILS", "Antwortdetails");
+define("_SHOWINGONLYACTIVEENTITIES", "Nur aktive Einheiten anzeigen");
+define("_SHOWINGONLYINACTIVEENTITIES", "Nur inaktive Einheiten anzeigen");
+define("_SHOWINGALLENTITIES", "Zeige aktive und inaktive Einheiten an");
+define("_EVENTDOESNOTEXIST", "Dieses Ereignis existiert nicht mehr");
+define("_CLEARQUEUEMESSAGES", "Wartende Nachrichten löschen");
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Nutzern zuordnen, die bereits zu dieser Position gehören");
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Hiermit kann man eine Auswahl einem Nutzer nur hinzufügen (nicht entfernen)");
+define("_SORTBY", "Sortieren nach");
+define("_TRAINING", "Training");
+define("_COMPLETEDLESSONS", "Abgeschlossene Lektionen");
+define("_INCOMPLETELESSONS", "Nicht abgeschlossene Lektionen");
+define("_COMPLETEDCOURSES", "Abgeschlossene Kurse");
+define("_INCOMPLETECOURSES", "Nicht abgeschlossene Kurse");
+define("_EDITCOLUMN", "Spalte bearbeiten");
+define("_LESSONSFORCOURSE", "Lektion für Kurs");
+define("_TESTSFORLESSON", "Tests für Lektion");
+define("_SETALLUSERSSTATUSCOMPLETED", "Auf abgeschlossen setzen für alle Nutzer");
+define("_LESSONTIMES", "Lektions-Zeiten");
+define("_MINUTESPERDAY", "Minuten pro Tag");
+define("_LOGOUTUSERAFTERMINUTES", "Nutzer nach (Minuten) abmelden");
+define("_UPDATERPERIODSECONDS", "Aktualisierungsperiode (ms)");
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME", "Empfohlene Werte sind nicht weniger als 10000ms und nicht mehr als 360000ms. Zudem muss der Wert niedriger gesetzt werden, als die automatische Abmeldezeitperiode.");
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING", "Mit diesem Kurs sind mehr als 1 Abteilung (Ort) verknüpft. Die erste wird angezeigt");
+define("_INSERT","Einsetzen");
+define("_ASSIGNMENTAPPROVEDBY", "Anmeldung genehmigt durch");
+define("_EMPLOYEEIMMEDIATESUPERVISOR", "Supervisor des Angestellten");
+define("_SYSTEM_USER_DEACTIVATED","Nutzer-Deaktivierung");
+define("_WASDEACTIVATEDFROMTHESYSTEM","wurde aus dem System deaktiviert");
+define("_SUPERVISORAPPROVAL","Genehmigung Supervisor");
+define("_APPROVE", "Genehmigen");
+define("_GROUPKEYEXISTS","Eindeutiger Schlüssel existiert bereits");
+define("_PARTOFCOURSES", "Teil von Kursen");
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE", "Diese Lektion ist Teil eines oder mehrerer Kurse, weshalb die Eigenschaft nicht verändert werden kann");
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE", "Es sind Nutzer in diese Lektion eingeschrieben. Vor Änderung der Eigenschaft bitte diese zunächst abmelden");
+define("_COURSESINCOMPLETETOTAL", "Kurse (nicht abgeschlossen/gesamt)");
+define("_EXPORTFILES", "Dateien exportieren");
+define("_PROGRAMMEDCOURSEEXPIRY", "Geplanter Ablauf des Kurses");
+define("_PROGRAMMEDCOURSESTART", "Geplanter Beginn des Kurses");
+define("_SCHEDULEDSTARTOFCOURSE", "Geplanter Beginn des Kurses");
+define("_SCHEDULEDEXPIRYOFCOURSE", "Geplanter Ablauf des Kurses");
+define("_ALLCOURSEUSERS", "Alle Kursnutzer");
+define("_MOVEBLOCK", "Block verschieben");
+define("_EXPANDCOLLAPSEBLOCK", "Block ausklappen/einklappen");
+define("_DEFAULTLEARNERTYPE", "Standard Lerntyp");
+define("_DEFAULTLEARNERTYPEINFO", "Wenn Sie für diese Gruppe einen Gruppenschlüssel gesetzt haben, dann werden Nutzer, die diesen Schlüssel nutzen, für die Kurse/Lektionen eingeschrieben, die über diesen Typ verfügen. Wenn diese Gruppe die Standardgruppe ist, werden neue Nutzer den Gruppenlektionen dieses Typs zugeordnet");
+define("_DONTUSEDEFAULTGROUP", "Standardtyp nicht verwenden");
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP", "Sie wurden erfolgreich der Gruppe hinzugefügt");
+define("_THISGROUPISINACTIVE", "Diese Gruppe ist inaktiv");
+define("_MAXIMUMKEYUSAGESREACHED", "Der Schlüssel kann nicht mehr verwendet werden");
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST", "Die Auswahl, die Sie getroffen haben, ist nicht gültig. Bitte wählen Sie eine Option aus der Liste");
+define("_YOUAREALREADYMEMBEROFTHISGROUP", "Sie sind bereits Mitglied dieser Gruppe");
+define("_AVERAGESCORES", "Durchschnittsergebnisse");
+define("_PROJECTSAVERAGE", "Durchschnittsergebnisse aller Projkete");
+define("_SWITCHTOTREEVIEW", "Auf Baumansicht umschalten");
+define("_SWITCHTOSIMPLEVIEW", "Auf einfache Ansicht umschalten");
+define("_BCCRECIPIENTS", "Nicht angezeigte Empfänger (bcc)");
+define("_RESULTSFOR", "Ergebnisse für");
+define("_THANKYOUFORCOMPLETING", "Vielen Dank für das Ausfüllen");
+define("_NOREPORTSFOUNDINTHESYSTEM", "Es wurden im System keine Berichte gefunden");
+define("_YOUMAYCREATEONE", "Sie können einen erstellen");
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY", "Die Lektionseigenschaft kann nicht geändert werden, da Nutzer im Kurs eingeschrieben sind");
 define("_THEUSERDOESNOTHAVETHISCOURSE","Der Benutzer verfügt nicht über diesen Kurs");//The user does not have this course (New)
 define("_THEUSERDOESNOTHAVETHISLESSON","Der Benutzer verfügt nicht über diese Lektion");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","User Zugriff gewährt");//User access granted (New)
+define("_USERACCESSGRANTED","Nutzerzugriff gewährt");//User access granted (New)
 ?>

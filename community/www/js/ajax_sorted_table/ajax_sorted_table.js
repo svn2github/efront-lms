@@ -241,6 +241,7 @@
        }
 
        spanElement.innerHTML += tableText[1];
+
        //spanElement.innerHTML += transport.responseText;
 
        sortedTables[tableIndex].parentNode.replaceChild(spanElement, sortedTables[tableIndex]);

@@ -187,16 +187,42 @@ abstract class EfrontModule
     var $moduleBaseUrl;
     var $moduleBaseDir;
     var $moduleBaseLink;
-    // Constructor
-    function __construct($defined_moduleBaseUrl , $defined_moduleFolder ) {
+    /**
+
+     * Class constructor
+
+     *
+
+     * @param string $defined_moduleBaseUrl The basic url from which we access the module.
+
+     * @param string $defined_moduleFolder The module's folder name inside the "modules/" folder
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
+    public function __construct($defined_moduleBaseUrl, $defined_moduleFolder ) {
         // Information set by running environment
         $this -> className = get_class($this);
         $this -> moduleBaseDir = G_MODULESPATH. $defined_moduleFolder ."/";
         $this -> moduleBaseUrl = $defined_moduleBaseUrl;
         $this -> moduleBaseLink = G_SERVERNAME . "modules/". $defined_moduleFolder . "/";
     }
-    // Function that checks whether the module's defined components are correct
-    function diagnose(&$error) {
+    /**
+
+     * Function that checks whether the module's defined components are correct
+
+     *
+
+     * @param $error The error string to populate
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
+    public final function diagnose(&$error) {
         // Check whether the roles defined are acceptable
         $roles = $this -> getPermittedRoles();
         foreach ($roles as $role) {
@@ -234,16 +260,71 @@ abstract class EfrontModule
         // All checks passed successfully
         return true;
     }
-    // Fundamental methods
-    // Module name - Mandatory
+    /**
+
+     * Return the name of the module
+
+     *
+
+     * Use this function whenever you want the name of the module to appear
+
+     *
+
+     * @return string The module name
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     abstract public function getName();
-    // Access control - Mandatory
+    /**
+
+     * Return an array of the roles this module applies to. For example, it can be array('administrator'), or array('professor', 'student')
+
+     * Only valid array values are 'administrator', 'professor', 'student'
+
+     *
+
+     * @return array The permitted roles
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     abstract public function getPermittedRoles();
- // Function denoting whether the module is related to lessons (and hence can be activated-deactivated) or not
+    /**
+
+     * Function denoting whether the module is related to lessons (and hence can be activated-deactivated) or not
+
+     *
+
+     * @return boolean Wether this is a lesson-related module
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
  public function isLessonModule() {
   return false;
  }
-    // Function to include the language file. Can be overriden to include any file
+    /**
+
+     * Function to include the language file, by default named 'lang-<language>.php', inside the
+
+     * module's folder (for example, lang-english.php). Can be overriden to include any file
+
+     *
+
+     * @param $language The name of the language to include file for, eg 'english'
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function getLanguageFile($language) {
   if (is_file($this -> moduleBaseDir . "lang-".$language.".php")) {
          return $this -> moduleBaseDir . "lang-".$language.".php";
@@ -251,20 +332,79 @@ abstract class EfrontModule
   return $this -> moduleBaseDir . "lang-english.php";
     }
     // Any further actions that need to take place during installation
+    /**
+
+     * Function to be executed when the module is installed to an eFront system
+
+     * Example implementation:
+
+     *
+
+     * public function onInstall() {
+
+     *   return eF_executeNew("CREATE TABLE module_mymodule (
+
+     *                    id int(11) NOT NULL auto_increment,
+
+     *                    name text not null,
+
+     *                    PRIMARY KEY  (id)
+
+     *                   ) DEFAULT CHARSET=utf8;");
+
+     * }
+
+     *
+
+     * @return Boolean the result (true/false) of any module installation operations
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function onInstall() {
         return true;
     }
-    // Any further actions that need to take place during uninstalling
+    /**
+
+     * Function to be executed when the module is removed from an eFront system
+
+     * Example implementation:
+
+     *
+
+     * public function onUninstall() {
+
+     *   return eF_executeNew("DROP TABLE module_mymodule;");
+
+     * }
+
+     *
+
+     * @return Boolean the result (true/false) of any module uninstallation operations
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function onUninstall() {
         return true;
     }
-    // Any further actions that need to take place during module upgrade
-    // This might relate mainly to changes taking place in the database tables that have
-    // been defined for this module. If the upgraded version of the module is to
-    // use different tables at the eFront database (like different or additional fields or field
-    // names), then this function should take care to maintain existing data from
-    // the previous module version to the new table. This could happen like that:
-    /*
+    /**
+
+     * Any further actions that need to take place during module upgrade
+
+     * This might relate mainly to changes taking place in the database tables that have
+
+     * been defined for this module. If the upgraded version of the module is to
+
+     * use different tables at the eFront database (like different or additional fields or field
+
+     * names), then this function should take care to maintain existing data from
+
+     * the previous module version to the new table. This could happen like that:
 
      * 1) Create a temporary table of the form that the upgraded version of the module requires
 
@@ -280,46 +420,159 @@ abstract class EfrontModule
 
      *
 
+     * This algorithm guarantees that if something goes wrong no data will be lost, since
+
+     * existing data are deleted only once they have been successfully copied to the new table
+
+     * It is noted here that if onUpgrade() is not defined, then the eFront system will leave
+
+     * existing module database tables and their data intact.
+
+     *
+
+     * @return Boolean the result (true/false) of any module upgrade operations
+
+     * @since 3.5.0
+
+     * @access public
+
      */
-    // This algorithm guarantees that if something goes wrong no data will be lost, since
-    // existing data are deleted only once they have been successfully copied to the new table
-    // It is noted here that if onUpgrade() is not defined, then the eFront system will leave
-    // existing module database tables and their data intact.
     public function onUpgrade() {
         return true;
     }
-    /************ eFront information provided to the module ************/
-    // Runtime variables
+    /**
+
+     * Return the current user object
+
+     *
+
+     * @return mixed Either an EfrontUser object of the current logged in user, or false if noone is logged in
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function getCurrentUser() {
-        global $currentUser;
+        if ($GLOBALS['currentUser']) {
+         $currentUser = $GLOBALS['currentUser'];
+        } elseif ($_SESSION['s_login']) {
+         $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
+        } else {
+         $currentUser = false;
+        }
         return $currentUser;
     }
- public function getCurrentCourse() {
+    /**
+
+     * Return the current course object
+
+     *
+
+     * @return mixed Either an EfrontCourse object of the current course, or false if we are not inside a course
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
+    public function getCurrentCourse() {
   if (isset($_SESSION['s_courses_ID'])) {
          $currentCourse = new EfrontCourse($_SESSION['s_courses_ID']);
          return $currentCourse;
+  } else {
+   return false;
   }
     }
+    /**
+
+     * Return the current lesson object
+
+     *
+
+     * @return mixed Either an EfrontLesson object of the current lesson, or false if we are not inside a lesson
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function getCurrentLesson() {
-        global $currentLesson;
+        if ($GLOBALS['currentLesson']) {
+         $currentLesson = $GLOBALS['currentLesson'];
+        } elseif ($_SESSION['s_lessons_ID']) {
+         $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+        } else {
+         $currentLesson = false;
+        }
         return $currentLesson;
     }
+    /**
+
+     * Return the current unit object
+
+     *
+
+     * @return mixed Either an EfrontUnit object of the current unit, or false if we are not inside a unit
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function getCurrentUnit() {
-     global $currentUnit;
-     return $currentUnit;
+        if ($GLOBALS['currentUnit']) {
+         $currentUnit = $GLOBALS['currentUnit'];
+        } elseif ($_GET['view_unit']) {
+         $currentUnit = new EfrontUnit($_GET['view_unit']);
+        } else {
+         $currentUnit = false;
+        }
+        return $currentUnit;
     }
-    public function getSmartyVar() {
+    /**
+
+     * Get the $smarty variable, to manipulate templates
+
+     *
+
+     * @return Object The $smarty variable
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
+    public final function getSmartyVar() {
         global $smarty;
         return $smarty;
     }
+    /**
+
+     * Use this function to set a message that will appear on the top of the page.
+
+     * Specify 'success' or 'failure' for the 2nd argument, to make it appear
+
+     * as a success or failure message
+
+     *
+
+     * @param string $message The message to show
+
+     * @param string $message_type Either 'success' or 'failure'
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function setMessageVar($message, $message_type) {
         $GLOBALS['message'] = $message;
         $GLOBALS['message_type'] = $message_type;
-        return true;
     }
-    /*
+    /**
 
-     * Add event to eFront's  events log
+     * Add event to eFront's events log
 
      *
 
@@ -343,23 +596,15 @@ abstract class EfrontModule
 
      * $module -> addEvent(NEW_MODULE_ENTITY_INSERTION, array("id" => $id, "title" => $title));
 
-     *
-
      * </code>
 
-     *
-
-     * @param $type: integer: the unique code of the event inside the particular module scope
-
-     * @param $data: array: information required by the getEventMessage function to display the related message
+     * The $data parameter is the information required by the getEventMessage function to display the related message
 
      * for this event.
 
-     *
-
      * Note:
 
-     * Field timestamp is automatically completed
+     * Field 'timestamp' is automatically completed
 
      * If fields "users_LOGIN", "users_name" and "users_surname" are not defined, then the currentUser's info will be used
 
@@ -367,7 +612,15 @@ abstract class EfrontModule
 
      * The array might contain any other fields. However, the exact same ones need to be used by getEventMessage
 
-     * @return the result of the event insertion to the database or false if arguments are not correct
+     *
+
+     * @param integer $type The unique code of the event inside the particular module scope
+
+     * @param array $data The information required by the getEventMessage function to display the related message
+
+     * for this event.
+
+     * @return EfrontEvent the result of the event insertion to the database or false if arguments are not correct
 
      * @since 3.6.0
 
@@ -425,7 +678,7 @@ abstract class EfrontModule
      $fields['timestamp'] = time();
         return EfrontEvent::triggerEvent($fields);
     }
-    /*
+    /**
 
      * Get the message associated to a particular event
 
@@ -469,15 +722,9 @@ abstract class EfrontModule
 
      * </code>
 
-     *
-
-     * @param $type: integer: the unique code of the event inside the particular module scope
-
-     * @param $data: array: information as provided by the addEvent method, needed to display this message
+     * The $data argument is the information as provided by the addEvent method, needed to display this message
 
      * for this event.
-
-     *
 
      * Notes:
 
@@ -487,7 +734,15 @@ abstract class EfrontModule
 
      * The time of the event is implicitly printed by the eFront system and should not be provided by your defined event messages
 
-     * @return the message associated with this event and the provided data or false if no such message is to be provided
+     *
+
+     * @param int $type the unique code of the event inside the particular module scope
+
+     * @param array $data information as provided by the addEvent method, needed to display this message
+
+     * for this event.
+
+     * @return mixed the message associated with this event and the provided data or false if no such message is to be provided
 
      * @since 3.6.0
 
@@ -499,13 +754,24 @@ abstract class EfrontModule
     }
     // Method used to load current eFront scripts from the www/js folder as
     // return array("XX","folderY/ZZ"); will load www/js/XX.js and www/js/folderY/ZZ.js
+    /**
+
+     * Method used to load current eFront scripts from the www/js folder as
+
+     * return array("XX","folderY/ZZ"); will load www/js/XX.js and www/js/folderY/ZZ.js
+
+     *
+
+     * @return array An array of efront scripts to load
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function addScripts() {
         return array();
     }
-    /***********************************************/
-    /************ DEFINING MODULE PAGES ************/
-    /***********************************************/
-    /***** Main - Independent module pages *******/
     /**
 
      * This is the function for the php code of the MAIN module pages (the ones
@@ -515,6 +781,12 @@ abstract class EfrontModule
      * The global smarty variable may also be used here and in conjunction
 
      * with the getSmartyTpl() function, use php+smarty to display the page
+
+     *
+
+     * @since 3.5.0
+
+     * @access public
 
      */
     public function getModule() {
@@ -528,15 +800,19 @@ abstract class EfrontModule
 
      * Example implementation:
 
+	 *
 
+     *   public function getSmartyTpl() {
 
-        public function getSmartyTpl() {
+     *       return $this -> moduleBaseDir . "
 
-            return $this -> moduleBaseDir . "
+     *   }
 
-        }
+	 *
 
+	 * @since 3.5.0
 
+	 * @access public
 
      */
     public function getSmartyTpl() {
@@ -546,7 +822,6 @@ abstract class EfrontModule
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
         return false;
     }
-    /***** Lesson module pages *******/
     /**
 
      * This is the function for the php code of the module page that may
@@ -555,62 +830,198 @@ abstract class EfrontModule
 
      * Note: Current lesson information may be retrieved with the getCurrentLesson() function
 
+     *
+
+     * @since 3.5.0
+
+     * @access public
+
      */
     public function getLessonModule() {
         return false;
     }
+    /**
+
+     * This is the template code returned inside a block in a lesson
+
+     *
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function getLessonSmartyTpl() {
         return false;
     }
-    /***** Lesson content module pages *******/
+    /**
+
+     * This is the code executed inside the content (unit) page of a lesson
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getContentSideInfo() {
         return false;
     }
+    /**
+
+     * This is the template code returned inside the content (unit) page of a lesson
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getContentSmartyTpl() {
         return false;
     }
-    // Returns the title string to appear on top of the content side - if such is defined
+    /**
+
+     * Returns the title string to appear on top of the content side - if such is definedon
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getContentSideTitle() {
      return false;
     }
-    /***** Administrator control panel *******/
     /**
 
      * This is the function for the php code of the module page that may
 
      * appear as a sub-window on the main administrator control panel page
 
+     *
+
+     * @since 3.5.0
+
+     * @access public
+
      */
     public function getControlPanelModule() {
         return false;
     }
+    /**
+
+     * This is the template code returned for admin's control panel blocks
+
+     *
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function getControlPanelSmartyTpl() {
         $smarty = $this->getSmartyVar();
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
         return false;
     }
+    /**
+
+     * This is the function for the php code of the module page that may
+
+     * appear as a sub-window on the main administrator control panel page
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getDashboardModule() {
         return false;
     }
+    /**
+
+     * This is the template code returned for admin's control panel blocks
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getDashboardSmartyTpl() {
         $smarty = $this->getSmartyVar();
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
         return false;
     }
+    /**
+
+     * This is the function for the php code of the module page that may
+
+     * appear inside the catalog
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getCatalogModule() {
         return false;
     }
+    /**
+
+     * This is the template code returned for the catalog
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function getCatalogSmartyTpl() {
         $smarty = $this->getSmartyVar();
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
         return false;
     }
+    /**
+
+     * This is the code executed when a module is set as "landing page" and the
+
+     * user logs in
+
+     *
+
+     * @since 3.6.4
+
+     * @access public
+
+     */
     public function getLandingPageModule() {
         return false;
     }
+    /**
+
+     * This is the template code returned for admin's control panel blocks
+
+     *
+
+     * @since 3.6.4
+
+     * @access public
+
+     */
     public function getLandingPageSmartyTpl() {
         $smarty = $this->getSmartyVar();
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
@@ -643,19 +1054,41 @@ abstract class EfrontModule
 
      * @param $tabberIdentifier A string with the unique identifier of the tab set
 
+     * @since 3.6.8
+
      */
     public function getTabSmartyTpl($tabberIdentifier) {
         return false;
     }
-    // Get module javascript code
+ /**
+
+	 * Get a javascript file to load for this module
+
+	 *
+
+	 * @since 3.5.0
+
+	 * @access public
+
+	 */
     public function getModuleJS() {
         return false;
     }
-    // Get module css
+ /**
+
+	 * Get a css file to load for this module
+
+	 *
+
+	 * @since 3.5.0
+
+	 * @access public
+
+	 */
     public function getModuleCSS() {
         return false;
     }
-    /****
+    /**
 
      * Get Navigational links for the top of the independent module page(s)
 
@@ -671,29 +1104,37 @@ abstract class EfrontModule
 
      * Example implementation:
 
+	 *
 
+     *   public function getNavigationLinks() {
 
-        public function getNavigationLinks() {
+     *       if (isset($_GET['subpage1'])) {
 
-            if (isset($_GET['subpage1'])) {
+     *           return array (array ('title' => "Main Page" , 'link'  => $this -> moduleBaseUrl),
 
-                return array (array ('title' => "Main Page" , 'link'  => $this -> moduleBaseUrl),
+     *                         array ('title' => "Sub Page 1", 'link'  => $this -> moduleBaseUrl . "&operation=subpage1"));
 
-                              array ('title' => "Sub Page 1", 'link'  => $this -> moduleBaseUrl . "&operation=subpage1"));
+     *       else {
 
-            else {
+     *           return false;   // Only the default page with the module Name as title will be returned
 
-                return false;   // Only the default page with the module Name as title will be returned
+     *       }
 
-            }
+     *   }
 
-        }
+     *
+
+     * @return array The array of navigational links
+
+     * @since 3.5.0
+
+     * @access public
 
      */
      public function getNavigationLinks() {
         return false;
      }
-    /****
+    /**
 
      * Get links to be highlighted
 
@@ -703,27 +1144,35 @@ abstract class EfrontModule
 
      * Example implementation:
 
+	 *
 
+     *   public function getLinkToHighlight() {
 
-        public function getLinkToHighlight() {
+     *       if (isset($_GET['management'])) {
 
-            if (isset($_GET['management'])) {
+     *           return 'other_link_id1';
 
-                return 'other_link_id1';
+     *       } else {
 
-            } else {
+     *           return 'other_link_id2';
 
-                return 'other_link_id2';
+     *       }
 
-            }
+     *   }
 
-        }
+     *
+
+     * @return array The link to highlight
+
+     * @since 3.5.0
+
+     * @access public
 
      */
      public function getLinkToHighlight() {
         return false;
      }
-    /****
+    /**
 
      * Control Panel Module Link
 
@@ -741,15 +1190,23 @@ abstract class EfrontModule
 
      *  Example implementation:
 
+	 *
 
+     *   public function getCenterLinkInfo() {
 
-        public function getCenterLinkInfo() {
+     *       return array ('title' => 'My Module',
 
-            return array ('title' => 'My Module',
+     *                     'image' => $this -> moduleBaseDir . 'images/my_module.jpg');
 
-                          'image' => $this -> moduleBaseDir . 'images/my_module.jpg');
+     *   }
 
-        }
+     *
+
+     * @return array The array of the control panel info
+
+     * @since 3.5.0
+
+     * @access public
 
      */
     public function getCenterLinkInfo() {
@@ -769,19 +1226,25 @@ abstract class EfrontModule
 
      *
 
-     *
-
      *  Example implementation:
 
+	 *
 
+     *   public function getCenterLinkInfo() {
 
-        public function getCenterLinkInfo() {
+     *       return array ('title' => 'My Module',
 
-            return array ('title' => 'My Module',
+     *                     'image' => $this -> moduleBaseDir . 'images/my_module.jpg');
 
-                          'image' => $this -> moduleBaseDir . 'images/my_module.jpg');
+     *   }
 
-        }
+     *
+
+     * @return array The array of the lesson control panel info
+
+     * @since 3.5.0
+
+     * @access public
 
      */
     public function getLessonCenterLinkInfo() {
@@ -821,160 +1284,417 @@ abstract class EfrontModule
 
      *  Example implementation:
 
+	 *
 
+     *   public function getSidebarLinkInfo() {
 
-        public function getSidebarLinkInfo() {
+     *       $link_of_menu_system = array   (array ('id'    => 'system_link_id',
 
-            $link_of_menu_system = array   (array ('id'    => 'system_link_id',
+     *                                              'title' => 'My System Related Module Part 1',
 
-                                                   'title' => 'My System Related Module Part 1',
+     *                                              'image' => '16x16/pens',                                 // no extension in the filename,
 
-                                                   'image' => '16x16/pens',                                 // no extension in the filename,
+     *                                              'eFrontExtensions' => '1',                               // question_type_free_text.png and pens.gif must exist in 16x16
 
-                                                   'eFrontExtensions' => '1',                               // question_type_free_text.png and pens.gif must exist in 16x16
+     *                                              'link'  => $this -> moduleBaseUrl . "&module_op=system_operation"),
 
-                                                   'link'  => $this -> moduleBaseUrl . "&module_op=system_operation"),
+     *                                       array ('id'    => 'system_link_id2',
 
-                                            array ('id'    => 'system_link_id2',
+     *                                              'title' => 'My System Related Module Part 2',
 
-                                                   'title' => 'My System Related Module Part 2',
+     *                                              'image' => '16x16/pencil2.png',
 
-                                                   'image' => '16x16/pencil2.png',
+     *                                              'link'  => $this -> moduleBaseUrl . "&module_op=system_operation"));
 
-                                                   'link'  => $this -> moduleBaseUrl . "&module_op=system_operation"));
+	 *
 
+     *       $link_of_module_menus  = array ( array ('id'    => 'other_link_id1',
 
+     *                                               'title' => 'Main Module',
 
-            $link_of_module_menus  = array ( array ('id'    => 'other_link_id1',
+     *                                               'image' => $this -> moduleBaseDir . 'images/my_module_pic', // no extension in the filename
 
-                                                    'title' => 'Main Module',
+     *                                               'eFrontExtensions' => '1',                                  // my_module_pic.gif and my_module_pic.png must exist in $this->moduleBaseDir . 'images/'
 
-                                                    'image' => $this -> moduleBaseDir . 'images/my_module_pic', // no extension in the filename
+     *                                               'link'  => $this -> moduleBaseUrl),
 
-                                                    'eFrontExtensions' => '1',                                  // my_module_pic.gif and my_module_pic.png must exist in $this->moduleBaseDir . 'images/'
+     *                                        array ('id'    => 'other_link_id2',
 
-                                                    'link'  => $this -> moduleBaseUrl),
+     *                                               'title' => 'Second Module Page',
 
-                                             array ('id'    => 'other_link_id2',
+     *                                               'image' => '16x16/attachment.png',
 
-                                                    'title' => 'Second Module Page',
+     *                                               'link'  => $this -> moduleBaseUrl . '&module_operat=2'));
 
-                                                    'image' => '16x16/attachment.png',
+	 *
 
-                                                    'link'  => $this -> moduleBaseUrl . '&module_operat=2'));
+     *       return array ( "system" => $link_of_menu_system,
 
+     *                      "other"  => array('menuTitle' => 'My Module Menu', 'links' => $link_of_module_menus));
 
+     *   }
 
-            return array ( "system" => $link_of_menu_system,
+     *
 
-                           "other"  => array('menuTitle' => 'My Module Menu', 'links' => $link_of_module_menus));
+     * @return array The array of the sidebar menu items
 
-        }
+     * @since 3.5.0
+
+     * @access public
 
     */
     public function getSidebarLinkInfo() {
         return false;
     }
-    //the following two can also become a module-aspect in User
-    // Code to execute when a user with login = $login has been registered
+    /**
+
+     * Code to execute when a new user is created
+
+     *
+
+     * @param string $login The login of the user
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function onNewUser($login) {
         return false;
     }
-    // Code to execute when a user with login = $login is deleted
+    /**
+
+     * Code to execute when a user is deleted
+
+     *
+
+     * @param string $login The login of the user
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function onDeleteUser($login) {
         return false;
     }
-    //the following two can also become a module-aspect in Lesson
-    // Code to execute when a lesson with id = $lessonId has been registered
+    /**
+
+     * Code to execute when a new lesson is created
+
+     *
+
+     * @param int $lessonId The id of the lesson
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function onNewLesson($lessonId) {
         return false;
     }
-    // Code to execute when a lesson with id = $lessonId is deleted
+    /**
+
+     * Code to execute when a lesson is deleted
+
+     *
+
+     * @param int $lessonId The id of the lesson
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
     public function onDeleteLesson($lessonId) {
         return false;
     }
-    // Code to execute when a course with id = $courseId is deleted
+    /**
+
+     * Code to execute when a course is deleted
+
+     *
+
+     * @param int $courseId The id of the course
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onDeleteCourse($courseId) {
         return false;
     }
-    // Code to execute when a course certificate is revoked
+    /**
+
+     * Code to execute when a course certificate is revoked
+
+     *
+
+     * @param string $login The user that the certificate was issued for
+
+     * @param int $courseId The id of the course
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onRevokeCourseCertificate($login, $courseId) {
         return false;
     }
-    // Code to execute when a course certificate is issued
+    /**
+
+     * Code to execute when a course certificate is issued
+
+     *
+
+     * @param string $login The user that the certificate was issued for
+
+     * @param int $courseId The id of the course
+
+     * @param array $certificateArray The certificate data array
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onIssueCourseCertificate($login, $courseId, $certificateArray) {
      return false;
     }
-    // Code to execute when a course certificate is prepared
+    /**
+
+     * Code to execute when a course certificate is issued
+
+     *
+
+     * @param string $login The user that the certificate was issued for
+
+     * @param int $courseId The id of the course
+
+     * @param array $certificateData The certificate data
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onPrepareCourseCertificate($login, $courseId, $certificateData) {
      return false;
     }
-    // Code to execute when exporting a course
+    /**
+
+     * Code to execute when a course is exported
+
+     *
+
+     * @param int $courseId The id of the course
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onExportCourse($courseId) {
      return false;
     }
-    // Code to execute when importing a course
+    /**
+
+     * Code to execute when a course is imported
+
+     *
+
+     * @param int $courseId The id of the course
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onImportCourse($courseId, $data) {
      return false;
     }
- // Code to execute when a course is created
+    /**
+
+     * Code to execute when a course is created
+
+     *
+
+     * @param int $courseId The id of the course
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onNewCourse($courseId) {
         return false;
     }
- // Code to execute when a course is completed
+    /**
+
+     * Code to execute when a course is set as complete for a user
+
+     *
+
+     * @param int $courseId The id of the course
+
+     * @param string $login The user login
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onCompleteCourse($courseId, $login) {
         return false;
     }
-    // Code to execute when a lesson with id = $lessonId is exported. This
-    // function should return an array with all information (like DB values)
-    // that need to be stored into the exported lesson file
-    /*  Example implementation:
+    /**
 
-            public function onExportLesson($lessonId) {
+     * Code to execute when a course is reset for a user
 
-                $data = eF_getTableData("myModule", "*", "lessons_ID = $lessonId");
+     *
 
-                $data['myModuleVersion'] = "3.5beta";
+     * @param int $courseId The id of the course
 
-                return $data;
+     * @param string $login The user login
 
-            }
+     * @since 3.6.8
+
+     * @access public
+
+     */
+    public function onResetProgressInCourse($courseId, $login) {
+     return false;
+    }
+    /**
+
+     * Code to execute when a progress is reset for a user in all courses
+
+     *
+
+     * @param string $login The user login
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
+    public function onResetProgressInAllCourses($login) {
+     return false;
+    }
+    /**
+
+     * Code to execute when a lesson with id = $lessonId is exported. This
+
+     * function should return an array with all information (like DB values)
+
+     * that need to be stored into the exported lesson file
+
+     * Example implementation:
+
+     * <code>
+
+     *       public function onExportLesson($lessonId) {
+
+     *           $data = eF_getTableData("myModule", "*", "lessons_ID = $lessonId");
+
+     *           $data['myModuleVersion'] = "3.5beta";
+
+     *           return $data;
+
+     *       }
+
+     * </code>
+
+     *
+
+     * @param int $lessonId The lesson id
+
+     * @since 3.5.0
+
+     * @access public
 
      */
     public function onExportLesson($lessonId) {
         return false;
     }
-    // Code to execute when a lesson with id = $lessonId is imported. This
-    // function gets $data as argument which is in the exact same format
-    // as it was exported by the onExportLesson function.
-    /*  Example implementation (in accordance with the above given export example):
+    /**
 
-            public function onExportLesson($lessonId, $data) {
+     * Code to execute when a lesson with id = $lessonId is imported. This
 
-                echo "My module's version is " . $data['myModuleVersion'];
+     * function gets $data as argument which is in the exact same format
 
-                unset($data['myModuleVersion']);
+     * as it was exported by the onExportLesson function.
 
+     * Example implementation (in accordance with the above given export example):
 
+     * <code>
 
-                foreach ($data as $record) {
+     *       public function onExportLesson($lessonId, $data) {
 
-                    eF_insertTableData("myModule", $record);
+     *           echo "My module's version is " . $data['myModuleVersion'];
 
-                }
+     *           unset($data['myModuleVersion']);
 
-                return true;
+     *
 
-            }
+     *           foreach ($data as $record) {
+
+     *               eF_insertTableData("myModule", $record);
+
+     *           }
+
+     *           return true;
+
+     *       }
+
+     * </code>
+
+     *
+
+     * @param int $lessonId The lesson id
+
+     * @param array $data The data to import
+
+     * @since 3.5.0
+
+     * @access public
 
      */
     public function onImportLesson($lessonId, $data) {
         return false;
     }
+    /**
+
+     * Code to execute when a lesson is set as complete for a user
+
+     *
+
+     * @param int $lessonId The id of the lesson
+
+     * @param string $login The user login
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
  public function onCompleteLesson($lessonId, $login) {
         return false;
     }
-    // For system events - every time a new page is loaded
+    /**
+
+     * Code that executes every time a page is loaded
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
     public function onNewPageLoad() {
         return false;
     }
@@ -986,7 +1706,7 @@ abstract class EfrontModule
 
      *
 
-     * @param $theme The current system theme that was just set
+     * @param int $theme The current system theme that was just set
 
      * @since 3.6.8
 
@@ -996,7 +1716,101 @@ abstract class EfrontModule
     public function onSetTheme($theme) {
      return false;
     }
+    /**
+
+     * Code executed when a theme is deleted
+
+     *
+
+     * @param int $theme The theme that is being deleted
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
     public function onDeleteTheme($theme) {
      return false;
+    }
+    /**
+
+     * This should return an array with "tab page" information. For example:
+
+     * <code>
+
+	 *   public function getTabPageSmartyTpl($tabPageIdentifier) {
+
+	 *   	 switch ($tabPageIdentifier) {
+
+	 *   		case 'course_settings':
+
+	 *   			$tabPageData = array('tab_page' => 'course_settings_demo_tab',			//Use an existing name, to overwrite an existing functionality
+
+	 *	    							 'title' 	=> _MODULE_DEMO_COURSESETTINGSTABPAGE,
+
+	 *   								 'image'	=> '16x16/generic.php',
+
+	 *	    							 'file'  	=> $this -> moduleBaseDir.'module_demo_course_settings_tab_page.tpl');
+
+	 *   			break;
+
+	 *   		default:break;
+
+	 *   	 }
+
+	 *       return $tabPageData;
+
+	 *   }
+
+     *</code>
+
+     *
+
+     * @param $tabPageIdentifier A string with the unique identifier of the tab page set
+
+     * @since 3.6.8
+
+     */
+    public function getTabPageSmartyTpl($tabPageIdentifier) {
+     return false;
+    }
+    /**
+
+     * This should return an array with "fieldset" information. For example:
+
+     * <code>
+
+	 *   public function getFieldsetSmartyTpl($fieldsetIdentifier) {
+
+	 *   	switch ($fieldsetIdentifier) {
+
+	 *   		case 'lesson_progress':
+
+	 *   			$fieldsetData = array('fieldset' => 'lesson_progress_demo_fieldset',			//Use an existing name, to overwrite an existing functionality
+
+	 *	    							  'title' 	 => _MODULE_DEMO_COURSESETTINGSTABPAGE,
+
+	 *	    							  'file'  	 => $this -> moduleBaseDir.'module_demo_lesson_progress_fieldset.tpl');
+
+	 *   			break;
+
+	 *   		default:break;
+
+	 *   	}
+
+	 *       return $fieldsetData;
+
+	 *   }
+
+     *</code>
+
+     *
+
+     * @param $tabPageIdentifier A string with the unique identifier of the tab page set
+
+     * @since 3.6.8
+
+     */
+    public function getFieldsetSmartyTpl($fieldsetIdentifier) {
     }
 }

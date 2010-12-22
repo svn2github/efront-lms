@@ -118,8 +118,9 @@
         {eF_template_printBlock title = $smarty.const._LOGINENTRANCE content = $smarty.capture.t_login_code image = "32x32/keys.png"}
         {assign var = "layoutClass" value = "hideBoth"}
     {elseif isset($smarty.get.ctg) && in_array($smarty.get.ctg, array_keys($T_POSITIONS.enabled))}
-     {include file = "`$smarty.const.G_EXTERNALPATH`/`$T_CUSTOM_BLOCKS[$smarty.get.ctg].name`.tpl" assign = "content"}
-     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=`$smarty.get.ctg`'>`$T_CUSTOM_BLOCKS[$smarty.get.ctg].title`</a>"}
+     {* Changed because of #896. Problem when block contained {,} *}
+     {insert name = "customBlock" file = "`$T_CUSTOM_BLOCKS[$smarty.get.ctg].name`.tpl" assign = "content"}
+  {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=`$smarty.get.ctg`'>`$T_CUSTOM_BLOCKS[$smarty.get.ctg].title`</a>"}
      {eF_template_printBlock title = $T_CUSTOM_BLOCKS[$smarty.get.ctg].title content = $content image = "32x32/generic.png"}
  {else}
      {if isset($T_POSITIONS.centerList)}

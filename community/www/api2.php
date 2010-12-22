@@ -211,7 +211,16 @@ In case of error it returns also a message entity with description of the error 
         exit;
        }
                         }
-      if ($user -> user['user_type'] == "administrator") {
+      //make it so that the person using the api must be active (protonc)
+      if (!$user->user['active'] || $user->user['archive'])
+      {
+       echo "<xml>";
+       echo "<status>error</status>";
+       echo "<message>Invalid login format</message>";
+       echo "</xml>";
+       exit;
+      }
+                        if ($user -> user['user_type'] == "administrator") {
        $login = $_GET['username'];
        $password = EfrontUser::createPassword($_GET['password']);
        $token = $_GET['token'];
@@ -1733,6 +1742,33 @@ In case of error it returns also a message entity with description of the error 
                     break;
                 }
     default: {
+     //make it so a module can handle an api call but only after they have a valid login (proton)
+     if (isset($_GET['token']) && checkToken($_GET['token']))
+     {
+      //see if a module will take care of this command
+      //get all modules that are active
+      $modulesDB=eF_getTableData("modules","*","active=1");
+      $modules=array();
+      foreach($modulesDB as $module)
+      {
+       $folder=$module['position'];
+       $className=$module['className'];
+       //make sure the class file exists
+       if(is_file(G_MODULESPATH.$folder."/".$className.".class.php"))
+       {
+        //include the file that has the module class
+        require_once G_MODULESPATH.$folder."/".$className.".class.php";
+        //see if the module has a function for handling api calls
+        if(class_exists($className) && method_exists($className,'callAPI'))
+        {
+         $mod=new $className("", $folder);
+         //only let one module handle a call
+         if($mod->callAPI($_GET['action']))
+         exit(1);
+        }
+       }
+      }
+     }
      echo "<xml>";
      echo "<status>error</status>";
                     echo "<message>Invalid action argument</message>";

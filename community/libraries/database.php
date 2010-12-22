@@ -91,6 +91,16 @@ function eF_executeNew($sql)
 }
 /**
 
+ * Alias for eF_executeNew
+
+ * @see eF_executeNew
+
+ */
+function eF_executeQuery($sql) {
+ return eF_executeNew($sql);
+}
+/**
+
  * Execute code directly -- HIGHLY deprecated!!
 
  *

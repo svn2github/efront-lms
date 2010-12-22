@@ -575,3 +575,42 @@ var left = (screen.width/2)-(w/2);
 var top = (screen.height/2)-(h/2);
 var targetWin = window.open (pageURL, title, 'scrollbars=yes, width='+w+', height='+h+', top='+top+', left='+left);
 }
+function periodicUpdater() {
+ ajaxRequest(document.body, 'periodic_updater.php', {method:'get'}, onPeriodicUpdater);
+}
+function onPeriodicUpdater(el, response) {
+ if (response.evalJSON().status) {
+  messages = response.evalJSON().messages;
+  onlineUsers = response.evalJSON().online;
+  if ($('header_total_messages')) {
+   if (messages > 0) {
+    $('header_total_messages').update('&nbsp;('+messages+')');
+   } else {
+    $('header_total_messages').update('');
+   }
+  }
+  if ($('header_connected_users')) {
+   if (onlineUsers.length > 0) {
+    $('header_connected_users').update(onlineUsers.length);
+    onlineUsersString = '';
+    onlineUsers.each(function (s, i) {
+     onlineUsersString += s.formattedLogin;
+     if (i > 0) {
+      onlineUsersString += ', ';
+     }
+    });
+    $('header_connected_users').next().update(onlineUsersString);
+   } else {
+    $('header_connected_users').update('');
+   }
+  }
+ }
+//{"messages":"0","online":[{"login":"admin","formattedLogin":"Administrator S. (admin)","user_type":"administrator","timestamp_now":"1292775277","session_timestamp":"1292775277","time":{"seconds":14,"minutes":2,"hours":0,"total_seconds":134,"time_string":"2_MINUTESSHORTHAND 14_SECONDSSHORTHAND"}}]}	
+}
+function startUpdater() {
+    setTimeout("periodicUpdater()", 2500);
+    if (typeof(updaterPeriod) != 'undefined') {
+     setInterval("periodicUpdater()", updaterPeriod);
+    }
+}
+if (startUpdater) { startUpdater();}

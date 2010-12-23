@@ -1770,6 +1770,8 @@ abstract class EfrontModule
 
      * @since 3.6.8
 
+     * @access public
+
      */
     public function getTabPageSmartyTpl($tabPageIdentifier) {
      return false;
@@ -1810,7 +1812,23 @@ abstract class EfrontModule
 
      * @since 3.6.8
 
+     * @access public
+
      */
     public function getFieldsetSmartyTpl($fieldsetIdentifier) {
+    }
+    /**
+
+     * Code to execute and display after all execution is finished
+
+     *
+
+     * @since 3.6.8
+
+     * @access public
+
+     */
+    public function onPageFinishLoadingSmartyTpl() {
+     return false;
     }
 }

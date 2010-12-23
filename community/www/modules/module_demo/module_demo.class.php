@@ -704,5 +704,22 @@ class module_demo extends EfrontModule {
      }
         return $fieldsetData;
     }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#onPageFinishLoadingSmartyTpl()
+
+     */
+    public function onPageFinishLoadingSmartyTpl() {
+     $this -> fooBar();
+     return $this -> moduleBaseDir.'module_demo_page_finish.tpl';
+     //Return false if you don't want any code to display
+     //return false;
+    }
+    private function fooBar() {
+     //Do nothing!
+     return true;
+    }
 }
 ?>

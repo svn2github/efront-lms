@@ -2302,30 +2302,30 @@ class EfrontCourse
    if (!isset($GLOBALS['currentUser'] -> coreAccess['course_settings']) || $GLOBALS['currentUser'] -> coreAccess['course_settings'] != 'hidden') {
     $autocompleteImage = '16x16/certificate.png';
      $autocompleteImage = '16x16/autocomplete.png';
-    $courseString .= '<span class = "courseActions">&nbsp;('._COURSEACTIONS.':</span>
-                                                <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_info" >
-                                                    <img src = "images/16x16/information.png" title = "'._COURSEINFORMATION.'" alt = "'._COURSEINFORMATION.'" class = "handle"></a>';
-    $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_certificates">
+    $courseOptions = array();
+    $courseOptions['information'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_info" >
+                                        <img src = "images/16x16/information.png" title = "'._COURSEINFORMATION.'" alt = "'._COURSEINFORMATION.'" class = "handle"></a>';
+    $courseOptions['completion'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_certificates">
                                                     <img src = "images/'.$autocompleteImage.'" title = "'._COMPLETION.'" alt = "'._COMPLETION.'" class = "handle"></a>';
-    $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_rules">
-                                                    <img src = "images/16x16/rules.png" title = "'._COURSERULES.'" alt = "'._COURSERULES.'" class = "handle"></a>
-                                                <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_order">
-                                                    <img src = "images/16x16/order.png" title = "'._COURSEORDER.'" alt = "'._COURSEORDER.'" class = "handle"></a>
-                                                <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_scheduling">
+    $courseOptions['rules'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_rules">
+                                                    <img src = "images/16x16/rules.png" title = "'._COURSERULES.'" alt = "'._COURSERULES.'" class = "handle"></a>';
+    $courseOptions['order'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_order">
+                                                    <img src = "images/16x16/order.png" title = "'._COURSEORDER.'" alt = "'._COURSEORDER.'" class = "handle"></a>';
+    $courseOptions['schedule'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_scheduling">
                                                     <img src = "images/16x16/calendar.png" title = "'._COURSESCHEDULE.'" alt = "'._COURSESCHEDULE.'" class = "handle"></a>';
     if (!isset($GLOBALS['currentUser'] -> coreAccess['course_settings']) || $GLOBALS['currentUser'] -> coreAccess['course_settings'] == 'change') {
-     $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=export_course">
-             <img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "handle"></a>
-             <a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=import_course">
+     $courseOptions['export'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=export_course">
+             <img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "handle"></a>';
+     $courseOptions['import'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=import_course">
                                                     <img src = "images/16x16/import.png" title = "'._IMPORTCOURSE.'" alt = "'._IMPORTCOURSE.'" class = "handle"></a>';
     }
     foreach ($GLOBALS['currentUser'] -> getModules() as $module) {
      if ($moduleTabPage = $module -> getTabPageSmartyTpl('course_settings')) {
-      $courseString .= '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op='.$moduleTabPage['tab_page'].'">
+      $courseOptions[$moduleTabPage['tab_page']] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op='.$moduleTabPage['tab_page'].'">
              <img src = "'.$moduleTabPage['image'].'" title = "'.$moduleTabPage['title'].'" alt = "'.$moduleTabPage['title'].'" class = "handle"></a>';
      }
     }
-                $courseString .= '<span>)</span>';
+    $courseString .= '<span class = "courseActions">&nbsp;('._COURSEACTIONS.':</span>'.implode('', $courseOptions).'<span>)</span>';
    }
   } else {
    if ($this -> course['completed']) {

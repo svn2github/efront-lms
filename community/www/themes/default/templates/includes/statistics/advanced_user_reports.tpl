@@ -387,6 +387,19 @@
        {eF_template_html_select_date prefix="to_$key" time=$TO_TIMESTAMP start_year="-5" end_year="+1"}
        </span>
       {/if}
+      {if $item.score}
+       {$smarty.const._WITHSCORE}
+       <select name = "score_relation_{$key}">
+        <option value = "atleast" {if isset($T_EDITED_CONDITION) && $T_EDITED_CONDITION.score_relation == "atleast"}selected{/if}>{$smarty.const._ATLEAST}</option>
+        <option value = "atmost" {if isset($T_EDITED_CONDITION) && $T_EDITED_CONDITION.score_relation == "atmost"}selected{/if}>{$smarty.const._ATMOST}</option>
+        <option value = "equal" {if isset($T_EDITED_CONDITION) && $T_EDITED_CONDITION.score_relation == "equal"}selected{/if}>{$smarty.const._EQUALTO}</option>
+       </select>
+       <select name = "score_{$key}">
+        {foreach name = 'score_options_list' item = "option" key = "value" from = $item.score}
+        <option value = "{$value}" {if isset($T_EDITED_CONDITION) && $T_EDITED_CONDITION.score == $value}selected{/if}>{$option}</option>
+        {/foreach}
+       </select>
+      {/if}
       </td></tr>
    {/foreach}
            <tr><td class = "labelCell">{$T_ADD_CONDITION_FORM.relation.label}:&nbsp;</td>

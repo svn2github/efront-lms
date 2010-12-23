@@ -313,7 +313,7 @@ abstract class EfrontUser
    $module -> onNewUser($userProperties['login']);
   }
   if (function_exists('apc_delete')) {
-   apc_delete('_usernames');
+   apc_delete(G_DBNAME.':_usernames');
   }
   return $newUser;
  }

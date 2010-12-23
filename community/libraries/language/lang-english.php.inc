@@ -3980,4 +3980,7 @@ define("_CLEAROPCODECACHE", "Clear opcode cache");
 define("_USELOGO", "Use logo");
 define("_DEFAULTLOGO", "Default logo");
 define("_UPLOADSITELOGO", "Upload site logo");
+define("_ATLEAST", "At least");
+define("_ATMOST", "At most");
+define("_EQUALTO", "Equal to");
 ?>

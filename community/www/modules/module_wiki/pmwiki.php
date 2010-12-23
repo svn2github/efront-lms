@@ -20,7 +20,7 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
     ----
-    Note from Pm:  Trying to understand the PmWiki code?  Wish it had 
+    Note from Pm:  Trying to understand the PmWiki code?  Wish it had
     more comments?  If you want help with any of the code here,
     write me at <pmichaud@pobox.com> with your question(s) and I'll
     provide explanations (and add comments) that answer them.
@@ -96,7 +96,7 @@ $SuffixPattern = '(?:-?[[:alnum:]]+)*';
 $LinkPageSelfFmt = "<a class='selflink' href='\$LinkUrl'>\$LinkText</a>";
 $LinkPageExistsFmt = "<a class='wikilink' href='\$LinkUrl'>\$LinkText</a>";
 $LinkPageCreateFmt =
-  "<a class='createlinktext' rel='nofollow' 
+  "<a class='createlinktext' rel='nofollow'
     href='{\$PageUrl}?action=edit'>\$LinkText</a><a rel='nofollow'
     class='createlink' href='{\$PageUrl}?action=edit'>?</a>";
 $UrlLinkFmt =
@@ -121,7 +121,7 @@ $FmtP = array();
 $FmtPV = array(
 
   '$PageUrl' =>
-    'PUE(($EnablePathInfo) 
+    'PUE(($EnablePathInfo)
          ? "$ScriptUrl/$group/$name"
          : "$ScriptUrl?n=$group.$name")',
   '$FullName' => '"$group.$name"',
@@ -170,7 +170,7 @@ $CacheActions = array('browse','diff','print');
 $EnableHTMLCache = 0;
 $NoHTMLCache = 0;
 $HTMLDoctypeFmt =
-  "<!DOCTYPE html 
+  "<!DOCTYPE html
     PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"
     \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
   <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head>\n";
@@ -234,8 +234,8 @@ function CondAuth($pagename, $condparm) {
   return (boolean)RetrieveAuthPage($pn, $level, false, READPAGE_CURRENT);
 }
 
-## CondExpr handles complex conditions (expressions)
-## Portions Copyright 2005 by D. Faure (dfaure@cpan.org)
+// CondExpr handles complex conditions (expressions)
+// Portions Copyright 2005 by D. Faure (dfaure@cpan.org)
 function CondExpr($pagename, $condname, $condparm) {
   global $CondExprOps;
   SDV($CondExprOps, 'and|x?or|&&|\\|\\||[!()]');
@@ -364,9 +364,9 @@ if (IsEnabled($EnableActions, 1)) HandleDispatch($pagename, $action);
 Lock(0);
 return;
 
-## HandleDispatch() is used to dispatch control to the appropriate
-## action handler with the appropriate permissions.
-## If a message is supplied, it is added to $MessagesFmt.
+//  HandleDispatch() is used to dispatch control to the appropriate
+//  action handler with the appropriate permissions.
+//  If a message is supplied, it is added to $MessagesFmt.
 function HandleDispatch($pagename, $action, $msg=NULL) {
   global $MessagesFmt, $HandleActions, $HandleAuth;
   if ($msg) $MessagesFmt[] = "<div class='wikimessage'>$msg</div>";
@@ -376,7 +376,7 @@ function HandleDispatch($pagename, $action, $msg=NULL) {
   return $fn($pagename, $auth);
 }
 
-## helper functions
+// helper functions
 function stripmagic($x)
   { return get_magic_quotes_gpc() ? stripslashes($x) : $x; }
 function pre_r(&$x)
@@ -442,16 +442,16 @@ function StopWatch($x) {
 }
 
 
-## DRange converts a variety of string formats into date (ranges).
-## It returns the start and end timestamps (+1 second) of the specified date.
+// DRange converts a variety of string formats into date (ranges).
+// It returns the start and end timestamps (+1 second) of the specified date.
 function DRange($when) {
   global $Now;
-  ## 1/posix @timestamp dates
+  //  unix/posix @timestamp dates
   if (preg_match('/^\\s*@(\\d+)\\s*(.*)$/', $when, $m)) {
     $t0 = $m[2] ? strtotime($m[2], $m[1]) : $m[1];
     return array($t0, $t0+1);
   }
-  ## ISO-8601 dates
+  //  ISO-8601 dates
   $dpat = '/
     (?<!\\d) # non-digit
     (19\\d\\d|20[0-3]\\d) # year ($1)
@@ -472,17 +472,17 @@ function DRange($when) {
     /x';
   if (preg_match($dpat, $when, $m)) {
     $n = $m;
-    ## if no day given, assume 1st of month and full month range
+    //  if no day given, assume 1st of month and full month range
     if (@$m[4] == '') { $m[4] = 1; $n[4] = 1; $n[3]++; }
-    ## if no time given, assume range of 1 day
+    //  if no time given, assume range of 1 day
     if (@$m[5] == '') { @$n[4]++; }
-    ## if no seconds given, assume range of 1 minute
+    //  if no seconds given, assume range of 1 minute
     if (@$m[8] == '') { @$n[7]++; }
     $t0 = @mktime($m[5], $m[7], $m[8], $m[3], $m[4], $m[1]);
     $t1 = @mktime($n[5], $n[7], $n[8], $n[3], $n[4], $n[1]);
     return array($t0, $t1);
   }
-  ## now, today, tomorrow, yesterday
+  //  now, today, tomorrow, yesterday
   NoCache();
   if ($when == 'now') return array($Now, $Now+1);
   $m = localtime(time());
@@ -497,8 +497,8 @@ function DRange($when) {
   return array($t0, $t1);
 }
 
-## AsSpaced converts a string with WikiWords into a spaced version
-## of that string. (It can be overridden via $AsSpacedFunction.)
+// AsSpaced converts a string with WikiWords into a spaced version
+// of that string.  (It can be overridden via $AsSpacedFunction.)
 function AsSpaced($text) {
   $text = preg_replace("/([[:lower:]\\d])([[:upper:]])/", '$1 $2', $text);
   $text = preg_replace('/([^-\\d])(\\d[-\\d]*( |$))/','$1 $2',$text);
@@ -506,8 +506,8 @@ function AsSpaced($text) {
     '$1 $2', $text);
 }
 
-## Lock is used to make sure only one instance of PmWiki is running when
-## files are being written. It does not "lock pages" for editing.
+// Lock is used to make sure only one instance of PmWiki is running when
+// files are being written.  It does not "lock pages" for editing.
 function Lock($op) {
   global $WorkDir, $LockFile, $EnableReadOnly;
   if ($op > 0 && IsEnabled($EnableReadOnly, 0))
@@ -531,8 +531,8 @@ function Lock($op) {
     { session_write_close(); flock($lockfp,LOCK_EX); $curop=2; }
 }
 
-## mkdirp creates a directory and its parents as needed, and sets
-## permissions accordingly.
+// mkdirp creates a directory and its parents as needed, and sets
+// permissions accordingly.
 function mkdirp($dir) {
   global $ScriptUrl;
   if (file_exists($dir)) return;
@@ -544,13 +544,13 @@ function mkdirp($dir) {
   }
   $parent = realpath(dirname($dir));
   $perms = decoct(fileperms($parent) & 03777);
-  $msg = "PmWiki needs to have a writable <tt>$dir/</tt> directory 
+  $msg = "PmWiki needs to have a writable <tt>$dir/</tt> directory
     before it can continue. You can create the directory manually
     by executing the following commands on your server:
     <pre> mkdir $parent/$dir\n chmod 777 $parent/$dir</pre>
     Then, <a href='{$ScriptUrl}'>reload this page</a>.";
   $safemode = ini_get('safe_mode');
-  if (!$safemode) $msg .= "<br /><br />Or, for a slightly more 
+  if (!$safemode) $msg .= "<br /><br />Or, for a slightly more
     secure installation, try executing <pre> chmod 2777 $parent</pre>
     on your server and following <a target='_blank' href='$ScriptUrl'>
     this link</a>. Afterwards you can restore the permissions to
@@ -558,8 +558,8 @@ function mkdirp($dir) {
   Abort($msg);
 }
 
-## fixperms attempts to correct permissions on a file or directory
-## so that both PmWiki and the account (current dir) owner can manipulate it
+// fixperms attempts to correct permissions on a file or directory
+// so that both PmWiki and the account (current dir) owner can manipulate it
 function fixperms($fname, $add = 0) {
   clearstatcache();
   if (!file_exists($fname)) Abort('?no such file');
@@ -571,9 +571,9 @@ function fixperms($fname, $add = 0) {
     @chmod($fname,fileperms($fname)|$bp);
 }
 
-## GlobToPCRE converts wildcard patterns into pcre patterns for
-## inclusion and exclusion. Wildcards beginning with '-' or '!'
-## are treated as things to be excluded.
+// GlobToPCRE converts wildcard patterns into pcre patterns for
+// inclusion and exclusion.  Wildcards beginning with '-' or '!'
+// are treated as things to be excluded.
 function GlobToPCRE($pat) {
   $pat = preg_quote($pat, '/');
   $pat = str_replace(array('\\*', '\\?', '\\[', '\\]', '\\^'),
@@ -586,16 +586,16 @@ function GlobToPCRE($pat) {
   return array(implode('|', $incl), implode('|', $excl));
 }
 
-## FixGlob changes wildcard patterns without '.' to things like
-## '*.foo' (name matches) or 'foo.*' (group matches).
+// FixGlob changes wildcard patterns without '.' to things like
+// '*.foo' (name matches) or 'foo.*' (group matches).
 function FixGlob($x, $rep = '$1*.$2') {
   return preg_replace('/([\\s,][-!]?)([^\\/.\\s,]+)(?=[\\s,])/', $rep, ",$x,");
 }
 
-## MatchPageNames reduces $pagelist to those pages with names
-## matching the pattern(s) in $pat. Patterns can be either
-## regexes to include ('/'), regexes to exclude ('!'), or
-## wildcard patterns (all others).
+// MatchPageNames reduces $pagelist to those pages with names
+// matching the pattern(s) in $pat.  Patterns can be either
+// regexes to include ('/'), regexes to exclude ('!'), or
+// wildcard patterns (all others).
 function MatchPageNames($pagelist, $pat) {
   $pagelist = (array)$pagelist;
   foreach((array)$pat as $p) {
@@ -619,9 +619,9 @@ function MatchPageNames($pagelist, $pat) {
   return $pagelist;
 }
 
-## ResolvePageName "normalizes" a pagename based on the current
-## settings of $DefaultPage and $PagePathFmt. It's normally used
-## during initialization to fix up any missing or partial pagenames.
+// ResolvePageName "normalizes" a pagename based on the current
+// settings of $DefaultPage and $PagePathFmt.  It's normally used
+// during initialization to fix up any missing or partial pagenames.
 function ResolvePageName($pagename) {
   global $DefaultPage, $DefaultGroup, $DefaultName,
     $GroupPattern, $NamePattern, $EnableFixedUrlRedirect;
@@ -641,10 +641,10 @@ function ResolvePageName($pagename) {
   return MakePageName($DefaultPage, "$pagename.$pagename");
 }
 
-## MakePageName is used to convert a string $str into a fully-qualified
-## pagename. If $str doesn't contain a group qualifier, then 
-## MakePageName uses $basepage and $PagePathFmt to determine the
-## group of the returned pagename.
+// MakePageName is used to convert a string $str into a fully-qualified
+// pagename.  If $str doesn't contain a group qualifier, then
+// MakePageName uses $basepage and $PagePathFmt to determine the
+// group of the returned pagename.
 function MakePageName($basepage, $str) {
   global $MakePageNameFunction, $PageNameChars, $PagePathFmt,
     $MakePageNamePatterns;
@@ -658,7 +658,7 @@ function MakePageName($basepage, $str) {
   $str = preg_replace('/[#?].*$/', '', $str);
   $m = preg_split('/[.\\/]/', $str);
   if (count($m)<1 || count($m)>2 || $m[0]=='') return '';
-  ## handle "Group.Name" conversions
+  //  handle "Group.Name" conversions
   if (@$m[1] > '') {
     $group = preg_replace(array_keys($MakePageNamePatterns),
                array_values($MakePageNamePatterns), $m[0]);
@@ -684,9 +684,9 @@ function MakePageName($basepage, $str) {
 }
 
 
-## MakeBaseName uses $BaseNamePatterns to return the "base" form
-## of a given pagename -- i.e., stripping any recipe-defined
-## prefixes or suffixes from the page.
+// MakeBaseName uses $BaseNamePatterns to return the "base" form
+// of a given pagename -- i.e., stripping any recipe-defined
+// prefixes or suffixes from the page.
 function MakeBaseName($pagename, $patlist = NULL) {
   global $BaseNamePatterns;
   if (is_null($patlist)) $patlist = (array)@$BaseNamePatterns;
@@ -696,19 +696,19 @@ function MakeBaseName($pagename, $patlist = NULL) {
 }
 
 
-## PCache caches basic information about a page and its attributes--
-## usually everything except page text and page history. This makes
-## for quicker access to certain values in PageVar below.
+// PCache caches basic information about a page and its attributes--
+// usually everything except page text and page history.  This makes
+// for quicker access to certain values in PageVar below.
 function PCache($pagename, $page) {
   global $PCache;
   foreach($page as $k=>$v)
     if ($k!='text' && strpos($k,':')===false) $PCache[$pagename][$k]=$v;
 }
 
-## SetProperty saves a page property into $PCache. For convenience
-## it returns the $value of the property just set. If $sep is supplied,
-## then $value is appended to the current property (with $sep as
-## as separator) instead of replacing it.
+// SetProperty saves a page property into $PCache.  For convenience
+// it returns the $value of the property just set.  If $sep is supplied,
+// then $value is appended to the current property (with $sep as
+// as separator) instead of replacing it.
 function SetProperty($pagename, $prop, $value, $sep = NULL) {
   global $PCache, $KeepToken;
   NoCache();
@@ -722,9 +722,9 @@ function SetProperty($pagename, $prop, $value, $sep = NULL) {
 }
 
 
-## PageTextVar loads a page's text variables (defined by
-## $PageTextVarPatterns) into a page's $PCache entry, and returns
-## the property associated with $var.
+// PageTextVar loads a page's text variables (defined by
+// $PageTextVarPatterns) into a page's $PCache entry, and returns
+// the property associated with $var.
 function PageTextVar($pagename, $var) {
   global $PCache, $PageTextVarPatterns;
   if (!@$PCache[$pagename]['=pagetextvars']) {
@@ -765,8 +765,8 @@ function PageVar($pagename, $var, $pn = '') {
 }
 
 
-## FmtPageName handles $[internationalization] and $Variable
-## substitutions in strings based on the $pagename argument.
+// FmtPageName handles $[internationalization] and $Variable
+// substitutions in strings based on the $pagename argument.
 function FmtPageName($fmt, $pagename) {
 
   global $GroupPattern, $NamePattern, $EnablePathInfo, $ScriptUrl,
@@ -807,8 +807,8 @@ function FmtPageName($fmt, $pagename) {
   return $fmt;
 }
 
-## FmtTemplateVars uses $vars to replace all occurrences of
-## {$$key} in $text with $vars['key'].
+//  FmtTemplateVars uses $vars to replace all occurrences of
+//  {$$key} in $text with $vars['key'].
 function FmtTemplateVars($text, $vars, $pagename = NULL) {
   global $FmtPV;
   if ($pagename) {
@@ -822,8 +822,8 @@ function FmtTemplateVars($text, $vars, $pagename = NULL) {
   return $text;
 }
 
-## The XL functions provide translation tables for $[i18n] strings
-## in FmtPageName().
+// The XL functions provide translation tables for $[i18n] strings
+// in FmtPageName().
 function XL($key) {
   global $XL,$XLLangs;
   foreach($XLLangs as $l) if (isset($XL[$l][$key])) return $XL[$l][$key];
@@ -853,8 +853,8 @@ function XLPage($lang,$p) {
   }
 }
 
-## CmpPageAttr is used with uksort to order a page's elements with
-## the latest items first. This can make some operations more efficient.
+// CmpPageAttr is used with uksort to order a page's elements with
+// the latest items first.  This can make some operations more efficient.
 function CmpPageAttr($a, $b) {
   @list($x, $agmt) = explode(':', $a);
   @list($x, $bgmt) = explode(':', $b);
@@ -863,8 +863,8 @@ function CmpPageAttr($a, $b) {
   return strcmp($a, $b);
 }
 
-## class PageStore holds objects that store pages via the native
-## filesystem.
+// class PageStore holds objects that store pages via the native
+// filesystem.
 class PageStore {
   var $dirfmt;
   var $iswrite;
@@ -1017,7 +1017,7 @@ function WritePage($pagename,$page) {
 }
 
 function PageExists($pagename) {
-  ## note: $PageExistsCache might change or disappear someday
+  //  note:  $PageExistsCache might change or disappear someday
   global $WikiLibDirs, $PageExistsCache;
   if (!isset($PageExistsCache[$pagename])) {
     foreach((array)$WikiLibDirs as $dir)
@@ -1129,9 +1129,9 @@ function Keep($x, $pool=NULL) {
 }
 
 
-## MarkupEscape examines markup source and escapes any [@...@]
-## and [=...=] sequences using Keep(). MarkupRestore undoes the
-## effect of any MarkupEscape().
+//  MarkupEscape examines markup source and escapes any [@...@]
+//  and [=...=] sequences using Keep().  MarkupRestore undoes the
+//  effect of any MarkupEscape().
 function MarkupEscape($text) {
   global $EscapePattern;
   SDV($EscapePattern, '\\[([=@]).*?\\1\\]');
@@ -1143,8 +1143,8 @@ function MarkupRestore($text) {
 }
 
 
-## Qualify() applies $QualifyPatterns to convert relative links
-## and references into absolute equivalents.
+//  Qualify() applies $QualifyPatterns to convert relative links
+//  and references into absolute equivalents.
 function Qualify($pagename, $text) {
   global $QualifyPatterns, $KeepToken, $KPV;
   if (!@$QualifyPatterns) return $text;
@@ -1170,14 +1170,14 @@ function CondText($pagename,$condspec,$condtext) {
 }
 
 
-## TextSection extracts a section of text delimited by page anchors.
-## The $sections parameter can have the form
-## #abc - [[#abc]] to next anchor
-## #abc#def - [[#abc]] up to [[#def]]
-## #abc#, #abc.. - [[#abc]] to end of text
-## ##abc, #..#abc - beginning of text to [[#abc]]
-## Returns the text unchanged if no sections are requested,
-## or false if a requested beginning anchor isn't in the text.
+//  TextSection extracts a section of text delimited by page anchors.
+//  The $sections parameter can have the form
+//    #abc           - [[#abc]] to next anchor
+//    #abc#def       - [[#abc]] up to [[#def]]
+//    #abc#, #abc..  - [[#abc]] to end of text
+//    //abc, #..#abc - beginning of text to [[#abc]]
+//  Returns the text unchanged if no sections are requested,
+//  or false if a requested beginning anchor isn't in the text.
 function TextSection($text, $sections, $args = NULL) {
   $args = (array)$args;
   $npat = '[[:alpha:]][-\\w*]*';
@@ -1198,12 +1198,12 @@ function TextSection($text, $sections, $args = NULL) {
 }
 
 
-## RetrieveAuthSection extracts a section of text from a page.
-## If $pagesection starts with anything other than '#', it identifies
-## the page to extract text from. Otherwise RetrieveAuthSection looks
-## in the pages given by $list, or in $pagename if $list is not specified.
-## The selected page is placed in the global $RASPageName variable.
-## The caller is responsible for calling Qualify() as needed.
+//  RetrieveAuthSection extracts a section of text from a page.
+//  If $pagesection starts with anything other than '#', it identifies
+//  the page to extract text from.  Otherwise RetrieveAuthSection looks
+//  in the pages given by $list, or in $pagename if $list is not specified.
+//  The selected page is placed in the global $RASPageName variable.
+//  The caller is responsible for calling Qualify() as needed.
 function RetrieveAuthSection($pagename, $pagesection, $list=NULL, $auth='read') {
   global $RASPageName;
   if ($pagesection{0} != '#')
@@ -1531,7 +1531,7 @@ function HandleBrowse($pagename, $auth = 'read') {
     SDV($HTTPHeaders['status'], $PageNotFoundHeaderFmt);
   }
   $opt = array();
-  SDV($PageRedirectFmt,"<p><i>($[redirected from] <a rel='nofollow' 
+  SDV($PageRedirectFmt,"<p><i>($[redirected from] <a rel='nofollow'
     href='{\$PageUrl}?action=edit'>{\$FullName}</a>)</i></p>\$HTMLVSpace\n");
   if (@!$_GET['from']) { $opt['redirect'] = 1; $PageRedirectFmt = ''; }
   else $PageRedirectFmt = FmtPageName($PageRedirectFmt, $_GET['from']);
@@ -1562,13 +1562,13 @@ function HandleBrowse($pagename, $auth = 'read') {
 }
 
 
-## UpdatePage goes through all of the steps needed to update a page,
-## preserving page history, computing link targets, page titles,
-## and other page attributes. It does this by calling each entry
-## in $EditFunctions. $pagename is the name of the page to be updated,
-## $page is the old version of the page (used for page history),
-## $new is the new version of the page to be saved, and $fnlist is
-## an optional list of functions to use instead of $EditFunctions.
+// UpdatePage goes through all of the steps needed to update a page,
+// preserving page history, computing link targets, page titles,
+// and other page attributes.  It does this by calling each entry
+// in $EditFunctions.  $pagename is the name of the page to be updated,
+// $page is the old version of the page (used for page history),
+// $new is the new version of the page to be saved, and $fnlist is
+// an optional list of functions to use instead of $EditFunctions.
 function UpdatePage(&$pagename, &$page, &$new, $fnlist = NULL) {
   global $EditFunctions, $IsPagePosted;
   StopWatch("UpdatePage: begin $pagename");
@@ -1636,10 +1636,10 @@ function RestorePage($pagename,&$page,&$new,$restore=NULL) {
   return $new['text'];
 }
 
-## ReplaceOnSave performs text replacements on the text being posted.
-## Patterns held in $ROEPatterns are replaced on every edit request,
-## patterns held in $ROSPatterns are replaced only when the page
-## is being posted (as signaled by $EnablePost).
+// ReplaceOnSave performs text replacements on the text being posted.
+// Patterns held in $ROEPatterns are replaced on every edit request,
+// patterns held in $ROSPatterns are replaced only when the page
+// is being posted (as signaled by $EnablePost).
 function ReplaceOnSave($pagename,&$page,&$new) {
   global $EnablePost, $ROSPatterns, $ROEPatterns;
   foreach ((array)@$ROEPatterns as $pat => $rep)
@@ -1797,11 +1797,11 @@ function HandleSource($pagename, $auth = 'read') {
   echo @$page['text'];
 }
 
-## PmWikiAuth provides password-protection of pages using PHP sessions.
-## It is normally called from RetrieveAuthPage. Since RetrieveAuthPage
-## can be called a lot within a single page execution (i.e., for every
-## page accessed), we cache the results of site passwords and
-## GroupAttribute pages to be able to speed up subsequent calls.
+// PmWikiAuth provides password-protection of pages using PHP sessions.
+// It is normally called from RetrieveAuthPage.  Since RetrieveAuthPage
+// can be called a lot within a single page execution (i.e., for every
+// page accessed), we cache the results of site passwords and
+// GroupAttribute pages to be able to speed up subsequent calls.
 function PmWikiAuth($pagename, $level, $authprompt=true, $since=0) {
   global $DefaultPasswords, $GroupAttributesFmt, $AllowPassword,
     $AuthCascade, $FmtV, $AuthPromptFmt, $PageStartFmt, $PageEndFmt,
@@ -1904,7 +1904,7 @@ function IsAuthorized($chal, $source, &$from) {
       //   {  $auth=1; continue; }
    $auth=1; continue;
 
- //temporarily remove this too	 
+ //temporarily remove this too
       //foreach((array)$AuthPw as $pwresp)                       # password
         //if (crypt($pwresp, $pw) == $pw) { $auth=1; continue; }
 
@@ -1916,12 +1916,12 @@ function IsAuthorized($chal, $source, &$from) {
 }
 
 
-## SessionAuth works with PmWikiAuth to manage authorizations
-## as stored in sessions. First, it can be used to set session
-## variables by calling it with an $auth argument. It then
-## uses the authid, authpw, and authlist session variables
-## to set the corresponding values of $AuthId, $AuthPw, and $AuthList
-## as needed.
+// SessionAuth works with PmWikiAuth to manage authorizations
+// as stored in sessions.  First, it can be used to set session
+// variables by calling it with an $auth argument.  It then
+// uses the authid, authpw, and authlist session variables
+// to set the corresponding values of $AuthId, $AuthPw, and $AuthList
+// as needed.
 function SessionAuth($pagename, $auth = NULL) {
 
   global $AuthId, $AuthList, $AuthPw, $SessionEncode, $SessionDecode,

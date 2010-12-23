@@ -32,8 +32,8 @@
    <tr class = "topTitle">
     <td class = "topTitle" name="login">{$smarty.const._USER}</td>
     <td class = "topTitle" name="specification">{$smarty.const._SPECIFICATION}</td>
-    <td class = "topTitle" name="stats" noSort align="center">{$smarty.const._STATISTICS}</td>
-    <td class = "topTitle noSort" name="ops" noSort align="center">{$smarty.const._OPERATIONS}</td>
+    <td class = "topTitle centerAlign" name="score">{$smarty.const._SCORE}</td>
+    <td class = "topTitle noSort centerAlign" noSort >{$smarty.const._OPERATIONS}</td>
    </tr>
    {assign var = "employees_found" value = 0}
    {foreach name = 'users_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
@@ -50,10 +50,11 @@
      {/if}
       </td>
      <td>{$user.specification}</td>
-     <td align="center"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>
+     <td class = "centerAlign">{if $user.score}{$user.score}%{/if}</td>
      <td class = "centerAlign">
+      <a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a>
       {if $user.active == 1}
-       <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+       <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&tab=skills" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
       {else}
        <img class="handle" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
       {/if}
@@ -81,6 +82,7 @@
    <tr class = "topTitle">
     <td class = "topTitle" name="users_login">{$smarty.const._USER}</td>
     <td class = "topTitle" name="specification">{$smarty.const._SPECIFICATION}</td>
+    <td class = "topTitle centerAlign" name="score">{$smarty.const._SCORE}</td>
     <td class = "topTitle centerAlign" name="skill_ID">{$smarty.const._CHECK}</td>
    </tr>
    {assign var = "employees_found" value = '0'}
@@ -94,11 +96,17 @@
       {else}
        #filter:login-{$user.login}#
       {/if}
-      </td><td>
-       <input class="inputText" width = "*" type="text" name="spec_skill_{$user.login}" id="spec_skill_{$user.login}" value="{$user.specification}" onchange="ajaxSkillUserPost(2,'{$user.login}', this);" {if $user.skill_ID != $smarty.get.edit_skill}style="visibility:hidden"{/if}>
-      </td><td class = "centerAlign">
-       <input type = "checkbox" class = "inputCheckBox" name = "{$user.login}" id="skill_to_{$user.login}" onclick="javascript:show_hide_spec('{$user.login}'); ajaxSkillUserPost(1,'{$user.login}', this);" {if $user.skill_ID == $smarty.get.edit_skill}checked{/if}>
-      </td></tr>
+      </td>
+      <td>
+       <input class="inputText" width = "*" type="text" id="spec_skill_{$user.login}" value="{$user.specification}" onchange="ajaxSkillUserPost('{$user.login}', this);" style="{if $user.skill_ID != $smarty.get.edit_skill}display:none{/if}">
+      </td>
+      <td class = "centerAlign">
+       <input class="inputText" type="text" id="spec_skill_score_{$user.login}" value="{if $user.score}{$user.score}{else}100{/if}" onchange="ajaxSkillUserPost('{$user.login}', this);" style="width:30px;{if $user.skill_ID != $smarty.get.edit_skill}display:none{/if}">
+      </td>
+      <td class = "centerAlign">
+       <input type = "checkbox" class = "inputCheckBox" name = "{$user.login}" id="skill_to_{$user.login}" onclick="$('spec_skill_{$user.login}').toggle();$('spec_skill_score_{$user.login}').toggle(); ajaxSkillUserPost('{$user.login}', this);" {if $user.skill_ID == $smarty.get.edit_skill}checked{/if}>
+      </td>
+     </tr>
     {/if}
    {foreachelse}
     <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "4">{$smarty.const._NODATAFOUND}</td></tr>

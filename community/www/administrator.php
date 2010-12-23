@@ -354,7 +354,13 @@ if (EfrontNotification::shouldSendNextNotifications()) {
  $smarty -> assign("T_TRIGGER_NEXT_NOTIFICATIONS_SEND", 1);
  $_SESSION['send_next_notifications_now'] = 0; // the msg that triggered the immediate send should be sent now
 }
-///MODULES5
+$smartyClosingFiles = array();
+foreach ($loadedModules as $module) {
+ if ($smartyClosingFile = $module -> onPageFinishLoadingSmartyTpl()) {
+  $smartyClosingFiles[] = $smartyClosingFile;
+ }
+}
+$smarty -> assign("T_PAGE_FINISH_MODULES", $smartyClosingFiles);
 $smarty -> assign("T_MODULE_CSS", $module_css_array);
 $smarty -> assign("T_MODULE_JS", $module_js_array);
 foreach ($loadedModules as $module) {
@@ -374,6 +380,7 @@ $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
 $smarty -> assign("T_TEST_MESSAGE", 'Test Message');
+
 
 $benchmark -> set('script');
 $smarty -> display('administrator.tpl');

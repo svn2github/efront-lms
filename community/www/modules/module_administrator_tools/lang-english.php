@@ -29,4 +29,9 @@ define("_MODULE_ADMINISTRATOR_TOOLS_COMPLETEDFROM", "Completed from");
 define("_MODULE_ADMINISTRATOR_TOOLS_COMPLETEDTO", "completed to");
 define("_MODULE_ADMINISTRATOR_TOOLS_SHOWINACTIVECOURSES", "Show inactive courses");
 define("_MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY", "Historic entry");
+define("_MODULE_ADMINISTRATOR_TOOLS_IDLEUSERS", "Idle users");
+define("_MODULE_ADMINISTRATOR_TOOLS_LASTACTION", "Last action");
+define("_MODULE_ADMINISTRATOR_TOOLS_SHOWINACTIVEUSERSSINCE", "Show users idle since");
+define("_MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS", "Archive all users");
+define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLARCHIVEALLUSERSAREYOUSURE", "This will archive all users returned matching the selected criteria! Are you sure?");
 ?>

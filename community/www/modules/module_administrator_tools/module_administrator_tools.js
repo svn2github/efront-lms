@@ -58,6 +58,20 @@ function exportUsersToXls(el) {
 function onExportUsersToXls(el, response) {
  $('popup_frame').src = location.toString()+'&ajax=show_xls';
 }
+function archiveUser(el, user) {
+ var parameters = {archive_user:user, ajax:'ajax', method:'get'}
+ ajaxRequest(el, location.toString(), parameters, onArchiveUser);
+}
+function onArchiveUser(el, response) {
+ new Effect.Fade(el.up().up());
+}
+function archiveAllIdleUsers(el) {
+ var parameters = {archive_all_users:1, ajax:'ajax', method:'get'}
+ ajaxRequest(el, location.toString(), parameters, onArchiveAllIdleUsers);
+}
+function onArchiveAllIdleUsers(el, response) {
+ eF_js_redrawPage('idleUsersTable', true);
+}
 
 if ($('module_administrator_tools_autocomplete_lessons_div')) {
  new Ajax.Autocompleter("autocomplete",

@@ -2,12 +2,14 @@
 {if $smarty.session.s_lessons_ID}
  {assign var=lessonName value=$T_CURRENT_LESSON->lesson.name}
     {if $T_NO_HORIZONTAL_MENU}{assign var = "title_onclick" value = "top.sideframe.hideAllLessonSpecific();"}{/if}
-  {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a><span>&nbsp;&raquo;&nbsp;</span>"}
+  {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a>"}
   {if isset($T_CURRENT_COURSE_NAME)}
    {assign var = "titleCourse" value = "`$T_CURRENT_COURSE_NAME`&nbsp;&rarr;&nbsp;"}
-   {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_COURSE_NAME`' href ='`$smarty.server.PHP_SELF`?ctg=lessons&course=`$T_CURRENT_COURSE_ID`&op=course_info'>`$T_CURRENT_COURSE_NAME`</a><span>&nbsp;&raquo;&nbsp;</span>"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$T_CURRENT_COURSE_NAME`' href ='`$smarty.server.PHP_SELF`?ctg=lessons&course=`$T_CURRENT_COURSE_ID`&op=course_info'>`$T_CURRENT_COURSE_NAME`</a>"}
   {/if}
-  {assign var = "title" value = "`$title`<a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse``$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
+  {if $T_CURRENT_LESSON}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse``$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
+  {/if}
 {else}
  {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
 {/if}
@@ -356,30 +358,31 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {else}
 
   {if $smarty.get.course}
+   {assign var ="title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a><span>&nbsp;&raquo;&nbsp;</span>"}
       {if $T_OP == course_info}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_info'>`$smarty.const._INFORMATIONFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_info'>`$smarty.const._INFORMATIONFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == course_certificates}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_certificates'>`$smarty.const._COMPLETION` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_certificates'>`$smarty.const._COMPLETION` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == format_certificate}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=format_certificate'>`$smarty.const._FORMATCERTIFICATEFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=format_certificate'>`$smarty.const._FORMATCERTIFICATEFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == format_certificate_docx}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=format_certificate_docx'>`$smarty.const._FORMATCERTIFICATEFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=format_certificate_docx'>`$smarty.const._FORMATCERTIFICATEFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == course_rules}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_rules'>`$smarty.const._RULESFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_rules'>`$smarty.const._RULESFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == course_order}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_order'>`$smarty.const._ORDERFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_order'>`$smarty.const._ORDERFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == course_scheduling}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_scheduling'>`$smarty.const._SCHEDULINGFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_scheduling'>`$smarty.const._SCHEDULINGFORCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == export_course}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=export_course'>`$smarty.const._EXPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=export_course'>`$smarty.const._EXPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_OP == import_course}
-          {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=import_course'>`$smarty.const._IMPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
+          {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=import_course'>`$smarty.const._IMPORTCOURSE` &quot;`$T_CURRENT_COURSE->course.name`&quot;</a>"}
       {elseif $T_MODULE_TABPAGE}
-       {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=`$T_MODULE_TABPAGE.tab_page`'>`$T_MODULE_TABPAGE.title`</a>"}
+       {assign var = 'title' value = "`$title`<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=`$T_MODULE_TABPAGE.tab_page`'>`$T_MODULE_TABPAGE.title`</a>"}
       {/if}
   {/if}
   {if $T_OP == 'search'}
-   {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="javascript:void(0)">'|cat:$smarty.const._SEARCHRESULTS|cat:'</a>'}
+   {assign var = "title" value = $title|cat:''|cat:'<a class = "titleLink" href ="javascript:void(0)">'|cat:$smarty.const._SEARCHRESULTS|cat:'</a>'}
   {/if}
  {/if}
  {if $smarty.get.catalog}

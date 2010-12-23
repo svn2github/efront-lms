@@ -522,7 +522,13 @@ try {
 if (isset($_GET['refresh'])) {
     $smarty -> assign("T_REFRESH_SIDE","true");
 }
-///MODULES5
+$smartyClosingFiles = array();
+foreach ($loadedModules as $module) {
+ if ($smartyClosingFile = $module -> onPageFinishLoadingSmartyTpl()) {
+  $smartyClosingFiles[] = $smartyClosingFile;
+ }
+}
+$smarty -> assign("T_PAGE_FINISH_MODULES", $smartyClosingFiles);
 $smarty -> assign("T_MODULE_CSS", $module_css_array);
 $smarty -> assign("T_MODULE_JS", $module_js_array);
 foreach ($loadedModules as $module) {

@@ -329,7 +329,11 @@ function formatLogin($login, $fields = array(), $duplicate = true) {
        }
       }
      }
-     return $GLOBALS['_usernames'][$login];
+     if ($GLOBALS['_usernames'][$login]) {
+      return $GLOBALS['_usernames'][$login];
+     } else {
+      return $login;
+     }
     }
 }
 /**

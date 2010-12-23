@@ -61,8 +61,12 @@ $$('div.block').ancestors().each(function (s) {
 <div id="dimmer" class = "dimmerDiv" style = "display:none;"></div>
 <div id = "defaultExceptionHandlerDiv" style = "color:#ffffff;display:none"></div>
 
-<script>
+{foreach name = "module_closing_list" item = "module_close_code" key = "key" from=$T_PAGE_FINISH_MODULES}
+ {include file = $module_close_code}
+{/foreach}
 
+
+<script>
 
 {if $T_ADD_ANOTHER}
  document.getElementById('add_new_event_link').onclick();
@@ -103,9 +107,6 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
   document.getElementById("horizontal_menu").style.display = "none";
 {/if}
 
-</script>
-
-<script>
 {if $T_FACEBOOK_ACCOUNT_MERGE_POPUP}
  {if $T_FACEBOOK_EXTERNAL_LOGIN}
  eF_js_showDivPopup('{$smarty.const._FACEBOOKMERGEACCOUNT}', 2, 'facebook_login');
@@ -135,10 +136,6 @@ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElement
  {/if}
 
 {/if}
-</script>
-
-
-<script>
 
 {literal}
 if (!usingHorizontalInterface) {
@@ -168,17 +165,3 @@ if (!usingHorizontalInterface) {
  {/if}
 
 </script>
-
-{*
-{literal}
-<!-- Google Custom Search Element -->
-<div id="cse" style="width:100%;">Loading</div>
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript">
-  google.load('search', '1');
-  google.setOnLoadCallback(function(){
-    new google.search.CustomSearchControl('000398346163109659847:n5grefkpzzs').draw('cse');
-  }, true);
-</script>
-{/literal}
-*}

@@ -751,8 +751,10 @@ function ajaxUserPost(type, id, el, table_id) {
  Element.extend(el);
     var baseUrl = sessionType + '.php?ctg=users&edit_user=' + editUserLogin + '&op=' + operationCategory + '&postAjaxRequest=1';
     if (type == 'skill') {
-        if (id) {
-            var url = baseUrl + '&add_skill=' + id + '&insert=' + document.getElementById('skill_'+id).checked + '&specification='+encodeURI(document.getElementById('spec_skill_'+id).value);
+  if (isNaN(parseInt($('spec_skill_score_'+id).value)) | $('spec_skill_score_'+id).value > 100 | $('spec_skill_score_'+id).value < 1) {
+   return false;
+  } else if (id) {
+            var url = baseUrl + '&add_skill=' + id + '&insert=' + document.getElementById('skill_'+id).checked + '&specification='+encodeURI($('spec_skill_'+id).value) + '&score='+encodeURI($('spec_skill_score_'+id).value);
             var img_id = 'img_'+ id;
         } else if (table_id && table_id == 'skillsTable') {
             el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';

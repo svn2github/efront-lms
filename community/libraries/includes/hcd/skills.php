@@ -63,7 +63,7 @@ try {
          if ($_GET['postAjaxRequest']) {
           try {
            if ($_GET['insert'] == "true") {
-            $currentSkill -> assignToEmployee($_GET['add_user'], $_GET['specification']);
+            $currentSkill -> assignToEmployee($_GET['add_user'], $_GET['specification'], $_GET['score']);
            } else if ($_GET['insert'] == "false") {
             $currentSkill -> removeFromEmployee($_GET['add_user']);
            } else if (isset($_GET['addAll'] )) {

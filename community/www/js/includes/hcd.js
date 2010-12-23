@@ -434,18 +434,19 @@ function ajaxShowAllSubbranches() {
 }
 // Wrapper function for any of the 2-3 points where Ajax is used in the module personal
 function skillEmployeesAjaxPost(id, el, table_id) {
- table_id == 'skillEmployeesTable' ? ajaxSkillUserPost(1, id, el, table_id) : usersAjaxPost(id, el, table_id);
+ table_id == 'skillEmployeesTable' ? ajaxSkillUserPost(id, el, table_id) : usersAjaxPost(id, el, table_id);
 }
 // type: 1 - inserting/deleting the skill to an employee | 2 - changing the specification
 // id: the users_login of the employee to get the skill
 // el: the element of the form corresponding to that skill/lesson
 // table_id: the id of the ajax-enabled table
-function ajaxSkillUserPost(type, id, el, table_id) {
+function ajaxSkillUserPost(id, el, table_id) {
  Element.extend(el);
  var baseUrl = sessionType + '.php?ctg=module_hcd&op=skills&edit_skill='+editSkill+'&postAjaxRequest=1';
- if (type == 1) {
-  if (id) {
-   var url = baseUrl + '&add_user=' + id + '&insert='+el.checked + '&specification='+document.getElementById('spec_skill_'+id).value;
+  if (isNaN(parseInt($('spec_skill_score_'+id).value)) | $('spec_skill_score_'+id).value > 100 | $('spec_skill_score_'+id).value < 1) {
+   return false;
+  } else if (id) {
+   var url = baseUrl + '&add_user=' + id + '&insert='+$('skill_to_'+id).checked + '&specification='+$('spec_skill_'+id).value + '&score='+$('spec_skill_score_'+id).value;
    var img_id = 'img_'+ id;
   } else if (table_id && table_id == 'skillEmployeesTable') {
    el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';
@@ -454,14 +455,6 @@ function ajaxSkillUserPost(type, id, el, table_id) {
    }
    var img_id = 'img_selectAll';
   }
- } else if (type == 2) {
-  if (id) {
-   var url = baseUrl + '&add_user=' + id + '&insert=true&specification='+el.value;
-   var img_id = 'img_'+ id;
-  }
- } else {
-  return false;
- }
  parameters = {method: 'get'};
  ajaxRequest(el, url, parameters, function (el, transport) {
   // Update the main form table

@@ -10,170 +10,170 @@
 class module_administrator_tools extends EfrontModule {
  /*
 
-     * Mandatory function returning the name of the module
+	 * Mandatory function returning the name of the module
 
-     * @return string the name of the module
+	 * @return string the name of the module
 
-     */
-    public function getName() {
-        return _MODULE_ADMINISTRATOR_TOOLS;
-    }
-    /*
+	 */
+ public function getName() {
+  return _MODULE_ADMINISTRATOR_TOOLS;
+ }
+ /*
 
-     * Mandatory function returning an array of permitted roles from the set {"administrator", "professor", "student"}
+	 * Mandatory function returning an array of permitted roles from the set {"administrator", "professor", "student"}
 
-     *
+	 *
 
-     * @return array of eFront user roles that this module applies for
+	 * @return array of eFront user roles that this module applies for
 
-     */
-    public function getPermittedRoles() {
-        return array("administrator");
-    }
+	 */
+ public function getPermittedRoles() {
+  return array("administrator");
+ }
  public function getModuleJs() {
   if (strpos($_SERVER['REQUEST_URI'], $this -> moduleBaseUrl) !== false) {
    return $this->moduleBaseDir."module_administrator_tools.js";
   }
  }
-    public function addScripts() {
-     return array("scriptaculous/effects", "scriptaculous/controls");
-    }
-    /*
+ public function addScripts() {
+  return array("scriptaculous/effects", "scriptaculous/controls");
+ }
+ /*
 
-     * Function to be executed when the module is installed to an eFront system
+	 * Function to be executed when the module is installed to an eFront system
 
-     * Example implementation:
+	 * Example implementation:
 
-     *
+	 *
 
-     * public function onInstall() {
+	 * public function onInstall() {
 
-     *   return eF_executeNew("CREATE TABLE module_mymodule (
+	 *   return eF_executeNew("CREATE TABLE module_mymodule (
 
-     *                    id int(11) NOT NULL auto_increment,
+	 *                    id int(11) NOT NULL auto_increment,
 
-     *                    name text not null,
+	 *                    name text not null,
 
-     *                    PRIMARY KEY  (id)
+	 *                    PRIMARY KEY  (id)
 
-     *                   ) DEFAULT CHARSET=utf8;");
+	 *                   ) DEFAULT CHARSET=utf8;");
 
-     * }
+	 * }
 
-     * @return the result (true/false) of any module installation operations
+	 * @return the result (true/false) of any module installation operations
 
-     */
-    public function onInstall() {
+	 */
+ public function onInstall() {
   return true;
-    }
-    /*
+ }
+ /*
 
-     * Function to be executed when the module is removed from an eFront system
+	 * Function to be executed when the module is removed from an eFront system
 
-     * Example implementation:
+	 * Example implementation:
 
-     *
+	 *
 
-     * public function onUninstall() {
+	 * public function onUninstall() {
 
-     *   return eF_executeNew("DROP TABLE module_mymodule;");
+	 *   return eF_executeNew("DROP TABLE module_mymodule;");
 
-     * }
+	 * }
 
-     *
+	 *
 
-     * @return the result (true/false) of any removal operations
+	 * @return the result (true/false) of any removal operations
 
-     */
-    public function onUninstall() {
+	 */
+ public function onUninstall() {
   //eF_executeNew("DROP TABLE ;");
-    }
-    /*
+ }
+ /*
 
-     * Get Navigational links for the top of the independent module page(s)
+	 * Get Navigational links for the top of the independent module page(s)
 
-     * Get information in an array of sub-arrays with fields:
+	 * Get information in an array of sub-arrays with fields:
 
-     * 'title': the title to appear on the link
+	 * 'title': the title to appear on the link
 
-     * 'image': the image to appear (if image inside module folder then use ($this -> moduleBaseDir) . 'imageFileName' -TODO
+	 * 'image': the image to appear (if image inside module folder then use ($this -> moduleBaseDir) . 'imageFileName' -TODO
 
-     * 'link': the url of the page to be from this link
+	 * 'link': the url of the page to be from this link
 
-     * Each sub-array represents a different link. Between them the "&raquo;" character is automatically inserted by the system
+	 * Each sub-array represents a different link. Between them the "&raquo;" character is automatically inserted by the system
 
-     * Example implementation:
+	 * Example implementation:
 
-     *
+	 *
 
-     *  public function getNavigationLinks() {
+	 *  public function getNavigationLinks() {
 
-     *          $currentUser = $this -> getCurrentUser();
+	 *          $currentUser = $this -> getCurrentUser();
 
-     *          return array (array ('title' => _HOME, 'link'  => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
+	 *          return array (array ('title' => _HOME, 'link'  => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
 
-     *                       array ('title' => _FAQ, 'link'  => $this -> moduleBaseUrl));
+	 *                       array ('title' => _FAQ, 'link'  => $this -> moduleBaseUrl));
 
-     *  }
+	 *  }
 
-     *
+	 *
 
-     * @return array describing the header navigational links for the module pages
+	 * @return array describing the header navigational links for the module pages
 
-     */
-    public function getNavigationLinks() {
-        $currentUser = $this -> getCurrentUser();
-        return array (array ('title' => _HOME, 'link' => $currentUser -> getRole() . ".php"),
-                      array ('title' => _MODULE_ADMINISTRATOR_TOOLS, 'link' => $this -> moduleBaseUrl));
-    }
-    public function getCenterLinkInfo() {
-        $currentUser = $this -> getCurrentUser();
-        if ($currentUser -> getType() == "administrator") {
-            return array('title' => _MODULE_ADMINISTRATOR_TOOLS,
+	 */
+ public function getNavigationLinks() {
+  $currentUser = $this -> getCurrentUser();
+  return array (array ('title' => _HOME, 'link' => $currentUser -> getRole() . ".php"),
+  array ('title' => _MODULE_ADMINISTRATOR_TOOLS, 'link' => $this -> moduleBaseUrl));
+ }
+ public function getCenterLinkInfo() {
+  $currentUser = $this -> getCurrentUser();
+  if ($currentUser -> getType() == "administrator") {
+   return array('title' => _MODULE_ADMINISTRATOR_TOOLS,
                          'image' => $this -> moduleBaseDir . 'images/tools.png',
                          'link' => $this -> moduleBaseUrl);
-        }
-    }
-    /*
+  }
+ }
+ /*
 
-     * This is the function for the php code of the MAIN module pages (namely the ones
+	 * This is the function for the php code of the MAIN module pages (namely the ones
 
-     * called from the url:    $this->moduleBaseUrl . "&...."
+	 * called from the url:    $this->moduleBaseUrl . "&...."
 
-     *
+	 *
 
-     * The global smarty variable may also be used here and in conjunction
+	 * The global smarty variable may also be used here and in conjunction
 
-     * with the getSmartyTpl() function, thus using php+smarty to display the page
+	 * with the getSmartyTpl() function, thus using php+smarty to display the page
 
-     *
+	 *
 
-     * Rules:
+	 * Rules:
 
-     * - You are not allowed to use the $_GET['ctg'] and $_GET['op'] variables
+	 * - You are not allowed to use the $_GET['ctg'] and $_GET['op'] variables
 
-     * - You should use the $this -> moduleBaseUrl variable to reference the module basic url
+	 * - You should use the $this -> moduleBaseUrl variable to reference the module basic url
 
-     * - You should use the $this -> moduleBaseDir variable to reference the module basic directory
+	 * - You should use the $this -> moduleBaseDir variable to reference the module basic directory
 
-     *
+	 *
 
-     * Tips:
+	 * Tips:
 
-     * - Use the $this -> getSmartyVar() function to utilize the global smarty variable.
+	 * - Use the $this -> getSmartyVar() function to utilize the global smarty variable.
 
-     * - Use the $this -> setMessageVar($message, $message_type) function to export information to eFront users with header messages
+	 * - Use the $this -> setMessageVar($message, $message_type) function to export information to eFront users with header messages
 
-     *
+	 *
 
-     * @return the result of any module operations in boolean form (true/false)
+	 * @return the result of any module operations in boolean form (true/false)
 
-     */
-    public function getModule() {
-     try {
+	 */
+ public function getModule() {
+  try {
    //$GLOBALS['load_editor'] = true;
    $smarty = $this -> getSmartyVar();
-      $currentUser = $this -> getCurrentUser();
+   $currentUser = $this -> getCurrentUser();
    $form = new HTML_QuickForm("change_login_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools", "", null, true);
    $form -> addElement('static', 'sidenote', '<img id = "module_administrator_tools_busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
    $form -> addElement('text', 'selection_user', _MODULE_ADMINISTRATOR_TOOLS_SELECTUSERTOCHANGELOGINFOR, 'id = "module_administrator_tools_autocomplete_users" class = "autoCompleteTextBox" style = "width:400px"' );
@@ -237,29 +237,29 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_TOOLS_FORM", $form -> toArray());
-      try {
-       if (isset($_GET['ajax']) && isset($_GET['user']) && eF_checkParameter($_GET['user'], 'login')) {
-        $user = EfrontUserFactory::factory($_GET['user']);
-        echo json_encode(array('status' => 1, 'supervisors' => $supervisors, 'supervisor_names' => $supervisorNames));
-        exit;
-       }
-      } catch (Exception $e) {
-       handleAjaxExceptions($e);
-      }
-      $lessonSettings = $this -> getLessonSettings();
-      $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
-      $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
-      try {
-       if (isset($_GET['ajax']) && isset($_GET['activate']) && in_array($_GET['activate'], array_keys($lessonSettings))) {
-        $this -> toggleSetting($_GET['activate'], 1);
-        exit;
-       } elseif (isset($_GET['ajax']) && isset($_GET['deactivate']) && in_array($_GET['deactivate'], array_keys($lessonSettings))) {
-        $this -> toggleSetting($_GET['deactivate'], 0);
-        exit;
-       }
-      } catch (Exception $e) {
-       handleAjaxExceptions($e);
-      }
+   try {
+    if (isset($_GET['ajax']) && isset($_GET['user']) && eF_checkParameter($_GET['user'], 'login')) {
+     $user = EfrontUserFactory::factory($_GET['user']);
+     echo json_encode(array('status' => 1, 'supervisors' => $supervisors, 'supervisor_names' => $supervisorNames));
+     exit;
+    }
+   } catch (Exception $e) {
+    handleAjaxExceptions($e);
+   }
+   $lessonSettings = $this -> getLessonSettings();
+   $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
+   $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
+   try {
+    if (isset($_GET['ajax']) && isset($_GET['activate']) && in_array($_GET['activate'], array_keys($lessonSettings))) {
+     $this -> toggleSetting($_GET['activate'], 1);
+     exit;
+    } elseif (isset($_GET['ajax']) && isset($_GET['deactivate']) && in_array($_GET['deactivate'], array_keys($lessonSettings))) {
+     $this -> toggleSetting($_GET['deactivate'], 0);
+     exit;
+    }
+   } catch (Exception $e) {
+    handleAjaxExceptions($e);
+   }
    $sqlForm = new HTML_QuickForm("sql_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=sql", "", null, true);
    $sqlForm -> addElement('text', 'sql_command', _MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND, 'style = "width:600px"' );
    $sqlForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
@@ -301,7 +301,7 @@ class module_administrator_tools extends EfrontModule {
       $dataSource = $currentLesson -> getLessonUsersIncludingUnassigned($constraints);
       $totalEntries = $currentLesson -> countLessonUsersIncludingUnassigned($constraints);
       $smarty -> assign("T_SORTED_TABLE", $_GET['ajax']);
-      $smarty -> assign("T_TABLE_SIZE", $tableSize);
+      $smarty -> assign("T_TABLE_SIZE", $totalEntries);
       $smarty -> assign("T_DATA_SOURCE", $dataSource);
      }
      if (isset($_GET['ajax']) && isset($_GET['reset_user'])) {
@@ -339,331 +339,145 @@ class module_administrator_tools extends EfrontModule {
      handleAjaxExceptions($e);
     }
    }
-   if ($_GET['type'] == 'job') {
-    foreach (EfrontJob::getAllJobs() as $key => $value) {
-     $entities[$value['job_description_ID']] = $value['description'];
-    }
-    if ($_GET['entry']) {
-     $entity = new EfrontJob($_GET['entry']);
-     $courses = $entity -> getJobCourses(array('archive' => false));
-     $users = $entity -> getEmployees();
-    }
-   } elseif ($_GET['type'] == 'branch') {
-    foreach (EfrontBranch::getAllBranches() as $key => $value) {
-     $entities[$value['branch_ID']] = $value['name'];
-    }
-    if ($_GET['entry']) {
-     $entity = new EfrontBranch($_GET['entry']);
-     $courses = $entity -> getBranchCourses(array('archive' => false));
-     $users = $entity -> getEmployees();
-    }
-   } elseif ($_GET['type'] == 'group') {
-    foreach (EfrontGroup::getGroups() as $key => $value) {
-     $entities[$value['id']] = $value['name'];
-    }
-    if ($_GET['entry']) {
-     $entity = new EfrontGroup($_GET['entry']);
-     $courses = $entity -> getGroupCourses(array('archive' => false));
-     $users = $entity -> getGroupUsers();
-    }
-   }
-   if ($_GET['ajax'] && $_GET['remove_users_from_courses']) {
-    try {
-     foreach ($courses as $course) {
-      $course->removeUsers($users);
-     }
-     exit;
-    } catch (Exception $e) {
-     handleAjaxExceptions($e);
-    }
-   }
-   $smarty -> assign("T_ENTITIES_LIST", $entities);
-   $directionsTree = new EfrontDirectionsTree();
-   $directionPaths = $directionsTree -> toPathString();
-   $form = new HTML_QuickForm("category_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=category_reports", "", null, true);
-   $form -> addElement('select', 'category', _CATEGORY, $directionPaths);
-   $form -> addElement('checkbox', 'incomplete', _MODULE_ADMINISTRATOR_TOOLS_SHOWINCOMPLETE);
-   $form -> addElement('checkbox', 'inactive', _MODULE_ADMINISTRATOR_TOOLS_SHOWINACTIVECOURSES);
-   $form -> addElement('date', 'from_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDFROM, array('minYear' => 1970, 'maxYear' => date("Y")));
-   $form -> addElement('date', 'to_timestamp', _MODULE_ADMINISTRATOR_TOOLS_COMPLETEDTO, array('minYear' => 1970, 'maxYear' => date("Y")));
-   $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
-   $form -> setDefaults(array("from_timestamp" => mktime(0,0,0,date("m")-1,date("d"), date("Y")), "to_timestamp" => time()));
-   if ($form -> isSubmitted() && $form -> validate()) {
-    $values = $form -> exportValues();
-    $_SESSION['from_timestamp'] = mktime(0, 0, 0, $_POST['from_timestamp']['M'], $_POST['from_timestamp']['d'], $_POST['from_timestamp']['Y']);
-    $_SESSION['to_timestamp'] = mktime(23, 59, 59, $_POST['to_timestamp']['M'], $_POST['to_timestamp']['d'], $_POST['to_timestamp']['Y']);
-    $_SESSION['category'] = $values['category'];
-    $_SESSION['incomplete'] = $values['incomplete'];
-    $_SESSION['inactive'] = $values['inactive'];
-    $smarty -> assign("T_SHOW_TABLE", true);
-   }
-   if (isset($_GET['ajax']) && $_GET['ajax'] == 'categoryUsersTable' || $_GET['ajax'] == 'xls' || $_GET['ajax'] == 'show_xls') {
-    $smarty -> assign("T_SHOW_TABLE", true);
-    $smarty -> assign("T_DIRECTIONS_TREE", $directionPaths);
-    $branchesTree = new EfrontBranchesTree();
-    $branchesPaths = $branchesTree -> toPathString();
-    $category = new EfrontDirection($_SESSION['category']);
-    $directionsTree = new EfrontDirectionsTree();
-    $children = $directionsTree -> getNodeChildren($_SESSION['category']);
-    foreach (new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($children)), array('id')) as $value) {
-     $siblings[] = $value;
-    }
-    $result = eF_getTableDataFlat("courses", "id", "archive = 0 && directions_ID in (".implode(",", $siblings).")");
-    $categoryCourses = $result['id'];
-    $resultCourses = eF_getTableDataFlat("users_to_courses uc, courses c", "distinct c.id", 'c.id=uc.courses_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and uc.archive=0 and uc.completed=1 and uc.to_timestamp >= '.$_SESSION['from_timestamp'].' and uc.to_timestamp <= '.$_SESSION['to_timestamp']);
-    $resultEvents = eF_getTableDataFlat("events e, courses c", "distinct c.id", 'c.id=e.lessons_ID '.(!$_SESSION['inactive'] ? 'and c.active=1' : '').' and e.type=54 and e.timestamp >= '.$_SESSION['from_timestamp'].' and e.timestamp <= '.$_SESSION['to_timestamp']);
-    if (empty($resultEvents)) {
-     $resultEvents['id'] = array();
-    }
-    $result = array_unique(array_merge($resultCourses['id'], $resultEvents['id']));
-    $categoryCourses = array_intersect(array_unique($categoryCourses), $result); //count only courses that have users completed them
-    if ($_SESSION['incomplete']) {
-     $constraints = array('archive' => false, 'condition' => '(to_timestamp is null OR to_timestamp = 0 OR (to_timestamp >= '.$_SESSION['from_timestamp'].' and to_timestamp <= '.$_SESSION['to_timestamp'].'))');
+  } catch (Exception $e) {
+   $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+   $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+   $message_type = 'failure';
+  }
+  $this -> setMessageVar($message, $message_type);
+ }
+ private function toggleSetting($setting, $enable) {
+  $result = eF_getTableData("lessons", "id, options");
+  foreach ($result as $value) {
+   $options = unserialize($value['options']);
+   $enable ? $options[$setting] = 1 : $options[$setting] = 0;
+   eF_updateTableData("lessons", array("options" => serialize($options)), "id=".$value['id']);
+   if ($setting == 'chat') {
+    if ($enable) {
+     eF_updateTableData("chatrooms", array("active" => 1), "lessons_ID = '".$value['id']."'");
     } else {
-     $constraints = array('archive' => false, 'condition' => 'completed=1 and to_timestamp >= '.$_SESSION['from_timestamp'].' and to_timestamp <= '.$_SESSION['to_timestamp']);
-    }
-    foreach ($categoryCourses as $courseId) {
-     $course = new EfrontCourse($courseId);
-     foreach ($course -> getCourseUsers($constraints) as $value) {
-      $userBranches = $value -> aspects['hcd'] -> getBranches();
-      $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
-      $userSupervisor = current($userSupervisors);
-      $value -> user['course_active']= $course->course['active'];
-      $value -> user['course_id']= $course->course['id'];
-      $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
-      $value -> user['course'] = $course->course['name'];
-      $value -> user['directions_ID'] = $course->course['directions_ID'];
-      $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
-      $value -> user['branch_ID'] = current($userBranches['employee']);
-      $value -> user['supervisor'] = $userSupervisor;
-      $value -> user['historic'] = false;
-      $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
-      $courseUsers[$unique] = $value -> user;
-     }
-     $result = eF_getTableData("events", "*", 'type=54 and lessons_ID='.$courseId.' and timestamp >= '.$_SESSION['from_timestamp'].' and timestamp <= '.$_SESSION['to_timestamp']);
-     //exit;
-     foreach ($result as $entry) {
-      try {
-       $value = EfrontUserFactory::factory($entry['users_LOGIN']);
-       $userBranches = $value -> aspects['hcd'] -> getBranches();
-       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();//pr($entry['users_LOGIN']);pr($userSupervisors);pr(current($userSupervisors));
-       $userSupervisor = current($userSupervisors);
-       $value -> user['course_active']= $course->course['active'];
-       $value -> user['course_id']= $course->course['id'];
-       $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
-       $value -> user['course'] = $course->course['name'];
-       $value -> user['directions_ID'] = $course->course['directions_ID'];
-       $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
-       $value -> user['branch_ID'] = current($userBranches['employee']);
-       $value -> user['supervisor'] = $userSupervisor;
-       $value -> user['to_timestamp'] = $entry['timestamp'];
-       $value -> user['completed'] = 1;
-       $value -> user['score'] = '';
-       $value -> user['historic'] = true;
-       $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
-       if (!isset($courseUsers[$unique])) {
-        $courseUsers[$unique] = $value -> user;
-       }
-      } catch (Exception $e) {/*Bypass non-existing users*/}
-     }
-    }
-    if ($_GET['ajax'] == 'xls') {
-     $xlsFilePath = $currentUser -> getDirectory().'category_report.xls';
-     unlink($xlsFilePath);
-     $_GET['limit'] = sizeof($courseUsers);
-     $_GET['sort'] = 'category';
-     list($tableSize, $courseUsers) = filterSortPage($courseUsers);
-     $header = array('category' => _CATEGORY,
-         'course' => _NAME,
-         'login' => _USER,
-         'to_timestamp' => _COMPLETED,
-         'score' => _SCORE,
-         'supervisor' => _SUPERVISOR,
-         'branch' => _BRANCH,
-         'historic' => _MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY);
-     foreach ($courseUsers as $value) {
-      $rows[] = array(_CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['category']),
-           _COURSE => $value['course'],
-           _USER => formatLogin($value['login']),
-           _COMPLETED => formatTimestamp($value['to_timestamp']),
-           _SCORE => $value['historic'] ? '' : formatScore($value['score']).'%',
-           _SUPERVISOR => formatLogin($value['supervisor']),
-           _BRANCH => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $value['branch']),
-           _MODULE_ADMINISTRATOR_TOOLS_HISTORICENTRY => $value['historic'] ? _YES : _NO);
-     }
-     EfrontSystem :: exportToXls($rows, $xlsFilePath);
-     exit;
-    } else if ($_GET['ajax'] == 'show_xls') {
-     $xlsFilePath = $currentUser -> getDirectory().'category_report.xls';
-     $file = new EfrontFile($xlsFilePath);
-     $file -> sendFile(true);
-     exit;
-    } else {
-     list($tableSize, $courseUsers) = filterSortPage($courseUsers);
-     $smarty -> assign("T_SORTED_TABLE", $_GET['ajax']);
-     $smarty -> assign("T_TABLE_SIZE", $tableSize);
-     $smarty -> assign("T_DATA_SOURCE", $courseUsers);
+     eF_updateTableData("chatrooms", array("active" => 0), "lessons_ID = '".$value['id']."'");
     }
    }
-   $smarty -> assign("T_CATEGORY_FORM", $form->toArray());
-     } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = 'failure';
+  }
+ }
+ private function getLessonSettings() {
+  $lessonSettings['theory'] = array('text' => _THEORY, 'image' => "32x32/theory.png", 'onClick' => 'activate(this, \'theory\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  $lessonSettings['examples'] = array('text' => _EXAMPLES, 'image' => "32x32/examples.png", 'onClick' => 'activate(this, \'examples\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  if ($GLOBALS['configuration']['disable_projects'] != 1) {
+   $lessonSettings['projects'] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'onClick' => 'activate(this, \'projects\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['disable_tests'] != 1) {
+   $lessonSettings['tests'] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'onClick' => 'activate(this, \'tests\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['disable_feedback'] != 1) {
+   $lessonSettings['feedback'] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'onClick' => 'activate(this, \'feedback\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  $lessonSettings['rules'] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'onClick' => 'activate(this, \'rules\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  if ($GLOBALS['configuration']['disable_forum'] != 1) {
+   $lessonSettings['forum'] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'onClick' => 'activate(this, \'forum\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['disable_comments'] != 1) {
+   $lessonSettings['comments'] = array('text' => _COMMENTS, 'image' => "32x32/note.png", 'onClick' => 'activate(this, \'comments\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['disable_news'] != 1) {
+   $lessonSettings['news'] = array('text' => _ANNOUNCEMENTS, 'image' => "32x32/announcements.png", 'onClick' => 'activate(this, \'news\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['disable_online_users'] != 1) {
+   $lessonSettings['online'] = array('text' => _USERSONLINE, 'image' => "32x32/users.png", 'onClick' => 'activate(this, \'online\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['chat_enabled']) {
+   $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  $lessonSettings['digital_library'] = array('text' => _DIGITALLIBRARY, 'image' => "32x32/file_explorer.png", 'onClick' => 'activate(this, \'digital_library\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  if ($GLOBALS['configuration']['disable_calendar'] != 1) {
+   $lessonSettings['calendar'] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'onClick' => 'activate(this, \'calendar\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  if ($GLOBALS['configuration']['disable_glossary'] != 1) {
+   $lessonSettings['glossary'] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'onClick' => 'activate(this, \'glossary\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  }
+  $lessonSettings['auto_complete'] = array('text' => _AUTOCOMPLETE, 'image' => "32x32/autocomplete.png", 'onClick' => 'activate(this, \'auto_complete\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['content_tree'] = array('text' => _CONTENTTREEFIRSTPAGE, 'image' => "32x32/content_tree.png", 'onClick' => 'activate(this, \'content_tree\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['lesson_info'] = array('text' => _LESSONINFORMATION, 'image' => "32x32/information.png", 'onClick' => 'activate(this, \'lesson_info\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  if ($GLOBALS['configuration']['disable_bookmarks'] != 1) {
+   $lessonSettings['bookmarking'] = array('text' => _BOOKMARKS, 'image' => "32x32/bookmark.png", 'onClick' => 'activate(this, \'bookmarking\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  }
+  $lessonSettings['reports'] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'onClick' => 'activate(this, \'reports\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['content_report'] = array('text' => _CONTENTREPORT, 'image' => "32x32/warning.png", 'onClick' => 'activate(this, \'content_report\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['print_content'] = array('text' => _PRINTCONTENT, 'image' => "32x32/printer.png", 'onClick' => 'activate(this, \'print_content\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['start_resume'] = array('text' => _STARTRESUME, 'image' => "32x32/continue.png", 'onClick' => 'activate(this, \'start_resume\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['show_percentage'] = array('text' => _COMPLETIONPERCENTAGEBLOCK, 'image' => "32x32/percent.png", 'onClick' => 'activate(this, \'show_percentage\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['show_content_tools'] = array('text' => _UNITOPTIONSBLOCK, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_content_tools\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['show_right_bar'] = array('text' => _RIGHTBAR, 'image' => "32x32/hide_right.png", 'onClick' => 'activate(this, \'show_right_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['show_left_bar'] = array('text' => _LEFTBAR, 'image' => "32x32/hide_left.png", 'onClick' => 'activate(this, \'show_left_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['show_student_cpanel'] = array('text' => _STUDENTCPANEL, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_student_cpanel\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  $lessonSettings['show_dashboard'] = array('text' => _DASHBOARD, 'image' => "32x32/generic.png", 'onClick' => 'activate(this, \'show_dashboard\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
+   $lessonSettings['show_horizontal_bar'] = array('text' => _SHOWHORIZONTALBAR, 'image' => "32x32/export.png", 'onClick' => 'activate(this, \'show_horizontal_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
+  }
+  foreach (eF_loadAllModules(true) as $module) {
+   if ($module -> isLessonModule()) {
+    // The $setLanguage variable is defined in globals.php
+    if (!in_array("administrator", $module -> getPermittedRoles())) {
+     $mod_lang_file = $module -> getLanguageFile($setLanguage);
+     if (is_file ($mod_lang_file)) {
+      require_once $mod_lang_file;
      }
-     $this -> setMessageVar($message, $message_type);
     }
-    private function toggleSetting($setting, $enable) {
-     $result = eF_getTableData("lessons", "id, options");
-     foreach ($result as $value) {
-      $options = unserialize($value['options']);
-      $enable ? $options[$setting] = 1 : $options[$setting] = 0;
-      eF_updateTableData("lessons", array("options" => serialize($options)), "id=".$value['id']);
-      if ($setting == 'chat') {
-       if ($enable) {
-        eF_updateTableData("chatrooms", array("active" => 1), "lessons_ID = '".$value['id']."'");
-       } else {
-           eF_updateTableData("chatrooms", array("active" => 0), "lessons_ID = '".$value['id']."'");
-       }
-      }
+    // The $setLanguage variable is defined in globals.php
+    if (!in_array("administrator", $module -> getPermittedRoles())) {
+     $mod_lang_file = $module -> getLanguageFile($setLanguage);
+     if (is_file ($mod_lang_file)) {
+      require_once $mod_lang_file;
      }
     }
-    private function getLessonSettings() {
-     $lessonSettings['theory'] = array('text' => _THEORY, 'image' => "32x32/theory.png", 'onClick' => 'activate(this, \'theory\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     $lessonSettings['examples'] = array('text' => _EXAMPLES, 'image' => "32x32/examples.png", 'onClick' => 'activate(this, \'examples\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     if ($GLOBALS['configuration']['disable_projects'] != 1) {
-      $lessonSettings['projects'] = array('text' => _PROJECTS, 'image' => "32x32/projects.png", 'onClick' => 'activate(this, \'projects\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
-     if ($GLOBALS['configuration']['disable_tests'] != 1) {
-      $lessonSettings['tests'] = array('text' => _TESTS, 'image' => "32x32/tests.png", 'onClick' => 'activate(this, \'tests\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
+    $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => 'inactiveImage');
+   }
+  }
+  $lessonSettings[$key]['onClick'] = 'activate(this, \''.$key.'\')';
+  $lessonSettings[$key]['style'] = 'color:inherit';
+  return $lessonSettings;
+ }
+ /*
 
+	 * This function is used to define a smarty template for the main module pages
 
+	 *
 
+	 * Attention: DO NOT define this function if you do not want to use smarty (and want to just create html with the php
 
-     if ($GLOBALS['configuration']['disable_feedback'] != 1) {
-      $lessonSettings['feedback'] = array('text' => _FEEDBACK, 'image' => "32x32/feedback.png", 'onClick' => 'activate(this, \'feedback\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
+	 * code of the getModule() function)
 
-     $lessonSettings['rules'] = array('text' => _ACCESSRULES, 'image' => "32x32/rules.png", 'onClick' => 'activate(this, \'rules\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     if ($GLOBALS['configuration']['disable_forum'] != 1) {
-      $lessonSettings['forum'] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'onClick' => 'activate(this, \'forum\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
-     if ($GLOBALS['configuration']['disable_comments'] != 1) {
-      $lessonSettings['comments'] = array('text' => _COMMENTS, 'image' => "32x32/note.png", 'onClick' => 'activate(this, \'comments\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
-     if ($GLOBALS['configuration']['disable_news'] != 1) {
-      $lessonSettings['news'] = array('text' => _ANNOUNCEMENTS, 'image' => "32x32/announcements.png", 'onClick' => 'activate(this, \'news\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
-     if ($GLOBALS['configuration']['disable_online_users'] != 1) {
-      $lessonSettings['online'] = array('text' => _USERSONLINE, 'image' => "32x32/users.png", 'onClick' => 'activate(this, \'online\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     }
-     if ($GLOBALS['configuration']['chat_enabled']) {
-      $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
+	 *
 
+	 * Example implementation:
 
+	 *
 
+	 *    public function getSmartyTpl() {
 
+	 *         // It is a good idea to define the two following smarty variables for inclusion of module images, libraries etc
 
+	 *         $smarty = $this -> getSmartyVar();
 
+	 *         $smarty -> assign("T_MYMODULE_MODULE_BASEDIR" , $this -> moduleBaseDir);
 
-     $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+	 *         $smarty -> assign("T_MYMODULE_MODULE_BASEURL" , $this -> moduleBaseUrl);
 
-     $lessonSettings['digital_library'] = array('text' => _DIGITALLIBRARY, 'image' => "32x32/file_explorer.png", 'onClick' => 'activate(this, \'digital_library\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     if ($GLOBALS['configuration']['disable_calendar'] != 1) {
-      $lessonSettings['calendar'] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'onClick' => 'activate(this, \'calendar\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
-     if ($GLOBALS['configuration']['disable_glossary'] != 1) {
-      $lessonSettings['glossary'] = array('text' => _GLOSSARY, 'image' => "32x32/glossary.png", 'onClick' => 'activate(this, \'glossary\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     }
-     $lessonSettings['auto_complete'] = array('text' => _AUTOCOMPLETE, 'image' => "32x32/autocomplete.png", 'onClick' => 'activate(this, \'auto_complete\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['content_tree'] = array('text' => _CONTENTTREEFIRSTPAGE, 'image' => "32x32/content_tree.png", 'onClick' => 'activate(this, \'content_tree\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['lesson_info'] = array('text' => _LESSONINFORMATION, 'image' => "32x32/information.png", 'onClick' => 'activate(this, \'lesson_info\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-     if ($GLOBALS['configuration']['disable_bookmarks'] != 1) {
-      $lessonSettings['bookmarking'] = array('text' => _BOOKMARKS, 'image' => "32x32/bookmark.png", 'onClick' => 'activate(this, \'bookmarking\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     }
+	 *         return $this -> moduleBaseDir . "module.tpl";
 
-     $lessonSettings['reports'] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'onClick' => 'activate(this, \'reports\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['content_report'] = array('text' => _CONTENTREPORT, 'image' => "32x32/warning.png", 'onClick' => 'activate(this, \'content_report\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['print_content'] = array('text' => _PRINTCONTENT, 'image' => "32x32/printer.png", 'onClick' => 'activate(this, \'print_content\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['start_resume'] = array('text' => _STARTRESUME, 'image' => "32x32/continue.png", 'onClick' => 'activate(this, \'start_resume\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['show_percentage'] = array('text' => _COMPLETIONPERCENTAGEBLOCK, 'image' => "32x32/percent.png", 'onClick' => 'activate(this, \'show_percentage\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['show_content_tools'] = array('text' => _UNITOPTIONSBLOCK, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_content_tools\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['show_right_bar'] = array('text' => _RIGHTBAR, 'image' => "32x32/hide_right.png", 'onClick' => 'activate(this, \'show_right_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['show_left_bar'] = array('text' => _LEFTBAR, 'image' => "32x32/hide_left.png", 'onClick' => 'activate(this, \'show_left_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['show_student_cpanel'] = array('text' => _STUDENTCPANEL, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_student_cpanel\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     $lessonSettings['show_dashboard'] = array('text' => _DASHBOARD, 'image' => "32x32/generic.png", 'onClick' => 'activate(this, \'show_dashboard\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
-      $lessonSettings['show_horizontal_bar'] = array('text' => _SHOWHORIZONTALBAR, 'image' => "32x32/export.png", 'onClick' => 'activate(this, \'show_horizontal_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => 'inactiveImage');
-     }
+	 *     }
 
-     foreach (eF_loadAllModules(true) as $module) {
-      if ($module -> isLessonModule()) {
-       // The $setLanguage variable is defined in globals.php
-       if (!in_array("administrator", $module -> getPermittedRoles())) {
-        $mod_lang_file = $module -> getLanguageFile($setLanguage);
-        if (is_file ($mod_lang_file)) {
-         require_once $mod_lang_file;
-        }
-       }
-       // The $setLanguage variable is defined in globals.php
-       if (!in_array("administrator", $module -> getPermittedRoles())) {
-        $mod_lang_file = $module -> getLanguageFile($setLanguage);
-        if (is_file ($mod_lang_file)) {
-         require_once $mod_lang_file;
-        }
-       }
-       $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => 'inactiveImage');
-      }
-     }
+	 * @return false or the string of the filename of the smarty template file for the module main pages
 
-     $lessonSettings[$key]['onClick'] = 'activate(this, \''.$key.'\')';
-     $lessonSettings[$key]['style'] = 'color:inherit';
-
-     return $lessonSettings;
-
-    }
-
-    /*
-
-     * This function is used to define a smarty template for the main module pages
-
-     *
-
-     * Attention: DO NOT define this function if you do not want to use smarty (and want to just create html with the php
-
-     * code of the getModule() function)
-
-     *
-
-     * Example implementation:
-
-     *
-
-     *    public function getSmartyTpl() {
-
-     *         // It is a good idea to define the two following smarty variables for inclusion of module images, libraries etc
-
-     *         $smarty = $this -> getSmartyVar();
-
-     *         $smarty -> assign("T_MYMODULE_MODULE_BASEDIR" , $this -> moduleBaseDir);
-
-     *         $smarty -> assign("T_MYMODULE_MODULE_BASEURL" , $this -> moduleBaseUrl);
-
-     *         return $this -> moduleBaseDir . "module.tpl";
-
-     *     }
-
-     * @return false or the string of the filename of the smarty template file for the module main pages
-
-     */
-    public function getSmartyTpl() {
-        $smarty = $this -> getSmartyVar();
-        $smarty -> assign("T_MODULE_ADMINISTRATOR_TOOLS_BASEDIR" , $this -> moduleBaseDir);
-        $smarty -> assign("T_MODULE_ADMINISTRATOR_TOOLS_BASEURL" , $this -> moduleBaseUrl);
-        $smarty -> assign("T_MODULE_ADMINISTRATOR_TOOLS_BASELINK", $this -> moduleBaseLink);
-        return $this -> moduleBaseDir . "module.tpl";
-    }
+	 */
+ public function getSmartyTpl() {
+  $smarty = $this -> getSmartyVar();
+  $smarty -> assign("T_MODULE_ADMINISTRATOR_TOOLS_BASEDIR" , $this -> moduleBaseDir);
+  $smarty -> assign("T_MODULE_ADMINISTRATOR_TOOLS_BASEURL" , $this -> moduleBaseUrl);
+  $smarty -> assign("T_MODULE_ADMINISTRATOR_TOOLS_BASELINK", $this -> moduleBaseLink);
+  return $this -> moduleBaseDir . "module.tpl";
+ }
 }
 ?>

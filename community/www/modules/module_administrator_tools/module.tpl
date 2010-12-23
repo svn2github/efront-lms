@@ -62,7 +62,7 @@
        <td class = "topTitle" name = "surname">{$smarty.const._SURNAME}</td>
        <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
        <td class = "topTitle" name = "role">{$smarty.const._USERROLEINLESSON}</td>
-       <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
+       <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
        <td class = "topTitle centerAlign" name = "has_lesson">{$smarty.const._STATUS}</td>
       </tr>
  {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
@@ -175,14 +175,48 @@
  {/if}
 {/capture}
 
+{capture name = "t_idle_users_code"}
+ {eF_template_printForm form = $T_IDLE_USER_FORM}
+<!--ajax:idleUsersTable-->
+     <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "idleUsersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$T_MODULE_ADMINISTRATOR_TOOLS_BASEURL}&">
+      <tr class = "topTitle">
+       <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
+       <td class = "topTitle" name = "last_action">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_LASTACTION}</td>
+       <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
+      </tr>
+ {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
+      <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
+       <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a></td>
+       <td>{if $user.last_action}#filter:timestamp_time-{$user.last_action}#{else}{$smarty.const._NEVER}{/if}</td>
+       <td class = "centerAlign">
+       {if $user.login != $smarty.session.s_login}
+        <img class = "ajaxHandle" src="images/16x16/error_delete.png" title="{$smarty.const._ARCHIVE}" alt="{$smarty.const._ARCHIVE}" onclick = "archiveUser(this, '{$user.login}');">
+       {/if}
+       </td>
+     </tr>
+ {foreachelse}
+     <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
+ {/foreach}
+    </table>
+<!--/ajax:idleUsersTable-->
+    <div class = ""><span>{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS}:</span>
+     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS}" title = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS}" onclick = "if (confirm('{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_THISWILLARCHIVEALLUSERSAREYOUSURE}')) archiveAllIdleUsers(this)"/>
+    </div>
+{/capture}
+
 {capture name = 't_administrator_tools_code'}
  <div class = "tabber">
   {eF_template_printBlock tabber = "change_login" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN data = $smarty.capture.t_change_login_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "global_settings" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS data = $smarty.capture.t_global_settings_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}
-  {eF_template_printBlock tabber = "unenroll_courses" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_UNENROLLJOBCOURSES data = $smarty.capture.t_unenroll_courses_code image='32x32/courses.png'}
-  {eF_template_printBlock tabber = "category_reports" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CATEGORYREPORTS data = $smarty.capture.t_category_reports_code image='32x32/courses.png'}
+
+
+
+
+
+
+
  </div>
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}

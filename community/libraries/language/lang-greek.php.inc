@@ -3980,4 +3980,7 @@ define("_CLEAROPCODECACHE", "Διαγραφή opcode cache");
 define("_USELOGO", "Χρησιμοποίηση logo");
 define("_DEFAULTLOGO", "Προκαθορισμένο logo");
 define("_UPLOADSITELOGO", "Ανεβάστε site logo");
+define("_ATLEAST", "Τουλάχιστον");
+define("_ATMOST", "Το πολύ");
+define("_EQUALTO", "Ίσο με");
 ?>

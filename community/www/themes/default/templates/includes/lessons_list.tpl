@@ -206,38 +206,23 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
                {/capture}
 
    {else}
+       {capture name = "moduleSideOperations"}
+    <tr>
+     <td id = "sideColumn">
+         {eF_template_printBlock title=$smarty.const._TOOLS columns=2 links=$T_COURSES_LIST_OPTIONS image='32x32/options.png'}
+        </td>
+       </tr>
+       {/capture}
+
     {capture name = "t_empty_lessons_list_code"}
      <table class = "emptyLessonsList">
          <tr><td class = "mediumHeader">{$smarty.const._YOUDONTHAVEANYLESSONS}</td></tr>
-
-     {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
-               <tr><td class = "lessonListOption">
-        <a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}"><img class = "handle" src = "images/32x32/user.png" title = "{$smarty.const._MYACCOUNT}" alt = "{$smarty.const._MYACCOUNT}" ></a>
-                <div><a href = "{$smarty.server.PHP_SELF}?ctg=personal" title="{$smarty.const._MYACCOUNT}">{$smarty.const._MYACCOUNT}</a></div>
-               </td></tr>
-     {/if}
 
      {if $T_CONFIGURATION.lessons_directory}
                <tr><td class = "lessonListOption">
                    <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1" title = "{$smarty.const._LESSONSDIRECTORY}"><img class = "handle" src = "images/32x32/catalog.png" title = "{$smarty.const._LESSONSDIRECTORY}" alt = "{$smarty.const._LESSONSDIRECTORY}"></a>
                    <div><a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1">{$smarty.const._LESSONSDIRECTORY}</a></div>
                </td></tr>
-           {/if}
-           {if $T_CONFIGURATION.insert_group_key}
-               <tr><td class = "lessonListOption">
-                   <a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._ENTERGROUPKEY}', 0, 'group_key_enter')" title = "{$smarty.const._ENTERGROUPKEY}"><img class = "handle" src = "images/32x32/key.png" title = "{$smarty.const._ENTERGROUPKEY}" alt = "{$smarty.const._ENTERGROUPKEY}" /></a>
-                   <div><a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._ENTERGROUPKEY}', 0, 'group_key_enter')" title = "{$smarty.const._ENTERGROUPKEY}">{$smarty.const._ENTERGROUPKEY}</a></div>
-               </td></tr>
-           {/if}
-           {if $T_SKILLGAP_TESTS}
-               <tr><td class = "mediumHeader lessonListOption">{$smarty.const._COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS}</td></tr>
-               <tr><td>
-                <a href = "student.php?ctg=lessons&op=tests" title="{$T_SKILLGAP_TESTS}"><img class = "handle" src = "images/32x32/skill_gap.png" title = "{$T_SKILLGAP_TESTS}" alt = "{$T_SKILLGAP_TESTS}" ></a>
-                <div><a href = "student.php?ctg=lessons&op=tests" title="{$T_SKILLGAP_TESTS}">{$smarty.const._NEWSKILLGAPTESTS}</a></div>
-           {elseif $T_SKILLGAP_TESTS_SOLVED}
-               <tr><td class = "mediumHeader lessonListOption">{$smarty.const._YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS}</td></tr>
-           {elseif !$T_CONFIGURATION.lessons_directory && !$T_CONFIGURATION.insert_group_key}
-            <tr><td class = "mediumHeader lessonListOption">{$smarty.const._THEADMINISTRATORWILLASSIGNYOULESSONS}</td></tr>
            {/if}
         </table>
        {/capture}

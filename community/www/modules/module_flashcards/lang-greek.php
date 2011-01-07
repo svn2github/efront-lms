@@ -1,0 +1,36 @@
+<?php
+define("_FLASHCARDS_FLASHCARDS","Flashcards");
+define("_FLASHCARDS_NAME","Όνομα");
+define("_FLASHCARDS_CARDS","Κάρτες");
+define("_FLASHCARDS_PUBLISHED","Δημοσιεύτηκε");
+define("_FLASHCARDS_OPERATIONS","Λειτουργίες");
+define("_FLASHCARDS_DECKS","Συλλογή");
+define("_FLASHCARDS_ANSWER","Απάντηση");
+define("_FLASHCARDS_USECARD","Χρήση κάρτας");
+define("_FLASHCARDS_OPTIONS","Επιλογές");
+define("_FLASHCARDS_ACTIVE","Ενεργό");
+define("_FLASHCARDS_SHOWANSWERFIRST","Εμφάνιση των απαντήσεων πρώτα");
+define("_FLASHCARDS_SHUFFLECARDS","Τυχαία σειρά καρτών");
+define("_FLASHCARDS_DISPLAYMASTERY","Εμφάνιση mastery στην κάρτα");
+define("_FLASHCARDS_WRONGREDUCES","Οι λάθος μειώνουν το άθροισμα των επιτυχιών");
+define("_FLASHCARDS_SHOWSUCCESSCOUNT","Εμφάνιση των επιτυχημένων στην κάρτα");
+define("_FLASHCARDS_SHOWEXPLANATION","Εμφάνιση επεξήγησης στην κάρτα");
+define("_FLASHCARDS_MASTERY","Mastery");
+define("_FLASHCARDS_EXPLAIN","Επεξήγηση της κάρτας");
+define("_FLASHCARDS_RETURNCARD","Επιστροφή στην κάρτα");
+define("_FLASHCARDS_FALSE","Θεωρείται λάθος");
+define("_FLASHCARDS_RIGHT","Θεωρείται σωστή");
+define("_FLASHCARD_NUMBEROFSUCCESSFORMASTERY","Αριθμός επιτυχημένων για mastery");
+define("_FLASHCARDS_COMPLTETEDDECK","Ολοκληρωμένη συλλογή");
+define("_FLASHCARDS_SUCCESSFULLY","Οι επιλογές αποθηκεύτηκαν με επιτυχία");
+define("_FLASHCARDS_TIMES","φορές");
+define("_FLASHCARDS_TIME","φορά");
+define("_FLASHCARDS_RESTARTDECK","Επανεκκίνηση συλλογής");
+define("_FLASHCARDS_RESTARTALL","Επανεκκίνηση όλων των συλλογών");
+define("_FLASHCARDS_SUCCESSFULLYCOMPLETEDDECK","Έχετε ολοκληρώσει την συλλογή. Για να την κάνετε ξανά, πρέπει να την επανεκκινήσετε");
+define("_FLASHCARDS_RESTART","Επανεκκίνηση");
+define("_FLASHCARDS_FLIP","Εναλλαγή όψης");
+define("_FLASHCARDS_PROGRESSRESETAREYOUSURE","Η ενέργεια αυτη θα επαναφέρει τα δεδομένα προόδου. Είστε σίγουρος;");
+define("_FLASHCARDS_CARDSINDECK", "κάρτες στην συλλογή");
+define("_FLASHCARDS_MASTERYOFDECK", "Mastery στην συλλογή");
+?>

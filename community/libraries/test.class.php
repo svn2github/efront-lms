@@ -3076,8 +3076,8 @@ class EfrontCompletedTest extends EfrontTest
         $questionsStats = EfrontStats :: getQuestionsUnitStatistics($this -> questions);
         //Get unit names and ids
         $content = new EfrontContentTree(key($this -> getLesson()));
-        if (isset($_GET['selected_unit']) && ($_GET['selected_unit'])) {
-            $temp = $content -> seekNode($_GET['selected_unit']);
+        if (isset($_GET['entity']) && ($_GET['entity'])) {
+            $temp = $content -> seekNode($_GET['entity']);
             $tree[0] = new EfrontUnit(array('id' => 0, 'name' => _NOUNIT, 'active' => 1, $temp['id'] => $temp)); //Add a bogus unit to hold questions which do not belong to a unit
             $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($tree), RecursiveIteratorIterator :: SELF_FIRST));
         } else {
@@ -3125,7 +3125,8 @@ class EfrontCompletedTest extends EfrontTest
         $options['show_hide'] = false;
         $options['noclick'] = true;
         //$options['tree_root'] = array('name' => _BACKTOTOP, 'class' => 'examples', 'onclick' => "$('analysis_frame').src = $('analysis_frame').src.replace(/selected_unit=(\d*)/, 'selected_unit='+Element.extend(this).up().id.replace(/node/, ''));");
-        $options['onclick'] = "re = new RegExp(this.up().id.replace(/node/, ''), 'g');if(treeObj.getNodeOrders().match(re).length > 1) $('analysis_frame').src = $('analysis_frame').src.replace(/selected_unit=(\d*)/, 'selected_unit='+Element.extend(this).up().id.replace(/node/, ''));";
+        //$options['onclick']   = "re = new RegExp(this.up().id.replace(/node/, ''), 'g');if(treeObj.getNodeOrders().match(re).length > 1) $('analysis_frame').src = $('analysis_frame').src.replace(/selected_unit=(\d*)/, 'selected_unit='+Element.extend(this).up().id.replace(/node/, ''));";
+        $options['onclick'] = "showGraph($('proto_chart'), 'graph_test_analysis', Element.extend(this).up().id.replace(/node/, ''));";
         return array($parentScores, $content -> toHTML($iterator, false, $options));
     }
     /**

@@ -1,6 +1,6 @@
-// script.aculo.us slider.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
+// script.aculo.us slider.js v1.9.0, Thu Dec 23 16:54:48 -0500 2010
 
-// Copyright (c) 2005-2009 Marty Haught, Thomas Fuchs
+// Copyright (c) 2005-2010 Marty Haught, Thomas Fuchs
 //
 // script.aculo.us is freely distributable under the terms of an MIT-style license.
 // For details, see the script.aculo.us web site: http://script.aculo.us/
@@ -23,24 +23,24 @@ Control.Slider = Class.create({
       this.handles = [$(handle)];
     }
 
-    this.track   = $(track);
+    this.track = $(track);
     this.options = options || { };
 
-    this.axis      = this.options.axis || 'horizontal';
+    this.axis = this.options.axis || 'horizontal';
     this.increment = this.options.increment || 1;
-    this.step      = parseInt(this.options.step || '1');
-    this.range     = this.options.range || $R(0,1);
+    this.step = parseInt(this.options.step || '1');
+    this.range = this.options.range || $R(0,1);
 
-    this.value     = 0; // assure backwards compat
-    this.values    = this.handles.map( function() { return 0 });
-    this.spans     = this.options.spans ? this.options.spans.map(function(s){ return $(s) }) : false;
+    this.value = 0; // assure backwards compat
+    this.values = this.handles.map( function() { return 0 });
+    this.spans = this.options.spans ? this.options.spans.map(function(s){ return $(s) }) : false;
     this.options.startSpan = $(this.options.startSpan || null);
-    this.options.endSpan   = $(this.options.endSpan || null);
+    this.options.endSpan = $(this.options.endSpan || null);
 
     this.restricted = this.options.restricted || false;
 
-    this.maximum   = this.options.maximum || this.range.end;
-    this.minimum   = this.options.minimum || this.range.start;
+    this.maximum = this.options.maximum || this.range.end;
+    this.minimum = this.options.minimum || this.range.start;
 
     // Will be used to align the handle onto the track, if necessary
     this.alignX = parseInt(this.options.alignX || '0');
@@ -54,7 +54,7 @@ Control.Slider = Class.create({
       (this.handles[0].offsetWidth != 0 ? this.handles[0].offsetWidth :
         this.handles[0].style.width.replace(/px$/,""));
 
-    this.active   = false;
+    this.active = false;
     this.dragging = false;
     this.disabled = false;
 
@@ -68,7 +68,7 @@ Control.Slider = Class.create({
     }
 
     this.eventMouseDown = this.startDrag.bindAsEventListener(this);
-    this.eventMouseUp   = this.endDrag.bindAsEventListener(this);
+    this.eventMouseUp = this.endDrag.bindAsEventListener(this);
     this.eventMouseMove = this.update.bindAsEventListener(this);
 
     // Initialize handles in reverse (make sure first handle is active)
@@ -125,7 +125,7 @@ Control.Slider = Class.create({
   setValue: function(sliderValue, handleIdx){
     if (!this.active) {
       this.activeHandleIdx = handleIdx || 0;
-      this.activeHandle    = this.handles[this.activeHandleIdx];
+      this.activeHandle = this.handles[this.activeHandleIdx];
       this.updateStyles();
     }
     handleIdx = handleIdx || this.activeHandleIdx || 0;
@@ -173,7 +173,7 @@ Control.Slider = Class.create({
       (this.track.offsetWidth != 0 ? this.track.offsetWidth :
         this.track.style.width.replace(/px$/,"")) - this.alignX);
   },
-  isVertical:  function(){
+  isVertical: function(){
     return (this.axis == 'vertical');
   },
   drawSpans: function() {
@@ -206,15 +206,15 @@ Control.Slider = Class.create({
         this.active = true;
 
         var handle = Event.element(event);
-        var pointer  = [Event.pointerX(event), Event.pointerY(event)];
+        var pointer = [Event.pointerX(event), Event.pointerY(event)];
         var track = handle;
         if (track==this.track) {
-          var offsets  = this.track.cumulativeOffset();
+          var offsets = this.track.cumulativeOffset();
           this.event = event;
           this.setValue(this.translateToValue(
            (this.isVertical() ? pointer[1]-offsets[1] : pointer[0]-offsets[0])-(this.handleLength/2)
           ));
-          var offsets  = this.activeHandle.cumulativeOffset();
+          var offsets = this.activeHandle.cumulativeOffset();
           this.offsetX = (pointer[0] - offsets[0]);
           this.offsetY = (pointer[1] - offsets[1]);
         } else {
@@ -223,11 +223,11 @@ Control.Slider = Class.create({
             handle = handle.parentNode;
 
           if (this.handles.indexOf(handle)!=-1) {
-            this.activeHandle    = handle;
+            this.activeHandle = handle;
             this.activeHandleIdx = this.handles.indexOf(this.activeHandle);
             this.updateStyles();
 
-            var offsets  = this.activeHandle.cumulativeOffset();
+            var offsets = this.activeHandle.cumulativeOffset();
             this.offsetX = (pointer[0] - offsets[0]);
             this.offsetY = (pointer[1] - offsets[1]);
           }

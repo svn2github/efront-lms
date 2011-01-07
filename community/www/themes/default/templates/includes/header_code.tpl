@@ -1,4 +1,3 @@
-
  <div id = "logo">
   <a href = "{if $smarty.session.s_login}{$smarty.server.PHP_SELF}{else}index.php{/if}">
    <img class = "handle" src = "{$T_LOGO}" title = "{$T_CONFIGURATION.site_name}" alt = "{$T_CONFIGURATION.site_name}" />

@@ -1262,9 +1262,14 @@ class EfrontCourse
    }
   }
   $courseLessons = array_unique(array_keys($courseLessonsToUsers));
-  $result = eF_getTableData("projects", "id, lessons_ID", "auto_assign=1 and deadline < ".time()." and lessons_ID in (select lessons_ID from lessons_to_courses where courses_ID=".$this -> course['id'].")");
+  $result = eF_getTableData("projects", "id, lessons_ID", "auto_assign=1 and deadline >= ".time()." and lessons_ID in (select lessons_ID from lessons_to_courses where courses_ID=".$this -> course['id'].")");
+  $newProjectAssignments = $courseLessonsAutoAssignProjects = $assignedProjectsToUsers = array();
   foreach ($result as $value) {
    $courseLessonsAutoAssignProjects[$value['lessons_ID']][] = $value['id'];
+  }
+  $result = eF_getTableData("users_to_projects up, projects p", "up.users_LOGIN, up.projects_ID", "up.projects_ID=p.id and p.auto_assign=1 and p.deadline >= ".time()." and p.lessons_ID in (select lessons_ID from lessons_to_courses where courses_ID=".$this -> course['id'].")");
+  foreach ($result as $value) {
+   $assignedProjectsToUsers[$value['users_LOGIN']][$value['projects_ID']] = $value['projects_ID'];
   }
   $newUsers = array();
   $existingUsers = array();
@@ -1311,12 +1316,28 @@ class EfrontCourse
             'score' => 0,
             'comments' => '',
             'to_timestamp' => 0);
+     if (EfrontUser::isStudentRole($roleInCourse)) {
+      foreach ($courseLessonsAutoAssignProjects[$id] as $projectId) {
+       if (!isset($assignedProjectsToUsers[$user][$projectId])) {
+        $newProjectAssignments[] = array('users_LOGIN' => $user,
+                 'projects_ID' => $projectId);
+       }
+      }
+     }
     } elseif ($roleInCourse != $courseLessonsToUsers[$id][$user]['user_type'] || $courseLessonsToUsers[$id][$user]['archive']) {
      $fields = array('archive' => 0,
          'user_type' => $roleInCourse,
          'from_timestamp' => $confirmed ? time() : 0);
      !$courseLessonsToUsers[$id][$user]['archive'] OR $fields['to_timestamp'] = 0;
      eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$user."' and lessons_ID=".$id);
+     if (EfrontUser::isStudentRole($roleInCourse)) {
+      foreach ($courseLessonsAutoAssignProjects[$id] as $projectId) {
+       if (!isset($assignedProjectsToUsers[$user][$projectId])) {
+        $newProjectAssignments[] = array('users_LOGIN' => $user,
+                 'projects_ID' => $projectId);
+       }
+      }
+     }
     }
    }
   }
@@ -1325,6 +1346,9 @@ class EfrontCourse
   }
   if (!empty($newLessonUsers)) {
    eF_insertTableDataMultiple("users_to_lessons", $newLessonUsers);
+  }
+  if (!empty($newProjectAssignments)) {
+   eF_insertTableDataMultiple("users_to_projects", $newProjectAssignments);
   }
   !isset($newUsers) ? $newUsers = array() : null;
   !isset($existingUsers) ? $existingUsers = array() : null;

@@ -4,7 +4,6 @@ define("_LINKS_LESSONLINK", "Σύνδεσμοι");
 define("_LINKS_MODULE", "Άρθρωμα Σύνδεσμοι");
 define("_LINKS_MAIN","Κύρια σελίδα");
 define("_LINKS_MANAGEMENT","Διαχείριση");
-
 define("_LINKS_LINKLIST", "Σύνδεσμοι");
 define("_LINKS_ADDLINK", "Προσθήκη Συνδέσμου");
 define("_LINKS_DISPLAY", "Κείμενο συνδέσμου");

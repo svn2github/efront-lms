@@ -182,12 +182,16 @@
       <tr class = "topTitle">
        <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
        <td class = "topTitle" name = "last_action">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_LASTACTION}</td>
+       <td class = "topTitle centerAlign" name = "active">{$smarty.const._STATUS}</td>
        <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
       </tr>
  {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
       <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
        <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a></td>
        <td>{if $user.last_action}#filter:timestamp_time-{$user.last_action}#{else}{$smarty.const._NEVER}{/if}</td>
+       <td class = "centerAlign">
+        <img class = "ajaxHandle" src="images/16x16/trafficlight_{if $user.active}green{else}red{/if}.png" title="{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS}" alt="{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS}" onclick = "toggleUser(this, '{$user.login}');">
+       </td>
        <td class = "centerAlign">
        {if $user.login != $smarty.session.s_login}
         <img class = "ajaxHandle" src="images/16x16/error_delete.png" title="{$smarty.const._ARCHIVE}" alt="{$smarty.const._ARCHIVE}" onclick = "archiveUser(this, '{$user.login}');">
@@ -199,7 +203,8 @@
  {/foreach}
     </table>
 <!--/ajax:idleUsersTable-->
-    <div class = ""><span>{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS}:</span>
+    <div class = ""><span>{$smarty.const._OPERATIONS}:</span>
+     <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_DEACTIVATEALLUSERS}" title = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_DEACTIVATEALLUSERS}" onclick = "if (confirm('{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_THISWILLDEACTIVATEALLUSERSAREYOUSURE}')) deactivateAllIdleUsers(this)"/>
      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS}" title = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS}" onclick = "if (confirm('{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_THISWILLARCHIVEALLUSERSAREYOUSURE}')) archiveAllIdleUsers(this)"/>
     </div>
 {/capture}

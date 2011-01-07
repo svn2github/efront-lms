@@ -1,6 +1,6 @@
-// script.aculo.us dragdrop.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
+// script.aculo.us dragdrop.js v1.9.0, Thu Dec 23 16:54:48 -0500 2010
 
-// Copyright (c) 2005-2009 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+// Copyright (c) 2005-2010 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 //
 // script.aculo.us is freely distributable under the terms of an MIT-style license.
 // For details, see the script.aculo.us web site: http://script.aculo.us/
@@ -18,9 +18,9 @@ var Droppables = {
   add: function(element) {
     element = $(element);
     var options = Object.extend({
-      greedy:     true,
+      greedy: true,
       hoverclass: null,
-      tree:       false
+      tree: false
     }, arguments[1] || { });
 
     // cache containers
@@ -130,9 +130,9 @@ var Draggables = {
 
   register: function(draggable) {
     if(this.drags.length == 0) {
-      this.eventMouseUp   = this.endDrag.bindAsEventListener(this);
+      this.eventMouseUp = this.endDrag.bindAsEventListener(this);
       this.eventMouseMove = this.updateDrag.bindAsEventListener(this);
-      this.eventKeypress  = this.keyPress.bindAsEventListener(this);
+      this.eventKeypress = this.keyPress.bindAsEventListener(this);
 
       Event.observe(document, "mouseup", this.eventMouseUp);
       Event.observe(document, "mousemove", this.eventMouseMove);
@@ -199,12 +199,12 @@ var Draggables = {
     this._cacheObserverCallbacks();
   },
 
-  removeObserver: function(element) {  // element instead of observer fixes mem leaks
+  removeObserver: function(element) { // element instead of observer fixes mem leaks
     this.observers = this.observers.reject( function(o) { return o.element==element });
     this._cacheObserverCallbacks();
   },
 
-  notify: function(eventName, draggable, event) {  // 'onStart', 'onEnd', 'onDrag'
+  notify: function(eventName, draggable, event) { // 'onStart', 'onEnd', 'onDrag'
     if(this[eventName+'Count'] > 0)
       this.observers.each( function(o) {
         if(o[eventName]) o[eventName](eventName, draggable, event);
@@ -248,7 +248,7 @@ var Draggable = Class.create({
       scroll: false,
       scrollSensitivity: 20,
       scrollSpeed: 15,
-      snap: false,  // false, or xy or [x,y] or function(x,y){ return [x,y] }
+      snap: false, // false, or xy or [x,y] or function(x,y){ return [x,y] }
       delay: 0
     };
 
@@ -278,7 +278,7 @@ var Draggable = Class.create({
 
     Element.makePositioned(this.element); // fix IE
 
-    this.options  = options;
+    this.options = options;
     this.dragging = false;
 
     this.eventMouseDown = this.initDrag.bindAsEventListener(this);
@@ -312,7 +312,7 @@ var Draggable = Class.create({
         tag_name=='TEXTAREA')) return;
 
       var pointer = [Event.pointerX(event), Event.pointerY(event)];
-      var pos     = this.element.cumulativeOffset();
+      var pos = this.element.cumulativeOffset();
       this.offset = [0,1].map( function(i) { return (pointer[i] - pos[i]) });
 
       Draggables.activate(this);
@@ -374,7 +374,7 @@ var Draggable = Class.create({
       if (this.options.scroll == window) {
         with(this._getWindowScroll(this.options.scroll)) { p = [ left, top, left+width, top+height ]; }
       } else {
-        p = Position.page(this.options.scroll);
+        p = Position.page(this.options.scroll).toArray();
         p[0] += this.options.scroll.scrollLeft + Position.deltaX;
         p[1] += this.options.scroll.scrollTop + Position.deltaY;
         p.push(p[0]+this.options.scroll.offsetWidth);
@@ -457,7 +457,7 @@ var Draggable = Class.create({
   draw: function(point) {
     var pos = this.element.cumulativeOffset();
     if(this.options.ghosting) {
-      var r   = Position.realOffset(this.element);
+      var r = Position.realOffset(this.element);
       pos[0] += r[0] - Position.deltaX; pos[1] += r[1] - Position.deltaY;
     }
 
@@ -490,7 +490,7 @@ var Draggable = Class.create({
     if((!this.options.constraint) || (this.options.constraint=='horizontal'))
       style.left = p[0] + "px";
     if((!this.options.constraint) || (this.options.constraint=='vertical'))
-      style.top  = p[1] + "px";
+      style.top = p[1] + "px";
 
     if(style.visibility=="hidden") style.visibility = ""; // fix gecko rendering
   },
@@ -523,7 +523,7 @@ var Draggable = Class.create({
       }
     } else {
       this.options.scroll.scrollLeft += this.scrollSpeed[0] * delta / 1000;
-      this.options.scroll.scrollTop  += this.scrollSpeed[1] * delta / 1000;
+      this.options.scroll.scrollTop += this.scrollSpeed[1] * delta / 1000;
     }
 
     Position.prepare();
@@ -574,8 +574,8 @@ Draggable._dragging = { };
 
 var SortableObserver = Class.create({
   initialize: function(element, observer) {
-    this.element   = $(element);
-    this.observer  = observer;
+    this.element = $(element);
+    this.observer = observer;
     this.lastValue = Sortable.serialize(this.element);
   },
 
@@ -624,32 +624,32 @@ var Sortable = {
   create: function(element) {
     element = $(element);
     var options = Object.extend({
-      element:     element,
-      tag:         'li',       // assumes li children, override with tag: 'tagname'
+      element: element,
+      tag: 'li', // assumes li children, override with tag: 'tagname'
       dropOnEmpty: false,
-      tree:        false,
-      treeTag:     'ul',
-      overlap:     'vertical', // one of 'vertical', 'horizontal'
-      constraint:  'vertical', // one of 'vertical', 'horizontal', false
-      containment: element,    // also takes array of elements (or id's); or false
-      handle:      false,      // or a CSS class
-      only:        false,
-      delay:       0,
-      hoverclass:  null,
-      ghosting:    false,
-      quiet:       false,
-      scroll:      false,
+      tree: false,
+      treeTag: 'ul',
+      overlap: 'vertical', // one of 'vertical', 'horizontal'
+      constraint: 'vertical', // one of 'vertical', 'horizontal', false
+      containment: element, // also takes array of elements (or id's); or false
+      handle: false, // or a CSS class
+      only: false,
+      delay: 0,
+      hoverclass: null,
+      ghosting: false,
+      quiet: false,
+      scroll: false,
       scrollSensitivity: 20,
       scrollSpeed: 15,
-      format:      this.SERIALIZE_RULE,
+      format: this.SERIALIZE_RULE,
 
       // these take arrays of elements or ids and can be
       // used for better initialization performance
-      elements:    false,
-      handles:     false,
+      elements: false,
+      handles: false,
 
-      onChange:    Prototype.emptyFunction,
-      onUpdate:    Prototype.emptyFunction
+      onChange: Prototype.emptyFunction,
+      onUpdate: Prototype.emptyFunction
     }, arguments[1] || { });
 
     // clear any old sortable with same element
@@ -657,15 +657,15 @@ var Sortable = {
 
     // build options for the draggables
     var options_for_draggable = {
-      revert:      true,
-      quiet:       options.quiet,
-      scroll:      options.scroll,
+      revert: true,
+      quiet: options.quiet,
+      scroll: options.scroll,
       scrollSpeed: options.scrollSpeed,
       scrollSensitivity: options.scrollSensitivity,
-      delay:       options.delay,
-      ghosting:    options.ghosting,
-      constraint:  options.constraint,
-      handle:      options.handle };
+      delay: options.delay,
+      ghosting: options.ghosting,
+      constraint: options.constraint,
+      handle: options.handle };
 
     if(options.starteffect)
       options_for_draggable.starteffect = options.starteffect;
@@ -674,7 +674,7 @@ var Sortable = {
       options_for_draggable.reverteffect = options.reverteffect;
     else
       if(options.ghosting) options_for_draggable.reverteffect = function(element) {
-        element.style.top  = 0;
+        element.style.top = 0;
         element.style.left = 0;
       };
 
@@ -686,18 +686,18 @@ var Sortable = {
 
     // build options for the droppables
     var options_for_droppable = {
-      overlap:     options.overlap,
+      overlap: options.overlap,
       containment: options.containment,
-      tree:        options.tree,
-      hoverclass:  options.hoverclass,
-      onHover:     Sortable.onHover
+      tree: options.tree,
+      hoverclass: options.hoverclass,
+      onHover: Sortable.onHover
     };
 
     var options_for_tree = {
-      onHover:      Sortable.onEmptyHover,
-      overlap:      options.overlap,
-      containment:  options.containment,
-      hoverclass:   options.hoverclass
+      onHover: Sortable.onEmptyHover,
+      overlap: options.overlap,
+      containment: options.containment,
+      hoverclass: options.hoverclass
     };
 
     // fix for gecko engine

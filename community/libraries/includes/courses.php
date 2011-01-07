@@ -296,7 +296,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
      $result = eF_getTableDataFlat("module_hcd_course_to_branch", "branches_ID", "courses_ID=".$editCourse -> course['id']);
      if (sizeof($result['branches_ID']) == 0) {
       eF_insertTableData("module_hcd_course_to_branch", array("branches_ID" => $form -> exportValue('branches_ID'), "courses_ID" => $editCourse -> course['id']));
-     } elseif (sizeof($result) == 1) {
+     } elseif (sizeof($result['branches_ID']) == 1) {
       //Only one branch associated with this course, as a 'location'
       eF_updateTableData("module_hcd_course_to_branch", array("branches_ID" => $form -> exportValue('branches_ID')), "courses_ID=".$editCourse -> course['id']);
      }

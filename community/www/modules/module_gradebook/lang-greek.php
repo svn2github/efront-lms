@@ -1,5 +1,4 @@
 <?php
-
 define("_GRADEBOOK_NAME", "Βαθμολόγιο");
 define("_GRADEBOOK_ADD_RANGE", "Προσθήκη διαστήματος");
 define("_GRADEBOOK_EDIT_RANGE", "Επεξεργασία διαστήματος");
@@ -36,5 +35,4 @@ define("_GRADEBOOK_EXPORT_EXCEL_ONE", "Τρέχον μάθημα");
 define("_GRADEBOOK_ALL_LESSONS", "Όλα τα μαθήματα μου");
 define("_GRADEBOOK_SWITCH_TO", "Μετάβαση σε");
 define("_GRADEBOOK_NOT_PUBLISHED", "Το βαθμολόγιό σας δεν έχει δημοσιευθεί ακόμη");
-
 ?>

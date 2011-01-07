@@ -34,6 +34,7 @@ switch ($_GET['ask_type']) {
  case 'group' : case 'groups': askGroups(); break;
  case 'course': case 'courses': askCourses(); break;
  case 'branch': case 'branches': askBranches(); break;
+ case 'skill': case 'skills': askSkills(); break;
  default: break;
 }
 
@@ -742,7 +743,29 @@ function askBranches() {
   }
   $str .= '</ul>';
   echo $str;
- } catch (Exception $e) {pr($e);
+ } catch (Exception $e) {
+  handleAjaxExceptions($e);
+ }
+}
+function askSkills() {
+ try {
+  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
+  $skills = array();
+  $result = EfrontSkill::getAllSkills();
+  for ($i = 0 ; $i < sizeof($result) ; $i ++) {
+   $hiname = highlightSearch($result[$i]['description'], $preffix);
+   $skills[$i] = array('id' => $result[$i]['skill_ID'],
+            'description' => $result[$i]['description'],
+            'path_string' => $result[$i]['category_description'].'&nbsp;&rarr;&nbsp;'.$result[$i]['description']);
+  }
+  $skills = array_values(eF_multisort($skills, 'path_string', 'asc')); //Sort results based on path string
+  $str = '<ul>';
+  for ($k = 0; $k < sizeof($skills); $k++){
+   $str = $str.'<li id='.$skills[$k]['id'].'>'.$skills[$k]['path_string'].'</li>';
+  }
+  $str .= '</ul>';
+  echo $str;
+ } catch (Exception $e) {
   handleAjaxExceptions($e);
  }
 }

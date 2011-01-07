@@ -817,6 +817,11 @@ if (isset ($_SESSION['s_login']) && ($GLOBALS['currentTheme'] -> options['sideba
   }
  } catch (Exception $e) {}
 }
+if (isset($_GET['ctg']) && is_numeric($_GET['ctg'])) { //cheking a possible issue with search engine robots that overloads server
+ if (empty($customBlocks) || in_array($_GET['ctg'], array_keys($customBlocks)) !== true) {
+   eF_redirect("HTTP/1.0 404 Not Found");
+ }
+}
 if (isset($_SESSION['s_login']) && $_SESSION['s_login']) { //This way, logged in users that stay on index.php are not logged out
     $loadScripts[] = 'sidebar';
 }

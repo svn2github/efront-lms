@@ -1,5 +1,4 @@
 <?php
-/* This file defines the constants for the module in English */
 define("_GIFTAIKENQUESTIONS", "GIFT/AIKEN Questions");
 define("_GIFTAIKEN_GIFT", "GIFT");
 define("_GIFTAIKEN_AIKEN", "AIKEN");

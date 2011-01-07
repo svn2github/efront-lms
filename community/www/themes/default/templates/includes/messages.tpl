@@ -21,9 +21,14 @@
             {assign var = "fileClassName" value = "noWarning"}
             {assign var = "file_warn" value = ""}
         {/if}
-        <table>
+      <!-- <table>
             <tr><td><span class = "{$msgClassName} boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {$smarty.const._OFTOTAL} <span class = "boldFont">{$T_QUOTA_NUM_OF_MESSAGES}</span>&nbsp;{$smarty.const._MESSAGES} (<span class = "{$msgClassName}" id ="messages_number_percentage">{$T_TOTAL_MESSAGES_PERCENTAGE}</span>%)</td></tr>
             <tr><td><span class = "{$fileClassName} boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._OFTOTAL} <span class = "boldFont">{$T_QUOTA_KILOBYTES} </span>{$smarty.const._KBYTESUSED} (<span class = "{$fileClassName}" id ="messages_size_percentage">{$T_TOTAL_FILES_PERCENTAGE} </span>%)</td></tr>
+        </table> -->
+
+        <table cellpadding = "2" border = "0" width = "100%">
+            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES > 1}{$smarty.const._MESSAGES} {else} {$smarty.const._MESSAGE} {/if} </td></tr>
+            <tr><td><span class = "boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._KBYTESUSED} </td></tr>
         </table>
  {else}
         <table cellpadding = "2" border = "0" width = "100%">

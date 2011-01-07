@@ -84,7 +84,6 @@ try {
           $totalEntries = $infoLesson -> countLessonUsers($constraints);
           $dataSource = $users;
           $smarty -> assign("T_TABLE_SIZE", $totalEntries);
-         //pr($users);
           $tableName = $_GET['ajax'];
          }
          $alreadySorted = true;
@@ -465,33 +464,34 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
 
     $workSheet -> write(2, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write(2, 5, _LESSONROLE, $titleLeftFormat);
-    $workSheet -> write(2, 6, _TIME, $titleCenterFormat);
-    $workSheet -> write(2, 7, _CONTENT, $titleCenterFormat);
+    $workSheet -> write(2, 6, _REGISTRATIONDATE, $titleCenterFormat);
+    $workSheet -> write(2, 7, _TIME, $titleCenterFormat);
+    $workSheet -> write(2, 8, _CONTENT, $titleCenterFormat);
     if ($GLOBALS['configuration']['disable_tests'] != 1) {
-        $workSheet -> write(2, 8, _TESTS, $titleCenterFormat);
+        $workSheet -> write(2, 9, _TESTS, $titleCenterFormat);
     }
     if ($GLOBALS['configuration']['disable_projects'] != 1) {
-        $workSheet -> write(2, 9, _PROJECTS, $titleCenterFormat);
+        $workSheet -> write(2, 10, _PROJECTS, $titleCenterFormat);
     }
-    $workSheet -> write(2, 10, _COMPLETED, $titleCenterFormat);
-    $workSheet -> write(2, 11, _GRADE, $titleCenterFormat);
-
+    $workSheet -> write(2, 11, _COMPLETED, $titleCenterFormat);
+    $workSheet -> write(2, 12, _GRADE, $titleCenterFormat);
     $roles = EfrontLessonUser :: getLessonsRoles(true);
 
     $row = 3;
     foreach ($students as $user) {
         $workSheet -> write($row, 4, formatLogin($user['login']), $fieldLeftFormat);
         $workSheet -> write($row, 5, $roles[$user['role']], $fieldLeftFormat);
-        $workSheet -> write($row, 6, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
-        $workSheet -> write($row, 7, formatScore($user['overall_progress']['percentage'])."%", $fieldCenterFormat);
+        $workSheet -> write($row, 6, formatTimestamp($user['timestamp']), $fieldCenterFormat);
+        $workSheet -> write($row, 7, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
+        $workSheet -> write($row, 8, formatScore($user['overall_progress']['percentage'])."%", $fieldCenterFormat);
         if ($GLOBALS['configuration']['disable_tests'] != 1) {
-            $workSheet -> write($row, 8, formatScore($user['test_status']['percentage'])."%", $fieldCenterFormat);
+            $workSheet -> write($row, 9, formatScore($user['test_status']['percentage'])."%", $fieldCenterFormat);
         }
         if ($GLOBALS['configuration']['disable_projects'] != 1) {
-            $workSheet -> write($row, 9, formatScore($user['project_status']['percentage'])."%", $fieldCenterFormat);
+            $workSheet -> write($row, 10, formatScore($user['project_status']['percentage'])."%", $fieldCenterFormat);
         }
-        $workSheet -> write($row, 10, $user['completed'] ? _YES : _NO, $fieldCenterFormat);
-        $workSheet -> write($row, 11, formatScore($user['score'])."%", $fieldCenterFormat);
+        $workSheet -> write($row, 11, $user['completed'] ? _YES : _NO, $fieldCenterFormat);
+        $workSheet -> write($row, 12, formatScore($user['score'])."%", $fieldCenterFormat);
         $row++;
     }
     $row += 2;
@@ -501,11 +501,14 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workSheet -> mergeCells($row, 4, $row++, 11);
     $workSheet -> write($row, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write($row, 5, _LESSONROLE, $titleLeftFormat);
-    $workSheet -> write($row++, 6, _TIME, $titleCenterFormat);
+    $workSheet -> write($row, 6, _TIME, $titleCenterFormat);
+ $workSheet -> write($row++, 7, _REGISTRATIONDATE, $titleCenterFormat);
+
     foreach ($professors as $user) {
         $workSheet -> write($row, 4, formatLogin($user['login']), $fieldLeftFormat);
         $workSheet -> write($row, 5, $roles[$user['role']], $fieldLeftFormat);
         $workSheet -> write($row, 6, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
+  $workSheet -> write($row, 7, formatTimestamp($user['timestamp']), $fieldCenterFormat);
         $row++;
     }
 
@@ -678,7 +681,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     //$doneTests        = EfrontStats :: getStudentsDoneTests($infoLesson -> lesson['id']);
     $assignedProjects = EfrontStats :: getStudentsAssignedProjects($infoLesson -> lesson['id']);
 
-//Changed adding a worksheet for each user in lesson reports because it could crash file with more than 2000 users (#854)    
+//Changed adding a worksheet for each user in lesson reports because it could crash file with more than 2000 users (#854)
     $workSheet = & $workBook -> addWorksheet('Students');
  $workSheet -> setInputEncoding('utf-8');
  $row = 0;
@@ -826,8 +829,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
   $info[] = array(_TESTS, $lessonInfo['tests']);
  }
  $pdf -> printInformationSection(_LESSONCONTENTINFO, $info);
- $formatting = array(_USER => array('width' => '25%', 'fill' => false),
-      _TIMEINLESSON => array('width' => '15%', 'fill' => false),
+ $formatting = array(_USER => array('width' => '20%', 'fill' => false),
+      _TIMEINLESSON => array('width' => '10%', 'fill' => false),
+      _REGISTRATIONDATE => array('width' => '10%', 'fill' => false),
       _CONTENT => array('width' => '10%', 'fill' => false, 'align' => 'C'),
       _TESTS => array('width' => '10%', 'fill' => false, 'align' => 'C'),
       _PROJECTS => array('width' => '10%', 'fill' => false, 'align' => 'C'),
@@ -837,6 +841,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
  foreach ($students as $user) {
   $data[] = array(_USER => formatLogin($user['login']),
       _TIMEINLESSON => $user['time_in_lesson']['time_string'],
+      _REGISTRATIONDATE => formatTimestamp($user['timestamp']),
       _CONTENT => formatScore($user['overall_progress']['percentage'])."%",
       _TESTS => formatScore($user['test_status']['percentage'])."%",
       _PROJECTS => formatScore($user['project_status']['percentage'])."%",
@@ -847,7 +852,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
  $data = array();
  foreach ($professors as $user) {
   $data[] = array(_USER => formatLogin($user['login']),
-      _TIMEINLESSON => $user['time_in_lesson']['time_string']);
+      _TIMEINLESSON => $user['time_in_lesson']['time_string'],
+      _REGISTRATIONDATE => formatTimestamp($user['timestamp']));
     }
  $pdf->printDataSection(_PROFESSORSINFO, $data, $formatting);
     if ($GLOBALS['configuration']['disable_tests'] != 1) {

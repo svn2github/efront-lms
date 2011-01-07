@@ -5,7 +5,6 @@ define("_THUMBNAIL_ADDTHUMBNAIL","Thumbnail-Link hinzufügen");//Add thumbnail l
 define("_THUMBNAIL_PREVIEW","Thumbnail-Snapshot");//Thumbnail snapshot
 define("_THUMBNAIL_NAME","Thumbnail Bildunterschrift");//Thumbnail caption
 define("_THUMBNAIL_VIDEOLINK","Thumbnails Link");//Thumbnails link
-
 define("_THUMBNAIL_PROBLEMINSERTINGTHUMBNAILENTRY","Thumbnail-Link Eintrag konnte nicht erstellt werden");//Thumbnails thumbnail link entry could not be created
 define("_THUMBNAIL_SUCCESFULLYINSERTEDTHUMBNAILENTRY","Thumbnail-Link erfolgreich eingefügt");//Succesfylly inserted thumbnail link
 define("_THUMBNAIL_SUCCESFULLYUPDATEDTHUMBNAILENTRY","Thumbnail-Link erfolgreich aktualisiert");//Succesfully updated thumbnail link
@@ -14,7 +13,6 @@ define("_THUMBNAIL_DELETETHUMBNAIL","Thumbnail-Link löschen");//Delete thumbnai
 define("_THUMBNAILAREYOUSUREYOUWANTTODELETEEVENT","Sind Sie sicher, dass Sie diesen Thumbnail-Link aus der Liste löschen möchten");//Are you sure you want to delete this thumbnail link from the list
 define("_THUMBNAIL_SUCCESFULLYDELETEDTHUMBNAILENTRY","Thumbnail-Links erfolgreich gelöscht");//Thumbnail links deleted succesfully
 define("_THUMBNAILNOMEETINGSCHEDULED","Die Thumbnail-Liste ist leer");//The Thumbnails thumbnail list is empty
-
 define("_THUMBNAIL_DESCRIPTION","Beschreibung");//Description
 define("_THUMBNAIL_THUMBNAILVIDEODATA","Thumbnail-Daten");//Thumbnail data
 define("_THUMBNAIL_MANAGEMENT","Thumbnail-Management");//Thumbnail management

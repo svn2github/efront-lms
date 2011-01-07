@@ -64,6 +64,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
    <tr class = "topTitle">
     <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>
     <td class = "topTitle user_type" name = "role">{$smarty.const._USERTYPE}</td>
+    <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
     <td class = "topTitle time_in_lesson noSort" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>
     <td class = "topTitle overall_progress noSort" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>
    {if !$T_CONFIGURATION.disable_tests}
@@ -79,6 +80,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
     <td class = "name">#filter:login-{$user.login}#{* ({$T_ROLES[$user.user_type]})*}</td>
     <td class = "user_type">{$T_ROLES_ARRAY[$user.role]}</td>
+    <td>#filter:timestamp-{$user.timestamp}#</td>
     <td class = "time_in_lesson"><span style = "display:none">{$user.time_in_lesson.total_seconds}&nbsp;</span>{$user.time_in_lesson.time_string}</td>
     <td class = "progressCell overall_progress">
      {if $user.basic_user_type != 'professor'}

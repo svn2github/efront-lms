@@ -75,7 +75,10 @@
           </div>
           <table style = "width:100%">
            <tr><td style = "vertical-align:top">{$T_CONTENT_ANALYSIS}</td></tr>
-           <tr><td style = "vertical-align:top"><iframe width = "750px" id = "analysis_frame" height = "550px" frameborder = "no" src = "{$T_CURRENT_TEST_MODULE_BASEURL}&login={$smarty.get.login}&test={$smarty.get.test}&display_chart=1&selected_unit={$smarty.get.selected_unit}&test_analysis=1&show_solved_test={$smarty.get.show_solved_test}"></iframe></td></tr>
+                          <tr><td>
+                           <div id = "graph_table"><div id = "proto_chart" class = "proto_graph"></div></div>
+                           <script>var show_test_graph = true;</script>
+                          </td></tr>
           </table>
          {/capture}
 

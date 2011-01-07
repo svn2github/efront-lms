@@ -3,7 +3,6 @@ define("_QUOTE_QUOTEDAY","Quote of the day");
 define("_QUOTE_LESSONLINK", "Quote of the day Module");
 define("_QUOTE_MAIN", "Main page");
 define("_QUOTE_MANAGEMENT", "Manage Quote of the day");
-
 define("_QUOTE_QUOTELIST", "Quotes");
 define("_QUOTE_ADDQUOTE", "Add Quote");
 define("_QUOTE_QUOTE", "Quote");

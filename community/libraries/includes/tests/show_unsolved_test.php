@@ -73,7 +73,10 @@ if (!$_student_) {
    }
 
             if (isset($_GET['test_analysis'])) {
-                require_once 'charts/php-ofc-library/open-flash-chart.php';
+             $loadScripts[] = 'scriptaculous/excanvas';
+             $loadScripts[] = 'scriptaculous/flotr';
+             $loadScripts[] = 'scriptaculous/controls';
+             $loadScripts[] = 'includes/graphs';
 
                 list($parentScores, $analysisCode) = $testInstance -> analyseTest();
 
@@ -83,13 +86,51 @@ if (!$_student_) {
                 $status = $testInstance -> getStatus($currentUser -> user['login']);
                 $smarty -> assign("T_TEST_STATUS", $status);
 
-                if (isset($_GET['display_chart'])) {
-                    $url = basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$currentUnit['id'].'&test_analysis=1&selected_unit='.$_GET['selected_unit'].'&show_chart=1&show_solved_test='.$_GET['show_solved_test'];
-                    echo $testInstance -> displayChart($url);
-                    exit;
-                } elseif (isset($_GET['show_chart'])) {
-                    echo $testInstance -> calculateChart($parentScores);
-                    exit;
+                try {
+                 if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_test_analysis') {
+                  $graph = new EfrontGraph();
+                  $graph -> type = 'line';
+                  $graph -> max = '100';
+                  $graph -> min = '0';
+                  $graph -> fill = false;
+
+                  $count = 0;
+
+                  foreach ($parentScores as $key => $value) {
+                   if (isset($value['percentage'])) {
+                    if (isset($_GET['entity']) && $_GET['entity']) {
+                     if ($value['name']) {
+                      $graph -> meanValue[] = array($count, $testInstance -> completedTest['score']);
+                      $graph -> data[] = array($count, $value['this_percentage']);
+                      $graph -> xLabels[] = array($count++, $value['name']);
+                     }
+                    } else {
+                     // Only the top level chapters should appear on the basic lesson test graph
+                     if ($value['top_level'] == 1) {
+                      $graph -> meanValue[] = array($count, $testInstance -> completedTest['score']);
+                      $graph -> data[] = array($count, $value['percentage']);
+                      $graph -> xLabels[] = array($count++, $value['name']);
+                     }
+                    }
+                   }
+                  }
+                  //The lines below are used when the graph has a single value: It creates 2 additional values, in order to appear correctly (otherwise a single point appears, rather than a line)
+                  if (sizeof($graph -> data) == 1) {
+                   $graph -> meanValue = array(array(0, $graph -> meanValue[0][1]), array(1, $graph -> meanValue[0][1]), array(2, $graph -> meanValue[0][1]));
+                   $graph -> data = array(array(0, $graph -> data[0][1]), array(1, $graph -> data[0][1]), array(2, $graph -> data[0][1]));
+                   $graph -> xLabels = array(array(0, ''), array(1, $graph -> xLabels[0][1]), array(2, ''));
+                  }
+
+                  $graph -> xTitle = _UNIT;
+                  $graph -> yTitle = _SCORE;
+                  $graph -> label = _SCOREINUNIT;
+                  $graph -> meanValueLabel = _SCOREINTEST;
+
+                  echo json_encode($graph);
+                  exit;
+                 }
+                } catch (Exception $e) {
+                 handleAjaxExceptions($e);
                 }
             }
 

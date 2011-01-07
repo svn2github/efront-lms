@@ -4,7 +4,6 @@ define("_LINKS_LESSONLINK", "Links");
 define("_LINKS_MODULE", "Links Module");
 define("_LINKS_MAIN", "Main page");
 define("_LINKS_MANAGEMENT", "Manage Links");
-
 define("_LINKS_LINKLIST", "Links");
 define("_LINKS_ADDLINK", "Add Link");
 define("_LINKS_DISPLAY", "Display text");

@@ -3983,4 +3983,9 @@ define("_UPLOADSITELOGO", "Ανεβάστε site logo");
 define("_ATLEAST", "Τουλάχιστον");
 define("_ATMOST", "Το πολύ");
 define("_EQUALTO", "Ίσο με");
+define("_SKILLSSTATISTICS", "Στατιστικά προσόντων");
+define("_STATISTICSFORSKILL", "Στατιστικά για το προσόν");
+define("_CHOOSESKILL", "Επιλέξτε προσόν");
+define("_SKILLGRAPH", "Γράφημα προσόντος");
+define("_TOTALSKILLS", "Συνολικά προσόντα");
 ?>

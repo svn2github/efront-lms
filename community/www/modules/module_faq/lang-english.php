@@ -1,14 +1,11 @@
 <?php
 define("_FAQ","Frequently asked questions");
-
 define("_FAQ_SYSTEMLINK1", "FAQ system link1");
 define("_FAQ_SYSTEMLINK2", "FAQ system link2");
 define("_FAQ_LESSONLINK", "Lesson FAQ");
 define("_FAQ_MODULE", "FAQ Module");
 define("_FAQ_MAIN","Main page");
 define("_FAQ_MANAGEMENT","Manage FAQs");
-
-
 define("_FAQ_SUCCESFULLYINSERTEDFAQENTRY", "FAQ was succesfully updated");
 define("_FAQ_PROBLEMINSERTINGFAQENTRY", "FAQ could not be updated");
 define("_FAQ_INSERTFAQ", "Insert FAQ entry");

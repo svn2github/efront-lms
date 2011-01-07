@@ -1422,13 +1422,14 @@ class EfrontLesson
 
 	 */
  public function getUsersCompleted($completed) {
-  foreach ($this -> getUsers() as $key => $user) {
+  $users = $this -> getUsers();
+  foreach ($users as $key => $user) {
    if (($completed && !$user['completed']) || (!$completed && $user['completed'])) {
     unset($users[$key]);
    }
   }
-  return $users;
- }
+        return $users;
+    }
  /**
 
 	 * Get users that don't have the lesson

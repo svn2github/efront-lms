@@ -485,12 +485,14 @@ function toggleHorizontalSidebar(el, cookie) {
   $('logo').setStyle({display:'none'});
   $('horizontalBarRow').removeClassName('header').addClassName('headerHidden');
   $('tab_handles_div').insert($('tab_handles').remove());
+  $('tab_handles').setStyle({float:'right'});
  } else {
   el.removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
   cookie ? createCookie('horizontalSideBar', 'visible') : null;
   $('logo').setStyle({display:'block'});
   $('horizontalBarRow').removeClassName('headerHidden').addClassName('header');
   $('logout_link').insert($('tab_handles').remove());
+  $('tab_handles').setStyle({float:''});
  }
 }
 function setImageSrc(el, dim, img) {

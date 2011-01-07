@@ -6,8 +6,6 @@ define("_BBB_LESSONLINK", "Lesson BBB");
 define("_BBB_MODULE", "BBB Conference Module");
 define("_BBB_MAIN","Main page");
 define("_BBB_MANAGEMENT","Manage Conferences");
-
-
 define("_BBB_SUCCESFULLYINSERTEDBBBENTRY", "Conference was succesfully updated");
 define("_BBB_PROBLEMINSERTINGBBBENTRY", "Conference could not be created");
 define("_BBB_INSERTBBB", "Insert conference");
@@ -40,14 +38,12 @@ define("_BBB_BBBMEETING", "Conference");
 define("_BBB_SCHEDULEMEETING", "Conference schedule");
 define("_BBB_MEETINGATTENDANTS", "Conference attendants");
 define("_BBB_BBBMEETINGDATA", "BBB conference information");
-
 define("_BBB_BBBSERVER", "BBB Conference Server configuration");
 define("_BBB_BBBSERVERNAME", "Server host");
 define("_BBB_BBBSERVERVERSION", "Server Version 0.7+");
 define("_BBB_SECURITYSALT","Security salt");
 define("_BBB_SUCCESFULLYCHANGEDSERVER", "Server host has been successfully updated");
 define("_BBB_NOBBBSERVERDEFINED", "No BBB conferences server has been defined");
-
 define("_BBBDURATION","Duration");
 define("_BBBUSELOBBYROOM","Use lobby waiting room");
 define("_BBBAUDIOONLY","Audio only");
@@ -55,7 +51,6 @@ define("_BBBAUDIOVIDEO","Audio and video");
 define("_BBBMAXPARTICIPANTS","Maximum number of participants");
 define("_BBBMAXMICS","Maximum number of microphones");
 define("_BBBPRESENTERAV","Type of conference");
-
 define("_BBB_NOTIFYUSERSVIAEMAIL", "Send notification email to participants");
 define("_BBB_MEETING", "eFront Conference Notification");
 define("_BBB_DEAR","Dear");
@@ -69,8 +64,6 @@ define("_BBB_EMAILSENTSUCCESFFULLY", "emails sent successfully");
 define("_BBBMEETINGHASFINISHED","The conference you have selected has finished");
 define("_BBB_AREYOUSUREYOUWANTTOSTARTTHECONFERENCE", "Are you sure you want to start the conference? (After this action, viewers will be allowed to join the meeting until its expiration time)");
 define("_BBB_RESETDEFAULTSERVER","Reset default server");
-
-// meeting launch time ETA
 define("_BBB_IN","In");
 define("_BBB_NOW","Now!");
 ?>

@@ -1,11 +1,9 @@
 <?php
 define("_DIMDIM","Συσκέψεις");
-
 define("_DIMDIM_LESSONLINK", "DIMDIM μαθημάτων");
 define("_DIMDIM_MODULE", "DIMDIM άρθρωμα");
 define("_DIMDIM_MAIN","Κύρια σελίδα");
 define("_DIMDIM_MANAGEMENT","Διαχείριση");
-
 define("_DIMDIM_SUCCESFULLYINSERTEDDIMDIMENTRY", "Η σύσκεψη ενημερώθηκε επιτυχώς");
 define("_DIMDIM_PROBLEMINSERTINGDIMDIMENTRY", "Δεν ήταν δυνατόν να δημιουργηθεί η σύσκεψη");
 define("_DIMDIM_INSERTDIMDIM", "Εισαγωγή εγγραφής στις συσκέψεις");
@@ -37,12 +35,10 @@ define("_DIMDIM_DIMDIMMEETING", "Σύσκεψη DimDim");
 define("_DIMDIM_SCHEDULEMEETING", "Προγραμματισμός σύσκεψης");
 define("_DIMDIM_MEETINGATTENDANTS", "Συμμετέχοντες σύσκεψης");
 define("_DIMDIM_DIMDIMMEETINGDATA", "Πληροφορίες για τη σύσκεψη");
-
 define("_DIMDIM_DIMDIMSERVER", "Ρύθμιση DimDim εξυπηρετητή για συσκέψεις");
 define("_DIMDIM_DIMDIMSERVERNAME", "Εξυπηρετητής");
 define("_DIMDIM_SUCCESFULLYCHANGEDSERVER", "Ο εξυπηρετητής καταχωρήθηκε επιτυχώς");
 define("_DIMDIM_NODIMDIMSERVERDEFINED", "Δεν έχει οριστεί εξυπηρετητής για DimDim συσκέψεις");
-
 define("_DIMDIMDURATION","Διάρκεια");
 define("_DIMDIMUSELOBBYROOM","Χρήση δωματίου αναμονής");
 define("_DIMDIMAUDIOONLY","Μόνο ήχος");
@@ -50,7 +46,6 @@ define("_DIMDIMAUDIOVIDEO","Ήχος και βίντεο");
 define("_DIMDIMMAXPARTICIPANTS","Μέγιστος αριθμός συμμετεχόντων");
 define("_DIMDIMMAXMICS","Μέγιστος αριθμός μικροφώνων");
 define("_DIMDIMPRESENTERAV","Τύπος σύσκεψης");
-
 define("_DIMDIM_NOTIFYUSERSVIAEMAIL", "Ειδοποίησε συμμετέχοντες μέσω email");
 define("_DIMDIM_MEETING", "Ειδοποίηση συνεδρίασης eFront");
 define("_DIMDIM_DEAR","Αγαπητέ\ή");

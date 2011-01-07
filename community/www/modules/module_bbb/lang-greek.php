@@ -1,11 +1,9 @@
 <?php
 define("_BBB","BBB Συσκέψεις");
-
 define("_BBB_LESSONLINK", "BBB μαθημάτων");
 define("_BBB_MODULE", "BBB άρθρωμα");
 define("_BBB_MAIN","Κύρια σελίδα");
 define("_BBB_MANAGEMENT","Διαχείριση");
-
 define("_BBB_SUCCESFULLYINSERTEDBBBENTRY", "Η σύσκεψη ενημερώθηκε επιτυχώς");
 define("_BBB_PROBLEMINSERTINGBBBENTRY", "Δεν ήταν δυνατόν να δημιουργηθεί η σύσκεψη");
 define("_BBB_INSERTBBB", "Εισαγωγή εγγραφής στις συσκέψεις");
@@ -37,14 +35,12 @@ define("_BBB_BBBMEETING", "Σύσκεψη BBB");
 define("_BBB_SCHEDULEMEETING", "Προγραμματισμός σύσκεψης");
 define("_BBB_MEETINGATTENDANTS", "Συμμετέχοντες σύσκεψης");
 define("_BBB_BBBMEETINGDATA", "Πληροφορίες για τη σύσκεψη");
-
 define("_BBB_BBBSERVER", "Ρύθμιση BBB εξυπηρετητή για συσκέψεις");
 define("_BBB_BBBSERVERNAME", "Εξυπηρετητής");
 define("_BBB_BBBSERVERVERSION", "Εκδοση εξυπηρετητή 0.7+");
 define("_BBB_SECURITYSALT", "Κωδικός ασφαλείας (salt)");
 define("_BBB_SUCCESFULLYCHANGEDSERVER", "Ο εξυπηρετητής καταχωρήθηκε επιτυχώς");
 define("_BBB_NOBBBSERVERDEFINED", "Δεν έχει οριστεί εξυπηρετητής για BBB συσκέψεις");
-
 define("_BBBDURATION","Διάρκεια");
 define("_BBBUSELOBBYROOM","Χρήση δωματίου αναμονής");
 define("_BBBAUDIOONLY","Μόνο ήχος");
@@ -52,7 +48,6 @@ define("_BBBAUDIOVIDEO","Ήχος και βίντεο");
 define("_BBBMAXPARTICIPANTS","Μέγιστος αριθμός συμμετεχόντων");
 define("_BBBMAXMICS","Μέγιστος αριθμός μικροφώνων");
 define("_BBBPRESENTERAV","Τύπος σύσκεψης");
-
 define("_BBB_NOTIFYUSERSVIAEMAIL", "Ειδοποίησε συμμετέχοντες μέσω email");
 define("_BBB_MEETING", "Ειδοποίηση συνεδρίασης eFront");
 define("_BBB_DEAR","Αγαπητέ\ή");
@@ -66,8 +61,6 @@ define("_BBB_EMAILSENTSUCCESFFULLY", "emails στάλθηκαν επιτυχώς
 define("_BBBMEETINGHASFINISHED","Η συνεδριάση που επιλέξατε έχει ήδη ολοκληρωθεί");
 define("_BBB_AREYOUSUREYOUWANTTOSTARTTHECONFERENCE", "Είστε σίγουροι ότι θέλετε να ξεκινήσετε τη συνεδρίαση; (Μετά από την έναρξη, οι συμμετέχοντες θα μπορούν να εισέλθουν στη συνεδρίαση μέχρι τη λήξη της)");
 define("_BBB_RESETDEFAULTSERVER","Επαναφορά προεπιλεγμένου εξυπηρετητή");
-
-// meeting launch time ETA
 define("_BBB_IN","Σε");
 define("_BBB_NOW","Τώρα!");
 ?>

@@ -13,6 +13,8 @@ function onShowGraph(el, response) {
   case 'pie': showPieGraph(el, obj); break;
   case 'line': default: showLineGraph(el, obj); break;
  }
+
+ Flotr.draw(el, series, options);
 }
 
 
@@ -38,7 +40,7 @@ function showHorizontalBarGraph(el, obj) {
 
   //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
-  Flotr.draw(el, series, options);
+
  } catch (e) {
   alert(e);
  }
@@ -68,9 +70,7 @@ function showBarGraph(el, obj) {
        xaxis: 1,
        yaxis: 1}
      ];
-  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
-  Flotr.draw(el, series, options);
  } catch (e) {
   alert(e);
  }
@@ -88,21 +88,31 @@ function showLineGraph(el, obj) {
   options = {"HtmlText": true,
        "title": obj.title,
        "xaxis": {"showLabels": true, "ticks":xLabelsFiltered, "title":obj.xTitle},
-       "yaxis": {"showLabels": true, "title":obj.yTitle},
-       "lines": {"show": true, "fill":true},
-       "mouse": {"track":true, "position": "ne", "relative": true, "trackFormatter": function(obj2){ return obj.xLabels[parseInt(obj2.x)][1] + ' ('+obj.xTitle+') | '+obj2.y +' ('+obj.yTitle+')';}}
+       "yaxis": {"showLabels": true, "title":obj.yTitle, "max":obj.max, "min":obj.min},
+       "lines": {"show": true, "fill":obj.fill},
+       "mouse": {"track":true, "position": "ne", "relative": true, "trackFormatter": function(obj2){ return obj.xLabels[parseInt(obj2.x)][1] + ' ('+obj.xTitle+') | '+obj2.y +' ('+obj.yTitle+')';}},
+       "legend": {"show":true}
        };
 
   series = [{label: obj.label,
        color: "#00A8F0",
        data: obj.data,
        xaxis: 1,
-       yaxis: 1}
-     ];
+       yaxis: 1,
+       points: {show: true}}];
+  if (obj.meanValue) {
+   series.push({
+       label: obj.meanValueLabel,
+       color: "#def463",
+       data: obj.meanValue,
+       mouse: {"track":false},
+       lines: {"show":false, "fill":false},
+       xaxis: 1,
+       yaxis: 1});
+  }
 
-  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
-  Flotr.draw(el, series, options);
+
  } catch (e) {
   alert(e);
  }
@@ -125,17 +135,15 @@ function showPieGraph(el, obj) {
        yaxis: 1}
      );
   }
-  //el.setStyle({height:Math.max(500, obj.xLabels.length*30)+'px'});
 
-  Flotr.draw(el, series, options);
  } catch (e) {
   alert(e);
  }
 
 
 }
-/*
-if (1) {
-	showGraph($('proto_chart'), 'graph_test_analysis');
+
+
+if (typeof('show_test_graph') != 'undefined') {
+ showGraph($('proto_chart'), 'graph_test_analysis', '');
 }
-*/

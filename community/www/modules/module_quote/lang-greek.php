@@ -3,7 +3,6 @@ define("_QUOTE_QUOTEDAY","Ρητό της ημέρας");
 define("_QUOTE_LESSONLINK", "Άρθρωμα Ρητό της ημέρας");
 define("_QUOTE_MAIN", "Κύρια σελίδα");
 define("_QUOTE_MANAGEMENT", "Διαχείριση");
-
 define("_QUOTE_QUOTELIST", "Ρητά");
 define("_QUOTE_ADDQUOTE", "Προσθήκη Ρητού");
 define("_QUOTE_QUOTE", "Ρητό");

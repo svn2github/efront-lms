@@ -734,7 +734,7 @@ color: green;
 }
 .resultsTitle .small a:hover{text-decoration: underline;}
 .resultsTitleBold{font-weight: bold;}
-.searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; margin-bottom:4px; padding-left:18px; padding-top:2px;padding-bottom:2px;width:134px}
+.searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; padding-left:18px; padding-top:0px;padding-bottom:0px;width:134px;vertical-align:}
 
 /*Progress bar classes*/
 div#progress_bar a{display:block;margin-top:10px;}
@@ -1493,6 +1493,7 @@ vertical-align:middle;
    margin:0px;
    width:100%;
    height: 100%;
+  /* font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;*/
 }
 sup{font-size:xx-small; vertical-align:top!important;}
 sub{font-size:xx-small; vertical-align:bottom!important;}

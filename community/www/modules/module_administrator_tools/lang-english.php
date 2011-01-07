@@ -1,5 +1,4 @@
 <?php
-/* This file defines the constants for the module in English */
 define("_MODULE_ADMINISTRATOR_TOOLS","Administrator tools");
 define("_MODULE_ADMINISTRATOR_TOOLS_NEWLOGIN", "New login name");
 define("_MODULE_ADMINISTRATOR_TOOLS_SELECTUSERTOCHANGELOGINFOR", "Select user to change login for");
@@ -34,4 +33,8 @@ define("_MODULE_ADMINISTRATOR_TOOLS_LASTACTION", "Last action");
 define("_MODULE_ADMINISTRATOR_TOOLS_SHOWINACTIVEUSERSSINCE", "Show users idle since");
 define("_MODULE_ADMINISTRATOR_TOOLS_ARCHIVEALLUSERS", "Archive all users");
 define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLARCHIVEALLUSERSAREYOUSURE", "This will archive all users returned matching the selected criteria! Are you sure?");
+define("_MODULE_ADMINISTRATOR_TOOLS_DEACTIVATEALLUSERS", "Deactivate all users");
+define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLDEACTIVATEALLUSERSAREYOUSURE", "This will deactivate all users returned matching the selected criteria! Are you sure?");
+define("_MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS", "Toggle status");
+define("_MODULE_ADMINISTRATOR_TOOLS_LAST3MONTHS", "Last 3 months");
 ?>

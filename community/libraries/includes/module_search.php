@@ -242,7 +242,9 @@ if (isset($_POST['search_text'])) {
  }
  $cr = $crTemp;
 
-    $results = EfrontSearch :: searchFull($_POST['search_text']);
+ //Added to avoid problems with strings that contained single quotes
+ $searchText = htmlspecialchars($_POST['search_text'], ENT_QUOTES);
+    $results = EfrontSearch :: searchFull($searchText);
 //pr($results);exit;
     $lessons_have = $courses_have = null;
     $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']); //Get active lessons of this user

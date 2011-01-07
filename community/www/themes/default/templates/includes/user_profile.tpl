@@ -42,8 +42,8 @@
 
                                         <tr><td class = "labelCell">{$smarty.const._ACTIVENEUTRAL}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.active.html}</td></tr>
-                                        <tr><td class = "labelCell">{$smarty.const._ISVISIBLEFROMOTHERUSERS}&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.visible.html}</td></tr>
+                                  <!-- <tr><td class = "labelCell">{$smarty.const._ISVISIBLEFROMOTHERUSERS}&nbsp;</td>
+                                            <td class = "elementCell">{$T_FIELD_FORM.visible.html}</td></tr> -->
                                         <tr><td class = "labelCell">{$smarty.const._ISMANDATORY}:&nbsp;</td>
                                             <td class = "elementCell">{$T_FIELD_FORM.mandatory.html}</td></tr>
                                         <tr><td class = "labelCell">{$smarty.const._LANGUAGE}:&nbsp;</td>

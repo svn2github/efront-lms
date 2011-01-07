@@ -74,6 +74,8 @@
       {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
      {elseif $item.column == 'certificate_status'}
       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$entry}</a>
+     {elseif $item.column == 'total_skills'}
+      {if $user.total_skills}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&tab=skills" class = "editLink">{$user.total_skills}</a>{/if}
      {else}
       {$entry}
      {/if}
@@ -251,6 +253,11 @@
        {$T_CONDITIONS[$item.condition].values[$item.option]}
       {elseif $item.condition == 'skill'}
        {$T_SKILLS[$item.option]}
+       ({$smarty.const._SCORE}
+       {if $item.score_relation == 'atleast'}&gt;=
+       {elseif $item.score_relation == 'atmost'}&lt;=
+       {elseif $item.score_relation == 'equal'}={/if}
+       {$item.score}%)
       {elseif $item.condition == 'job_description'}
        {$T_JOBS[$item.option]}
       {elseif $item.condition == 'user_type'}

@@ -41,6 +41,9 @@
 {elseif $T_OPTION == 'branches'}
  {include file = "includes/statistics/branches_stats.tpl"}
 
+{elseif $T_OPTION == 'skill'}
+ {include file = "includes/statistics/skills_stats.tpl"}
+
 {elseif $T_OPTION == 'participation'}
  {include file = "includes/statistics/participation_stats.tpl"}
 

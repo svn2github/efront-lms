@@ -1,5 +1,4 @@
 <?php
-
 define("_JOURNAL_NAME", "Journal");
 define("_JOURNAL_RULES", "Rules");
 define("_JOURNAL_DISPLAY_RULES", "Display Rules");
@@ -44,5 +43,4 @@ define("_JOURNAL_COPY_TO_CLIPBOARD", "Copy to clipboard");
 define("_JOURNAL_STUDENTS_JOURNAL", "Students' journal");
 define("_JOURNAL_STUDENT_NAME", "Student Name");
 define("_JOURNAL_NO_STUDENTS_FOUND", "No students found");
-
 ?>

@@ -15,5 +15,7 @@ class EfrontGraph
  public $yLabels = array();
  public $yTitle;
  public $label;
-
+ public $max;
+ public $min;
+ public $fill = true;
 }

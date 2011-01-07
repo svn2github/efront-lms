@@ -1,6 +1,6 @@
-// script.aculo.us effects.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
+// script.aculo.us effects.js v1.9.0, Thu Dec 23 16:54:48 -0500 2010
 
-// Copyright (c) 2005-2009 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+// Copyright (c) 2005-2010 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 // Contributors:
 //  Justin Palmer (http://encytemedia.com/)
 //  Mark Pilgrim (http://diveintomark.org/)
@@ -98,13 +98,13 @@ var Effect = {
     }
   },
   DefaultOptions: {
-    duration:   1.0,   // seconds
-    fps:        100,   // 100= assume 66fps max.
-    sync:       false, // true for combining
-    from:       0.0,
-    to:         1.0,
-    delay:      0.0,
-    queue:      'parallel'
+    duration: 1.0, // seconds
+    fps: 100, // 100= assume 66fps max.
+    sync: false, // true for combining
+    from: 0.0,
+    to: 1.0,
+    delay: 0.0,
+    queue: 'parallel'
   },
   tagifyText: function(element) {
     var tagifyStyle = 'position:relative';
@@ -143,14 +143,14 @@ var Effect = {
     });
   },
   PAIRS: {
-    'slide':  ['SlideDown','SlideUp'],
-    'blind':  ['BlindDown','BlindUp'],
+    'slide': ['SlideDown','SlideUp'],
+    'blind': ['BlindDown','BlindUp'],
     'appear': ['Appear','Fade']
   },
   toggle: function(element, effect, options) {
     element = $(element);
-    effect  = (effect || 'appear').toLowerCase();
-    
+    effect = (effect || 'appear').toLowerCase();
+
     return Effect[ Effect.PAIRS[ effect ][ element.visible() ? 1 : 0 ] ](element, Object.extend({
       queue: { position:'end', scope:(element.id || 'global'), limit: 1 }
     }, options || {}));
@@ -163,7 +163,7 @@ Effect.DefaultOptions.transition = Effect.Transitions.sinoidal;
 
 Effect.ScopedQueue = Class.create(Enumerable, {
   initialize: function() {
-    this.effects  = [];
+    this.effects = [];
     this.interval = null;
   },
   _each: function(iterator) {
@@ -179,7 +179,7 @@ Effect.ScopedQueue = Class.create(Enumerable, {
       case 'front':
         // move unstarted effects after this effect
         this.effects.findAll(function(e){ return e.state=='idle' }).each( function(e) {
-            e.startOn  += effect.finishOn;
+            e.startOn += effect.finishOn;
             e.finishOn += effect.finishOn;
           });
         break;
@@ -192,7 +192,7 @@ Effect.ScopedQueue = Class.create(Enumerable, {
         break;
     }
 
-    effect.startOn  += timestamp;
+    effect.startOn += timestamp;
     effect.finishOn += timestamp;
 
     if (!effect.options.queue.limit || (this.effects.length < effect.options.queue.limit))
@@ -230,14 +230,14 @@ Effect.Base = Class.create({
   position: null,
   start: function(options) {
     if (options && options.transition === false) options.transition = Effect.Transitions.linear;
-    this.options      = Object.extend(Object.extend({ },Effect.DefaultOptions), options || { });
+    this.options = Object.extend(Object.extend({ },Effect.DefaultOptions), options || { });
     this.currentFrame = 0;
-    this.state        = 'idle';
-    this.startOn      = this.options.delay*1000;
-    this.finishOn     = this.startOn+(this.options.duration*1000);
-    this.fromToDelta  = this.options.to-this.options.from;
-    this.totalTime    = this.finishOn-this.startOn;
-    this.totalFrames  = this.options.fps*this.options.duration;
+    this.state = 'idle';
+    this.startOn = this.options.delay*1000;
+    this.finishOn = this.startOn+(this.options.duration*1000);
+    this.fromToDelta = this.options.to-this.options.from;
+    this.totalTime = this.finishOn-this.startOn;
+    this.totalFrames = this.options.fps*this.options.duration;
 
     this.render = (function() {
       function dispatch(effect, eventName) {
@@ -279,7 +279,7 @@ Effect.Base = Class.create({
         this.event('afterFinish');
         return;
       }
-      var pos   = (timePos - this.startOn) / this.totalTime,
+      var pos = (timePos - this.startOn) / this.totalTime,
           frame = (pos * this.totalFrames).round();
       if (frame > this.currentFrame) {
         this.render(pos);
@@ -355,7 +355,7 @@ Effect.Opacity = Class.create(Effect.Base, {
       this.element.setStyle({zoom: 1});
     var options = Object.extend({
       from: this.element.getOpacity() || 0.0,
-      to:   1.0
+      to: 1.0
     }, arguments[1] || { });
     this.start(options);
   },
@@ -369,8 +369,8 @@ Effect.Move = Class.create(Effect.Base, {
     this.element = $(element);
     if (!this.element) throw(Effect._elementDoesNotExistError);
     var options = Object.extend({
-      x:    0,
-      y:    0,
+      x: 0,
+      y: 0,
       mode: 'relative'
     }, arguments[1] || { });
     this.start(options);
@@ -378,7 +378,7 @@ Effect.Move = Class.create(Effect.Base, {
   setup: function() {
     this.element.makePositioned();
     this.originalLeft = parseFloat(this.element.getStyle('left') || '0');
-    this.originalTop  = parseFloat(this.element.getStyle('top')  || '0');
+    this.originalTop = parseFloat(this.element.getStyle('top') || '0');
     if (this.options.mode == 'absolute') {
       this.options.x = this.options.x - this.originalLeft;
       this.options.y = this.options.y - this.originalTop;
@@ -386,8 +386,8 @@ Effect.Move = Class.create(Effect.Base, {
   },
   update: function(position) {
     this.element.setStyle({
-      left: (this.options.x  * position + this.originalLeft).round() + 'px',
-      top:  (this.options.y  * position + this.originalTop).round()  + 'px'
+      left: (this.options.x * position + this.originalLeft).round() + 'px',
+      top: (this.options.y * position + this.originalTop).round() + 'px'
     });
   }
 });
@@ -407,9 +407,9 @@ Effect.Scale = Class.create(Effect.Base, {
       scaleY: true,
       scaleContent: true,
       scaleFromCenter: false,
-      scaleMode: 'box',        // 'box' or 'contents' or { } with provided values
+      scaleMode: 'box', // 'box' or 'contents' or { } with provided values
       scaleFrom: 100.0,
-      scaleTo:   percent
+      scaleTo: percent
     }, arguments[2] || { });
     this.start(options);
   },
@@ -422,13 +422,13 @@ Effect.Scale = Class.create(Effect.Base, {
       this.originalStyle[k] = this.element.style[k];
     }.bind(this));
 
-    this.originalTop  = this.element.offsetTop;
+    this.originalTop = this.element.offsetTop;
     this.originalLeft = this.element.offsetLeft;
 
     var fontSize = this.element.getStyle('font-size') || '100%';
     ['em','px','%','pt'].each( function(fontSizeType) {
       if (fontSize.indexOf(fontSizeType)>0) {
-        this.fontSize     = parseFloat(fontSize);
+        this.fontSize = parseFloat(fontSize);
         this.fontSizeType = fontSizeType;
       }
     }.bind(this));
@@ -458,8 +458,8 @@ Effect.Scale = Class.create(Effect.Base, {
     if (this.options.scaleX) d.width = width.round() + 'px';
     if (this.options.scaleY) d.height = height.round() + 'px';
     if (this.options.scaleFromCenter) {
-      var topd  = (height - this.dims[0])/2;
-      var leftd = (width  - this.dims[1])/2;
+      var topd = (height - this.dims[0])/2;
+      var leftd = (width - this.dims[1])/2;
       if (this.elementPositioning == 'absolute') {
         if (this.options.scaleY) d.top = this.originalTop-topd + 'px';
         if (this.options.scaleX) d.left = this.originalLeft-leftd + 'px';
@@ -493,7 +493,7 @@ Effect.Highlight = Class.create(Effect.Base, {
     if (!this.options.restorecolor)
       this.options.restorecolor = this.element.getStyle('background-color');
     // init color calculations
-    this._base  = $R(0,2).map(function(i){ return parseInt(this.options.startcolor.slice(i*2+1,i*2+3),16) }.bind(this));
+    this._base = $R(0,2).map(function(i){ return parseInt(this.options.startcolor.slice(i*2+1,i*2+3),16) }.bind(this));
     this._delta = $R(0,2).map(function(i){ return parseInt(this.options.endcolor.slice(i*2+1,i*2+3),16)-this._base[i] }.bind(this));
   },
   update: function(position) {
@@ -529,7 +529,7 @@ Effect.Fade = function(element) {
   var oldOpacity = element.getInlineOpacity();
   var options = Object.extend({
     from: element.getOpacity() || 1.0,
-    to:   0.0,
+    to: 0.0,
     afterFinishInternal: function(effect) {
       if (effect.options.to!=0) return;
       effect.element.hide().setStyle({opacity: oldOpacity});
@@ -542,7 +542,7 @@ Effect.Appear = function(element) {
   element = $(element);
   var options = Object.extend({
   from: (element.getStyle('display') == 'none' ? 0.0 : element.getOpacity() || 0.0),
-  to:   1.0,
+  to: 1.0,
   // force Safari to render floated elements properly
   afterFinishInternal: function(effect) {
     effect.element.forceRerendering();
@@ -558,7 +558,7 @@ Effect.Puff = function(element) {
   var oldStyle = {
     opacity: element.getInlineOpacity(),
     position: element.getStyle('position'),
-    top:  element.style.top,
+    top: element.style.top,
     left: element.style.left,
     width: element.style.width,
     height: element.style.height
@@ -663,15 +663,15 @@ Effect.Shake = function(element) {
     top: element.getStyle('top'),
     left: element.getStyle('left') };
     return new Effect.Move(element,
-      { x:  distance, y: 0, duration: split, afterFinishInternal: function(effect) {
+      { x: distance, y: 0, duration: split, afterFinishInternal: function(effect) {
     new Effect.Move(effect.element,
-      { x: -distance*2, y: 0, duration: split*2,  afterFinishInternal: function(effect) {
+      { x: -distance*2, y: 0, duration: split*2, afterFinishInternal: function(effect) {
     new Effect.Move(effect.element,
-      { x:  distance*2, y: 0, duration: split*2,  afterFinishInternal: function(effect) {
+      { x: distance*2, y: 0, duration: split*2, afterFinishInternal: function(effect) {
     new Effect.Move(effect.element,
-      { x: -distance*2, y: 0, duration: split*2,  afterFinishInternal: function(effect) {
+      { x: -distance*2, y: 0, duration: split*2, afterFinishInternal: function(effect) {
     new Effect.Move(effect.element,
-      { x:  distance*2, y: 0, duration: split*2,  afterFinishInternal: function(effect) {
+      { x: distance*2, y: 0, duration: split*2, afterFinishInternal: function(effect) {
     new Effect.Move(effect.element,
       { x: -distance, y: 0, duration: split, afterFinishInternal: function(effect) {
         effect.element.undoPositioned().setStyle(oldStyle);
@@ -878,15 +878,15 @@ Effect.Shrink = function(element) {
 
 Effect.Pulsate = function(element) {
   element = $(element);
-  var options    = arguments[1] || { },
+  var options = arguments[1] || { },
     oldOpacity = element.getInlineOpacity(),
     transition = options.transition || Effect.Transitions.linear,
-    reverser   = function(pos){
+    reverser = function(pos){
       return 1 - transition((-Math.cos((pos*(options.pulses||5)*2)*Math.PI)/2) + .5);
     };
 
   return new Effect.Opacity(element,
-    Object.extend(Object.extend({  duration: 2.0, from: 0,
+    Object.extend(Object.extend({ duration: 2.0, from: 0,
       afterFinishInternal: function(effect) { effect.element.setStyle({opacity: oldOpacity}); }
     }, options), {transition: reverser}));
 };
@@ -956,7 +956,7 @@ Effect.Morph = Class.create(Effect.Base, {
 
       if (value.parseColor('#zzzzzz') != '#zzzzzz') {
         value = value.parseColor();
-        unit  = 'color';
+        unit = 'color';
       } else if (property == 'opacity') {
         value = parseFloat(value);
         if (Prototype.Browser.IE && (!this.element.currentStyle.hasLayout))
@@ -1004,7 +1004,7 @@ Effect.Morph = Class.create(Effect.Base, {
 
 Effect.Transform = Class.create({
   initialize: function(tracks){
-    this.tracks  = [];
+    this.tracks = [];
     this.options = arguments[1] || { };
     this.addTracks(tracks);
   },
@@ -1013,8 +1013,8 @@ Effect.Transform = Class.create({
       track = $H(track);
       var data = track.values().first();
       this.tracks.push($H({
-        ids:     track.keys().first(),
-        effect:  Effect.Morph,
+        ids: track.keys().first(),
+        effect: Effect.Morph,
         options: { style: data }
       }));
     }.bind(this));

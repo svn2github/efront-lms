@@ -89,7 +89,10 @@
                 </div>
                 <table class = "test_analysis">
                     <tr><td>{$T_CONTENT_ANALYSIS}</td></tr>
-                    <tr><td><iframe id = "analysis_frame" frameborder = "no" src = "student.php?ctg=content&view_unit={$smarty.get.view_unit}&display_chart=1&selected_unit={$smarty.get.selected_unit}&test_analysis=1&show_solved_test={$smarty.get.show_solved_test}"></iframe></td></tr>
+                    <tr><td>
+                     <div id = "graph_table"><div id = "proto_chart" class = "proto_graph"></div></div>
+                     <script>var show_test_graph = true;</script>
+                    </td></tr>
                 </table>
 {else}
         {if $T_TEST_STATUS.status == '' || $T_TEST_STATUS.status == 'incomplete'}

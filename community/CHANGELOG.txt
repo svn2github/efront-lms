@@ -14,6 +14,12 @@
 - Fixed issue about editing a unit with inactive parent unit
 - Fixed issue about displaying inactive parent unit field in editing unit (#903)
 - Fixed issue in displaying custom blocks containing brackets as separate pages (#896)
+- Replaced deprecated G_MAXFILESIZE from messages attachment file size check
+- Added Latin American language file
+- Fixed issue about default font in editor 3.3.9.2
+- Fixed issue in editing a course that belongs to more than one branches (#934)
+- Added users registration date in lesson reports
+- Fixed error in lesson -> getUsersCompleted (#955)
 
 === Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data

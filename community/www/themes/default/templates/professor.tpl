@@ -382,7 +382,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
       {/if}
   {/if}
   {if $T_OP == 'search'}
-   {assign var = "title" value = $title|cat:''|cat:'<a class = "titleLink" href ="javascript:void(0)">'|cat:$smarty.const._SEARCHRESULTS|cat:'</a>'}
+   {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="javascript:void(0)">'|cat:$smarty.const._SEARCHRESULTS|cat:'</a>'}
   {/if}
  {/if}
  {if $smarty.get.catalog}

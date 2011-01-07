@@ -1,5 +1,4 @@
 <?php
-
 define("_WORKBOOK_NAME", "Workbook");
 define("_WORKBOOK_NOACCESS", "You do not have sufficient permissions for this action");
 define("_WORKBOOK_LESSON_NAME", "Workbook name");
@@ -54,5 +53,4 @@ define("_WORKBOOK_EDIT_ANSWERS", "Edit answers");
 define("_WORKBOOK_RESET_MESSAGE_1", "There are no answers, by any student. You can safely reset the Workbook. Are you sure?");
 define("_WORKBOOK_RESET_MESSAGE_2", "One student has already answered some of the questions. The reset process has as implication, the permanent deletion of the student's answers. Are you sure?");
 define("_WORKBOOK_RESET_MESSAGE_3", "students have already answered some of the questions. The reset process has as implication, the permanent deletion of the students' answers. Are you sure?");
-
 ?>

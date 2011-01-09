@@ -15,6 +15,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
+
 /**
  * Set debugging level:
  * 0: no error reporting
@@ -249,7 +250,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 9359;
+    $build = 9441;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

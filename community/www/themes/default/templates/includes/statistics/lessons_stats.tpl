@@ -417,14 +417,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
      <br/>
                     <table class = "statisticsTools">
                         <tr><td>{$smarty.const._LESSONTIMES}</td>
-{*
-                    {if $T_LESSON_TRAFFIC.total_seconds > 0 }
-                            <td id = "right">
-                                <a href = "display_chart.php?id=5&lesson_id={$smarty.get.sel_lesson}&from={$T_FROM_TIMESTAMP}&to={$T_TO_TIMESTAMP}" onclick = "eF_js_showDivPopup('{$smarty.const._MOSTACTIVEUSERS}', 2)", target = "POPUP_FRAME" style = "vertical-align:middle">
-                                 {$smarty.const._MOSTACTIVEUSERS}: <img src = "images/16x16/reports.png" alt = "{$smarty.const._MOSTACTIVEUSERS}" title = "{$smarty.const._MOSTACTIVEUSERS}"/></a>
-                            </td>
-                    {/if}
-*}
+
                      </tr>
                     </table>
                     <table class = "sortedTable">

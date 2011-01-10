@@ -15,7 +15,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
-
 /**
  * Set debugging level:
  * 0: no error reporting
@@ -127,6 +126,7 @@ setupThemes();
 require_once $path."smarty/smarty_config.php";
 //Assign the configuration variables to smarty
 $smarty -> assign("T_CONFIGURATION", $configuration); //Assign global configuration values to smarty
+$smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
 //Initialize languages and notify smarty on weather we have an RTL language
 $languages = EfrontSystem :: getLanguages();
 !$languages[$setLanguage]['rtl'] OR $smarty -> assign("T_RTL", 1);
@@ -250,7 +250,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 9451;
+    $build = 9465;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

@@ -22,6 +22,8 @@
     <td class = "elementCell">{$T_ENTITY_FORM.import_file[$key].html} <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDBOX}" title = "{$smarty.const._ADDBOX}" onclick = "addBox(this)"></td></tr>
    {/if}
   {/foreach}
+   <tr><td></td>
+    <td class = "infoCell">{$smarty.const._FILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
    <tr><td class = "labelCell">{$T_ENTITY_FORM.import_url[0].label}:&nbsp;</td>
     <td class = "elementCell">{$T_ENTITY_FORM.import_url[0].html} <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDBOX}" title = "{$smarty.const._ADDBOX}" onclick = "addBox(this)"></td></tr>
   {foreach name = 'url_upload_list' item = "item" key = "key" from = $T_ENTITY_FORM.import_url}

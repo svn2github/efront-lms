@@ -63,8 +63,8 @@ if (extension_loaded('gd') || extension_loaded('gd2')) {
  $appearanceLogoForm -> setDefaults(array('normalize_dimensions' => 1));
 }
 $appearanceLogoForm -> addElement("select", "use_logo", _USELOGO, array(0 => _DEFAULTLOGO, 1 => _SITELOGO, 2 => _THEMELOGO));
+$appearanceLogoForm -> setMaxFileSize(FileSystemTree :: getUploadMaxSize()*1024);
 
-$smarty -> assign("T_MAX_UPLOAD_SIZE", FileSystemTree :: getUploadMaxSize());
 try {
  // Get current dimensions
  list($width, $height) = getimagesize($GLOBALS['logoFile']['path']);
@@ -79,38 +79,43 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
 } else {
  $appearanceLogoForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
  if ($appearanceLogoForm -> isSubmitted() && $appearanceLogoForm -> validate()) {
-  $values = $appearanceLogoForm -> exportValues();
-  unset($values['submit']);
-  unset($values['logo']); //This is set separately, otherwise settings replace its value
-  foreach ($values as $key => $value) {
-   $result = EfrontConfiguration :: setValue($key, $value);
-  }
-
-  if ($values['use_logo'] == 0) {
-   EfrontConfiguration :: setValue('logo', '');
-  } elseif ($values['use_logo'] == 1) {
-   EfrontConfiguration :: setValue('logo', $GLOBALS['configuration']['site_logo']);
-  }
-  $logoDirectory = new EfrontDirectory(G_LOGOPATH);
-  $filesystem = new FileSystemTree(G_LOGOPATH);
   try {
-   $logoFile = $filesystem -> uploadFile('site_logo', $logoDirectory);
-   if (strpos($logoFile['mime_type'], 'image') === false) {
-    throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
+   $values = $appearanceLogoForm -> exportValues();
+   unset($values['MAX_FILE_SIZE']);
+   unset($values['submit']);
+   unset($values['logo']); //This is set separately, otherwise settings replace its value
+   foreach ($values as $key => $value) {
+    $result = EfrontConfiguration :: setValue($key, $value);
    }
-   EfrontConfiguration :: setValue('site_logo', $logoFile['id']);
-  } catch (EfrontFileException $e) {
-   if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;} //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
-  }
-  // Normalize avatar picture to the dimensions set in the System Configuration menu. NOTE: the picture will be modified to match existing settings. Future higher settings will be disregarded, while lower ones might affect the quality of the displayed image
-  if ($values["normalize_dimensions"] == 1) {
-   eF_normalizeImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $values["logo_max_width"], $values["logo_max_height"]);
-  } else {
-   list($width, $height) = getimagesize(G_LOGOPATH . $logoFile['name']);
-   eF_createImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $width, $height, $values["logo_max_width"], $values["logo_max_height"]);
-  }
 
-  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=logo&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
+   if ($values['use_logo'] == 0) {
+    EfrontConfiguration :: setValue('logo', '');
+   } elseif ($values['use_logo'] == 1) {
+    EfrontConfiguration :: setValue('logo', $GLOBALS['configuration']['site_logo']);
+   }
+   $logoDirectory = new EfrontDirectory(G_LOGOPATH);
+   $filesystem = new FileSystemTree(G_LOGOPATH);
+   try {
+    $logoFile = $filesystem -> uploadFile('site_logo', $logoDirectory);
+    if (strpos($logoFile['mime_type'], 'image') === false) {
+     throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
+    }
+    EfrontConfiguration :: setValue('site_logo', $logoFile['id']);
+   } catch (EfrontFileException $e) {
+    if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;} //Don't halt if no file was uploaded (errcode = 4). Otherwise, throw the exception
+   }
+   // Normalize avatar picture to the dimensions set in the System Configuration menu. NOTE: the picture will be modified to match existing settings. Future higher settings will be disregarded, while lower ones might affect the quality of the displayed image
+   if ($values["normalize_dimensions"] == 1) {
+    eF_normalizeImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $values["logo_max_width"], $values["logo_max_height"]);
+   } else {
+    list($width, $height) = getimagesize(G_LOGOPATH . $logoFile['name']);
+    eF_createImage(G_LOGOPATH . $logoFile['name'], $logoFile['extension'], $width, $height, $values["logo_max_width"], $values["logo_max_height"]);
+   }
+
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=logo&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
+  } catch (Exception $e) {
+   handleNormalFlowExceptions($e);
+  }
  }
 }
 $smarty -> assign("T_APPEARANCE_LOGO_FORM", $appearanceLogoForm -> toArray());
@@ -120,31 +125,34 @@ $appearanceFaviconForm -> registerRule('checkParameter', 'callback', 'eF_checkPa
 $appearanceFaviconForm -> addElement('file', 'favicon', _FILENAME);
 $appearanceFaviconForm -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 $appearanceFaviconForm -> addElement("advcheckbox", "default_favicon", _USEDEFAULTFAVICON, null, 'class = "inputCheckBox"  id = "set_default_favicon" onclick = "$(\'favicon_settings\').select(\'input\').each(function(s) {if (s.type != \'submit\' && s.id != \'set_default_favicon\') s.disabled ? s.disabled = \'\' : s.disabled = \'disabled\' })"', array(0, 1));
+$appearanceFaviconForm -> setMaxFileSize(FileSystemTree :: getUploadMaxSize()*1024);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $appearanceFaviconForm -> freeze();
 } else {
  $appearanceFaviconForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
- if ($appearanceFaviconForm -> isSubmitted() && $appearanceFaviconForm -> validate()) { //If the form is submitted and validated
-  if ($appearanceFaviconForm -> exportValue('default_favicon')) {
-   EfrontConfiguration :: setValue('favicon', '');
-  } else {
-   $faviconDirectory = new EfrontDirectory(G_LOGOPATH);
-   $filesystem = new FileSystemTree(G_LOGOPATH);
+ if ($appearanceFaviconForm -> isSubmitted() && $appearanceFaviconForm -> validate()) {
+  try { //If the form is submitted and validated
+   if ($appearanceFaviconForm -> exportValue('default_favicon')) {
+    EfrontConfiguration :: setValue('favicon', '');
+   } else {
+    $faviconDirectory = new EfrontDirectory(G_LOGOPATH);
+    $filesystem = new FileSystemTree(G_LOGOPATH);
 
-   try {
-    $faviconFile = $filesystem -> uploadFile('favicon', $logoDirectory);
-    if (strpos($faviconFile['mime_type'], 'image') === false) {
-     throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
+    try {
+     $faviconFile = $filesystem -> uploadFile('favicon', $logoDirectory);
+     if (strpos($faviconFile['mime_type'], 'image') === false) {
+      throw new EfrontFileException(_NOTANIMAGEFILE, EfrontFileException::NOT_APPROPRIATE_TYPE);
+     }
+     EfrontConfiguration :: setValue('favicon', $faviconFile['id']);
+     clearTemplatesCache();
+    } catch (Exception $e) {
+     if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;}
     }
-    EfrontConfiguration :: setValue('favicon', $faviconFile['id']);
-    clearTemplatesCache();
-   } catch (Exception $e) {
-    if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {throw $e;}
    }
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=favicon&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
+  } catch (Exception $e) {
+   handleNormalFlowExceptions($e);
   }
-  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=favicon&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
  }
 }
 $smarty -> assign("T_APPEARANCE_FAVICON_FORM", $appearanceFaviconForm -> toArray());
-
-$smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());

@@ -5,7 +5,7 @@
 - Changed adding a worksheet for each user in lesson reports because it could crash file with more than 2000 users (#854)
 - Added paste_retain_style_properties : "all" in editor configuration for IE7 (#806)
 - Added directionality option in editor for rtl languages
-- Fixed issue about editing feedback by creating function getTestsAndFeedbacks
+- Fixed issue about editing feedback by creating function getTestsAndFeedbacks()
 - Added option for globally disabling move blocks
 - Fixed issue about youtube video z-index in module for IE
 - Added newline at the beggining of string for appending local ini files (#864)
@@ -20,6 +20,20 @@
 - Fixed issue in editing a course that belongs to more than one branches (#934)
 - Added users registration date in lesson reports
 - Fixed error in lesson -> getUsersCompleted (#955)
+- A professor can now reset a user's progress through the "users status" page
+- Free text questions can now be automatically corrected based on keywords
+- Replaced tools in "my courses" page with a convenient side pane
+- Removed flash graphs from tests and replaced them with the default javascript based ones
+- Added an option to enforce password change upon first login
+- Replaced "logout user" option with a more convenient online users list
+- Added theme-based logos
+- Extended modules with numerous API calls
+- Added skill reports (Enterprise edition)
+- Added skill scores (Enterprise edition)
+- Fixed tooltip appearing in org chart despite global disable settings (Enterprise edition)
+- added option to toggle synchronous/asynchronous SCORM communication
+- fix "max upload file size" form setting not being taken into account
+- disabling payments removes "Free" tags from catalog
 
 === Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data

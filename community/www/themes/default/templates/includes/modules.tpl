@@ -79,7 +79,7 @@
                                     <table class = "formElements uploadBox">
                                         <tr><td class = "labelCell">{$smarty.const._FILENAME}:&nbsp;</td>
                                             <td class = "elementCell">{$T_UPLOAD_FILE_FORM.file_upload.0.html}</td></tr>
-                                        <tr><td></td><td class = "infoCell">{$smarty.const._EACHFILESIZEMUSTBESMALLERTHAN} <b>{$smarty.const.G_MAXFILESIZE/1024}</b> {$smarty.const._KB}</td></tr>
+                                        <tr><td></td><td class = "infoCell">{$smarty.const._EACHFILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
                                         {if $T_UPLOAD_FILE_FORM.file_upload.0.error}<tr><td></td><td class = "formError">{$T_UPLOAD_FILE_FORM.file_upload.0.error}</td></tr>{assign var = 'div_error' value = 'upload_file_table'}{/if}
                                         <tr><td class = "labelCell">{$T_UPLOAD_FILE_FORM.overwrite.label}:&nbsp;</td>
                                             <td class = "elementCell">{$T_UPLOAD_FILE_FORM.overwrite.html}</td></tr>

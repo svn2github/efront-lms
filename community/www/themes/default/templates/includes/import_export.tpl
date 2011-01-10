@@ -17,6 +17,8 @@
                         <table class = "formElements">
                             <tr><td class = "labelCell">{$smarty.const._DATAFILE}:</td>
                              <td class = "elementCell">{$T_IMPORT_FORM.import_file.html}</td></tr>
+       <tr><td></td>
+        <td class = "infoCell">{$smarty.const._FILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
                             <tr><td class = "labelCell">{$smarty.const._DATATOIMPORT}:</td>
                              <td class = "elementCell">{$T_IMPORT_FORM.import_type.html}</td></tr>
                             <tr><td class = "labelCell">{$smarty.const._KEEPEXISTINGUSERS}:</td>

@@ -1777,6 +1777,7 @@ class EfrontTest
         if (!$form) {
             $form = new HTML_QuickForm("questionForm", "post", "", "", null, true); //Create a sample form
         }
+        $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize()*1024);
         $allTestQuestions = $this -> getQuestions(true);
   //$allTestQuestionsFilter = $allTestQuestions;
   // lines added for redo only wrong questions

@@ -876,8 +876,10 @@ class EfrontDirectionsTree extends EfrontTree
   $treeString = '';
   if (isset($options['buy_link']) && $options['buy_link'] && (!isset($treeLesson -> lesson['has_lesson']) || !$treeLesson -> lesson['has_lesson']) && (!isset($treeLesson -> lesson['reached_max_users']) || !$treeLesson -> lesson['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
    $action = 'addToCart(this, '.$treeLesson -> lesson['id'].', \'lesson\');';
-   if (!$GLOBALS['configuration']['enable_cart']) {
-    $action .= 'location=redirectLocation';
+   if (!$GLOBALS['configuration']['enable_cart'] || $GLOBALS['configuration']['disable_payments']) {
+    if (!$GLOBALS['configuration']['enable_cart']) {
+     $action .= 'location=redirectLocation';
+    }
     $image = '<img class = "ajaxHandle" src = "images/16x16/add.png" alt = "'._ENROLL.'" title = "'._ENROLL.'" onclick = "'.$action.'">';
    } else {
     $image = '<img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">';
@@ -893,20 +895,22 @@ class EfrontDirectionsTree extends EfrontTree
  private function showLessonPrice($lesson) {
   if ($lesson -> lesson['price']) {
    $lesson -> lesson['price'] ? $priceString = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true) : $priceString = false;
-   return $priceString;
+  } elseif ($GLOBALS['configuration']['disable_payments']) {
+   $priceString = '';
   } else {
    $priceString = _FREELESSON;
-   return $priceString;
   }
+  return $priceString;
  }
  private function showCoursePrice($course) {
   if ($course -> course['price']) {
    $course -> course['price'] ? $priceString = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true) : $priceString = false;
-   return $priceString;
+  } elseif ($GLOBALS['configuration']['disable_payments']) {
+   $priceString = '';
   } else {
    $priceString = _FREECOURSE;
-   return $priceString;
   }
+  return $priceString;
  }
  private function printCourseLinks($treeCourse, $options, $roleBasicType) {
   $treeString = '';
@@ -915,8 +919,10 @@ class EfrontDirectionsTree extends EfrontTree
   if (isset($options['buy_link'])) {
    if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || !$treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $action = 'addToCart(this, '.$treeCourse -> course['id'].', \'course\');';
-    if (!$GLOBALS['configuration']['enable_cart']) {
-     $action .= 'location=redirectLocation';
+    if (!$GLOBALS['configuration']['enable_cart'] || $GLOBALS['configuration']['disable_payments']) {
+     if (!$GLOBALS['configuration']['enable_cart']) {
+      $action .= 'location=redirectLocation';
+     }
      $image = '<img class = "ajaxHandle" src = "images/16x16/add.png" alt = "'._ENROLL.'" title = "'._ENROLL.'" onclick = "'.$action.'">';
     } else {
      $image = '<img class = "ajaxHandle" src = "images/16x16/shopping_basket_add.png" alt = "'._ADDTOCART.'" title = "'._ADDTOCART.'" onclick = "'.$action.'">';
@@ -985,7 +991,7 @@ class EfrontDirectionsTree extends EfrontTree
   $treeString .= '
      <table class = "directionsTable" id = "direction_'.$current['id'].'" '.($iterator -> getDepth() >= 1 ? $display : '').'>
       <tr class = "lessonsList">
-       <td class = "listPadding"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
+       <td class = "listPadding" style = "width:1px"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
        <td class = "listToggle">';
   if ($iterator -> getDepth() >= 1) {
    $treeString .= '<img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_up.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "Element.extend(this);showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
@@ -993,11 +999,10 @@ class EfrontDirectionsTree extends EfrontTree
    $treeString .= '<img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "Element.extend(this);showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
   }
   $treeString .= '</td>
-       <td class = "listIcon">
+       <td>
         <img src = "images/32x32/categories.png" >
         <span style = "display:none" id = "subtree_children_'.$current['id'].'">'.implode(",", $children).'</span>
-       </td>
-       <td class = "listTitle"><span class = "listName">'.$current['name'].'</span></td>
+       <span class = "listName">'.$current['name'].'</span></td>
       </tr>';
   return $treeString;
  }

@@ -287,11 +287,11 @@
    {eF_template_printBlock title = $smarty.const._PAYPALTITLE data = $smarty.capture.t_paypal_data image='32x32/paypal.png'}
   </div>
 *}
-  <div class = "tabbertab {if $smarty.get.tab == 'settings'}tabbertabdefault{/if}" title = "{$smarty.const._SETTINGS}">
-   {eF_template_printBlock title = $smarty.const._SETTINGS data = $smarty.capture.t_payment_settings_code image='32x32/settings.png'}
-  </div>
   <div class = "tabbertab {if $smarty.get.tab == 'coupons'}tabbertabdefault{/if}" title = "{$smarty.const._COUPONS}">
    {eF_template_printBlock title = $smarty.const._COUPONS data = $smarty.capture.t_payment_coupons_code image='32x32/shopping_basket.png'}
+  </div>
+  <div class = "tabbertab {if $smarty.get.tab == 'settings'}tabbertabdefault{/if}" title = "{$smarty.const._SETTINGS}">
+   {eF_template_printBlock title = $smarty.const._SETTINGS data = $smarty.capture.t_payment_settings_code image='32x32/settings.png'}
   </div>
  </div>
  {/capture}

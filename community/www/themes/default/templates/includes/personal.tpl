@@ -162,6 +162,8 @@ var enableMyJobSelect = false;
       <td class = "elementCell">{$T_AVATAR_FORM.delete_avatar.html}</td></tr>
      <tr><td class = "labelCell">{$T_AVATAR_FORM.file_upload.label}:&nbsp;</td>
       <td class = "elementCell">{$T_AVATAR_FORM.file_upload.html}</td></tr>
+     <tr><td></td>
+      <td class = "infoCell">{$smarty.const._FILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
      <tr><td class = "labelCell">{$T_AVATAR_FORM.system_avatar.label}:&nbsp;</td>
       <td class = "elementCell">{$T_AVATAR_FORM.system_avatar.html}&nbsp;(<a href = "{$smarty.server.PHP_SELF}?{if $smarty.get.ctg=='personal'}ctg=personal{elseif $smarty.get.edit_user}ctg=users&edit_user={$smarty.get.edit_user}{/if}&show_avatars_list=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWLIST}', 2)">{$smarty.const._VIEWLIST}</a>)</td></tr>
      <tr><td colspan = "2">&nbsp;</td></tr>
@@ -297,7 +299,7 @@ var enableMyJobSelect = false;
        <a class = "titleLink" href = "{$smarty.server.PHP_SELF}?ctg=control_panel" title = "{$smarty.const._HOME}">{$smarty.const._HOME}</a>
       </span>
    {/if}
-      <span class = "leftOption">{$T_SIMPLEUSERNAME}&nbsp;</span>
+      <span class = "leftOption">#filter:login-{$T_USER.login}#&nbsp;</span>
      </td>
     </tr>
    </table>
@@ -372,7 +374,7 @@ var enableMyJobSelect = false;
    {eF_template_printBlock tabber="groups" title = $T_TITLES.status.groups data = $smarty.capture.t_users_to_groups_code image = '32x32/users.png'}
     {if ($T_SHOW_USER_FORM)}
     <div class="tabbertab {if $smarty.get.tab=='user_form'}tabbertabdefault{/if}" title="{$smarty.const._MYEMPLOYEEFORM}">
-     {eF_template_printBlock alt= $T_USERNAME title = $smarty.const._USERFORM titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
+     {eF_template_printBlock title = $smarty.const._USERFORM titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
     </div>
     {/if}
    </div>
@@ -412,7 +414,7 @@ var enableMyJobSelect = false;
   </tr>
  </table>
 {elseif $smarty.get.printable}
- {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
+ {eF_template_printBlock title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
 {else}
 {*** The user page appearance ***}
  {if isset($smarty.get.add_user)}
@@ -425,9 +427,9 @@ var enableMyJobSelect = false;
   {eF_template_printBlock title = $smarty.const._PERSONALDATA data = $smarty.capture.t_user_code image = '32x32/profile.png' main_options = $T_TABLE_OPTIONS help = 'Dashboard'}
  {else}
   {if $smarty.get.print_preview == 1}
-   {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
+   {eF_template_printBlock title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
   {elseif $smarty.get.print == 1}
-   {eF_template_printBlock alt= $T_USERNAME title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
+   {eF_template_printBlock title = $T_EMPLOYEE_FORM_CAPTION titleStyle = 'font-size:16px;font-weight:bold;' data = $smarty.capture.t_personal_form_data_code image = $T_SYSTEMLOGO options=$T_EMPLOYEE_FORM_OPTIONS}
   {else}
    {eF_template_printBlock title = "`$smarty.const._USEROPTIONSFOR`<span class = 'innerTableName'>&nbsp;&quot;#filter:login-`$T_EDITEDUSER->user.login`#&quot;</span>" data = $smarty.capture.t_user_code image = '32x32/profile.png' main_options = $T_TABLE_OPTIONS options = $T_STATISTICS_LINK}
   {/if}

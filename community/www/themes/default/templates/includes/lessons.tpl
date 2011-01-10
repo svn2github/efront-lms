@@ -141,6 +141,8 @@
            <tr><td class = "labelCell">{$T_IMPORT_LESSON_FORM.import_content.label}:&nbsp;</td>
             <td class = "elementCell">{$T_IMPORT_LESSON_FORM.import_content.html}</td></tr>
            <tr><td></td>
+            <td class = "infoCell">{$smarty.const._FILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
+           <tr><td></td>
             <td class = "submitCell">{$T_IMPORT_LESSON_FORM.submit_lesson.html}</td></tr>
           </table>
           </form>

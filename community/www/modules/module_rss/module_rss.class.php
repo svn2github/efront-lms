@@ -285,8 +285,9 @@ class module_rss extends EfrontModule
             }
         }
 
-        $this -> setMessageVar($message, $message_type);
-
+        if ($message) {
+         $this -> setMessageVar($message, $message_type);
+        }
         return $this -> moduleBaseDir . "module_rss.tpl";
 
     }

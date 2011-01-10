@@ -81,7 +81,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('advcheckbox', 'auto_complete', _AUTOCOMPLETE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'maximize_viewport', _MAXIMIZEVIEWABLEAREA, null, 'class = "inputCheckbox"', array(0, 1));
-  $form -> addElement('text', 'object_ids', _SPECIFYIDFORSREENMATCHING, 'class = "inputText"');
+     $form -> addElement('advcheckbox', 'scorm_asynchronous', _SCORMASYNCHROUNOUS, null, 'class = "inputCheckbox"', array(0, 1));
+     $form -> addElement('text', 'object_ids', _SPECIFYIDFORSREENMATCHING, 'class = "inputText"');
      $form -> addElement('advcheckbox', 'no_before_unload', _NOBEFOREUPLOAD, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'pdf_check', _UPLOADPDFFORCONTENT, null, 'class = "inputCheckbox" onclick="togglePdf()"', array(0, 1));
      $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
@@ -92,6 +93,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('select', 'parent_content_ID', _UNITPARENT, array(0 => _NOPARENT)+$currentContent -> toHTMLSelectOptions($iterator));
      $form -> addElement('file', 'pdf_upload', _PDFFILE, null);
      $form -> addElement('submit', 'submit_insert_content', _SAVECHANGES, 'class = "flatButton"');
+     $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize()*1024);
+
 
      if (strpos($currentUnit['ctg_type'], 'scorm') !== false) {
          $form -> addElement('text', 'scorm_size', _EXPLICITIFRAMESIZE, 'class = "inputText" style = "width:50px"'); //Set an explicit size for the SCORM content
@@ -168,80 +171,79 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 
      //If the form was submitted with pdf content, take special care
      if ($form -> isSubmitted() && $form -> validate()) {
-         $values = $form -> exportValues();
+      try {
+          $values = $form -> exportValues();
 
-         if ($_FILES['pdf_upload']['name'] != "") {
-             if (strpos($_FILES['pdf_upload']['name'], ".pdf") !== false) {
-                 $destinationDir = new EfrontDirectory(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
-                 $filesystem = new FileSystemTree(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
-                 try {
+          if ($_FILES['pdf_upload']['name'] != "") {
+              if (strpos($_FILES['pdf_upload']['name'], ".pdf") !== false) {
+                  $destinationDir = new EfrontDirectory(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
+                  $filesystem = new FileSystemTree(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
                      $uploadedFile = $filesystem -> uploadFile('pdf_upload', $destinationDir);
                      $values['data'] = '<iframe src="'.$currentLesson -> getDirectoryUrl().'/'.$uploadedFile["physical_name"].'"  name="pdfaccept" width="100%" height="600"></iframe>';
-                 } catch (EfrontFileException $e) {
-                     echo $e -> getMessage();
-                 }
-             } else {
-                 $message = _YOUMUSTUPLOADAPDFFILE;
-                 eF_redirect("".basename($_SERVER['PHP_SELF']).'?ctg=content&'.$post_target."&message=".urlencode($message)."&message_type=failure");
-                 exit;
-             }
-         }
+              } else {
+               throw new Exception(_YOUMUSTUPLOADAPDFFILE);
+              }
+          }
 
-         $options = serialize(array('hide_complete_unit' => $values['hide_complete_unit'],
-                                    'auto_complete' => $values['auto_complete'],
-                  'hide_navigation' => $values['hide_navigation'],
-                                    'indexed' => $values['indexed'],
-            'maximize_viewport' => $values['maximize_viewport'],
-            'object_ids' => $values['object_ids'],
-                                    'no_before_unload' => $values['no_before_unload'],
-                              'reentry_action' => isset($values['reentry_action']) ? $values['reentry_action'] : false,
-                     'complete_question' => $values['complete_question'] ? $values['questions'] : 0));
+          $options = serialize(array('hide_complete_unit' => $values['hide_complete_unit'],
+                                     'auto_complete' => $values['auto_complete'],
+                   'hide_navigation' => $values['hide_navigation'],
+                                     'indexed' => $values['indexed'],
+             'maximize_viewport' => $values['maximize_viewport'],
+             'scorm_asynchronous' => $values['scorm_asynchronous'],
+                   'object_ids' => $values['object_ids'],
+                                     'no_before_unload' => $values['no_before_unload'],
+                               'reentry_action' => isset($values['reentry_action']) ? $values['reentry_action'] : false,
+                      'complete_question' => $values['complete_question'] ? $values['questions'] : 0));
 
 
-   if (isset($_GET['edit'])) {
-             //You can't edit data in scorm units
-             if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
-                 $currentUnit['data'] = $values['data'];
-             } else {
-     if ($values['embed_type'] == 'iframe' && strpos($currentUnit['data'], 'window.open') !== false) {
-      preg_match("/window.open\(.*,/U", $currentUnit['data'], $matches);
-      $scormValue = str_replace(array('window.open("', '",'),"",$matches[0]);
-      $currentUnit['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$scormValue. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
-     } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'iframe') !== false) {
-      preg_match("/src.*onload/U", $currentUnit['data'], $matches);
-      $scormValue = str_replace(array('src = "', '" onload'),"",$matches[0]);
-      $currentUnit['data'] = '
-                              <div style = "text-align:center;height:300px">
-                               <span>'._CLICKTOSTARTUNIT.'</span><br/>
-                            <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "'.$values['popup_parameters'].'")\' >
-                           </div>';
-     } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'window.open') !== false) { //in case changing only popup parameters field
-      preg_match("/\"scormFrameName\".*\"\)'/U", $currentUnit['data'], $matches);
-      $currentUnit['data'] = preg_replace("/\"scormFrameName\".*\"\)'/U", '"scormFrameName", "'.$values['popup_parameters'].'")\'' , $currentUnit['data']);
-     }
-                 $currentUnit['data'] = preg_replace("/eF_js_setCorrectIframeSize\(.*\)/", "eF_js_setCorrectIframeSize(".$values['scorm_size'].")", $currentUnit['data']);
-             }
-             $values['ctg_type'] ? $currentUnit['ctg_type'] = $values['ctg_type'] : null;
-             $values['name'] ? $currentUnit['name'] = $values['name'] : null;
-             $currentUnit['options'] = $options;
+    if (isset($_GET['edit'])) {
+              //You can't edit data in scorm units
+              if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
+                  $currentUnit['data'] = $values['data'];
+              } else {
+      if ($values['embed_type'] == 'iframe' && strpos($currentUnit['data'], 'window.open') !== false) {
+       preg_match("/window.open\(.*,/U", $currentUnit['data'], $matches);
+       $scormValue = str_replace(array('window.open("', '",'),"",$matches[0]);
+       $currentUnit['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$scormValue. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
+      } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'iframe') !== false) {
+       preg_match("/src.*onload/U", $currentUnit['data'], $matches);
+       $scormValue = str_replace(array('src = "', '" onload'),"",$matches[0]);
+       $currentUnit['data'] = '
+                               <div style = "text-align:center;height:300px">
+                                <span>'._CLICKTOSTARTUNIT.'</span><br/>
+                             <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "'.$values['popup_parameters'].'")\' >
+                            </div>';
+      } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'window.open') !== false) { //in case changing only popup parameters field
+       preg_match("/\"scormFrameName\".*\"\)'/U", $currentUnit['data'], $matches);
+       $currentUnit['data'] = preg_replace("/\"scormFrameName\".*\"\)'/U", '"scormFrameName", "'.$values['popup_parameters'].'")\'' , $currentUnit['data']);
+      }
+                  $currentUnit['data'] = preg_replace("/eF_js_setCorrectIframeSize\(.*\)/", "eF_js_setCorrectIframeSize(".$values['scorm_size'].")", $currentUnit['data']);
+              }
+              $values['ctg_type'] ? $currentUnit['ctg_type'] = $values['ctg_type'] : null;
+              $values['name'] ? $currentUnit['name'] = $values['name'] : null;
+              $currentUnit['options'] = $options;
 
-             $currentUnit -> persist();
-             $currentUnit -> setSearchKeywords();
-         } else {
-             $fields = array('name' => $values['name'],
-                             'data' => $values['data'],
-                             'parent_content_ID' => $values['parent_content_ID'],
-                             'lessons_ID' => $_SESSION['s_lessons_ID'],
-                             'ctg_type' => $values['ctg_type'],
-                             'active' => 1,
-                             'options' => $options);
-             $currentUnit = $currentContent -> insertNode($fields);
-         }
+              $currentUnit -> persist();
+              $currentUnit -> setSearchKeywords();
+          } else {
+              $fields = array('name' => $values['name'],
+                              'data' => $values['data'],
+                              'parent_content_ID' => $values['parent_content_ID'],
+                              'lessons_ID' => $_SESSION['s_lessons_ID'],
+                              'ctg_type' => $values['ctg_type'],
+                              'active' => 1,
+                              'options' => $options);
+              $currentUnit = $currentContent -> insertNode($fields);
+          }
 
-         $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
-         $message_type = 'success';
+          $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+          $message_type = 'success';
 
-         eF_redirect(''.basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$currentUnit['id'].'&message='.urlencode($message).'&message_type=success');
+          eF_redirect(''.basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$currentUnit['id'].'&message='.urlencode($message).'&message_type=success');
+      } catch (Exception $e) {
+       handleNormalFlowExceptions($e);
+      }
      }
 
      $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
@@ -527,6 +529,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport'] && $currentUser -> getType($currentLesson) == "student") {
             $smarty -> assign("T_MAXIMIZE_VIEWPORT", 1);
+        }
+        if (isset($currentUnit['options']['scorm_asynchronous']) && $currentUnit['options']['scorm_asynchronous']) {
+            $smarty -> assign("T_SCORM_ASYNCHRONOUS", 1);
+        } else {
+         $smarty -> assign("T_SCORM_ASYNCHRONOUS", 0);
         }
   if (isset($currentUnit['options']['object_ids']) && $currentUnit['options']['object_ids']) {
             $smarty -> assign("T_OBJECT_IDS", $currentUnit['options']['object_ids']);

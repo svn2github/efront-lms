@@ -417,6 +417,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  //    $filesystem = new FileSystemTree(G_LESSONSPATH, true);
  $form = new HTML_QuickForm("import_lesson_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=lessons", "", null, true); //Build the form
  $form -> addElement('file', 'import_content', _UPLOADLESSONFILE, 'class = "inputText"');
+ $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
  $form -> addElement('submit', 'submit_lesson', _SUBMIT, 'class = "flatButton"');
  try {
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
@@ -425,10 +426,16 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=directions&add_direction=1&message='.urlencode(_YOUMUSTFIRSTCREATEDIRECTION).'&message_type=failure');
     exit;
    }
-   $newLesson = EfrontLesson :: createLesson();
-   $filesystem = new FileSystemTree($newLesson -> getDirectory(), true);
-   $file = $filesystem -> uploadFile('import_content', $newLesson -> getDirectory());
+   $userTempDir = $GLOBALS['currentUser'] -> user['directory'].'/temp';
+   if (!is_dir($userTempDir)) { //If the user's temp directory does not exist, create it
+    $userTempDir = EfrontDirectory :: createDirectory($userTempDir, false);
+   } else {
+    $userTempDir = new EfrontDirectory($userTempDir);
+   }
+   $filesystem = new FileSystemTree($userTempDir, true);
+   $file = $filesystem -> uploadFile('import_content', $userTempDir);
    $exportedFile = $file;
+   $newLesson = EfrontLesson :: createLesson();
    $newLesson -> import($exportedFile, false, true, true);
    $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
    $message_type = 'success';

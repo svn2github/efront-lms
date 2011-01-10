@@ -199,38 +199,42 @@ try {
     $message_type = 'failure';
 }
 ///MODULE1: Import
-$loadedModules = $currentUser -> getModules();
-$module_css_array = array();
-$module_js_array = array();
-// Include module languages
-foreach ($loadedModules as $module) {
-    // The $setLanguage variable is defined in globals.php
-    $mod_lang_file = $module -> getLanguageFile($setLanguage);
-    if (is_file ($mod_lang_file)) {
-        require_once $mod_lang_file;
+try {
+ $loadedModules = $currentUser -> getModules();
+ $module_css_array = array();
+ $module_js_array = array();
+ // Include module languages
+ foreach ($loadedModules as $module) {
+  // The $setLanguage variable is defined in globals.php
+  $mod_lang_file = $module -> getLanguageFile($setLanguage);
+  if (is_file ($mod_lang_file)) {
+   require_once $mod_lang_file;
+  }
+  // Get module css
+  if($mod_css_file = $module -> getModuleCSS()) {
+   if (is_file ($mod_css_file)) {
+    // Get the relative path
+    if ($position = strpos($mod_css_file, "modules")) {
+     $mod_css_file = substr($mod_css_file, $position);
     }
-    // Get module css
-    if($mod_css_file = $module -> getModuleCSS()) {
-        if (is_file ($mod_css_file)) {
-            // Get the relative path
-            if ($position = strpos($mod_css_file, "modules")) {
-                $mod_css_file = substr($mod_css_file, $position);
-            }
-            $module_css_array[] = $mod_css_file;
-        }
+    $module_css_array[] = $mod_css_file;
+   }
+  }
+  // Get module js
+  if($mod_js_file = $module -> getModuleJS()) {
+   if (is_file($mod_js_file)) {
+    // Get the relative path
+    if ($position = strpos($mod_js_file, "modules")) {
+     $mod_js_file = substr($mod_js_file, $position);
     }
-    // Get module js
-    if($mod_js_file = $module -> getModuleJS()) {
-        if (is_file($mod_js_file)) {
-            // Get the relative path
-            if ($position = strpos($mod_js_file, "modules")) {
-                $mod_js_file = substr($mod_js_file, $position);
-            }
-            $module_js_array[] = $mod_js_file;
-        }
-    }
-    // Run onNewPageLoad code of the module (if such is defined)
-    $module -> onNewPageLoad();
+    $module_js_array[] = $mod_js_file;
+   }
+  }
+  // Run onNewPageLoad code of the module (if such is defined)
+  $module -> onNewPageLoad();
+ }
+} catch (Exception $e) {
+ handleNormalFlowExceptions($e);
 }
 /*Ajax call to enter group and get group lessons */
 if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
@@ -558,7 +562,7 @@ if (isset($currentLesson)) {
  $smarty -> assign("T_CURRENT_CATEGORY_PATH", $categoryPath);
  if ($currentLesson -> lesson['course_only'] == 1 && $_SESSION['s_courses_ID']) {
   $currentCourse = new EfrontCourse($_SESSION['s_courses_ID']);
-  $smarty -> assign("T_CURRENT_COURSE_NAME", $currentCourse->course['name']);
+  $smarty -> assign("T_CURRENT_COURSE_NAME", htmlspecialchars($currentCourse->course['name'], ENT_QUOTES));
   $smarty -> assign("T_CURRENT_COURSE_ID", $currentCourse->course['id']);
  }
 }

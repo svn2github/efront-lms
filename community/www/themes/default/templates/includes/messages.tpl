@@ -175,6 +175,8 @@
                 <tr><td class = "labelCell">{$smarty.const._ATTACHMENTS}:&nbsp;</td>
                     <td class = "elementCell">{$T_ADD_MESSAGE_FORM.attachment.0.html}</td></tr>
                     {if $T_ADD_MESSAGE_FORM.attachment.0.error}<tr><td></td><td class = "formError">{$T_ADD_MESSAGE_FORM.attachment.0.error}</td></tr>{/if}
+    <tr><td></td>
+     <td class = "infoCell">{$smarty.const._FILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
                 <tr><td></td>
                  <td class = "submitCell">{*{$T_ADD_MESSAGE_FORM.submit_preview_message.html}&nbsp;*}{$T_ADD_MESSAGE_FORM.submit_send_message.html}</td></tr>
             </table>

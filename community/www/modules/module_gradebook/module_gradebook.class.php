@@ -491,8 +491,9 @@ class module_gradebook extends EfrontModule{
    }
   }
 
-  $this->setMessageVar($message, $message_type);
-
+  if ($message) {
+   $this->setMessageVar($message, $message_type);
+  }
   if($currentUser->getType() == 'administrator')
    return $this->moduleBaseDir."module_gradebook_admin.tpl";
 
@@ -703,7 +704,7 @@ class module_gradebook extends EfrontModule{
   foreach($professorLessons as $key => $value){
 
    $lesson = new EfrontLesson($key);
-   $lessonUsers = $lesson->getUsers('student'); // get all students that have this lesson			
+   $lessonUsers = $lesson->getUsers('student'); // get all students that have this lesson
    $result = eF_getTableData("module_gradebook_users", "count(uid) as total_users", "lessons_ID=".$key);
 
    if($result[0]['total_users'] != 0) // module installed for this lesson
@@ -868,7 +869,7 @@ class module_gradebook extends EfrontModule{
   }
   else if($type == 'scormtest'){
 
-   // XXX lesson_status field ?	
+   // XXX lesson_status field ?
    $result = eF_getTableData("scorm_data", "score", "users_LOGIN='".$userLogin."' and content_ID=".$id);
 
    if(sizeof($result) != 0){

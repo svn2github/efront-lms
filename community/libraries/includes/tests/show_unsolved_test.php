@@ -39,15 +39,19 @@ if (!$_student_) {
             $testString = $testInstance -> toHTML($testString, $remainingTime);
 
             if ($testInstance -> options['duration'] && $remainingTime < 0) {
-                $values = $form -> exportValues();
-                $testInstance -> complete($values['question']);
-                if ($testInstance -> completedTest['status'] == 'failed') {
-                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 0);
-                } else {
-                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
-                }
-                eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
-                exit; //<-- This exit is necessary here, otherwise test might be counted twice
+             try {
+                 $values = $form -> exportValues();
+                 $testInstance -> complete($values['question']);
+                 if ($testInstance -> completedTest['status'] == 'failed') {
+                     $currentUser -> setSeenUnit($currentUnit, $currentLesson, 0);
+                 } else {
+                     $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
+                 }
+                 eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
+                 exit; //<-- This exit is necessary here, otherwise test might be counted twice
+             } catch (Exception $e) {
+              handleNormalFlowExceptions($e);
+             }
             }
             $smarty -> assign("T_TEST_UNDERGOING", true);
             //$testUndergoing = true;
@@ -198,27 +202,31 @@ if (!$_student_) {
         }
 
         if ($form -> isSubmitted() && $form -> validate()) {
-            $values = $form -> exportValues();
+         try {
+          $values = $form -> exportValues();
 
-            $submitValues = $form -> getSubmitValues();
+          $submitValues = $form -> getSubmitValues();
 
-            foreach($testInstance -> questions as $id => $question) {
-                $submitValues['question_time'][$id] || $submitValues['question_time'][$id] === 0 ? $question -> time = $submitValues['question_time'][$id] : null;
-            }
+          foreach($testInstance -> questions as $id => $question) {
+           $submitValues['question_time'][$id] || $submitValues['question_time'][$id] === 0 ? $question -> time = $submitValues['question_time'][$id] : null;
+          }
 
-            if (isset($values['pause_test'])) {
-                $testInstance -> pause($values['question'], $_POST['goto_question']);
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=content&type=tests");
-            } else {
-                //Set the unit as "seen"
-                $testInstance -> complete($values['question']);
-                if ($testInstance -> completedTest['status'] == 'failed') {
-                    $currentUser -> setSeenUnit($currentUnit, $currentLesson, 0);
-                } else {
-                 $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
-                }
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
-            }
+          if (isset($values['pause_test'])) {
+           $testInstance -> pause($values['question'], $_POST['goto_question']);
+           eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=content&type=tests");
+          } else {
+           //Set the unit as "seen"
+           $testInstance -> complete($values['question']);
+           if ($testInstance -> completedTest['status'] == 'failed') {
+            $currentUser -> setSeenUnit($currentUnit, $currentLesson, 0);
+           } else {
+            $currentUser -> setSeenUnit($currentUnit, $currentLesson, 1);
+           }
+           eF_redirect("".basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
+          }
+         } catch (Exception $e) {
+          handleNormalFlowExceptions($e);
+         }
         }
 
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

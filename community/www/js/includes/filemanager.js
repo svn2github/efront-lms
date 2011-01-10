@@ -1,7 +1,7 @@
 function toggleEditBox(el, fileId) {
  Element.extend(el);
  if (el.hasClassName("sprite16-edit")) {
-  setImageSrc(el, 16, 'error_delete.png');
+  setImageSrc(el, 16, 'close.png');
  } else {
   setImageSrc(el, 16, 'edit.png');
  }
@@ -71,7 +71,7 @@ function onUpdateFile(el, response) {
  setImageSrc(el, 16, 'success.png');
  $('span_'+id).innerHTML = $('span_'+id).innerHTML.replace(previousName, name);
  el.up().up().up().up().select("a").each(function (s) {s.href = s.href.replace(previousName, name);});
- el.up().up().up().up().select("img").each(function (s) {if (s.hasClassName("error_delete")) {setImageSrc(s, 16, 'edit');}});
+ el.up().up().up().up().select("img").each(function (s) {if (s.hasClassName("sprite16-close")) {setImageSrc(s, 16, 'edit');}});
 }
 
 function deleteFile(el, id) {

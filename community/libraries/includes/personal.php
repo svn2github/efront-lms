@@ -323,6 +323,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   $loadScripts[] = 'scriptaculous/dragdrop';
   require_once 'social.php';
  }
+ //$form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024);            //getUploadMaxSize returns size in KB
  if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') || (isset($currentUser -> coreAccess['dashboard']) && $currentUser -> coreAccess['dashboard'] != 'change')) {
   $form -> freeze();
  } else {
@@ -337,7 +338,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
     mkdir($avatarDirectory);
    }
    try {
-    if ($_FILES['file_upload']['size'] > 0) {
+    try {
      $filesystem = new FileSystemTree($avatarDirectory);
      $uploadedFile = $filesystem -> uploadFile('file_upload', $avatarDirectory);
      // Normalize avatar picture to 150xDimY or DimX x 100
@@ -353,7 +354,10 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
      }
      $message_type = 'success';
      $editedUser -> persist();
-    } else {
+    } catch (Exception $e) {
+     if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {
+      throw $e;
+     }
      if ($form -> exportValue('delete_avatar')) {
       $selectedAvatar = 'unknown_small.png';
      } else {
@@ -899,8 +903,8 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
  /** GET DATA FOR EMPLOYEE'S PLACEMENTS AND SKILLS **/
  if (isset($editedUser)) {
   $edit_user= $editedUser -> login;//$_GET['edit_user'];
-  $smarty -> assign('T_USERNAME',"" . $editedUser -> user['name'] . " " . $editedUser -> user['surname'] . "");
-  $smarty -> assign('T_SIMPLEUSERNAME',$editedUser -> user['name'] . " " . $editedUser -> user['surname']);
+  //$smarty -> assign('T_USERNAME',"" . $editedUser -> user['name'] . " " . $editedUser -> user['surname'] . "");
+  //$smarty -> assign('T_SIMPLEUSERNAME',$editedUser -> user['name'] . " " . $editedUser -> user['surname']);
   $smarty -> assign('T_USER', $editedUser -> user);
   /****************************************************************************************************************************************************/
   /***************************** Retrieve all User information to appear on the form: personal information, lessons, courses, certificates, groups ******************/

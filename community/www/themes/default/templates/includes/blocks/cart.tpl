@@ -6,7 +6,7 @@
     <div class = "cartElement">
      <div class = "cartTitle">{$cartlist.name}</div>
         <div class = "cartDelete">
-            <span>{if $cartlist.price}{$cartlist.price_string}{else}{$smarty.const._FREEOFCHARGE}{/if}</span>
+            <span>{if $cartlist.price}{$cartlist.price_string}{elseif !$T_CONFIGURATION.disable_payments}{$smarty.const._FREEOFCHARGE}{/if}</span>
             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMCART}" title = "{$smarty.const._REMOVEFROMCART}" onclick = "removeFromCart(this, '{$cartlist.id}', 'lesson');" id = "{$cartlist.id}">
         </div>
     &nbsp;</div>
@@ -17,7 +17,7 @@
     <div class = "cartElement">
      <div class = "cartTitle">{$cartlist.name}</div>
         <div class = "cartDelete">
-            <span>{if $cartlist.price}{$cartlist.price_string}{else}{$smarty.const._FREEOFCHARGE}{/if}</span>
+            <span>{if $cartlist.price}{$cartlist.price_string}{elseif !$T_CONFIGURATION.disable_payments}{$smarty.const._FREEOFCHARGE}{/if}</span>
             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMCART}" title = "{$smarty.const._REMOVEFROMCART}" onclick = "removeFromCart(this, '{$cartlist.id}', 'course');" id = "{$cartlist.id}">
         </div>
     &nbsp;</div>
@@ -29,7 +29,7 @@
     <div class = "cartElement">
      <div class = "cartTitle">{$cartlist.name}</div>
         <div class = "cartDelete">
-            <span>{if $cartlist.price}{$cartlist.price_string}{else}{$smarty.const._FREEOFCHARGE}{/if}</span>
+            <span>{if $cartlist.price}{$cartlist.price_string}{elseif !$T_CONFIGURATION.disable_payments}{$smarty.const._FREEOFCHARGE}{/if}</span>
             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMCART}" title = "{$smarty.const._REMOVEFROMCART}" onclick = "removeFromCart(this, '{$cartlist.id}', 'lesson');" id = "{$cartlist.id}">
   {if $T_PAYPAL_SUBSCRIPTION_FORMS.lesson[$cartlist.id]}
    {$T_PAYPAL_SUBSCRIPTION_FORMS.lesson[$cartlist.id].javascript}
@@ -55,7 +55,7 @@
     <div class = "cartElement">
      <div class = "cartTitle">{$cartlist.name}</div>
         <div class = "cartDelete">
-            <span>{if $cartlist.price}{$cartlist.price_string}{else}{$smarty.const._FREEOFCHARGE}{/if}</span>
+            <span>{if $cartlist.price}{$cartlist.price_string}{elseif !$T_CONFIGURATION.disable_payments}{$smarty.const._FREEOFCHARGE}{/if}</span>
             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMCART}" title = "{$smarty.const._REMOVEFROMCART}" onclick = "removeFromCart(this, '{$cartlist.id}', 'course');" id = "{$cartlist.id}">
         </div>
     &nbsp;</div>

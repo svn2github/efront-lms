@@ -80,6 +80,7 @@
         <td class = "elementCell">{$T_ENTITY_FORM.pdf_content.html}</td></tr>
        <tr style="display:none;" id="pdf_upload"><td class = "labelCell">{$T_ENTITY_FORM.pdf_upload.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.pdf_upload.html}</td></tr>
+                            <tr style="display:none;" id="pdf_upload_max_size"><td></td><td class = "infoCell">{$smarty.const._FILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
 
        <tr><td></td><td class = "elementCell">
         <span>
@@ -99,6 +100,9 @@
        <tr style="display:none;" id = "accessible_explanation"><td></td><td class = "infoCell">{$smarty.const._DIRECTLACCESSIBLEEXPLANATION}<br/>{$smarty.const.G_SERVERNAME}view_resource.php?type=content&id={if $smarty.get.edit}{$smarty.get.edit}{else}&lt;unit_id&gt;{/if}</td></tr>
 
       {if $T_SCORM}
+       <tr style="display:none;" id = "scorm_asynchronous"><td class = "labelCell">{$T_ENTITY_FORM.scorm_asynchronous.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.scorm_asynchronous.html}</td></tr>
+       <tr style="display:none;" id = "scorm_asynchronous_explanation"><td></td><td class = "infoCell">{$smarty.const._SCORMASYNCHRONOUSEXPLANATION}</td></tr>
        <tr><td class = "labelCell">{$T_ENTITY_FORM.scorm_size.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.scorm_size.html} px</td></tr>
        {if $T_ENTITY_FORM.scorm_size.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.scorm_size.error}</td></tr>{/if}
@@ -424,6 +428,7 @@
 
   {if $T_SCORM}
    {$smarty.capture.t_scorm_form_code}
+   {if $T_SCORM_ASYNCHRONOUS}<script>var scorm_asynchronous = true;</script>{else}<script>var scorm_asynchronous = false;</script>{/if}
   {/if}
 
  {/if}

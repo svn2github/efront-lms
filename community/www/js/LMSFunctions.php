@@ -410,7 +410,11 @@ function myCommit(parameter)
                     echo "document.getElementById('content_ID').value = ".$_GET['view_unit'].";";
                 }
             ?>
-   $('scorm_form').request({asynchronous:false, onSuccess:handleCommit});
+            if (typeof(scorm_asynchronous) != 'undefined' && scorm_asynchronous) {
+             $('scorm_form').request({asynchronous:true, onSuccess:handleCommit});
+            } else {
+             $('scorm_form').request({asynchronous:false, onSuccess:handleCommit});
+            }
             //document.scorm_form.submit();
             return_value = "true";
         } catch (e) {
@@ -433,6 +437,7 @@ function handleCommit(transport) {
   w.location = transport.responseText.evalJSON(true)[4];
  }
 }
+
 /**
 
 * REturns the message that corresponds to errrorNumber.

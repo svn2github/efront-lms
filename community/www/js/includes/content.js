@@ -131,12 +131,17 @@ function insertatcursor(myField, myValue) {
 }
 function togglePdf() {
  $('pdf_upload').toggle();
+ $('pdf_upload_max_size').toggle();
  $('pdf_content').toggle();
  $('nonPdfTable').toggle();
  $('toggleTools').toggle();
 }
 function toggleAdvancedParameters() {
 
+ if ($('scorm_asynchronous')) {
+  $('scorm_asynchronous').toggle();
+  $('scorm_asynchronous_explanation').toggle();
+ }
  $('maximize_viewport').toggle();
  $('object_ids').toggle();
  $('no_before_unload').toggle();

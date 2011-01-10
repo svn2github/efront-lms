@@ -1,4 +1,4 @@
- {if $T_CONFIGURATION.enable_cart}{assign var = "cart_image" value = "shopping_basket_add.png"}{else}{assign var = "cart_image" value = "add.png"}{/if}
+ {if $T_CONFIGURATION.enable_cart && !$T_CONFIGURATION.disable_payments}{assign var = "cart_image" value = "shopping_basket_add.png"}{else}{assign var = "cart_image" value = "add.png"}{/if}
 
  {if $T_LESSON_INFO}
          {foreach name = 'info_list' item = "item" key = "key" from = $T_LESSON_INFO->metadataArray}
@@ -33,8 +33,11 @@
           {if $T_HAS_LESSON}
               <span>{$T_LESSON->lesson.price_string}</span>
               <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
-             {else}
+             {elseif !$T_CONFIGURATION.disable_payments}
               <span>{$smarty.const._FREEOFCHARGE}</span>
+              <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
+             {else}
+              <span>{$smarty.const._ENROLL}</span>
               <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
              {/if}
          {/if}
@@ -53,8 +56,11 @@
               {if $T_HAS_COURSE}
                   <span>{$smarty.const._YOULAREDYHAVETHECOURSE} &quot;{$T_COURSE->course.name}&quot; {$T_COURSE->course.price_string}</span>
                   <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
-                 {else}
+              {elseif !$T_CONFIGURATION.disable_payments}
                   <span>{$smarty.const._GETTHECOURSE} &quot;{$T_COURSE->course.name}&quot;, {$smarty.const._FREEOFCHARGE}</span>
+                  <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
+     {else}
+                  <span>{$smarty.const._GETTHECOURSE} &quot;{$T_COURSE->course.name}&quot;, {$smarty.const._ENROLL}</span>
                   <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
                  {/if}
        {/if}
@@ -84,8 +90,11 @@
               {if $T_HAS_COURSE}
                   <span>{$T_COURSE->course.price_string}</span>
                   <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" alt = "{$smarty.const._YOUALREADYHAVETHISCOURSE}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISCOURSE}')">
-                 {else}
+              {elseif !$T_CONFIGURATION.disable_payments}
                   <span>{$smarty.const._FREEOFCHARGE}</span>
+                  <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
+                 {else}
+                  <span>{$smarty.const._ENROLL}</span>
                   <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_COURSE->course.id}', 'course');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
                  {/if}
        {/if}

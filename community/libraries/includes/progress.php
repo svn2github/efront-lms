@@ -7,6 +7,8 @@ if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess[
     eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");exit;
 }
 
+$loadScripts[] = 'includes/progress';
+
 if ($_student_) {
     $currentUser -> coreAccess['progress'] = 'view';
     $_GET['edit_user'] = $currentUser -> user['login'];
@@ -134,10 +136,14 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
  }
  $smarty -> assign("T_MODULE_FIELDSETS", $moduleFieldsets);
 
-
 }
 
 try {
+ if (isset($_GET['ajax']) && isset($_GET['reset_user'])) {
+  $user = EfrontUserFactory :: factory($_GET['reset_user']);
+  $user -> resetProgressInLesson($currentLesson);
+  exit;
+ }
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
   $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false);
   foreach (EfrontLessonUser :: getLessonsRoles() as $key => $value) {

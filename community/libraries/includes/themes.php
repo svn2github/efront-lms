@@ -364,9 +364,9 @@ try {
             $url = '';
             if (detectBrowser() == $_GET['browser']) {
              if ($theme -> options['sidebar_interface'] > 0) {
-              $url = basename($_SERVER['PHP_SELF']).'?ctg=themes';
+              $url = basename($_SERVER['PHP_SELF']).'?ctg=themes&tab=set_theme';
              } else {
-                 $url = basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
+                 $url = basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes&tab=set_theme';
              }
             }
             echo json_encode(array('status' => 1, 'browser' => $_GET['browser'], 'url' => $url));
@@ -391,9 +391,9 @@ try {
             }
             $theme = new themes($_GET['set_theme']);
             if ($theme -> options['sidebar_interface'] > 0) {
-                echo basename($_SERVER['PHP_SELF']).'?ctg=themes';
+                echo basename($_SERVER['PHP_SELF']).'?ctg=themes&tab=set_theme';
             } else {
-                echo basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes';
+                echo basename($_SERVER['PHP_SELF'], '.php').'page.php?ctg=themes&tab=set_theme';
             }
 
             if (!isset($_GET['ajax'])) {

@@ -3988,4 +3988,7 @@ define("_STATISTICSFORSKILL", "Reports for skill");
 define("_CHOOSESKILL", "Choose skill");
 define("_SKILLGRAPH", "Skill graph");
 define("_TOTALSKILLS", "Total skills");
+define("_SCORMASYNCHROUNOUS", "Asynchronous SCORM communication");
+define("_SCORMASYNCHRONOUSEXPLANATION", "Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)");
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO", "Warning: Disabling payments will set all prices to 0");
 ?>

@@ -1153,8 +1153,17 @@ class EfrontFile extends ArrayObject
        header("Content-Length: ".filesize($this['path']));
       }
      } else {
-      header("content-type:".$this['mime_type']);
-      header('content-disposition: inline; filename= "'.$this['name'].'"');
+   header("Content-Description: File Transfer");
+   header("Content-Type: {$this['mime_type']}");
+   header('Content-Disposition: inline; filename="'.$this['name'].'"');
+   header("Content-Transfer-Encoding: binary");
+   header('Expires: 0');
+   header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+   header('Pragma: public');
+   //header("Content-Type: application/force-download");
+   //header("Content-Type: application/download");
+   //header("content-type:".$this['mime_type']);
+      //header('content-disposition: inline; filename= "'.$this['name'].'"');
      }
      readfile($this['path']);
     }
@@ -2054,7 +2063,7 @@ class FileSystemTree extends EfrontTree
         }
         if (strpos($curDir, $this -> dir['path']) !== false) {
             foreach ($_FILES['file_upload']['error'] as $key => $value) {
-                if ($value == 0) {
+                if ($value != UPLOAD_ERR_NO_FILE) {
                     $uploadedFile = $this -> uploadFile('file_upload', $curDir, $key);
                 }
             }
@@ -2068,7 +2077,7 @@ class FileSystemTree extends EfrontTree
             //copy() does not like names with spaces, so we split the $urlUpload to dirname() and basename() and we urlencode() the latter
             if (!copy(dirname($urlUpload).'/'.rawurlencode(basename($urlUpload)), $curDir."/".$urlFile)) {
                 throw new Exception(_PROBLEMUPLOADINGFILE);
-            }else{
+            } else {
                 $uploadedFile = new EfrontFile($curDir."/".$urlFile);
             }
         }

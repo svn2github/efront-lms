@@ -2281,10 +2281,8 @@ class EfrontCourse
   $courseString = '
                         <table class = "coursesTable" >
                             <tr class = "lessonsList" >
-                             <td class = "listIcon">
-                                    <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">
-                                </td>
-                                <td class = "listTitle">';
+                             <td>
+                                    <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">';
   if (!isset($this -> course['from_timestamp']) || $this -> course['from_timestamp']) {
    if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
     if ($options['tooltip']) {

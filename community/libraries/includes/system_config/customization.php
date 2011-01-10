@@ -24,6 +24,7 @@ $customizationDisableForm -> addElement("advcheckbox", "disable_tooltip", _TOOLT
 $customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, null, 'class = "inputCheckBox"', array(0, 1));
 $customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(0, 1));
 $customizationDisableForm -> addElement("advcheckbox", "disable_payments", _PAYMENTS, null, 'class = "inputCheckBox"', array(0, 1));
+$customizationDisableForm -> addElement("static", "", _WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO);
 $customizationDisableForm -> addElement("advcheckbox", "disable_move_blocks", _MOVEBLOCK, null, 'class = "inputCheckBox"', array(0, 1));
 $customizationDisableForm -> addElement("static", "", _SELECTOPTIONSDISABLED);
 $customizationDisableForm -> setDefaults($GLOBALS['configuration']);

@@ -71,6 +71,7 @@ try {
 $modulesList = eF_getTableData("modules", "*");
 
 // Check for errors in modules
+
 foreach ($modulesList as $key => $module) {
     $folder = $module['position'];
     $className = $module['className'];
@@ -94,8 +95,8 @@ foreach ($modulesList as $key => $module) {
                 }
 
                 if (class_exists($className)) {
-                    $moduleInstance = new $className($user_type.".php?ctg=module&op=".$className, $folder);
                     try {
+                     $moduleInstance = new $className($user_type.".php?ctg=module&op=".$className, $folder);
                      if (!$moduleInstance -> diagnose($error)) {
                       $modulesList[$key]['errors'] = $error;
                      }
@@ -129,16 +130,12 @@ $upload_form = new HTML_QuickForm("upload_file_form", "post", basename($_SERVER[
 $upload_form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 $upload_form -> addElement('file', 'file_upload[0]', null, 'class = "inputText"');
 $upload_form -> addElement('checkbox', 'overwrite', _OVERWRITEIFFOLDEREXISTS);
+$upload_form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
 $upload_form -> addElement('submit', 'submit_upload_file', _UPLOAD, 'class = "flatButton"');
 if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
     $filesystem = new FileSystemTree(G_MODULESPATH);
-    //pr($_FILES);exit;
-//debug();
     $uploadedFile = $filesystem -> uploadFile('file_upload', G_MODULESPATH, 0);
-    $ok = 1;
-    //list($ok, $upload_messages, $upload_messages_type, $filename) = eF_handleUploads("file_upload", G_MODULESPATH);
-//pr($uploadedFile);exit;
-    if(isset($_GET['upgrade'])) {
+    if (isset($_GET['upgrade'])) {
         $prev_module_version = eF_getTableData("modules", "position", "className = '".$_GET['upgrade']."'");
         $prev_module_folder = $prev_module_version[0]['position'];
         // The name of the temp folder to extract the new version of the module
@@ -148,10 +145,8 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
         $module_folder = basename($uploadedFile['path'], '.zip');
         $module_position = $module_folder;
     }
-    if (!$ok) {
-        $message = $upload_messages[0];
-        $message_type = $upload_messages_type[0];
-    } elseif (is_dir(G_MODULESPATH.$module_folder) && !isset($_GET['upgrade']) && !isset($_POST['overwrite'])) {
+
+    if (is_dir(G_MODULESPATH.$module_folder) && !isset($_GET['upgrade']) && !isset($_POST['overwrite'])) {
         $message = _FOLDERWITHMODULENAMEEXISTSIN . G_MODULESPATH;
         $message_type = 'failure';
     } else {
@@ -159,6 +154,7 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
         if ($zip -> open($uploadedFile['path']) === TRUE) {
             $zip -> extractTo(G_MODULESPATH.$module_folder);
             $zip -> close();
+
             if (is_file(G_MODULESPATH.$module_folder.'/module.xml')) {
 
                 $xml = simplexml_load_file(G_MODULESPATH.$module_folder.'/module.xml');

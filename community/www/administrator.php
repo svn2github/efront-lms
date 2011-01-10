@@ -56,46 +56,49 @@ if (isset($_COOKIE['c_request']) && $_COOKIE['c_request']) {
     }
 }
 
-$loadedModules = $currentUser -> getModules();
-$module_css_array = array();
-$module_js_array = array();
+try {
+ $loadedModules = $currentUser -> getModules();
+ $module_css_array = array();
+ $module_js_array = array();
 
-// Include module languages
-foreach ($loadedModules as $module) {
-    // The $setLanguage variable is defined in globals.php
-    $mod_lang_file = $module -> getLanguageFile($setLanguage);
-    if (is_file ($mod_lang_file)) {
-        require_once $mod_lang_file;
+ // Include module languages
+ foreach ($loadedModules as $module) {
+  // The $setLanguage variable is defined in globals.php
+  $mod_lang_file = $module -> getLanguageFile($setLanguage);
+  if (is_file ($mod_lang_file)) {
+   require_once $mod_lang_file;
+  }
+
+  // Get module css
+  if($mod_css_file = $module -> getModuleCSS()) {
+   if (is_file ($mod_css_file)) {
+
+    // Get the relative path
+    if ($position = strpos($mod_css_file, "modules")) {
+     $mod_css_file = substr($mod_css_file, $position);
+    }
+    $module_css_array[] = $mod_css_file;
+   }
+  }
+
+  // Get module js
+  if($mod_js_file = $module -> getModuleJS()) {
+   if (is_file($mod_js_file)) {
+    // Get the relative path
+    if ($position = strpos($mod_js_file, "modules")) {
+     $mod_js_file = substr($mod_js_file, $position);
     }
 
-    // Get module css
-    if($mod_css_file = $module -> getModuleCSS()) {
-        if (is_file ($mod_css_file)) {
+    $module_js_array[] = $mod_js_file;
+   }
+  }
 
-            // Get the relative path
-            if ($position = strpos($mod_css_file, "modules")) {
-                $mod_css_file = substr($mod_css_file, $position);
-            }
-            $module_css_array[] = $mod_css_file;
-        }
-    }
-
-    // Get module js
-    if($mod_js_file = $module -> getModuleJS()) {
-        if (is_file($mod_js_file)) {
-            // Get the relative path
-            if ($position = strpos($mod_js_file, "modules")) {
-                $mod_js_file = substr($mod_js_file, $position);
-            }
-
-            $module_js_array[] = $mod_js_file;
-        }
-    }
-
-    // Run onNewPageLoad code of the module (if such is defined)
-    $module -> onNewPageLoad();
+  // Run onNewPageLoad code of the module (if such is defined)
+  $module -> onNewPageLoad();
+ }
+} catch (Exception $e) {
+ handleNormalFlowExceptions($e);
 }
-
 /*Added Session variable for search results*/
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 
@@ -126,6 +129,7 @@ if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
   $result = eF_getTableData("users", "login, user_type", 'login in ("'.implode('","', array_values($accounts)).'")');
      $smarty -> assign("T_MAPPED_ACCOUNTS", $result);
  }
+
 }
 
 !isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
@@ -333,9 +337,7 @@ try {
 
 */
 } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
+ handleNormalFlowExceptions($e);
 }
 $smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
 if (isset($_GET['refresh']) || isset($_GET['refresh_side'])) {
@@ -379,6 +381,7 @@ $smarty -> assign("T_MENUCTG", $ctg);
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
+
 $smarty -> assign("T_TEST_MESSAGE", 'Test Message');
 
 

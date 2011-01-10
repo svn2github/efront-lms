@@ -324,6 +324,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  $form = new HTML_QuickForm("import_course_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=courses", "", null, true); //Build the form
  $form -> addElement('file', 'import_content', _UPLOADFILE, 'class = "inputText"');
  $form -> addElement('submit', 'submit_course', _SUBMIT, 'class = "flatButton"');
+ $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize()*1024);
  try {
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
    $directionsTree = new EfrontDirectionsTree();
@@ -337,9 +338,9 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    } else {
     $userTempDir = new EfrontDirectory($userTempDir);
    }
-   $newCourse = EfrontCourse :: createCourse();
    $filesystem = new FileSystemTree($userTempDir, true);
    $file = $filesystem -> uploadFile('import_content', $userTempDir);
+   $newCourse = EfrontCourse :: createCourse();
    $exportedFile = $file;
    $newCourse -> import($exportedFile, false, true);
   }

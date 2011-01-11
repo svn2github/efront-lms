@@ -351,7 +351,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  $form -> accept($renderer); //Assign this form to the renderer, so that corresponding template code is created
  $smarty -> assign('T_IMPORT_COURSE_FORM', $renderer -> toArray()); //Assign the form to the template
  /** Calculate and display course ajax lists*/
- $sortedColumns = array('name', 'location', 'num_students', 'num_lessons', 'num_skills', 'start_date', 'end_date', 'price', 'created', 'active', 'operations');
+ $sortedColumns = array('name', 'location', 'num_students', 'num_skills', 'start_date', 'end_date', 'price', 'created', 'active', 'operations');
  $smarty -> assign("T_DATASOURCE_SORT_BY", array_search('active', $sortedColumns));
  $smarty -> assign("T_DATASOURCE_SORT_ORDER", 'desc');
  $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics', 'settings', 'delete'));

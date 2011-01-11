@@ -72,7 +72,7 @@
     // time you change the size of the window.
     window.onresize=resize_iframe;
 
-    //Instead of using this you can use: 
+    //Instead of using this you can use:
     //	<BODY onresize="resize_iframe()">
 
 
@@ -159,9 +159,9 @@
                      </select>
              </td></tr>
              <tr><td class = "labelCell">{$smarty.const._FROM}:&nbsp;</td>
-                 <td class = "elementCell">{eF_template_html_select_date prefix="from_date_" time = $T_DAY_BEFORE start_year="-2" field_order = $T_DATE_FORMATGENERAL}, {html_select_time prefix="from_time_"}</td>
+                 <td class = "elementCell">{eF_template_html_select_date prefix="from_date_" time = $T_DAY_BEFORE start_year="-5" field_order = $T_DATE_FORMATGENERAL}, {html_select_time prefix="from_time_"}</td>
              <tr><td class = "labelCell">{$smarty.const._TOCAPITAL}:&nbsp;</td>
-                 <td class = "elementCell">{eF_template_html_select_date prefix="to_date_" start_year="-2" field_order = $T_DATE_FORMATGENERAL}, {html_select_time prefix="to_time_"}
+                 <td class = "elementCell">{eF_template_html_select_date prefix="to_date_" start_year="-5" field_order = $T_DATE_FORMATGENERAL}, {html_select_time prefix="to_time_"}
              </td></tr>
              <tr style="display:none">
               <td class = "labelCell">{$smarty.const._ANDTHEMESSAGESOFUSER}:</td>

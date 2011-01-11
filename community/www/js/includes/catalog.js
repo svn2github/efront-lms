@@ -94,20 +94,21 @@ function hideAll() {
 }
 
 function showHideDirections(el, ids, id, mode) {
+
  Element.extend(el); //IE intialization
  if (mode == 'show') {
-  el.up().up().nextSiblings().each(function(s) {s.show()});
+  el.up().up().nextSiblings().each(function(s) {s.show();});
   if (ids) {
-   ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'show') });
+   ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'show');});
    ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.show() : '';});
   }
   setImageSrc(el, 16, 'navigate_up');
   $('subtree_img'+id) ? $('subtree_img'+id).addClassName('visible') : '';
  } else {
-  el.up().up().nextSiblings().each(function(s) {s.hide()});
+  el.up().up().nextSiblings().each(function(s) {s.hide();});
   if (ids) {
    ids.split(',').each(function (s) { showHideDirections($('subtree_img'+id), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'hide') });
-   ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.hide() : ''});
+   ids.split(',').each(function (s) { obj = $('direction_'+s); obj ? obj.hide() : '';});
   }
   setImageSrc(el, 16, 'navigate_down.png');
   $('subtree_img'+id) ? $('subtree_img'+id).removeClassName('visible') : '';
@@ -146,15 +147,13 @@ function onUpdateInformation2(el, response) {
 
 function filterTree(el, url) {
  Element.extend(el);
- //$$('tr.directionEntry').each(function (s) {if(s.innerHTML.stripTags().toLowerCase().match(el.value.toLowerCase())) {s.show()} else {s.hide()}});
  url.match(/\?/) ? url = url+'&' : url = url + '?';
- el.addClassName('loadingImg').setStyle({background:'url(\"images/others/progress1.gif\") center right no-repeat'});
  new Ajax.Request(url+'filter='+el.value, {
   method:'get',
   asynchronous:true,
   onSuccess: function (transport) {
    $('directions_tree').innerHTML = transport.responseText;
-   el.removeClassName('loadingImg').setStyle({background:''});
+   showAll();
   }
  });
 }

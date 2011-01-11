@@ -25,7 +25,7 @@
                                         <td class = "elementCell">{$T_ADD_PROJECT_FORM.auto_assign.html}</td></tr>
                                     <tr><td class = "labelCell">{$smarty.const._DEADLINE}:&nbsp;</td>
                                 {if $_change_}
-                                        <td class = "elementCell">{eF_template_html_select_date prefix="deadline_" time=$T_DEADLINE_TIMESTAMP start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="deadline_" time = $T_DEADLINE_TIMESTAMP display_seconds = false}</td></tr>
+                                        <td class = "elementCell">{eF_template_html_select_date prefix="deadline_" time=$T_DEADLINE_TIMESTAMP start_year="-1" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="deadline_" time = $T_DEADLINE_TIMESTAMP display_seconds = false}</td></tr>
                                 {else}
                                         <td class = "elementCell">#filter:timestamp_time-{$T_DEADLINE_TIMESTAMP}#</td></tr>
                                 {/if}

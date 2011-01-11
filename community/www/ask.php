@@ -39,7 +39,7 @@ switch ($_GET['ask_type']) {
 }
 
 function highlightSearch($search_results, $search_criteria, $bgcolor='Yellow'){
- $start_tag = '<span style="background-color: '.$bgcolor.'">';
+ $start_tag = '<span style="vertical-align:top;background-color: '.$bgcolor.'">';
  $end_tag = '</span>';
  $search_results = str_ireplace($search_criteria, $start_tag . $search_criteria . $end_tag, $search_results);
  return $search_results;
@@ -753,10 +753,12 @@ function askSkills() {
   $skills = array();
   $result = EfrontSkill::getAllSkills();
   for ($i = 0 ; $i < sizeof($result) ; $i ++) {
-   $hiname = highlightSearch($result[$i]['description'], $preffix);
-   $skills[$i] = array('id' => $result[$i]['skill_ID'],
-            'description' => $result[$i]['description'],
-            'path_string' => $result[$i]['category_description'].'&nbsp;&rarr;&nbsp;'.$result[$i]['description']);
+   if ($preffix == '%' || stripos($result[$i]['description'], $preffix) !== false) {
+    $hiname = highlightSearch($result[$i]['description'], $preffix);
+    $skills[$i] = array('id' => $result[$i]['skill_ID'],
+              'description' => $result[$i]['description'],
+             'path_string' => $result[$i]['category_description'].'&nbsp;&rarr;&nbsp;'.$hiname);
+   }
   }
   $skills = array_values(eF_multisort($skills, 'path_string', 'asc')); //Sort results based on path string
   $str = '<ul>';

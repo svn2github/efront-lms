@@ -156,7 +156,6 @@
          <tr class = "topTitle">
           <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
           <td class = "topTitle" name = "direction_name">{$smarty.const._CATEGORY}</td>
-          <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
           <td class = "topTitle centerAlign" name = "students">{$smarty.const._PARTICIPATION}</td>
           <td class = "topTitle centerAlign" name = "course_only">{$smarty.const._AVAILABLE}</td>
          {if $T_CONFIGURATION.disable_payments != 1}
@@ -173,7 +172,6 @@
             {$lesson.name}
            </a>
           <td>{$lesson.direction_name}</td>
-          <td>{$lesson.languages_NAME}</td>
           <td class = "centerAlign">{if !$lesson.course_only}{if $lesson.max_users}{$lesson.students}/{$lesson.max_users}{else}{$lesson.students}{/if}{else}-{/if}</td>
           <td class = "centerAlign">
          {if $lesson.course_only}

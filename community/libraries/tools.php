@@ -2282,6 +2282,7 @@ function eF_redirect($url, $js = false, $target = 'top', $retainUrl = false) {
      }
      $url = G_SERVERNAME.basename($parts['path']).$parts['query'];
  }
+ session_write_close();
     if ($js) {
         echo "<script language='JavaScript'>$target.location='$url'</script>";
     } else {

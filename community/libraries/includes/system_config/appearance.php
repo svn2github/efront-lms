@@ -23,7 +23,7 @@ $appearanceMainForm -> addElement("textarea", "additional_footer", _EDITFOOTER, 
 $appearanceMainForm -> addElement("text", "site_name", _SITENAME, 'class = "inputText"');
 $appearanceMainForm -> addElement("text", "site_motto", _SITEMOTO, 'class = "inputText"');
 $appearanceMainForm -> addElement("advcheckbox", "motto_on_header", _SHOWMOTTOONHEADER, null, 'class = "inputCheckBox"', array(0,1));
-$appearanceMainForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES, _ONLYFORLESSONS), 'class = "inputCheckBox"');
+$appearanceMainForm -> addElement("select", "collapse_catalog", _COLLAPSECATALOG, array(_NO, _YES), 'class = "inputCheckBox"');
 $appearanceMainForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEMPTYBLOCKS, null, 'class = "inputCheckBox"', array(0,1));
 $appearanceMainForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
 $appearanceMainForm -> addElement("select", "login_redirect_page", _LOGINREDIRECTPAGE, $loginRedirectArray, 'class = "inputCheckBox"');

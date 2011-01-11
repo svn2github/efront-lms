@@ -104,7 +104,7 @@
        <tr><td class = "labelCell">{$item.name}:&nbsp;</td>
         <td class = "elementCell" NOWRAP>{eF_template_html_select_date searchtype=1 prefix=$item.prefix emptyvalues="1" time=0 start_year="-45" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
       {/foreach}
-      <tr><td class = "labelCell">{$T_REPORT_FORM.registration.label}:&nbsp;</td><td NOWRAP>{eF_template_html_select_date searchtype=1 prefix="timestamp" emptyvalues="1" time=0 start_year="-10" end_year="+10" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
+      <tr><td class = "labelCell">{$T_REPORT_FORM.registration.label}:&nbsp;</td><td NOWRAP>{eF_template_html_select_date searchtype=1 prefix="timestamp" emptyvalues="1" time=0 start_year="-45" field_order = $T_DATE_FORMATGENERAL onChange="javascript:onDateUpdated(this)"}</td></tr>
      </td>
     </tr>
    </table> {* And of main table of class = formelements *}

@@ -120,7 +120,7 @@ table.pageLayout td.header #logo{padding:2px;float:left;}
 table.pageLayout td.header #info{padding:2px;float:left;}
 table.pageLayout td.header #site_name{font-size:26px;}
 table.pageLayout td.header #logout_link{padding-right:2px;float:right;margin-top:5px}
-table.pageLayout td.header #logout_link .headerText{border-left:1px solid black;padding-left:5px;}
+table.pageLayout td.header #logout_link .headerText{border-left:1px solid #CCC;padding-left:5px;}
 table.pageLayout td.header #logout_link .headerText:first-child{border-left:0px solid black;padding-left:0px;}
 table.pageLayout td.header #logout_link a img{border-width:0px}
 table.pageLayout td.header #language{padding-top:5px;padding-right:5px;float:right;clear:right;}
@@ -168,9 +168,9 @@ height:25px;
 table.calendarHeader td,
 td.calendar{
 color:#C5D6ED;
-padding-left:4px;
-padding-right:4px;
-font-size:15px;
+padding-left:6px;
+padding-right:6px;
+font-size:14px;
 }
 
 td.calendar{

@@ -144,6 +144,6 @@ function showPieGraph(el, obj) {
 }
 
 
-if (typeof('show_test_graph') != 'undefined') {
+if (typeof(show_test_graph) != 'undefined') {
  showGraph($('proto_chart'), 'graph_test_analysis', '');
 }

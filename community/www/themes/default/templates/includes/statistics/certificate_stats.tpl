@@ -186,8 +186,8 @@
     </td>
     </tr><tr>
     <td>
-    {$smarty.const._FROM}</td><td> {eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-4" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
-    {$smarty.const._TO} {eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-4" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
+    {$smarty.const._FROM}</td><td> {eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
+    {$smarty.const._TO} {eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
     </td>
     </tr><tr>
     <td></td><td>
@@ -207,8 +207,8 @@
     </td><td></td>
     </tr><tr>
     <td>
-    {$smarty.const._FROM}</td><td> {eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-4" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
-    {$smarty.const._TO} {eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-4" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
+    {$smarty.const._FROM}</td><td> {eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
+    {$smarty.const._TO} {eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}
     </td>
     </tr><tr>
     <td>
@@ -229,8 +229,8 @@
     </td><td></td>
     </tr><tr>
     <td>
-    {$smarty.const._FROM}</td><td> {eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP_EXPIRE start_year="+0" end_year="+4" field_order = $T_DATE_FORMATGENERAL}
-    {$smarty.const._TO} {eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP_EXPIRE start_year="+0" end_year="+4" field_order = $T_DATE_FORMATGENERAL}
+    {$smarty.const._FROM}</td><td> {eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP_EXPIRE start_year="+0" end_year="+5" field_order = $T_DATE_FORMATGENERAL}
+    {$smarty.const._TO} {eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP_EXPIRE start_year="+0" end_year="+5" field_order = $T_DATE_FORMATGENERAL}
     </td>
     </tr><tr>
     <td>

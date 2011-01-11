@@ -535,7 +535,7 @@
 {/if}
 {*----------------------------End of Part 2: Modules List------------------------------------------------*}
 {*-----------------------------Part 3: Display table-------------------------------------------------*}
-{if !$T_LAYOUT_CLASS}{assign var = "layoutClass" value = "centerFull"}{else}{assign var = "layoutClass" value = $T_LAYOUT}{/if}
+{if !$T_LAYOUT_CLASS}{assign var = "layoutClass" value = "centerFull"}{else}{assign var = "layoutClass" value = $T_LAYOUT_CLASS}{/if}
 {capture name = "center_code"}
  {if $smarty.get.message}{eF_template_printMessageBlock content = $smarty.get.message type = $smarty.get.message_type}{/if}
  {if $T_MESSAGE}{eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}{/if}
@@ -591,16 +591,14 @@
  </table>
 {/capture}
 {capture name = "left_code"}
- {if !$layoutClass || $layoutClass == 'hideRight'}
  <table class = "centerTable">
+  {$smarty.capture.moduleSideOperations}
  </table>
- {/if}
 {/capture}
 {capture name = "right_code"}
- {if !$layoutClass || $layoutClass == 'hideLeft'}
  <table class = "centerTable">
+  {$smarty.capture.moduleSideOperations}
  </table>
- {/if}
 {/capture}
 {include file = "includes/common_layout.tpl"}
 {*-----------------------------End of Part 3: Display table-------------------------------------------------*}

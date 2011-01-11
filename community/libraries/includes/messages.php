@@ -51,63 +51,21 @@ try {
 
 //---------------------------------------End of Folders-------------------------------------------
 
-//---------------------------------------Start of Volume-------------------------------------------
-/*
 
-	$res1 = eF_getTableData("f_configuration", "value", "name='quota_num_of_messages'");
-
-	$res2 = eF_getTableData("f_configuration", "value", "name='quota_kilobytes'");
-
-
-
-	$res1[0]['value'] = ($res1[0]['value'])? $res1[0]['value'] : G_QUOTA_NUM_OF_MESSAGES;
-
-	$res2[0]['value'] = ($res2[0]['value'])? $res2[0]['value'] : G_QUOTA_KB;
-
-
-
-	$smarty -> assign("T_QUOTA_NUM_OF_MESSAGES", $res1[0]['value']);
-
-	$smarty -> assign("T_QUOTA_KILOBYTES", $res2[0]['value']);
-
-
-
-	$total_messages = eF_getTableData("f_personal_messages", "count(*)", "users_LOGIN='".$currentUser -> user['login']."'");
-
-	$total_files    = eF_diveIntoDir(G_UPLOADPATH.$currentUser -> user['login'].'/message_attachments/');
-
-
-
-	$smarty -> assign("T_TOTAL_MESSAGES", $total_messages[0]['count(*)']);
-
-	$smarty -> assign("T_TOTAL_SIZE", ceil($total_files[2] / 1000));
-
-
-
-	$total_messages_percentage = round(100 * $total_messages[0]['count(*)'] / $res1[0]['value'], 2);
-
-	$total_files_percentage    = round(100 * ceil($total_files[2]/1000) / $res2[0]['value'], 2);
-
-
-
-	$smarty -> assign("T_TOTAL_MESSAGES_PERCENTAGE", $total_messages_percentage);
-
-	$smarty -> assign("T_TOTAL_FILES_PERCENTAGE", $total_files_percentage);
-
-	//$smarty -> assign("T_VOLUME_OPTIONS", array(array('text' => _VIEWFOLDERSTATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages&folder_statistics=1", 'onclick' => "eF_js_showDivPopup('"._FOLDERSTATISTICS."', 2)", 'target' => 'POPUP_FRAME')));
-
-*/
-//---------------------------------------End of Volume-------------------------------------------
  if (isset($_GET['folders'])) {
      $entityForm = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&folders=true".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit'])."", "", null, true);
   $legalValues = $legalFolderValues;
      $entityName = 'f_folders';
+
      //Handle creation, deletion etc uniquely
   include("entity.php");
+
  } elseif (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues)) {
      try {
          $result = eF_getTableData("f_personal_messages", "users_LOGIN, attachments, f_folders_ID", "id=".$_GET['delete']);
+
          eF_deleteTableData("f_personal_messages", "id=".$_GET['delete']);
+
          if ($result[0]['attachments'] != '') {
              $attached_file = new EfrontFile($result[0]['attachments']);
              $attached_file -> delete();
@@ -120,6 +78,7 @@ try {
  } elseif (isset($_GET['ajax']) && isset($_GET['delete_messages'])) {
   try {
    $messages = json_decode($_GET['delete_messages']);
+
    foreach ($messages as $message) {
     $result = eF_getTableData("f_personal_messages", "users_LOGIN, attachments, f_folders_ID", "id=".$message);
           eF_deleteTableData("f_personal_messages", "id=".$message);
@@ -157,26 +116,41 @@ try {
    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=messages&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
    exit;
   }
+
         $load_editor = true;
+
         $grant_full_access = false;
+
+
+
+
+
+
+
         if ($currentUser -> getType() == "administrator") {
             $grant_full_access = true;
         }
+
         if ($grant_full_access) {
             $smarty -> assign("T_FULL_ACCESS", 1);
+
             $lessons = eF_getTableDataFlat("lessons", "id,name", "", "name");
             $courses = eF_getTableDataFlat("courses", "id,name", "", "name");
+
             $users = EfrontUser :: getUsers(true);
             $roles = EfrontUser :: getRoles(true);
         } else {
             $smarty -> assign("T_FULL_ACCESS", 0);
+
             $lessons = eF_getTableDataFlat("lessons JOIN users_to_lessons", "id,name", "users_to_lessons.archive=0 and lessons.archive=0 and lessons.id = users_to_lessons.lessons_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
             $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "users_to_courses.archive=0 and courses.archive=0 and courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
         }
+
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();
         sizeof($courses) > 0 ? $courses = array_combine($courses['id'], $courses['name']) : $courses = array();
         $smarty -> assign("T_LESSONS", $lessons);
         $smarty -> assign("T_COURSES", $courses);
+
         $form = new HTML_QuickForm("new_message_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=messages&add=1", "", "id = 'new_message_form'", true); //Build the form
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 
@@ -470,33 +444,6 @@ try {
                 $message = _NORECIPIENTSHAVEBEENFOUND;
                 $message_type = 'failure';
             }
-            //    pr($pm);pr($message);exit;
-            //echo $form->exportValue('previous_url'). '&message='.$message.'&message_type='.$message_type;
-/*
-
-            if (strpos($form->exportValue('previous_url'), "new_message.php")) {
-
-                eF_redirect(" ".G_SERVERNAME."forum/messages_index.php?message=".urlencode($message)."&message_type=".$message_type);
-
-            } else {
-
-
-
-                if (strpos($form->exportValue('previous_url'), '?')) {
-
-                    eF_redirect(''.$form->exportValue('previous_url'). '&message='.urlencode($message).'&message_type='.$message_type);
-
-                } else {
-
-                    eF_redirect(''.$form->exportValue('previous_url'). '?message='.urlencode($message).'&message_type='.$message_type);
-
-                }
-
-            }
-
-*/
-            //
-            //    $smarty -> assign("T_RELOAD_PARENT", true);
         }
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
         $renderer -> setRequiredTemplate (
@@ -536,25 +483,6 @@ try {
         $currentMessage['recipient'] = implode(", ", $recipients);
         $smarty -> assign("T_PERSONALMESSAGE", $currentMessage);
         if ($currentMessage['attachments']) {
-            /*
-
-             $attachments = array();
-
-             $attachments[] = unserialize($currentMessage[0]['attachments']);
-
-             foreach ($attachments as $attach) {
-
-             $attach_filenames[] = preg_replace('/[0-9]{10}_prefix_(.*)/', "$1", basename($attach));
-
-             $attach_names[]     = basename($attach);
-
-             }
-
-             $smarty -> assign("T_ATTACHMENTS_FILENAMES", $attach_filenames);
-
-             $smarty -> assign("T_ATTACHMENTS_NAMES", $attach_names);
-
-             */
             try {
                 $attachment = new EfrontFile($currentMessage['attachments']);
                 $smarty -> assign("T_ATTACHMENT", $attachment);
@@ -565,39 +493,8 @@ try {
         }
         eF_updateTableData("f_personal_messages", array("viewed" => 1), "id=".$currentMessage['id']);
     } else {
+  $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
      $folderMessages = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$currentFolder, "priority desc, viewed,timestamp desc");
-/*
-
-        if (isset($_GET['flag']) && eF_checkParameter($_GET['flag'], 'id')) {
-
-            eF_updateTableData("f_personal_messages", array('priority' => 1), "id=".$_GET['flag']);
-
-        } elseif (isset($_GET['unflag']) && eF_checkParameter($_GET['unflag'], 'id')) {
-
-            eF_updateTableData("f_personal_messages", array('priority' => 0), "id=".$_GET['unflag']);
-
-        } elseif (isset($_GET['read']) && eF_checkParameter($_GET['read'], 'id')) {
-
-            eF_updateTableData("f_personal_messages", array('viewed' => 1), "id=".$_GET['read']);
-
-        } elseif (isset($_GET['unread']) && eF_checkParameter($_GET['unread'], 'id')) {
-
-            eF_updateTableData("f_personal_messages", array('viewed' => 0), "id=".$_GET['unread']);
-
-        }
-
-
-
-        isset($_GET['page']) && eF_checkParameter($_GET['page'], 'uint') ? $page = $_GET['page'] : $page = 1;
-
-
-
-        $p_messages_per_page = eF_getTableData("f_configuration", "value", "name='personal_messages_per_page'");
-
-        $p_messages_per_page[0]['value'] ? $p_messages_per_page = $p_messages_per_page[0]['value'] : $p_messages_per_page = 20;
-
-*/
-        // Create ajax enabled table for employees
         if (isset($_GET['ajax']) && $_GET['ajax'] == 'messagesTable') {
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
             if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
@@ -615,28 +512,6 @@ try {
                 isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
                 $folderMessages = array_slice($folderMessages, $offset, $limit);
             }
-            // Keep only the first characters of the recipient's list
-            //$subject_chars   = 50;
-            //$recipient_chars = 30;
-/*
-
-            foreach ($messages as $key => $p_message) {
-
-                if (strlen($p_message['title']) > ($subject_chars - (($p_message['attachments'])? 4:0))) {
-
-                    $messages[$key]['title'] = mb_substr($p_message['title'],0,$subject_chars - (($p_message['attachments'])? 4:0) - 3) . "...";
-
-                }
-
-                if (strlen($p_message['recipient']) > $recipient_chars) {
-
-                    $messages[$key]['recipient'] = mb_substr($p_message['recipient'],0,$recipient_chars - 3) . "...";
-
-                }
-
-            }
-
-*/
    foreach ($folderMessages as $key => $value) {
        $recipients = explode(",", $folderMessages[$key]['recipient']);
        foreach ($recipients as $k => $login) {
@@ -649,93 +524,7 @@ try {
             $smarty -> display($currentUser -> user['user_type'].'.tpl');
             exit;
         }
-/*
-
-        else {
-
-            $p_messages          = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$folder, "priority desc, viewed,timestamp desc");
-
-
-
-            $num_of_pages        = ceil(sizeof($p_messages) / $p_messages_per_page);
-
-
-
-            $page != 1 && $num_of_pages > 0 ? $pages_str = '<a href = "forum/message_index.php?folder='.$folder.'&page='.($page - 1).'">&laquo</a>' : $pages_str = '';
-
-            for ($i = 1; $i <= $num_of_pages; $i++) {
-
-                if ($i != $page) {
-
-                    $pages_str .= ' <a href = "forum/message_index.php?folder='.$folder.'&page='.$i.'">'.$i.'</a>';
-
-                } else {
-
-                    $pages_str .= ' <b>'.$i.'</b>';
-
-                }
-
-            }
-
-            $page != $num_of_pages && $num_of_pages > 0 ? $pages_str .= ' <a href = "forum/message_index.php?folder='.$folder.'&page='.($page + 1).'">&raquo;</a>' : $pages_str .= '';
-
-
-
-            $offset = ($page - 1) * $p_messages_per_page;                              //This is used to display messages per page
-
-
-
-            $smarty -> assign("T_MESSAGES", $p_messages);
-
-            $smarty -> assign("T_MESSAGES_SIZE", sizeof($p_messages));
-
-
-
-            //    $smarty -> assign("T_PAGES", $pages_str);
-
-
-
-        }
-
-*/
-/*
-
-        $in_messages_count  = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$in_folder[0]['id']);
-
-
-
-        $out_messages_count  = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$sent_folder[0]['id']);
-
-
-
-        $draft_messages_count  = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$draft_folder[0]['id']);
-
-
-
-        $folders[0]['count'] = sizeof($in_messages_count);
-
-        $folders[1]['count'] = sizeof($out_messages_count);
-
-        $folders[2]['count'] = sizeof($draft_messages_count);
-
-        $folders_size = sizeof($folders);
-
-        for ($i = 3; $i < $folders_size; $i++) {
-
-            $temp_count  = eF_getTableData("f_personal_messages", "*", "users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=".$folders[$i]['id']);
-
-            $folders[$i]['count'] = sizeof($temp_count);
-
-
-
-        }
-
-*/
     }
-    //$entityName = 'f_personal_messages';
-    //include("entity.php");
 } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
+ handleNormalFlowExceptions($e);
 }

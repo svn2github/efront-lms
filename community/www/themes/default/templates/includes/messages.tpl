@@ -27,12 +27,12 @@
         </table> -->
 
         <table cellpadding = "2" border = "0" width = "100%">
-            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES > 1}{$smarty.const._MESSAGES} {else} {$smarty.const._MESSAGE} {/if} </td></tr>
+            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGE} {else} {$smarty.const._MESSAGES} {/if} </td></tr>
             <tr><td><span class = "boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._KBYTESUSED} </td></tr>
         </table>
  {else}
         <table cellpadding = "2" border = "0" width = "100%">
-            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES > 1}{$smarty.const._MESSAGES} {else} {$smarty.const._MESSAGE} {/if} </td></tr>
+            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGES} {else} {$smarty.const._MESSAGES} {/if} </td></tr>
             <tr><td><span class = "boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._KBYTESUSED} </td></tr>
         </table>
  {/if}
@@ -280,7 +280,7 @@
                 {else}
                     <td>#filter:login-{$message.sender}#</td>
                 {/if}
-                    <td><span style = "display:none">{$message.timestamp}</span>#filter:timestamp_time-{$message.timestamp}#</td>
+                    <td><span style = "display:none">{$message.timestamp}</span>#filter:timestamp_time_nosec-{$message.timestamp}#</td>
                     <td class = "centerAlign" >
 {*
                 {if !isset($smarty.get.minimal_view)}
@@ -308,12 +308,15 @@
                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETESELECTED}" alt = "{$smarty.const._DELETESELECTED}" class = "ajaxHandle" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteSelectedMessages(this)">
              </div>
   {/capture}
-  <table style = "width:100%;">
-   <tr><td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" navigation = $smarty.capture.t_folders_nav_code options = $T_FOLDERS_OPTIONS}</td>
-    <td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png" navigation = $smarty.capture.t_usage_nav_code options = $T_VOLUME_OPTIONS}</td></tr>
+  {eF_template_printBlock title = $smarty.const._PERSONALMESSAGES data = $smarty.capture.t_messages_code image = "32x32/mailbox.png" help = 'Messages'}
+  {capture name = "moduleSideOperations"}
    <tr>
-    <td colspan = "2">{eF_template_printBlock title = $smarty.const._PERSONALMESSAGES data = $smarty.capture.t_messages_code image = "32x32/mailbox.png" help = 'Messages'}</td></tr>
-  </table>
+    <td id = "sideColumn">
+    {eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png" navigation = $smarty.capture.t_usage_nav_code options = $T_VOLUME_OPTIONS}
+    {eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" navigation = $smarty.capture.t_folders_nav_code options = $T_FOLDERS_OPTIONS}
+    </td>
+   </tr>
+  {/capture}
  {/if}
  </td></tr>
 {/capture}

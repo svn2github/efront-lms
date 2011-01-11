@@ -460,7 +460,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
          $lessons = EFrontLesson :: getLessons();
          $directionsTree = new EfrontDirectionsTree();
          $directionPaths = $directionsTree -> toPathString();
-         $languages = EfrontSystem :: getLanguages(true);
          if (G_VERSIONTYPE == 'enterprise') {
           $result = eF_getTableDataFlat("lessons LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_lesson_offers_skill.lesson_ID = lessons.id","lessons.id, count(skill_ID) as skills_offered","lessons.archive=0","","id");
           foreach ($result['id'] as $key => $lesson_id) {
@@ -513,7 +512,6 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
            $obj = new EfrontLesson($lesson);
            //$lessons[$key]['link'] = $obj -> toHTMLTooltipLink(basename($_SERVER['PHP_SELF']).'?ctg=lessons&edit_lesson='.$lesson['id']);
            $lessons[$key]['direction_name'] = $directionPaths[$lesson['directions_ID']];
-           $lessons[$key]['languages_NAME'] = $languages[$lesson['languages_NAME']];
            $lessons[$key]['price_string'] = $obj -> lesson['price_string'];
            //$lessons[$key]['students']       = sizeof($obj -> getUsers('student'));
           }

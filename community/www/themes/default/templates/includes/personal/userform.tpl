@@ -139,7 +139,7 @@
      <tr style = "font-weight:bold;white-space:nowrap">
       <td name = "name" style = "padding:0px 3px 0px 0px;width:40%" onclick = "resetFormRows(this)">{$smarty.const._NAME}</td>
       <td name = "directions_ID" style = "padding:0px 3px 0px 3px;width:25%" onclick = "resetFormRows(this)">{$smarty.const._CATEGORY}</td>
-      <td name = "active_in_course" style = "padding:0px 3px 0px 3px;width:13%" onclick = "resetFormRows(this)">{$smarty.const._REGISTRATIONDATE}</td>
+      <td name = "active_in_course" style = "padding:0px 3px 0px 3px;width:13%;text-align:center;" onclick = "resetFormRows(this)">{$smarty.const._REGISTRATIONDATE}</td>
       <td name = "completed" style = "text-align:center;padding:0px 3px 0px 3px;width:13%" onclick = "resetFormRows(this)">{$smarty.const._COMPLETED}</td>
       <td name = "score" style = "text-align:center;padding:0px 0px 0px 3px;width:9%" onclick = "resetFormRows(this)" >{$smarty.const._SCORE}</td>
      </tr>
@@ -153,7 +153,7 @@
       {/if}
       </td>
       <td style = "padding:0px 3px 0px 3px">{$T_DIRECTIONS_TREE[$lesson.directions_ID]}</td>
-      <td style = "padding:0px 3px 0px 3px"><span style = "display:none">{$lesson.active_in_lesson}</span>#filter:timestamp-{$lesson.active_in_lesson}#</td>
+      <td style = "padding:0px 3px 0px 3px;text-align:center;"><span style = "display:none">{$lesson.active_in_lesson}</span>#filter:timestamp-{$lesson.active_in_lesson}#</td>
       <td style = "text-align:center;padding:0px 3px 0px 3px"><span style = "display:none">{$lesson.timestamp_completed}</span>{if $lesson.completed}#filter:timestamp-{$lesson.timestamp_completed}#{else}-{/if}</td>
       <td style = "text-align:center;padding:0px 0px 0px 3px"><span style = "display:none">0{$lesson.score}</span>{if $lesson.score}#filter:score-{$lesson.score}#%{/if}</td>
      </tr>

@@ -85,7 +85,7 @@
     <tr><td class="labelCell">{$smarty.const._OLDESTLOG}:&nbsp;</td>
      <td class="elementCell">#filter:timestamp-{$T_LAST_LOG_ENTRY}#</td></tr>
           <tr><td class = "labelCell">{$smarty.const._PURGELOGSOLDERTHAN}:&nbsp;</td>
-              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_LOG_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_LOG_ENTRY start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     <tr><td></td>
      <td class = "submitCell">{$T_CLEANUP_FORM.submit.html}</td></tr>
    </table>
@@ -103,7 +103,7 @@
     <tr><td class="labelCell">{$smarty.const._OLDESTNOTIFICATION}:&nbsp;</td>
      <td class="elementCell">#filter:timestamp-{$T_LAST_NOTIFICATIONS_ENTRY}#</td></tr>
           <tr><td class = "labelCell">{$smarty.const._PURGENOTIFICATIONSOLDERTHAN}:&nbsp;</td>
-              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_NOTIFICATIONS_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_NOTIFICATIONS_ENTRY start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     <tr><td></td>
      <td class = "submitCell">{$T_CLEANUP_NOTIFICATIONS_FORM.submit.html}</td></tr>
    </table>
@@ -121,7 +121,7 @@
     <tr><td class="labelCell">{$smarty.const._OLDESTEVENT}:&nbsp;</td>
      <td class="elementCell">#filter:timestamp-{$T_LAST_EVENTS_ENTRY}#</td></tr>
           <tr><td class = "labelCell">{$smarty.const._PURGEEVENTSOLDERTHAN}:&nbsp;</td>
-              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_EVENTS_ENTRY start_year="-1" end_year="+5" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+              <td class = "elementCell">{eF_template_html_select_date prefix="purge_" time=$T_LAST_EVENTS_ENTRY start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     <tr><td></td>
      <td class = "submitCell">{$T_CLEANUP_EVENTS_FORM.submit.html}</td></tr>
    </table>

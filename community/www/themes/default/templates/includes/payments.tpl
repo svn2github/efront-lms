@@ -56,7 +56,7 @@
     <tr><td class = "labelCell">{$T_ENTITY_FORM.max_user_uses.label}:&nbsp;</td>
      <td class = "elementCell">{$T_ENTITY_FORM.max_user_uses.html} {$smarty.const._BLANKFORUNLIMITED}</td></tr>
     <tr><td class = "labelCell">{$T_ENTITY_FORM.from_timestamp.label}:&nbsp;</td>
-     <td class = "elementCell">{eF_template_html_select_date prefix="from_timestamp_" time = $T_ENTITY_FORM.from_timestamp start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL}</td></tr>
+     <td class = "elementCell">{eF_template_html_select_date prefix="from_timestamp_" time = $T_ENTITY_FORM.from_timestamp start_year="-1" end_year="+2" field_order = $T_DATE_FORMATGENERAL}</td></tr>
     <tr><td class = "labelCell">{$T_ENTITY_FORM.duration.label}:&nbsp;</td>
      <td class = "elementCell">{$T_ENTITY_FORM.duration.html} {$smarty.const._DAYS}</td></tr>
     <tr><td class = "labelCell">{$T_ENTITY_FORM.discount.label}:&nbsp;</td>
@@ -83,7 +83,7 @@
     {$T_ENTITY_FORM.hidden}
     <table class = "formElements">
      <tr><td class = "labelCell">{$smarty.const._DATE}:&nbsp;</td>
-      <td class = "elementCell">{eF_template_html_select_date prefix="payment_" start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="payment_" display_seconds = false}</td></tr>
+      <td class = "elementCell">{eF_template_html_select_date prefix="payment_" start_year="-1" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="payment_" display_seconds = false}</td></tr>
      <tr><td class = "labelCell">{$smarty.const._USER}:&nbsp;</td>
       <td class = "elementCell">
        <input type = "text" id = "autocomplete" class = "autoCompleteTextBox" name = "user"/>
@@ -260,7 +260,7 @@
     <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.total_discount.label} (%):&nbsp;</td>
      <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.total_discount.html}</td></tr>
     <tr><td class = "labelCell">{$smarty.const._DISCOUNTSTARTSAT}:&nbsp;</td>
-     <td class = "elementCell">{eF_template_html_select_date prefix="discount_" time = $T_CONFIGURATION.discount_start start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._ANDLASTS} {$T_CONFIG_FORM_DEFAULT.discount_period.html} {$smarty.const._DAYS}</td></tr>
+     <td class = "elementCell">{eF_template_html_select_date prefix="discount_" time = $T_CONFIGURATION.discount_start start_year="-1" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._ANDLASTS} {$T_CONFIG_FORM_DEFAULT.discount_period.html} {$smarty.const._DAYS}</td></tr>
     <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.paypalbusiness.label}:&nbsp;</td>
      <td class = "elementCell">{$T_CONFIG_FORM_DEFAULT.paypalbusiness.html}</td></tr>
     <tr><td class = "labelCell">{$T_CONFIG_FORM_DEFAULT.paypalmode.label}:&nbsp;</td>

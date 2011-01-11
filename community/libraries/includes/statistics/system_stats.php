@@ -76,7 +76,6 @@ try {
         }
     }
 
-
     $totalUserAccesses = $totalUserTime = 0;
     foreach ($users as $key => $user) {
         $users[$key]['time'] = eF_convertIntervalToTime($user['seconds']);
@@ -93,42 +92,74 @@ try {
     $smarty -> assign("T_TOTAL_USER_TIME", eF_convertIntervalToTime($totalUserTime));
     $smarty -> assign("T_USER_TIMES", array('logins' => implode(",", array_keys($userTimes)), 'times' => implode(",", $userTimes))); //Needed only for chart
 
+/*
+
+//Commented out until we convert old log-based stats to time-based
+
+
+
     $directionsTree = new EfrontDirectionsTree();
+
     $directionsTreePaths = $directionsTree -> toPathString();
 
-    $result = eF_getTableDataFlat("lessons", "id, name, active, directions_ID");
-    $lessonNames = array_combine($result['id'], $result['name']);
+
+
+    $result       = eF_getTableDataFlat("lessons", "id, name, active, directions_ID");
+
+    $lessonNames  = array_combine($result['id'], $result['name']);
+
     $lessonActive = array_combine($result['id'], $result['active']);
+
     $lessonCategory = array_combine($result['id'], $result['directions_ID']);
 
+
+
     $lessonTimes = $timesReport -> getSystemSessionTimesForLessons();
+
     foreach ($lessons as $key => $value) {
+
         try {
-   $lessons[$key]['seconds']= $lessonTimes[$key];
-            $lessons[$key]['name'] = $directionsTreePaths[$lessonCategory[$key]].'&nbsp;&rarr;&nbsp;'.$lessonNames[$key];
+
+			$lessons[$key]['seconds']= $lessonTimes[$key];
+
+            $lessons[$key]['name']   = $directionsTreePaths[$lessonCategory[$key]].'&nbsp;&rarr;&nbsp;'.$lessonNames[$key];
+
             $lessons[$key]['active'] = $lessonActive[$key];
-        } catch (Exception $e) {} //Don't halt on a single error
+
+        } catch (Exception $e) {}                    //Don't halt on a single error
+
         if (!$lessonNames[$key]) {
+
             unset($lessons[$key]);
+
         }
+
     }
 
+
+
     foreach ($lessons as $key => $lesson) {
+
         $lessons[$key]['time'] = eF_convertIntervalToTime($lesson['seconds']);
+
     }
+
     if (!isset($_GET['showlessons'])) {
+
         $lessons = array_slice($lessons, 0, 20);
+
     }
+
+
 
     $smarty -> assign("T_ACTIVE_LESSONS", $lessons);
 
+*/
     $userTypes = eF_getTableData("users", "user_type, count(user_type) as num", "", "", "user_type");
     $smarty -> assign("T_USER_TYPES", $userTypes);
-
     try {
      if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_access') {
       $result = eF_getTableData("logs", "*", "timestamp between $from and $to and action = 'login' order by timestamp");
-
       //Assign the number of accesses to each week day
       foreach ($result as $value) {
        $cnt = 0;
@@ -141,7 +172,6 @@ try {
         $cnt++;
        }
       }
-
       $graph = new EfrontGraph();
       $graph -> type = 'line';
       //$step = sizeof($labels)/8;
@@ -149,11 +179,9 @@ try {
        $graph -> data[] = array($i, $count[$i]);
        $graph -> xLabels[] = array($i, formatTimestamp($labels[$i]));
       }
-
       $graph -> xTitle = _DAY;
       $graph -> yTitle = _LOGINS;
       $graph -> title = _LOGINSPERDAY;
-
       echo json_encode($graph);
       exit;
      } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_users_access') {
@@ -167,7 +195,6 @@ try {
       $graph -> xTitle = _USERS;
       $graph -> yTitle = _MINUTES;
       $graph -> title = _MINUTESPERUSER;
-
       echo json_encode($graph);
       exit;
      } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_system_user_types') {
@@ -183,14 +210,12 @@ try {
       $graph -> xTitle = _USERTYPES;
       $graph -> yTitle = _USERS;
       $graph -> title = _USERSEPERUSERTYPE;
-
       echo json_encode($graph);
    exit;
      }
     } catch (Exception $e) {
      handleAjaxExceptions($e);
     }
-
 } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

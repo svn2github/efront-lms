@@ -813,9 +813,13 @@ class EfrontDirectionsTree extends EfrontTree
   if (!isset($_COOKIE['display_all_courses'])) {
    setcookie('display_all_courses', 1);
   }
+  $searchString = '';
+  if ($options['search']) {
+   $searchString = '<input type = "text" name = "search_text" value = "'._SEARCH.'" onclick="if(this.value==\''._SEARCH.'\')this.value=\'\';" onblur="if(this.value==\'\')this.value=\''._SEARCH.'\';" class = "searchBox" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}" style = "float:right;background-image:url(\'images/16x16/search.png\');"/>';
+  }
   $treeString = '
     <div style = "padding-top:12px;padding-bottom:12px">
-     '.($options['search'] ? '<span style = "float:right;"><span style = "vertical-align:middle">'._SEARCH.': <input type = "text" style = "vertical-align:middle" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}"></span></span>' : '');
+     '.$searchString;
   $hideCollapseAll = $hideExpandAll = '';
   if (isset($options['collapse']) && $options['collapse'] || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
    $hideCollapseAll = 'style = "display:none"';
@@ -934,19 +938,11 @@ class EfrontDirectionsTree extends EfrontTree
         </span>';
     $hasInstancesClass = 'boldFont';
    } else {
-    $instanceString .= '
-        <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'" onclick = "location=\''.$href.'\'">';
-/*
-
-				$treeString .= '
-
-							<span class = "buyLesson">
-
-								&nbsp;<a href = '.$href.'><img class = "handle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'"></a>
-
-							</span>';
-
-*/
+    $treeString .= '
+        <span class = "buyLesson">
+         <span onclick = "location=\''.$href.'\'">'._MOREINFO.'</span>
+         <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" alt = "'._INFORMATION.'" title = "'._INFORMATION.'" onclick = "location=\''.$href.'\'">
+        </span>';
    }
   }
   if (!isset($treeCourse -> course['from_timestamp']) || $treeCourse -> course['from_timestamp']) { //from_timestamp in user status means that the user's status in the course is not 'pending'
@@ -959,7 +955,6 @@ class EfrontDirectionsTree extends EfrontTree
   } else {
    $treeString .= '<a href = "javascript:void(0)" class = "'.$hasInstancesClass.' inactiveLink" title = "'._CONFIRMATIONPEDINGFROMADMIN.'">'.$treeCourse -> course['name'].'</a>';
   }
-  $treeString .= $instanceString;
   return $treeString;
  }
  private function printLessonLink($treeLesson, $options, $roleBasicType) {
@@ -1007,12 +1002,7 @@ class EfrontDirectionsTree extends EfrontTree
   return $treeString;
  }
  private function getTreeDisplaySettings($options) {
-  if (isset($options['collapse']) && $options['collapse'] == 2) {
-   $display = '';
-   $display_lessons = 'style = "display:none"';
-   $imageString = 'down';
-   $classString = '';
-  } elseif (isset($options['collapse']) && $options['collapse'] == 1 || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
+  if (($options['collapse']) || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';
@@ -1056,13 +1046,8 @@ class EfrontDirectionsTree extends EfrontTree
    //}
   }
   if (isset($current['lessons']) && sizeof($current['lessons']) > 0 && $lessonsString) {
-   if (isset($options['collapse']) && $options['collapse'] == 2) {
-    $treeString .= '
-       <tr id = "subtree'.$current['id'].'" name = "default_visible" '. $display_lessons.'>';
-   } else {
-    $treeString .= '
-       <tr id = "subtree'.$current['id'].'" name = "default_visible" '.($iterator -> getDepth() >= 1 ? '' : $display_lessons).'>';
-   }
+   $treeString .= '
+      <tr id = "subtree'.$current['id'].'" name = "default_visible" '.($iterator -> getDepth() >= 1 ? '' : $display_lessons).'>';
    $treeString .= ' <td></td>
        <td class = "lessonsList_nocolor">&nbsp;</td>
        <td colspan = "2">
@@ -1108,7 +1093,7 @@ class EfrontDirectionsTree extends EfrontTree
    }
    if ($coursesTreeString) {
     $treeString .= '
-       <tr id = "subtree'.$current['id'].'" name = "default_visible" '.$display.'>
+       <tr id = "subtree'.$current['id'].'" name = "default_visible" '.($iterator -> getDepth() >= 1 ? '' : $display).'>
         <td></td>
         <td class = "lessonsList_nocolor">&nbsp;</td>
         <td colspan = "2">

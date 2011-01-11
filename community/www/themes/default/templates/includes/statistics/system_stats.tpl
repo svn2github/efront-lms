@@ -4,9 +4,9 @@
                     <form name = "systemperiod">
                     <table class = "statisticsSelectDate">
                         <tr><td class = "labelCell">{$smarty.const._FROM}:&nbsp;</td>
-                            <td class = "elementCell">{eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $T_FROM_TIMESTAMP display_seconds = false}</td></tr>
+                            <td class = "elementCell">{eF_template_html_select_date prefix="from_" time=$T_FROM_TIMESTAMP start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $T_FROM_TIMESTAMP display_seconds = false}</td></tr>
                         <tr><td class = "labelCell">{$smarty.const._TO}:&nbsp;</td>
-                            <td class = "elementCell">{eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $T_TO_TIMESTAMP display_seconds = false}</td></tr>
+                            <td class = "elementCell">{eF_template_html_select_date prefix="to_" time=$T_TO_TIMESTAMP start_year="-5" end_year="+0" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $T_TO_TIMESTAMP display_seconds = false}</td></tr>
                         <tr><td class = "labelCell"></td>
                             <td class = "elementCell"><a href = "javascript:void(0)" onclick = "showSystemStats('day')">{$smarty.const._LAST24HOURS}</a> - <a href = "javascript:void(0)" onclick = "showSystemStats('week')">{$smarty.const._LASTWEEK}</a> - <a href = "javascript:void(0)" onclick = "showSystemStats('month')">{$smarty.const._LASTMONTH}</a></td></tr>
                         <tr><td></td>
@@ -75,6 +75,8 @@
                             </tr>
                         {/foreach}
                     </table>
+{*
+Commented out until we convert old log-based stats to time-based
                     <br/>
                     <table class = "statisticsTools">
                         <tr><td>{if $smarty.get.showlessons}{$smarty.const._LESSONSACTIVITY}{else}{$smarty.const._MOSTACTIVELESSONS}{/if}</td></tr>
@@ -102,6 +104,7 @@
                          <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
                         {/foreach}
                     </table>
+*}
     {if isset($T_SYSTEM_LOG)}
      <br/>
                     <table class = "statisticsTools">

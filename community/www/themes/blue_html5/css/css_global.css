@@ -1389,8 +1389,8 @@ div.proto_graph{background-color:white;height:500px;}
 
 
 /*Various classes*/
-.horizontalSeparator{border-bottom:1px solid #888888}
-.horizontalSeparatorAbove{border-top:1px solid #555555;}
+.horizontalSeparator{border-bottom:1px solid #888}
+.horizontalSeparatorAbove{border-top:1px solid #888;}
 .inactiveElement{color:#cccccc!important;}
 .inactiveImage, .inactiveImage img{opacity:0.2;filter:alpha(opacity=20);}
 input.inactiveElement{background-color:#f9f9f9;border-color:#f9f9f9;}

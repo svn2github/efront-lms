@@ -1,42 +1,3 @@
-{capture name = "t_volume_code"}
- {if $smarty.session.s_type == 'student'}
-        {if ($T_TOTAL_MESSAGES_PERCENTAGE > 0.8*$T_QUOTA_NUM_OF_MESSAGES) & ($T_TOTAL_MESSAGES_PERCENTAGE < 0.9*$T_QUOTA_NUM_OF_MESSAGES)}
-            {assign var = "msgClassName" value = "plainWarning"}
-            {assign var = "msg_warn" value = $smarty.const._APPROACHINGMESSAGEQUOTA|cat:$smarty.const._DELETEOLDMESSAGES}
-        {elseif ($T_TOTAL_MESSAGES_PERCENTAGE > 0.9*$T_QUOTA_NUM_OF_MESSAGES)}
-            {assign var = "msgClassName" value = "severeWarning"}
-            {assign var = "msg_warn" value = $smarty.const._MESSAGEBOXSIZECRITICAL|cat:$smarty.const._ERASEMESSAGESNOTRECEIVENEW}
-        {else}
-            {assign var = "msgClassName" value = "noWarning"}
-            {assign var = "msg_warn" value = ""}
-        {/if}
-
-        {if ($T_TOTAL_FILES_PERCENTAGE > 0.8*$T_QUOTA_KILOBYTES) & ($T_TOTAL_FILES_PERCENTAGE < 0.9*$T_QUOTA_KILOBYTES)}
-            {assign var = "fileClassName" value = "plainWarning"}
-            {assign var = "file_warn" value = $smarty.const._APPROACHINGMESSAGEQUOTA|cat:$smarty.const._DELETEOLDMESSAGES}
-        {elseif ($T_TOTAL_FILES_PERCENTAGE > 0.9*$T_QUOTA_KILOBYTES)}
-            {assign var = "fileClassName" value = "severeWarning"}
-            {assign var = "file_warn" value = $smarty.const._MESSAGEBOXSIZECRITICAL|cat:$smarty.const._ERASEMESSAGESNOTRECEIVENEW}
-        {else}
-            {assign var = "fileClassName" value = "noWarning"}
-            {assign var = "file_warn" value = ""}
-        {/if}
-      <!-- <table>
-            <tr><td><span class = "{$msgClassName} boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {$smarty.const._OFTOTAL} <span class = "boldFont">{$T_QUOTA_NUM_OF_MESSAGES}</span>&nbsp;{$smarty.const._MESSAGES} (<span class = "{$msgClassName}" id ="messages_number_percentage">{$T_TOTAL_MESSAGES_PERCENTAGE}</span>%)</td></tr>
-            <tr><td><span class = "{$fileClassName} boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._OFTOTAL} <span class = "boldFont">{$T_QUOTA_KILOBYTES} </span>{$smarty.const._KBYTESUSED} (<span class = "{$fileClassName}" id ="messages_size_percentage">{$T_TOTAL_FILES_PERCENTAGE} </span>%)</td></tr>
-        </table> -->
-
-        <table cellpadding = "2" border = "0" width = "100%">
-            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGE} {else} {$smarty.const._MESSAGES} {/if} </td></tr>
-            <tr><td><span class = "boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._KBYTESUSED} </td></tr>
-        </table>
- {else}
-        <table cellpadding = "2" border = "0" width = "100%">
-            <tr><td><span class = "boldFont" id = "messages_number">{$T_TOTAL_MESSAGES}</span> {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGES} {else} {$smarty.const._MESSAGES} {/if} </td></tr>
-            <tr><td><span class = "boldFont" id = "messages_size">{$T_TOTAL_SIZE} </span> {$smarty.const._KBYTESUSED} </td></tr>
-        </table>
- {/if}
-{/capture}
 
 {capture name = "t_folders_code"}
  <table width="100%">
@@ -53,21 +14,13 @@
     {/if}
           </td>
       </tr>
- {* <script type="text/javascript">Droppables.add('div_folder_id_{$T_FOLDERS[folders_loop].id}', {literal}{hoverclass:'messageFolderHoverclass',onDrop: function(element,dropon){document.getElementById(element.id).style.visibility = "hidden";moveMessageAjax(element.id, '{/literal}{$T_FOLDERS[folders_loop].id}{literal}', dropon);}})</script>{/literal}*}
       {assign var = "folders_options" value = $folders_options|cat:'<option value = "'|cat:$id|cat:'">'|cat:$folder.name|cat:'</option>'} {*This builds an <options> list containing the name of the available folders*}
-  {foreachelse}
   {/foreach}
+  <tr><td colspan = "2">&nbsp;</td></tr>
+  <tr><td colspan = "2">
+   {$smarty.const._TOTAL}: {$T_TOTAL_MESSAGES} {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGE}{else}{$smarty.const._MESSAGES}{/if}, {$T_TOTAL_SIZE} {$smarty.const._KB}
+  </td></tr>
  </table>
-{/capture}
-
-{capture name = "t_usage_nav_code"}
-            <!--<a href = "javascript:void(0)" onclick = "popUp('manage_folders.php?action=statistics', 600, 400, 1)" class = "optionsLink">{$smarty.const._VIEWFOLDERSTATISTICS}</a>-->
-            {if $msg_warn != "" }
-                <br/><br/><span class = "{$msgClassName}">{$msg_warn}</span>
-            {/if}
-            {if $file_warn != "" }
-                <br/><span class = "{$fileClassName}">{$file_warn}</span>
-            {/if}
 {/capture}
 
 
@@ -230,12 +183,15 @@
     </div>
    </div>
   {/capture}
-  <table style = "width:100%;">
-   <tr><td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" navigation = $smarty.capture.t_folders_nav_code options = $T_FOLDERS_OPTIONS}</td>
-    <td style = "vertical-align:top;width:50%;">{eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png" navigation = $smarty.capture.t_usage_nav_code options = $T_VOLUME_OPTIONS}</td></tr>
+  {eF_template_printBlock title = $T_PERSONALMESSAGE.title data = $smarty.capture.t_messagesbody_code image = "32x32/mail.png"}
+  {capture name = "moduleSideOperations"}
    <tr>
-    <td colspan = "2">{eF_template_printBlock title = $T_PERSONALMESSAGE.title data = $smarty.capture.t_messagesbody_code image = "32x32/mail.png"}</td></tr>
-  </table>
+    <td id = "sideColumn">
+    {eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png" }
+    {eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" options = $T_FOLDERS_OPTIONS}
+    </td>
+   </tr>
+  {/capture}
  {else}
   {capture name = "t_messages_code"}
    <div class = "headerTools">
@@ -312,8 +268,8 @@
   {capture name = "moduleSideOperations"}
    <tr>
     <td id = "sideColumn">
-    {eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png" navigation = $smarty.capture.t_usage_nav_code options = $T_VOLUME_OPTIONS}
-    {eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" navigation = $smarty.capture.t_folders_nav_code options = $T_FOLDERS_OPTIONS}
+    {eF_template_printBlock title = $smarty.const._SPACEUSAGE data = $smarty.capture.t_volume_code image = "32x32/status.png"}
+    {eF_template_printBlock title = $smarty.const._FOLDERS data = $smarty.capture.t_folders_code image = "32x32/folders.png" options = $T_FOLDERS_OPTIONS}
     </td>
    </tr>
   {/capture}

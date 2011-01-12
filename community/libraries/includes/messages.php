@@ -455,6 +455,7 @@ try {
         $form -> accept($renderer); //Assign this form to the renderer, so that corresponding template code is created
         $smarty -> assign('T_ADD_MESSAGE_FORM', $renderer -> toArray()); //Assign the form to the template
     } else if (isset($_GET['view']) && in_array($_GET['view'], $legalValues)) {
+     $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
         $currentMessage = $messages[$_GET['view']];
         //With this iterator, we find the previous and next messages in the same folder
         $it = new ArrayIterator(new ArrayObject($messages));

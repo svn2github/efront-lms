@@ -92,6 +92,9 @@ if (isset($_GET['sel_user'])) {
     $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'operations', 'sort_by_column' => 4));
     $smarty -> assign("T_DATASOURCE_OPERATIONS", array('progress'));
     $lessons = $infoUser -> getUserStatusInIndependentLessons();
+    if ($currentUser -> user['user_type'] != 'administrator') {
+     $lessons = array_intersect_key($lessons, $userLessons);
+    }
     $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
     $dataSource = $lessons;
    }
@@ -108,17 +111,32 @@ if (isset($_GET['sel_user'])) {
    if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
     $tableName = $_GET['ajax'];
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {
-     $constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
+     //$constraints = array('archive' => false, 'active' => true, 'instance' => false) + createConstraintsFromSortedTable();
+     $constraints = array('archive' => false, 'active' => true, 'instance' => false);
+
      $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
      $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCoursesAggregatingResults($constraints);
+
+     if ($currentUser -> user['user_type'] != 'administrator') {
+      $userCourses = $currentUser -> getUserCourses($constraints);
+      $courses = array_intersect_key($courses, $userCourses);
+     }
+
     }
 
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
-     $constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
+     //$constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
+     $constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);
+
      $constraints['required_fields'] = array('num_lessons', 'location');
      $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCourses($constraints);
+     if ($currentUser -> user['user_type'] != 'administrator') {
+      $userCourses = $currentUser -> getUserCourses($constraints);
+      $courses = array_intersect_key($courses, $userCourses);
+     }
+
     }
 
     $dataSource = $courses;
@@ -153,7 +171,11 @@ if (isset($_GET['sel_user'])) {
 
    $userInfo['usage'] = EfrontStats :: getUserUsageInfo($infoUser);
 
-   try {
+   $userInfo['usage']['meanDuration'] = EfrontTimes::formatTimeForReporting($userInfo['usage']['mean_duration']*60);
+   $userInfo['usage']['monthmeanDuration'] = EfrontTimes::formatTimeForReporting($userInfo['usage']['month_mean_duration']*60);
+   $userInfo['usage']['weekmeanDuration'] = EfrontTimes::formatTimeForReporting($userInfo['usage']['week_mean_duration']*60);
+
+    try {
     $avatar = new EfrontFile($userInfo['general']['avatar']);
     $avatar['id'] != -1 ? $smarty -> assign ("T_AVATAR", $avatar['id']) : $smarty -> assign ("T_AVATAR", $avatar['path']);
    } catch (Exception $e) {
@@ -392,11 +414,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $workSheet -> write($row, 1, _WEEKLOGINS, $fieldLeftFormat);
  $workSheet -> write($row++, 2, sizeof($userInfo['usage']['week_logins']), $fieldRightFormat);
  $workSheet -> write($row, 1, _MEANDURATION, $fieldLeftFormat);
- $workSheet -> write($row++, 2, $userInfo['usage']['mean_duration']."'", $fieldRightFormat);
+ $workSheet -> write($row++, 2, $userInfo['usage']['meanDuration']['time_string']."'", $fieldRightFormat);
  $workSheet -> write($row, 1, _MONTHMEANDURATION, $fieldLeftFormat);
- $workSheet -> write($row++, 2, $userInfo['usage']['month_mean_duration']."'", $fieldRightFormat);
+ $workSheet -> write($row++, 2, $userInfo['usage']['monthmeanDuration']['time_string']."'", $fieldRightFormat);
  $workSheet -> write($row, 1, _WEEKMEANDURATION, $fieldLeftFormat);
- $workSheet -> write($row++, 2, $userInfo['usage']['week_mean_duration']."'", $fieldRightFormat);
+ $workSheet -> write($row++, 2, $userInfo['usage']['weekmeanDuration']['time_string']."'", $fieldRightFormat);
  $row = 1;
  if ($infoUser -> user['user_type'] != 'administrator') {
   //course users info

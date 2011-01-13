@@ -197,7 +197,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
   {/if}
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('settings', $T_DATASOURCE_OPERATIONS)}
-    <a href = "{$smarty.server.PHP_SELF}?ctg=courses&course={$course.id}&op=course_info"><img class = "handle" src = "images/16x16/generic.png" title = "{$smarty.const._COURSEINFORMATION}" alt = "{$smarty.const._COURSEINFORMATION}" /></a>
+    <a href = "{$smarty.server.PHP_SELF}?ctg={if $smarty.session.s_type == 'administrator'}courses{else}lessons{/if}&course={$course.id}&op=course_info"><img class = "handle" src = "images/16x16/generic.png" title = "{$smarty.const._COURSEINFORMATION}" alt = "{$smarty.const._COURSEINFORMATION}" /></a>
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('propagate', $T_DATASOURCE_OPERATIONS)}
     <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" title = "{$smarty.const._PROPAGATECOURSE}" alt = "{$smarty.const._PROPAGATECOURSE}" onclick = "propagateCourse(this, '{$course.id}')"/>

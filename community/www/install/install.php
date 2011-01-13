@@ -313,10 +313,13 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
      $db -> Execute("SET NAMES 'UTF8'");
      //Delete old temporary installation tables
-     foreach ($tables as $table) {
+     foreach ($tables as $key => $table) {
       try {
        $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
       } catch (Exception $e) {} //If the table could not be deleted, it doesn't exist
+      if (preg_match("/^.*_view$/", $table)) {
+       unset($tables[$key]);
+      }
      }
      //Create missing tables in the target database
      foreach ($moduleTableQueries as $query) {
@@ -1092,10 +1095,6 @@ php_value register_globals Off
     $GLOBALS['db'] -> Execute("truncate themes");
    } else if ($table == 'rules') {
     if ($data[$i]['rule_type'] == 'hasnot_passed') {
-     unset($data[$i]);
-    }
-   } else if ($table == 'lesson_conditions') {
-    if ($data[$i]['type'] == 'specific_test') {
      unset($data[$i]);
     }
    } else if ($table == 'questions') {

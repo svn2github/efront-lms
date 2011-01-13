@@ -100,15 +100,15 @@
   </tr>
   <tr class = "{cycle name = 'user_usage' values = 'oddRowColor, evenRowColor'}">
    <td class = "labelCell">{$smarty.const._MEANDURATION}:</td>
-   <td class = "elementCell">{$T_USER_INFO.usage.mean_duration}{$smarty.const._MINUTESSHORTHAND}</td>
+   <td class = "elementCell">{$T_USER_INFO.usage.meanDuration.time_string}</td>
   </tr>
   <tr class = "{cycle name = 'user_usage' values = 'oddRowColor, evenRowColor'}">
    <td class = "labelCell">{$smarty.const._MONTHMEANDURATION}:</td>
-   <td class = "elementCell">{$T_USER_INFO.usage.month_mean_duration}{$smarty.const._MINUTESSHORTHAND}</td>
+   <td class = "elementCell">{$T_USER_INFO.usage.monthmeanDuration.time_string}</td>
   </tr>
    <tr class = "{cycle name = 'user_usage' values = 'oddRowColor, evenRowColor'}">
    <td class = "labelCell">{$smarty.const._WEEKMEANDURATION}:</td>
-   <td class = "elementCell">{$T_USER_INFO.usage.week_mean_duration}{$smarty.const._MINUTESSHORTHAND}</td>
+   <td class = "elementCell">{$T_USER_INFO.usage.weekmeanDuration.time_string}</td>
   </tr>
   <tr class = "{cycle name = 'user_usage' values = 'oddRowColor, evenRowColor'}">
    <td class = "labelCell">{$smarty.const._LASTIPUSED}:</td>

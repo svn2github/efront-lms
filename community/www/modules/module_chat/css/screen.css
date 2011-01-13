@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+a{
+	outline: none; 
+}
+
+
+#chat_bar {
+	float:right;
+	width:18em;
+	height:25px;
+	position:fixed; /* chat_bar div must be fixed, for the fixed bar to work */
+	bottom:1px;
+	right:1px;
+	/*margin-left:86.8em;*/
+	border:1px solid #999999;
+	background-color:#FFFFFF;
+	text-align:left;
+	outline: none;
+}
+
+
+#user_list {
+	height:100%;
+	border-bottom:#0033FF 1px solid;
+	position:relative;
+	overflow:auto;
+	padding-bottom:0px;
+	visibility:visible;
+	outline: none;
+}
+
+#content{
+	padding-bottom:1px;
+	outline: none;
+}
+
+#content p{
+	background:#E1E2FF;
+	font-size:1.1em;
+	padding-left:5px;
+	padding-bottom:1px;
+	margin:0;
+	text-align:left;
+}
+
+#content p a{
+	color:#000000;
+}
+
+#status{
+	font-size:1.2em;
+	margin-right:80px;
+}
+#statusimg{
+	vertical-align:middle;
+	padding-top:1px; border:none;
+}

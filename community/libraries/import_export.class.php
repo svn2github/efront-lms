@@ -264,7 +264,7 @@ class EfrontImportCsv extends EfrontImport
 	 */
  private function explodeBySeparator($line) {
   if ($this -> separator) {
-   return explode($this -> separator, $this -> fileContents[$line]);
+   return str_getcsv($this -> fileContents[$line], $this -> separator);
   } else {
    return $this -> fileContents[$line];
   }
@@ -338,7 +338,7 @@ class EfrontImportCsv extends EfrontImport
   try {
    switch($type) {
     case "users":
-     if (isset($data['password']) && $data['password'] != "") {
+     if (isset($data['password']) && $data['password'] != "" && $data['password'] != "ldap") {
       $data['password'] = EfrontUser::createPassword($data['password']);
      }
      eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login'];

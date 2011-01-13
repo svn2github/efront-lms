@@ -101,7 +101,7 @@
         <div id = "personIdentity">
             <table>
                 <tr><td>
-                        <a href = "javascript:void(0)" class = "info nonEmptyLesson" id="nameSurname" onmouseover="$('tooltipImg').style.visibility = 'visible';" onmouseout="$('tooltipImg').style.visibility = 'hidden';">
+                        <a href = "javascript:void(0)" class = "info nonEmptyLesson" id="nameSurname" onmouseover="if($('tooltipImg'))$('tooltipImg').style.visibility = 'visible';" onmouseout="if($('tooltipImg')) $('tooltipImg').style.visibility = 'hidden';">
                             #filter:login-{$smarty.session.s_login}#<br />
                             <span class = 'tooltipSpan' id='userInfo'>{$T_TYPE}</span>
                         </a>

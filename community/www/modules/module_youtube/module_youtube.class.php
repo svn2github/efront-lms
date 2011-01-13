@@ -160,7 +160,7 @@ class module_youtube extends EfrontModule {
 
         if (isset($_GET['delete_youtube']) && eF_checkParameter($_GET['delete_youtube'], 'id')) {
             eF_deleteTableData("module_youtube", "id=".$_GET['delete_youtube']);
-            eF_deleteTableData("module_youtube_users_to_meeting", "meeting_ID=".$_GET['delete_youtube']);
+            //eF_deleteTableData("module_youtube_users_to_meeting", "meeting_ID=".$_GET['delete_youtube']);
             eF_redirect("". $this -> moduleBaseUrl ."&message=".urlencode(_YOUTUBE_SUCCESFULLYDELETEDYOUTUBEENTRY)."&message_type=success");
         } else if (isset($_GET['add_youtube']) || (isset($_GET['edit_youtube']) && eF_checkParameter($_GET['edit_youtube'], 'id'))) {
 

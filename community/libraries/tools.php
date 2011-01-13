@@ -115,7 +115,7 @@ function handleNormalFlowExceptions($e) {
 
 /**
 
- * If json_decode() does not exist, use external implementation
+ * If json_decode() does not exist (5.2.0), use external implementation
 
  */
 if (!function_exists('json_decode')) {
@@ -127,6 +127,21 @@ if (!function_exists('json_decode')) {
         }
         return $services_json->decode($arg);
     }
+}
+/**
+
+ * If str_getcsv() does not exist (5.3.0), use external implementation
+
+ */
+if (!function_exists('str_getcsv')) {
+ function str_getcsv($input, $delimiter=',', $enclosure='"', $escape=null, $eol=null) {
+  $temp=fopen("php://memory", "rw");
+  fwrite($temp, $input);
+  fseek($temp, 0);
+  $r=fgetcsv($temp, 4096, $delimiter, $enclosure);
+  fclose($temp);
+  return $r;
+ }
 }
 /*
 

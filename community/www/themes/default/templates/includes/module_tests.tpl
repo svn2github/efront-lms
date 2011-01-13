@@ -11,6 +11,8 @@ var noQuestionSelection = "{$smarty.const._NOQUESTIONSELECTIONSHAVEBEENMADE}";
 var doYouWantToFurtherEdit = "{$smarty.const._DOYOUWANTTOFURTHEREDITTHETEST}";
 var noQuestionsFound = "{$smarty.const._NOQUESTIONSFOUND}";
 var deleteConst ='{$smarty.const._DELETE}';
+translations['_YOUCANNOTREMOVETHELASTELEMENT'] = '{$smarty.const._YOUCANNOTREMOVETHELASTELEMENT}';
+translations['_SEPARATEWORDSWITHPIPE'] = '{$smarty.const._SEPARATEWORDSWITHPIPE}';
 </script>
 
 
@@ -594,16 +596,16 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    <tr id = "autocorrect" {if !$T_QUESTION_SETTINGS.autocorrect}style = "display:none"{/if}>
     <td class = "labelCell">{$smarty.const._AUTOCORRECTOPTIONS}:&nbsp;</td>
     <td class = "elementCell">
-     <table>
+     <table id = "autocorrect_options">
      {foreach name = "autocorrect_list" item = "item" key = "key" from = $T_QUESTION_SETTINGS.autocorrect}
-      <tr id = "autocorrect_options" class = "autocorrect_options">
+      <tr class = "autocorrect_options">
        <td>
         <select name = "autocorrect_contains[]">
          <option value = "1" {if $item.contains == 1}selected{/if}>{$smarty.const._CONTAINS}</option>
          <option value = "0" {if $item.contains == 0}selected{/if}>{$smarty.const._NOTCONTAINS}</option>
         </select>
        </td><td>
-        <input value = "{$item.words|@implode:'|'}" type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "if (this.value == '{$smarty.const._SEPARATEWORDSWITHPIPE}') {ldelim}this.value = '';Element.extend(this).removeClassName('emptyCategory infoCell');{rdelim}" class = "inputText"/>
+        <input value = "{$item.words|@implode:'|'}" type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "eF_js_editFreeTextChoice(this)" class = "inputText"/>
        </td><td>
         <select name = "autocorrect_score[]">
          <option value = "">{$smarty.const._POINTS}</option>
@@ -611,17 +613,17 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          <option value = "{$smarty.section.options.iteration-6}" {if $item.score == $smarty.section.options.iteration-6}selected{/if}>{$smarty.section.options.iteration-6}</option>
          {/section}
         </select>
-        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEOPTION}" title = "{$smarty.const._REMOVEOPTION}" onclick = "if ($('autocorrect').select('tr.autocorrect_options').length > 1) this.up().up().remove(); else alert('{$smarty.const._YOUCANNOTREMOVETHELASTELEMENT}');"/>
+        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEOPTION}" title = "{$smarty.const._REMOVEOPTION}" onclick = "eF_js_removeFreeTextChoice(this)"/>
       </td></tr>
      {foreachelse}
-      <tr id = "autocorrect_options" class = "autocorrect_options">
+      <tr class = "autocorrect_options">
        <td>
         <select name = "autocorrect_contains[]">
          <option value = "1">{$smarty.const._CONTAINS}</option>
          <option value = "0">{$smarty.const._NOTCONTAINS}</option>
         </select>
        </td><td>
-        <input type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "if (this.value == '{$smarty.const._SEPARATEWORDSWITHPIPE}') {ldelim}this.value = '';Element.extend(this).removeClassName('emptyCategory infoCell');{rdelim}" class = "inputText emptyCategory infoCell"/>
+        <input type = "text" name = "autocorrect_words[]" value = "{$smarty.const._SEPARATEWORDSWITHPIPE}" onclick = "eF_js_editFreeTextChoice(this)" class = "inputText emptyCategory infoCell"/>
        </td><td>
         <select name = "autocorrect_score[]">
          <option value = "">{$smarty.const._POINTS}</option>
@@ -629,14 +631,15 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          <option value = "{$smarty.section.options.iteration-6}">{$smarty.section.options.iteration-6}</option>
          {/section}
         </select>
-        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEOPTION}" title = "{$smarty.const._REMOVEOPTION}" onclick = "if ($('autocorrect').select('tr.autocorrect_options').length > 1) this.up().up().remove(); else alert('{$smarty.const._YOUCANNOTREMOVETHELASTELEMENT}');"/>
+        <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEOPTION}" title = "{$smarty.const._REMOVEOPTION}" onclick = "eF_js_removeFreeTextChoice(this)"/>
       </td></tr>
      {/foreach}
       <tr><td colspan = "3">
-       <img class = "ajaxHandle" src = "images/16x16/add.png" alt = "{$smarty.const._ADDOPTION}" title = "{$smarty.const._ADDOPTION}" onclick = "$('autocorrect_score').up().insert({ldelim}before:$('autocorrect_options').cloneNode(true){rdelim})"/>
-       <a href = "javascript:void(0)" onclick = "Element.extend(this).up().up().insert({ldelim}before:$('autocorrect_options').cloneNode(true){rdelim});">{$smarty.const._ADDOPTION}</a>
+       <img class = "ajaxHandle" src = "images/16x16/add.png" alt = "{$smarty.const._ADDOPTION}" title = "{$smarty.const._ADDOPTION}" onclick = "eF_js_addFreeTextChoice()"/>
+       <a href = "javascript:void(0)" onclick = "eF_js_addFreeTextChoice()">{$smarty.const._ADDOPTION}</a>
       </td></tr>
-      <tr id = "autocorrect_score"><td colspan = "2" class = "labelCell">
+      <tr id = "autocorrect_score">
+       <td colspan = "2" class = "labelCell">
         {$smarty.const._CONSIDERCORRECTWHENSCOREISGREATERTHAN}:&nbsp;
        </td><td>
         <input type = "text" name = "autocorrect_threshold" size="4" value = "{$T_QUESTION_SETTINGS.threshold}"/>

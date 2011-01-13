@@ -43,6 +43,8 @@
 - Fixed js issue about loading blocks in layout page
 - Fixed issue about course info link in course reports for professors
 - Fixed js error in sidebar for IE
+- Fixed issues about mean score in lessons/courses in users reports
+
 
 === Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data

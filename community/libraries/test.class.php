@@ -5552,7 +5552,8 @@ class RawTextQuestion extends Question implements iQuestion
      */
     public function correct() {
   if ($this -> settings['force_correct'] == 'auto') {
-   $splitAnswerWords = preg_split("/\p{Z}|\p{P}/u", $this->userAnswer, -1, PREG_SPLIT_NO_EMPTY);
+   $splitAnswerWords = preg_split("/\p{Z}|\p{P}|\n/m", $this->userAnswer, -1, PREG_SPLIT_NO_EMPTY);
+   array_walk($splitAnswerWords, create_function('&$v', '$v=trim($v);'));
    $totalScore = 0;
    foreach($this -> settings['autocorrect'] as $value) {
     if ($value['contains']) {

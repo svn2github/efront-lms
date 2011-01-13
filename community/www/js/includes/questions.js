@@ -269,3 +269,26 @@ function addAutoCorrectChoice() {
  el = new Element('select').insert(new Element('option', {value:0}).update('Contains')).insert(new Element('option', {value:1}).update('Not Contains'));
  $('autocorrect').insert(el);
 }
+
+
+function eF_js_addFreeTextChoice() {
+ newElement = $('autocorrect_options').select('tr')[0].cloneNode(true);
+ newElement.select('input')[0].value = '';
+ newElement.removeClassName('emptyCategory infoCell');
+ $('autocorrect_score').previous().insert({before:newElement});
+}
+function eF_js_removeFreeTextChoice(el) {
+ Element.extend(el);
+ if ($('autocorrect').select('tr.autocorrect_options').length > 1) {
+  el.up().up().remove();
+ } else {
+  alert(translations['_YOUCANNOTREMOVETHELASTELEMENT']);
+ }
+}
+function eF_js_editFreeTextChoice(el) {
+ Element.extend(el);
+ if (el.value == translations['_SEPARATEWORDSWITHPIPE']) {
+  el.value = '';
+  el.removeClassName('emptyCategory infoCell');
+ }
+}

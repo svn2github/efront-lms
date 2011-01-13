@@ -43,6 +43,7 @@ class module_fuze_meetings extends EfrontModule {
  private $_current_student_five_next_meetings;
  public function __construct() {
   global $currentUser;
+  if (!$currentUser) return false;
   $defined_moduleBaseUrl = '';
   if ($currentUser->getType() == 'administrator') $defined_moduleBaseUrl = 'administrator.php?ctg=modules&op=module_fuze_meetings';
   elseif ($currentUser->getType() == 'professor') $defined_moduleBaseUrl = 'professor.php?ctg=modules&op=module_fuze_meetings';

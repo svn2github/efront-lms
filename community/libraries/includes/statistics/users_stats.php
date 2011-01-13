@@ -37,7 +37,6 @@ if ($currentUser -> user['user_type'] == 'administrator') {
  }
 }
 
-
 if (isset($_GET['sel_user'])) {
  if ($currentUser -> user['user_type'] != 'administrator' && $isSupervisor) {
   if ($currentUser -> aspects['hcd'] -> supervisesEmployee($_GET['sel_user'])) {
@@ -741,9 +740,13 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $constraints['required_fields'] = array('has_instances', 'location', 'user_type', 'completed', 'score', 'has_course', 'num_lessons', 'to_timestamp');
   $constraints['return_objects'] = false;
   $userCourses = $infoUser -> getUserCourses($constraints);
+  $completedScores = array();
   foreach ($userCourses as $courseId => $value) {
    $coursesTotalSec = 0;
-   $coursesAvgScore += $value['score'];
+   //$coursesAvgScore += $value['score'];
+   if ($value['completed']) {
+    $completedScores[] = $value['score'];
+   }
    $data[$courseId] = array(_NAME => $value['name'],
          _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
          _REGISTRATIONDATE => formatTimestamp($value['active_in_course']),
@@ -790,16 +793,23 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $subSections[$courseId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _LESSONSFORCOURSE.': '.$value['name'], 'subSections' => $testSubSections);
    }
   }
+  if (sizeof($completedScores) > 0) {
+    $coursesAvgScore = round(array_sum($completedScores) / sizeof($completedScores), 2);
+  }
   $pdf->printDataSection(_TRAINING.': '._COURSES, $data, $formatting, $subSections);
   $data = $subSections = $userDoneTests = array();
   $result = EfrontStats :: getStudentsDoneTests($userLessons, $editedUser -> user['login']);
   foreach ($result[$infoUser -> user['login']] as $value) {
    $userDoneTests[$value['lessons_ID']][] = $value;
   }
-  $userLessons = $infoUser -> getUserStatusInLessons();
+  $userLessons = $infoUser -> getUserStatusInIndependentLessons();
+  $completedScores = array();
   foreach ($userLessons as $lessonId => $value) {
    $value = $value -> lesson;
-   $lessonsAvgScore += $value['score'];
+   //$lessonsAvgScore += $value['score'];		
+   if ($value['completed']) {
+    $completedScores[] = $value['score'];
+   }
    $data[$lessonId] = array(_NAME => $value['name'],
           _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
           _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
@@ -811,8 +821,10 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
              _STATUS => array('width' => '13%', 'fill' => true, 'align' => 'C'),
              _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'));
     $subSectionData = array();
+    $testsAvgScoreNum = 0;
     foreach ($userDoneTests[$value['id']] as $test) {
      $testsAvgScore += $test['score'];
+     $testsAvgScoreNum++;
      $subSectionData[] = array(_TESTNAME => $test['name'],
              _STATUS => $test['status'],
              _SCORE => formatScore($test['score']).'%');
@@ -821,9 +833,12 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    }
   }
   $pdf->printDataSection(_TRAINING.': '._LESSONS, $data, $formatting, $subSections);
+  if (sizeof($completedScores) > 0) {
+    $lessonsAvgScore = round(array_sum($completedScores) / sizeof($completedScores), 2);
+  }
   $info = array(array(_COURSESAVERAGE, $coursesAvgScore.'%'),
        array(_LESSONSAVERAGE, $lessonsAvgScore.'%'),
-       array(_TESTSAVERAGE, $testsAvgScore.'%'));
+       array(_TESTSAVERAGE, round(($testsAvgScore/$testsAvgScoreNum) ,2).'%'));
   $pdf -> printInformationSection(_OVERALL, $info);
  }
  $pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');

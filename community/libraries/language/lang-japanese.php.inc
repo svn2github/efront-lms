@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","にログインしてefront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ja");//en
 define("_CURRENTLANGUAGESYMBOL","ja");//en
-define("_HEADERLANGUAGETAG","japanese");//english
+define("_HEADERLANGUAGETAG","japanese");//en_US.utf8
 define("_CHARSET","x-euc");//ISO-8859-1
 define("_LANGUAGE","言語");//Language
 define("_PASSWORD","パスワード");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","レッスン");//Lessons
 define("_RECREATESEARCHTABLE","再検索テーブル");//Recreate search table
 define("_LESSONSREGISTRATIONS","レッスン登録");//Lesson registrations
 define("_TOOLS","道具");//Tools
-define("_ONLINEUSERS","上行のユーザー");//Connected users
+define("_ONLINEUSERS","上行のユーザー");//Connected
 define("_DATE","日付");//Date
 define("_STUDENT","学生");//Student
 define("_LINE","ライン");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","高度な基準");//Advanced criteria
 define("_MYSTUDENTS","私の生徒");//My students
 define("_EMPLOYEE","従業員");//User
 define("_NOBRANCHJOBSERROR","仕事の説明はこの枝が登録されて");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","検査報告書");//Tests reports
+define("_TESTSTATISTICS","検査報告書");//Test reports
 define("_CHOOSETEST","選択テスト");//Choose test
 define("_USERPROFILE","ユーザープロファイル");//Public profile
 define("_VIEWBRANCHES","対象の枝");//View branches
-define("_NOEMPLOYEESFOUND","の従業員は見つかりませんでした");//No users were found
+define("_NOEMPLOYEESFOUND","の従業員は見つかりませんでした");//No users found
 define("_SEARCHEMPLOYEE","検索の従業員");//Find users
 define("_ALLBRANCHES","すべての枝");//All branches
 define("_ANSWERS","回答");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","時間");//Time
 define("_RESEND","再送メール");//Resend email
 define("_CERTIFICATESTATISTICS","証明書報告書");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","は、任意のコースの認定得たユーザー");//Users that got a certification for any course
-define("_EVENTSTATISTICS","イベントレポート");//Events reports
+define("_EVENTSTATISTICS","イベントレポート");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","イベントの一致条件");//Events matching criteria
 define("_NOEVENTSFOUND","イベントは、お客様の検索条件に一致する");//No events match your search criteria
 define("_VISITEDTHESYSTEM","システムを訪問");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","グループから削除されました");//was r
 define("_ONNEWSKILL","スキルの割り当て");//Skill assignment
 define("_WASASSIGNEDSKILL","スキルを割り当てられていた");//was assigned skill
 define("_ONSKILLREMOVAL","スキルを除去");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","もはやスキルを持っていない");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","もはやスキルを持っていない");//does not have anymore the skill
 define("_ONSKILLEDIT","ユーザーのスキルを編集");//User skill edited
 define("_HADHISSKILLEDITEDTO","スキルのための新しい説明があり、");//has a new description for skill
 define("_ONHCDHIRED","ユーザーの採用");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","ヘルプを表示リンク");//Display help links
 define("_ALLOWUSERANSERALLRONG","許可の学生は間違って質問に答えをやり直す");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","のみのテストの繰り返しが許可されている場合");//Only if test repetitions are allowed
 define("_USERREDOWRONG","やり直しは間違って答えて");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","デフォルトのテーマはinportedすることはできません");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","デフォルトのテーマはinportedすることはできません");//Default theme cannot be imported
 define("_ACCESSEXPIRED","アクセスは有効期限が切れ");//Access expired
 define("_LESSONSCHEDULE","レッスンスケジュール");//Lessons schedule
 define("_COURSESTARTSAT","コースの開始日");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","君がいたが
 define("_SUPERVISORS","監視");//Supervisors
 define("_COURSEOPTIONS","コースオプション");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","すべてのユーザーのリセットの実行");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","ユーザーのレポート生成");//Users reports generator
+define("_ADVANCEDUSERREPORTS","ユーザーのレポート生成");//User reports generator
 define("_ADDTOGROUP","グループに追加");//Add to group
 define("_ASSIGNCOURSE","割り当てますコース");//Assign course
 define("_ASSIGNLESSON","割り当てのレッスン");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","検索結果");//Results for
 define("_THANKYOUFORCOMPLETING","完了していただきありがとうございます");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","報告はシステムで検出された");//No reports found in the system
 define("_YOUMAYCREATEONE","あなたは、1つを作成することができます");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","ユーザが存在するため、レッスンモードを変更することはできませんコースに在籍");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","ユーザーはこのコースを持っていない");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","ユーザーはこのレッスンを持っていない");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","ユーザーのアクセスが許可さ");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","ユーザが存在するため、レッスンモードを変更することはできませんコースに在籍");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","あなたは最後の要素を削除することはできません。");//You cannot remove the last element (New)
+define("_CONTAINS","含まれて");//Contains (New)
+define("_NOTCONTAINS","が含まれていないこと");//Does not contain (New)
+define("_REMOVEOPTION","オプションを削除");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考えて修正する累積ポイントが大きいか等しい場合");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","自動");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","オートコレクトのオプション");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","質問補正");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","パイプで区切っての言葉|");//Separate words with pipe | (New)
+define("_POINTS","ポイント");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","ユーザーはこのコースを持っていない");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","ユーザーはこのレッスンを持っていない");//The user does not have this lesson
+define("_USERACCESSGRANTED","ユーザーのアクセスが許可さ");//User access granted
+define("_FORCECHANGEPASSWORD","最初のログイン時に強制的にパスワードの変更");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","パスワードの変更");//Change password (New)
+define("_OLDPASSWORD","古いパスワード");//Old password (New)
+define("_NEWPASSWORD","新しいパスワード");//New password (New)
+define("_ONLINETIME","時間を買う");//Time online (New)
+define("_ONLINESINCE","オンラインから");//Online since (New)
+define("_MANUALLY","手動");//Manually (New)
+define("_CLEAROPCODECACHE","クリアオプコードキャッシュ");//Clear opcode cache (New)
+define("_USELOGO","を使用しています");//Use logo (New)
+define("_DEFAULTLOGO","デフォルトのロゴ");//Default logo (New)
+define("_UPLOADSITELOGO","アップロードサイトロゴ");//Upload site logo (New)
+define("_ATLEAST","少なくとも");//At least (New)
+define("_ATMOST","せいぜい");//At most (New)
+define("_EQUALTO","等しい");//Equal to (New)
+define("_SKILLSSTATISTICS","スキルが報告");//Skill reports (New)
+define("_STATISTICSFORSKILL","スキルレポート");//Reports for skill (New)
+define("_CHOOSESKILL","スキルを選択してください");//Choose skill (New)
+define("_SKILLGRAPH","スキルグラフ");//Skill graph (New)
+define("_TOTALSKILLS","合計スキル");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","非同期SCORMの通信");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","非同期通信に切り替えて、あなたが問題をSCORMコンテンツを完了する（大文字と小文字を中心にするには、Adobeは、生成されたコンテンツを魅了している）が発生している場合");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：無効の支払いはすべて0に価格を設定します");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","複数のオプション");//Multiple options (New)
 ?>

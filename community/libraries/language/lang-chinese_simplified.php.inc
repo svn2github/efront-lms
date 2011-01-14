@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","登录到eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ch");//en
 define("_CURRENTLANGUAGESYMBOL","ch_si");//en
-define("_HEADERLANGUAGETAG","chinese");//english
+define("_HEADERLANGUAGETAG","chinese");//en_US.utf8
 define("_CHARSET","EUC-CN");//ISO-8859-1
 define("_LANGUAGE","语言");//Language
 define("_PASSWORD","密码");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","课程");//Lessons
 define("_RECREATESEARCHTABLE","重新搜索表");//Recreate search table
 define("_LESSONSREGISTRATIONS","课程登记");//Lesson registrations
 define("_TOOLS","工具");//Tools
-define("_ONLINEUSERS","在线用户");//Connected users
+define("_ONLINEUSERS","在线用户");//Connected
 define("_DATE","日期");//Date
 define("_STUDENT","学生");//Student
 define("_LINE","线");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","先进标准");//Advanced criteria
 define("_MYSTUDENTS","我的学生");//My students
 define("_EMPLOYEE","用户");//User
 define("_NOBRANCHJOBSERROR","没有工作，说明已登记为这个分支");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","考试报表");//Tests reports
+define("_TESTSTATISTICS","考试报表");//Test reports
 define("_CHOOSETEST","选择考试");//Choose test
 define("_USERPROFILE","用户配置文件");//Public profile
 define("_VIEWBRANCHES","鉴于党支部");//View branches
-define("_NOEMPLOYEESFOUND","没有用户被发现");//No users were found
+define("_NOEMPLOYEESFOUND","没有用户被发现");//No users found
 define("_SEARCHEMPLOYEE","搜索用户");//Find users
 define("_ALLBRANCHES","所有分行");//All branches
 define("_ANSWERS","答案");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","时间");//Time
 define("_RESEND","重新发送电子邮件");//Resend email
 define("_CERTIFICATESTATISTICS","证书报表");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","用户得到的任何课程证书");//Users that got a certification for any course
-define("_EVENTSTATISTICS","活动报表");//Events reports
+define("_EVENTSTATISTICS","活动报表");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","事件匹配标准");//Events matching criteria
 define("_NOEVENTSFOUND","没有事件符合您的搜索标准");//No events match your search criteria
 define("_VISITEDTHESYSTEM","访问系统");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","从组中删除");//was removed from group
 define("_ONNEWSKILL","技能任务");//Skill assignment
 define("_WASASSIGNEDSKILL","被分配技能");//was assigned skill
 define("_ONSKILLREMOVAL","技能搬迁");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","再也没有技能");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","再也没有技能");//does not have anymore the skill
 define("_ONSKILLEDIT","用户编辑技巧");//User skill edited
 define("_HADHISSKILLEDITEDTO","有技能的新说明");//has a new description for skill
 define("_ONHCDHIRED","用户雇用");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","显示帮助联系");//Display help links
 define("_ALLOWUSERANSERALLRONG","只有让学生重做错误回答的问题");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","只有允许重复测试");//Only if test repetitions are allowed
 define("_USERREDOWRONG","重做唯一错误的回答");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","默认主题不能inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","默认主题不能inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","访问过期");//Access expired
 define("_LESSONSCHEDULE","课时间表");//Lessons schedule
 define("_COURSESTARTSAT","课程开始于");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","你是来参加
 define("_SUPERVISORS","监事");//Supervisors
 define("_COURSEOPTIONS","课程选择");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","为所有用户重置处决");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","用户报告生成");//Users reports generator
+define("_ADVANCEDUSERREPORTS","用户报告生成");//User reports generator
 define("_ADDTOGROUP","添加到组");//Add to group
 define("_ASSIGNCOURSE","分配过程");//Assign course
 define("_ASSIGNLESSON","分配教训");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","结果");//Results for
 define("_THANKYOUFORCOMPLETING","感谢您完成");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","没有报告发现，在系统");//No reports found in the system
 define("_YOUMAYCREATEONE","您可以创建一");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","你不能改变的教训模式，因为有用户参加该课程");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","用户不具有此课程");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","用户没有这个教训");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","授予用户访问");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","你不能改变的教训模式，因为有用户参加该课程");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","您不能删除最后一个元素");//You cannot remove the last element (New)
+define("_CONTAINS","包含");//Contains (New)
+define("_NOTCONTAINS","不包含");//Does not contain (New)
+define("_REMOVEOPTION","删除选项");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考虑是正确的，当积分大于或等于");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","自动");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","自动更正选项");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","问题更正");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","用管单独的词|");//Separate words with pipe | (New)
+define("_POINTS","点");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","用户不具有此课程");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","用户没有这个教训");//The user does not have this lesson
+define("_USERACCESSGRANTED","授予用户访问");//User access granted
+define("_FORCECHANGEPASSWORD","部队在初始登录密码更改");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","更改密码");//Change password (New)
+define("_OLDPASSWORD","旧密码");//Old password (New)
+define("_NEWPASSWORD","新密码");//New password (New)
+define("_ONLINETIME","上网时间");//Time online (New)
+define("_ONLINESINCE","网上自");//Online since (New)
+define("_MANUALLY","手动");//Manually (New)
+define("_CLEAROPCODECACHE","操作码缓存清除");//Clear opcode cache (New)
+define("_USELOGO","使用LOGO");//Use logo (New)
+define("_DEFAULTLOGO","默认徽标");//Default logo (New)
+define("_UPLOADSITELOGO","上传网站徽标");//Upload site logo (New)
+define("_ATLEAST","至少");//At least (New)
+define("_ATMOST","在最");//At most (New)
+define("_EQUALTO","等于");//Equal to (New)
+define("_SKILLSSTATISTICS","技术报告");//Skill reports (New)
+define("_STATISTICSFORSKILL","报告的技巧");//Reports for skill (New)
+define("_CHOOSESKILL","选择技巧");//Choose skill (New)
+define("_SKILLGRAPH","技能图");//Skill graph (New)
+define("_TOTALSKILLS","共有技能");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","异步SCORM通信");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","切换到异步通信，如果您遇到麻烦完成SCORM的内容（尤其是如果您使用Adobe Captivate中生成的内容）");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：禁用所有价格付款将设置为0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","多个选项");//Multiple options (New)
 ?>

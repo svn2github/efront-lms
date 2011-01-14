@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Logga in på eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","sv");//en
 define("_CURRENTLANGUAGESYMBOL","sv");//en
-define("_HEADERLANGUAGETAG","swedish");//english
+define("_HEADERLANGUAGETAG","swedish");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Språk");//Language
 define("_PASSWORD","Lösenord");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lektioner");//Lessons
 define("_RECREATESEARCHTABLE","Återskapa söktabell");//Recreate search table
 define("_LESSONSREGISTRATIONS","Lektionsregistreringar");//Lesson registrations
 define("_TOOLS","Verktyg");//Tools
-define("_ONLINEUSERS","Användare online");//Connected users
+define("_ONLINEUSERS","Användare online");//Connected
 define("_DATE","Datum");//Date
 define("_STUDENT","Elev");//Student
 define("_LINE","Linje");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Avancerade kriterier");//Advanced criteria
 define("_MYSTUDENTS","Mina elever");//My students
 define("_EMPLOYEE","Anställd");//User
 define("_NOBRANCHJOBSERROR","Inga befattningar har registrerats för denna avdelning");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Testrapporter");//Tests reports
+define("_TESTSTATISTICS","Testrapporter");//Test reports
 define("_CHOOSETEST","Välj test");//Choose test
 define("_USERPROFILE","Användarprofil");//Public profile
 define("_VIEWBRANCHES","Visa avdelningar");//View branches
-define("_NOEMPLOYEESFOUND","Inga anställda hittades");//No users were found
+define("_NOEMPLOYEESFOUND","Inga anställda hittades");//No users found
 define("_SEARCHEMPLOYEE","Sök anställd");//Find users
 define("_ALLBRANCHES","Alla avdelningar");//All branches
 define("_ANSWERS","Svar");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Tid");//Time
 define("_RESEND","Skicka igen");//Resend email
 define("_CERTIFICATESTATISTICS","Intygsrapporter");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Användare som har ett intyg för någon kurs");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Händelserapporter");//Events reports
+define("_EVENTSTATISTICS","Händelserapporter");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Evenemang som matchar sökkriterierna");//Events matching criteria
 define("_NOEVENTSFOUND","Inga händelser matchar dina sökkriterier");//No events match your search criteria
 define("_VISITEDTHESYSTEM","besökte systemet");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","togs bort från gruppen");//was removed from grou
 define("_ONNEWSKILL","Kompetenstilldelning");//Skill assignment
 define("_WASASSIGNEDSKILL","tilldelades kompetens");//was assigned skill
 define("_ONSKILLREMOVAL","Kompetensborttagning");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","har inte längre kompetensen");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","har inte längre kompetensen");//does not have anymore the skill
 define("_ONSKILLEDIT","Användarens kompetens redigerad");//User skill edited
 define("_HADHISSKILLEDITEDTO","har en ny kompetensbeskrivning");//has a new description for skill
 define("_ONHCDHIRED","Användare anställd");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Visa hjälplänkar");//Display help links
 define("_ALLOWUSERANSERALLRONG","Låt eleverna enbart göra om felbesvarade frågor");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Endast om testupprepningar är tillåtna");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Gör om enbart felbesvarade");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Standardtema kan inte importeras");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Standardtema kan inte importeras");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Åtkomst utgången");//Access expired
 define("_LESSONSCHEDULE","Lektionsschema");//Lessons schedule
 define("_COURSESTARTSAT","Kursen startar på");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du registrerade
 define("_SUPERVISORS","Handledare");//Supervisors
 define("_COURSEOPTIONS","Kursalternativ");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Återställ slutförande för alla användare");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Användarrapportgenerator");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Användarrapportgenerator");//User reports generator
 define("_ADDTOGROUP","Lägg till i grupp");//Add to group
 define("_ASSIGNCOURSE","Tilldela kurs");//Assign course
 define("_ASSIGNLESSON","Tilldela lektion");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Resultat för");//Results for
 define("_THANKYOUFORCOMPLETING","Tack för att slutföra");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Inga rapporter finns i systemet");//No reports found in the system
 define("_YOUMAYCREATEONE","Du kan skapa en");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan inte ändra lektion läge, eftersom det finns användare inskrivna på kursen");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Användaren har inte denna kurs");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Användaren har inte denna lektion");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Användarnas tillgång beviljas");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan inte ändra lektion läge, eftersom det finns användare inskrivna på kursen");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Du kan inte ta bort det sista elementet");//You cannot remove the last element (New)
+define("_CONTAINS","Innehåller");//Contains (New)
+define("_NOTCONTAINS","Innehåller inte");//Does not contain (New)
+define("_REMOVEOPTION","Ta bort alternativ");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Överväg rätt när ackumulerade poäng är större eller lika med");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automatisk");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-rätt alternativ");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Fråga korrigering");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Separat ord med rör |");//Separate words with pipe | (New)
+define("_POINTS","Poäng");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Användaren har inte denna kurs");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Användaren har inte denna lektion");//The user does not have this lesson
+define("_USERACCESSGRANTED","Användarnas tillgång beviljas");//User access granted
+define("_FORCECHANGEPASSWORD","Force lösenord förändras vid första inloggningen");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Ändra lösenord");//Change password (New)
+define("_OLDPASSWORD","Gammalt lösenord");//Old password (New)
+define("_NEWPASSWORD","Nytt lösenord");//New password (New)
+define("_ONLINETIME","Tid online");//Time online (New)
+define("_ONLINESINCE","Online sedan");//Online since (New)
+define("_MANUALLY","Manuellt");//Manually (New)
+define("_CLEAROPCODECACHE","Rensa opcode cache");//Clear opcode cache (New)
+define("_USELOGO","Använd logo");//Use logo (New)
+define("_DEFAULTLOGO","Standard logo");//Default logo (New)
+define("_UPLOADSITELOGO","Ladda upp plats logo");//Upload site logo (New)
+define("_ATLEAST","Minst");//At least (New)
+define("_ATMOST","Vid de flesta");//At most (New)
+define("_EQUALTO","Lika med");//Equal to (New)
+define("_SKILLSSTATISTICS","Skill rapporter");//Skill reports (New)
+define("_STATISTICSFORSKILL","Rapporter för skicklighet");//Reports for skill (New)
+define("_CHOOSESKILL","Välj färdighet");//Choose skill (New)
+define("_SKILLGRAPH","Skill graf");//Skill graph (New)
+define("_TOTALSKILLS","Totalt färdigheter");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Asynkron SCORM kommunikation");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Växla till asynkron kommunikation om du upplever problem med att slutföra SCORM-material (speciellt om du använder Adobe Captivate innehåll)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varning: Inaktivera betalningar kommer att ställa alla priser till 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Flera alternativ");//Multiple options (New)
 ?>

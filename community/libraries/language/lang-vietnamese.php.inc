@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Đăng nhập để eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","vi");//en
 define("_CURRENTLANGUAGESYMBOL","vi");//en
-define("_HEADERLANGUAGETAG","Tiếng Anh");//english
+define("_HEADERLANGUAGETAG","Tiếng Anh");//en_US.utf8
 define("_CHARSET","CP1258");//ISO-8859-1
 define("_LANGUAGE","Ngôn ngữ");//Language
 define("_PASSWORD","Mật khẩu");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Bài học");//Lessons
 define("_RECREATESEARCHTABLE","Recreate tìm kiếm bảng");//Recreate search table
 define("_LESSONSREGISTRATIONS","Bài Học đăng ký");//Lesson registrations
 define("_TOOLS","Các dụng cụ");//Tools
-define("_ONLINEUSERS","Kết nối người sử dụng");//Connected users
+define("_ONLINEUSERS","Kết nối người sử dụng");//Connected
 define("_DATE","Ngày");//Date
 define("_STUDENT","Học sinh");//Student
 define("_LINE","Line");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Nâng cao các tiêu chí");//Advanced criteria
 define("_MYSTUDENTS","Học sinh của tôi");//My students
 define("_EMPLOYEE","BạChặn người này");//User
 define("_NOBRANCHJOBSERROR","Không có vị trí công việc đã được đăng ký cho các chi nhánh này");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Các bài kiểm tra các báo cáo");//Tests reports
+define("_TESTSTATISTICS","Các bài kiểm tra các báo cáo");//Test reports
 define("_CHOOSETEST","Chọn thử nghiệm");//Choose test
 define("_USERPROFILE","Hồ sơ người dùng");//Public profile
 define("_VIEWBRANCHES","Xem các chi nhánh");//View branches
-define("_NOEMPLOYEESFOUND","Không có người dùng đã được tìm thấy");//No users were found
+define("_NOEMPLOYEESFOUND","Không có người dùng đã được tìm thấy");//No users found
 define("_SEARCHEMPLOYEE","Tìm kiếm người dùng");//Find users
 define("_ALLBRANCHES","Tất cả các chi nhánh");//All branches
 define("_ANSWERS","Hỏi &amp; Đáp");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Thời gian");//Time
 define("_RESEND","Gửi lại email");//Resend email
 define("_CERTIFICATESTATISTICS","Giấy chứng nhận báo cáo");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Người dùng có nhận được giấy chứng nhận cho bất kỳ khóa học");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Sự kiện báo cáo");//Events reports
+define("_EVENTSTATISTICS","Sự kiện báo cáo");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Sự kiện phù hợp tiêu chuẩn");//Events matching criteria
 define("_NOEVENTSFOUND","Không có sự kiện phù hợp tiêu chí tìm kiếm của bạn");//No events match your search criteria
 define("_VISITEDTHESYSTEM","truy cập hệ thống");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","đã được gỡ bỏ khỏi nhóm");//was remo
 define("_ONNEWSKILL","Kỹ năng giao");//Skill assignment
 define("_WASASSIGNEDSKILL","được giao kỹ năng");//was assigned skill
 define("_ONSKILLREMOVAL","Kỹ năng loại bỏ");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","không có kỹ năng nữa");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","không có kỹ năng nữa");//does not have anymore the skill
 define("_ONSKILLEDIT","Người sử dụng kỹ năng edited");//User skill edited
 define("_HADHISSKILLEDITEDTO","có một mô tả kỹ năng mới cho");//has a new description for skill
 define("_ONHCDHIRED","Người sử dụng thuê");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Hiển thị trợ giúp liên kết");//Display help links
 define("_ALLOWUSERANSERALLRONG","Cho phép học sinh để làm lại chỉ trả lời câu hỏi sai");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Chỉ khi được phép lặp lại thử nghiệm");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Làm lại chỉ được trả lời sai");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Giao diện mặc định không thể được inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Giao diện mặc định không thể được inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Truy cập hết hạn");//Access expired
 define("_LESSONSCHEDULE","Những bài học lịch");//Lessons schedule
 define("_COURSESTARTSAT","Khóa học bắt đầu từ ngày");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Bạn đã đư
 define("_SUPERVISORS","Giám sát");//Supervisors
 define("_COURSEOPTIONS","Khóa học lựa chọn");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Thiết lập lại án tử hình cho tất cả người dùng");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Người sử dụng báo cáo phát điện");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Người sử dụng báo cáo phát điện");//User reports generator
 define("_ADDTOGROUP","Thêm vào nhóm");//Add to group
 define("_ASSIGNCOURSE","Chỉ định khóa học");//Assign course
 define("_ASSIGNLESSON","Chỉ định bài học");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Kết quả");//Results for
 define("_THANKYOUFORCOMPLETING","Cảm ơn bạn đã hoàn thành");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Không có báo cáo tìm thấy trong hệ thống");//No reports found in the system
 define("_YOUMAYCREATEONE","Bạn có thể tạo ra một");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Bạn không thể thay đổi chế độ bài học vì có người dùng đăng ký cho khóa học");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Người sử dụng không có khóa học này");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Người sử dụng không có bài học này");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Người sử dụng truy cập cấp");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Bạn không thể thay đổi chế độ bài học vì có người dùng đăng ký cho khóa học");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","");//You cannot remove the last element (New)
+define("_CONTAINS","");//Contains (New)
+define("_NOTCONTAINS","");//Does not contain (New)
+define("_REMOVEOPTION","");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","");//Separate words with pipe | (New)
+define("_POINTS","");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Người sử dụng không có khóa học này");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Người sử dụng không có bài học này");//The user does not have this lesson
+define("_USERACCESSGRANTED","Người sử dụng truy cập cấp");//User access granted
+define("_FORCECHANGEPASSWORD","");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","");//Change password (New)
+define("_OLDPASSWORD","");//Old password (New)
+define("_NEWPASSWORD","");//New password (New)
+define("_ONLINETIME","");//Time online (New)
+define("_ONLINESINCE","");//Online since (New)
+define("_MANUALLY","");//Manually (New)
+define("_CLEAROPCODECACHE","");//Clear opcode cache (New)
+define("_USELOGO","");//Use logo (New)
+define("_DEFAULTLOGO","");//Default logo (New)
+define("_UPLOADSITELOGO","");//Upload site logo (New)
+define("_ATLEAST","");//At least (New)
+define("_ATMOST","");//At most (New)
+define("_EQUALTO","");//Equal to (New)
+define("_SKILLSSTATISTICS","");//Skill reports (New)
+define("_STATISTICSFORSKILL","");//Reports for skill (New)
+define("_CHOOSESKILL","");//Choose skill (New)
+define("_SKILLGRAPH","");//Skill graph (New)
+define("_TOTALSKILLS","");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","");//Multiple options (New)
 ?>

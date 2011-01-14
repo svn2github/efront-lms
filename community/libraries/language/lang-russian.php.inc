@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Войти в систему");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ru");//en
 define("_CURRENTLANGUAGESYMBOL","ru");//en
-define("_HEADERLANGUAGETAG","ru_RU");//english
+define("_HEADERLANGUAGETAG","ru_RU");//en_US.utf8
 define("_CHARSET","ISO-8859-5");//ISO-8859-1
 define("_LANGUAGE","Язык");//Language
 define("_PASSWORD","Пароль");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Уроки");//Lessons
 define("_RECREATESEARCHTABLE","Восстановить поисковую таблицу");//Recreate search table
 define("_LESSONSREGISTRATIONS","Регистрация на урок");//Lesson registrations
 define("_TOOLS","Инструменты");//Tools
-define("_ONLINEUSERS","Пользователи в системе");//Connected users
+define("_ONLINEUSERS","Пользователи в системе");//Connected
 define("_DATE","Дата");//Date
 define("_STUDENT","Учащийся");//Student
 define("_LINE","Line");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Дополнительные критерии");//Advanced c
 define("_MYSTUDENTS","Мои студенты");//My students
 define("_EMPLOYEE","Пользователь");//User
 define("_NOBRANCHJOBSERROR","Должности не были зарегистрированы для данного подразделения");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Отчеты по тестам");//Tests reports
+define("_TESTSTATISTICS","Отчеты по тестам");//Test reports
 define("_CHOOSETEST","Выбрать тест");//Choose test
 define("_USERPROFILE","Профиль пользователя");//Public profile
 define("_VIEWBRANCHES","Посмотреть филиалы");//View branches
-define("_NOEMPLOYEESFOUND","Нет пользователей");//No users were found
+define("_NOEMPLOYEESFOUND","Нет пользователей");//No users found
 define("_SEARCHEMPLOYEE","Найти пользователей");//Find users
 define("_ALLBRANCHES","Все подразделения");//All branches
 define("_ANSWERS","Ответы");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Время");//Time
 define("_RESEND","Повторно отправить электронную почту");//Resend email
 define("_CERTIFICATESTATISTICS","Отчеты о сертификации");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Пользователи, которые получили сертификацию для любого курса");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Отчеты о событиях");//Events reports
+define("_EVENTSTATISTICS","Отчеты о событиях");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","События, соответствующие критериям");//Events matching criteria
 define("_NOEVENTSFOUND","Нет событий, соответствующих критериям поиска");//No events match your search criteria
 define("_VISITEDTHESYSTEM","посетил систему");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","был удален из группы");//was rem
 define("_ONNEWSKILL","Назначение навыка");//Skill assignment
 define("_WASASSIGNEDSKILL","был назначен навык");//was assigned skill
 define("_ONSKILLREMOVAL","Удаление навыка");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","более не имеет навыка");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","более не имеет навыка");//does not have anymore the skill
 define("_ONSKILLEDIT","Отредактирован навык пользователя");//User skill edited
 define("_HADHISSKILLEDITEDTO","имеет новое описание навыка");//has a new description for skill
 define("_ONHCDHIRED","Пользователь нанят");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Показать ссылки помощи");//Display help 
 define("_ALLOWUSERANSERALLRONG","Разрешить студентам переделать только неправильные ответы на вопросы");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Только если разрешено повторные выполнения теста");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Переделать только неправильные ответы на вопросы");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Тема по умолчанию не может быть импортирована");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Тема по умолчанию не может быть импортирована");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Доступ истек");//Access expired
 define("_LESSONSCHEDULE","Расписание уроков");//Lessons schedule
 define("_COURSESTARTSAT","Курс начинается");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Вы были �
 define("_SUPERVISORS","Руководители");//Supervisors
 define("_COURSEOPTIONS","Параметры курсов");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Сбросить сведения о выполнении для всех пользователей");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Генератор пользователских отчетов");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Генератор пользователских отчетов");//User reports generator
 define("_ADDTOGROUP","Добавить в группу");//Add to group
 define("_ASSIGNCOURSE","Назначить курс");//Assign course
 define("_ASSIGNLESSON","Назначить урок");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Результаты для");//Results for
 define("_THANKYOUFORCOMPLETING","Благодарим вас за заполнение");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Нет сообщений");//No reports found in the system
 define("_YOUMAYCREATEONE","Вы можете его создать");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Вы не можете изменить режим урока, поскольку есть пользователи, изучающие курс с этим уроком");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не имеет этот курс");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Пользователь не имеет этот урок");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Доступ пользователю предоставлен");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Вы не можете изменить режим урока, поскольку есть пользователи, изучающие курс с этим уроком");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Вы не можете удалить последний элемент");//You cannot remove the last element (New)
+define("_CONTAINS","Содержит");//Contains (New)
+define("_NOTCONTAINS","Не содержит");//Does not contain (New)
+define("_REMOVEOPTION","Удалить опции");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Рассмотрим прав, когда накопленные баллы больше или равно");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Автоматическая");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Автокоррекции");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Вопрос коррекции");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Отдельные слова с трубы |");//Separate words with pipe | (New)
+define("_POINTS","Точки");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не имеет этот курс");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Пользователь не имеет этот урок");//The user does not have this lesson
+define("_USERACCESSGRANTED","Доступ пользователю предоставлен");//User access granted
+define("_FORCECHANGEPASSWORD","Группа смены пароля при первоначальном Войти");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Изменение пароля");//Change password (New)
+define("_OLDPASSWORD","Старый пароль");//Old password (New)
+define("_NEWPASSWORD","Новый пароль");//New password (New)
+define("_ONLINETIME","Время онлайн");//Time online (New)
+define("_ONLINESINCE","На сайте с");//Online since (New)
+define("_MANUALLY","Вручную");//Manually (New)
+define("_CLEAROPCODECACHE","Очистить кэш кода операции");//Clear opcode cache (New)
+define("_USELOGO","Использование логотипа");//Use logo (New)
+define("_DEFAULTLOGO","По умолчанию логотип");//Default logo (New)
+define("_UPLOADSITELOGO","Добавить сайт логотип");//Upload site logo (New)
+define("_ATLEAST","По крайней мере");//At least (New)
+define("_ATMOST","В наиболее");//At most (New)
+define("_EQUALTO","Равно");//Equal to (New)
+define("_SKILLSSTATISTICS","Навык доклады");//Skill reports (New)
+define("_STATISTICSFORSKILL","Отчеты за мастерство");//Reports for skill (New)
+define("_CHOOSESKILL","Выберите мастерство");//Choose skill (New)
+define("_SKILLGRAPH","Навык графа");//Skill graph (New)
+define("_TOTALSKILLS","Всего навыки");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Асинхронные SCORM связи");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Переключение в режим асинхронной передачи, если у вас возникли проблемы с заполнением SCORM содержания (особенно в случае, если вы используете Adobe Captivate контента)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Предупреждение: Отключение платежей установит все цены на 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Несколько вариантов");//Multiple options (New)
 ?>

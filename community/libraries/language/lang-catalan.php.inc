@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Ingressar a eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ca");//en
 define("_CURRENTLANGUAGESYMBOL","ca");//en
-define("_HEADERLANGUAGETAG","catalan");//english
+define("_HEADERLANGUAGETAG","catalan");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Idioma");//Language
 define("_PASSWORD","Contrasenya");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lliçons");//Lessons
 define("_RECREATESEARCHTABLE","Recrear el quadre de cerca");//Recreate search table
 define("_LESSONSREGISTRATIONS","Lliçó registres");//Lesson registrations
 define("_TOOLS","Eines");//Tools
-define("_ONLINEUSERS","Usuaris connectats");//Connected users
+define("_ONLINEUSERS","Usuaris connectats");//Connected
 define("_DATE","Data");//Date
 define("_STUDENT","Estudiant");//Student
 define("_LINE","Línia");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Avançada criteris");//Advanced criteria
 define("_MYSTUDENTS","Els meus estudiants");//My students
 define("_EMPLOYEE","Usuari");//User
 define("_NOBRANCHJOBSERROR","Llocs de treball no s&#39;han registrat per a aquesta branca");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Informes de proves");//Tests reports
+define("_TESTSTATISTICS","Informes de proves");//Test reports
 define("_CHOOSETEST","Seleccioneu prova");//Choose test
 define("_USERPROFILE","Perfil d&#39;usuari");//Public profile
 define("_VIEWBRANCHES","Veure sucursals");//View branches
-define("_NOEMPLOYEESFOUND","Els usuaris no es van trobar");//No users were found
+define("_NOEMPLOYEESFOUND","Els usuaris no es van trobar");//No users found
 define("_SEARCHEMPLOYEE","Cerca usuari");//Find users
 define("_ALLBRANCHES","Totes les branques");//All branches
 define("_ANSWERS","Respostes");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Temps");//Time
 define("_RESEND","Tornar a enviar missatge");//Resend email
 define("_CERTIFICATESTATISTICS","Certificat d&#39;informes");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Els usuaris que té una certificació per a qualsevol curs de");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Reportatges");//Events reports
+define("_EVENTSTATISTICS","Reportatges");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Esdeveniments criteris coincidents");//Events matching criteria
 define("_NOEVENTSFOUND","No hi ha esdeveniments coincideixen amb els seus criteris de cerca");//No events match your search criteria
 define("_VISITEDTHESYSTEM","va visitar el sistema de");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","va ser retirat del grup");//was removed from grou
 define("_ONNEWSKILL","Assignació d&#39;habilitat");//Skill assignment
 define("_WASASSIGNEDSKILL","se li va assignar l&#39;habilitat");//was assigned skill
 define("_ONSKILLREMOVAL","L&#39;eliminació d&#39;habilitat");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","no té més habilitat");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","no té més habilitat");//does not have anymore the skill
 define("_ONSKILLEDIT","Habilitat dels usuaris editat");//User skill edited
 define("_HADHISSKILLEDITEDTO","té una nova descripció de l&#39;habilitat");//has a new description for skill
 define("_ONHCDHIRED","Usuari contractat");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Mostra els enllaços d&#39;ajuda");//Display help links
 define("_ALLOWUSERANSERALLRONG","Permetre als estudiants fer de nou només respon a les preguntes equivocades");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Només si la prova es permeten repeticions");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Refer únic dolent respondre");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","tema per defecte no pot ser InPort");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","tema per defecte no pot ser InPort");//Default theme cannot be imported
 define("_ACCESSEXPIRED","L&#39;accés de venciment");//Access expired
 define("_LESSONSCHEDULE","Lliçons calendari");//Lessons schedule
 define("_COURSESTARTSAT","El curs comença el");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Vostè es van i
 define("_SUPERVISORS","Supervisors");//Supervisors
 define("_COURSEOPTIONS","Curs d&#39;opcions");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Restablir les execucions de tots els usuaris");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Generador d&#39;informes d&#39;usuari");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Generador d&#39;informes d&#39;usuari");//User reports generator
 define("_ADDTOGROUP","Afegir a grup");//Add to group
 define("_ASSIGNCOURSE","Assignar curs");//Assign course
 define("_ASSIGNLESSON","Assignar lliçó");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Resultats de");//Results for
 define("_THANKYOUFORCOMPLETING","Gràcies per completar");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","No hi ha informes que es troben en el sistema");//No reports found in the system
 define("_YOUMAYCREATEONE","Vostè pot crear un");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","No es pot canviar la manera de lliçó, perquè hi ha usuaris inscrits al curs");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","L&#39;usuari no té aquest curs");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","L&#39;usuari no té aquesta lliçó");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","l&#39;accés d&#39;usuari atorgats");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","No es pot canviar la manera de lliçó, perquè hi ha usuaris inscrits al curs");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","No es pot eliminar l&#39;últim element");//You cannot remove the last element (New)
+define("_CONTAINS","Conté");//Contains (New)
+define("_NOTCONTAINS","No conté");//Does not contain (New)
+define("_REMOVEOPTION","Opció Treure");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Penseu en la possibilitat de corregir quan els punts acumulats són majors o igual a");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automàtica");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","opcions d&#39;autocorrecció");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Pregunta correcció");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Separar les paraules amb canonada |");//Separate words with pipe | (New)
+define("_POINTS","Punts");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","L&#39;usuari no té aquest curs");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","L&#39;usuari no té aquesta lliçó");//The user does not have this lesson
+define("_USERACCESSGRANTED","l&#39;accés d&#39;usuari atorgats");//User access granted
+define("_FORCECHANGEPASSWORD","Força de canviar la contrasenya en iniciar sessió inicial");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Canviar la contrasenya");//Change password (New)
+define("_OLDPASSWORD","Contrasenya antiga");//Old password (New)
+define("_NEWPASSWORD","Nova contrasenya");//New password (New)
+define("_ONLINETIME","Temps en línia");//Time online (New)
+define("_ONLINESINCE","Online des");//Online since (New)
+define("_MANUALLY","Manualment");//Manually (New)
+define("_CLEAROPCODECACHE","Buida la memòria cau del codi d&#39;operació");//Clear opcode cache (New)
+define("_USELOGO","Utilitzar el logotip");//Use logo (New)
+define("_DEFAULTLOGO","Predeterminat logotip");//Default logo (New)
+define("_UPLOADSITELOGO","Pujar logo del lloc");//Upload site logo (New)
+define("_ATLEAST","Si més no");//At least (New)
+define("_ATMOST","En la majoria de");//At most (New)
+define("_EQUALTO","Igual a");//Equal to (New)
+define("_SKILLSSTATISTICS","Habilitat informes");//Skill reports (New)
+define("_STATISTICSFORSKILL","Informes d&#39;habilitat");//Reports for skill (New)
+define("_CHOOSESKILL","Trieu habilitat");//Choose skill (New)
+define("_SKILLGRAPH","Habilitat gràfic");//Skill graph (New)
+define("_TOTALSKILLS","habilitats Total");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","SCORM comunicació asincrònica");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Canviar a la comunicació asíncrona si vostè està experimentant problemes per completar el contingut SCORM (especialment en el cas que feu servir Adobe CAPTIVATE contingut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advertència: Els pagaments de Desactivació fixarà els preus a 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Múltiples opcions");//Multiple options (New)
 ?>

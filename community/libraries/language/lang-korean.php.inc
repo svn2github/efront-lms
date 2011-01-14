@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","로그인 eFront로");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ko");//en
 define("_CURRENTLANGUAGESYMBOL","ko");//en
-define("_HEADERLANGUAGETAG","ko");//english
+define("_HEADERLANGUAGETAG","ko");//en_US.utf8
 define("_CHARSET","EUC");//ISO-8859-1
 define("_LANGUAGE","언어");//Language
 define("_PASSWORD","비밀 번호");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","수업");//Lessons
 define("_RECREATESEARCHTABLE","재현 검색 테이블");//Recreate search table
 define("_LESSONSREGISTRATIONS","수업 등록");//Lesson registrations
 define("_TOOLS","도구");//Tools
-define("_ONLINEUSERS","온라인 사용자에");//Connected users
+define("_ONLINEUSERS","온라인 사용자에");//Connected
 define("_DATE","날짜");//Date
 define("_STUDENT","학생");//Student
 define("_LINE","선");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","고급 기준");//Advanced criteria
 define("_MYSTUDENTS","내 학생");//My students
 define("_EMPLOYEE","사용자");//User
 define("_NOBRANCHJOBSERROR","직업이 지점에 대한 상세 설명이 등록되어있다");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","테스트 리포트");//Tests reports
+define("_TESTSTATISTICS","테스트 리포트");//Test reports
 define("_CHOOSETEST","시험 선택");//Choose test
 define("_USERPROFILE","사용자 프로필");//Public profile
 define("_VIEWBRANCHES","지점보기");//View branches
-define("_NOEMPLOYEESFOUND","사용자를 찾을 수 없음");//No users were found
+define("_NOEMPLOYEESFOUND","사용자를 찾을 수 없음");//No users found
 define("_SEARCHEMPLOYEE","검색 사용자가");//Find users
 define("_ALLBRANCHES","모든 지점");//All branches
 define("_ANSWERS","답변");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","시간");//Time
 define("_RESEND","이메일 다시 보내기");//Resend email
 define("_CERTIFICATESTATISTICS","인증 리포트");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","어떤 과정에 대한 인증을 가지고있는 사용자");//Users that got a certification for any course
-define("_EVENTSTATISTICS","이벤트 보고서");//Events reports
+define("_EVENTSTATISTICS","이벤트 보고서");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","이벤트 일치하는 기준");//Events matching criteria
 define("_NOEVENTSFOUND","아니 이벤트가 귀하의 검색 기준과 일치");//No events match your search criteria
 define("_VISITEDTHESYSTEM","시스템을 방문");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","그룹에서 제거되었습니다");//was remove
 define("_ONNEWSKILL","기술 과제");//Skill assignment
 define("_WASASSIGNEDSKILL","기술을 할당했습니다");//was assigned skill
 define("_ONSKILLREMOVAL","기술 제거");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","더 이상 기술이 없습니다");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","더 이상 기술이 없습니다");//does not have anymore the skill
 define("_ONSKILLEDIT","사용자 편집 기능");//User skill edited
 define("_HADHISSKILLEDITEDTO","기술에 대한 새로운 설명을했다");//has a new description for skill
 define("_ONHCDHIRED","사용자가 고용");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","디스플레이의 도움말 링크");//Display help links
 define("_ALLOWUSERANSERALLRONG","허용 학생은 엉뚱한 대답 질문을 해보죠");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","오직 테스트 반복이 허용하는 경우");//Only if test repetitions are allowed
 define("_USERREDOWRONG","반복은 잘못된 대답");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","기본 테마 inported 수 없습니다");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","기본 테마 inported 수 없습니다");//Default theme cannot be imported
 define("_ACCESSEXPIRED","액세스가 만료");//Access expired
 define("_LESSONSCHEDULE","수업 일정");//Lessons schedule
 define("_COURSESTARTSAT","코스가 시작됩니다");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","당신이 있�
 define("_SUPERVISORS","감독자");//Supervisors
 define("_COURSEOPTIONS","코스 옵션");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","모든 사용자에 대해 재설정 사형 집행");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","사용자는 보고서 생성기");//Users reports generator
+define("_ADVANCEDUSERREPORTS","사용자는 보고서 생성기");//User reports generator
 define("_ADDTOGROUP","그룹에 추가");//Add to group
 define("_ASSIGNCOURSE","할당 과정");//Assign course
 define("_ASSIGNLESSON","할당 레슨");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","에 대한 검색 결과");//Results for
 define("_THANKYOUFORCOMPLETING","완료 주셔서 감사합니다");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","대한보고는 시스템에서 찾은");//No reports found in the system
 define("_YOUMAYCREATEONE","하나를 만들 수 있습니다");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","사용자가 있기 때문에 당신은 강의 모드를 변경할 수 없습니다 코스 등록");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","사용자는이 과정이 없습니다");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","사용자는이 수업이 없습니다");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","사용자 액세스 부여");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","사용자가 있기 때문에 당신은 강의 모드를 변경할 수 없습니다 코스 등록");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","당신은 마지막 요소를 제거할 수 없습니다");//You cannot remove the last element (New)
+define("_CONTAINS","포함");//Contains (New)
+define("_NOTCONTAINS","포함하지 않습니다");//Does not contain (New)
+define("_REMOVEOPTION","제거 옵션을");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","고려 올바른 축적된 포인트가 크거나 같음 때");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","자동");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","자동 수정 옵션");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","질문 보정");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","파이프로 구분 단어 |");//Separate words with pipe | (New)
+define("_POINTS","포인트");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","사용자는이 과정이 없습니다");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","사용자는이 수업이 없습니다");//The user does not have this lesson
+define("_USERACCESSGRANTED","사용자 액세스 부여");//User access granted
+define("_FORCECHANGEPASSWORD","초기 로그인시 강제 비밀 번호 변경");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","비밀 번호 변경");//Change password (New)
+define("_OLDPASSWORD","이전 비밀 번호");//Old password (New)
+define("_NEWPASSWORD","새 비밀 번호");//New password (New)
+define("_ONLINETIME","온라인 시간");//Time online (New)
+define("_ONLINESINCE","온라인 이후");//Online since (New)
+define("_MANUALLY","수동");//Manually (New)
+define("_CLEAROPCODECACHE","지우기 opcode 캐시");//Clear opcode cache (New)
+define("_USELOGO","사용하는 로고");//Use logo (New)
+define("_DEFAULTLOGO","기본 로고");//Default logo (New)
+define("_UPLOADSITELOGO","업로드 사이트 로고");//Upload site logo (New)
+define("_ATLEAST","적어도");//At least (New)
+define("_ATMOST","대부분의시");//At most (New)
+define("_EQUALTO","같음");//Equal to (New)
+define("_SKILLSSTATISTICS","기술 리포트");//Skill reports (New)
+define("_STATISTICSFORSKILL","스킬에 대한 리포트");//Reports for skill (New)
+define("_CHOOSESKILL","기술 선택");//Choose skill (New)
+define("_SKILLGRAPH","스킬 그래프");//Skill graph (New)
+define("_TOTALSKILLS","총 기술");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","SCORM 비동기 통신");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","비동기 통신 스위치에 문제가 SCORM 콘텐츠를 완료 (대소문자 특히 당신은 어도비가 만든 콘텐츠를 사로 잡 사용하는)가 발생하는 경우");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","경고 : 사용 중지 지불 0으로 모든 가격을 설정합니다");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","복합 옵션");//Multiple options (New)
 ?>

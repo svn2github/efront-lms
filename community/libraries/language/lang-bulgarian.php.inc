@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Вход за eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","bg");//en
 define("_CURRENTLANGUAGESYMBOL","bg");//en
-define("_HEADERLANGUAGETAG","bulgarian");//english
+define("_HEADERLANGUAGETAG","bulgarian");//en_US.utf8
 define("_CHARSET","ISO-8859-5");//ISO-8859-1
 define("_LANGUAGE","Език");//Language
 define("_PASSWORD","Парола");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Уроци");//Lessons
 define("_RECREATESEARCHTABLE","Развличам търсене таблица");//Recreate search table
 define("_LESSONSREGISTRATIONS","Урок регистрации");//Lesson registrations
 define("_TOOLS","Инструменти");//Tools
-define("_ONLINEUSERS","На линия на потребителите");//Connected users
+define("_ONLINEUSERS","На линия на потребителите");//Connected
 define("_DATE","Дата");//Date
 define("_STUDENT","Студент");//Student
 define("_LINE","Ред");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Разширени критерии");//Advanced criteria
 define("_MYSTUDENTS","Моите ученици");//My students
 define("_EMPLOYEE","На служителите");//User
 define("_NOBRANCHJOBSERROR","Не длъжностни характеристики са регистрирани за този бранш");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Тестове отчети");//Tests reports
+define("_TESTSTATISTICS","Тестове отчети");//Test reports
 define("_CHOOSETEST","Избор на тест");//Choose test
 define("_USERPROFILE","Потребителски профил");//Public profile
 define("_VIEWBRANCHES","Преглед на клоновете");//View branches
-define("_NOEMPLOYEESFOUND","Не са намерени служители");//No users were found
+define("_NOEMPLOYEESFOUND","Не са намерени служители");//No users found
 define("_SEARCHEMPLOYEE","Търсене служител");//Find users
 define("_ALLBRANCHES","Всички браншове");//All branches
 define("_ANSWERS","Отговори");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Време");//Time
 define("_RESEND","Преизпрати имейл");//Resend email
 define("_CERTIFICATESTATISTICS","Сертификат доклади");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Потребителите, които имам за сертифициране, за всеки курс");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Събития доклади");//Events reports
+define("_EVENTSTATISTICS","Събития доклади");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Събития съвпадение на критериите");//Events matching criteria
 define("_NOEVENTSFOUND","Няма събития съвпадат с вашите критерии за търсене");//No events match your search criteria
 define("_VISITEDTHESYSTEM","посети система");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","бе отстранен от групата");//w
 define("_ONNEWSKILL","Умение работа");//Skill assignment
 define("_WASASSIGNEDSKILL","е прехвърлен умение");//was assigned skill
 define("_ONSKILLREMOVAL","Умение отстраняване");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","не разполага с повече умения");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","не разполага с повече умения");//does not have anymore the skill
 define("_ONSKILLEDIT","Потребителски умение Edited");//User skill edited
 define("_HADHISSKILLEDITEDTO","има нов описание за умение");//has a new description for skill
 define("_ONHCDHIRED","Потребителски нает");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Покажи Помощ за Връзки");//Display help l
 define("_ALLOWUSERANSERALLRONG","Позволяват на учениците да ремонтирам само погрешно отговори на въпроси");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Само ако изпитването повторения са позволени");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Възстановяване само погрешно отговори");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","По подразбиране не може да бъде inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","По подразбиране не може да бъде inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Достъпът е изтекъл");//Access expired
 define("_LESSONSCHEDULE","Уроци график");//Lessons schedule
 define("_COURSESTARTSAT","Курсът започва на");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Можете с
 define("_SUPERVISORS","Надзорници");//Supervisors
 define("_COURSEOPTIONS","Учебни варианти");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Проучване екзекуции за всички потребители");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Потребителите доклади генератор");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Потребителите доклади генератор");//User reports generator
 define("_ADDTOGROUP","Добави в група");//Add to group
 define("_ASSIGNCOURSE","Присвояване курс");//Assign course
 define("_ASSIGNLESSON","Присвояване урок");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Резултати за");//Results for
 define("_THANKYOUFORCOMPLETING","Благодаря ви за завършване");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Не доклади открит в системата");//No reports found in the system
 define("_YOUMAYCREATEONE","Можете да си създадете");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим урок, защото има потребители включени в курса");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Потребителят не е този курс");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Потребителят не е този урок");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Потребителски достъп, предоставен");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим урок, защото има потребители включени в курса");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Вие не можете да премахнете последния елемент");//You cannot remove the last element (New)
+define("_CONTAINS","Съдържа");//Contains (New)
+define("_NOTCONTAINS","Не съдържа");//Does not contain (New)
+define("_REMOVEOPTION","Премахване на опцията");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Помислете за правилно, когато събраните точки са по-големи или равни на");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Автоматичен");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-правилно опциите");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Въпрос корекция");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Отделни думи с тръби |");//Separate words with pipe | (New)
+define("_POINTS","Точки");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Потребителят не е този курс");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Потребителят не е този урок");//The user does not have this lesson
+define("_USERACCESSGRANTED","Потребителски достъп, предоставен");//User access granted
+define("_FORCECHANGEPASSWORD","Сили за промяна на паролата при първоначалното влизане");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Промяна на паролата");//Change password (New)
+define("_OLDPASSWORD","Стара парола");//Old password (New)
+define("_NEWPASSWORD","Нова парола");//New password (New)
+define("_ONLINETIME","Време онлайн");//Time online (New)
+define("_ONLINESINCE","Online от");//Online since (New)
+define("_MANUALLY","Ръчно");//Manually (New)
+define("_CLEAROPCODECACHE","Ясно Кодът кеш");//Clear opcode cache (New)
+define("_USELOGO","Използвайте лого");//Use logo (New)
+define("_DEFAULTLOGO","По подразбиране лого");//Default logo (New)
+define("_UPLOADSITELOGO","Качване на логото на сайта");//Upload site logo (New)
+define("_ATLEAST","Най-малко");//At least (New)
+define("_ATMOST","В най-");//At most (New)
+define("_EQUALTO","Равни");//Equal to (New)
+define("_SKILLSSTATISTICS","Умение доклади");//Skill reports (New)
+define("_STATISTICSFORSKILL","Доклади за умения");//Reports for skill (New)
+define("_CHOOSESKILL","Изберете умения");//Choose skill (New)
+define("_SKILLGRAPH","Умение графика");//Skill graph (New)
+define("_TOTALSKILLS","Общо умения");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Асинхронни SCORM комуникация");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Преминаване към комуникация в различно време, ако изпитвате проблеми завършване SCORM съдържание (особено в случай, че използвате Adobe пленявам съдържание)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Забележка: Изключването на плащанията ще постави всички цени до 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Няколко опции");//Multiple options (New)
 ?>

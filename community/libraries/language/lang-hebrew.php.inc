@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","התחבר כדי eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","he");//en
 define("_CURRENTLANGUAGESYMBOL","he");//en
-define("_HEADERLANGUAGETAG","hebrew");//english
+define("_HEADERLANGUAGETAG","hebrew");//en_US.utf8
 define("_CHARSET","ISO-8859-8");//ISO-8859-1
 define("_LANGUAGE","שפה");//Language
 define("_PASSWORD","סיסמה");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","שיעורים");//Lessons
 define("_RECREATESEARCHTABLE","חפש מחדש שולחן");//Recreate search table
 define("_LESSONSREGISTRATIONS","שיעור רישומים");//Lesson registrations
 define("_TOOLS","כלים");//Tools
-define("_ONLINEUSERS","התחברות משתמשים");//Connected users
+define("_ONLINEUSERS","התחברות משתמשים");//Connected
 define("_DATE","תאריך");//Date
 define("_STUDENT","סטודנטים");//Student
 define("_LINE","קו");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","קריטריונים מתקדם");//Advanced criteria
 define("_MYSTUDENTS","התלמידים שלי");//My students
 define("_EMPLOYEE","משתמש");//User
 define("_NOBRANCHJOBSERROR","עמדות עבודה לא היה רשום זה הסניף");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","בדיקות דוח ות");//Tests reports
+define("_TESTSTATISTICS","בדיקות דוח ות");//Test reports
 define("_CHOOSETEST","בחר הבדיקה");//Choose test
 define("_USERPROFILE","פרופיל משתמש");//Public profile
 define("_VIEWBRANCHES","הצג סניפים");//View branches
-define("_NOEMPLOYEESFOUND","לא נמצאו משתמשים");//No users were found
+define("_NOEMPLOYEESFOUND","לא נמצאו משתמשים");//No users found
 define("_SEARCHEMPLOYEE","חפש משתמש");//Find users
 define("_ALLBRANCHES","כל הענפים");//All branches
 define("_ANSWERS","תשובות");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","שעה");//Time
 define("_RESEND","שלח שוב דואל");//Resend email
 define("_CERTIFICATESTATISTICS","דוחות תעודה");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","משתמשים אשר קיבל אישור עבור כל קורס");//Users that got a certification for any course
-define("_EVENTSTATISTICS","דוחות אירועים");//Events reports
+define("_EVENTSTATISTICS","דוחות אירועים");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","אירועים קריטריונים התאמה");//Events matching criteria
 define("_NOEVENTSFOUND","אין אירועים התאמה קריטריון החיפוש שלך");//No events match your search criteria
 define("_VISITEDTHESYSTEM","ביקר מערכת");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","הוסר מהקבוצה");//was removed from grou
 define("_ONNEWSKILL","הקצאת מיומנות");//Skill assignment
 define("_WASASSIGNEDSKILL","הוקצה מיומנות");//was assigned skill
 define("_ONSKILLREMOVAL","הסרת מיומנות");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","אין יותר מיומנות");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","אין יותר מיומנות");//does not have anymore the skill
 define("_ONSKILLEDIT","מיומנות בעריכת משתמש");//User skill edited
 define("_HADHISSKILLEDITEDTO","יש תיאור חדש עבור מיומנות");//has a new description for skill
 define("_ONHCDHIRED","משתמש שכרו");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","הצגת קישורים לעזרה");//Display help links
 define("_ALLOWUSERANSERALLRONG","סטודנטים אפשר לבצע מחדש רק את השאלות ענה בסדר");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","רק אם חזרות הבדיקה מותר");//Only if test repetitions are allowed
 define("_USERREDOWRONG","בצע שוב ענה רק רע");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","נושא ברירת מחדל לא ניתן inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","נושא ברירת מחדל לא ניתן inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","גישה פג");//Access expired
 define("_LESSONSCHEDULE","שיעורי הזמנים");//Lessons schedule
 define("_COURSESTARTSAT","הקורס מתחיל ב");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","היית נרש
 define("_SUPERVISORS","רוטמן");//Supervisors
 define("_COURSEOPTIONS","קורס אופציות");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","איפוס להורג עבור כל המשתמשים");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","משתמשים מחולל דוחות");//Users reports generator
+define("_ADVANCEDUSERREPORTS","משתמשים מחולל דוחות");//User reports generator
 define("_ADDTOGROUP","הוסף לקבוצה");//Add to group
 define("_ASSIGNCOURSE","הקצאת כמובן");//Assign course
 define("_ASSIGNLESSON","הקצאת השיעור");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","תוצאות עבור");//Results for
 define("_THANKYOUFORCOMPLETING","תודה על מילוי");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","דיווחים לא נמצאו במערכת");//No reports found in the system
 define("_YOUMAYCREATEONE","אתה יכול ליצור אחד");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","אתה לא יכול לשנות את מצב השיעור כי יש משתמשים נרשמו לקורס");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","המשתמש אינו חייב את זה כמובן");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","המשתמש אינו חייב את השיעור הזה");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","גישה הוראות שניתנו");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","אתה לא יכול לשנות את מצב השיעור כי יש משתמשים נרשמו לקורס");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","אתה לא יכול להסיר את האלמנט האחרון");//You cannot remove the last element (New)
+define("_CONTAINS","מכיל");//Contains (New)
+define("_NOTCONTAINS","אינו מכיל");//Does not contain (New)
+define("_REMOVEOPTION","הסר אפשרות");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","שקול הנכון כאשר נקודות שנצברו הם גדול או שווה ל");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","אוטומטי");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-הנכונה אפשרויות");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","שאלה תיקון");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","הפרד מילים עם צינור |");//Separate words with pipe | (New)
+define("_POINTS","נקודות");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","המשתמש אינו חייב את זה כמובן");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","המשתמש אינו חייב את השיעור הזה");//The user does not have this lesson
+define("_USERACCESSGRANTED","גישה הוראות שניתנו");//User access granted
+define("_FORCECHANGEPASSWORD","כוח לשנות את הסיסמה על ההתחברות הראשונית");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","שינוי הסיסמה");//Change password (New)
+define("_OLDPASSWORD","העתיקה את הסיסמה");//Old password (New)
+define("_NEWPASSWORD","סיסמה חדשה");//New password (New)
+define("_ONLINETIME","זמן באינטרנט");//Time online (New)
+define("_ONLINESINCE","באינטרנט מאז");//Online since (New)
+define("_MANUALLY","באופן ידני");//Manually (New)
+define("_CLEAROPCODECACHE","נקה מטמון opcode");//Clear opcode cache (New)
+define("_USELOGO","השתמש בלוגו");//Use logo (New)
+define("_DEFAULTLOGO","ברירת המחדל של הלוגו");//Default logo (New)
+define("_UPLOADSITELOGO","להעלות לוגו האתר");//Upload site logo (New)
+define("_ATLEAST","לפחות");//At least (New)
+define("_ATMOST","לכל היותר");//At most (New)
+define("_EQUALTO","שווה ל");//Equal to (New)
+define("_SKILLSSTATISTICS","מיומנות דוחות");//Skill reports (New)
+define("_STATISTICSFORSKILL","דוחות על מיומנות");//Reports for skill (New)
+define("_CHOOSESKILL","בחר מיומנות");//Choose skill (New)
+define("_SKILLGRAPH","מיומנות הגרף");//Skill graph (New)
+define("_TOTALSKILLS","סך מיומנויות");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Asynchronous תקשורת SCORM");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","לעבור תקשורת סינכרונית אם אתה נתקל בבעיות בהשלמת תוכן SCORM (במיוחד במקרה אתה משתמש Adobe Captivate תוכן שנוצר)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","אזהרה: השבתת התשלומים יהיה להגדיר את כל המחירים 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","אפשרויות מרובות");//Multiple options (New)
 ?>

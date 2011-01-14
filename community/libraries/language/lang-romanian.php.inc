@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Login pentru a eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ro");//en
 define("_CURRENTLANGUAGESYMBOL","ro");//en
-define("_HEADERLANGUAGETAG","romanian");//english
+define("_HEADERLANGUAGETAG","romanian");//en_US.utf8
 define("_CHARSET","ISO-8859-2");//ISO-8859-1
 define("_LANGUAGE","Limbă");//Language
 define("_PASSWORD","Parola");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lectii");//Lessons
 define("_RECREATESEARCHTABLE","Recreează tabelul de căutare");//Recreate search table
 define("_LESSONSREGISTRATIONS","Lectia inscrieri");//Lesson registrations
 define("_TOOLS","Instrumente");//Tools
-define("_ONLINEUSERS","Pe linie de utilizatori");//Connected users
+define("_ONLINEUSERS","Pe linie de utilizatori");//Connected
 define("_DATE","Dată");//Date
 define("_STUDENT","Student");//Student
 define("_LINE","Linie");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Advanced criterii");//Advanced criteria
 define("_MYSTUDENTS","My studenţi");//My students
 define("_EMPLOYEE","Angajaţi");//User
 define("_NOBRANCHJOBSERROR","Nr descrieri de locuri de muncă au fost înregistrate pentru această ramură");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Teste de rapoarte");//Tests reports
+define("_TESTSTATISTICS","Teste de rapoarte");//Test reports
 define("_CHOOSETEST","Alegeţi test");//Choose test
 define("_USERPROFILE","Profil utilizator");//Public profile
 define("_VIEWBRANCHES","Vezi ramuri");//View branches
-define("_NOEMPLOYEESFOUND","Nu au fost găsite de angajati");//No users were found
+define("_NOEMPLOYEESFOUND","Nu au fost găsite de angajati");//No users found
 define("_SEARCHEMPLOYEE","Cauta angajat");//Find users
 define("_ALLBRANCHES","Toate sucursalele");//All branches
 define("_ANSWERS","Răspunsuri");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Timp");//Time
 define("_RESEND","De e-mail Retrimiteţi");//Resend email
 define("_CERTIFICATESTATISTICS","Certificatul rapoartelor");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Utilizatorii care luat un curs de certificare pentru orice");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Rapoarte Evenimente");//Events reports
+define("_EVENTSTATISTICS","Rapoarte Evenimente");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Evenimente criterii de potrivire a");//Events matching criteria
 define("_NOEVENTSFOUND","Nici un eveniment care se potrivesc criteriului de căutare");//No events match your search criteria
 define("_VISITEDTHESYSTEM","a vizitat de sistem");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","a fost eliminat din grup");//was removed from gro
 define("_ONNEWSKILL","Cesiune de îndemânare");//Skill assignment
 define("_WASASSIGNEDSKILL","a fost atribuit de calificare");//was assigned skill
 define("_ONSKILLREMOVAL","Îndepărtarea de îndemânare");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","nu are mai abilitate");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","nu are mai abilitate");//does not have anymore the skill
 define("_ONSKILLEDIT","Aptitudini de utilizare edited");//User skill edited
 define("_HADHISSKILLEDITEDTO","are o descriere nou pentru calificare");//has a new description for skill
 define("_ONHCDHIRED","Utilizatorul închiriate");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Afişează ajuta link-uri");//Display help links
 define("_ALLOWUSERANSERALLRONG","Permiteţi elevilor să refaceţi numai întrebările a răspuns greşit");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Numai în cazul în repetiţii de încercare sunt permise");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Refaceţi numai gresit răspuns");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Implicit tema nu poate fi inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Implicit tema nu poate fi inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","");//Access expired
 define("_LESSONSCHEDULE","");//Lessons schedule
 define("_COURSESTARTSAT","");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ai fost înscri
 define("_SUPERVISORS","Inspectorilor");//Supervisors
 define("_COURSEOPTIONS","Curs de opţiuni");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","execuţii Resetare pentru toţi utilizatorii");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Utilizatorii Generator de rapoarte");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Utilizatorii Generator de rapoarte");//User reports generator
 define("_ADDTOGROUP","Adauga la grup");//Add to group
 define("_ASSIGNCOURSE","Alocaţi curs");//Assign course
 define("_ASSIGNLESSON","Alocaţi lecţie");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Rezultate pentru");//Results for
 define("_THANKYOUFORCOMPLETING","Vă mulţumim pentru completarea");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Nu rapoarte găsite în sistemul de");//No reports found in the system
 define("_YOUMAYCREATEONE","Puteti crea unul");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nu puteţi schimba modul de lecţie pentru că există utilizatori înscrişi la curs");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Utilizatorul nu are acest curs");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Utilizatorul nu are această lecţie");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Accesul utilizatorilor acordate");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nu puteţi schimba modul de lecţie pentru că există utilizatori înscrişi la curs");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Nu se poate elimina ultimul element");//You cannot remove the last element (New)
+define("_CONTAINS","Conţine");//Contains (New)
+define("_NOTCONTAINS","Nu conţine");//Does not contain (New)
+define("_REMOVEOPTION","Eliminaţi opţiunea");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Luaţi în considerare corect atunci când punctele acumulate sunt mai mari sau egale cu");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automată");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","opţiuni Auto-corectă");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Întrebare corecţie");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","cuvinte separate cu ţeavă |");//Separate words with pipe | (New)
+define("_POINTS","Puncte");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Utilizatorul nu are acest curs");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Utilizatorul nu are această lecţie");//The user does not have this lesson
+define("_USERACCESSGRANTED","Accesul utilizatorilor acordate");//User access granted
+define("_FORCECHANGEPASSWORD","Vigoare schimbe parola la conectare iniţială");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Schimbare parolă");//Change password (New)
+define("_OLDPASSWORD","Vechi parola");//Old password (New)
+define("_NEWPASSWORD","Nouă parolă");//New password (New)
+define("_ONLINETIME","Timp online");//Time online (New)
+define("_ONLINESINCE","Online, deoarece");//Online since (New)
+define("_MANUALLY","Manual");//Manually (New)
+define("_CLEAROPCODECACHE","Clar Opcode cache");//Clear opcode cache (New)
+define("_USELOGO","Utilizarea logo-ul");//Use logo (New)
+define("_DEFAULTLOGO","Default logo");//Default logo (New)
+define("_UPLOADSITELOGO","Încărcaţi site-ul logo-ul");//Upload site logo (New)
+define("_ATLEAST","Cel puţin");//At least (New)
+define("_ATMOST","La cele mai multe");//At most (New)
+define("_EQUALTO","Egal la");//Equal to (New)
+define("_SKILLSSTATISTICS","Îndemânare rapoarte");//Skill reports (New)
+define("_STATISTICSFORSKILL","Rapoarte pentru calificare");//Reports for skill (New)
+define("_CHOOSESKILL","Alege calificare");//Choose skill (New)
+define("_SKILLGRAPH","Graficul de îndemânare");//Skill graph (New)
+define("_TOTALSKILLS","abilităţi Total");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","SCORM comunicare asincronă");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Comutaţi la comunicare asincrone, dacă aveţi probleme la completarea conţinut SCORM (mai ales în cazul în care sunt utilizaţi Adobe Captivate continut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Atentie: Plăţile Dezactivarea va stabili toate preturile la 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Multiple opţiuni de");//Multiple options (New)
 ?>

@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Пријава на eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","sr");//en
 define("_CURRENTLANGUAGESYMBOL","sr");//en
-define("_HEADERLANGUAGETAG","serbian");//english
+define("_HEADERLANGUAGETAG","serbian");//en_US.utf8
 define("_CHARSET","ИСО-8859-2");//ISO-8859-1
 define("_LANGUAGE","Језик");//Language
 define("_PASSWORD","Лозинка");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Лекције");//Lessons
 define("_RECREATESEARCHTABLE","Рецреате претрагу табеле");//Recreate search table
 define("_LESSONSREGISTRATIONS","Сат регистрације");//Lesson registrations
 define("_TOOLS","Алати");//Tools
-define("_ONLINEUSERS","Цоннецтед корисника");//Connected users
+define("_ONLINEUSERS","Цоннецтед корисника");//Connected
 define("_DATE","Датум");//Date
 define("_STUDENT","Студент");//Student
 define("_LINE","Лине");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Напредна критеријума");//Advanced criteri
 define("_MYSTUDENTS","Моји студенти");//My students
 define("_EMPLOYEE","Корисник");//User
 define("_NOBRANCHJOBSERROR","Нема радних места су регистровани за ову грану");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Тестови извештаја");//Tests reports
+define("_TESTSTATISTICS","Тестови извештаја");//Test reports
 define("_CHOOSETEST","Одаберите тест");//Choose test
 define("_USERPROFILE","Кориснички профил");//Public profile
 define("_VIEWBRANCHES","Преглед делова");//View branches
-define("_NOEMPLOYEESFOUND","Нема корисника пронађени су");//No users were found
+define("_NOEMPLOYEESFOUND","Нема корисника пронађени су");//No users found
 define("_SEARCHEMPLOYEE","Претрага корисника");//Find users
 define("_ALLBRANCHES","Сви Огранци");//All branches
 define("_ANSWERS","Одговори");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Време");//Time
 define("_RESEND","Поново пошаљи емаил");//Resend email
 define("_CERTIFICATESTATISTICS","Сертификат извештаја");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Корисници који је добио сертификат за било који курс");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Догађаји извештаја");//Events reports
+define("_EVENTSTATISTICS","Догађаји извештаја");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Догађаји одговарају критеријумима");//Events matching criteria
 define("_NOEVENTSFOUND","Нема догађаја одговарају вашим критеријумима претраге");//No events match your search criteria
 define("_VISITEDTHESYSTEM","посетио систем");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","је уклоњен из групе");//was remov
 define("_ONNEWSKILL","Вештина задатак");//Skill assignment
 define("_WASASSIGNEDSKILL","је додељен вештине");//was assigned skill
 define("_ONSKILLREMOVAL","Вештина уклањање");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","нема више вештине");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","нема више вештине");//does not have anymore the skill
 define("_ONSKILLEDIT","Корисник едитед вештине");//User skill edited
 define("_HADHISSKILLEDITEDTO","има нови опис вештине");//has a new description for skill
 define("_ONHCDHIRED","Корисник је унајмио");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Приказ помоћ линкови");//Display help link
 define("_ALLOWUSERANSERALLRONG","Омогућити студентима да преуредити само погрешно одговарали на питања");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Само ако теста понављања су дозвољени");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Понови само погрешан одговор");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Подразумевана тема не може бити инпортед");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Подразумевана тема не може бити инпортед");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Приступ истекао");//Access expired
 define("_LESSONSCHEDULE","Лекције распоред");//Lessons schedule
 define("_COURSESTARTSAT","Курс почиње у");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Сте били
 define("_SUPERVISORS","Супервизора");//Supervisors
 define("_COURSEOPTIONS","Наравно, опција");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Ресетуј погубљења за све кориснике");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Корисници извештаја Генератор");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Корисници извештаја Генератор");//User reports generator
 define("_ADDTOGROUP","Додај групи");//Add to group
 define("_ASSIGNCOURSE","Додели курс");//Assign course
 define("_ASSIGNLESSON","Додели лекција");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Резултати за");//Results for
 define("_THANKYOUFORCOMPLETING","Хвала вам за попуњавање");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Нема извештаја наћи у систему");//No reports found in the system
 define("_YOUMAYCREATEONE","Можете да креирате једну");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим лекцију јер постоје корисници уписани на курс");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Корисник нема овај курс");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Корисник нема ове лекције");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Упутство за приступ одобрен");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим лекцију јер постоје корисници уписани на курс");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Не можете да уклоните последњи елемент");//You cannot remove the last element (New)
+define("_CONTAINS","Садржи");//Contains (New)
+define("_NOTCONTAINS","Не садржи");//Does not contain (New)
+define("_REMOVEOPTION","Уклони опције");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Узмите у обзир праву када акумулирани поени су већи или једнак");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Аутоматско");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Ауто Цоррецт Оптионс");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Питање исправке");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Одвојени речи са цеви |");//Separate words with pipe | (New)
+define("_POINTS","Бодови");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Корисник нема овај курс");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Корисник нема ове лекције");//The user does not have this lesson
+define("_USERACCESSGRANTED","Упутство за приступ одобрен");//User access granted
+define("_FORCECHANGEPASSWORD","Снага промену лозинке за пријављивање на почетне");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Промена лозинке");//Change password (New)
+define("_OLDPASSWORD","Стара лозинка");//Old password (New)
+define("_NEWPASSWORD","Нова лозинка");//New password (New)
+define("_ONLINETIME","Време Онлине");//Time online (New)
+define("_ONLINESINCE","Онлине од");//Online since (New)
+define("_MANUALLY","Ручно");//Manually (New)
+define("_CLEAROPCODECACHE","Обриши кеш Опцоде");//Clear opcode cache (New)
+define("_USELOGO","Користите логотип");//Use logo (New)
+define("_DEFAULTLOGO","Дефаулт логотип");//Default logo (New)
+define("_UPLOADSITELOGO","Уплоад сајта логотип");//Upload site logo (New)
+define("_ATLEAST","Најмање");//At least (New)
+define("_ATMOST","На већини");//At most (New)
+define("_EQUALTO","Једнако");//Equal to (New)
+define("_SKILLSSTATISTICS","Вештина извештаја");//Skill reports (New)
+define("_STATISTICSFORSKILL","Извештаји за вештине");//Reports for skill (New)
+define("_CHOOSESKILL","Одаберите вештина");//Choose skill (New)
+define("_SKILLGRAPH","Вештина граф");//Skill graph (New)
+define("_TOTALSKILLS","Укупно вештине");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Асинхрони СЦОРМ комуникације");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Пребаци се на асинхроне комуникације, ако имате проблема са завршетку СЦОРМ садржај (нарочито у случају да се користе Адобе Цаптивате садржај који генеришу)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Упозорење: Онемогућавање плаћања ће поставити Све цене на 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Више опција");//Multiple options (New)
 ?>

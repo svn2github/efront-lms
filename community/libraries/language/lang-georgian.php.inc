@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","შესვლა სისტემაში");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ka");//en
 define("_CURRENTLANGUAGESYMBOL","ka");//en
-define("_HEADERLANGUAGETAG","georgian");//english
+define("_HEADERLANGUAGETAG","georgian");//en_US.utf8
 define("_CHARSET","ISO-639-1");//ISO-8859-1
 define("_LANGUAGE","ენა");//Language
 define("_PASSWORD","პაროლი");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","გაკვეთილები");//Lessons
 define("_RECREATESEARCHTABLE","საძიებო ცხრილის აღდგენა");//Recreate search table
 define("_LESSONSREGISTRATIONS","გაკვეთილის რეგისტრაცია");//Lesson registrations
 define("_TOOLS","სამარჯვები");//Tools
-define("_ONLINEUSERS","მონაწილეები საიტზე");//Connected users
+define("_ONLINEUSERS","მონაწილეები საიტზე");//Connected
 define("_DATE","თარიღი");//Date
 define("_STUDENT","მოსწავლე");//Student
 define("_LINE","სტრიქონი");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","დამატებითი კრიტერიუმ�
 define("_MYSTUDENTS","ჩემი მოსწავლეები");//My students
 define("_EMPLOYEE","მონაწილე");//User
 define("_NOBRANCHJOBSERROR","თანამდებობა ამ განყოფილებისთვის არ მითითიებულა");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","ტესტების ოქმები");//Tests reports
+define("_TESTSTATISTICS","ტესტების ოქმები");//Test reports
 define("_CHOOSETEST","ტესტის შერჩევა");//Choose test
 define("_USERPROFILE","მონაწილის დოსიე");//Public profile
 define("_VIEWBRANCHES","განყოფილებების ჩვენება");//View branches
-define("_NOEMPLOYEESFOUND","მონაწილეები ვერ მოიძებნა");//No users were found
+define("_NOEMPLOYEESFOUND","მონაწილეები ვერ მოიძებნა");//No users found
 define("_SEARCHEMPLOYEE","მონაწილის ძიება");//Find users
 define("_ALLBRANCHES","ყველა განყოფილება");//All branches
 define("_ANSWERS","პასუხები");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","");//Time
 define("_RESEND","");//Resend email
 define("_CERTIFICATESTATISTICS","");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","");//Users that got a certification for any course
-define("_EVENTSTATISTICS","");//Events reports
+define("_EVENTSTATISTICS","");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","");//Events matching criteria
 define("_NOEVENTSFOUND","");//No events match your search criteria
 define("_VISITEDTHESYSTEM","");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","");//was removed from group
 define("_ONNEWSKILL","");//Skill assignment
 define("_WASASSIGNEDSKILL","");//was assigned skill
 define("_ONSKILLREMOVAL","");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","");//does not have anymore the skill
 define("_ONSKILLEDIT","");//User skill edited
 define("_HADHISSKILLEDITEDTO","");//has a new description for skill
 define("_ONHCDHIRED","");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","");//Display help links
 define("_ALLOWUSERANSERALLRONG","");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","");//Only if test repetitions are allowed
 define("_USERREDOWRONG","");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","");//Default theme cannot be imported
 define("_ACCESSEXPIRED","წვდომის გაუვიდა");//Access expired
 define("_LESSONSCHEDULE","გაკვეთილების განრიგი");//Lessons schedule
 define("_COURSESTARTSAT","კურსი იწყება");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","");//You were e
 define("_SUPERVISORS","");//Supervisors
 define("_COURSEOPTIONS","");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","");//Users reports generator
+define("_ADVANCEDUSERREPORTS","");//User reports generator
 define("_ADDTOGROUP","");//Add to group
 define("_ASSIGNCOURSE","");//Assign course
 define("_ASSIGNLESSON","");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","");//Results for
 define("_THANKYOUFORCOMPLETING","");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","");//No reports found in the system
 define("_YOUMAYCREATEONE","");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","");//You cannot remove the last element (New)
+define("_CONTAINS","");//Contains (New)
+define("_NOTCONTAINS","");//Does not contain (New)
+define("_REMOVEOPTION","");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","");//Separate words with pipe | (New)
+define("_POINTS","");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","");//The user does not have this lesson
+define("_USERACCESSGRANTED","");//User access granted
+define("_FORCECHANGEPASSWORD","");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","");//Change password (New)
+define("_OLDPASSWORD","");//Old password (New)
+define("_NEWPASSWORD","");//New password (New)
+define("_ONLINETIME","");//Time online (New)
+define("_ONLINESINCE","");//Online since (New)
+define("_MANUALLY","");//Manually (New)
+define("_CLEAROPCODECACHE","");//Clear opcode cache (New)
+define("_USELOGO","");//Use logo (New)
+define("_DEFAULTLOGO","");//Default logo (New)
+define("_UPLOADSITELOGO","");//Upload site logo (New)
+define("_ATLEAST","");//At least (New)
+define("_ATMOST","");//At most (New)
+define("_EQUALTO","");//Equal to (New)
+define("_SKILLSSTATISTICS","");//Skill reports (New)
+define("_STATISTICSFORSKILL","");//Reports for skill (New)
+define("_CHOOSESKILL","");//Choose skill (New)
+define("_SKILLGRAPH","");//Skill graph (New)
+define("_TOTALSKILLS","");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","");//Multiple options (New)
 ?>

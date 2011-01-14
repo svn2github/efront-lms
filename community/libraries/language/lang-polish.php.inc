@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Zaloguj się");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","pl");//en
 define("_CURRENTLANGUAGESYMBOL","pl");//en
-define("_HEADERLANGUAGETAG","polish");//english
+define("_HEADERLANGUAGETAG","polish");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Język");//Language
 define("_PASSWORD","Hasło");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lekcje");//Lessons
 define("_RECREATESEARCHTABLE","Tabela wyszukiwania została odtworzona");//Recreate search table
 define("_LESSONSREGISTRATIONS","Rejestracje lekcji");//Lesson registrations
 define("_TOOLS","Narzędzia");//Tools
-define("_ONLINEUSERS","Użytkownicy online");//Connected users
+define("_ONLINEUSERS","Użytkownicy online");//Connected
 define("_DATE","Data");//Date
 define("_STUDENT","Uczestnik");//Student
 define("_LINE","Linia");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Zaawansowane kryteria");//Advanced criteria
 define("_MYSTUDENTS","Moi uczestnicy");//My students
 define("_EMPLOYEE","Pracownik");//User
 define("_NOBRANCHJOBSERROR","Żadne opisy stanowisk pracy nie zostały zarejestrowane dla tej gałęzi");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Statystyki testów");//Tests reports
+define("_TESTSTATISTICS","Statystyki testów");//Test reports
 define("_CHOOSETEST","Wybierz test");//Choose test
 define("_USERPROFILE","Profil użytkownika");//Public profile
 define("_VIEWBRANCHES","Zobacz gałęzie");//View branches
-define("_NOEMPLOYEESFOUND","Nie znaleziono pracowników");//No users were found
+define("_NOEMPLOYEESFOUND","Nie znaleziono pracowników");//No users found
 define("_SEARCHEMPLOYEE","Szukaj pracownika");//Find users
 define("_ALLBRANCHES","Wszystkie gałęzie");//All branches
 define("_ANSWERS","Odpowiedzi");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Czas");//Time
 define("_RESEND","Wyślij ponownie e-mail");//Resend email
 define("_CERTIFICATESTATISTICS","Sprawozdania Certyfikat");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Użytkownicy, dostał certyfikat za kurs");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Wydarzenia raporty");//Events reports
+define("_EVENTSTATISTICS","Wydarzenia raporty");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Wydarzenia kryteria dopasowania");//Events matching criteria
 define("_NOEVENTSFOUND","Brak wydarzeń spełniających podane kryteria wyszukiwania");//No events match your search criteria
 define("_VISITEDTHESYSTEM","odwiedził systemu");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","został usunięty z grupy");//was removed from gr
 define("_ONNEWSKILL","Przypisanie Skill");//Skill assignment
 define("_WASASSIGNEDSKILL","został przydzielony umiejętności");//was assigned skill
 define("_ONSKILLREMOVAL","Usunięcie Skill");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","nie ma już umiejętności");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","nie ma już umiejętności");//does not have anymore the skill
 define("_ONSKILLEDIT","Umiejętności edytowanej");//User skill edited
 define("_HADHISSKILLEDITEDTO","ma nowy opis umiejętności");//has a new description for skill
 define("_ONHCDHIRED","Użytkownik wynajęcia");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Wyświetl linki pomoc");//Display help links
 define("_ALLOWUSERANSERALLRONG","Umożliwienia studentom przerobić tylko źle odpowiedział na pytania");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Tylko wtedy, gdy dozwolone są powtórzenia badania");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Przerobić tylko złe odpowiedzi");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Domyślny motyw nie może być inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Domyślny motyw nie może być inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Dostępu utracił ważność");//Access expired
 define("_LESSONSCHEDULE","Plan Lekcji");//Lessons schedule
 define("_COURSESTARTSAT","Kurs rozpoczyna się");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ci zostali wł�
 define("_SUPERVISORS","Nadzoru");//Supervisors
 define("_COURSEOPTIONS","Rodzaje kursów");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","egzekucji Reset dla wszystkich użytkowników");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Generator raportów użytkowników");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Generator raportów użytkowników");//User reports generator
 define("_ADDTOGROUP","Dodaj do grupy");//Add to group
 define("_ASSIGNCOURSE","Oczywiście Przypisz");//Assign course
 define("_ASSIGNLESSON","Przypisywanie lekcji");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Wyniki dla");//Results for
 define("_THANKYOUFORCOMPLETING","Dziękujemy za wypełnienie");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Brak raportów znajdują się w system");//No reports found in the system
 define("_YOUMAYCREATEONE","Możesz utworzyć");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nie można zmienić tryb lekcji, ponieważ znajdują się użytkownicy zapisani do kursu");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Użytkownik nie ma tego kursu");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Użytkownik nie ma lekcji");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Dostęp użytkownika przyznane");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nie można zmienić tryb lekcji, ponieważ znajdują się użytkownicy zapisani do kursu");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Nie można usunąć ostatni element");//You cannot remove the last element (New)
+define("_CONTAINS","Zawiera");//Contains (New)
+define("_NOTCONTAINS","Nie zawiera");//Does not contain (New)
+define("_REMOVEOPTION","Opcję Usuń");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Zastanów się poprawna, kiedy zgromadzonych punktów jest większa lub równa");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automatyczne");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-prawidłowe opcje");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Pytanie korekty");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Rozdziel słowa używając rur |");//Separate words with pipe | (New)
+define("_POINTS","Punkty");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Użytkownik nie ma tego kursu");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Użytkownik nie ma lekcji");//The user does not have this lesson
+define("_USERACCESSGRANTED","Dostęp użytkownika przyznane");//User access granted
+define("_FORCECHANGEPASSWORD","zmiana hasła w życie po początkowym logowanie");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Zmień hasło");//Change password (New)
+define("_OLDPASSWORD","Stare hasło");//Old password (New)
+define("_NEWPASSWORD","Nowe hasło");//New password (New)
+define("_ONLINETIME","Czas online");//Time online (New)
+define("_ONLINESINCE","Online od");//Online since (New)
+define("_MANUALLY","Ręcznie");//Manually (New)
+define("_CLEAROPCODECACHE","Wyczyść cache opcode");//Clear opcode cache (New)
+define("_USELOGO","Użyj logo");//Use logo (New)
+define("_DEFAULTLOGO","Domyślne logo");//Default logo (New)
+define("_UPLOADSITELOGO","Prześlij logo strony");//Upload site logo (New)
+define("_ATLEAST","Na co najmniej");//At least (New)
+define("_ATMOST","Na najbardziej");//At most (New)
+define("_EQUALTO","Równe");//Equal to (New)
+define("_SKILLSSTATISTICS","Skill raportów");//Skill reports (New)
+define("_STATISTICSFORSKILL","Raporty dla umiejętności");//Reports for skill (New)
+define("_CHOOSESKILL","Wybierz skill");//Choose skill (New)
+define("_SKILLGRAPH","wykres Skill");//Skill graph (New)
+define("_TOTALSKILLS","Razem umiejętności");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","SCORM komunikacji asynchronicznej");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Przełącz do komunikacji asynchronicznej wtedy, gdy występują problemy zakończeniu SCORM (szczególnie w przypadku korzystania z Adobe Captivate treści generowane)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Uwaga: Wyłączenie płatności ustawia wszystkie ceny do 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Wiele opcji");//Multiple options (New)
 ?>

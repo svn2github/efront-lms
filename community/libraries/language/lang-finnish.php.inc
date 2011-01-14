@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Kirjaudu eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","fi");//en
 define("_CURRENTLANGUAGESYMBOL","fi");//en
-define("_HEADERLANGUAGETAG","finnish");//english
+define("_HEADERLANGUAGETAG","finnish");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Kieli");//Language
 define("_PASSWORD","Salasana");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lessons");//Lessons
 define("_RECREATESEARCHTABLE","Uudestaan hakuun taulukko");//Recreate search table
 define("_LESSONSREGISTRATIONS","Oppitunnin rekisteröinnit");//Lesson registrations
 define("_TOOLS","Työkalut");//Tools
-define("_ONLINEUSERS","Internetin käyttäjät");//Connected users
+define("_ONLINEUSERS","Internetin käyttäjät");//Connected
 define("_DATE","Päivämäärä");//Date
 define("_STUDENT","Student");//Student
 define("_LINE","Line");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Advanced perusteet");//Advanced criteria
 define("_MYSTUDENTS","Omat opiskelijat");//My students
 define("_EMPLOYEE","Työsuhde");//User
 define("_NOBRANCHJOBSERROR","Mikään työ kuvaukset on rekisteröity tämän sivuliikkeen");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Testit raportit");//Tests reports
+define("_TESTSTATISTICS","Testit raportit");//Test reports
 define("_CHOOSETEST","Valitse testi");//Choose test
 define("_USERPROFILE","Käyttäjän profiili");//Public profile
 define("_VIEWBRANCHES","Katso sivukonttorit");//View branches
-define("_NOEMPLOYEESFOUND","N: o työntekijää havaittiin");//No users were found
+define("_NOEMPLOYEESFOUND","N: o työntekijää havaittiin");//No users found
 define("_SEARCHEMPLOYEE","Etsi työntekijä");//Find users
 define("_ALLBRANCHES","Kaikki sivukonttorit");//All branches
 define("_ANSWERS","Vastaukset");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Temne");//Time
 define("_RESEND","Lähetä sähköpostiviesti");//Resend email
 define("_CERTIFICATESTATISTICS","Certificate raportit");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Käyttäjät että sai todistuksen tahansa kurssin");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Tapahtumat raportit");//Events reports
+define("_EVENTSTATISTICS","Tapahtumat raportit");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Tapahtumat Vastaavat kriteerit");//Events matching criteria
 define("_NOEVENTSFOUND","O Ottelun hakukriteereitä");//No events match your search criteria
 define("_VISITEDTHESYSTEM","vieraili järjestelmä");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","poistettiin ryhmästä");//was removed from group
 define("_ONNEWSKILL","Taidon osoittamisesta");//Skill assignment
 define("_WASASSIGNEDSKILL","nimettiin taito");//was assigned skill
 define("_ONSKILLREMOVAL","Skill poisto");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","ei ole enää taitoa");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","ei ole enää taitoa");//does not have anymore the skill
 define("_ONSKILLEDIT","Käyttäjän Skill muokattu");//User skill edited
 define("_HADHISSKILLEDITEDTO","on uusi kuvaus taitojen");//has a new description for skill
 define("_ONHCDHIRED","Käyttäjän vuokralle");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Näytön avulla linkit");//Display help links
 define("_ALLOWUSERANSERALLRONG","Opiskelijat voivat redo vain väärä vastasi");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Vain jos testi toistoja sallitaan");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Uudelleen vain väärä vastaus");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Default teema ei inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default teema ei inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Access päättyi");//Access expired
 define("_LESSONSCHEDULE","Lessons aikataulu");//Lessons schedule
 define("_COURSESTARTSAT","Kurssi alkaa");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Olit ilmoittaut
 define("_SUPERVISORS","Valvojien");//Supervisors
 define("_COURSEOPTIONS","Kurssivalikoimassa");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Nollaa teloituksista kaikille käyttäjille");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Käyttäjät raportit generaattori");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Käyttäjät raportit generaattori");//User reports generator
 define("_ADDTOGROUP","Lisää ryhmään");//Add to group
 define("_ASSIGNCOURSE","Anna kurssin");//Assign course
 define("_ASSIGNLESSON","Anna oppitunti");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Tulokset");//Results for
 define("_THANKYOUFORCOMPLETING","Kiitos loppuun");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Ei raportit löytyvät järjestelmän");//No reports found in the system
 define("_YOUMAYCREATEONE","Voit luoda");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Et voi muuttaa opetuksen tila, koska on olemassa käyttäjiä ilmoittautunut kurssin");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Käyttäjällä ei ole tällä kurssilla");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Käyttäjällä ei ole tämän oppitunnin");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Käyttäjä saa tutustua");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Et voi muuttaa opetuksen tila, koska on olemassa käyttäjiä ilmoittautunut kurssin");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Et voi poistaa viimeinen osa");//You cannot remove the last element (New)
+define("_CONTAINS","Sisältää");//Contains (New)
+define("_NOTCONTAINS","Ei sisällä");//Does not contain (New)
+define("_REMOVEOPTION","Poista vaihtoehto");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Harkitse oikea, kun kertynyt pisteitä suurempi tai yhtä suuri");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automaattinen");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-oikeita vaihtoehtoja");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Kysymys korjaus");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Erota sanat putki |");//Separate words with pipe | (New)
+define("_POINTS","Pisteitä");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Käyttäjällä ei ole tällä kurssilla");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Käyttäjällä ei ole tämän oppitunnin");//The user does not have this lesson
+define("_USERACCESSGRANTED","Käyttäjä saa tutustua");//User access granted
+define("_FORCECHANGEPASSWORD","Force salasanan vaihto ensimmäisestä kirjautuminen");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Vaihda salasana");//Change password (New)
+define("_OLDPASSWORD","Vanha salasana");//Old password (New)
+define("_NEWPASSWORD","Uusi salasana");//New password (New)
+define("_ONLINETIME","Aika verkossa");//Time online (New)
+define("_ONLINESINCE","Online lähtien");//Online since (New)
+define("_MANUALLY","Manuaalisesti");//Manually (New)
+define("_CLEAROPCODECACHE","Tyhjennä opcode välimuisti");//Clear opcode cache (New)
+define("_USELOGO","Käytä logo");//Use logo (New)
+define("_DEFAULTLOGO","Default logo");//Default logo (New)
+define("_UPLOADSITELOGO","Lähetä sivu logo");//Upload site logo (New)
+define("_ATLEAST","Ainakin");//At least (New)
+define("_ATMOST","Enintään");//At most (New)
+define("_EQUALTO","Yhtä suuri");//Equal to (New)
+define("_SKILLSSTATISTICS","Taito raportit");//Skill reports (New)
+define("_STATISTICSFORSKILL","Raportit taito");//Reports for skill (New)
+define("_CHOOSESKILL","Valitse taito");//Choose skill (New)
+define("_SKILLGRAPH","Taito kaavio");//Skill graph (New)
+define("_TOTALSKILLS","Yhteensä taidot");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Asynchronous SCORM viestintä");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Vaihda asynkroninen viestintä jos sinulla on ongelmia valmiiksi SCORM sisältö (varsinkin jos käytät Adobe Captivate luomaa sisältöä)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varoitus: poistaminen maksut asettaa kaikki hinnat 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Useita vaihtoehtoja");//Multiple options (New)
 ?>

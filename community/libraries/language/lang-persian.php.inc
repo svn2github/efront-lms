@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","ورود به eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","fa");//en
 define("_CURRENTLANGUAGESYMBOL","fa");//en
-define("_HEADERLANGUAGETAG","persian");//english
+define("_HEADERLANGUAGETAG","persian");//en_US.utf8
 define("_CHARSET","ISO-8859-6");//ISO-8859-1
 define("_LANGUAGE","زبان");//Language
 define("_PASSWORD","رمز عبور");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","دروس");//Lessons
 define("_RECREATESEARCHTABLE","تمدد اعصاب کردن جدول جستجو");//Recreate search table
 define("_LESSONSREGISTRATIONS","ثبت نام درس");//Lesson registrations
 define("_TOOLS","ابزار");//Tools
-define("_ONLINEUSERS","اعضای اتصال");//Connected users
+define("_ONLINEUSERS","اعضای اتصال");//Connected
 define("_DATE","تاریخ");//Date
 define("_STUDENT","دانش آموز");//Student
 define("_LINE","خط");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","معیار جستجوی پیشرفته");//Advanced criteria
 define("_MYSTUDENTS","دانش آموزان من");//My students
 define("_EMPLOYEE","کاربر");//User
 define("_NOBRANCHJOBSERROR","هیچ موقعیت شغلی برای این شعبه به ثبت رسیده است");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","گزارش آزمایش");//Tests reports
+define("_TESTSTATISTICS","گزارش آزمایش");//Test reports
 define("_CHOOSETEST","انتخاب آزمون");//Choose test
 define("_USERPROFILE","نمایش پروفایل کاربری");//Public profile
 define("_VIEWBRANCHES","شعب مشاهده");//View branches
-define("_NOEMPLOYEESFOUND","هیچ کاربر یافت نشد");//No users were found
+define("_NOEMPLOYEESFOUND","هیچ کاربر یافت نشد");//No users found
 define("_SEARCHEMPLOYEE","کاربر جستجو");//Find users
 define("_ALLBRANCHES","تمام شاخه");//All branches
 define("_ANSWERS","پاسخ");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","تیمنهای");//Time
 define("_RESEND","پست الکترونیک ارسال نامه");//Resend email
 define("_CERTIFICATESTATISTICS","به گزارش گواهی");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","کاربرانی که به صدور گواهینامه برای هر دوره کردم");//Users that got a certification for any course
-define("_EVENTSTATISTICS","رویدادها گزارش");//Events reports
+define("_EVENTSTATISTICS","رویدادها گزارش");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","رویدادها مطابق با معیارهای");//Events matching criteria
 define("_NOEVENTSFOUND","هیچ رویداد مطابقت اساس شرایط جستجوی شما");//No events match your search criteria
 define("_VISITEDTHESYSTEM","تعداد بازدید سیستم");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","از گروه حذف شد");//was removed from gr
 define("_ONNEWSKILL","انتساب مهارت");//Skill assignment
 define("_WASASSIGNEDSKILL","مهارت اختصاص داده شد");//was assigned skill
 define("_ONSKILLREMOVAL","حذف مهارت ها");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","ندارد مهارت در شاهرود");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","ندارد مهارت در شاهرود");//does not have anymore the skill
 define("_ONSKILLEDIT","مهارت کاربر ویرایش");//User skill edited
 define("_HADHISSKILLEDITEDTO","تا به توضیحات جدیدی را برای مهارت");//has a new description for skill
 define("_ONHCDHIRED","راهنمای استخدام");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","لینک های نمایش کمک");//Display help links
 define("_ALLOWUSERANSERALLRONG","اجازه به دانشجویان برای ازنو فقط سوالات اشتباه پاسخ داده شده");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","فقط در صورت تکرار آزمون مجاز");//Only if test repetitions are allowed
 define("_USERREDOWRONG","ازنو نه تنها غلط جواب داد :");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","پیش فرض نمی توان inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","پیش فرض نمی توان inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","دسترسی به فوت");//Access expired
 define("_LESSONSCHEDULE","برنامه دروس");//Lessons schedule
 define("_COURSESTARTSAT","دوره شروع می شود در تاریخ");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","شما وارد
 define("_SUPERVISORS","سوپروایزر");//Supervisors
 define("_COURSEOPTIONS","انتخاب رشته");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","اعدام برای تنظیم مجدد به همه کاربران");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","اعضا ژنراتور گزارش");//Users reports generator
+define("_ADVANCEDUSERREPORTS","اعضا ژنراتور گزارش");//User reports generator
 define("_ADDTOGROUP","افزودن به گروه");//Add to group
 define("_ASSIGNCOURSE","البته انتساب");//Assign course
 define("_ASSIGNLESSON","درس اختصاص");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","نتایج برای");//Results for
 define("_THANKYOUFORCOMPLETING","با تشکر از شما برای تکمیل");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","هیچ گزارشی موجود در سیستم");//No reports found in the system
 define("_YOUMAYCREATEONE","شما ممکن است ایجاد یک");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","شما می توانید حالت درس را تغییر ندهید زیرا کاربران ثبت نام وجود دارد به دوره");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","کاربر نشانی از این دوره را نداشته باشند");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","کاربر نشانی از این درس را ندارید");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","دسترسی کاربر اعطا");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","شما می توانید حالت درس را تغییر ندهید زیرا کاربران ثبت نام وجود دارد به دوره");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","شما می توانید تاریخ و زمان آخرین عنصر را جدا نکنید");//You cannot remove the last element (New)
+define("_CONTAINS","شامل");//Contains (New)
+define("_NOTCONTAINS","آیا اشاره ای نشده است");//Does not contain (New)
+define("_REMOVEOPTION","گزارش گزینه");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","در نظر بگیرید درست زمانی که انباشته نقاط بزرگتر یا مساوی");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","اتوماتیک");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","خودکار گزینه صحیح");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","اصلاح سوال");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","کلمات جداگانه با لوله |");//Separate words with pipe | (New)
+define("_POINTS","امتیاز");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","کاربر نشانی از این دوره را نداشته باشند");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","کاربر نشانی از این درس را ندارید");//The user does not have this lesson
+define("_USERACCESSGRANTED","دسترسی کاربر اعطا");//User access granted
+define("_FORCECHANGEPASSWORD","نیروی تغییر رمز عبور بر ورود اولیه");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","تغییر رمز عبور");//Change password (New)
+define("_OLDPASSWORD","رمز عبور قبلی");//Old password (New)
+define("_NEWPASSWORD","رمز عبور جدید");//New password (New)
+define("_ONLINETIME","مدت زمان آنلاین");//Time online (New)
+define("_ONLINESINCE","کاربران آنلاین حاضر از");//Online since (New)
+define("_MANUALLY","بصورت دستی");//Manually (New)
+define("_CLEAROPCODECACHE","پاک کردن کش opcode");//Clear opcode cache (New)
+define("_USELOGO","استفاده از آرم");//Use logo (New)
+define("_DEFAULTLOGO","آرم پیش فرض");//Default logo (New)
+define("_UPLOADSITELOGO","ارسال لوگوی سایت");//Upload site logo (New)
+define("_ATLEAST","حداقل");//At least (New)
+define("_ATMOST","در اکثر");//At most (New)
+define("_EQUALTO","مساوی با");//Equal to (New)
+define("_SKILLSSTATISTICS","مهارت گزارش");//Skill reports (New)
+define("_STATISTICSFORSKILL","گزارش برای مهارت");//Reports for skill (New)
+define("_CHOOSESKILL","مهارت را انتخاب کنید");//Choose skill (New)
+define("_SKILLGRAPH","نمودار مهارت");//Skill graph (New)
+define("_TOTALSKILLS","مهارت ها");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","آسنکرون ارتباط SCORM");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","تغییر به ارتباطات ناهمزمان اگر شما در حال تجربه مشکل تکمیل محتوای SCORM (به خصوص در مورد شما با استفاده از محتوای تولید شده ادوبی اسیر)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","هشدار : غیر فعال کردن پرداخت تمام قیمت ها به مجموعه ای 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","گزینه های متعدد");//Multiple options (New)
 ?>

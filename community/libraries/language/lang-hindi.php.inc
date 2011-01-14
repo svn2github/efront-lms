@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","लॉगइन करने के लिए eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","hi");//en
 define("_CURRENTLANGUAGESYMBOL","hi");//en
-define("_HEADERLANGUAGETAG","hindi");//english
+define("_HEADERLANGUAGETAG","hindi");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","भाषा");//Language
 define("_PASSWORD","पासवर्ड");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","सबक");//Lessons
 define("_RECREATESEARCHTABLE","फिर खोज की मेज");//Recreate search table
 define("_LESSONSREGISTRATIONS","पंजीकरण नालचिक");//Lesson registrations
 define("_TOOLS","उपकरण");//Tools
-define("_ONLINEUSERS","आन लाइन प्रयोक्ताओं");//Connected users
+define("_ONLINEUSERS","आन लाइन प्रयोक्ताओं");//Connected
 define("_DATE","तिथि");//Date
 define("_STUDENT","छात्र");//Student
 define("_LINE","रेखा");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","उन्नत मानदंड");//Advanced criteria
 define("_MYSTUDENTS","मेरा छात्रों");//My students
 define("_EMPLOYEE","कर्मचारी");//User
 define("_NOBRANCHJOBSERROR","कोई नौकरी के लिए इस विवरण को पंजीकृत किया गया है शाखा");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","टेस्ट की रिपोर्ट");//Tests reports
+define("_TESTSTATISTICS","टेस्ट की रिपोर्ट");//Test reports
 define("_CHOOSETEST","परीक्षण चुनें");//Choose test
 define("_USERPROFILE","उपयोगकर्ता प्रोफ़ाइल");//Public profile
 define("_VIEWBRANCHES","शाखाओं देखें");//View branches
-define("_NOEMPLOYEESFOUND","कर्मचारी नहीं पाए गए");//No users were found
+define("_NOEMPLOYEESFOUND","कर्मचारी नहीं पाए गए");//No users found
 define("_SEARCHEMPLOYEE","खोज कर्मचारी");//Find users
 define("_ALLBRANCHES","सभी शाखाओं");//All branches
 define("_ANSWERS","उत्तर");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","समय");//Time
 define("_RESEND","ईमेल पुनः भेजें");//Resend email
 define("_CERTIFICATESTATISTICS","प्रमाण पत्र की रिपोर्ट");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","प्रयोक्ताओं है कि किसी भी पाठ्यक्रम के लिए एक प्रमाण पत्र मिला");//Users that got a certification for any course
-define("_EVENTSTATISTICS","घटनाओं की रिपोर्ट");//Events reports
+define("_EVENTSTATISTICS","घटनाओं की रिपोर्ट");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","घटनाक्रम से मेल खाते मापदंड");//Events matching criteria
 define("_NOEVENTSFOUND","कोई घटनाओं अपने खोज मापदंड से मेल");//No events match your search criteria
 define("_VISITEDTHESYSTEM","प्रणाली का दौरा किया");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","समूह से हटा दिया गय
 define("_ONNEWSKILL","कौशल काम");//Skill assignment
 define("_WASASSIGNEDSKILL","कौशल सौंपा गया");//was assigned skill
 define("_ONSKILLREMOVAL","कौशल हटाने");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","कौशल है अब और नहीं");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","कौशल है अब और नहीं");//does not have anymore the skill
 define("_ONSKILLEDIT","उपयोगकर्ता कौशल संपादित");//User skill edited
 define("_HADHISSKILLEDITEDTO","कौशल के लिए एक नया विवरण नहीं है");//has a new description for skill
 define("_ONHCDHIRED","उपयोगकर्ता किराए");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","प्रदर्शन में मदद लिंक");
 define("_ALLOWUSERANSERALLRONG","अनुमति देने के छात्रों को केवल गलत प्रश्नों का उत्तर दिया करने के लिए फिर से करना");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","तभी परीक्षण repetitions की अनुमति है");//Only if test repetitions are allowed
 define("_USERREDOWRONG","फिर से करना ही गलत जवाब");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","डिफ़ॉल्ट विषयवस्तु inported नहीं जा सकता");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","डिफ़ॉल्ट विषयवस्तु inported नहीं जा सकता");//Default theme cannot be imported
 define("_ACCESSEXPIRED","पहुँच समाप्त हो गई है");//Access expired
 define("_LESSONSCHEDULE","सबक अनुसूची");//Lessons schedule
 define("_COURSESTARTSAT","कोर्स पर शुरू होता है");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","तुम थ�
 define("_SUPERVISORS","पर्यवेक्षकों");//Supervisors
 define("_COURSEOPTIONS","बेशक विकल्प");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","सभी उपयोगकर्ताओं के लिए रीसेट फांसी");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","उपयोगकर्ताओं रिपोर्ट जनरेटर");//Users reports generator
+define("_ADVANCEDUSERREPORTS","उपयोगकर्ताओं रिपोर्ट जनरेटर");//User reports generator
 define("_ADDTOGROUP","समूह में जोड़ें");//Add to group
 define("_ASSIGNCOURSE","असाइन पाठ्यक्रम");//Assign course
 define("_ASSIGNLESSON","असाइन सबक");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","के लिए परिणाम");//Results for
 define("_THANKYOUFORCOMPLETING","आप को पूरा करने के लिए धन्यवाद");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","कोई रिपोर्ट प्रणाली में पाया");//No reports found in the system
 define("_YOUMAYCREATEONE","आप एक बना सकते हैं");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","आप पाठ मोड नहीं बदल क्योंकि वहाँ उपयोगकर्ताओं रहे हैं पाठ्यक्रम के लिए दाखिला लिया जा सकता");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","उपयोगकर्ता इस पाठ्यक्रम नहीं है");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","उपयोगकर्ता इस सबक नहीं है");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","उपयोगकर्ता पहुँच प्रदान");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","आप पाठ मोड नहीं बदल क्योंकि वहाँ उपयोगकर्ताओं रहे हैं पाठ्यक्रम के लिए दाखिला लिया जा सकता");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","आप अंतिम तत्व को हटा नहीं सकते");//You cannot remove the last element (New)
+define("_CONTAINS","शामिल");//Contains (New)
+define("_NOTCONTAINS","क्या नहीं");//Does not contain (New)
+define("_REMOVEOPTION","विकल्प निकालें");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","विचार करना सही जब संचित अंक बड़ा या बराबर है");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","स्वचालित");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","ऑटो सही विकल्प");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","सवाल सुधार");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","पाइप से अलग शब्द |");//Separate words with pipe | (New)
+define("_POINTS","अंक");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","उपयोगकर्ता इस पाठ्यक्रम नहीं है");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","उपयोगकर्ता इस सबक नहीं है");//The user does not have this lesson
+define("_USERACCESSGRANTED","उपयोगकर्ता पहुँच प्रदान");//User access granted
+define("_FORCECHANGEPASSWORD","बल आरंभिक लॉगिन पर पासवर्ड बदलने");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","पासवर्ड बदलें");//Change password (New)
+define("_OLDPASSWORD","पुराना पासवर्ड");//Old password (New)
+define("_NEWPASSWORD","नया पासवर्ड");//New password (New)
+define("_ONLINETIME","ऑनलाइन समय");//Time online (New)
+define("_ONLINESINCE","के बाद से ऑनलाइन");//Online since (New)
+define("_MANUALLY","मैन्युअल");//Manually (New)
+define("_CLEAROPCODECACHE","स्पष्ट opcode कैश");//Clear opcode cache (New)
+define("_USELOGO","उपयोग लोगो");//Use logo (New)
+define("_DEFAULTLOGO","डिफ़ॉल्ट लोगो");//Default logo (New)
+define("_UPLOADSITELOGO","अपलोड साइट लोगो");//Upload site logo (New)
+define("_ATLEAST","कम से कम");//At least (New)
+define("_ATMOST","सबसे कम");//At most (New)
+define("_EQUALTO","इसके बराबर");//Equal to (New)
+define("_SKILLSSTATISTICS","कौशल रिपोर्ट");//Skill reports (New)
+define("_STATISTICSFORSKILL","कौशल के लिए रिपोर्ट");//Reports for skill (New)
+define("_CHOOSESKILL","कौशल चुनें");//Choose skill (New)
+define("_SKILLGRAPH","कौशल ग्राफ");//Skill graph (New)
+define("_TOTALSKILLS","कुल कौशल");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","अतुल्यकालिक संचार SCORM");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","स्विच अतुल्यकालिक संचार के लिए यदि आप SCORM सामग्री पूरा मुसीबत (विशेषकर के मामले में आप एडोब मुगध सृजित सामग्री का उपयोग कर रहे हैं) अनुभव कर रहे हैं");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","चेतावनी: अक्षम भुगतान सभी की कीमतों 0 पर सेट हो जाएगा");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","कई विकल्प");//Multiple options (New)
 ?>

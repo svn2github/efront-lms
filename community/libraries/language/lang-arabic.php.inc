@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","تسجيل الدخول الى efront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ar");//en
 define("_CURRENTLANGUAGESYMBOL","ar");//en
-define("_HEADERLANGUAGETAG","arabic");//english
+define("_HEADERLANGUAGETAG","arabic");//en_US.utf8
 define("_CHARSET","ISO-8859-6");//ISO-8859-1
 define("_LANGUAGE","لغة");//Language
 define("_PASSWORD","كلمة السر");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","الدروس");//Lessons
 define("_RECREATESEARCHTABLE","اعادة بحث الجدول");//Recreate search table
 define("_LESSONSREGISTRATIONS","الدرس التسجيلات");//Lesson registrations
 define("_TOOLS","أدوات");//Tools
-define("_ONLINEUSERS","المستخدمين على الخط");//Connected users
+define("_ONLINEUSERS","المستخدمين على الخط");//Connected
 define("_DATE","تاريخ");//Date
 define("_STUDENT","طالب");//Student
 define("_LINE","الخط");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","معايير متقدمة");//Advanced criteria
 define("_MYSTUDENTS","بلادي الطلاب");//My students
 define("_EMPLOYEE","مستخدم");//User
 define("_NOBRANCHJOBSERROR","لا توصيف الوظائف وقد تم تسجيل هذا الفرع لل");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","تقارير الاختبارات");//Tests reports
+define("_TESTSTATISTICS","تقارير الاختبارات");//Test reports
 define("_CHOOSETEST","اختيار الاختبار");//Choose test
 define("_USERPROFILE","ملف تعريف المستخدم");//Public profile
 define("_VIEWBRANCHES","ونظرا فروع");//View branches
-define("_NOEMPLOYEESFOUND","تم العثور على اي موظف");//No users were found
+define("_NOEMPLOYEESFOUND","تم العثور على اي موظف");//No users found
 define("_SEARCHEMPLOYEE","بحث موظف");//Find users
 define("_ALLBRANCHES","جميع الفروع");//All branches
 define("_ANSWERS","الاجابات");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","وقت");//Time
 define("_RESEND","إرسال البريد الإلكتروني");//Resend email
 define("_CERTIFICATESTATISTICS","شهادة تقارير");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","المستخدمين التي حصلت على شهادة في أي ملعب");//Users that got a certification for any course
-define("_EVENTSTATISTICS","الأحداث التقارير");//Events reports
+define("_EVENTSTATISTICS","الأحداث التقارير");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","أحداث مطابقة للمعايير");//Events matching criteria
 define("_NOEVENTSFOUND","الأحداث لا تطابق معايير البحث الخاصة بك");//No events match your search criteria
 define("_VISITEDTHESYSTEM","زار نظام");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","تمت إزالة من المجموعة");//was r
 define("_ONNEWSKILL","مهارة الاحالة");//Skill assignment
 define("_WASASSIGNEDSKILL","تم تعيين المهارة");//was assigned skill
 define("_ONSKILLREMOVAL","مهارة إزالة");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","لا يوجد بعد الآن مهارة");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","لا يوجد بعد الآن مهارة");//does not have anymore the skill
 define("_ONSKILLEDIT","مستخدم مهارة تحريره");//User skill edited
 define("_HADHISSKILLEDITEDTO","وقد وصفا جديدا للمهارة");//has a new description for skill
 define("_ONHCDHIRED","مستخدم استأجرت");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","عرض روابط مساعدة");//Display help links
 define("_ALLOWUSERANSERALLRONG","السماح للطلاب فقط إعادة الإجابة على الأسئلة الخطأ");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","فقط إذا سمح اختبار التكرار");//Only if test repetitions are allowed
 define("_USERREDOWRONG","إعادة الخطأ فقط الرد");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","يمكن أن لا يكون موضوع الافتراضي inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","يمكن أن لا يكون موضوع الافتراضي inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","صلاحية الوصول");//Access expired
 define("_LESSONSCHEDULE","جدول الدروس");//Lessons schedule
 define("_COURSESTARTSAT","الدورة تبدأ في");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","التحق كن
 define("_SUPERVISORS","المشرفون");//Supervisors
 define("_COURSEOPTIONS","خيارات الدورة");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","الإعدام لكافة المستخدمين إعادة تعيين");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","شاهد تقارير مولد");//Users reports generator
+define("_ADVANCEDUSERREPORTS","شاهد تقارير مولد");//User reports generator
 define("_ADDTOGROUP","أضف الى المجموعة");//Add to group
 define("_ASSIGNCOURSE","تعيين الدراسي");//Assign course
 define("_ASSIGNLESSON","تعيين الدرس");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","نتائج");//Results for
 define("_THANKYOUFORCOMPLETING","شكرا لكم لاستكمال");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","لا توجد تقارير في النظام");//No reports found in the system
 define("_YOUMAYCREATEONE","يمكنك إنشاء واحد");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","لا يمكنك تغيير وضع الدرس لأن هناك المستخدمين المسجلين في البرنامج الدراسي");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","المستخدم لا يملك هذا البرنامج الدراسي");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","المستخدم لا يملك هذا الدرس");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","منح المستخدم الوصول");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","لا يمكنك تغيير وضع الدرس لأن هناك المستخدمين المسجلين في البرنامج الدراسي");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","لا يمكنك إزالة العنصر الأخير");//You cannot remove the last element (New)
+define("_CONTAINS","يحتوي");//Contains (New)
+define("_NOTCONTAINS","لا يحتوي");//Does not contain (New)
+define("_REMOVEOPTION","إزالة الخيار");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","النظر الصحيحة عند نقاط المتراكمة أكبر أو يساوي");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","التلقائي");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","لصناعة السيارات في تصحيح الخيارات");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","مسألة التصحيح");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","كلمات منفصلة مع الأنابيب |");//Separate words with pipe | (New)
+define("_POINTS","نقاط");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","المستخدم لا يملك هذا البرنامج الدراسي");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","المستخدم لا يملك هذا الدرس");//The user does not have this lesson
+define("_USERACCESSGRANTED","منح المستخدم الوصول");//User access granted
+define("_FORCECHANGEPASSWORD","قوة تغيير كلمة المرور عند الدخول الأولي");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","تغيير كلمة المرور");//Change password (New)
+define("_OLDPASSWORD","كلمة السر القديمة");//Old password (New)
+define("_NEWPASSWORD","كلمة مرور جديدة");//New password (New)
+define("_ONLINETIME","الوقت على الانترنت");//Time online (New)
+define("_ONLINESINCE","على الانترنت منذ عام");//Online since (New)
+define("_MANUALLY","يدويا");//Manually (New)
+define("_CLEAROPCODECACHE","واضح شفرة تشغيل ذاكرة التخزين المؤقت");//Clear opcode cache (New)
+define("_USELOGO","استخدام شعار");//Use logo (New)
+define("_DEFAULTLOGO","الشعار الافتراضي");//Default logo (New)
+define("_UPLOADSITELOGO","موقع تحميل الشعار");//Upload site logo (New)
+define("_ATLEAST","على الأقل");//At least (New)
+define("_ATMOST","في معظم");//At most (New)
+define("_EQUALTO","يساوي");//Equal to (New)
+define("_SKILLSSTATISTICS","مهارة تقارير");//Skill reports (New)
+define("_STATISTICSFORSKILL","تقارير عن مهارة");//Reports for skill (New)
+define("_CHOOSESKILL","اختيار مهارة");//Choose skill (New)
+define("_SKILLGRAPH","مهارة الرسم البياني");//Skill graph (New)
+define("_TOTALSKILLS","مجموع المهارات");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","اس كورم الاتصال غير المتزامن");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","التبديل إلى الاتصال غير المتزامن إذا كنت تعاني من مشكلة استكمال محتوى اس كورم (وخصوصا في حال كنت تستخدم أدوبي يأسر المحتوى المقدم)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","تحذير : تعطيل دفع الأسعار إلى كل مجموعة 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","خيارات متعددة");//Multiple options (New)
 ?>

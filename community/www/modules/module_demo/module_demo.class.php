@@ -211,8 +211,26 @@ class module_demo extends EfrontModule {
 
      */
     public function getModule() {
+     $smarty = $this -> getSmartyVar();
+        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
+        $smarty -> assign("T_MODULE_BASELINK" , $this -> moduleBaseLink);
+        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
   $form = new HTML_QuickForm("demo_form", "post", $this -> moduleBaseUrl, "", null, true);
-  //$form -> addElement("");
+  $form -> addElement('text', 'data', _MODULE_DEMO_TEXTFIELD, 'class = "inputText"');
+  $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+  if ($form -> isSubmitted() && $form -> validate()) {
+   try {
+    $values = $form -> exportValues();
+    if (eF_checkParameter($values['data'], 'text')) {
+     eF_insertTableData("module_demo_data", array('data' => $values['data']));
+    }
+   } catch (Exception $e) {
+    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $message_type = 'failure';
+   }
+  }
+  $smarty -> assign("T_DEMO_FORM", $form -> toArray());
         return true;
     }
     /**
@@ -223,8 +241,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getSmartyTpl() {
-     $smarty = $this -> getSmartyVar();
-        return true;
+     return $this -> moduleBaseDir."module_demo_page.tpl";
     }
     /**
 

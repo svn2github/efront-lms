@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Login to eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","sq");//en
 define("_CURRENTLANGUAGESYMBOL","sq");//en
-define("_HEADERLANGUAGETAG","albanian");//english
+define("_HEADERLANGUAGETAG","albanian");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Gjuha");//Language
 define("_PASSWORD","Fjalëkalimi");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Mësimet");//Lessons
 define("_RECREATESEARCHTABLE","Rikrijojë kërko table");//Recreate search table
 define("_LESSONSREGISTRATIONS","Mësim regjistrime");//Lesson registrations
 define("_TOOLS","Mjetet");//Tools
-define("_ONLINEUSERS","Connected përdoruesit");//Connected users
+define("_ONLINEUSERS","Connected përdoruesit");//Connected
 define("_DATE","Data");//Date
 define("_STUDENT","Student");//Student
 define("_LINE","Line");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Advanced kriteret");//Advanced criteria
 define("_MYSTUDENTS","Studentët e mia");//My students
 define("_EMPLOYEE","User");//User
 define("_NOBRANCHJOBSERROR","Nuk ka punë qëndrimet janë të regjistruar për këtë degë");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Analizat e raporteve");//Tests reports
+define("_TESTSTATISTICS","Analizat e raporteve");//Test reports
 define("_CHOOSETEST","Zgjidhni test");//Choose test
 define("_USERPROFILE","User Profili");//Public profile
 define("_VIEWBRANCHES","View degët");//View branches
-define("_NOEMPLOYEESFOUND","Asnjë përdorues u gjetën");//No users were found
+define("_NOEMPLOYEESFOUND","Asnjë përdorues u gjetën");//No users found
 define("_SEARCHEMPLOYEE","Kërko përdorues");//Find users
 define("_ALLBRANCHES","Të gjitha degët");//All branches
 define("_ANSWERS","Përgjigjet");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Koha");//Time
 define("_RESEND","Email Ridergo");//Resend email
 define("_CERTIFICATESTATISTICS","Raportet Certificate");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Përdoruesit që mori një certifikim për çdo kurs");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Ngjarje raporteve");//Events reports
+define("_EVENTSTATISTICS","Ngjarje raporteve");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Ngjarje kriteret matching");//Events matching criteria
 define("_NOEVENTSFOUND","No upcoming ndeshje kriteret e kërkimit tuaj");//No events match your search criteria
 define("_VISITEDTHESYSTEM","vizitoi sistemit");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","u hoq nga grupi");//was removed from group
 define("_ONNEWSKILL","Detyrë Aftësitë");//Skill assignment
 define("_WASASSIGNEDSKILL","ishte caktuar aftësi");//was assigned skill
 define("_ONSKILLREMOVAL","Heqjen Aftësitë");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","nuk ka më aftësi");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","nuk ka më aftësi");//does not have anymore the skill
 define("_ONSKILLEDIT","Aftësi User redaktuar");//User skill edited
 define("_HADHISSKILLEDITEDTO","ka një përshkrim të reja për aftësi");//has a new description for skill
 define("_ONHCDHIRED","User qira");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Shfaq lidhjet ndihmë");//Display help links
 define("_ALLOWUSERANSERALLRONG","Lejo nxënësit të bëj sërish vetëm pyetje e gabuar përgjigje");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Vetëm në qoftë se repetitions test lejohen");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Bëj sërish vetëm gabuar përgjigje");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema e albumit nuk mund të inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema e albumit nuk mund të inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Qasja e skaduar");//Access expired
 define("_LESSONSCHEDULE","Orari Mësime");//Lessons schedule
 define("_COURSESTARTSAT","Kursi fillon më");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ju keni qenë t
 define("_SUPERVISORS","Mbikëqyrësit");//Supervisors
 define("_COURSEOPTIONS","opsionet e kursit");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","ekzekutimet Reset për të gjithë përdoruesit");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Perdorues raportet gjenerator");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Perdorues raportet gjenerator");//User reports generator
 define("_ADDTOGROUP","Shtoni në grup");//Add to group
 define("_ASSIGNCOURSE","Kursi Cakto");//Assign course
 define("_ASSIGNLESSON","Cakto mësim");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Rezultatet për");//Results for
 define("_THANKYOUFORCOMPLETING","Ju faleminderit për plotësimin");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Nuk ka raporte të gjendet në sistemin e");//No reports found in the system
 define("_YOUMAYCREATEONE","Ju mund të krijojë një");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Ju nuk mund të ndryshoni mode mësim, sepse ka shumë përdorues të regjistruar në kursin e");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Ky përdorues nuk e ka këtë kurs");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Ky përdorues nuk e ka këtë mësim");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","qasje User dhënë");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Ju nuk mund të ndryshoni mode mësim, sepse ka shumë përdorues të regjistruar në kursin e");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Ju nuk mund të hiqni element i fundit");//You cannot remove the last element (New)
+define("_CONTAINS","Përmban");//Contains (New)
+define("_NOTCONTAINS","Nuk përmban");//Does not contain (New)
+define("_REMOVEOPTION","Hiq opsion");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","E konsiderojnë të saktë, kur pikat e grumbulluar janë më të mëdha ose të barabartë me");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automatik");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","opsionet Auto-korrekte");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","korrigjim Pyetje");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Ndaj fjalë të me tub |");//Separate words with pipe | (New)
+define("_POINTS","Pikë");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Ky përdorues nuk e ka këtë kurs");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Ky përdorues nuk e ka këtë mësim");//The user does not have this lesson
+define("_USERACCESSGRANTED","qasje User dhënë");//User access granted
+define("_FORCECHANGEPASSWORD","Forca të ndryshojë fjalëkalimin mbi hyrje me emrin përkatës fillestare");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Ndërro fjalëkalimin");//Change password (New)
+define("_OLDPASSWORD","Old password");//Old password (New)
+define("_NEWPASSWORD","Fjalëkalimi i ri");//New password (New)
+define("_ONLINETIME","Time online");//Time online (New)
+define("_ONLINESINCE","Online që nga viti");//Online since (New)
+define("_MANUALLY","Me dorë");//Manually (New)
+define("_CLEAROPCODECACHE","Clear cache opcode");//Clear opcode cache (New)
+define("_USELOGO","logo Përdorimi");//Use logo (New)
+define("_DEFAULTLOGO","logo Default");//Default logo (New)
+define("_UPLOADSITELOGO","logo Upload site");//Upload site logo (New)
+define("_ATLEAST","Të paktën");//At least (New)
+define("_ATMOST","Në shumicën");//At most (New)
+define("_EQUALTO","Të barabartë me");//Equal to (New)
+define("_SKILLSSTATISTICS","Aftësi Raportet");//Skill reports (New)
+define("_STATISTICSFORSKILL","Raportet për aftësi");//Reports for skill (New)
+define("_CHOOSESKILL","Zgjidhni aftësi");//Choose skill (New)
+define("_SKILLGRAPH","Aftësitë grafik");//Skill graph (New)
+define("_TOTALSKILLS","aftësitë Gjithsej");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Asinkrone komunikimit SCORM");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Kalo në komunikim asinkron nëse jeni duke përjetuar probleme të kompletuar përmbajtjen SCORM (sidomos në rast se ju jeni duke përdorur Adobe robëroj generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Warning: Paaftësi e pagesave do të vendosë të gjitha çmimet në 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","mundësitë e shumëfishta");//Multiple options (New)
 ?>

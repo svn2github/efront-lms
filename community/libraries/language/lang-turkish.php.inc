@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Giriş eFront için");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","tr");//en
 define("_CURRENTLANGUAGESYMBOL","tr");//en
-define("_HEADERLANGUAGETAG","english");//english
+define("_HEADERLANGUAGETAG","english");//en_US.utf8
 define("_CHARSET","ISO-8859-9");//ISO-8859-1
 define("_LANGUAGE","Dil");//Language
 define("_PASSWORD","Şifre");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Dersler");//Lessons
 define("_RECREATESEARCHTABLE","Arama tablosunu yeniden oluştur");//Recreate search table
 define("_LESSONSREGISTRATIONS","Ders kayıtları");//Lesson registrations
 define("_TOOLS","Araçlar");//Tools
-define("_ONLINEUSERS","Bağlı Kullanıcılar");//Connected users
+define("_ONLINEUSERS","Bağlı Kullanıcılar");//Connected
 define("_DATE","Tarih");//Date
 define("_STUDENT","Öğrenci");//Student
 define("_LINE","Satır");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Gelişmiş kriterleri");//Advanced criteria
 define("_MYSTUDENTS","Öğrencilerim");//My students
 define("_EMPLOYEE","Kullanıcı");//User
 define("_NOBRANCHJOBSERROR","Hayır iş pozisyonları bu şube için tescil edilmiştir");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Testler raporları");//Tests reports
+define("_TESTSTATISTICS","Testler raporları");//Test reports
 define("_CHOOSETEST","Test seçin");//Choose test
 define("_USERPROFILE","Kullanıcı profili");//Public profile
 define("_VIEWBRANCHES","Görünüm dalları");//View branches
-define("_NOEMPLOYEESFOUND","Hayır kullanıcı bulunamadı");//No users were found
+define("_NOEMPLOYEESFOUND","Hayır kullanıcı bulunamadı");//No users found
 define("_SEARCHEMPLOYEE","Ara kullanıcı");//Find users
 define("_ALLBRANCHES","Tüm branşlarda");//All branches
 define("_ANSWERS","Yanıtlar");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Zaman");//Time
 define("_RESEND","E-posta yollayacağız");//Resend email
 define("_CERTIFICATESTATISTICS","Sertifika raporları");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Herhangi bir ders için bir sertifika var Kullanıcılar");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Etkinlik raporları");//Events reports
+define("_EVENTSTATISTICS","Etkinlik raporları");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Etkinlikler eşleme kriterleri");//Events matching criteria
 define("_NOEVENTSFOUND","No events Arama kriterinize uyan");//No events match your search criteria
 define("_VISITEDTHESYSTEM","Sistem ziyaret");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","gruptan çıkarıldı");//was removed from group
 define("_ONNEWSKILL","Beceri atama");//Skill assignment
 define("_WASASSIGNEDSKILL","beceri verildi");//was assigned skill
 define("_ONSKILLREMOVAL","Skill kaldırma");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","artık beceri yok");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","artık beceri yok");//does not have anymore the skill
 define("_ONSKILLEDIT","Kullanıcı beceri edited");//User skill edited
 define("_HADHISSKILLEDITEDTO","beceri için yeni bir açıklama var");//has a new description for skill
 define("_ONHCDHIRED","Kullanıcı kiraladı");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP"," Yardım bağlantılarını göster");//Display help links
 define("_ALLOWUSERANSERALLRONG","İzin öğrenciler sadece yanlış sorularını yanıtlamıştır yeniden yapmak");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Sadece test tekrar izin verilen durumlarda,");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Yinele sadece yanlış yanıt");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Varsayılan temayı inported olamaz");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Erişim süresi");//Access expired
 define("_LESSONSCHEDULE","Dersler tarifesi");//Lessons schedule
 define("_COURSESTARTSAT","Ders başlar");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Senin yerinde �
 define("_SUPERVISORS","Amirleri");//Supervisors
 define("_COURSEOPTIONS","Kurs seçenekleri");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Tüm kullanıcılar için Reset infaz");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Kullanıcılar raporları jeneratör");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Kullanıcılar raporları jeneratör");//User reports generator
 define("_ADDTOGROUP","Gruba ekle");//Add to group
 define("_ASSIGNCOURSE","Ata ders");//Assign course
 define("_ASSIGNLESSON","Ata ders");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Sonuçlar");//Results for
 define("_THANKYOUFORCOMPLETING","doldurduğunuz için teşekkürler");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Hiçbir rapor sistemi bulundu");//No reports found in the system
 define("_YOUMAYCREATEONE","Bir oluşturabilir");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","kullanıcı var, çünkü ders modunu değiştiremezsiniz ders alındı");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Kullanıcı bu ders yok");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Kullanıcı bu dersi yok");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Kullanıcı erişim izni");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","kullanıcı var, çünkü ders modunu değiştiremezsiniz ders alındı");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Eğer son eleman silemezsiniz");//You cannot remove the last element (New)
+define("_CONTAINS","Içeren");//Contains (New)
+define("_NOTCONTAINS","içermez");//Does not contain (New)
+define("_REMOVEOPTION","Kaldır seçeneğini");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Düşünün doğru birikmiş puan büyük veya eşit olduğu zaman");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Otomatik");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Otomatik seçenekleri doğru");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Soru düzeltme");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","boru ile ayırın sözler |");//Separate words with pipe | (New)
+define("_POINTS","Puan");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Kullanıcı bu ders yok");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Kullanıcı bu dersi yok");//The user does not have this lesson
+define("_USERACCESSGRANTED","Kullanıcı erişim izni");//User access granted
+define("_FORCECHANGEPASSWORD","ilk giriş üzerine Force şifresini değiştirmek");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Şifre değiştir");//Change password (New)
+define("_OLDPASSWORD","Eski şifre");//Old password (New)
+define("_NEWPASSWORD","Yeni şifre");//New password (New)
+define("_ONLINETIME","Zaman online");//Time online (New)
+define("_ONLINESINCE","Online beri");//Online since (New)
+define("_MANUALLY","El ile");//Manually (New)
+define("_CLEAROPCODECACHE","Net opcode önbellek");//Clear opcode cache (New)
+define("_USELOGO","Kullanım logo");//Use logo (New)
+define("_DEFAULTLOGO","");//Default logo (New)
+define("_UPLOADSITELOGO","");//Upload site logo (New)
+define("_ATLEAST","");//At least (New)
+define("_ATMOST","");//At most (New)
+define("_EQUALTO","");//Equal to (New)
+define("_SKILLSSTATISTICS","");//Skill reports (New)
+define("_STATISTICSFORSKILL","");//Reports for skill (New)
+define("_CHOOSESKILL","");//Choose skill (New)
+define("_SKILLGRAPH","");//Skill graph (New)
+define("_TOTALSKILLS","");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","");//Multiple options (New)
 ?>

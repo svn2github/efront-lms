@@ -784,6 +784,14 @@ abstract class EfrontModule
 
      *
 
+     * In essence, the functions getModule() and getSmartyTpl may be used interchangebly and you can
+
+     * implement either, or both. They are always both executed, but you can use the latter to include
+
+     * a smarty file in the module page
+
+     *
+
      * @since 3.5.0
 
      * @access public
@@ -807,6 +815,14 @@ abstract class EfrontModule
      *       return $this -> moduleBaseDir . "
 
      *   }
+
+     *
+
+     * In essence, the functions getModule() and getSmartyTpl may be used interchangebly and you can
+
+     * implement either, or both. They are always both executed, but you can use the latter to include
+
+     * a smarty file in the module page
 
 	 *
 

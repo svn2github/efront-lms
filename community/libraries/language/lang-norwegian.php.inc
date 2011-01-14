@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Pålogging til eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","no");//en
 define("_CURRENTLANGUAGESYMBOL","no");//en
-define("_HEADERLANGUAGETAG","norwegian");//english
+define("_HEADERLANGUAGETAG","norwegian");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Språk");//Language
 define("_PASSWORD","Passord");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lessons");//Lessons
 define("_RECREATESEARCHTABLE","Gjenskape søk tabellen");//Recreate search table
 define("_LESSONSREGISTRATIONS","Leksjon registreringer");//Lesson registrations
 define("_TOOLS","Verktøy");//Tools
-define("_ONLINEUSERS","På linje brukere");//Connected users
+define("_ONLINEUSERS","På linje brukere");//Connected
 define("_DATE","Dato");//Date
 define("_STUDENT","Student");//Student
 define("_LINE","Line");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Avansert kriterier");//Advanced criteria
 define("_MYSTUDENTS","Mine elever");//My students
 define("_EMPLOYEE","Medarbeider");//User
 define("_NOBRANCHJOBSERROR","Ingen jobb beskrivelser har vært registrert for denne grenen");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Tester rapporter");//Tests reports
+define("_TESTSTATISTICS","Tester rapporter");//Test reports
 define("_CHOOSETEST","Velg test");//Choose test
 define("_USERPROFILE","Bruker profil");//Public profile
 define("_VIEWBRANCHES","Se grener");//View branches
-define("_NOEMPLOYEESFOUND","Ingen ansatte ble funnet");//No users were found
+define("_NOEMPLOYEESFOUND","Ingen ansatte ble funnet");//No users found
 define("_SEARCHEMPLOYEE","Søk ansatt");//Find users
 define("_ALLBRANCHES","Alle grenene");//All branches
 define("_ANSWERS","Answers");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Tid");//Time
 define("_RESEND","Send e-post");//Resend email
 define("_CERTIFICATESTATISTICS","Sertifikat rapporter");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Brukere som fikk en sertifisering for alle kurs");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Events rapporter");//Events reports
+define("_EVENTSTATISTICS","Events rapporter");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Events matchende kriterier");//Events matching criteria
 define("_NOEVENTSFOUND","Ingen arrangementer passer til søkekriteriene");//No events match your search criteria
 define("_VISITEDTHESYSTEM","besøkte systemet");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","ble fjernet fra gruppen");//was removed from grou
 define("_ONNEWSKILL","Skill oppdrag");//Skill assignment
 define("_WASASSIGNEDSKILL","ble tildelt skill");//was assigned skill
 define("_ONSKILLREMOVAL","Skill fjerning");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","har ikke lenger ferdighet");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","har ikke lenger ferdighet");//does not have anymore the skill
 define("_ONSKILLEDIT","Bruker dyktighet redigert");//User skill edited
 define("_HADHISSKILLEDITEDTO","har en ny beskrivelse av dyktighet");//has a new description for skill
 define("_ONHCDHIRED","Bruker ansatt");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Vise hjelpen lenker");//Display help links
 define("_ALLOWUSERANSERALLRONG","La elevene gjøre om bare feil besvart spørsmålene");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Bare hvis testen gjentagelser er tillatt");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Gjør om bare galt besvart");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Standard utseende kan ikke inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Standard utseende kan ikke inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Access utløpt");//Access expired
 define("_LESSONSCHEDULE","Lessons timeplanen");//Lessons schedule
 define("_COURSESTARTSAT","Kurset starter på");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Du var meldt ti
 define("_SUPERVISORS","Veiledere");//Supervisors
 define("_COURSEOPTIONS","Emnevalg");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Reset henrettelser for alle brukere");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Brukere rapporter generator");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Brukere rapporter generator");//User reports generator
 define("_ADDTOGROUP","Legg til i gruppe");//Add to group
 define("_ASSIGNCOURSE","Tilordne kurs");//Assign course
 define("_ASSIGNLESSON","Tilordne leksjon");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Resultater for");//Results for
 define("_THANKYOUFORCOMPLETING","Takk for at du fullførte");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Ingen rapporter funnet i systemet");//No reports found in the system
 define("_YOUMAYCREATEONE","Du kan opprette en");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan ikke endre leksjonen modus fordi det er brukere som er lært til kurset");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Brukeren har ikke dette kurset");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Brukeren har ikke denne leksjonen");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Bruker tilgang gis");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan ikke endre leksjonen modus fordi det er brukere som er lært til kurset");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Du kan ikke fjerne det siste elementet");//You cannot remove the last element (New)
+define("_CONTAINS","Inneholder");//Contains (New)
+define("_NOTCONTAINS","Inneholder ikke");//Does not contain (New)
+define("_REMOVEOPTION","Fjern valget");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Mener er riktige når akkumulerte poeng er større eller lik");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Automatisk");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-riktige valg");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Spørsmål korreksjon");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Skille ord med pipe |");//Separate words with pipe | (New)
+define("_POINTS","Poeng");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Brukeren har ikke dette kurset");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Brukeren har ikke denne leksjonen");//The user does not have this lesson
+define("_USERACCESSGRANTED","Bruker tilgang gis");//User access granted
+define("_FORCECHANGEPASSWORD","Force endring av passord ved første pålogging");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Endre passord");//Change password (New)
+define("_OLDPASSWORD","Gammelt passord");//Old password (New)
+define("_NEWPASSWORD","Nytt passord");//New password (New)
+define("_ONLINETIME","Time på nettet");//Time online (New)
+define("_ONLINESINCE","Online siden");//Online since (New)
+define("_MANUALLY","Manuelt");//Manually (New)
+define("_CLEAROPCODECACHE","Tøm opcode buffer");//Clear opcode cache (New)
+define("_USELOGO","Bruk logo");//Use logo (New)
+define("_DEFAULTLOGO","Default logo");//Default logo (New)
+define("_UPLOADSITELOGO","Last opp site logo");//Upload site logo (New)
+define("_ATLEAST","Minst");//At least (New)
+define("_ATMOST","På det meste");//At most (New)
+define("_EQUALTO","Lik");//Equal to (New)
+define("_SKILLSSTATISTICS","Skill rapporter");//Skill reports (New)
+define("_STATISTICSFORSKILL","Rapporter for dyktighet");//Reports for skill (New)
+define("_CHOOSESKILL","Velg dyktighet");//Choose skill (New)
+define("_SKILLGRAPH","Skill graf");//Skill graph (New)
+define("_TOTALSKILLS","Total ferdigheter");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Asynkron kommunikasjon SCORM");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Bytt til asynkron kommunikasjon hvis du opplever problemer med å fullføre SCORM-innhold (særlig i tilfelle du bruker Adobe Captivate generert innhold)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advarsel: Deaktivering betalinger vil sette alle priser til 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Flere alternativer");//Multiple options (New)
 ?>

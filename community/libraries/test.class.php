@@ -5568,34 +5568,6 @@ class RawTextQuestion extends Question implements iQuestion
      }
     }
    }
-//exit;
-//pr($this -> settings['autocorrect']);
-//pr($splitAnswerWords);exit;
-/*
-
-			foreach($this -> settings['autocorrect'] as $value) {
-
-				if ($value['contains']) {
-
-					$wordsThatCount = array_unique(array_intersect($splitAnswerWords, $value['words']));
-
-				} else {
-
-					$wordsThatCount = array_unique(array_diff($value['words'], $splitAnswerWords));
-
-				}
-
-
-
-				if (!empty($wordsThatCount)) {
-
-					$totalScore+=$value['score'];
-
-				}
-
-			}
-
-*/
    if ($totalScore >= $this->settings['threshold']) {
     $results = array('correct' => '', 'score' => 1);
    } else {

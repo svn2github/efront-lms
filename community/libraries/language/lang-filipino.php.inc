@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Mag-login sa eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","fil");//en
 define("_CURRENTLANGUAGESYMBOL","fil");//en
-define("_HEADERLANGUAGETAG","filipino");//english
+define("_HEADERLANGUAGETAG","filipino");//en_US.utf8
 define("_CHARSET","ISO-8859-1");//ISO-8859-1
 define("_LANGUAGE","Wika");//Language
 define("_PASSWORD","Password");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","Lessons");//Lessons
 define("_RECREATESEARCHTABLE","Lumibang paghahanap mesa");//Recreate search table
 define("_LESSONSREGISTRATIONS","Lesson registrations");//Lesson registrations
 define("_TOOLS","Mga kasangkapan");//Tools
-define("_ONLINEUSERS","Konektado user");//Connected users
+define("_ONLINEUSERS","Konektado user");//Connected
 define("_DATE","Petsa");//Date
 define("_STUDENT","Mag-aaral");//Student
 define("_LINE","Linya");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Advanced na criteria");//Advanced criteria
 define("_MYSTUDENTS","Ang aking mga mag-aaral");//My students
 define("_EMPLOYEE","User");//User
 define("_NOBRANCHJOBSERROR","Walang trabaho na posisyon ay na-register para sa sangay na ito");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Mga ulat sa pagsusulit");//Tests reports
+define("_TESTSTATISTICS","Mga ulat sa pagsusulit");//Test reports
 define("_CHOOSETEST","Pumili ng pagsubok");//Choose test
 define("_USERPROFILE","User profile");//Public profile
 define("_VIEWBRANCHES","Tingnan ang mga sanga");//View branches
-define("_NOEMPLOYEESFOUND","Walang mga gumagamit ang natagpuan");//No users were found
+define("_NOEMPLOYEESFOUND","Walang mga gumagamit ang natagpuan");//No users found
 define("_SEARCHEMPLOYEE","Search user");//Find users
 define("_ALLBRANCHES","Lahat ng mga sanga");//All branches
 define("_ANSWERS","Sagot");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Oras");//Time
 define("_RESEND","Muling ipadala ang email");//Resend email
 define("_CERTIFICATESTATISTICS","Sertipiko ng mga ulat");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Ang mga gumagamit na nakuha ng isang sertipikasyon para sa anumang mga kurso");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Events ulat");//Events reports
+define("_EVENTSTATISTICS","Events ulat");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Events na tumutugma sa mga pamantayan");//Events matching criteria
 define("_NOEVENTSFOUND","Walang mga kaganapan tumugma sa iyong mga pamantayan sa paghahanap");//No events match your search criteria
 define("_VISITEDTHESYSTEM","bumisita sa sistema");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","ay tinanggal mula sa grupong");//was removed from
 define("_ONNEWSKILL","Kasanayan assignment");//Skill assignment
 define("_WASASSIGNEDSKILL","ay itinalaga kasanayan");//was assigned skill
 define("_ONSKILLREMOVAL","Kasanayan pag-aalis");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","ay hindi anymore kasanayan");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","ay hindi anymore kasanayan");//does not have anymore the skill
 define("_ONSKILLEDIT","User kasanayan na-edit");//User skill edited
 define("_HADHISSKILLEDITEDTO","ay may isang bagong paglalarawan para sa kasanayan");//has a new description for skill
 define("_ONHCDHIRED","Tinanggap ng User");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Ipakita ang mga link ng tulong");//Display help links
 define("_ALLOWUSERANSERALLRONG","Payagan ang mga mag-aaral upang gawing muli lamang sa maling sinagot tanong");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Tanging kung pagsubok repetitions ay pinahihintulutan");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Gawin muli lamang maling sumagot");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Default na tema ay hindi maaaring inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default na tema ay hindi maaaring inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Access wala nang bisa");//Access expired
 define("_LESSONSCHEDULE","Lessons iskedyul");//Lessons schedule
 define("_COURSESTARTSAT","Ang mga kurso ay nagsisimula sa");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ikaw ay nakatal
 define("_SUPERVISORS","Supervisors");//Supervisors
 define("_COURSEOPTIONS","Course opsyon");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","I-reset ang executions para sa lahat ng mga gumagamit");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Ang mga gumagamit na ulat dyeneretor");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Ang mga gumagamit na ulat dyeneretor");//User reports generator
 define("_ADDTOGROUP","Idagdag sa grupo");//Add to group
 define("_ASSIGNCOURSE","Magtalaga ng mga kurso");//Assign course
 define("_ASSIGNLESSON","Magtalaga ng aral");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","Mga resulta para sa");//Results for
 define("_THANKYOUFORCOMPLETING","Salamat sa iyo para sa pagkumpleto ng");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Walang mga ulat na natagpuan sa sistema");//No reports found in the system
 define("_YOUMAYCREATEONE","Maaari kang lumikha ng isa");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Hindi mo maaaring baguhin aral mode dahil may mga gumagamit enrol sa kurso");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Ang user ay hindi magkaroon ng kurso na ito");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Ang user ay hindi magkaroon ng araling ito");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Access ng gumagamit sa ipinagkaloob");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Hindi mo maaaring baguhin aral mode dahil may mga gumagamit enrol sa kurso");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","Ikaw ay hindi maaaring tanggalin ang huling sangkap");//You cannot remove the last element (New)
+define("_CONTAINS","Naglalaman ng");//Contains (New)
+define("_NOTCONTAINS","Ay hindi naglalaman ng");//Does not contain (New)
+define("_REMOVEOPTION","Alisin ang mga pagpipilian");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Isaalang-alang ang tamang pag accumulated puntos ay mas higit sa o katumbas ng");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","Awtomatikong");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","Auto-ayos ang mga opsyon");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","Tanong pagtutuwid");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","Paghiwalayin ang mga salitang may pipe |");//Separate words with pipe | (New)
+define("_POINTS","Puntos");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Ang user ay hindi magkaroon ng kurso na ito");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Ang user ay hindi magkaroon ng araling ito");//The user does not have this lesson
+define("_USERACCESSGRANTED","Access ng gumagamit sa ipinagkaloob");//User access granted
+define("_FORCECHANGEPASSWORD","Force password baguhin sa unang pag-login");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","Baguhin ang password");//Change password (New)
+define("_OLDPASSWORD","Old password");//Old password (New)
+define("_NEWPASSWORD","Bagong password");//New password (New)
+define("_ONLINETIME","Time online");//Time online (New)
+define("_ONLINESINCE","Online since");//Online since (New)
+define("_MANUALLY","Mano-manong");//Manually (New)
+define("_CLEAROPCODECACHE","Malinaw opcode cache");//Clear opcode cache (New)
+define("_USELOGO","Gamitin si");//Use logo (New)
+define("_DEFAULTLOGO","Default na si");//Default logo (New)
+define("_UPLOADSITELOGO","Mag-upload ng site logo");//Upload site logo (New)
+define("_ATLEAST","Kahit");//At least (New)
+define("_ATMOST","Sa karamihan");//At most (New)
+define("_EQUALTO","Katumbas sa");//Equal to (New)
+define("_SKILLSSTATISTICS","Skill ulat");//Skill reports (New)
+define("_STATISTICSFORSKILL","Ulat para sa kakayahan");//Reports for skill (New)
+define("_CHOOSESKILL","Pumili ng kasanayan");//Choose skill (New)
+define("_SKILLGRAPH","Skill graph");//Skill graph (New)
+define("_TOTALSKILLS","Kabuuang kasanayan");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","Asynchronous SCORM komunikasyon");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","Lumipat sa asynchronous komunikasyon kung ikaw ay nakararanas ng problema sa pagkumpleto SCORM nilalaman (lalo na sa kasong ikaw ay gumagamit ng Adobe makabihag nakabuo ng nilalaman)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Babala: Hindi pagpapagana sa mga pagbabayad ay magse-set ang lahat ng mga presyo sa 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","Maraming mga opsyon");//Multiple options (New)
 ?>

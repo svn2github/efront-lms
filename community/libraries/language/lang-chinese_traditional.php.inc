@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","登入eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ch");//en
 define("_CURRENTLANGUAGESYMBOL","ch_td");//en
-define("_HEADERLANGUAGETAG","chinese");//english
+define("_HEADERLANGUAGETAG","chinese");//en_US.utf8
 define("_CHARSET","x-Chinese-CNS");//ISO-8859-1
 define("_LANGUAGE","語系");//Language
 define("_PASSWORD","密碼");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","課程");//Lessons
 define("_RECREATESEARCHTABLE","重建搜尋表");//Recreate search table
 define("_LESSONSREGISTRATIONS","課程註冊");//Lesson registrations
 define("_TOOLS","工具");//Tools
-define("_ONLINEUSERS","線上使用者");//Connected users
+define("_ONLINEUSERS","線上使用者");//Connected
 define("_DATE","日期");//Date
 define("_STUDENT","學生");//Student
 define("_LINE","線上");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","先進標準");//Advanced criteria
 define("_MYSTUDENTS","我的學生");//My students
 define("_EMPLOYEE","使用者");//User
 define("_NOBRANCHJOBSERROR","沒有工作，說明已登記為這個分支");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","測驗報告");//Tests reports
+define("_TESTSTATISTICS","測驗報告");//Test reports
 define("_CHOOSETEST","選擇測驗");//Choose test
 define("_USERPROFILE","個人資訊");//Public profile
 define("_VIEWBRANCHES","鑑於黨支部");//View branches
-define("_NOEMPLOYEESFOUND","沒有使用者被發現");//No users were found
+define("_NOEMPLOYEESFOUND","沒有使用者被發現");//No users found
 define("_SEARCHEMPLOYEE","搜尋使用者");//Find users
 define("_ALLBRANCHES","所有分行");//All branches
 define("_ANSWERS","答案");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","時間");//Time
 define("_RESEND","重新發送電子郵件");//Resend email
 define("_CERTIFICATESTATISTICS","證書報告");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","用戶得到了認證，任何課程");//Users that got a certification for any course
-define("_EVENTSTATISTICS","活動報告");//Events reports
+define("_EVENTSTATISTICS","活動報告");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","事件匹配標準");//Events matching criteria
 define("_NOEVENTSFOUND","沒有事件符合您的搜索標準");//No events match your search criteria
 define("_VISITEDTHESYSTEM","訪問系統");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","從組中刪除");//was removed from group
 define("_ONNEWSKILL","技能任務");//Skill assignment
 define("_WASASSIGNEDSKILL","被分配技能");//was assigned skill
 define("_ONSKILLREMOVAL","技能搬遷");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","再也沒有技能");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","再也沒有技能");//does not have anymore the skill
 define("_ONSKILLEDIT","用戶編輯技巧");//User skill edited
 define("_HADHISSKILLEDITEDTO","有一個新的技能描述");//has a new description for skill
 define("_ONHCDHIRED","用戶僱用");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","顯示幫助聯繫");//Display help links
 define("_ALLOWUSERANSERALLRONG","只有讓學生重做錯誤回答的問題");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","只有允許重複測試");//Only if test repetitions are allowed
 define("_USERREDOWRONG","重做唯一錯誤的回答");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","默認主題不能inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","默認主題不能inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","訪問過期");//Access expired
 define("_LESSONSCHEDULE","課時間表");//Lessons schedule
 define("_COURSESTARTSAT","課程開始於");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","你是來參加
 define("_SUPERVISORS","監事");//Supervisors
 define("_COURSEOPTIONS","課程選擇");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","為所有用戶重置處決");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","用戶報告生成");//Users reports generator
+define("_ADVANCEDUSERREPORTS","用戶報告生成");//User reports generator
 define("_ADDTOGROUP","添加到組");//Add to group
 define("_ASSIGNCOURSE","分配過程");//Assign course
 define("_ASSIGNLESSON","分配教訓");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","結果");//Results for
 define("_THANKYOUFORCOMPLETING","謝謝你完成");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","沒有報告發現，在系統");//No reports found in the system
 define("_YOUMAYCREATEONE","您可以創建一");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","你不能改變的教訓模式，因為有用戶參加該課程");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","用戶不具有此課程");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","用戶沒有這個教訓");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","授予用戶訪問");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","你不能改變的教訓模式，因為有用戶參加該課程");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","您不能刪除最後一個元素");//You cannot remove the last element (New)
+define("_CONTAINS","包含");//Contains (New)
+define("_NOTCONTAINS","不包含");//Does not contain (New)
+define("_REMOVEOPTION","刪除選項");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考慮是正確的，當積分大於或等於");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","自動");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","自動更正選項");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","問題更正");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","單獨的詞與管|");//Separate words with pipe | (New)
+define("_POINTS","點");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","用戶不具有此課程");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","用戶沒有這個教訓");//The user does not have this lesson
+define("_USERACCESSGRANTED","授予用戶訪問");//User access granted
+define("_FORCECHANGEPASSWORD","部隊在初始登錄密碼更改");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","更改密碼");//Change password (New)
+define("_OLDPASSWORD","舊密碼");//Old password (New)
+define("_NEWPASSWORD","新密碼");//New password (New)
+define("_ONLINETIME","上網時間");//Time online (New)
+define("_ONLINESINCE","網上自");//Online since (New)
+define("_MANUALLY","手動");//Manually (New)
+define("_CLEAROPCODECACHE","操作碼緩存清除");//Clear opcode cache (New)
+define("_USELOGO","使用LOGO");//Use logo (New)
+define("_DEFAULTLOGO","默認徽標");//Default logo (New)
+define("_UPLOADSITELOGO","上傳網站徽標");//Upload site logo (New)
+define("_ATLEAST","至少");//At least (New)
+define("_ATMOST","在最");//At most (New)
+define("_EQUALTO","等於");//Equal to (New)
+define("_SKILLSSTATISTICS","技術報告");//Skill reports (New)
+define("_STATISTICSFORSKILL","報告的技巧");//Reports for skill (New)
+define("_CHOOSESKILL","選擇技巧");//Choose skill (New)
+define("_SKILLGRAPH","技能圖");//Skill graph (New)
+define("_TOTALSKILLS","共有技能");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","異步 SCORM通信");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","切換到異步通信，如果您遇到麻煩完成SCORM的內容（尤其是如果您使用Adobe Captivate中生成的內容）");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：禁用所有價格付款將設置為 0");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","多個選項");//Multiple options (New)
 ?>

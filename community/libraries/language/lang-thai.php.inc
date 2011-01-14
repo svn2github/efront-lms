@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront : Refreshing eLearning:Thai Edition : อีฟร�
 define("_EFRONTLOGIN","เข้าสู่ระบบ eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","th");//en
 define("_CURRENTLANGUAGESYMBOL","th");//en
-define("_HEADERLANGUAGETAG","thai");//english
+define("_HEADERLANGUAGETAG","thai");//en_US.utf8
 define("_CHARSET","ISO-8859-11");//ISO-8859-1
 define("_LANGUAGE","ภาษา");//Language
 define("_PASSWORD","รหัสผ่าน:Password");//Password
@@ -60,7 +60,7 @@ define("_LESSONS","เนื้อหา-หน่วยเรียนที่
 define("_RECREATESEARCHTABLE","สร้างตารางค้นหาใหม่");//Recreate search table
 define("_LESSONSREGISTRATIONS","การลงทะเบียนบทเรียน");//Lesson registrations
 define("_TOOLS","<center>เครื่องมือ:จัดการสื่อ-วัสดุเรียน");//Tools
-define("_ONLINEUSERS","สมาชิกที่กำลังใช้งาน");//Connected users
+define("_ONLINEUSERS","สมาชิกที่กำลังใช้งาน");//Connected
 define("_DATE","วันที่");//Date
 define("_STUDENT","ฐานะผู้เรียน");//Student
 define("_LINE","บรรทัด");//Line
@@ -1611,11 +1611,11 @@ define("_ADVANCED","เกณฑ์มาตรฐานขั้นสูง");
 define("_MYSTUDENTS","ลูกศิษย์ของเรา");//My students
 define("_EMPLOYEE","สมาชิก");//User
 define("_NOBRANCHJOBSERROR","No job descriptions have been registered for this branch");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","รายงานผลการทดสอบ");//Tests reports
+define("_TESTSTATISTICS","รายงานผลการทดสอบ");//Test reports
 define("_CHOOSETEST","เลือกแบบทดสอบ");//Choose test
 define("_USERPROFILE","แฟ้มประวัติสมาชิก");//Public profile
 define("_VIEWBRANCHES","View branches");//View branches
-define("_NOEMPLOYEESFOUND","ไม่พบชื่อสมาชิก");//No users were found
+define("_NOEMPLOYEESFOUND","ไม่พบชื่อสมาชิก");//No users found
 define("_SEARCHEMPLOYEE","ค้นหาสมาชิก");//Find users
 define("_ALLBRANCHES","All branches");//All branches
 define("_ANSWERS","คำตอบ");//Answers
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","เวลา");//Time
 define("_RESEND","อีเมลอีกครั้ง");//Resend email
 define("_CERTIFICATESTATISTICS","รายงาน Certificate");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","ผู้ใช้ที่มีการรับรองหลักสูตรใด");//Users that got a certification for any course
-define("_EVENTSTATISTICS","รายงานกิจกรรม");//Events reports
+define("_EVENTSTATISTICS","รายงานกิจกรรม");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","กิจกรรมเกณฑ์การจับคู่");//Events matching criteria
 define("_NOEVENTSFOUND","ไม่มีกิจกรรมตรงกับเกณฑ์การค้นหาของคุณ");//No events match your search criteria
 define("_VISITEDTHESYSTEM","เยี่ยมชมระบบ");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","ถูกลบออกจากกลุ่ม"
 define("_ONNEWSKILL","มอบหมายฝีมือ");//Skill assignment
 define("_WASASSIGNEDSKILL","ได้กำหนดทักษะ");//was assigned skill
 define("_ONSKILLREMOVAL","ลบฝีมือ");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","ไม่ได้อีกต่อทักษะ");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","ไม่ได้อีกต่อทักษะ");//does not have anymore the skill
 define("_ONSKILLEDIT","ทักษะผู้ใช้แก้ไข");//User skill edited
 define("_HADHISSKILLEDITEDTO","มีคำอธิบายใหม่สำหรับทักษะ");//has a new description for skill
 define("_ONHCDHIRED","ผู้ว่าจ้าง");//User hired
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","แสดงลิงค์ช่วย");//Display help lin
 define("_ALLOWUSERANSERALLRONG","นักเรียนอนุญาตให้ทำซ้ำเฉพาะคำถามที่ตอบผิด");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","เท่านั้นหาก repetitions ทดสอบได้รับอนุญาต");//Only if test repetitions are allowed
 define("_USERREDOWRONG","ทำซ้ำตอบเพียงผิด");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Default theme ไม่สามารถ inported");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Default theme ไม่สามารถ inported");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Access หมดอายุ");//Access expired
 define("_LESSONSCHEDULE","ตารางเรียน");//Lessons schedule
 define("_COURSESTARTSAT","หลักสูตรเริ่มต้นที่");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","คุณได
 define("_SUPERVISORS","ผู้บังคับบัญชา");//Supervisors
 define("_COURSEOPTIONS","ตัวเลือกหลักสูตร");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","executions Reset สำหรับผู้ใช้ทั้งหมด");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","รายงานผู้ใช้เครื่องกำเนิดไฟฟ้า");//Users reports generator
+define("_ADVANCEDUSERREPORTS","รายงานผู้ใช้เครื่องกำเนิดไฟฟ้า");//User reports generator
 define("_ADDTOGROUP","เพิ่มกลุ่ม");//Add to group
 define("_ASSIGNCOURSE","หลักสูตรกำหนด");//Assign course
 define("_ASSIGNLESSON","บทเรียนกำหนด");//Assign lesson
@@ -3955,8 +3955,41 @@ define("_RESULTSFOR","ผลการค้นหาสำหรับ");//Resul
 define("_THANKYOUFORCOMPLETING","ขอขอบคุณสำหรับการให้");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","รายงานไม่พบในระบบ");//No reports found in the system
 define("_YOUMAYCREATEONE","คุณอาจสร้าง");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","คุณไม่สามารถเปลี่ยนโหมดบทเรียนเนื่องจากมีผู้ใช้ที่ลงทะเบียนเรียนในหลักสูตร");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","ผู้ใช้ไม่ได้มีหลักสูตรนี้");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","ผู้ใช้ไม่ได้บทนี้");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","เข้าถึงของผู้ใช้ที่ได้รับ");//User access granted (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","คุณไม่สามารถเปลี่ยนโหมดบทเรียนเนื่องจากมีผู้ใช้ที่ลงทะเบียนเรียนในหลักสูตร");//You cannot change lesson mode because there are users enrolled to the course
+define("_YOUCANNOTREMOVETHELASTELEMENT","คุณไม่สามารถลบสมาชิกตัวสุดท้าย");//You cannot remove the last element (New)
+define("_CONTAINS","ประกอบด้วย");//Contains (New)
+define("_NOTCONTAINS","จะไม่มี");//Does not contain (New)
+define("_REMOVEOPTION","ลบตัวเลือก");//Remove option (New)
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","พิจารณาที่ถูกต้องเมื่อมีคะแนนสะสมที่มากกว่าหรือเท่ากับ");//Consider correct when accumulated points are greater or equal to (New)
+define("_AUTOMATIC","โดยอัตโนมัติ");//Automatic (New)
+define("_AUTOCORRECTOPTIONS","ตัวเลือก Auto - ถูกต้อง");//Auto-correct options (New)
+define("_QUESTIONCORRECTION","แก้ไขคำถาม");//Question correction (New)
+define("_SEPARATEWORDSWITHPIPE","คำแยกกับท่อ |");//Separate words with pipe | (New)
+define("_POINTS","Points");//Points (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","ผู้ใช้ไม่ได้มีหลักสูตรนี้");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","ผู้ใช้ไม่ได้บทนี้");//The user does not have this lesson
+define("_USERACCESSGRANTED","เข้าถึงของผู้ใช้ที่ได้รับ");//User access granted
+define("_FORCECHANGEPASSWORD","เปลี่ยนรหัสผ่านเมื่อเข้าสู่ระบบเริ่มต้นทำงานของประชากร");//Force password change upon initial login (New)
+define("_CHANGEPASSWORD","เปลี่ยนรหัสผ่าน");//Change password (New)
+define("_OLDPASSWORD","รหัสผ่านเก่า");//Old password (New)
+define("_NEWPASSWORD","รหัสผ่านใหม่");//New password (New)
+define("_ONLINETIME","เวลาออนไลน์");//Time online (New)
+define("_ONLINESINCE","ออนไลน์ตั้งแต่");//Online since (New)
+define("_MANUALLY","ด้วยตนเอง");//Manually (New)
+define("_CLEAROPCODECACHE","opcode ล้างแคช");//Clear opcode cache (New)
+define("_USELOGO","ใช้โลโก้");//Use logo (New)
+define("_DEFAULTLOGO","โลโก้เริ่มต้น");//Default logo (New)
+define("_UPLOADSITELOGO","อัปโหลดโลโก้ของเว็บไซต์");//Upload site logo (New)
+define("_ATLEAST","อย่างน้อยที่สุด");//At least (New)
+define("_ATMOST","ที่มากที่สุด");//At most (New)
+define("_EQUALTO","เท่ากับ");//Equal to (New)
+define("_SKILLSSTATISTICS","");//Skill reports (New)
+define("_STATISTICSFORSKILL","");//Reports for skill (New)
+define("_CHOOSESKILL","");//Choose skill (New)
+define("_SKILLGRAPH","");//Skill graph (New)
+define("_TOTALSKILLS","");//Total skills (New)
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
+define("_MULTIPLEOPTIONS","");//Multiple options (New)
 ?>

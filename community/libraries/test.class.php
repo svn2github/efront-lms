@@ -5556,15 +5556,46 @@ class RawTextQuestion extends Question implements iQuestion
    array_walk($splitAnswerWords, create_function('&$v', '$v=trim($v);'));
    $totalScore = 0;
    foreach($this -> settings['autocorrect'] as $value) {
-    if ($value['contains']) {
-     $wordsThatCount = array_unique(array_intersect($splitAnswerWords, $value['words']));
-    } else {
-     $wordsThatCount = array_unique(array_diff($value['words'], $splitAnswerWords));
-    }
-    if (!empty($wordsThatCount)) {
-     $totalScore+=$value['score'];
+    foreach ($value['words'] as $word) {
+     if (strpos($this->userAnswer, $word) !== false) {
+      if ($value['contains']) {
+       $totalScore+=$value['score'];
+      }
+     } else {
+      if (!$value['contains']) {
+       $totalScore+=$value['score'];
+      }
+     }
     }
    }
+//exit;
+//pr($this -> settings['autocorrect']);
+//pr($splitAnswerWords);exit;
+/*
+
+			foreach($this -> settings['autocorrect'] as $value) {
+
+				if ($value['contains']) {
+
+					$wordsThatCount = array_unique(array_intersect($splitAnswerWords, $value['words']));
+
+				} else {
+
+					$wordsThatCount = array_unique(array_diff($value['words'], $splitAnswerWords));
+
+				}
+
+
+
+				if (!empty($wordsThatCount)) {
+
+					$totalScore+=$value['score'];
+
+				}
+
+			}
+
+*/
    if ($totalScore >= $this->settings['threshold']) {
     $results = array('correct' => '', 'score' => 1);
    } else {

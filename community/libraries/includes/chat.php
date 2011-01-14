@@ -424,15 +424,15 @@ function eF_local_roomInfo($room_type) {
     }
     $roomsTemp = array();
     //remove inactive and archived lessons
-    $result = eF_getTableDataFlat("lessons","id","active=0 OR archive!=''");
+    $result = eF_getTableDataFlat("lessons","id","active=0 OR archive!=0");
     if (!empty($result['id'])) {
      foreach($rooms_array as $key => $value) {
       if (in_array($value['lessons_ID'],$result['id']) === false) {
        $roomsTemp[] = $rooms_array[$key];
       }
      }
+     $rooms_array = $roomsTemp;
     }
-  $rooms_array = $roomsTemp;
     $user_in_rooms_flat = eF_getTableDataFlat("users_to_chatrooms", "chatrooms_ID", "users_LOGIN = '".$_SESSION['s_login']."'");
     for ($i = 0; $i < sizeof($rooms_array); $i++) {
         if (sizeof($user_in_rooms_flat) > 0 && in_array($rooms_array[$i]['id'], $user_in_rooms_flat['chatrooms_ID'])) {

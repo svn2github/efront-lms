@@ -23,7 +23,7 @@ class module_billboard extends EfrontModule {
         return eF_executeNew("CREATE TABLE module_billboard (
                           lessons_ID int(11) not null,
                           data longtext default NULL,
-                          PRIMARY KEY  (lessons_ID)
+                          PRIMARY KEY (lessons_ID)
                         ) DEFAULT CHARSET=utf8;");
     }
 
@@ -61,7 +61,7 @@ class module_billboard extends EfrontModule {
         if ($currentUser -> getRole($this -> getCurrentLesson()) == "professor") {
             return array('title' => _BILLBOARD,
                          'image' => $this -> moduleBaseDir . 'images/note_pinned32.png',
-                         'link'  => $this -> moduleBaseUrl);
+                         'link' => $this -> moduleBaseUrl);
         }
     }
 
@@ -74,19 +74,19 @@ class module_billboard extends EfrontModule {
                                                   'title' => _BILLBOARD,
                                                   'image' => $this -> moduleBaseDir . 'images/note_pinned16',
                                                   'eFrontExtensions' => '1',
-                                                  'link'  => $this -> moduleBaseUrl));
+                                                  'link' => $this -> moduleBaseUrl));
 
             return array ( "current_lesson" => $link_of_menu_clesson);
         }
     }
 
     public function getNavigationLinks() {
-		$currentLesson = $this -> getCurrentLesson();
+  $currentLesson = $this -> getCurrentLesson();
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getRole($this -> getCurrentLesson()) == 'professor') {
-            return array (	array ('title' => _MYLESSONS, 'onclick'  => "location='professor.php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-							array ('title' => $currentLesson -> lesson['name'], 'link'  => "professor.php?ctg=control_panel"),
-							array ('title' => _BILLBOARD, 'link'  => $this -> moduleBaseUrl));
+            return array ( array ('title' => _MYLESSONS, 'onclick' => "location='professor.php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+       array ('title' => $currentLesson -> lesson['name'], 'link' => "professor.php?ctg=control_panel"),
+       array ('title' => _BILLBOARD, 'link' => $this -> moduleBaseUrl));
         }
     }
 
@@ -107,9 +107,9 @@ class module_billboard extends EfrontModule {
 
 
         $form = new HTML_QuickForm("billboard_entry_form", "post", $_SERVER['REQUEST_URI'], "", null, true);
-        $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+        $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 
-        $form -> addElement('textarea', 'data', _BILLBOARDCONTENT, 'class = "inputContentTextarea mceEditor" style = "width:100%;height:300px;"');      //The unit content itself
+        $form -> addElement('textarea', 'data', _BILLBOARDCONTENT, 'class = "inputContentTextarea mceEditor" style = "width:100%;height:300px;"'); //The unit content itself
         $form -> addElement('submit', 'submit_billboard', _SUBMIT, 'class = "flatButton"');
 
         $currentLesson = $this -> getCurrentLesson();
@@ -118,10 +118,11 @@ class module_billboard extends EfrontModule {
 
         if ($form -> isSubmitted() && $form -> validate()) {
             $fields = array('lessons_ID' => $currentLesson -> lesson['id'],
-                            'data'     => $form -> exportValue('data'));
+                            'data' => $form -> exportValue('data'));
 
             $currentUser = $this -> getCurrentUser();
-            if ($billboard[0]['data'] != "") {
+           // if ($billboard[0]['data'] != "") {
+           if (!empty($billboard)) {
                 if (eF_updateTableData("module_billboard", $fields, "lessons_ID=".$currentLesson -> lesson['id'])) {
                     eF_redirect("professor.php?ctg=control_panel&message=".urlencode(_BILLBOARD_SUCCESFULLYUPDATEDBILLBOARDENTRY)."&message_type=success");
                 } else {
@@ -167,7 +168,7 @@ class module_billboard extends EfrontModule {
         // Only professors may edit
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getRole($this -> getCurrentLesson()) == 'professor') {
-            $inner_table_options = array(array('text' => _BILLBOARD_EDITBILLBOARD,   'image' => $this -> moduleBaseLink."images/edit.png", 'href' => $this -> moduleBaseUrl));
+            $inner_table_options = array(array('text' => _BILLBOARD_EDITBILLBOARD, 'image' => $this -> moduleBaseLink."images/edit.png", 'href' => $this -> moduleBaseUrl));
             $smarty -> assign("T_BILLBOARD_INNERTABLE_OPTIONS", $inner_table_options);
         }
 

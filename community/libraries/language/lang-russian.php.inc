@@ -3651,11 +3651,11 @@ define("_USES","Использования");//Uses
 define("_VALIDUNTIL","Действителен до");//Valid until
 define("_USESREMAINING","Осталось использований");//Uses remaining
 define("_MAXIMUMUSES","Максимальное количество использований");//Maximum uses
-define("_USESSOFAR","Использований до сих пор");//Uses so far
+define("_USESSOFAR","Всего использований");//Uses so far
 define("_COUPON","Купон");//Coupon
 define("_INVALIDCOUPON","Неверный купон");//Invalid coupon
 define("_CLICKTOENTERDISCOUNTCOUPON","Нажмите, чтобы ввести купон на скидку");//Click to enter discount coupon
-define("_TESTREDONE","Исправленный");//Corrected
+define("_TESTREDONE","Исправлено");//Corrected
 define("_CURRICULUMS","Учебные программы");//Curricula
 define("_CURRICULUM","Учебная программа");//Curriculum
 define("_ASSIGNCURRICULUMTOGROUPUSERS","Назначить учебную программу пользователям группы");//Assign curriculum to group users
@@ -3702,28 +3702,28 @@ define("_ONLYXCANBEAPPLIEDATATIME","Было обработано только %
 define("_YOUCANNOTASSIGNUSERSBECAUSECURRICULUMISEMPTY","Вы не можете назначить пользователей в эту программу обучения, поскольку она не содержит курсов");//You cannot assign users to this curriculum because it has no courses
 define("_CURRICULUMPROPERTIES","Свойства учебной программы");//Curriculum properties
 define("_ENTRIES","Записи");//Entries
-define("_ENTERPRISEOPTIONS","Параметры уровня предпиятия");//Enterprise options
-define("_SHOWORGANIZATIONCHARTTOUSERS","Показать организационную структуру пользователям");//Show organization chart to users
+define("_ENTERPRISEOPTIONS","Параметры уровня предприятия");//Enterprise options
+define("_SHOWORGANIZATIONCHARTTOUSERS","Показывать организационную структуру пользователям");//Show organization chart to users
 define("_SHOWUSERFORMTOUSERS","Показать историю обучения пользователям");//Show training record to users
 define("_SHOWUNASSIGNEDEMPLOYEESTOSUPERVISORS","Показать пользователей, которым не назначен руководитель");//Show unassigned users to supervisors
 define("_ALLOWUSERSTODELETEFILESSHAREDWITHSUPERVISORS","Разрешить пользователям удалять общие файлы руководителя");//Allow users to delete supervisor shared files
 define("_MYEMPLOYEEFORM","Мой учебный табель");//my Training record
 define("_CLEARQUERYCACHE","Очистить кэш запросов");//Clear query cache
-define("_FEEDBACKOPTIONS","Параметры обратной связи");//Feedback options
-define("_OPTIONSFORFEEDBACK","Параметры обратной связи");//Options for feedback
-define("_RECENTLYCOMPLETEDFEEDBACK","Недавно завершенная обратная связь");//Recently completed feedback
+define("_FEEDBACKOPTIONS","Параметры отзывов");//Feedback options
+define("_OPTIONSFORFEEDBACK","Параметры отзывов");//Options for feedback
+define("_RECENTLYCOMPLETEDFEEDBACK","Недавно оставленные отзывы");//Recently completed feedback
 define("_PHPLIVEDOCXCONFIGURATIONFILEISNOTWRITABLE","Файл конфигурации PHP LiveDocx  (libraries/phplivedocx_config.php) не доступен для записи. Любые изменения, внесенные в конфигурацию livedocx не были сохранены");//PHP LiveDocx configuration file (libraries/phplivedocx_config.php) is not writable. Any changes you made to the livedocx configuration were not saved
-define("_RESETPROGRESSDATA","Сброс данных прогресса");//Reset progress data
+define("_RESETPROGRESSDATA","Сброс результатов обучения");//Reset progress data
 define("_DEBUGMODE","Режим отладки");//Debug mode
 define("_GENERALSETTINGS","Общие настройки");//General settings
 define("_FINISHLESSONMESSAGE","Поздравляем! Вы закончили урок. Вы можете перейти к:");//Congratulations! You have finished the lesson. Please select a place to go now:
 define("_NEXTLESSON","Следующий урок");//Next lesson
 define("_LESSONFINISHED","Урок завершен");//Lesson finished
-define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Вы находитесь на последнем уроке, который Вы можете посетить");//You are at the last lesson you may visit
-define("_FEEDBACKISDONE","Обратная связь выполнена");//Feedback is done
-define("_PROCEEDTOFEEDBACK","Приступить к обратной связи");//Proceed to feedback
-define("_SUCCESFULLYMODIFIEDFEEDBACK","Успешное изменение обратной связи");//Successfully modified feedback
-define("_FEEDBACKSTARTEDAT","Обратная связь начата");//Feedback started at
+define("_YOUAREATTHELASTLESSONYOUMAYVISIT","Вы находитесь на последнем доступном уроке");//You are at the last lesson you may visit
+define("_FEEDBACKISDONE","Отзыв сделан");//Feedback is done
+define("_PROCEEDTOFEEDBACK","Перейти к отзыву");//Proceed to feedback
+define("_SUCCESFULLYMODIFIEDFEEDBACK","Успешное изменение отзыва");//Successfully modified feedback
+define("_FEEDBACKSTARTEDAT","Отзыв начата");//Feedback started at
 define("_EXPLICITLYSELECTEDINFO","Получатели выбираются системой в зависимости от события. <BR> - "._NEWSURVEY .": Получателями являются пользователи, участвующие в опросе. <BR> - "._ONJOBASSIGNMENT .": получателем является руководительб выбранный работником. <BR> - "._PROJECTEXPIRY .": получателями являются пользователи, которым был назначен проект.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
 define("_ENROLLEDON","Записаны");//Enrolled on
 define("_JOBDOESNOTEXIST","Должность не существует");//Job does not exist
@@ -3733,9 +3733,9 @@ define("_SUBMITFEEDBACK","Отправить обратную связь");//Sub
 define("_FEEDBACKRESULTS","Результаты обратной связи");//Feedback results
 define("_PASSWORDREMINDER","Напомнить пароль");//Password reminder
 define("_MUSTCOMPLETEALLTESTS","Необходимо завершить все тесты");//Must complete all tests
-define("_FEEDBACKSTATISTICS","Отчеты об обратной связи");//Feedback reports
-define("_CHOOSEFEEDBACK","Выбрать обратную связь");//Choose feedback
-define("_REPORTSFORFEEDBACK","Отчеты об обратной связи");//Report for feedback
+define("_FEEDBACKSTATISTICS","Отчеты об отзывах");//Feedback reports
+define("_CHOOSEFEEDBACK","Выбрать отзыв");//Choose feedback
+define("_REPORTSFORFEEDBACK","Отчеты об отзывах");//Report for feedback
 define("_CURRENTLYBROWSINGFOLDER","В настоящее время выполняется просмотр папки");//Currently browsing folder
 define("_CURRENTLYSHOWING","Выполняется показ");//Showing
 define("_MATERIALINPROGRESS","Материал в процессе");//Material in progress
@@ -3751,7 +3751,7 @@ define("_CURRENTUSERS","Текущие пользователи");//Current
 define("_SELECTEDCOURSES","Выбранные курсы");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Файлы модуля присутствуют, но они не установлены");//Module files are present, but it is not installed
 define("_DISABLEPAYMENTSNOTICE","Установить цену на все уроки и курсы равную 0");//This will set all lessons and courses price to 0
-define("_SPECIFYIDFORSREENMATCHING","Укажите идентификатор объекта для рахмеров соответсвующих экрану");//Specify object id for screen matching dimensions
+define("_SPECIFYIDFORSREENMATCHING","Укажите идентификатор объекта для установления размеров, соответсвующих экрану");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Список, разделенный запятой");//Comma separated list
 define("_WEBSERVERAUTHENTICATION","Аутентификация вэб-сервера");//Web server authentication
 define("_USERSETTINGS","Пользовательские настройки");//User settings
@@ -3761,14 +3761,14 @@ define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Вы уверены, что вы 
 define("_EXTERNALTOOLS","Внешние инструменты");//External tools
 define("_MATHSETTINGS","Математические настройки");//Math settings
 define("_PHPLIVEDOCX","PHP livedocx");//PHP livedocx
-define("_CANNOTACCESSIPBAN","Вы не можете получить доступ к этой странице т.к. ваш IP-адрес в чепрном списке");//You cannot access this page due to the following IP being banned
+define("_CANNOTACCESSIPBAN","Вы не можете получить доступ к этой странице т.к. ваш IP-адрес в черном списке");//You cannot access this page due to the following IP being banned
 define("_EMAILSETTINGS","Настройки электронной почты");//Email settings
 define("_ERRORPAGEFORINVALIDLOGIN","Страница с сообщением об ошибке. Отображается, когда имя пользователя отсутствует или не заполнено.");//Error page displayed when the username is missing or empty
 define("_ERRORPAGEFORUNAUTHORIZED","Страница с сообщением об ошибке. Отображается, когда пользователь не может быть создан.");//Error page displayed when the user could not be created
 define("_VARIABLEFORUSERNAME","Переменная, которая содержит имя пользователя");//Variable that contains the username
 define("_INCLUDEFILETHATHANDLESUSERCREATION","Включить файл, который управляет созданием пользователей.");//Include file that handles user creation
 define("_WEBSERVERREGISTRATION","Регистрация вэб-сервера");//Web server registration
-define("_USEORLOGICTOCORRECTANSWERS","Использование ИЛИ логика для вычисления правильного ответа");//Use OR logic to calculate correct answer
+define("_USEORLOGICTOCORRECTANSWERS","Использовать логику ИЛИ для вычисления правильного ответа");//Use OR logic to calculate correct answer
 define("_VARIABLEMUSTCONTAINLOGIN","Переменная %х должна содержать &quot;%y&quot;, чтобы продолжить");//The variable %x must contain &quot;%y&quot; in order to continue
 define("_OPENUNITINPOPUP","Открыть блок во всплывающем окне");//Open unit in popup window
 define("_USERALREADYEXISTSARCHIVED","Пользователь с указанным именем уже существует (заархивирован)");//A user with the specified login already exists (archived)
@@ -3778,7 +3778,7 @@ define("_PURGEEVENTSOLDERTHAN","Очистить события старше ч�
 define("_PURGEEVENTS","Очиститьсобытия");//Purge events
 define("_USERSEPERUSERTYPE","Пользователей на каждый тип пользователя");//Users per user type
 define("_MINUTESPERUSER","Минут на одного пользователя");//Minutes per user
-define("_LOGINSPERDAY","Логинов в сутки");//Logins per day
+define("_LOGINSPERDAY","Входов в сутки");//Logins per day
 define("_ACCESSES","Обращения");//Accesses
 define("_ACCESSESPERUSER","Обращений на одного пользователя");//Accesses per user
 define("_ACCESSESPERDAY","Обращений в сутки");//Accesses per day
@@ -3812,7 +3812,7 @@ define("_ASSIGNLESSON","Назначить урок");//Assign lesson
 define("_REMOVECOURSE","Удалить курс");//Remove course
 define("_REMOVELESSON","Удалить урок");//Remove lesson
 define("_REMOVEFROMGROUP","Удалить из группы");//Remove from group
-define("_RESETLEARNINGPROGRESS","Сбросить прогресс обучения");//Reset learning progress
+define("_RESETLEARNINGPROGRESS","Сбросить результаты обучения");//Reset learning progress
 define("_BUILDER","Конструктор");//Builder
 define("_ADDREPORT","Добавить новый отчет");//Add new report
 define("_CONDITIONTYPE","Тип условия");//Condition type
@@ -3822,11 +3822,11 @@ define("_RELATIONWITHTHEFOLLOWINGCONDITION","Связь со следующим"
 define("_COLUMNTYPE","Тип столбца");//Column type
 define("_GRIDNAME","Имя сетки");//Grid name
 define("_ALIGNED","Выровнены");//Aligned
-define("_SELECTREPORT","Выбрать отчета");//Select report
+define("_SELECTREPORT","Выбрать отчет");//Select report
 define("_AVAILABLEREPORTS","Доступные отчеты");//Available reports
 define("_EDITREPORT","Изменить отчет");//Edit report
 define("_NOREPORTSINTHESYSTEM","Отчеты не настроены. Пожалуйста");//There are no reports defined in the system. Please 
-define("_CREATEONE","создать один");//create one
+define("_CREATEONE","создать");//create one
 define("_NEWREPORT","Новый отчет");//New report
 define("_REPORTNAME","Название отчета");//Report name
 define("_SELECTCONDITION","Выберите условие");//Select condition
@@ -3871,92 +3871,92 @@ define("_EXPORTTOCSV","Экспорт в CSV");//Export to csv
 define("_NOEVENTCODEDEFINED","Не определен код события");//No event code defined
 define("_FILESIMPORTEDSUCCESSFULLY","Файлы успешно импортированы");//Files imported successfully
 define("_CONVERTFOLDERSTOHIERARCHY","Преобразовать папки во вложенную иерархию");//Convert folders to nested hierarchy
-define("_UNCOMPRESSRECURSIVELYIMPORT","Распаковать ZIP-файл(ы) для импорта контента");//Uncompress zip file(s) and import contents
+define("_UNCOMPRESSRECURSIVELYIMPORT","Распаковать ZIP-файл(ы) для импорта материала");//Uncompress zip file(s) and import contents
 define("_THEMELOCKED","Тема заблокирована");//The theme is locked
 define("_BLANKREPORT","Пустой отчет");//Blank report
 define("_CUSTOMREPORTS","Пользовательские отчеты");//Custom reports
-define("_ADMINISTRATORCONFIRMENROLLED","Системный администратор рассматрит и активирует вашу заявку(-ки) на обучение");//The system administrator will review and activate your enrollments
+define("_ADMINISTRATORCONFIRMENROLLED","Системный администратор рассмотрит и активирует вашу заявку на обучение");//The system administrator will review and activate your enrollments
 define("_REFRESHTABLE","Обновить таблицу");//Refresh table
 define("_REMOVEFROMSET","Удалить из набора");//Remove from set
-define("_BRANCHTREE","Дерево подразделения");//Branch tree
+define("_BRANCHTREE","Дерево подразделений");//Branch tree
 define("_CHANGECONDITIONORDER","Изменить порядок условий");//Change condition order
 define("_INDEX","Индекс");//Index
 define("_EVENTDATETIME","Дата и время события");//Event date and time
-define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Файл сертификата отсутствует или поврежден и, следовательно, был выполнен сброс");//The certificate file was missing or corrupt and thus was reset
-define("_VISIBLEFROM","Видимые");//Visible from
-define("_EXPIRESAT","Истекает на");//Expires at
+define("_CERTIFICATEFILEWASCORRUPTORMISSINGANDWASRESET","Файл сертификата отсутствует или поврежден и поэтому был отброшен");//The certificate file was missing or corrupt and thus was reset
+define("_VISIBLEFROM","Видимо из");//Visible from
+define("_EXPIRESAT","Истекает с");//Expires at
 define("_CALENDARDISPLAYDATE","Календарь отображения даты");//Calendar display date
-define("_GLOBAL","Глобальная");//Global
+define("_GLOBAL","Глобально");//Global
 define("_ALLDAY","Весь день");//All day
-define("_CREATECALENDAREVENT","Создание записей в календаре");//Create calendar event
+define("_CREATECALENDAREVENT","Создание записи в календаре");//Create calendar event
 define("_OVERWRITEIFFOLDEREXISTS","Переписать существующую папку");//Overwrite existing folder
-define("_LANDINGPAGE","Целевой страницы");//Landing page
+define("_LANDINGPAGE","Страница назначения");//Landing page
 define("_EXPORTTOXLS","Экспорт в XLS");//Export to xls
-define("_SURVEYFAILEDTOBEPUBLISHED","Обзор не были опубликованы");//Survey failed to be published
+define("_SURVEYFAILEDTOBEPUBLISHED","Ошибка опубликования опроса");//Survey failed to be published
 define("_PRINTCHART","Печать диаграммы");//Print chart
-define("_RESPONSEDETAILS","Ответ подробнее");//Response details
-define("_SHOWINGONLYACTIVEENTITIES","Показаны только активных лиц");//Showing only active entities
-define("_SHOWINGONLYINACTIVEENTITIES","Показаны только неактивных лиц");//Showing only inactive entities
-define("_SHOWINGALLENTITIES","Показано активных и неактивных лиц");//Showing both active and inactive entities
-define("_EVENTDOESNOTEXIST","Это событие уже не существует");//This event no longer exists
+define("_RESPONSEDETAILS","Подробности ответа");//Response details
+define("_SHOWINGONLYACTIVEENTITIES","Показаны только активные записи");//Showing only active entities
+define("_SHOWINGONLYINACTIVEENTITIES","Показаны только неактивные записи");//Showing only inactive entities
+define("_SHOWINGALLENTITIES","Показаны все записи");//Showing both active and inactive entities
+define("_EVENTDOESNOTEXIST","Это событие больше не существует");//This event no longer exists
 define("_CLEARQUEUEMESSAGES","Очистить очередь сообщений");//Clear queue messages
-define("_APPLYTOUSERALLREADYTOJOBPOSITION","Применяются к пользователям уже принадлежит эта работа позиции");//Apply to users already belongs to this job position
-define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Это может только добавить (а не удалить) новый выбор для пользователей");//This can only add (not remove) a new selection to a user
+define("_APPLYTOUSERALLREADYTOJOBPOSITION","Применить к пользователям, занимающим эту должность");//Apply to users already belongs to this job position
+define("_APPLYTOUSERALLREADYTOJOBPOSITIONHELP","Это только добавляет (не удаляет) новый выбор пользователю");//This can only add (not remove) a new selection to a user
 define("_SORTBY","Сортировать по");//Sort by
 define("_TRAINING","Обучение");//Training
-define("_COMPLETEDLESSONS","Завершено уроки");//Completed lessons
-define("_INCOMPLETELESSONS","Неполное уроки");//Incomplete lessons
-define("_COMPLETEDCOURSES","Окончил курсы");//Completed courses
-define("_INCOMPLETECOURSES","Неполное курсы");//Incomplete courses
+define("_COMPLETEDLESSONS","Завершенные уроки");//Completed lessons
+define("_INCOMPLETELESSONS","Незавершенные уроки");//Incomplete lessons
+define("_COMPLETEDCOURSES","Завершенные курсы");//Completed courses
+define("_INCOMPLETECOURSES","Незавершенные курсы");//Incomplete courses
 define("_EDITCOLUMN","Изменить столбец");//Edit column
 define("_LESSONSFORCOURSE","Уроки для курса");//Lessons for course
-define("_TESTSFORLESSON","Тесты на урок");//Tests for lesson
-define("_SETALLUSERSSTATUSCOMPLETED","Полное для всех пользователей");//Complete for all users
-define("_LESSONTIMES","Урок раз");//Lesson times
+define("_TESTSFORLESSON","Тесты для урока");//Tests for lesson
+define("_SETALLUSERSSTATUSCOMPLETED","Заполнить для всех пользователей");//Complete for all users
+define("_LESSONTIMES","Повторов урока");//Lesson times
 define("_MINUTESPERDAY","Минут в день");//Minutes per day
-define("_LOGOUTUSERAFTERMINUTES","Выйти через (минут)");//Log out user after (minutes)
-define("_UPDATERPERIODSECONDS","Обновление период (мс)");//Updater period (ms)
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Рекомендуемые значения не менее чем 10000ms и не более 360000ms. Она также должна быть меньше, чем время выхода авто.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
-define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","Более 1 ветви (местах), связанные с этим, конечно, показывать первый");//More than 1 branches (locations) associated with this course, showing the first one
+define("_LOGOUTUSERAFTERMINUTES","Выводить пользователя через (мин)");//Log out user after (minutes)
+define("_UPDATERPERIODSECONDS","Период обновления (мс)");//Updater period (ms)
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME","Рекомендуется значение от 10000ms и до 360000ms. Значение должно быть меньше, чем время автовыхода.");//Recommended values are no less than 10000ms and no more than 360000ms. It also must be set less than the auto logout time.
+define("_MORETHANONEBRANCHESONLYFIRSTSHOWING","С этим курсом связано более одного подразделения, показывано первое");//More than 1 branches (locations) associated with this course, showing the first one
 define("_INSERT","Вставить");//Insert
-define("_ASSIGNMENTAPPROVEDBY","Назначение утвержденной");//Assignment approved by
-define("_EMPLOYEEIMMEDIATESUPERVISOR","немедленно работника руководитель");//Employee's immediate supervisor
-define("_SYSTEM_USER_DEACTIVATED","Пользователь дезактивации");//User deactivation
-define("_WASDEACTIVATEDFROMTHESYSTEM","была отключена от системы");//was deactivated from system
-define("_SUPERVISORAPPROVAL","Руководитель утверждения");//Supervisor approval
+define("_ASSIGNMENTAPPROVEDBY","Назначение утверждено");//Assignment approved by
+define("_EMPLOYEEIMMEDIATESUPERVISOR","непосредственным руководителем");//Employee's immediate supervisor
+define("_SYSTEM_USER_DEACTIVATED","Дезактивация пользователя");//User deactivation
+define("_WASDEACTIVATEDFROMTHESYSTEM","был отключен от системы");//was deactivated from system
+define("_SUPERVISORAPPROVAL","Утверждение руководителем");//Supervisor approval
 define("_APPROVE","Утвердить");//Approve
 define("_GROUPKEYEXISTS","Уникальный ключ уже существует");//Unique key already exists
 define("_PARTOFCOURSES","Часть курсов");//Part of courses
-define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Этот урок является частью одного или нескольких курсов, поэтому он не может изменить режим");//This lesson is part of one or more courses, so it cannot change mode
-define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Есть пользователям регистрироваться для этого урока. Пожалуйста, отмена назначения их перед переключением режимов");//There are users enrolled to this lesson. Please unassign them before switching modes
-define("_COURSESINCOMPLETETOTAL","Курсы (неполное / всего)");//Courses (incomplete/total)
+define("_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE","Этот урок является частью одного или нескольких курсов, поэтому его режим не может быть изменен");//This lesson is part of one or more courses, so it cannot change mode
+define("_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE","Есть пользователи, зарегистрированные на этот урок. Пожалуйста, отмените эти назначения перед изменением режима");//There are users enrolled to this lesson. Please unassign them before switching modes
+define("_COURSESINCOMPLETETOTAL","Курсы (незаверш/всего)");//Courses (incomplete/total)
 define("_EXPORTFILES","Экспорт файлов");//Export files
-define("_PROGRAMMEDCOURSEEXPIRY","Курс запланированного срока");//Course scheduled expiration
-define("_PROGRAMMEDCOURSESTART","Курс запланированного начала");//Course scheduled beginning
-define("_SCHEDULEDSTARTOFCOURSE","Запланированные начала курса");//Scheduled start of course
-define("_SCHEDULEDEXPIRYOFCOURSE","Запланированные истечении курса");//Scheduled expiration of course
-define("_ALLCOURSEUSERS","Все конечно пользователей");//All course users
+define("_PROGRAMMEDCOURSEEXPIRY","Дата окончания курса");//Course scheduled expiration
+define("_PROGRAMMEDCOURSESTART","Дата начала курса");//Course scheduled beginning
+define("_SCHEDULEDSTARTOFCOURSE","Дата начала курса");//Scheduled start of course
+define("_SCHEDULEDEXPIRYOFCOURSE","Дата окончания курса");//Scheduled expiration of course
+define("_ALLCOURSEUSERS","Все пользователи курса");//All course users
 define("_MOVEBLOCK","Переместить блок");//Move block
-define("_EXPANDCOLLAPSEBLOCK","Развернуть / Свернуть блок");//Expand/collapse block
-define("_DEFAULTLEARNERTYPE","По умолчанию ученик типа");//Default learner type
-define("_DEFAULTLEARNERTYPEINFO","Если у вас есть набор групп для этой группы, то пользователи, которые используют ключ будет зачислен на уроки / курсы с этого типа. Если у вас есть набор в эту группу, чтобы быть по умолчанию, то новых пользователей будет назначен уроки группы с этим типом");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
-define("_DONTUSEDEFAULTGROUP","Не использовать по умолчанию тип");//Don't use default type
-define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Вы успешно добавлен в группу");//You have been successfully added to the group
-define("_THISGROUPISINACTIVE","Эта группа является неактивным");//This group is inactive
-define("_MAXIMUMKEYUSAGESREACHED","Ключ не может быть использован любой более раз");//The key cannot be used any more times
-define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Выбор вы сделали не верно. Пожалуйста, выберите вариант из списка");//The selection you made is not valid. Please pick an option from the list
-define("_YOUAREALREADYMEMBEROFTHISGROUP","Вы уже член этой группы");//You are already member of this group
-define("_AVERAGESCORES","Средние показатели");//Average scores
-define("_PROJECTSAVERAGE","Средний балл во всех проектах");//Average score in all projects
-define("_SWITCHTOTREEVIEW","Переключить на дереве");//Switch to tree view
-define("_SWITCHTOSIMPLEVIEW","Переключиться на простой вид");//Switch to simple view
-define("_BCCRECIPIENTS","Нераскрытой получателей (ОЦК)");//Undisclosed recipients (bcc)
+define("_EXPANDCOLLAPSEBLOCK","Развернуть/Свернуть блок");//Expand/collapse block
+define("_DEFAULTLEARNERTYPE","Тип учащегося по умолчанию");//Default learner type
+define("_DEFAULTLEARNERTYPEINFO","Если у вас есть групповой ключь для этой группы, то пользователи, которые используют этот ключ будет зачислены на уроки/курсы этой группы. Если данная группа, является группой по умолчанию, то новые пользователи будут автоматически назначены на уроки этой группы");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DONTUSEDEFAULTGROUP","Не использовать тип по умолчанию");//Don't use default type
+define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Вы успешно добавлены в группу");//You have been successfully added to the group
+define("_THISGROUPISINACTIVE","Эта группа не активна");//This group is inactive
+define("_MAXIMUMKEYUSAGESREACHED","Этот ключ больше не может быть использован");//The key cannot be used any more times
+define("_INVALIDSELECTIONPLEASEPICKFROMLIST","Неверный выбор. Пожалуйста, выберите вариант из списка");//The selection you made is not valid. Please pick an option from the list
+define("_YOUAREALREADYMEMBEROFTHISGROUP","Вы уже входите в эту группу");//You are already member of this group
+define("_AVERAGESCORES","Средние оценки");//Average scores
+define("_PROJECTSAVERAGE","Средний балл по всем проектам");//Average score in all projects
+define("_SWITCHTOTREEVIEW","Переключить на показ дерева");//Switch to tree view
+define("_SWITCHTOSIMPLEVIEW","Переключить на простой вид");//Switch to simple view
+define("_BCCRECIPIENTS","Неуказанные получатели (ВСС)");//Undisclosed recipients (bcc)
 define("_RESULTSFOR","Результаты для");//Results for
 define("_THANKYOUFORCOMPLETING","Благодарим вас за заполнение");//Thank you for completing
-define("_NOREPORTSFOUNDINTHESYSTEM","Никаких сообщений, обнаруженных в системе");//No reports found in the system
-define("_YOUMAYCREATEONE","Вы можете создать один");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Вы не можете изменить урок режиме, поскольку Есть пользователи, поступил на курс");//You cannot change lesson mode because there are users enrolled to the course (New)
-define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не оставил этот курс");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Пользователь не оставил этот урок");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Доступ пользователей предоставляются");//User access granted (New)
+define("_NOREPORTSFOUNDINTHESYSTEM","Нет сообщений");//No reports found in the system
+define("_YOUMAYCREATEONE","Вы можете его создать");//You may create one
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Вы не можете изменить режим урока, поскольку есть пользователи, изучающие курс с этим уроком");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не имеет этот курс");//The user does not have this course (New)
+define("_THEUSERDOESNOTHAVETHISLESSON","Пользователь не имеет этот урок");//The user does not have this lesson (New)
+define("_USERACCESSGRANTED","Доступ пользователю предоставлен");//User access granted (New)
 ?>

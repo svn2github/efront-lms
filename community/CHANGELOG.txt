@@ -44,6 +44,7 @@
 - Fixed issue about course info link in course reports for professors
 - Fixed js error in sidebar for IE
 - Fixed issues about mean score in lessons/courses in users reports
+- Fixed issue about displaying chatrooms
 
 
 === Version 3.6.7 build 9141 ===

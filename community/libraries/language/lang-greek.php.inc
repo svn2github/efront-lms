@@ -3992,4 +3992,8 @@ define("_SCORMASYNCHROUNOUS", "Ασύγχρονης επικοινωνία με 
 define("_SCORMASYNCHRONOUSEXPLANATION", "Εναλλάξτε σε ασύγχρονη επικοινωνία εάν αντιμετωπίζεται προβλήματα ολοκλήρωσης του περιεχομένου SCORM (ειδικά αν το περιεχόμενο έχει δημιουργηθεί με το Adobe Captivate)");
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO", "Προσοχή: Αν απενεργοποιήσετε τις πληρωμές, όλες οι τιμές θα τεθούν στο 0");
 define("_MULTIPLEOPTIONS", "Πολλαπλές επιλογές");
+define("_YOURSESSIONHASEXPIREDPLEASE", "Η σύνδεσή σας έχει λήξει. Παρακαλώ");
+define("_CLICKHERE", "κάντε κλικ εδώ");
+define("_TOLOGINAGAIN", "για να συνδεθείτε ξανά");
+define("_SESSIONEXPIRED", "Η σύνδεση έληξε");
 ?>

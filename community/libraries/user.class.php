@@ -1003,7 +1003,7 @@ abstract class EfrontUser
 	 */
  public function isLoggedIn() {
   //$result = eF_getTableData('users_online', '*', "users_LOGIN='".$this -> user['login']."'");
-  $result = eF_getTableData('user_times', 'users_LOGIN', "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
+  $result = eF_getTableData('user_times', 'users_LOGIN', "session_id='".session_id()."' and session_expired=0 and users_LOGIN='".$this -> user['login']."'");
   if (sizeof($result) > 0) {
    return true;
   } else {

@@ -467,6 +467,12 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
  $smarty -> assign('T_RESET_PASSWORD_FORM', $renderer -> toArray());
 }
 /* -------------------------------------------------------End of Reset Password part--------------------------------------------------------- */
+if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
+ if (isset($_SESSION['s_login'])) {
+  $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+  $currentUser -> logout(true);
+ }
+}
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup']) {
  $users = eF_countTableData("users", "login", "active=1 and archive=0");

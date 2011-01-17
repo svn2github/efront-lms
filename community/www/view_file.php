@@ -25,7 +25,7 @@ require_once $path."configuration.php";
 try {
  $currentUser = EfrontUser :: checkUserAccess();
 } catch (Exception $e) {
- eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
+ eF_redirect("index.php?ctg=expired");
  exit;
 }
 //pr($_SERVER);pr($_GET);exit;

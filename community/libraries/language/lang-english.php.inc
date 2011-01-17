@@ -3992,4 +3992,8 @@ define("_SCORMASYNCHROUNOUS", "Asynchronous SCORM communication");
 define("_SCORMASYNCHRONOUSEXPLANATION", "Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)");
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO", "Warning: Disabling payments will set all prices to 0");
 define("_MULTIPLEOPTIONS", "Multiple options");
+define("_YOURSESSIONHASEXPIREDPLEASE", "Your session has expired. Please");
+define("_CLICKHERE", "click here");
+define("_TOLOGINAGAIN", "to login again");
+define("_SESSIONEXPIRED", "Session expired");
 ?>

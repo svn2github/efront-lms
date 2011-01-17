@@ -3,7 +3,7 @@
 
 * Show avatars
 
-* 
+*
 
 * This file is the page which shows the avatars list
 
@@ -20,7 +20,7 @@ include_once $path."configuration.php";
 try {
  $currentUser = EfrontUser :: checkUserAccess();
 } catch (Exception $e) {
- echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ echo "<script>parent.location = 'index.php?logout=true&message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
  exit;
 }
 $current_dir = getcwd();

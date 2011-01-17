@@ -18,11 +18,15 @@
   {include file = "includes/blocks/reset_pwd.tpl"}
     {/capture}
  {assign var = "layoutClass" value = "hideBoth"}
+{elseif $smarty.get.ctg == 'expired'}
+    {capture name = 't_session_expired_code'}
+  {include file = "includes/blocks/expired.tpl"}
+    {/capture}
+ {assign var = "layoutClass" value = "hideBoth"}
 {elseif $smarty.get.ctg == 'lesson_info' && $T_CONFIGURATION.lessons_directory == 1}
     {capture name = 't_lesson_info_code'}
      {include file = "includes/blocks/lessons_info.tpl"}
     {/capture}
-
 {elseif $smarty.get.ctg == 'lessons'}
 
 {elseif $smarty.get.ctg == 'login'}
@@ -102,6 +106,9 @@
     {elseif $smarty.get.ctg == 'reset_pwd'}
      {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=reset_pwd'>`$smarty.const._RESETPASSWORD`</a>"}
         {eF_template_printBlock title = $smarty.const._RESETPASSWORD content = $smarty.capture.t_reset_pwd_code image = "32x32/exclamation.png"}
+    {elseif $smarty.get.ctg == 'expired'}
+     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=expired'>`$smarty.const._SESSIONEXPIRED`</a>"}
+        {eF_template_printBlock title = $smarty.const._SESSIONEXPIRED content = $smarty.capture.t_session_expired_code image = "32x32/exclamation.png"}
     {elseif $smarty.get.ctg == 'lessons' && $T_CONFIGURATION.lessons_directory == 1}
      {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a>"}
      {eF_template_printBlock title = $smarty.const._COURSES content = $smarty.capture.t_lessons_code image = $T_BLOCKS.lessons.image}

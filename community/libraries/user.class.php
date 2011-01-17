@@ -418,9 +418,6 @@ abstract class EfrontUser
   if ($type && $user -> user['user_type'] != $type) {
    throw new Exception(_YOUCANNOTACCESSTHISPAGE, EfrontUserException::INVALID_TYPE);
   }
-  if (!$user -> isLoggedIn()) {
-   throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
-  }
   return $user;
  }
  public static function checkWebserverAuthentication() {
@@ -776,11 +773,14 @@ abstract class EfrontUser
     unset($_COOKIE['cookie_login']); //These 2 lines are necessary, so that index.php does not think they are set
     unset($_COOKIE['cookie_password']);
    }
-  } else {
-   $session_path = ini_get('session.save_path');
-   $session_name = eF_getTableData('logs', 'comments', 'users_LOGIN="'.$this -> user['login'].'" AND action = "login"', 'timestamp desc limit 1');
-   unlink($session_path.'/sess_'.$session_name[0]['comments']);
   }
+/*
+		else {
+			$session_path = ini_get('session.save_path');
+			$session_name = eF_getTableData('logs', 'comments', 'users_LOGIN="'.$this -> user['login'].'" AND action = "login"', 'timestamp desc limit 1');
+			unlink($session_path.'/sess_'.$session_name[0]['comments']);
+		}
+*/
   eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
   eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
   $result = eF_getTableData("logs", "action", "users_LOGIN = '".$this -> user['login']."'", "timestamp desc limit 1"); //?? ??? ????? ???????? ???, ????? ??? logs ??? ????? logout, ???? ?? ????? logout ??? ??? ??? ?? ???????

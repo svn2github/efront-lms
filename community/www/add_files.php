@@ -3,7 +3,7 @@
 
 * Add files
 
-* 
+*
 
 * This file presents the page used to insert and handle files and folders
 
@@ -32,7 +32,7 @@ eF_printHeader();
 try {
  $currentUser = EfrontUser :: checkUserAccess();
 } catch (Exception $e) {
- echo "<script>parent.location = 'index.php?message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
+ echo "<script>parent.location = 'index.php?logout=true&message=".urlencode($e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure'</script>"; //This way the frameset will revert back to single frame, and the annoying effect of 2 index.php, one in each frame, will not happen
  exit;
 }
 if (!isset($_SESSION['s_lessons_ID']) && $_SESSION['s_type'] == "professor") { //Check if a lesson is selected if user is a professor
@@ -103,7 +103,7 @@ if (isset($_GET['op']) && $_GET['op'] == "delete") { //Delete file
             eF_printMessage(_YOUCANNOTCREATETHISFOLDER);
 
             $alert_message = _TRIEDTOCREATEFOLDER.': '.$dir_to_create;
-            //eF_alertAdmin($_SESSION['s_login'], time(), $alert_message, 4); 
+            //eF_alertAdmin($_SESSION['s_login'], time(), $alert_message, 4);
 
             exit;
         }

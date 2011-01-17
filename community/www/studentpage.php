@@ -15,7 +15,7 @@ try {
  $currentUser = EfrontUser :: checkUserAccess();
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
- eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
+ eF_redirect("index.php?ctg=expired");
  exit;
 }
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {

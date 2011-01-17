@@ -195,15 +195,23 @@ class module_demo extends EfrontModule {
     }
     /**
 
+     * Pick a few of the efront scripts to be included
+
+     *
+
 	 * (non-PHPdoc)
 
 	 * @see libraries/EfrontModule#addScripts()
 
      */
     public function addScripts() {
-     return array();
+     return array('scriptaculous/slider');
     }
     /**
+
+     * The main functionality
+
+     *
 
 	 * (non-PHPdoc)
 
@@ -215,15 +223,26 @@ class module_demo extends EfrontModule {
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_MODULE_BASELINK" , $this -> moduleBaseLink);
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
-  $form = new HTML_QuickForm("demo_form", "post", $this -> moduleBaseUrl, "", null, true);
+     $form = new HTML_QuickForm("demo_form", "post", $this -> moduleBaseUrl, "", null, true);
   $form -> addElement('text', 'data', _MODULE_DEMO_TEXTFIELD, 'class = "inputText"');
+     $options = array_merge(array('format' => getDateFormat().' H:i',
+             'minYear' => date("Y") - 4,
+             'maxYear' => date("Y") + 3));
+  $form -> addElement('date', 'timestamp', _DATE, $options);
   $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+  $form -> setDefaults(array('timestamp' => time()));
   if ($form -> isSubmitted() && $form -> validate()) {
    try {
     $values = $form -> exportValues();
-    if (eF_checkParameter($values['data'], 'text')) {
-     eF_insertTableData("module_demo_data", array('data' => $values['data']));
-    }
+    $timestamp = mktime($values['timestamp']['H'] ? $values['timestamp']['H'] : 0,
+         $values['timestamp']['i'] ? $values['timestamp']['i'] : 0,
+         0,
+         $values['timestamp']['M'],
+         $values['timestamp']['d'],
+         $values['timestamp']['Y']);
+    eF_insertTableData("module_demo_data", array('data' => $values['data'], 'timestamp' => $timestamp));
+    eF_redirect($this -> moduleBaseUrl.'&message='.urlencode(_MODULE_DEMO_SUCCESSFULLYUPDATEDDATA).'&message_type=success');
+    exit;
    } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
@@ -231,9 +250,26 @@ class module_demo extends EfrontModule {
    }
   }
   $smarty -> assign("T_DEMO_FORM", $form -> toArray());
+  try {
+   if (isset($_GET['ajax']) && $_GET['ajax'] == 'demoTable') {
+    $this -> getAjaxResults();
+    $smarty -> display($this -> moduleBaseDir . "module_demo_page.tpl");
+    exit;
+   } elseif (isset($_GET['ajax']) && isset($_GET['delete_data']) && eF_checkParameter($_GET['delete_data'], 'id')) {
+    eF_deleteTableData("module_demo_data", "id=".$_GET['delete_data']);
+    echo json_encode(array('status' => 1));
+    exit;
+   }
+  } catch (Exception $e) {
+   handleAjaxExceptions($e);
+  }
         return true;
     }
     /**
+
+     * Specify which file to include for template
+
+     *
 
 	 * (non-PHPdoc)
 
@@ -245,13 +281,28 @@ class module_demo extends EfrontModule {
     }
     /**
 
+     * Code to execute on the lesson page
+
+     *
+
 	 * (non-PHPdoc)
 
 	 * @see libraries/EfrontModule#getLessonModule()
 
      */
     public function getLessonModule() {
-        return false;
+     $smarty = $this -> getSmartyVar();
+        $smarty -> assign("T_MODULE_BASEURL" , $_SERVER['PHP_SELF'].'?ctg=control_panel');
+        try {
+         if (isset($_GET['ajax']) && $_GET['ajax'] == 'demoTable') {
+          $this -> getAjaxResults();
+          $smarty -> display($this -> moduleBaseDir . "module_demo_lessonpage.tpl");
+          exit;
+         }
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        return true;
     }
     /**
 
@@ -261,9 +312,13 @@ class module_demo extends EfrontModule {
 
      */
     public function getLessonSmartyTpl() {
-        return false;
+        return $this -> moduleBaseDir."module_demo_lessonpage.tpl";
     }
     /**
+
+     * Code executed when inside a content unit
+
+     *
 
 	 * (non-PHPdoc)
 
@@ -271,7 +326,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getContentSideInfo() {
-        return false;
+        return true;
     }
     /**
 
@@ -281,9 +336,13 @@ class module_demo extends EfrontModule {
 
      */
     public function getContentSmartyTpl() {
-        return false;
+        return $this -> moduleBaseDir."module_demo_content_side.tpl";
     }
     /**
+
+     * If false, then the module title will appear
+
+     *
 
 	 * (non-PHPdoc)
 
@@ -291,7 +350,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getContentSideTitle() {
-     return false;
+     return _MODULE_DEMO_CONTENTTOOLS;
     }
     /**
 
@@ -301,7 +360,18 @@ class module_demo extends EfrontModule {
 
      */
     public function getControlPanelModule() {
-        return false;
+     $smarty = $this -> getSmartyVar();
+        $smarty -> assign("T_MODULE_BASEURL" , $_SERVER['PHP_SELF'].'?ctg=control_panel');
+        try {
+         if (isset($_GET['ajax']) && $_GET['ajax'] == 'demoTable') {
+          $this -> getAjaxResults();
+          $smarty -> display($this -> moduleBaseDir . "module_demo_lessonpage.tpl");
+          exit;
+         }
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        return true;
     }
     /**
 
@@ -311,10 +381,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getControlPanelSmartyTpl() {
-        $smarty = $this->getSmartyVar();
-        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
-        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
-        return false;
+     return $this -> moduleBaseDir."module_demo_cpanelpage.tpl";
     }
     /**
 
@@ -324,7 +391,18 @@ class module_demo extends EfrontModule {
 
      */
     public function getDashboardModule() {
-        return false;
+     $smarty = $this -> getSmartyVar();
+        $smarty -> assign("T_MODULE_BASEURL" , $_SERVER['PHP_SELF'].'?ctg=personal');
+        try {
+         if (isset($_GET['ajax']) && $_GET['ajax'] == 'demoTable') {
+          $this -> getAjaxResults();
+          $smarty -> display($this -> moduleBaseDir . "module_demo_dashboard.tpl");
+          exit;
+         }
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        return true;
     }
     /**
 
@@ -334,10 +412,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getDashboardSmartyTpl() {
-        $smarty = $this->getSmartyVar();
-        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
-        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
-        return false;
+     return $this -> moduleBaseDir."module_demo_dashboard.tpl";
     }
     /**
 
@@ -347,7 +422,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getCatalogModule() {
-        return false;
+        return true;
     }
     /**
 
@@ -357,10 +432,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getCatalogSmartyTpl() {
-        $smarty = $this->getSmartyVar();
-        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
-        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
-        return false;
+     return $this -> moduleBaseDir."module_demo_catalog.tpl";
     }
     /**
 
@@ -370,7 +442,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getLandingPageModule() {
-        return false;
+        return true;
     }
     /**
 
@@ -380,10 +452,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getLandingPageSmartyTpl() {
-        $smarty = $this->getSmartyVar();
-        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
-        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
-        return false;
+     return $this -> moduleBaseDir."module_demo_landing_page.tpl";
     }
     /**
 
@@ -416,7 +485,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getModuleJS() {
-        return false;
+        return $this->moduleBaseDir."module_demo.js";
     }
     /**
 
@@ -426,7 +495,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getModuleCSS() {
-        return false;
+        return $this->moduleBaseDir."module_demo_css.css";
     }
     /**
 
@@ -457,12 +526,9 @@ class module_demo extends EfrontModule {
 
      */
     public function getCenterLinkInfo() {
-        $currentUser = $this -> getCurrentUser();
-        if ($currentUser -> getType() == "administrator") {
-            return array('title' => $this -> getName(),
-                         'image' => $this -> moduleBaseDir . 'images/logo.png',
-                         'link' => $this -> moduleBaseUrl);
-        }
+     return array('title' => $this -> getName(),
+                     'image' => $this -> moduleBaseLink . 'images/logo.png',
+                     'link' => $this -> moduleBaseUrl);
     }
     /**
 
@@ -472,7 +538,9 @@ class module_demo extends EfrontModule {
 
      */
     public function getLessonCenterLinkInfo() {
-        return false;
+     return array('title' => $this -> getName().' (getLessonCenterLinkInfo())',
+                     'image' => $this -> moduleBaseLink . 'images/logo.png',
+                     'link' => $this -> moduleBaseUrl);
     }
     /**
 
@@ -492,7 +560,7 @@ class module_demo extends EfrontModule {
 
      */
     public function onNewUser($login) {
-        return false;
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%login%', formatLogin($login), _MODULE_DEMO_CREATEDUSER)));
     }
     /**
 
@@ -502,7 +570,7 @@ class module_demo extends EfrontModule {
 
      */
     public function onDeleteUser($login) {
-        return false;
+  eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%login%', formatLogin($login), _MODULE_DEMO_DELETEDUSER)));
     }
     /**
 
@@ -512,7 +580,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onNewLesson($lessonId) {
-        return false;
+     $lessonName = eF_getTableData("lessons", "name", "id=$lessonId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%lesson%', $lessonName, _MODULE_DEMO_CREATEDLESSON)));
     }
     /**
 
@@ -522,7 +591,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onDeleteLesson($lessonId) {
-        return false;
+     $lessonName = eF_getTableData("lessons", "name", "id=$lessonId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%lesson%', $lessonName, _MODULE_DEMO_DELETEDLESSON)));
     }
     /**
 
@@ -532,7 +602,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onDeleteCourse($courseId) {
-        return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%course%', $courseName, _MODULE_DEMO_DELETEDCOURSE)));
     }
     /**
 
@@ -542,7 +613,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onRevokeCourseCertificate($login, $courseId) {
-        return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%course%', '%login%'), array($courseName, formatTimestamp($login)), _MODULE_DEMO_REVOKEDCERTIFICATE)));
     }
     /**
 
@@ -552,7 +624,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onIssueCourseCertificate($login, $courseId, $certificateArray) {
-     return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%course%', '%login%'), array($courseName, formatTimestamp($login)), _MODULE_DEMO_ISSUEDCERTIFICATE)));
     }
     /**
 
@@ -562,7 +635,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onPrepareCourseCertificate($login, $courseId, $certificateData) {
-     return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%course%', '%login%'), array($courseName, formatTimestamp($login)), _MODULE_DEMO_PREPAREDCERTIFICATE)));
     }
     /**
 
@@ -572,7 +646,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onExportCourse($courseId) {
-     return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%course%', $courseName, _MODULE_DEMO_EXPORTEDCOURSE)));
     }
     /**
 
@@ -582,7 +657,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onImportCourse($courseId, $data) {
-     return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%course%', $courseName, _MODULE_DEMO_IMPORTEDCOURSE)));
     }
     /**
 
@@ -592,7 +668,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onNewCourse($courseId) {
-        return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%course%', $courseName, _MODULE_DEMO_CREATEDCOURSE)));
     }
     /**
 
@@ -602,7 +679,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onCompleteCourse($courseId, $login) {
-        return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%course%', '%login%'), array($courseName, formatTimestamp($login)), _MODULE_DEMO_COMPLETEDCOURSE)));
     }
     /**
 
@@ -612,7 +690,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onResetProgressInCourse($courseId, $login) {
-     return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%course%', '%login%'), array($courseName, formatTimestamp($login)), _MODULE_DEMO_RESETCOURSE)));
     }
     /**
 
@@ -622,7 +701,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onResetProgressInAllCourses($login) {
-     return false;
+     $courseName = eF_getTableData("courses", "name", "id=$courseId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%login%', formatLogin($login), _MODULE_DEMO_RESETALLCOURSE)));
     }
     /**
 
@@ -632,7 +712,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onExportLesson($lessonId) {
-        return false;
+     $lessonName = eF_getTableData("lessons", "name", "id=$lessonId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%lesson%', $lessonName, _MODULE_DEMO_EXPORTEDLESSON)));
     }
     /**
 
@@ -642,7 +723,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onImportLesson($lessonId, $data) {
-        return false;
+     $lessonName = eF_getTableData("lessons", "name", "id=$lessonId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%lesson%', $lessonName, _MODULE_DEMO_IMPORTEDLESSON)));
     }
     /**
 
@@ -652,7 +734,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onCompleteLesson($lessonId, $login) {
-        return false;
+     $lessonName = eF_getTableData("lessons", "name", "id=$lessonId");
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%lesson%', '%login%'), array($lessonName, formatTimestamp($login)), _MODULE_DEMO_COMPLETEDLESSON)));
     }
     /**
 
@@ -662,7 +745,8 @@ class module_demo extends EfrontModule {
 
      */
     public function onNewPageLoad() {
-        return false;
+     $this -> fooBar(); //Executed at the beginning of each page load
+     return true;
     }
     /**
 
@@ -672,7 +756,7 @@ class module_demo extends EfrontModule {
 
      */
     public function onSetTheme($theme) {
-     return false;
+        eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => "Activated theme {$theme->themes['name']}"));
     }
     /**
 
@@ -682,7 +766,7 @@ class module_demo extends EfrontModule {
 
      */
     public function onDeleteTheme($theme) {
-     return false;
+     eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%theme%', $theme, _MODULE_DEMO_DELETETHEME)));
     }
     /**
 
@@ -737,6 +821,27 @@ class module_demo extends EfrontModule {
     private function fooBar() {
      //Do nothing!
      return true;
+    }
+    private function getAjaxResults() {
+     $smarty = $this -> getSmartyVar();
+     $demoData = eF_getTableData("module_demo_data", "*");
+     isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+     if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
+      $sort = $_GET['sort'];
+      isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
+     } else {
+      $sort = 'login';
+     }
+     $demoData = eF_multiSort($demoData, $sort, $order);
+     $smarty -> assign("T_TABLE_SIZE", sizeof($demoData));
+     if (isset($_GET['filter'])) {
+      $demoData = eF_filterData($demoData, $_GET['filter']);
+     }
+     if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+      isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+      $demoData = array_slice($demoData, $offset, $limit);
+     }
+     $smarty -> assign("T_DATA_SOURCE", $demoData);
     }
 }
 ?>

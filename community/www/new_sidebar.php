@@ -63,7 +63,7 @@ try {
   $currentUser -> applyRoleOptions(); //Initialize user's role options for this lesson
  }
 } catch (Exception $e) {
- eF_redirect("index.php?message=".urlencode($message = $e -> getMessage().' ('.$e -> getCode().')')."&message_type=failure", true);
+ eF_redirect("index.php?ctg=expired");
  exit;
 }
 if (!isset($horizontal_inframe_version) || !$horizontal_inframe_version) {

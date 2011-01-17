@@ -1,0 +1,1 @@
+This is the module demo's landing page content. Go to the <a href = "{$smarty.server.PHP_SELF}?ctg=lessons">catalog</a> or the <a href = "{$smarty.server.PHP_SELF}?ctg=personal">dashboard</a>. You can toggle landing page from admin -> system settings -> appearance

@@ -1,42 +1,42 @@
-=== Version 3.6.8 ===
+=== Version 3.6.8 build 9575===
+- Added automatic correction for free text questions
+- Added theme-based logos
+- Extended modules with numerous API calls
+- Replaced tools in "my courses" page with a convenient side pane
+- Removed flash graphs from tests and replaced them with the default javascript based ones
+- Added skill scores (Enterprise edition)
+- Added skill reports (Enterprise edition)
+- A professor can now reset a user's progress through the "users status" page
+- Replaced "logout user" option with a more convenient online users list
+- Added option to toggle synchronous/asynchronous SCORM communication
+- Added an option to enforce password change upon first login
 - Added time in lesson/course for user reports in pdf export
+- Added paste_retain_style_properties : "all" in editor configuration for IE7 (#806)
+- Added directionality option in editor for rtl languages
+- Added option for globally disabling move blocks
+- Added newline at the beggining of string for appending local ini files (#864)
+- Added Latin American language file
+- Added users registration date in lesson reports
+- Disabling payments removes "Free" tags from catalog
+- Removed "collapse catalog only for lessons" option
 - Fixed issue about adding block in different theme from the current(file was saved in the folder of current theme)
 - Fixed issue about importing theme layout blocks (were imported to the current theme)
 - Changed adding a worksheet for each user in lesson reports because it could crash file with more than 2000 users (#854)
-- Added paste_retain_style_properties : "all" in editor configuration for IE7 (#806)
-- Added directionality option in editor for rtl languages
-- Fixed issue about editing feedback by creating function getTestsAndFeedbacks()
-- Added option for globally disabling move blocks
 - Fixed issue about youtube video z-index in module for IE
-- Added newline at the beggining of string for appending local ini files (#864)
+- Fixed issue about editing feedback by creating function getTestsAndFeedbacks()
 - Fixed issue about displaying tick icon in student lessons list for completed lessons when show_percentage is disabled
 - Fixed issue about crypt function in module wiki by removing it http://www.pmwiki.org/wiki/PITS/01141   http://www.php.net/manual/en/function.crypt.php#95579
 - Fixed issue about editing a unit with inactive parent unit
 - Fixed issue about displaying inactive parent unit field in editing unit (#903)
 - Fixed issue in displaying custom blocks containing brackets as separate pages (#896)
 - Replaced deprecated G_MAXFILESIZE from messages attachment file size check
-- Added Latin American language file
 - Fixed issue about default font in editor 3.3.9.2
 - Fixed issue in editing a course that belongs to more than one branches (#934)
-- Added users registration date in lesson reports
 - Fixed error in lesson -> getUsersCompleted (#955)
-- A professor can now reset a user's progress through the "users status" page
-- Free text questions can now be automatically corrected based on keywords
-- Replaced tools in "my courses" page with a convenient side pane
-- Removed flash graphs from tests and replaced them with the default javascript based ones
-- Added an option to enforce password change upon first login
-- Replaced "logout user" option with a more convenient online users list
-- Added theme-based logos
-- Extended modules with numerous API calls
-- Added skill reports (Enterprise edition)
-- Added skill scores (Enterprise edition)
 - Fixed tooltip appearing in org chart despite global disable settings (Enterprise edition)
-- added option to toggle synchronous/asynchronous SCORM communication
-- fix "max upload file size" form setting not being taken into account
-- disabling payments removes "Free" tags from catalog
+- Fixed "max upload file size" form setting not being taken into account
 - Dates select boxes updated to make limits more sensible
-- Removed "collapse catalog only for lessons" option
-- fix for csv parsing during import
+- Fixed for csv parsing during import
 - fixed upgrade removing test related completion condition
 - Fixed issue in user reports about displaying lessons/courses that currentUser professor is not assigned to (#957)
 - Fixed issue about mean time duration in reports
@@ -45,7 +45,6 @@
 - Fixed js error in sidebar for IE
 - Fixed issues about mean score in lessons/courses in users reports
 - Fixed issue about displaying chatrooms
-
 
 === Version 3.6.7 build 9141 ===
 - Fixed issue about displaying announcement title in popup when there is not body data

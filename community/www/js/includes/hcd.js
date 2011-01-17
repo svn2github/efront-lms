@@ -443,7 +443,7 @@ function skillEmployeesAjaxPost(id, el, table_id) {
 function ajaxSkillUserPost(id, el, table_id) {
  Element.extend(el);
  var baseUrl = sessionType + '.php?ctg=module_hcd&op=skills&edit_skill='+editSkill+'&postAjaxRequest=1';
-  if (isNaN(parseInt($('spec_skill_score_'+id).value)) | $('spec_skill_score_'+id).value > 100 | $('spec_skill_score_'+id).value < 1) {
+  if ($('spec_skill_score_'+id) && (isNaN(parseInt($('spec_skill_score_'+id).value)) | $('spec_skill_score_'+id).value > 100 | $('spec_skill_score_'+id).value < 1)) {
    return false;
   } else if (id) {
    var url = baseUrl + '&add_user=' + id + '&insert='+$('skill_to_'+id).checked + '&specification='+$('spec_skill_'+id).value + '&score='+$('spec_skill_score_'+id).value;

@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","आप को पूरा करने के 
 define("_NOREPORTSFOUNDINTHESYSTEM","कोई रिपोर्ट प्रणाली में पाया");//No reports found in the system
 define("_YOUMAYCREATEONE","आप एक बना सकते हैं");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","आप पाठ मोड नहीं बदल क्योंकि वहाँ उपयोगकर्ताओं रहे हैं पाठ्यक्रम के लिए दाखिला लिया जा सकता");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","आप अंतिम तत्व को हटा नहीं सकते");//You cannot remove the last element (New)
-define("_CONTAINS","शामिल");//Contains (New)
-define("_NOTCONTAINS","क्या नहीं");//Does not contain (New)
-define("_REMOVEOPTION","विकल्प निकालें");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","विचार करना सही जब संचित अंक बड़ा या बराबर है");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","स्वचालित");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","ऑटो सही विकल्प");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","सवाल सुधार");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","पाइप से अलग शब्द |");//Separate words with pipe | (New)
-define("_POINTS","अंक");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","आप अंतिम तत्व को हटा नहीं सकते");//You cannot remove the last element
+define("_CONTAINS","शामिल");//Contains
+define("_NOTCONTAINS","क्या नहीं");//Does not contain
+define("_REMOVEOPTION","विकल्प निकालें");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","विचार करना सही जब संचित अंक बड़ा या बराबर है");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","स्वचालित");//Automatic
+define("_AUTOCORRECTOPTIONS","ऑटो सही विकल्प");//Auto-correct options
+define("_QUESTIONCORRECTION","सवाल सुधार");//Question correction
+define("_SEPARATEWORDSWITHPIPE","पाइप से अलग शब्द |");//Separate words with pipe |
+define("_POINTS","अंक");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","उपयोगकर्ता इस पाठ्यक्रम नहीं है");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","उपयोगकर्ता इस सबक नहीं है");//The user does not have this lesson
 define("_USERACCESSGRANTED","उपयोगकर्ता पहुँच प्रदान");//User access granted
-define("_FORCECHANGEPASSWORD","बल आरंभिक लॉगिन पर पासवर्ड बदलने");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","पासवर्ड बदलें");//Change password (New)
-define("_OLDPASSWORD","पुराना पासवर्ड");//Old password (New)
-define("_NEWPASSWORD","नया पासवर्ड");//New password (New)
-define("_ONLINETIME","ऑनलाइन समय");//Time online (New)
-define("_ONLINESINCE","के बाद से ऑनलाइन");//Online since (New)
-define("_MANUALLY","मैन्युअल");//Manually (New)
-define("_CLEAROPCODECACHE","स्पष्ट opcode कैश");//Clear opcode cache (New)
-define("_USELOGO","उपयोग लोगो");//Use logo (New)
-define("_DEFAULTLOGO","डिफ़ॉल्ट लोगो");//Default logo (New)
-define("_UPLOADSITELOGO","अपलोड साइट लोगो");//Upload site logo (New)
-define("_ATLEAST","कम से कम");//At least (New)
-define("_ATMOST","सबसे कम");//At most (New)
-define("_EQUALTO","इसके बराबर");//Equal to (New)
-define("_SKILLSSTATISTICS","कौशल रिपोर्ट");//Skill reports (New)
-define("_STATISTICSFORSKILL","कौशल के लिए रिपोर्ट");//Reports for skill (New)
-define("_CHOOSESKILL","कौशल चुनें");//Choose skill (New)
-define("_SKILLGRAPH","कौशल ग्राफ");//Skill graph (New)
-define("_TOTALSKILLS","कुल कौशल");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","अतुल्यकालिक संचार SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","स्विच अतुल्यकालिक संचार के लिए यदि आप SCORM सामग्री पूरा मुसीबत (विशेषकर के मामले में आप एडोब मुगध सृजित सामग्री का उपयोग कर रहे हैं) अनुभव कर रहे हैं");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","चेतावनी: अक्षम भुगतान सभी की कीमतों 0 पर सेट हो जाएगा");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","कई विकल्प");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","बल आरंभिक लॉगिन पर पासवर्ड बदलने");//Force password change upon initial login
+define("_CHANGEPASSWORD","पासवर्ड बदलें");//Change password
+define("_OLDPASSWORD","पुराना पासवर्ड");//Old password
+define("_NEWPASSWORD","नया पासवर्ड");//New password
+define("_ONLINETIME","ऑनलाइन समय");//Time online
+define("_ONLINESINCE","के बाद से ऑनलाइन");//Online since
+define("_MANUALLY","मैन्युअल");//Manually
+define("_CLEAROPCODECACHE","स्पष्ट opcode कैश");//Clear opcode cache
+define("_USELOGO","उपयोग लोगो");//Use logo
+define("_DEFAULTLOGO","डिफ़ॉल्ट लोगो");//Default logo
+define("_UPLOADSITELOGO","अपलोड साइट लोगो");//Upload site logo
+define("_ATLEAST","कम से कम");//At least
+define("_ATMOST","सबसे कम");//At most
+define("_EQUALTO","इसके बराबर");//Equal to
+define("_SKILLSSTATISTICS","कौशल रिपोर्ट");//Skill reports
+define("_STATISTICSFORSKILL","कौशल के लिए रिपोर्ट");//Reports for skill
+define("_CHOOSESKILL","कौशल चुनें");//Choose skill
+define("_SKILLGRAPH","कौशल ग्राफ");//Skill graph
+define("_TOTALSKILLS","कुल कौशल");//Total skills
+define("_SCORMASYNCHROUNOUS","अतुल्यकालिक संचार SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","स्विच अतुल्यकालिक संचार के लिए यदि आप SCORM सामग्री पूरा मुसीबत (विशेषकर के मामले में आप एडोब मुगध सृजित सामग्री का उपयोग कर रहे हैं) अनुभव कर रहे हैं");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","चेतावनी: अक्षम भुगतान सभी की कीमतों 0 पर सेट हो जाएगा");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","कई विकल्प");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","आपका सत्र समाप्त हो गया है. कृपया");//Your session has expired. Please (New)
+define("_CLICKHERE","यहाँ क्लिक करें");//click here (New)
+define("_TOLOGINAGAIN","फिर लॉगइन करने के लिए");//to login again (New)
+define("_SESSIONEXPIRED","सत्र समाप्त हो गया");//Session expired (New)
 ?>

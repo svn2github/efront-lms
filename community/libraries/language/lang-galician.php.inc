@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Grazas por completar");//Thank you for completi
 define("_NOREPORTSFOUNDINTHESYSTEM","Non hai relatos atopados no sistema");//No reports found in the system
 define("_YOUMAYCREATEONE","Podes crear unha");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Non podes cambiar o modo de clase, porque hai usuarios rexistrarte para o curso");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Non podes eliminar o último elemento");//You cannot remove the last element (New)
-define("_CONTAINS","Contén");//Contains (New)
-define("_NOTCONTAINS","Non contén");//Does not contain (New)
-define("_REMOVEOPTION","Opción Eliminar");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Considere correcto cando os puntos acumulados son maiores ou iguais a");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automático");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","opcións de auto-corrixir");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Pregunta corrección");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Separe as palabras con tubos |");//Separate words with pipe | (New)
-define("_POINTS","Puntos");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Non podes eliminar o último elemento");//You cannot remove the last element
+define("_CONTAINS","Contén");//Contains
+define("_NOTCONTAINS","Non contén");//Does not contain
+define("_REMOVEOPTION","Opción Eliminar");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Considere correcto cando os puntos acumulados son maiores ou iguais a");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automático");//Automatic
+define("_AUTOCORRECTOPTIONS","opcións de auto-corrixir");//Auto-correct options
+define("_QUESTIONCORRECTION","Pregunta corrección");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Separe as palabras con tubos |");//Separate words with pipe |
+define("_POINTS","Puntos");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","O usuario non ten este curso");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","O usuario non ten esta lección");//The user does not have this lesson
 define("_USERACCESSGRANTED","O acceso do usuario concedida");//User access granted
-define("_FORCECHANGEPASSWORD","Forzar cambio de contrasinal tras a sesión inicial");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Cambiar contrasinal");//Change password (New)
-define("_OLDPASSWORD","O contrasinal antiga");//Old password (New)
-define("_NEWPASSWORD","Novo contrasinal");//New password (New)
-define("_ONLINETIME","Tempo en liña");//Time online (New)
-define("_ONLINESINCE","Online desde");//Online since (New)
-define("_MANUALLY","Manualmente");//Manually (New)
-define("_CLEAROPCODECACHE","Limpar a caché do opcode");//Clear opcode cache (New)
-define("_USELOGO","Use o logotipo");//Use logo (New)
-define("_DEFAULTLOGO","logo Default");//Default logo (New)
-define("_UPLOADSITELOGO","Subida logotipo do sitio");//Upload site logo (New)
-define("_ATLEAST","Polo menos");//At least (New)
-define("_ATMOST","Como máximo,");//At most (New)
-define("_EQUALTO","Igual a");//Equal to (New)
-define("_SKILLSSTATISTICS","Habilidade informes");//Skill reports (New)
-define("_STATISTICSFORSKILL","Informes para a habilidade");//Reports for skill (New)
-define("_CHOOSESKILL","Escolla habilidade");//Choose skill (New)
-define("_SKILLGRAPH","Gráfico Skill");//Skill graph (New)
-define("_TOTALSKILLS","habilidades Total");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Comunicación asíncrono SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Pasar a unha comunicación asíncrono, se está afrontando problemas para completar o contido SCORM (especialmente no caso de que vostede está a usar o Adobe Captivate contido xerado)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Nota: os pagamentos desativação ha establecer os prezos a 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Varias opcións");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Forzar cambio de contrasinal tras a sesión inicial");//Force password change upon initial login
+define("_CHANGEPASSWORD","Cambiar contrasinal");//Change password
+define("_OLDPASSWORD","O contrasinal antiga");//Old password
+define("_NEWPASSWORD","Novo contrasinal");//New password
+define("_ONLINETIME","Tempo en liña");//Time online
+define("_ONLINESINCE","Online desde");//Online since
+define("_MANUALLY","Manualmente");//Manually
+define("_CLEAROPCODECACHE","Limpar a caché do opcode");//Clear opcode cache
+define("_USELOGO","Use o logotipo");//Use logo
+define("_DEFAULTLOGO","logo Default");//Default logo
+define("_UPLOADSITELOGO","Subida logotipo do sitio");//Upload site logo
+define("_ATLEAST","Polo menos");//At least
+define("_ATMOST","Como máximo,");//At most
+define("_EQUALTO","Igual a");//Equal to
+define("_SKILLSSTATISTICS","Habilidade informes");//Skill reports
+define("_STATISTICSFORSKILL","Informes para a habilidade");//Reports for skill
+define("_CHOOSESKILL","Escolla habilidade");//Choose skill
+define("_SKILLGRAPH","Gráfico Skill");//Skill graph
+define("_TOTALSKILLS","habilidades Total");//Total skills
+define("_SCORMASYNCHROUNOUS","Comunicación asíncrono SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Pasar a unha comunicación asíncrono, se está afrontando problemas para completar o contido SCORM (especialmente no caso de que vostede está a usar o Adobe Captivate contido xerado)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Nota: os pagamentos desativação ha establecer os prezos a 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Varias opcións");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Súa sesión caducou. Por favor");//Your session has expired. Please (New)
+define("_CLICKHERE","click aquí");//click here (New)
+define("_TOLOGINAGAIN","loguear novo");//to login again (New)
+define("_SESSIONEXPIRED","Sesión expirou");//Session expired (New)
 ?>

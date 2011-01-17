@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Paldies par pabeigtu");//Thank you for completi
 define("_NOREPORTSFOUNDINTHESYSTEM","Neviens ziņojums atrodams sistēmā");//No reports found in the system
 define("_YOUMAYCREATEONE","Jūs varat izveidot vienu");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Jūs nevarat mainīt nodarbību režīmā, jo ir lietotāji uzņemti uz kursiem");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Nevar noņemt pēdējo elementu");//You cannot remove the last element (New)
-define("_CONTAINS","Satur");//Contains (New)
-define("_NOTCONTAINS","Nesatur");//Does not contain (New)
-define("_REMOVEOPTION","Novērst iespēju");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Apsveriet pareizas, uzkrātie punkti ir lielāks vai vienāds ar");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automātisks");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-pareizi options");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Attiecīgā korekcija");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Atdaliet vārdus ar cauruli |");//Separate words with pipe | (New)
-define("_POINTS","Punkti");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Nevar noņemt pēdējo elementu");//You cannot remove the last element
+define("_CONTAINS","Satur");//Contains
+define("_NOTCONTAINS","Nesatur");//Does not contain
+define("_REMOVEOPTION","Novērst iespēju");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Apsveriet pareizas, uzkrātie punkti ir lielāks vai vienāds ar");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automātisks");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-pareizi options");//Auto-correct options
+define("_QUESTIONCORRECTION","Attiecīgā korekcija");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Atdaliet vārdus ar cauruli |");//Separate words with pipe |
+define("_POINTS","Punkti");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Lietotājam nav šo kursu");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Lietotājam nav šīs nodarbības");//The user does not have this lesson
 define("_USERACCESSGRANTED","Lietotāju pieeju, kāda");//User access granted
-define("_FORCECHANGEPASSWORD","Spēkā paroles maiņa uz sākotnējo ieejas");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Mainīt paroli");//Change password (New)
-define("_OLDPASSWORD","Veco paroli");//Old password (New)
-define("_NEWPASSWORD","Jaunā parole");//New password (New)
-define("_ONLINETIME","Laika režīmā");//Time online (New)
-define("_ONLINESINCE","Internetā kopš");//Online since (New)
-define("_MANUALLY","Ar rokām");//Manually (New)
-define("_CLEAROPCODECACHE","Notīrīt opcode kešatmiņu");//Clear opcode cache (New)
-define("_USELOGO","Izmantojiet logo");//Use logo (New)
-define("_DEFAULTLOGO","Default logo");//Default logo (New)
-define("_UPLOADSITELOGO","Augšupielādēt vietas logo");//Upload site logo (New)
-define("_ATLEAST","Vismaz");//At least (New)
-define("_ATMOST","Ne vairāk kā");//At most (New)
-define("_EQUALTO","Vienāds ar");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill ziņojumus");//Skill reports (New)
-define("_STATISTICSFORSKILL","Ziņojumus par prasmju");//Reports for skill (New)
-define("_CHOOSESKILL","Izvēlēties prasmes");//Choose skill (New)
-define("_SKILLGRAPH","Skill grafiku");//Skill graph (New)
-define("_TOTALSKILLS","Kopā prasmes");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asinhronā SCORM komunikācijas");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Pārslēgt uz asinhronas komunikācijas, ja Jums rodas problēmas, aizpildot SCORM saturu (it īpaši, ja Jūs lietojat Adobe aizraut radītu saturu)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Brīdinājums: Atslēdz maksājumi tiks noteikti visām cenām uz 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Vairākas iespējas");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Spēkā paroles maiņa uz sākotnējo ieejas");//Force password change upon initial login
+define("_CHANGEPASSWORD","Mainīt paroli");//Change password
+define("_OLDPASSWORD","Veco paroli");//Old password
+define("_NEWPASSWORD","Jaunā parole");//New password
+define("_ONLINETIME","Laika režīmā");//Time online
+define("_ONLINESINCE","Internetā kopš");//Online since
+define("_MANUALLY","Ar rokām");//Manually
+define("_CLEAROPCODECACHE","Notīrīt opcode kešatmiņu");//Clear opcode cache
+define("_USELOGO","Izmantojiet logo");//Use logo
+define("_DEFAULTLOGO","Default logo");//Default logo
+define("_UPLOADSITELOGO","Augšupielādēt vietas logo");//Upload site logo
+define("_ATLEAST","Vismaz");//At least
+define("_ATMOST","Ne vairāk kā");//At most
+define("_EQUALTO","Vienāds ar");//Equal to
+define("_SKILLSSTATISTICS","Skill ziņojumus");//Skill reports
+define("_STATISTICSFORSKILL","Ziņojumus par prasmju");//Reports for skill
+define("_CHOOSESKILL","Izvēlēties prasmes");//Choose skill
+define("_SKILLGRAPH","Skill grafiku");//Skill graph
+define("_TOTALSKILLS","Kopā prasmes");//Total skills
+define("_SCORMASYNCHROUNOUS","Asinhronā SCORM komunikācijas");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Pārslēgt uz asinhronas komunikācijas, ja Jums rodas problēmas, aizpildot SCORM saturu (it īpaši, ja Jūs lietojat Adobe aizraut radītu saturu)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Brīdinājums: Atslēdz maksājumi tiks noteikti visām cenām uz 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Vairākas iespējas");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Jūsu sesija ir beigusies. Lūdzu");//Your session has expired. Please (New)
+define("_CLICKHERE","noklikšķiniet šeit");//click here (New)
+define("_TOLOGINAGAIN","pieteikties atkal");//to login again (New)
+define("_SESSIONEXPIRED","Sesija beidzās");//Session expired (New)
 ?>

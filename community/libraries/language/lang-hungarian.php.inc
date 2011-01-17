@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Köszönjük, hogy kitöltötte");//Thank you f
 define("_NOREPORTSFOUNDINTHESYSTEM","Nem jelentések található a rendszerben");//No reports found in the system
 define("_YOUMAYCREATEONE","Létre lehet hozni egy");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nem tudja megváltoztatni leckét mód, mert vannak olyan felhasználók iratkozott be a kurzusra");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Nem tudja eltávolítani az utolsó elem");//You cannot remove the last element (New)
-define("_CONTAINS","Tartalmaz");//Contains (New)
-define("_NOTCONTAINS","Nem tartalmaz");//Does not contain (New)
-define("_REMOVEOPTION","Törlése opciót");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Fontolja meg a helyes felhalmozott pontok nagyobb vagy egyenlő");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatikus");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Automatikus helyes beállítások");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Kérdés korrekció");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Külön szót cső |");//Separate words with pipe | (New)
-define("_POINTS","Pont");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Nem tudja eltávolítani az utolsó elem");//You cannot remove the last element
+define("_CONTAINS","Tartalmaz");//Contains
+define("_NOTCONTAINS","Nem tartalmaz");//Does not contain
+define("_REMOVEOPTION","Törlése opciót");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Fontolja meg a helyes felhalmozott pontok nagyobb vagy egyenlő");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatikus");//Automatic
+define("_AUTOCORRECTOPTIONS","Automatikus helyes beállítások");//Auto-correct options
+define("_QUESTIONCORRECTION","Kérdés korrekció");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Külön szót cső |");//Separate words with pipe |
+define("_POINTS","Pont");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","A felhasználó nem ezt az utat");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","A felhasználó nem rendelkezik ezzel a leckét");//The user does not have this lesson
 define("_USERACCESSGRANTED","Felhasználó számára biztosított hozzáféréshez");//User access granted
-define("_FORCECHANGEPASSWORD","Force jelszóváltoztatás után első bejelentkezés");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Megváltoztatni a jelszót");//Change password (New)
-define("_OLDPASSWORD","Régi jelszó");//Old password (New)
-define("_NEWPASSWORD","Új jelszó");//New password (New)
-define("_ONLINETIME","Idő Online");//Time online (New)
-define("_ONLINESINCE","Online");//Online since (New)
-define("_MANUALLY","Kézi");//Manually (New)
-define("_CLEAROPCODECACHE","Kódolatlan opcode gyorsítótár");//Clear opcode cache (New)
-define("_USELOGO","Használja logo");//Use logo (New)
-define("_DEFAULTLOGO","Alapértelmezett logo");//Default logo (New)
-define("_UPLOADSITELOGO","Feltöltés site logo");//Upload site logo (New)
-define("_ATLEAST","Legalább");//At least (New)
-define("_ATMOST","A legtöbb");//At most (New)
-define("_EQUALTO","Egyenlő");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill jelentések");//Skill reports (New)
-define("_STATISTICSFORSKILL","Jelentések a skill");//Reports for skill (New)
-define("_CHOOSESKILL","Válassza ki a skill");//Choose skill (New)
-define("_SKILLGRAPH","Skill grafikon");//Skill graph (New)
-define("_TOTALSKILLS","Összesen készségek");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Aszinkron kommunikáció SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Váltás aszinkron kommunikáció, ha hibát tapasztal kitöltése SCORM tartalom (főleg abban az esetben, ha az Adobe Captivate generált tartalom)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Figyelem: Ha kikapcsolja a kifizetések meg az árak 0-ra");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Több választási lehetőség");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force jelszóváltoztatás után első bejelentkezés");//Force password change upon initial login
+define("_CHANGEPASSWORD","Megváltoztatni a jelszót");//Change password
+define("_OLDPASSWORD","Régi jelszó");//Old password
+define("_NEWPASSWORD","Új jelszó");//New password
+define("_ONLINETIME","Idő Online");//Time online
+define("_ONLINESINCE","Online");//Online since
+define("_MANUALLY","Kézi");//Manually
+define("_CLEAROPCODECACHE","Kódolatlan opcode gyorsítótár");//Clear opcode cache
+define("_USELOGO","Használja logo");//Use logo
+define("_DEFAULTLOGO","Alapértelmezett logo");//Default logo
+define("_UPLOADSITELOGO","Feltöltés site logo");//Upload site logo
+define("_ATLEAST","Legalább");//At least
+define("_ATMOST","A legtöbb");//At most
+define("_EQUALTO","Egyenlő");//Equal to
+define("_SKILLSSTATISTICS","Skill jelentések");//Skill reports
+define("_STATISTICSFORSKILL","Jelentések a skill");//Reports for skill
+define("_CHOOSESKILL","Válassza ki a skill");//Choose skill
+define("_SKILLGRAPH","Skill grafikon");//Skill graph
+define("_TOTALSKILLS","Összesen készségek");//Total skills
+define("_SCORMASYNCHROUNOUS","Aszinkron kommunikáció SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Váltás aszinkron kommunikáció, ha hibát tapasztal kitöltése SCORM tartalom (főleg abban az esetben, ha az Adobe Captivate generált tartalom)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Figyelem: Ha kikapcsolja a kifizetések meg az árak 0-ra");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Több választási lehetőség");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","A munkamenet lejárt. Kérjük,");//Your session has expired. Please (New)
+define("_CLICKHERE","kattintson ide");//click here (New)
+define("_TOLOGINAGAIN","ismételt bejelentkezés");//to login again (New)
+define("_SESSIONEXPIRED","Session lejárt");//Session expired (New)
 ?>

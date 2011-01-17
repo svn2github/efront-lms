@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Cảm ơn bạn đã hoàn thành");//Thank you
 define("_NOREPORTSFOUNDINTHESYSTEM","Không có báo cáo tìm thấy trong hệ thống");//No reports found in the system
 define("_YOUMAYCREATEONE","Bạn có thể tạo ra một");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Bạn không thể thay đổi chế độ bài học vì có người dùng đăng ký cho khóa học");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","");//You cannot remove the last element (New)
-define("_CONTAINS","");//Contains (New)
-define("_NOTCONTAINS","");//Does not contain (New)
-define("_REMOVEOPTION","");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","");//Separate words with pipe | (New)
-define("_POINTS","");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","");//You cannot remove the last element
+define("_CONTAINS","");//Contains
+define("_NOTCONTAINS","");//Does not contain
+define("_REMOVEOPTION","");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","");//Automatic
+define("_AUTOCORRECTOPTIONS","");//Auto-correct options
+define("_QUESTIONCORRECTION","");//Question correction
+define("_SEPARATEWORDSWITHPIPE","");//Separate words with pipe |
+define("_POINTS","");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Người sử dụng không có khóa học này");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Người sử dụng không có bài học này");//The user does not have this lesson
 define("_USERACCESSGRANTED","Người sử dụng truy cập cấp");//User access granted
-define("_FORCECHANGEPASSWORD","");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","");//Change password (New)
-define("_OLDPASSWORD","");//Old password (New)
-define("_NEWPASSWORD","");//New password (New)
-define("_ONLINETIME","");//Time online (New)
-define("_ONLINESINCE","");//Online since (New)
-define("_MANUALLY","");//Manually (New)
-define("_CLEAROPCODECACHE","");//Clear opcode cache (New)
-define("_USELOGO","");//Use logo (New)
-define("_DEFAULTLOGO","");//Default logo (New)
-define("_UPLOADSITELOGO","");//Upload site logo (New)
-define("_ATLEAST","");//At least (New)
-define("_ATMOST","");//At most (New)
-define("_EQUALTO","");//Equal to (New)
-define("_SKILLSSTATISTICS","");//Skill reports (New)
-define("_STATISTICSFORSKILL","");//Reports for skill (New)
-define("_CHOOSESKILL","");//Choose skill (New)
-define("_SKILLGRAPH","");//Skill graph (New)
-define("_TOTALSKILLS","");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","");//Force password change upon initial login
+define("_CHANGEPASSWORD","");//Change password
+define("_OLDPASSWORD","");//Old password
+define("_NEWPASSWORD","");//New password
+define("_ONLINETIME","");//Time online
+define("_ONLINESINCE","");//Online since
+define("_MANUALLY","");//Manually
+define("_CLEAROPCODECACHE","");//Clear opcode cache
+define("_USELOGO","");//Use logo
+define("_DEFAULTLOGO","");//Default logo
+define("_UPLOADSITELOGO","");//Upload site logo
+define("_ATLEAST","");//At least
+define("_ATMOST","");//At most
+define("_EQUALTO","");//Equal to
+define("_SKILLSSTATISTICS","");//Skill reports
+define("_STATISTICSFORSKILL","");//Reports for skill
+define("_CHOOSESKILL","");//Choose skill
+define("_SKILLGRAPH","");//Skill graph
+define("_TOTALSKILLS","");//Total skills
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Phiên của bạn đã hết hạn. Xin");//Your session has expired. Please (New)
+define("_CLICKHERE","bấm vào đây");//click here (New)
+define("_TOLOGINAGAIN","đăng nhập lại");//to login again (New)
+define("_SESSIONEXPIRED","Kỳ họp đã hết hạn");//Session expired (New)
 ?>

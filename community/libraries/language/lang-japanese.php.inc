@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","完了していただきありがとうござ�
 define("_NOREPORTSFOUNDINTHESYSTEM","報告はシステムで検出された");//No reports found in the system
 define("_YOUMAYCREATEONE","あなたは、1つを作成することができます");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","ユーザが存在するため、レッスンモードを変更することはできませんコースに在籍");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","あなたは最後の要素を削除することはできません。");//You cannot remove the last element (New)
-define("_CONTAINS","含まれて");//Contains (New)
-define("_NOTCONTAINS","が含まれていないこと");//Does not contain (New)
-define("_REMOVEOPTION","オプションを削除");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考えて修正する累積ポイントが大きいか等しい場合");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","自動");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","オートコレクトのオプション");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","質問補正");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","パイプで区切っての言葉|");//Separate words with pipe | (New)
-define("_POINTS","ポイント");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","あなたは最後の要素を削除することはできません。");//You cannot remove the last element
+define("_CONTAINS","含まれて");//Contains
+define("_NOTCONTAINS","が含まれていないこと");//Does not contain
+define("_REMOVEOPTION","オプションを削除");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考えて修正する累積ポイントが大きいか等しい場合");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","自動");//Automatic
+define("_AUTOCORRECTOPTIONS","オートコレクトのオプション");//Auto-correct options
+define("_QUESTIONCORRECTION","質問補正");//Question correction
+define("_SEPARATEWORDSWITHPIPE","パイプで区切っての言葉|");//Separate words with pipe |
+define("_POINTS","ポイント");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","ユーザーはこのコースを持っていない");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","ユーザーはこのレッスンを持っていない");//The user does not have this lesson
 define("_USERACCESSGRANTED","ユーザーのアクセスが許可さ");//User access granted
-define("_FORCECHANGEPASSWORD","最初のログイン時に強制的にパスワードの変更");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","パスワードの変更");//Change password (New)
-define("_OLDPASSWORD","古いパスワード");//Old password (New)
-define("_NEWPASSWORD","新しいパスワード");//New password (New)
-define("_ONLINETIME","時間を買う");//Time online (New)
-define("_ONLINESINCE","オンラインから");//Online since (New)
-define("_MANUALLY","手動");//Manually (New)
-define("_CLEAROPCODECACHE","クリアオプコードキャッシュ");//Clear opcode cache (New)
-define("_USELOGO","を使用しています");//Use logo (New)
-define("_DEFAULTLOGO","デフォルトのロゴ");//Default logo (New)
-define("_UPLOADSITELOGO","アップロードサイトロゴ");//Upload site logo (New)
-define("_ATLEAST","少なくとも");//At least (New)
-define("_ATMOST","せいぜい");//At most (New)
-define("_EQUALTO","等しい");//Equal to (New)
-define("_SKILLSSTATISTICS","スキルが報告");//Skill reports (New)
-define("_STATISTICSFORSKILL","スキルレポート");//Reports for skill (New)
-define("_CHOOSESKILL","スキルを選択してください");//Choose skill (New)
-define("_SKILLGRAPH","スキルグラフ");//Skill graph (New)
-define("_TOTALSKILLS","合計スキル");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","非同期SCORMの通信");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","非同期通信に切り替えて、あなたが問題をSCORMコンテンツを完了する（大文字と小文字を中心にするには、Adobeは、生成されたコンテンツを魅了している）が発生している場合");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：無効の支払いはすべて0に価格を設定します");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","複数のオプション");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","最初のログイン時に強制的にパスワードの変更");//Force password change upon initial login
+define("_CHANGEPASSWORD","パスワードの変更");//Change password
+define("_OLDPASSWORD","古いパスワード");//Old password
+define("_NEWPASSWORD","新しいパスワード");//New password
+define("_ONLINETIME","時間を買う");//Time online
+define("_ONLINESINCE","オンラインから");//Online since
+define("_MANUALLY","手動");//Manually
+define("_CLEAROPCODECACHE","クリアオプコードキャッシュ");//Clear opcode cache
+define("_USELOGO","を使用しています");//Use logo
+define("_DEFAULTLOGO","デフォルトのロゴ");//Default logo
+define("_UPLOADSITELOGO","アップロードサイトロゴ");//Upload site logo
+define("_ATLEAST","少なくとも");//At least
+define("_ATMOST","せいぜい");//At most
+define("_EQUALTO","等しい");//Equal to
+define("_SKILLSSTATISTICS","スキルが報告");//Skill reports
+define("_STATISTICSFORSKILL","スキルレポート");//Reports for skill
+define("_CHOOSESKILL","スキルを選択してください");//Choose skill
+define("_SKILLGRAPH","スキルグラフ");//Skill graph
+define("_TOTALSKILLS","合計スキル");//Total skills
+define("_SCORMASYNCHROUNOUS","非同期SCORMの通信");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","非同期通信に切り替えて、あなたが問題をSCORMコンテンツを完了する（大文字と小文字を中心にするには、Adobeは、生成されたコンテンツを魅了している）が発生している場合");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：無効の支払いはすべて0に価格を設定します");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","複数のオプション");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","セッションが期限切れになっています。してください。");//Your session has expired. Please (New)
+define("_CLICKHERE","ここをクリックしてください");//click here (New)
+define("_TOLOGINAGAIN","再度ログインする");//to login again (New)
+define("_SESSIONEXPIRED","セッションの有効期限が切れ");//Session expired (New)
 ?>

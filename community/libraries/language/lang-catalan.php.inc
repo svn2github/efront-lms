@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Gràcies per completar");//Thank you for comple
 define("_NOREPORTSFOUNDINTHESYSTEM","No hi ha informes que es troben en el sistema");//No reports found in the system
 define("_YOUMAYCREATEONE","Vostè pot crear un");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","No es pot canviar la manera de lliçó, perquè hi ha usuaris inscrits al curs");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","No es pot eliminar l&#39;últim element");//You cannot remove the last element (New)
-define("_CONTAINS","Conté");//Contains (New)
-define("_NOTCONTAINS","No conté");//Does not contain (New)
-define("_REMOVEOPTION","Opció Treure");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Penseu en la possibilitat de corregir quan els punts acumulats són majors o igual a");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automàtica");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","opcions d&#39;autocorrecció");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Pregunta correcció");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Separar les paraules amb canonada |");//Separate words with pipe | (New)
-define("_POINTS","Punts");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","No es pot eliminar l&#39;últim element");//You cannot remove the last element
+define("_CONTAINS","Conté");//Contains
+define("_NOTCONTAINS","No conté");//Does not contain
+define("_REMOVEOPTION","Opció Treure");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Penseu en la possibilitat de corregir quan els punts acumulats són majors o igual a");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automàtica");//Automatic
+define("_AUTOCORRECTOPTIONS","opcions d&#39;autocorrecció");//Auto-correct options
+define("_QUESTIONCORRECTION","Pregunta correcció");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Separar les paraules amb canonada |");//Separate words with pipe |
+define("_POINTS","Punts");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","L&#39;usuari no té aquest curs");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","L&#39;usuari no té aquesta lliçó");//The user does not have this lesson
 define("_USERACCESSGRANTED","l&#39;accés d&#39;usuari atorgats");//User access granted
-define("_FORCECHANGEPASSWORD","Força de canviar la contrasenya en iniciar sessió inicial");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Canviar la contrasenya");//Change password (New)
-define("_OLDPASSWORD","Contrasenya antiga");//Old password (New)
-define("_NEWPASSWORD","Nova contrasenya");//New password (New)
-define("_ONLINETIME","Temps en línia");//Time online (New)
-define("_ONLINESINCE","Online des");//Online since (New)
-define("_MANUALLY","Manualment");//Manually (New)
-define("_CLEAROPCODECACHE","Buida la memòria cau del codi d&#39;operació");//Clear opcode cache (New)
-define("_USELOGO","Utilitzar el logotip");//Use logo (New)
-define("_DEFAULTLOGO","Predeterminat logotip");//Default logo (New)
-define("_UPLOADSITELOGO","Pujar logo del lloc");//Upload site logo (New)
-define("_ATLEAST","Si més no");//At least (New)
-define("_ATMOST","En la majoria de");//At most (New)
-define("_EQUALTO","Igual a");//Equal to (New)
-define("_SKILLSSTATISTICS","Habilitat informes");//Skill reports (New)
-define("_STATISTICSFORSKILL","Informes d&#39;habilitat");//Reports for skill (New)
-define("_CHOOSESKILL","Trieu habilitat");//Choose skill (New)
-define("_SKILLGRAPH","Habilitat gràfic");//Skill graph (New)
-define("_TOTALSKILLS","habilitats Total");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","SCORM comunicació asincrònica");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Canviar a la comunicació asíncrona si vostè està experimentant problemes per completar el contingut SCORM (especialment en el cas que feu servir Adobe CAPTIVATE contingut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advertència: Els pagaments de Desactivació fixarà els preus a 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Múltiples opcions");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Força de canviar la contrasenya en iniciar sessió inicial");//Force password change upon initial login
+define("_CHANGEPASSWORD","Canviar la contrasenya");//Change password
+define("_OLDPASSWORD","Contrasenya antiga");//Old password
+define("_NEWPASSWORD","Nova contrasenya");//New password
+define("_ONLINETIME","Temps en línia");//Time online
+define("_ONLINESINCE","Online des");//Online since
+define("_MANUALLY","Manualment");//Manually
+define("_CLEAROPCODECACHE","Buida la memòria cau del codi d&#39;operació");//Clear opcode cache
+define("_USELOGO","Utilitzar el logotip");//Use logo
+define("_DEFAULTLOGO","Predeterminat logotip");//Default logo
+define("_UPLOADSITELOGO","Pujar logo del lloc");//Upload site logo
+define("_ATLEAST","Si més no");//At least
+define("_ATMOST","En la majoria de");//At most
+define("_EQUALTO","Igual a");//Equal to
+define("_SKILLSSTATISTICS","Habilitat informes");//Skill reports
+define("_STATISTICSFORSKILL","Informes d&#39;habilitat");//Reports for skill
+define("_CHOOSESKILL","Trieu habilitat");//Choose skill
+define("_SKILLGRAPH","Habilitat gràfic");//Skill graph
+define("_TOTALSKILLS","habilitats Total");//Total skills
+define("_SCORMASYNCHROUNOUS","SCORM comunicació asincrònica");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Canviar a la comunicació asíncrona si vostè està experimentant problemes per completar el contingut SCORM (especialment en el cas que feu servir Adobe CAPTIVATE contingut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advertència: Els pagaments de Desactivació fixarà els preus a 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Múltiples opcions");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","La seva sessió ha caducat. Si us plau,");//Your session has expired. Please (New)
+define("_CLICKHERE","feu clic aquí");//click here (New)
+define("_TOLOGINAGAIN","connectar-se de nou");//to login again (New)
+define("_SESSIONEXPIRED","Sessió de venciment");//Session expired (New)
 ?>

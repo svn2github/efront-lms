@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","doldurduğunuz için teşekkürler");//Thank yo
 define("_NOREPORTSFOUNDINTHESYSTEM","Hiçbir rapor sistemi bulundu");//No reports found in the system
 define("_YOUMAYCREATEONE","Bir oluşturabilir");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","kullanıcı var, çünkü ders modunu değiştiremezsiniz ders alındı");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Eğer son eleman silemezsiniz");//You cannot remove the last element (New)
-define("_CONTAINS","Içeren");//Contains (New)
-define("_NOTCONTAINS","içermez");//Does not contain (New)
-define("_REMOVEOPTION","Kaldır seçeneğini");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Düşünün doğru birikmiş puan büyük veya eşit olduğu zaman");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Otomatik");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Otomatik seçenekleri doğru");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Soru düzeltme");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","boru ile ayırın sözler |");//Separate words with pipe | (New)
-define("_POINTS","Puan");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Eğer son eleman silemezsiniz");//You cannot remove the last element
+define("_CONTAINS","Içeren");//Contains
+define("_NOTCONTAINS","içermez");//Does not contain
+define("_REMOVEOPTION","Kaldır seçeneğini");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Düşünün doğru birikmiş puan büyük veya eşit olduğu zaman");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Otomatik");//Automatic
+define("_AUTOCORRECTOPTIONS","Otomatik seçenekleri doğru");//Auto-correct options
+define("_QUESTIONCORRECTION","Soru düzeltme");//Question correction
+define("_SEPARATEWORDSWITHPIPE","boru ile ayırın sözler |");//Separate words with pipe |
+define("_POINTS","Puan");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Kullanıcı bu ders yok");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Kullanıcı bu dersi yok");//The user does not have this lesson
 define("_USERACCESSGRANTED","Kullanıcı erişim izni");//User access granted
-define("_FORCECHANGEPASSWORD","ilk giriş üzerine Force şifresini değiştirmek");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Şifre değiştir");//Change password (New)
-define("_OLDPASSWORD","Eski şifre");//Old password (New)
-define("_NEWPASSWORD","Yeni şifre");//New password (New)
-define("_ONLINETIME","Zaman online");//Time online (New)
-define("_ONLINESINCE","Online beri");//Online since (New)
-define("_MANUALLY","El ile");//Manually (New)
-define("_CLEAROPCODECACHE","Net opcode önbellek");//Clear opcode cache (New)
-define("_USELOGO","Kullanım logo");//Use logo (New)
-define("_DEFAULTLOGO","");//Default logo (New)
-define("_UPLOADSITELOGO","");//Upload site logo (New)
-define("_ATLEAST","");//At least (New)
-define("_ATMOST","");//At most (New)
-define("_EQUALTO","");//Equal to (New)
-define("_SKILLSSTATISTICS","");//Skill reports (New)
-define("_STATISTICSFORSKILL","");//Reports for skill (New)
-define("_CHOOSESKILL","");//Choose skill (New)
-define("_SKILLGRAPH","");//Skill graph (New)
-define("_TOTALSKILLS","");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","ilk giriş üzerine Force şifresini değiştirmek");//Force password change upon initial login
+define("_CHANGEPASSWORD","Şifre değiştir");//Change password
+define("_OLDPASSWORD","Eski şifre");//Old password
+define("_NEWPASSWORD","Yeni şifre");//New password
+define("_ONLINETIME","Zaman online");//Time online
+define("_ONLINESINCE","Online beri");//Online since
+define("_MANUALLY","El ile");//Manually
+define("_CLEAROPCODECACHE","Net opcode önbellek");//Clear opcode cache
+define("_USELOGO","Kullanım logo");//Use logo
+define("_DEFAULTLOGO","");//Default logo
+define("_UPLOADSITELOGO","");//Upload site logo
+define("_ATLEAST","");//At least
+define("_ATMOST","");//At most
+define("_EQUALTO","");//Equal to
+define("_SKILLSSTATISTICS","");//Skill reports
+define("_STATISTICSFORSKILL","");//Reports for skill
+define("_CHOOSESKILL","");//Choose skill
+define("_SKILLGRAPH","");//Skill graph
+define("_TOTALSKILLS","");//Total skills
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Oturumunuz zaman aşımına uğradı. Lütfen");//Your session has expired. Please (New)
+define("_CLICKHERE","buraya tıklayın");//click here (New)
+define("_TOLOGINAGAIN","yeniden giriş");//to login again (New)
+define("_SESSIONEXPIRED","Oturum süresi doldu");//Session expired (New)
 ?>

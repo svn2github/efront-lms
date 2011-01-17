@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Благодаря ви за завършван
 define("_NOREPORTSFOUNDINTHESYSTEM","Не доклади открит в системата");//No reports found in the system
 define("_YOUMAYCREATEONE","Можете да си създадете");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим урок, защото има потребители включени в курса");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Вие не можете да премахнете последния елемент");//You cannot remove the last element (New)
-define("_CONTAINS","Съдържа");//Contains (New)
-define("_NOTCONTAINS","Не съдържа");//Does not contain (New)
-define("_REMOVEOPTION","Премахване на опцията");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Помислете за правилно, когато събраните точки са по-големи или равни на");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Автоматичен");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-правилно опциите");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Въпрос корекция");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Отделни думи с тръби |");//Separate words with pipe | (New)
-define("_POINTS","Точки");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Вие не можете да премахнете последния елемент");//You cannot remove the last element
+define("_CONTAINS","Съдържа");//Contains
+define("_NOTCONTAINS","Не съдържа");//Does not contain
+define("_REMOVEOPTION","Премахване на опцията");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Помислете за правилно, когато събраните точки са по-големи или равни на");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Автоматичен");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-правилно опциите");//Auto-correct options
+define("_QUESTIONCORRECTION","Въпрос корекция");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Отделни думи с тръби |");//Separate words with pipe |
+define("_POINTS","Точки");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Потребителят не е този курс");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Потребителят не е този урок");//The user does not have this lesson
 define("_USERACCESSGRANTED","Потребителски достъп, предоставен");//User access granted
-define("_FORCECHANGEPASSWORD","Сили за промяна на паролата при първоначалното влизане");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Промяна на паролата");//Change password (New)
-define("_OLDPASSWORD","Стара парола");//Old password (New)
-define("_NEWPASSWORD","Нова парола");//New password (New)
-define("_ONLINETIME","Време онлайн");//Time online (New)
-define("_ONLINESINCE","Online от");//Online since (New)
-define("_MANUALLY","Ръчно");//Manually (New)
-define("_CLEAROPCODECACHE","Ясно Кодът кеш");//Clear opcode cache (New)
-define("_USELOGO","Използвайте лого");//Use logo (New)
-define("_DEFAULTLOGO","По подразбиране лого");//Default logo (New)
-define("_UPLOADSITELOGO","Качване на логото на сайта");//Upload site logo (New)
-define("_ATLEAST","Най-малко");//At least (New)
-define("_ATMOST","В най-");//At most (New)
-define("_EQUALTO","Равни");//Equal to (New)
-define("_SKILLSSTATISTICS","Умение доклади");//Skill reports (New)
-define("_STATISTICSFORSKILL","Доклади за умения");//Reports for skill (New)
-define("_CHOOSESKILL","Изберете умения");//Choose skill (New)
-define("_SKILLGRAPH","Умение графика");//Skill graph (New)
-define("_TOTALSKILLS","Общо умения");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Асинхронни SCORM комуникация");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Преминаване към комуникация в различно време, ако изпитвате проблеми завършване SCORM съдържание (особено в случай, че използвате Adobe пленявам съдържание)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Забележка: Изключването на плащанията ще постави всички цени до 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Няколко опции");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Сили за промяна на паролата при първоначалното влизане");//Force password change upon initial login
+define("_CHANGEPASSWORD","Промяна на паролата");//Change password
+define("_OLDPASSWORD","Стара парола");//Old password
+define("_NEWPASSWORD","Нова парола");//New password
+define("_ONLINETIME","Време онлайн");//Time online
+define("_ONLINESINCE","Online от");//Online since
+define("_MANUALLY","Ръчно");//Manually
+define("_CLEAROPCODECACHE","Ясно Кодът кеш");//Clear opcode cache
+define("_USELOGO","Използвайте лого");//Use logo
+define("_DEFAULTLOGO","По подразбиране лого");//Default logo
+define("_UPLOADSITELOGO","Качване на логото на сайта");//Upload site logo
+define("_ATLEAST","Най-малко");//At least
+define("_ATMOST","В най-");//At most
+define("_EQUALTO","Равни");//Equal to
+define("_SKILLSSTATISTICS","Умение доклади");//Skill reports
+define("_STATISTICSFORSKILL","Доклади за умения");//Reports for skill
+define("_CHOOSESKILL","Изберете умения");//Choose skill
+define("_SKILLGRAPH","Умение графика");//Skill graph
+define("_TOTALSKILLS","Общо умения");//Total skills
+define("_SCORMASYNCHROUNOUS","Асинхронни SCORM комуникация");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Преминаване към комуникация в различно време, ако изпитвате проблеми завършване SCORM съдържание (особено в случай, че използвате Adobe пленявам съдържание)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Забележка: Изключването на плащанията ще постави всички цени до 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Няколко опции");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Вашата сесия е изтекла. Моля");//Your session has expired. Please (New)
+define("_CLICKHERE","натиснете тук");//click here (New)
+define("_TOLOGINAGAIN","да влезете отново");//to login again (New)
+define("_SESSIONEXPIRED","Сесия е изтекъл");//Session expired (New)
 ?>

@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","완료 주셔서 감사합니다");//Thank you 
 define("_NOREPORTSFOUNDINTHESYSTEM","대한보고는 시스템에서 찾은");//No reports found in the system
 define("_YOUMAYCREATEONE","하나를 만들 수 있습니다");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","사용자가 있기 때문에 당신은 강의 모드를 변경할 수 없습니다 코스 등록");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","당신은 마지막 요소를 제거할 수 없습니다");//You cannot remove the last element (New)
-define("_CONTAINS","포함");//Contains (New)
-define("_NOTCONTAINS","포함하지 않습니다");//Does not contain (New)
-define("_REMOVEOPTION","제거 옵션을");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","고려 올바른 축적된 포인트가 크거나 같음 때");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","자동");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","자동 수정 옵션");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","질문 보정");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","파이프로 구분 단어 |");//Separate words with pipe | (New)
-define("_POINTS","포인트");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","당신은 마지막 요소를 제거할 수 없습니다");//You cannot remove the last element
+define("_CONTAINS","포함");//Contains
+define("_NOTCONTAINS","포함하지 않습니다");//Does not contain
+define("_REMOVEOPTION","제거 옵션을");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","고려 올바른 축적된 포인트가 크거나 같음 때");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","자동");//Automatic
+define("_AUTOCORRECTOPTIONS","자동 수정 옵션");//Auto-correct options
+define("_QUESTIONCORRECTION","질문 보정");//Question correction
+define("_SEPARATEWORDSWITHPIPE","파이프로 구분 단어 |");//Separate words with pipe |
+define("_POINTS","포인트");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","사용자는이 과정이 없습니다");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","사용자는이 수업이 없습니다");//The user does not have this lesson
 define("_USERACCESSGRANTED","사용자 액세스 부여");//User access granted
-define("_FORCECHANGEPASSWORD","초기 로그인시 강제 비밀 번호 변경");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","비밀 번호 변경");//Change password (New)
-define("_OLDPASSWORD","이전 비밀 번호");//Old password (New)
-define("_NEWPASSWORD","새 비밀 번호");//New password (New)
-define("_ONLINETIME","온라인 시간");//Time online (New)
-define("_ONLINESINCE","온라인 이후");//Online since (New)
-define("_MANUALLY","수동");//Manually (New)
-define("_CLEAROPCODECACHE","지우기 opcode 캐시");//Clear opcode cache (New)
-define("_USELOGO","사용하는 로고");//Use logo (New)
-define("_DEFAULTLOGO","기본 로고");//Default logo (New)
-define("_UPLOADSITELOGO","업로드 사이트 로고");//Upload site logo (New)
-define("_ATLEAST","적어도");//At least (New)
-define("_ATMOST","대부분의시");//At most (New)
-define("_EQUALTO","같음");//Equal to (New)
-define("_SKILLSSTATISTICS","기술 리포트");//Skill reports (New)
-define("_STATISTICSFORSKILL","스킬에 대한 리포트");//Reports for skill (New)
-define("_CHOOSESKILL","기술 선택");//Choose skill (New)
-define("_SKILLGRAPH","스킬 그래프");//Skill graph (New)
-define("_TOTALSKILLS","총 기술");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","SCORM 비동기 통신");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","비동기 통신 스위치에 문제가 SCORM 콘텐츠를 완료 (대소문자 특히 당신은 어도비가 만든 콘텐츠를 사로 잡 사용하는)가 발생하는 경우");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","경고 : 사용 중지 지불 0으로 모든 가격을 설정합니다");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","복합 옵션");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","초기 로그인시 강제 비밀 번호 변경");//Force password change upon initial login
+define("_CHANGEPASSWORD","비밀 번호 변경");//Change password
+define("_OLDPASSWORD","이전 비밀 번호");//Old password
+define("_NEWPASSWORD","새 비밀 번호");//New password
+define("_ONLINETIME","온라인 시간");//Time online
+define("_ONLINESINCE","온라인 이후");//Online since
+define("_MANUALLY","수동");//Manually
+define("_CLEAROPCODECACHE","지우기 opcode 캐시");//Clear opcode cache
+define("_USELOGO","사용하는 로고");//Use logo
+define("_DEFAULTLOGO","기본 로고");//Default logo
+define("_UPLOADSITELOGO","업로드 사이트 로고");//Upload site logo
+define("_ATLEAST","적어도");//At least
+define("_ATMOST","대부분의시");//At most
+define("_EQUALTO","같음");//Equal to
+define("_SKILLSSTATISTICS","기술 리포트");//Skill reports
+define("_STATISTICSFORSKILL","스킬에 대한 리포트");//Reports for skill
+define("_CHOOSESKILL","기술 선택");//Choose skill
+define("_SKILLGRAPH","스킬 그래프");//Skill graph
+define("_TOTALSKILLS","총 기술");//Total skills
+define("_SCORMASYNCHROUNOUS","SCORM 비동기 통신");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","비동기 통신 스위치에 문제가 SCORM 콘텐츠를 완료 (대소문자 특히 당신은 어도비가 만든 콘텐츠를 사로 잡 사용하는)가 발생하는 경우");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","경고 : 사용 중지 지불 0으로 모든 가격을 설정합니다");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","복합 옵션");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","세션이 만료되었습니다. 제발");//Your session has expired. Please (New)
+define("_CLICKHERE","여기를 클릭하세요");//click here (New)
+define("_TOLOGINAGAIN","다시 로그인");//to login again (New)
+define("_SESSIONEXPIRED","세션이 만료되었습니다");//Session expired (New)
 ?>

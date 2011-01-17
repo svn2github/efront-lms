@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Salamat sa iyo para sa pagkumpleto ng");//Thank
 define("_NOREPORTSFOUNDINTHESYSTEM","Walang mga ulat na natagpuan sa sistema");//No reports found in the system
 define("_YOUMAYCREATEONE","Maaari kang lumikha ng isa");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Hindi mo maaaring baguhin aral mode dahil may mga gumagamit enrol sa kurso");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Ikaw ay hindi maaaring tanggalin ang huling sangkap");//You cannot remove the last element (New)
-define("_CONTAINS","Naglalaman ng");//Contains (New)
-define("_NOTCONTAINS","Ay hindi naglalaman ng");//Does not contain (New)
-define("_REMOVEOPTION","Alisin ang mga pagpipilian");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Isaalang-alang ang tamang pag accumulated puntos ay mas higit sa o katumbas ng");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Awtomatikong");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-ayos ang mga opsyon");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Tanong pagtutuwid");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Paghiwalayin ang mga salitang may pipe |");//Separate words with pipe | (New)
-define("_POINTS","Puntos");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Ikaw ay hindi maaaring tanggalin ang huling sangkap");//You cannot remove the last element
+define("_CONTAINS","Naglalaman ng");//Contains
+define("_NOTCONTAINS","Ay hindi naglalaman ng");//Does not contain
+define("_REMOVEOPTION","Alisin ang mga pagpipilian");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Isaalang-alang ang tamang pag accumulated puntos ay mas higit sa o katumbas ng");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Awtomatikong");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-ayos ang mga opsyon");//Auto-correct options
+define("_QUESTIONCORRECTION","Tanong pagtutuwid");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Paghiwalayin ang mga salitang may pipe |");//Separate words with pipe |
+define("_POINTS","Puntos");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Ang user ay hindi magkaroon ng kurso na ito");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Ang user ay hindi magkaroon ng araling ito");//The user does not have this lesson
 define("_USERACCESSGRANTED","Access ng gumagamit sa ipinagkaloob");//User access granted
-define("_FORCECHANGEPASSWORD","Force password baguhin sa unang pag-login");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Baguhin ang password");//Change password (New)
-define("_OLDPASSWORD","Old password");//Old password (New)
-define("_NEWPASSWORD","Bagong password");//New password (New)
-define("_ONLINETIME","Time online");//Time online (New)
-define("_ONLINESINCE","Online since");//Online since (New)
-define("_MANUALLY","Mano-manong");//Manually (New)
-define("_CLEAROPCODECACHE","Malinaw opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Gamitin si");//Use logo (New)
-define("_DEFAULTLOGO","Default na si");//Default logo (New)
-define("_UPLOADSITELOGO","Mag-upload ng site logo");//Upload site logo (New)
-define("_ATLEAST","Kahit");//At least (New)
-define("_ATMOST","Sa karamihan");//At most (New)
-define("_EQUALTO","Katumbas sa");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill ulat");//Skill reports (New)
-define("_STATISTICSFORSKILL","Ulat para sa kakayahan");//Reports for skill (New)
-define("_CHOOSESKILL","Pumili ng kasanayan");//Choose skill (New)
-define("_SKILLGRAPH","Skill graph");//Skill graph (New)
-define("_TOTALSKILLS","Kabuuang kasanayan");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchronous SCORM komunikasyon");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Lumipat sa asynchronous komunikasyon kung ikaw ay nakararanas ng problema sa pagkumpleto SCORM nilalaman (lalo na sa kasong ikaw ay gumagamit ng Adobe makabihag nakabuo ng nilalaman)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Babala: Hindi pagpapagana sa mga pagbabayad ay magse-set ang lahat ng mga presyo sa 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Maraming mga opsyon");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force password baguhin sa unang pag-login");//Force password change upon initial login
+define("_CHANGEPASSWORD","Baguhin ang password");//Change password
+define("_OLDPASSWORD","Old password");//Old password
+define("_NEWPASSWORD","Bagong password");//New password
+define("_ONLINETIME","Time online");//Time online
+define("_ONLINESINCE","Online since");//Online since
+define("_MANUALLY","Mano-manong");//Manually
+define("_CLEAROPCODECACHE","Malinaw opcode cache");//Clear opcode cache
+define("_USELOGO","Gamitin si");//Use logo
+define("_DEFAULTLOGO","Default na si");//Default logo
+define("_UPLOADSITELOGO","Mag-upload ng site logo");//Upload site logo
+define("_ATLEAST","Kahit");//At least
+define("_ATMOST","Sa karamihan");//At most
+define("_EQUALTO","Katumbas sa");//Equal to
+define("_SKILLSSTATISTICS","Skill ulat");//Skill reports
+define("_STATISTICSFORSKILL","Ulat para sa kakayahan");//Reports for skill
+define("_CHOOSESKILL","Pumili ng kasanayan");//Choose skill
+define("_SKILLGRAPH","Skill graph");//Skill graph
+define("_TOTALSKILLS","Kabuuang kasanayan");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchronous SCORM komunikasyon");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Lumipat sa asynchronous komunikasyon kung ikaw ay nakararanas ng problema sa pagkumpleto SCORM nilalaman (lalo na sa kasong ikaw ay gumagamit ng Adobe makabihag nakabuo ng nilalaman)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Babala: Hindi pagpapagana sa mga pagbabayad ay magse-set ang lahat ng mga presyo sa 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Maraming mga opsyon");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Ang iyong session ay natapos na. Pakiusap");//Your session has expired. Please (New)
+define("_CLICKHERE","i-click dito");//click here (New)
+define("_TOLOGINAGAIN","sa login muli");//to login again (New)
+define("_SESSIONEXPIRED","Session nang bisa");//Session expired (New)
 ?>

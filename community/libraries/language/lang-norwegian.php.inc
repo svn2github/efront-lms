@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Takk for at du fullførte");//Thank you for com
 define("_NOREPORTSFOUNDINTHESYSTEM","Ingen rapporter funnet i systemet");//No reports found in the system
 define("_YOUMAYCREATEONE","Du kan opprette en");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan ikke endre leksjonen modus fordi det er brukere som er lært til kurset");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Du kan ikke fjerne det siste elementet");//You cannot remove the last element (New)
-define("_CONTAINS","Inneholder");//Contains (New)
-define("_NOTCONTAINS","Inneholder ikke");//Does not contain (New)
-define("_REMOVEOPTION","Fjern valget");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Mener er riktige når akkumulerte poeng er større eller lik");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatisk");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-riktige valg");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Spørsmål korreksjon");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Skille ord med pipe |");//Separate words with pipe | (New)
-define("_POINTS","Poeng");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Du kan ikke fjerne det siste elementet");//You cannot remove the last element
+define("_CONTAINS","Inneholder");//Contains
+define("_NOTCONTAINS","Inneholder ikke");//Does not contain
+define("_REMOVEOPTION","Fjern valget");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Mener er riktige når akkumulerte poeng er større eller lik");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatisk");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-riktige valg");//Auto-correct options
+define("_QUESTIONCORRECTION","Spørsmål korreksjon");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Skille ord med pipe |");//Separate words with pipe |
+define("_POINTS","Poeng");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Brukeren har ikke dette kurset");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Brukeren har ikke denne leksjonen");//The user does not have this lesson
 define("_USERACCESSGRANTED","Bruker tilgang gis");//User access granted
-define("_FORCECHANGEPASSWORD","Force endring av passord ved første pålogging");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Endre passord");//Change password (New)
-define("_OLDPASSWORD","Gammelt passord");//Old password (New)
-define("_NEWPASSWORD","Nytt passord");//New password (New)
-define("_ONLINETIME","Time på nettet");//Time online (New)
-define("_ONLINESINCE","Online siden");//Online since (New)
-define("_MANUALLY","Manuelt");//Manually (New)
-define("_CLEAROPCODECACHE","Tøm opcode buffer");//Clear opcode cache (New)
-define("_USELOGO","Bruk logo");//Use logo (New)
-define("_DEFAULTLOGO","Default logo");//Default logo (New)
-define("_UPLOADSITELOGO","Last opp site logo");//Upload site logo (New)
-define("_ATLEAST","Minst");//At least (New)
-define("_ATMOST","På det meste");//At most (New)
-define("_EQUALTO","Lik");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill rapporter");//Skill reports (New)
-define("_STATISTICSFORSKILL","Rapporter for dyktighet");//Reports for skill (New)
-define("_CHOOSESKILL","Velg dyktighet");//Choose skill (New)
-define("_SKILLGRAPH","Skill graf");//Skill graph (New)
-define("_TOTALSKILLS","Total ferdigheter");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynkron kommunikasjon SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Bytt til asynkron kommunikasjon hvis du opplever problemer med å fullføre SCORM-innhold (særlig i tilfelle du bruker Adobe Captivate generert innhold)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advarsel: Deaktivering betalinger vil sette alle priser til 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Flere alternativer");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force endring av passord ved første pålogging");//Force password change upon initial login
+define("_CHANGEPASSWORD","Endre passord");//Change password
+define("_OLDPASSWORD","Gammelt passord");//Old password
+define("_NEWPASSWORD","Nytt passord");//New password
+define("_ONLINETIME","Time på nettet");//Time online
+define("_ONLINESINCE","Online siden");//Online since
+define("_MANUALLY","Manuelt");//Manually
+define("_CLEAROPCODECACHE","Tøm opcode buffer");//Clear opcode cache
+define("_USELOGO","Bruk logo");//Use logo
+define("_DEFAULTLOGO","Default logo");//Default logo
+define("_UPLOADSITELOGO","Last opp site logo");//Upload site logo
+define("_ATLEAST","Minst");//At least
+define("_ATMOST","På det meste");//At most
+define("_EQUALTO","Lik");//Equal to
+define("_SKILLSSTATISTICS","Skill rapporter");//Skill reports
+define("_STATISTICSFORSKILL","Rapporter for dyktighet");//Reports for skill
+define("_CHOOSESKILL","Velg dyktighet");//Choose skill
+define("_SKILLGRAPH","Skill graf");//Skill graph
+define("_TOTALSKILLS","Total ferdigheter");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynkron kommunikasjon SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Bytt til asynkron kommunikasjon hvis du opplever problemer med å fullføre SCORM-innhold (særlig i tilfelle du bruker Adobe Captivate generert innhold)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advarsel: Deaktivering betalinger vil sette alle priser til 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Flere alternativer");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Økten er utløpt. Vennligst");//Your session has expired. Please (New)
+define("_CLICKHERE","klikk her");//click here (New)
+define("_TOLOGINAGAIN","å logge inn på nytt");//to login again (New)
+define("_SESSIONEXPIRED","Sesjon utløpt");//Session expired (New)
 ?>

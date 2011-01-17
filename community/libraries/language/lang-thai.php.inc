@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","ขอขอบคุณสำหรับก�
 define("_NOREPORTSFOUNDINTHESYSTEM","รายงานไม่พบในระบบ");//No reports found in the system
 define("_YOUMAYCREATEONE","คุณอาจสร้าง");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","คุณไม่สามารถเปลี่ยนโหมดบทเรียนเนื่องจากมีผู้ใช้ที่ลงทะเบียนเรียนในหลักสูตร");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","คุณไม่สามารถลบสมาชิกตัวสุดท้าย");//You cannot remove the last element (New)
-define("_CONTAINS","ประกอบด้วย");//Contains (New)
-define("_NOTCONTAINS","จะไม่มี");//Does not contain (New)
-define("_REMOVEOPTION","ลบตัวเลือก");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","พิจารณาที่ถูกต้องเมื่อมีคะแนนสะสมที่มากกว่าหรือเท่ากับ");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","โดยอัตโนมัติ");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","ตัวเลือก Auto - ถูกต้อง");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","แก้ไขคำถาม");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","คำแยกกับท่อ |");//Separate words with pipe | (New)
-define("_POINTS","Points");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","คุณไม่สามารถลบสมาชิกตัวสุดท้าย");//You cannot remove the last element
+define("_CONTAINS","ประกอบด้วย");//Contains
+define("_NOTCONTAINS","จะไม่มี");//Does not contain
+define("_REMOVEOPTION","ลบตัวเลือก");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","พิจารณาที่ถูกต้องเมื่อมีคะแนนสะสมที่มากกว่าหรือเท่ากับ");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","โดยอัตโนมัติ");//Automatic
+define("_AUTOCORRECTOPTIONS","ตัวเลือก Auto - ถูกต้อง");//Auto-correct options
+define("_QUESTIONCORRECTION","แก้ไขคำถาม");//Question correction
+define("_SEPARATEWORDSWITHPIPE","คำแยกกับท่อ |");//Separate words with pipe |
+define("_POINTS","Points");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","ผู้ใช้ไม่ได้มีหลักสูตรนี้");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","ผู้ใช้ไม่ได้บทนี้");//The user does not have this lesson
 define("_USERACCESSGRANTED","เข้าถึงของผู้ใช้ที่ได้รับ");//User access granted
-define("_FORCECHANGEPASSWORD","เปลี่ยนรหัสผ่านเมื่อเข้าสู่ระบบเริ่มต้นทำงานของประชากร");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","เปลี่ยนรหัสผ่าน");//Change password (New)
-define("_OLDPASSWORD","รหัสผ่านเก่า");//Old password (New)
-define("_NEWPASSWORD","รหัสผ่านใหม่");//New password (New)
-define("_ONLINETIME","เวลาออนไลน์");//Time online (New)
-define("_ONLINESINCE","ออนไลน์ตั้งแต่");//Online since (New)
-define("_MANUALLY","ด้วยตนเอง");//Manually (New)
-define("_CLEAROPCODECACHE","opcode ล้างแคช");//Clear opcode cache (New)
-define("_USELOGO","ใช้โลโก้");//Use logo (New)
-define("_DEFAULTLOGO","โลโก้เริ่มต้น");//Default logo (New)
-define("_UPLOADSITELOGO","อัปโหลดโลโก้ของเว็บไซต์");//Upload site logo (New)
-define("_ATLEAST","อย่างน้อยที่สุด");//At least (New)
-define("_ATMOST","ที่มากที่สุด");//At most (New)
-define("_EQUALTO","เท่ากับ");//Equal to (New)
-define("_SKILLSSTATISTICS","");//Skill reports (New)
-define("_STATISTICSFORSKILL","");//Reports for skill (New)
-define("_CHOOSESKILL","");//Choose skill (New)
-define("_SKILLGRAPH","");//Skill graph (New)
-define("_TOTALSKILLS","");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","เปลี่ยนรหัสผ่านเมื่อเข้าสู่ระบบเริ่มต้นทำงานของประชากร");//Force password change upon initial login
+define("_CHANGEPASSWORD","เปลี่ยนรหัสผ่าน");//Change password
+define("_OLDPASSWORD","รหัสผ่านเก่า");//Old password
+define("_NEWPASSWORD","รหัสผ่านใหม่");//New password
+define("_ONLINETIME","เวลาออนไลน์");//Time online
+define("_ONLINESINCE","ออนไลน์ตั้งแต่");//Online since
+define("_MANUALLY","ด้วยตนเอง");//Manually
+define("_CLEAROPCODECACHE","opcode ล้างแคช");//Clear opcode cache
+define("_USELOGO","ใช้โลโก้");//Use logo
+define("_DEFAULTLOGO","โลโก้เริ่มต้น");//Default logo
+define("_UPLOADSITELOGO","อัปโหลดโลโก้ของเว็บไซต์");//Upload site logo
+define("_ATLEAST","อย่างน้อยที่สุด");//At least
+define("_ATMOST","ที่มากที่สุด");//At most
+define("_EQUALTO","เท่ากับ");//Equal to
+define("_SKILLSSTATISTICS","");//Skill reports
+define("_STATISTICSFORSKILL","");//Reports for skill
+define("_CHOOSESKILL","");//Choose skill
+define("_SKILLGRAPH","");//Skill graph
+define("_TOTALSKILLS","");//Total skills
+define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","เซสชันของคุณหมดอายุแล้ว กรุณา");//Your session has expired. Please (New)
+define("_CLICKHERE","คลิกที่นี่");//click here (New)
+define("_TOLOGINAGAIN","เพื่อเข้าสู่ระบบอีกครั้ง");//to login again (New)
+define("_SESSIONEXPIRED","Session หมดอายุ");//Session expired (New)
 ?>

@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","شكرا لكم لاستكمال");//Thank you 
 define("_NOREPORTSFOUNDINTHESYSTEM","لا توجد تقارير في النظام");//No reports found in the system
 define("_YOUMAYCREATEONE","يمكنك إنشاء واحد");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","لا يمكنك تغيير وضع الدرس لأن هناك المستخدمين المسجلين في البرنامج الدراسي");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","لا يمكنك إزالة العنصر الأخير");//You cannot remove the last element (New)
-define("_CONTAINS","يحتوي");//Contains (New)
-define("_NOTCONTAINS","لا يحتوي");//Does not contain (New)
-define("_REMOVEOPTION","إزالة الخيار");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","النظر الصحيحة عند نقاط المتراكمة أكبر أو يساوي");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","التلقائي");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","لصناعة السيارات في تصحيح الخيارات");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","مسألة التصحيح");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","كلمات منفصلة مع الأنابيب |");//Separate words with pipe | (New)
-define("_POINTS","نقاط");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","لا يمكنك إزالة العنصر الأخير");//You cannot remove the last element
+define("_CONTAINS","يحتوي");//Contains
+define("_NOTCONTAINS","لا يحتوي");//Does not contain
+define("_REMOVEOPTION","إزالة الخيار");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","النظر الصحيحة عند نقاط المتراكمة أكبر أو يساوي");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","التلقائي");//Automatic
+define("_AUTOCORRECTOPTIONS","لصناعة السيارات في تصحيح الخيارات");//Auto-correct options
+define("_QUESTIONCORRECTION","مسألة التصحيح");//Question correction
+define("_SEPARATEWORDSWITHPIPE","كلمات منفصلة مع الأنابيب |");//Separate words with pipe |
+define("_POINTS","نقاط");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","المستخدم لا يملك هذا البرنامج الدراسي");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","المستخدم لا يملك هذا الدرس");//The user does not have this lesson
 define("_USERACCESSGRANTED","منح المستخدم الوصول");//User access granted
-define("_FORCECHANGEPASSWORD","قوة تغيير كلمة المرور عند الدخول الأولي");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","تغيير كلمة المرور");//Change password (New)
-define("_OLDPASSWORD","كلمة السر القديمة");//Old password (New)
-define("_NEWPASSWORD","كلمة مرور جديدة");//New password (New)
-define("_ONLINETIME","الوقت على الانترنت");//Time online (New)
-define("_ONLINESINCE","على الانترنت منذ عام");//Online since (New)
-define("_MANUALLY","يدويا");//Manually (New)
-define("_CLEAROPCODECACHE","واضح شفرة تشغيل ذاكرة التخزين المؤقت");//Clear opcode cache (New)
-define("_USELOGO","استخدام شعار");//Use logo (New)
-define("_DEFAULTLOGO","الشعار الافتراضي");//Default logo (New)
-define("_UPLOADSITELOGO","موقع تحميل الشعار");//Upload site logo (New)
-define("_ATLEAST","على الأقل");//At least (New)
-define("_ATMOST","في معظم");//At most (New)
-define("_EQUALTO","يساوي");//Equal to (New)
-define("_SKILLSSTATISTICS","مهارة تقارير");//Skill reports (New)
-define("_STATISTICSFORSKILL","تقارير عن مهارة");//Reports for skill (New)
-define("_CHOOSESKILL","اختيار مهارة");//Choose skill (New)
-define("_SKILLGRAPH","مهارة الرسم البياني");//Skill graph (New)
-define("_TOTALSKILLS","مجموع المهارات");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","اس كورم الاتصال غير المتزامن");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","التبديل إلى الاتصال غير المتزامن إذا كنت تعاني من مشكلة استكمال محتوى اس كورم (وخصوصا في حال كنت تستخدم أدوبي يأسر المحتوى المقدم)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","تحذير : تعطيل دفع الأسعار إلى كل مجموعة 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","خيارات متعددة");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","قوة تغيير كلمة المرور عند الدخول الأولي");//Force password change upon initial login
+define("_CHANGEPASSWORD","تغيير كلمة المرور");//Change password
+define("_OLDPASSWORD","كلمة السر القديمة");//Old password
+define("_NEWPASSWORD","كلمة مرور جديدة");//New password
+define("_ONLINETIME","الوقت على الانترنت");//Time online
+define("_ONLINESINCE","على الانترنت منذ عام");//Online since
+define("_MANUALLY","يدويا");//Manually
+define("_CLEAROPCODECACHE","واضح شفرة تشغيل ذاكرة التخزين المؤقت");//Clear opcode cache
+define("_USELOGO","استخدام شعار");//Use logo
+define("_DEFAULTLOGO","الشعار الافتراضي");//Default logo
+define("_UPLOADSITELOGO","موقع تحميل الشعار");//Upload site logo
+define("_ATLEAST","على الأقل");//At least
+define("_ATMOST","في معظم");//At most
+define("_EQUALTO","يساوي");//Equal to
+define("_SKILLSSTATISTICS","مهارة تقارير");//Skill reports
+define("_STATISTICSFORSKILL","تقارير عن مهارة");//Reports for skill
+define("_CHOOSESKILL","اختيار مهارة");//Choose skill
+define("_SKILLGRAPH","مهارة الرسم البياني");//Skill graph
+define("_TOTALSKILLS","مجموع المهارات");//Total skills
+define("_SCORMASYNCHROUNOUS","اس كورم الاتصال غير المتزامن");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","التبديل إلى الاتصال غير المتزامن إذا كنت تعاني من مشكلة استكمال محتوى اس كورم (وخصوصا في حال كنت تستخدم أدوبي يأسر المحتوى المقدم)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","تحذير : تعطيل دفع الأسعار إلى كل مجموعة 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","خيارات متعددة");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","لقد انتهت جلستك. الرجاء");//Your session has expired. Please (New)
+define("_CLICKHERE","اضغط هنا");//click here (New)
+define("_TOLOGINAGAIN","لتسجيل الدخول مرة أخرى");//to login again (New)
+define("_SESSIONEXPIRED","انتهت الدورة");//Session expired (New)
 ?>

@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Ju faleminderit për plotësimin");//Thank you 
 define("_NOREPORTSFOUNDINTHESYSTEM","Nuk ka raporte të gjendet në sistemin e");//No reports found in the system
 define("_YOUMAYCREATEONE","Ju mund të krijojë një");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Ju nuk mund të ndryshoni mode mësim, sepse ka shumë përdorues të regjistruar në kursin e");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Ju nuk mund të hiqni element i fundit");//You cannot remove the last element (New)
-define("_CONTAINS","Përmban");//Contains (New)
-define("_NOTCONTAINS","Nuk përmban");//Does not contain (New)
-define("_REMOVEOPTION","Hiq opsion");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","E konsiderojnë të saktë, kur pikat e grumbulluar janë më të mëdha ose të barabartë me");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatik");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","opsionet Auto-korrekte");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","korrigjim Pyetje");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Ndaj fjalë të me tub |");//Separate words with pipe | (New)
-define("_POINTS","Pikë");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Ju nuk mund të hiqni element i fundit");//You cannot remove the last element
+define("_CONTAINS","Përmban");//Contains
+define("_NOTCONTAINS","Nuk përmban");//Does not contain
+define("_REMOVEOPTION","Hiq opsion");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","E konsiderojnë të saktë, kur pikat e grumbulluar janë më të mëdha ose të barabartë me");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatik");//Automatic
+define("_AUTOCORRECTOPTIONS","opsionet Auto-korrekte");//Auto-correct options
+define("_QUESTIONCORRECTION","korrigjim Pyetje");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Ndaj fjalë të me tub |");//Separate words with pipe |
+define("_POINTS","Pikë");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Ky përdorues nuk e ka këtë kurs");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Ky përdorues nuk e ka këtë mësim");//The user does not have this lesson
 define("_USERACCESSGRANTED","qasje User dhënë");//User access granted
-define("_FORCECHANGEPASSWORD","Forca të ndryshojë fjalëkalimin mbi hyrje me emrin përkatës fillestare");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Ndërro fjalëkalimin");//Change password (New)
-define("_OLDPASSWORD","Old password");//Old password (New)
-define("_NEWPASSWORD","Fjalëkalimi i ri");//New password (New)
-define("_ONLINETIME","Time online");//Time online (New)
-define("_ONLINESINCE","Online që nga viti");//Online since (New)
-define("_MANUALLY","Me dorë");//Manually (New)
-define("_CLEAROPCODECACHE","Clear cache opcode");//Clear opcode cache (New)
-define("_USELOGO","logo Përdorimi");//Use logo (New)
-define("_DEFAULTLOGO","logo Default");//Default logo (New)
-define("_UPLOADSITELOGO","logo Upload site");//Upload site logo (New)
-define("_ATLEAST","Të paktën");//At least (New)
-define("_ATMOST","Në shumicën");//At most (New)
-define("_EQUALTO","Të barabartë me");//Equal to (New)
-define("_SKILLSSTATISTICS","Aftësi Raportet");//Skill reports (New)
-define("_STATISTICSFORSKILL","Raportet për aftësi");//Reports for skill (New)
-define("_CHOOSESKILL","Zgjidhni aftësi");//Choose skill (New)
-define("_SKILLGRAPH","Aftësitë grafik");//Skill graph (New)
-define("_TOTALSKILLS","aftësitë Gjithsej");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asinkrone komunikimit SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Kalo në komunikim asinkron nëse jeni duke përjetuar probleme të kompletuar përmbajtjen SCORM (sidomos në rast se ju jeni duke përdorur Adobe robëroj generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Warning: Paaftësi e pagesave do të vendosë të gjitha çmimet në 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","mundësitë e shumëfishta");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Forca të ndryshojë fjalëkalimin mbi hyrje me emrin përkatës fillestare");//Force password change upon initial login
+define("_CHANGEPASSWORD","Ndërro fjalëkalimin");//Change password
+define("_OLDPASSWORD","Old password");//Old password
+define("_NEWPASSWORD","Fjalëkalimi i ri");//New password
+define("_ONLINETIME","Time online");//Time online
+define("_ONLINESINCE","Online që nga viti");//Online since
+define("_MANUALLY","Me dorë");//Manually
+define("_CLEAROPCODECACHE","Clear cache opcode");//Clear opcode cache
+define("_USELOGO","logo Përdorimi");//Use logo
+define("_DEFAULTLOGO","logo Default");//Default logo
+define("_UPLOADSITELOGO","logo Upload site");//Upload site logo
+define("_ATLEAST","Të paktën");//At least
+define("_ATMOST","Në shumicën");//At most
+define("_EQUALTO","Të barabartë me");//Equal to
+define("_SKILLSSTATISTICS","Aftësi Raportet");//Skill reports
+define("_STATISTICSFORSKILL","Raportet për aftësi");//Reports for skill
+define("_CHOOSESKILL","Zgjidhni aftësi");//Choose skill
+define("_SKILLGRAPH","Aftësitë grafik");//Skill graph
+define("_TOTALSKILLS","aftësitë Gjithsej");//Total skills
+define("_SCORMASYNCHROUNOUS","Asinkrone komunikimit SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Kalo në komunikim asinkron nëse jeni duke përjetuar probleme të kompletuar përmbajtjen SCORM (sidomos në rast se ju jeni duke përdorur Adobe robëroj generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Warning: Paaftësi e pagesave do të vendosë të gjitha çmimet në 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","mundësitë e shumëfishta");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Sesioni juaj ka skaduar. Ju lutem");//Your session has expired. Please (New)
+define("_CLICKHERE","kliko këtu");//click here (New)
+define("_TOLOGINAGAIN","të identifikohen përsëri");//to login again (New)
+define("_SESSIONEXPIRED","Sesioni i skaduar");//Session expired (New)
 ?>

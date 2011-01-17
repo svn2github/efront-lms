@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Kiitos loppuun");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Ei raportit löytyvät järjestelmän");//No reports found in the system
 define("_YOUMAYCREATEONE","Voit luoda");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Et voi muuttaa opetuksen tila, koska on olemassa käyttäjiä ilmoittautunut kurssin");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Et voi poistaa viimeinen osa");//You cannot remove the last element (New)
-define("_CONTAINS","Sisältää");//Contains (New)
-define("_NOTCONTAINS","Ei sisällä");//Does not contain (New)
-define("_REMOVEOPTION","Poista vaihtoehto");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Harkitse oikea, kun kertynyt pisteitä suurempi tai yhtä suuri");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automaattinen");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-oikeita vaihtoehtoja");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Kysymys korjaus");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Erota sanat putki |");//Separate words with pipe | (New)
-define("_POINTS","Pisteitä");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Et voi poistaa viimeinen osa");//You cannot remove the last element
+define("_CONTAINS","Sisältää");//Contains
+define("_NOTCONTAINS","Ei sisällä");//Does not contain
+define("_REMOVEOPTION","Poista vaihtoehto");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Harkitse oikea, kun kertynyt pisteitä suurempi tai yhtä suuri");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automaattinen");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-oikeita vaihtoehtoja");//Auto-correct options
+define("_QUESTIONCORRECTION","Kysymys korjaus");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Erota sanat putki |");//Separate words with pipe |
+define("_POINTS","Pisteitä");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Käyttäjällä ei ole tällä kurssilla");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Käyttäjällä ei ole tämän oppitunnin");//The user does not have this lesson
 define("_USERACCESSGRANTED","Käyttäjä saa tutustua");//User access granted
-define("_FORCECHANGEPASSWORD","Force salasanan vaihto ensimmäisestä kirjautuminen");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Vaihda salasana");//Change password (New)
-define("_OLDPASSWORD","Vanha salasana");//Old password (New)
-define("_NEWPASSWORD","Uusi salasana");//New password (New)
-define("_ONLINETIME","Aika verkossa");//Time online (New)
-define("_ONLINESINCE","Online lähtien");//Online since (New)
-define("_MANUALLY","Manuaalisesti");//Manually (New)
-define("_CLEAROPCODECACHE","Tyhjennä opcode välimuisti");//Clear opcode cache (New)
-define("_USELOGO","Käytä logo");//Use logo (New)
-define("_DEFAULTLOGO","Default logo");//Default logo (New)
-define("_UPLOADSITELOGO","Lähetä sivu logo");//Upload site logo (New)
-define("_ATLEAST","Ainakin");//At least (New)
-define("_ATMOST","Enintään");//At most (New)
-define("_EQUALTO","Yhtä suuri");//Equal to (New)
-define("_SKILLSSTATISTICS","Taito raportit");//Skill reports (New)
-define("_STATISTICSFORSKILL","Raportit taito");//Reports for skill (New)
-define("_CHOOSESKILL","Valitse taito");//Choose skill (New)
-define("_SKILLGRAPH","Taito kaavio");//Skill graph (New)
-define("_TOTALSKILLS","Yhteensä taidot");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchronous SCORM viestintä");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Vaihda asynkroninen viestintä jos sinulla on ongelmia valmiiksi SCORM sisältö (varsinkin jos käytät Adobe Captivate luomaa sisältöä)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varoitus: poistaminen maksut asettaa kaikki hinnat 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Useita vaihtoehtoja");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force salasanan vaihto ensimmäisestä kirjautuminen");//Force password change upon initial login
+define("_CHANGEPASSWORD","Vaihda salasana");//Change password
+define("_OLDPASSWORD","Vanha salasana");//Old password
+define("_NEWPASSWORD","Uusi salasana");//New password
+define("_ONLINETIME","Aika verkossa");//Time online
+define("_ONLINESINCE","Online lähtien");//Online since
+define("_MANUALLY","Manuaalisesti");//Manually
+define("_CLEAROPCODECACHE","Tyhjennä opcode välimuisti");//Clear opcode cache
+define("_USELOGO","Käytä logo");//Use logo
+define("_DEFAULTLOGO","Default logo");//Default logo
+define("_UPLOADSITELOGO","Lähetä sivu logo");//Upload site logo
+define("_ATLEAST","Ainakin");//At least
+define("_ATMOST","Enintään");//At most
+define("_EQUALTO","Yhtä suuri");//Equal to
+define("_SKILLSSTATISTICS","Taito raportit");//Skill reports
+define("_STATISTICSFORSKILL","Raportit taito");//Reports for skill
+define("_CHOOSESKILL","Valitse taito");//Choose skill
+define("_SKILLGRAPH","Taito kaavio");//Skill graph
+define("_TOTALSKILLS","Yhteensä taidot");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchronous SCORM viestintä");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Vaihda asynkroninen viestintä jos sinulla on ongelmia valmiiksi SCORM sisältö (varsinkin jos käytät Adobe Captivate luomaa sisältöä)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varoitus: poistaminen maksut asettaa kaikki hinnat 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Useita vaihtoehtoja");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Istunto on vanhentunut. Ole hyvä");//Your session has expired. Please (New)
+define("_CLICKHERE","klikkaa tästä");//click here (New)
+define("_TOLOGINAGAIN","kirjautua uudelleen");//to login again (New)
+define("_SESSIONEXPIRED","Session päättyi");//Session expired (New)
 ?>

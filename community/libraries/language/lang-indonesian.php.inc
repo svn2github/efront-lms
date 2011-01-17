@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Terima kasih untuk menyelesaikan");//Thank you 
 define("_NOREPORTSFOUNDINTHESYSTEM","Tidak ada laporan yang ditemukan dalam sistem");//No reports found in the system
 define("_YOUMAYCREATEONE","Anda dapat membuat satu");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Anda tidak dapat mengubah modus pelajaran karena ada user mendaftar ke kursus");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Anda tidak dapat menghapus elemen terakhir");//You cannot remove the last element (New)
-define("_CONTAINS","Berisi");//Contains (New)
-define("_NOTCONTAINS","Tidak mengandung");//Does not contain (New)
-define("_REMOVEOPTION","Hapus pilihan");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Pertimbangkan benar saat poin akumulasi lebih besar atau sama dengan");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Otomatis");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-benar pilihan");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Pertanyaan koreksi");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Pisahkan kata dengan pipa |");//Separate words with pipe | (New)
-define("_POINTS","Poin");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Anda tidak dapat menghapus elemen terakhir");//You cannot remove the last element
+define("_CONTAINS","Berisi");//Contains
+define("_NOTCONTAINS","Tidak mengandung");//Does not contain
+define("_REMOVEOPTION","Hapus pilihan");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Pertimbangkan benar saat poin akumulasi lebih besar atau sama dengan");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Otomatis");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-benar pilihan");//Auto-correct options
+define("_QUESTIONCORRECTION","Pertanyaan koreksi");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Pisahkan kata dengan pipa |");//Separate words with pipe |
+define("_POINTS","Poin");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Pengguna tidak memiliki kursus ini");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Pengguna tidak memiliki pelajaran ini");//The user does not have this lesson
 define("_USERACCESSGRANTED","Pengguna akses diberikan");//User access granted
-define("_FORCECHANGEPASSWORD","Angkatan password perubahan setelah login awal");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Ubah sandi");//Change password (New)
-define("_OLDPASSWORD","Old password");//Old password (New)
-define("_NEWPASSWORD","New password");//New password (New)
-define("_ONLINETIME","Waktu online");//Time online (New)
-define("_ONLINESINCE","Tayang sejak");//Online since (New)
-define("_MANUALLY","Secara manual");//Manually (New)
-define("_CLEAROPCODECACHE","Hapus opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Gunakan logo");//Use logo (New)
-define("_DEFAULTLOGO","Default logo");//Default logo (New)
-define("_UPLOADSITELOGO","Upload situs logo");//Upload site logo (New)
-define("_ATLEAST","Setidaknya");//At least (New)
-define("_ATMOST","Paling banyak");//At most (New)
-define("_EQUALTO","Sama dengan");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill laporan");//Skill reports (New)
-define("_STATISTICSFORSKILL","Laporan untuk keterampilan");//Reports for skill (New)
-define("_CHOOSESKILL","Pilih keterampilan");//Choose skill (New)
-define("_SKILLGRAPH","Skill grafik");//Skill graph (New)
-define("_TOTALSKILLS","Total keterampilan");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchronous SCORM komunikasi");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Beralih ke komunikasi asynchronous jika Anda mengalami kesulitan menyelesaikan konten SCORM (terutama dalam kasus Anda menggunakan Adobe Captivate generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Peringatan: Menonaktifkan pembayaran akan mengatur semua harga untuk 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Beberapa pilihan");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Angkatan password perubahan setelah login awal");//Force password change upon initial login
+define("_CHANGEPASSWORD","Ubah sandi");//Change password
+define("_OLDPASSWORD","Old password");//Old password
+define("_NEWPASSWORD","New password");//New password
+define("_ONLINETIME","Waktu online");//Time online
+define("_ONLINESINCE","Tayang sejak");//Online since
+define("_MANUALLY","Secara manual");//Manually
+define("_CLEAROPCODECACHE","Hapus opcode cache");//Clear opcode cache
+define("_USELOGO","Gunakan logo");//Use logo
+define("_DEFAULTLOGO","Default logo");//Default logo
+define("_UPLOADSITELOGO","Upload situs logo");//Upload site logo
+define("_ATLEAST","Setidaknya");//At least
+define("_ATMOST","Paling banyak");//At most
+define("_EQUALTO","Sama dengan");//Equal to
+define("_SKILLSSTATISTICS","Skill laporan");//Skill reports
+define("_STATISTICSFORSKILL","Laporan untuk keterampilan");//Reports for skill
+define("_CHOOSESKILL","Pilih keterampilan");//Choose skill
+define("_SKILLGRAPH","Skill grafik");//Skill graph
+define("_TOTALSKILLS","Total keterampilan");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchronous SCORM komunikasi");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Beralih ke komunikasi asynchronous jika Anda mengalami kesulitan menyelesaikan konten SCORM (terutama dalam kasus Anda menggunakan Adobe Captivate generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Peringatan: Menonaktifkan pembayaran akan mengatur semua harga untuk 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Beberapa pilihan");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Sesi Anda telah berakhir. Silahkan");//Your session has expired. Please (New)
+define("_CLICKHERE","klik di sini");//click here (New)
+define("_TOLOGINAGAIN","untuk login lagi");//to login again (New)
+define("_SESSIONEXPIRED","Sesi kadaluarsa");//Session expired (New)
 ?>

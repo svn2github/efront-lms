@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Хвала вам за попуњавање");/
 define("_NOREPORTSFOUNDINTHESYSTEM","Нема извештаја наћи у систему");//No reports found in the system
 define("_YOUMAYCREATEONE","Можете да креирате једну");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Не можете да промените режим лекцију јер постоје корисници уписани на курс");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Не можете да уклоните последњи елемент");//You cannot remove the last element (New)
-define("_CONTAINS","Садржи");//Contains (New)
-define("_NOTCONTAINS","Не садржи");//Does not contain (New)
-define("_REMOVEOPTION","Уклони опције");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Узмите у обзир праву када акумулирани поени су већи или једнак");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Аутоматско");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Ауто Цоррецт Оптионс");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Питање исправке");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Одвојени речи са цеви |");//Separate words with pipe | (New)
-define("_POINTS","Бодови");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Не можете да уклоните последњи елемент");//You cannot remove the last element
+define("_CONTAINS","Садржи");//Contains
+define("_NOTCONTAINS","Не садржи");//Does not contain
+define("_REMOVEOPTION","Уклони опције");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Узмите у обзир праву када акумулирани поени су већи или једнак");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Аутоматско");//Automatic
+define("_AUTOCORRECTOPTIONS","Ауто Цоррецт Оптионс");//Auto-correct options
+define("_QUESTIONCORRECTION","Питање исправке");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Одвојени речи са цеви |");//Separate words with pipe |
+define("_POINTS","Бодови");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Корисник нема овај курс");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Корисник нема ове лекције");//The user does not have this lesson
 define("_USERACCESSGRANTED","Упутство за приступ одобрен");//User access granted
-define("_FORCECHANGEPASSWORD","Снага промену лозинке за пријављивање на почетне");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Промена лозинке");//Change password (New)
-define("_OLDPASSWORD","Стара лозинка");//Old password (New)
-define("_NEWPASSWORD","Нова лозинка");//New password (New)
-define("_ONLINETIME","Време Онлине");//Time online (New)
-define("_ONLINESINCE","Онлине од");//Online since (New)
-define("_MANUALLY","Ручно");//Manually (New)
-define("_CLEAROPCODECACHE","Обриши кеш Опцоде");//Clear opcode cache (New)
-define("_USELOGO","Користите логотип");//Use logo (New)
-define("_DEFAULTLOGO","Дефаулт логотип");//Default logo (New)
-define("_UPLOADSITELOGO","Уплоад сајта логотип");//Upload site logo (New)
-define("_ATLEAST","Најмање");//At least (New)
-define("_ATMOST","На већини");//At most (New)
-define("_EQUALTO","Једнако");//Equal to (New)
-define("_SKILLSSTATISTICS","Вештина извештаја");//Skill reports (New)
-define("_STATISTICSFORSKILL","Извештаји за вештине");//Reports for skill (New)
-define("_CHOOSESKILL","Одаберите вештина");//Choose skill (New)
-define("_SKILLGRAPH","Вештина граф");//Skill graph (New)
-define("_TOTALSKILLS","Укупно вештине");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Асинхрони СЦОРМ комуникације");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Пребаци се на асинхроне комуникације, ако имате проблема са завршетку СЦОРМ садржај (нарочито у случају да се користе Адобе Цаптивате садржај који генеришу)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Упозорење: Онемогућавање плаћања ће поставити Све цене на 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Више опција");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Снага промену лозинке за пријављивање на почетне");//Force password change upon initial login
+define("_CHANGEPASSWORD","Промена лозинке");//Change password
+define("_OLDPASSWORD","Стара лозинка");//Old password
+define("_NEWPASSWORD","Нова лозинка");//New password
+define("_ONLINETIME","Време Онлине");//Time online
+define("_ONLINESINCE","Онлине од");//Online since
+define("_MANUALLY","Ручно");//Manually
+define("_CLEAROPCODECACHE","Обриши кеш Опцоде");//Clear opcode cache
+define("_USELOGO","Користите логотип");//Use logo
+define("_DEFAULTLOGO","Дефаулт логотип");//Default logo
+define("_UPLOADSITELOGO","Уплоад сајта логотип");//Upload site logo
+define("_ATLEAST","Најмање");//At least
+define("_ATMOST","На већини");//At most
+define("_EQUALTO","Једнако");//Equal to
+define("_SKILLSSTATISTICS","Вештина извештаја");//Skill reports
+define("_STATISTICSFORSKILL","Извештаји за вештине");//Reports for skill
+define("_CHOOSESKILL","Одаберите вештина");//Choose skill
+define("_SKILLGRAPH","Вештина граф");//Skill graph
+define("_TOTALSKILLS","Укупно вештине");//Total skills
+define("_SCORMASYNCHROUNOUS","Асинхрони СЦОРМ комуникације");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Пребаци се на асинхроне комуникације, ако имате проблема са завршетку СЦОРМ садржај (нарочито у случају да се користе Адобе Цаптивате садржај који генеришу)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Упозорење: Онемогућавање плаћања ће поставити Све цене на 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Више опција");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Ваша сесија је истекла. Молимо");//Your session has expired. Please (New)
+define("_CLICKHERE","кликните овде");//click here (New)
+define("_TOLOGINAGAIN","да се пријавите поново");//to login again (New)
+define("_SESSIONEXPIRED","Сесија је истекла");//Session expired (New)
 ?>

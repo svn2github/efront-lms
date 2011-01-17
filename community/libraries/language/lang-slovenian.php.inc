@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Zahvaljujemo se vam za dokončanje");//Thank yo
 define("_NOREPORTSFOUNDINTHESYSTEM","Nobenega poročila na voljo v sistemu");//No reports found in the system
 define("_YOUMAYCREATEONE","Ustvarite lahko eno");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Ne morete spremeniti lekcija način, ker so uporabniki vpisal na tečaj");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Ne morete odstraniti zadnji element");//You cannot remove the last element (New)
-define("_CONTAINS","Vsebuje");//Contains (New)
-define("_NOTCONTAINS","Ne vsebuje");//Does not contain (New)
-define("_REMOVEOPTION","Odstrani opcijo");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Razmislite pravilen, če zbrane točke so večja ali enaka");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Samodejno");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-Pravilne nastavitve");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Vprašanje popravek");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Ločeno besede s cevjo |");//Separate words with pipe | (New)
-define("_POINTS","Točke");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Ne morete odstraniti zadnji element");//You cannot remove the last element
+define("_CONTAINS","Vsebuje");//Contains
+define("_NOTCONTAINS","Ne vsebuje");//Does not contain
+define("_REMOVEOPTION","Odstrani opcijo");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Razmislite pravilen, če zbrane točke so večja ali enaka");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Samodejno");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-Pravilne nastavitve");//Auto-correct options
+define("_QUESTIONCORRECTION","Vprašanje popravek");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Ločeno besede s cevjo |");//Separate words with pipe |
+define("_POINTS","Točke");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Uporabnik nima tega predmeta");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Uporabnik nima te lekcije");//The user does not have this lesson
 define("_USERACCESSGRANTED","Uporabniški dostop omogočen");//User access granted
-define("_FORCECHANGEPASSWORD","Force spremembo gesla ob prvi prijavi");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Spremeni geslo");//Change password (New)
-define("_OLDPASSWORD","Staro geslo");//Old password (New)
-define("_NEWPASSWORD","Novo geslo");//New password (New)
-define("_ONLINETIME","Časa na spletu");//Time online (New)
-define("_ONLINESINCE","Online saj");//Online since (New)
-define("_MANUALLY","Ročno");//Manually (New)
-define("_CLEAROPCODECACHE","Clear opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Uporaba logotipa");//Use logo (New)
-define("_DEFAULTLOGO","Default logo");//Default logo (New)
-define("_UPLOADSITELOGO","Naloži mesto logo");//Upload site logo (New)
-define("_ATLEAST","Vsaj");//At least (New)
-define("_ATMOST","Kvečjemu");//At most (New)
-define("_EQUALTO","Enako");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill poročil");//Skill reports (New)
-define("_STATISTICSFORSKILL","Poročila za spretnost");//Reports for skill (New)
-define("_CHOOSESKILL","Izberite spretnost");//Choose skill (New)
-define("_SKILLGRAPH","Skill graf");//Skill graph (New)
-define("_TOTALSKILLS","Skupaj spretnosti");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchronous SCORM sporočilo");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Preklopite na asinhrona komunikacija, če se pojavijo težave dokončanje SCORM vsebine (zlasti v primeru, da uporabljate Adobe Očarala vsebine)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Opozorilo: Onemogočanje plačila bo določila vse cene na 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Več možnosti");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force spremembo gesla ob prvi prijavi");//Force password change upon initial login
+define("_CHANGEPASSWORD","Spremeni geslo");//Change password
+define("_OLDPASSWORD","Staro geslo");//Old password
+define("_NEWPASSWORD","Novo geslo");//New password
+define("_ONLINETIME","Časa na spletu");//Time online
+define("_ONLINESINCE","Online saj");//Online since
+define("_MANUALLY","Ročno");//Manually
+define("_CLEAROPCODECACHE","Clear opcode cache");//Clear opcode cache
+define("_USELOGO","Uporaba logotipa");//Use logo
+define("_DEFAULTLOGO","Default logo");//Default logo
+define("_UPLOADSITELOGO","Naloži mesto logo");//Upload site logo
+define("_ATLEAST","Vsaj");//At least
+define("_ATMOST","Kvečjemu");//At most
+define("_EQUALTO","Enako");//Equal to
+define("_SKILLSSTATISTICS","Skill poročil");//Skill reports
+define("_STATISTICSFORSKILL","Poročila za spretnost");//Reports for skill
+define("_CHOOSESKILL","Izberite spretnost");//Choose skill
+define("_SKILLGRAPH","Skill graf");//Skill graph
+define("_TOTALSKILLS","Skupaj spretnosti");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchronous SCORM sporočilo");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Preklopite na asinhrona komunikacija, če se pojavijo težave dokončanje SCORM vsebine (zlasti v primeru, da uporabljate Adobe Očarala vsebine)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Opozorilo: Onemogočanje plačila bo določila vse cene na 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Več možnosti");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Vaša seja je potekla. Prosimo,");//Your session has expired. Please (New)
+define("_CLICKHERE","kliknite tukaj");//click here (New)
+define("_TOLOGINAGAIN","za prijavo ponovno");//to login again (New)
+define("_SESSIONEXPIRED","Session potekel");//Session expired (New)
 ?>

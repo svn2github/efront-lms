@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","תודה על מילוי");//Thank you for comp
 define("_NOREPORTSFOUNDINTHESYSTEM","דיווחים לא נמצאו במערכת");//No reports found in the system
 define("_YOUMAYCREATEONE","אתה יכול ליצור אחד");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","אתה לא יכול לשנות את מצב השיעור כי יש משתמשים נרשמו לקורס");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","אתה לא יכול להסיר את האלמנט האחרון");//You cannot remove the last element (New)
-define("_CONTAINS","מכיל");//Contains (New)
-define("_NOTCONTAINS","אינו מכיל");//Does not contain (New)
-define("_REMOVEOPTION","הסר אפשרות");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","שקול הנכון כאשר נקודות שנצברו הם גדול או שווה ל");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","אוטומטי");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-הנכונה אפשרויות");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","שאלה תיקון");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","הפרד מילים עם צינור |");//Separate words with pipe | (New)
-define("_POINTS","נקודות");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","אתה לא יכול להסיר את האלמנט האחרון");//You cannot remove the last element
+define("_CONTAINS","מכיל");//Contains
+define("_NOTCONTAINS","אינו מכיל");//Does not contain
+define("_REMOVEOPTION","הסר אפשרות");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","שקול הנכון כאשר נקודות שנצברו הם גדול או שווה ל");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","אוטומטי");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-הנכונה אפשרויות");//Auto-correct options
+define("_QUESTIONCORRECTION","שאלה תיקון");//Question correction
+define("_SEPARATEWORDSWITHPIPE","הפרד מילים עם צינור |");//Separate words with pipe |
+define("_POINTS","נקודות");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","המשתמש אינו חייב את זה כמובן");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","המשתמש אינו חייב את השיעור הזה");//The user does not have this lesson
 define("_USERACCESSGRANTED","גישה הוראות שניתנו");//User access granted
-define("_FORCECHANGEPASSWORD","כוח לשנות את הסיסמה על ההתחברות הראשונית");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","שינוי הסיסמה");//Change password (New)
-define("_OLDPASSWORD","העתיקה את הסיסמה");//Old password (New)
-define("_NEWPASSWORD","סיסמה חדשה");//New password (New)
-define("_ONLINETIME","זמן באינטרנט");//Time online (New)
-define("_ONLINESINCE","באינטרנט מאז");//Online since (New)
-define("_MANUALLY","באופן ידני");//Manually (New)
-define("_CLEAROPCODECACHE","נקה מטמון opcode");//Clear opcode cache (New)
-define("_USELOGO","השתמש בלוגו");//Use logo (New)
-define("_DEFAULTLOGO","ברירת המחדל של הלוגו");//Default logo (New)
-define("_UPLOADSITELOGO","להעלות לוגו האתר");//Upload site logo (New)
-define("_ATLEAST","לפחות");//At least (New)
-define("_ATMOST","לכל היותר");//At most (New)
-define("_EQUALTO","שווה ל");//Equal to (New)
-define("_SKILLSSTATISTICS","מיומנות דוחות");//Skill reports (New)
-define("_STATISTICSFORSKILL","דוחות על מיומנות");//Reports for skill (New)
-define("_CHOOSESKILL","בחר מיומנות");//Choose skill (New)
-define("_SKILLGRAPH","מיומנות הגרף");//Skill graph (New)
-define("_TOTALSKILLS","סך מיומנויות");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchronous תקשורת SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","לעבור תקשורת סינכרונית אם אתה נתקל בבעיות בהשלמת תוכן SCORM (במיוחד במקרה אתה משתמש Adobe Captivate תוכן שנוצר)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","אזהרה: השבתת התשלומים יהיה להגדיר את כל המחירים 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","אפשרויות מרובות");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","כוח לשנות את הסיסמה על ההתחברות הראשונית");//Force password change upon initial login
+define("_CHANGEPASSWORD","שינוי הסיסמה");//Change password
+define("_OLDPASSWORD","העתיקה את הסיסמה");//Old password
+define("_NEWPASSWORD","סיסמה חדשה");//New password
+define("_ONLINETIME","זמן באינטרנט");//Time online
+define("_ONLINESINCE","באינטרנט מאז");//Online since
+define("_MANUALLY","באופן ידני");//Manually
+define("_CLEAROPCODECACHE","נקה מטמון opcode");//Clear opcode cache
+define("_USELOGO","השתמש בלוגו");//Use logo
+define("_DEFAULTLOGO","ברירת המחדל של הלוגו");//Default logo
+define("_UPLOADSITELOGO","להעלות לוגו האתר");//Upload site logo
+define("_ATLEAST","לפחות");//At least
+define("_ATMOST","לכל היותר");//At most
+define("_EQUALTO","שווה ל");//Equal to
+define("_SKILLSSTATISTICS","מיומנות דוחות");//Skill reports
+define("_STATISTICSFORSKILL","דוחות על מיומנות");//Reports for skill
+define("_CHOOSESKILL","בחר מיומנות");//Choose skill
+define("_SKILLGRAPH","מיומנות הגרף");//Skill graph
+define("_TOTALSKILLS","סך מיומנויות");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchronous תקשורת SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","לעבור תקשורת סינכרונית אם אתה נתקל בבעיות בהשלמת תוכן SCORM (במיוחד במקרה אתה משתמש Adobe Captivate תוכן שנוצר)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","אזהרה: השבתת התשלומים יהיה להגדיר את כל המחירים 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","אפשרויות מרובות");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","פג. בבקשה");//Your session has expired. Please (New)
+define("_CLICKHERE","לחץ כאן");//click here (New)
+define("_TOLOGINAGAIN","כדי להתחבר שוב");//to login again (New)
+define("_SESSIONEXPIRED","מושב פג");//Session expired (New)
 ?>

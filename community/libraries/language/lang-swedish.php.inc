@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Tack för att slutföra");//Thank you for compl
 define("_NOREPORTSFOUNDINTHESYSTEM","Inga rapporter finns i systemet");//No reports found in the system
 define("_YOUMAYCREATEONE","Du kan skapa en");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Du kan inte ändra lektion läge, eftersom det finns användare inskrivna på kursen");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Du kan inte ta bort det sista elementet");//You cannot remove the last element (New)
-define("_CONTAINS","Innehåller");//Contains (New)
-define("_NOTCONTAINS","Innehåller inte");//Does not contain (New)
-define("_REMOVEOPTION","Ta bort alternativ");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Överväg rätt när ackumulerade poäng är större eller lika med");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatisk");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-rätt alternativ");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Fråga korrigering");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Separat ord med rör |");//Separate words with pipe | (New)
-define("_POINTS","Poäng");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Du kan inte ta bort det sista elementet");//You cannot remove the last element
+define("_CONTAINS","Innehåller");//Contains
+define("_NOTCONTAINS","Innehåller inte");//Does not contain
+define("_REMOVEOPTION","Ta bort alternativ");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Överväg rätt när ackumulerade poäng är större eller lika med");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatisk");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-rätt alternativ");//Auto-correct options
+define("_QUESTIONCORRECTION","Fråga korrigering");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Separat ord med rör |");//Separate words with pipe |
+define("_POINTS","Poäng");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Användaren har inte denna kurs");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Användaren har inte denna lektion");//The user does not have this lesson
 define("_USERACCESSGRANTED","Användarnas tillgång beviljas");//User access granted
-define("_FORCECHANGEPASSWORD","Force lösenord förändras vid första inloggningen");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Ändra lösenord");//Change password (New)
-define("_OLDPASSWORD","Gammalt lösenord");//Old password (New)
-define("_NEWPASSWORD","Nytt lösenord");//New password (New)
-define("_ONLINETIME","Tid online");//Time online (New)
-define("_ONLINESINCE","Online sedan");//Online since (New)
-define("_MANUALLY","Manuellt");//Manually (New)
-define("_CLEAROPCODECACHE","Rensa opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Använd logo");//Use logo (New)
-define("_DEFAULTLOGO","Standard logo");//Default logo (New)
-define("_UPLOADSITELOGO","Ladda upp plats logo");//Upload site logo (New)
-define("_ATLEAST","Minst");//At least (New)
-define("_ATMOST","Vid de flesta");//At most (New)
-define("_EQUALTO","Lika med");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill rapporter");//Skill reports (New)
-define("_STATISTICSFORSKILL","Rapporter för skicklighet");//Reports for skill (New)
-define("_CHOOSESKILL","Välj färdighet");//Choose skill (New)
-define("_SKILLGRAPH","Skill graf");//Skill graph (New)
-define("_TOTALSKILLS","Totalt färdigheter");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynkron SCORM kommunikation");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Växla till asynkron kommunikation om du upplever problem med att slutföra SCORM-material (speciellt om du använder Adobe Captivate innehåll)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varning: Inaktivera betalningar kommer att ställa alla priser till 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Flera alternativ");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force lösenord förändras vid första inloggningen");//Force password change upon initial login
+define("_CHANGEPASSWORD","Ändra lösenord");//Change password
+define("_OLDPASSWORD","Gammalt lösenord");//Old password
+define("_NEWPASSWORD","Nytt lösenord");//New password
+define("_ONLINETIME","Tid online");//Time online
+define("_ONLINESINCE","Online sedan");//Online since
+define("_MANUALLY","Manuellt");//Manually
+define("_CLEAROPCODECACHE","Rensa opcode cache");//Clear opcode cache
+define("_USELOGO","Använd logo");//Use logo
+define("_DEFAULTLOGO","Standard logo");//Default logo
+define("_UPLOADSITELOGO","Ladda upp plats logo");//Upload site logo
+define("_ATLEAST","Minst");//At least
+define("_ATMOST","Vid de flesta");//At most
+define("_EQUALTO","Lika med");//Equal to
+define("_SKILLSSTATISTICS","Skill rapporter");//Skill reports
+define("_STATISTICSFORSKILL","Rapporter för skicklighet");//Reports for skill
+define("_CHOOSESKILL","Välj färdighet");//Choose skill
+define("_SKILLGRAPH","Skill graf");//Skill graph
+define("_TOTALSKILLS","Totalt färdigheter");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynkron SCORM kommunikation");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Växla till asynkron kommunikation om du upplever problem med att slutföra SCORM-material (speciellt om du använder Adobe Captivate innehåll)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varning: Inaktivera betalningar kommer att ställa alla priser till 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Flera alternativ");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Din session har gått ut. Vänligen");//Your session has expired. Please (New)
+define("_CLICKHERE","Klicka här");//click here (New)
+define("_TOLOGINAGAIN","att logga in igen");//to login again (New)
+define("_SESSIONEXPIRED","Sessionen har upphört");//Session expired (New)
 ?>

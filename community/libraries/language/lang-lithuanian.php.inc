@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Dėkojame už užpildyti");//Thank you for comp
 define("_NOREPORTSFOUNDINTHESYSTEM","Nr ataskaitas rasti sistemos");//No reports found in the system
 define("_YOUMAYCREATEONE","Galite sukurti vieną");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Jūs negalite pakeisti pamoka režimu, nes yra vartotojai įtraukti į kursus");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Jūs negalite pašalinti paskutinį elementą");//You cannot remove the last element (New)
-define("_CONTAINS","Sudėtyje yra");//Contains (New)
-define("_NOTCONTAINS","Nėra");//Does not contain (New)
-define("_REMOVEOPTION","Pašalinti parinktį");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Apsvarstykite teisinga, kai sukauptus taškus yra didesnė arba lygi");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatinis");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-teisingas galimybes");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Klausimas korekcijos");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Atskiri žodžiai su vamzdis |");//Separate words with pipe | (New)
-define("_POINTS","Taškai");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Jūs negalite pašalinti paskutinį elementą");//You cannot remove the last element
+define("_CONTAINS","Sudėtyje yra");//Contains
+define("_NOTCONTAINS","Nėra");//Does not contain
+define("_REMOVEOPTION","Pašalinti parinktį");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Apsvarstykite teisinga, kai sukauptus taškus yra didesnė arba lygi");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatinis");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-teisingas galimybes");//Auto-correct options
+define("_QUESTIONCORRECTION","Klausimas korekcijos");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Atskiri žodžiai su vamzdis |");//Separate words with pipe |
+define("_POINTS","Taškai");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Vartotojas neturi šį kursą");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Vartotojo nėra šios pamokos");//The user does not have this lesson
 define("_USERACCESSGRANTED","Vartotojo prieiga suteikiama");//User access granted
-define("_FORCECHANGEPASSWORD","Priverstinis slaptažodžio keitimas, kai pirmą kartą prisijungti");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Keisti slaptažodį");//Change password (New)
-define("_OLDPASSWORD","Senas slaptažodis");//Old password (New)
-define("_NEWPASSWORD","Naujas slaptažodis");//New password (New)
-define("_ONLINETIME","Laikas internetu");//Time online (New)
-define("_ONLINESINCE","Internete nuo");//Online since (New)
-define("_MANUALLY","Rankiniu būdu");//Manually (New)
-define("_CLEAROPCODECACHE","Atviras kodas operacijos talpyklos");//Clear opcode cache (New)
-define("_USELOGO","Naudokite logotipą");//Use logo (New)
-define("_DEFAULTLOGO","Numatytąjį logotipą");//Default logo (New)
-define("_UPLOADSITELOGO","Įkelti svetainės logotipą");//Upload site logo (New)
-define("_ATLEAST","Bent");//At least (New)
-define("_ATMOST","Tuo labiausiai");//At most (New)
-define("_EQUALTO","Lygus");//Equal to (New)
-define("_SKILLSSTATISTICS","Įgūdžių ataskaitos");//Skill reports (New)
-define("_STATISTICSFORSKILL","Ataskaitos dėl įgūdžių");//Reports for skill (New)
-define("_CHOOSESKILL","Pasirinkite įgūdžių");//Choose skill (New)
-define("_SKILLGRAPH","Įgūdžių graph");//Skill graph (New)
-define("_TOTALSKILLS","Iš viso įgūdžių");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asinchroninis SCORM komunikacijos");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Perjungti į asinchroniniu jei jums kyla problemų užbaigti SCORM kiekis (ypač jei jūs naudojate Adobe Sužavėk kuriamo turinio)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Įspėjimas: Išjungti mokėjimai bus nustatyti visos kainos iki 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Keli variantai");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Priverstinis slaptažodžio keitimas, kai pirmą kartą prisijungti");//Force password change upon initial login
+define("_CHANGEPASSWORD","Keisti slaptažodį");//Change password
+define("_OLDPASSWORD","Senas slaptažodis");//Old password
+define("_NEWPASSWORD","Naujas slaptažodis");//New password
+define("_ONLINETIME","Laikas internetu");//Time online
+define("_ONLINESINCE","Internete nuo");//Online since
+define("_MANUALLY","Rankiniu būdu");//Manually
+define("_CLEAROPCODECACHE","Atviras kodas operacijos talpyklos");//Clear opcode cache
+define("_USELOGO","Naudokite logotipą");//Use logo
+define("_DEFAULTLOGO","Numatytąjį logotipą");//Default logo
+define("_UPLOADSITELOGO","Įkelti svetainės logotipą");//Upload site logo
+define("_ATLEAST","Bent");//At least
+define("_ATMOST","Tuo labiausiai");//At most
+define("_EQUALTO","Lygus");//Equal to
+define("_SKILLSSTATISTICS","Įgūdžių ataskaitos");//Skill reports
+define("_STATISTICSFORSKILL","Ataskaitos dėl įgūdžių");//Reports for skill
+define("_CHOOSESKILL","Pasirinkite įgūdžių");//Choose skill
+define("_SKILLGRAPH","Įgūdžių graph");//Skill graph
+define("_TOTALSKILLS","Iš viso įgūdžių");//Total skills
+define("_SCORMASYNCHROUNOUS","Asinchroninis SCORM komunikacijos");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Perjungti į asinchroniniu jei jums kyla problemų užbaigti SCORM kiekis (ypač jei jūs naudojate Adobe Sužavėk kuriamo turinio)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Įspėjimas: Išjungti mokėjimai bus nustatyti visos kainos iki 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Keli variantai");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Jūsų sesija baigėsi. Prašome");//Your session has expired. Please (New)
+define("_CLICKHERE","spauskite čia");//click here (New)
+define("_TOLOGINAGAIN","prisijungti iš naujo");//to login again (New)
+define("_SESSIONEXPIRED","Plenarinio posėdžio pasibaigęs");//Session expired (New)
 ?>

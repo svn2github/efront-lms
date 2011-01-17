@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","با تشکر از شما برای تکمیل")
 define("_NOREPORTSFOUNDINTHESYSTEM","هیچ گزارشی موجود در سیستم");//No reports found in the system
 define("_YOUMAYCREATEONE","شما ممکن است ایجاد یک");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","شما می توانید حالت درس را تغییر ندهید زیرا کاربران ثبت نام وجود دارد به دوره");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","شما می توانید تاریخ و زمان آخرین عنصر را جدا نکنید");//You cannot remove the last element (New)
-define("_CONTAINS","شامل");//Contains (New)
-define("_NOTCONTAINS","آیا اشاره ای نشده است");//Does not contain (New)
-define("_REMOVEOPTION","گزارش گزینه");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","در نظر بگیرید درست زمانی که انباشته نقاط بزرگتر یا مساوی");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","اتوماتیک");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","خودکار گزینه صحیح");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","اصلاح سوال");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","کلمات جداگانه با لوله |");//Separate words with pipe | (New)
-define("_POINTS","امتیاز");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","شما می توانید تاریخ و زمان آخرین عنصر را جدا نکنید");//You cannot remove the last element
+define("_CONTAINS","شامل");//Contains
+define("_NOTCONTAINS","آیا اشاره ای نشده است");//Does not contain
+define("_REMOVEOPTION","گزارش گزینه");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","در نظر بگیرید درست زمانی که انباشته نقاط بزرگتر یا مساوی");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","اتوماتیک");//Automatic
+define("_AUTOCORRECTOPTIONS","خودکار گزینه صحیح");//Auto-correct options
+define("_QUESTIONCORRECTION","اصلاح سوال");//Question correction
+define("_SEPARATEWORDSWITHPIPE","کلمات جداگانه با لوله |");//Separate words with pipe |
+define("_POINTS","امتیاز");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","کاربر نشانی از این دوره را نداشته باشند");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","کاربر نشانی از این درس را ندارید");//The user does not have this lesson
 define("_USERACCESSGRANTED","دسترسی کاربر اعطا");//User access granted
-define("_FORCECHANGEPASSWORD","نیروی تغییر رمز عبور بر ورود اولیه");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","تغییر رمز عبور");//Change password (New)
-define("_OLDPASSWORD","رمز عبور قبلی");//Old password (New)
-define("_NEWPASSWORD","رمز عبور جدید");//New password (New)
-define("_ONLINETIME","مدت زمان آنلاین");//Time online (New)
-define("_ONLINESINCE","کاربران آنلاین حاضر از");//Online since (New)
-define("_MANUALLY","بصورت دستی");//Manually (New)
-define("_CLEAROPCODECACHE","پاک کردن کش opcode");//Clear opcode cache (New)
-define("_USELOGO","استفاده از آرم");//Use logo (New)
-define("_DEFAULTLOGO","آرم پیش فرض");//Default logo (New)
-define("_UPLOADSITELOGO","ارسال لوگوی سایت");//Upload site logo (New)
-define("_ATLEAST","حداقل");//At least (New)
-define("_ATMOST","در اکثر");//At most (New)
-define("_EQUALTO","مساوی با");//Equal to (New)
-define("_SKILLSSTATISTICS","مهارت گزارش");//Skill reports (New)
-define("_STATISTICSFORSKILL","گزارش برای مهارت");//Reports for skill (New)
-define("_CHOOSESKILL","مهارت را انتخاب کنید");//Choose skill (New)
-define("_SKILLGRAPH","نمودار مهارت");//Skill graph (New)
-define("_TOTALSKILLS","مهارت ها");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","آسنکرون ارتباط SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","تغییر به ارتباطات ناهمزمان اگر شما در حال تجربه مشکل تکمیل محتوای SCORM (به خصوص در مورد شما با استفاده از محتوای تولید شده ادوبی اسیر)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","هشدار : غیر فعال کردن پرداخت تمام قیمت ها به مجموعه ای 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","گزینه های متعدد");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","نیروی تغییر رمز عبور بر ورود اولیه");//Force password change upon initial login
+define("_CHANGEPASSWORD","تغییر رمز عبور");//Change password
+define("_OLDPASSWORD","رمز عبور قبلی");//Old password
+define("_NEWPASSWORD","رمز عبور جدید");//New password
+define("_ONLINETIME","مدت زمان آنلاین");//Time online
+define("_ONLINESINCE","کاربران آنلاین حاضر از");//Online since
+define("_MANUALLY","بصورت دستی");//Manually
+define("_CLEAROPCODECACHE","پاک کردن کش opcode");//Clear opcode cache
+define("_USELOGO","استفاده از آرم");//Use logo
+define("_DEFAULTLOGO","آرم پیش فرض");//Default logo
+define("_UPLOADSITELOGO","ارسال لوگوی سایت");//Upload site logo
+define("_ATLEAST","حداقل");//At least
+define("_ATMOST","در اکثر");//At most
+define("_EQUALTO","مساوی با");//Equal to
+define("_SKILLSSTATISTICS","مهارت گزارش");//Skill reports
+define("_STATISTICSFORSKILL","گزارش برای مهارت");//Reports for skill
+define("_CHOOSESKILL","مهارت را انتخاب کنید");//Choose skill
+define("_SKILLGRAPH","نمودار مهارت");//Skill graph
+define("_TOTALSKILLS","مهارت ها");//Total skills
+define("_SCORMASYNCHROUNOUS","آسنکرون ارتباط SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","تغییر به ارتباطات ناهمزمان اگر شما در حال تجربه مشکل تکمیل محتوای SCORM (به خصوص در مورد شما با استفاده از محتوای تولید شده ادوبی اسیر)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","هشدار : غیر فعال کردن پرداخت تمام قیمت ها به مجموعه ای 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","گزینه های متعدد");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","جلسه شما منقضی شده است. لطفا");//Your session has expired. Please (New)
+define("_CLICKHERE","اینجا را کلیک کنید");//click here (New)
+define("_TOLOGINAGAIN","برای ورود به سایت دوباره");//to login again (New)
+define("_SESSIONEXPIRED","جلسه تمام شده");//Session expired (New)
 ?>

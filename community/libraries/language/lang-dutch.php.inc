@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Dank u voor het invullen van");//Thank you for 
 define("_NOREPORTSFOUNDINTHESYSTEM","Geen meldingen in het systeem gevonden");//No reports found in the system
 define("_YOUMAYCREATEONE","Je mag er een maken");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Je kunt niet veranderen les modus omdat er gebruikers zijn ingeschreven aan de cursus");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Je kunt niet verwijderen van de laatste element");//You cannot remove the last element (New)
-define("_CONTAINS","Bevat");//Contains (New)
-define("_NOTCONTAINS","Bevat geen");//Does not contain (New)
-define("_REMOVEOPTION","Verwijder optie");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Beschouw correct wanneer verzamelde punten groter of gelijk aan");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatische");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-juiste opties");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Vraag correctie");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Afzonderlijke woorden met pijp |");//Separate words with pipe | (New)
-define("_POINTS","Punten");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Je kunt niet verwijderen van de laatste element");//You cannot remove the last element
+define("_CONTAINS","Bevat");//Contains
+define("_NOTCONTAINS","Bevat geen");//Does not contain
+define("_REMOVEOPTION","Verwijder optie");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Beschouw correct wanneer verzamelde punten groter of gelijk aan");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatische");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-juiste opties");//Auto-correct options
+define("_QUESTIONCORRECTION","Vraag correctie");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Afzonderlijke woorden met pijp |");//Separate words with pipe |
+define("_POINTS","Punten");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","De gebruiker beschikt niet over deze cursus");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","De gebruiker beschikt niet over deze les");//The user does not have this lesson
 define("_USERACCESSGRANTED","Gebruiker toegang verleend");//User access granted
-define("_FORCECHANGEPASSWORD","Force wachtwoord te wijzigen bij de eerste login");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Wachtwoord wijzigen");//Change password (New)
-define("_OLDPASSWORD","Oude wachtwoord");//Old password (New)
-define("_NEWPASSWORD","Een nieuw wachtwoord");//New password (New)
-define("_ONLINETIME","Tijd online");//Time online (New)
-define("_ONLINESINCE","Online sinds");//Online since (New)
-define("_MANUALLY","Handmatig");//Manually (New)
-define("_CLEAROPCODECACHE","Duidelijke opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Gebruik logo");//Use logo (New)
-define("_DEFAULTLOGO","Standaard logo");//Default logo (New)
-define("_UPLOADSITELOGO","Upload site-logo");//Upload site logo (New)
-define("_ATLEAST","Ten minste");//At least (New)
-define("_ATMOST","Op de meeste");//At most (New)
-define("_EQUALTO","Gelijk aan");//Equal to (New)
-define("_SKILLSSTATISTICS","Skill verslagen");//Skill reports (New)
-define("_STATISTICSFORSKILL","Rapporten voor skill");//Reports for skill (New)
-define("_CHOOSESKILL","Kies vaardigheid");//Choose skill (New)
-define("_SKILLGRAPH","Skill grafiek");//Skill graph (New)
-define("_TOTALSKILLS","Totaal vaardigheden");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchrone communicatie SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Over te schakelen naar asynchrone communicatie indien u problemen ondervindt het invullen van SCORM content (met name in het geval u gebruik maakt van Adobe Captivate generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Waarschuwing: Het uitschakelen betalingen zal alle prijzen op 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Meerdere opties");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Force wachtwoord te wijzigen bij de eerste login");//Force password change upon initial login
+define("_CHANGEPASSWORD","Wachtwoord wijzigen");//Change password
+define("_OLDPASSWORD","Oude wachtwoord");//Old password
+define("_NEWPASSWORD","Een nieuw wachtwoord");//New password
+define("_ONLINETIME","Tijd online");//Time online
+define("_ONLINESINCE","Online sinds");//Online since
+define("_MANUALLY","Handmatig");//Manually
+define("_CLEAROPCODECACHE","Duidelijke opcode cache");//Clear opcode cache
+define("_USELOGO","Gebruik logo");//Use logo
+define("_DEFAULTLOGO","Standaard logo");//Default logo
+define("_UPLOADSITELOGO","Upload site-logo");//Upload site logo
+define("_ATLEAST","Ten minste");//At least
+define("_ATMOST","Op de meeste");//At most
+define("_EQUALTO","Gelijk aan");//Equal to
+define("_SKILLSSTATISTICS","Skill verslagen");//Skill reports
+define("_STATISTICSFORSKILL","Rapporten voor skill");//Reports for skill
+define("_CHOOSESKILL","Kies vaardigheid");//Choose skill
+define("_SKILLGRAPH","Skill grafiek");//Skill graph
+define("_TOTALSKILLS","Totaal vaardigheden");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchrone communicatie SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Over te schakelen naar asynchrone communicatie indien u problemen ondervindt het invullen van SCORM content (met name in het geval u gebruik maakt van Adobe Captivate generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Waarschuwing: Het uitschakelen betalingen zal alle prijzen op 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Meerdere opties");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Uw sessie is verlopen. Gelieve");//Your session has expired. Please (New)
+define("_CLICKHERE","klik hier");//click here (New)
+define("_TOLOGINAGAIN","om in te loggen opnieuw");//to login again (New)
+define("_SESSIONEXPIRED","Sessie is verlopen");//Session expired (New)
 ?>

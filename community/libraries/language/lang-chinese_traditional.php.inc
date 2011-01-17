@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","謝謝你完成");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","沒有報告發現，在系統");//No reports found in the system
 define("_YOUMAYCREATEONE","您可以創建一");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","你不能改變的教訓模式，因為有用戶參加該課程");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","您不能刪除最後一個元素");//You cannot remove the last element (New)
-define("_CONTAINS","包含");//Contains (New)
-define("_NOTCONTAINS","不包含");//Does not contain (New)
-define("_REMOVEOPTION","刪除選項");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考慮是正確的，當積分大於或等於");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","自動");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","自動更正選項");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","問題更正");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","單獨的詞與管|");//Separate words with pipe | (New)
-define("_POINTS","點");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","您不能刪除最後一個元素");//You cannot remove the last element
+define("_CONTAINS","包含");//Contains
+define("_NOTCONTAINS","不包含");//Does not contain
+define("_REMOVEOPTION","刪除選項");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","考慮是正確的，當積分大於或等於");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","自動");//Automatic
+define("_AUTOCORRECTOPTIONS","自動更正選項");//Auto-correct options
+define("_QUESTIONCORRECTION","問題更正");//Question correction
+define("_SEPARATEWORDSWITHPIPE","單獨的詞與管|");//Separate words with pipe |
+define("_POINTS","點");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","用戶不具有此課程");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","用戶沒有這個教訓");//The user does not have this lesson
 define("_USERACCESSGRANTED","授予用戶訪問");//User access granted
-define("_FORCECHANGEPASSWORD","部隊在初始登錄密碼更改");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","更改密碼");//Change password (New)
-define("_OLDPASSWORD","舊密碼");//Old password (New)
-define("_NEWPASSWORD","新密碼");//New password (New)
-define("_ONLINETIME","上網時間");//Time online (New)
-define("_ONLINESINCE","網上自");//Online since (New)
-define("_MANUALLY","手動");//Manually (New)
-define("_CLEAROPCODECACHE","操作碼緩存清除");//Clear opcode cache (New)
-define("_USELOGO","使用LOGO");//Use logo (New)
-define("_DEFAULTLOGO","默認徽標");//Default logo (New)
-define("_UPLOADSITELOGO","上傳網站徽標");//Upload site logo (New)
-define("_ATLEAST","至少");//At least (New)
-define("_ATMOST","在最");//At most (New)
-define("_EQUALTO","等於");//Equal to (New)
-define("_SKILLSSTATISTICS","技術報告");//Skill reports (New)
-define("_STATISTICSFORSKILL","報告的技巧");//Reports for skill (New)
-define("_CHOOSESKILL","選擇技巧");//Choose skill (New)
-define("_SKILLGRAPH","技能圖");//Skill graph (New)
-define("_TOTALSKILLS","共有技能");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","異步 SCORM通信");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","切換到異步通信，如果您遇到麻煩完成SCORM的內容（尤其是如果您使用Adobe Captivate中生成的內容）");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：禁用所有價格付款將設置為 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","多個選項");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","部隊在初始登錄密碼更改");//Force password change upon initial login
+define("_CHANGEPASSWORD","更改密碼");//Change password
+define("_OLDPASSWORD","舊密碼");//Old password
+define("_NEWPASSWORD","新密碼");//New password
+define("_ONLINETIME","上網時間");//Time online
+define("_ONLINESINCE","網上自");//Online since
+define("_MANUALLY","手動");//Manually
+define("_CLEAROPCODECACHE","操作碼緩存清除");//Clear opcode cache
+define("_USELOGO","使用LOGO");//Use logo
+define("_DEFAULTLOGO","默認徽標");//Default logo
+define("_UPLOADSITELOGO","上傳網站徽標");//Upload site logo
+define("_ATLEAST","至少");//At least
+define("_ATMOST","在最");//At most
+define("_EQUALTO","等於");//Equal to
+define("_SKILLSSTATISTICS","技術報告");//Skill reports
+define("_STATISTICSFORSKILL","報告的技巧");//Reports for skill
+define("_CHOOSESKILL","選擇技巧");//Choose skill
+define("_SKILLGRAPH","技能圖");//Skill graph
+define("_TOTALSKILLS","共有技能");//Total skills
+define("_SCORMASYNCHROUNOUS","異步 SCORM通信");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","切換到異步通信，如果您遇到麻煩完成SCORM的內容（尤其是如果您使用Adobe Captivate中生成的內容）");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：禁用所有價格付款將設置為 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","多個選項");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","您的會話已過期。請");//Your session has expired. Please (New)
+define("_CLICKHERE","點擊這裡");//click here (New)
+define("_TOLOGINAGAIN","重新登錄");//to login again (New)
+define("_SESSIONEXPIRED","會話超時");//Session expired (New)
 ?>

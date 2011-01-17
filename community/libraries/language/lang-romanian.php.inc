@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Vă mulţumim pentru completarea");//Thank you 
 define("_NOREPORTSFOUNDINTHESYSTEM","Nu rapoarte găsite în sistemul de");//No reports found in the system
 define("_YOUMAYCREATEONE","Puteti crea unul");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nu puteţi schimba modul de lecţie pentru că există utilizatori înscrişi la curs");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Nu se poate elimina ultimul element");//You cannot remove the last element (New)
-define("_CONTAINS","Conţine");//Contains (New)
-define("_NOTCONTAINS","Nu conţine");//Does not contain (New)
-define("_REMOVEOPTION","Eliminaţi opţiunea");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Luaţi în considerare corect atunci când punctele acumulate sunt mai mari sau egale cu");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automată");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","opţiuni Auto-corectă");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Întrebare corecţie");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","cuvinte separate cu ţeavă |");//Separate words with pipe | (New)
-define("_POINTS","Puncte");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Nu se poate elimina ultimul element");//You cannot remove the last element
+define("_CONTAINS","Conţine");//Contains
+define("_NOTCONTAINS","Nu conţine");//Does not contain
+define("_REMOVEOPTION","Eliminaţi opţiunea");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Luaţi în considerare corect atunci când punctele acumulate sunt mai mari sau egale cu");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automată");//Automatic
+define("_AUTOCORRECTOPTIONS","opţiuni Auto-corectă");//Auto-correct options
+define("_QUESTIONCORRECTION","Întrebare corecţie");//Question correction
+define("_SEPARATEWORDSWITHPIPE","cuvinte separate cu ţeavă |");//Separate words with pipe |
+define("_POINTS","Puncte");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Utilizatorul nu are acest curs");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Utilizatorul nu are această lecţie");//The user does not have this lesson
 define("_USERACCESSGRANTED","Accesul utilizatorilor acordate");//User access granted
-define("_FORCECHANGEPASSWORD","Vigoare schimbe parola la conectare iniţială");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Schimbare parolă");//Change password (New)
-define("_OLDPASSWORD","Vechi parola");//Old password (New)
-define("_NEWPASSWORD","Nouă parolă");//New password (New)
-define("_ONLINETIME","Timp online");//Time online (New)
-define("_ONLINESINCE","Online, deoarece");//Online since (New)
-define("_MANUALLY","Manual");//Manually (New)
-define("_CLEAROPCODECACHE","Clar Opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Utilizarea logo-ul");//Use logo (New)
-define("_DEFAULTLOGO","Default logo");//Default logo (New)
-define("_UPLOADSITELOGO","Încărcaţi site-ul logo-ul");//Upload site logo (New)
-define("_ATLEAST","Cel puţin");//At least (New)
-define("_ATMOST","La cele mai multe");//At most (New)
-define("_EQUALTO","Egal la");//Equal to (New)
-define("_SKILLSSTATISTICS","Îndemânare rapoarte");//Skill reports (New)
-define("_STATISTICSFORSKILL","Rapoarte pentru calificare");//Reports for skill (New)
-define("_CHOOSESKILL","Alege calificare");//Choose skill (New)
-define("_SKILLGRAPH","Graficul de îndemânare");//Skill graph (New)
-define("_TOTALSKILLS","abilităţi Total");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","SCORM comunicare asincronă");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Comutaţi la comunicare asincrone, dacă aveţi probleme la completarea conţinut SCORM (mai ales în cazul în care sunt utilizaţi Adobe Captivate continut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Atentie: Plăţile Dezactivarea va stabili toate preturile la 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Multiple opţiuni de");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","Vigoare schimbe parola la conectare iniţială");//Force password change upon initial login
+define("_CHANGEPASSWORD","Schimbare parolă");//Change password
+define("_OLDPASSWORD","Vechi parola");//Old password
+define("_NEWPASSWORD","Nouă parolă");//New password
+define("_ONLINETIME","Timp online");//Time online
+define("_ONLINESINCE","Online, deoarece");//Online since
+define("_MANUALLY","Manual");//Manually
+define("_CLEAROPCODECACHE","Clar Opcode cache");//Clear opcode cache
+define("_USELOGO","Utilizarea logo-ul");//Use logo
+define("_DEFAULTLOGO","Default logo");//Default logo
+define("_UPLOADSITELOGO","Încărcaţi site-ul logo-ul");//Upload site logo
+define("_ATLEAST","Cel puţin");//At least
+define("_ATMOST","La cele mai multe");//At most
+define("_EQUALTO","Egal la");//Equal to
+define("_SKILLSSTATISTICS","Îndemânare rapoarte");//Skill reports
+define("_STATISTICSFORSKILL","Rapoarte pentru calificare");//Reports for skill
+define("_CHOOSESKILL","Alege calificare");//Choose skill
+define("_SKILLGRAPH","Graficul de îndemânare");//Skill graph
+define("_TOTALSKILLS","abilităţi Total");//Total skills
+define("_SCORMASYNCHROUNOUS","SCORM comunicare asincronă");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Comutaţi la comunicare asincrone, dacă aveţi probleme la completarea conţinut SCORM (mai ales în cazul în care sunt utilizaţi Adobe Captivate continut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Atentie: Plăţile Dezactivarea va stabili toate preturile la 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Multiple opţiuni de");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Sesiunea dvs. a expirat. Vă rugăm să");//Your session has expired. Please (New)
+define("_CLICKHERE","click aici");//click here (New)
+define("_TOLOGINAGAIN","sa va logati din nou");//to login again (New)
+define("_SESSIONEXPIRED","Sesiunea a expirat");//Session expired (New)
 ?>

@@ -3956,40 +3956,44 @@ define("_THANKYOUFORCOMPLETING","Ďakujeme vám za vyplnenie");//Thank you for c
 define("_NOREPORTSFOUNDINTHESYSTEM","Žiadne správy nájsť v systéme");//No reports found in the system
 define("_YOUMAYCREATEONE","Môžete vytvoriť jeden");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nemôžete zmeniť lekciu režim, pretože tam sú používatelia zapísaní do kurzu");//You cannot change lesson mode because there are users enrolled to the course
-define("_YOUCANNOTREMOVETHELASTELEMENT","Nemôžete odstrániť posledný prvok");//You cannot remove the last element (New)
-define("_CONTAINS","Obsahuje");//Contains (New)
-define("_NOTCONTAINS","Neobsahuje");//Does not contain (New)
-define("_REMOVEOPTION","Možnosť odstrániť");//Remove option (New)
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Považujú za správne, keď dosiahnutých bodov je väčší alebo rovný");//Consider correct when accumulated points are greater or equal to (New)
-define("_AUTOMATIC","Automatické");//Automatic (New)
-define("_AUTOCORRECTOPTIONS","Auto-správnej voľby");//Auto-correct options (New)
-define("_QUESTIONCORRECTION","Otázka korekcia");//Question correction (New)
-define("_SEPARATEWORDSWITHPIPE","Jednotlivé slová sa potrubie |");//Separate words with pipe | (New)
-define("_POINTS","Body");//Points (New)
+define("_YOUCANNOTREMOVETHELASTELEMENT","Nemôžete odstrániť posledný prvok");//You cannot remove the last element
+define("_CONTAINS","Obsahuje");//Contains
+define("_NOTCONTAINS","Neobsahuje");//Does not contain
+define("_REMOVEOPTION","Možnosť odstrániť");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Považujú za správne, keď dosiahnutých bodov je väčší alebo rovný");//Consider correct when accumulated points are greater or equal to
+define("_AUTOMATIC","Automatické");//Automatic
+define("_AUTOCORRECTOPTIONS","Auto-správnej voľby");//Auto-correct options
+define("_QUESTIONCORRECTION","Otázka korekcia");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Jednotlivé slová sa potrubie |");//Separate words with pipe |
+define("_POINTS","Body");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Užívateľ nemá tento kurz");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Užívateľ nemá v tejto lekcii");//The user does not have this lesson
 define("_USERACCESSGRANTED","Užívateľ prístup umožnený");//User access granted
-define("_FORCECHANGEPASSWORD","V platnosti zmena hesla pri prvom prihlásení");//Force password change upon initial login (New)
-define("_CHANGEPASSWORD","Zmena hesla");//Change password (New)
-define("_OLDPASSWORD","Staré heslo");//Old password (New)
-define("_NEWPASSWORD","Nové heslo");//New password (New)
-define("_ONLINETIME","Čas online");//Time online (New)
-define("_ONLINESINCE","On-line od");//Online since (New)
-define("_MANUALLY","Ručne");//Manually (New)
-define("_CLEAROPCODECACHE","Vymazať opcode cache");//Clear opcode cache (New)
-define("_USELOGO","Použiť logo");//Use logo (New)
-define("_DEFAULTLOGO","Predvolené logo");//Default logo (New)
-define("_UPLOADSITELOGO","Upload loga");//Upload site logo (New)
-define("_ATLEAST","Aspoň");//At least (New)
-define("_ATMOST","Nanajvýš");//At most (New)
-define("_EQUALTO","Rovnajúcej sa");//Equal to (New)
-define("_SKILLSSTATISTICS","Zručnosť správy");//Skill reports (New)
-define("_STATISTICSFORSKILL","Správy na zručnosť");//Reports for skill (New)
-define("_CHOOSESKILL","Vyberte zručnosť");//Choose skill (New)
-define("_SKILLGRAPH","Zručnosť grafu");//Skill graph (New)
-define("_TOTALSKILLS","Celkom zručnosti");//Total skills (New)
-define("_SCORMASYNCHROUNOUS","Asynchrónne komunikácia SCORM");//Asynchronous SCORM communication (New)
-define("_SCORMASYNCHRONOUSEXPLANATION","Prepnúť na asynchrónne komunikáciu, ak ste sa stretli s problémami s vyplnením SCORM obsahu (hlavne v prípade, že používate Adobe Captivate vytvorený obsah)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content) (New)
-define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Upozornenie: Zákaz platieb budú stanovené všetky ceny na 0");//Warning: Disabling payments will set all prices to 0 (New)
-define("_MULTIPLEOPTIONS","Viac možností");//Multiple options (New)
+define("_FORCECHANGEPASSWORD","V platnosti zmena hesla pri prvom prihlásení");//Force password change upon initial login
+define("_CHANGEPASSWORD","Zmena hesla");//Change password
+define("_OLDPASSWORD","Staré heslo");//Old password
+define("_NEWPASSWORD","Nové heslo");//New password
+define("_ONLINETIME","Čas online");//Time online
+define("_ONLINESINCE","On-line od");//Online since
+define("_MANUALLY","Ručne");//Manually
+define("_CLEAROPCODECACHE","Vymazať opcode cache");//Clear opcode cache
+define("_USELOGO","Použiť logo");//Use logo
+define("_DEFAULTLOGO","Predvolené logo");//Default logo
+define("_UPLOADSITELOGO","Upload loga");//Upload site logo
+define("_ATLEAST","Aspoň");//At least
+define("_ATMOST","Nanajvýš");//At most
+define("_EQUALTO","Rovnajúcej sa");//Equal to
+define("_SKILLSSTATISTICS","Zručnosť správy");//Skill reports
+define("_STATISTICSFORSKILL","Správy na zručnosť");//Reports for skill
+define("_CHOOSESKILL","Vyberte zručnosť");//Choose skill
+define("_SKILLGRAPH","Zručnosť grafu");//Skill graph
+define("_TOTALSKILLS","Celkom zručnosti");//Total skills
+define("_SCORMASYNCHROUNOUS","Asynchrónne komunikácia SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Prepnúť na asynchrónne komunikáciu, ak ste sa stretli s problémami s vyplnením SCORM obsahu (hlavne v prípade, že používate Adobe Captivate vytvorený obsah)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Upozornenie: Zákaz platieb budú stanovené všetky ceny na 0");//Warning: Disabling payments will set all prices to 0
+define("_MULTIPLEOPTIONS","Viac možností");//Multiple options
+define("_YOURSESSIONHASEXPIREDPLEASE","Vaša relácia vypršala. Prosím");//Your session has expired. Please (New)
+define("_CLICKHERE","kliknite tu");//click here (New)
+define("_TOLOGINAGAIN","sa znovu prihlásiť");//to login again (New)
+define("_SESSIONEXPIRED","Relácia skončila");//Session expired (New)
 ?>

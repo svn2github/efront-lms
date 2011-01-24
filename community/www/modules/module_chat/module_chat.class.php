@@ -21,7 +21,7 @@ class module_chat extends eFrontModule{
        to_user VARCHAR(255) NOT NULL DEFAULT '',
        message TEXT NOT NULL,
        sent DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-       recd INTEGER UNSIGNED NOT NULL DEFAULT 0,
+       isLesson INTEGER UNSIGNED NOT NULL DEFAULT 0,
        PRIMARY KEY (id)
        )"
        );
@@ -136,9 +136,28 @@ class module_chat extends eFrontModule{
   $_SESSION['commonality'] = $commonality;
   //print_r($_SESSION['commonality']);
  }
+ public function curPageURL() {
+  $pageURL = 'http';
+  if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+   $pageURL .= "://";
+  if ($_SERVER["SERVER_PORT"] != "80") {
+   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+  }
+  else {
+   $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+  }
+  return $pageURL;
+ }
  //public function getSmartyTpl() {
  public function onPageFinishLoadingSmartyTpl() {
-  $smarty = $this -> getSmartyVar();
+ $smarty = $this -> getSmartyVar();
+ $page = $this->curPageURL();
+ if ($this->contains($page,"popup=1")){
+  $smarty -> assign("T_CHAT_MODULE_STATUS", "OFF");
+ }
+ else{
+  $smarty -> assign("T_CHAT_MODULE_STATUS", "ON");
+ }
   if (!$_SESSION['chatter']){
    $currentUser = $this -> getCurrentUser();
    $_SESSION['chatter'] = $currentUser -> login;
@@ -152,8 +171,26 @@ class module_chat extends eFrontModule{
   $onlineUsers = EfrontUser :: getUsersOnline();
   //$onlineUsers[] = $onlineUsers['login'];
   //echo($onlineUsers[0]['login']." ".count($onlineUsers));
+
   $smarty -> assign("T_CHAT_MODULE_ONLINEUSERS", $onlineUsers);
+
   return $this -> moduleBaseDir . "module_chat.tpl";
+ }
+
+ public function getSmartyTpl() {
+  return $this -> moduleBaseDir . "control_panel.tpl";
+ }
+
+
+
+ private function contains($str, $content){
+  $str = strtolower($str);
+  $content = strtolower($content);
+
+  if (strpos($str,$content))
+   return true;
+  else
+   return false;
  }
 }
 ?>

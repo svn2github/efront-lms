@@ -1,18 +1,40 @@
 @charset "utf-8";
 
 a{
-	outline: none; 
+	outline: none;
 }
 
+
+#chat_module{
+	clear:both;
+}
+
+#windowspace{
+	overflow-y:hidden;
+	overflow:auto;
+	border:0px;
+	float:left;
+	bottom:0px;
+	position:fixed;
+	right:18.2em;
+	max-width:1135px; /*init 910*/
+}
+
+#windows{
+	
+	white-space:nowrap;
+	border:none;
+	position:relative;
+	z-index:2000;
+}
 
 #chat_bar {
 	float:right;
 	width:18em;
 	height:25px;
 	position:fixed; /* chat_bar div must be fixed, for the fixed bar to work */
-	bottom:1px;
+	bottom:0px;
 	right:1px;
-	/*margin-left:86.8em;*/
 	border:1px solid #999999;
 	background-color:#FFFFFF;
 	text-align:left;
@@ -22,7 +44,6 @@ a{
 
 #user_list {
 	height:100%;
-	border-bottom:#0033FF 1px solid;
 	position:relative;
 	overflow:auto;
 	padding-bottom:0px;
@@ -33,6 +54,7 @@ a{
 #content{
 	padding-bottom:1px;
 	outline: none;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 #content p{
@@ -42,17 +64,21 @@ a{
 	padding-bottom:1px;
 	margin:0;
 	text-align:left;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 #content p a{
 	color:#000000;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 #status{
-	font-size:1.2em;
+	font-size:1.1em;
 	margin-right:80px;
+	vertical-align:super;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 #statusimg{
-	vertical-align:middle;
-	padding-top:1px; border:none;
+	border:none;
+	height:100%
 }

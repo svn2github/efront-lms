@@ -579,7 +579,7 @@ class EfrontGroup
   if ($this -> group['key_max_usage'] && $this -> group['key_max_usage'] <= $this -> group['key_current_usage']) {
    throw new Exception(_MAXIMUMKEYUSAGESREACHED, EfrontGroupException::ASSIGNMENT_ERROR);
   }
-  $this -> addUsers($user, $this -> group['user_types_ID']);
+  $this -> addUsers($user, $this -> group['user_types_ID'] ? $this -> group['user_types_ID'] : 'student');
   if ($this -> group['key_max_usage']) {
    $this -> group['key_current_usage']++;
    $this -> persist();

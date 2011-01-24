@@ -354,7 +354,8 @@ class themes extends EfrontEntity
         if (!in_array($fields['name'], $result['name'])) {
             $id = eF_insertTableData("themes", $fields);
         } else {
-   $id = array_search($fields['name'], $result['name']);
+   $idx = array_search($fields['name'], $result['name']);
+   $id = $result['name'][$idx];
   }
         $newTheme = new themes($id);
         return $newTheme;

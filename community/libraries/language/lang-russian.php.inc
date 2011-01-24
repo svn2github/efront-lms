@@ -3939,7 +3939,7 @@ define("_ALLCOURSEUSERS","Все пользователи курса");//All cou
 define("_MOVEBLOCK","Переместить блок");//Move block
 define("_EXPANDCOLLAPSEBLOCK","Развернуть/Свернуть блок");//Expand/collapse block
 define("_DEFAULTLEARNERTYPE","Тип учащегося по умолчанию");//Default learner type
-define("_DEFAULTLEARNERTYPEINFO","Если у вас есть групповой ключь для этой группы, то пользователи, которые используют этот ключ будет зачислены на уроки/курсы этой группы. Если данная группа, является группой по умолчанию, то новые пользователи будут автоматически назначены на уроки этой группы");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
+define("_DEFAULTLEARNERTYPEINFO","Если у вас есть групповой ключ для этой группы, то пользователи, которые используют этот ключ будет зачислены на уроки/курсы этой группы. Если данная группа, является группой по умолчанию, то новые пользователи будут автоматически назначены на уроки этой группы");//If you have set a group key for this group, then users that use the key will be enrolled to lessons/courses having this type. If you have set this group to be default, then new users will be assigned to the group's lessons with this type
 define("_DONTUSEDEFAULTGROUP","Не использовать тип по умолчанию");//Don't use default type
 define("_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP","Вы успешно добавлены в группу");//You have been successfully added to the group
 define("_THISGROUPISINACTIVE","Эта группа не активна");//This group is inactive
@@ -3953,47 +3953,47 @@ define("_SWITCHTOSIMPLEVIEW","Переключить на простой вид"
 define("_BCCRECIPIENTS","Неуказанные получатели (ВСС)");//Undisclosed recipients (bcc)
 define("_RESULTSFOR","Результаты для");//Results for
 define("_THANKYOUFORCOMPLETING","Благодарим вас за заполнение");//Thank you for completing
-define("_NOREPORTSFOUNDINTHESYSTEM","Нет сообщений");//No reports found in the system
+define("_NOREPORTSFOUNDINTHESYSTEM","Нет отчетов");//No reports found in the system
 define("_YOUMAYCREATEONE","Вы можете его создать");//You may create one
 define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Вы не можете изменить режим урока, поскольку есть пользователи, изучающие курс с этим уроком");//You cannot change lesson mode because there are users enrolled to the course
 define("_YOUCANNOTREMOVETHELASTELEMENT","Вы не можете удалить последний элемент");//You cannot remove the last element
 define("_CONTAINS","Содержит");//Contains
 define("_NOTCONTAINS","Не содержит");//Does not contain
-define("_REMOVEOPTION","Удалить опции");//Remove option
-define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Рассмотрим прав, когда накопленные баллы больше или равно");//Consider correct when accumulated points are greater or equal to
+define("_REMOVEOPTION","Удалить опцию");//Remove option
+define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Считать правильным, когда сумма накопленных баллов больше или равна");//Consider correct when accumulated points are greater or equal to
 define("_AUTOMATIC","Автоматическая");//Automatic
-define("_AUTOCORRECTOPTIONS","Автокоррекции");//Auto-correct options
-define("_QUESTIONCORRECTION","Вопрос коррекции");//Question correction
-define("_SEPARATEWORDSWITHPIPE","Отдельные слова с трубы |");//Separate words with pipe |
-define("_POINTS","Точки");//Points
+define("_AUTOCORRECTOPTIONS","Параметры автокоррекции");//Auto-correct options
+define("_QUESTIONCORRECTION","Изменение вопроса");//Question correction
+define("_SEPARATEWORDSWITHPIPE","Разделяйте слова символом |");//Separate words with pipe |
+define("_POINTS","Баллов");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не имеет этот курс");//The user does not have this course
 define("_THEUSERDOESNOTHAVETHISLESSON","Пользователь не имеет этот урок");//The user does not have this lesson
-define("_USERACCESSGRANTED","Доступ пользователю предоставлен");//User access granted
-define("_FORCECHANGEPASSWORD","Группа смены пароля при первоначальном Войти");//Force password change upon initial login
+define("_USERACCESSGRANTED","Доступ предоставлен");//User access granted
+define("_FORCECHANGEPASSWORD","Требовать смену пароля при первоначальном входе");//Force password change upon initial login
 define("_CHANGEPASSWORD","Изменение пароля");//Change password
 define("_OLDPASSWORD","Старый пароль");//Old password
 define("_NEWPASSWORD","Новый пароль");//New password
 define("_ONLINETIME","Время онлайн");//Time online
 define("_ONLINESINCE","На сайте с");//Online since
 define("_MANUALLY","Вручную");//Manually
-define("_CLEAROPCODECACHE","Очистить кэш кода операции");//Clear opcode cache
+define("_CLEAROPCODECACHE","Очистить кэш");//Clear opcode cache
 define("_USELOGO","Использование логотипа");//Use logo
-define("_DEFAULTLOGO","По умолчанию логотип");//Default logo
-define("_UPLOADSITELOGO","Добавить сайт логотип");//Upload site logo
-define("_ATLEAST","По крайней мере");//At least
-define("_ATMOST","В наиболее");//At most
+define("_DEFAULTLOGO","Логотип по умолчанию");//Default logo
+define("_UPLOADSITELOGO","Загрузыть логотип сайта");//Upload site logo
+define("_ATLEAST","Как минимум");//At least
+define("_ATMOST","Максимум");//At most
 define("_EQUALTO","Равно");//Equal to
-define("_SKILLSSTATISTICS","Навык доклады");//Skill reports
-define("_STATISTICSFORSKILL","Отчеты за мастерство");//Reports for skill
-define("_CHOOSESKILL","Выберите мастерство");//Choose skill
-define("_SKILLGRAPH","Навык графа");//Skill graph
-define("_TOTALSKILLS","Всего навыки");//Total skills
-define("_SCORMASYNCHROUNOUS","Асинхронные SCORM связи");//Asynchronous SCORM communication
-define("_SCORMASYNCHRONOUSEXPLANATION","Переключение в режим асинхронной передачи, если у вас возникли проблемы с заполнением SCORM содержания (особенно в случае, если вы используете Adobe Captivate контента)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
+define("_SKILLSSTATISTICS","Отчеты по навыкам");//Skill reports
+define("_STATISTICSFORSKILL","Отчеты по навыкам");//Reports for skill
+define("_CHOOSESKILL","Выберите навык");//Choose skill
+define("_SKILLGRAPH","Граф навыков");//Skill graph
+define("_TOTALSKILLS","Всего навыков");//Total skills
+define("_SCORMASYNCHROUNOUS","Асинхронный режим SCORM");//Asynchronous SCORM communication
+define("_SCORMASYNCHRONOUSEXPLANATION","Переключитесь в режим асинхронной передачи, если у вас возникают проблемы вполнением SCORM-материалов (особенно если вы используете материалы, созданные в Adobe Captivate)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Предупреждение: Отключение платежей установит все цены на 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Несколько вариантов");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Ваша сессия истекла. Пожалуйста,");//Your session has expired. Please (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Вы слишком долго бездействовали и ваша сессия была закрыта. Пожалуйста,");//Your session has expired. Please (New)
 define("_CLICKHERE","нажмите здесь");//click here (New)
-define("_TOLOGINAGAIN","Войти, чтобы снова");//to login again (New)
-define("_SESSIONEXPIRED","Сессия истек");//Session expired (New)
+define("_TOLOGINAGAIN","чтобы снова войти");//to login again (New)
+define("_SESSIONEXPIRED","Сессия окончена");//Session expired (New)
 ?>

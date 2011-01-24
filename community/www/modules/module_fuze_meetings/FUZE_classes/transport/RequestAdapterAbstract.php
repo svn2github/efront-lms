@@ -51,17 +51,17 @@ abstract class Request_Adapter_Abstract {
 
  // Edo orizontai ta URL's pou xrisimopoiountai gia ta requests analoga me
  // ton typo tou request.
- const REQUEST_ADAPTER_URL_OAUTH_AUTH = 'http://fuze.efront.actonbit.gr/api/get_request_token/';
- const REQUEST_ADAPTER_URL_REGISTER = 'http://fuze.efront.actonbit.gr/api/account_register/';
- const REQUEST_ADAPTER_URL_MEETING_LAUNCH = 'http://fuze.efront.actonbit.gr/api/meeting_launch/';
- const REQUEST_ADAPTER_URL_MEETING_SCHEDULE = 'http://fuze.efront.actonbit.gr/api/meeting_schedule/';
- const REQUEST_ADAPTER_URL_MEETING_START = 'http://fuze.efront.actonbit.gr/api/meeting_start/';
- const REQUEST_ADAPTER_URL_MEETING_STATUS = 'http://fuze.efront.actonbit.gr/api/meeting_status/';
- const REQUEST_ADAPTER_URL_MEETING_UPDATE = 'http://fuze.efront.actonbit.gr/api/meeting_update/';
- const REQUEST_ADAPTER_URL_ACCOUNT_CANCEL = 'http://fuze.efront.actonbit.gr/api/account_cancel/';
- const REQUEST_ADAPTER_URL_USER_CANCEL = 'http://fuze.efront.actonbit.gr/api/user_cancel/';
- const REQUEST_ADAPTER_URL_USER_CREATE = 'http://fuze.efront.actonbit.gr/api/user_create/';
- const REQUEST_ADAPTER_URL_USER_LOGIN = 'http://fuze.efront.actonbit.gr/api/user_login/';
+ const REQUEST_ADAPTER_URL_OAUTH_AUTH = 'http://fuze.efrontlearning.net/api/get_request_token/';
+ const REQUEST_ADAPTER_URL_REGISTER = 'http://fuze.efrontlearning.net/api/account_register/';
+ const REQUEST_ADAPTER_URL_MEETING_LAUNCH = 'http://fuze.efrontlearning.net/api/meeting_launch/';
+ const REQUEST_ADAPTER_URL_MEETING_SCHEDULE = 'http://fuze.efrontlearning.net/api/meeting_schedule/';
+ const REQUEST_ADAPTER_URL_MEETING_START = 'http://fuze.efrontlearning.net/api/meeting_start/';
+ const REQUEST_ADAPTER_URL_MEETING_STATUS = 'http://fuze.efrontlearning.net/api/meeting_status/';
+ const REQUEST_ADAPTER_URL_MEETING_UPDATE = 'http://fuze.efrontlearning.net/api/meeting_update/';
+ const REQUEST_ADAPTER_URL_ACCOUNT_CANCEL = 'http://fuze.efrontlearning.net/api/account_cancel/';
+ const REQUEST_ADAPTER_URL_USER_CANCEL = 'http://fuze.efrontlearning.net/api/user_cancel/';
+ const REQUEST_ADAPTER_URL_USER_CREATE = 'http://fuze.efrontlearning.net/api/user_create/';
+ const REQUEST_ADAPTER_URL_USER_LOGIN = 'http://fuze.efrontlearning.net/api/user_login/';
 
  // Edo orizontai oi tupoi ton diathesimon methods. Ta URL's gia to 
  // kathena apo ta methods orizetai parapano.

@@ -66,9 +66,16 @@ try {
              $result = eF_getTableData("surveys", "*", "lessons_ID = ".$_GET['from']);
              foreach ($result as $key => $value) {
                  $result[$key]['lessons_ID'] = $currentLesson -> lesson['id'];
+                 $result_questions = eF_getTableData("questions_to_surveys", "*", "surveys_ID=".$result[$key]['id']);
                  unset($result[$key]['id']);
+                 $new_id = eF_insertTableData("surveys", $result[$key]);
+                 foreach ($result_questions as $index => $question) {
+                  unset($question['id']);
+                  $question['surveys_ID'] = $new_id;
+                  $result_questions[$index] = $question;
+                 }
+                 eF_insertTableDataMultiple("questions_to_surveys", $result_questions);
              }
-             eF_insertTableDataMultiple("surveys", $result);
             } catch (Exception $e) {
                 header("HTTP/1.0 500 ");
                 echo $e -> getMessage().' ('.$e -> getCode().')';

@@ -1,36 +1,43 @@
 .chatbox {
-	position: fixed;
 	width: 225px;/*225 default*/
 	display:none;
-	padding-bottom:1px;
-	border:1px solid #999999;
+	float:right;	
+	position:relative;
+	margin-top:6px;
+	border:1px solid #666666;
 }
 
 .chatboxhead {
+	height:24px;
 	background-color: #006699;
-	padding:2px;
+	padding:1px;
 	color: #FFFFFF;
+	position:relative;
+	z-index:999;
 }
 
 .chatboxblink {
 	background-color: #0099FF;
-	border-right:1px solid #176689;
-	border-left:1px solid #176689;
+
 }
 
 .chatboxcontent {
-	font-family: arial,sans-serif;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 	font-size: 13px;
 	color: #333333;
 	height:200px;
 	width:209px;
 	overflow:auto;
 	padding:7px;
-	border-left:1px solid #cccccc;
-	border-right:1px solid #cccccc;
-	border-bottom:1px solid #eeeeee;
 	background-color: #FFFFFF;
 	line-height: 1.3em;
+	position:relative;
+	z-index:999;
+	white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 .chatboxinput {
@@ -39,21 +46,26 @@
 	border-left:1px solid #cccccc;
 	border-right:1px solid #cccccc;
 	border-bottom:1px solid #cccccc;
+	position:relative;
+	z-index:999;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 .chatboxtextarea {
 	width: 206px;
-	height:44px;
+	height:30px;
 	padding:3px 0pt 3px 3px;
 	border: 1px solid #006699;
 	margin: 1px;
 	overflow:hidden;
 	background-color:#FFFFFF;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 .chatboxtextareaselected {
 	border: 2px solid #0066FF;
 	margin:0;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 .chatboxmessage {
@@ -69,22 +81,35 @@
 .chatboxmessagefrom {
 	margin-left:-1em;
 	font-weight: bold;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 .chatboxmessagecontent {
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }
 
 .chatboxoptions {
 	float: right;
+	margin-top:4px;
+
 }
 
 .chatboxoptions a {
 	text-decoration: none;
 	color: white;
 	font-weight:bold;
-	font-family:Verdana,Arial,"Bitstream Vera Sans",sans-serif;
-}
+	vertical-align:bottom;
 
+}
+.chatboxoptions a img{
+	border:none;
+}
 .chatboxtitle {
 	float: left;
+	font-size:11px;
+	padding-top:3px;
+	margin-left:2px;
+	position:relative;
+	z-index:999;
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
 }

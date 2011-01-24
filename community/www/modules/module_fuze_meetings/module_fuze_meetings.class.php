@@ -43,7 +43,7 @@ class module_fuze_meetings extends EfrontModule {
  private $_current_student_five_next_meetings;
  public function __construct() {
   global $currentUser;
-  if (!$currentUser) return false;
+  if (G_VERSIONTYPE == 'community' || !$currentUser) return false;
   $defined_moduleBaseUrl = '';
   if ($currentUser->getType() == 'administrator') $defined_moduleBaseUrl = 'administrator.php?ctg=modules&op=module_fuze_meetings';
   elseif ($currentUser->getType() == 'professor') $defined_moduleBaseUrl = 'professor.php?ctg=modules&op=module_fuze_meetings';
@@ -264,7 +264,7 @@ class module_fuze_meetings extends EfrontModule {
     ///////////////////////////////////////////////////////////
     // Fetching all professor id's and names, the local accounts
     $local_accounts = array();
-    $res = eF_getTableData("`users`","`id`,CONCAT(`surname`,', ',`name`) AS `nick`","`user_type` = 'professor' AND `active` = 1", "`nick`");
+    $res = eF_getTableData("`users`","`id`,CONCAT(`surname`,', ',`name`) AS `nick`","`user_type` = 'professor' AND `active` = 1 AND (`archive` = 0 OR `archive` IS NULL)", "`nick`");
     if ($res && is_array($res) && count($res)) {
      foreach ($res AS $entry) {
       $local_accounts [] = array('id' => $entry ['id'], 'name' => $entry ['nick']);
@@ -572,7 +572,7 @@ class module_fuze_meetings extends EfrontModule {
    $response ['professor_names'] = array();
    ///////////////////////////////////////////////////////////
    // Fetching all professor id's and names
-   $res = eF_getTableData("`users`","`id`,CONCAT(`surname`,', ',`name`) AS `nick`","`user_type` = 'professor'", "`nick`");
+   $res = eF_getTableData("`users`","`id`,CONCAT(`surname`,', ',`name`) AS `nick`","`user_type` = 'professor' AND `active` = 1 AND (`archive` = 0 OR `archive` IS NULL)", "`nick`");
    if ($res && is_array($res) && count($res)) {
     foreach ($res AS $entry) {
      $response ['professor_ids'][] = $entry ['id'];
@@ -1674,8 +1674,8 @@ class module_fuze_meetings extends EfrontModule {
   eF_executeNew('DROP TABLE IF EXISTS `_mod_fm_meeting_attendee`');
   eF_executeNew('DROP TABLE IF EXISTS `_mod_fm_meeting`');
   $sql = 'CREATE TABLE `_mod_fm_account` (';
-  $sql .= '`consumer_key` CHAR(88) DEFAULT NULL,';
-  $sql .= '`consumer_secret` CHAR(40) DEFAULT NULL';
+  $sql .= '`consumer_key` CHAR(88),';
+  $sql .= '`consumer_secret` CHAR(40)';
   $sql .= ')Engine=InnoDB charset=utf8;';
   eF_executeNew($sql);
   $sql = 'INSERT INTO `_mod_fm_account` (`consumer_key`,`consumer_secret`) VALUES ("","")';
@@ -1700,9 +1700,9 @@ class module_fuze_meetings extends EfrontModule {
   $sql .= '`launch_url` VARCHAR(255) NOT NULL,';
   $sql .= '`attend_url` VARCHAR(255) NOT NULL,';
   $sql .= '`lesson_id` MEDIUMINT(8) UNSIGNED NOT NULL,';
-  $sql .= '`calendar_id` MEDIUMINT(8) UNSIGNED DEFAULT NULL,';
+  $sql .= '`calendar_id` MEDIUMINT(8) UNSIGNED,';
   $sql .= '`fuze_meeting_id` VARCHAR(255) NOT NULL,';
-  $sql .= '`launch_now_url` VARCHAR(255) DEFAULT NULL,';
+  $sql .= '`launch_now_url` VARCHAR(255),';
   $sql .= 'PRIMARY KEY (`id`),';
   $sql .= 'FOREIGN KEY (`user_id`) REFERENCES `_mod_fm_user`(`id`)';
   $sql .= ')Engine=InnoDB charset=utf8;';

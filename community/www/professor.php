@@ -37,7 +37,7 @@ try {
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
-  setcookie('c_request', http_build_query($_GET), time() + 300);
+  setcookie('c_request', htmlspecialchars_decode(http_build_query($_GET)), time() + 300);
  }
  eF_redirect("index.php?ctg=expired");
  exit;
@@ -50,12 +50,29 @@ if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) 
 if ($_COOKIE['c_request']) {
     setcookie('c_request', '', time() - 86400);
     if (mb_strpos($_COOKIE['c_request'], '.php') !== false) {
-        eF_redirect("".$_COOKIE['c_request']);
+        eF_redirect($_COOKIE['c_request']);
     } else {
         eF_redirect("".$_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
     }
 }
 $roles = EfrontLessonUser :: getLessonsRoles();
+
+try {
+ if (isset($_GET['view_unit']) || isset($_GET['package_ID'])) {
+  if ($_GET['view_unit']) {
+   $unit = new EfrontUnit($_GET['view_unit']);
+  } elseif ($_GET['package_ID']) {
+   $unit = new EfrontUnit($_GET['package_ID']);
+  }
+  $currentLesson = new EfrontLesson($unit['lessons_ID']);
+  $_SESSION['s_lessons_ID'] = $currentLesson -> lesson['id'];
+ }
+} catch (Exception $e) {
+ unset($_GET['view_unit']);
+ $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+ $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+ $message_type = 'failure';
+}
 
 /* This is used to allow users to enter directly internal lesson specific pages from external pages*/
 if (isset($_GET['new_lessons_ID']) && eF_checkParameter($_GET['new_lessons_ID'], 'id')) {
@@ -473,6 +490,10 @@ try {
  elseif ($ctg == 'messages') {
      /***/
      require_once("messages.php");
+ }
+ elseif ($ctg == 'chat') {
+     /***/
+     require_once("includes/chat.php");
  }
  elseif ($ctg == 'import') {
      /***/

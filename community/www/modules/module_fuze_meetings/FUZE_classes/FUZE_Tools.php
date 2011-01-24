@@ -12,6 +12,8 @@
 
  * @author A. Fotoglidis <a.fotoglidis@actonbit.gr>
 
+ * @copyright EPIGNOSIS LTD <http://www.efrontlearning.net>
+
  */
 class FUZE_Tools {
  /**

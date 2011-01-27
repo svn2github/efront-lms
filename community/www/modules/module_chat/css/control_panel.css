@@ -5,15 +5,6 @@
 	color:#FF0000;
 }
 
-#cp_table{
-	margin-bottom:1px solid;
-}
-
-#heartbeatrate{
-	display:none;
-	margin-left:50px;
-}
-
-#heartbeatrateDiv{
-
+#currValue{
+	color:#000099;
 }

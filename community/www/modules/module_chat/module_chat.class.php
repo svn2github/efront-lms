@@ -1,5 +1,6 @@
 <?php
 
+include_once ("../PEAR/Spreadsheet/Excel/Writer.php");
 
 class module_chat extends eFrontModule{
 
@@ -179,6 +180,82 @@ class module_chat extends eFrontModule{
  }
 
  public function getSmartyTpl() {
+
+  $smarty = $this -> getSmartyVar();
+  if (isset($_GET['setChatHeartBeat'])){
+
+   if (isset($_POST['rate'])){
+    $this -> setChatHeartbeat($_POST['rate']*1000);
+   }
+   $form = new HTML_QuickForm("change_chatheartbeat_form", "post", $this->moduleBaseUrl."&setChatHeartBeat=1", "", null, true);
+   $form->addElement('text', 'rate', "rate", 'class="inputText" style="width:100px;"');
+   $form->addRule('rate', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
+   $form->addRule('rate', "Non numeric Value", 'numeric', null, 'client');
+   $form->addElement('submit', 'submit', _SUBMIT, 'class="flatButton"');
+   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+   $form->setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+   $form->setRequiredNote("mesh");
+   $form->accept($renderer);
+   $smarty->assign('T_CHAT_CHANGE_CHATHEARTBEAT_FORM', $renderer->toArray());
+
+   $x = $this->getChatHeartbeat();
+
+   $smarty->assign('T_CHAT_CURRENT_RATE', $x/1000);
+  }
+  else if (isset($_GET['setRefresh_rate'])){
+   if (isset($_POST['rate'])){
+    $this -> setRefresh_rate($_POST['rate']*1000);
+   }
+
+   $form = new HTML_QuickForm("change_refreshrate_form", "post", $this->moduleBaseUrl."&setRefresh_rate=1", "", null, true);
+   $form->addElement('text', 'rate', "rate", 'class="inputText" style="width:100px;"');
+   $form->addRule('rate', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
+   $form->addRule('rate', "Non numeric Value", 'numeric', null, 'client');
+   $form->addElement('submit', 'submit', _SUBMIT, 'class="flatButton"');
+   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+   $form->setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+   $form->setRequiredNote("mesh");
+   $form->accept($renderer);
+   $smarty->assign('T_CHAT_CHANGE_REFRESHRATE_FORM', $renderer->toArray());
+
+   $x = $this->getRefresh_rate();
+
+   $smarty->assign('T_CHAT_CURRENT_RATE', $x/1000);
+  }
+  else if (isset($_GET['createLog'])){
+
+   if (isset($_POST['lesson'])){
+    $this->createLessonHistory($_POST['lesson'], $this->formatDate($_POST['from'],0), $this->formatDate($_POST['until'],1));
+    //$smarty->assign('T_CHAT_TEST', $this->formatDate($_POST[from],1));
+   }
+
+   $form = new HTML_QuickForm("create_log_form", "post", $this->moduleBaseUrl."&createLog=1", "", null, true);
+   $date_from = $form->addElement('date', 'from', 'From Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
+   $date_until = $form->addElement('date', 'until', 'Until Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
+   $ratingRadios = array();
+   $lessons = $this -> getLessonsCatalogue();
+   foreach ($lessons as $l){
+    $ratingRadios[] = $form->createElement('radio',null, null, $l, $l);
+   }
+   $form->addGroup($ratingRadios,'lesson',null,'<br />');
+
+   //$date_options = array('format' => 'dMYHi', 'minYear' => 2005, 'maxYear' => 2010);
+   //$form->addElement('date', 'event_date', 'Date:', $date_options);
+
+
+   //$date_defaults = array('d' => date('d'), 'M' => date('n'), 'Y' => date('Y'), 'H' => 12, 'i' => 00);
+   //$form->setDefaults(array('event_date' => $date_defaults));
+
+   $form->addElement('submit', 'submit', "Create Log", 'class="flatButton"');
+   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+
+   $form->accept($renderer);
+   $smarty->assign('T_CHAT_CREATE_LOG_FORM', $renderer->toArray());
+
+   $x = $this->getRefresh_rate();
+
+   $smarty->assign('T_CHAT_CURRENT_RATE', $x/1000);
+  }
   return $this -> moduleBaseDir . "control_panel.tpl";
  }
 
@@ -202,5 +279,167 @@ class module_chat extends eFrontModule{
   else
    return false;
  }
+
+ private function getChatHeartbeat(){
+
+  $doc = new DOMDocument();
+  $doc->load( ($this -> moduleBaseDir).'config.xml' );
+
+  $chat_system= $doc->getElementsByTagName( "chat_system" );
+  foreach( $chat_system as $x )
+  {
+   $time = $x->getElementsByTagName( "chatHeartbeatTime" );
+   $time = $time->item(0)->nodeValue;
+   return $time;
+  }
+ }
+
+ function getRefresh_rate(){
+
+  $doc = new DOMDocument();
+  $doc->load( ($this -> moduleBaseDir).'config.xml' );
+
+  $chat_system= $doc->getElementsByTagName( "chat_system" );
+  foreach( $chat_system as $x )
+  {
+   $time = $x->getElementsByTagName( "refresh_rate" );
+   $time = $time->item(0)->nodeValue;
+
+   return $time;
+  }
+}
+
+
+ private function setChatheartBeat($rate){
+
+  $doc = new DOMDocument();
+  $doc->load( ($this -> moduleBaseDir).'config.xml' );
+
+  $chat_system= $doc->getElementsByTagName( "chat_system" );
+  foreach( $chat_system as $x )
+  {
+   $time = $x->getElementsByTagName( "refresh_rate" );
+   $t = $time->item(0)->nodeValue;
+
+   $status = $x->getElementsByTagName( "status" );
+   $s = $status->item(0)->nodeValue;
+   //echo "$t $s";
+  }
+
+  $xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
+<chat_system>
+ <status>".$s."</status>
+ <chatHeartbeatTime>".$rate."</chatHeartbeatTime>
+ <refresh_rate>".$t."</refresh_rate>
+</chat_system>";
+
+
+  $file = fopen(($this -> moduleBaseDir).'config.xml', "w");
+  fwrite($file, $xml);
+  fclose($file);
+ }
+
+
+ function setRefresh_rate($rate){
+
+  $doc = new DOMDocument();
+  $doc->load( ($this -> moduleBaseDir).'config.xml' );
+
+  $chat_system= $doc->getElementsByTagName( "chat_system" );
+  foreach( $chat_system as $x )
+  {
+   $time = $x->getElementsByTagName( "chatHeartbeatTime" );
+   $t = $time->item(0)->nodeValue;
+
+   $status = $x->getElementsByTagName( "status" );
+   $s = $status->item(0)->nodeValue;
+  }
+
+  $xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
+<chat_system>
+<status>".$s."</status>
+<chatHeartbeatTime>".$t."</chatHeartbeatTime>
+<refresh_rate>".$rate."</refresh_rate>
+</chat_system>";
+
+
+  $file = fopen(($this -> moduleBaseDir).'config.xml', "w");
+  fwrite($file, $xml);
+  fclose($file);
+}
+
+private function getLessonsCatalogue(){
+
+ $lsn = eF_getTableData("lessons", "name", "1");
+
+ $lessons = array();
+
+ foreach ($lsn as $lesson){
+  //echo ("<tr><td><input type=\"radio\" name=\"lesson\" value=\"".str_replace(' ','_',$lesson['name'])."\">".$lesson['name']."</tr></td>");
+  $lessons[] = $lesson['name'];
+ }
+ return $lessons;
+}
+
+private function createLessonHistory($lesson, $from, $until){
+ $lesson = str_replace(' ','_',$lesson);
+ //if (time() - strtotime($from) < 0|| time() - strtotime($until)){
+ //	$sql = "select * from module_chat where (module_chat.to_user = '".$lesson."') order by id ASC";
+ //}
+ //else{
+  $sql = "select * from module_chat where (module_chat.to_user = '".$lesson."' AND module_chat.sent >='".$from."' AND module_chat.sent <= '".$until."') order by id ASC";
+ //}
+ $query = mysql_query($sql);
+
+ $data = array();
+ $workbook = new Spreadsheet_Excel_Writer();
+ $worksheet =& $workbook->addWorksheet($lesson.' ');
+ $worksheet->write(0, 0, 'FROM USER');
+ $worksheet->write(0, 1, 'MESSAGE');
+ $worksheet->write(0, 2, 'SENT AT');
+
+ $i = 0;
+ while ($chat = mysql_fetch_array($query)) {
+  //array_push($data, array('col1' => $chat["from_user"], 'col2' =>  $chat["message"], 'col3' =>$chat["sent"]));
+  $worksheet->write($i, 0, $chat["from_user"]);
+  $worksheet->write($i, 1, $chat["message"]);
+  $worksheet->write($i, 2, $chat["sent"]);
+  $i++;
+
+ }
+
+ /*$columns = array(
+
+		'col1' => 'SENDER',
+
+		'col2' => 'MESSAGE',
+
+		'col3' => 'SENT TIME'
+
+	);
+
+	
+
+	$csv = $this -> build($columns,$data);
+
+	$this -> save($csv,$_POST['lesson']."-".date('Y-m-d'));*/
+ $workbook->send($lesson);
+ $workbook->close();
+}
+private function formatDate($date, $end){
+ $y = $date['Y'];
+ $m = $date['M'];
+ $d = $date['d'];
+ if ($m<10){
+  $m = '0'.$m;
+ }
+ if ($d<10){
+  $d = '0'.$d;
+ }
+ if ($end==0)
+  return $y.'-'.$m.'-'.$d.' 00:00:00';
+ else
+  return $y.'-'.$m.'-'.$d.' 23:59:59';
+}
 }
 ?>

@@ -22,16 +22,13 @@ function createLogs(){
 
  $lsn = eF_getTableData("lessons", "name", "1");
 
- echo ("<h1 align=\"center\">Lessons Catalogue</h1>");
- echo ("<form align=\"center\" method=\"post\" action=\"admin.php?force=createLessonHistory\">");
- echo ("<table align=\"center\">");
- foreach ($lsn as $lesson){
-  echo ("<tr><td><input type=\"radio\" name=\"lesson\" value=\"".str_replace(' ','_',$lesson['name'])."\">".$lesson['name']."</tr></td>");
- }
- echo"<tr><td colspan=\"2\"><input type=\"submit\" value=\"Create Log\"></td></tr>";
- echo("</table>");
- echo("</form>");
+ $lessons = array();
 
+ foreach ($lsn as $lesson){
+  //echo ("<tr><td><input type=\"radio\" name=\"lesson\" value=\"".str_replace(' ','_',$lesson['name'])."\">".$lesson['name']."</tr></td>");
+  $lessons[] = $lesson
+ }
+ return $lessons;
 }
 
 

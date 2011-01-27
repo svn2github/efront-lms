@@ -204,12 +204,13 @@ class EfrontTimes
   }
   $totalTime['total_seconds'] = $totalTime['hours'] * 3600 + $totalTime['minutes'] * 60 + $totalTime['seconds'];
 
-  $totalTime['time_string'] = '';
+  $totalTime['time_string'] = array();
   if ($totalTime['total_seconds']) {
-   !$totalTime['hours'] OR $totalTime['time_string'] .= $totalTime['hours']._HOURSSHORTHAND.' ';
-   !$totalTime['minutes'] OR $totalTime['time_string'] .= $totalTime['minutes']._MINUTESSHORTHAND.' ';
-   !$totalTime['seconds'] OR $totalTime['time_string'] .= $totalTime['seconds']._SECONDSSHORTHAND;
+   !$totalTime['hours'] OR $totalTime['time_string'][] = $totalTime['hours']._HOURSSHORTHAND;
+   !$totalTime['minutes'] OR $totalTime['time_string'][] = $totalTime['minutes']._MINUTESSHORTHAND;
+   !$totalTime['seconds'] OR $totalTime['time_string'][] = $totalTime['seconds']._SECONDSSHORTHAND;
   }
+  $totalTime['time_string'] = implode(" ", $totalTime['time_string']);
 
   return $totalTime;
  }

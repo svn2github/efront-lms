@@ -26,7 +26,7 @@ function createLogs(){
 
  foreach ($lsn as $lesson){
   //echo ("<tr><td><input type=\"radio\" name=\"lesson\" value=\"".str_replace(' ','_',$lesson['name'])."\">".$lesson['name']."</tr></td>");
-  $lessons[] = $lesson
+  $lessons[] = $lesson;
  }
  return $lessons;
 }
@@ -162,6 +162,7 @@ function getRefresh_rate(){
   echo "$time";
  }
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 function setChatheartBeat(){
 

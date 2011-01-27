@@ -67,13 +67,13 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
     $smarty -> assign("T_LANGUAGES", $languages);
     $debug_InitTime = microtime(true) - $debug_TimeStart;
     if ($configuration['cms_page'] != "" && sizeof($_GET) == 0 && file_exists(G_CURRENTTHEMEPATH."external/".$GLOBALS['configuration']['cms_page'].".php")){ //if there is cms page and no get parameter defined
-        eF_redirect("".G_SERVERNAME.G_CURRENTTHEMEURL."external/".$configuration['cms_page'].".php");
+        eF_redirect(G_SERVERNAME.G_CURRENTTHEMEURL."external/".$configuration['cms_page'].".php");
     }
     if (isset($_GET['logout']) && !isset($_POST['submit_login'])) { //If user wants to log out
         if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
             try {
                 $user = EfrontUserFactory :: factory($_SESSION['s_login']);
-                $user -> logout();
+                $user -> logout(session_id());
                 if ($GLOBALS['configuration']['logout_redirect']) {
                     strpos($GLOBALS['configuration']['logout_redirect'], 'https://') === 0 || strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? header("location:".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
                 }
@@ -119,7 +119,7 @@ if (isset($_GET['logout']) && !isset($_POST['submit_login'])) {
  if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
   try {
    $user = EfrontUserFactory :: factory($_SESSION['s_login']);
-   $user -> logout();
+   $user -> logout(session_id());
    //Redirect user to another page, if such a configuration setting exists
    if ($GLOBALS['configuration']['logout_redirect']) {
     if ($GLOBALS['configuration']['logout_redirect'] == 'close') {
@@ -325,7 +325,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     }
     LoginRedirect($user -> user['user_type']);
    } else {
-    $user -> logout();
+    $user -> logout(session_id());
     eF_redirect("index.php");
    }
   }
@@ -470,7 +470,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
 if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
  if (isset($_SESSION['s_login'])) {
   $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
-  $currentUser -> logout(true);
+  $currentUser -> logout(session_id());
  }
 }
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
@@ -554,7 +554,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
   if ($form -> validate()) {
    if (isset($_SESSION['s_login'])) { //A logged-in user wants to signup: Log him out first
     $user = EfrontUserFactory :: factory($_SESSION['s_login']);
-    $user -> logout();
+    $user -> logout(session_id());
    }
    $values = $form -> exportValues(); //Get the form values
    //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field

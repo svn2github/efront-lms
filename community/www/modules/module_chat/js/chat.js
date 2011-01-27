@@ -11,9 +11,9 @@ var originalTitle;
 var blinkOrder = 0;
 var user_list = "open";
 var refresh_rate = 60000; // How fast the will user list be refreshed?
-var scrollalert_timeout;
-var chatheartbeat_timeout;
-var scrollalertNotCaringCss_timeout;
+var scrollalert_timeout= 0;
+var chatheartbeat_timeout = 0;
+var scrollalertNotCaringCss_timeout = 0;
 
 
 var lessons = new Array();
@@ -28,12 +28,13 @@ $J(document).ready(function(){
 
  originalTitle = document.title;
  initChat();
+ startChatSession();
  chatHeartbeatTime = minChatHeartbeat;
 if ($J.cookie("chat_on") == null)
   $J.cookie("chat_on", "on");
 
  var chat_status = $J.cookie('chat_on');
-
+ scrollalertNotCaringCss();
 
  if (chat_status == "off"){
 
@@ -56,9 +57,7 @@ if ($J.cookie("chat_on") == null)
   $J('#user_list').css("visibility","hidden");
   $J('#user_list').css("height","0px");
   clearTimeout(scrollalert_timeout);
-  scrollalertNotCaringCss();
   scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
-  startChatSession();
  }
 
  $J([window, document]).blur(function(){
@@ -110,7 +109,6 @@ function updatestatus(){
 
  if (chat_status == 'on'){
   //Show number of loaded items
-  $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (18)');
   var totalItems=$J('#content p').length;
   var height = totalItems*20;
   if ( height > 600)
@@ -148,7 +146,6 @@ function scrollalert(){
    updatestatus();
   });
  }
-
  scrollalert_timeout = setTimeout('scrollalert();', refresh_rate);
 }
 
@@ -165,7 +162,6 @@ function scrollalertNotCaringCss(){
    updatestatusNotCaringCss();
   });
  }
-
  scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
 }
 
@@ -247,9 +243,9 @@ function toggle_users() {
  }
  else{
   $J('#user_list').css("visibility","visible");
+  user_list = "open";
   clearTimeout(scrollalertNotCaringCss_timeout);
   scrollalert();
-  user_list = "open";
  }
 
 }

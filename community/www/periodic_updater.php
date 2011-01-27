@@ -18,6 +18,7 @@ header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 $path = "../libraries/";
 $loadLanguage = false;
+define("NO_OUTPUT_BUFFERING", true);
 /** Configuration file.*/
 require_once $path."configuration.php";
 if (!isset($_SESSION['s_login']) || !eF_checkParameter($_SESSION['s_login'], 'login')) {

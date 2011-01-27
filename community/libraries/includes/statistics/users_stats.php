@@ -41,6 +41,7 @@ if (isset($_GET['sel_user'])) {
  if ($currentUser -> user['user_type'] != 'administrator' && $isSupervisor) {
   if ($currentUser -> aspects['hcd'] -> supervisesEmployee($_GET['sel_user'])) {
    $validUsers[] = $_GET['sel_user'];
+   $supervisesUser = 1;
   }
  }
 
@@ -117,7 +118,7 @@ if (isset($_GET['sel_user'])) {
      $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCoursesAggregatingResults($constraints);
 
-     if ($currentUser -> user['user_type'] != 'administrator') {
+     if ($currentUser -> user['user_type'] != 'administrator' && !$supervisesUser) {
       $userCourses = $currentUser -> getUserCourses($constraints);
       $courses = array_intersect_key($courses, $userCourses);
      }
@@ -131,7 +132,7 @@ if (isset($_GET['sel_user'])) {
      $constraints['required_fields'] = array('num_lessons', 'location');
      $constraints['return_objects'] = false;
      $courses = $infoUser -> getUserCourses($constraints);
-     if ($currentUser -> user['user_type'] != 'administrator') {
+     if ($currentUser -> user['user_type'] != 'administrator' && !$supervisesUser) {
       $userCourses = $currentUser -> getUserCourses($constraints);
       $courses = array_intersect_key($courses, $userCourses);
      }
@@ -404,6 +405,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $workSheet -> write($row, 1, _USERUSAGEINFO, $headerFormat);
  $workSheet -> mergeCells($row, 1, $row++, 2);
  //$workSheet -> setColumn(21, 21, 35);
+ $weekMeanDuration = EfrontTimes::formatTimeForReporting($userInfo['usage']['week_mean_duration']*60);
+ $monthMeanDuration = EfrontTimes::formatTimeForReporting($userInfo['usage']['month_mean_duration']*60);
+ $meanDuration = EfrontTimes::formatTimeForReporting($userInfo['usage']['mean_duration']*60);
  $workSheet -> write($row, 1, _LASTLOGIN, $fieldLeftFormat);
  $workSheet -> write($row++, 2, formatTimestamp($userInfo['usage']['last_login']['timestamp'], 'time'), $fieldRightFormat);
  $workSheet -> write($row, 1, _TOTALLOGINS, $fieldLeftFormat);
@@ -413,11 +417,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $workSheet -> write($row, 1, _WEEKLOGINS, $fieldLeftFormat);
  $workSheet -> write($row++, 2, sizeof($userInfo['usage']['week_logins']), $fieldRightFormat);
  $workSheet -> write($row, 1, _MEANDURATION, $fieldLeftFormat);
- $workSheet -> write($row++, 2, $userInfo['usage']['meanDuration']['time_string']."'", $fieldRightFormat);
+ $workSheet -> write($row++, 2, $meanDuration['time_string'], $fieldRightFormat);
  $workSheet -> write($row, 1, _MONTHMEANDURATION, $fieldLeftFormat);
- $workSheet -> write($row++, 2, $userInfo['usage']['monthmeanDuration']['time_string']."'", $fieldRightFormat);
+ $workSheet -> write($row++, 2, $monthMeanDuration['time_string'], $fieldRightFormat);
  $workSheet -> write($row, 1, _WEEKMEANDURATION, $fieldLeftFormat);
- $workSheet -> write($row++, 2, $userInfo['usage']['weekmeanDuration']['time_string']."'", $fieldRightFormat);
+ $workSheet -> write($row++, 2, $weekMeanDuration['time_string'], $fieldRightFormat);
  $row = 1;
  if ($infoUser -> user['user_type'] != 'administrator') {
   //course users info

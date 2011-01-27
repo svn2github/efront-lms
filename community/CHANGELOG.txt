@@ -2,6 +2,7 @@
 - Added strip tags in site motto displaying in title
 - Fixed issue about copying also surveys questions in copy from another lesson
 - Fixed course assignment not working with group key when group type is not set
+- Automatic logout and session handling updates
 
 === Version 3.6.8 build 9575===
 - Added automatic correction for free text questions

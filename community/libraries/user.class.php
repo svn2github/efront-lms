@@ -408,7 +408,7 @@ abstract class EfrontUser
   } else {
    throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
   }
-  if (!$user -> isLoggedIn()) {
+  if (!$user -> isLoggedIn(session_id())) {
    throw new EfrontUserException(_RESOURCEREQUESTEDREQUIRESLOGIN, EfrontUserException::USER_NOT_LOGGED_IN);
   }
   if ($user -> user['timezone']) {
@@ -741,12 +741,12 @@ abstract class EfrontUser
 	 * $user -> logout();
 	 * </code>
 	 *
-	 * @param $destroySession Whether to destroy session data as well
+	 * @param $sessionId Which session to logout user from
 	 * @return boolean True if the user was logged out succesfully
 	 * @since 3.5.0
 	 * @access public
 	 */
- public function logout($destroySession = true) {
+ public function logout($sessionId = false) {
   // Delete FB-connect related cookies - without this code the "Session key invalid problem" appears
   if (isset($GLOBALS['configuration']['facebook_api_key']) && $GLOBALS['configuration']['facebook_api_key'] && $_COOKIE[$GLOBALS['configuration']['facebook_api_key'] . "_user"]) {
    foreach ($_COOKIE as $cookie_key => $cookie) {
@@ -754,46 +754,48 @@ abstract class EfrontUser
      unset($_COOKIE[$key]);
     }
    }
-   //$path = "../libraries/";
-   //require_once $path . "external/facebook-platform/php/facebook.php";
-   //$facebook = new Facebook($GLOBALS['configuration']['facebook_api_key'], $GLOBALS['configuration']['facebook_secret']);
-   //$facebook->clear_cookie_state();
   }
-  if ($this -> user['login'] == $_SESSION['s_login']) { //Is the current user beeing logged out? If so, destroy the session.
-   if ($destroySession) {
-    $_SESSION = array();
-    isset($_COOKIE[session_name()]) ? setcookie(session_name(), '', time()-42000, '/') : null;
-    session_destroy();
-    setcookie ("cookie_login", "", time() - 3600);
-    setcookie ("cookie_password", "", time() - 3600);
-    if (isset($_COOKIE['c_request'])) {
-     setcookie('c_request', '', time() - 86400);
-     unset($_COOKIE['c_request']);
-    }
-    unset($_COOKIE['cookie_login']); //These 2 lines are necessary, so that index.php does not think they are set
-    unset($_COOKIE['cookie_password']);
+  if ($sessionId) {
+   eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and session_id='$sessionId' and users_LOGIN='".$this -> user['login']."'");
+  } else {
+   eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
+  }
+  if ($sessionId == session_id() || !$sessionId) {
+   $fields_insert = array('users_LOGIN' => $this -> user['login'],
+          'timestamp' => time(),
+          'action' => 'logout',
+          'comments' => 0,
+          'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+   eF_insertTableData("logs", $fields_insert);
+   eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
+   eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
+   if (isset($_COOKIE['c_request'])) {
+    setcookie('c_request', '', time() - 86400);
+    unset($_COOKIE['c_request']);
    }
+   setcookie ("cookie_login", "", time() - 3600);
+   setcookie ("cookie_password", "", time() - 3600);
+   unset($_COOKIE['cookie_login']); //These 2 lines are necessary, so that index.php does not think they are set
+   unset($_COOKIE['cookie_password']);
   }
 /*
-		else {
-			$session_path = ini_get('session.save_path');
-			$session_name = eF_getTableData('logs', 'comments', 'users_LOGIN="'.$this -> user['login'].'" AND action = "login"', 'timestamp desc limit 1');
-			unlink($session_path.'/sess_'.$session_name[0]['comments']);
+		if ($this -> user['login'] == $_SESSION['s_login']) {						//Is the current user beeing logged out? If so, destroy the session.
+			if ($destroySession) {
+				$_SESSION = array();
+				isset($_COOKIE[session_name()]) ? setcookie(session_name(), '', time()-42000, '/') : null;
+				session_destroy();
+				setcookie ("cookie_login", "", time() - 3600);
+				setcookie ("cookie_password", "", time() - 3600);
+				if (isset($_COOKIE['c_request'])) {
+					setcookie('c_request', '', time() - 86400);
+					unset($_COOKIE['c_request']);
+				}
+				unset($_COOKIE['cookie_login']);						//These 2 lines are necessary, so that index.php does not think they are set
+				unset($_COOKIE['cookie_password']);
+			}
 		}
 */
-  eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
-  eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
-  $result = eF_getTableData("logs", "action", "users_LOGIN = '".$this -> user['login']."'", "timestamp desc limit 1"); //?? ??? ????? ???????? ???, ????? ??? logs ??? ????? logout, ???? ?? ????? logout ??? ??? ??? ?? ???????
-  if ($result[0]['action'] != 'logout') {
-   $fields_insert = array('users_LOGIN' => $this -> user['login'],
-           'timestamp' => time(),
-           'action' => 'logout',
-           'comments' => 0,
-           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
-   eF_insertTableData("logs", $fields_insert);
-  }
-  //eF_deleteTableData('users_online', "users_LOGIN='".$this -> user['login']."'");
-  eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
+  return true;
  }
  /**
 	 * Login user
@@ -812,16 +814,25 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function login($password, $encrypted = false) {
-  session_regenerate_id(); //If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
-  unset($_SESSION['s_theme']);
-  unset($_SESSION['previousMainUrl']);
-  unset($_SESSION['previousSideUrl']);
-  unset($_SESSION['s_lesson_user_type']);
-  unset($_SESSION['supervises_branches']);
+  //session_regenerate_id();		//If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
+  //If the user is already logged in, log him out
+  if ($this -> isLoggedIn() && !$this -> allowMultipleLogin()) {
+   $this -> logout();
+  }
+  //If we are logged in as another user, log him out
+  if (isset($_SESSION['s_login']) && $_SESSION['s_login'] != $this -> user['login']) {
+   try {
+    EfrontUserFactory :: factory($_SESSION['s_login']) -> logout(session_id());
+   } catch (Exception $e) {}
+  }
+  //Empty session without destroying it
+  foreach ($_SESSION as $key => $value) {
+   unset($_SESSION[$key]);
+  }
   if ($this -> user['pending']) {
    throw new EfrontUserException(_USERPENDING, EfrontUserException :: USER_PENDING);
   }
-  if ($this -> user['active'] == 0) {
+  if (!$this -> user['active']) {
    throw new EfrontUserException(_USERINACTIVE, EfrontUserException :: USER_INACTIVE);
   }
   if ($this -> isLdapUser) { //Authenticate LDAP user
@@ -836,59 +847,38 @@ abstract class EfrontUser
     throw new EfrontUserException(_INVALIDPASSWORD, EfrontUserException :: INVALID_PASSWORD);
    }
   }
-  if ($this -> isLoggedIn()) { //If the user is already logged in, log him out
-   if (!$this -> allowMultipleLogin()) {
-    $this -> logout(false);
-   }
-  } else if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
-   try {
-    $user = EfrontUserFactory :: factory($_SESSION['s_login']);
-    $user -> logout(false);
-   } catch (Exception $e) {}
-  }
-  $_SESSION['s_lessons_ID'] = ''; //@todo: Here, we should reset all session values, except for cart contents
   //if user language is deactivated or deleted, login user with system default language
-  $result = eF_getTableData("languages", "name", "name='".$this -> user['languages_NAME']."' and active=1");
-  if ($result[0]['name'] == $this -> user['languages_NAME']) {
-   $login_language = $this -> user['languages_NAME'];
+  if ($GLOBALS['configuration']['onelanguage']) {
+   $loginLanguage = $GLOBALS['configuration']['default_language'];
   } else {
-   $login_language = $GLOBALS['configuration']['default_language'];
+   $activeLanguages = array_keys(EfrontSystem::getLanguages(true, true));
+   if (in_array($this -> user['languages_NAME'], $activeLanguages)) {
+    $loginLanguage = $this -> user['languages_NAME'];
+   } else {
+    $loginLanguage = $GLOBALS['configuration']['default_language'];
+   }
   }
   //Assign session variables
   $_SESSION['s_login'] = $this -> user['login'];
   $_SESSION['s_password'] = $this -> user['password'];
   $_SESSION['s_type'] = $this -> user['user_type'];
-  $_SESSION['s_language'] = $login_language;
+  $_SESSION['s_language'] = $loginLanguage;
   //Insert log entry
   $fields_insert = array('users_LOGIN' => $this -> user['login'],
-           'timestamp' => time(),
-           'action' => 'login',
-           'comments' => session_id(),
-           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+          'timestamp' => time(),
+          'action' => 'login',
+          'comments' => session_id(),
+          'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
-/*
-		$fields = array('users_LOGIN'   => $this -> user['login'],
-							'timestamp'	 => time(),
-							'timestamp_now' => time(),
-							'session_ip'	=> $_SERVER['REMOTE_ADDR']);
-*/
-  if ($this -> isLoggedIn()) {
-   //eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
-  }
-  $result = eF_getTableData("user_times", "id", "session_id = '".session_id()."' and users_LOGIN='".$this -> user['login']."'");
-  if (sizeof($result) > 0) {
-   eF_updateTableData("user_times", array("session_expired" => 0), "session_id = '".session_id()."' and users_LOGIN='".$this -> user['login']."'");
-  } else {
-   $fields = array("session_timestamp" => time(),
-       "session_id" => session_id(),
-       "session_expired" => 0,
-       "users_LOGIN" => $_SESSION['s_login'],
-       "timestamp_now" => time(),
-       "time" => 0,
-       "entity" => 'system',
-       "entity_id" => 0);
-   eF_insertTableData("user_times", $fields);
-  }
+  $fields = array("session_timestamp" => time(),
+      "session_id" => session_id(),
+      "session_expired" => 0,
+      "users_LOGIN" => $_SESSION['s_login'],
+      "timestamp_now" => time(),
+      "time" => 0,
+      "entity" => 'system',
+      "entity_id" => 0);
+  eF_insertTableData("user_times", $fields);
   return true;
  }
  /**
@@ -966,7 +956,7 @@ abstract class EfrontUser
  public static function getUsersOnline($interval = false) {
   $usersOnline = array();
   //A user may have multiple active entries on the user_times table, one for system, one for unit etc. Pick the most recent
-  $result = eF_getTableData("user_times,users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp", "users.login=user_times.users_LOGIN and session_expired=0", "timestamp_now desc");
+  $result = eF_getTableData("user_times,users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp, session_id", "users.login=user_times.users_LOGIN and session_expired=0", "timestamp_now desc");
   foreach ($result as $value) {
    if (!isset($parsedUsers[$value['users_LOGIN']])) {
     //print("\ntime difference for user: ".$value['users_LOGIN'].' and interval '.$interval.' and time()='.time().' - '.$value['timestamp_now'].': '.(time() - $value['timestamp_now'])."\n");
@@ -981,7 +971,7 @@ abstract class EfrontUser
              'session_timestamp' => $value['session_timestamp'],
              'time' => EfrontTimes::formatTimeForReporting(time() - $value['session_timestamp']));
     } else {
-     EfrontUserFactory :: factory($value['users_LOGIN']) -> logout();
+     EfrontUserFactory :: factory($value['users_LOGIN']) -> logout($value['session_id']);
     }
     $parsedUsers[$value['users_LOGIN']] = true;
    }
@@ -998,14 +988,18 @@ abstract class EfrontUser
 	 * $user -> isLoggedIn();							   //Returns true if the user is logged in
 	 * </code>
 	 *
-	 * @return boolean True if the user is logged in
+	 * @param string $sessionId Check if the user is logged in with this session id
+	 * @return mixed Boolean True if the user is not logged in
 	 * @since 3.5.0
 	 * @access public
 	 */
- public function isLoggedIn() {
-  //$result = eF_getTableData('users_online', '*', "users_LOGIN='".$this -> user['login']."'");
-  $result = eF_getTableData('user_times', 'users_LOGIN', "session_id='".session_id()."' and session_expired=0 and users_LOGIN='".$this -> user['login']."'");
-  if (sizeof($result) > 0) {
+ public function isLoggedIn($sessionId = false) {
+  if ($sessionId) {
+   $result = eF_getTableData('user_times', 'users_LOGIN, session_id', "session_expired=0 and session_id = '$sessionId' and users_LOGIN='".$this -> user['login']."'");
+  } else {
+   $result = eF_getTableData('user_times', 'users_LOGIN, session_id', "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
+  }
+  if (!empty($result)) {
    return true;
   } else {
    return false;

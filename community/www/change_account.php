@@ -17,7 +17,7 @@ try {
         if (in_array($_GET['login'], $additionalAccounts)) {
             $newUser = EfrontUserFactory::factory($_GET['login']);
    $lessonID = $_SESSION['s_lessons_ID'];
-   $currentUser -> logout(false);
+   $currentUser -> logout(session_id());
    $newUser -> login($newUser -> user['password'], true);
    if ($_SESSION['s_type'] != 'administrator' && $lessonID) {
                 setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID, time() + 300);

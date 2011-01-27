@@ -307,7 +307,7 @@ class module_chat extends eFrontModule{
 
    return $time;
   }
-}
+ }
 
 
  private function setChatheartBeat($rate){
@@ -393,53 +393,44 @@ private function createLessonHistory($lesson, $from, $until){
 
  $data = array();
  $workbook = new Spreadsheet_Excel_Writer();
+ $format_bold =& $workbook->addFormat();
+ $format_bold->setBold();
  $worksheet =& $workbook->addWorksheet($lesson.' ');
- $worksheet->write(0, 0, 'FROM USER');
- $worksheet->write(0, 1, 'MESSAGE');
- $worksheet->write(0, 2, 'SENT AT');
+ $worksheet->write(0, 0, 'FROM USER', $format_bold);
+ $worksheet->write(0, 1, 'MESSAGE', $format_bold);
+ $worksheet->write(0, 2, 'SENT AT', $format_bold);
 
  $i = 0;
  while ($chat = mysql_fetch_array($query)) {
-  //array_push($data, array('col1' => $chat["from_user"], 'col2' =>  $chat["message"], 'col3' =>$chat["sent"]));
+
   $worksheet->write($i, 0, $chat["from_user"]);
   $worksheet->write($i, 1, $chat["message"]);
   $worksheet->write($i, 2, $chat["sent"]);
   $i++;
-
  }
 
- /*$columns = array(
-
-		'col1' => 'SENDER',
-
-		'col2' => 'MESSAGE',
-
-		'col3' => 'SENT TIME'
-
-	);
-
-	
-
-	$csv = $this -> build($columns,$data);
-
-	$this -> save($csv,$_POST['lesson']."-".date('Y-m-d'));*/
  $workbook->send($lesson);
  $workbook->close();
 }
+
 private function formatDate($date, $end){
+
  $y = $date['Y'];
  $m = $date['M'];
  $d = $date['d'];
+
  if ($m<10){
   $m = '0'.$m;
  }
  if ($d<10){
   $d = '0'.$d;
  }
+
  if ($end==0)
   return $y.'-'.$m.'-'.$d.' 00:00:00';
  else
   return $y.'-'.$m.'-'.$d.' 23:59:59';
 }
+
 }
 ?>

@@ -53,14 +53,12 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
  exit;
 }
-if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
- eF_redirect(basename($_SERVER['PHP_SELF']));
-}
 !isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
 if ($currentUser -> user['user_type'] == 'administrator' && $_GET['ctg'] == 'personal') {
- eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=users&edit_user='.$currentUser -> user['login']);
+ eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=users&edit_user='.$currentUser -> user['login'].($_GET['op'] ? "&op=".$_GET['op'] : ""));
 }
+$smarty -> assign('T_ORIGINAL_CTG',$ctg);
 //error_reporting(E_ALL);
 //echo "<pre>";print_r($_POST);print_r($_GET);
 //print_r($_FILES);
@@ -233,8 +231,12 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
   if (!isset($_GET['op'])) {
    $_GET['op'] = 'dashboard';
   }
-  $options = array( array('image' => '16x16/home.png', 'title' => _DASHBOARD, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=dashboard', 'selected' => isset($_GET['op']) && $_GET['op'] == 'dashboard' ? true : false),
-  array('image' => '16x16/generic.png', 'title' => _MYACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false));
+  if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
+   $options = array( array('image' => '16x16/generic.png', 'title' => _MYACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false));
+  } else {
+   $options = array( array('image' => '16x16/home.png', 'title' => _DASHBOARD, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=dashboard', 'selected' => isset($_GET['op']) && $_GET['op'] == 'dashboard' ? true : false),
+       array('image' => '16x16/generic.png', 'title' => _MYACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=account', 'selected' => isset($_GET['op']) && $_GET['op'] == 'account' ? true : false));
+  }
   if ($currentUser -> getType() != "administrator") {
    $options[] = array('image' => '16x16/user_timeline.png', 'title' => _MYSTATUS, 'link' => basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=status' , 'selected' => isset($_GET['op']) && $_GET['op'] == 'status' ? true : false);
   }
@@ -891,8 +893,7 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
      $editedUser -> persist();
     }
    } catch (Exception $e) {
-    header("HTTP/1.0 500");
-    echo $e -> getMessage().' ('.$e -> getCode().')';
+    handleAjaxExceptions($e);
    }
    exit;
   }

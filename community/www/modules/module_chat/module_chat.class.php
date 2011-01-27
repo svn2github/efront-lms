@@ -168,6 +168,7 @@ class module_chat extends eFrontModule{
         $smarty -> assign("T_CHAT_MODULE_BASEURL", $this -> moduleBaseUrl);
         $smarty -> assign("T_CHAT_MODULE_BASELINK", $this -> moduleBaseLink);
   $smarty -> assign("T_CHAT_MODULE_BASEDIR", $this -> moduleBaseDir);
+
   $onlineUsers = EfrontUser :: getUsersOnline();
   //$onlineUsers[] = $onlineUsers['login'];
   //echo($onlineUsers[0]['login']." ".count($onlineUsers));
@@ -181,6 +182,15 @@ class module_chat extends eFrontModule{
   return $this -> moduleBaseDir . "control_panel.tpl";
  }
 
+
+ public function getNavigationLinks() {
+  $currentUser = $this -> getCurrentUser();
+
+        if ($currentUser -> getType() == 'administrator') {
+            return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
+                          array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl));
+        }
+ }
 
 
  private function contains($str, $content){

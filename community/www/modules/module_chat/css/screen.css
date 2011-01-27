@@ -16,7 +16,7 @@ a{
 	float:left;
 	bottom:0px;
 	position:fixed;
-	right:18.2em;
+	right:219px;
 	max-width:1135px; /*init 910*/
 }
 
@@ -26,11 +26,14 @@ a{
 	border:none;
 	position:relative;
 	z-index:2000;
+	overflow:hidden;
+	float:left;
+	display:table-row;
 }
 
 #chat_bar {
 	float:right;
-	width:18em;
+	width:216px;
 	height:25px;
 	position:fixed; /* chat_bar div must be fixed, for the fixed bar to work */
 	bottom:0px;
@@ -54,29 +57,27 @@ a{
 #content{
 	padding-bottom:1px;
 	outline: none;
-	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 }
 
 #content p{
 	background:#E1E2FF;
-	font-size:1.1em;
 	padding-left:5px;
 	padding-bottom:1px;
 	margin:0;
 	text-align:left;
-	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 }
 
 #content p a{
 	color:#000000;
-	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 }
 
 #status{
-	font-size:1.1em;
 	margin-right:80px;
 	vertical-align:super;
-	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif
+	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 }
 #statusimg{
 	border:none;

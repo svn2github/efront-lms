@@ -19,6 +19,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  $loadScripts[] = 'includes/social';
  /********************* DASHBOARD PAGE ******************/
  if ($_GET['op'] == "dashboard") {
+  if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&op=account");
+  }
   //Calculate element positions, so they can be rearreanged accordingly to the user selection
   //$elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
   $elementPositions = $currentUser -> user['dashboard_positions'];

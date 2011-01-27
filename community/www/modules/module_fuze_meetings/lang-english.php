@@ -1,6 +1,6 @@
 <?php
 
-define("_FUZE_MEETINGS","FUZE conferences");
+define("_FUZE_MEETINGS","FUZE Meeting");
 
 // ADMIN INTERFACE STUFF
 define("_FUZE_ADMIN_NOT_REGISTERED_YET","You are not registered with the FUZE Meetings service yet. Please press the button below to register.");
@@ -25,8 +25,8 @@ define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Could not fetch user data curr
 // PROFESSOR INTERFACE STUFF
 define("_FUZE_PROF_LOGIN","Login on FUZE");
 define("_FUZE_PROF_ACCOUNT_CREATE","Create a FUZE account now!");
-define("_FUZE_PROF_ACCOUNT_BULLET_1","Use your FUZE meetings account to schedule online meetings, share your screen or make a presentation.");
-define("_FUZE_PROF_ACCOUNT_BULLET_2","Your account will automatically be mapped with your new FUZE meetings account. You are just one click away!");
+define("_FUZE_PROF_ACCOUNT_BULLET_1","Use your FUZE Meeting account to schedule online meetings, share your screen or make a presentation.");
+define("_FUZE_PROF_ACCOUNT_BULLET_2","Your account will automatically be mapped with your new FUZE Meeting account. You are just one click away!");
 define("_FUZE_PROF_ACCOUNT_BULLET_3","The trial includes free meetings for 30 days. You can upgrade directly on the FUZE website.");
 define("_FUZE_PROF_ACCOUNT_SUSPENDED","Your FUZE account has temporarily been suspended by the system administrator. Please contact your administrator for further details.");
 define("_FUZE_PROF_MEETING_HOST","Host a meeting now");

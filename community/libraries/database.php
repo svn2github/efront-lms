@@ -845,7 +845,9 @@ function logProcess($thisQuery, $sql) {
      $GLOBALS['db'] -> queries[$GLOBALS['db'] -> databaseQueries]['times'] = microtime(true) - $thisQuery;
      $GLOBALS['db'] -> queries[$GLOBALS['db'] -> databaseQueries]['sql'] = $sql;
      foreach (debug_backtrace(false) as $value) {
-         $backtrace[] = basename(dirname($value['file'])).'/'.basename($value['file']).':'.$value['line'];
+      if (isset($value['file'])) {
+          $backtrace[] = basename(dirname($value['file'])).'/'.basename($value['file']).':'.$value['line'];
+      }
      }
      $GLOBALS['db'] -> queries[$GLOBALS['db'] -> databaseQueries]['trace'] = print_r($backtrace, true);
     }

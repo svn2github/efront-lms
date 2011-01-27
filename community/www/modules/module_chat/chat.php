@@ -5,8 +5,7 @@ include("../../../libraries/configuration.php");
 session_start();
 
 if (!isset($_SESSION['chatter'])){
- //echo ("ton hpiame");
- exit(0);
+ exit(1);
 }
 
 global $dbh;

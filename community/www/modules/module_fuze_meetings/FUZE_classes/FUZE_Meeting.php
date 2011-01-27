@@ -150,7 +150,7 @@ class FUZE_Meeting extends FUZE_AbstractClass {
 
  public function isHappeningNow() {
   $result = false;
-  if ($this->_starttime < time()+120) {
+  if ($this->_starttime < time()+180) {
    $result = true;
   }
 

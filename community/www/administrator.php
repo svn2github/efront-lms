@@ -37,7 +37,7 @@ try {
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
-  setcookie('c_request', http_build_query($_GET), time() + 300);
+  setcookie('c_request', htmlspecialchars_decode(http_build_query($_GET)), time() + 300);
  }
  eF_redirect("index.php?ctg=expired");
  exit;

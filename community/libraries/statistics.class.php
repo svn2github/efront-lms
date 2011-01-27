@@ -2321,7 +2321,11 @@ class EfrontStats
          }
         }
         if ($users) {
-         $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), false, false, false, $lesson);
+         if (sizeof($tests) == 1) {
+          $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), current($tests), false, false, $lesson);
+         } else {
+          $doneTests = EfrontStats :: getDoneTestsPerTest(array_keys($users), false, false, false, $lesson);
+         }
         }
         foreach ($tests as $id) {
             $testInfo = array();

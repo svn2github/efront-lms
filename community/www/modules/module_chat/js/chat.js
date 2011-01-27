@@ -1,4 +1,6 @@
 
+
+
 var windowFocus = true;
 var username;
 var chatHeartbeatCount = 0;
@@ -8,9 +10,9 @@ var chatHeartbeatTime = minChatHeartbeat; // How often will search for new messa
 var originalTitle;
 var blinkOrder = 0;
 var user_list = "open";
+var refresh_rate = 60000; // How fast the will user list be refreshed?
 var scrollalert_timeout;
 var chatheartbeat_timeout;
-var refresh_rate = 60000; // How fast the will user list be refreshed?
 var scrollalertNotCaringCss_timeout;
 
 
@@ -31,7 +33,6 @@ if ($J.cookie("chat_on") == null)
   $J.cookie("chat_on", "on");
 
  var chat_status = $J.cookie('chat_on');
- scrollalertNotCaringCss();
 
 
  if (chat_status == "off"){
@@ -55,6 +56,7 @@ if ($J.cookie("chat_on") == null)
   $J('#user_list').css("visibility","hidden");
   $J('#user_list').css("height","0px");
   clearTimeout(scrollalert_timeout);
+  scrollalertNotCaringCss();
   scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
   startChatSession();
  }
@@ -86,6 +88,7 @@ function getChatheartbeat(){
       minChatHeartbeat = data;
    });
 
+
 }
 function getRefresh_rate(){
 
@@ -107,6 +110,7 @@ function updatestatus(){
 
  if (chat_status == 'on'){
   //Show number of loaded items
+  $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (18)');
   var totalItems=$J('#content p').length;
   var height = totalItems*20;
   if ( height > 600)
@@ -125,6 +129,7 @@ function updatestatusNotCaringCss(){
 
  if (chat_status == 'on'){
   //Show number of loaded items
+  $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (18)');
   var totalItems=$J('#content p').length;
   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (' +totalItems +')');
 
@@ -191,7 +196,8 @@ function on_off() {
 
   for (x in chatBoxes) { // close all open chatboxes
    if (chatBoxes.hasOwnProperty(x)){
-    if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+    //if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+    if ($J("#chatbox_"+chatBoxes[x]).is(":visible")){
      closeChatBox(chatBoxes[x]);
     }
    }
@@ -283,31 +289,41 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
 
   for (x in chatBoxes) { // minimize all other open chatboxes
    if (chatBoxes.hasOwnProperty(x) && chatboxtitle != chatBoxes[x]){
-    if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+    //if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+    if ( $J("#chatbox_"+chatBoxes[x]).is(":visible") ){
      chatBoxeslength++;
-     $J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
-     $J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
+     //$J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
+     //$J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
+     $J("#chatbox_"+chatBoxes[x]+" .chatboxinput").hide();
+     $J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").hide();
     }
-    $J("#chatbox_"+chatBoxes[x]).css('margin-top','275px');
+    //$J("#chatbox_"+chatBoxes[x]).css('margin-top','275px');
    }
   }
 
   var width = (chatBoxeslength+1)*227;
   $J('#windows').css('width',width);
 
-  if ($J("#chatbox_"+chatboxtitle).css('display') == 'none') {
-   $J("#chatbox_"+chatboxtitle).css('display','block');
-   $J("#chatbox_"+chatboxtitle).css('margin-top','6px');
-   $J("#chatbox_"+chatboxtitle+" .chatboxcontent").css('display', 'block');
-   $J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+  //if ($J("#chatbox_"+chatboxtitle).css('display') == 'none') {
+  if ($J("#chatbox_"+chatboxtitle).is(":hidden")){
+
+   //$J("#chatbox_"+chatboxtitle).css('display','block');
+   $J("#chatbox_"+chatboxtitle).show();
+   //$J("#chatbox_"+chatboxtitle).css('margin-top','7px');
+   //$J("#chatbox_"+chatboxtitle+" .chatboxcontent").css('display', 'block');
+   //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+   $J("#chatbox_"+chatboxtitle+" .chatboxcontent").show();
+   $J('#chatbox_'+chatboxtitle+' .chatboxinput').show();
    restructureChatBoxes();
 
   }
   else{
-   $J("#chatbox_"+chatboxtitle+" .chatboxcontent").css('display', 'block');
-   $J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+   //$J("#chatbox_"+chatboxtitle+" .chatboxcontent").css('display', 'block');
+   //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+   $J("#chatbox_"+chatboxtitle+" .chatboxcontent").show();
+   $J('#chatbox_'+chatboxtitle+' .chatboxinput').show();
   }
-  $J("#chatbox_"+chatboxtitle).css('margin-top','6px');
+  //$J("#chatbox_"+chatboxtitle).css('margin-top','7px');
 
 
   $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
@@ -326,11 +342,14 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
 
  for (x in chatBoxes) { // minimize all other open chatboxes
   if (chatBoxes.hasOwnProperty(x)){
-   if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+   //if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+   if ($J("#chatbox_"+chatBoxes[x]).is(":visible")){
     chatBoxeslength++;
-    $J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
-    $J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
-    $J("#chatbox_"+chatBoxes[x]).css('margin-top', '275px');
+    //$J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
+    //$J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
+    $J("#chatbox_"+chatBoxes[x]+" .chatboxinput").hide();
+    $J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").hide();
+    //$J("#chatbox_"+chatBoxes[x]).css('margin-top', '275px');
 
    }
   }
@@ -363,9 +382,11 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
    }
   }
   if (minimize == 1) {
-   $J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','none');
-   $J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','none');
-   $J('#chatbox_'+chatboxtitle).css('margin-top','275px');
+   //$J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','none');
+   //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','none');
+   $J('#chatbox_'+chatboxtitle+' .chatboxcontent').hide();
+   $J('#chatbox_'+chatboxtitle+' .chatboxinput').hide();
+   //$J('#chatbox_'+chatboxtitle).css('margin-top','275px');
   }
  }
  chatboxFocus[chatboxtitle] = false;
@@ -443,13 +464,17 @@ function chatHeartbeat(){
      if ($J("#chatbox_"+chatboxtitle).length <= 0) {
       createChatBox(chatboxtitle);
      }
-     else if ($J("#chatbox_"+chatboxtitle).css('display') == 'none') {
+     //else if ($J("#chatbox_"+chatboxtitle).css('display') == 'none') {
+     else if ($J("#chatbox_"+chatboxtitle).is(":hidden")){
       var width = ($J('#windows').width())+227;
       $J('#windows').css('width',width);
-      $J("#chatbox_"+chatboxtitle).css('display','block');
-      $J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','block');
-      $J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
-      $J('#chatbox_'+chatboxtitle).css('margin-top', '6px');
+      //$J("#chatbox_"+chatboxtitle).css('display','block');
+      //$J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','block');
+      //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+      $J("#chatbox_"+chatboxtitle).show();
+      $J('#chatbox_'+chatboxtitle+' .chatboxcontent').show();
+      $J('#chatbox_'+chatboxtitle+' .chatboxinput').show();
+      //$J('#chatbox_'+chatboxtitle).css('margin-top', '7px');
       //restructureChatBoxes();
      }
 
@@ -502,7 +527,8 @@ function closeChatBox(chatboxtitle) {
 
 
 
- $J('#chatbox_'+chatboxtitle).css('display','none');
+ //$J('#chatbox_'+chatboxtitle).css('display','none');
+ $J('#chatbox_'+chatboxtitle).hide();
  var width = $J('#windows').width() - 227;
  $J('#windows').css('width',width);
  $J("#chatbox_"+chatboxtitle+" .chatboxcontent").html(' ');
@@ -516,8 +542,9 @@ function closeChatBox(chatboxtitle) {
 }
 
 function toggleChatBoxGrowth(chatboxtitle) {
- if ($J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display') == 'none') {
 
+ //if ($J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display') == 'none') {  
+ if ($J('#chatbox_'+chatboxtitle+' .chatboxcontent').is(":hidden")){
   var minimizedChatBoxes = new Array();
 
   if ($J.cookie('chatbox_minimized')) {
@@ -535,19 +562,24 @@ function toggleChatBoxGrowth(chatboxtitle) {
 
   newCookie = newCookie.slice(0, -1)
 
-  $J('#chatbox_'+chatboxtitle).css('margin-top', '6px');
+  //$J('#chatbox_'+chatboxtitle).css('margin-top', '7px');
 
   $J.cookie('chatbox_minimized', newCookie);
-  $J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','block');
-  $J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+  //$J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','block');
+  //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
+  $J('#chatbox_'+chatboxtitle+' .chatboxcontent').show();
+  $J('#chatbox_'+chatboxtitle+' .chatboxinput').show();
   $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
 
   for (x in chatBoxes) { // minimize all other open chatboxes
    if (chatBoxes.hasOwnProperty(x) && chatboxtitle != chatBoxes[x]){
-    if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
-     $J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
-     $J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
-     $J("#chatbox_"+chatBoxes[x]).css('margin-top','275px');
+    //if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+    if ($J("#chatbox_"+chatBoxes[x]).is(":visible")){
+     //$J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
+     //$J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
+     $J("#chatbox_"+chatBoxes[x]+" .chatboxinput").hide();
+     $J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").hide();
+     //$J("#chatbox_"+chatBoxes[x]).css('margin-top','275px');
     }
    }
   }
@@ -562,9 +594,11 @@ function toggleChatBoxGrowth(chatboxtitle) {
 
 
   $J.cookie('chatbox_minimized',newCookie);
-  $J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','none');
-  $J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','none');
-  $J('#chatbox_'+chatboxtitle).css('margin-top','275px');
+  //$J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display','none');
+  //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','none');
+  $J('#chatbox_'+chatboxtitle+' .chatboxcontent').hide();
+  $J('#chatbox_'+chatboxtitle+' .chatboxinput').hide();
+  //$J('#chatbox_'+chatboxtitle).css('margin-top','275px');
  }
 
 }
@@ -573,7 +607,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
 
  if(event.keyCode == 13 && event.shiftKey == 0) {
   message = $J(chatboxtextarea).val();
-  message = message.replace(/^\s+|\s+$/g,"");
+  message = message.replace(/^\s+|\s+$J/g,"");
   $J(chatboxtextarea).val('');
   $J(chatboxtextarea).focus();
   $J(chatboxtextarea).css('height','30px');
@@ -676,10 +710,10 @@ function disableSelection(target){
 function careLinks(input){
 
     return input
-    .replace(/(ftp|http|https|file):\/\/[\S]+(\b|$)/gim,
-'<a href="$&" class="my_link" target="_blank">$&</a>')
-    .replace(/(www[\S]+(\b|$))/gim,
-'$1<a href="http://$2" class="my_link" target="_blank">$2</a>');
+    .replace(/(ftp|http|https|file):\/\/[\S]+(\b|$J)/gim,
+'<a href="$J&" class="my_link" target="_blank">$J&</a>')
+    .replace(/(www[\S]+(\b|$J))/gim,
+'$J1<a href="http://$J2" class="my_link" target="_blank">$J2</a>');
 }
 
 

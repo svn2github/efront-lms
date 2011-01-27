@@ -797,7 +797,8 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'checkout' && $_GET['checkout'] && $_
 }
 if (isset ($_SESSION['s_login']) && ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2 && $GLOBALS['currentTheme'] -> options['show_header'] == 2)) {
  try {
-  $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+  //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+  $currentUser = EfrontUser :: checkUserAccess();
   $entity = getUserTimeTarget($_SERVER['REQUEST_URI']);
   $lastTime = getUserLastTimeInTarget($entity);
   if ($lastTime === false) {
@@ -845,6 +846,7 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  $smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
  $smarty -> assign("T_NEWS", news :: getNews(0, true));
  $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
+ $smarty -> assign("T_CURRENT_USER", $currentUser);
  $smarty -> display('index.tpl');
 } else {
  $smarty -> display('index.tpl');

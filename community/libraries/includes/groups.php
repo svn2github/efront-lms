@@ -75,24 +75,18 @@ $loadScripts[] = 'includes/groups';
         $form -> addElement('static', 'note', _MAXGROUPKEYUSAGEINFO.' '.$remainingKeyUsagesLabel);
         $form -> addElement('select', 'user_types_ID' , _DEFAULTLEARNERTYPE, $roles, 'class = "inputText"');
         $form -> addElement('static', 'note', _DEFAULTLEARNERTYPEINFO.' '.$remainingKeyUsagesLabel);
-        $form -> addElement('advcheckbox', 'is_default', _ISTHEDEFAULTEFRONTSYSTEMGROUP, null, 'class = "inputCheckBox"', array(0, 1));
-        $form -> addElement('static', 'note', _ISTHEDEFAULTEFRONTSYSTEMGROUPINFO);
-
         $form -> addRule('name', _THEFIELD.' '._TYPENAME.' '._ISMANDATORY, 'required', null, 'client');
         $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
         $form -> addRule('unique_key', _INVALIDFIELDDATA, 'checkParameter', 'alnum_general');
         $form -> addRule('key_max_usage',_INVALIDFIELDDATAFORFIELD.' "'._MAXGROUPKEYUSAGE.'"','numeric');
         $form -> addRule('key_max_usage', _INVALIDFIELDDATAFORFIELD.' "'._MAXGROUPKEYUSAGE.'"', 'callback', create_function('$a', 'return ($a >= 0);'));
-
         if (isset($_GET['edit_user_group'])) {
             $form -> setDefaults($currentGroup -> group);
         }
-
         if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') {
             $form -> freeze();
         } else {
             $form -> addElement('submit', 'submit_type', _SUBMIT, 'class = "flatButton"');
-
             if ($form -> isSubmitted() && $form -> validate()) {
              try {
               $values = $form -> exportValues();
@@ -116,14 +110,11 @@ $loadScripts[] = 'includes/groups';
             }
         }
         $smarty -> assign('T_USERGROUPS_FORM', $form -> toArray());
-
         if (isset($_GET['edit_user_group'])) {
-
             try {
              if (isset($_GET['ajax']) && $_GET['ajax'] == "usersTable") {
               $roles = EfrontUser :: getRoles(true);
               $smarty -> assign("T_ROLES", $roles);
-
               $constraints = array('archive' => false, 'return_objects' => false) + createConstraintsFromSortedTable();
               $users = $currentGroup -> getGroupUsersIncludingUnassigned($constraints);
               $totalEntries = $currentGroup -> countGroupUsersIncludingUnassigned($constraints);
@@ -136,7 +127,6 @@ $loadScripts[] = 'includes/groups';
              if (isset($_GET['ajax']) && $_GET['ajax'] == "lessonsTable") {
               $groupLessons = $currentGroup -> getLessons();
               $result = EfrontLesson::getStandAloneLessons(true);
-
               $lessons = array();
               foreach ($result as $value) {
                $lesson = $value -> lesson;
@@ -149,9 +139,7 @@ $loadScripts[] = 'includes/groups';
                } else if ($lesson['active']) {
                 $lessons[$lesson['id']] = $lesson;
                }
-
               }
-
               $dataSource = $lessons;
               $tableName = $_GET['ajax'];
               include("sorted_table.php");
@@ -173,7 +161,6 @@ $loadScripts[] = 'includes/groups';
               $tableName = $_GET['ajax'];
               include("sorted_table.php");
              }
-
              if (isset($_GET['postAjaxRequest'])) {
               if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
                $user = EfrontUserFactory::factory($_GET['login']);
@@ -190,19 +177,16 @@ $loadScripts[] = 'includes/groups';
                  $usersToAdd[] = $user;
                  $user['user_types_ID'] ? $userTypes[] = $user['user_types_ID'] : $userTypes[] = $user['user_type'];
                 }
-
                }
                $currentGroup -> addUsers($usersToAdd, $userTypes);
               } else if (isset($_GET['removeAll'])) {
                $currentGroup -> removeAllUsers();
-
               } else if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
                if ($_GET['insert'] == "1") {
                 $currentGroup -> addLesson($_GET['lessons_ID']);
                } else {
                 $currentGroup -> removeLessons($_GET['lessons_ID']);
                }
-
               } else if (isset($_GET['addAll']) && $_GET['table'] == "lessonsTable") {
                isset($_GET['filter']) ? $lessons = eF_filterData($lessons, $_GET['filter']) : null;
                foreach ($lessons as $lesson) {
@@ -221,7 +205,6 @@ $loadScripts[] = 'includes/groups';
                } else {
                 $currentGroup -> removeCourses($_GET['courses_ID']);
                }
-
               } else if (isset($_GET['addAll']) && $_GET['table'] == "coursesTable") {
                isset($_GET['filter']) ? $courses = eF_filterData($courses, $_GET['filter']) : null;
                foreach ($courses as $course) {
@@ -247,7 +230,6 @@ $loadScripts[] = 'includes/groups';
                } else {
                 $userRoles = $currentGroup -> group['user_types_ID'];
                }
-
                foreach ($currentGroup -> getGroupCourses() as $key => $course) {
                 $course -> addUsers($groupUsers, $userRoles, true);
                }
@@ -255,7 +237,6 @@ $loadScripts[] = 'includes/groups';
                $groupUsers = $currentGroup -> getUsers();
                $groupUsers = array_merge($groupUsers['professor'], $groupUsers['student']);
                $groupLessons = $currentGroup -> getLessons();
-
                $lessonIds = array_keys($groupLessons);
                foreach ($groupUsers as $user) {
                 $user = EfrontUserFactory :: factory($user);
@@ -273,7 +254,6 @@ $loadScripts[] = 'includes/groups';
              handleAjaxExceptions($e);
             }
         }
-
     } else {
         $result = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "", "id");
         $smarty -> assign("T_USERGROUPS", $result);

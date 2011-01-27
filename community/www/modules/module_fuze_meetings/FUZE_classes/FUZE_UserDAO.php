@@ -102,7 +102,7 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
     $this->_to->set('meetings', $this->_meetings);
    }
    // Get user lessons
-   $res = eF_getTableData("`users_to_lessons` AS `utl`, `lessons` AS `l`","`utl`.`lessons_ID` AS `lid`, `l`.`name` AS `lname`","`utl`.`users_LOGIN` = '" . $this->_login . "' AND `utl`.`archive` = 0 AND `utl`.`user_type` = 'professor' AND `l`.`id` = `utl`.`lessons_ID`");
+   $res = eF_getTableData("`users_to_lessons` AS `utl`, `lessons` AS `l`","`utl`.`lessons_ID` AS `lid`, `l`.`name` AS `lname`","`utl`.`users_LOGIN` = '" . $this->_login . "' AND `utl`.`archive` = 0 AND `utl`.`user_type` = 'professor' AND `l`.`id` = `utl`.`lessons_ID` AND `l`.`active` = 1 AND (`l`.`archive` = 0 OR `l`.`archive` IS NULL)");
    if (is_array($res) && count($res)) {
     foreach ($res AS $lesson) {
      $this->_lessons [$lesson['lid']] = $lesson['lname'];
@@ -256,6 +256,9 @@ class FUZE_UserDAO extends FUZE_AbstractDAO {
             $attendees [$key]['student_email'] = $entry ['_semail'];
            }
           }
+          //print_r($res);
+          //print_r($attendees);
+          //die();
 
           if (count($attendees)) {
            // Retrieve the lesson_name

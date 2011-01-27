@@ -406,7 +406,7 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'courseLessonsTable'}
 <div id = "filemanager_div" style = "display:none;">
 <!--ajax:courseLessonsTable-->
-  <table id = "courseLessonsTable" no_auto = "1" size = "{$T_TABLE_SIZE}" class = "sortedTable subSection" useAjax = "1" url = "{$courses_url}">
+  <table id = "courseLessonsTable" sortBy = "{$T_DATASOURCE_SORT_BY}" no_auto = "1" size = "{$T_TABLE_SIZE}" class = "sortedTable subSection" useAjax = "1" url = "{$courses_url}">
   {$smarty.capture.lessons_list}
   </table>
 <!--/ajax:courseLessonsTable-->

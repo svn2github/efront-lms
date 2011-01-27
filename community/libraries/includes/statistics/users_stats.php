@@ -806,7 +806,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   $completedScores = array();
   foreach ($userLessons as $lessonId => $value) {
    $value = $value -> lesson;
-   //$lessonsAvgScore += $value['score'];		
+   //$lessonsAvgScore += $value['score'];
    if ($value['completed']) {
     $completedScores[] = $value['score'];
    }

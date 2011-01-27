@@ -13,8 +13,13 @@
 </script>
 <link href="{$T_CHAT_MODULE_BASELINK}css/screen.css" rel="stylesheet" type="text/css">
 <link href="{$T_CHAT_MODULE_BASELINK}css/chat.css" rel="stylesheet" type="text/css">
+<!--[if IE ]>
+<link type="text/css" rel="stylesheet" media="all" href="{$T_CHAT_MODULE_BASELINK}css/screen_ie.css" />
+<![endif]-->
 <script type="text/javascript" src="{$T_CHAT_MODULE_BASELINK}js/jquery.js"></script>
 <script type="text/javascript" src="{$T_CHAT_MODULE_BASELINK}js/chat.js"></script>
+
+
 
 <div id="chat_module">
  <div id="windowspace">

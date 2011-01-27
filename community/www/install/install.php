@@ -265,7 +265,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
      $db -> Execute("SET NAMES 'UTF8'");
      ini_set("memory_limit", "-1");
-     if ($values['backup']) {
+     if ($values['backup'] || isset($_GET['unattended'])) {
       $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
      }
      //Delete old temporary installation tables

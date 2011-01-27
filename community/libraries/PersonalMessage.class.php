@@ -255,7 +255,7 @@ class eF_PersonalMessage
     }
    }
    $recipientsList = implode(",", $recipientsMail);
-   $this -> body = _THISISAPMFROMSITE." <a href=".G_SERVERNAME.">".$GLOBALS['configuration']['site_name']."</a><br />".$this -> body;
+   $this -> body = _THISISAPMFROMSITE." <a href=".G_SERVERNAME.">".G_SERVERNAME."</a><br />".$this -> body;
    $emailBody = str_replace('##EFRONTINNERLINK##', 'student' ,$this -> body);
    if (($result = eF_mail($this -> userData[$this -> sender]['email'], $recipientsList, $this -> subject, $emailBody, $this -> attachments, false, $this -> bcc)) !== true) {
                     $this -> errorMessage .= _THEMESSAGEWASNOTSENTASEMAIL.'<br/>';
@@ -272,7 +272,7 @@ class eF_PersonalMessage
                                         "bcc" => $this -> bcc ? 1 : 0,
                                         "f_folders_ID"=> $this -> userData[$recipient]['folders']['Incoming'], //Deliver it to the incoming folder
                                         "viewed" => 0); //It is not viewed yet
-                if ($this->attachments[0]) {
+                if (!empty($this->attachments) && $this->attachments[0]) {
                     $attachment = new EfrontFile($this -> sender_attachment_fileId);
                     $recipient_dir = G_UPLOADPATH.$recipient.'/message_attachments/Incoming/'.$timestamp.'/';
                     mkdir($recipient_dir,0755);
@@ -296,7 +296,7 @@ class eF_PersonalMessage
                   "bcc" => $this -> bcc ? 1 : 0,
                                     "f_folders_ID"=> $this -> userData[$this -> sender]['folders']['Sent'],
                                     "viewed" => 0);
-            if ($this->attachments[0]) {
+            if (!empty($this->attachments) && $this->attachments[0]) {
                 $attachment = new EfrontFile($this -> sender_attachment_fileId);
                 $fields_insert["attachments"] = $this -> sender_attachment_fileId;
             }
@@ -452,7 +452,7 @@ class eF_PersonalMessage
         }
         if ($this -> userData[$login]['user_type'] != 'student') {
             return true;
-        } elseif ($this -> config['pm_quota'] && $this -> userData[$login]['messages'] > $this -> config['pm_quota']) {
+        } elseif (!empty($this->config) && $this -> config['pm_quota'] && $this -> userData[$login]['messages'] > $this -> config['pm_quota']) {
             return false;
         } else {
             return true;

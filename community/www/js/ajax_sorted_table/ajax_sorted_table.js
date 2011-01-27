@@ -303,6 +303,7 @@
 
 function eF_js_sortTable(el, other) {
  Element.extend(el);
+ var column_name = "null";
  if (el) {
          tableIndex = el.getAttribute('tableIndex'); //Get the id of the element
          column_name = el.getAttribute('column_name');
@@ -982,7 +983,7 @@ function toggleSubSection(el, id, sectionId, trailUrl) {
    for (var i = 0; i < sortedTables.size(); i++) {
     if (sortedTables[i].id.match(sectionId) && ajaxUrl[i]) {
      ajaxUrl[i] = ajaxUrl[i] + sectionId+'_source=' + id + '&' + trailUrl + '&';
-     eF_js_rebuildTable(i, 0, column_name, order);
+     eF_js_rebuildTable(i, 0);
     }
    }
   } else {

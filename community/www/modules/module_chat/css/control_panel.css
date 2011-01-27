@@ -1,22 +1,19 @@
-
-
-h1{
-	text-align:center;
-	text-decoration:underline;
-}
-
-
-table tr td{
-	text-align:left;
-	font-size:14px;
-	line-height:15px;
-}
-
-.submit{
+.action{
 	cursor:pointer;
 }
-
 .caution{
 	color:#FF0000;
-	font-size:10px;
+}
+
+#cp_table{
+	margin-bottom:1px solid;
+}
+
+#heartbeatrate{
+	display:none;
+	margin-left:50px;
+}
+
+#heartbeatrateDiv{
+
 }

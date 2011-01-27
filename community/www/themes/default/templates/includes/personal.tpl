@@ -215,7 +215,7 @@ var enableMyJobSelect = false;
   </fieldset>
   {/if}
   <script>
-  {if $smarty.get.ctg == 'personal'}var additionalAccountsUrl = '{$smarty.server.PHP_SELF}?ctg=personal';{else}var additionalAccountsUrl = '{$smarty.server.PHP_SELF}?ctg=users&edit_user={$smarty.get.edit_user}';{/if}
+  {if $T_ORIGINAL_CTG == 'personal'}var additionalAccountsUrl = '{$smarty.server.PHP_SELF}?ctg=personal';{else}var additionalAccountsUrl = '{$smarty.server.PHP_SELF}?ctg=users&edit_user={$smarty.get.edit_user}&op=account';{/if}
   </script>
  {/capture}
  {/if}

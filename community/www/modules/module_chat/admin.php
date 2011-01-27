@@ -22,7 +22,6 @@ function createLogs(){
 
  $lsn = eF_getTableData("lessons", "name", "1");
 
- echo "[<a id=\"link\" href=# onClick=\"window.close()\">Close This Window</a>]";
  echo ("<h1 align=\"center\">Lessons Catalogue</h1>");
  echo ("<form align=\"center\" method=\"post\" action=\"admin.php?force=createLessonHistory\">");
  echo ("<table align=\"center\">");

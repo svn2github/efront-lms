@@ -4,7 +4,6 @@ include("../../../libraries/configuration.php");
 session_start();
 
 
-
 if ($_SESSION['s_lessons_ID']){
 
  if (!isset($_SESSION["lessonid"]) || $_SESSION["lessonid"] != $_SESSION['s_lessons_ID']){
@@ -13,15 +12,13 @@ if ($_SESSION['s_lessons_ID']){
   foreach ($lsn as $lesson){
    $link = $lesson['name'];
    echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWith(\''.str_replace(' ','_',$lesson['name']).'\')">'.$link.' (Room)</a></p>';
-   //setcookie("lessonid", $_SESSION['s_lessons_ID'] , time()+20000);
-   //setcookie("lessonname", str_replace(' ','_',$lesson['name']) , time()+20000);
    $_SESSION["lessonid"] = $_SESSION['s_lessons_ID'];
    $_SESSION["lessonname"] = str_replace(' ','_',$lesson['name']);
   }
  }
  else{
  $link = $_SESSION["lessonname"];
-  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWith(\''.str_replace(' ','_',$_SESSION["lessonname"]).'\')">'.substr($link,0,18).'... (Room)</a></p>';
+  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWith(\''.str_replace(' ','_',$_SESSION["lessonname"]).'\')">'.substr($link,0,18).' ...(Room)</a></p>';
  }
 }
 
@@ -32,14 +29,14 @@ $onlineUsers = getConnectedUsers();
 if ($_SESSION['utype'] == 'administrator') {
  foreach ($onlineUsers as $user){
   if ($user['login'] != $_SESSION['chatter'])
-   echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.$user['formattedLogin'].'</a></p>';
+   echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.substr($user['formattedLogin'],0,25).'</a></p>';
  }
 }
 else{
  foreach ($onlineUsers as $user){
   if ($user['login'] != $_SESSION['chatter'])
    if ($_SESSION['commonality'][$user['login']] > 0)
-    echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.$user['formattedLogin'].'</a></p>';
+    echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.substr($user['formattedLogin'],0,25).'</a></p>';
  }
 }
 

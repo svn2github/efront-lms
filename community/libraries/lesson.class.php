@@ -2205,17 +2205,17 @@ class EfrontLesson
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   $constraints['return_objects'] = false;
   $lessonUsers = $this -> getLessonUsers($constraints);
-  $totalUnits = 0;
+  $units = array();
   $contentTree = new EfrontContentTree($this -> lesson['id']);
   foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
-   $totalUnits++;
+   $units[] = $key;
   }
   $usersTimes = $this -> getLessonTimesForUsers();
   foreach ($lessonUsers as $key => $user) {
    if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
     $user['different_role'] = 1;
    }
-   $lessonUsers[$key]['overall_progress'] = $this -> getLessonOverallProgressForUser($user, $totalUnits);
+   $lessonUsers[$key]['overall_progress'] = $this -> getLessonOverallProgressForUser($user, $units);
    if (!$onlyContent) {
     $lessonUsers[$key]['project_status'] = $this -> getLessonProjectsStatusForUser($user);
     $lessonUsers[$key]['test_status'] = $this -> getLessonTestsStatusForUser($user);
@@ -2233,10 +2233,11 @@ class EfrontLesson
   }
   return $usersTimes;
  }
- private function getLessonOverallProgressForUser($user, $totalUnits) {
+ private function getLessonOverallProgressForUser($user, $units) {
+  $totalUnits = sizeof($units);
   $completedUnits = 0;
   if ($doneContent = unserialize($user['done_content'])) {
-   $completedUnits = sizeof($doneContent);
+   $completedUnits = sizeof(array_intersect($units, $doneContent));
   }
   if ($totalUnits) {
    $completedUnitsPercentage = round(100 * $completedUnits/$totalUnits, 2);

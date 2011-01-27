@@ -1,0 +1,17 @@
+<?php
+define("_CHAT_CHAT", "Chat Module");
+define("_CHAT_CLEAR_HISTORY_DESCR", "Clear user-to-user chat history.");
+define("_CHAT_CLEAR_HISTORY", "Clear Chat Logs");
+define("_CHAT_CREATE_LOG_DESCR", "Create lesson-based chat history file (xls format).");
+define("_CHAT_CREATE_LOG", "Create Log File");
+define("_CHAT_CHANGE_MSG_FREQUENCY_DESCR", "Set how often new messages will be searched for.");
+define("_CHAT_CHANGE_MSG_FREQUENCY", "Chat Engine Rate ");
+define("_CHAT_USERLIST_REFRESHRATE_DESCR", "Set how often the User List will be updated.");
+define("_CHAT_USERLIST_REFRESHRATE", "User List Refresh Rate");
+define("_CHAT_ACTION", "Action");
+define("_CHAT_DESCRIPTION", "Description");
+define("_CHAT_NOTES", "Notes");
+define("_CHAT_CAUTION_IRREVERSIBLE", "CAUTION! This action is irreversible");
+define("_CHAT_CAUTION_NOTCHANGE", "CAUTION! If you are not sure do NOT change");
+define("_CHAT_HEARTBEAT", "Chat Engine Rate");
+?>

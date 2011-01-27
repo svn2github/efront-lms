@@ -25,7 +25,7 @@
     {/strip}
     </span>
       {/if}
-    <a href = "userpage.php{if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}?ctg=personal{/if}" class="headerText">#filter:login-{$smarty.session.s_login}#</a>
+    <a href = "userpage.php{if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}?ctg=personal{else}?ctg=personal&op=account{/if}" class="headerText">#filter:login-{$smarty.session.s_login}#</a>
    {if $T_CURRENT_USER->coreAccess.personal_messages != 'hidden' && $T_CONFIGURATION.disable_messages != 1}
     <span class = "headerText">
      <img class = "ajaxHandle" src = "images/16x16/mail.png" alt = "{$smarty.const._MESSAGES}" title = "{$smarty.const._MESSAGES}" onclick = "location='userpage.php?ctg=messages'"/>

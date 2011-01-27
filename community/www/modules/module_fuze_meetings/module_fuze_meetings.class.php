@@ -95,7 +95,16 @@ class module_fuze_meetings extends EfrontModule {
     $this->_f_user_manager = new FUZE_User_Manager();
    }
   }
-  catch (Exception $e) { /* DO NOTHING, WE'RE INSTALLING MODULE HERE */ }
+  catch (Exception $e) {
+   $sql = "show tables like '_mod_fm_account%'";
+   $res = $GLOBALS['db']->GetAll($sql);
+   if (!count($res)) {
+    $this->onInstall();
+   }
+   else {
+    throw $e;
+   }
+  }
  }
  public function getName() {
   return _FUZE_MEETINGS;

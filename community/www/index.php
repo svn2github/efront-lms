@@ -28,7 +28,6 @@ if ($GLOBALS['configuration']['webserver_auth']) {
  $currentUser -> login($currentUser -> user['password'], true);
 }
 
-
 //@todo:temporary here, should leave
 $cacheId = null;
 

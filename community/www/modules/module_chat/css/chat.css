@@ -2,12 +2,13 @@
 	width: 225px;/*225 default*/
 	/*float:right;*/
 	position:static;
-	/*margin-top:7px;*/
 	border:1px solid #666666;
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
 	*display:inline;
+	z-index:997;
+	vertical-align:bottom;
 }
 
 
@@ -16,17 +17,19 @@
 	background-color: #006699;
 	padding:1px;
 	color: #FFFFFF;
-	z-index:999;
+	z-index:996;
+	max-width:225px;
 }
 
 .chatboxblink {
 	background-color: #0099FF;
+	z-index:996;
 
 }
 
 .chatboxcontent {
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
-	color: #333333;
+	color: #222222;
 	height:200px;
 	width:209px;
 	overflow:auto;
@@ -34,7 +37,7 @@
 	background-color: #FFFFFF;
 	line-height: 1.3em;
 	position:relative;
-	z-index:999;
+	z-index:996;
 	white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
@@ -49,7 +52,7 @@
 	border-right:1px solid #cccccc;
 	border-bottom:1px solid #cccccc;
 	position:relative;
-	z-index:999;
+	z-index:996;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 }
 
@@ -63,6 +66,8 @@
 	background-color:#FFFFFF;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 	overflow-x:hidden;
+	color: #222222;
+	z-index:995;
 }
 
 .chatboxtextareaselected {
@@ -70,15 +75,18 @@
 	margin:0;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 	overflow-x:hidden;
+	z-index:995;
 }
 
 .chatboxmessage {
 	margin-left:1em;
+	z-index:995;
 }
 
 .chatboxinfo {
 	margin-left:-1em;
 	color:#666666;
+	z-index:995;
 
 }
 
@@ -86,15 +94,18 @@
 	margin-left:-1em;
 	font-weight: bold;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
+	z-index:995;
 }
 
 .chatboxmessagecontent {
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
+	z-index:995;
 }
 
 .chatboxoptions {
 	float: right;
 	margin-top:4px;
+	z-index:995;
 
 }
 
@@ -103,15 +114,18 @@
 	color: white;
 	font-weight:bold;
 	vertical-align:bottom;
+	z-index:995;
 
 }
 .chatboxoptions a img{
 	border:none;
+	z-index:995;
 }
 .chatboxtitle {
 	float: left;
 	padding-top:3px;
 	margin-left:2px;
-	z-index:999;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
+	max-width:190px;
+	z-index:-100;
 }

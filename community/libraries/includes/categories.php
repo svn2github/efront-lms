@@ -103,7 +103,7 @@ if (isset($_GET['delete_direction']) && eF_checkParameter($_GET['delete_directio
  $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
  $form -> addElement('text', 'name', _DIRECTIONNAME, 'class = "inputText"');
  $form -> addRule('name', _THEFIELD.' '._DIRECTIONNAME.' '._ISMANDATORY, 'required', null, 'client');
- $form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
+ //$form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
  $selectOptions = $directionsPaths;
  $selectOptions[0] = _ROOTDIRECTION;
  ksort($selectOptions);

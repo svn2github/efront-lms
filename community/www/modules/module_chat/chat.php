@@ -4,9 +4,13 @@ include("../../../libraries/configuration.php");
 
 session_start();
 
+
 if (!isset($_SESSION['chatter'])){
  exit(1);
 }
+
+if (!isset($_POST['chatboxesnum']))
+ $_POST['chatboxesnum'] = 0;
 
 global $dbh;
 $dbh = mysql_connect(G_DBHOST,G_DBUSER,G_DBPASSWD) or die('Could not connect to mysql server.' );
@@ -92,7 +96,10 @@ EOD;
 EOD;
 
   //unset($_SESSION['tsChatBoxes'][$chat['from_user']]);
-  $_SESSION['openChatBoxes'][$chat['from_user']] = $chat['sent'];
+  if (!isset( $_SESSION['openChatBoxes'][$chat['from_user']] )){
+   $_SESSION['openChatBoxes'][$chat['from_user']] = $_POST['chatboxesnum'];
+   $_POST['chatboxesnum']++;
+  }
  }
 
  /*if (!empty($_SESSION['openChatBoxes'])) {
@@ -188,6 +195,7 @@ function chatBoxSession($chatbox) {
 }
 function startChatSession() {
  $items = '';
+ $arr = array();
  if (!empty($_SESSION['openChatBoxes'])) {
   foreach ($_SESSION['openChatBoxes'] as $chatbox => $void) {
    $items .= chatBoxSession($chatbox);
@@ -211,6 +219,7 @@ function sendChat() {
  $from = $_SESSION['chatter'];
  $to = $_POST['to'];
  $message = $_POST['message'];
+ if ( !isset($_SESSION['openChatBoxes'][$_POST['to']]))
  $_SESSION['openChatBoxes'][$_POST['to']] = date('Y-m-d H:i:s', time());
  $messagesan = sanitize($message);
  if (!isset($_SESSION['chatHistory'][$_POST['to']])) {

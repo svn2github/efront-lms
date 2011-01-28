@@ -7,6 +7,8 @@ a{
 
 #chat_module{
 	clear:both;
+	z-index:1000;
+	vertical-align:bottom;
 }
 
 #windowspace{
@@ -18,27 +20,31 @@ a{
 	position:fixed;
 	right:219px;
 	max-width:1135px; /*init 910*/
+	z-index:999;
+	vertical-align:bottom;
 }
 
 #windows{
 	
+	overflow-y:hidden;
 	white-space:nowrap;
 	border:none;
 	position:relative;
-	z-index:2000;
+	z-index:998;
 	overflow:hidden;
 	float:left;
 	display:table-row;
+	vertical-align:bottom;
 }
 
 #chat_bar {
-	float:right;
-	width:216px;
+
+	width:0px;
 	height:25px;
 	position:fixed; /* chat_bar div must be fixed, for the fixed bar to work */
 	bottom:0px;
 	right:1px;
-	border:1px solid #999999;
+	border:0px solid #999999;
 	background-color:#FFFFFF;
 	text-align:left;
 	outline: none;
@@ -52,6 +58,9 @@ a{
 	padding-bottom:0px;
 	visibility:visible;
 	outline: none;
+	z-index:998;
+	border:0px solid #FF0000;
+	background-color:#E1E2FF;
 }
 
 #content{
@@ -61,7 +70,7 @@ a{
 }
 
 #content p{
-	background:#E1E2FF;
+	background-color:#E1E2FF;
 	padding-left:5px;
 	padding-bottom:1px;
 	margin:0;

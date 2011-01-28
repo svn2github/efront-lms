@@ -30,6 +30,7 @@ $J(document).ready(function(){
  initChat();
  startChatSession();
  chatHeartbeatTime = minChatHeartbeat;
+
 if ($J.cookie("chat_on") == null)
   $J.cookie("chat_on", "on");
 
@@ -41,10 +42,13 @@ if ($J.cookie("chat_on") == null)
   $J('#user_list').css("visibility","hidden");
   $J('#user_list').css("height","0px");
   $J('#chat_bar').css("height","25px");
-  $J('#chat_bar').css("width","22px");
+  $J('#chat_bar').css("width","23px");
   $J('#chat_bar').css("text-align","center");
+  $J('#chat_bar').css("border-width","1px");
+  //$J('#chat_bar').css("border-top","none");
+  //$J('#chat_bar').css("border-left","none");
   //$J('#chat_bar').css("margin-left","102.8em");
-  $J('#chat_bar').css("float","right");
+  //$J('#chat_bar').css("float","right");
 
   $J('#status').html(' ');
   $J('#status').hide();
@@ -56,6 +60,8 @@ if ($J.cookie("chat_on") == null)
   $J('#chat_bar').css("height","25px");
   $J('#user_list').css("visibility","hidden");
   $J('#user_list').css("height","0px");
+  $J('#chat_bar').css("width","216px");
+  $J('#chat_bar').css("border-width","1px");
   clearTimeout(scrollalert_timeout);
   scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
  }
@@ -85,6 +91,7 @@ function getChatheartbeat(){
 
  $J.get(modulechatbaselink+"admin.php?force=getChatHeartbeat", function(data){
       minChatHeartbeat = data;
+   $J.cookie("Chatheartbeat", data);
    });
 
 
@@ -93,12 +100,18 @@ function getRefresh_rate(){
 
  $J.get(modulechatbaselink+"admin.php?force=getRefresh_rate", function(data){
       refresh_rate = data;
+   $J.cookie("Refresh_rate", data);
    });
 
 }
 function initChat(){
- getChatheartbeat();
- getRefresh_rate()
+
+ if ($J.cookie("Chatheartbeat") == null){
+  getChatheartbeat();
+ }
+ if ($J.cookie("Refresh_rate") == null){
+  getRefresh_rate()
+ }
 }
 
 
@@ -174,11 +187,11 @@ function on_off() {
   $J('#user_list').css("visibility","hidden");
   $J('#user_list').css("height","0px");
   $J('#chat_bar').css("height","25px");
-  $J('#chat_bar').css("width","22px");
+  $J('#chat_bar').css("width","23px");
   $J('#chat_bar').css("text-align","center");
-  $J('#chat_bar').css("border-top","none");
-  $J('#chat_bar').css("border-left","none");
-  $J('#chat_bar').css("float","right");
+  //$J('#chat_bar').css("border-top","none");
+  //$J('#chat_bar').css("border-left","none");
+  //$J('#chat_bar').css("float","right");
 
   $J('#status').html(' ');
   $J('#status').hide();
@@ -205,10 +218,10 @@ function on_off() {
  else{
   $J('#status').text('Connecting.......  ');
   $J('#user_list').css("visibility","visible");
-  $J('#chat_bar').css("width","18em");
+  $J('#chat_bar').css("width","216px");
   $J('#chat_bar').css("text-align","left");
-  $J('#chat_bar').css("float","right");
-  $J('#chat_bar').css("border","1px solid #999999");
+  //$J('#chat_bar').css("float","right");
+  //$J('#chat_bar').css("border","1px solid #999999");
   $J('#status').show();
   $J('#first').show();
 
@@ -330,7 +343,7 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
  $J(" <div />" ).attr("id","chatbox_"+chatboxtitle)
  .addClass("chatbox")
  .html('<div class="chatboxhead" onclick="javascript:toggleChatBoxGrowth(\''+chatboxtitle+'\')"><div class="chatboxtitle">'+chatboxtitle+'</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+chatboxtitle+'\')"><img src="'+ modulechatbaselink +'img/x.png" /></a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onkeydown="javascript: return checkChatBoxInputKey(event,this,\''+chatboxtitle+'\');"></textarea></div>')
- .appendTo($J( "#windows" ));
+ .prependTo($J( "#windows" ));
 
  $J("#chatbox_"+chatboxtitle).css('bottom', '0px');
 
@@ -646,14 +659,15 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
 }
 
 function startChatSession(){
-
   $J.ajax({
   url: modulechatbaselink+"chat.php?action=startchatsession",
   cache: false,
   dataType: "json",
   success: function(data) {
+
    username = data.username;
    $J.each(data.items, function(i,item){
+
     if (item) { // fix strange ie bug
 
      chatboxtitle = item.t;

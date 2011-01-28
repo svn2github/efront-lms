@@ -122,9 +122,7 @@
 {if isset($smarty.get.createLog)}
   {capture name = 't_create_log'}
   {$T_CHAT_CREATE_LOG_FORM.javascript}
-  {if isset($smarty.post.lesson)}
-   {$T_CHAT_TEST}
-  {/if}
+
 <form {$T_CHAT_CREATE_LOG_FORM.attributes}>
         <table class="formElements">
   <tr>

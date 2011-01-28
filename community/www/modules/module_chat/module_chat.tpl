@@ -11,6 +11,7 @@
  var modulechatbaseurl = '{$T_CHAT_MODULE_BASEURL}';
  var ie = 0;
 </script>
+
 <link href="{$T_CHAT_MODULE_BASELINK}css/screen.css" rel="stylesheet" type="text/css">
 <link href="{$T_CHAT_MODULE_BASELINK}css/chat.css" rel="stylesheet" type="text/css">
 <!--[if IE ]>

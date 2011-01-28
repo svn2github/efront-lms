@@ -51,56 +51,6 @@ function createLessonHistory(){
  $csv = build($columns,$data);
  save($csv,$_POST['lesson']."-".date('Y-m-d'));
 }
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-function build($columns, $data){
- $csv = ""; // initialise csv variable
-
-  foreach($columns as $heading) // csv column headings
-  {
-   $csv .= $heading."\t"; // concat heading onto row
-  }
-  $csv .= "\n"; // all the headings have been added so move to new line for csv content
-
-  foreach($data as $row) // csv table content
-  {
-   foreach($columns as $column => $t)
-   {
-    if(strpos($row[$column],',')) // if cell content has a comma in it...
-    {
-     // ...double any existing quotes to escape them...
-     $row[$column] = str_replace('"','""',$row[$column]);
-     // ...and wrap the cell in quotes so the comma doesn't break everything.
-     $row[$column] = '"'.$row[$column].'"';
-    }
-    $csv .= $row[$column]."\t"; // concat the value onto the row
-    if($t==end($columns))
-    {
-     // if we're at the end of a row move to a new line for next row
-     $csv .= "\n";
-    }
-   }
-  }
-  $csv = iconv('utf-8','greek',$csv);
-  return $csv;
-}
-////////////////////////////////////////////////////////////////////////
-function save($csv,$file_name=null){
- // if no file name is provided set the file name to todays date
- if(is_null($file_name)) $file_name = date('Y-m-d');
- // set content type and file name then output csv content
- header("Content-type: application/vnd.ms-excel; charset: utf-8");
-header("Content-Disposition: attachment; filename=$file_name");
-header ('Content-Transfer-Encoding: binary');
-header ('Content-Length: '.filesize('product1.xls'));
-header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
-header ('Cache-Control: cache, must-revalidate');
-header ('Pragma: public');
- echo $csv;
-}
-
-
 //////////////////////////////////////////////////////////////////////////////
 function clearU2ULogs(){
 
@@ -118,16 +68,9 @@ function clearU2ULogs(){
 
 function getChatHeartbeat(){
 
- $doc = new DOMDocument();
- $doc->load( 'config.xml' );
-
- $chat_system= $doc->getElementsByTagName( "chat_system" );
- foreach( $chat_system as $x )
- {
-  $time = $x->getElementsByTagName( "chatHeartbeatTime" );
-  $time = $time->item(0)->nodeValue;
-
-  echo "$time";
+ $rate = eF_getTableData("module_chat_config", "chatHeartbeatTime", "1");
+ foreach( $rate as $r ){
+  echo($r['chatHeartbeatTime']);
  }
 }
 ///////////////////////////////////////////////////////////////////////////////
@@ -150,74 +93,30 @@ function getStatus(){
 
 function getRefresh_rate(){
 
- $doc = new DOMDocument();
- $doc->load( 'config.xml' );
+ /*$doc = new DOMDocument();
 
- $chat_system= $doc->getElementsByTagName( "chat_system" );
- foreach( $chat_system as $x )
- {
-  $time = $x->getElementsByTagName( "refresh_rate" );
-  $time = $time->item(0)->nodeValue;
+	$doc->load( 'config.xml' );
 
-  echo "$time";
+	
+
+	$chat_system= $doc->getElementsByTagName( "chat_system" );
+
+	foreach( $chat_system as $x )
+
+	{
+
+		$time = $x->getElementsByTagName( "refresh_rate" );
+
+		$time = $time->item(0)->nodeValue;
+
+
+
+		echo "$time";
+
+	}*/
+ $rate = eF_getTableData("module_chat_config", "refresh_rate", "1");
+ foreach( $rate as $r ){
+  echo $r['refresh_rate'];
  }
 }
-
 ////////////////////////////////////////////////////////////////////////////////
-function setChatheartBeat(){
-
- $doc = new DOMDocument();
- $doc->load( 'config.xml' );
-
- $chat_system= $doc->getElementsByTagName( "chat_system" );
- foreach( $chat_system as $x )
- {
-  $time = $x->getElementsByTagName( "refresh_rate" );
-  $t = $time->item(0)->nodeValue;
-
-  $status = $x->getElementsByTagName( "status" );
-  $s = $status->item(0)->nodeValue;
-  echo "$t $s";
- }
-
- $xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
-<chat_system>
-<status>".$s."</status>
-<chatHeartbeatTime>".$_GET['t']."</chatHeartbeatTime>
-<refresh_rate>".$t."</refresh_rate>
-</chat_system>";
-
-
- $file = fopen("config.xml", "w");
- fwrite($file, $xml);
- fclose($file);
-}
-/////////////////////////////////////////////////////////////////////////////
-function setRefresh_rate(){
-
- $doc = new DOMDocument();
- $doc->load( 'config.xml' );
-
- $chat_system= $doc->getElementsByTagName( "chat_system" );
- foreach( $chat_system as $x )
- {
-  $time = $x->getElementsByTagName( "chatHeartbeatTime" );
-  $t = $time->item(0)->nodeValue;
-
-  $status = $x->getElementsByTagName( "status" );
-  $s = $status->item(0)->nodeValue;
-  echo "$t $s";
- }
-
- $xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
-<chat_system>
-<status>".$s."</status>
-<chatHeartbeatTime>".$t."</chatHeartbeatTime>
-<refresh_rate>".$_GET['t']."</refresh_rate>
-</chat_system>";
-
-
- $file = fopen("config.xml", "w");
- fwrite($file, $xml);
- fclose($file);
-}

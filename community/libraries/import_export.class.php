@@ -342,6 +342,9 @@ class EfrontImportCsv extends EfrontImport
       $data['password'] = EfrontUser::createPassword($data['password']);
      }
      eF_updateTableData("users", $data, "login='".$data['login']."'"); $this -> log["success"][] = _LINE . " $line: " . _REPLACEDUSER . " " . $data['login'];
+     if (function_exists('apc_delete')) {
+      apc_delete(G_DBNAME.':_usernames');
+     }
      break;
     case "users_to_courses":
      $where = "users_login='".$data['users_login']."' AND courses_ID = " . $data['courses_ID'];

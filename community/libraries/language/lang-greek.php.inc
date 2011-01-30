@@ -3916,7 +3916,7 @@ define("_LESSONTIMES", "Χρόνοι μαθημάτων");
 define("_MINUTESPERDAY", "Λεπτά ανά ημέρα");
 define("_LOGOUTUSERAFTERMINUTES", "Αποσύνδεση χρήστη μετά από (λεπτά)");
 define("_UPDATERPERIODSECONDS", "Περίοδος ενημέρωσης (ms)");
-define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME", "Προτεινέμενες τιμές είναι τουλάχιστον 2000ms και το πολύ 360000ms. Πρέπει επίσης να είναι μικρότερη από το χρόνο αυτόματης αποσύνδεσης");
+define("_RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME", "Προτεινόμενες τιμές είναι τουλάχιστον 2000ms και το πολύ 360000ms. Πρέπει επίσης να είναι μικρότερη από το χρόνο αυτόματης αποσύνδεσης");
 define("_MORETHANONEBRANCHESONLYFIRSTSHOWING", "Περισσότερα από 1 τμήματα (τοποθεσίες) είναι συσχετισμένα με τη δέσμη, εμφανίζεται το πρώτο");
 define("_INSERT","Εισαγωγή");
 define("_ASSIGNMENTAPPROVEDBY", "Οι αναθέσεις εγκρίνονται από");

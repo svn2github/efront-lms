@@ -1131,7 +1131,7 @@ abstract class EfrontUser
       'autologin' => $this -> user['autologin']);
   eF_updateTableData("users", $fields, "login='".$this -> user['login']."'");
   if (function_exists('apc_delete')) {
-   apc_delete('_usernames');
+   apc_delete(G_DBNAME.':_usernames');
   }
   return true;
  }
@@ -2250,7 +2250,7 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   foreach ($userLessons as $key => $lesson) {
    $lesson = $this -> checkUserAccessToLessonBasedOnDuration($lesson);
-   if ($lesson -> lesson['user_type'] != $this -> user['user_type']) {
+   if ((!$this -> user['user_types_ID'] && $lesson -> lesson['user_type'] != $this -> user['user_type']) || ($this -> user['user_types_ID'] && $lesson -> lesson['user_type'] != $this -> user['user_types_ID'])) {
     $lesson -> lesson['different_role'] = 1;
    }
    $userLessons[$key] -> lesson['overall_progress'] = $this -> getUserOverallProgressInLesson($lesson);

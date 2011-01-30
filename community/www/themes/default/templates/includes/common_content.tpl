@@ -193,10 +193,12 @@
        <a href = "{$smarty.server.PHP_SELF}?ctg=content&add=1&view_unit={if $smarty.get.view_unit !=""}{$smarty.get.view_unit}{else}{$T_CURRENTUNITID}{/if}" title = "{$smarty.const._CREATESUBUNIT}">{$smarty.const._CREATESUBUNIT}</a>
       </span>
       {/if}
+      {if !$T_SCORM_2004_TITLE}
       <span>
        <img src = "images/16x16/edit.png" title = "{$smarty.const._UPDATEUNIT}" alt = "{$smarty.const._UPDATEUNIT}"/>
        <a href = "{$smarty.server.PHP_SELF}?ctg={if $T_UNIT.ctg_type == 'tests'}tests{elseif $T_UNIT.ctg_type == 'feedback'}feedback{else}content{/if}&edit={if $smarty.get.view_unit !=""}{$smarty.get.view_unit}{else}{$T_CURRENTUNITID}{/if}" title = "{$smarty.const._UPDATEUNIT}">{$smarty.const._UPDATEUNIT}</a>
       </span>
+      {/if}
      {/if}
      </div>
     {/if}

@@ -9,8 +9,8 @@ if (!isset($_SESSION['chatter'])){
  exit(1);
 }
 
-if (!isset($_POST['chatboxesnum']))
- $_POST['chatboxesnum'] = 0;
+if (!isset($_SESSION['chatboxesnum']))
+ $_SESSION['chatboxesnum'] = 0;
 
 global $dbh;
 $dbh = mysql_connect(G_DBHOST,G_DBUSER,G_DBPASSWD) or die('Could not connect to mysql server.' );
@@ -97,8 +97,8 @@ EOD;
 
   //unset($_SESSION['tsChatBoxes'][$chat['from_user']]);
   if (!isset( $_SESSION['openChatBoxes'][$chat['from_user']] )){
-   $_SESSION['openChatBoxes'][$chat['from_user']] = $_POST['chatboxesnum'];
-   $_POST['chatboxesnum']++;
+   $_SESSION['openChatBoxes'][$chat['from_user']] = $_SESSION['chatboxesnum'];
+   $_SESSION['chatboxesnum'] = $_SESSION['chatboxesnum'] + 10;
   }
  }
 
@@ -195,12 +195,13 @@ function chatBoxSession($chatbox) {
 }
 function startChatSession() {
  $items = '';
- $arr = array();
+ asort($_SESSION['openChatBoxes']);
  if (!empty($_SESSION['openChatBoxes'])) {
   foreach ($_SESSION['openChatBoxes'] as $chatbox => $void) {
    $items .= chatBoxSession($chatbox);
   }
  }
+ //asort($_SESSION['openChatBoxes']);
  if ($items != '') {
   $items = substr($items, 0, -1);
  }
@@ -219,8 +220,10 @@ function sendChat() {
  $from = $_SESSION['chatter'];
  $to = $_POST['to'];
  $message = $_POST['message'];
- if ( !isset($_SESSION['openChatBoxes'][$_POST['to']]))
- $_SESSION['openChatBoxes'][$_POST['to']] = date('Y-m-d H:i:s', time());
+ if ( !isset($_SESSION['openChatBoxes'][$_POST['to']])){
+  $_SESSION['openChatBoxes'][$_POST['to']] = $_SESSION['chatboxesnum'];
+  $_SESSION['chatboxesnum'] = $_SESSION['chatboxesnum'] + 10;
+ }
  $messagesan = sanitize($message);
  if (!isset($_SESSION['chatHistory'][$_POST['to']])) {
   $_SESSION['chatHistory'][$_POST['to']] = '';
@@ -241,7 +244,7 @@ EOD;
   $sql = "insert into module_chat (module_chat.from_user,module_chat.to_user,message,sent,module_chat.isLesson) values ('".mysql_real_escape_string($from)."', '".mysql_real_escape_string($to)."','".mysql_real_escape_string($message)."',NOW(), '1')";
  }
  $query = mysql_query($sql);
- echo "1";
+ echo $_SESSION['chatboxesnum'];
  exit(0);
 }
 function closeChat() {

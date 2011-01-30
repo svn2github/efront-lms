@@ -845,6 +845,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
        array(_TESTSAVERAGE, round(($testsAvgScore/$testsAvgScoreNum) ,2).'%'));
   $pdf -> printInformationSection(_OVERALL, $info);
  }
- $pdf -> OutputPdf('user_form_'.$editedUser -> user['login'].'.pdf');
+ $pdf -> OutputPdf('user_form_'.$infoUser -> user['login'].'.pdf');
  exit;
 }

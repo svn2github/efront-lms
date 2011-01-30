@@ -21,7 +21,7 @@ define("_WORKBOOK_COPY_TO_CLIPBOARD", "Copy to clipboard");
 define("_WORKBOOK_ITEM_TITLE", "Item title");
 define("_WORKBOOK_ITEM_TEXT", "Item text");
 define("_WORKBOOK_ITEM_QUESTION", "Item question");
-define("_WORKBOOK_ITEM_CHECK_ANSWER", "Check answer");
+define("_WORKBOOK_ITEM_CHECK_ANSWER", "Submit answer");
 define("_WORKBOOK_ITEM_GRADE_ANSWER", "Grade answer");
 define("_WORKBOOK_ITEM_EMPTY_FIELDS", "At least one of the fields (title, text, question) is required");
 define("_WORKBOOK_ITEM_SUCCESSFULLY_ADDED", "Item successfully added");

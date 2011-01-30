@@ -285,7 +285,7 @@
  function makeRequest(url, parameters, item_id, question_type){
 
   var editAnswers = '{/literal}{$T_WORKBOOK_SETTINGS.edit_answers}{literal}';
-  http_request = false;
+  var http_request = false;
 
   if(window.XMLHttpRequest){ // Mozilla, Safari, ...
 
@@ -312,6 +312,8 @@
    alert('Cannot create XMLHTTP instance');
    return false;
   }
+
+  http_request.open('GET', url + parameters, true);
 
   http_request.onreadystatechange = function(){
 
@@ -366,7 +368,6 @@
    }
   }
 
-  http_request.open('GET', url + parameters, true);
   http_request.send(null);
  }
 
@@ -445,7 +446,7 @@
 
  function makeRequestAutoSave(url, parameters, item_id){
 
-  http_request = false;
+  var http_request = false;
 
   if(window.XMLHttpRequest){ // Mozilla, Safari, ...
 
@@ -499,7 +500,7 @@
 
  function makeRequestEditAnswer(url, parameters, item_id){
 
-  http_request = false;
+  var http_request = false;
 
   if(window.XMLHttpRequest){ // Mozilla, Safari, ...
 
@@ -527,6 +528,8 @@
    return false;
   }
 
+  http_request.open('GET', url + parameters, true);
+
   http_request.onreadystatechange = function(){
 
    if(http_request.readyState == 4){
@@ -545,7 +548,6 @@
    }
   }
 
-  http_request.open('GET', url + parameters, true);
   http_request.send(null);
  }
 
@@ -572,7 +574,7 @@
 
  function makeRequestSubmitEditedAnswer(url, parameters, item_id){
 
-  http_request = false;
+  var http_request = false;
 
   if(window.XMLHttpRequest){ // Mozilla, Safari, ...
 
@@ -600,6 +602,8 @@
    return false;
   }
 
+  http_request.open('GET', url + parameters, true);
+
   http_request.onreadystatechange = function(){
 
    if(http_request.readyState == 4){
@@ -618,7 +622,6 @@
    }
   }
 
-  http_request.open('GET', url + parameters, true);
   http_request.send(null);
  }
 

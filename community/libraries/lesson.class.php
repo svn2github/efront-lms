@@ -2212,7 +2212,7 @@ class EfrontLesson
   }
   $usersTimes = $this -> getLessonTimesForUsers();
   foreach ($lessonUsers as $key => $user) {
-   if ($user['role'] != $user['user_type'] && $user['role'] != $user['user_types_ID']) {
+   if ((!$user['user_types_ID'] && $user['role'] != $user['user_type']) || ($user['user_types_ID'] && $user['role'] != $user['user_types_ID'])) {
     $user['different_role'] = 1;
    }
    $lessonUsers[$key]['overall_progress'] = $this -> getLessonOverallProgressForUser($user, $units);

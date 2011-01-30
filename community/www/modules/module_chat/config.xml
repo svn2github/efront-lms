@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<chat_system>
-	<status>on</status>
-	<chatHeartbeatTime>50000</chatHeartbeatTime>
-	<refresh_rate>60000</refresh_rate>
-</chat_system>

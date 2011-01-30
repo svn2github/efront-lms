@@ -443,7 +443,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      } catch (Exception $e) {}
      //Reset certain version options
      try {
-      EfrontConfiguration :: setValue('version_key', '');
       if ($options['version_type'] == 'standard') {
        EfrontConfiguration :: setValue('version_type', 'community');
       }
@@ -491,8 +490,12 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
     } catch (Exception $e) {}
     EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
-    if (!defined("PREPROCESSED")) {
+    if (!defined("PREPROCESSED") && $GLOBALS['configuration']['version_type'] != G_VERSIONTYPE) {
      EfrontConfiguration :: setValue('version_type', G_VERSIONTYPE);
+     EfrontConfiguration :: setValue('version_users', '');
+     EfrontConfiguration :: setValue('version_activated', '');
+     EfrontConfiguration :: setValue('version_upgrades', '');
+     EfrontConfiguration :: setValue('version_key', '');
     }
     EfrontConfiguration :: setValue('editor_type', 'tinymce_new');
     EfrontConfiguration :: setValue('phplivedocx_server', 'https://api.livedocx.com/1.2/mailmerge.asmx?WSDL'); //code for updating phplivedocx_server

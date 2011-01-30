@@ -37,7 +37,7 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
   }
   if ($values['username_format']) {
    if (function_exists('apc_delete')) {
-    apc_delete('_usernames');
+    apc_delete(G_DBNAME.':_usernames');
    }
   }
   unset($values['reset_license_note']); //Unset it, since we don't need to store this value to the database

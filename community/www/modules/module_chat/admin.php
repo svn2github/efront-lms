@@ -77,17 +77,6 @@ function getChatHeartbeat(){
 
 function getStatus(){
 
- $doc = new DOMDocument();
- $doc->load( 'config.xml' );
-
- $chat_system= $doc->getElementsByTagName( "chat_system" );
- foreach( $chat_system as $x )
- {
-  $time = $x->getElementsByTagName( "status" );
-  $time = $time->item(0)->nodeValue;
-
-  echo "$time";
- }
 }
 ///////////////////////////////////////////////////////////////////////////////
 

@@ -86,14 +86,11 @@ In case of error it returns also a message entity with description of the error 
 */
  $path = "../libraries/";
  require_once $path."configuration.php";
-    $data = $GLOBALS['configuration']['api'];
-    $api = $data[0]['value'];
-    if ($api == 1) {
+    if ($GLOBALS['configuration']['api']) {
         if (isset($_GET['action'])) {
-            $action = $_GET['action'];
             switch($_GET['action']) {
                 case 'token':
-                    $token = createToken(30);
+                 $token = createToken(30);
                     if (strlen($token) == 30) {
                         $insert['token'] = $token;
                         $insert['status'] = "unlogged";
@@ -107,8 +104,7 @@ In case of error it returns also a message entity with description of the error 
                     break;
                  case 'efrontlogin':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
-                        $token = $_GET['token'];
-                        $creds = eF_getTableData("tokens t, users u", "u.login, u.password, u.user_type", "t.users_LOGIN = u.LOGIN and t.token='$token'");
+                        $creds = eF_getTableData("tokens t, users u", "u.login, u.password, u.user_type", "t.users_LOGIN = u.LOGIN and t.token='".$_GET['token']."'");
                         if (sizeof($creds) == 0) {
        echo "<xml>";
                             echo "<status>error</status>";
@@ -151,7 +147,6 @@ In case of error it returns also a message entity with description of the error 
                  }
      case 'efrontlogout':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
-                        $token = $_GET['token'];
       if (isset($_GET['login'])) {
        try {
         $user = EfrontUserFactory :: factory($_GET['login']);
@@ -199,7 +194,7 @@ In case of error it returns also a message entity with description of the error 
      }
     }
                  case 'login':{
-     if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['token'])) {
+     if (isset($_GET['username']) && eF_checkParameter($_GET['username'], 'login') && isset($_GET['password']) && isset($_GET['token']) && checkToken($_GET['token'])) {
       try {
        $user = EfrontUserFactory :: factory($_GET['username']);
       } catch (EfrontUserException $e) {
@@ -222,8 +217,6 @@ In case of error it returns also a message entity with description of the error 
       }
                         if ($user -> user['user_type'] == "administrator") {
        $login = $_GET['username'];
-       $password = EfrontUser::createPassword($_GET['password']);
-       $token = $_GET['token'];
        $tmp = eF_getTableData("tokens","token","status='unlogged'");
        $result = eF_getTableData("tokens","token","status='logged' and users_LOGIN='".$login."'");
        $tmp2 = eF_getTableData("users", "password","login='$login'");
@@ -246,7 +239,7 @@ In case of error it returns also a message entity with description of the error 
          if ($pwd == $password) {
           $update['status'] = "logged";
           $update['users_LOGIN'] = $login;
-          eF_updateTableData("tokens",$update,"token='$token'");
+          eF_updateTableData("tokens",$update,"token='".$_GET['token']."'");
           echo "<xml>";
           echo "<status>ok</status>";
           echo "</xml>";
@@ -1728,8 +1721,7 @@ In case of error it returns also a message entity with description of the error 
     }
                 case 'logout':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
-                        $token = $_GET['token'];
-                        eF_deleteTableData("tokens","token='$token'");
+                        eF_deleteTableData("tokens","token='".$_GET['token']."'");
       echo "<xml>";
                         echo "<status>ok</status>";
       echo "</xml>";
@@ -1799,12 +1791,13 @@ In case of error it returns also a message entity with description of the error 
         return $token;
     }
     function checkToken($token) {
-        $tmp = eF_getTableData("tokens","status","token='$token'");
-        $token = $tmp[0]['status'];
-        if ($token == 'logged'){
-            return true;
-        } else {
-   return false;
-  }
+     if (eF_checkParameter($token, 'alnum')) {
+      $tmp = eF_getTableData("tokens","status","token='$token'");
+      $token = $tmp[0]['status'];
+      if ($token == 'logged') {
+       return true;
+      }
+     }
+     return false;
     }
 ?>

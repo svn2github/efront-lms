@@ -3,6 +3,15 @@
 - Fixed issue about copying also surveys questions in copy from another lesson
 - Fixed course assignment not working with group key when group type is not set
 - Automatic logout and session handling updates
+- XML API security update
+- Removed calendar from course tools and announcement form when disabled
+- Small performance improvement in test reports
+- Visiting a unit link after logging out correctly registers the lesson after logging in
+- Removed edit link from SCORM 2004 child unit
+- Fixed version key information not being updated when upgrading to a different edition
+- Changed courses list to not report different type, when a user is of a custom type and so are his/her courses/lessons
+- Fixed usernames cached not resetting when changing a user's personal information
+-
 
 === Version 3.6.8 build 9575===
 - Added automatic correction for free text questions

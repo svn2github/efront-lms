@@ -820,7 +820,9 @@ if (isset($_GET['add_evaluation']) || isset($_GET['edit_evaluation'])) {
       $_SESSION['s_language'] = $values['languages_NAME'];
      }
     }
-    eF_updateTableData("users", $users_content, "login='".$_GET['edit_user']."'");
+    //eF_updateTableData("users", array_merge($editedUser->user, $users_content), "login='".$_GET['edit_user']."'");
+    $editedUser->user = array_merge($editedUser->user, $users_content);
+    $editedUser->persist();
     // mpaltas temporary solution: manual OO to keep $editedUser object cache consistent
     if ($editedUser -> user['user_type'] != $values['user_type']) {
      // the new instance will be of the updated type

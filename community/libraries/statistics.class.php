@@ -1428,7 +1428,7 @@ class EfrontStats
                                                                         'basic_user_type' => $users[$login]['user_type'],
                                                                         'user_type' => $value['user_type'], //The user's role in the lesson
                               'user_types_ID' => $users[$login]['user_types_ID'],
-                                                                        'different_role' => $value['user_type'] != $users[$login]['user_type'] && $value['user_type'] != $users[$login]['user_types_ID'], //Whether the user has a role different than the default in this lesson
+                                                                        'different_role' => (!$users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_type']) || ($users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_types_ID']), //Whether the user has a role different than the default in this lesson
                                                                         'active' => $users[$login]['active'],
                                                                         'lesson_name' => $lesson -> lesson['name'],
                                                                         'from_timestamp' => $value['from_timestamp'],
@@ -1633,7 +1633,7 @@ class EfrontStats
                                                                             'basic_user_type' => $users[$login]['user_type'],
                                                                             'user_type' => $value['user_type'], //User type in course
                                                                             'user_types_ID' => $users[$login]['user_types_ID'],
-                                                                            'different_role' => $value['user_type'] != $users[$login]['user_type'] && $value['user_type'] != $users[$login]['user_types_ID'], //Whether the user has a role different than the default in this course
+                                                                         'different_role' => (!$users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_type']) || ($users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_types_ID']), //Whether the user has a role different than the default in this lesson
                                      'active' => $users[$login]['active'],
                                                                             'course_name' => $course -> course['name'],
                                                                             'from_timestamp' => $value['from_timestamp'],
@@ -1795,8 +1795,8 @@ class EfrontStats
                                                                             'basic_user_type' => $user['user_type'],
                                                                             'user_type' => $value['user_type'], //User type in course
                                                                             'user_types_ID' => $user['user_types_ID'],
-                                                                            'different_role' => $value['user_type'] != $user['user_type'] && $value['user_type'] != $user['user_types_ID'], //Whether the user has a role different than the default in this course
-                                     'active' => $user['active'],
+                                                                         'different_role' => (!$users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_type']) || ($users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_types_ID']), //Whether the user has a role different than the default in this lesson
+                               'active' => $user['active'],
                                                                             'course_name' => $course -> course['name'],
                                                                             'from_timestamp' => $value['from_timestamp'],
                                                                             'remaining' => $value['remaining']);
@@ -1939,6 +1939,7 @@ class EfrontStats
                                                                         'user_type' => $value['user_type'], //The user's role in the lesson
                               'user_types_ID' => $user['user_types_ID'],
                                                                         'different_role' => $value['user_type'] != $user['user_type'] && $value['user_type'] != $user['user_types_ID'], //Whether the user has a role different than the default in this lesson
+                                                                        'different_role' => (!$users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_type']) || ($users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_types_ID']), //Whether the user has a role different than the default in this lesson
                                                                         'active' => $user['active'],
                                                                         'lesson_name' => $lesson -> lesson['name'],
                                                                         'from_timestamp' => $value['from_timestamp'],

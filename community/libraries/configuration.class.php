@@ -70,7 +70,7 @@ class EfrontConfiguration
   'default_type' => 'student',
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
-        'api' => '1',
+        'api' => '0',
   'math_content' => '0',
   'math_server' => 'http://www.imathas.com/cgi-bin/mimetex.cgi',
   'math_images' => '0',
@@ -357,7 +357,7 @@ class EfrontConfiguration
      */
     public static function deleteValue($name) {
      if (function_exists('apc_delete')) {
-      apc_delete('configuration');
+      apc_delete(G_DBNAME.':configuration');
      }
      eF_deleteTableData("configuration", "name = '$name'");
      unset($GLOBALS['configuration'][$name]);

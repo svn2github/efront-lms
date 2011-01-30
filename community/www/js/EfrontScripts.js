@@ -583,7 +583,7 @@ function periodicUpdater() {
 function onPeriodicUpdater(el, response) {
  if (response.evalJSON().status) {
   messages = response.evalJSON().messages;
-  onlineUsers = response.evalJSON().online;
+  onlineUsers = response.evalJSON().online;//alert(onlineUsers);
   if ($('header_total_messages')) {
    if (messages > 0) {
     $('header_total_messages').update('&nbsp;('+messages+')');

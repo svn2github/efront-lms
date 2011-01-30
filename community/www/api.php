@@ -17,11 +17,11 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api.php?token=<token>&action=efrontlogin&login=<login> 			logs <login> in eFront
 
-/api.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields	
+/api.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields
 
-/api.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields	
+/api.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields
 
-/api.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields	
+/api.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields
 
 /api.php?token=<token>&action=deactivate_user&login=<login>			deactivates user <login>
 
@@ -31,13 +31,13 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api.php?token=<token>&action=groups                                                returns all groups defined in eFront
 
-/api.php?token=<token>&action=group_info&group=<group_id>                           returns <group_id> information 
+/api.php?token=<token>&action=group_info&group=<group_id>                           returns <group_id> information
 
-/api.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>          assigns group with <group_id> to user <login>   
+/api.php?token=<token>&action=group_to_user&login=<login>&group=<group_id>          assigns group with <group_id> to user <login>
 
 /api.php?token=<token>&action=group_from_user&login=<login>&lesson=<group_id>       undo assignment for group with <group_id> to user <login>
 
-/api.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>		assigns lesson with <lesson_id> to user <login>   
+/api.php?token=<token>&action=lesson_to_user&login=<login>&lesson=<lesson_id>		assigns lesson with <lesson_id> to user <login>
 
 /api.php?token=<token>&action=activate_user_lesson&login=<login>&lesson=<lesson_id> activate assignment for lesson with <lesson_id> to user <login>
 
@@ -45,17 +45,17 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api.php?token=<token>&action=lesson_from_user&login=<login>&lesson=<lesson_id>		undo assignment for lesson with <lesson_id> to user <login>
 
-/api.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>		assigns course with <course_id> to user <login>   
+/api.php?token=<token>&action=course_to_user&login=<login>&course=<course_id>		assigns course with <course_id> to user <login>
 
-/api.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>	undo assignment for course with <course_id> to user <login> 
+/api.php?token=<token>&action=course_from_user&login=<login>&courses=<course_id>	undo assignment for course with <course_id> to user <login>
 
 /api.php?token=<token>&action=user_lessons&login=<login> 							returns the lessons that are assigned to the user <login>
 
 /api.php?token=<token>&action=user_courses&login=<login> 							returns the courses that are assigned to the user <login>
 
-/api.php?token=<token>&action=lesson_info&lesson=<lesson_id>						returns <lesson_id> information 
+/api.php?token=<token>&action=lesson_info&lesson=<lesson_id>						returns <lesson_id> information
 
-/api.php?token=<token>&action=user_info&login=<login>								returns <login> information 
+/api.php?token=<token>&action=user_info&login=<login>								returns <login> information
 
 /api.php?token=<token>&action=lessons												returns all lessons defined in eFront
 
@@ -943,7 +943,7 @@ In case of error it returns also a message entity with description of the error 
         echo "<lessons>";
        echo "\n";
        echo "</xml>";
-       /*	
+       /*
 
 							$lessons = eF_getTableData("lessons_to_courses", "courses_ID, lessons_ID, previous_lessons_ID", "courses_ID ='".$_GET['course']."'");
 
@@ -965,21 +965,21 @@ In case of error it returns also a message entity with description of the error 
 
 										echo "\n\t\t\t";
 
-										echo "<lessons_ID>".$lessons[$i]['lessons_ID']."</lessons_ID>"; 
+										echo "<lessons_ID>".$lessons[$i]['lessons_ID']."</lessons_ID>";
 
 										echo "\n\t\t\t";
 
-										echo "<previous_lessons_ID>".$lessons[$i]['previous_lessons_ID']."</previous_lessons_ID>"; 
+										echo "<previous_lessons_ID>".$lessons[$i]['previous_lessons_ID']."</previous_lessons_ID>";
 
 										echo "\n\t\t";
 
 									echo "</lesson>";
 
-						} 
+						}
 
 								echo "\n\t";
 
-								echo "<lessons>";	
+								echo "<lessons>";
 
 							echo "\n";
 
@@ -1176,12 +1176,13 @@ In case of error it returns also a message entity with description of the error 
         return $token;
     }
     function checkToken($token){
-        $tmp = ef_getTableData("tokens","status","token='$token'");
-        $token = $tmp[0]['status'];
-        if ($token == 'logged'){
-            return true;
-        }
-        else
-        return false;
+     if (eF_checkParameter($token, 'alnum')) {
+      $tmp = ef_getTableData("tokens","status","token='$token'");
+      $token = $tmp[0]['status'];
+      if ($token == 'logged'){
+       return true;
+      }
+     }
+     return false;
     }
 ?>

@@ -77,7 +77,7 @@ try {
    if ($course -> course['duration'] && $course -> course['active_in_course'] && $course -> course['duration'] * 3600 * 24 + $course -> course['active_in_course'] < time()) {
     $course -> archiveCourseUsers($course -> course['users_LOGIN']);
    }
-   if ($course -> course['user_type'] != $currentUser -> user['user_type']) {
+   if ((!$currentUser -> user['user_types_ID'] && $course -> course['user_type'] != $currentUser -> user['user_type']) || ($currentUser -> user['user_types_ID'] && $course -> course['user_type'] != $currentUser -> user['user_types_ID'])) {
     $course -> course['different_role'] = 1;
    }
    $userCourses[$key] = $course;

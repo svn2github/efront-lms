@@ -191,7 +191,9 @@ class news extends EfrontEntity
         $form -> addElement($this -> createDateElement($form, 'timestamp', _VISIBLEFROM));
      $form -> addElement('static', 'sidenote', $sidenote);
         $form -> addElement($this -> createDateElement($form, 'expire', _EXPIRESAT, array('addEmptyOption' => true)));
-     $form -> addElement('checkbox', 'calendar', _CREATECALENDAREVENT, null, 'class = "inputCheckBox"');
+        if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($GLOBALS['currentUser'] -> coreAccess['calendar']) || $GLOBALS['currentUser'] -> coreAccess['calendar'] != 'hidden')) {
+      $form -> addElement('checkbox', 'calendar', _CREATECALENDAREVENT, null, 'class = "inputCheckBox"');
+        }
         $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
         $form -> addElement('submit', 'submit', _ANNOUNCEMENTADD, 'class = "flatButton"');
      $form -> setDefaults(array('title' => $this -> news['title'],

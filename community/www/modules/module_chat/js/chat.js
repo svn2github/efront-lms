@@ -4,16 +4,18 @@
 var windowFocus = true;
 var username;
 var chatHeartbeatCount = 0;
-var minChatHeartbeat = 1500;
+var minChatHeartbeat = 2000;
 var maxChatHeartbeat = 12000;
-var chatHeartbeatTime = minChatHeartbeat; // How often will search for new messages be done?
+var chatHeartbeatTime = minChatHeartbeat; // How often will new messages be searched?
 var originalTitle;
 var blinkOrder = 0;
 var user_list = "open";
-var refresh_rate = 60000; // How fast the will user list be refreshed?
+var refresh_rate = 30000; // How fast will the user list be refreshed?
 var scrollalert_timeout= 0;
 var chatheartbeat_timeout = 0;
 var scrollalertNotCaringCss_timeout = 0;
+
+
 
 
 var lessons = new Array();
@@ -28,7 +30,7 @@ $J(document).ready(function(){
 
  originalTitle = document.title;
  initChat();
- startChatSession();
+ //startChatSession();
  chatHeartbeatTime = minChatHeartbeat;
 
 if ($J.cookie("chat_on") == null)
@@ -63,7 +65,9 @@ if ($J.cookie("chat_on") == null)
   $J('#chat_bar').css("width","216px");
   $J('#chat_bar').css("border-width","1px");
   clearTimeout(scrollalert_timeout);
+
   scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
+  startChatSession();
  }
 
  $J([window, document]).blur(function(){
@@ -639,7 +643,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
    msg = message.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;");
     $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+username+':&nbsp;</span><span class="chatboxmessagecontent">'+msg+'</span></div>');
     $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
-   $J.post(modulechatbaselink+"chat.php?action=sendchat", {to: chatboxtitle, message: message});
+   $J.post(modulechatbaselink+"chat.php?action=sendchat", {to: chatboxtitle, message: message}, function (data){});
   }
   chatHeartbeatTime = minChatHeartbeat;
   chatHeartbeatCount = 1;
@@ -692,6 +696,7 @@ function startChatSession(){
      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
      setTimeout('$J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);', 100); // yet another strange ie bug
    }
+
 
    //chatheartbeat_timeout = setTimeout('chatHeartbeat();',chatHeartbeatTime);
    chatHeartbeat();

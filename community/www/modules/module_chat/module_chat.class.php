@@ -40,8 +40,13 @@ class module_chat extends eFrontModule{
        refresh_rate INT NOT NULL DEFAULT '60000'
        )"
        );
+  $res4 = eF_executeNew("INSERT INTO  module_chat_config
+       (status, chatHeartbeatTime, refresh_rate) VALUES
+       ('1', '2000', '30000')"
+       );
 
-  return ($res1 && $res2 && $res3);
+
+  return ($res1 && $res2 && $res3 &&res4);
  }
 
  public function onUninstall() {
@@ -132,7 +137,6 @@ class module_chat extends eFrontModule{
    }
   }
   $_SESSION['commonality'] = $commonality;
-  //print_r($_SESSION['commonality']);
  }
  public function curPageURL() {
   $pageURL = 'http';
@@ -148,17 +152,14 @@ class module_chat extends eFrontModule{
  }
  //public function getSmartyTpl() {
  public function onPageFinishLoadingSmartyTpl() {
- $smarty = $this -> getSmartyVar();
- $page = $this->curPageURL();
- if ($this->contains($page,"popup=1")){
-  $smarty -> assign("T_CHAT_MODULE_STATUS", "OFF");
- }
- else{
-  $smarty -> assign("T_CHAT_MODULE_STATUS", "ON");
- }
-
-
-
+  $smarty = $this -> getSmartyVar();
+  $page = $this->curPageURL();
+  if ($this->contains($page,"popup=1")){
+   $smarty -> assign("T_CHAT_MODULE_STATUS", "OFF");
+  }
+  else{
+   $smarty -> assign("T_CHAT_MODULE_STATUS", "ON");
+  }
 
   if (!$_SESSION['chatter']){
    $currentUser = $this -> getCurrentUser();
@@ -266,8 +267,25 @@ class module_chat extends eFrontModule{
   $currentUser = $this -> getCurrentUser();
 
         if ($currentUser -> getType() == 'administrator') {
-            return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
-                          array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl));
+   if (isset($_GET['setChatHeartBeat'])){
+    return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
+        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl),
+        array ('title' => "Chat Engine Rate", 'link' => ($this -> moduleBaseUrl)."&setChatHeartBeat=1"));
+   }
+   else if (isset($_GET['setRefresh_rate'])){
+    return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
+        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl),
+        array ('title' => "User List Refresh Rate", 'link' => ($this -> moduleBaseUrl)."&setRefresh_rate=1"));
+   }
+   else if (isset($_GET['createLog'])){
+    return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
+        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl),
+        array ('title' => "Create History Log", 'link' => ($this -> moduleBaseUrl)."&createLog=1"));
+   }
+   else{
+             return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
+        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl));
+   }
         }
  }
 

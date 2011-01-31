@@ -15,6 +15,9 @@
 - Added "Fuze meetings" module (commercial editions)
 - Fixed issue about message recipients when multiple users have common names in formatLogin
 - Fixed free text auto correction to not take into account multiple OR occurences
+- Fixed personal message "invalid recipient" error when name formatting does not contain "login" and there are users with the same name/surname
+- Fixed response details in test reports issues with displaying and true/false questions results
+ -
 
 === Version 3.6.8 build 9575===
 - Added automatic correction for free text questions

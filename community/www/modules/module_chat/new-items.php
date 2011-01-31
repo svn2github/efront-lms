@@ -11,14 +11,14 @@ if ($_SESSION['s_lessons_ID']){
   $lsn = eF_getTableData("lessons", "name", "id='".$_SESSION['s_lessons_ID']."'");
   foreach ($lsn as $lesson){
    $link = $lesson['name'];
-   echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWith(\''.str_replace(' ','_',$lesson['name']).'\')">'.$link.' (Room)</a></p>';
+   echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWithLesson(\''.str_replace(' ','_',$lesson['name']).'\')">'.$link.' (Room)</a></p>';
    $_SESSION["lessonid"] = $_SESSION['s_lessons_ID'];
    $_SESSION["lessonname"] = str_replace(' ','_',$lesson['name']);
   }
  }
  else{
  $link = $_SESSION["lessonname"];
-  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWith(\''.str_replace(' ','_',$_SESSION["lessonname"]).'\')">'.substr($link,0,18).' ...(Room)</a></p>';
+  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWithLesson(\''.str_replace(' ','_',$_SESSION["lessonname"]).'\')">'.substr($link,0,18).' ...(Room)</a></p>';
  }
 }
 

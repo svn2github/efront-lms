@@ -1359,6 +1359,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                  <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&test_results={$test.id}"><img src = "images/16x16/unit.png" alt = "{$smarty.const._RESULTS}" title = "{$smarty.const._RESULTS}" /></a>
                  <a href = "{$smarty.server.PHP_SELF}?{if !$T_SKILLGAP_TEST}view_unit={$test.content_ID}{else}ctg={$T_CTG}&show_test={$test.id}{/if}"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}"/></a>
                  <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&show_test={$test.id}&print=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PRINT}', 2)"><img src = "images/16x16/printer.png" alt = "{$smarty.const._PRINT}" title = "{$smarty.const._PRINT}" /></a>
+         {if !isset($T_CURRENT_USER->coreAccess.statistics) || $T_CURRENT_USER->coreAccess.statistics != 'hidden'}
+                 <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=test&sel_test={$test.id}"><img src = "images/16x16/reports.png" alt = "{$smarty.const._REPORTS}" title = "{$smarty.const._REPORTS}" /></a>
+         {/if}
          {if $_change_}
                  {if !$test.options.shuffle_questions && !$test.options.random_pool}
                  <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&questions_order={$test.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CHANGEORDER}', 2)"><img src = "images/16x16/order.png" alt = "{$smarty.const._CHANGEORDER}" title = "{$smarty.const._CHANGEORDER}"/></a>

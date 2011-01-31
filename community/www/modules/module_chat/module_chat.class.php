@@ -168,6 +168,15 @@ class module_chat extends eFrontModule{
    $this -> calculateCommonality($currentUser -> login);
    eF_executeNew("INSERT IGNORE INTO module_chat_users (username ,timestamp_) VALUES ('".$_SESSION['chatter']."', CURRENT_TIMESTAMP);");
   }
+  else{
+   $currentUser = $this -> getCurrentUser();
+   if ($_SESSION['chatter'] != $currentUser -> login){
+    $_SESSION['chatter'] = $currentUser -> login;
+    $_SESSION['utype'] = $currentUser -> getType();
+    $this -> calculateCommonality($currentUser -> login);
+    eF_executeNew("INSERT IGNORE INTO module_chat_users (username ,timestamp_) VALUES ('".$_SESSION['chatter']."', CURRENT_TIMESTAMP);");
+   }
+  }
 
         $smarty -> assign("T_CHAT_MODULE_BASEURL", $this -> moduleBaseUrl);
         $smarty -> assign("T_CHAT_MODULE_BASELINK", $this -> moduleBaseLink);
@@ -184,13 +193,18 @@ class module_chat extends eFrontModule{
  public function getSmartyTpl() {
 
   $smarty = $this -> getSmartyVar();
-  if (isset($_GET['setChatHeartBeat'])){
+
 
    if (isset($_POST['rate'])){
     $this -> setChatHeartbeat($_POST['rate']*1000);
    }
+
+   $r = $this->getChatHeartbeat();
+
+   $smarty->assign('T_CHAT_CURRENT_RATE', $r/1000);
+
    $form = new HTML_QuickForm("change_chatheartbeat_form", "post", $this->moduleBaseUrl."&setChatHeartBeat=1", "", null, true);
-   $form->addElement('text', 'rate', "rate", 'class="inputText" style="width:100px;"');
+   $form->addElement('text', 'rate', "rate", 'class="inputText" value="'.($r/1000).'" style="width:100px;"');
    $form->addRule('rate', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
    $form->addRule('rate', "Non numeric Value", 'numeric', null, 'client');
    $form->addElement('submit', 'submit', _SUBMIT, 'class="flatButton"');
@@ -200,19 +214,19 @@ class module_chat extends eFrontModule{
    $form->accept($renderer);
    $smarty->assign('T_CHAT_CHANGE_CHATHEARTBEAT_FORM', $renderer->toArray());
 
-   $x = $this->getChatHeartbeat();
-
-   $smarty->assign('T_CHAT_CURRENT_RATE', $x/1000);
-  }
-  else if (isset($_GET['setRefresh_rate'])){
-   if (isset($_POST['rate'])){
-    $this -> setRefresh_rate($_POST['rate']*1000);
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   if (isset($_POST['rate2'])){
+    $this -> setRefresh_rate($_POST['rate2']*1000);
    }
 
+   $r2 = $this->getRefresh_rate();
+
+   $smarty->assign('T_CHAT_CURRENT_REFRESH_RATE', $r2/1000);
+
    $form = new HTML_QuickForm("change_refreshrate_form", "post", $this->moduleBaseUrl."&setRefresh_rate=1", "", null, true);
-   $form->addElement('text', 'rate', "rate", 'class="inputText" style="width:100px;"');
-   $form->addRule('rate', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
-   $form->addRule('rate', "Non numeric Value", 'numeric', null, 'client');
+   $form->addElement('text', 'rate2', "rate2", 'class="inputText" value="'.($r2/1000).'" style="width:100px;"');
+   $form->addRule('rate2', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
+   $form->addRule('rate2', "Non numeric Value", 'numeric', null, 'client');
    $form->addElement('submit', 'submit', _SUBMIT, 'class="flatButton"');
    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
    $form->setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
@@ -220,11 +234,7 @@ class module_chat extends eFrontModule{
    $form->accept($renderer);
    $smarty->assign('T_CHAT_CHANGE_REFRESHRATE_FORM', $renderer->toArray());
 
-   $x = $this->getRefresh_rate();
-
-   $smarty->assign('T_CHAT_CURRENT_RATE', $x/1000);
-  }
-  else if (isset($_GET['createLog'])){
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    if (isset($_POST['lesson'])){
     $this->createLessonHistory($_POST['lesson'],
@@ -255,10 +265,8 @@ class module_chat extends eFrontModule{
    $form->accept($renderer);
    $smarty->assign('T_CHAT_CREATE_LOG_FORM', $renderer->toArray());
 
-   $x = $this->getRefresh_rate();
+////////
 
-   $smarty->assign('T_CHAT_CURRENT_RATE', $x/1000);
-  }
   return $this -> moduleBaseDir . "control_panel.tpl";
  }
 
@@ -266,74 +274,74 @@ class module_chat extends eFrontModule{
  public function getNavigationLinks() {
   $currentUser = $this -> getCurrentUser();
 
-        if ($currentUser -> getType() == 'administrator') {
-   if (isset($_GET['setChatHeartBeat'])){
-    return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
-        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl),
-        array ('title' => "Chat Engine Rate", 'link' => ($this -> moduleBaseUrl)."&setChatHeartBeat=1"));
-   }
-   else if (isset($_GET['setRefresh_rate'])){
-    return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
-        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl),
-        array ('title' => "User List Refresh Rate", 'link' => ($this -> moduleBaseUrl)."&setRefresh_rate=1"));
-   }
-   else if (isset($_GET['createLog'])){
-    return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
-        array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl),
-        array ('title' => "Create History Log", 'link' => ($this -> moduleBaseUrl)."&createLog=1"));
-   }
-   else{
+        /*if ($currentUser -> getType() == 'administrator') {
+
+			if (isset($_GET['setChatHeartBeat'])){
+
+				return array (array ('title' => _HOME, 'link'  => $currentUser -> getType() . ".php?ctg=control_panel"),
+
+								array ('title' => "Chat Module", 'link'  => $this -> moduleBaseUrl),
+
+								array ('title' => "Chat Engine Rate", 'link' => ($this -> moduleBaseUrl)."&setChatHeartBeat=1"));
+
+			}
+
+			else if (isset($_GET['setRefresh_rate'])){
+
+				return array (array ('title' => _HOME, 'link'  => $currentUser -> getType() . ".php?ctg=control_panel"),
+
+								array ('title' => "Chat Module", 'link'  => $this -> moduleBaseUrl),
+
+								array ('title' => "User List Refresh Rate", 'link' => ($this -> moduleBaseUrl)."&setRefresh_rate=1"));
+
+			}
+
+			else if (isset($_GET['createLog'])){
+
+				return array (array ('title' => _HOME, 'link'  => $currentUser -> getType() . ".php?ctg=control_panel"),
+
+								array ('title' => "Chat Module", 'link'  => $this -> moduleBaseUrl),
+
+								array ('title' => "Create History Log", 'link' => ($this -> moduleBaseUrl)."&createLog=1"));
+
+			}
+
+			else{*/
              return array (array ('title' => _HOME, 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
         array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl));
-   }
-        }
+   //}
+        //}
  }
-
-
  private function contains($str, $content){
   $str = strtolower($str);
   $content = strtolower($content);
-
   if (strpos($str,$content))
    return true;
   else
    return false;
  }
-
  private function getChatHeartbeat(){
-
   $rate = eF_getTableData("module_chat_config", "chatHeartbeatTime", "1");
   foreach( $rate as $r ){
    return $r['chatHeartbeatTime'];
   }
-
  }
-
  private function getRefresh_rate(){
-
   $rate = eF_getTableData("module_chat_config", "refresh_rate", "1");
   foreach( $rate as $r ){
    return $r['refresh_rate'];
   }
  }
-
-
  private function setChatheartBeat($rate){
   $sql = "update module_chat_config set chatHeartbeatTime = '".$rate."' where 1";
   $query = mysql_query($sql);
  }
-
-
  private function setRefresh_rate($rate){
-
   $sql = "update module_chat_config set refresh_rate = '".$rate."' where 1";
   $query = mysql_query($sql);
  }
-
  private function getLessonsCatalogue(){
-
   $lsn = eF_getTableData("lessons", "name", "1");
-
   $lessons = array();
 
   foreach ($lsn as $lesson){

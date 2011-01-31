@@ -3413,8 +3413,14 @@ class EfrontStats
        foreach ($question -> order as $index) {
         $answers[] = $question -> options[$index].'&nbsp;&rarr;&nbsp;'.$question -> answer[$question -> userAnswer[$index]];
        }
-      } elseif (($question instanceOf EmptySpacesQuestion) || ($question instanceOf TrueFalseQuestion)) {
-       $answers[] = $question -> userAnswer ? _FALSE : _TRUE;
+      } elseif ($question instanceOf TrueFalseQuestion) {
+       $answers[] = $question -> userAnswer ? _TRUE : _FALSE ;
+      } elseif ($question instanceOf EmptySpacesQuestion) {
+       $occurences = preg_match_all("/###/", $question -> question['plain_text'], $matches);
+       for ($i = 0; $i < $occurences; $i++) {
+        $question -> question['plain_text'] = preg_replace("/###/", "<b>".$question -> userAnswer[$i]."</b>", $question -> question['plain_text'], 1);
+       }
+       $answers[] = $question -> question['plain_text'];
       } elseif (($question instanceOf MultipleOneQuestion)) {
        foreach ($question -> order as $index) {
         if ($question -> userAnswer == $index) {
@@ -3424,7 +3430,7 @@ class EfrontStats
       } elseif (($question instanceOf RawTextQuestion)) {
        $answers[] = $question -> userAnswer;
       }
-      $userQuestions[$question -> question['id']][$user] = implode(",", $answers);
+      $userQuestions[$question -> question['id']][$user][] = implode("<br/>", $answers);
      }
     }
    }

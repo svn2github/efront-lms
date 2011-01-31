@@ -23,6 +23,7 @@ var chatboxFocus = new Array();
 var newMessages = new Array();
 var newMessagesWin = new Array();
 var chatBoxes = new Array();
+var ls_available = 'localStorage' in window;
 
 var $J = jQuery.noConflict();
 
@@ -37,7 +38,7 @@ if ($J.cookie("chat_on") == null)
   $J.cookie("chat_on", "on");
 
  var chat_status = $J.cookie('chat_on');
- scrollalertNotCaringCss();
+ //scrollalertNotCaringCss();
 
  if (chat_status == "off"){
 
@@ -57,6 +58,8 @@ if ($J.cookie("chat_on") == null)
   $J('#first').hide();
  }
  else{
+  if(ls_available && localStorage.getItem('totalItems'))
+   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (' +localStorage.getItem('totalItems')+')');
 
   user_list = "closed";
   $J('#chat_bar').css("height","25px");
@@ -66,8 +69,10 @@ if ($J.cookie("chat_on") == null)
   $J('#chat_bar').css("border-width","1px");
   clearTimeout(scrollalert_timeout);
 
-  scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
+  scrollalertNotCaringCss();
+  //scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
   startChatSession();
+  //updatestatus();/* ADDED FOR THE USER LIST CONTENT BOX */
  }
 
  $J([window, document]).blur(function(){
@@ -78,7 +83,7 @@ if ($J.cookie("chat_on") == null)
  });
 
 
- updatestatus();/* ADDED FOR THE USER LIST CONTENT BOX */
+
 
 
  $J('body').click(function() {
@@ -134,6 +139,8 @@ function updatestatus(){
   height = height+25;
   $J('#chat_bar').height(height);
   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (' +totalItems +')');
+  if(ls_available) localStorage.setItem('totalItems', totalItems);
+
 
  }
 }
@@ -144,9 +151,9 @@ function updatestatusNotCaringCss(){
 
  if (chat_status == 'on'){
   //Show number of loaded items
-  $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (18)');
   var totalItems=$J('#content p').length;
   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (' +totalItems +')');
+  if(ls_available) localStorage.setItem('totalItems', totalItems);
 
  }
 }
@@ -156,6 +163,7 @@ function scrollalert(){
  var chat_status = $J.cookie("chat_on");
 
  if (chat_status == 'on'){
+   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+' Chat'+'   <img src="'+ modulechatbaselink +'img/loading.gif" width="15" height="15"/>');
   //fetch new users
   //$J('#status').text('Loading Users...');
   $J.get(modulechatbaselink+'new-items.php', '', function(newitems){
@@ -172,8 +180,10 @@ function scrollalertNotCaringCss(){
  var chat_status = $J.cookie("chat_on");
 
  if (chat_status == 'on'){
+  //$J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+' Chat'+'<img src="'+ modulechatbaselink +'img/loading.gif" width="20" height="20"/>');
   //fetch new users
   //$J('#status').text('Loading Users...');
+  //$J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat----');
   $J.get(modulechatbaselink+'new-items.php', '', function(newitems){
    $J('#content').html(newitems);
    updatestatusNotCaringCss();
@@ -296,9 +306,14 @@ function chatWith(chatuser) {
  createChatBox(chatuser);
  $J("#chatbox_"+chatuser+" .chatboxtextarea").focus();
 }
+function chatWithLesson(chatuser) {
+ createChatBox(chatuser);
+ $J("#chatbox_"+chatuser+" .chatboxtextarea").focus();
+}
 function createChatBox(chatboxtitle,minimizeChatBox) {
  var chatBoxeslength = 0;
  if ($J("#chatbox_"+chatboxtitle).length > 0) { //if chatbox was already opened before
+
 
   for (x in chatBoxes) { // minimize all other open chatboxes
    if (chatBoxes.hasOwnProperty(x) && chatboxtitle != chatBoxes[x]){
@@ -413,6 +428,10 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
   $J('#chatbox_'+chatboxtitle+' .chatboxhead').removeClass('chatboxblink');
   $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").addClass('chatboxtextareaselected');
  });
+ $J("#chatbox_"+chatboxtitle+" .chatboxcontent").click(function(){
+             chatboxFocus[chatboxtitle] = true;
+             $J('#chatbox_'+chatboxtitle+' .chatboxhead').removeClass('chatboxblink');
+             });
 
  /*$J("#chatbox_"+chatboxtitle).click(function() {
 
@@ -467,12 +486,17 @@ function chatHeartbeat(){
     url: modulechatbaselink+"chat.php?action=chatheartbeat",
     cache: false,
     dataType: "json",
+    error:function (xhr, ajaxOptions, thrownError){
+                    //alert(xhr.status);
+                    //alert(thrownError);
+                },
     success: function(data) {
 
    $J.each(data.items, function(i,item){
     if (item) { // fix strange ie bug
 
      chatboxtitle = item.t;
+     //alert(chatboxtitle);
 
      if ($J("#chatbox_"+chatboxtitle).length <= 0) {
       createChatBox(chatboxtitle);
@@ -620,7 +644,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
 
  if(event.keyCode == 13 && event.shiftKey == 0) {
   message = $J(chatboxtextarea).val();
-  message = message.replace(/^\s+|\s+$J/g,"");
+  message = message.replace(/^\s+|\s+$/g,"");
   $J(chatboxtextarea).val('');
   $J(chatboxtextarea).focus();
   $J(chatboxtextarea).css('height','30px');
@@ -725,10 +749,10 @@ function disableSelection(target){
 function careLinks(input){
 
     return input
-    .replace(/(ftp|http|https|file):\/\/[\S]+(\b|$J)/gim,
-'<a href="$J&" class="my_link" target="_blank">$J&</a>')
-    .replace(/(www[\S]+(\b|$J))/gim,
-'$J1<a href="http://$J2" class="my_link" target="_blank">$J2</a>');
+    .replace(/(ftp|http|https|file):\/\/[\S]+(\b|$)/gim,
+'<a href="$&" class="my_link" target="_blank">$&</a>')
+    .replace(/(www[\S]+(\b|$))/gim,
+'$1<a href="http://$2" class="my_link" target="_blank">$2</a>');
 }
 
 

@@ -425,10 +425,6 @@ if ($_GET['op'] == 'reset_lesson') {
                     $currentLesson -> enableChatroom();
                 }
                 $currentLesson -> persist();
-                if ($currentLesson -> options['digital_library'] == 1) { //If the professor set a digital library, create the corresponding if folder, if it does not exist
-                    if (!is_dir(G_LESSONSPATH.$currentLesson -> lesson['id']."/"."Digital Library"))
-                    @mkdir(G_LESSONSPATH.$currentLesson -> lesson['id']."/"."Digital Library", 0755);
-                }
                 //echo "Option activated";
             } catch (Exception $e) {
                 header("HTTP/1.0 500 ");

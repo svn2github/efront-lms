@@ -613,6 +613,7 @@ if (isset($_GET['finish']) || isset($_GET['unattended'])) {
  if (isset($_GET['unattended'])) {
   if ($_GET['ajax']) {
    echo json_encode(array('status' => 1, 'message' => 'Successfully completed Unattended upgrade'));
+   EfrontSystem :: unlockSystem();
   } else {
    header("location:".G_SERVERNAME."index.php?delete_install=1");
   }

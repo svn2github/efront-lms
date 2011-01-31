@@ -502,7 +502,7 @@ function askCourses() {
   $result = EfrontCourse :: getAllCourses($constraints);
   //$result 	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
  } else {
-  $result = eF_getTableData("courses c, users_to_courses uc", "c.id, c.name, c.directions_ID", "uc.user_type = 'professor' AND c.active=1 AND c.id = uc.courses_ID AND uc.users_LOGIN='".$_SESSION['s_login']."' AND c.name like '%$preffix%'");
+  $result = eF_getTableData("courses c, users_to_courses uc", "c.id, c.name, c.directions_ID", "uc.user_type = 'professor' AND c.active=1 AND c.id = uc.courses_ID AND uc.archive=0 and c.archive=0 AND uc.users_LOGIN='".$_SESSION['s_login']."' AND c.name like '%$preffix%'");
  }
  $courses = array();
  $directionsTree = new EfrontDirectionsTree();

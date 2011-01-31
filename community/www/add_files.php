@@ -120,12 +120,6 @@ if (isset($_GET['op']) && $_GET['op'] == "delete") { //Delete file
     $smarty -> assign("T_DIRECTORY", $dir);
 } else {
 
-    if (($GLOBALS['currentLesson'] -> options['digital_library'])) {
-        if (!is_dir(G_LESSONSPATH.$_SESSION['s_lessons_ID']."/Digital Library")) {
-            @mkdir(G_LESSONSPATH.$_SESSION['s_lessons_ID']."/Digital Library", 0755);
-        }
-    }
-
     if (isset($_GET['files'])) {
 
         $image_files = explode(";", str_replace('\\\\', '\\', urldecode($_GET['files'])));

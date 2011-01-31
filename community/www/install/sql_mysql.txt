@@ -1250,7 +1250,9 @@ CREATE TABLE user_times (
   courses_ID mediumint(8) unsigned default NULL,
   entity varchar(100) NOT NULL,
   entity_id mediumint(8) default 0,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  index(users_LOGIN),
+  index(session_expired)
 ) DEFAULT CHARSET=utf8;
 
 

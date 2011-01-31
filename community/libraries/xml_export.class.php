@@ -190,18 +190,30 @@ class XMLExport{
 
   $student = $this->template->certificate->student;
 
-  if($student)
-   $this->showLabelAligned($pdf, $studentName, $student['font'], $student['weight'], $student['size'], $student['color'],
+  if($student){
+
+   if($student['align'])
+    $this->showLabelAligned($pdf, $studentName, $student['font'], $student['weight'], $student['size'], $student['color'],
              $student['x'], $student['y'], $student['align']);
+   else
+    $this->showLabel($pdf, $studentName, $student['font'], $student['weight'], $student['size'],
+             $student['color'], $student['x'], $student['y']);
+  }
  }
 
  public function showCourseName($pdf, $courseName){
 
   $course = $this->template->certificate->course;
 
-  if($course)
-   $this->showLabelAligned($pdf, $courseName, $course['font'], $course['weight'], $course['size'], $course['color'],
-             $course['y'], $course['y'], $course['align']);
+  if($course){
+
+   if($course['align'])
+    $this->showLabelAligned($pdf, $courseName, $course['font'], $course['weight'], $course['size'], $course['color'],
+             $course['x'], $course['y'], $course['align']);
+   else
+    $this->showLabel($pdf, $courseName, $course['font'], $course['weight'], $course['size'],
+             $course['color'], $course['x'], $course['y']);
+  }
  }
 
  public function showGrade($pdf, $courseGrade){

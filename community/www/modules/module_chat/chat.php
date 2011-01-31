@@ -62,17 +62,20 @@ function chatHeartbeat() {
 
  while ($chat = mysql_fetch_array($query)) {
 
-  $_SESSION['last_msg'] = $chat['sent'];
-  if (!isset($_SESSION['openChatBoxes'][$chat['from_user']]) && isset($_SESSION['chatHistory'][$chat['from_user']])) {
-   $items = $_SESSION['chatHistory'][$chat['from_user']];
-  }
-
-  $chat['message'] = sanitize($chat['message']);
-
   if ($chat['to_user'] == $_SESSION["lessonname"])
    $title = $_SESSION["lessonname"];
   else
    $title = $chat['from_user'];
+
+  $_SESSION['last_msg'] = $chat['sent'];
+  if (!isset($_SESSION['openChatBoxes'][$title]) && isset($_SESSION['chatHistory'][$title])) {
+   $items = $_SESSION['chatHistory'][$title];
+  }
+
+  $chat['message'] = sanitize($chat['message']);
+
+
+
   $items .= <<<EOD
         {
    "s": "0",
@@ -82,11 +85,14 @@ function chatHeartbeat() {
     },
 EOD;
 
- if (!isset($_SESSION['chatHistory'][$chat['from_user']])) {
-  $_SESSION['chatHistory'][$chat['from_user']] = '';
+ if (!isset($_SESSION['chatHistory'][$title])) {
+  $_SESSION['chatHistory'][$title] = '';
  }
 
- $_SESSION['chatHistory'][$chat['from_user']] .= <<<EOD
+
+ //if ($title == $chat['from_user']){ // Maybe add else with "t": {$title} -> "t": {$chat[from_user]}
+
+   $_SESSION['chatHistory'][$title] .= <<<EOD
          {
    "s": "0",
    "t": "{$title}",
@@ -94,10 +100,11 @@ EOD;
    "m": "{$chat['message']}"
     },
 EOD;
+ //}
 
   //unset($_SESSION['tsChatBoxes'][$chat['from_user']]);
-  if (!isset( $_SESSION['openChatBoxes'][$chat['from_user']] )){
-   $_SESSION['openChatBoxes'][$chat['from_user']] = $_SESSION['chatboxesnum'];
+  if (!isset( $_SESSION['openChatBoxes'][$title] )){
+   $_SESSION['openChatBoxes'][$title] = $_SESSION['chatboxesnum'];
    $_SESSION['chatboxesnum'] = $_SESSION['chatboxesnum'] + 10;
   }
  }
@@ -249,7 +256,7 @@ EOD;
 }
 function closeChat() {
  unset($_SESSION['openChatBoxes'][$_POST['chatbox']]);
- echo "1";
+ echo $_POST['chatbox'];
  exit(0);
 }
 function sanitize($text) {

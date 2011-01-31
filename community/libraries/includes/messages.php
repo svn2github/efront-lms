@@ -283,7 +283,14 @@ try {
     array_walk($recipientsTemp, 'trim');
     $recipients = array();
     foreach ($recipientsTemp as $key => $value) {
-     $recipients[] = $flippedLogins[$value];
+     if ($flippedLogins[$value] != '') {
+      $recipients[] = $flippedLogins[$value];
+     } else { // because of $GLOBALS['_usernames'][$key] = $value.' ('.$key.')' in formatLogin for common names
+      $match = mb_substr($value , strpos($value, '(')+1, -1);
+      if (in_array($match, array_keys($GLOBALS['_usernames'])) === true) {
+       $recipients[] = $match;
+      }
+     }
     }
                 if (in_array("[*]", $recipients)){
                     if ($_admin_) {

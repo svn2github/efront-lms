@@ -20,6 +20,7 @@ define("_FUZE_ADMIN_USER_LOGIN_BTN","Login on FUZE as this user");
 // ADMIN ERRORS
 define("_FUZE_ADMIN_ERROR_REGISTRATION_UNKNOWN","An unknown error occured during registration, please try again later.");
 define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Could not fetch user data currently, please try again later.");
+define("_FUZE_ADMIN_ERROR_NO_VALID_EMAIL","No valid email address was found for this user, please set an email for this user and try again.");
 
 
 // PROFESSOR INTERFACE STUFF
@@ -140,6 +141,7 @@ define("_FUZE_PROF_LAUNCH_ERROR", "This meeting cannot be launched currently.");
 define("_FUZE_PROF_ERROR_REMOVE_AUTHORISATION", "You are not permitted to remove this meeting.");
 define("_FUZE_PROF_ERROR_REMOVE_HAPPENING_NOW", "You are not permitted to remove a meeting that is due for now.");
 define("_FUZE_PROF_MEETING_EDIT_ERROR", "You are not permitted to edit this meeting or this meeting could not be found in the system.");
+define("_FUZE_PROF_ERROR_NO_VALID_EMAIL","No valid email address has been set for your account, please set your email and try again.");
 
 // EMAIL & CALENDAR NOTIFICATIONS
 // PREPARING VARIABLES

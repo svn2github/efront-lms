@@ -20,6 +20,7 @@ define("_FUZE_ADMIN_USER_LOGIN_BTN","Συνδεθείτε στο FUZE ως αυ�
 // ADMIN ERRORS
 define("_FUZE_ADMIN_ERROR_REGISTRATION_UNKNOWN","Παρουσιάστηκε άγνωστο σφάλμα κατά τη διαδικασία εγγραφής, παρακαλώ δοκιμάστε αργότερα.");
 define("_FUZE_ADMIN_ERROR_COULDNT_GET_USER_DATA","Δεν ήταν δυνατή η συλλογή δεδομένων για αυτόν το χρήστη, παρακαλώ δοκιμάστε αργότερα.");
+define("_FUZE_ADMIN_ERROR_NO_VALID_EMAIL","Δε βρέθηκε έγκυρη διεύθυνση email για αυτόν το χρήστη, παρακαλώ αναθέστε πρώτα email και δοκιμάστε ξανά.");
 
 
 // PROFESSOR INTERFACE STUFF
@@ -135,6 +136,7 @@ define("_FUZE_PROF_LAUNCH_ERROR", "Δεν είναι δυνατόν να γίν�
 define("_FUZE_PROF_ERROR_REMOVE_AUTHORISATION", "Δεν επιτρέπεται να διαγράψετε αυτήν την συνάντηση.");
 define("_FUZE_PROF_ERROR_REMOVE_HAPPENING_NOW", "Δεν επιτρέπεται να διαγράψετε συναντήσεις οι οποίες είναι προγραμματισμένες για τόσο σύντομα.");
 define("_FUZE_PROF_MEETING_EDIT_ERROR", "Δεν επιτρέπεται να τροποποιήσετε αυτήν τη συνάντηση ή δε βρέθηκε αρχείο αυτής της συνάντησης.");
+define("_FUZE_PROF_ERROR_NO_VALID_EMAIL","Δε βρέθηκε έγκυρη διεύθυνση email για το λογαριασμό σας, παρακαλώ αναθέστε πρώτα email και δοκιμάστε ξανά.");
 
 // EMAIL & CALENDAR NOTIFICATIONS
 // PREPARING VARIABLES

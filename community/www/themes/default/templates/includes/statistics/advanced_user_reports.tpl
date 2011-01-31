@@ -89,7 +89,7 @@
     {/if}
    {/foreach}
     <td class = "centerAlign">
-     <input type = "checkbox" id = "check_{$user.login}" onclick = "toggleUserDynamicGroup(this)"/>
+     <input type = "checkbox" id = "check_{$user.login}" onclick = "toggleUserDynamicGroup(this)" {if $T_DYNAMIC_GROUP_USERS[$user.login]}checked{/if}/>
      {*<img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMSET}" title = "{$smarty.const._REMOVEFROMSET}" onclick = "removeFromSet(this, '{$user.login}')"/>*}
     </td>
   </tr>

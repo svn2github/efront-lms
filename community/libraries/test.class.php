@@ -5554,20 +5554,38 @@ class RawTextQuestion extends Question implements iQuestion
   if ($this -> settings['force_correct'] == 'auto') {
    $splitAnswerWords = preg_split("/\p{Z}|\p{P}|\n/m", $this->userAnswer, -1, PREG_SPLIT_NO_EMPTY);
    array_walk($splitAnswerWords, create_function('&$v', '$v=trim($v);'));
+//pr($splitAnswerWords);
+//pr($this -> userAnswer);
+//pr($this -> settings);
    $totalScore = 0;
    foreach($this -> settings['autocorrect'] as $value) {
+    $addScore = false;
     foreach ($value['words'] as $word) {
-     if (strpos($this->userAnswer, $word) !== false) {
+     $word = preg_quote($word);//pr(htmlentities($this->userAnswer));
+     $found = preg_match("/^$word$/mu", $this->userAnswer) ||
+        preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer) ||
+        preg_match("/(\p{Z}|\p{P}|\n|\r)$word$/mu", $this->userAnswer) ||
+        preg_match("/(\p{Z}|\p{P}|\n|\r)$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer);
+     //$found = preg_match("/(".preg_quote($word).")|(".preg_quote($word).")(\p{Z}|\p{P}|\n)|(\p{Z}|\p{P}|\n)(".preg_quote($word).")(\p{Z}|\p{P}|\n)|(\p{Z}|\p{P}|\n)(".preg_quote($word).")/mu", $this->userAnswer, $matches);
+     preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer, $matches);
+//pr($matches);
+     if ($found) {
       if ($value['contains']) {
-       $totalScore+=$value['score'];
+//pr("Setting true because found $word");
+       $addScore = true;
       }
      } else {
       if (!$value['contains']) {
-       $totalScore+=$value['score'];
+//pr("Setting true because not found $word");
+       $addScore = true;
       }
      }
     }
+    if ($addScore) {
+     $totalScore +=$value['score'];
+    }
    }
+//pr($totalScore);exit;
    if ($totalScore >= $this->settings['threshold']) {
     $results = array('correct' => '', 'score' => 1);
    } else {
@@ -5578,6 +5596,7 @@ class RawTextQuestion extends Question implements iQuestion
         } else {
             $results = array('correct' => '', 'score' => 0);
         }
+//pr($results);exit;
         return $results;
     }
     /**

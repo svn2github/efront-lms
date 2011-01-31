@@ -517,28 +517,33 @@ class module_fuze_meetings extends EfrontModule {
     $args ['sys_id'] = $id;
     $args ['creator'] = 'administrator';
 
-    $function_response = $this->_f_user_manager->addUser($args);
-    if ($function_response ['success']) {
-     $fuze_user = $function_response ['user_item'];
-     if ($fuze_user instanceof FUZE_User) {
-      $response ['success'] = true;
-      $response ['date_added'] = $fuze_user->getTranslatedDateAdded($this->_current_user_timezone);
-      $response ['fuze_email'] = $fuze_user->getFuzeEmail();
-      $response ['fuze_password'] = $fuze_user->getPassword();
-      $response ['login_url'] = $fuze_user->getLoginUrl();
-      ///////////////////////////////////////////////////////////
-      // Fetching FUZE account count
-      $fuze_active_accounts = $this->_getActiveUserCount();
-      $response ['active_user_count'] = $fuze_active_accounts;
-      // DONE with FUZE account data retrieval
-      ///////////////////////////////////////////////////////////
+    if (eF_checkParameter($args['email'], 'email')) {
+     $function_response = $this->_f_user_manager->addUser($args);
+     if ($function_response ['success']) {
+      $fuze_user = $function_response ['user_item'];
+      if ($fuze_user instanceof FUZE_User) {
+       $response ['success'] = true;
+       $response ['date_added'] = $fuze_user->getTranslatedDateAdded($this->_current_user_timezone);
+       $response ['fuze_email'] = $fuze_user->getFuzeEmail();
+       $response ['fuze_password'] = $fuze_user->getPassword();
+       $response ['login_url'] = $fuze_user->getLoginUrl();
+       ///////////////////////////////////////////////////////////
+       // Fetching FUZE account count
+       $fuze_active_accounts = $this->_getActiveUserCount();
+       $response ['active_user_count'] = $fuze_active_accounts;
+       // DONE with FUZE account data retrieval
+       ///////////////////////////////////////////////////////////
+      }
+      else {
+       $response ['error_msg'] = _FUZE_ADMIN_CREATE_USER_ERROR;
+      }
      }
      else {
-      $response ['error_msg'] = _FUZE_ADMIN_CREATE_USER_ERROR;
+      $response ['error_msg'] = $function_response ['error_msg'];
      }
     }
     else {
-     $response ['error_msg'] = $function_response ['error_msg'];
+     $response ['error_msg'] = _FUZE_ADMIN_ERROR_NO_VALID_EMAIL;
     }
    }
    else {
@@ -739,18 +744,23 @@ class module_fuze_meetings extends EfrontModule {
     $args ['sys_id'] = $id;
     $args ['creator'] = 'professor';
 
-    $function_response = $this->_f_user_manager->addUser($args);
-    if ($function_response ['success']) {
-     $fuze_user = $function_response ['user_item'];
-     if ($fuze_user instanceof FUZE_User) {
-      $response ['success'] = true;
+    if (eF_checkParameter($args['email'], 'email')) {
+     $function_response = $this->_f_user_manager->addUser($args);
+     if ($function_response ['success']) {
+      $fuze_user = $function_response ['user_item'];
+      if ($fuze_user instanceof FUZE_User) {
+       $response ['success'] = true;
+      }
+      else {
+       $response ['error_msg'] = _FUZE_PROF_CREATE_USER_ERROR;
+      }
      }
      else {
-      $response ['error_msg'] = _FUZE_PROF_CREATE_USER_ERROR;
+      $response ['error_msg'] = $function_response ['error_msg'];
      }
     }
     else {
-     $response ['error_msg'] = $function_response ['error_msg'];
+     $response ['error_msg'] = _FUZE_PROF_ERROR_NO_VALID_EMAIL;
     }
    }
    else {

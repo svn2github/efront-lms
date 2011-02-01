@@ -1,4 +1,4 @@
-=== Version 3.6.8 build ===
+=== Version 3.6.8 build 9763 ===
 - Added strip tags in site motto displaying in title
 - Fixed issue about copying also surveys questions in copy from another lesson
 - Fixed course assignment not working with group key when group type is not set
@@ -17,7 +17,8 @@
 - Fixed free text auto correction to not take into account multiple OR occurences
 - Fixed personal message "invalid recipient" error when name formatting does not contain "login" and there are users with the same name/surname
 - Fixed response details in test reports issues with displaying and true/false questions results
- -
+- Prototip tooltip is now created only when asked for
+- Fixed custom reports error when supervisor not initialized
 
 === Version 3.6.8 build 9575===
 - Added automatic correction for free text questions

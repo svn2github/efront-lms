@@ -870,15 +870,23 @@ abstract class EfrontUser
           'comments' => session_id(),
           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
-  $fields = array("session_timestamp" => time(),
-      "session_id" => session_id(),
-      "session_expired" => 0,
-      "users_LOGIN" => $_SESSION['s_login'],
-      "timestamp_now" => time(),
-      "time" => 0,
-      "entity" => 'system',
-      "entity_id" => 0);
-  eF_insertTableData("user_times", $fields);
+  $result = eF_getTableData("user_times", "id", "session_id='".session_id()."' and users_LOGIN='".$this -> user['login']."' and entity='system'");
+  if (!empty($result)) {
+   $fields = array("session_timestamp" => time(),
+       "session_expired" => 0,
+       "timestamp_now" => time());
+   eF_updateTableData("user_times", $fields, "id=".$result[0]['id']);
+  } else {
+   $fields = array("session_timestamp" => time(),
+       "session_id" => session_id(),
+       "session_expired" => 0,
+       "users_LOGIN" => $_SESSION['s_login'],
+       "timestamp_now" => time(),
+       "time" => 0,
+       "entity" => 'system',
+       "entity_id" => 0);
+   eF_insertTableData("user_times", $fields);
+  }
   return true;
  }
  /**

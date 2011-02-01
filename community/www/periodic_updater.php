@@ -31,8 +31,7 @@ try {
 
  if ($_SESSION['timestamp']) {
   $entity = getUserTimeTarget($_SERVER['HTTP_REFERER']);
-  $fields = array('session_expired' => 0,
-      'timestamp_now' => time(),
+  $fields = array('timestamp_now' => time(),
       'time' => $_SESSION['time'] + time() - $_SESSION['timestamp']);
   eF_updateTableData("user_times", $fields, "session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
  }

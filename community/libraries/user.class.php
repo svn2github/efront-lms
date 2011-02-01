@@ -778,23 +778,10 @@ abstract class EfrontUser
    unset($_COOKIE['cookie_login']); //These 2 lines are necessary, so that index.php does not think they are set
    unset($_COOKIE['cookie_password']);
   }
-/*
-		if ($this -> user['login'] == $_SESSION['s_login']) {						//Is the current user beeing logged out? If so, destroy the session.
-			if ($destroySession) {
-				$_SESSION = array();
-				isset($_COOKIE[session_name()]) ? setcookie(session_name(), '', time()-42000, '/') : null;
-				session_destroy();
-				setcookie ("cookie_login", "", time() - 3600);
-				setcookie ("cookie_password", "", time() - 3600);
-				if (isset($_COOKIE['c_request'])) {
-					setcookie('c_request', '', time() - 86400);
-					unset($_COOKIE['c_request']);
-				}
-				unset($_COOKIE['cookie_login']);						//These 2 lines are necessary, so that index.php does not think they are set
-				unset($_COOKIE['cookie_password']);
-			}
-		}
-*/
+  //Empty session without destroying it
+  foreach ($_SESSION as $key => $value) {
+   unset($_SESSION[$key]);
+  }
   return true;
  }
  /**

@@ -1,23 +1,23 @@
-=== Version 3.6.8 build 9763 ===
-- Added strip tags in site motto displaying in title
-- Fixed issue about copying also surveys questions in copy from another lesson
-- Fixed course assignment not working with group key when group type is not set
-- Automatic logout and session handling updates
+=== Version 3.6.8 build 9777 ===
 - XML API security update
+- Automatic logout and session handling updates
+- Added "Fuze meetings" module (commercial editions)
+- Added strip tags in site motto displaying in title
+- Prototip tooltip is now created only when asked for
+- Removed edit link from SCORM 2004 child unit
 - Removed calendar from course tools and announcement form when disabled
 - Small performance improvement in test reports
 - Visiting a unit link after logging out correctly registers the lesson after logging in
-- Removed edit link from SCORM 2004 child unit
-- Fixed version key information not being updated when upgrading to a different edition
 - Changed courses list to not report different type, when a user is of a custom type and so are his/her courses/lessons
+- Fixed issue about copying also surveys questions in copy from another lesson
+- Fixed course assignment not working with group key when group type is not set
+- Fixed version key information not being updated when upgrading to a different edition
 - Fixed usernames cached not resetting when changing a user's personal information
 - Fixed advanced user reports dynamic group remembering old selections but not showing them checked
-- Added "Fuze meetings" module (commercial editions)
 - Fixed issue about message recipients when multiple users have common names in formatLogin
 - Fixed free text auto correction to not take into account multiple OR occurences
 - Fixed personal message "invalid recipient" error when name formatting does not contain "login" and there are users with the same name/surname
 - Fixed response details in test reports issues with displaying and true/false questions results
-- Prototip tooltip is now created only when asked for
 - Fixed custom reports error when supervisor not initialized
 
 === Version 3.6.8 build 9575===

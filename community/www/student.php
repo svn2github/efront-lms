@@ -548,13 +548,6 @@ try {
 if (isset($_GET['refresh'])) {
     $smarty -> assign("T_REFRESH_SIDE","true");
 }
-$smartyClosingFiles = array();
-foreach ($loadedModules as $module) {
- if ($smartyClosingFile = $module -> onPageFinishLoadingSmartyTpl()) {
-  $smartyClosingFiles[] = $smartyClosingFile;
- }
-}
-$smarty -> assign("T_PAGE_FINISH_MODULES", $smartyClosingFiles);
 $smarty -> assign("T_MODULE_CSS", $module_css_array);
 $smarty -> assign("T_MODULE_JS", $module_js_array);
 foreach ($loadedModules as $module) {
@@ -566,6 +559,13 @@ $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 //Operation/file specific scripts
 $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates
 $smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
+$smartyClosingFiles = array();
+foreach ($loadedModules as $module) {
+ if ($smartyClosingFile = $module -> onPageFinishLoadingSmartyTpl()) {
+  $smartyClosingFiles[] = $smartyClosingFile;
+ }
+}
+$smarty -> assign("T_PAGE_FINISH_MODULES", $smartyClosingFiles);
 $smarty -> assign("T_CURRENT_CTG", $ctg);
 $smarty -> assign("T_MENUCTG", $ctg);
 //$smarty -> assign("T_MENU", eF_getMenu());

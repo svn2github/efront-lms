@@ -17,8 +17,6 @@
 <!--[if IE ]>
 <link type="text/css" rel="stylesheet" media="all" href="{$T_CHAT_MODULE_BASELINK}css/screen_ie.css" />
 <![endif]-->
-<script type="text/javascript" src="{$T_CHAT_MODULE_BASELINK}js/jquery.js"></script>
-<script type="text/javascript" src="{$T_CHAT_MODULE_BASELINK}js/chat.js"></script>
 
 
 

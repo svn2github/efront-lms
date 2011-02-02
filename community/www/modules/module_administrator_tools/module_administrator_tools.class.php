@@ -31,7 +31,7 @@ class module_administrator_tools extends EfrontModule {
   return array("administrator");
  }
  public function getModuleJs() {
-  if (strpos($_SERVER['REQUEST_URI'], $this -> moduleBaseUrl) !== false) {
+  if (strpos(decryptUrl($_SERVER['REQUEST_URI']), $this -> moduleBaseUrl) !== false) {
    return $this->moduleBaseDir."module_administrator_tools.js";
   }
  }

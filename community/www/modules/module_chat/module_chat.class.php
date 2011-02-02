@@ -74,35 +74,35 @@ class module_chat extends eFrontModule{
 
 	//echo("holaaaaaaa");
 
-        $currentUser = $this -> getCurrentUser(); 
+        $currentUser = $this -> getCurrentUser();
 
-    	// professors should see a link in the lessons menu   
+    	// professors should see a link in the lessons menu
 
- 
 
-			$link_of_menu_lessons = array ( 
 
-                              'id' => 'chat_module1', 
+			$link_of_menu_lessons = array (
+
+                              'id' => 'chat_module1',
 
                               'title' => "chat module",
 
-                              'image' => $this -> moduleBaseLink . 'img/16x16/chat', 
+                              'image' => $this -> moduleBaseLink . 'img/16x16/chat',
 
-                              'eFrontExtensions' => '1',      //no extension provided up 
+                              'eFrontExtensions' => '1',      //no extension provided up
 
                               'link'  => $this -> moduleBaseUrl
 
-							  ); 
+							  );
 
- 
+
 
            return array ('tools' => array ('links'=>$link_of_menu_lessons));
 
- 
 
-// and admins should see a link in the users menu and in a newly defined menu 
 
- 
+// and admins should see a link in the users menu and in a newly defined menu
+
+
 
 }
 
@@ -153,7 +153,10 @@ class module_chat extends eFrontModule{
  //public function getSmartyTpl() {
  public function onPageFinishLoadingSmartyTpl() {
   $smarty = $this -> getSmartyVar();
+  $mainScripts = array_merge(array('../modules/module_chat/js/jquery', '../modules/module_chat/js/chat'),getMainScripts());
+  $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
   $page = $this->curPageURL();
+
   if ($this->contains($page,"popup=1")){
    $smarty -> assign("T_CHAT_MODULE_STATUS", "OFF");
   }
@@ -255,7 +258,7 @@ class module_chat extends eFrontModule{
 
    $form->addGroup($ratingRadios,'lesson',null,'<br />');
 
-   //$form->setDefaults(array('lesson' =>'Maya civilization')); 
+   //$form->setDefaults(array('lesson' =>'Maya civilization'));
    $form->setDefaults ( array('lesson'=> $ratingRadios[0]->getValue() ));
 
 

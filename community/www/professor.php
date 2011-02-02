@@ -541,13 +541,6 @@ if (EfrontNotification::shouldSendNextNotifications()) {
  $smarty -> assign("T_TRIGGER_NEXT_NOTIFICATIONS_SEND", 1);
  $_SESSION['send_next_notifications_now'] = 0; // the msg that triggered the immediate send should be sent now
 }
-$smartyClosingFiles = array();
-foreach ($loadedModules as $module) {
- if ($smartyClosingFile = $module -> onPageFinishLoadingSmartyTpl()) {
-  $smartyClosingFiles[] = $smartyClosingFile;
- }
-}
-$smarty -> assign("T_PAGE_FINISH_MODULES", $smartyClosingFiles);
 $smarty -> assign("T_MODULE_CSS", $module_css_array);
 $smarty -> assign("T_MODULE_JS", $module_js_array);
 foreach ($loadedModules as $module) {
@@ -559,6 +552,13 @@ $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 //Operation/file specific scripts
 $loadScripts = array_diff($loadScripts, $mainScripts); //Clear out duplicates
 $smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
+$smartyClosingFiles = array();
+foreach ($loadedModules as $module) {
+ if ($smartyClosingFile = $module -> onPageFinishLoadingSmartyTpl()) {
+  $smartyClosingFiles[] = $smartyClosingFile;
+ }
+}
+$smarty -> assign("T_PAGE_FINISH_MODULES", $smartyClosingFiles);
 $smarty -> assign("T_CURRENT_CTG", $ctg);
 $smarty -> assign("T_MENUCTG", $ctg);
 //$smarty -> assign("T_MENU", eF_getMenu());

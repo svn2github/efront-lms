@@ -107,7 +107,7 @@ function setFormDate(year, month, day) {
 if ($('module_administrator_tools_autocomplete_lessons_div')) {
  new Ajax.Autocompleter("autocomplete",
          "module_administrator_tools_autocomplete_lessons_div",
-         "ask.php?ask_type=lessons", {paramName: "preffix",
+         "ask.php?ask_type=lessons&course_only=1", {paramName: "preffix",
               afterUpdateElement : function (t, li) {document.location = document.location.toString().replace(/&tab=\w*/g, '').replace(/&lessons_ID=\d*/g, '')+"&tab=set_course_lesson_users"+"&lessons_ID="+li.id;},
               indicator : "busy"});
 }

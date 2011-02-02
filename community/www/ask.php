@@ -443,10 +443,14 @@ function askProjects() {
 }
 function askLessons() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
+ $sql = '';
+ if ($_GET['course_only']) {
+  $sql .= "and course_only=1";
+ }
  if ($_SESSION['s_type'] == "administrator"){
-  $result = eF_getTableData("lessons", "id,name,directions_ID","archive=0 and instance_source = 0 and active=1 AND name like '%$preffix%'", "name");
+  $result = eF_getTableData("lessons", "id,name,directions_ID","archive=0 $sql and instance_source = 0 and active=1 AND name like '%$preffix%'", "name");
  } else {
-  $result = eF_getTableData("users_to_lessons ul, lessons l", "l.id, l.name,l.directions_ID", "ul.archive=0 and l.archive=0 and l.instance_source = 0 and ul.users_LOGIN='".$_SESSION['s_login']."' and ul.user_type = 'professor' and ul.lessons_ID=l.id AND l.name like '%$preffix%'", "l.name");
+  $result = eF_getTableData("users_to_lessons ul, lessons l", "l.id, l.name,l.directions_ID", "ul.archive=0 $sql and l.archive=0 and l.instance_source = 0 and ul.users_LOGIN='".$_SESSION['s_login']."' and ul.user_type = 'professor' and ul.lessons_ID=l.id AND l.name like '%$preffix%'", "l.name");
  }
  $lessons = array();
  $directionsTree = new EfrontDirectionsTree();

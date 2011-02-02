@@ -13,7 +13,7 @@ define("_MODULE_ADMINISTRATOR_TOOLS_QUERYOK", "Ερώτημα OK");
 define("_MODULE_ADMINISTRATOR_TOOLS_ROWSAFFECTED", "γραμμές επηρεάστηκαν");
 define("_MODULE_ADMINISTRATOR_TOOLS_EMPTYSET", "Άδειο σύνολο");
 define("_MODULE_ADMINISTRATOR_TOOLS_BULKCOMPLETECOURSES", "Μαζική ολοκλήρωση μαθημάτων και δεσμών");
-define("_MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE", "Ανάθεση χρηστών σε μαθήματα και δέσμες");
+define("_MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE", "Ανάθεση χρηστών σε μαθήματα δεσμών");
 define("_MODULE_ADMINISTRATOR_TOOLS_UNENROLLJOBCOURSES", "Απο-ανάθεση δεσμών");
 define("_MODULE_ADMINISTRATOR_TOOLS_ENTITYTYPE", "Τύπος οντότητας");
 define("_MODULE_ADMINISTRATOR_TOOLS_ENTITYENTRY", "Καταχώρηση οντότητας");

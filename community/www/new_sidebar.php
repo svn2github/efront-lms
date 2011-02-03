@@ -49,6 +49,7 @@ try {
   eF_insertTableData("user_times", $fields);
   $_SESSION['time'] = 0;
  } else {
+  eF_updateTableData("user_times", array("session_expired" => 0), "session_id='".session_id()."' and users_LOGIN='".$_SESSION['s_login']."'");
   $_SESSION['time'] = $lastTime;
  }
  $_SESSION['timestamp'] = time();

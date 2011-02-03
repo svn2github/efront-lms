@@ -33,7 +33,6 @@ $J(document).ready(function(){
  initChat();
  //startChatSession();
  chatHeartbeatTime = minChatHeartbeat;
-
 if ($J.cookie("chat_on") == null)
   $J.cookie("chat_on", "on");
 
@@ -312,6 +311,9 @@ function chatWithLesson(chatuser) {
 }
 function createChatBox(chatboxtitle,minimizeChatBox) {
  var chatBoxeslength = 0;
+
+ $J.cookie("openchatbox", chatboxtitle);
+
  if ($J("#chatbox_"+chatboxtitle).length > 0) { //if chatbox was already opened before
 
 
@@ -352,9 +354,6 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
    $J('#chatbox_'+chatboxtitle+' .chatboxinput').show();
   }
   //$J("#chatbox_"+chatboxtitle).css('margin-top','7px');
-
-
-  $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
   return;
  }
 
@@ -428,24 +427,15 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
   $J('#chatbox_'+chatboxtitle+' .chatboxhead').removeClass('chatboxblink');
   $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").addClass('chatboxtextareaselected');
  });
- $J("#chatbox_"+chatboxtitle+" .chatboxcontent").click(function(){
-             chatboxFocus[chatboxtitle] = true;
-             $J('#chatbox_'+chatboxtitle+' .chatboxhead').removeClass('chatboxblink');
-             });
 
- /*$J("#chatbox_"+chatboxtitle).click(function() {
 
-		if ($J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display') != 'none') {
-
-			$J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
-
-		}
-
-	});*/
  $J("#chatbox_"+chatboxtitle).show();
 }
+
+
 function chatHeartbeat(){
   var itemsfound = 0;
+
   if (windowFocus == false) {
 
    var blinkNumber = 0;
@@ -487,8 +477,11 @@ function chatHeartbeat(){
     cache: false,
     dataType: "json",
     error:function (xhr, ajaxOptions, thrownError){
-                    //alert(xhr.status);
+                    //alert(xhr.status+" - "+xhr);
                     //alert(thrownError);
+     clearTimeout(chatheartbeat_timeout);
+     chatHeartbeat();
+
                 },
     success: function(data) {
 
@@ -579,9 +572,8 @@ function closeChatBox(chatboxtitle) {
 }
 
 function toggleChatBoxGrowth(chatboxtitle) {
-
- //if ($J('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display') == 'none') {  
  if ($J('#chatbox_'+chatboxtitle+' .chatboxcontent').is(":hidden")){
+
   var minimizedChatBoxes = new Array();
 
   if ($J.cookie('chatbox_minimized')) {
@@ -597,7 +589,7 @@ function toggleChatBoxGrowth(chatboxtitle) {
    }
   }
 
-  newCookie = newCookie.slice(0, -1)
+  newCookie = newCookie.slice(0, -1);
 
   //$J('#chatbox_'+chatboxtitle).css('margin-top', '7px');
 
@@ -606,11 +598,12 @@ function toggleChatBoxGrowth(chatboxtitle) {
   //$J('#chatbox_'+chatboxtitle+' .chatboxinput').css('display','block');
   $J('#chatbox_'+chatboxtitle+' .chatboxcontent').show();
   $J('#chatbox_'+chatboxtitle+' .chatboxinput').show();
+  $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
   $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
 
   for (x in chatBoxes) { // minimize all other open chatboxes
    if (chatBoxes.hasOwnProperty(x) && chatboxtitle != chatBoxes[x]){
-    //if ($J("#chatbox_"+chatBoxes[x]).css('display') != 'none') {
+
     if ($J("#chatbox_"+chatBoxes[x]).is(":visible")){
      //$J("#chatbox_"+chatBoxes[x]+" .chatboxinput").css('display','none');
      //$J("#chatbox_"+chatBoxes[x]+" .chatboxcontent").css('display','none');
@@ -620,8 +613,10 @@ function toggleChatBoxGrowth(chatboxtitle) {
     }
    }
   }
-
- } else {
+  $J.cookie("openchatbox", chatboxtitle);
+  //alert($J.cookie("openchatbox"));
+ }
+ else {
 
   var newCookie = chatboxtitle;
 
@@ -636,11 +631,14 @@ function toggleChatBoxGrowth(chatboxtitle) {
   $J('#chatbox_'+chatboxtitle+' .chatboxcontent').hide();
   $J('#chatbox_'+chatboxtitle+' .chatboxinput').hide();
   //$J('#chatbox_'+chatboxtitle).css('margin-top','275px');
+  $J.cookie("openchatbox", null);
  }
 
 }
 
 function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
+
+
 
  if(event.keyCode == 13 && event.shiftKey == 0) {
   message = $J(chatboxtextarea).val();
@@ -710,9 +708,12 @@ function startChatSession(){
 
      if (item.s == 2) {
       $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxinfo">'+item.m+'</span></div>');
-     } else {
+     }
+     else {
       $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+item.f+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+item.m+'</span></div>');
      }
+
+
     }
    });
    for (i=0;i<chatBoxes.length;i++) {
@@ -721,8 +722,15 @@ function startChatSession(){
      setTimeout('$J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);', 100); // yet another strange ie bug
    }
 
+   var active = $J.cookie("openchatbox");
 
-   //chatheartbeat_timeout = setTimeout('chatHeartbeat();',chatHeartbeatTime);
+   //if (active != null){
+    //if (!($J('#chatbox_'+active+' .chatboxcontent').is(":hidden"))){
+     //toggleChatBoxGrowth(active);
+   //	}
+
+   //}
+
    chatHeartbeat();
 
   }

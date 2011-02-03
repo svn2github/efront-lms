@@ -49,11 +49,18 @@ function chatHeartbeat() {
   $_SESSION['last_msg'] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
  }
 
+ if (!$_SESSION['last_lesson_msg']){
+  $my_t=getdate();
+  $_SESSION['last_lesson_msg'] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+ }
+
+ $lesson_rooms = join("','",$_SESSION['lesson_rooms']);
+
  if (!$_SESSION['s_lessons_ID']){
   $sql = "select * from module_chat where (module_chat.to_user = '".mysql_real_escape_string($_SESSION['chatter'])."' AND sent>'".$_SESSION['last_msg']."') order by id ASC";
  }
  else{
-  $sql = "select * from module_chat where (module_chat.to_user = '".mysql_real_escape_string($_SESSION['chatter'])."' AND sent>'".$_SESSION['last_msg']."') OR (module_chat.to_user = '".str_replace(' ','_',$_SESSION["lessonname"])."' AND module_chat.from_user != '".$_SESSION['chatter']."' AND sent>'".$_SESSION['last_msg']."') order by id ASC";
+  $sql = "select * from module_chat where (module_chat.to_user = '".mysql_real_escape_string($_SESSION['chatter'])."' AND sent>'".$_SESSION['last_msg']."') OR (module_chat.to_user IN ('$lesson_rooms') AND module_chat.from_user != '".$_SESSION['chatter']."' AND sent>'".$_SESSION['last_lesson_msg']."') order by id ASC";
  }
  $query = mysql_query($sql);
  $items = '';
@@ -62,8 +69,8 @@ function chatHeartbeat() {
 
  while ($chat = mysql_fetch_array($query)) {
 
-  if ($chat['to_user'] == $_SESSION["lessonname"])
-   $title = $_SESSION["lessonname"];
+  if (in_array($chat['to_user'],$_SESSION['lesson_rooms']))
+   $title = $chat['to_user'];
   else
    $title = $chat['from_user'];
 
@@ -256,9 +263,20 @@ EOD;
 }
 function closeChat() {
  unset($_SESSION['openChatBoxes'][$_POST['chatbox']]);
+ if (in_array(str_replace(' ','_',$_POST['chatbox']),$_SESSION['lesson_rooms']))
+  $_SESSION['lesson_rooms'] = remove_item_by_value($_SESSION['lesson_rooms'], str_replace(' ','_',$_POST['chatbox']));
  echo $_POST['chatbox'];
  exit(0);
 }
+function remove_item_by_value($array, $val = '') {
+ if (empty($array) || !is_array($array)) return false;
+ if (!in_array($val, $array)) return $array;
+ foreach($array as $key => $value) {
+  if ($value == $val) unset($array[$key]);
+ }
+ return array_values($array);
+}
+
 function sanitize($text) {
  $text = htmlspecialchars($text, ENT_QUOTES);
  $text = str_replace("\n\r","\n",$text);

@@ -12,9 +12,9 @@ class module_faq extends EfrontModule {
         return array("professor","student");
     }
 
-	public function isLessonModule() {
-		return true;
-	}
+ public function isLessonModule() {
+  return true;
+ }
 
     // Optional functions
     // What should happen on installing the module
@@ -26,7 +26,7 @@ class module_faq extends EfrontModule {
                           unit_ID int(11) default NULL,
                           question text not null,
                           answer text not null,
-                          PRIMARY KEY  (id)
+                          PRIMARY KEY (id)
                         ) DEFAULT CHARSET=utf8;");
     }
 
@@ -63,7 +63,7 @@ class module_faq extends EfrontModule {
         if ($currentUser -> getRole($this -> getCurrentLesson()) == "professor") {
             return array('title' => 'FAQ',
                          'image' => $this -> moduleBaseLink.'images/unknown32.png',
-                         'link'  => $this -> moduleBaseUrl);
+                         'link' => $this -> moduleBaseUrl);
         }
     }
 
@@ -73,17 +73,17 @@ class module_faq extends EfrontModule {
                                               'title' => _FAQ_LESSONLINK,
                                               'image' => $this -> moduleBaseLink.'images/unknown16',
                                               'eFrontExtensions' => '1',
-                                              'link'  => $this -> moduleBaseUrl));
+                                              'link' => $this -> moduleBaseUrl));
 
         return array ( "current_lesson" => $link_of_menu_clesson);
     }
 
     public function getNavigationLinks() {
         $currentUser = $this -> getCurrentUser();
-		$currentLesson = $this -> getCurrentLesson();
-        return array (	array ('title' => _MYLESSONS, 'onclick'  => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-						array ('title' => $currentLesson -> lesson['name'], 'link'  => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
-                      array ('title' => _FAQ, 'link'  => $this -> moduleBaseUrl));
+  $currentLesson = $this -> getCurrentLesson();
+        return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+      array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
+                      array ('title' => _FAQ, 'link' => $this -> moduleBaseUrl));
     }
 
     public function getLinkToHighlight() {
@@ -104,34 +104,34 @@ class module_faq extends EfrontModule {
             $load_editor = true; //TODO
 
             $form = new HTML_QuickForm("faq_entry_form", "post", $_SERVER['REQUEST_URI'], "", null, true);
-            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
             $form -> addElement('textarea', 'question', null, 'class = "simpleEditor" style = "width:100%;height:5em;"');
             $form -> addElement('textarea', 'answer', null, 'class = "simpleEditor" style = "width:100%;height:25em;"');
-			
+
             $currentLesson = $this -> getCurrentLesson();
-			$units = eF_getTableDataFlat("content", "id, name", "lessons_ID = " . $currentLesson -> lesson['id']);
-			
-			//$units['id'] = array_merge(array("0"), $units['id']);
-			//$units['name'] = array_merge(array(_FAQ_GENERAL_LESSON), $units['name']);
-			
-			sizeof($units) > 0 ? $units = array(0 => _FAQ_GENERAL_LESSON) + array_combine($units['id'], $units['name']) : $units = array("0" => _FAQ_GENERAL_LESSON);
-			$form -> addElement('select', 'related_content',    _CONTENT, $units, 'class = "inputSelectLong"');
-	            
-            
+   $units = eF_getTableDataFlat("content", "id, name", "lessons_ID = " . $currentLesson -> lesson['id']);
+
+   //$units['id'] = array_merge(array("0"), $units['id']);
+   //$units['name'] = array_merge(array(_FAQ_GENERAL_LESSON), $units['name']);
+
+   sizeof($units) > 0 ? $units = array(0 => _FAQ_GENERAL_LESSON) + array_combine($units['id'], $units['name']) : $units = array("0" => _FAQ_GENERAL_LESSON);
+   $form -> addElement('select', 'related_content', _CONTENT, $units, 'class = "inputSelectLong"');
+
+
             $form -> addElement('submit', 'submit_faq', _SUBMIT, 'class = "flatButton"');
 
             if (isset($_GET['edit_faq'])) {
                 $faq_entry = eF_getTableData("module_faq", "*", "id=".$_GET['edit_faq']);
                 $form -> setDefaults(array('related_content' => $faq_entry[0]['unit_ID'],
-                						   'question' => $faq_entry[0]['question'],
-                                           'answer'   => $faq_entry[0]['answer']));
+                         'question' => $faq_entry[0]['question'],
+                                           'answer' => $faq_entry[0]['answer']));
             }
 
             if ($form -> isSubmitted() && $form -> validate()) {
                 $fields = array('lessons_ID' => $_SESSION['s_lessons_ID'],
-                				'unit_ID' 	 => $form ->exportValue('related_content'), 
-                                'question'   => $form -> exportValue('question'),
-                                'answer'     => $form -> exportValue('answer'));
+                    'unit_ID' => $form ->exportValue('related_content'),
+                                'question' => $form -> exportValue('question'),
+                                'answer' => $form -> exportValue('answer'));
                 if (isset($_GET['edit_faq'])) {
                     if (eF_updateTableData("module_faq", $fields, "id=".$_GET['edit_faq'])) {
                         eF_redirect("".$this -> moduleBaseUrl. "&message=".urlencode(_FAQ_SUCCESFULLYUPDATEDFAQENTRY)."&message_type=success");
@@ -169,7 +169,7 @@ class module_faq extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_FAQ_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_FAQ_MODULE_BASEURL" , $this -> moduleBaseUrl);
-		 $smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
+   $smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module.tpl";
     }
 
@@ -180,7 +180,7 @@ class module_faq extends EfrontModule {
         $currentLesson = $this -> getCurrentLesson();
 
         $faq = eF_getTableData("module_faq", "*", "lessons_ID=".$currentLesson -> lesson['id']);
-        $inner_table_options = array(array('text' => _FAQ_GOTOFAQPAGE,   'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
+        $inner_table_options = array(array('text' => _FAQ_GOTOFAQPAGE, 'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
         $smarty -> assign("T_FAQ_INNERTABLE_OPTIONS", $inner_table_options);
         $smarty -> assign("T_FAQ_INNERTABLE", $faq);
 
@@ -191,7 +191,7 @@ class module_faq extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_FAQ_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_FAQ_MODULE_BASEURL" , $this -> moduleBaseUrl);
-		$smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
+  $smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
     }
 
@@ -202,7 +202,7 @@ class module_faq extends EfrontModule {
         $currentLesson = $this -> getCurrentLesson();
 
         $faq = eF_getTableData("module_faq", "*", "lessons_ID =" . $currentLesson -> lesson['id']);
-        $inner_table_options = array(array('text' => _FAQ_GOTOFAQPAGE,   'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
+        $inner_table_options = array(array('text' => _FAQ_GOTOFAQPAGE, 'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
         $smarty -> assign("T_FAQ_INNERTABLE_OPTIONS", $inner_table_options);
         $smarty -> assign("T_FAQ_INNERTABLE", $faq);
 
@@ -214,19 +214,21 @@ class module_faq extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_FAQ_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_FAQ_MODULE_BASEURL" , $this -> moduleBaseUrl);
-		$smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
+  $smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
     }
-    
+
     /***** Lesson content module pages *******/
     public function getContentSideInfo() {
         // Get smarty variable
         $smarty = $this -> getSmartyVar();
         $currentLesson = $this -> getCurrentLesson();
-		$currentUnit = $this -> getCurrentUnit();
-    
-        $faq = eF_getTableData("module_faq", "*", "unit_ID = " . $currentUnit['id']);
-        $inner_table_options = array(array('text' => _FAQ_GOTOFAQPAGE,   'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
+  $currentUnit = $this -> getCurrentUnit();
+
+  if($currentUnit['id'] != "") {
+   $faq = eF_getTableData("module_faq", "*", "unit_ID = " . $currentUnit['id']);
+  }
+        $inner_table_options = array(array('text' => _FAQ_GOTOFAQPAGE, 'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
         $smarty -> assign("T_FAQ_INNERTABLE_OPTIONS", $inner_table_options);
         $smarty -> assign("T_FAQ_INNERTABLE", $faq);
 
@@ -237,10 +239,10 @@ class module_faq extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_FAQ_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_FAQ_MODULE_BASEURL" , $this -> moduleBaseUrl);
-		$smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
-		$smarty -> assign("T_FAQ_IN_UNIT_CONTENT", true);
+  $smarty -> assign("T_FAQ_MODULE_BASELINK" , $this -> moduleBaseLink);
+  $smarty -> assign("T_FAQ_IN_UNIT_CONTENT", true);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
-    }    
-    
+    }
+
 }
 ?>

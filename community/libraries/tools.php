@@ -2379,7 +2379,9 @@ function decryptUrl($url, $method = 'base64') {
  $parts = parse_url($url);
  parse_str($parts['query'], $query);
  mb_internal_encoding('utf-8'); //This must be put here due to PHP bug #48697
- $urlString = array(decryptString($query['cru']));
+ if (decryptString($query['cru'])) {
+  $urlString = array(decryptString($query['cru']));
+ }
  unset($query['cru']);
  foreach ($query as $key => $value) {
   $urlString[] = "$key=$value";

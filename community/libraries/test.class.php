@@ -6600,7 +6600,7 @@ abstract class Question
     public static function createQuestion($question) {
         !isset($question['difficulty']) ? $question['difficulty'] = 'medium' : null;
         if ($newId = eF_insertTableData("questions", $question)) {
-   EfrontSearch :: insertText($question['text'], $newId, "questions", "title");
+   EfrontSearch :: insertText(eF_addSlashes($question['text']), $newId, "questions", "title");
          return QuestionFactory :: factory($newId);
         } else {
             return false;

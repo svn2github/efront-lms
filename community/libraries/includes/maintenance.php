@@ -198,6 +198,10 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         }
     }
 
+    if (function_exists('apc_clear_cache')) {
+     $smarty -> assign("T_APC", true);
+    }
+
     $logSize = eF_countTableData("logs");
     $smarty -> assign("T_LOG_SIZE", $logSize[0]['count']);
     $lastLogEntry = eF_getTableData("logs", "timestamp", "", "timestamp", false, 1);

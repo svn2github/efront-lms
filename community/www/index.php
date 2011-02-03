@@ -12,6 +12,11 @@
 session_cache_limiter('nocache');
 session_start(); //This causes the double-login problem, where the user needs to login twice when already logged in with the same browser
 
+if (!isset($_SESSION['s_login'])) {
+//	session_regenerate_id();
+}
+
+
 $path = "../libraries/";
 //Automatically redirect to installation page if configuration file is missing
 if (!is_file($path."configuration.php")) { //If the configuration file does not exist, this is a fresh installation, so redirect to installation page
@@ -814,6 +819,7 @@ if (isset ($_SESSION['s_login']) && ($GLOBALS['currentTheme'] -> options['sideba
    eF_insertTableData("user_times", $fields);
    $_SESSION['time'] = 0;
   } else {
+   eF_updateTableData("user_times", array("session_expired" => 0), "session_id='".session_id()."' and users_LOGIN='".$_SESSION['s_login']."'");
    $_SESSION['time'] = $lastTime;
   }
   $_SESSION['timestamp'] = time();

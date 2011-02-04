@@ -410,6 +410,20 @@ class EfrontImportCsv extends EfrontImport
    $this -> log["failure"][] = $e -> getMessage().' ('.$e -> getCode().')';// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
   }
  }
+ private function processQueue() {
+  $result = eF_getTableData("queue", "*");
+  foreach ($result as $value) {
+   foreach (unserialize($value['data']) as $courseId) {
+    $courses[$courseId][$value['users_LOGIN']] = $value['users_LOGIN'];
+   }
+  }
+  foreach ($courses as $courseId => $users) {
+   $course = new EfrontCourse($courseId);
+   $course -> addUsers($users);
+  }
+  eF_deleteTableData("queue");
+  unset($_SESSION['s_mass_import']);
+ }
  /*
 	 * Use eFront classes according to the type of import to store the data used
 	 * @param line: the line of the imported file
@@ -536,10 +550,12 @@ class EfrontImportCsv extends EfrontImport
       }
       $this -> importDataMultiple($type, $data);
      } else {
+      //$_SESSION['s_mass_import'] = 1;
       for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
        $data = $this -> parseDataLine($line);
        $this -> importData($line+1, $type, $data);
       }
+      //$this -> processQueue();
      }
     }
    } else {
@@ -563,8 +579,8 @@ class EfrontImportCsv extends EfrontImport
   }
   $maxmemory = 128 * $factor;
   $maxtime = 300 * $factor;
-  ini_set("memory_limit",$maxmemory . "M");
-        ini_set("max_execution_time", $maxtime);
+  ini_set("memory_limit", max($maxmemory,$GLOBALS['configuration']['memory_limit']) . "M");
+        ini_set("max_execution_time", max($maxtime, $GLOBALS['configuration']['max_execution_time']));
  }
  public function __construct($filename, $_options) {
   $this -> fileContents = file_get_contents($filename);

@@ -145,7 +145,7 @@
 
   <table class = "statisticsTools">
    <tr><td id = "right">
-     {$smarty.const._ACCESSSTATISTICS}:
+     <a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');">{$smarty.const._ACCESSSTATISTICS}:</a>
      <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');"/>
     </td></tr>
   </table>

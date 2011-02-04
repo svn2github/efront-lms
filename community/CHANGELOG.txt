@@ -1,3 +1,8 @@
+=== Version 3.6.8 build 9838 ===
+- Fixed logging out users from lessons when the session id is used in the past by the same user
+- Fixed my courses link not clickable in Opera
+- Updated js inclusion to allow chat module to work with IE8
+
 === Version 3.6.8 build 9777 ===
 - XML API security update
 - Automatic logout and session handling updates

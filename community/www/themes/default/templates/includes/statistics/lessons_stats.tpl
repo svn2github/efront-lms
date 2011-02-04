@@ -135,7 +135,8 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
          {$smarty.const._TEST}: {$test_info.general.name}</a>
                             </td>
                             <td id = "right">
-                                {$smarty.const._QUESTIONSKIND}: <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONTYPES}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');"/>
+                                <a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONTYPES}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');">{$smarty.const._QUESTIONSKIND}: </a>
+                                <img class = "ajaxHandle" src = "images/16x16/reports.png" alt = "{$smarty.const._QUESTIONSKIND}" title = "{$smarty.const._QUESTIONSKIND}" onclick = "eF_js_showDivPopup('{$smarty.const._QUESTIONTYPES}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_test_questions', '{$test_info.general.id}');"/>
                             </td>
                     </table>
                     <table class = "statisticsSubInfo" id = "tinfo{$test_id}" style = "display:none">

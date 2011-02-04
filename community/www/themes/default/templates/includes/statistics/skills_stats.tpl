@@ -43,10 +43,9 @@
   <br />
   <table class="statisticsTools">
    <tr>
-    <td id="right">{$smarty.const._SKILLGRAPH}: <img class="handle"
-     src="images/16x16/reports.png" alt="{$smarty.const._SKILLGRAPH}"
-     title="{$smarty.const._SKILLGRAPH}"
-     onclick="showGraph($('proto_chart'), 'graph_skill');eF_js_showDivPopup('{$smarty.const._SKILLGRAPH}', 2, 'graph_table');" />
+    <td id="right">
+     <a href = "javascript:void(0)" onclick="showGraph($('proto_chart'), 'graph_skill');eF_js_showDivPopup('{$smarty.const._SKILLGRAPH}', 2, 'graph_table');">{$smarty.const._SKILLGRAPH}:</a>
+     <img class="handle" src="images/16x16/reports.png" alt="{$smarty.const._SKILLGRAPH}" title="{$smarty.const._SKILLGRAPH}" onclick="showGraph($('proto_chart'), 'graph_skill');eF_js_showDivPopup('{$smarty.const._SKILLGRAPH}', 2, 'graph_table');" />
     </td>
    </tr>
   </table>

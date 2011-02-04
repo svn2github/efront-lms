@@ -32,30 +32,6 @@ try {
   $currentUser = EfrontUser :: checkUserAccess();
  }
  $smarty -> assign("T_CURRENT_USER", $currentUser);
-
- $entity = getUserTimeTarget($_SERVER['REQUEST_URI']);
- $lastTime = getUserLastTimeInTarget($entity);
- if ($lastTime === false) {
-  $fields = array("session_timestamp" => time(),
-      "session_id" => session_id(),
-      "session_expired" => 0,
-      "users_LOGIN" => $_SESSION['s_login'],
-      "timestamp_now" => time(),
-      "time" => 0,
-      "lessons_ID" => $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : null,
-      "courses_ID" => $_SESSION['s_courses_ID'] ? $_SESSION['s_courses_ID'] : null,
-      "entity" => current($entity),
-      "entity_id" => key($entity));
-  eF_insertTableData("user_times", $fields);
-  $_SESSION['time'] = 0;
- } else {
-  eF_updateTableData("user_times", array("session_expired" => 0), "session_id='".session_id()."' and users_LOGIN='".$_SESSION['s_login']."'");
-  $_SESSION['time'] = $lastTime;
- }
- $_SESSION['timestamp'] = time();
- //pr('last time:'.$_SESSION['time']);
-
-//	$_SESSION['time'] = time();
  if ($_SESSION['s_lessons_ID'] && ($currentUser instanceof EfrontLessonUser)) {
   $userLessons = $currentUser -> getLessons();
   $currentUser -> applyRoleOptions($userLessons[$_SESSION['s_lessons_ID']]); //Initialize user's role options for this lesson

@@ -2,6 +2,8 @@
 - Fixed logging out users from lessons when the session id is used in the past by the same user
 - Fixed my courses link not clickable in Opera
 - Updated js inclusion to allow chat module to work with IE8
+- Fixed remote themes not being deleted
+- Fixed lesson statistics traffic tab ignoring time constraint
 
 === Version 3.6.8 build 9777 ===
 - XML API security update

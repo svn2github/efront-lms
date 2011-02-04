@@ -834,6 +834,7 @@ class Installation
              "journal",
              "workbook",
              "crossword",
+          "chat",
              "administrator_tools");
   $modulesList = eF_getTableData("modules", "*");
   foreach ($modulesList as $module) {

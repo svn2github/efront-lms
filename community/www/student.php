@@ -295,28 +295,9 @@ if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] 
 }
 /*Added Session variable for search results*/
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
+refreshLogin();
 /*Horizontal menus*/
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
- $entity = getUserTimeTarget($_SERVER['REQUEST_URI']);
- $lastTime = getUserLastTimeInTarget($entity);
- if ($lastTime === false) {
-  $fields = array("session_timestamp" => time(),
-      "session_id" => session_id(),
-      "session_expired" => 0,
-      "users_LOGIN" => $_SESSION['s_login'],
-      "timestamp_now" => time(),
-      "time" => 0,
-      "lessons_ID" => $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : null,
-      "courses_ID" => $_SESSION['s_courses_ID'] ? $_SESSION['s_courses_ID'] : null,
-      "entity" => current($entity),
-      "entity_id" => key($entity));
-  eF_insertTableData("user_times", $fields);
-  $_SESSION['time'] = 0;
- } else {
-  eF_updateTableData("user_times", array("session_expired" => 0), "session_id='".session_id()."' and users_LOGIN='".$_SESSION['s_login']."'");
-  $_SESSION['time'] = $lastTime;
- }
- $_SESSION['timestamp'] = time();
  $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
  if ($accounts = unserialize($currentUser -> user['additional_accounts'])) {
   $result = eF_getTableData("users", "login, user_type", 'login in ("'.implode('","', array_values($accounts)).'")');

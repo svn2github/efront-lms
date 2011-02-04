@@ -46,10 +46,8 @@
   </table>
  </div>
 </div>
-<comment>
-<embed src="{$T_CHAT_MODULE_BASELINK}sound/msg.wav" autostart=false width=0 height=0 id="sound1"
-enablejavascript="true">
-</comment>
+
+
 <!--[if IE]>
 <bgsound id="sound">
 <script>var ie=1;</script>

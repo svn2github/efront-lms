@@ -12,7 +12,10 @@ if ($_SESSION['s_lessons_ID']){
   $lsn = eF_getTableData("lessons", "name", "id='".$_SESSION['s_lessons_ID']."'");
   foreach ($lsn as $lesson){
    $link = $lesson['name'];
-   echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWithLesson(\''.str_replace(' ','_',$lesson['name']).'\')">'.$link.' (Room)</a></p>';
+   $room = str_replace(' ','_',$lesson['name']);
+   $room = str_replace('"','',$room);
+   $room = str_replace('\'','',$room);
+   echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWithLesson(\''.$room.'\')">'.$link.' (Room)</a></p>';
    $_SESSION["lessonid"] = $_SESSION['s_lessons_ID'];
    $_SESSION["lessonname"] = str_replace(' ','_',$lesson['name']);
    if (!in_array($_SESSION["lessonname"], $_SESSION['lesson_rooms']))
@@ -22,8 +25,11 @@ if ($_SESSION['s_lessons_ID']){
   }
  }
  else{
- $link = $_SESSION["lessonname"];
-  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWithLesson(\''.str_replace(' ','_',$_SESSION["lessonname"]).'\')">'.substr($link,0,18).' ...(Room)</a></p>';
+ $link = str_replace('_',' ',$_SESSION["lessonname"]);
+ $room = str_replace(' ','_',$_SESSION["lessonname"]);
+ $room = str_replace('"','',$room);
+ $room = str_replace('\'','',$room);
+  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWithLesson(\''.$room.'\')">'.substr($link,0,21).' ...(Room)</a></p>';
  }
 }
 
@@ -34,14 +40,14 @@ $onlineUsers = getConnectedUsers();
 if ($_SESSION['utype'] == 'administrator') {
  foreach ($onlineUsers as $user){
   if ($user['login'] != $_SESSION['chatter'])
-   echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.substr($user['formattedLogin'],0,25).'</a></p>';
+   echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.substr($user['login'],0,31).'\')">'.substr($user['formattedLogin'],0,25).'</a></p>';
  }
 }
 else{
  foreach ($onlineUsers as $user){
   if ($user['login'] != $_SESSION['chatter'])
    if ($_SESSION['commonality'][$user['login']] > 0)
-    echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.substr($user['formattedLogin'],0,25).'</a></p>';
+    echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.substr($user['login'],0,31).'\')">'.substr($user['formattedLogin'],0,25).'</a></p>';
  }
 }
 

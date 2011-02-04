@@ -27,7 +27,6 @@ if (!isset($_SESSION['s_login']) || !eF_checkParameter($_SESSION['s_login'], 'lo
 }
 
 try {
- $onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
 
  if ($_SESSION['timestamp']) {
   $entity = getUserTimeTarget($_SERVER['HTTP_REFERER']);
@@ -36,6 +35,7 @@ try {
   eF_updateTableData("user_times", $fields, "session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
  }
 
+ $onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
  $messages = eF_getTableData("f_personal_messages pm, f_folders ff", "count(*)", "pm.users_LOGIN='".$_SESSION['s_login']."' and viewed='no' and f_folders_ID=ff.id and ff.name='Incoming'");
  $messages = $messages[0]['count(*)'];
 

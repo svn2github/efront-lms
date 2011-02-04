@@ -224,8 +224,10 @@ class themes extends EfrontEntity
 
      */
     public function delete() {
-        $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
-        $directory -> delete();
+     if (!$this -> remote) {
+         $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
+         $directory -> delete();
+     }
         eF_deleteTableData($this -> entity, "id=".$this -> {$this -> entity}['id']);
      $modules = eF_loadAllModules();
   foreach($modules as $key => $module) {

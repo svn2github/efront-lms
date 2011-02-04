@@ -19,7 +19,7 @@ a{
 	bottom:0px;
 	position:fixed;
 	right:219px;
-	max-width:1135px; /*init 910*/
+	/*max-width:1135px;*/ /*init 910*/
 	z-index:999;
 	vertical-align:bottom;
 }

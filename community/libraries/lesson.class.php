@@ -2224,9 +2224,9 @@ class EfrontLesson
   }
   return $lessonUsers;
  }
- public function getLessonTimesForUsers() {
+ public function getLessonTimesForUsers($interval = array()) {
   $usersTimes = array();
-  $timesReport = new EfrontTimes();
+  $timesReport = new EfrontTimes($interval);
   $result = $timesReport -> getLessonSessionTimesForUsers($this -> lesson['id']);
   foreach ($result as $value) {
    $usersTimes[$value['users_LOGIN']] = $timesReport -> formatTimeForReporting($value['time']);

@@ -15,18 +15,37 @@ var scrollalert_timeout= 0;
 var chatheartbeat_timeout = 0;
 var scrollalertNotCaringCss_timeout = 0;
 
+var resizeTimer = null;
+var ul_sem = 0;
 
-
+var soundEmbed = null;
+var browserName;
+var verOffset;
+var nAgt = navigator.userAgent;
 
 var lessons = new Array();
 var chatboxFocus = new Array();
 var newMessages = new Array();
 var newMessagesWin = new Array();
 var chatBoxes = new Array();
+var blink_win = new Array();
+
 var ls_available = 'localStorage' in window;
+
+var objImage = new Image();
 
 
 var $J = jQuery.noConflict();
+
+if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+ browserName = "ie";
+}
+else if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+ browserName = "opera";
+}
+else{
+ browserName = "other";
+}
 
 $J(document).ready(function(){
 
@@ -34,8 +53,9 @@ $J(document).ready(function(){
  initChat();
  //startChatSession();
  chatHeartbeatTime = minChatHeartbeat;
-if ($J.cookie("chat_on") == null)
+if ($J.cookie("chat_on") == null){
   $J.cookie("chat_on", "on");
+}
 
  var chat_status = $J.cookie('chat_on');
  //scrollalertNotCaringCss();
@@ -60,8 +80,6 @@ if ($J.cookie("chat_on") == null)
  else{
   if(ls_available && localStorage.getItem('totalItems'))
    $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (' +localStorage.getItem('totalItems')+')');
-   spinner= new Image(15,15)
-  spinner.src = modulechatbaselink +"img/loading.gif"
 
   user_list = "closed";
   $J('#chat_bar').css("height","25px");
@@ -86,17 +104,34 @@ if ($J.cookie("chat_on") == null)
 
 
 
+ objImage.src=modulechatbaselink+"img/loading.gif";
 
+ setWindowsWidth();
+
+ $J(window).resize(function() {
+   if (resizeTimer)
+    clearTimeout(resizeTimer);
+   resizeTimer = setTimeout(setWindowsWidth, 100);
+ });
 
  $J('body').click(function() {
           if (user_list == "open")
-          toggle_users();
+           toggle_users();
          });
 
  $J('#chat_bar').click(function(event){
      event.stopPropagation();
  });
 });
+
+
+function setWindowsWidth(){
+ var spaceleft = $J(window).width()- 216; // chatbar size
+ var remain = spaceleft % 225; //chatbox size
+ var width = spaceleft - remain +10;
+ $J("#windowspace").css("max-width",width+"px");
+ //alert(width);
+}
 
 function getChatheartbeat(){
 
@@ -121,17 +156,18 @@ function initChat(){
   getChatheartbeat();
  }
  if ($J.cookie("Refresh_rate") == null){
-  getRefresh_rate()
+  getRefresh_rate();
  }
 }
 
 
 /* Update status - Fix user list content box height*/
 function updatestatus(){
-
+ ul_sem = 1;
  var chat_status = $J.cookie("chat_on");
 
  if (chat_status == 'on'){
+
   //Show number of loaded items
   var totalItems=$J('#content p').length;
   var height = totalItems*20;
@@ -143,7 +179,7 @@ function updatestatus(){
   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+ ' Chat (' +totalItems +')');
   if(ls_available)
    localStorage.setItem('totalItems', totalItems);
-
+  ul_sem = 0;
 
  }
 }
@@ -164,9 +200,10 @@ function updatestatusNotCaringCss(){
 function scrollalert(){
 
  var chat_status = $J.cookie("chat_on");
-
+ ul_sem = 1;
  if (chat_status == 'on'){
-   $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+' Chat'+'   <img src="'+ modulechatbaselink +'img/loading.gif" width="15" height="15"/>');
+
+  $J('#status').html('<img src="'+ modulechatbaselink +'img/chat16x16.png" />'+' Chat'+'   <img src="'+ modulechatbaselink +'img/loading.gif" width="15" height="15"/>');
   //fetch new users
   //$J('#status').text('Loading Users...');
   $J.get(modulechatbaselink+'new-items.php', '', function(newitems){
@@ -256,9 +293,12 @@ function on_off() {
 
 function toggle_users() {
 
+ if (ul_sem == 1)
+  return;
+
+ ul_sem = 1;
+
  var chat_status = $J.cookie('chat_on');
-
-
 
  if (user_list == "open"){
 
@@ -269,6 +309,7 @@ function toggle_users() {
 
   clearTimeout(scrollalert_timeout);
   scrollalertNotCaringCss_timeout = setTimeout('scrollalertNotCaringCss();', refresh_rate);
+  ul_sem = 0;
 
  }
  else{
@@ -277,7 +318,6 @@ function toggle_users() {
   clearTimeout(scrollalertNotCaringCss_timeout);
   scrollalert();
  }
-
 }
 
 
@@ -359,7 +399,7 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
 
  $J(" <div />" ).attr("id","chatbox_"+chatboxtitle)
  .addClass("chatbox")
- .html('<div class="chatboxhead" onclick="javascript:toggleChatBoxGrowth(\''+chatboxtitle+'\')"><div class="chatboxtitle">'+chatboxtitle+'</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+chatboxtitle+'\')"><img src="'+ modulechatbaselink +'img/x.png" /></a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onKeyUp="javascript: return checkChatBoxInputKey(event,this,\''+chatboxtitle+'\');"></textarea></div>')
+ .html('<div class="chatboxhead" onclick="javascript:toggleChatBoxGrowth(\''+chatboxtitle+'\')"><div class="chatboxtitle">'+chatboxtitle.substring(0,30)+'</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+chatboxtitle+'\')"><img src="'+ modulechatbaselink +'img/x.png" /></a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onKeyUp="javascript: return checkChatBoxInputKey(event,this,\''+chatboxtitle+'\');"></textarea></div>')
  .prependTo($J( "#windows" ));
 
  $J("#chatbox_"+chatboxtitle).css('bottom', '0px');
@@ -443,6 +483,8 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
  });
  $J("#chatbox_"+chatboxtitle+ " .chatboxcontent").click(function(){
             $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
+            blink_win[chatboxtitle] = false;
+            $J('#chatbox_'+chatboxtitle+' .chatboxhead').removeClass('chatboxblink');
             });
  $J("#chatbox_"+chatboxtitle).show();
 }
@@ -467,14 +509,15 @@ function chatHeartbeat(){
    } else {
     ++blinkOrder;
    }
-  } else {
+  }
+  else {
    for (x in newMessagesWin) {
     newMessagesWin[x] = false;
    }
   }
   for (x in newMessages) {
    if (newMessages[x] == true) {
-    if (chatboxFocus[x] == false) {
+    if (blink_win[x] == true) {
      $J('#chatbox_'+x+' .chatboxhead').toggleClass('chatboxblink');
     }
    }
@@ -484,8 +527,6 @@ function chatHeartbeat(){
     cache: false,
     dataType: "json",
     error:function (xhr, ajaxOptions, thrownError){
-                    //alert(xhr.status+" - "+xhr);
-                    //alert(thrownError);
      clearTimeout(chatheartbeat_timeout);
      chatHeartbeat();
                 },
@@ -502,7 +543,6 @@ function chatHeartbeat(){
      if ($J("#chatbox_"+chatboxtitle).length <= 0) {
       createChatBox(chatboxtitle);
      }
-     //else if ($J("#chatbox_"+chatboxtitle).css('display') == 'none') {
      else if ($J("#chatbox_"+chatboxtitle).is(":hidden")){
       //var width = ($J('#windows').width())+227;
       //$J('#windows').css('width',width);
@@ -529,23 +569,32 @@ function chatHeartbeat(){
      //} else {
       newMessages[chatboxtitle] = true;
       newMessagesWin[chatboxtitle] = true;
+      blink_win[chatboxtitle] = true;
       $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+from+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+careLinks(item.m)+'</span></div>');
      //}
 
      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
      if (itemsfound == 0){
-      if (ie!=1)
-       msg_alert("sound1");
-      else
+      /*if (ie!=1)
+
+							msg_alert("sound1");
+
+						else
+
+							msg_alert_ie(modulechatbaselink+"sound/msg.wav");*/
+      if (browserName == "other") //all except ie and opera
+       soundPlay();
+      else if (browserName == "ie")
        msg_alert_ie(modulechatbaselink+"sound/msg.wav");
      }
-
      itemsfound += 1;
     }
+    if (!($J('#chatbox_'+chatboxtitle+' .chatboxcontent').is(":hidden"))){
+     $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").blur();
+     $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
+    }
    });
-
    chatHeartbeatCount++;
-
    if (itemsfound > 0) {
     chatHeartbeatTime = minChatHeartbeat;
     chatHeartbeatCount = 1;
@@ -770,17 +819,35 @@ function careLinks(input){
 
 
 
-function msg_alert(sid) {
+/*function msg_alert(sid) {
+
   var thissound=document.getElementById(sid);
+
   thissound.Play();
+
+}*/
+function msg_alert_ie() {
+  document.all.sound.src = modulechatbaselink+"sound/msg.wav";
 }
-
-function msg_alert_ie(url) {
-  document.all.sound.src = url;
+function soundPlay(){
+ if (!soundEmbed){
+  soundEmbed = document.createElement("embed");
+  soundEmbed.setAttribute("src", modulechatbaselink+"sound/msg.wav");
+  soundEmbed.setAttribute("hidden", true);
+  soundEmbed.setAttribute("autostart", true);
+ }
+ else{
+  document.body.removeChild(soundEmbed);
+  soundEmbed.removed = true;
+  soundEmbed = null;
+  soundEmbed = document.createElement("embed");
+  soundEmbed.setAttribute("src", modulechatbaselink+"sound/msg.wav");
+  soundEmbed.setAttribute("hidden", true);
+  soundEmbed.setAttribute("autostart", true);
+ }
+ soundEmbed.removed = false;
+ document.body.appendChild(soundEmbed);
 }
-
-
-
 /**
 
  * Cookie plugin

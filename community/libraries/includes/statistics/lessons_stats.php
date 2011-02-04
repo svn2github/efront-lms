@@ -217,7 +217,7 @@ try {
             foreach ($filteredUsers as $user) {
              $users[$user['login']] = $user['active'];
             }
-            $traffic['users'] = $infoLesson -> getLessonTimesForUsers();
+            $traffic['users'] = $infoLesson -> getLessonTimesForUsers(array($from, $to));
             foreach ($traffic['users'] as $key => $user) {
                 if (isset($statsFiltersUsers) && !in_array($key, array_keys($statsFiltersUsers))) {
                     unset($traffic['users'][$key]);

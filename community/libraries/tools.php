@@ -866,9 +866,15 @@ function eF_checkUserLdap($login, $password)
     ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
     $ds = eF_ldapConnect();
     $sr = ldap_search($ds, $basedn, "$ldap_uid=$login");
+/*
+
     if (ldap_count_entries($ds, $sr) != 1) {
-        return false; //User either does not exist or more than 1 users found
+
+        return false;                                       //User either does not exist or more than 1 users found
+
     }
+
+*/
     $dn = ldap_get_dn($ds, ldap_first_entry($ds, $sr));
     $b = ldap_bind($ds, $dn, $password);
     if (!$b) {

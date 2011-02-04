@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <title>TextMe</title>
+    <author>Manos Dimitrakis</author>
+    <date>10/08/2010</date>
+    <version>2.0</version>
+    <description>Enables professors to compose and send SMS alerts to Lesson's participants.</description>
+    <className>module_textme</className>
+</module>

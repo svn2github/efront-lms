@@ -2458,12 +2458,12 @@ class EfrontCourse
      if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
       $courseString .= '
                       <td>
-                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" url = "ask_information.php?lessons_ID='.$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
+                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" class = "info" url = "ask_information.php?lessons_ID='.$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'">'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
                                 </td>';
      } else {
       $courseString .= '
                       <td>
-                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" onclick = "this.update(\''.$lesson -> lesson['name'].'\');">'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
+                       '.($options['lessons_link'] ? '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['lessons_link']).$lesson -> lesson['id'].'&from_course='.$this -> course['id'].'" >'.$lesson -> lesson['name'].'</a>' : $lesson -> lesson['name']).'
                                 </td>';
      }
     }

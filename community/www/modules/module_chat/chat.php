@@ -12,6 +12,14 @@ if (!isset($_SESSION['chatter'])){
 if (!isset($_SESSION['chatboxesnum']))
  $_SESSION['chatboxesnum'] = 0;
 
+if (!isset($_SESSION['chatHistory'])) {
+ $_SESSION['chatHistory'] = array();
+}
+
+if (!isset($_SESSION['openChatBoxes'])) {
+ $_SESSION['openChatBoxes'] = array();
+}
+
 global $dbh;
 $dbh = mysql_connect(G_DBHOST,G_DBUSER,G_DBPASSWD) or die('Could not connect to mysql server.' );
 mysql_selectdb(G_DBNAME,$dbh);
@@ -24,14 +32,6 @@ if ($_GET['action'] == "logoutfromchat") { logoutFromChat(); }
 if ($_GET['action'] == "logintochat") { loginToChat(); }
 
 
-
-if (!isset($_SESSION['chatHistory'])) {
- $_SESSION['chatHistory'] = array();
-}
-
-if (!isset($_SESSION['openChatBoxes'])) {
- $_SESSION['openChatBoxes'] = array();
-}
 
 function logoutFromChat(){
   eF_executeNew("DELETE FROM module_chat_users WHERE username='".$_SESSION['chatter']."'");
@@ -75,6 +75,7 @@ function chatHeartbeat() {
    $title = $chat['from_user'];
 
   $_SESSION['last_msg'] = $chat['sent'];
+  $_SESSION['last_lesson_msg'] = $chat['sent'];
   if (!isset($_SESSION['openChatBoxes'][$title]) && isset($_SESSION['chatHistory'][$title])) {
    $items = $_SESSION['chatHistory'][$title];
   }
@@ -263,7 +264,7 @@ EOD;
 }
 function closeChat() {
  unset($_SESSION['openChatBoxes'][$_POST['chatbox']]);
- if (in_array(str_replace(' ','_',$_POST['chatbox']),$_SESSION['lesson_rooms']))
+ if (str_replace(' ','_',$_POST['chatbox']) != $_SESSION["lessonname"] && in_array(str_replace(' ','_',$_POST['chatbox']),$_SESSION['lesson_rooms']))
   $_SESSION['lesson_rooms'] = remove_item_by_value($_SESSION['lesson_rooms'], str_replace(' ','_',$_POST['chatbox']));
  echo $_POST['chatbox'];
  exit(0);

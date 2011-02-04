@@ -5,7 +5,6 @@ session_start();
 
 
 
-
 if ($_SESSION['s_lessons_ID']){
 
  if (!isset($_SESSION["lessonid"]) || $_SESSION["lessonid"] != $_SESSION['s_lessons_ID']){

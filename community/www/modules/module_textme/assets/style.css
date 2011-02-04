@@ -1,0 +1,45 @@
+.textme-groups div
+{
+    float:left;
+}
+
+.textme-groups label
+{
+    width:100%;
+    text-align: center;
+}
+
+.textme-groups select
+{
+    width:250px;
+    height:300px;
+}
+
+.textme-width
+{
+    width: 250px;
+}
+
+table.textme-view-message td
+{
+    padding-right: 25px;
+    padding-top: 10px;
+    vertical-align: top;
+}
+
+div.textme-quotes {
+	text-indent: 25px;
+	background: url(images/quotes_left.png);
+	background-position: 0 2px;
+	background-repeat: no-repeat;
+        width:400px;
+}
+
+div.textme-quotes p {
+	display: inline;
+	margin: 0;
+	padding-right: 24px;
+	background: url(images/quotes_right.png);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}

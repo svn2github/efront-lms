@@ -756,13 +756,15 @@ abstract class EfrontUser
    }
   }
   if ($sessionId) {
-   //Logout user on this pc
+   //Logout user on a specific session
    eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and users_LOGIN='".$this -> user['login']."' and session_id='$sessionId' ");
   } else {
    //Logout every user logged under this login
    eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and users_LOGIN='".$this -> user['login']."'");
   }
-  if ($sessionId == session_id() || !$sessionId) {
+  $result = eF_getTableData("user_times", "id", "session_expired=0 and users_LOGIN='$this -> user['login']'");
+  //If this was the last user logged in under this login, create logout entry
+  if (empty($result)) {
    $fields_insert = array('users_LOGIN' => $this -> user['login'],
            'timestamp' => time(),
            'action' => 'logout',
@@ -771,6 +773,8 @@ abstract class EfrontUser
    eF_insertTableData("logs", $fields_insert);
    eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
    eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
+  }
+  if ($sessionId == session_id() || !$sessionId) {
    if (isset($_COOKIE['c_request'])) {
     setcookie('c_request', '', time() - 86400);
     unset($_COOKIE['c_request']);
@@ -779,10 +783,10 @@ abstract class EfrontUser
    setcookie ("cookie_password", "", time() - 3600);
    unset($_COOKIE['cookie_login']); //These 2 lines are necessary, so that index.php does not think they are set
    unset($_COOKIE['cookie_password']);
-  }
-  //Empty session without destroying it
-  foreach ($_SESSION as $key => $value) {
-   unset($_SESSION[$key]);
+   //Empty session without destroying it
+   foreach ($_SESSION as $key => $value) {
+    unset($_SESSION[$key]);
+   }
   }
   return true;
  }
@@ -931,9 +935,7 @@ abstract class EfrontUser
   $result = eF_getTableData("user_times,users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp, session_id", "users.login=user_times.users_LOGIN and session_expired=0", "timestamp_now desc");
   foreach ($result as $value) {
    if (!isset($parsedUsers[$value['users_LOGIN']])) {
-    //print("\ntime difference for user: ".$value['users_LOGIN'].' and interval '.$interval.' and time()='.time().' - '.$value['timestamp_now'].': '.(time() - $value['timestamp_now'])."\n");
-    $value['login'] = $value['users_LOGIN'];
-    if (time() - $value['timestamp_now'] < $interval || !$interval) {
+    if ((time() - $value['timestamp_now'] < $interval) || !$interval) {
      $usersOnline[] = array('login' => $value['users_LOGIN'],
              //'name'		   => $value['name'],
              //'surname'	   => $value['surname'],

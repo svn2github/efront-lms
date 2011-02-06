@@ -106,8 +106,6 @@ try {
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 
 refreshLogin();
-//$_SESSION['last_action_timestamp'] = time();		//Keep the last time something happened to the session
-
 
 /*Horizontal menus*/
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {

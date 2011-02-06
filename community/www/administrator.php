@@ -37,7 +37,7 @@ try {
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
-  setcookie('c_request', htmlspecialchars_decode(http_build_query($_GET)), time() + 300);
+  setcookie('c_request', htmlspecialchars_decode(basename($_SERVER['REQUEST_URI'])), time() + 300);
  }
  eF_redirect("index.php?ctg=expired");
  exit;
@@ -48,11 +48,14 @@ if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) 
 }
 
 if (isset($_COOKIE['c_request']) && $_COOKIE['c_request']) {
-    setcookie('c_request', '', time() - 86400);
+ setcookie('c_request', '', time() - 86400);
     if (mb_strpos($_COOKIE['c_request'], '.php') !== false) {
-        eF_redirect("".$_COOKIE['c_request']);
+     $urlParts = parse_url($_COOKIE['c_request']);
+     if (basename($urlParts['path']) == 'administrator.php') {
+         eF_redirect($_COOKIE['c_request']);
+     }
     } else {
-        eF_redirect("".$_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
+        eF_redirect($_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
     }
 }
 
@@ -103,6 +106,8 @@ try {
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 
 refreshLogin();
+//$_SESSION['last_action_timestamp'] = time();		//Keep the last time something happened to the session
+
 
 /*Horizontal menus*/
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {

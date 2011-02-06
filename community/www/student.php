@@ -40,7 +40,7 @@ try {
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
-  setcookie('c_request', htmlspecialchars_decode(http_build_query($_GET)), time() + 300);
+  setcookie('c_request', htmlspecialchars_decode(basename($_SERVER['REQUEST_URI'])), time() + 300);
  }
  eF_redirect("index.php?ctg=expired");
  exit;
@@ -51,17 +51,15 @@ if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) 
  $_SESSION['previousMainUrl'] = $_SERVER['REQUEST_URI'];
 }
 
-if (isset($_COOKIE['c_request'])) {
-    setcookie('c_request', '', time() - 86400);
+if (isset($_COOKIE['c_request']) && $_COOKIE['c_request']) {
+ setcookie('c_request', '', time() - 86400);
     if (mb_strpos($_COOKIE['c_request'], '.php') !== false) {
-        if (mb_strpos($_COOKIE['c_request'], 'index.php') !== false) {
-            echo "<script>top.location='".$_COOKIE['c_request']."';</script>";
-        } else {
-            eF_redirect("".$_COOKIE['c_request']);
-        }
+     $urlParts = parse_url($_COOKIE['c_request']);
+     if (basename($urlParts['path']) == 'student.php') {
+         eF_redirect($_COOKIE['c_request']);
+     }
     } else {
-        //eF_redirect("".$_COOKIE['c_request']);
-        eF_redirect("".$_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
+        eF_redirect($_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
     }
 }
 
@@ -296,6 +294,7 @@ if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] 
 /*Added Session variable for search results*/
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 refreshLogin();
+//$_SESSION['last_action_timestamp'] = time();		//Keep the last time something happened to the session
 /*Horizontal menus*/
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
  $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
@@ -327,6 +326,7 @@ $smarty -> assign("_professor_", $_professor_);
 $smarty -> assign("_admin_", $_admin_);
 try {
  if ($ctg == 'control_panel') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("control_panel.php");
  }
@@ -335,30 +335,37 @@ try {
      require_once ("landing_page.php");
  }
  elseif ($ctg == 'news') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once ("news.php");
  }
  elseif ($ctg == 'progress') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("progress.php");
  }
  elseif ($ctg == 'comments') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once ("comments.php");
  }
  elseif ($ctg== 'lesson_information') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("lesson_information.php");
  }
  elseif ($ctg== 'digital_library' && $currentLesson -> options['digital_library']) {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("digital_library.php");
  }
  elseif ($ctg == 'projects') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /**The file that handles the projects*/
      require_once("projects.php");
  }
  elseif ($ctg == 'content') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      if (isset($_GET['commit_lms'])) {
          /***/
          require_once("lms_commit.php");
@@ -369,10 +376,12 @@ try {
      }
  }
  elseif ($ctg == 'tests') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("module_tests.php");
  }
  elseif ($ctg == 'feedback') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      require_once("module_tests.php");
  }
  elseif ($ctg == 'lessons') {
@@ -411,6 +420,7 @@ try {
      }
  }
  elseif ($ctg == 'glossary') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("glossary.php");
  }

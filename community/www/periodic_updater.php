@@ -28,12 +28,17 @@ if (!isset($_SESSION['s_login']) || !eF_checkParameter($_SESSION['s_login'], 'lo
 
 try {
 
- if ($_SESSION['timestamp']) {
+
+ //if (0&&$_SESSION['last_action_timestamp']) {
+ if ($_SESSION['s_login']) {
   $entity = getUserTimeTarget($_SERVER['HTTP_REFERER']);
-  $fields = array('timestamp_now' => time(),
-      'time' => $_SESSION['time'] + time() - $_SESSION['timestamp']);
-  eF_updateTableData("user_times", $fields, "session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
+  //Update times for this entity
+  $result = eF_executeNew("update user_times set time=time+(".time()."-timestamp_now),timestamp_now=".time()."
+         where session_expired = 0 and session_id = '".session_id()."' and users_LOGIN = '".$_SESSION['s_login']."'
+          and entity = '".current($entity)."' and entity_id = '".key($entity)."'");
  }
+
+ //}
 
  $onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
  $messages = eF_getTableData("f_personal_messages pm, f_folders ff", "count(*)", "pm.users_LOGIN='".$_SESSION['s_login']."' and viewed='no' and f_folders_ID=ff.id and ff.name='Incoming'");

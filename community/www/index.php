@@ -804,6 +804,7 @@ if (isset ($_SESSION['s_login']) && ($GLOBALS['currentTheme'] -> options['sideba
   //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
   $currentUser = EfrontUser :: checkUserAccess();
   refreshLogin();
+  //$_SESSION['last_action_timestamp'] = time();		//Keep the last time something happened to the session
   if ($accounts = unserialize($currentUser -> user['additional_accounts'])) {
    $result = eF_getTableData("users", "login, user_type", 'login in ("'.implode('","', array_values($accounts)).'")');
    $smarty -> assign("T_MAPPED_ACCOUNTS", $result);

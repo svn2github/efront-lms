@@ -323,19 +323,16 @@ class EfrontConfiguration
 
     */
     public static function setValue($name, $value) {
+        try {
+            eF_insertTableData("configuration", array('name' => $name, 'value' => $value));
+        } catch (Exception $e) {
+         //If exists, update it
+         eF_updateTableData("configuration", array('value' => $value), "name = '$name'", "name = '$name'");
+        }
+        $GLOBALS['configuration'][$name] = $value;
      if (function_exists('apc_delete')) {
       apc_delete(G_DBNAME.':configuration');
      }
-        $result = eF_getTableData("configuration", "value", "name = '$name'");
-        if (sizeof($result) > 0) {
-            $result = eF_updateTableData("configuration", array('value' => $value), "name = '$name'");
-        } else {
-            $result = eF_insertTableData("configuration", array('name' => $name, 'value' => $value), "name = '$name'");
-        }
-        $GLOBALS['configuration'][$name] = $value;
-        if ($result) {
-         $GLOBALS['configuration'][$name] = $value; //Reset existing value
-        }
         return true;
     }
     /**

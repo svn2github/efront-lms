@@ -33,7 +33,11 @@ try {
  //An array of legal ids for editing entries
  if (!$_admin_) {
      if (!isset($currentContent)) {
-         $currentContent = new EfrontContentTree($currentLesson);
+      if ($currentLesson) {
+          $currentContent = new EfrontContentTree($currentLesson);
+      } else {
+       eF_redirect(basename($_SERVER['PHP_SELF']));
+      }
      }
      $lessonTests = $legalValues = $currentLesson -> getTestsAndFeedbacks(); //Lesson's tests
   $legalQuestions = eF_getTableDataFlat('questions', "id", 'lessons_ID='.$currentLesson -> lesson['id']);

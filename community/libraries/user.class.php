@@ -756,16 +756,18 @@ abstract class EfrontUser
    }
   }
   if ($sessionId) {
-   eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and session_id='$sessionId' and users_LOGIN='".$this -> user['login']."'");
+   //Logout user on this pc
+   eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and users_LOGIN='".$this -> user['login']."' and session_id='$sessionId' ");
   } else {
-   eF_updateTableData("user_times", array("session_expired" => 1), "users_LOGIN='".$this -> user['login']."'");
+   //Logout every user logged under this login
+   eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and users_LOGIN='".$this -> user['login']."'");
   }
   if ($sessionId == session_id() || !$sessionId) {
    $fields_insert = array('users_LOGIN' => $this -> user['login'],
-          'timestamp' => time(),
-          'action' => 'logout',
-          'comments' => 0,
-          'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+           'timestamp' => time(),
+           'action' => 'logout',
+           'comments' => 0,
+           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
    eF_insertTableData("logs", $fields_insert);
    eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
    eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
@@ -801,10 +803,14 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function login($password, $encrypted = false) {
-  //session_regenerate_id();		//If we don't use this, then a revisiting user that was automatically logged out may have to log in twice
   //If the user is already logged in, log him out
-  if ($this -> isLoggedIn() && !$this -> allowMultipleLogin()) {
-   $this -> logout();
+  if ($this -> isLoggedIn()) {
+   //If the user is logged in right now on the same pc with the same session, return true (nothing to do)
+   if ($this -> isLoggedIn(session_id())) {
+    return true;
+   } elseif (!$this -> allowMultipleLogin()) {
+    $this -> logout();
+   }
   }
   //If we are logged in as another user, log him out
   if (isset($_SESSION['s_login']) && $_SESSION['s_login'] != $this -> user['login']) {
@@ -850,6 +856,7 @@ abstract class EfrontUser
   $_SESSION['s_password'] = $this -> user['password'];
   $_SESSION['s_type'] = $this -> user['user_type'];
   $_SESSION['s_language'] = $loginLanguage;
+  //$_SESSION['last_action_timestamp'] = time();	//Initialize first action
   //Insert log entry
   $fields_insert = array('users_LOGIN' => $this -> user['login'],
           'timestamp' => time(),
@@ -857,23 +864,16 @@ abstract class EfrontUser
           'comments' => session_id(),
           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
-  $result = eF_getTableData("user_times", "id", "session_id='".session_id()."' and users_LOGIN='".$this -> user['login']."' and entity='system'");
-  if (!empty($result)) {
-   $fields = array("session_timestamp" => time(),
-       "session_expired" => 0,
-       "timestamp_now" => time());
-   eF_updateTableData("user_times", $fields, "id=".$result[0]['id']);
-  } else {
-   $fields = array("session_timestamp" => time(),
-       "session_id" => session_id(),
-       "session_expired" => 0,
-       "users_LOGIN" => $_SESSION['s_login'],
-       "timestamp_now" => time(),
-       "time" => 0,
-       "entity" => 'system',
-       "entity_id" => 0);
-   eF_insertTableData("user_times", $fields);
-  }
+  //Insert user times entry
+  $fields = array("session_timestamp" => time(),
+      "session_id" => session_id(),
+      "session_expired" => 0,
+      "users_LOGIN" => $_SESSION['s_login'],
+      "timestamp_now" => time(),
+      "time" => 0,
+      "entity" => 'system',
+      "entity_id" => 0);
+  eF_insertTableData("user_times", $fields);
   return true;
  }
  /**
@@ -890,9 +890,9 @@ abstract class EfrontUser
   $multipleLogins = unserialize($GLOBALS['configuration']['multiple_logins']);
   if ($multipleLogins) {
    if (in_array($this -> user['login'], $multipleLogins['users']) ||
-   in_array($this -> user['user_type'], $multipleLogins['user_types']) ||
-   in_array($this -> user['user_types_ID'], $multipleLogins['user_types']) ||
-   array_intersect(array_keys($this -> getGroups()), $multipleLogins['groups'])) {
+    in_array($this -> user['user_type'], $multipleLogins['user_types']) ||
+    in_array($this -> user['user_types_ID'], $multipleLogins['user_types']) ||
+    array_intersect(array_keys($this -> getGroups()), $multipleLogins['groups'])) {
     if ($multipleLogins['global']) { //If global allowance is set to "true", it means that the above clause, which matches the exceptions, translates to "multiple logins are prohibited for this user"
      return false;
     } else {
@@ -905,29 +905,6 @@ abstract class EfrontUser
      return false;
     }
    }
-  } else {
-   return false;
-  }
- }
- /**
-	 * Check if the user is already logged in and update his timestamp
-	 *
-	 * This function examines the system database to decide whether the user is still logged in and updates current time
-	 * <br/>Example:
-	 * <code>
-	 * $user = EfrontUserFactory :: factory('jdoe');
-	 * $user -> refreshLogin();							   //Returns true if the user is logged in
-	 * </code>
-	 *
-	 * @return boolean True if the user is logged in
-	 * @since 3.5.2
-	 * @access public
-	 */
- public function refreshLogin() {
-  $result = eF_getTableData('user_times', 'id', "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
-  if (sizeof($result) > 0) {
-   eF_updateTableData("user_times", array("timestamp_now" => time()), "id='".$result[0]['id']."'");
-   return true;
   } else {
    return false;
   }

@@ -1232,7 +1232,7 @@ CREATE TABLE users_to_groups (
 -- session_id: The id of the session
 -- session_expired: Whether this session has expired
 -- users_LOGIN: The login of the user
--- timestamp_now: The timestamp of the latest action of the user. It is compared to autologout_time limit, and of it's less, the user is automatically logged out
+-- timestamp_now: The timestamp of the latest action of the user. It is compared to autologout_time limit, and if it's less, the user is automatically logged out
 -- time: The total time the user spent on the specific entity, during this session
 -- lessons_ID: The lesson id, if any
 -- courses_ID: The courses id, if any

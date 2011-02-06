@@ -2692,14 +2692,29 @@ function addTime(&$a, $b) {
 
 	*/
 }
+/**
+
+ * Determine which entity we should count time for. This may be 'system', 'lesson' or 'unit', in
+
+ * an array with id => entity key/value pair. For example,
+
+ * array(43 => 'lesson')
+
+ * array(653 => 'unit')
+
+ * array(0 => 'system')		//'system' is always 0
+
+ * @param string $url The url to parse
+
+ */
 function getUserTimeTarget($url) {
- $urlParts = parse_url($url);
- $queryParts = explode('&', $urlParts['query']);
  if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID']) {
   $entity = array($_SESSION['s_lessons_ID'] => 'lesson');
  } else {
   $entity = array(0 => 'system');
  }
+ $urlParts = parse_url($url);
+ $queryParts = explode('&', $urlParts['query']);
  foreach($queryParts as $part) {
   $result = explode("=", $part);
   switch ($result[0]) {
@@ -2709,35 +2724,50 @@ function getUserTimeTarget($url) {
  }
  return $entity;
 }
+/**
+
+ * Get the time that the user has spent on this entity, during the active session
+
+ * @param $entity The entity to calculate time fo
+
+ */
 function getUserLastTimeInTarget($entity) {
- $result = eF_getTableData("user_times", "time", "session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
+ $result = eF_getTableData("user_times", "time", "session_expired=0 and session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
  if (sizeof($result) > 0) {
   return $result[0]['time'];
  } else {
   return false;
  }
 }
+/**
+
+ * Either refresh the 'time' field of the current user/session/entity, or create a new entry
+
+ * if the user just entered an entity during this session
+
+ */
 function refreshLogin() {
- $entity = getUserTimeTarget($_SERVER['REQUEST_URI']);
- $lastTime = getUserLastTimeInTarget($entity);
- if ($lastTime === false) {
+ $entity = getUserTimeTarget($_SERVER['REQUEST_URI']); //Something like 'system', 'lesson' or 'unit'
+ $totalTimeSoFar = getUserLastTimeInTarget($entity); //The time the user has spent during this session, on this entity
+ if ($totalTimeSoFar === false) {
+  //Insert a new entry for this entity, to start counting time for
   $fields = array("session_timestamp" => time(),
-       "session_id" => session_id(),
-       "session_expired" => 0,
-       "users_LOGIN" => $_SESSION['s_login'],
-       "timestamp_now" => time(),
-       "time" => 0,
-       "lessons_ID" => $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : null,
-       "courses_ID" => $_SESSION['s_courses_ID'] ? $_SESSION['s_courses_ID'] : null,
-       "entity" => current($entity),
-       "entity_id" => key($entity));
+      "session_id" => session_id(),
+      "session_expired" => 0,
+      "users_LOGIN" => $_SESSION['s_login'],
+      "timestamp_now" => time(),
+      "time" => 0,
+      "lessons_ID" => $_SESSION['s_lessons_ID'] ? $_SESSION['s_lessons_ID'] : null,
+      "courses_ID" => $_SESSION['s_courses_ID'] ? $_SESSION['s_courses_ID'] : null,
+      "entity" => current($entity),
+      "entity_id" => key($entity));
   eF_insertTableData("user_times", $fields);
-  $_SESSION['time'] = 0;
  } else {
-  eF_updateTableData("user_times", array("session_expired" => 0), "session_id='".session_id()."' and users_LOGIN='".$_SESSION['s_login']."'");
-  $_SESSION['time'] = $lastTime;
+  //Update times for this entity
+  $result = eF_executeNew("update user_times set time=time+(".time()."-timestamp_now),timestamp_now=".time()."
+         where session_expired = 0 and session_id = '".session_id()."' and users_LOGIN = '".$_SESSION['s_login']."'
+          and entity = '".current($entity)."' and entity_id = '".key($entity)."'");
  }
- $_SESSION['timestamp'] = time();
 }
 function getMainScripts() {
  $mainScripts = array('EfrontScripts',

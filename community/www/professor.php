@@ -37,7 +37,7 @@ try {
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
  if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
-  setcookie('c_request', htmlspecialchars_decode(http_build_query($_GET)), time() + 300);
+  setcookie('c_request', htmlspecialchars_decode(basename($_SERVER['REQUEST_URI'])), time() + 300);
  }
  eF_redirect("index.php?ctg=expired");
  exit;
@@ -47,12 +47,15 @@ if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) 
  $_SESSION['previousMainUrl'] = $_SERVER['REQUEST_URI'];
 }
 
-if ($_COOKIE['c_request']) {
-    setcookie('c_request', '', time() - 86400);
+if (isset($_COOKIE['c_request']) && $_COOKIE['c_request']) {
+ setcookie('c_request', '', time() - 86400);
     if (mb_strpos($_COOKIE['c_request'], '.php') !== false) {
-        eF_redirect($_COOKIE['c_request']);
+     $urlParts = parse_url($_COOKIE['c_request']);
+     if (basename($urlParts['path']) == 'professor.php') {
+         eF_redirect($_COOKIE['c_request']);
+     }
     } else {
-        eF_redirect("".$_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
+        eF_redirect($_SESSION['s_type'].'.php?'.$_COOKIE['c_request']);
     }
 }
 $roles = EfrontLessonUser :: getLessonsRoles();
@@ -260,6 +263,7 @@ if (isset($_GET['bookmarks']) && $GLOBALS['configuration']['disable_bookmarks'] 
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 /*Horizontal menus*/
 refreshLogin();
+//$_SESSION['last_action_timestamp'] = time();		//Keep the last time something happened to the session
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
  $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
  if ($accounts = unserialize($currentUser -> user['additional_accounts'])) {
@@ -289,6 +293,7 @@ $smarty -> assign("_professor_", $_professor_);
 $smarty -> assign("_admin_", $_admin_);
 try {
  if ($ctg == 'control_panel') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once ("control_panel.php");
  }
@@ -297,6 +302,7 @@ try {
      require_once ("landing_page.php");
  }
  elseif ($ctg == 'content') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      if (isset($_GET['commit_lms'])) {
          /***/
          require_once("lms_commit.php");
@@ -307,10 +313,12 @@ try {
      }
  }
  elseif ($ctg == 'metadata') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("metadata.php");
  }
  elseif ($ctg == 'comments') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once ("comments.php");
  }
@@ -319,22 +327,27 @@ try {
      require_once "module_facebook.php";
  }
  elseif ($ctg == 'copy') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("copy.php");
  }
  elseif ($ctg == 'order') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("order.php");
  }
  elseif ($ctg == 'scheduling') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("scheduling.php");
  }
  elseif ($ctg == 'projects') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /**The file that handles the projects*/
      require_once("projects.php");
  }
  elseif ($ctg == 'tests') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
   if ($GLOBALS['configuration']['disable_tests'] == 1) {
       eF_redirect("".basename($_SERVER['PHP_SELF']));
   }
@@ -351,6 +364,7 @@ try {
      require_once ('module_tests.php');
  }
  elseif ($ctg == 'feedback') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
   if ($GLOBALS['configuration']['disable_feedback'] == 1) {
       eF_redirect("".basename($_SERVER['PHP_SELF']));
   }
@@ -367,6 +381,7 @@ try {
      require_once ('module_tests.php');
  }
  elseif ($ctg == 'file_manager') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      if (isset($_GET['folder'])) {
          $basedir = G_CONTENTPATH . $_GET['folder']. "/";
@@ -374,7 +389,11 @@ try {
              mkdir($basedir, 0755);
          }
      } else {
-         $basedir = $currentLesson -> getDirectory();
+      if ($currentLesson) {
+       $basedir = $currentLesson -> getDirectory();
+      } else {
+       eF_redirect(basename($_SERVER['PHP_SELF']));
+      }
      }
      if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
          $options = array('lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 1);
@@ -389,6 +408,7 @@ try {
      include "file_manager.php";
  }
  elseif ($ctg == 'rules') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("rules.php");
  }
@@ -404,6 +424,7 @@ try {
      require_once("module.php");
  }
  elseif ($ctg == 'survey') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      if ($currentUser -> coreAccess['surveys'] == 'hidden' && $GLOBALS['configuration']['disable_surveys'] != 1) {
          eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");exit;
      }
@@ -414,6 +435,7 @@ try {
      require_once "social.php";
  }
  elseif ($ctg == 'glossary') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("glossary.php");
  }
@@ -428,9 +450,7 @@ try {
      }
  }
  elseif ($ctg == 'settings') {
-     if (!$currentLesson) {
-         eF_redirect("".basename($_SERVER['PHP_SELF']));
-     }
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      if (isset($currentUser -> coreAccess['settings']) && $currentUser -> coreAccess['settings'] == 'hidden') {
          eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
      }
@@ -478,26 +498,32 @@ try {
      require_once("includes/chat.php");
  }
  elseif ($ctg == 'import') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("import.php");
  }
  elseif ($ctg == 'scorm') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("scorm.php");
  }
  elseif ($ctg == 'ims') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("ims.php");
  }
  elseif ($ctg == 'lesson_information') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("lesson_information.php");
  }
  elseif ($ctg == 'news') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      include ("news.php");
  }
  elseif ($ctg == 'progress') {
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("progress.php");
  }

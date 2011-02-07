@@ -762,7 +762,7 @@ abstract class EfrontUser
    //Logout every user logged under this login
    eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and users_LOGIN='".$this -> user['login']."'");
   }
-  $result = eF_getTableData("user_times", "id", "session_expired=0 and users_LOGIN='$this -> user['login']'");
+  $result = eF_getTableData("user_times", "id", "session_expired=0 and users_LOGIN='".$this -> user['login']."'");
   //If this was the last user logged in under this login, create logout entry
   if (empty($result)) {
    $fields_insert = array('users_LOGIN' => $this -> user['login'],

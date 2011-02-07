@@ -241,45 +241,68 @@ class module_chat extends eFrontModule{
    $smarty->assign('T_CHAT_CHANGE_REFRESHRATE_FORM', $renderer->toArray());
 
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-   if (isset($_POST['lesson'])){
-    $this->createLessonHistory($_POST['lesson'],
-           $_POST['from']['Y'].'-'.$_POST['from']['M'].'-'.$_POST['from']['d'].' '."00:00:00" ,
-           $_POST['until']['Y'].'-'.$_POST['until']['M'].'-'.$_POST['until']['d'].' '."23:59:59"
-           );
-
-   }
-
-   $form = new HTML_QuickForm("create_log_form", "post", $this->moduleBaseUrl."&createLog=1", "", null, true);
-   $date_from = $form->addElement('date', 'from', 'From Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
-   $date_until = $form->addElement('date', 'until', 'Until Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
-   $ratingRadios = array();
    $lessons = $this -> getLessonsCatalogue();
-   foreach ($lessons as $l){
-    $ratingRadios[] = $form->createElement('radio',null, null, $l, $l);
-   }
+   $smarty->assign('T_CHAT_LESSONS', $lessons);
+   /*if (isset($_POST['lesson'])){
 
-   $form->addGroup($ratingRadios,'lesson',null,'<br />');
+				$this->createLessonHistory($_POST['lesson'],
 
-   //$form->setDefaults(array('lesson' =>'Maya civilization'));
-   $form->setDefaults ( array('lesson'=> $ratingRadios[0]->getValue() ));
+											$_POST['from']['Y'].'-'.$_POST['from']['M'].'-'.$_POST['from']['d'].' '."00:00:00" ,
+
+											$_POST['until']['Y'].'-'.$_POST['until']['M'].'-'.$_POST['until']['d'].' '."23:59:59"
+
+											);
 
 
-   $form->addElement('submit', 'submit', "Create Log", 'class="flatButton"');
-   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
 
-   $form->accept($renderer);
-   $smarty->assign('T_CHAT_CREATE_LOG_FORM', $renderer->toArray());
+			}
 
+
+
+			$form = new HTML_QuickForm("create_log_form", "post", $this->moduleBaseUrl."&createLog=1", "", null, true);
+
+			$date_from = $form->addElement('date', 'from', 'From Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
+
+			$date_until = $form->addElement('date', 'until', 'Until Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
+
+			$ratingRadios = array();
+
+			$lessons = $this -> getLessonsCatalogue();
+
+			foreach ($lessons as $l){
+
+				$ratingRadios[] = $form->createElement('radio',null, null, $l, $l);
+
+			}
+
+
+
+			$form->addGroup($ratingRadios,'lesson',null,'<br />');
+
+
+
+			//$form->setDefaults(array('lesson' =>'Maya civilization'));
+
+			$form->setDefaults ( array('lesson'=> $ratingRadios[0]->getValue() ));
+
+
+
+
+
+			$form->addElement('submit', 'submit', "Create Log", 'class="flatButton"');
+
+			$renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+
+
+
+			$form->accept($renderer);
+
+			$smarty->assign('T_CHAT_CREATE_LOG_FORM', $renderer->toArray());*/
 ////////
-
   return $this -> moduleBaseDir . "control_panel.tpl";
  }
-
-
  public function getNavigationLinks() {
   $currentUser = $this -> getCurrentUser();
-
         /*if ($currentUser -> getType() == 'administrator') {
 
 			if (isset($_GET['setChatHeartBeat'])){
@@ -349,13 +372,11 @@ class module_chat extends eFrontModule{
  private function getLessonsCatalogue(){
   $lsn = eF_getTableData("lessons", "name", "1");
   $lessons = array();
-
   foreach ($lsn as $lesson){
    $lessons[] = $lesson['name'];
   }
   return $lessons;
  }
-
  private function createLessonHistory($lesson, $from, $until){
   $lesson = str_replace(' ','_',$lesson);
   //if (time() > strtotime($from)){
@@ -365,18 +386,14 @@ class module_chat extends eFrontModule{
    $sql = "select * from module_chat where (module_chat.to_user = '".$lesson."' AND module_chat.sent >='".$from."' AND module_chat.sent <= '".$until."') order by id ASC";
   //}
   $query = mysql_query($sql);
-
   $data = array();
   $workbook = new Spreadsheet_Excel_Writer();
   $workbook->setVersion(8);
-
-
   $worksheet =& $workbook->addWorksheet($lesson.' ');
   $worksheet->setInputEncoding('utf-8');
   $worksheet->setColumn(1,1,50);
   $worksheet->setColumn(0,0,15);
   $worksheet->setColumn(2,2,18);
-
   $format_title =& $workbook->addFormat();
   $format_title->setBold();
   $format_title->setAlign('center');
@@ -384,53 +401,40 @@ class module_chat extends eFrontModule{
   $format_title->setBgColor('000000');
   $format_title->setColor('white');
   $format_title->setPattern(1);
-
   $multipleLineDataFormat = &$workbook->addFormat( array('Border'=> 1, 'Align' => 'left' ) );
   $multipleLineDataFormat->setTextWrap();
-
   $format_user =& $workbook->addFormat();
   $format_user->setAlign('center');
   $format_user->setBorder(1);
-
   $format_date = $workbook->addFormat();
   $format_date->setBorder(1);
-
-
   $worksheet->write(0, 0, 'FROM USER', $format_title);
   $worksheet->write(0, 1, 'MESSAGE', $format_title);
   $worksheet->write(0, 2, 'SENT AT', $format_title);
-
   $i = 1;
   while ($chat = mysql_fetch_array($query)) {
-
    $worksheet->write($i, 0, $chat["from_user"], $format_user);
    $worksheet->write($i, 1, $chat["message"], $multipleLineDataFormat);
    $worksheet->write($i, 2, $chat["sent"], $format_date);
    $i++;
   }
-
   $workbook->send($lesson);
   $workbook->close();
  }
-
  private function formatDate($date, $end){
-
   $y = $date['Y'];
   $m = $date['M'];
   $d = $date['d'];
-
   if ($m<10){
    $m = '0'.$m;
   }
   if ($d<10){
    $d = '0'.$d;
   }
-
   if ($end==0)
    return ($y.'-'.$m.'-'.$d.' 00:00:00');
   else
    return ($y.'-'.$m.'-'.$d.' 23:59:59');
  }
-
 }
 ?>

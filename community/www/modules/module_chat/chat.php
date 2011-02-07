@@ -1,8 +1,16 @@
 <?php
-
-include("../../../libraries/configuration.php");
-
+session_cache_limiter('none'); //Initialize session
 session_start();
+
+$path = "../../../libraries/"; //Define default path
+
+/** The configuration file.*/
+require_once $path."configuration.php";
+
+//Set headers in order to eliminate browser cache (especially IE's)
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
 
 
 if (!isset($_SESSION['chatter'])){

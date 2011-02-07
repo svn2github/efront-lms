@@ -21,8 +21,12 @@
    <td class="elementCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.rate.html}</td>
   </tr>
   <tr>
+   <td class="labelCell"></td>
+   <td class="infoCell">{$smarty.const._CHAT_CAUTION_NOTCHANGE}</td>
+  </tr>
+  <tr>
    <td></td>
-   <td class="submitCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.submit.html}<span class="caution">{$smarty.const._CHAT_CAUTION_NOTCHANGE}</span></td>
+   <td class="submitCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.submit.html}<span class="caution"></span></td>
   </tr>
  </table>
 </form>
@@ -37,35 +41,29 @@
    <td class="elementCell">{$T_CHAT_CHANGE_REFRESHRATE_FORM.rate2.html}</td>
   </tr>
   <tr>
+   <td class="labelCell"></td>
+   <td class="infoCell">{$smarty.const._CHAT_CAUTION_NOTCHANGE}</td>
+  </tr>
+  <tr>
    <td></td>
-   <td class="submitCell">{$T_CHAT_CHANGE_REFRESHRATE_FORM.submit.html}<span class="caution">{$smarty.const._CHAT_CAUTION_NOTCHANGE}</span></td>
+   <td class="submitCell">{$T_CHAT_CHANGE_REFRESHRATE_FORM.submit.html}<span class="caution"></span></td>
   </tr>
  </table>
 </form>
 {/capture}
 {capture name = 't_create_log'}
-  {$T_CHAT_CREATE_LOG_FORM.javascript}
-
-<form {$T_CHAT_CREATE_LOG_FORM.attributes}>
-        <table class="formElements">
-  <tr>
-   <td>From Date:</td>
-   <td class="elementCell">{$T_CHAT_CREATE_LOG_FORM.from.html}</td>
-  </tr>
-  <tr>
-   <td>Until Date:</td>
-   <td class="elementCell">{$T_CHAT_CREATE_LOG_FORM.until.html}</td>
-  </tr>
-  <tr>
-   <td></td>
-   <td class="elementCell">{$T_CHAT_CREATE_LOG_FORM.lesson.html}</td>
-  </tr>
-  <tr>
-   <td></td>
-   <td class="submitCell">{$T_CHAT_CREATE_LOG_FORM.submit.html}</td>
-  </tr>
- </table>
-</form>
+<table class="sortedTable" width="100%">
+<tr>
+ <td class = "topTitle">{$smarty.const._CHAT_LESSONS_TITLE}</td>
+ <td class = "topTitle centerAlign">{$smarty.const._CHAT_OPERATIONS}</td>
+</tr>
+{foreach from=$T_CHAT_LESSONS item=lesson}
+<tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+ <td>{$lesson}</td>
+ <td class="centerAlign"><a href = "#" onclick="javascript:clearU2ULogs(); return false;"><img src="{$T_CHAT_MODULE_BASELINK}img/edit.png" alt="createLog" title="Create Log File"/></a></td>
+</tr>
+{/foreach}
+</table>
 {/capture}
 {capture name = 't_clear_logs'}
  <table class="sortedTable" width="100%">

@@ -129,15 +129,23 @@ function insertatcursor(myField, myValue) {
         myField.value += myValue;
     }
 }
+var checkToggle;
 function togglePdf() {
  $('pdf_upload').toggle();
  $('pdf_upload_max_size').toggle();
  $('pdf_content').toggle();
  $('nonPdfTable').toggle();
  $('toggleTools').toggle();
+ if (checkToggle == true) {
+  if ($('editor_content_data').value != '') {
+   $('content_toggle').value = $('editor_content_data').value;
+   $('editor_content_data').value='';
+  } else {
+   $('editor_content_data').value = $('content_toggle').value;
+  }
+ }
 }
 function toggleAdvancedParameters() {
-
  if ($('scorm_asynchronous')) {
   $('scorm_asynchronous').toggle();
   $('scorm_asynchronous_explanation').toggle();

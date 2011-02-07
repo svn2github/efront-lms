@@ -25,4 +25,5 @@ define("_CHAT_CURRENT_CHAT_ENGINE_RATE", "*Current Chat Engine Rate is");
 define("_CHAT_CURRENT_REFRESH_RATE", "*Current User List Refresh Rate is");
 define("_CHAT_CHANGE_REFRESHRATE", "Change User List Refresh Rate");
 define("_CHAT_LESSONS_CATALOGUE", "Lessons Catalogue");
+define("_CHAT_LESSONS_TITLE", "Lesson Title");
 ?>

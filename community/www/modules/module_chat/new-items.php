@@ -1,9 +1,15 @@
 <?php
-include("../../../libraries/configuration.php");
-
+session_cache_limiter('none'); //Initialize session
 session_start();
 
+$path = "../../../libraries/"; //Define default path
 
+/** The configuration file.*/
+require_once $path."configuration.php";
+
+//Set headers in order to eliminate browser cache (especially IE's)
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
 if ($_SESSION['s_lessons_ID']){
 
@@ -54,26 +60,20 @@ else{
 
 function getConnectedUsers(){
  $usersOnline = array();
-  //A user may have multiple active entries on the user_times table, one for system, one for unit etc. Pick the most recent
-  $result = eF_getTableData("user_times,users,module_chat_users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp", "users.login=user_times.users_LOGIN and users.login=module_chat_users.username and session_expired=0", "timestamp_now desc");
-  foreach ($result as $value) {
-   if (!isset($parsedUsers[$value['users_LOGIN']])) {
+ //A user may have multiple active entries on the user_times table, one for system, one for unit etc. Pick the most recent
+ $result = eF_getTableData("user_times,users,module_chat_users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp", "users.login=user_times.users_LOGIN and users.login=module_chat_users.username and session_expired=0", "timestamp_now desc");
+ foreach ($result as $value) {
+  if (!isset($parsedUsers[$value['users_LOGIN']])) {
 
-    $value['login'] = $value['users_LOGIN'];
-    if (time() - $value['timestamp_now'] < $interval || !$interval) { // TODO: DEN XREIAZETAI NA KANW LOGOUT TOUS USERS - REMOVE IF-ELSE
-  //if (in_array( $value['users_LOGIN'], $_SESSION['commonality'])){
+   $value['login'] = $value['users_LOGIN'];
    $usersOnline[] = array('login' => $value['users_LOGIN'],
-     'formattedLogin'=> formatLogin(false, $value),
-     'user_type' => $value['user_type'],
-     'timestamp_now' => $value['timestamp_now'],
-     'time' => eF_convertIntervalToTime(time() - $value['session_timestamp']));
-  //}
-    } else {
-     EfrontUserFactory :: factory($value['users_LOGIN']) -> logout();
-    }
-    $parsedUsers[$value['users_LOGIN']] = true;
-   }
+         'formattedLogin'=> formatLogin(false, $value),
+         'user_type' => $value['user_type'],
+         'timestamp_now' => $value['timestamp_now'],
+         'time' => eF_convertIntervalToTime(time() - $value['session_timestamp']));
+   $parsedUsers[$value['users_LOGIN']] = true;
   }
-  return $usersOnline;
+ }
+ return $usersOnline;
 }
 ?>

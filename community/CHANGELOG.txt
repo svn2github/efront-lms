@@ -5,6 +5,11 @@
 - Fixed remote themes not being deleted
 - Fixed lesson statistics traffic tab ignoring time constraint
 - Updated js inclusion to allow chat module to work with IE8
+- Delete frame from editor when toggling pdf content in editing unit (#1034)
+- Fixed paging for group users
+- Fixed adding users to default group does not assign group courses/lessons
+- Updated completion conditions that are related to tests to not display score
+- Moved creating views to installation script
 
 === Version 3.6.8 build 9777 ===
 - XML API security update

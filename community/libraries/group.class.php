@@ -931,7 +931,7 @@ class EfrontGroup
     public function countGroupUsersIncludingUnassigned($constraints = array()) {
      !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
-     $result = eF_countTableData("users u left outer join (select * from users_to_groups ug where groups_ID=".$this -> group['id'].") r on r.users_LOGIN=u.login", "u.login, r.groups_ID is not null as has_group", implode(" and ", $where), $orderby, "", $limit);
+     $result = eF_countTableData("users u left outer join (select * from users_to_groups ug where groups_ID=".$this -> group['id'].") r on r.users_LOGIN=u.login", "u.login, r.groups_ID is not null as has_group", implode(" and ", $where));
      return $result[0]['count'];
     }
     /*
@@ -1249,7 +1249,7 @@ class EfrontGroup
 
      */
     private static $default_group = false;
-    public static function addToDefaultGroup($user) {
+    public static function addToDefaultGroup($user, $userType) {
      // Get the default eFront group
      if (!$default_group) {
       $default_group = eF_getTableData("groups", "*", "is_default = 1 AND active = 1");
@@ -1263,7 +1263,8 @@ class EfrontGroup
      try {
       $roles = EfrontUser::getRoles();
       $group = new EfrontGroup($default_group);
-      $group -> addUsers($user, $group -> group['user_types_ID']);
+      //Add user to group with group's default type or, if one is not set, the user's type
+      $group -> addUsers($user, $group -> group['user_types_ID'] ? $group -> group['user_types_ID'] : $userType);
      } catch (Exception $e) {/*otherwise no default group has been defined*/}
      return true;
     }

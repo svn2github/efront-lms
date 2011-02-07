@@ -281,7 +281,7 @@ function on_off() {
 
 
   $J.cookie("chat_on", "on");
-  toggle_users();
+  toggle_users(true);
 
 
   $J.get(modulechatbaselink+'chat.php?action=logintochat');
@@ -291,9 +291,9 @@ function on_off() {
 }
 
 
-function toggle_users() {
+function toggle_users(forced) {
 
- if (ul_sem == 1)
+ if (ul_sem == 1 && !forced)
   return;
 
  ul_sem = 1;
@@ -482,7 +482,8 @@ function createChatBox(chatboxtitle,minimizeChatBox) {
      $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").addClass('chatboxtextareaselected');
  });
  $J("#chatbox_"+chatboxtitle+ " .chatboxcontent").click(function(){
-            $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
+            if (!($J("#chatbox_"+chatboxtitle+" .chatboxtextarea").is(":focus")))
+             $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
             blink_win[chatboxtitle] = false;
             $J('#chatbox_'+chatboxtitle+' .chatboxhead').removeClass('chatboxblink');
             });
@@ -522,6 +523,7 @@ function chatHeartbeat(){
     }
    }
   }
+  var scrolldown = false;
   $J.ajax({
     url: modulechatbaselink+"chat.php?action=chatheartbeat",
     cache: false,
@@ -529,6 +531,7 @@ function chatHeartbeat(){
     error:function (xhr, ajaxOptions, thrownError){
      clearTimeout(chatheartbeat_timeout);
      chatHeartbeat();
+
                 },
     success: function(data) {
 
@@ -536,6 +539,7 @@ function chatHeartbeat(){
     return;
    $J.each(data.items, function(i,item){
     if (item) { // fix strange ie bug
+
 
      chatboxtitle = item.t;
      //alert(chatboxtitle);
@@ -565,15 +569,21 @@ function chatHeartbeat(){
       from = item.f
 
      //if (item.s == 2) {
-     //	$J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxinfo">'+careLinks(item.m)+'</span></div>');
+     //	$J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxinfo">'+careLinksEmoticons(item.m)+'</span></div>');
      //} else {
+     var elem = $J("#chatbox_"+chatboxtitle+" .chatboxcontent");
+     if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()) {
+       scrolldown = true;
+     }
+
       newMessages[chatboxtitle] = true;
       newMessagesWin[chatboxtitle] = true;
       blink_win[chatboxtitle] = true;
-      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+from+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+careLinks(item.m)+'</span></div>');
+      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+from+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+careLinksEmoticons(item.m)+'</span></div>');
      //}
 
-     $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
+     if (scrolldown == true)
+      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
      if (itemsfound == 0){
       /*if (ie!=1)
 
@@ -721,6 +731,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
 
 			});*/
    msg = message.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;");
+   msg = careLinksEmoticons(msg);
     $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+username+':&nbsp;</span><span class="chatboxmessagecontent">'+msg+'</span></div>');
     $J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
    $J.post(modulechatbaselink+"chat.php?action=sendchat", {to: chatboxtitle, message: message}, function (data){});
@@ -765,10 +776,10 @@ function startChatSession(){
      }
 
      if (item.s == 2) {
-      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxinfo">'+item.m+'</span></div>');
+      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxinfo">'+careLinksEmoticons(item.m)+'</span></div>');
      }
      else {
-      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+item.f+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+item.m+'</span></div>');
+      $J("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+item.f+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+careLinksEmoticons(item.m)+'</span></div>');
      }
 
 
@@ -808,13 +819,18 @@ function disableSelection(target){
 }
 
 
-function careLinks(input){
+function careLinksEmoticons(input){
 
     return input
     .replace(/(ftp|http|https|file):\/\/[\S]+(\b|$)/gim,
 '<a href="$&" class="my_link" target="_blank">$&</a>')
-    .replace(/(www[\S]+(\b|$))/gim,
-'$1<a href="http://$2" class="my_link" target="_blank">$2</a>');
+    .replace(/(^|[^\/])(www\.[\S]+(\b|$))/gim,
+'$1<a href="http://$2" class="my_link" target="_blank">$2</a>')
+ .replace(/:\)/g, "<img src=\""+ modulechatbaselink +"img/emoticons/smile.gif\" />")
+ .replace(/:\(/g, "<img src=\""+ modulechatbaselink +"img/emoticons/sad.gif\" />")
+ .replace(/:D|:d/g, "<img src=\""+ modulechatbaselink +"img/emoticons/bigsmile.gif\" />")
+ .replace(/:'\(/g, "<img src=\""+ modulechatbaselink +"img/emoticons/cry.gif\" />")
+ .replace(/:P|:p/g, "<img src=\""+ modulechatbaselink +"img/emoticons/glwssa.gif\" />");
 }
 
 
@@ -848,6 +864,13 @@ function soundPlay(){
  soundEmbed.removed = false;
  document.body.appendChild(soundEmbed);
 }
+jQuery.extend(jQuery.expr[':'], {
+    focus: function(element) {
+        return element == document.activeElement;
+    }
+});
+
+
 /**
 
  * Cookie plugin

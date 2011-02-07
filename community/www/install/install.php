@@ -527,6 +527,7 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
     } catch (Exception $e) {}
     EfrontTimes :: upgradeFromUsersOnline();
     Installation :: addModules(true);
+    Installation :: createViews();
     if (!isset($_GET['unattended'])) {
      header("location:".$_SERVER['PHP_SELF']."?finish=1&upgrade=1");
      exit;
@@ -574,6 +575,7 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
 ?>';
     file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
     Installation :: addModules();
+    Installation::createViews();
     if (is_file('post_install.php')) {
      include('post_install.php');
      runPostInstallationFunctions();
@@ -1295,6 +1297,10 @@ php_value register_globals Off
    if(count($templateExists) == 0)
     eF_insertTableData("certificate_templates", $dbFields);
   }
+ }
+ public static function createViews() {
+  try {
+  } catch (Exception $e) {}
  }
 }
 ?>

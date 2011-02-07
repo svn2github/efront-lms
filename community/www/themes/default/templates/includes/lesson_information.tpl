@@ -83,7 +83,7 @@
                  {elseif $condition.type == 'all_tests'}
                      {$smarty.const._YOUMUSTCOMPLETEALLTESTS}
                  {elseif $condition.type == 'specific_test'}
-                     {$smarty.const._YOUMUSTCOMPLETETEST} &quot;{$T_TREE_NAMES[$condition.options.0]}&quot; {$smarty.const._WITHSCORE} #filter:score-{$condition.test_passing_score}#%
+                     {$smarty.const._YOUMUSTCOMPLETETEST} &quot;{$T_TREE_NAMES[$condition.options.0]}&quot;
                  {/if}
                  {if $_student_}
                      {if !$T_CONDITIONS_STATUS[$key]}<img src = "images/16x16/forbidden.png" title = "{$smarty.const._CONDITIONNOTMET}" alt = "{$smarty.const._CONDITIONNOTMET}" style = "vertical-align:middle;margin-left:25px">{else}<img src = "images/16x16/success.png" title = "{$smarty.const._CONDITIONMET}" alt = "{$smarty.const._CONDITIONMET}" style = "vertical-align:middle;margin-left:25px">{/if}

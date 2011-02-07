@@ -150,11 +150,16 @@ class module_chat extends eFrontModule{
   }
   return $pageURL;
  }
+ public function addScripts() {
+  return array("scriptaculous/effects", "scriptaculous/controls");
+ }
  //public function getSmartyTpl() {
  public function onPageFinishLoadingSmartyTpl() {
   if (!isset($_SESSION['lesson_rooms']))
    $_SESSION['lesson_rooms'] = array();
+
   $smarty = $this -> getSmartyVar();
+
   $mainScripts = array_merge(array('../modules/module_chat/js/jquery', '../modules/module_chat/js/chat'),getMainScripts());
   $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
 
@@ -199,7 +204,6 @@ class module_chat extends eFrontModule{
  public function getSmartyTpl() {
 
   $smarty = $this -> getSmartyVar();
-
 
    if (isset($_POST['rate'])){
     $this -> setChatHeartbeat($_POST['rate']*1000);

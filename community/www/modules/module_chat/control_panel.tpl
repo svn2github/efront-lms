@@ -1,6 +1,6 @@
 {* chat module control panel template *}
 
-<link href="{$T_CHAT_MODULE_BASELINK}css/control_panel.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript" src="{$T_CHAT_MODULE_BASELINK}js/admin.js"></script>
 
 <script type="text/javascript">
@@ -52,18 +52,17 @@
 </form>
 {/capture}
 {capture name = 't_create_log'}
-<table class="sortedTable" width="100%">
-<tr>
- <td class = "topTitle">{$smarty.const._CHAT_LESSONS_TITLE}</td>
- <td class = "topTitle centerAlign">{$smarty.const._CHAT_OPERATIONS}</td>
-</tr>
-{foreach from=$T_CHAT_LESSONS item=lesson}
-<tr class = "{cycle values = "oddRowColor, evenRowColor"}">
- <td>{$lesson}</td>
- <td class="centerAlign"><a href = "#" onclick="javascript:clearU2ULogs(); return false;"><img src="{$T_CHAT_MODULE_BASELINK}img/edit.png" alt="createLog" title="Create Log File"/></a></td>
-</tr>
-{/foreach}
-</table>
+<table>
+                <tr><td class = "labelCell">{"testLabel"}:</td>
+                    <td class = "elementCell">
+                        <input type = "text" id = "autocomplete" class = "autoCompleteTextBox"/>
+                        <img id = "busy" src = "{$T_CHAT_MODULE_BASELINK}img/loading.gif" style="display:none;" alt = "loading" title = "loading"/>
+                        <div id = "autocomplete_lessons" class = "autocomplete"></div>
+                    </td>
+                </tr>
+                <tr><td></td>
+                 <td class = "infoCell">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
+            </table>
 {/capture}
 {capture name = 't_clear_logs'}
  <table class="sortedTable" width="100%">

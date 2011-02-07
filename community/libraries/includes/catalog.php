@@ -184,9 +184,9 @@ if (isset($_GET['fct'])) {
        unset($cart['course'][$key]);
        cart :: storeCart($cart);
        if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-        eF_redirect($_SESSION['s_type']."page.php?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
+        eF_redirect($_SESSION['s_type']."page.php?ctg=lessons&message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
        } else {
-        eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
+        eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=lessons&message=".rawurlencode(_SUCCESSFULLYENROLLED)."&message_type=success");
        }
       } else {
        //$message = _FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE;
@@ -260,9 +260,9 @@ if (isset($_GET['fct'])) {
             }
             cart :: storeCart($cart);
             if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-                eF_redirect($_SESSION['s_type']."page.php?message=".rawurlencode($message)."&message_type=success");
+                eF_redirect($_SESSION['s_type']."page.php?ctg=lessons&message=".rawurlencode($message)."&message_type=success");
             } else {
-                eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".rawurlencode($message)."&message_type=success");
+                eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=lessons&message=".rawurlencode($message)."&message_type=success");
             }
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);

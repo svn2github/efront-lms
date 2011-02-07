@@ -105,17 +105,19 @@ try {
 /*Added Session variable for search results*/
 $_SESSION['referer'] = $_SERVER['REQUEST_URI'];
 
-refreshLogin();
-
 /*Horizontal menus*/
+$onlineUsers = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
- $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
+ $smarty -> assign("T_ONLINE_USERS_LIST", $onlineUsers);
  if ($accounts = unserialize($currentUser -> user['additional_accounts'])) {
   $result = eF_getTableData("users", "login, user_type", 'login in ("'.implode('","', array_values($accounts)).'")');
      $smarty -> assign("T_MAPPED_ACCOUNTS", $result);
  }
 
 }
+
+refreshLogin();//Important: It must be called AFTER EfrontUser :: getUsersOnline
+
 
 !isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
 

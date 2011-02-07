@@ -1,6 +1,6 @@
  {capture name = "t_scorm_form_code"}
    <script language="JavaScript" type="text/javascript" src="js/LMSFunctions{if $T_SCORM_VERSION == '1.3'}2004{/if}.php?view_unit={if $smarty.get.view_unit}{$smarty.get.view_unit}{elseif $smarty.get.target}{$smarty.get.target}{else}{$smarty.get.package_ID}{/if}"></script>
-   <form id = "scorm_form" name = "scorm_form" method = "post" action = "{$smarty.server.PHP_SELF}?ctg=content&view_unit={$smarty.get.view_unit}&ajax=1&commit_lms=1&scorm_version={if $T_SCORM_VERSION == '1.3'}2004{else}1.2{/if}" style = "display:none">
+   <form id = "scorm_form" name = "scorm_form" method = "post" action = "{$smarty.server.PHP_SELF}?ctg=content&ajax=1&commit_lms=1&scorm_version={if $T_SCORM_VERSION == '1.3'}2004&package_ID={$smarty.get.package_ID}{else}1.2&view_unit={$smarty.get.view_unit}{/if}" style = "display:none">
     <input type = "hidden" name = "id" id = "id" />
     <input type = "hidden" name = "content_ID" id = "content_ID" />
     <input type = "hidden" name = "users_LOGIN" id = "users_LOGIN" />

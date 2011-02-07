@@ -2718,7 +2718,8 @@ function getUserTimeTarget($url) {
  foreach($queryParts as $part) {
   $result = explode("=", $part);
   switch ($result[0]) {
-   case 'view_unit': $entity = array($result[1] => 'unit'); break;
+   case 'view_unit':
+   case 'package_ID': $entity = array($result[1] => 'unit'); break;
    default: break;
   }
  }

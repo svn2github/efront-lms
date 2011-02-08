@@ -12,6 +12,7 @@
 - Moved creating views to installation script
 - Fixed deleting a user logging out administrator
 - Fixed issue with non-english names in mp3 files inserted to editor via arrow
+- Fixed invalid XML in api's lesson/course listings
 - Fixed issue about exporting themes layout with custom blocks
 
 === Version 3.6.8 build 9777 ===

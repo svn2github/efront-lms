@@ -21,9 +21,10 @@ define("_CHAT_ENGINE_RATE", "Chat Engine Rate");
 define("_CHAT_USERLIST_REFRESH_RATE", "User List Refresh Rate");
 define("_CHAT_CHANGE_CHATHEARTBEAT", "Change Chat Engine Rate");
 define("_CHAT_SECONDS", "second(s)");
-define("_CHAT_CURRENT_CHAT_ENGINE_RATE", "*Current Chat Engine Rate is");
-define("_CHAT_CURRENT_REFRESH_RATE", "*Current User List Refresh Rate is");
 define("_CHAT_CHANGE_REFRESHRATE", "Change User List Refresh Rate");
 define("_CHAT_LESSONS_CATALOGUE", "Lessons Catalogue");
-define("_CHAT_LESSONS_TITLE", "Lesson Title");
+define("_CHAT_LESSON_TITLE", "Lesson Title");
+define("_CHAT_FROM_DATE", "From Date");
+define("_CHAT_UNTIL_DATE", "To Date");
+define("_CHAT_MODULE_RATES", "Module rates");
 ?>

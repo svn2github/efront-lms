@@ -2,7 +2,7 @@
 
 
 
-
+<link href="{$T_CHAT_MODULE_BASELINK}css/control_panel.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
  var modulechatbaselink = '{$T_CHAT_MODULE_BASELINK}';
  var modulechatbasedir = '{$T_CHAT_MODULE_BASEDIR}';
@@ -14,93 +14,71 @@
 {capture name = 't_set_chatheartbeat'}
 {$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.javascript}
 <form {$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.attributes}>
-  <!--<span id="currValue">{$smarty.const._CHAT_CURRENT_CHAT_ENGINE_RATE} {$T_CHAT_CURRENT_RATE} {$smarty.const._CHAT_SECONDS}</span>-->
         <table class="formElements">
   <tr>
-   <td class="labelCell">{$smarty.const._CHAT_RATE}:&nbsp;</td>
-   <td class="elementCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.rate.html}</td>
+   <td class="labelCell">{$smarty.const._CHAT_ENGINE_RATE}:&nbsp;</td>
+   <td class="elementCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.rate.html}
+    <span class = "formError">*{if $T_CHAT_ERROR_RATE}{$T_CHAT_ERROR_RATE}{/if}</span>
+   </td>
   </tr>
   <tr>
-   <td class="labelCell"></td>
-   <td class="infoCell">{$smarty.const._CHAT_CAUTION_NOTCHANGE}</td>
+   <td class="labelCell">{$smarty.const._CHAT_USERLIST_REFRESH_RATE}:&nbsp;</td>
+   <td class="elementCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.rate2.html}
+    <span class = "formError">*{if $T_CHAT_ERROR2_RATE}{$T_CHAT_ERROR2_RATE}{/if}</span>
+   </td>
   </tr>
   <tr>
    <td></td>
-   <td class="submitCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.submit.html}<span class="caution"></span></td>
-  </tr>
- </table>
-</form>
-{/capture}
-{capture name = 't_set_refresh_rate'}
-{$T_CHAT_CHANGE_REFRESHRATE_FORM.javascript}
-<form {$T_CHAT_CHANGE_REFRESHRATE_FORM.attributes}>
-  <!--<span id="currValue">{$smarty.const._CHAT_CURRENT_REFRESH_RATE} {$T_CHAT_CURRENT_REFRESH_RATE} {$smarty.const._CHAT_SECONDS}</span>-->
-        <table class="formElements">
-  <tr>
-   <td class="labelCell">{$smarty.const._CHAT_RATE}:&nbsp;</td>
-   <td class="elementCell">{$T_CHAT_CHANGE_REFRESHRATE_FORM.rate2.html}</td>
-  </tr>
-  <tr>
-   <td class="labelCell"></td>
-   <td class="infoCell">{$smarty.const._CHAT_CAUTION_NOTCHANGE}</td>
-  </tr>
-  <tr>
-   <td></td>
-   <td class="submitCell">{$T_CHAT_CHANGE_REFRESHRATE_FORM.submit.html}<span class="caution"></span></td>
+   <td class="submitCell">{$T_CHAT_CHANGE_CHATHEARTBEAT_FORM.submit1.html}</td>
   </tr>
  </table>
 </form>
 {/capture}
 {capture name = 't_create_log'}
-<table class = "statisticsSelectList">
-                <tr><td class = "labelCell">{"testLabel"}:</td>
-                    <td class = "elementCell">
-                        <input type = "text" id = "autocomplete" class = "autoCompleteTextBox"/>
-                        <img id = "busy" src = "{$T_CHAT_MODULE_BASELINK}img/loading.gif" style="display:none;" alt = "loading" title = "loading"/>
-                        <div id = "autocomplete_lessons" class = "autocomplete"></div>
-                    </td>
-                </tr>
-                <tr><td></td>
-                 <td class = "infoCell">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
-            </table>
-{/capture}
-{capture name = 't_clear_logs'}
- <table class="sortedTable" width="100%">
+{$T_CHAT_CREATE_LOG_FORM.javascript}
+<form {$T_CHAT_CREATE_LOG_FORM.attributes}>
+ <table class="formElements">
  <tr>
-  <td class = "topTitle">
-   {$smarty.const._CHAT_TITLE}
-  </td>
-  <td class = "topTitle">
-   {$smarty.const._CHAT_DESCRIPTION}
-  </td>
-  <td class="topTitle centerAlign noSort">
-   {$smarty.const._CHAT_OPERATIONS}
+  <td class="labelCell">{$smarty.const._CHAT_LESSON_TITLE}:&nbsp;</td>
+  <td class="elementCell">{$T_CHAT_CREATE_LOG_FORM.lessontitle.html}&nbsp;<span class = "formError">*</span>
+
+  <img id = "busy" src = "{$T_CHAT_MODULE_BASELINK}img/loading.gif" width="15px" height="15px" style="display:none;" alt = "loading" title = "loading"/>
+  <div id = "autocomplete_lessons" class = "autocomplete"></div>
   </td>
  </tr>
- <tr class="oddRowColor">
-  <td>
-  {$smarty.const._CHAT_CLEAR_HISTORY}
-  </td>
-  <td>
-   {$smarty.const._CHAT_CLEAR_HISTORY_DESCR}
-  </td>
-  <td class="centerAlign">
-   <a href = "#" onclick="javascript:clearU2ULogs(); return false;"><img src="{$T_CHAT_MODULE_BASELINK}img/error_delete.png" alt="deleteImg"/></a>
-  </td>
+ <tr>
+  <td class="labelCell">{$smarty.const._CHAT_FROM_DATE}:&nbsp;</td>
+  <td class="elementCell">{$T_CHAT_CREATE_LOG_FORM.from.html}</td>
+ </tr>
+ <tr>
+  <td class="labelCell">{$smarty.const._CHAT_UNTIL_DATE}:&nbsp;</td>
+  <td class="elementCell">{$T_CHAT_CREATE_LOG_FORM.until.html}</td>
+ </tr>
+ <tr>
+  <td></td>
+  <td class="submitCell">{$T_CHAT_CREATE_LOG_FORM.submit.html}<span class="caution"></span></td>
  </tr>
  </table>
+ {$T_LOG}
+</form>
+
+
+{/capture}
+{capture name = 't_clear_logs'}
+
+
+ {$smarty.const._CHAT_CLEAR_HISTORY_DESCR}<br /><br />
+ <input type="button" class="flatButton" value="Clear Logs" onclick="javascript:clearU2ULogs(); return false;" />
 {/capture}
 {capture name = 't_chat_tab_code'}
 <div class="tabber">
 
-{if $smarty.get.setRefresh_rate==1}
+
+{if $smarty.get.createLog==1}
   <div class="tabbertab">
-  {eF_template_printBlock tabber = "chat_engine_rate" title=$smarty.const._CHAT_ENGINE_RATE data=$smarty.capture.t_set_chatheartbeat image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
+  {eF_template_printBlock tabber = "chat_engine_rate" title=$smarty.const._CHAT_MODULE_RATES data=$smarty.capture.t_set_chatheartbeat image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
   </div>
   <div class="tabbertab tabbertabdefault">
-  {eF_template_printBlock tabber = "user_list_refresh_rate" title=$smarty.const._CHAT_USERLIST_REFRESH_RATE data=$smarty.capture.t_set_refresh_rate image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
-  </div>
-  <div class="tabbertab">
   {eF_template_printBlock tabber = "create_log" title=$smarty.const._CHAT_CREATE_LOG data=$smarty.capture.t_create_log image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
   </div>
   <div class="tabbertab">
@@ -108,10 +86,7 @@
   </div>
 {else}
   <div class="tabbertab">
-  {eF_template_printBlock tabber = "chat_engine_rate" title=$smarty.const._CHAT_ENGINE_RATE data=$smarty.capture.t_set_chatheartbeat image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
-  </div>
-  <div class="tabbertab">
-  {eF_template_printBlock tabber = "user_list_refresh_rate" title=$smarty.const._CHAT_USERLIST_REFRESH_RATE data=$smarty.capture.t_set_refresh_rate image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
+  {eF_template_printBlock tabber = "chat_engine_rate" title=$smarty.const._CHAT_MODULE_RATES data=$smarty.capture.t_set_chatheartbeat image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}
   </div>
   <div class="tabbertab">
   {eF_template_printBlock tabber = "create_log" title=$smarty.const._CHAT_CREATE_LOG data=$smarty.capture.t_create_log image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath = 1}

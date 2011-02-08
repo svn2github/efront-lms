@@ -830,7 +830,8 @@ function careLinksEmoticons(input){
  .replace(/:\(/g, "<img src=\""+ modulechatbaselink +"img/emoticons/sad.gif\" />")
  .replace(/:D|:d/g, "<img src=\""+ modulechatbaselink +"img/emoticons/bigsmile.gif\" />")
  .replace(/:'\(/g, "<img src=\""+ modulechatbaselink +"img/emoticons/cry.gif\" />")
- .replace(/:P|:p/g, "<img src=\""+ modulechatbaselink +"img/emoticons/glwssa.gif\" />");
+ .replace(/:P|:p/g, "<img src=\""+ modulechatbaselink +"img/emoticons/glwssa.gif\" />")
+ .replace(/;\)/g, "<img src=\""+ modulechatbaselink +"img/emoticons/wink.gif\" />");;
 }
 
 

@@ -1,3 +1,5 @@
+
+
 <?php
 
 include_once ("../PEAR/Spreadsheet/Excel/Writer.php");
@@ -215,19 +217,46 @@ class module_chat extends eFrontModule{
 
   $smarty = $this -> getSmartyVar();
 
-   if (isset($_POST['rate'])){
-    $this -> setChatHeartbeat($_POST['rate']*1000);
+  $smarty->assign('T_CHAT_ERROR_RATE', "");
+  $smarty->assign('T_CHAT_ERROR2_RATE', "");
+
+   if (isset($_POST['rate']) && isset($_POST['rate2'])){
+
+    $ok = true;
+    if ($_POST['rate'] < 1){
+     $smarty->assign('T_CHAT_ERROR_RATE', " New Rate must be greater or equal to 1.");
+     $ok = false;
+    }
+    if ($_POST['rate2'] < 1){
+     $smarty->assign('T_CHAT_ERROR2_RATE', " New Rate must be greater or equal to 1.");
+     $ok = false;
+    }
+
+    if ($ok){
+     $this -> setChatHeartbeat($_POST['rate']*1000);
+     $this -> setRefresh_rate($_POST['rate2']*1000);
+    }
    }
 
    $r = $this->getChatHeartbeat();
+   $r2 = $this->getRefresh_rate();
 
    $smarty->assign('T_CHAT_CURRENT_RATE', $r/1000);
 
+
    $form = new HTML_QuickForm("change_chatheartbeat_form", "post", $this->moduleBaseUrl."&setChatHeartBeat=1", "", null, true);
    $form->addElement('text', 'rate', "rate", 'class="inputText" value="'.($r/1000).'" style="width:100px;"');
-   $form->addRule('rate', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
+   $form->addRule('rate', _THEFIELD.' "Rate" '._ISMANDATORY, 'required', null, 'client');
    $form->addRule('rate', "Non numeric Value", 'numeric', null, 'client');
-   $form->addElement('submit', 'submit', _SUBMIT, 'class="flatButton"');
+   $form->addRule('rate', "Rate must be greater than 1", 'callback', create_function('$rate', 'return ($rate >= 1);'));
+
+   $form->addElement('text', 'rate2', "rate2", 'class="inputText" value="'.($r2/1000).'" style="width:100px;"');
+   $form->addRule('rate2', _THEFIELD.' "Rate" '._ISMANDATORY, 'required', null, 'client');
+   $form->addRule('rate2', "Non numeric Value", 'numeric', null, 'client');
+
+   $form->addElement('submit', 'submit1', _SUBMIT, 'class="flatButton"');
+
+
    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
    $form->setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
    $form->setRequiredNote("mesh");
@@ -235,83 +264,82 @@ class module_chat extends eFrontModule{
    $smarty->assign('T_CHAT_CHANGE_CHATHEARTBEAT_FORM', $renderer->toArray());
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   if (isset($_POST['rate2'])){
-    $this -> setRefresh_rate($_POST['rate2']*1000);
+
+   /*$smarty->assign('T_CHAT_ERROR2_RATE', "");
+
+			
+
+			if (isset($_POST['rate2'])){
+
+				if ($_POST['rate2'] >= 1)
+
+					$this -> setRefresh_rate($_POST['rate2']*1000);
+
+				else
+
+					$smarty->assign('T_CHAT_ERROR2_RATE', " New Rate must be greater or equal to 1.");
+
+			}
+
+
+
+			$r2 = $this->getRefresh_rate();
+
+
+
+			$smarty->assign('T_CHAT_CURRENT_REFRESH_RATE', $r2/1000);
+
+
+
+			$form = new HTML_QuickForm("change_refreshrate_form", "post", $this->moduleBaseUrl."&setRefresh_rate=1", "", null, true);
+
+			$form->addElement('text', 'rate2', "rate2", 'class="inputText" value="'.($r2/1000).'" style="width:100px;"');
+
+			$form->addRule('rate2', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
+
+			$form->addRule('rate2', "Non numeric Value", 'numeric', null, 'client');
+
+			$form->addElement('submit', 'submit2', _SUBMIT, 'class="flatButton"');
+
+			$renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+
+			$form->setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+
+			$form->setRequiredNote("mesh");
+
+			$form->accept($renderer);
+
+			$smarty->assign('T_CHAT_CHANGE_REFRESHRATE_FORM', $renderer->toArray());*/
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   //$lessons = $this -> getLessonsCatalogue();
+   //$smarty->assign('T_CHAT_LESSONS', $lessons);
+   $textfieldcontent = "";
+   if (isset($_POST['lessontitle'])){
+    $textfieldcontent = $_POST['lessontitle'];
+    $l = strip_tags($_POST['lessontitle']);
+    $l2 = substr($l, strpos($l, '→')+5);
+    $log = $this->createLessonHistory($l2,
+           $_POST['from']['Y'].'-'.$_POST['from']['M'].'-'.$_POST['from']['d'].' '."00:00:00" ,
+           $_POST['until']['Y'].'-'.$_POST['until']['M'].'-'.$_POST['until']['d'].' '."23:59:59"
+           );
+    $smarty->assign('T_LOG', $log);
+    $smarty->assign('T_CHAT_LESSON_TITLE', $l2);
    }
-
-   $r2 = $this->getRefresh_rate();
-
-   $smarty->assign('T_CHAT_CURRENT_REFRESH_RATE', $r2/1000);
-
-   $form = new HTML_QuickForm("change_refreshrate_form", "post", $this->moduleBaseUrl."&setRefresh_rate=1", "", null, true);
-   $form->addElement('text', 'rate2', "rate2", 'class="inputText" value="'.($r2/1000).'" style="width:100px;"');
-   $form->addRule('rate2', _THEFIELD.' "New Rate" '._ISMANDATORY, 'required', null, 'client');
-   $form->addRule('rate2', "Non numeric Value", 'numeric', null, 'client');
-   $form->addElement('submit', 'submit', _SUBMIT, 'class="flatButton"');
+   $form = new HTML_QuickForm("create_log_form", "post", $this->moduleBaseUrl."&createLog=1", "", null, true);
+   $date_from = $form->addElement('date', 'from', 'From Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
+   $date_until = $form->addElement('date', 'until', 'Until Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
+   $form->addElement('text', 'lessontitle', "lessontitle", 'maxlength="100" size="100" class="autoCompleteTextBox" id="autocomplete" value="'.$textfieldcontent.'"');
+   $form->addRule('lessontitle', _THEFIELD.' "Lesson Title" '._ISMANDATORY, 'required', null, 'client');
+   $week_ago = $this->subtractDaysFromToday(7);
+   $form->setDefaults(array('until' => array('d' => date('d'), 'M' => date('m'), 'Y' => date('Y')),
+          'from' => $week_ago
+          ));
+   $form->addElement('submit', 'submit', "Create Log", 'class="flatButton"');
    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
    $form->setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
    $form->setRequiredNote("mesh");
    $form->accept($renderer);
-   $smarty->assign('T_CHAT_CHANGE_REFRESHRATE_FORM', $renderer->toArray());
-
-   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   $lessons = $this -> getLessonsCatalogue();
-   $smarty->assign('T_CHAT_LESSONS', $lessons);
-   /*if (isset($_POST['lesson'])){
-
-				$this->createLessonHistory($_POST['lesson'],
-
-											$_POST['from']['Y'].'-'.$_POST['from']['M'].'-'.$_POST['from']['d'].' '."00:00:00" ,
-
-											$_POST['until']['Y'].'-'.$_POST['until']['M'].'-'.$_POST['until']['d'].' '."23:59:59"
-
-											);
-
-
-
-			}
-
-
-
-			$form = new HTML_QuickForm("create_log_form", "post", $this->moduleBaseUrl."&createLog=1", "", null, true);
-
-			$date_from = $form->addElement('date', 'from', 'From Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
-
-			$date_until = $form->addElement('date', 'until', 'Until Date:', array('format' => 'dMY', 'minYear' => 2010, 'maxYear' => date('Y')));
-
-			$ratingRadios = array();
-
-			$lessons = $this -> getLessonsCatalogue();
-
-			foreach ($lessons as $l){
-
-				$ratingRadios[] = $form->createElement('radio',null, null, $l, $l);
-
-			}
-
-
-
-			$form->addGroup($ratingRadios,'lesson',null,'<br />');
-
-
-
-			//$form->setDefaults(array('lesson' =>'Maya civilization'));
-
-			$form->setDefaults ( array('lesson'=> $ratingRadios[0]->getValue() ));
-
-
-
-
-
-			$form->addElement('submit', 'submit', "Create Log", 'class="flatButton"');
-
-			$renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-
-
-
-			$form->accept($renderer);
-
-			$smarty->assign('T_CHAT_CREATE_LOG_FORM', $renderer->toArray());*/
+   $smarty->assign('T_CHAT_CREATE_LOG_FORM', $renderer->toArray());
 ////////
   return $this -> moduleBaseDir . "control_panel.tpl";
  }
@@ -354,6 +382,11 @@ class module_chat extends eFrontModule{
         array ('title' => "Chat Module", 'link' => $this -> moduleBaseUrl));
    //}
         //}
+ }
+ public function checkRate($rate){
+  if ($rate<1)
+   return false;
+  return true;
  }
  private function contains($str, $content){
   $str = strtolower($str);
@@ -400,55 +433,99 @@ class module_chat extends eFrontModule{
    $sql = "select * from module_chat where (module_chat.to_user = '".$lesson."' AND module_chat.sent >='".$from."' AND module_chat.sent <= '".$until."') order by id ASC";
   //}
   $query = mysql_query($sql);
-  $data = array();
-  $workbook = new Spreadsheet_Excel_Writer();
-  $workbook->setVersion(8);
-  $worksheet =& $workbook->addWorksheet($lesson.' ');
-  $worksheet->setInputEncoding('utf-8');
-  $worksheet->setColumn(1,1,50);
-  $worksheet->setColumn(0,0,15);
-  $worksheet->setColumn(2,2,18);
-  $format_title =& $workbook->addFormat();
-  $format_title->setBold();
-  $format_title->setAlign('center');
-  $format_title->setFgColor('000000');
-  $format_title->setBgColor('000000');
-  $format_title->setColor('white');
-  $format_title->setPattern(1);
-  $multipleLineDataFormat = &$workbook->addFormat( array('Border'=> 1, 'Align' => 'left' ) );
-  $multipleLineDataFormat->setTextWrap();
-  $format_user =& $workbook->addFormat();
-  $format_user->setAlign('center');
-  $format_user->setBorder(1);
-  $format_date = $workbook->addFormat();
-  $format_date->setBorder(1);
-  $worksheet->write(0, 0, 'FROM USER', $format_title);
-  $worksheet->write(0, 1, 'MESSAGE', $format_title);
-  $worksheet->write(0, 2, 'SENT AT', $format_title);
+  /*$data = array();
+
+		$workbook = new Spreadsheet_Excel_Writer();
+
+		$workbook->setVersion(8);
+
+
+
+
+
+		$worksheet =& $workbook->addWorksheet($lesson.' ');
+
+		$worksheet->setInputEncoding('utf-8');
+
+		$worksheet->setColumn(1,1,50);
+
+		$worksheet->setColumn(0,0,15);
+
+		$worksheet->setColumn(2,2,18);
+
+
+
+		$format_title =& $workbook->addFormat();
+
+		$format_title->setBold();
+
+		$format_title->setAlign('center');
+
+		$format_title->setFgColor('000000');
+
+		$format_title->setBgColor('000000');
+
+		$format_title->setColor('white');
+
+		$format_title->setPattern(1);
+
+
+
+		$multipleLineDataFormat = &$workbook->addFormat( array('Border'=> 1, 'Align' => 'left' ) );
+
+		$multipleLineDataFormat->setTextWrap();
+
+
+
+		$format_user =& $workbook->addFormat();
+
+		$format_user->setAlign('center');
+
+		$format_user->setBorder(1);
+
+
+
+		$format_date = $workbook->addFormat();
+
+		$format_date->setBorder(1);
+
+
+
+
+
+		$worksheet->write(0, 0, 'FROM USER', $format_title);
+
+		$worksheet->write(0, 1, 'MESSAGE', $format_title);
+
+		$worksheet->write(0, 2, 'SENT AT', $format_title);
+
+		*/
   $i = 1;
+  $log = "<br>"."<table class=\"sortedTable\" width=\"100%\">";
+  $log .= "<tr><td class = \"topTitle\">From</td><td class = \"topTitle alignCenter\">Message</td><td class = \"topTitle\">Date/Time<td></tr>";
   while ($chat = mysql_fetch_array($query)) {
-   $worksheet->write($i, 0, $chat["from_user"], $format_user);
-   $worksheet->write($i, 1, $chat["message"], $multipleLineDataFormat);
-   $worksheet->write($i, 2, $chat["sent"], $format_date);
+   /*$worksheet->write($i, 0, $chat["from_user"], $format_user);
+
+			$worksheet->write($i, 1, $chat["message"], $multipleLineDataFormat);
+
+			$worksheet->write($i, 2, $chat["sent"], $format_date);*/
+   if ($i%2==0)
+    $log .= "<tr class=\"oddRowColor\"><td class=\"sender\">".$chat["from_user"].":</td><td class=\"alignCenter chatmsg\">".$chat["message"]."</td><td class=\"alignLeft date\">".$chat["sent"]."</td></td>";
+   else
+    $log .= "<tr class=\"evenRowColor\"><td class=\"sender\">".$chat["from_user"].":</td><td class=\"alignCenter chatmsg\">".$chat["message"]."</td><td class=\"alignLeft date\">".$chat["sent"]."</td></td>";
    $i++;
   }
-  $workbook->send($lesson);
-  $workbook->close();
+  $log.= "</table>";
+  return $log;
+  //$workbook->send($lesson);
+  //$workbook->close();
  }
- private function formatDate($date, $end){
-  $y = $date['Y'];
-  $m = $date['M'];
-  $d = $date['d'];
-  if ($m<10){
-   $m = '0'.$m;
-  }
-  if ($d<10){
-   $d = '0'.$d;
-  }
-  if ($end==0)
-   return ($y.'-'.$m.'-'.$d.' 00:00:00');
-  else
-   return ($y.'-'.$m.'-'.$d.' 23:59:59');
+ function subtractDaysFromToday($number_of_days)
+ {
+     $today = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+     $subtract = $today - (86400 * $number_of_days);
+     //choice a date format here
+     return date("d-M-Y", $subtract);
  }
 }
 ?>

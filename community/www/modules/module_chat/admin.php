@@ -24,13 +24,3 @@ function clearU2ULogs(){
  }
 }
 ///////////////////////////////////////////////////////////////////////////////
-function getLessonsCatalogue(){
- $lsn = eF_getTableData("lessons", "name", "1");
-
-  $str = '<ul>';
-  foreach ($lsn as $lesson){
-   $str = $str.'<li id='.$lesson'>'.$lesson.'</li>';
-  }
-  $str = '</ul>';
-  echo $str;
-}

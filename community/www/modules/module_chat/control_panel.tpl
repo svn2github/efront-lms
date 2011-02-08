@@ -1,7 +1,7 @@
 {* chat module control panel template *}
 
 
-<script type="text/javascript" src="{$T_CHAT_MODULE_BASELINK}js/admin.js"></script>
+
 
 <script type="text/javascript">
  var modulechatbaselink = '{$T_CHAT_MODULE_BASELINK}';
@@ -52,7 +52,7 @@
 </form>
 {/capture}
 {capture name = 't_create_log'}
-<table>
+<table class = "statisticsSelectList">
                 <tr><td class = "labelCell">{"testLabel"}:</td>
                     <td class = "elementCell">
                         <input type = "text" id = "autocomplete" class = "autoCompleteTextBox"/>

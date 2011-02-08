@@ -189,7 +189,11 @@ class module_administrator_tools extends EfrontModule {
      $user = EfrontUserFactory::factory($values['users_LOGIN']);
      try {
       $existingUser = true;
-      $newUser = EfrontUserFactory::factory($values['new_login']);
+      if (strcasecmp($values['new_login'], $values['users_LOGIN']) === 0) { //Allow changing same user, for case conversions etc
+       $existingUser = false;
+      } else {
+       $newUser = EfrontUserFactory::factory($values['new_login']);
+      }
      } catch (Exception $e) {
       $existingUser = false;
      }
@@ -222,6 +226,9 @@ class module_administrator_tools extends EfrontModule {
       } catch (Exception $e) {
        $errors[] = $e -> getMessage();
       }
+     }
+     if (function_exists('apc_delete')) {
+      apc_delete(G_DBNAME.':_usernames');
      }
      if (empty($errors)) {
       $message = _OPERATIONCOMPLETEDSUCCESSFULLY;

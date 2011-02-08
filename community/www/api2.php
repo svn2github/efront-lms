@@ -1263,7 +1263,7 @@ In case of error it returns also a message entity with description of the error 
         echo "</price>";
         echo "</lesson>";
        }
-       echo "<lessons>";
+       echo "</lessons>";
                             echo "</course>";
                         }
                         echo "</courses>";
@@ -1435,7 +1435,7 @@ In case of error it returns also a message entity with description of the error 
            echo "<previous_lessons_ID>".$lessons[$key]['previous_lessons_ID']."</previous_lessons_ID>";
           echo "</lesson>";
          }
-         echo "<lessons>";
+         echo "</lessons>";
         echo "</xml>";
        } catch (Exception $e) {
          echo "<xml>";

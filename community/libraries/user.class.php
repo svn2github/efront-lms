@@ -774,7 +774,7 @@ abstract class EfrontUser
    eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
    eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
   }
-  if ($sessionId == session_id() || !$sessionId) {
+  if ((!$_SESSION['s_login'] || $this -> user['login'] == $_SESSION['s_login']) && ($sessionId == session_id() || !$sessionId)) {
    if (isset($_COOKIE['c_request'])) {
     setcookie('c_request', '', time() - 86400);
     unset($_COOKIE['c_request']);

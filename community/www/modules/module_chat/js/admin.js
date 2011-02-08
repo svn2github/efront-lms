@@ -1,7 +1,7 @@
 if ($('autocomplete_lessons')) {
  new Ajax.Autocompleter("autocomplete",
          "autocomplete_lessons",
-         "admin.php?fors=getlessons", {paramName: "preffix",
+         "ask.php?ask_type=lesson", {paramName: "preffix",
             afterUpdateElement : function (t, li) {var x = "to do next...";},
             indicator : "busy"});
 }

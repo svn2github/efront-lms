@@ -3727,28 +3727,28 @@ define("_FEEDBACKSTARTEDAT","Atsauksmes sākās");//Feedback started at
 define("_EXPLICITLYSELECTEDINFO","Saņēmēji ir izvēlēti pēc sistēmas saskarni, saskaņā ar notikumu. <BR> - "._NEWSURVEY .": Saņēmēji ir lietotāji, kas piedalās apsekojumā. <BR> - "._ONJOBASSIGNMENT .": saņēmējiem ir vadītājs izvēlas darbinieks. <BR> - "._PROJECTEXPIRY .": Saņēmēji ir lietotāji, kas piešķirti projektu.");//The recipients are selected by the system interface according to the event.<BR>- "._NEWSURVEY.": Recipients are the users participating in the survey.<BR>- "._ONJOBASSIGNMENT.": The recipients is the supervisor selected by the employee.<BR>- "._PROJECTEXPIRY.": Recipients are the users that have been assigned the project.
 define("_ENROLLEDON","Uzņemti");//Enrolled on
 define("_JOBDOESNOTEXIST","Darba neeksistē");//Job does not exist
-define("_SEARCHFORUSER","");//Find users [Profile criteria]
-define("_SEARCHCRITERIA","");//Search criteria
-define("_SUBMITFEEDBACK","");//Submit feedback
-define("_FEEDBACKRESULTS","");//Feedback results
+define("_SEARCHFORUSER","Atrast lietotāju [Profils kritērijiem]");//Find users [Profile criteria]
+define("_SEARCHCRITERIA","Meklēšanas kritēriji");//Search criteria
+define("_SUBMITFEEDBACK","Iesniegt atsauksmi");//Submit feedback
+define("_FEEDBACKRESULTS","Atsauksmes rezultāti");//Feedback results
 define("_PASSWORDREMINDER","");//Password reminder
-define("_MUSTCOMPLETEALLTESTS","");//Must complete all tests
-define("_FEEDBACKSTATISTICS","");//Feedback reports
-define("_CHOOSEFEEDBACK","");//Choose feedback
+define("_MUSTCOMPLETEALLTESTS","Paroles atgādinātājs");//Must complete all tests
+define("_FEEDBACKSTATISTICS","Atsauksmju ziņojumu");//Feedback reports
+define("_CHOOSEFEEDBACK","Izvēlēties atsauksmes");//Choose feedback
 define("_REPORTSFORFEEDBACK","");//Report for feedback
-define("_CURRENTLYBROWSINGFOLDER","");//Currently browsing folder
-define("_CURRENTLYSHOWING","");//Showing
-define("_MATERIALINPROGRESS","");//Material in progress
-define("_ALLMATERIAL","");//All material
-define("_CACHEENTRYNOTFOUND","");//Cache entry not found
-define("_CACHEENTRYEXPIRED","");//Cache entry expired
-define("_CACHEENTRYINVALID","");//Cache entry is invalid
-define("_PURGENOTIFICATIONS","");//Purge notifications
-define("_NOTIFICATIONSSIZE","");//Notifications size
-define("_OLDESTNOTIFICATION","");//Oldest notification
-define("_PURGENOTIFICATIONSOLDERTHAN","");//Purge notifications older than
-define("_CURRENTUSERS","");//Current
-define("_SELECTEDCOURSES","");//Selected courses
+define("_CURRENTLYBROWSINGFOLDER","Ziņojums par atsauksmes");//Currently browsing folder
+define("_CURRENTLYSHOWING","Rāda");//Showing
+define("_MATERIALINPROGRESS","Materiālu progresu");//Material in progress
+define("_ALLMATERIAL","Visos būtiskajos");//All material
+define("_CACHEENTRYNOTFOUND","Cache ieraksts nav atrasts");//Cache entry not found
+define("_CACHEENTRYEXPIRED","Cache ierakstu beidzies");//Cache entry expired
+define("_CACHEENTRYINVALID","Cache ieraksts ir derīgs");//Cache entry is invalid
+define("_PURGENOTIFICATIONS","Purge paziņojumiem");//Purge notifications
+define("_NOTIFICATIONSSIZE","Paziņojumi izmēra");//Notifications size
+define("_OLDESTNOTIFICATION","Vecākā paziņojums");//Oldest notification
+define("_PURGENOTIFICATIONSOLDERTHAN","Purge paziņojumi vecāki par");//Purge notifications older than
+define("_CURRENTUSERS","Pašreizējo");//Current
+define("_SELECTEDCOURSES","Izvēlēto kursi");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","");//Module files are present, but it is not installed
 define("_DISABLEPAYMENTSNOTICE","Tas noteikti visus nodarbības un kursus, cena līdz 0");//This will set all lessons and courses price to 0
 define("_SPECIFYIDFORSREENMATCHING","Norādiet objekta ID ekrāna saskaņošanas izmēri");//Specify object id for screen matching dimensions

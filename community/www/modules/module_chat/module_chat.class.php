@@ -13,6 +13,13 @@ class module_chat extends eFrontModule{
    return array("administrator", "professor", "student");
  }
 
+    public function getModuleJS() {
+  if (strpos(decryptUrl($_SERVER['REQUEST_URI']), $this -> moduleBaseUrl) !== false) {
+   return $this->moduleBaseDir."js/admin.js";
+  }
+    }
+
+
  public function onInstall(){
 
   eF_executeNew("drop table if exists module_chat");
@@ -151,10 +158,13 @@ class module_chat extends eFrontModule{
   return $pageURL;
  }
  public function addScripts() {
-  return array("scriptaculous/effects", "scriptaculous/controls");
+  return array("scriptaculous/effects",
+      "scriptaculous/controls");
  }
+
  //public function getSmartyTpl() {
  public function onPageFinishLoadingSmartyTpl() {
+
   if (!isset($_SESSION['lesson_rooms']))
    $_SESSION['lesson_rooms'] = array();
 

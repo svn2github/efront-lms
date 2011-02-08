@@ -322,9 +322,8 @@ try {
                 //pr($_GET['toggle_block']);
                 exit;
             } else if (isset($_GET['export_layout'])) {
-                file_put_contents(G_EXTERNALPATH.'layout_settings.php.inc', serialize($layoutTheme -> layout));
-
-                $directory = new EfrontDirectory(G_EXTERNALPATH);
+                file_put_contents(G_THEMESPATH.$layoutTheme -> themes['path'].'external/layout_settings.php.inc', serialize($layoutTheme -> layout));
+                $directory = new EfrontDirectory(G_THEMESPATH.$layoutTheme -> themes['path'].'external/');
                 $tempDir = $currentUser -> getDirectory().'temp/';
                 if (!is_dir($tempDir) && !mkdir($tempDir, 0755)) {
                     throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$tempDir, EfrontFileException :: CANNOT_CREATE_DIR);

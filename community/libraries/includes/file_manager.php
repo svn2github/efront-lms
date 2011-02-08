@@ -65,16 +65,16 @@ try {
             } elseif (strpos($file_insert['mime_type'] , "audio") !== false) {
                 $audio_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
                 if ($_GET['editor_mode'] == "true") {
-                    echo '<img width=400 height=400 src="editor/tiny_mce/plugins/media/img/trans.gif" title="src:\''.$audio_return.'\',width:\'200\',height:\'200\'" alt="'.$audio_return.'" class="mceItemWindowsMedia" />';exit;
+                    echo '<img width=400 height=400 src="editor/tiny_mce/plugins/media/img/trans.gif" title="src:\''.urlencode($audio_return).'\',width:\'200\',height:\'200\'" alt="'.urlencode($audio_return).'" class="mceItemWindowsMedia" />';exit;
                 } else {
                     echo '
       <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="100" height="30" data="editor/tiny_mce/plugins/media/player.swf" id="audioplayer1">
       <param name="movie" value="editor/tiny_mce/plugins/media/player.swf">
-      <param name="FlashVars" value="playerID=1&amp;soundFile='.$audio_return.'">
+      <param name="FlashVars" value="playerID=1&amp;soundFile='.urlencode($audio_return).'">
       <param name="quality" value="high">
       <param name="menu" value="false">
       <param name="wmode" value="transparent">
-      <embed type="application/x-shockwave-flash" id="audioplayer1" flashvars="playerID=1&amp;soundFile='.$audio_return.'" quality="high" menu="false" wmode="transparent" src="editor/tiny_mce/plugins/media/player.swf"></embed>
+      <embed type="application/x-shockwave-flash" id="audioplayer1" flashvars="playerID=1&amp;soundFile='.urlencode($audio_return).'" quality="high" menu="false" wmode="transparent" src="editor/tiny_mce/plugins/media/player.swf"></embed>
       </object>';
                     exit;
                 }

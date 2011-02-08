@@ -10,6 +10,9 @@
 - Fixed adding users to default group does not assign group courses/lessons
 - Updated completion conditions that are related to tests to not display score
 - Moved creating views to installation script
+- Fixed deleting a user logging out administrator
+- Fixed issue with non-english names in mp3 files inserted to editor via arrow
+- Fixed issue about exporting themes layout with custom blocks
 
 === Version 3.6.8 build 9777 ===
 - XML API security update

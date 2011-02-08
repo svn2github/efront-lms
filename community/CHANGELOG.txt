@@ -1,4 +1,4 @@
-=== Version 3.6.8 build 9920 ===
+=== Version 3.6.8 build 9931 ===
 - Added chat module
 - Fixed logging out users from lessons when the session id is used in the past by the same user
 - Fixed my courses link not clickable in Opera

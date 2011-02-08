@@ -425,7 +425,7 @@ class EfrontImportCsv extends EfrontImport
      }
      $allBranches = eF_getTableData("module_hcd_branch", "branch_ID, father_branch_ID", "");
      $addedJobs = $addedBranches = array();
-     foreach ($data as $value) {
+     foreach ($data as $key => $value) {
       try {
        if (!$value['description']) {
         throw new EfrontJobException(_MISSING_JOB_DESCRIPTION, EfrontJobException::MISSING_JOB_DESCRIPTION);
@@ -435,10 +435,10 @@ class EfrontImportCsv extends EfrontImport
         if (sizeof($branchId) == 1) {
          $branchId = $branchId[0];
         } else {
-         throw new EfrontBranchException(_BRANCHNAMEAMBIGUOUS, EfrontBranchException :: BRANCH_AMBIGUOUS);
+         throw new EfrontBranchException(_BRANCHNAMEAMBIGUOUS.': '.$value['branch_name'], EfrontBranchException :: BRANCH_AMBIGUOUS);
         }
        } else {
-        throw new EfrontBranchException(_BRANCHDOESNOTEXIST, EfrontBranchException::BRANCH_NOT_EXISTS);
+        throw new EfrontBranchException(_BRANCHDOESNOTEXIST.': '.$value['branch_name'], EfrontBranchException::BRANCH_NOT_EXISTS);
        }
        $jobId = false;
        foreach ($jobDescriptions as $job) {
@@ -490,6 +490,28 @@ class EfrontImportCsv extends EfrontImport
          }
          $userBranchesAssigned[$value['users_login']][$branchId] = array('branch_ID' => $branchId, 'supervisor' => $value['supervisor'], 'assigned' => 1);
          $addedBranches[$branchId][$value['users_login']] = $value['users_login'];
+        } elseif (!$userBranchesAssigned[$value['users_login']][$branchId]['supervisor'] && $value['supervisor']) {
+         eF_updateTableData("module_hcd_employee_works_at_branch", array("supervisor" => 1), "users_login='".$value['users_login']."' and branch_ID=$branchId");
+         //Iterate through sub branches
+         foreach (eF_subBranches($branchId, $allBranches) as $subBranchId) {
+          //If this subranch is not associated with the user, associate it
+          if (!isset($userBranchesAssigned[$value['users_login']][$subBranchId]) && !isset($userBranchesUnassigned[$value['users_login']][$subBranchId])) {
+           $fields = array('users_login' => $value['users_login'],
+               'supervisor' => 1,
+               'assigned' => '0',
+               'branch_ID' => $subBranchId);
+           eF_insertTableData("module_hcd_employee_works_at_branch", $fields);
+           $userBranchesUnassigned[$value['users_login']][$branchId] = array('branch_ID' => $branchId, 'supervisor' => $value['supervisor'], 'assigned' => 0);
+          } elseif (isset($userBranchesAssigned[$value['users_login']][$subBranchId]) && $userBranchesAssigned[$value['users_login']][$subBranchId]['supervisor'] == 0) {
+           eF_updateTableData("module_hcd_employee_works_at_branch", array("supervisor" => 1), "users_login='".$value['users_login']."' and branch_ID=$subBranchId");
+           $userBranchesAssigned[$value['users_login']][$subBranchId]['supervisor'] = 1;
+          } elseif (isset($userBranchesUnassigned[$value['users_login']][$subBranchId]) && $userBranchesUnassigned[$value['users_login']][$subBranchId]['supervisor'] == 0) {
+           eF_updateTableData("module_hcd_employee_works_at_branch", array("supervisor" => 1), "users_login='".$value['users_login']."' and branch_ID=$subBranchId");
+           $userBranchesUnassigned[$value['users_login']][$subBranchId]['supervisor'] = 1;
+          }
+         }
+        } elseif ($userBranchesAssigned[$value['users_login']][$branchId]['supervisor'] && !$value['supervisor']) {
+         eF_updateTableData("module_hcd_employee_works_at_branch", array("supervisor" => 0), "users_login='".$value['users_login']."' and branch_ID=$branchId");
         }
         // Write to database the new job assignment: employee to job description
         $fields = array('users_login' => $value['users_login'],
@@ -507,9 +529,9 @@ class EfrontImportCsv extends EfrontImport
        } else {
         throw new EfrontUserException(_JOBALREADYASSIGNED . ": ".$value['users_login'], EfrontUserException :: WRONG_INPUT_TYPE);
        }
-       $this -> log["success"][] = _NEWJOBASSIGNMENT . " " . $value["users_login"] . " - (" .$value['branch_name'] . " - " .$value['description'] . ") ";
+       $this -> log["success"][] = _LINE." ".($key+2)." : "._NEWJOBASSIGNMENT . " " . $value["users_login"] . " - (" .$value['branch_name'] . " - " .$value['description'] . ") ";
       } catch (Exception $e) {
-       $this -> log["failure"][] = $e -> getMessage().' ('.$e -> getCode().')';
+       $this -> log["failure"][] = _LINE." ".($key+2)." : ".$e -> getMessage().' ('.$e -> getCode().')';
       }
      }
      $courseAssignmentsToUsers = $lessonAssignmentsToUsers = array();
@@ -544,20 +566,6 @@ class EfrontImportCsv extends EfrontImport
   } catch (Exception $e) {
    $this -> log["failure"][] = $e -> getMessage().' ('.$e -> getCode().')';// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());
   }
- }
- private function processQueue() {
-  $result = eF_getTableData("queue", "*");
-  foreach ($result as $value) {
-   foreach (unserialize($value['data']) as $courseId) {
-    $courses[$courseId][$value['users_LOGIN']] = $value['users_LOGIN'];
-   }
-  }
-  foreach ($courses as $courseId => $users) {
-   $course = new EfrontCourse($courseId);
-   $course -> addUsers($users);
-  }
-  eF_deleteTableData("queue");
-  unset($_SESSION['s_mass_import']);
  }
  /*
 	 * Use eFront classes according to the type of import to store the data used
@@ -685,12 +693,10 @@ class EfrontImportCsv extends EfrontImport
       }
       $this -> importDataMultiple($type, $data);
      } else {
-      //$_SESSION['s_mass_import'] = 1;
       for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
        $data = $this -> parseDataLine($line);
        $this -> importData($line+1, $type, $data);
       }
-      //$this -> processQueue();
      }
     }
    } else {

@@ -3,6 +3,10 @@
 {capture name = 't_change_login_code'}
  {eF_template_printForm form = $T_TOOLS_FORM}
  <div id = "module_administrator_tools_autocomplete_users_div" class = "autocomplete"></div>
+ <fieldset class = "fieldsetSeparator">
+  <legend>{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_OTHEROPTIONS}</legend>
+  <input type = "submit" onclick = "fixCase(this)" value = "{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE}" class = "flatButton">
+ </fieldset>
 {/capture}
 
 {capture name = 't_global_settings_code'}

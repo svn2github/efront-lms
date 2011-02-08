@@ -37,4 +37,6 @@ define("_MODULE_ADMINISTRATOR_TOOLS_DEACTIVATEALLUSERS", "Deactivate all users")
 define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLDEACTIVATEALLUSERSAREYOUSURE", "This will deactivate all users returned matching the selected criteria! Are you sure?");
 define("_MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS", "Toggle status");
 define("_MODULE_ADMINISTRATOR_TOOLS_LAST3MONTHS", "Last 3 months");
+define("_MODULE_ADMINISTRATOR_TOOLS_OTHEROPTIONS", "Other options");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE", "Fix upper/lower case inconsistencies");
 ?>

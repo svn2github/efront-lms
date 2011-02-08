@@ -103,6 +103,13 @@ function setFormDate(year, month, day) {
   }
  });
 }
+function fixCase(el) {
+ var parameters = {ajax:'fix_case', method:'get'}
+ ajaxRequest(el, location.toString(), parameters);
+}
+function onFixCase(el, response) {
+
+}
 
 if ($('module_administrator_tools_autocomplete_lessons_div')) {
  new Ajax.Autocompleter("autocomplete",

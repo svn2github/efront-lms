@@ -206,22 +206,7 @@ class module_administrator_tools extends EfrontModule {
      foreach ($existingTables as $table) {
       try {
        if (!in_array($table, $views)) {
-        $fields = $GLOBALS['db'] -> GetCol("describe $table");
-        foreach ($fields as $value) {
-         if (stripos($value, 'login') !== false) {
-          eF_updateTableData($table, array($value => $values['new_login']), "$value = '".$values['users_LOGIN']."'");
-         }
-        }
-        if ($table == 'f_personal_messages') {
-         //@todo:recipient
-         eF_updateTableData($table, array("sender" => $values['new_login']), "sender = '".$values['users_LOGIN']."'");
-        }
-        if ($table == 'notifications' || $table == 'sent_notifications') {
-         eF_updateTableData($table, array("recipient" => $values['new_login']), "recipient = '".$values['users_LOGIN']."'");
-        }
-        if ($table == 'surveys' || $table == 'module_hcd_events') {
-         eF_updateTableData($table, array("author" => $values['new_login']), "author = '".$values['users_LOGIN']."'");
-        }
+        $this -> changeLogin($table, $oldLogin, $newLogin);
        }
       } catch (Exception $e) {
        $errors[] = $e -> getMessage();
@@ -248,6 +233,27 @@ class module_administrator_tools extends EfrontModule {
     if (isset($_GET['ajax']) && isset($_GET['user']) && eF_checkParameter($_GET['user'], 'login')) {
      $user = EfrontUserFactory::factory($_GET['user']);
      echo json_encode(array('status' => 1, 'supervisors' => $supervisors, 'supervisor_names' => $supervisorNames));
+     exit;
+    } elseif (isset($_GET['ajax']) && $_GET['ajax'] == 'fix_case') {
+     $existingTables = $GLOBALS['db'] -> GetCol("show tables");
+     $views = $GLOBALS['db'] -> GetCol("show tables like '%_view'");
+     $users = eF_getTableDataFlat("users", "login");
+     $errors = array();
+     foreach ($users['login'] as $login) {
+      echo "processing user $login\n";flush();ob_flush();
+      foreach ($existingTables as $table) {
+       try {
+        if (!in_array($table, $views)) {
+         $this -> changeLogin($table, $login, $login);
+        }
+       } catch (Exception $e) {
+        $errors[] = $e -> getMessage();
+       }
+      }
+     }
+     if (function_exists('apc_delete')) {
+      apc_delete(G_DBNAME.':_usernames');
+     }
      exit;
     }
    } catch (Exception $e) {
@@ -352,6 +358,24 @@ class module_administrator_tools extends EfrontModule {
    $message_type = 'failure';
   }
   $this -> setMessageVar($message, $message_type);
+ }
+ private function changeLogin($table, $oldLogin, $newLogin) {
+  $fields = $GLOBALS['db'] -> GetCol("describe $table");
+  foreach ($fields as $value) {
+   if (stripos($value, 'login') !== false) {
+    eF_updateTableData($table, array($value => $newLogin), "$value = '".$oldLogin."'");
+   }
+  }
+  if ($table == 'f_personal_messages') {
+   //@todo:recipient
+   eF_updateTableData($table, array("sender" => $newLogin), "sender = '".$oldLogin."'");
+  }
+  if ($table == 'notifications' || $table == 'sent_notifications') {
+   eF_updateTableData($table, array("recipient" => $newLogin), "recipient = '".$oldLogin."'");
+  }
+  if ($table == 'surveys' || $table == 'module_hcd_events') {
+   eF_updateTableData($table, array("author" => $newLogin), "author = '".$oldLogin."'");
+  }
  }
  private function toggleSetting($setting, $enable) {
   $result = eF_getTableData("lessons", "id, options");

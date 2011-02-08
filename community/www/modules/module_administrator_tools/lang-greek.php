@@ -37,4 +37,6 @@ define("_MODULE_ADMINISTRATOR_TOOLS_DEACTIVATEALLUSERS", "Απενεργοποί
 define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLDEACTIVATEALLUSERSAREYOUSURE", "Θα απενεργοποιηθούν όλοι οι χρήστες που ικανοποιούν τα επιλεγμένα κριτήρια. Είστε σίγουροι;");
 define("_MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS", "Εναλλαγή κατάστασης");
 define("_MODULE_ADMINISTRATOR_TOOLS_LAST3MONTHS", "Τελευταίοι 3 μήνες");
+define("_MODULE_ADMINISTRATOR_TOOLS_OTHEROPTIONS", "Άλλες επιλογές");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE", "Επιδιόρθωση κεφαλαίων/μικρών διαφορών");
 ?>

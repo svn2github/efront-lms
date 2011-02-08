@@ -1282,7 +1282,8 @@ CREATE TABLE events (
   lessons_name varchar(255) default NULL,
   entity_ID varchar(255) default NULL,
   entity_name varchar(255) default NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  index(users_LOGIN)
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE profile_comments (
@@ -1313,12 +1314,13 @@ CREATE TABLE notifications (
   send_interval varchar(10) NOT NULL default 0,
   send_conditions text,
   id_type_entity varchar(255) default NULL,
-  recipient varchar(255),
+  recipient varchar(100),
   subject varchar(255) NOT NULL,
   message text,
   active tinyint(1) default 1,
   html_message tinyint(1) default 0,
-  PRIMARY KEY(id)
+  PRIMARY KEY(id),
+  index(recipient)
 ) DEFAULT CHARSET=utf8;
 
 --

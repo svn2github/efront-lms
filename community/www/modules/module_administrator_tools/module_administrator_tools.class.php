@@ -239,21 +239,37 @@ class module_administrator_tools extends EfrontModule {
      $views = $GLOBALS['db'] -> GetCol("show tables like '%_view'");
      $users = eF_getTableDataFlat("users", "login");
      $errors = array();
-     foreach ($users['login'] as $login) {
-      echo "processing user $login\n";flush();ob_flush();
-      foreach ($existingTables as $table) {
-       try {
-        if (!in_array($table, $views)) {
-         $this -> changeLogin($table, $login, $login);
+     foreach ($existingTables as $table) {
+      $t = microtime(true);
+      try {
+       if (!in_array($table, $views)) {
+        $fields = $GLOBALS['db'] -> GetCol("describe $table");
+        foreach ($users['login'] as $key => $login) {
+         foreach ($fields as $value) {
+          if (stripos($value, 'login') !== false) {
+           eF_executeNew("update $table set $value='$login' where $value='$login'");
+          }
+         }
+         if ($table == 'f_personal_messages') {
+          eF_updateTableData($table, array("sender" => $login), "sender = '".$login."'");
+         }
+         if ($table == 'notifications' || $table == 'sent_notifications') {
+          eF_updateTableData($table, array("recipient" => $login), "recipient = '".$login."'");
+         }
+         if ($table == 'surveys' || $table == 'module_hcd_events') {
+          eF_updateTableData($table, array("author" => $login), "author = '".$login."'");
+         }
         }
-       } catch (Exception $e) {
-        $errors[] = $e -> getMessage();
        }
+      } catch (Exception $e) {
+       $errors[] = $e -> getMessage();
       }
+      //pr("Time for $table: ".(microtime(true)-$t));flush();ob_flush();
      }
      if (function_exists('apc_delete')) {
       apc_delete(G_DBNAME.':_usernames');
      }
+     echo json_encode(array('status' => 1));
      exit;
     }
    } catch (Exception $e) {

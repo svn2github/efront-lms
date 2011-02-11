@@ -1,5 +1,3 @@
-
-
 <?php
 
 include_once ("../PEAR/Spreadsheet/Excel/Writer.php");
@@ -147,43 +145,51 @@ class module_chat extends eFrontModule{
   }
   $_SESSION['commonality'] = $commonality;
  }
- public function curPageURL() {
-  $pageURL = 'http';
-  if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-   $pageURL .= "://";
-  if ($_SERVER["SERVER_PORT"] != "80") {
-   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+ public function isPopup() {
+  /*$pageURL = 'http';
+
+		if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+
+			$pageURL .= "://";
+
+		if ($_SERVER["SERVER_PORT"] != "80") {
+
+			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+
+		}
+
+		else {
+
+			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+
+		}
+
+		return $pageURL;*/
+  if (isset($_GET['popup'])){
+   if ($_GET['popup']==1)
+    return true;
   }
-  else {
-   $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-  }
-  return $pageURL;
+  return false;
  }
  public function addScripts() {
   return array("scriptaculous/effects",
       "scriptaculous/controls");
  }
-
  //public function getSmartyTpl() {
  public function onPageFinishLoadingSmartyTpl() {
-
   if (!isset($_SESSION['lesson_rooms']))
    $_SESSION['lesson_rooms'] = array();
-
   $smarty = $this -> getSmartyVar();
-
   $mainScripts = array_merge(array('../modules/module_chat/js/jquery', '../modules/module_chat/js/chat'),getMainScripts());
   $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));
-
-  $page = $this->curPageURL();
-
-  if ($this->contains($page,"popup=1")){
+  //$page = $this->isPopup();
+  //if ($this->contains($page,"popup=1")){
+  if ($this->isPopup()){
    $smarty -> assign("T_CHAT_MODULE_STATUS", "OFF");
   }
   else{
    $smarty -> assign("T_CHAT_MODULE_STATUS", "ON");
   }
-
   if (!$_SESSION['chatter']){
    $currentUser = $this -> getCurrentUser();
    $_SESSION['chatter'] = $currentUser -> login;
@@ -200,11 +206,9 @@ class module_chat extends eFrontModule{
     eF_executeNew("INSERT IGNORE INTO module_chat_users (username ,timestamp_) VALUES ('".$_SESSION['chatter']."', CURRENT_TIMESTAMP);");
    }
   }
-
         $smarty -> assign("T_CHAT_MODULE_BASEURL", $this -> moduleBaseUrl);
         $smarty -> assign("T_CHAT_MODULE_BASELINK", $this -> moduleBaseLink);
   $smarty -> assign("T_CHAT_MODULE_BASEDIR", $this -> moduleBaseDir);
-
   $onlineUsers = EfrontUser :: getUsersOnline();
 
 

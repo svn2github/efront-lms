@@ -135,7 +135,7 @@ function setWindowsWidth(){
 
 function getChatheartbeat(){
 
- $J.get(modulechatbaselink+"admin.php?force=getChatHeartbeat", function(data){
+ $J.get(modulechatbaselink+"chat.php?action=getchatheartbeat", function(data){
       minChatHeartbeat = data;
    $J.cookie("Chatheartbeat", data);
    });
@@ -144,7 +144,7 @@ function getChatheartbeat(){
 }
 function getRefresh_rate(){
 
- $J.get(modulechatbaselink+"admin.php?force=getRefresh_rate", function(data){
+ $J.get(modulechatbaselink+"chat.php?action=getrefreshrate", function(data){
       refresh_rate = data;
    $J.cookie("Refresh_rate", data);
    });

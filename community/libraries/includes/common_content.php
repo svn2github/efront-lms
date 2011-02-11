@@ -158,10 +158,29 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 
      //Check whether it is a pdf content and handle accordingly
      if (mb_strpos($currentUnit['data'], "<iframe") !== false && mb_strpos($currentUnit['data'], "pdfaccept") !== false) {
-         $fileEnd = mb_strpos($currentUnit['data'], ".pdf");
-         $contentParts = explode("/", mb_substr($currentUnit['data'], 0, $fileEnd));
-         $form -> setDefaults(array('pdf_content' => EfrontFile :: decode(htmlspecialchars_decode(urldecode($contentParts[sizeof($contentParts)-1].'.pdf')))));
+
+      $fileEnd = mb_strpos($currentUnit['data'], ".pdf");
+   if ($fileEnd != "") {
+          $contentParts = explode("/", mb_substr($currentUnit['data'], 0, $fileEnd));
+          try {
+     $pdfFile = new EfrontFile(G_RELATIVELESSONSLINK.$_SESSION['s_lessons_ID'].'/'.EfrontFile :: decode(htmlspecialchars_decode(urldecode($contentParts[sizeof($contentParts)-1].'.pdf'))));
+     if ($pdfFile['id']) {
+      $form -> setDefaults(array('data' => '<iframe src="view_file.php?file='.$pdfFile['id'].'"  name="pdfaccept" width="100%" height="600"></iframe>'));
+     }
+
+            } catch (Exception $e) {
+            //in case file is not found in database, don't do anything
+            }
+    $form -> setDefaults(array('pdf_content' => EfrontFile :: decode(htmlspecialchars_decode(urldecode($contentParts[sizeof($contentParts)-1].'.pdf')))));
+   } else {
+    preg_match("/view_file.php\?file=\d+/", $currentUnit['data'], $matches);
+    $pdfId = explode("=", $matches[0]);
+    $pdfFile = new EfrontFile($pdfId[1]);
+    $form -> setDefaults(array('pdf_content' => $pdfFile['physical_name']));
+
+   }
          $form -> setDefaults(array('pdf_check' => 1));
+
          $smarty -> assign("T_EDITPDFCONTENT", true);
      }
 
@@ -181,7 +200,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                   $destinationDir = new EfrontDirectory(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
                   $filesystem = new FileSystemTree(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
                      $uploadedFile = $filesystem -> uploadFile('pdf_upload', $destinationDir);
-                     $values['data'] = '<iframe src="'.$currentLesson -> getDirectoryUrl().'/'.$uploadedFile["physical_name"].'"  name="pdfaccept" width="100%" height="600"></iframe>';
+                     $values['data'] = '<iframe src="view_file.php?file='.$uploadedFile['id'].'"  name="pdfaccept" width="100%" height="600"></iframe>';
+                     //$values['data'] = '<iframe src="'.$currentLesson -> getDirectoryUrl().'/'.$uploadedFile["physical_name"].'"  name="pdfaccept" width="100%" height="600"></iframe>';
               } else {
                throw new Exception(_YOUMUSTUPLOADAPDFFILE);
               }
@@ -380,6 +400,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
    if (isset($_GET['print'])) {
     $currentUnit['data'] = preg_replace("#<script.*?>.*?</script>#", "", $currentUnit['data']);
     $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li>');
+   }
+   //in case unit is simply an iframe,do not load the print it button
+     $contentStripped = strip_tags($currentUnit['data'],'<img><div><br><p><ul><li>');
+         if ($contentStripped == "<p></p>" || $contentStripped == "" ) {
+    $smarty -> assign("T_DISABLEPRINTUNIT", true);
    }
    $smarty -> assign("T_UNIT", $currentUnit);
    //Next and previous units are needed for navigation buttons

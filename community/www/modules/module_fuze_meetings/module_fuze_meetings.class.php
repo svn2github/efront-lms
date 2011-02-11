@@ -1543,7 +1543,7 @@ class module_fuze_meetings extends EfrontModule {
 	 */
  private function _getCurrentUserRole() {
   $role = 'student';
-  if ($this->_current_user->getType() == 'professor') {
+  if ($this->_current_user->getType() == 'professor' || $this->_current_user->getType() == 'student') {
    if (in_array($this->_current_user_login, $this->_current_lesson_professors)) {
     $role = 'professor';
    }

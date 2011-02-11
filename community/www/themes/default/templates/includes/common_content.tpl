@@ -380,7 +380,9 @@
     <tr>
      <td id = "centerColumn">
         {if $smarty.get.print}
+         {if !$T_DISABLEPRINTUNIT}
          <p style = "text-align:center"><input class = "flatButton" type = "submit" onClick = "window.print()" value = "{$smarty.const._PRINTIT}"/></p>
+      {/if}
       {if $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}
        {include file = "includes/tests/show_unsolved_test.tpl"}
       {else}

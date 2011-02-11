@@ -38,7 +38,25 @@ if ($_GET['action'] == "closechat") { closeChat(); }
 if ($_GET['action'] == "startchatsession") { startChatSession(); }
 if ($_GET['action'] == "logoutfromchat") { logoutFromChat(); }
 if ($_GET['action'] == "logintochat") { loginToChat(); }
+if ($_GET['action'] == "getchatheartbeat") { getChatHeartbeat(); }
+if ($_GET['action'] == "getrefreshrate") { getRefresh_rate(); }
 
+
+function getChatHeartbeat(){
+
+ $rate = eF_getTableData("module_chat_config", "chatHeartbeatTime", "1");
+ foreach( $rate as $r ){
+  echo($r['chatHeartbeatTime']);
+ }
+}
+
+function getRefresh_rate(){
+
+ $rate = eF_getTableData("module_chat_config", "refresh_rate", "1");
+ foreach( $rate as $r ){
+  echo $r['refresh_rate'];
+ }
+}
 
 
 function logoutFromChat(){

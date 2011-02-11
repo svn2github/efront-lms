@@ -3996,4 +3996,5 @@ define("_YOURSESSIONHASEXPIREDPLEASE", "Your session has expired. Please");
 define("_CLICKHERE", "click here");
 define("_TOLOGINAGAIN", "to login again");
 define("_SESSIONEXPIRED", "Session expired");
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL", "Comma separated list of users to show debug information on, or 1 for all users");
 ?>

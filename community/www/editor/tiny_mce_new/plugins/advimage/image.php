@@ -21,6 +21,7 @@ if ($_SESSION['s_lessons_ID']) {
 <html xmlns="http://www.w3.org/1999/xhtml" class="whitebg">
 <head>
  <title>{#advimage_dlg.dialog_title}</title>
+ <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
  <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
  <script type="text/javascript" src="../../utils/mctabs.js"></script>
  <script type="text/javascript" src="../../utils/form_utils.js"></script>

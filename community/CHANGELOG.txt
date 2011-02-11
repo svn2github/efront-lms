@@ -1,3 +1,9 @@
+=== Version 3.6.8 build ===
+- Debug mode can now be set per user
+- Updating test score now sets/unsets unit progress
+- Fixed LDAP registration ignoring "only LDAP" setting, introduced in build 9931
+- Added code for converting pdf units via view_file.php
+
 === Version 3.6.8 build 9931 ===
 - Added chat module
 - Fixed logging out users from lessons when the session id is used in the past by the same user

@@ -39,4 +39,8 @@ define("_MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS", "Toggle status");
 define("_MODULE_ADMINISTRATOR_TOOLS_LAST3MONTHS", "Last 3 months");
 define("_MODULE_ADMINISTRATOR_TOOLS_OTHEROPTIONS", "Other options");
 define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE", "Fix upper/lower case inconsistencies");
+define("_MODULE_ADMINISTRATOR_TOOLS_JOBCOURSES", "Job courses");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTIONTOALLSIMILARJOBS", "This will copy the selected job's courses to all jobs with the same name, replacing their existing selection");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTION", "Copy selection");
+define("_MODULE_ADMINISTRATOR_TOOLS_SUCCESSFULLYASSIGNEDCOURSESTOJOBS", "Successfully assigned %y courses to %x jobs");
 ?>

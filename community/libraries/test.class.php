@@ -2946,6 +2946,15 @@ class EfrontCompletedTest extends EfrontTest
          $this -> completedTest['status'] = 'passed';
         }
         $this -> completedTest['pending'] = 0;
+     $result = eF_getTableData("completed_tests", "archive", "id=".$this->completedTest['id']);
+     if (!$result[0]['archive']) {
+      $testUser = EfrontUserFactory::factory($this->completedTest['login']);
+      if ($this -> completedTest['status'] == 'failed') {
+       $testUser -> setSeenUnit($this->test['content_ID'], $this->test['lessons_ID'], 0);
+      } else {
+       $testUser -> setSeenUnit($this->test['content_ID'], $this->test['lessons_ID'], 1);
+      }
+     }
         $this -> save();
         echo $this -> completedTest['status'];
        } else {

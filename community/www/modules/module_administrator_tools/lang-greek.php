@@ -38,5 +38,9 @@ define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLDEACTIVATEALLUSERSAREYOUSURE", "Θα
 define("_MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS", "Εναλλαγή κατάστασης");
 define("_MODULE_ADMINISTRATOR_TOOLS_LAST3MONTHS", "Τελευταίοι 3 μήνες");
 define("_MODULE_ADMINISTRATOR_TOOLS_OTHEROPTIONS", "Άλλες επιλογές");
-define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE", "Επιδιόρθωση κεφαλαίων/μικρών διαφορών");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE", "Επιδιόρθωση κεφαλαίων/μικρών");
+define("_MODULE_ADMINISTRATOR_TOOLS_JOBCOURSES", "Δέσμες θέσεων εργασίας");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTIONTOALLSIMILARJOBS", "Αυτή η λειτουργία θα αντιγράψει τις δέσμες της επιλεγμένης θέση εργασίας σε όλες τις θέσεις εργασίας με το ίδιο όνομα, αντικαθιστώντας τη δική τους λίστα δεσμών");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTION", "Αντιγραφή επιλογής");
+define("_MODULE_ADMINISTRATOR_TOOLS_SUCCESSFULLYASSIGNEDCOURSESTOJOBS", "Ανατέθηκαν επιτυχώς %y δέσμες σε %x θέσεις εργασίας");
 ?>

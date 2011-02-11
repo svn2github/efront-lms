@@ -3996,4 +3996,5 @@ define("_YOURSESSIONHASEXPIREDPLEASE", "Η σύνδεσή σας έχει λήξ
 define("_CLICKHERE", "κάντε κλικ εδώ");
 define("_TOLOGINAGAIN", "για να συνδεθείτε ξανά");
 define("_SESSIONEXPIRED", "Η σύνδεση έληξε");
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL", "Λίστα χρηστών χωρισμένη με κόμματα, στους οποίους θα εμφανίζονται πληροφορίες debug, ή 1 για να εμφανίζεται σε όλους τους χρήστες");
 ?>

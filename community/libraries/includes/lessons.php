@@ -5,7 +5,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 
-
+$loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/lessons';
 
 if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] == 'hidden') {
@@ -173,9 +173,14 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  unset($lessonsList[$_GET['edit_lesson']]);
 
  $form -> addElement('text', 'max_users', _MAXIMUMUSERS, 'class = "inputText" style = "width:50px"');
- $form -> addElement('select', 'copy_properties', _COPYPROPERTIESFROM, $lessonsList);
- $form -> addElement('select', 'share_folder', _SHAREFOLDERWITH, $lessonsList, 'id = "share_folder" onchange = "$(\'clone_lesson\').options.selectedIndex=0;this.options.selectedIndex ? $(\'clone_lesson\').disabled = \'disabled\' : $(\'clone_lesson\').disabled = \'\'"');
- $form -> addElement('select', 'clone_lesson', _CLONELESSON, $lessonsList, 'id = "clone_lesson" onchange = "$(\'share_folder\').options.selectedIndex=0;this.options.selectedIndex ? $(\'share_folder\').disabled = \'disabled\' : $(\'share_folder\').disabled = \'\'"');
+ $form -> addElement('hidden', 'copy_properties', null, 'id="copy_properties"');
+ //Convert to autocomplete input fields to show categories 
+ //$form -> addElement('select', 'share_folder', _SHAREFOLDERWITH, $lessonsList, 'id = "share_folder" onchange = "$(\'clone_lesson\').options.selectedIndex=0;this.options.selectedIndex ? $(\'clone_lesson\').disabled = \'disabled\' : $(\'clone_lesson\').disabled = \'\'"');
+ //$form -> addElement('select', 'clone_lesson', _CLONELESSON, $lessonsList, 'id = "clone_lesson" onchange = "$(\'share_folder\').options.selectedIndex=0;this.options.selectedIndex ? $(\'share_folder\').disabled = \'disabled\' : $(\'share_folder\').disabled = \'\'"');
+ $form -> addElement('hidden', 'share_folder', null, 'id = "share_folder" onchange = "$(\'clone_lesson\').options.selectedIndex=0;this.options.selectedIndex ? $(\'clone_lesson\').disabled = \'disabled\' : $(\'clone_lesson\').disabled = \'\'"');
+ $form -> addElement('hidden', 'clone_lesson', null, 'id = "clone_lesson" onchange = "$(\'share_folder\').options.selectedIndex=0;this.options.selectedIndex ? $(\'share_folder\').disabled = \'disabled\' : $(\'share_folder\').disabled = \'\'"');
+
+
  $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
  $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
  if (isset($_GET['edit_lesson'])) { //If we are editing a lesson, we set the default form values to the ones stored in the database

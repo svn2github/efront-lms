@@ -14,10 +14,11 @@ $software['system'] = array('name' => 'Platform',
                             'recommended' => 'Any',
                             'status' => true,
                             'help' => 'The platform may be installed on systems running Microsoft Windows and on most Unix and Linux systems');
+
 $software['PHP'] = array('name' => 'PHP',
                             'installed' => phpversion(),
                             'recommended' => '5.2.0 or newer',
-                            'status' => isset($php_version[0]) && $php_version[0] <= 4 ? false : true,
+                            'status' => version_compare(phpversion(), "5.2.0") < 0 ? false : true,
                             'help' => 'The platform is designed using PHP version 5.2.0 or higher. Usage of PHP version < 5.1 is not recommended. PHP 4 is not supported');
 $software['apache'] = array('name' => 'Web server',
                             'installed' => $webserver[0],

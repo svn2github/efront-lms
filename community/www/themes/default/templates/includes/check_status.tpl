@@ -20,7 +20,7 @@
             {if $item.status}
                 <img src = "images/16x16/success.png" alt = "OK" title = "OK" />
             {else}
-                {if $item.name == 'PHP'}<img src = "images/16x16/forbidden.png" alt = "Missing" title = "Missing" />{else}<img src = "images/16x16/warning.png" alt = "Missing" title = "Missing" />{/if}
+                <img src = "images/16x16/warning.png" alt = "Missing" title = "Missing" />
             {/if}&nbsp;
             </td>
             <td><img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, '{$key}', event)"><div id = '{$key}' onclick = "eF_js_showHideDiv(this, '{$key}', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:300px;position:absolute;display:none">{$item.help}</div></td></tr>

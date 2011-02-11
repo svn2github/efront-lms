@@ -169,3 +169,24 @@ function onSetAllUsersStatusCompleted(el, response) {
   eF_js_redrawPage('usersTable', true);
  }
 }
+if ($('autocomplete_lessons_copy')) {
+ new Ajax.Autocompleter("autocomplete_copy",
+         "autocomplete_lessons_copy",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
+              afterUpdateElement : function (t, li) {$('copy_properties').value=li.id;},
+              indicator : "busy_copy"});
+}
+if ($('autocomplete_lessons_clone')) {
+ new Ajax.Autocompleter("autocomplete_clone",
+         "autocomplete_lessons_clone",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
+              afterUpdateElement : function (t, li) {$('clone_lesson').value=li.id;$('share_folder').value='';$('autocomplete_share').disabled = true;$('autocomplete_share').addClassName('inactiveElement')},
+              indicator : "busy_clone"});
+}
+if ($('autocomplete_lessons_share')) {
+ new Ajax.Autocompleter("autocomplete_share",
+         "autocomplete_lessons_share",
+         "ask.php?ask_type=lessons", {paramName: "preffix",
+              afterUpdateElement : function (t, li) {$('share_folder').value=li.id;$('clone_lesson').value='';$('autocomplete_clone').disabled = true;$('autocomplete_clone').addClassName('inactiveElement')},
+              indicator : "busy_share"});
+}

@@ -206,6 +206,7 @@ class EfrontSystem
   $sql = $temp;
   //For each one of the tables that have backup data, recreate its table and import data
   $iterator = new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($node), RecursiveIteratorIterator :: SELF_FIRST));
+  $GLOBALS['db'] -> Execute("SET FOREIGN_KEY_CHECKS=0");
   foreach ($iterator as $file => $value) {
       $tableName = preg_replace("/\.\d+/", "", basename($file));
       if (isset($sql[$tableName])) {
@@ -226,6 +227,7 @@ class EfrontSystem
           }
       }
   }
+  $GLOBALS['db'] -> Execute("SET FOREIGN_KEY_CHECKS=1");
   //Turn off foreign key checks in order to be able to run "drop table" queries
   eF_executeNew("SET FOREIGN_KEY_CHECKS = 0;");
   //For each one of the tables that don't have backup data, simply recreate

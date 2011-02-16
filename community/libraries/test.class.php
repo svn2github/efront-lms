@@ -4478,7 +4478,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
         $questionText = '';
         for ($k = 0; $k < sizeof($this -> answer); $k++) {
             $elements[] = $form -> addElement("static", null, null, $inputLabels[$k]);
-            $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, '');
+            $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'autocomplete="off"');
             if ($this -> userAnswer !== false) {
                 $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => $this -> userAnswer[$k]));
             }

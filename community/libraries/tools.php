@@ -480,18 +480,56 @@ function formatTimestamp($timestamp, $mode = false) {
     if (!$timestamp) {
         return '';
     }
+    $month = $GLOBALS['_monthNames'][(int)date("m", $timestamp)];
+    $day = date("d", $timestamp);
+    $year = date("Y", $timestamp);
+    $hour = date("H", $timestamp);
+    $minute = date("i", $timestamp);
+    $second = date("s", $timestamp);
+/*
+
+ * //Old strftime/setlocale/iconv based way
+
     switch ($GLOBALS['configuration']['date_format']) {
+
         case "YYYY/MM/DD": $format = '%Y %b %d'; break;
+
         case "MM/DD/YYYY": $format = '%b %d %Y'; break;
-        case "DD/MM/YYYY": default: $format = '%d %b %Y'; break;
+
+        case "DD/MM/YYYY":
+
+        default: 		   $format = '%d %b %Y'; break;
+
+    }
+
+    switch ($mode) {
+
+        case 'time': 			$format .= ', %H:%M:%S'; break;
+
+        case 'time_nosec': 		$format .= ', %H:%M'; 	 break;
+
+        case 'time_only_nosec': $format  = '%H:%M'; 	 break;
+
+        default: break;
+
+    }
+
+	$dateString = iconv(_CHARSET, 'UTF-8', strftime($format, $timestamp));
+
+*/
+    switch ($GLOBALS['configuration']['date_format']) {
+        case "YYYY/MM/DD": $date = "$year $month $day"; break;
+        case "MM/DD/YYYY": $date = "$month $day $year"; break;
+        case "DD/MM/YYYY":
+        default: $date = "$day $month $year"; break;
     }
     switch ($mode) {
-        case 'time': $format .= ', %H:%M:%S'; break;
-        case 'time_nosec': $format .= ', %H:%M'; break;
-        case 'time_only_nosec': $format = '%H:%M'; break;
+        case 'time': $date .= ", $hour:$minute:$second"; break;
+        case 'time_nosec': $date .= ", $hour:$minute"; break;
+        case 'time_only_nosec': $date = "$hour:$minute"; break;
         default: break;
     }
-    $dateString = iconv(_CHARSET, 'UTF-8', strftime($format, $timestamp));
+ $dateString = $date;
     return $dateString;
 }
 /**
@@ -1572,7 +1610,7 @@ function eF_filterData($data, $filter) {
  if ($filter) {
      foreach ($data as $key => $value) {
          $imploded_string = implode(",", $value); //Instead of checking each row value one-by-one, check it all at once
-         if (strpos(mb_strtolower($imploded_string), $filter) === false) {
+         if (mb_strpos(mb_strtolower($imploded_string), $filter) === false) {
              unset($data[$key]);
          }
      }

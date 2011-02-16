@@ -213,6 +213,18 @@ $MODULE_HCD_EVENTS['SKILL'] = 5;
 $MODULE_HCD_EVENTS['SEMINAR'] = 6;
 $MODULE_HCD_EVENTS['FIRED'] = 7;
 $MODULE_HCD_EVENTS['LEFT'] = 8;
+$_monthNames = array(1=>_JANUARYSHORTHAND,
+      _FEBRUARYSHORTHAND,
+      _MARCHSHORTHAND,
+      _APRILSHORTHAND,
+      _MAYSHORTHAND,
+      _JUNESHORTHAND,
+      _JULYSHORTHAND,
+      _AUGUSTSHORTHAND,
+      _SEPTEMBERSHORTHAND,
+      _OCTOBERSHORTHAND,
+      _NOVEMBERSHORTHAND,
+      _DECEMBERSHORTHAND);
 $loadScripts = array();
 /**
  * Setup version
@@ -251,7 +263,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 9984;
+    $build = 10054;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

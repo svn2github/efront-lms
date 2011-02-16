@@ -218,7 +218,7 @@ function smarty_function_eF_template_html_select_date($params, &$smarty)
             $month_values[''] = '';
         }
         for ($i = 1; $i <= 12; $i++) {
-            $month_names[$i] = iconv(_CHARSET, 'UTF-8', strftime($month_format, mktime(0, 0, 0, $i, 1, 2000)));
+            $month_names[$i] = $GLOBALS['_monthNames'][(int)date("m", mktime(0, 0, 0, $i, 1, 2000))];//iconv(_CHARSET, 'UTF-8', strftime($month_format, mktime(0, 0, 0, $i, 1, 2000)));
             $month_values[$i] = strftime($month_value_format, mktime(0, 0, 0, $i, 1, 2000));
         }
 

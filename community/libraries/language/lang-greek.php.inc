@@ -7,7 +7,7 @@ define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Είσοδος στο eFront");
 define("_HEADERLANGUAGEHTMLTAG","el-GR");
 define("_CURRENTLANGUAGESYMBOL","el");
-define("_HEADERLANGUAGETAG", "el_GR.utf8");
+define("_HEADERLANGUAGETAG", "notes");//el_GR.utf8
 define("_CHARSET","UTF-8");
 define("_LANGUAGE","Γλώσσα");
 define("_PASSWORD","Κωδικός");
@@ -3997,4 +3997,16 @@ define("_CLICKHERE", "κάντε κλικ εδώ");
 define("_TOLOGINAGAIN", "για να συνδεθείτε ξανά");
 define("_SESSIONEXPIRED", "Η σύνδεση έληξε");
 define("_COMMASEPARATEDLISTOFUSERSOR1FORALL", "Λίστα χρηστών χωρισμένη με κόμματα, στους οποίους θα εμφανίζονται πληροφορίες debug, ή 1 για να εμφανίζεται σε όλους τους χρήστες");
+define("_JANUARYSHORTHAND", "Ιαν");
+define("_FEBRUARYSHORTHAND", "Φεβ");
+define("_MARCHSHORTHAND", "Μάρ");
+define("_APRILSHORTHAND", "Απρ");
+define("_MAYSHORTHAND", "Μάι");
+define("_JUNESHORTHAND", "Ιούν");
+define("_JULYSHORTHAND", "Ιούλ");
+define("_AUGUSTSHORTHAND", "Αυγ");
+define("_SEPTEMBERSHORTHAND", "Σεπ");
+define("_OCTOBERSHORTHAND", "Οκτ");
+define("_NOVEMBERSHORTHAND", "Νοέ");
+define("_DECEMBERSHORTHAND", "Δεκ");
 ?>

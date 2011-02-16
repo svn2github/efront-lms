@@ -1,9 +1,12 @@
-=== Version 3.6.8 build ===
+=== Version 3.6.9 build ===
 - Debug mode can now be set per user
 - Updating test score now sets/unsets unit progress
 - Fixed LDAP registration ignoring "only LDAP" setting, introduced in build 9931
 - Added code for converting pdf units via view_file.php
 - Added autocomplete input fields to show categories in add lesson advanced settings
+- Added autocomplete="off" for empty space questions to prevent browser from showing the previous answers
+- Dates formatting is no longer system-dependent
+
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

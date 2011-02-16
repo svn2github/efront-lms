@@ -2346,7 +2346,7 @@ class EfrontStats
             $testInfo['general']['answers_str'] = $test -> options['answers'] == 1 ? _YES : _NO;
             $testInfo['general']['description'] = $test -> test['description'];
             $testInfo['general']['timestamp'] = $unit -> offsetGet('timestamp');
-            $testInfo['general']['timestamp_str'] = strftime('%d-%m-%Y, %H:%M:%S', $testInfo['general']['timestamp']);
+            //$testInfo['general']['timestamp_str']   = strftime('%d-%m-%Y, %H:%M:%S', $testInfo['general']['timestamp']);
             $testInfo['general']['scorm'] = 0;
             $testInfo['questions']['total'] = 0;
             $testInfo['questions']['raw_text'] = 0;

@@ -50,10 +50,10 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
                 <tr class = "calendar">
                     <td class = "calendarHeader">
                         <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$previous_month.$show_interval_link.'">&laquo; </a>
-                        '.iconv(_CHARSET, 'UTF-8', strftime('%B', $params['timestamp'])).'
+                        '.$GLOBALS['_monthNames'][(int)date("m", $params['timestamp'])].'
                         <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$next_month.$show_interval_link.'">&raquo; </a>
                     </td>
-                    <td class = "calendarHeader">
+                    <td class = "calendarHeader" style = "text-align:right">
                         <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$previous_year.$show_interval_link.'">&laquo; </a>
                         '.$timestamp_info['year'].'
                         <a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=calendar&view_calendar='.$next_year.$show_interval_link.'"> &raquo;</a>

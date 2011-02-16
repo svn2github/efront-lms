@@ -3997,4 +3997,16 @@ define("_CLICKHERE", "click here");
 define("_TOLOGINAGAIN", "to login again");
 define("_SESSIONEXPIRED", "Session expired");
 define("_COMMASEPARATEDLISTOFUSERSOR1FORALL", "Comma separated list of users to show debug information on, or 1 for all users");
+define("_JANUARYSHORTHAND", "Jan");
+define("_FEBRUARYSHORTHAND", "Feb");
+define("_MARCHSHORTHAND", "Mar");
+define("_APRILSHORTHAND", "Apr");
+define("_MAYSHORTHAND", "May");
+define("_JUNESHORTHAND", "Jun");
+define("_JULYSHORTHAND", "Jul");
+define("_AUGUSTSHORTHAND", "Aug");
+define("_SEPTEMBERSHORTHAND", "Sep");
+define("_OCTOBERSHORTHAND", "Oct");
+define("_NOVEMBERSHORTHAND", "Nov");
+define("_DECEMBERSHORTHAND", "Dec");
 ?>

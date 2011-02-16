@@ -14,6 +14,7 @@ var refresh_rate = 30000; // How fast will the user list be refreshed?
 var scrollalert_timeout= 0;
 var chatheartbeat_timeout = 0;
 var scrollalertNotCaringCss_timeout = 0;
+var openCB = null;
 
 var resizeTimer = null;
 var ul_sem = 0;
@@ -122,6 +123,7 @@ if ($J.cookie("chat_on") == null){
  $J('#chat_bar').click(function(event){
      event.stopPropagation();
  });
+
 });
 
 
@@ -531,10 +533,8 @@ function chatHeartbeat(){
     error:function (xhr, ajaxOptions, thrownError){
      clearTimeout(chatheartbeat_timeout);
      chatHeartbeat();
-
                 },
     success: function(data) {
-
    if (data==null)
     return;
    $J.each(data.items, function(i,item){
@@ -592,16 +592,22 @@ function chatHeartbeat(){
 						else
 
 							msg_alert_ie(modulechatbaselink+"sound/msg.wav");*/
-      if (browserName == "other") //all except ie and opera
-       soundPlay();
-      else if (browserName == "ie")
-       msg_alert_ie(modulechatbaselink+"sound/msg.wav");
+      /*if (browserName == "other"){ //all except ie and opera
+
+							soundPlay(chatboxtitle);
+
+						}
+
+						else if (browserName == "ie")
+
+							msg_alert_ie(modulechatbaselink+"sound/msg.wav");*/
      }
      itemsfound += 1;
-    }
-    if (!($J('#chatbox_'+chatboxtitle+' .chatboxcontent').is(":hidden"))){
-     $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").blur();
-     $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
+     if (!($J('#chatbox_'+chatboxtitle+' .chatboxcontent').is(":hidden"))){
+      //$J("#chatbox_"+chatboxtitle+" .chatboxtextarea").blur();
+      $J("#chatbox_"+chatboxtitle+" .chatboxtextarea").focus();
+      openCB = chatboxtitle;
+     }
     }
    });
    chatHeartbeatCount++;
@@ -615,14 +621,10 @@ function chatHeartbeat(){
      chatHeartbeatTime = maxChatHeartbeat;
     }
    }
-
    chatheartbeat_timeout = setTimeout('chatHeartbeat();',chatHeartbeatTime);
   }});
-
 }
-
 function closeChatBox(chatboxtitle) {
-
 
 
  //$J('#chatbox_'+chatboxtitle).css('display','none');
@@ -705,7 +707,6 @@ function toggleChatBoxGrowth(chatboxtitle) {
 }
 
 function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
- //alert("me");
  $J(chatboxtextarea).focus();
 
  if(event.keyCode == 13 && event.shiftKey == 0) {
@@ -864,7 +865,9 @@ function soundPlay(){
  }
  soundEmbed.removed = false;
  document.body.appendChild(soundEmbed);
+ //$J.fn.soundPlay({url: modulechatbaselink+"sound/msg.wav"});
 }
+
 jQuery.extend(jQuery.expr[':'], {
     focus: function(element) {
         return element == document.activeElement;

@@ -41,9 +41,11 @@ $generalLocaleForm = new HTML_QuickForm("general_locale", "post", basename($_SER
 $generalLocaleForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $defaultEncodings = array_combine(mb_list_encodings(), mb_list_encodings());
 $encodings['UTF7-IMAP'] = 'UTF7-IMAP';
+/*
 if (in_array(_CHARSET, $defaultEncodings)) {
- $encodings[_CHARSET] = _CHARSET;
+	$encodings[_CHARSET] = _CHARSET;
 }
+*/
 $encodings['UTF8'] = 'UTF8';
 $encodings = array_merge($encodings, $defaultEncodings);
 // Hard-coded cities per time zone - hopefully all are DST aware

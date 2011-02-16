@@ -260,9 +260,15 @@ function eF_insertTableDataMultiple($table, $fields, $checkGpc = true) {
     if (!is_array($fields[0])) { //If we specified a 1-dimensional array, convert it to 2-dimensional
         $fields = array($fields);
     }
+ $columns = array();
+ foreach ($fields[0] as $key => $value) {
+  if (!preg_match("/^`.*`$/", $key)) {
+   $columns[] = "`$key`";
+  }
+ }
     $count = 0;
     $sqlArray2 = array();
-    $sql = "INSERT INTO ".$table." (".implode(",", array_keys($fields[0])).") values ";
+    $sql = "INSERT INTO ".$table." (".implode(",", $columns).") values ";
     $currentLength[$table] = 0;
     foreach ($fields as $value) {
         $value = eF_addSlashes($value, $checkGpc);

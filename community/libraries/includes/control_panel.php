@@ -252,25 +252,25 @@ try {
                 $currentLesson -> options['lesson_info'] ? $headerOptions[] = array('text' => _LESSONINFORMATION, 'image' => '32x32/information.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_information&popup=1', 'onClick' => "eF_js_showDivPopup('"._LESSONINFORMATION."', 2)", 'target' => 'POPUP_FRAME') : null;
             }
             //Digital library mini file manager block
-            if ($currentLesson -> options['digital_library'] && $currentUser -> coreAccess['content'] != 'hidden') { //If the lesson digital library is enabled
-    $result = eF_getTableData("files", "*", "shared=".$currentLesson -> lesson['id']);
-    foreach ($result as $value) {
-     try {
-      $sharedFiles[G_ROOTPATH.$value['path']] = new EfrontFile($value['id']);
-     } catch (Exception $e) {/*Do nothing if you can't load a shared file*/}
-    }
-                if (sizeof($sharedFiles) > 0) {
-                    $basedir = $currentLesson -> getDirectory();
-                    $options = array('share' => false, 'zip' => false, 'folders' => false, 'delete' => false, 'edit' => false, 'create_folder' => false, 'upload' => false);
-                    $url = basename($_SERVER['PHP_SELF']).'?ctg=control_panel';
-                    $filesystem = new FileSystemTree($basedir, true);
-     //changed to take account subfolders in efficient way
-                    $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sharedFiles), RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $currentLesson -> lesson['id'])));
-     $smarty -> assign("T_FILES_LIST_OPTIONS", array(array('text' => _SHAREDFILES, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=digital_library")));
-                    $smarty -> assign("T_FILE_LIST_LINK", basename($_SERVER['PHP_SELF'])."?ctg=digital_library");
-                    /**The file manager*/
-                    include ("file_manager.php");
-                }
+            if ($currentLesson -> options['digital_library'] && $currentUser -> coreAccess['digital_library'] != 'hidden') { //If the lesson digital library is enabled
+             $result = eF_getTableData("files", "*", "shared=".$currentLesson -> lesson['id']);
+             foreach ($result as $value) {
+              try {
+               $sharedFiles[G_ROOTPATH.$value['path']] = new EfrontFile($value['id']);
+              } catch (Exception $e) {/*Do nothing if you can't load a shared file*/}
+             }
+             if (sizeof($sharedFiles) > 0) {
+              $basedir = $currentLesson -> getDirectory();
+              $options = array('share' => false, 'zip' => false, 'folders' => false, 'delete' => false, 'edit' => false, 'create_folder' => false, 'upload' => false);
+              $url = basename($_SERVER['PHP_SELF']).'?ctg=control_panel';
+              $filesystem = new FileSystemTree($basedir, true);
+              //changed to take account subfolders in efficient way
+              $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sharedFiles), RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $currentLesson -> lesson['id'])));
+              $smarty -> assign("T_FILES_LIST_OPTIONS", array(array('text' => _SHAREDFILES, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=digital_library")));
+              $smarty -> assign("T_FILE_LIST_LINK", basename($_SERVER['PHP_SELF'])."?ctg=digital_library");
+              /**The file manager*/
+              include ("file_manager.php");
+             }
             }
         }
         //This is a notifier for cookies handling the show/hide status of inner tables. It affects only control panel and is considered inside printInnerTable smarty plugin

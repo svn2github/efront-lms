@@ -212,7 +212,7 @@
     {/if}
 
  {*moduleDigitalLibrary: Print the digital library section and file list*}
-    {if $T_FILE_MANAGER}
+    {if $T_FILE_MANAGER && $T_CURRENT_USER->coreAccess.digital_library && $T_CURRENT_USER->coreAccess.digital_library != 'hidden'}
         {capture name = "moduleDigitalLibrary"}
          <tr><td class = "moduleCell">
              {capture name = 't_digital_library'}

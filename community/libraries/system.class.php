@@ -813,6 +813,11 @@ class EfrontSystem
 	 */
  public static function printErrorMessage($message) {
      $str = '
+     <html>
+     <body>
+     <head>
+     <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+     </head>
      <style>
      .singleMessage{width:100%;font-family:trebuchet ms;font-size:14px;border:1px solid red;background-color:#ffcccc;margin-top:10px}
      .singleMessage td{padding:10px;}
@@ -822,6 +827,8 @@ class EfrontSystem
       <tr><td><img src = "'.G_SERVERNAME.'/themes/default/images/32x32/warning.png" alt = "Failure" title = "Failure"></td>
        <td><div style = "font-size:16px;font-weight:bold">An error occured:</div><div>'.$message.'</div></tr>
      </table>
+     </body>
+     </html>
      ';
      return $str;
  }

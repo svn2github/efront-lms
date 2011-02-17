@@ -563,6 +563,12 @@ $smarty -> assign("T_CURRENT_CTG", $ctg);
 $smarty -> assign("T_MENUCTG", $ctg);
 //$smarty -> assign("T_MENU", eF_getMenu());
 //$smarty -> assign("T_QUERIES", $numberOfQueries);
+if ($_SESSION['s_message']) {
+ $message .= urldecode($_SESSION['s_message']);
+ $message_type = $_SESSION['s_message_type'];
+ unset($_SESSION['s_message']);
+ unset($_SESSION['s_message_type']);
+}
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 $smarty -> assign("T_SEARCH_MESSAGE", $search_message);

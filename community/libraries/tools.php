@@ -2329,6 +2329,19 @@ function eF_redirect($url, $js = false, $target = 'top', $retainUrl = false) {
      if (isset($parts['query']) && $parts['query']) {
          if ($GLOBALS['configuration']['encrypt_url']) {
              $parts['query'] = 'cru='.encryptString($parts['query']);
+         } else {
+          $query = explode("&", $parts['query']);
+          foreach ($query as $key => $value) {
+           $queryParts = explode("=", $value);
+           if ($queryParts[0] == 'message') {
+            $_SESSION['s_message'] = $queryParts[1];
+            unset($query[$key]);
+           } elseif ($queryParts[0] == 'message_type') {
+            $_SESSION['s_message_type'] = $queryParts[1];
+            unset($query[$key]);
+           }
+          }
+          $parts['query'] = implode("&", $query);
          }
          $parts['query'] = '?'.$parts['query'];
      } else {

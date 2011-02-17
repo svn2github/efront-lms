@@ -4009,4 +4009,5 @@ define("_SEPTEMBERSHORTHAND", "Sep");
 define("_OCTOBERSHORTHAND", "Oct");
 define("_NOVEMBERSHORTHAND", "Nov");
 define("_DECEMBERSHORTHAND", "Dec");
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE", "You cannot access the requested resource");
 ?>

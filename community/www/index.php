@@ -14,6 +14,7 @@ session_start(); //This causes the double-login problem, where the user needs to
 
 if (!isset($_SESSION['s_login'])) {
  session_regenerate_id();
+ setcookie("PHPSESSID", session_id());
 }
 
 

@@ -4009,4 +4009,5 @@ define("_SEPTEMBERSHORTHAND", "Σεπ");
 define("_OCTOBERSHORTHAND", "Οκτ");
 define("_NOVEMBERSHORTHAND", "Νοέ");
 define("_DECEMBERSHORTHAND", "Δεκ");
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE", "Δεν μπορείτε να προσπελάσετε αυτό το αρχείο");
 ?>

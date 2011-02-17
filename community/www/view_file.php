@@ -42,12 +42,17 @@ try {
   } catch (Exception $e) {
    $file = new EfrontFile($filePath);
   }
+  preg_match("#content/lessons/(\d+)/#", $file['path'], $matches);
+  if ($currentUser->user['user_type'] != 'administrator' && $matches[1] && !in_array($matches[1], array_keys($currentUser -> getLessons()))) {
+   throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+  }
  } else {
      $file = new EfrontFile($_GET['file']);
  }
  if (strpos($file['path'], G_ROOTPATH.'libraries') !== false && strpos($file['path'], G_ROOTPATH.'libraries/language') === false && $file['mime_type'] != "application/inc") {
   throw new EfrontFileException(_ILLEGALPATH.': '.$file['path'], EfrontFileException :: ILLEGAL_PATH);
  }
+
     if (isset($_GET['action']) && $_GET['action'] == 'download') {
      $file -> sendFile(true);
     } else {
@@ -56,4 +61,5 @@ try {
 } catch (EfrontFileException $e) {
     echo EfrontSystem :: printErrorMessage($e -> getMessage());
 }
+
 ?>

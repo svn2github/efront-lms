@@ -6,7 +6,9 @@
 - Added autocomplete input fields to show categories in add lesson advanced settings
 - Added autocomplete="off" for empty space questions to prevent browser from showing the previous answers
 - Dates formatting is no longer system-dependent
-
+- Users now can't access files on lessons they are not enrolled to, via .htaccess
+- Fixed user courses filter not working properly when language is not english
+- Messages are no longer passed through the get
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

@@ -152,7 +152,7 @@ try {
 
           $ajaxOptions = array('sort' => $sort, 'order' => $order, 'limit' => $limit, 'offset' => $offset, 'filter' => $filter);
           //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
-          $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns);
+          $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, $extraDirectoryTools, $extraHeaderOptions, $filesystemIterator, false, $extraColumns);
           $smarty -> assign("T_DISPLAYCODE", $filesystemCode);
           $smarty -> display('display_code.tpl');
           exit;
@@ -160,7 +160,7 @@ try {
           handleAjaxExceptions($e);
          }
         }
-        $smarty -> assign("T_FILE_MANAGER", $filesystem -> toHTML($url, false, false, $options, $extraFileTools, array(), $extraHeaderOptions, $filesystemIterator, false, $extraColumns));
+        $smarty -> assign("T_FILE_MANAGER", $filesystem -> toHTML($url, false, false, $options, $extraFileTools, $extraDirectoryTools, $extraHeaderOptions, $filesystemIterator, false, $extraColumns));
     }
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);

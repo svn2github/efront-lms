@@ -163,7 +163,7 @@ function show_user_box(user_str,user,send_msg,view_page,user_type,user_time, use
 
   if (translations['s_type'] == "administrator") {
    href_str += '<BR><a href = "'+translations['s_type']+'.php?ctg=statistics&option=user&sel_user='+user+'&popup=1" onclick = "eF_js_showDivPopup(\'\', \'\', \'user_table\');eF_js_showDivPopup(\'\', 2)" target = "POPUP_FRAME">'+user_stats+"</a>";
-   href_str += '<BR><a href = "'+translations['s_type']+'.php?ctg=users&edit_user='+user+'" onclick = "eF_js_showDivPopup(\'\', \'\', \'user_table\');">'+user_profile+"</a>";
+   href_str += '<BR><a href = "'+translations['s_type']+'.php?ctg=personal&user='+user+'&op=profile" onclick = "eF_js_showDivPopup(\'\', \'\', \'user_table\');">'+user_profile+"</a>";
 
    if (translations['s_login'] != user) {
     href_str += '<BR><a href = "javascript:void(0);" onclick = "parameters = {method: \'get\'};ajaxRequest(this, \''+translations['s_type']+'.php?ctg=logout_user&user='+user+'\', parameters, function (el, transport) {eF_js_showDivPopup(\'\', \'\', \'user_table\'); if (top.sidebar) {top.sideframe.location.reload();} });">'+logout_user+"</a>";

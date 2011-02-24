@@ -2,7 +2,7 @@
 	width: 225px;/*225 default*/
 	/*float:right;*/
 	position:static;
-	border:1px solid #666666;
+	border:1px solid #666666; /*#666666*/
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
@@ -107,7 +107,7 @@ background-color:#00FF00;
 
 .chatboxoptions {
 	float: right;
-	margin-top:4px;
+	
 	z-index:995;
 
 }
@@ -116,17 +116,18 @@ background-color:#00FF00;
 	text-decoration: none;
 	color: white;
 	font-weight:bold;
-	vertical-align:bottom;
+
 	z-index:995;
 
 }
 .chatboxoptions a img{
 	border:none;
 	z-index:995;
+	vertical-align:middle;
 }
 .chatboxtitle {
 	float: left;
-	padding-top:3px;
+	padding-top:2px;
 	margin-left:2px;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 	max-width:190px;

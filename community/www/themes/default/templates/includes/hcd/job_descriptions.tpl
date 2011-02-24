@@ -87,9 +87,9 @@
      <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
       <td>
       {if ($user.pending == 1)}
-       <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
+       <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
       {elseif ($user.active == 1)}
-       <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
+       <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>
       {else}
        #filter:login-{$user.login}#
       {/if}
@@ -101,7 +101,7 @@
       {/if}
       <td align="center">
        {if $user.active == 1}
-        <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&tab=placements" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+        <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile&tab=placements" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
        {else}
         <img src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
        {/if}

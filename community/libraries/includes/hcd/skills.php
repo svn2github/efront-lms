@@ -10,7 +10,7 @@ try {
     if ($currentEmployee -> getType() == _EMPLOYEE) {
         $message = _SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION;
         $message_type = 'failure';
-        eF_redirect($_SESSION['s_type'].".php?ctg=personal&tab=skills&message=".urlencode($message)."&message_type=".$message_type);
+        eF_redirect(basename($_SERVER['PHP_SELF'])."&message=".urlencode($message)."&message_type=".$message_type);
         exit;
     }
 
@@ -129,12 +129,15 @@ try {
          if (isset($_GET['add_skill'])) {
           EfrontSkill :: createSkill($skill_content);
           $message = _SUCCESSFULLYCREATEDSKILL;
+          $message_type = 'success';
          } elseif (isset($_GET['edit_skill'])) {
           $currentSkill -> updateSkillData($skill_content);
           $message = _SKILLDATAUPDATED;
+          $message_type = 'success';
          }
+
          // Return to previous url stored in a hidden - that way, after the insertion we can immediately return to where we were
-         eF_redirect(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=success&tab=skills");
+         //eF_redirect(basename($form->exportValue('previous_url'))."&message=". urlencode($message) . "&message_type=success&tab=skills");
         }
 
         $renderer = prepareFormRenderer($form);

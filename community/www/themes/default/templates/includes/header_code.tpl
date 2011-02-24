@@ -25,7 +25,25 @@
     {/strip}
     </span>
       {/if}
-    <a href = "userpage.php{if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}?ctg=personal{else}?ctg=personal&op=account{/if}" class="headerText">#filter:login-{$smarty.session.s_login}#</a>
+    <a href = "userpage.php?ctg=personal&user={$T_CURRENT_USER->user.login}" class="headerText" id = "personal_options_link">
+     #filter:login-{$smarty.session.s_login}#
+    </a>
+
+    <div style = "display:none" id = "my_personal_options">
+     <ul style = "list-style:none;padding:0px;">
+      {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
+      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=dashboard">{$smarty.const._DASHBOARD}</a></li>
+      {/if}
+      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=profile">{$smarty.const._PERSONALDATA}</a></li>
+      {if $smarty.session.s_type != 'administrator'}
+      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=user_courses">{$smarty.const._LEARNINGSTATUS}</a></li>
+      {/if}
+
+
+
+
+     </ul>
+    </div>
    {if $T_CURRENT_USER->coreAccess.personal_messages != 'hidden' && $T_CONFIGURATION.disable_messages != 1}
     <span class = "headerText">
      <img class = "ajaxHandle" src = "images/16x16/mail.png" alt = "{$smarty.const._MESSAGES}" title = "{$smarty.const._MESSAGES}" onclick = "location='userpage.php?ctg=messages'"/>

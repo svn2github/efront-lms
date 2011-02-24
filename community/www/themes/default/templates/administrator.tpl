@@ -72,9 +72,9 @@
 {if (isset($T_CTG) && $T_CTG == 'user_profile')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_profile">'|cat:$smarty.const._CUSTOMIZEUSERSPROFILE|cat:'</a>'}
     {if $smarty.get.edit_field}
-        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_profile&edit_field='|cat:$smarty.get.edit_field|cat:'">'|cat:$smarty.const._EDITFIELD|cat:'</a>'}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_profile&edit_field='|cat:$smarty.get.edit_field|cat:'&type='|cat:$smarty.get.type|cat:'">'|cat:$smarty.const._EDITFIELD|cat:'</a>'}
     {elseif $smarty.get.add_field}
-        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_profile&add_field=1">'|cat:$smarty.const._ADDFIELD|cat:'</a>'}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_profile&add_field=1&type='|cat:$smarty.get.type|cat:'">'|cat:$smarty.const._ADDFIELD|cat:'</a>'}
     {/if}
     {include file = "includes/user_profile.tpl"}
 {/if}
@@ -119,21 +119,32 @@
  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=chat'>`$smarty.const._CHAT`</a>"}
  {include file = "includes/chat.tpl"}
 {/if}
-{if (isset($T_CTG) && ($T_CTG == 'users' || $T_CTG == 'personal'))}
+{if isset($T_CTG) && $T_CTG == 'personal'}
+ {capture name = "modulePersonal"}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=users'>`$smarty.const._USERS`</a>"}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=personal&user=`$T_EDITEDUSER->user.login`'>#filter:login-`$T_EDITEDUSER->user.login`#</a>"}
+  {if $T_OP == 'dashboard'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=dashboard'>`$smarty.const._DASHBOARD`</a>"}
+  {elseif $T_OP == 'profile' || $T_OP == 'user_groups' || $T_OP == 'mapped_accounts' || $T_OP == 'payments'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=profile'>`$smarty.const._ACCOUNT`</a>"}
+  {elseif $T_OP == 'user_courses' || $T_OP == 'user_lessons' || $T_OP == 'certificates' || $T_OP == 'user_form'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=user_courses'>`$smarty.const._LEARNING`</a>"}
+  {elseif $T_OP == 'placements' || $T_OP == 'history' || $T_OP == 'skills' || $T_OP == 'evaluations' || $T_OP =='org_form'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=placements'>`$smarty.const._ORGANIZATION`</a>"}
+  {elseif $T_OP == 'files'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=files'>`$smarty.const._FILES`</a>"}
+  {/if}
+  <tr><td class = "moduleCell">
+    {include file = "includes/personal.tpl"}
+  </td></tr>
+ {/capture}
+{/if}
+{if isset($T_CTG) && $T_CTG == 'users'}
     {if !isset($smarty.get.print_preview) && !isset($smarty.get.print) && !$T_POPUP_MODE}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=users">'|cat:$smarty.const._USERS|cat:'</a>'}
     {/if}
-    {if $smarty.get.add_user || $smarty.get.edit_user}
-                                {if !isset($smarty.get.print_preview) && !isset($smarty.get.print) && !$T_POPUP_MODE}
-                                    {if $smarty.get.edit_user != ""}
-                                        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=users&edit_user='|cat:$smarty.get.edit_user|cat:'">'|cat:$smarty.const._EDITUSEREDIT|cat:'&nbsp;<span class="innerTableName">&quot;'|cat:$smarty.get.edit_user|cat:'&quot;</span></a>'}
-                                    {else}
-                                        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=users&add_user=1">'|cat:$smarty.const._NEWUSER|cat:'</a>'}
-                                     {/if}
-                                 {/if}
-    {/if}
-
     {include file = "includes/users.tpl"}
+
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'archive')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=archive">'|cat:$smarty.const._ARCHIVE|cat:'</a>'}
@@ -588,6 +599,7 @@
   {$smarty.capture.moduleShowRoom}
   {$smarty.capture.moduleRoomsList}
   {$smarty.capture.chatRoomOptions}
+  {$smarty.capture.modulePersonal}
  </table>
 {/capture}
 {capture name = "left_code"}

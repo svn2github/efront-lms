@@ -284,7 +284,7 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
  //$newMenu -> insertMenuOption(array("id" => "forum_a", "image" => "messages", "link" => basename($_SERVER['PHP_SELF'])."?ctg=forum", "title" => _ALLFORUMS), $toolsMenuId);
  if ($_SESSION['s_type'] == 'administrator') {
   if ($GLOBALS['configuration']['disable_dashboard'] != 1 && (!isset($currentUser -> coreAccess['dashboard']) || $currentUser -> coreAccess['dashboard'] != 'hidden')) {
-   $newMenu -> insertMenuOption(array("id" => "personal_a", "image" => "user", "link" => "administrator.php?ctg=users&edit_user=".$_SESSION['s_login'], "title" => _PERSONALDATA), $toolsMenuId);
+   $newMenu -> insertMenuOption(array("id" => "personal_a", "image" => "user", "link" => "administrator.php?ctg=personal&user=".$_SESSION['s_login']."&op=dashboard", "title" => _PERSONALDATA), $toolsMenuId);
      }
   if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
          $newMenu -> insertMenuOption(array("id" => "calendar_a", "image" => "calendar", "link" => "administrator.php?ctg=calendar", "title" => _CALENDAR), $toolsMenuId);

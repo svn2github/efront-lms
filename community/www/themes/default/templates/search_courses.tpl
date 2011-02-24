@@ -54,7 +54,7 @@ var detailsConst = '{$smarty.const._DETAILS}';
             {foreach name = 'users_list' key = 'key' item = 'user' from = $T_EMPLOYEES}
             <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
             <td>
-                <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
+                <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
             </td>
             <td>{$user.languages_NAME}</td>
     {*1111111111111
@@ -74,7 +74,7 @@ var detailsConst = '{$smarty.const._DETAILS}';
     *}
             <td align="center">
                 {if $user.user_type != 'administrator'}
-                    <a href="{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&print_preview=1" onclick = "eF_js_showDivPopup('{if $smarty.const.G_VERSIONTYPE == 'enterprise'}{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}{else}{$smarty.const._USERFORMPRINTPREVIEW}{/if}', 2)" target = "POPUP_FRAME"><img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' /></a>
+                    <a href="{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&print_preview=1" onclick = "eF_js_showDivPopup('{if $smarty.const.G_VERSIONTYPE == 'enterprise'}{$smarty.const._EMPLOYEEFORMPRINTPREVIEW}{else}{$smarty.const._USERFORMPRINTPREVIEW}{/if}', 2)" target = "POPUP_FRAME"><img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' /></a>
                 {else}
                     <img src='images/16x16/printer.png' title= '{$smarty.const._PRINTPREVIEW}' alt = '{$smarty.const._PRINTPREVIEW}' border='0' />
                 {/if}
@@ -85,7 +85,7 @@ var detailsConst = '{$smarty.const._DETAILS}';
             <td align = "center">
                 <table>
                 <tr><td width="45%">
-                    <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                    <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
 
                 </td><td></td><td width="45%">
                     <a href = "{$smarty.session.s_type}.php?ctg=users&op=users_data&delete_user={$user.login}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETEUSER}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._FIRE}" alt = "{$smarty.const._FIRE}" /></a>

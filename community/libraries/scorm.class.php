@@ -155,7 +155,8 @@ class EfrontScorm
                         /*SCORM 2004: params in element items must be appended to the url*/
                         $references[$key]['PARAMETERS'] = $value['attributes']['PARAMETERS'];
                     } else {
-                        $references[$key] = $value['attributes']['IDENTIFIERREF'];
+                        $references[$key]['IDENTIFIERREF'] = $value['attributes']['IDENTIFIERREF'];
+                        $references[$key]['PARAMETERS'] = $value['attributes']['PARAMETERS'];
                     }
                     $content_to_organization[$item_key] = $organization;
                     break;
@@ -336,7 +337,8 @@ class EfrontScorm
  //	exit();
         if (!$scorm2004) {
             foreach ($references as $key => $value) {
-                $ref = array_search($value, $resources);
+                //$ref = array_search($value, $resources);
+                $ref = array_search($value['IDENTIFIERREF'], $resources);
                 if ($ref !== false && !is_null($ref)) {
                     $data = file_get_contents($scormPath."/".$tagArray[$ref]['attributes']['HREF']);
                     $primitive_hrefs[$ref] = $tagArray[$ref]['attributes']['HREF'];
@@ -353,12 +355,13 @@ class EfrontScorm
                     }
                     //$total_fields[$key]['data'] = eF_postProcess(str_replace("'","&#039;",$data));
                     if ($parameters['embed_type'] == 'iframe') {
-                        $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
+                        //$total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
+                     $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS']. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
                     } else {
                         $total_fields[$key]['data'] = '
                             <div style = "text-align:center;height:300px">
                              <span>'._CLICKTOSTARTUNIT.'</span><br/>
-                          <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
+                       <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
                          </div>';
                     }
                 }

@@ -114,7 +114,7 @@
                                 <td>{$user.email}</td>
                                 <td align = "center">
                                     <span style="display:none" id="check_row{$user.login}">{if $user.meeting_ID == $smarty.get.edit_BBB}1{else}0{/if}</span>
-                                    <input class = "inputCheckBox" type = "checkbox" onclick="javascript:ajaxPost('{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"
+                                    <input class = "inputCheckBox" type = "checkbox" onclick="javascript:ajaxPostBBB('{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"
                                     {if $user.meeting_ID == $smarty.get.edit_BBB}
                                      checked
                                     {/if}
@@ -131,7 +131,7 @@
                 {literal}
                 <script>
                 // Wrapper function for any of the 2-3 points where Ajax is used in the module personal
-                function ajaxPost(id, el, table_id) {
+                function ajaxPostBBB(id, el, table_id) {
                      Element.extend(el);
 
                      var baseUrl = '{/literal}{$T_BBB_MODULE_BASEURL}{literal}&edit_BBB={/literal}{$smarty.get.edit_BBB}{literal}&postAjaxRequest=1';

@@ -353,7 +353,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $smarty -> assign("T_SKILLSGAP",$analysisResults['testSkills']);
                 }
                 $smarty -> assign("T_MISSING_SKILLS_URL", $analysisResults['missingSkills']);
-                $smarty -> assign("T_USER_LINK", array(array('text' => _EDIT, 'image' => "16x16/user.png", 'href' => $_SESSION['s_type'].".php?ctg=users&edit_user=".$_GET['user'])));
+                $smarty -> assign("T_USER_LINK", array(array('text' => _EDIT, 'image' => "16x16/user.png", 'href' => $_SESSION['s_type'].".php?ctg=personal&user=".$_GET['user']."&op=profile")));
 
                 $lessons_proposed = $analysisResults['lessons'];
                 $courses_proposed = $analysisResults['courses'];

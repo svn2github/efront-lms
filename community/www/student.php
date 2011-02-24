@@ -472,10 +472,8 @@ try {
      }
  }
  elseif ($ctg == 'personal') {
-     $login = $_SESSION['s_login'];
      /**This part is used to display the user's personal information*/
      include "includes/personal.php";
-     $log_comments = 1; //The $log_comments variable is used at the log entry.
  }
  /*
 

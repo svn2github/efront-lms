@@ -100,9 +100,9 @@
                   <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
                       <td>
                      {if ($user.pending == 1)}
-                          <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
+                          <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
                      {elseif ($user.active == 1)}
-                          <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
+                          <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>
                      {else}
                           #filter:login-{$user.login}#
                      {/if}
@@ -117,7 +117,7 @@
                {/if}
                       <td class = "centerAlign">
                       {if $user.active == 1}
-                          <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">
+                          <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">
                            <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                       {/if}
                       {if $user.login != $smarty.session.s_login}
@@ -151,9 +151,9 @@
               <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                   <td>
      {if ($user.pending == 1)}
-             <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
+             <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
               {elseif ($user.active == 1)}
-             <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
+             <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>
               {else}
              #filter:login-{$user.login}#
               {/if}

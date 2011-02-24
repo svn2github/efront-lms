@@ -81,8 +81,7 @@ class module_demo extends EfrontModule {
 	 */
     public function onInstall() {
         eF_executeQuery("drop table if exists module_demo_data");
-        eF_executeQuery("CREATE TABLE module_demo_data(id int(11) not null auto_increment primary key,
-                      data text not null)");
+        eF_executeQuery("CREATE TABLE module_demo_data(id int(11) not null auto_increment primary key,timestamp int(11) default 0,data text not null)");
      return true;
     }
  /**
@@ -109,7 +108,7 @@ class module_demo extends EfrontModule {
 	 */
     public function onUpgrade() {
      try {
-         eF_executeQuery("ALTER TABLE module_demo_data add (timestamp int(11) default 0)");
+         eF_executeQuery("ALTER TABLE module_demo_data change timestamp timestamp int(11) default 0");
      } catch (Exception $e) {/*the table was already upgraded*/}
      return true;
     }
@@ -527,7 +526,7 @@ class module_demo extends EfrontModule {
      */
     public function getCenterLinkInfo() {
      return array('title' => $this -> getName(),
-                     'image' => $this -> moduleBaseLink . 'images/logo.png',
+                     'image' => $this -> moduleBaseLink . 'img/logo.png',
                      'link' => $this -> moduleBaseUrl);
     }
     /**
@@ -539,7 +538,7 @@ class module_demo extends EfrontModule {
      */
     public function getLessonCenterLinkInfo() {
      return array('title' => $this -> getName().' (getLessonCenterLinkInfo())',
-                     'image' => $this -> moduleBaseLink . 'images/logo.png',
+                     'image' => $this -> moduleBaseLink . 'img/logo.png',
                      'link' => $this -> moduleBaseUrl);
     }
     /**
@@ -780,7 +779,7 @@ class module_demo extends EfrontModule {
       case 'course_settings':
        $tabPageData = array('tab_page' => 'course_settings_demo_tab', //Use an existing name, to overwrite an existing functionality
              'title' => _MODULE_DEMO_COURSESETTINGSTABPAGE,
-             'image' => $this -> moduleBaseLink.'images/generic.png',
+             'image' => $this -> moduleBaseLink.'img/generic.png',
              'file' => $this -> moduleBaseDir.'module_demo_course_settings_tab_page.tpl');
        break;
       default:break;
@@ -818,6 +817,17 @@ class module_demo extends EfrontModule {
      //Return false if you don't want any code to display
      //return false;
     }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#onBeforeShowContent()
+
+     */
+    public function onBeforeShowContent(&$unit) {
+     $unit['data'] = 'This unit data has changed from the Demo module<br>'.$unit['data'];
+     return true;
+    }
     private function fooBar() {
      //Do nothing!
      return true;
@@ -844,4 +854,3 @@ class module_demo extends EfrontModule {
      $smarty -> assign("T_DATA_SOURCE", $demoData);
     }
 }
-?>

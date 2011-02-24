@@ -4,8 +4,7 @@
 
 
 
-
-<script type="text/javascript">
+<script type="text/javascript" >
  var modulechatbaselink = '{$T_CHAT_MODULE_BASELINK}';
  var modulechatbasedir = '{$T_CHAT_MODULE_BASEDIR}';
  var modulechatbaseurl = '{$T_CHAT_MODULE_BASEURL}';
@@ -33,7 +32,7 @@
   </div>
   <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
-  <td id="first">
+  <td id="first" >
    <span id="status" >
 
    </span>

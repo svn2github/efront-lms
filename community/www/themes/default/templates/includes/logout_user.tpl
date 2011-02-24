@@ -11,7 +11,7 @@
      </tr>
    {foreach name = "online_users_list" item = "item" key = "key" from = $T_ONLINE_USERS}
      <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-      <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}" class = "editLink">#filter:login-{$item.login}#</a></td>
+      <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.login}" class = "editLink">#filter:login-{$item.login}#</a></td>
       <td>{$T_ROLES[$item.user_type]}</td>
       <td><span style = "display:none">{$item.time.total_seconds}</span>{$item.time.time_string}</td>
       <td>#filter:timestamp_time-{$item.session_timestamp}#</td>

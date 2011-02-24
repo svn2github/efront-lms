@@ -1,21 +1,5 @@
 
 
-{if $smarty.get.add_user || $smarty.get.edit_user}
-    {*moduleNewUser: Create a new user*}
-            {capture name = "moduleNewUser"}
-                                <tr><td class = "moduleCell" id = "singleColumn">
-
-                                        <table width = "100%">
-                                            <tr><td class = "topAlign" width = "50%">
-                                                    {if isset($T_PERSONAL)}
-                                                        {include file = "includes/personal.tpl"}
-                                                    {/if}
-                                                </td>
-                                            </tr>
-                                        </table>
-                                </td></tr>
-        {/capture}
-{else}
 {*moduleUsers: The users functions*}
 
     {capture name = "moduleUsers"}
@@ -29,7 +13,7 @@
                                 <div class = "headerTools">
                                     <span>
                                         <img src = "images/16x16/add.png" title = "{$smarty.const._NEWUSER}" alt = "{$smarty.const._NEWUSER}">
-                                        <a href = "administrator.php?ctg=users&add_user=1">{$smarty.const._NEWUSER}</a>
+                                        <a href = "administrator.php?ctg=personal&user={$smarty.session.s_login}&op=profile&add_user=1">{$smarty.const._NEWUSER}</a>
                                     </span>
                                 </div>
                                 {assign var = "_change_" value = 1}
@@ -52,7 +36,7 @@
                                     </tr>
                             {foreach name = 'users_list' key = 'key' item = 'user' from = $T_USERS}
                                     <tr id="row_{$user.login}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
-                                            <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink" {if ($user.pending == 1)}style="color:red;"{/if}><span id="column_{$user.login}" {if !$user.active}style="color:red;"{/if}>#filter:login-{$user.login}#</span></a></td>
+                                            <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}" class = "editLink" {if ($user.pending == 1)}style="color:red;"{/if}><span id="column_{$user.login}" {if !$user.active}style="color:red;"{/if}>#filter:login-{$user.login}#</span></a></td>
                                             <td>{if $user.user_types_ID}{$T_ROLES[$user.user_types_ID]}{else}{$T_ROLES[$user.user_type]}{/if}</td>
                                             <td class = "centerAlign">{$user.groups_num}</td>
                                             <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
@@ -75,7 +59,7 @@
                                         {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
                                             <td class = "centerAlign">
             {if !($user.user_type == 'administrator' && $user.user_types_ID == 0 && $T_CURRENT_USER->user.user_type == 'administrator' && $T_CURRENT_USER->user.user_types_ID != 0)}
-             <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>&nbsp;
+             <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>&nbsp;
                                                 {/if}
             {if !($user.user_type == 'administrator' && $user.user_types_ID == 0 && $T_CURRENT_USER->user.user_type == 'administrator' && $T_CURRENT_USER->user.user_types_ID != 0)}
              {if $smarty.session.s_login != $user.login}
@@ -107,5 +91,3 @@
                 </td></tr>
 
     {/capture}
-
-{/if}

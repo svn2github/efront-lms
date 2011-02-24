@@ -1832,6 +1832,7 @@ abstract class EfrontModule
 
      */
     public function getFieldsetSmartyTpl($fieldsetIdentifier) {
+  return false;
     }
     /**
 
@@ -1845,6 +1846,24 @@ abstract class EfrontModule
 
      */
     public function onPageFinishLoadingSmartyTpl() {
+     return false;
+    }
+    /**
+
+     * Code to execute before a unit content is shown. The $unit is passed by reference
+
+     *
+
+     * @param EfrontUnit $unit The unit object
+
+     * @return boolean False if no update has taken place
+
+     * @since 3.6.9
+
+     * @access public
+
+     */
+    public function onBeforeShowContent(&$unit) {
      return false;
     }
 }

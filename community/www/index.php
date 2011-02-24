@@ -17,7 +17,6 @@ if (!isset($_SESSION['s_login'])) {
  setcookie("PHPSESSID", session_id());
 }
 
-
 $path = "../libraries/";
 //Automatically redirect to installation page if configuration file is missing
 if (!is_file($path."configuration.php")) { //If the configuration file does not exist, this is a fresh installation, so redirect to installation page

@@ -406,6 +406,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          if ($contentStripped == "<p></p>" || $contentStripped == "" ) {
     $smarty -> assign("T_DISABLEPRINTUNIT", true);
    }
+   foreach ($loadedModules as $module) {
+    if (isset($currentLesson -> options[$module -> className]) && $currentLesson -> options[$module -> className] == 1) {
+     $module -> onBeforeShowContent($currentUnit);
+    }
+   }
    $smarty -> assign("T_UNIT", $currentUnit);
    //Next and previous units are needed for navigation buttons
    //package_ID denotes that a SCORM 2004 unit is active.

@@ -3153,20 +3153,18 @@ class EfrontStats
 	 */
  public static function getQuestionsStatistics($test = false) {
      if (!$test) {
-         $result = eF_getTableData("completed_tests", "*", "status != 'deleted'");
+         $result = eF_getTableData("completed_tests ct, users u", "ct.*", "ct.users_LOGIN=u.login and u.archive=0 and ct.status != 'deleted' and ct.status != 'incomplete'");
      } else {
          $test instanceof EfrontTest ? $testId = $test -> test['id'] : $testId = $test;
          if (!eF_checkParameter($testId, 'id')) {
              throw new EfrontTestException(_INVALIDID, EfrontLessonException :: INVALID_ID);
          }
-         $result = eF_getTableData("completed_tests", "*", "status != 'deleted' and tests_ID = $testId");
+         $result = eF_getTableData("completed_tests ct, users u", "ct.*", "ct.users_LOGIN=u.login and u.archive=0 and ct.status != 'deleted'  and ct.status != 'incomplete' and tests_ID = $testId");
      }
      $questionStats = array();
      foreach ($result as $value) {
          $completedTest = unserialize($value['test']);
-         //pr($completedTest ->questions);
          foreach ($completedTest -> questions as $id => $question) {
-//	        	pr($question);
              $questionStats[$id]['score'][] = $question -> score;
              $questionStats[$id]['completed_test'][] = $value['id'];
              $questionStats[$id]['test'][] = $value['tests_ID'];
@@ -3179,17 +3177,15 @@ class EfrontStats
              if (!is_array($question -> results)) {
               // Single answer MultChoiceQ, True/false
               $selected_option = $question -> userAnswer;
-              if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {
-               $questionStats[$id]['answers_per_option'][$selected_option] = 100;
-              } else {
-               $questionStats[$id]['answers_per_option'][$selected_option] += 100;
+              if ($selected_option !== false) {
+               if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {
+                $questionStats[$id]['answers_per_option'][$selected_option] = 100;
+               } else {
+                $questionStats[$id]['answers_per_option'][$selected_option] += 100;
+               }
               }
-//		            echo "<BR><BR>single questions<BR>";
-//		            pr($questionStats[$id]);
              } else {
               // Emtpy spaces
-//	            	echo "<BR><BR>multiple questions<BR>";
-              //pr($question);
               foreach ($question -> results as $selected_option => $result) {
                if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {
                 $questionStats[$id]['answers_per_option'][$selected_option] = ($result)?100:0;
@@ -3198,28 +3194,19 @@ class EfrontStats
                }
               }
              }
-//	            echo "<BR><BR>END OF Q<BR>";
          }
      }
-//
-//	    echo "prin ta genika<BR>";
-//	    pr($questionStats[78]);
      foreach ($questionStats as $id => $question) {
          $questionStats[$id]['times_done'] = sizeof($question['score']);
          $questionStats[$id]['avg_score'] = array_sum($question['score']) / sizeof($question['score']);
          $questionStats[$id]['max_score'] = max($question['score']) ? max($question['score']) : 0;
          $questionStats[$id]['min_score'] = min($question['score']) ? min($question['score']) : 0;
          $questionStats[$id]['percent_per_option'] = array();
-         //echo "<BR><BR>$id<BR>";
          foreach ($questionStats[$id]['answers_per_option'] as $key => $optionAnswers) {
-          //echo $key . " " . $optionAnswers ."<BR>";
           $questionStats[$id]['percent_per_option'][$key] = round($optionAnswers / sizeof($question['score']),2);
          }
          $questionStats[$id]['correct_percent'] = round(array_sum($question['correct']) / sizeof($question['score']),2);
-         //echo "<BR><BR>";
      }
-//echo "meta ta genika<BR>";
-//	    pr($questionStats[78]);
      return $questionStats;
  }
  /**
@@ -3414,7 +3401,11 @@ class EfrontStats
         $answers[] = $question -> options[$index].'&nbsp;&rarr;&nbsp;'.$question -> answer[$question -> userAnswer[$index]];
        }
       } elseif ($question instanceOf TrueFalseQuestion) {
-       $answers[] = $question -> userAnswer ? _TRUE : _FALSE ;
+       if ($question -> userAnswer === false) {
+        $answers[] = _NORESPONSE;
+       } else {
+        $answers[] = $question -> userAnswer ? _TRUE : _FALSE ;
+       }
       } elseif ($question instanceOf EmptySpacesQuestion) {
        $occurences = preg_match_all("/###/", $question -> question['plain_text'], $matches);
        for ($i = 0; $i < $occurences; $i++) {
@@ -3424,7 +3415,11 @@ class EfrontStats
       } elseif (($question instanceOf MultipleOneQuestion)) {
        foreach ($question -> order as $index) {
         if ($question -> userAnswer == $index) {
-         $answers[] = $question -> options[$index];
+         if ($question -> userAnswer === false) {
+          $answers[] = _NORESPONSE;
+         } else {
+          $answers[] = $question -> options[$index];
+         }
         }
        }
       } elseif (($question instanceOf RawTextQuestion)) {

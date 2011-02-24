@@ -85,6 +85,13 @@ class glossary extends EfrontEntity
 
      */
     public static function create($fields = array()) {
+     // added to fix http://forum.efrontlearning.net/viewtopic.php?f=5&t=2851&p=14715
+     if (mb_substr($fields['info'], 0, 3) == "<p>") {
+      $fields['info'] = mb_substr($fields['info'], 3);
+      if (mb_substr($fields['info'], -4, 4) == "</p>") {
+       $fields['info'] = mb_substr($fields['info'], 0, -4);
+      }
+     }
         $fields = array("name" => $fields['name'],
                         "info" => $fields['info'],
                         "lessons_ID" => $fields['lessons_ID'],
@@ -155,6 +162,13 @@ class glossary extends EfrontEntity
 
      */
     public function persist() {
+        // added to fix http://forum.efrontlearning.net/viewtopic.php?f=5&t=2851&p=14715
+     if (mb_substr($this -> glossary['info'], 0, 3) == "<p>") {
+      $this -> glossary['info'] = mb_substr($this -> glossary['info'], 3);
+      if (mb_substr($this -> glossary['info'], -4, 4) == "</p>") {
+       $this -> glossary['info'] = mb_substr($this -> glossary['info'], 0, -4);
+      }
+     }
         parent :: persist();
         EfrontSearch :: removeText('glossary', $this -> glossary['id'], 'data');
         EfrontSearch :: insertText($this -> glossary['info'], $this -> glossary['id'], "glossary", "data");

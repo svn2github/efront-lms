@@ -30,11 +30,11 @@ $result_command = array();
 //associative array with commands and relative urls
 //pr($_SESSION);
 if ($_SESSION['s_type'] == "administrator") {
- $command_array = array("add user" => G_SERVERNAME."administrator.php?ctg=users&add_user=1",
+ $command_array = array("add user" => G_SERVERNAME."administrator.php?ctg=personal&user=".$_SESSION['s_login']."&op=profile&add_user=1",
       "add lesson" => G_SERVERNAME."administrator.php?ctg=lessons&add_lesson=1",
       "edit lesson" => G_SERVERNAME."administrator.php?ctg=lessons&edit_lesson=",
       "administration lesson" => G_SERVERNAME."administrator.php?ctg=lessons&lesson_settings=",
-      "edit user" => G_SERVERNAME."administrator.php?ctg=users&edit_user=",
+      "edit user" => G_SERVERNAME."administrator.php?ctg=personal&user=",
       "add category" => G_SERVERNAME."administrator.php?ctg=directions&add_direction=1",
       "edit category" => G_SERVERNAME."administrator.php?ctg=directions&edit_direction=",
       "add course" => G_SERVERNAME."administrator.php?ctg=courses&add_course=1",

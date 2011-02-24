@@ -123,7 +123,7 @@ $settings['upload_max_filesize'] = array('value' => $ini_settings['upload_max_fi
                                          'help' => 'Uploading maximum file size can be set to the most suitable value');
 $settings['post_max_size'] = array('value' => $ini_settings['post_max_size']['local_value'],
                                          'recommended' => $ini_settings['upload_max_filesize']['local_value'],
-                                         'status' => $ini_settings['post_max_size']['local_value'] >= $ini_settings['upload_max_filesize']['local_value'] ? 1 : 0,
+                                         'status' => mb_substr($ini_settings['post_max_size']['local_value'], 0, -1) >= mb_substr($ini_settings['upload_max_filesize']['local_value'], 0, -1) ? 1 : 0,
                                          'name' => 'post_max_size',
                                          'help' => 'Post_max_size should be set at least equal to upload_max_filesize');
 $settings['max_execution_time'] = array('value' => $ini_settings['max_execution_time']['local_value'],

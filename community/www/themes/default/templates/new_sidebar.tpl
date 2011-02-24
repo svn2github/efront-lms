@@ -87,7 +87,7 @@
 
         {* Photo *}
         <div class = "topPhoto" id = "topPhoto" style="height:{$T_NEWHEIGHT}px">
-            <a href = "{if $smarty.session.s_type == "administrator"}administrator.php?ctg=users&edit_user={$smarty.session.s_login}{else}{$smarty.session.s_type}.php?ctg=personal{/if}" target = "mainframe">
+            <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$smarty.session.s_login}" target = "mainframe">
             {*<a href = "{$smarty.session.s_type}.php?ctg=social&op=dashboard" target = "mainframe">*}
             {if isset($T_AVATAR)}
                 <img src = "{if isset($T_ABSOLUTE_AVATAR_PATH)}{$T_AVATAR}{else}view_file.php?file={$T_AVATAR}{/if}" border = "0" title="{$smarty.const._GOTODASHBOARD}" alt="{$smarty.const._GOTODASHBOARD}"
@@ -101,7 +101,7 @@
         <div id = "personIdentity">
             <table>
                 <tr><td>
-                        <a href = "javascript:void(0)" class = "info nonEmptyLesson" id="nameSurname" onmouseover="if($('tooltipImg'))$('tooltipImg').style.visibility = 'visible';" onmouseout="if($('tooltipImg')) $('tooltipImg').style.visibility = 'hidden';">
+                        <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$smarty.session.s_login}" target = "mainframe" class = "info nonEmptyLesson" id="nameSurname" onmouseover="if($('tooltipImg'))$('tooltipImg').style.visibility = 'visible';" onmouseout="if($('tooltipImg')) $('tooltipImg').style.visibility = 'hidden';">
                             #filter:login-{$smarty.session.s_login}#<br />
                             <span class = 'tooltipSpan' id='userInfo'>{$T_TYPE}</span>
                         </a>

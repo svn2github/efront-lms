@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Complete the sk
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.");
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test");
 define("_JOBPLACEMENTS","Job placements");
-define("_NEWJOBPLACEMENT","New job placements");
+define("_NEWJOBPLACEMENT","New job placement");
 define("_UPGRADEMODULE", "Upgrade module");
 define("_NEWUNITOPTIONS", "New unit options");
 define("_UNITOPTIONSFOR", "Options for unit");
@@ -4010,4 +4010,15 @@ define("_OCTOBERSHORTHAND", "Oct");
 define("_NOVEMBERSHORTHAND", "Nov");
 define("_DECEMBERSHORTHAND", "Dec");
 define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE", "You cannot access the requested resource");
+define("_PLEASESELECTAJOB", "Please select a job description");
+define("_EDITJOBPLACEMENT", "Edit job placement");
+define("_NORESPONSE", "&lt;no response&gt;");
+define("_ACCOUNT", "Account");
+define("_ORGANIZATIONALDATA", "Organizational profile");
+define("_BLANKTOLEAVEUNCHANGED", "Blank to leave unchanged");
+define("_OPTIONNUMBERSTARTINGFROMZERO", "Enter the option value or its number, starting from 0");
+define("_HIDESUPERVISORFROMUSERS", "Hide supervisor from users");
+define("_HIDEJOBFROMUSERS", "Hide job from users");
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "You must specify a default value for mandatory elements");
+define("_USETHECURRENTDATE", "Use the current date");
 ?>

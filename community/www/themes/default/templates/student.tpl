@@ -227,14 +227,26 @@
 {/if}
 
 {if $T_CTG == 'personal'}
-    {assign var = "category" value = 'mypage'}
-
-    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=personal">'|cat:$smarty.const._MYSETTINGS|cat:'</a>'}
-    {capture name = "modulePersonal"}
-                            <tr><td class = "moduleCell">
-                                {include file = "includes/personal.tpl"}
-                            </td></tr>
-    {/capture}
+ {capture name = "modulePersonal"}
+  {if $smarty.get.user != $smarty.session.s_login}
+   {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=users'>`$smarty.const._USERS`</a>"}
+  {/if}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=personal&user=`$T_EDITEDUSER->user.login`'>#filter:login-`$T_EDITEDUSER->user.login`#</a>"}
+  {if $T_OP == 'dashboard'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=dashboard'>`$smarty.const._DASHBOARD`</a>"}
+  {elseif $T_OP == 'profile' || $T_OP == 'user_groups' || $T_OP == 'mapped_accounts' || $T_OP == 'payments'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=profile'>`$smarty.const._ACCOUNT`</a>"}
+  {elseif $T_OP == 'user_courses' || $T_OP == 'user_lessons' || $T_OP == 'certificates' || $T_OP == 'user_form'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=user_courses'>`$smarty.const._LEARNING`</a>"}
+  {elseif $T_OP == 'placements' || $T_OP == 'history' || $T_OP == 'skills' || $T_OP == 'evaluations' || $T_OP =='org_form'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=placements'>`$smarty.const._ORGANIZATION`</a>"}
+  {elseif $T_OP == 'files'}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=files'>`$smarty.const._FILES`</a>"}
+  {/if}
+  <tr><td class = "moduleCell">
+    {include file = "includes/personal.tpl"}
+  </td></tr>
+ {/capture}
 {/if}
 {if $T_CTG_MODULE}
     {assign var = "category" value = 'lessons'}
@@ -259,11 +271,7 @@
     {capture name = "mylessonsModule"}
         {capture name = "user_to_lesson"}
         {if isset($T_USER_TO_LESSON_FORM)}
-                                {if $smarty.session.s_type == "administrator" || ($smarty.const.G_VERSIONTYPE == 'enterprise' && $T_CTG != "personal")}
-                                        <form method="post" action="{$smarty.server.PHP_SELF}?ctg=users&edit_user={$smarty.get.edit_user}">
-                                {else}
-                                        <form method="post" action="{$smarty.server.PHP_SELF}?ctg=personal&edit_user={$smarty.get.edit_user}">
-                                {/if}
+                                        <form method="post" action="{$smarty.server.PHP_SELF}?ctg=personal&user={$smarty.get.user}">
                                     <table border = "0" width = "100%" class = "sortedTable" sortBy = "0">
                                         <tr class = "topTitle">
                                             <td class = "topTitle">{$smarty.const._NAME}</td>

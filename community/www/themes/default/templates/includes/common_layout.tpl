@@ -8,7 +8,6 @@
     {/if}
    {elseif $T_THEME_SETTINGS->options.show_header == 2}
     <tr><td id ="horizontalBarRow" class = "{if isset($T_HEADER_CLASS)}{$T_HEADER_CLASS}{else}header{/if}" colspan = "3">{include file = "includes/header_code.tpl"}</td></tr>
-    {*{include file = "includes/horizontal_sidebar.tpl"}*} {*Commented-out for now, as it is used nowhere and causes trouble if it's used*}
    {else}
     <tr><td class = "topTitle defaultRowHeight" colspan = "3">
      <div style = "float:right;">{$smarty.capture.t_path_additional_code}</div>

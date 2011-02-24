@@ -1,6 +1,6 @@
 <?php
 
-include_once ("../PEAR/Spreadsheet/Excel/Writer.php");
+//include_once ("../PEAR/Spreadsheet/Excel/Writer.php");
 
 class module_chat extends eFrontModule{
 
@@ -320,9 +320,9 @@ class module_chat extends eFrontModule{
    $textfieldcontent = "";
    if (isset($_POST['lessontitle'])){
     $textfieldcontent = $_POST['lessontitle'];
-    $l = strip_tags($_POST['lessontitle']);
-    $l2 = substr($l, strpos($l, '→')+5);
-    $log = $this->createLessonHistory($l2,
+    //$l = strip_tags($_POST['lessontitle']);
+    //$l2 = substr($l, strpos($l, '→')+5);
+    $log = $this->createLessonHistory($_POST['lessontitle'],
            $_POST['from']['Y'].'-'.$_POST['from']['M'].'-'.$_POST['from']['d'].' '."00:00:00" ,
            $_POST['until']['Y'].'-'.$_POST['until']['M'].'-'.$_POST['until']['d'].' '."23:59:59"
            );

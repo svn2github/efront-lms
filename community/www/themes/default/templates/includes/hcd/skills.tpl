@@ -42,9 +42,9 @@
     <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
      <td>
      {if ($user.pending == 1)}
-      <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
+      <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
      {elseif ($user.active == 1)}
-      <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
+      <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>
      {else}
       #filter:login-{$user.login}#
      {/if}
@@ -54,7 +54,7 @@
      <td class = "centerAlign">
       <a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a>
       {if $user.active == 1}
-       <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}&tab=skills" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+       <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile&tab=skills" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
       {else}
        <img class="handle" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
       {/if}
@@ -92,7 +92,7 @@
      <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
       <td>
       {if ($user.pending == 1)}
-       <a href = "{$smarty.session.s_type}.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
+       <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
       {else}
        #filter:login-{$user.login}#
       {/if}
@@ -121,22 +121,25 @@
   {/capture}
  {/if}
 
- {capture name = "t_edit_skill_code"}
- <div class="tabber">
   {if $smarty.get.add_skill}
-   {eF_template_printBlock tabber = "skills" title = $smarty.const._NEWSKILL data = $smarty.capture.t_skill_code image = '32x32/tools.png'}
+   {eF_template_printBlock title = $smarty.const._NEWSKILL data = $smarty.capture.t_skill_code image = '32x32/tools.png'}
+   {if $T_MESSAGE_TYPE == 'success'}
+      <script>parent.location = parent.location</script>
+   {/if}
   {else}
-   <div class="tabbertab">
-    <h3>{$smarty.const._EDITSKILL}</h3>
-    {eF_template_printBlock title = $smarty.const._EDITSKILL|cat:"&nbsp;<span class='innerTableName'>&quot;`$T_SKILL_NAME`&quot;</span>" data = $smarty.capture.t_skill_code image = '32x32/tools.png'}
-    {eF_template_printBlock title = $smarty.const._EMPLOYEES|cat:$smarty.const._HAVINGSKILL|cat:"<span class='innerTableName'>&quot;`$T_SKILL_NAME`&quot;</span>" data = $smarty.capture.t_employees_code image = '32x32/user.png'}
-   </div>
-   <script> var myform = "employees_to_skill";</script>
-   {eF_template_printBlock tabber = "assign_employees" title = $smarty.const._ASSIGNEMPLOYEESTHESKILL|cat:"<span class='innerTableName'>&quot;`$T_SKILL_NAME`&quot;</span>" data = $smarty.capture.t_employees_to_skill image = '32x32/tools.png'}
+   {capture name = "t_edit_skill_code"}
+   <div class="tabber">
+    <div class="tabbertab">
+     <h3>{$smarty.const._EDITSKILL}</h3>
+     {eF_template_printBlock title = $smarty.const._EDITSKILL|cat:"&nbsp;<span class='innerTableName'>&quot;`$T_SKILL_NAME`&quot;</span>" data = $smarty.capture.t_skill_code image = '32x32/tools.png'}
+     {eF_template_printBlock title = $smarty.const._EMPLOYEES|cat:$smarty.const._HAVINGSKILL|cat:"<span class='innerTableName'>&quot;`$T_SKILL_NAME`&quot;</span>" data = $smarty.capture.t_employees_code image = '32x32/user.png'}
+    </div>
+    <script> var myform = "employees_to_skill";</script>
+    {eF_template_printBlock tabber = "assign_employees" title = $smarty.const._ASSIGNEMPLOYEESTHESKILL|cat:"<span class='innerTableName'>&quot;`$T_SKILL_NAME`&quot;</span>" data = $smarty.capture.t_employees_to_skill image = '32x32/tools.png'}
+    <div>
+    {/capture}
+    {eF_template_printBlock title = $smarty.const._EDITSKILL data = $smarty.capture.t_edit_skill_code image = '32x32/tools.png'}
   {/if}
-  <div>
-  {/capture}
-  {eF_template_printBlock title = $smarty.const._EDITSKILL data = $smarty.capture.t_edit_skill_code image = '32x32/tools.png'}
 
 {else}
 
@@ -145,7 +148,7 @@
   <div class = "headerTools">
    <span>
     <img src = "images/16x16/add.png" title = "{$smarty.const._NEWSKILL}" alt = "{$smarty.const._NEWSKILL}" >
-    <a href="{$smarty.server.PHP_SELF}?ctg=module_hcd&op=skills&add_skill=1" title = "{$smarty.const._NEWSKILL}" >{$smarty.const._NEWSKILL}</a>
+    <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=skills&add_skill=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWSKILL}', 2)">{$smarty.const._NEWSKILL}</a>
    </span>
   </div>
   {/if}

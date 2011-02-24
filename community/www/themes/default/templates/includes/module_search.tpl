@@ -177,9 +177,9 @@
                 <td>
                 <div class="searchResults">
                 <div class="resultsTitle">
-                <a class="editLink" href="{$smarty.session.s_type}.php?ctg=users&edit_user={$item.login}">#filter:login-{$item.login}#</a>
+                <a class="editLink" href="{$smarty.session.s_type}.php?ctg=personal&user={$item.login}">#filter:login-{$item.login}#</a>
                 <a title="#filter:login-{$item.login}#" target="POPUP_FRAME" onclick="eF_js_showDivPopup('{$item.login}', 2)" href="{$smarty.server.PHP_SELF}?ctg=messages&add=1&recipient={$item.login}&popup=1"><img border="0" alt="{$smarty.const._SENDPERSONALMESSAGE}" title="{$smarty.const._SENDPERSONALMESSAGE}" src="images/16x16/mail.png"/></a>
-                <a class="editLink" href="{$smarty.session.s_type}.php?ctg=users&edit_user={$item.login}"><img border="0" alt="{$smarty.const._EDIT}" title="{$smarty.const._EDIT}" src="images/16x16/edit.png"/></a>
+                <a class="editLink" href="{$smarty.session.s_type}.php?ctg=personal&user={$item.login}"><img border="0" alt="{$smarty.const._EDIT}" title="{$smarty.const._EDIT}" src="images/16x16/edit.png"/></a>
                 </div>
                 </div>
                 </td>

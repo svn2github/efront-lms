@@ -17,10 +17,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
  $loadScripts[] = 'includes/social';
- /********************* DASHBOARD PAGE ******************/
+ $loadScripts[] = 'scriptaculous/dragdrop';
+ if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
+  $smarty -> assign("T_SOCIAL_INTERFACE", 1);
+ }
  if ($_GET['op'] == "dashboard") {
   if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
-   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&op=account");
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal");
   }
   //Calculate element positions, so they can be rearreanged accordingly to the user selection
   //$elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
@@ -50,7 +53,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     // See projects related to your lessons
     $not_expired_projects = eF_getTableData("projects p, lessons", "p.*, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "p.lessons_ID = lessons.id AND lessons.id IN ('" . implode("','", $lessons_list). "') AND p.deadline > ".time()." ORDER BY p.deadline ASC LIMIT 5");
    }
-
    if (!empty($not_expired_projects)) {
     $smarty -> assign("T_ALL_PROJECTS", $not_expired_projects);
    }
@@ -61,7 +63,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   // Users see forum messages from the system forum and their own lessons while administrators for all
   if (!empty($lessons_list)) {
    $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID IN ('0', '".implode("','", $lessons_list)."')", "fm.timestamp desc LIMIT 5");
-  } elseif ($_admin_) { //This is the admin speaking
+  } elseif ($_SESSION['s_type'] == 'administrator') { //This is the admin speaking
    $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id", "fm.timestamp desc LIMIT 5");
   }
   $smarty -> assign("T_FORUM_MESSAGES", $forum_messages); //Assign forum messages and categoru information to smarty
@@ -91,24 +93,18 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
      //See both expired and non-expired news
      $news = news :: getNews(0, true) + news :: getNews($lessons_list, false);
     }
-    //$announcements		 = eF_getTableData("news n JOIN users u LEFT OUTER JOIN lessons ON n.lessons_ID = lessons.id", "n.*, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "n.users_LOGIN = u.login AND n.lessons_ID IN ('0', '".$lessons_list."')", "n.timestamp desc, n.id desc LIMIT 5");															//Get lesson announcements
    } else {
     //Administrator news, he doesn't have to see lesson news (since he can't actually access them)
     $news = news :: getNews(0, true);
-    //$announcements		 = eF_getTableData("users u, news n LEFT OUTER JOIN lessons l ON n.lessons_ID = l.id", "n.*, l.name as show_lessons_name, l.id as show_lessons_id", "n.users_LOGIN = u.login", "n.timestamp desc, n.id desc LIMIT 5");
    }
-
-   $announcements_options = array(array('text' => _ANNOUNCEMENTGO, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&lessons_ID=all"));
-
    $smarty -> assign("T_NEWS", $news); //Assign announcements to smarty
-   $smarty -> assign("T_NEWS_OPTIONS",$announcements_options);
-   $smarty -> assign("T_NEWS_LINK", "student.php?ctg=news");
   }
+
   /*Comments list*/
   if (!empty($lessons_list)) {
    $comments = eF_getTableData("comments cm JOIN content c JOIN lessons l ON c.lessons_ID = l.id", "cm.id AS id, cm.data AS data, cm.users_LOGIN AS users_LOGIN, cm.timestamp AS timestamp, c.name AS content_name, c.id AS content_ID, c.ctg_type AS content_type, l.name as show_lessons_name, l.id as show_lessons_id", "c.lessons_ID IN ('".implode("','", $lessons_list)."') AND cm.content_ID=c.id AND c.active=1 AND cm.active=1 AND cm.private=0", "cm.timestamp DESC LIMIT 5");
+   $smarty -> assign("T_LESSON_COMMENTS", $comments); //Assign to smarty
   }
-  $smarty -> assign("T_LESSON_COMMENTS", $comments); //Assign to smarty
 
   /* Calendar */
   if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden') {
@@ -143,22 +139,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     $smarty -> assign("T_PREVIOUSMAINURL", $_SESSION['previousMainUrl'] );
     $smarty -> assign("T_OPEN_FACEBOOK_SESSION",1);
     $smarty -> assign("T_FACEBOOK_API_KEY", $GLOBALS['configuration']['facebook_api_key']);
-    //$fb_options = array(																		  //Create fb options and assign them to smarty, to be displayed at the fb inner table
-    //	array('text' => _FACEBOOKLOGGING, 'image' => "16x16/backup_restore.png", 'href' => "student.php?ctg=facebook")
-    //);
-    //$smarty -> assign("T_FB_OPTIONS", $fb_options);
    }
-
   }
   //-----------------------------------------
 
   $innertable_modules = array();
   foreach ($loadedModules as $module) {
    unset($InnertableHTML);
-     //$centerLinkInfo = $module -> getCenterLinkInfo();
-    $InnertableHTML = $module -> getDashboardModule();
-    $InnertableHTML ? $module_smarty_file = $module -> getDashboardSmartyTpl() : $module_smarty_file = false;
-
+   $InnertableHTML = $module -> getDashboardModule();
+   $InnertableHTML ? $module_smarty_file = $module -> getDashboardSmartyTpl() : $module_smarty_file = false;
 
    // If the module has a lesson innertable
    if ($InnertableHTML) {
@@ -174,7 +163,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     }
    }
   }
-  //pr($innertable_modules);
+
   if (!empty($innertable_modules)) {
    $smarty -> assign("T_INNERTABLE_MODULES", $innertable_modules);
   }
@@ -337,11 +326,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     // Timelines add event
     EfrontEvent::triggerEvent(array("type" => EfrontEvent::DELETE_PROFILE_COMMENT_FOR_SELF, "users_LOGIN" => $_SESSION['s_login'], "users_name" => $currentUser -> user['name'], "users_surname" => $currentUser -> user['surname']));
 
-    if ($currentUser -> getType() == "administrator") {
-     eF_redirect($currentUser -> getType() . ".php?ctg=users&edit_user=".$currentUser->user['login']."&message=".urlencode($message)."&message_type=".$message_type);
-    } else {
-     eF_redirect($currentUser -> getType() . ".php?ctg=personal&message=".urlencode($message)."&message_type=".$message_type);
-    }
+    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=dashboard&message=".urlencode($message)."&message_type=".$message_type);
     exit;
 
    }
@@ -400,11 +385,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       }
 
 
-      if ($currentUser -> getType() == "administrator") {
-       //eF_redirect(" ". $currentUser -> getType() . ".php?ctg=users&edit_user=".$currentUser->user['login']."&message=".urlencode($message)."&message_type=".$message_type);
-      } else {
-       //eF_redirect(" ". $currentUser -> getType() . ".php?ctg=personal&message=".urlencode($message)."&message_type=".$message_type);
-      }
 
      }
     }
@@ -695,9 +675,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
     /* Check permissions: only professors are allowed to manage topics */
     if($currentUser -> getType() != 'professor') {
-     $message = _SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION;
-     $message_type = 'failure';
-     eF_redirect("".$_SESSION['s_type'].".php?ctg=personal&tab=skills&message=".$message."&message_type=".$message_type);
+     eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&message=".urlencode(_SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION)."&message_type=failure");
      exit;
     }
 

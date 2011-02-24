@@ -33,7 +33,7 @@ if (isset($_SESSION['previousSideUrl'])) {
  $smarty -> assign("T_SIDEBAR_URL", $_SESSION['previousSideUrl']);
 }
 if (isset($_GET['dashboard'])) {
- $smarty -> assign("T_MAIN_URL", "administrator.php?ctg=users&edit_user=". $_GET['dashboard']);
+ $smarty -> assign("T_MAIN_URL", "administrator.php?ctg=personal&user=". $_GET['dashboard']);
 } else {
  if (isset($_SESSION['previousMainUrl'])) {
   $smarty -> assign("T_MAIN_URL", $_SESSION['previousMainUrl']);

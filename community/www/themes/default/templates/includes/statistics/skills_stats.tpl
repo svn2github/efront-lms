@@ -62,7 +62,7 @@
    </tr>
    {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
    <tr class="defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
-    <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>{* ({$T_ROLES[$user.user_type]})*}</td>
+    <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>{* ({$T_ROLES[$user.user_type]})*}</td>
     <td>{$user.specification}</td>
     <td class="centerAlign">{if $user.score}{$user.score}%{/if}</td>
    </tr>

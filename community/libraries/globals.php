@@ -12,7 +12,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
@@ -204,7 +203,6 @@ define("FB_FUNC_LOGGING", 128);
 define("FB_FUNC_CONNECT", 256);
 //define("SOCIAL_FUNC_LESSON_PEOPLE", 64);
 define("SOCIAL_MODULES_ALL", 9); // number of social module options
-$HCDEMPLOYEECATEGORIES = array('wage','hired_on','left_on' ,'address' ,'city' ,'country' ,'father' ,'homephone','mobilephone','sex','birthday','birthplace' ,'birthcountry','mother_tongue' ,'nationality' ,'company_internal_phone' ,'office' ,'doy' ,'afm' ,'police_id_number' ,'driving_licence' ,'work_permission_data' ,'national_service_completed','employement_type' ,'bank' ,'bank_account','marital_status' , 'transport' , 'way_of_working');
 $MODULE_HCD_EVENTS['HIRED'] = 1;
 $MODULE_HCD_EVENTS['NEW'] = 2;
 $MODULE_HCD_EVENTS['JOB'] = 3;
@@ -263,7 +261,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 10054;
+    $build = 10135;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

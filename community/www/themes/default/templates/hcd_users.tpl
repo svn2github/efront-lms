@@ -7,26 +7,6 @@
     {/if}
 
     {if $smarty.get.add_user || $smarty.get.edit_user}
-    {*moduleNewUser: Create a new user*}
-            {capture name = "moduleNewUser"}
-                                <tr><td class = "moduleCell" id = "singleColumn">
-                                {if !isset($smarty.get.print_preview) && !isset($smarty.get.print)}
-                                    {if $smarty.get.edit_user != ""}
-                                        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=users&edit_user='|cat:$smarty.get.edit_user|cat:'">'|cat:$smarty.const._EDITUSER|cat:'</a>'}
-                                    {else}
-                                        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=users&add_user=1">'|cat:$smarty.const._NEWUSER|cat:'</a>'}
-                                    {/if}
-                                {/if}
-                                        <table width = "100%">
-                                            <tr><td class = "topAlign" width = "50%">
-                                                    {if isset($T_PERSONAL)}
-                                                        {include file = "includes/personal.tpl"}
-                                                    {/if}
-                                                </td>
-                                            </tr>
-                                        </table>
-                                </td></tr>
-        {/capture}
     {else}
 {*moduleUsers: The users functions*}
     {capture name = "moduleUsers"}
@@ -37,7 +17,7 @@
                                     {capture name = 't_users_code'}
                                                     <table border = "0" >
                                                         <tr><td>
-                                                            <a href="administrator.php?ctg=users&add_user=1"><img src="images/16x16/add.png" title="{$smarty.const._NEWUSER}" alt="{$smarty.const._NEWUSER}"/ border="0"></a></td><td><a href="administrator.php?ctg=users&add_user=1">{$smarty.const._NEWUSER}</a>
+                                                            <a href="administrator.php?ctg=personal&user={$smarty.session.s_login}&op=profile&add_user=1"><img src="images/16x16/add.png" title="{$smarty.const._NEWUSER}" alt="{$smarty.const._NEWUSER}"/ border="0"></a></td><td><a href="administrator.php?ctg=users&add_user=1">{$smarty.const._NEWUSER}</a>
                                                         </td></tr>
                                                     </table>
                                                     <table border = "0" width = "100%" class = "sortedTable" sortBy = "0">
@@ -55,9 +35,9 @@
 
                                                             <td>
                                                             {if ($user.pending == 1)}
-                                                                 <a href = "administrator.php?ctg=users&edit_user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
+                                                                 <a href = "administrator.php?ctg=personal&user={$user.login}" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
                                                             {elseif ($user.active == 1)}
-                                                                 <a href = "administrator.php?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
+                                                                 <a href = "administrator.php?ctg=personal&user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a>
                                                             {else}
                                                                 #filter:login-{$user.login}#
                                                             {/if}
@@ -82,7 +62,7 @@
                                                             <td align = "center">
                                                                 <table><tr><td width="45%">
                                                                     {if $user.active == 1}
-                                                                        <a href = "administrator.php?ctg=users&edit_user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                                                                        <a href = "administrator.php?ctg=personal&user={$user.login}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                                                                     {else}
                                                                         <img border = "0" class = "inactiveImage" src = "images/16x16/edit.png" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
                                                                      {/if}

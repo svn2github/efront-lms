@@ -1099,10 +1099,15 @@ abstract class EfrontUser
       'status' => $this -> user['status'],
       'balance' => $this -> user['balance'],
       'archive' => $this -> user['archive'],
+      'timezone' => $this -> user['timezone'],
       'need_pwd_change' => $this -> user['need_pwd_change'] ? 1 : 0,
       'additional_accounts' => $this -> user['additional_accounts'],
       'short_description' => $this -> user['short_description'],
       'autologin' => $this -> user['autologin']);
+  $userProfile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo'");
+  foreach ($userProfile as $value) {
+   $fields[$value['name']] = $this->user[$value['name']];
+  }
   eF_updateTableData("users", $fields, "login='".$this -> user['login']."'");
   if (function_exists('apc_delete')) {
    apc_delete(G_DBNAME.':_usernames');
@@ -1755,7 +1760,7 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  public function resetProgressInCourse($course, $resetLessons = false) {
   if (!($course instanceOf EfrontCourse)) {
-   $course = new EfrontLesson($course);
+   $course = new EfrontCourse($course);
   }
   $tracking_info = array("issued_certificate" => "",
           "comments" => "",

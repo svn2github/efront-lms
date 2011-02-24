@@ -78,10 +78,6 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
      handleAjaxExceptions($e);
     }
     exit;
-} elseif (isset($_GET['add_user']) || (isset($_GET['edit_user']) && $login = eF_checkParameter($_GET['edit_user'], 'login'))) { //The administrator asked to add a new user or to edit a user
-    $smarty -> assign("T_PERSONAL", true);
-    /**Include the personal settings file*/
-    include "includes/personal.php"; //User addition and manipulation is done through personal.
 } else { //The admin just asked to view the users
         if (isset($_GET['ajax'])) {
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
@@ -113,7 +109,6 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
      }
     }
             }
-
             $users = eF_multiSort($users, $sort, $order);
             if (isset($_GET['filter'])) {
                 $users = eF_filterData($users, $_GET['filter']);

@@ -222,7 +222,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
          <td class = "has_course">
        {if $_change_handles_}
         {if (($course.has_course && $course.has_instances)) && $T_SORTED_TABLE != 'instancesTable'}
-        <input class = "inputCheckBox" type="checkbox" name="{$course.id}" checked disabled">
+        <input class = "inputCheckBox" type="checkbox" name="{$course.id}" checked disabled>
         {elseif $T_SORTED_TABLE == 'instancesTable' || !$course.has_instances}
               <input class = "inputCheckBox" type="checkbox" id="course_{$course.id}" name="{$course.id}" {if $course.has_course == 1}checked{/if} onclick ="ajaxPost('{$course.id}', this, 'coursesTable');">
               {/if}

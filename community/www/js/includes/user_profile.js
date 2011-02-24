@@ -40,20 +40,38 @@ function addValue() {
  $('default_value').insert(new Element('option', {value:elementCount}).update(elementCount));
 }
 function changeType(type) {
+
+ if ($('branchinfo_field_name')) {
+  $('branchinfo_field_name').hide();
+  $('branchinfo_field_job').hide();
+  $('branchinfo_field_supervisor').hide();
+  $('database_type_row').show();
+ }
+
  if (type == 'text') {
   $('select_field').hide();
   $('text_field').show();
   $('textarea_field').hide();
+
  } else if (type == 'select') {
   $('select_field').show();
   $('text_field').show();
   $('textarea_field').hide();
+ } else if (type == 'branchinfo'){
+  $('select_field').hide();
+  $('text_field').hide();
+  $('textarea_field').hide();
+  $('branchinfo_field_name').show();
+  $('branchinfo_field_job').show();
+  $('branchinfo_field_supervisor').show();
+  $('database_type_row').hide();
  } else {
   $('select_field').hide();
   $('text_field').hide();
   $('textarea_field').show();
  }
 }
+
 if (typeof(profileType) != 'undefined' && profileType) {
  changeType(profileType);
 }

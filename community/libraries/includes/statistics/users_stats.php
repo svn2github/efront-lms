@@ -119,12 +119,11 @@ if (isset($_GET['sel_user'])) {
      $courses = $infoUser -> getUserCoursesAggregatingResults($constraints);
 
      if ($currentUser -> user['user_type'] != 'administrator' && !$supervisesUser) {
-      $userCourses = $currentUser -> getUserCourses($constraints);
+      $userCourses = $currentUser -> getUserCoursesAggregatingResults($constraints);
       $courses = array_intersect_key($courses, $userCourses);
      }
 
     }
-
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'instancesTable' && eF_checkParameter($_GET['instancesTable_source'], 'id')) {
      //$constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']) + createConstraintsFromSortedTable();
      $constraints = array('archive' => false, 'active' => true, 'instance' => $_GET['instancesTable_source']);

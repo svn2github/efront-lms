@@ -238,7 +238,8 @@ class module_BBB extends EfrontModule {
    $conferenceNameAndID = urlencode(utf8_decode($meeting_info['name']));
    $moderatorPassword = "M97f15B7113G";
    $attendeePassword = "Ow2D75JE160B";
-   $optionString = 'meetingID='.$conferenceNameAndID.'&name='.$conferenceNameAndID.'&moderatorPW='.$moderatorPassword.'&attendeePW='.$attendeePassword;
+   $voiceBridge = 70000 + rand(0, 9999);
+   $optionString = 'meetingID='.$conferenceNameAndID.'&name='.$conferenceNameAndID.'&moderatorPW='.$moderatorPassword.'&attendeePW='.$attendeePassword.'&voiceBridge='.$voiceBridge.'&welcome='.urlencode(_WELCOMETO.' %%CONFNAME%%');
    if($BBB_server_ver == 1) {
     //echo ' String to salt: '.'create'.$optionString.$securitySalt;
     $saltedHash = sha1('create'.$optionString.$securitySalt);
@@ -261,8 +262,8 @@ class module_BBB extends EfrontModule {
 
     $fullName = urlencode(utf8_decode($currentUser -> user['name']))."_". urlencode(utf8_decode($currentUser -> user['surname']));
     $conferenceNameAndID = urlencode(utf8_decode($meeting_info['name']));
-
-    $optionString = 'fullName='.$fullName.'&meetingID='.$conferenceNameAndID.'&password='.$moderatorPassword;
+    $voiceBridge = 70000 + rand(0, 9999);
+    $optionString = 'fullName='.$fullName.'&meetingID='.$conferenceNameAndID.'&password='.$moderatorPassword.'&voiceBridge='.$voiceBridge.'&welcome='.urlencode(_WELCOMETO.' %%CONFNAME%%');
 
     if($BBB_server_ver == 1) {
      $saltedHash = sha1('join'.$optionString.$securitySalt);
@@ -290,8 +291,8 @@ class module_BBB extends EfrontModule {
    } else {
     $password = "Ow2D75JE160B";
    }
-
-   $optionString = 'fullName='.$fullName.'&meetingID='.$conferenceNameAndID.'&password='.$password;
+   $voiceBridge = 70000 + rand(0, 9999);
+   $optionString = 'fullName='.$fullName.'&meetingID='.$conferenceNameAndID.'&password='.$password.'&voiceBridge='.$voiceBridge.'&welcome='.urlencode(_WELCOMETO.' %%CONFNAME%%');
 
    if($BBB_server_ver == 1) {
     $saltedHash = sha1('join'.$optionString.$securitySalt);
@@ -684,7 +685,7 @@ class module_BBB extends EfrontModule {
                     $BBB[$key]['mayStart'] = 0;
                 }
             }
-
+//pr($BBB);
             $smarty -> assign("T_BBB", $BBB);
             $smarty -> assign("T_USERINFO",$currentUser -> user);
         }
@@ -720,7 +721,11 @@ public function getLessonModule() {
             $fifteen_minutes_ago = time() - 15*60;
             if ($currentUser -> getRole($this -> getCurrentLesson()) == "student") {
              // User's role is that of a student
-                $BBB = eF_getTableData("module_BBB_users_to_meeting JOIN module_BBB ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND `timestamp` > {$fifteen_minutes_ago} AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
+
+     $BBB = eF_getTableData("module_BBB_users_to_meeting JOIN module_BBB ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND `timestamp` > {$fifteen_minutes_ago} AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
+      //$BBB = eF_getTableData("module_BBB_users_to_meeting JOIN module_BBB ON id = meeting_ID", "*", "lessons_ID = '".$currentLesson -> lesson['id']."'  AND users_LOGIN='".$currentUser -> user['login']."'", "timestamp DESC");
+
+
                 $smarty -> assign("T_BBB_CURRENTLESSONTYPE", "student");
                 $BBB_server = eF_getTableData("configuration", "value", "name = 'module_BBB_server'");
                 foreach ($BBB as $key => $meeting) {
@@ -736,11 +741,16 @@ public function getLessonModule() {
                   $BBB[$key]['joiningUrl'] = $this -> createBBBUrl($currentUser, $meeting, true);
       $smarty -> assign("T_BBB_CREATEMEETINGURL", $BBB[$key]['joiningUrl']);
                  }
+                      //pr($meeting); 
                 }
             }
             else {
              // User's role is that of a professor
+
                 $BBB = eF_getTableData("module_BBB", "*", "lessons_ID = '".$currentLesson -> lesson['id']."' AND `timestamp` > {$fifteen_minutes_ago}", "timestamp DESC");
+                //$BBB = eF_getTableData("module_BBB", "*", "lessons_ID = '".$currentLesson -> lesson['id']."'", "timestamp DESC");
+
+
                 $smarty -> assign("T_BBB_CURRENTLESSONTYPE", "professor");
                 $now = time();
                 foreach ($BBB as $key => $meeting) {

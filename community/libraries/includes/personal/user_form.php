@@ -96,7 +96,7 @@ $smarty -> assign("T_EMPLOYEE_FORM_CAPTION", _USERFORM.": " . formatLogin($edite
 
 
 
-if (isset($_GET['pdf']) && $currentUser -> user['login'] != $editedUser -> user['login']) {
+if (isset($_GET['pdf'])) {
 
  $pdf = new EfrontPdf(_EMPLOYEEFORM . ": " . formatLogin($editedUser -> user['login']));
  try {

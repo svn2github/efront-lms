@@ -9,6 +9,15 @@
 - Users now can't access files on lessons they are not enrolled to, via .htaccess
 - Fixed user courses filter not working properly when language is not english
 - Messages are no longer passed through the get
+- Fixed issue about ignoring timezone when editing user
+- Added module hook for content before showing it
+- Fixed test statistics inconsistency between question analysis and response details
+- Fixed test statistics response details export in xls/pdf
+- Fixed user reports not showing user course instances under certain circumstances
+- Fixed SCORM 1.2 import ignoring parameter in <item> manifest entries
+- Fixed issue with glossary terms not displayed correctly in Chrome/Safari http://forum.efrontlearning.net/viewtopic.php?f=5&t=2851&p=14715#p14715
+- Updated custom user profile
+- Updated personal pages
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

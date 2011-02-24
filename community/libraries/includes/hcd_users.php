@@ -83,10 +83,6 @@ if ($_SESSION['s_type'] != "administrator" && $currentEmployee -> getType() != _
    handleAjaxExceptions($e);
   }
   exit;
- } elseif (isset($_GET['add_user']) || (isset($_GET['edit_user']) && $login = eF_checkParameter($_GET['edit_user'], 'login')) && !$unprivileged) { //The administrator asked to add a new user or to edit a user
-  $smarty -> assign("T_PERSONAL", true);
-  /**Include the personal settings file*/
-  include "includes/personal.php"; //User addition and manipulation is done through personal.
  } else { //The professor just asked to view the users
   $_GET['op'] = "employees";
   include "module_hcd.php";

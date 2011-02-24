@@ -3,64 +3,7 @@
             <tr><td class="moduleCell">
                 {if $smarty.get.add_field || $smarty.get.edit_field}
                             {capture name = 'field_form_code'}
-                                {$T_FIELD_FORM.javascript}
-                                <form {$T_FIELD_FORM.attributes}>
-                                    {$T_FIELD_FORM.hidden}
-                                    <table>
-                                        <tr><td class = "labelCell">{$smarty.const._FIELDNAME}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.name.html}</td></tr>
-                                        <tr><td></td>
-                                         <td class = "infoCell">{$smarty.const._CHARACTERSMAX20ONLYNOSPACES}</td></tr>
-                                        {if $T_FIELD_FORM.name.error}<tr><td></td><td class = "formError">{$T_FIELD_FORM.name.error}</td></tr>{/if}
-                                        <tr><td class = "labelCell">{$smarty.const._FIELDDESCRIPTION}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.description.html}</td></tr>
-                                        <tr><td></td>
-                                         <td class = "infoCell">{$smarty.const._INTHESELECTEDLANGUAGE}</td></tr>
-                                        <tr id ="database_type_row" ><td class = "labelCell">{$smarty.const._DBTYPE}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.db_type.html}</td></tr>
-                                        <tr><td class = "labelCell">{$smarty.const._TYPE}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.type.html}</td></tr>
-                                        <tr id = "select_field" style = "display:none"><td class = "labelCell">{$smarty.const._VALUES}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.values[0].html}&nbsp;<img src = "images/16x16/add.png" title = "{$smarty.const._ADDVALUES}" alt = "{$smarty.const._ADDVALUES}" onclick = "addValue()"></td></tr>
-                                        {if $smarty.get.edit_field}
-                                            {section name = 'field_list' loop = $T_FIELD_FORM.values}
-                                                {if !$smarty.section.field_list.first}
-                                        <tr><td></td>
-                                         <td class = "elementCell">{$T_FIELD_FORM.values[field_list].html}&nbsp;<img src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETEVALUE}" alt = "{$smarty.const._DELETEVALUE}" border = "0" style = "vertical-align:middle" onclick = "event.findElement('tr').remove();elementCount--;"/></td></tr>
-                                                {/if}
-                                            {/section}
-                                        {/if}
-                                        <tr id = "text_field"><td class = "labelCell">{$smarty.const._DEFAULTVALUE}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.default_value.html}</td></tr>
-                                        <tr id = "textarea_field" style = "display:none"><td class = "labelCell">{$smarty.const._DEFAULTVALUE}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.default_textarea.html}</td></tr>
-
-
-
-
-
-
-                                        <tr><td class = "labelCell">{$smarty.const._ACTIVENEUTRAL}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.active.html}</td></tr>
-                                  <!-- <tr><td class = "labelCell">{$smarty.const._ISVISIBLEFROMOTHERUSERS}&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.visible.html}</td></tr> -->
-                                        <tr><td class = "labelCell">{$smarty.const._ISMANDATORY}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.mandatory.html}</td></tr>
-                                        <tr><td class = "labelCell">{$smarty.const._LANGUAGE}:&nbsp;</td>
-                                            <td class = "elementCell">{$T_FIELD_FORM.languages_NAME.html}</td></tr>
-                                        <tr><td colspan = "2">&nbsp;</td></tr>
-                                        <tr><td></td><td>{$T_FIELD_FORM.submit_field.html}</td></tr>
-                                    </table>
-                                </form>
-
-                                <script>
-
-                                var elementCount = 0;
-                                var profileType = "";
-
-                                {if isset($T_PROFILE_TYPE)}profileType = "{$T_PROFILE_TYPE}";{/if}
-                                {if isset($T_SELECT_OPTIONS)}elementCount = {$T_SELECT_OPTIONS};{/if}
-                                </script>
+                    {eF_template_printForm form = $T_FORM}
                             {/capture}
                             {eF_template_printBlock title = $smarty.const._CUSTOMIZEUSERSPROFILE data = $smarty.capture.field_form_code image = '32x32/profile_add.png'}
                 {else}
@@ -90,7 +33,7 @@
                                     <tr id="row_{$field.name}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$field.active}deactivatedTableElement{/if}">
                                         <td>
                                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
-                                            <a href = "administrator.php?ctg=user_profile&edit_field={$field.name}" class = "editLink"><span id="column_{$field.name}" {if !$field.active}style="color:red"{/if}>{$field.name}</span></a>
+                                            <a href = "administrator.php?ctg=user_profile&edit_field={$field.name}&type={$field.type}" class = "editLink"><span id="column_{$field.name}" {if !$field.active}style="color:red"{/if}>{$field.name}</span></a>
                                     {else}
                                             {$field.name}
                                     {/if}
@@ -113,7 +56,7 @@
                                         </td>
                                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
                                         <td class = "centerAlign">
-                                            <a href = "administrator.php?ctg=user_profile&edit_field={$field.name}"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                                            <a href = "administrator.php?ctg=user_profile&edit_field={$field.name}&type={$field.type}"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
                                             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteField(this, '{$field.name}');"/>
                                         </td>
                                     {/if}

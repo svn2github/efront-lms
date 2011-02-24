@@ -67,7 +67,8 @@
 {capture name = 't_clear_logs'}
 
 
- {$smarty.const._CHAT_CLEAR_HISTORY_DESCR}<br /><br />
+ {$smarty.const._CHAT_CLEAR_HISTORY_DESCR}<br />
+ <input type="checkbox" id="clearLessonLogs" style="border:none;outline:none;"/> {$smarty.const._CHAT_CLEAR_ALSO_LESSON_HISTORY_DESCR}<br /><br />
  <input type="button" class="flatButton" value="Clear Logs" onclick="javascript:clearU2ULogs(); return false;" />
 {/capture}
 {capture name = 't_chat_tab_code'}
@@ -99,4 +100,4 @@
 </div>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._CHAT_CHAT data=$smarty.capture.t_chat_tab_code image=$T_CHAT_BASELINK|cat:'img/chat.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._CHAT_CHAT data=$smarty.capture.t_chat_tab_code help = 'chat'}

@@ -22,7 +22,7 @@
           {capture name = 't_inactive_users_code'}
               {section name = 'inactive_users_list' loop = "$T_INACTIVE_USERS"}
          <span class = "counter">{$smarty.section.inactive_users_list.iteration}.</span>
-         <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_INACTIVE_USERS[inactive_users_list].login}">#filter:login-{$T_INACTIVE_USERS[inactive_users_list].login}#</a><br/>
+         <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_INACTIVE_USERS[inactive_users_list].login}&op=profile">#filter:login-{$T_INACTIVE_USERS[inactive_users_list].login}#</a><br/>
               {sectionelse}
          <span class = "emptyCategory">{$smarty.const._NONEWAPPLICATIONS}</span>
               {/section}
@@ -72,7 +72,7 @@
          <tr><td class = "moduleCell">
              {capture name = 't_new_lessons_code'}
                  {section name = 'new_lessons_list' loop = "$T_NEW_LESSONS"}
-                             {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&tab=attending">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a><br/>
+                             {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&op=user_courses">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a><br/>
                  {/section}
                  {foreach name = 'new_courses_list' item = "item" key = "key" from = $T_NEW_COURSES}
                   {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.id}&tab=users">#filter:login-{$item.users_LOGIN}# ({$item.name}{if $item.supervisor_LOGIN} - {$smarty.const._SUPERVISORAPPROVAL}{/if})</a> <br/>
@@ -212,7 +212,7 @@
     {/if}
 
  {*moduleDigitalLibrary: Print the digital library section and file list*}
-    {if $T_FILE_MANAGER && $T_CURRENT_USER->coreAccess.digital_library && $T_CURRENT_USER->coreAccess.digital_library != 'hidden'}
+    {if $T_FILE_MANAGER && $T_CURRENT_LESSON->options.digital_library}
         {capture name = "moduleDigitalLibrary"}
          <tr><td class = "moduleCell">
              {capture name = 't_digital_library'}

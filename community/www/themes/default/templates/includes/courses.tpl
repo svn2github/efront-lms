@@ -84,7 +84,7 @@
     </tr>
    {foreach name = 'users_to_lessons_list' key = 'login' item = 'user' from = $T_DATA_SOURCE}
     <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
-     <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a></td>
+     <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a></td>
      <td>
     {if $_change_}
       <select name="type_{$user.login}" id = "type_{$user.login}" onchange = "$('checked_{$user.login}').checked=true;usersAjaxPost('{$user.login}', this);">

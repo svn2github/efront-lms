@@ -1,6 +1,7 @@
 <?php
 define("_CHAT_CHAT", "Chat Module");
 define("_CHAT_CLEAR_HISTORY_DESCR", "Clear user-to-user chat history.");
+define("_CHAT_CLEAR_ALSO_LESSON_HISTORY_DESCR", "Clear also lesson rooms chat history");
 define("_CHAT_CLEAR_HISTORY", "Clear Chat Logs");
 define("_CHAT_CREATE_LOG_DESCR", "Create lesson-based chat history file (xls format).");
 define("_CHAT_CREATE_LOG", "Create Log File");

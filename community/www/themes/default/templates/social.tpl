@@ -5,11 +5,7 @@
         {capture name = "moduleCalendar"}
                                    <tr><td class = "moduleCell">
                                            {capture name='t_calendar_code'}
-                                                    {if $smarty.session.s_type == "administrator"}
-                                             {assign var="calendar_ctg" value = "users&edit_user=`$smarty.get.edit_user`"}
-                                            {else}
                                              {assign var="calendar_ctg" value = "personal"}
-                                            {/if}
 
                                                {eF_template_printCalendar ctg=$calendar_ctg events=$T_CALENDAR_EVENTS timestamp=$T_VIEW_CALENDAR}
 
@@ -540,7 +536,7 @@
 
 
 
-     {********* TIMELINES FOR ENTIRE SYSTEM **********}
+
      {else}
 
       {capture name = "t_system_timeline_code"}

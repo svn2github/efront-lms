@@ -34,7 +34,7 @@ a{
 	overflow:hidden;
 	float:left;
 	display:table-row;
-	vertical-align:bottom;
+	vertical-align:baseline;
 }
 
 #chat_bar {
@@ -48,6 +48,7 @@ a{
 	background-color:#FFFFFF;
 	text-align:left;
 	outline: none;
+	/*vertical-align:super;*/
 }
 
 
@@ -85,10 +86,22 @@ a{
 
 #status{
 	margin-right:80px;
-	vertical-align:super;
+	vertical-align:text-top;
 	font-family: Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;
 }
+#statusText{
+	vertical-align:top;
+}
+
+#statusText img{
+	vertical-align:middle;
+}
+
 #statusimg{
 	border:none;
-	height:100%
+	height:100%;
+}
+
+#first{
+	vertical-align:middle;
 }

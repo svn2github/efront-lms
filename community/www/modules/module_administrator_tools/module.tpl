@@ -159,11 +159,11 @@
   <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$item.active}deactivatedTableElement{/if}">
    <td ><a style = "{if !$item.course_active}color:red{/if}" class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.course_id}">{$item.course}</a></td>
    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=directions&edit_direction={$item.directions_ID}">{$item.category}</a></td>
-   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}">#filter:login-{$item.login}#</a></td>
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.login}&op=profile">#filter:login-{$item.login}#</a></td>
    {*<td>{$item.login}!!</td>*}
    <td class = "centerAlign">#filter:timestamp-{$item.to_timestamp}#</td>
    <td class = "centerAlign">{if !$item.historic}#filter:score-{$item.score}#%{/if}</td>
-   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$item.login}">#filter:login-{$item.supervisor}#</a></td>
+   <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.login}&op=profile">#filter:login-{$item.supervisor}#</a></td>
    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$item.branch_ID}">{$item.branch}</a></td>
    <td class = "centerAlign">{if $item.historic}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>
   </tr>
@@ -191,7 +191,7 @@
       </tr>
  {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
       <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
-       <td><a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink">#filter:login-{$user.login}#</a></td>
+       <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a></td>
        <td>{if $user.last_action}#filter:timestamp_time-{$user.last_action}#{else}{$smarty.const._NEVER}{/if}</td>
        <td class = "centerAlign">
         <img class = "ajaxHandle" src="images/16x16/trafficlight_{if $user.active}green{else}red{/if}.png" title="{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS}" alt="{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS}" onclick = "toggleUser(this, '{$user.login}');">

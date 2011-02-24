@@ -42,7 +42,7 @@
     <td style = "{if $item.width}width:{$item.width}%;{/if}{if $item.align}text-align:{$item.align};{/if}">
      {assign var = "entry" value = $user[$item.column]}
      {if $item.column == $T_EDIT_LINK}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=user">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=user">
      {/if}
      {if $item.column == 'branch'}
       {if !$T_EDIT_LINK}
@@ -54,7 +54,7 @@
       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$user.job_description_ID}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
       {if $user.count_courses}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.course_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <span class = "tooltipSpan"></span>
@@ -63,7 +63,7 @@
       {/if}
      {elseif $item.column == 'lesson_status'}
       {if $user.count_lessons}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.lesson_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <span class = "tooltipSpan"></span>
@@ -71,11 +71,11 @@
        </a>
       {/if}
      {elseif $item.column == 'certifications'}
-      {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
+      {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
      {elseif $item.column == 'certificate_status'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&op=status&tab=certifications" class = "editLink">{$entry}</a>
+      <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=certifications" class = "editLink">{$entry}</a>
      {elseif $item.column == 'total_skills'}
-      {if $user.total_skills}<a href = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$user.login}&tab=skills" class = "editLink">{$user.total_skills}</a>{/if}
+      {if $user.total_skills}<a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&tab=skills" class = "editLink">{$user.total_skills}</a>{/if}
      {else}
       {$entry}
      {/if}

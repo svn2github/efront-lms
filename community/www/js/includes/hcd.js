@@ -327,7 +327,7 @@ function activate(el, user) {
   new Effect.Appear(el.down(), {queue:'end'});
   if (el.down().src.match('green')) {
    // When activated
-   $('column_'+user).innerHTML = '<a href = "' + sessionType+ '.php?ctg=users&edit_user='+user+'" class = "editLink">'+user+'</a>';
+   $('column_'+user).innerHTML = '<a href = "' + sessionType+ '.php?ctg=personal&user='+user+'&op=profile" class = "editLink">'+user+'</a>';
    var cName = $('row_'+user).className.split(" ");
    $('row_'+user).className = cName[0];
   } else {

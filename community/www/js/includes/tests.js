@@ -323,7 +323,7 @@ function eF_thresholdChange(skillName, skillScore, reloadProposals) {
 
 function eF_addTestSkills() {
  // We will post an ajax request to include the results of the skill gap test in the skillset of the user
- var url = sessionType + ".php?ctg=users&edit_user=" + editedUser;
+ var url = sessionType + ".php?ctg=personal&user=" + editedUser+"&op=profile";
  var parameters = {postAjaxRequest:1, add_skill: 1, from_skillgap_test:1, method: 'get'};
 
  // Change all thresholds to the new value and call the onChange function for each of them
@@ -351,7 +351,7 @@ function eF_addTestSkills() {
 
 function eF_addSingleTestSkill(skillId) {
  // We will post an ajax request to include the results of the skill gap test in the skillset of the user
- var url = sessionType + '.php?ctg=users&edit_user='+ editedUser +'&postAjaxRequest=1&add_skill=1&from_skillgap_test=1';
+ var url = sessionType + '.php?ctg=personal&user='+ editedUser +'&op=skills&postAjaxRequest=1&add_skill=1&from_skillgap_test=1';
  var parameters = {postAjaxRequest:1, add_skill: 1, from_skillgap_test:1, method: 'get'};
 
  // Change all thresholds to the new value and call the onChange function for each of them                                

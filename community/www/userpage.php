@@ -37,7 +37,7 @@ if (isset($_SESSION['previousSideUrl'])) {
  $smarty -> assign("T_SIDEBAR_URL", $_SESSION['previousSideUrl']);
 }
 if (isset($_GET['dashboard']) && $_SESSION['s_type'] == "administrator") {
- $smarty -> assign("T_MAIN_URL", $_SESSION['s_type'].".php?ctg=users&edit_user=". $_GET['dashboard']);
+ $smarty -> assign("T_MAIN_URL", $_SESSION['s_type'].".php?ctg=personal&user=". $_GET['dashboard']);
 } elseif (isset($_GET['dashboard']) || $_GET['ctg'] == 'personal') {
  $smarty -> assign("T_MAIN_URL", $_SESSION['s_type'].".php?ctg=personal");
 } elseif (isset($_GET['ctg']) || $_GET['ctg'] == 'landing_page') {

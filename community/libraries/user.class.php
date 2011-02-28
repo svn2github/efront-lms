@@ -2402,7 +2402,7 @@ abstract class EfrontLessonUser extends EfrontUser
               "c.ctg_type = 'scorm_test' and sd.users_LOGIN = '".$this -> user['login']."' and c.lessons_ID = ".$lesson -> lesson['id']);
   $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {
-   if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
+   if (is_numeric($doneScormTest['minscore']) && is_numeric($doneScormTest['maxscore'])) {
     $doneScormTest['score'] = 100 * $doneScormTest['score'] / ($doneScormTest['minscore'] + $doneScormTest['maxscore']);
    } else {
     $doneScormTest['score'] = $doneScormTest['score'];

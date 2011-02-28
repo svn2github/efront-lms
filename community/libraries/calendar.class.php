@@ -186,6 +186,8 @@ class calendar extends EfrontEntity
  }
 
  public function filterCalendarTypes($user) {
+
+  $user -> applyRoleOptions();
   $calendarTypes = self::$calendarTypes;
 
 
@@ -206,6 +208,14 @@ class calendar extends EfrontEntity
   }
   if ($user -> user['user_type'] != 'administrator' && sizeof($user -> getGroups()) == 0) {
    unset($calendarTypes['group']);
+  }
+
+  if ($user -> coreAccess['course_settings'] && $user -> coreAccess['course_settings'] != "change") {
+   unset($calendarTypes['course']);
+  }
+
+  if ($user -> coreAccess['settings'] && $user -> coreAccess['settings'] != "change") {
+   unset($calendarTypes['lesson']);
   }
 
   return $calendarTypes;

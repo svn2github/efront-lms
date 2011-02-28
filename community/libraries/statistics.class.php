@@ -212,7 +212,7 @@ class EfrontStats
                  if ($value['ctg_type'] == 'scorm') {
                      $scormDoneContent[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = '';
                  } elseif ($value['ctg_type'] == 'scorm_test') {
-                     if (is_numeric($value['minscore']) || is_numeric($value['maxscore'])) {
+                     if (is_numeric($value['minscore']) && is_numeric($value['maxscore'])) {
                          $value['score'] = 100 * $value['score'] / ($value['minscore'] + $value['maxscore']);
                      } else {
                          $value['score'] = $value['score'];
@@ -453,7 +453,7 @@ class EfrontStats
         $usersDoneScormTests = eF_getTableData("content c, scorm_data sd", "c.lessons_ID, c.name, c.active, sd.masteryscore, sd.lesson_status, sd.content_ID, sd.score, sd.minscore, sd.maxscore, sd.users_LOGIN, sd.timestamp", "sd.content_ID = c.id and c.ctg_type = 'scorm_test' and sd.users_LOGIN != ''".($lessonId ? " and c.lessons_ID in ($lessonId)" : ""));
         foreach ($usersDoneScormTests as $doneScormTest) {
             if (!$users || in_array($doneScormTest['users_LOGIN'], $users)) {
-                if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
+                if (is_numeric($doneScormTest['minscore']) && is_numeric($doneScormTest['maxscore'])) {
                     $doneScormTest['score'] = 100 * $doneScormTest['score'] / ($doneScormTest['minscore'] + $doneScormTest['maxscore']);
                 } else {
                     $doneScormTest['score'] = $doneScormTest['score'];
@@ -2498,7 +2498,7 @@ class EfrontStats
                 $done_test['timestamp'] = $done['timestamp'];
                 $done_test['status'] = $done['lesson_status'];
                 $done_test['mastery_score'] = $done['masteryscore'];
-                if (is_numeric($done['minscore']) || is_numeric($done['maxscore'])) {
+                if (is_numeric($done['minscore']) && is_numeric($done['maxscore'])) {
                     $done_test['score'] = 100 * $done['score'] / ($done['minscore'] + $done['maxscore']);
                 } else {
                     $done_test['score'] = $done['score'];

@@ -2320,7 +2320,8 @@ class EfrontCompletedTest extends EfrontTest
          $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
          if ($question -> question['type'] == 'raw_text') {
     if (!$question -> settings['force_correct'] || $question -> settings['force_correct'] == 'manual') {
-     if ($recentlyCompleted -> redoOnlyWrong != 1) {
+     //changed to mark as pending the test again when redoOnlyWrong is set and this question was not 100% correct before	
+     if ($results['score'] != 1) {
       $this -> completedTest['pending'] = 1;
       $question -> pending = 1;
      }

@@ -544,11 +544,11 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
     /*Languages declarations. Must be put before creating default users and lessons*/
     include_once "insert_languages.php";
     addLanguagesDB();
-    //blue_html5 is the default theme
+    //modern is the default theme
     try {
-     $file = new EfrontFile(G_THEMESPATH."blue_html5/theme.xml");
+     $file = new EfrontFile(G_THEMESPATH."modern/theme.xml");
      themes :: create(themes :: parseFile($file));
-     $currentTheme = new themes('blue_html5');
+     $currentTheme = new themes('modern');
      EfrontConfiguration :: setValue('theme', $currentTheme -> {$currentTheme -> entity}['id']);
     } catch (Exception $e) {}
     //Create the default system users and lessons

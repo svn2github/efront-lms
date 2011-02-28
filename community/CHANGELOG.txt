@@ -18,6 +18,18 @@
 - Fixed issue with glossary terms not displayed correctly in Chrome/Safari http://forum.efrontlearning.net/viewtopic.php?f=5&t=2851&p=14715#p14715
 - Updated custom user profile
 - Updated personal pages
+- Fixed issue about marking as pending the test again when redoOnlyWrong is set and the question was not 100% correct before
+- Changed views for not considering professor roles in completed lessons/courses columns
+- Fixed issue about new lines in course/lesson info in index page (#1136)
+- Added a redirect to (the supported only) default language even when bypass_language is set (#1132)
+- Fixed issue with custom user types not being taken into account in ask.php for courses and lessons
+- Fixed issue about allowing type that has not course_options permissions to add course calendar event
+- Fixed "action on reentry" SCORM option not working
+- Fixed not respecting "no-credit" mode during professor view of SCORM content
+- Fixed erroneous calculation of SCORM score when SCOs set only minscore and not maxscore (Captivate)
+- Added "modern" theme and set it as default theme
+- Supervisors can't create administrators (Enterprise edition)
+- Supervisors can't edit unassigned users (Enterprise edition)
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

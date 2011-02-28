@@ -53,7 +53,6 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 //    pr($userStats);
     $userStats = $editedUser -> getUserStatusInLessons($currentLesson);
     $userStats = $userStats[$currentLesson -> lesson['id']] -> lesson;
-//    pr($userStats);exit;
 
     $form -> setDefaults(array("completed" => $userStats['completed'],
                                "score" => $userStats['score'],

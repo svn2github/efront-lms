@@ -450,7 +450,7 @@ function askLessons() {
  if ($_SESSION['s_type'] == "administrator"){
   $result = eF_getTableData("lessons", "id,name,directions_ID","archive=0 $sql and instance_source = 0 and active=1 AND name like '%$preffix%'", "name");
  } else {
-  $result = eF_getTableData("users_to_lessons ul, lessons l", "l.id, l.name,l.directions_ID", "ul.archive=0 $sql and l.archive=0 and l.instance_source = 0 and ul.users_LOGIN='".$_SESSION['s_login']."' and ul.user_type = 'professor' and ul.lessons_ID=l.id AND l.name like '%$preffix%'", "l.name");
+  $result = eF_getTableData("users_to_lessons ul, lessons l", "l.id, l.name,l.directions_ID", "ul.archive=0 $sql and l.archive=0 and l.instance_source = 0 and ul.users_LOGIN='".$_SESSION['s_login']."' and (ul.user_type = 'professor'  or ul.user_type in (select id from user_types where basic_user_type = 'professor')) and ul.lessons_ID=l.id AND l.name like '%$preffix%'", "l.name");
  }
  $lessons = array();
  $directionsTree = new EfrontDirectionsTree();
@@ -506,7 +506,7 @@ function askCourses() {
   $result = EfrontCourse :: getAllCourses($constraints);
   //$result 	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
  } else {
-  $result = eF_getTableData("courses c, users_to_courses uc", "c.id, c.name, c.directions_ID", "uc.user_type = 'professor' AND c.active=1 AND c.id = uc.courses_ID AND uc.archive=0 and c.archive=0 AND uc.users_LOGIN='".$_SESSION['s_login']."' AND c.name like '%$preffix%'");
+  $result = eF_getTableData("courses c, users_to_courses uc", "c.id, c.name, c.directions_ID", "(uc.user_type = 'professor' or uc.user_type in (select id from user_types where basic_user_type = 'professor')) AND c.active=1 AND c.id = uc.courses_ID AND uc.archive=0 and c.archive=0 AND uc.users_LOGIN='".$_SESSION['s_login']."' AND c.name like '%$preffix%'");
  }
  $courses = array();
  $directionsTree = new EfrontDirectionsTree();

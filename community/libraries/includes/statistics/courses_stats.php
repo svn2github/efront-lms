@@ -135,7 +135,7 @@ if (isset($_GET['excel'])) {
         }
     }
 
-    $filename = 'export_'.$course -> course['name'];
+    $filename = 'export_'.$infoCourse -> course['name'];
     if ($groupname) {
         $filename .= '_group_'.str_replace(" ", "_" , $groupname);
     }
@@ -233,7 +233,15 @@ if (isset($_GET['excel'])) {
         $workSheet -> write($row, 7, $roles[$info['user_type']], $fieldLeftFormat);
         //$workSheet -> write($row, 7, $info['time']['hours']."h ".$info['time']['minutes']."' ".$$info['time']['seconds']."''", $fieldCenterFormat);
         $workSheet -> write($row, 8, formatScore($info['score'])."%", $fieldCenterFormat);
-        $workSheet -> write($row, 9, $info['completed'] ? _YES : _NO, $fieldCenterFormat);
+  if ($info['completed'] && $info['to_timestamp']) {
+   $completedString = _YES.', '._ON.' '.formatTimestamp($info['to_timestamp']);
+  } elseif ($info['completed']) {
+   $completedString = _YES;
+  } else {
+   $completedString = _NO;
+  }
+        $workSheet -> write($row, 9, $completedString, $fieldLeftFormat);
+
         $row++;
     }
     $row += 2;

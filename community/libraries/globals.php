@@ -99,8 +99,13 @@ if ($GLOBALS['configuration']['eliminate_post_xss']) {
 if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
     if (isset($_GET['bypass_language']) && eF_checkParameter($_GET['bypass_language'], 'filename') && is_file($path."language/lang-".$_GET['bypass_language'].".php.inc")) {
         /** We can bypass the current language any time by specifing 'bypass_language=<lang>' in the query string*/
-        require_once $path."language/lang-".$_GET['bypass_language'].".php.inc";
-        $setLanguage = $_GET['bypass_language'];
+        if ($GLOBALS['configuration']['onelanguage'] != 1) {
+      require_once $path."language/lang-".$GLOBALS['configuration']['default_language'].".php.inc";
+         $setLanguage = $_GET['bypass_language'];
+        } else { //because of #1132
+         require_once $path."language/lang-".$GLOBALS['configuration']['default_language'].".php.inc";
+         $setLanguage = $GLOBALS['configuration']['default_language'];
+        }
     } else {
         if (isset($_SESSION['s_language']) && is_file($path."language/lang-".$_SESSION['s_language'].".php.inc")) {
             /** If there is a current language in the session, use that*/
@@ -261,7 +266,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 10135;
+    $build = 10164;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

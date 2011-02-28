@@ -702,7 +702,7 @@ class EfrontUnit extends ArrayObject
         $newId = eF_insertTableData("content", $fields);
         $result = eF_getTableData("content", "*", "id=".$newId); //We perform an extra step/query for retrieving data, sinve this way we make sure that the array fields will be in correct order (forst id, then name, etc)
         $unit = new EfrontUnit($result[0]);
-        EfrontSearch :: insertText($fields['name'], $unit['id'], "content", "title");
+        EfrontSearch :: insertText(htmlspecialchars($fields['name'], ENT_QUOTES), $unit['id'], "content", "title");
         EfrontEvent::triggerEvent(array("type" => EfrontEvent::CONTENT_CREATION, "lessons_ID" => $fields['lessons_ID'], "entity_ID" => $unit['id'], "entity_name" => $fields['name']));
         return $unit;
     }

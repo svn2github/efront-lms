@@ -175,7 +175,13 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
    } else {
     preg_match("/view_file.php\?file=\d+/", $currentUnit['data'], $matches);
     $pdfId = explode("=", $matches[0]);
-    $pdfFile = new EfrontFile($pdfId[1]);
+    try {
+     $pdfFile = new EfrontFile($pdfId[1]);
+    } catch (Exception $e) {
+        $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+        $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+        $message_type = 'failure';
+    }
     $form -> setDefaults(array('pdf_content' => $pdfFile['physical_name']));
 
    }

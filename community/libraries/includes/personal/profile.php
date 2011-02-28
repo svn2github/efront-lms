@@ -20,6 +20,16 @@ if (!isset($_GET['add_user'])) {
  $avatar = new EfrontFile(G_SYSTEMAVATARSPATH."unknown_small.png");
 }
 
+$roles = EfrontUser :: getRoles(true);
+if ($currentUser->user['user_type'] != 'administrator') {
+ $rolesPlain = EfrontUser :: getRoles();
+ foreach ($roles as $key => $value) {
+  if ($rolesPlain[$key] == 'administrator') {
+   unset($roles[$key]);
+  }
+ }
+}
+
 $form = new HTML_QuickForm("user_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$editedUser -> user['login']."&op=profile".(isset($_GET['add_user']) ? '&add_user=1' : ''), "", null, true);
 $form -> addElement('static', '', '<img src = "view_file.php?file='.$avatar['path'].'" alt = "'.$editedUser -> user['login'].'" title = "'.$editedUser -> user['login'].'"/>');
 $form -> addElement('file', 'file_upload', _IMAGEFILE, 'class = "inputText"');
@@ -35,7 +45,7 @@ $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
 $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
 $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
 $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
-$form -> addElement('select', 'user_type', _USERTYPE, EfrontUser :: getRoles(true));
+$form -> addElement('select', 'user_type', _USERTYPE, $roles);
 $form -> addElement('select', 'languages_NAME', _LANGUAGE, EfrontSystem :: getLanguages(true, true));
 $form -> addElement("select", "timezone", _TIMEZONE, eF_getTimezones(), 'class = "inputText" style="width:20em"');
 if ($GLOBALS['configuration']['social_modules_activated'] > 0) {

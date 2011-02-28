@@ -2284,7 +2284,7 @@ class EfrontLesson
               "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$this -> lesson['id']);
   $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {
-   if (is_numeric($doneScormTest['minscore']) || is_numeric($doneScormTest['maxscore'])) {
+   if (is_numeric($doneScormTest['minscore']) && is_numeric($doneScormTest['maxscore'])) {
     $doneScormTest['score'] = 100 * $doneScormTest['score'] / ($doneScormTest['minscore'] + $doneScormTest['maxscore']);
    } else {
     $doneScormTest['score'] = $doneScormTest['score'];

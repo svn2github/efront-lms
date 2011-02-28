@@ -2,7 +2,7 @@
 
  {if $T_LESSON_INFO}
          {foreach name = 'info_list' item = "item" key = "key" from = $T_LESSON_INFO->metadataArray}
-          {if $item}<div class = "lessonInfo"><span class = "infoTitle">{$T_LESSON_INFO->metadataAttributes.$key}:</span> {$item}</div>{/if}
+          {if $item}<div class = "lessonInfo"><span class = "infoTitle">{$T_LESSON_INFO->metadataAttributes.$key}:</span> {$item|replace:"\n":"<br />"}</div>{/if}
          {/foreach}
           {if $T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_LESSON_INFO.language]}</div>{/if}
           {if $T_ADDITIONAL_LESSON_INFO.professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO.professors_string}</div>{/if}
@@ -112,7 +112,7 @@
          </div>
          {/if}
          {foreach name = 'info_list' item = "item" key = "key" from = $T_COURSE_INFO->metadataArray}
-          <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_INFO->metadataAttributes.$key}:</span> {$item}</div>
+          <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_INFO->metadataAttributes.$key}:</span> {$item|replace:"\n":"<br />"}</div>
          {/foreach}
       <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$T_ADDITIONAL_COURSE_INFO.language]}</div>
 
@@ -145,7 +145,7 @@
             <a href = "javascript:scroll(0,0)" name = "{$lesson->lesson.id}" >{$lesson->lesson.name}</a>
            </div>
            {foreach name = 'info_list' item = "item" key = "key" from = $T_COURSE_LESSON_INFO[$id]->metadataArray}
-            <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_LESSON_INFO[$id]->metadataAttributes.$key}:</span> {$item}</div>
+            <div class = "lessonInfo"><span class = "infoTitle">{$T_COURSE_LESSON_INFO[$id]->metadataAttributes.$key}:</span> {$item|replace:"\n":"<br />"}</div>
            {/foreach}
             {assign var = "language" value = $T_ADDITIONAL_LESSON_INFO[$id].language}
             {if $language}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$language]}</div>{/if}

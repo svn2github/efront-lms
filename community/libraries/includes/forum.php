@@ -327,13 +327,14 @@ try {
                 $forums[$key]['polls'] = $stats['polls'];
                 $forums[$key]['messages'] = $stats['messages'];
                 $forums[$key]['last_post'] = $stats['last_post'];
+                $forums[$key]['subforums'] = sizeof($forumTree[$key]);
             }
 
             unset($forums[0]); //Unset node with id 0, since this refers to the root node (which does not exist)
             $forums = eF_multiSort($forums, 'title'); //Show forums in alphabetical order
     //remove inactive and archived lessons
             $result = eF_getTableDataFlat("lessons","id","active=0 OR archive!=''");
-      if (!empty($result['id'])) {
+            if (!empty($result['id'])) {
        foreach($forums as $key => $value) {
         if (in_array($value['lessons_ID'],$result['id']) !== false) {
          unset($forums[$key]);

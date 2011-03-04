@@ -152,7 +152,28 @@
     <div class = "messageInfo">
      <div><span>{$smarty.const._SENT}:</span> #filter:timestamp_time-{$T_PERSONALMESSAGE.timestamp}#</div>
      <div><span>{$smarty.const._SENDER}:</span> {$T_PERSONALMESSAGE.sender}</div>
-     <div><span>{$smarty.const._RECIPIENT}:</span> {if $T_PERSONALMESSAGE.bcc}{$smarty.const._UNDISCLOSEDRECIPIENTS}{else}{$T_PERSONALMESSAGE.recipient}{/if}</div>
+     <div>
+      <span>{$smarty.const._RECIPIENT}:</span>
+      {if $T_PERSONALMESSAGE.bcc}
+       {$smarty.const._UNDISCLOSEDRECIPIENTS}
+      {elseif sizeof($T_PERSONALMESSAGE.recipient) <= 10}
+       {$T_PERSONALMESSAGE.recipient|@implode:",&nbsp;"}
+      {else}
+      {strip}
+       {foreach name = "recipients_list" item = "item" key = "key" from = $T_PERSONALMESSAGE.recipient}
+        {if $smarty.foreach.recipients_list.iteration < 10}
+         {$item},&nbsp;
+        {elseif $smarty.foreach.recipients_list.iteration == 10}
+         <a href = "javascript:void(0)" style = "" onclick = "Element.extend(this).hide();$('more_recipients').show()">{$T_PERSONALMESSAGE.recipient|@sizeof} more users</a><span id = "more_recipients" style = "font-weight:inherit;display:none">{$item}
+        {elseif $smarty.foreach.recipients_list.iteration == $T_PERSONALMESSAGE.recipient|@sizeof}
+         </div>
+        {else}
+         ,&nbsp;{$item}
+        {/if}
+       {/foreach}
+      {/strip}
+      {/if}
+     </div>
     {if $T_ATTACHMENT}
      <div><span>{$smarty.const._ATTACHMENTS}:</span> <a href = "view_file.php?file={$T_ATTACHMENT.id}&action=download">{$T_ATTACHMENT.name}</a></div>
     {/if}

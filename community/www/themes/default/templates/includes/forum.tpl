@@ -293,7 +293,7 @@
       <a href = "javascript:void(0)" onclick = "alert('{$smarty.const._NONEWMESSAGELOCKED}')" class = "inactiveLink" >{$smarty.const._NEWTOPIC}</a>
                  {else}
       <img src = "images/16x16/add.png" alt = "{$smarty.const._NEWTOPIC}" title = "{$smarty.const._NEWTOPIC}"/>
-      <a href = "{$smarty.server.PHP_SELF}?ctg=forum&add=1&type=topic&forum_id={$T_PARENT_FORUM}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._NEWTOPIC}', 1)" target = "POPUP_FRAME">{$smarty.const._NEWTOPIC}</a>
+      <a href = "{$smarty.server.PHP_SELF}?ctg=forum&add=1&type=topic&forum_id={$T_PARENT_FORUM}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._NEWTOPIC}', 2)" target = "POPUP_FRAME">{$smarty.const._NEWTOPIC}</a>
      {/if}
      </span>
      {if !isset($T_FORUM_CONFIG.polls) || $T_FORUM_CONFIG.polls}
@@ -303,7 +303,7 @@
             <a href = "javascript:void(0)" onclick = "alert('{$smarty.const._NONEWPOLLLOCKED}')" class = "inactiveLink" >{$smarty.const._NEWPOLL}</a>
       {else}
       <img src = "images/16x16/add.png" alt = "{$smarty.const._NEWPOLL}" title = "{$smarty.const._NEWPOLL}"/>
-            <a href = "{$smarty.server.PHP_SELF}?ctg=forum&add=1&type=poll&forum_id={$T_PARENT_FORUM}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._NEWPOLL}', 2)" target = "POPUP_FRAME">{$smarty.const._NEWPOLL}</a>
+            <a href = "{$smarty.server.PHP_SELF}?ctg=forum&add=1&type=poll&forum_id={$T_PARENT_FORUM}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._NEWPOLL}', 3)" target = "POPUP_FRAME">{$smarty.const._NEWPOLL}</a>
       {/if}
      </span>
      {/if}
@@ -503,7 +503,7 @@
                                 </div>
                             </td>
                             <td>
-        {$subforum.topics} {$smarty.const._TOPICS}, {$subforum.messages} {$smarty.const._MESSAGES}{if $subforum.polls},{$subforum.polls} {$smarty.const._POLLS}{/if}
+        {$subforum.subforums} {$smarty.const._SUBFORUMS}, {$subforum.topics} {$smarty.const._TOPICS}, {$subforum.messages} {$smarty.const._MESSAGES}{if $subforum.polls},{$subforum.polls} {$smarty.const._POLLS}{/if}
        </td>
        <td>
                       {if $subforum.last_post}

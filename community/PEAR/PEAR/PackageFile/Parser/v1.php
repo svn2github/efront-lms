@@ -4,17 +4,11 @@
  *
  * PHP versions 4 and 5
  *
- * LICENSE: This source file is subject to version 3.0 of the PHP license
- * that is available through the world-wide-web at the following URI:
- * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
- * the PHP License and are unable to obtain it through the web, please
- * send a note to license@php.net so we can mail you a copy immediately.
- *
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2006 The PHP Group
- * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @copyright  1997-2009 The Authors
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
@@ -28,8 +22,8 @@ require_once 'PEAR/PackageFile/v1.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2006 The PHP Group
- * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @copyright  1997-2009 The Authors
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    Release: @PEAR-VER@
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
@@ -66,14 +60,15 @@ class PEAR_PackageFile_Parser_v1
      * @param string contents of package.xml file, version 1.0
      * @return bool success of parsing
      */
-    function parse($data, $file, $archive = false)
+    function &parse($data, $file, $archive = false)
     {
         if (!extension_loaded('xml')) {
             return PEAR::raiseError('Cannot create xml parser for parsing package.xml, no xml extension');
         }
         $xp = xml_parser_create();
         if (!$xp) {
-            return PEAR::raiseError('Cannot create xml parser for parsing package.xml');
+            $a = &PEAR::raiseError('Cannot create xml parser for parsing package.xml');
+            return $a;
         }
         xml_set_object($xp, $this);
         xml_set_element_handler($xp, '_element_start_1_0', '_element_end_1_0');
@@ -85,7 +80,7 @@ class PEAR_PackageFile_Parser_v1
         $this->current_element = false;
         unset($this->dir_install);
         $this->_packageInfo['filelist'] = array();
-        $this->filelist = $this->_packageInfo['filelist'];
+        $this->filelist =& $this->_packageInfo['filelist'];
         $this->dir_names = array();
         $this->in_changelog = false;
         $this->d_i = 0;
@@ -96,8 +91,9 @@ class PEAR_PackageFile_Parser_v1
             $code = xml_get_error_code($xp);
             $line = xml_get_current_line_number($xp);
             xml_parser_free($xp);
-            return PEAR::raiseError(sprintf("XML error: %s at line %d",
+            $a = &PEAR::raiseError(sprintf("XML error: %s at line %d",
                            $str = xml_error_string($code), $line), 2);
+            return $a;
         }
 
         xml_parser_free($xp);
@@ -132,6 +128,8 @@ class PEAR_PackageFile_Parser_v1
         foreach (explode("\n", $str) as $line) {
             if (substr($line, 0, $indent_len) == $indent) {
                 $data .= substr($line, $indent_len) . "\n";
+            } elseif (trim(substr($line, 0, $indent_len))) {
+                $data .= ltrim($line);
             }
         }
         return $data;
@@ -167,7 +165,7 @@ class PEAR_PackageFile_Parser_v1
                 if (array_key_exists('name', $attribs) && $attribs['name'] != '/') {
                     $attribs['name'] = preg_replace(array('!\\\\+!', '!/+!'), array('/', '/'),
                         $attribs['name']);
-                    if (strrpos($attribs['name'], '/') == strlen($attribs['name']) - 1) {
+                    if (strrpos($attribs['name'], '/') === strlen($attribs['name']) - 1) {
                         $attribs['name'] = substr($attribs['name'], 0,
                             strlen($attribs['name']) - 1);
                     }
@@ -227,7 +225,7 @@ class PEAR_PackageFile_Parser_v1
                     $this->m_i = 0;
                 }
                 $this->_packageInfo['maintainers'][$this->m_i] = array();
-                $this->current_maintainer = $this->_packageInfo['maintainers'][$this->m_i];
+                $this->current_maintainer =& $this->_packageInfo['maintainers'][$this->m_i];
                 break;
             case 'changelog':
                 $this->_packageInfo['changelog'] = array();
@@ -333,7 +331,6 @@ class PEAR_PackageFile_Parser_v1
                 $this->current_maintainer['role'] = $data;
                 break;
             case 'version':
-                //$data = ereg_replace ('[^a-zA-Z0-9._\-]', '_', $data);
                 if ($this->in_changelog) {
                     $this->current_release['version'] = $data;
                 } else {
@@ -350,7 +347,8 @@ class PEAR_PackageFile_Parser_v1
             case 'notes':
                 // try to "de-indent" release notes in case someone
                 // has been over-indenting their xml ;-)
-                $data = $this->_unIndent($this->cdata);
+                // Trim only on the right side
+                $data = rtrim($this->_unIndent($this->cdata));
                 if ($this->in_changelog) {
                     $this->current_release['release_notes'] = $data;
                 } else {

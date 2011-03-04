@@ -148,6 +148,8 @@ class EfrontConfiguration
   'disable_feedback' => '0',
   'disable_payments' => '0',
      'disable_move_blocks' => '0',
+     'disable_change_info' => '0',
+     'disable_change_pass' => '0',
 
         //Social - Facebook settings
         'facebook_api_key' => '',
@@ -188,6 +190,7 @@ class EfrontConfiguration
      'theme' => '1', //Default theme id, in a clean install this is 1
         'database_version' => G_VERSION_NUM,
   'help_url' => 'http://docs.efrontlearning.net/index.php',
+     'version_hosted' => '0',
 
         //Notifications
         'notifications_pageloads' => '10',

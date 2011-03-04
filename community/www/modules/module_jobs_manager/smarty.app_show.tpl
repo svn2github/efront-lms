@@ -61,7 +61,7 @@
    <td style="width:150px;">
     {$smarty.const._JOBS_MANAGER_APP_CV}
    </td>
-   <td><a href="{$_JOB_MANAGER_APP.cv_filename}" target="_blank">{$smarty.const._JOBS_MANAGER_APP_CV}</a></td>
+   <td><a href="{$MOD_JOBS_MANAGER_BASEURL}&action=download_file&app_id={$_JOB_MANAGER_APP.id}" target="_blank">{$smarty.const._JOBS_MANAGER_APP_CV}</a></td>
   </tr>
   <tr valign="top">
    <td style="width:150px;">

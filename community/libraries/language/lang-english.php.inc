@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT", "Note: you are revisiting 
 define("_ACTIONONRENTRYCOMPLETED", "Action on re-entry");
 define("_LETCONTENTDECIDE", "Let content decide");
 define("_DONTCHANGE", "Leave unchanged");
-define("_DASHBOARD", "my Dashboard");
+define("_DASHBOARD", "Dashboard");
 define("_MYWALL","My wall");
 define("_RELATEDPEOPLE","Related people");
 define("_LEARNINGACTIVITY","Learning activity");
@@ -4021,4 +4021,6 @@ define("_HIDESUPERVISORFROMUSERS", "Hide supervisor from users");
 define("_HIDEJOBFROMUSERS", "Hide job from users");
 define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "You must specify a default value for mandatory elements");
 define("_USETHECURRENTDATE", "Use the current date");
+define("_USERSCANCHANGEINFO", "Users change their info");
+define("_USERSCANCHANGEPASS", "Users change their password");
 ?>

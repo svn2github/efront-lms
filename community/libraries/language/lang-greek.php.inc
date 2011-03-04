@@ -4021,4 +4021,6 @@ define("_HIDESUPERVISORFROMUSERS", "Απόκρυψη προϊσταμένου σ
 define("_HIDEJOBFROMUSERS", "Απόκρυψη θέσης εργασίας στους χρήστες");
 define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "Πρέπει να ορίσετε μία προκαθορισμένη τιμή για τα υποχρεωτικά πεδία");
 define("_USETHECURRENTDATE", "Χρησιμοποίηση της τρέχουσας ημερομηνίας");
+define("_USERSCANCHANGEINFO", "Οι χρήστες αλλάζουν τα στοιχεία τους");
+define("_USERSCANCHANGEPASS", "Οι χρήστες αλλάζουν τον κωδικό τους");
 ?>

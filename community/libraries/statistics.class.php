@@ -2074,7 +2074,7 @@ class EfrontStats
                     $percentageSeen >= $condition['options'][0] ? $passed = 1 : $passed = 0;
                     break;
                 case 'specific_unit':
-                    in_array($condition['options'][0], array_keys($seenUnits)) ? $passed = 1 : $passed = 0;
+                    in_array($condition['options'][0], array_keys($seenUnits)) || !in_array($condition['options'][0], $visitableContentIds) ? $passed = 1 : $passed = 0;
                     break;
                 case 'all_tests':
                     $passed = 1;
@@ -2092,7 +2092,7 @@ class EfrontStats
                     $meanScore >= $condition['options'][0] ? $passed = 1 : $passed = 0;
                     break;
                 case 'specific_test':
-                    in_array($condition['options'][0], array_keys($seenUnits)) ? $passed = 1 : $passed = 0;
+                    in_array($condition['options'][0], array_keys($seenUnits)) || !in_array($condition['options'][0], $visitableTestIds) ? $passed = 1 : $passed = 0;
                     break;
                 default:
                     break;

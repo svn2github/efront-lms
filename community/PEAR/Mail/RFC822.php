@@ -1,37 +1,48 @@
 <?php
-// +-----------------------------------------------------------------------+
-// | Copyright (c) 2001-2002, Richard Heyes                                |
-// | All rights reserved.                                                  |
-// |                                                                       |
-// | Redistribution and use in source and binary forms, with or without    |
-// | modification, are permitted provided that the following conditions    |
-// | are met:                                                              |
-// |                                                                       |
-// | o Redistributions of source code must retain the above copyright      |
-// |   notice, this list of conditions and the following disclaimer.       |
-// | o Redistributions in binary form must reproduce the above copyright   |
-// |   notice, this list of conditions and the following disclaimer in the |
-// |   documentation and/or other materials provided with the distribution.|
-// | o The names of the authors may not be used to endorse or promote      |
-// |   products derived from this software without specific prior written  |
-// |   permission.                                                         |
-// |                                                                       |
-// | THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS   |
-// | "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT     |
-// | LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR |
-// | A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  |
-// | OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, |
-// | SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT      |
-// | LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, |
-// | DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY |
-// | THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT   |
-// | (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE |
-// | OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  |
-// |                                                                       |
-// +-----------------------------------------------------------------------+
-// | Authors: Richard Heyes <richard@phpguru.org>                          |
-// |          Chuck Hagenbuch <chuck@horde.org>                            |
-// +-----------------------------------------------------------------------+
+/**
+ * RFC 822 Email address list validation Utility
+ *
+ * PHP versions 4 and 5
+ *
+ * LICENSE:
+ *
+ * Copyright (c) 2001-2010, Richard Heyes
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * o Redistributions of source code must retain the above copyright
+ *   notice, this list of conditions and the following disclaimer.
+ * o Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ * o The names of the authors may not be used to endorse or promote
+ *   products derived from this software without specific prior written
+ *   permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @category    Mail
+ * @package     Mail
+ * @author      Richard Heyes <richard@phpguru.org>
+ * @author      Chuck Hagenbuch <chuck@horde.org
+ * @copyright   2001-2010 Richard Heyes
+ * @license     http://opensource.org/licenses/bsd-license.php New BSD License
+ * @version     CVS: $Id$
+ * @link        http://pear.php.net/package/Mail/
+ */
 
 /**
  * RFC 822 Email address list validation Utility
@@ -140,11 +151,11 @@ class Mail_RFC822 {
      */
     function Mail_RFC822($address = null, $default_domain = null, $nest_groups = null, $validate = null, $limit = null)
     {
-        if (isset($address))        $this->address        = $address;
+        if (isset($address)) $this->address = $address;
         if (isset($default_domain)) $this->default_domain = $default_domain;
-        if (isset($nest_groups))    $this->nestGroups     = $nest_groups;
-        if (isset($validate))       $this->validate       = $validate;
-        if (isset($limit))          $this->limit          = $limit;
+        if (isset($nest_groups)) $this->nestGroups = $nest_groups;
+        if (isset($validate)) $this->validate = $validate;
+        if (isset($limit)) $this->limit = $limit;
     }
 
     /**
@@ -166,16 +177,16 @@ class Mail_RFC822 {
             return $obj->parseAddressList();
         }
 
-        if (isset($address))        $this->address        = $address;
+        if (isset($address)) $this->address = $address;
         if (isset($default_domain)) $this->default_domain = $default_domain;
-        if (isset($nest_groups))    $this->nestGroups     = $nest_groups;
-        if (isset($validate))       $this->validate       = $validate;
-        if (isset($limit))          $this->limit          = $limit;
+        if (isset($nest_groups)) $this->nestGroups = $nest_groups;
+        if (isset($validate)) $this->validate = $validate;
+        if (isset($limit)) $this->limit = $limit;
 
-        $this->structure  = array();
-        $this->addresses  = array();
-        $this->error      = null;
-        $this->index      = null;
+        $this->structure = array();
+        $this->addresses = array();
+        $this->error = null;
+        $this->index = null;
 
         // Unfold any long lines in $this->address.
         $this->address = preg_replace('/\r?\n/', "\r\n", $this->address);
@@ -223,16 +234,16 @@ class Mail_RFC822 {
 
         if ($this->_isGroup($address) && !isset($this->error)) {
             $split_char = ';';
-            $is_group   = true;
+            $is_group = true;
         } elseif (!isset($this->error)) {
             $split_char = ',';
-            $is_group   = false;
+            $is_group = false;
         } elseif (isset($this->error)) {
             return false;
         }
 
         // Split the string based on the above ten or so lines.
-        $parts  = explode($split_char, $address);
+        $parts = explode($split_char, $address);
         $string = $this->_splitCheck($parts, $split_char);
 
         // If a group...
@@ -259,7 +270,7 @@ class Mail_RFC822 {
         // Add to the addresses array.
         $this->addresses[] = array(
                                    'address' => trim($string),
-                                   'group'   => $is_group
+                                   'group' => $is_group
                                    );
 
         // Remove the now stored address from the initial line, the +1
@@ -294,7 +305,7 @@ class Mail_RFC822 {
     function _isGroup($address)
     {
         // First comma not in quotes, angles or escaped:
-        $parts  = explode(',', $address);
+        $parts = explode(',', $address);
         $string = $this->_splitCheck($parts, ',');
 
         // Now we have the first address, we can reliably check for a
@@ -342,22 +353,39 @@ class Mail_RFC822 {
     }
 
     /**
-     * Checks if a string has an unclosed quotes or not.
+     * Checks if a string has unclosed quotes or not.
      *
      * @access private
-     * @param string $string The string to check.
-     * @return boolean True if there are unclosed quotes inside the string, false otherwise.
+     * @param string $string  The string to check.
+     * @return boolean  True if there are unclosed quotes inside the string,
+     *                  false otherwise.
      */
     function _hasUnclosedQuotes($string)
     {
-        $string     = explode('"', $string);
-        $string_cnt = count($string);
+        $string = trim($string);
+        $iMax = strlen($string);
+        $in_quote = false;
+        $i = $slashes = 0;
 
-        for ($i = 0; $i < (count($string) - 1); $i++)
-            if (substr($string[$i], -1) == '\\')
-                $string_cnt--;
+        for (; $i < $iMax; ++$i) {
+            switch ($string[$i]) {
+            case '\\':
+                ++$slashes;
+                break;
 
-        return ($string_cnt % 2 === 0);
+            case '"':
+                if ($slashes % 2 == 0) {
+                    $in_quote = !$in_quote;
+                }
+                // Fall through to default action below.
+
+            default:
+                $slashes = 0;
+                break;
+            }
+        }
+
+        return $in_quote;
     }
 
     /**
@@ -372,7 +400,7 @@ class Mail_RFC822 {
     function _hasUnclosedBrackets($string, $chars)
     {
         $num_angle_start = substr_count($string, $chars[0]);
-        $num_angle_end   = substr_count($string, $chars[1]);
+        $num_angle_end = substr_count($string, $chars[1]);
 
         $this->_hasUnclosedBracketsSub($string, $num_angle_start, $chars[0]);
         $this->_hasUnclosedBracketsSub($string, $num_angle_end, $chars[1]);
@@ -423,7 +451,7 @@ class Mail_RFC822 {
             $is_group = true;
 
             // Get the group part of the name
-            $parts     = explode(':', $address['address']);
+            $parts = explode(':', $address['address']);
             $groupname = $this->_splitCheck($parts, ':');
             $structure = array();
 
@@ -447,7 +475,7 @@ class Mail_RFC822 {
         // Otherwise, Just put the whole address in an array.
         if ($is_group) {
             while (strlen($address['address']) > 0) {
-                $parts       = explode(',', $address['address']);
+                $parts = explode(',', $address['address']);
                 $addresses[] = $this->_splitCheck($parts, ',');
                 $address['address'] = trim(substr($address['address'], strlen(end($addresses) . ',')));
             }
@@ -602,7 +630,7 @@ class Mail_RFC822 {
     function validateMailbox(&$mailbox)
     {
         // A couple of defaults.
-        $phrase  = '';
+        $phrase = '';
         $comment = '';
         $comments = array();
 
@@ -613,13 +641,13 @@ class Mail_RFC822 {
             $before_comment = $this->_splitCheck($parts, '(');
             if ($before_comment != $_mailbox) {
                 // First char should be a (.
-                $comment    = substr(str_replace($before_comment, '', $_mailbox), 1);
-                $parts      = explode(')', $comment);
-                $comment    = $this->_splitCheck($parts, ')');
+                $comment = substr(str_replace($before_comment, '', $_mailbox), 1);
+                $parts = explode(')', $comment);
+                $comment = $this->_splitCheck($parts, ')');
                 $comments[] = $comment;
 
-                // +1 is for the trailing )
-                $_mailbox   = substr($_mailbox, strpos($_mailbox, $comment)+strlen($comment)+1);
+                // +2 is for the brackets
+                $_mailbox = substr($_mailbox, strpos($_mailbox, '('.$comment)+strlen($comment)+2);
             } else {
                 break;
             }
@@ -633,10 +661,10 @@ class Mail_RFC822 {
 
         // Check for name + route-addr
         if (substr($mailbox, -1) == '>' && substr($mailbox, 0, 1) != '<') {
-            $parts  = explode('<', $mailbox);
-            $name   = $this->_splitCheck($parts, '<');
+            $parts = explode('<', $mailbox);
+            $name = $this->_splitCheck($parts, '<');
 
-            $phrase     = trim($name);
+            $phrase = trim($name);
             $route_addr = trim(substr($mailbox, strlen($name.'<'), -1));
 
             if ($this->_validatePhrase($phrase) === false || ($route_addr = $this->_validateRouteAddr($route_addr)) === false) {
@@ -662,15 +690,15 @@ class Mail_RFC822 {
 
         // Add the phrase (even if empty) and comments
         $mbox->personal = $phrase;
-        $mbox->comment  = isset($comments) ? $comments : array();
+        $mbox->comment = isset($comments) ? $comments : array();
 
         if (isset($route_addr)) {
             $mbox->mailbox = $route_addr['local_part'];
-            $mbox->host    = $route_addr['domain'];
+            $mbox->host = $route_addr['domain'];
             $route_addr['adl'] !== '' ? $mbox->adl = $route_addr['adl'] : '';
         } else {
             $mbox->mailbox = $addr_spec['local_part'];
-            $mbox->host    = $addr_spec['domain'];
+            $mbox->host = $addr_spec['domain'];
         }
 
         $mailbox = $mbox;
@@ -829,18 +857,18 @@ class Mail_RFC822 {
 
         // Split on @ sign if there is one.
         if (strpos($addr_spec, '@') !== false) {
-            $parts      = explode('@', $addr_spec);
+            $parts = explode('@', $addr_spec);
             $local_part = $this->_splitCheck($parts, '@');
-            $domain     = substr($addr_spec, strlen($local_part . '@'));
+            $domain = substr($addr_spec, strlen($local_part . '@'));
 
         // No @ sign so assume the default domain.
         } else {
             $local_part = $addr_spec;
-            $domain     = $this->default_domain;
+            $domain = $this->default_domain;
         }
 
         if (($local_part = $this->_validateLocalPart($local_part)) === false) return false;
-        if (($domain     = $this->_validateDomain($domain)) === false) return false;
+        if (($domain = $this->_validateDomain($domain)) === false) return false;
 
         // Got here so return successful.
         return array('local_part' => $local_part, 'domain' => $domain);

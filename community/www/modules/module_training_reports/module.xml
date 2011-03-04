@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <title>Training reports</title>
+    <author>Manos Dimitrakis</author>
+    <date>15/02/2011</date>
+    <version>1.0</version>
+    <description>Online training reports module</description>
+    <className>module_training_reports</className>
+</module>

@@ -2,8 +2,8 @@
 <module>
 	<title>WorkBook</title>
 	<author>Andreas Makridakis</author>
-	<date>2010 09 15</date>
-	<version>1.0</version>
+	<date>2011 03 02</date>
+	<version>1.1</version>
 	<description>Through Workbook module professors are trying to get students to pay attention to certain lesson items</description>
 	<className>module_workbook</className>
 </module>

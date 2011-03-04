@@ -14,7 +14,8 @@
      <td class="centerAlign">{$app.date_added|date_format:"%a, %d %b %Y"}</td>
      <td class="centerAlign">
       <a href="{$MOD_JOBS_MANAGER_BASEURL}&action=show_app&app_id={$app.id}"><img src="{$MOD_JOBS_MANAGER_BASELINK}images/milky_view.png" alt="{$smarty.const._MOD_JOB_APP_VIEW}" title="{$smarty.const._MOD_JOB_APP_VIEW}" border="0"></a>
-      <a href="{$app.cv_filename}" target="_blank"><img src="{$MOD_JOBS_MANAGER_BASELINK}images/milky_download.png" alt="{$smarty.const._MOD_JOB_APP_DOWNLOAD}" title="{$smarty.const._MOD_JOB_APP_DOWNLOAD}" border="0"></a>
+      <!--<a href="{$app.cv_filename}" target="_blank"><img src="{$MOD_JOBS_MANAGER_BASELINK}images/milky_download.png" alt="{$smarty.const._MOD_JOB_APP_DOWNLOAD}" title="{$smarty.const._MOD_JOB_APP_DOWNLOAD}" border="0"></a>-->
+      <a href="{$MOD_JOBS_MANAGER_BASEURL}&action=download_file&app_id={$app.id}" target="_blank"><img src="{$MOD_JOBS_MANAGER_BASELINK}images/milky_download.png" alt="{$smarty.const._MOD_JOB_APP_DOWNLOAD}" title="{$smarty.const._MOD_JOB_APP_DOWNLOAD}" border="0"></a>
       <a href="javascript:void(0);" onclick="if(confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) window.location='{$MOD_JOBS_MANAGER_BASEURL}&action=remove_app&app_id={$app.id}&job_id={$app.job_id}';"><img src="{$MOD_JOBS_MANAGER_BASELINK}images/milky_delete.png" alt="{$smarty.const._DELETE}" title="{$smarty.const._DELETE}" border="0"></a>
      </td>
     </tr>

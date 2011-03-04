@@ -62,6 +62,7 @@ try {
              $newsOptions[] = array('text' => _ANNOUNCEMENTADD, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._ANNOUNCEMENTADD."', 1)", 'target' => 'POPUP_FRAME');
             }
             $newsOptions[] = array('text' => _ANNOUNCEMENTGO, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news");
+            $news = array_slice($news, 0, 10, true);
             $smarty -> assign("T_NEWS", $news);
             $smarty -> assign("T_NEWS_OPTIONS", $newsOptions);
             $smarty -> assign("T_NEWS_LINK", basename($_SERVER['PHP_SELF'])."?ctg=news");

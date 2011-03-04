@@ -56,7 +56,7 @@ require_once("entity.class.php");
 //Get configuration values
 $configuration = EfrontConfiguration :: getValues();
 //Set debugging parameter
-if ($configuration['debug_mode'] == '1' || in_array($_SESSION['s_login'], explode(",", $configuration['debug_mode']))) {
+if ($configuration['debug_mode'] == '1' || ($_SESSION['s_login'] && in_array($_SESSION['s_login'], explode(",", $configuration['debug_mode'])))) {
  define("G_DEBUG", 1);
  if (isset($_GET['debug'])) {
   debug();
@@ -266,7 +266,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 10164;
+    $build = 10192;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

@@ -128,8 +128,10 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
 $smarty -> assign("T_GENERAL_SMTP_FORM", $generalSMTPForm -> toArray());
 $generalPHPForm = new Html_QuickForm("general_php_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=general&tab=php", "", null, true);
 $generalPHPForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-$generalPHPForm -> addElement("text", "memory_limit", _MEMORYLIMIT, 'class = "inputText" style = "width:60px"');
-$generalPHPForm -> addElement("text", "max_execution_time", _MAXEXECUTIONTIME, 'class = "inputText" style = "width:60px"');
+$generalPHPForm -> addElement("static", "sidenote", 'M');
+$generalPHPForm -> addElement("text", "memory_limit", _MEMORYLIMIT, 'class = "inputText" style = "width:35px"');
+$generalPHPForm -> addElement("static", "sidenote", _SECONDS);
+$generalPHPForm -> addElement("text", "max_execution_time", _MAXEXECUTIONTIME, 'class = "inputText" style = "width:35px"');
 $generalPHPForm -> addElement("static", "", _LEAVEBLANKTOUSEPHPINI);
 $generalPHPForm -> addElement("advcheckbox", "gz_handler", _GZHANDLER, null, 'class = "inputCheckBox"', array(0, 1));
 $generalPHPForm -> addElement("text", "max_file_size", _MAXFILESIZE, 'class = "inputText"');
@@ -145,12 +147,20 @@ isset($configuration['memory_limit']) ? $generalPHPForm -> setDefaults(array('me
 isset($configuration['max_execution_time']) ? $generalPHPForm -> setDefaults(array('max_execution_time' => $configuration['max_execution_time'])) : $generalPHPForm -> setDefaults(array('max_execution_time' => ini_get('max_execution_time')));
 isset($configuration['gz_handler']) ? $generalPHPForm -> setDefaults(array('gz_handler' => $configuration['gz_handler'])) : $generalPHPForm -> setDefaults(array('gz_handler' => ''));
 //		isset($configuration['display_errors'])   ? $generalPHPForm -> setDefaults(array('display_errors'	 => $configuration['display_errors']))	 : $generalPHPForm -> setDefaults(array('display_errors'	 => ini_get('display_errors')));
+if ($GLOBALS['configuration']['version_hosted']) {
+ $generalPHPForm -> freeze(array('memory_limit', 'max_execution_time'));
+}
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $generalPHPForm -> freeze();
 } else {
  $generalPHPForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
  if ($generalPHPForm -> isSubmitted() && $generalPHPForm -> validate()) { //If the form is submitted and validated
   $values = $generalPHPForm -> exportValues();
+  unset($values['submit']);
+  if ($GLOBALS['configuration']['version_hosted']) {
+   unset($values['memory_limit']);
+   unset($values['max_execution_time']);
+  }
   foreach ($values as $key => $value) {
    if ($value == '') {
     if ($key == 'memory_limit' || $key == 'max_execution_time') {
@@ -164,11 +174,7 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
    } else {
     if ($key == 'memory_limit' || $key == 'max_execution_time') { //You can't set these values below the php.ini setting
      ini_restore($key);
-     if ((int)ini_get($key) <= $value || $value == -1) {
-      EfrontConfiguration :: setValue($key, $value);
-     } else {
-      $message = _COULDNOTUPDATE." $key "._WITHVALUE." ".$value.": "._VALUEISSMALLERTHATPHPINI;
-     }
+     EfrontConfiguration :: setValue($key, $value);
     } else {
      EfrontConfiguration :: setValue($key, $value);
     }

@@ -137,6 +137,17 @@ class module_jobs_manager extends EfrontModule {
    elseif ($action == 'save_settings_logo') {
     $template = $this->_saveSettingsLogo($smarty);
    }
+   elseif ($action == 'download_file') {
+    $app_id = $_GET['app_id'];
+    try {
+     $app = new JobApplication($app_id);
+     $cv_path = $app->getCvFilenameLocal();
+     $file = new EfrontFile($cv_path);
+                 $file->sendFile(true);
+    }
+    catch (Exception $e) { /* DO NOTHING */ }
+                exit;
+   }
   }
 
   if (!$template) {

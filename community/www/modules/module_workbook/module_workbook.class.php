@@ -1043,8 +1043,12 @@ class module_workbook extends EfrontModule{
  }
 
  public function addScripts(){
-
-  return array("scriptaculous/dragdrop", "includes/tests");
+  //load scripts only in module page		
+  if (strpos(decryptUrl($_SERVER['REQUEST_URI']), $this -> moduleBaseUrl) !== false) {
+   return array("scriptaculous/dragdrop", "includes/tests");
+  } else {
+   return array();
+  }
  }
 
  public function onExportLesson($lessonId){

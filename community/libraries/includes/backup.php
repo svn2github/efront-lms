@@ -10,7 +10,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
         }
         $basedir = G_BACKUPPATH;
         if (isset($_GET['restore'])) {
-            ini_set("memory_limit", "-1");
+            //ini_set("memory_limit", "-1");
             try {
                 $restoreFile = new EfrontFile($_GET['restore']);
                 if (!EfrontSystem :: restore($_GET['restore'], $_GET['force'] ? $_GET['force'] : false)) {
@@ -56,7 +56,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
         $backup_form -> addRule('backupname', _THEFIELD.' '._FILENAME.' '._ISMANDATORY, 'required', null, 'client');
         $backup_form -> setDefaults(array("backupname" => "backup_".date('Y_m_d_h.i.s', time())));
 
-        $backup_form -> addElement('select', 'backuptype', null, array ("0" => _DATABASEONLY, "1" => _ALLDATABACKUP));
+        if ($GLOBALS['configuration']['version_hosted']) {
+         $backupTypes = array ("0" => _DATABASEONLY);
+        } else {
+         $backupTypes = array ("0" => _DATABASEONLY, "1" => _ALLDATABACKUP);
+        }
+        $backup_form -> addElement('select', 'backuptype', null, $backupTypes);
         $backup_form -> addElement('submit', 'submit_backup', _TAKEBACKUP, 'class = "flatButton" onclick = "$(\'backup_image\').show();"');
 
         if ($backup_form -> isSubmitted() && $backup_form -> validate()) {

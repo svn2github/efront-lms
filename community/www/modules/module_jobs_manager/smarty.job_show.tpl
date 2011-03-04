@@ -116,32 +116,3 @@
   <div style="margin:0 auto;"><h2>NO DATA FOUND FOR THIS JOB</h2></div>
  </div>
 {/if}
-
-
- <script>
- {literal}
-  function deleteRange(el, id){
-
-   Element.extend(el);
-   url = '{/literal}{$T_GRADEBOOK_BASEURL}{literal}&delete_range='+id;
-
-   var img = new Element('img', {id:'img_'+id, src:'{/literal}{$T_GRADEBOOK_BASELINK}{literal}images/progress1.gif'}).setStyle({position:'absolute'});
-   img_id = img.identify();
-   el.up().insert(img);
-
-   new Ajax.Request(url, {
-    method: 'get',
-    asynchronous: true,
-    onFailure: function(transport){
-     img.writeAttribute({src:'{/literal}{$T_GRADEBOOK_BASELINK}{literal}images/delete.png', title:transport.responseText}).hide();
-     new Effect.Appear(img_id);
-     window.setTimeout('Effect.Fade("'+img_id+'")', 10000);
-    },
-    onSuccess: function(transport){
-     img.hide();
-     new Effect.Fade(el.up().up(), {queue:'end'});
-    }
-   });
-  }
- {/literal}
- </script>

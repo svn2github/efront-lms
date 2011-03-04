@@ -292,7 +292,7 @@
 <table class = "pageLayout simple">
  <tr><td class = "header" colspan = "3">{$smarty.capture.header_code}</td></tr>
  <tr><td class = "left"></td>
-  <td class = "center">{$smarty.capture.center_code}</td>
+  <td class = "center" style = "vertical-align:top;padding-top:50px">{$smarty.capture.center_code}</td>
   <td class = "right"></td></tr>
  <tr><td class = "footer" colspan = "3">{$smarty.capture.footer_code}</td></tr>
 </table>

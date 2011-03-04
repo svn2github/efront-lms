@@ -158,6 +158,7 @@ function onAjaxUserInstancePost(el, response) {
  eF_js_redrawPage('instancesTable');
 }
 function ajaxUserLessonPost(id, el, table_id) {
+ var baseUrl = augmentUrl(table_id) + '&postAjaxRequest=1';
  if (id) {
         var url = location.toString() + '&postAjaxRequest=1&add_lesson=' + id + '&insert=' + $('lesson_'+id).checked + '&user_type='+encodeURI($('lesson_type_'+id).value);
     } else if (table_id && table_id == ('lessonsTable') ) {

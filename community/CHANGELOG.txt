@@ -30,6 +30,11 @@
 - Added "modern" theme and set it as default theme
 - Supervisors can't create administrators (Enterprise edition)
 - Supervisors can't edit unassigned users (Enterprise edition)
+- Added options in disable options for changing user info and password
+- Fixed deleting unit does not delete associated lesson condition
+- Fixed orphan lesson conditions taken to account during lesson completion
+- Updated PEAR to 1.9.2, and packages Mail, Net_STMP, Net_Socket
+
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

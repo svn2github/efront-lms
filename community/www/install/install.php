@@ -37,8 +37,8 @@ define("NO_OUTPUT_BUFFERING", true);
 //Set some ini properties we need
 ini_set("display_errors", true);
 ini_set('include_path', $path.'../PEAR/');
-ini_set("memory_limit", "-1");
-ini_get("max_execution_time") < 600 ? ini_set("max_execution_time", "600") : null;
+//ini_set("memory_limit", "-1");
+//ini_get("max_execution_time") < 600 ? ini_set("max_execution_time", "600") : null;
 //It is imperative that the smarty directory is writable in order to continue
 if (!is_writable($path.'smarty/themes_cache')) {
  echo Installation :: printErrorMessage("Directory <b>".realpath($path.'smarty/themes_cache')."</b> must be writable by the server in order to continue");
@@ -52,7 +52,11 @@ define("G_SERVERNAME", dirname(dirname($protocol.'://'.$_SERVER['HTTP_HOST'].$_S
 if (is_file($path."smarty/smarty_config.php") && is_file($path."language/lang-english.php.inc")) {
  /**The default theme path*/
  define("G_THEMESPATH", str_replace("\\", "/", dirname(dirname(dirname(__FILE__)))."/www/themes/"));
- $currentTheme = "default";
+    /** The default theme path*/
+    define("G_DEFAULTTHEMEPATH", G_THEMESPATH."default/");
+    /** The default theme url*/
+    define("G_DEFAULTTHEMEURL", "themes/default/");
+    $currentTheme = "modern";
  /**The current theme path*/
  define("G_CURRENTTHEMEPATH", G_THEMESPATH.$currentTheme."/");
  /**The current theme url*/
@@ -264,7 +268,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     if ($values['old_db_name'] == $values['db_name']) {
      $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
      $db -> Execute("SET NAMES 'UTF8'");
-     ini_set("memory_limit", "-1");
+     //ini_set("memory_limit", "-1");
      if ($values['backup'] || isset($_GET['unattended'])) {
       $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
      }
@@ -644,7 +648,7 @@ if (isset($_GET['restore'])) {
   }
   $smarty -> assign("T_BACKUP_FILES", $files);
   if (isset($_GET['file']) && in_array($_GET['file'], $files)) {
-   ini_set("memory_limit", "-1");
+   //ini_set("memory_limit", "-1");
    EfrontSystem :: restore(G_BACKUPPATH.$_GET['file']); //Auto backup database
    $message = "The restoring procedure completed successfully";
    $message_type = "success";

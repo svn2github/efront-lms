@@ -488,7 +488,7 @@ try {
         foreach ($recipients as $k => $login) {
             $recipients[$k] = formatLogin(trim($login));
         }
-        $currentMessage['recipient'] = implode(", ", $recipients);
+        $currentMessage['recipient'] = $recipients;
         $smarty -> assign("T_PERSONALMESSAGE", $currentMessage);
         if ($currentMessage['attachments']) {
             try {

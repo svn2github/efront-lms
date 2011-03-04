@@ -97,6 +97,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     //Administrator news, he doesn't have to see lesson news (since he can't actually access them)
     $news = news :: getNews(0, true);
    }
+   $news = array_slice($news, 0, 10, true);
    $smarty -> assign("T_NEWS", $news); //Assign announcements to smarty
   }
 

@@ -721,8 +721,8 @@ class EfrontImportCsv extends EfrontImport
   }
   $maxmemory = 128 * $factor;
   $maxtime = 300 * $factor;
-  ini_set("memory_limit", max($maxmemory,$GLOBALS['configuration']['memory_limit']) . "M");
-        ini_set("max_execution_time", max($maxtime, $GLOBALS['configuration']['max_execution_time']));
+  //ini_set("memory_limit", max($maxmemory,$GLOBALS['configuration']['memory_limit'])  . "M");
+        //ini_set("max_execution_time", max($maxtime, $GLOBALS['configuration']['max_execution_time']));
  }
  public function __construct($filename, $_options) {
   $this -> fileContents = file_get_contents($filename);

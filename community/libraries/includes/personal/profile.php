@@ -101,22 +101,26 @@ if (isset($_GET['add_user'])) {
    $constrainAccess[] = 'password_';
    $constrainAccess[] = 'user_type';
   }
-  if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
-   $constrainAccess[] = 'user_type';
-   $constrainAccess[] = 'active';
-   if ($currentUser->user['user_type'] != 'administrator') {
-    $constrainAccess[] = 'name';
-    $constrainAccess[] = 'surname';
-   }
-  }
   if ($editedUser -> isLdapUser) {
    $constrainAccess[] = 'passrepeat';
    $constrainAccess[] = 'password_';
   }
+  if ($GLOBALS['configuration']['onelanguage']) {
+   $constrainAccess[] = 'languages_NAME';
+  }
+  if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
+   $constrainAccess[] = 'user_type';
+   $constrainAccess[] = 'active';
+   if ($currentUser->user['user_type'] != 'administrator') {
+    if ($GLOBALS['configuration']['disable_change_info']) {
+     $constrainAccess = 'all';
+    } elseif ($GLOBALS['configuration']['disable_change_pass']) {
+     $constrainAccess[] = 'passrepeat';
+     $constrainAccess[] = 'password_';
+    }
+   }
+  }
  }
-}
-if ($GLOBALS['configuration']['onelanguage']) {
- $constrainAccess[] = 'languages_NAME';
 }
 if ($constrainAccess != 'all') {
  $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
@@ -194,7 +198,11 @@ if ($form -> isSubmitted() && $form -> validate()) {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::PROFILE_CHANGE, "users_LOGIN" => $editedUser -> user['login'], "users_name" => $editedUser->user['name'], "users_surname" => $editedUser->user['surname'], "lessons_ID" => 0, "lessons_name" => ""));
   }
   $editedUser -> persist();
-  eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=profile&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
+  if ($editedUser->user['user_type'] == 'administrator') {
+   eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=profile&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
+  } else {
+   eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=user_courses&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
+  }
  } catch (Exception $e) {
   handleNormalFlowExceptions($e);
  }

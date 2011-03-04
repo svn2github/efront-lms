@@ -384,18 +384,24 @@ class EfrontUnit extends ArrayObject
 
      */
     public function delete() {
-        if ($this['ctg_type'] == 'tests' || $this['ctg_type'] == 'feedback') {
+     if ($this['ctg_type'] == 'tests' || $this['ctg_type'] == 'feedback') {
             $result = eF_getTableData("tests", "id, content_ID", "content_ID=".$this['id']);
             if (sizeof($result) > 0) {
                 $test = new EfrontTest($result[0]);
                 $test -> delete();
             }
         }
+  $result = eF_getTableData("lesson_conditions", "*", "lessons_ID=".$this['lessons_ID']);
+        foreach ($result as $value) {
+         $conditionOptions = unserialize($value['options']);
+         if (($value['type'] == 'specific_unit' || $condition['type'] == 'specific_test') && $conditionOptions[0] == $this['id']) {
+          eF_deleteTableData("lesson_conditions", "id=".$value['id']);
+         }
+        }
         eF_deleteTableData("content", "id=".$this['id']); //Delete Unit from database
         eF_deleteTableData("scorm_data", "content_ID=".$this['id']); //Delete Unit from scorm_data
   eF_deleteTableData("comments", "content_ID=".$this['id']); //Delete comments of this unit
   eF_deleteTableData("rules", "content_ID=".$this['id']." OR rule_content_ID=".$this['id']); //Delete rules associated with this unit
-  //eF_deleteTableData("conditions", "content_ID=".$this['id']." OR rule_content_ID=".$this['id']); 		//Delete rules associated with this unit
   eF_updateTableData("questions", array("content_ID" => 0), "content_ID=".$this['id']); //Remove association of questions with this unit but not delete them
   EfrontSearch :: removeText('content', $this['id'], ''); //Delete keywords
   //Delete scorm data related to the unit

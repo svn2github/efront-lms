@@ -31,13 +31,13 @@
 
     <div style = "display:none" id = "my_personal_options">
      <ul style = "list-style:none;padding:0px;">
-      {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
+     {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
       <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=dashboard">{$smarty.const._DASHBOARD}</a></li>
-      {/if}
-      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=profile">{$smarty.const._PERSONALDATA}</a></li>
-      {if $smarty.session.s_type != 'administrator'}
-      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=user_courses">{$smarty.const._LEARNINGSTATUS}</a></li>
-      {/if}
+     {/if}
+      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=profile">{$smarty.const._ACCOUNT}</a></li>
+     {if $smarty.session.s_type != 'administrator'}
+      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=user_courses">{$smarty.const._LEARNING}</a></li>
+     {/if}
 
 
 

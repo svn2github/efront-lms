@@ -42,7 +42,7 @@ define("_WORKBOOK_SWITCH_TO", "Μετάβαση σε");
 define("_WORKBOOK_DOWNLOAD_AS", "Αποθήκευση ως");
 define("_WORKBOOK_QUESTION_NOT_ANSWERED", "Δεν έχετε απαντήσει την ερώτηση");
 define("_WORKBOOK_INVALID_ANSWER", "Η απάντησή σας δεν είναι σωστή. Προσπαθήστε ξανά.");
-define("_WORKBOOK_SUCCESSFULLY_PUBLISHED", "Το Workbbok δημοσιεύτηκε επιτυχώς");
+define("_WORKBOOK_SUCCESSFULLY_PUBLISHED", "Το Workbοok δημοσιεύτηκε επιτυχώς");
 define("_WORKBOOK_PUBLISH_PROBLEM", "Το Workbbok δεν δημοσιεύτηκε επιτυχώς");
 define("_WORKBOOK_UNDER_DEVELOPMENT", "Υπό κατασκευή");
 define("_WORKBOOK_CHECK_PROGRESS", "Έλεγχος προόδου");

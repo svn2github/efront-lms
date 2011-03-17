@@ -18,8 +18,8 @@ class module_jobs_manager extends EfrontModule {
  }
 
  public function isLessonModule() {
-        return false;
-    }
+  return false;
+ }
 
  public function getControlPanelModule() {
   $html = false;
@@ -56,22 +56,22 @@ class module_jobs_manager extends EfrontModule {
    $job_code = (isset($_GET['job_code']) ? $_GET['job_code'] : false);
    $back_link = (isset($_GET['back']) ? $_GET['back'] : false);
    $link = $this->moduleBaseUrl . '&action=show_app' . ($app_id ? '&app_id='.$app_id : '') . ($job_code ? '&job_code='.$job_code : '') . ($back_link ? '&back='.$back_link : '');
-         $navigation_links [] = array ('title' => _MOD_JAM_TOP_NAV_SHOW_APP, 'link' => $link);
-        }
-        else if ($action == 'show_job') {
-         $job_id = (isset($_GET['job_id']) ? $_GET['job_id'] : false);
-         $back_link = (isset($_GET['back']) ? $_GET['back'] : false);
-         $link = $this->moduleBaseUrl . '&action=show_job' . ($job_id ? '&job_id='.$job_id : '') . ($back_link ? '&back='.$back_link : '');
+   $navigation_links [] = array ('title' => _MOD_JAM_TOP_NAV_SHOW_APP, 'link' => $link);
+  }
+  else if ($action == 'show_job') {
+   $job_id = (isset($_GET['job_id']) ? $_GET['job_id'] : false);
+   $back_link = (isset($_GET['back']) ? $_GET['back'] : false);
+   $link = $this->moduleBaseUrl . '&action=show_job' . ($job_id ? '&job_id='.$job_id : '') . ($back_link ? '&back='.$back_link : '');
    $navigation_links [] = array ('title' => _MOD_JAM_TOP_NAV_SHOW_JOB, 'link' => $link);
   }
   else if ($action == 'edit_job') {
-         $job_id = (isset($_GET['job_id']) ? $_GET['job_id'] : false);
-         $back_link = (isset($_GET['back']) ? $_GET['back'] : false);
-         $link = $this->moduleBaseUrl . '&action=edit_job' . ($job_id ? '&job_id='.$job_id : '') . ($back_link ? '&back='.$back_link : '');
+   $job_id = (isset($_GET['job_id']) ? $_GET['job_id'] : false);
+   $back_link = (isset($_GET['back']) ? $_GET['back'] : false);
+   $link = $this->moduleBaseUrl . '&action=edit_job' . ($job_id ? '&job_id='.$job_id : '') . ($back_link ? '&back='.$back_link : '');
    $navigation_links [] = array ('title' => _MOD_JAM_TOP_NAV_EDIT_JOB, 'link' => $link);
   }
   else if ($action == 'new_job') {
-         $link = $this->moduleBaseUrl . '&action=new_job';
+   $link = $this->moduleBaseUrl . '&action=new_job';
    $navigation_links [] = array ('title' => _MOD_JAM_TOP_NAV_NEW_JOB, 'link' => $link);
   }
 
@@ -93,10 +93,10 @@ class module_jobs_manager extends EfrontModule {
 
  public function getSmartyTpl() {
   //error_reporting(E_ALL);
-
+  // This is to load the textareas using tiny_MCE
   global $load_editor;
   $load_editor = true;
-
+  // END tiny_MCE
   $template = false;
   $smarty = $this->getSmartyVar();
   $smarty->assign("MOD_JOBS_MANAGER_BASEURL", $this->moduleBaseUrl);
@@ -143,10 +143,10 @@ class module_jobs_manager extends EfrontModule {
      $app = new JobApplication($app_id);
      $cv_path = $app->getCvFilenameLocal();
      $file = new EfrontFile($cv_path);
-                 $file->sendFile(true);
+     $file->sendFile(true);
     }
     catch (Exception $e) { /* DO NOTHING */ }
-                exit;
+    exit;
    }
   }
 
@@ -293,31 +293,31 @@ class module_jobs_manager extends EfrontModule {
   $success = true;
   /*
 
-		if (strlen(trim($data))) {
+		 if (strlen(trim($data))) {
 
 			if (is_numeric($data) && $data >= 0) {
 
-				$success = true;
+			$success = true;
 
 			}
 
 			else {
 
-				$this->_appendMessage(_MOD_JAM_VALIDATION_ERROR_RENUMERATION.'<br/>', true);
+			$this->_appendMessage(_MOD_JAM_VALIDATION_ERROR_RENUMERATION.'<br/>', true);
 
 			}
 
-		}
+			}
 
-		else {
+			else {
 
 			// Remuneration is not a required field.
 
 			$success = true;
 
-		}
+			}
 
-		*/
+			*/
   return $success;
  }
  private function _validateForm() {
@@ -450,7 +450,7 @@ class module_jobs_manager extends EfrontModule {
   //$emails = array();
   /*
 
-		foreach ($all_emails AS $key => $data) {
+		 foreach ($all_emails AS $key => $data) {
 
 			$email = array();
 
@@ -460,7 +460,7 @@ class module_jobs_manager extends EfrontModule {
 
 			if (in_array($data['email'],$set_emails)) {
 
-				$email ['selected'] = true;
+			$email ['selected'] = true;
 
 			}
 
@@ -468,9 +468,9 @@ class module_jobs_manager extends EfrontModule {
 
 			$emails [] = $email;
 
-		}
+			}
 
-		*/
+			*/
   $emails = '';
   foreach ($set_emails AS $email) {
    $emails .= $email . ';';
@@ -501,19 +501,19 @@ class module_jobs_manager extends EfrontModule {
  ###########################################################################
  /**
 
-	 * This is the method that carries the logic for the detailed presentation 
+	 * This is the method that carries the logic for the detailed presentation
 
 	 * of a job on the screen.
 
-	 * 
+	 *
 
 	 * @param object $smarty
 
-	 * 
+	 *
 
 	 * @return string The path to the smarty template for this page.
 
-	 * 
+	 *
 
 	 * @access private
 
@@ -603,13 +603,13 @@ class module_jobs_manager extends EfrontModule {
 
 	 * Toggles the status of a given Job instance.
 
-	 * 
+	 *
 
 	 * @param unknown_type $smarty
 
 	 * @return JSON The result of the activity
 
-	 * 
+	 *
 
 	 * @access private
 
@@ -925,7 +925,7 @@ class module_jobs_manager extends EfrontModule {
  private function _removeApp($smarty) {
   $smarty = $smarty;
   if (isset($_GET['job_id']) && is_numeric($_GET['job_id']) && !($_GET['job_id']%1) && $_GET['job_id'] > 0 &&
-   isset($_GET['app_id']) && is_numeric($_GET['app_id']) && !($_GET['app_id']%1) && $_GET['app_id'] > 0) {
+  isset($_GET['app_id']) && is_numeric($_GET['app_id']) && !($_GET['app_id']%1) && $_GET['app_id'] > 0) {
    $job_id = $_GET['job_id'];
    $app_id = $_GET['app_id'];
    try {
@@ -1142,7 +1142,7 @@ class module_jobs_manager extends EfrontModule {
     if ($old_filename) {
      @unlink($old_filename);
     }
-    // Settings need to be updated 
+    // Settings need to be updated
     $new_filename = $file['physical_name'];
     $settings->setLogoFilename($new_filename);
    }

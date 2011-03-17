@@ -39,8 +39,8 @@ function ajaxPost(login, el, table_id) {
 
 function updatePositions(el, lessonId) {
  var str = '';
-    $('layoutfirstlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className == 'plus' ? 0 : 1) + '&'});
-    $('layoutsecondlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className == 'plus' ? 0 : 1) + '&'});
+    $('layoutfirstlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className.match(/down/) ? 0 : 1) + '&'});
+    $('layoutsecondlist').select('li').each(function (s) {str += 'visibility['+ s.id.replace(/.*_/, '') + ']=' + (s.select('img')[1].className.match(/down/) ? 0 : 1) + '&'});
     str = str.substring(0, str.length - 1); //Remove trailing &
 
  parameters = {lessons_ID:lessonId,

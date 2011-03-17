@@ -1,65 +1,65 @@
 <?php
 
 /*
+
  * Class defining the new module
+
  * Its name should be the same as the one provided in the module.xml file
+
  */
 class module_gift_aiken extends EfrontModule {
-
     /*
+
      * Mandatory function returning the name of the module
+
      * @return string the name of the module
+
      */
     public function getName() {
         return "GIFT/AIKEN";
     }
-
     /*
+
      * Mandatory function returning an array of permitted roles from the set {"administrator", "professor", "student"}
+
      *
+
      * @return array of eFront user roles that this module applies for
+
      */
     public function getPermittedRoles() {
         return array("professor");
     }
-
     public function isLessonModule() {
         return true;
     }
-	    
-	public function getLessonCenterLinkInfo() {
+ public function getLessonCenterLinkInfo() {
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getType() == "professor") {
             return array('title' => _GIFTAIKENQUESTIONS,
                      'image' => $this -> moduleBaseDir . 'images/transform32.png',
-                     'link'  => $this -> moduleBaseUrl);
+                     'link' => $this -> moduleBaseUrl);
         }
     }
-
     public function getSidebarLinkInfo() {
         $link_of_menu_clesson = array (array ('id' => 'other_link_gift_aiken',
                                               'title' => _GIFTAIKENQUESTIONS,
                                               'image' => $this -> moduleBaseDir . 'images/transform16',
                                               'eFrontExtensions' => '1',
-                                              'link'  => $this -> moduleBaseUrl));
-
-        return array (  "current_lesson" => $link_of_menu_clesson);
+                                              'link' => $this -> moduleBaseUrl));
+        return array ( "current_lesson" => $link_of_menu_clesson);
     }
-
     public function getNavigationLinks() {
         $currentUser = $this -> getCurrentUser();
-		$currentLesson = $this -> getCurrentLesson();
-		
-        return array (	array ('title' => _MYLESSONS, 'onclick'  => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-						array ('title' => $currentLesson -> lesson['name'], 'link'  => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
-						array ('title' => _GIFTAIKENQUESTIONSTITLE, 'link'  => $this -> moduleBaseUrl));
+  $currentLesson = $this -> getCurrentLesson();
+        return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+      array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
+      array ('title' => _GIFTAIKENQUESTIONSTITLE, 'link' => $this -> moduleBaseUrl));
     }
-
-	public function getModuleJs() {
-		return $this->moduleBaseDir."gift_aiken.js";
-	}
-    
-	public function getLinkToHighlight() {
+ public function getModuleJs() {
+  return $this->moduleBaseDir."gift_aiken.js";
+ }
+ public function getLinkToHighlight() {
         return 'other_link_gift_aiken';
     }
 
@@ -81,7 +81,7 @@ class module_gift_aiken extends EfrontModule {
                 }
             } else {
                 if (trim($line) != "") {
-                    if (preg_match('/^ANSWER:[ ]*(?<option_tag>[a-zA-Z])/i', $line, $matches)) {
+                    if (preg_match('/^ANSWER:[ ]*(?P<option_tag>[a-zA-Z])/i', $line, $matches)) {
 
                         $correct_answer = $matches['option_tag'];
 
@@ -103,7 +103,7 @@ class module_gift_aiken extends EfrontModule {
                         $waiting_for_new_question = 1;
                     } else {
                         //preg_match('/\1/')
-                        preg_match('/(?<option_tag>\w+)[.)] (?<option>.*)/', $line, $matches);
+                        preg_match('/(?P<option_tag>\w+)[.)] (?P<option>.*)/', $line, $matches);
                         $new_question['options'][] = trim($matches['option']);
                         $new_question['option_tags'][] = $matches['option_tag'];
                     }
@@ -216,7 +216,7 @@ class module_gift_aiken extends EfrontModule {
             for ($j = 0; $j < $i; $j++) {
                 if ($this -> sameQuestions($questions[$i], $questions[$j])) {
                     $questions[$i]['type'] = "same";
-                    $questions[$i]['options'] = $j+1;    // keep in the options the count of the same question (should always be the first
+                    $questions[$i]['options'] = $j+1; // keep in the options the count of the same question (should always be the first
                                                          // from a series of same answers
                 }
             }
@@ -253,10 +253,12 @@ class module_gift_aiken extends EfrontModule {
 
         // Each question line relates to a different question which we will analyse
         $questions = array();
+
         foreach ($question_lines as $question_text) {
-            preg_match('/(?<text_before>.*){(?<question_specs>.*)}(?<text_after>.*)/' ,$question_text, $matches);
+            preg_match('/(?P<text_before>.*){(?P<question_specs>.*)}(?P<text_after>.*)/' ,$question_text, $matches);
+
             // Create basic text title - each question type has different format for the final title text (GIFT title allows ::__::__ or just __)
-            if (preg_match('/::(?<text_before1>.*)::(?<text_before2>.*)/', $matches['text_before'], $matches_text_before)) {
+            if (preg_match('/::(?P<text_before1>.*)::(?P<text_before2>.*)/', $matches['text_before'], $matches_text_before)) {
                 $matches['text_before'] = $matches_text_before['text_before1'] . ": ". $matches_text_before['text_before2'];
             }
 
@@ -289,17 +291,17 @@ class module_gift_aiken extends EfrontModule {
             $options_length = sizeof($options);
             for($i = 0; $i < $options_length; $i++) {
                 $temp = explode("#", $options[$i]);
-                if ($temp[0] == "") {    // numerical answer
+                if ($temp[0] == "") { // numerical answer
                     $signs[$i] = "=";
                     $options[$i] = trim($temp[1]);
                 } else if ($temp[1] != "") {
                     // both 1880:0 and %33%1880:1 are acceptable - all but the main one are considered false
-                    if (preg_match('/^%[0-9]+%(?<main_question>.*)/',$temp[0],$internal_match)) {
+                    if (preg_match('/^%[0-9]+%(?P<main_question>.*)/',$temp[0],$internal_match)) {
                         $temp[0] = $internal_match['main_question'];
                         $signs[$i] = "~";
                     }
 
-                    if (preg_match('/(?<main_question>[0-9]*):[0-9]+/',$temp[0],$internal_match)) {
+                    if (preg_match('/(?P<main_question>[0-9]*):[0-9]+/',$temp[0],$internal_match)) {
                         $temp[0] = $internal_match['main_question'];
                     }
 
@@ -356,7 +358,7 @@ class module_gift_aiken extends EfrontModule {
                     for ($i =0 ; $i < $signs_length; $i++) {
                         if ($signs[$i] == "=") {
                             $correct_answers++;
-                            $question['answer'][] = $i;    // this works because signs match exactly to options order
+                            $question['answer'][] = $i; // this works because signs match exactly to options order
                         }
                     }
 
@@ -383,7 +385,7 @@ class module_gift_aiken extends EfrontModule {
                     $question['answer'] = array();
 
                     foreach ($options as $option) {
-                        if (preg_match('/(?<option1>.*)->(?<option2>.*)/', $option, $option_matches)) {
+                        if (preg_match('/(?P<option1>.*)->(?P<option2>.*)/', $option, $option_matches)) {
                            $question['options'][] = $option_matches['option1'];
                            $question['answer'][] = $option_matches['option2'];
                         } else {
@@ -419,12 +421,12 @@ class module_gift_aiken extends EfrontModule {
                         $temp_question_text = " ### " . $matches['text_after'];
                         $remaining_string = $matches['text_before'];
 
-                        while (preg_match('/(?<text_before>.*){(?<question_specs>.*)}(?<text_after>.*)/' , $remaining_string, $previous_matches)) {
+                        while (preg_match('/(?P<text_before>.*){(?P<question_specs>.*)}(?P<text_after>.*)/' , $remaining_string, $previous_matches)) {
 
                             // Assumption that the syntax is correct - if no "=" is used the error below will emerge
                             $options = explode("=", $previous_matches['question_specs']);
 
-                            unset($options[0]);    // the first one is blank
+                            unset($options[0]); // the first one is blank
                             if (empty($options)) {
                                 $error = 1;
                                 break;
@@ -472,6 +474,7 @@ class module_gift_aiken extends EfrontModule {
         }
 
         $questions = $this -> removeDuplicates($questions);
+
         return $questions;
     }
 
@@ -633,7 +636,7 @@ class module_gift_aiken extends EfrontModule {
             $postUrl = $_SERVER['REQUEST_URI'];
         }
         $importForm = new HTML_QuickForm("import_users_form", "post", $postUrl, "", null, true);
-        $importForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');           //Register this rule for checking user input with our function, eF_checkParameter
+        $importForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 
         $importForm -> addElement('radio', 'questions_format', _GIFTAIKEN_GIFT, null, 'gift', 'id="gift_selection"');
         $importForm -> addElement('radio', 'questions_format', _GIFTAIKEN_AIKEN, null, 'aiken', 'id="aiken_selection"');

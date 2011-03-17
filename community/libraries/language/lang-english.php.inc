@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE", "Unsupported operation type");
 define("_DUPLICATECOMPLETEDPAYMENT", "Duplicate completed payment");
 define("_UNSUPPORTEDPAYMENTSTATUS", "Unsupported payment status");
 define("_YOUHAVECANCELLEDTHETRANSACTION", "You have cancelled the transaction");
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "The transaction was completed successfully.");
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "The transaction was completed successfully. Your selection will be assigned shortly");
 define("_PAYPALDEBUG", "Paypal debug mode");
 define("_MYACCOUNT", "my Account");
 define("_MODULE", "Module");

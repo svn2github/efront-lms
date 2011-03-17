@@ -2207,14 +2207,13 @@ abstract class EfrontLessonUser extends EfrontUser
   return $userLessons;
  }
  public function getUserStatusInCourseLessons($course) {
+  $lessons = array();
   $userLessons = $this -> getUserStatusInLessons();
   $courseLessons = $course -> getCourseLessons();
-  foreach ($userLessons as $key => $lesson) {
-   if (!in_array($key, array_keys($courseLessons))) {
-    unset($userLessons[$key]);
-   }
+  foreach ($courseLessons as $key => $lesson) {
+   $lessons[$key] = $userLessons[$key];
   }
-  return $userLessons;
+  return $lessons;
  }
  public function getUserStatusInLessons($lessons = false, $onlyContent = false) {
   $userLessons = $this -> getUserLessons();

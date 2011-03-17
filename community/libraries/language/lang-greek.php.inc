@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE", "Μη υποστηριζόμενη ενέρ�
 define("_DUPLICATECOMPLETEDPAYMENT", "Διπλή ολοκληρωμένη πληρωμή");
 define("_UNSUPPORTEDPAYMENTSTATUS", "Μη υποστηριζόμενη κατάσταση πληρωμής");
 define("_YOUHAVECANCELLEDTHETRANSACTION", "Ακυρώσατε τη συναλλαγή");
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "Η συναλλαγή ολοκληρώθηκε επιτυχώς.");
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED", "Η συναλλαγή ολοκληρώθηκε επιτυχώς. Τα μαθήματα που επιλέξατε θα σας ανατεθούν σε λίγα λεπτά");
 define("_PAYPALDEBUG", "Paypal debug mode");
 define("_MYACCOUNT", "Ο λογαριασμός μου");
 define("_MODULE", "Άρθρωμα");

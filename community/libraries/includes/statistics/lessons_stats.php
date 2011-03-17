@@ -530,7 +530,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $row++;
             foreach ($info['done'] as $results) {
                 $workSheet -> write($row, 1, $results['users_LOGIN'], $fieldLeftFormat);
-                $workSheet -> write($row++, 2, formatScore(round($results['score'], 2))."%", $fieldCenterFormat);
+                $workSheet -> write($row++, 2, formatScore(round($results['score'], 2))."% -". formatTimestamp($results['timestamp'], 'time'), $fieldCenterFormat);
                 $avgScore[] = $results['score'];
             }
             if (sizeof($avgScore) > 0) {
@@ -609,7 +609,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $workSheet -> write($row, $column, $info['general']['name'], $fieldCenterFormat);
             foreach ($info['done'] as $results) {
              if (isset($rows[$results['users_LOGIN']])) {
-                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['score'], 2))."%", $fieldCenterFormat);
+                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['score'], 2))."% -". formatTimestamp($results['timestamp'], 'time'), $fieldCenterFormat);
              }
             }
             $column++;

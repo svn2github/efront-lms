@@ -134,16 +134,16 @@ try {
         if ($grant_full_access) {
             $smarty -> assign("T_FULL_ACCESS", 1);
 
-            $lessons = eF_getTableDataFlat("lessons", "id,name", "", "name");
-            $courses = eF_getTableDataFlat("courses", "id,name", "", "name");
+            $lessons = eF_getTableDataFlat("lessons", "id,name", "archive=0 and active=1", "name");
+            $courses = eF_getTableDataFlat("courses", "id,name", "archive=0 and active=1", "name");
 
             $users = EfrontUser :: getUsers(true);
             $roles = EfrontUser :: getRoles(true);
         } else {
             $smarty -> assign("T_FULL_ACCESS", 0);
 
-            $lessons = eF_getTableDataFlat("lessons JOIN users_to_lessons", "id,name", "users_to_lessons.archive=0 and lessons.archive=0 and lessons.id = users_to_lessons.lessons_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
-            $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "users_to_courses.archive=0 and courses.archive=0 and courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
+            $lessons = eF_getTableDataFlat("lessons JOIN users_to_lessons", "id,name", "users_to_lessons.archive=0 and lessons.archive=0 and lessons.active=1 and lessons.id = users_to_lessons.lessons_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
+            $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "users_to_courses.archive=0 and courses.archive=0 and courses.active=1 and courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
         }
 
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();

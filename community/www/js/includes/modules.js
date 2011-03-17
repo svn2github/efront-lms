@@ -33,5 +33,5 @@ function installModule(el, module) {
  ajaxRequest(el, url, parameters, onInstallModule);
 }
 function onInstallModule(el, response) {
- new Effect.Fade(el.up().up());
+ //new Effect.Fade(el.up().up());
 }

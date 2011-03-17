@@ -841,6 +841,7 @@ class Installation
              "workbook",
              "crossword",
           "chat",
+          "gift_aiken",
              "administrator_tools");
   $modulesList = eF_getTableData("modules", "*");
   foreach ($modulesList as $module) {

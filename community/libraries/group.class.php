@@ -1302,10 +1302,10 @@ class EfrontGroup
     public static function getGroups($returnObjects = false, $returnDisabled = false){
         $groups = array();
         if ($returnDisabled){
-            $data = ef_getTableData("groups", "id, name");
+            $data = ef_getTableData("groups", "id, name", "", "name");
         }
         else{
-            $data = ef_getTableData("groups", "id, name", "active = 1");
+            $data = ef_getTableData("groups", "id, name", "active = 1", "name");
         }
         if ($returnObjects){
             foreach ($data as $group_info){

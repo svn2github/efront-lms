@@ -405,9 +405,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
 <!--ajax:questionsTable-->
         <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&">
             <tr><td class = "topTitle" name = "text">{$smarty.const._QUESTIONTEXT}</td>
-            {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+            {if !$T_SKILLGAP_TEST}
                 <td class = "topTitle" name = "parent_name">{$smarty.const._UNITNAME}</td>
-            {elseif $T_SKILLGAP_TEST}
+            {else}
                 <td name="name" class = "topTitle">{$smarty.const._ASSOCIATEDWITH}</td>
             {/if}
                 <td class = "topTitle centerAlign" name = "type">{$smarty.const._QUESTIONTYPE}</td>
@@ -426,9 +426,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $item.type != 'true_false')}
     <tr class = "{cycle name = "main_cycle" values="oddRowColor, evenRowColor"}">
      <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}" title="{$item.text}"> {$item.text|eF_truncate:50}</a></td>
-    {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+    {if !$T_SKILLGAP_TEST}
      <td>{if $item.parent_name}{$item.parent_name}{else}{$smarty.const._NONE}{/if}</td>
-    {elseif $T_SKILLGAP_TEST}
+    {else}
      <td>{$item.name}</td>
     {/if}
      <td class = "centerAlign">
@@ -1392,9 +1392,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "0" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&from_unit={$smarty.get.from_unit}&">
          <tr class = "defaultRowHeight">
              <td name = "text" class = "topTitle">{$smarty.const._QUESTION}</td>
-         {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+         {if !$T_SKILLGAP_TEST}
              <td name = "parent_unit" class = "topTitle">{$smarty.const._UNIT}</td>
-         {elseif $T_SKILLGAP_TEST}
+         {else}
              <td name = "name" class = "topTitle">{$smarty.const._ASSOCIATEDWITH}</td>
          {/if}
              <td name = "type" class = "topTitle centerAlign">{$smarty.const._QUESTIONTYPE}</td>
@@ -1412,9 +1412,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}" title= "{$question.text}">{$question.text|eF_truncate:70}</a>
     {else}{$question.text|eF_truncate:70}{/if}
      </td>
-    {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+    {if !$T_SKILLGAP_TEST}
      <td>{$question.parent_unit}</td>
-    {elseif $T_SKILLGAP_TEST}
+    {else}
      <td>{$question.name}</td>
     {/if}
      <td class = "centerAlign">
@@ -1492,7 +1492,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
   {foreach name = 'pending_tests_loop' item = "item" key = "key" from = $T_PENDING_TESTS}
               <tr class = "{cycle name = "main_cycle" values="oddRowColor,evenRowColor"} defaultRowHeight">
                   <td>#filter:timestamp_time-{if isset($item.time_end)}{$item.time_end}{else}{$item.timestamp}{/if}#</td>
+              {if $T_CTG != "feedback"}
                  <td><a class="editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}">{$item.name}</a></td>
+              {else}
+                <td><a class="editLink" href = "{$smarty.server.PHP_SELF}?ctg=feedback&show_solved_test={$item.id}">{$item.name}</a></td>
+              {/if}
                  <td>#filter:login-{$item.users_LOGIN}#</td>
      {if $T_CTG != "feedback"}
                  <td>{if $item.pending}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>

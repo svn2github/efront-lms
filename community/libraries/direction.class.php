@@ -670,6 +670,7 @@ class EfrontDirectionsTree extends EfrontTree
   $parsedLessons = $this -> parseTreeLessons($lessons);
   $parsedCourses = $this -> parseTreeCourses($courses);
   if (!empty($parsedCourses) || !empty($parsedLessons)) {
+   $originalLessons = $lessons;
    $lessons = $parsedLessons;
    $courses = $parsedCourses;
   }
@@ -681,7 +682,7 @@ class EfrontDirectionsTree extends EfrontTree
   $lessonsString = $coursesString = '';
   while ($iterator -> valid()) {
    $lessonsString = $this -> printCategoryLessons($iterator, $display_lessons, $options, $lessons);
-   $coursesString = $this -> printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons);
+   $coursesString = $this -> printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons, $originalLessons);
 //			if ($lessonsString || $coursesString) {
     $treeString .= $this -> printCategoryTitle($iterator, $display, $imageString, $classString);
     $treeString .= $lessonsString.$coursesString.'
@@ -1057,7 +1058,7 @@ class EfrontDirectionsTree extends EfrontTree
   }
   return $treeString;
  }
- private function printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons) {
+ private function printCategoryCourses($iterator, $display, $userInfo, $options, $courses, $lessons, $checkLessons) {
   $roles = EfrontLessonUser :: getLessonsRoles();
   $roleNames = EfrontLessonUser :: getLessonsRoles(true);
   $treeString = '';
@@ -1077,7 +1078,7 @@ class EfrontDirectionsTree extends EfrontTree
     }
 //				if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeCourse -> course['completed'] && (is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0))) {
      if ($options['course_lessons']) {
-      $coursesTreeString .= $treeCourse -> toHTML($lessons, $options);
+      $coursesTreeString .= $treeCourse -> toHTML($lessons, $options, $checkLessons);
      } else {
       $coursesTreeString .= '
       <table width = "100%">

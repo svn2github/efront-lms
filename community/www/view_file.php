@@ -28,6 +28,7 @@ try {
  eF_redirect("index.php?ctg=expired");
  exit;
 }
+session_write_close();
 //pr($_SERVER);pr($_GET);exit;
 try {
  if (isset($_GET['server'])) {

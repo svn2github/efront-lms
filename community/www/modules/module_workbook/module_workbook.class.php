@@ -112,7 +112,7 @@ class module_workbook extends EfrontModule{
    if($_SESSION['s_type'] != 'professor'){
     $message = _WORKBOOK_NOACCESS;
     $message_type = 'failure';
-    $this->setMessageVar($message, $message_type);
+    $this->setMessageVar(urlencode($message), $message_type);
    }
 
    $content = new EfrontContentTree($currentLessonID);
@@ -181,7 +181,7 @@ class module_workbook extends EfrontModule{
    if($_SESSION['s_type'] != 'professor'){
     $message = _WORKBOOK_NOACCESS;
     $message_type = 'failure';
-    $this->setMessageVar($message, $message_type);
+    $this->setMessageVar(urlencode($message), $message_type);
    }
 
    $form = new HTML_QuickForm("reuse_item_form", "post", $this->moduleBaseUrl."&reuse_item=1", "", null, true);
@@ -198,7 +198,7 @@ class module_workbook extends EfrontModule{
 
      $message = _WORKBOOK_INVALID_UNIQUE_ID;
      $message_type = 'failure';
-     $this->setMessageVar($message, $message_type);
+     $this->setMessageVar(urlencode($message), $message_type);
     }
     else{
      $item = $this->getItemByUniqueID($values['item_id']);
@@ -216,7 +216,7 @@ class module_workbook extends EfrontModule{
 
      if(eF_insertTableData("module_workbook_items", $fields)){
 
-      $smarty->assign("T_WORKBOOK_MESSAGE", _WORKBOOK_ITEM_SUCCESSFULLY_ADDED);
+      $smarty->assign("T_WORKBOOK_MESSAGE", urlencode(_WORKBOOK_ITEM_SUCCESSFULLY_ADDED));
       $smarty->assign("T_WORKBOOK_MESSAGE_TYPE", 'success');
      }
      else{
@@ -239,7 +239,7 @@ class module_workbook extends EfrontModule{
    if($_SESSION['s_type'] != 'professor'){
     $message = _WORKBOOK_NOACCESS;
     $message_type = 'failure';
-    $this->setMessageVar($message, $message_type);
+    $this->setMessageVar(urlencode($message), $message_type);
    }
 
    $smarty->assign("T_WORKBOOK_ITEMS_COUNT", count($workbookItems));
@@ -411,10 +411,10 @@ class module_workbook extends EfrontModule{
      $message = _WORKBOOK_ITEM_EMPTY_FIELDS;
 
      if(isset($_GET['add_item']))
-      eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=failure&add_item=1".$popup_);
+      eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=failure&add_item=1".$popup_);
      else{
       $itemID = $_GET['edit_item'];
-      eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=failure&edit_item=".$itemID.$popup_);
+      eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=failure&edit_item=".$itemID.$popup_);
      }
     }
 
@@ -423,22 +423,22 @@ class module_workbook extends EfrontModule{
      if(eF_insertTableData("module_workbook_items", $fields)){
 
       $message = _WORKBOOK_ITEM_SUCCESSFULLY_ADDED;
-      eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=success".$popup_);
+      eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=success".$popup_);
      }
      else{
       $message = _WORKBOOK_ITEM_ADD_PROBLEM;
-      eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=failure".$popup_);
+      eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=failure".$popup_);
      }
     }
     else{
      if(eF_updateTableData("module_workbook_items", $fields, "id=".$_GET['edit_item'])){
 
       $message = _WORKBOOK_ITEM_SUCCESSFULLY_EDITED;
-      eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=success".$popup_);
+      eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=success".$popup_);
      }
      else{
       $message = _WORKBOOK_ITEM_EDIT_PROBLEM;
-      eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=failure".$popup_);
+      eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=failure".$popup_);
      }
     }
    }
@@ -465,22 +465,22 @@ class module_workbook extends EfrontModule{
     if(eF_insertTableData("module_workbook_publish", array('lessons_ID' => $currentLessonID, 'publish' => 1))){
 
      $message = _WORKBOOK_SUCCESSFULLY_PUBLISHED;
-     eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=success".$popup_);
+     eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=success".$popup_);
     }
     else{
      $message = _WORKBOOK_PUBLISH_PROBLEM;
-     eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=failure".$popup_);
+     eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=failure".$popup_);
     }
    }
    else{
     if(eF_updateTableData("module_workbook_publish", array('publish' => 1), "lessons_ID=".$currentLessonID)){
 
      $message = _WORKBOOK_SUCCESSFULLY_PUBLISHED;
-     eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=success".$popup_);
+     eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=success".$popup_);
     }
     else{
      $message = _WORKBOOK_PUBLISH_PROBLEM;
-     eF_redirect($this->moduleBaseUrl."&message=".$message."&message_type=failure".$popup_);
+     eF_redirect($this->moduleBaseUrl."&message=".urlencode($message)."&message_type=failure".$popup_);
     }
    }
   }

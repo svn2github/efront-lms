@@ -2232,7 +2232,7 @@ class EfrontCourse
 	 * @access public
 	 * @todo convert to smarty template
 	 */
- public function toHTML($lessons = false, $options = array()) {
+ public function toHTML($lessons = false, $options = array(), $checkLessons = array()) {
   !isset($options['courses_link']) ? $options['courses_link'] = false : null;
   !isset($options['lessons_link']) ? $options['lessons_link'] = false : null;
   if (isset($options['collapse']) && $options['collapse'] == 2) {
@@ -2260,12 +2260,19 @@ class EfrontCourse
   $courseLessons = $this -> getCourseLessons();
   if ($lessons) {
    foreach ($courseLessons as $key => $value) {
-    //pr($lessons[$key]);
     $courseLessons[$key] -> lesson = array_merge($lessons[$key] -> lesson, $courseLessons[$key] -> lesson);
    }
   }
   if ($roleBasicType == 'student') { // fixed to apply checkRules to sub-student user types
-   $eligible = $this -> checkRules($this -> course['users_LOGIN'], $courseLessons);
+   if (empty($checkLessons)) {
+    $checkLessons = $courseLessons;
+   } else {
+    foreach ($courseLessons as $key => $value) {
+     $temp[$key] = $checkLessons[$key]; //bring them in the correct order
+    }
+    $checkLessons = $temp;
+   }
+   $eligible = $this -> checkRules($this -> course['users_LOGIN'], $checkLessons);
   } else {
    if (sizeof($courseLessons) > 0) {
     $eligible = array_combine(array_keys($courseLessons), array_fill(0, sizeof($courseLessons), 1)); //All lessons set to true
@@ -3557,11 +3564,14 @@ class EfrontCourse
 	 * @access public
 	 */
  public function checkRules($user, $courseLessons = false) {
+  if ($courseLessons == false) {
+   if (!($user instanceOf EfrontUser)) {
+    $user = EfrontUserFactory::factory($user);
+   }
+   $courseLessons = $user -> getUserStatusInCourseLessons($this);
+  }
   $user = EfrontUser::convertArgumentToUserLogin($user);
   $roles = EfrontLessonUser :: getLessonsRoles();
-  if ($courseLessons == false) {
-   $courseLessons = $this -> getCourseLessons();
-  }
   $courseLessons = EfrontCourse::convertLessonObjectsToArrays($courseLessons);
   if (!empty($courseLessons)) {
    $allowed = array_combine(array_keys($courseLessons), array_fill(0, sizeof($courseLessons), 1)); //By default, all lessons are accessible

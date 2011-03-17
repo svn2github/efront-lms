@@ -34,7 +34,14 @@
 - Fixed deleting unit does not delete associated lesson condition
 - Fixed orphan lesson conditions taken to account during lesson completion
 - Updated PEAR to 1.9.2, and packages Mail, Net_STMP, Net_Socket
-
+- Modules list now shows folders of uninstalled modules and allows direct installation
+- Fixed displaying Unit column in Feedback questions list
+- Fixed issue about displaying inactive lessons/courses in send message page
+- Fixed issue about assigning default positions in lesson layout to users enrolled lesson after professor have set them
+- Fixed wrong link in feedback list
+- Fixed issue about visibility parameter not being saved correctly in lesson layout setting
+- Fixed false job count for users in branch reports
+- Fixed material in progress view not taking into account course rules
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

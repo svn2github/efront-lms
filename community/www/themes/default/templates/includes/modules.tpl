@@ -61,7 +61,7 @@
                                         </div>
                                 {else}
                                     {if $change_modules}
-                                     <img class = "ajaxHandle" src = "images/16x16/add.png" title="{$smarty.const._INSTALLMODULE}" alt="{$smarty.const._INSTALLMODULE}" onclick = "installModule()"/>
+                                     <img class = "ajaxHandle" src = "images/16x16/add.png" title="{$smarty.const._INSTALLMODULE}" alt="{$smarty.const._INSTALLMODULE}" onclick = "installModule(this, '{$T_MODULES[modules_list].className}')"/>
                                     {/if}
                                 {/if}
                                     </td>

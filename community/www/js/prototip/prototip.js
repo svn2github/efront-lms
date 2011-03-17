@@ -66,6 +66,8 @@ function createPersonalTip() {
      stem: {position:'topMiddle', height:12, width:15 },
      width:'auto'
     };
- new Tip($('personal_options_link'), $('personal_options_link').next(), options);
+ if ($('personal_options_link')) {
+  new Tip($('personal_options_link'), $('personal_options_link').next(), options);
+ }
 }
 document.observe('dom:loaded', createPersonalTip);

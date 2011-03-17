@@ -2312,7 +2312,7 @@ class EfrontStats
         $lessonNames = eF_getTableDataFlat("lessons", "id,name");
         sizeof($lessonNames) > 0 ? $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']) : $lessonNames = array();
         if ($lesson) {
-         $lessonUsers = eF_getTableDataFlat("users_to_lessons", "users_LOGIN", "lessons_ID=$lesson and archive=0");
+         $lessonUsers = eF_getTableDataFlat("users_to_lessons ul, users u", "ul.users_LOGIN", "u.login=ul.users_LOGIN and u.archive=0 and ul.lessons_ID=$lesson and ul.archive=0");
          $users = array_combine($lessonUsers['users_LOGIN'], $lessonUsers['users_LOGIN']);
         } else {
          $result = eF_getTableData("users", "name, surname, login");

@@ -1660,6 +1660,8 @@ class EfrontLesson
   $autoAssignedProjects = $this -> getAutoAssignProjects();
   $archivedLessonUsers = $this -> getArchivedUsers();
   $newUsers = array();
+  $options = unserialize($this -> lesson['options']);
+  $positions = $options['default_positions'];
   foreach ($usersData as $value) {
    if (in_array($value['login'], $archivedLessonUsers)) {
     //Update only fields not related to progress
@@ -1683,6 +1685,7 @@ class EfrontLesson
          'completed' => 0,
          'score' => 0,
          'comments' => '',
+         'positions' => $positions,
          'to_timestamp' => 0);
    }
   }

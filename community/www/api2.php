@@ -194,7 +194,7 @@ In case of error it returns also a message entity with description of the error 
      }
     }
                  case 'login':{
-     if (isset($_GET['username']) && eF_checkParameter($_GET['username'], 'login') && isset($_GET['password']) && isset($_GET['token']) && checkToken($_GET['token'])) {
+     if (isset($_GET['username']) && eF_checkParameter($_GET['username'], 'login') && isset($_GET['password']) && isset($_GET['token']) && eF_checkParameter($_GET['token'], 'alnum')) {
       try {
        $user = EfrontUserFactory :: factory($_GET['username']);
       } catch (EfrontUserException $e) {
@@ -219,6 +219,7 @@ In case of error it returns also a message entity with description of the error 
        $login = $_GET['username'];
        $tmp = eF_getTableData("tokens","token","status='unlogged'");
        $result = eF_getTableData("tokens","token","status='logged' and users_LOGIN='".$login."'");
+       $password = EfrontUser::createPassword($_GET['password']);
        $tmp2 = eF_getTableData("users", "password","login='$login'");
        $pwd = $tmp2[0]['password'];
        if ($pwd != $password) {

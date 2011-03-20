@@ -4023,4 +4023,5 @@ define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "You must specify a d
 define("_USETHECURRENTDATE", "Use the current date");
 define("_USERSCANCHANGEINFO", "Users change their info");
 define("_USERSCANCHANGEPASS", "Users change their password");
+define("_VIEWFEEDBACK", "View feedback");
 ?>

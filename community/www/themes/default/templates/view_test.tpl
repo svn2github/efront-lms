@@ -35,7 +35,11 @@
 
     {eF_template_printBlock title = "`$smarty.const._TESTANALYSIS` `$smarty.const._FORTEST` <span class = "innerTableName">&quot;`$T_TEST_DATA->test.name`&quot;</span> `$smarty.const._ANDUSER` <span class = "innerTableName">&quot;#filter:login-`$T_TEST_DATA->completedTest.login`#&quot;</span>" data = $smarty.capture.t_test_analysis_code image='32x32/tests.png'}
 {else}
- {eF_template_printBlock title = $smarty.const._SOLVEDTEST data = $T_SOLVED_TEST image='32x32/tests.png'}
+ {if $T_TEST_TYPE == "feedback"}
+  {eF_template_printBlock title = $smarty.const._VIEWFEEDBACK data = $T_SOLVED_TEST image='32x32/feedback.png'}
+ {else}
+  {eF_template_printBlock title = $smarty.const._SOLVEDTEST data = $T_SOLVED_TEST image='32x32/tests.png'}
+ {/if}
 {/if}
 
 

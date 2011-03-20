@@ -4023,4 +4023,5 @@ define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "Πρέπει να ο
 define("_USETHECURRENTDATE", "Χρησιμοποίηση της τρέχουσας ημερομηνίας");
 define("_USERSCANCHANGEINFO", "Οι χρήστες αλλάζουν τα στοιχεία τους");
 define("_USERSCANCHANGEPASS", "Οι χρήστες αλλάζουν τον κωδικό τους");
+define("_VIEWFEEDBACK", "Προβολή ανάδρασης");
 ?>

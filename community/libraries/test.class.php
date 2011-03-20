@@ -2319,13 +2319,13 @@ class EfrontCompletedTest extends EfrontTest
         foreach ($this -> questions as $id => $question) {
          $results = $question -> correct(); //Get the results, which is the score and the right/wrong answers
          if ($question -> question['type'] == 'raw_text') {
-    if (!$question -> settings['force_correct'] || $question -> settings['force_correct'] == 'manual') {
+          $question -> handleQuestionFiles($this -> getDirectory());
+          if (!$question -> settings['force_correct'] || $question -> settings['force_correct'] == 'manual') {
      //changed to mark as pending the test again when redoOnlyWrong is set and this question was not 100% correct before	
      if ($results['score'] != 1) {
       $this -> completedTest['pending'] = 1;
       $question -> pending = 1;
      }
-     $question -> handleQuestionFiles($this -> getDirectory());
     } elseif ($question -> settings['force_correct'] == 'none' || $question -> settings['force_correct'] == 1) { //1 is for backwards compatibility
      $results['score'] = 1;
     }

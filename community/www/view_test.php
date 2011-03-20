@@ -56,6 +56,9 @@ try {
     } else {
         $showTest = unserialize($doneTests[key($doneTests)]['test']); //Take the first in the row
     }
+ $result = eF_getTableData("content", "ctg_type","id=".$showTest -> test['content_ID']);
+ $testType = $result[0]['ctg_type'];
+    $smarty -> assign("T_TEST_TYPE", $testType);
 
     //Check if current user is eligible to see this test
     if ($_SESSION['s_type'] != 'administrator') {
@@ -73,13 +76,22 @@ try {
 
 
     if ($_SESSION['s_type'] != 'student') {
-        $showTest -> options['answers'] = 1;
         $showTest -> options['given_answers'] = 1;
-        $editHanles = true;
+        if ($testType != "feedback") {
+         $showTest -> options['answers'] = 1;
+         $editHanles = true;
+        }
     }
 
-    $testString = $showTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, $editHanles);
-    $testString = $showTest -> toHTMLSolved($testString, $editHanles);
+
+    if ($testType == "feedback") {
+     $testString = $showTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, $editHanles, false, true);
+     $testString = $showTest -> toHTMLSolved($testString, $editHanles, true);
+    } else{
+     $testString = $showTest -> toHTMLQuickForm(new HTML_Quickform(), false, true, $editHanles);
+     $testString = $showTest -> toHTMLSolved($testString, $editHanles);
+    }
+
     if (isset($_GET['test_analysis'])) {
      $loadScripts[] = 'scriptaculous/excanvas';
      $loadScripts[] = 'scriptaculous/flotr';

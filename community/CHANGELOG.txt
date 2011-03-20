@@ -41,7 +41,9 @@
 - Fixed wrong link in feedback list
 - Fixed issue about visibility parameter not being saved correctly in lesson layout setting
 - Fixed false job count for users in branch reports
+- Fixed broken link in admin feedback report about displaying feedback
 - Fixed material in progress view not taking into account course rules
+
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

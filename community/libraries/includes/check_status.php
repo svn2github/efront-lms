@@ -135,7 +135,7 @@ $settings['memory_limit'] = array('value' => $ini_settings['memory_limit']['loca
                                          'recommended' => '128M',
                                          'status' => (substr($ini_settings['memory_limit']['local_value'], 0, -1) >= 32) || ($ini_settings['memory_limit']['local_value'] == -1) ? 1 : 0,
                                          'name' => 'memory_limit',
-                                         'help' => 'Memory limit must be set to a high value, at least 32MB, in order for efront to run');
+                                         'help' => 'Memory limit must be set to a high value, at least 32MB, in order for the system to run');
 $settings['zlib.output_handler'] = array('value' => $ini_settings['zlib.output_handler']['local_value'],
                                          'recommended' => 'Off',
                                          'status' => $ini_settings['zlib.output_handler']['local_value'] ? 0 : 1,

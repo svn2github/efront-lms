@@ -255,7 +255,28 @@ function showHideMainTemplatesOperations(){
  }
 }
 
+function setInterCourseRules(el) {
+ if ($('autocomplete').value) {
+  if ($('autocomplete_course_hidden').value) {
+   parameters = {inter_course_rule:$('autocomplete_course_hidden').value, method: 'get'};
+  } else {
+   alert(translations['_COURSEDOESNOTEXIST']);
+  }
+ } else {
+  parameters = {inter_course_rule:'', method: 'get'};
+ }
+ var url = location.toString();
+ ajaxRequest(el, url, parameters);
+}
+
 //Initialize display for existing course rules
 if (typeof(calls) != 'undefined') {
  calls.each(function (s) {eF_js_addCourseRule(s[0], s[1], s[2]);});
+}
+if ($('autocomplete_courses')) {
+ new Ajax.Autocompleter("autocomplete",
+         "autocomplete_courses",
+         "ask.php?ask_type=courses", {paramName: "preffix",
+              afterUpdateElement : function (t, li) {$('autocomplete_course_hidden').value = li.id;},
+              indicator : "busy"});
 }

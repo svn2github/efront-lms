@@ -87,6 +87,7 @@ $form -> addElement('advcheckbox', 'publish', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'display_list', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'display_weights', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'answer_all', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'keep_best', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'redo_wrong', null, null, null, array(0, 1));
 $form -> addElement('textarea', 'description', null, 'id="editor_content_data" class = "inputTestTextarea mceEditor" style = "width:100%;height:16em;"');
 
@@ -129,9 +130,10 @@ if (!$skillgap_tests) {
 
     $form -> addElement('advcheckbox', 'assign_to_new', null, null, null, array(0, 1));
     $form -> addElement('advcheckbox', 'automatic_assignment', null, null, null, array(0, 1));
+    $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON  lessons_ID=lessons.id", "questions.*, lessons.name" , "type <> 'raw_text' and (lessons_ID=0 or lessons.archive=0)");
 
-    $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON lessons.id = lessons_ID", "questions.*, lessons.name", "lessons.archive=0");
 }
+
 $unitsToQuestionsDifficulties = array();
 foreach ($result as $value) {
     $questions[$value['id']] = $value;
@@ -169,6 +171,7 @@ if (isset($_GET['add_test'])) {
                                'answers' => 1,
                                'maintain_history' => 5,
                                'publish' => 1,
+             'keep_best' => 0,
                                'mastery_score' => $_GET['ctg'] != 'feedback' ? 50 : 0,
                    'redoable' => 1));
     if (isset($_GET['from_unit'])) {
@@ -191,7 +194,8 @@ if (isset($_GET['add_test'])) {
                                'duration' => $currentTest -> options['duration'] ? round($currentTest -> options['duration'] / 60) : '', //Duration is displayed in minutes, but is stored in seconds
                                'redoable' => $currentTest -> options['redoable'] ? $currentTest -> options['redoable'] : '',
                                'publish' => $currentTest -> test['publish'],
-                               'description' => $currentTest -> test['description'],
+                               'keep_best' => $currentTest -> test['keep_best'],
+             'description' => $currentTest -> test['description'],
                                'mastery_score' => $currentTest -> test['mastery_score']));
 
     if (!$skillgap_tests) {
@@ -205,6 +209,7 @@ if (isset($_GET['add_test'])) {
     $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
     $stats['random_pool'] = $currentTest -> options['random_pool'];
     $stats['user_configurable'] = $currentTest -> options['user_configurable'];
+    $stats['show_incomplete'] = $currentTest -> options['show_incomplete'];
 
     $smarty -> assign("T_TEST_QUESTIONS_STATISTICS", $stats);
 }
@@ -252,6 +257,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
  }
     if (isset($_GET['edit_test']) && !isset($values['submit_test_new'])) {
         $currentTest -> test['publish'] = $values['publish'];
+        $currentTest -> test['keep_best'] = $values['keep_best'];
         $currentTest -> test['description'] = $values['description'];
         $currentTest -> test['mastery_score'] = $values['mastery_score'] ? $values['mastery_score'] : 0;
         $currentTest -> test['name'] = $values['name'];
@@ -286,6 +292,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                               'options' => serialize($testOptions),
                               'name' => $values['name'],
                               'publish' => $values['publish'],
+               'keep_best' => $values['keep_best'],
                               'mastery_score' => $values['mastery_score'] ? $values['mastery_score'] : 0);
 
         if (!$skillgap_tests) {
@@ -668,6 +675,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['rando
 
         //Set the user configurable option
         isset($_GET['user_configurable']) && $_GET['user_configurable'] ? $currentTest -> options['user_configurable'] = 1 : $currentTest -> options['user_configurable'] = 0;
+        isset($_GET['show_incomplete']) && $_GET['show_incomplete'] ? $currentTest -> options['show_incomplete'] = 1 : $currentTest -> options['show_incomplete'] = 0;
 
         $currentTest -> persist();
 

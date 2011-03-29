@@ -869,6 +869,9 @@ function toggleAdvancedParameters() {
  if ($('answer_all')) {
   $('answer_all').toggle();
  }
+ if ($('keep_best')) {
+  $('keep_best').toggle();
+ }
  if ($('display_weights')) {
   $('display_weights').toggle();
  }

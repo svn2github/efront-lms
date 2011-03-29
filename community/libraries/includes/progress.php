@@ -48,9 +48,6 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $form -> addRule('score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
     $form -> addElement('textarea', 'comments', _COMMENTS, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:5em;"'); //Comments on student's performance
 
-    //$user_data  = eF_getTableData("users_to_lessons", "*", "users_LOGIN='".$editedUser -> user['login']."' and lessons_ID=".$_SESSION['s_lessons_ID']);
-//    $userStats  = EfrontStats::getUsersLessonStatus($currentLesson, $editedUser -> user['login']);
-//    pr($userStats);
     $userStats = $editedUser -> getUserStatusInLessons($currentLesson);
     $userStats = $userStats[$currentLesson -> lesson['id']] -> lesson;
 
@@ -98,24 +95,28 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
 
     foreach($doneTests[$_GET['edit_user']] as $key => $value) {
         if (in_array($key, array_keys($testNames))) {
-            $lastTest = unserialize($doneTests[$_GET['edit_user']][$value['last_test_id']]);
-            $userStats['done_tests'][$key] = array('name' => $testNames[$key], 'score' => $value['average_score'], 'last_test_id' => $value['last_test_id'], 'last_score' => $value['scores'][$value['last_test_id']], 'times_done' => $value['times_done'], 'content_ID' => $value[$value['last_test_id']]['content_ID']);
+            $userStats['done_tests'][$key] = array('name' => $testNames[$key],
+                        'score' => $value['average_score'],
+                        'last_test_id' => $value['last_test_id'],
+                        'active_test_id' => $value['active_test_id'],
+                     'last_score' => $value['scores'][$value['last_test_id']],
+                        'active_score' => $value['active_score'],
+                        'times_done' => $value['times_done'],
+                        'content_ID' => $value[$value['last_test_id']]['content_ID']);
         }
     }
     foreach($scormDoneTests as $key => $value) {
         $userStats['scorm_done_tests'][$key] = array('name' => $value['name'], 'score' => $value['score'], 'content_ID' => $key);
     }
+    unset($userStats['done_tests']['average_score']);
+    $smarty -> assign("T_USER_LESSONS_INFO", $userStats);
 
     $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests[$_GET['edit_user']]));
     $smarty -> assign("T_PENDING_TESTS", $notDoneTests);
 
-    unset($userStats['done_tests']['average_score']);
-
     $timeReport = new EfrontTimes();
     $userTime = $timeReport -> getUserSessionTimeInLesson($editedUser -> user['login'], $currentLesson -> lesson['id']);
     $userTime = $timeReport -> formatTimeForReporting($userTime);
-    $smarty -> assign("T_USER_LESSONS_INFO", $userStats);
-
     $smarty -> assign("T_USER_TIME", $userTime);
 
     $userProjects = EfrontStats :: getStudentsAssignedProjects($currentLesson -> lesson['id'], $editedUser -> user['login']);

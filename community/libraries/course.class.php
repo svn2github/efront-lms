@@ -1644,7 +1644,8 @@ class EfrontCourse
                         'max_users' => self :: validateAndSanitize($courseFields['max_users'], 'integer'),
                         'rules' => self :: validateAndSanitize($courseFields['rules'], 'serialized'),
                         'supervisor_LOGIN' => self :: validateAndSanitize($courseFields['supervisor_LOGIN'], 'text'),
-      'instance_source' => self :: validateAndSanitize($courseFields['instance_source'], 'courses_foreign_key'));
+      'instance_source' => self :: validateAndSanitize($courseFields['instance_source'], 'courses_foreign_key'),
+      'depends_on' => self :: validateAndSanitize($courseFields['depends_on'], 'courses_foreign_key'));
   return $fields;
  }
  /**
@@ -1673,7 +1674,8 @@ class EfrontCourse
                          'max_users' => 0,
                          'rules' => '',
           'supervisor_LOGIN' => '',
-                'instance_source' => 0);
+                'instance_source' => 0,
+          'depends_on' => 0);
   return array_merge($defaultValues, $courseFields);
  }
  /**
@@ -1972,6 +1974,7 @@ class EfrontCourse
   $this -> deleteUniqueLessons();
   calendar::deleteCourseCalendarEvents($this);
   eF_deleteTableData("courses", "id=".$this -> course['id']);
+  eF_updateTableData("courses", array("depends_on" => 0), "depends_on = ".$this->course['id']);
   $modules = eF_loadAllModules();
   foreach ($modules as $module) {
    $module -> onDeleteCourse($this -> course['id']);
@@ -3577,6 +3580,20 @@ class EfrontCourse
    $allowed = array_combine(array_keys($courseLessons), array_fill(0, sizeof($courseLessons), 1)); //By default, all lessons are accessible
   } else {
    $allowed = array();
+  }
+  if ($this -> course['depends_on']) {
+   try {
+    $dependsOn = new EfrontCourse($this -> course['depends_on']);
+    if ($dependsOn -> course['active'] && !$dependsOn -> course['archive']) {
+     $result = eF_getTableData("users_to_courses", "completed", "users_LOGIN='".$user."' and courses_ID=".$dependsOn->course['id']);
+     if (!$result[0]['completed']) {
+      foreach ($allowed as $key => $value) {
+       $allowed[$key] = 0;
+      }
+      return $allowed;
+     }
+    }
+   } catch (Exception $e) {}
   }
   $completedLessons = array();
   foreach ($courseLessons as $key => $value) {

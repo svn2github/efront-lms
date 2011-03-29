@@ -405,8 +405,8 @@ try {
            $questionsTemp[] = $questions[$key];
           }
          }
+         $questions = $questionsTemp;
         }
-      $questions = $questionsTemp;
    }
             $questions = eF_multiSort($questions, $sort, $order);
             if (isset($_GET['filter'])) {
@@ -430,6 +430,7 @@ try {
                 }
             }
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+
             if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
                 $sort = $_GET['sort'];
                 isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
@@ -1023,7 +1024,8 @@ try {
                                         'options' => serialize($testOptions),
                                         'name' => $form -> exportValue('name'),
                                         'publish' => 0,
-                                        'mastery_score' => 0);
+                                        'keep_best' => 0,
+                      'mastery_score' => 0);
                 try {
                     $newTest = EfrontTest :: createTest(false, $testFields);
                     //                        pr($questions_to_assign);

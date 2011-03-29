@@ -129,6 +129,7 @@ class EfrontTest
                             'given_answers' => 1,
                             'random_pool' => 0,
                             'user_configurable' => 0,
+          'show_incomplete' => 0,
                             'maintain_history' => 5,
                             'display_list' => 0,
                             'pause_test' => 1,
@@ -345,7 +346,8 @@ class EfrontTest
                         'mastery_score' => $this -> test['mastery_score'],
                         'name' => $this -> test['name'],
                         'lessons_ID' => $this -> test['lessons_ID'],
-                        'publish' => $this -> test['publish']);
+                        'publish' => $this -> test['publish'],
+            'keep_best' => $this -> test['keep_best']);
         Cache::resetCache('test:'.$this -> test['id']);
         return eF_updateTableData("tests", $fields, "id=".$this -> test['id']) && eF_updateTableData("content", array("publish" => $this -> test['publish']), "id=".$this -> test['content_ID']);
     }
@@ -434,10 +436,10 @@ class EfrontTest
         }
         $questions = array();
         foreach ($this -> questions as $key => $value) {
-            if (!($value instanceof Question)) {
+            if (($value instanceof Question)) {
+             $returnObjects ? $questions[$key] = $value : $questions[$key] = $value -> question;
+            } else if (is_array($value)) {
                 $returnObjects ? $questions[$key] = QuestionFactory :: factory($value) : $questions[$key] = $value;
-            } else {
-                $returnObjects ? $questions[$key] = $value : $questions[$key] = $value -> question;
             }
         }
 //pr($questions);
@@ -1350,13 +1352,13 @@ class EfrontTest
             $user = EfrontUserFactory :: factory($login, false, 'student');
         }
         $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
-  $check_redoOnlyWrong = eF_getTableData("completed_tests","test","archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $check_redoOnlyWrong = EfrontCompletedTest::retrieveCompletedTest("completed_tests","test","archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
   $testObject = unserialize($check_redoOnlyWrong[0]['test']);
   if ($testObject -> redoOnlyWrong == 1) {
    unset($testObject -> redoOnlyWrong);
-   eF_updateTableData("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+   EfrontCompletedTest::updateCompletedTest("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
   } else {
-   eF_updateTableData("completed_tests", array("archive" => 1), "tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+   EfrontCompletedTest::updateCompletedTest("completed_tests", array("archive" => 1), "tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
   }
     }
  public function redoOnlyWrong($user) {
@@ -1378,10 +1380,10 @@ class EfrontTest
             $user = EfrontUserFactory :: factory($login, false, 'student');
         }
         $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
-  $result = eF_getTableData("completed_tests", "test", "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
   $testObject = unserialize($result[0]['test']);
   $testObject -> redoOnlyWrong = true;
-        eF_updateTableData("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+        EfrontCompletedTest::updateCompletedTest("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
     }
     /**
 
@@ -1442,7 +1444,7 @@ class EfrontTest
          if (!eF_checkParameter($instance, 'id')) {
           throw new EfrontTestException(_INVALIDID.': '.$instance, EfrontTestException :: INVALID_ID);
          }
-         $result = eF_getTableData("completed_tests", "*", "users_LOGIN='".$login."' and id = ".$instance);
+         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "users_LOGIN='".$login."' and id = ".$instance);
          if (sizeof($result) == 0) {
           throw new EfrontTestException(_USERHASNOTDONETEST.': '.$login, EfrontTestException :: NOT_DONE_TEST);
          }
@@ -1560,13 +1562,30 @@ class EfrontTest
 //        $completedTest -> completedTest['archive'] = '0';                              //The test just started; So set its status to 'incomplete'
         $testQuestions = $this -> getQuestions(true);
   // lines added for redo only wrong questions
-  $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
   $recentlyCompleted = unserialize($resultCompleted[0]['test']);
         //1. Get the random pool questions
         if ($this -> options['random_pool']) {
-            if ($recentlyCompleted -> redoOnlyWrong != true) {
+            if ($recentlyCompleted -> redoOnlyWrong == false) {
     sizeof($testQuestions) >= $this -> options['random_pool'] ? $poolSize = $this -> options['random_pool'] : $poolSize = sizeof($testQuestions);
-    shuffle($testQuestions);
+    shuffle($testQuestions); //shuffle available questions so that we don't take the same always
+    if ($this->options['show_incomplete']) {
+     $alreadyCompletedQuestions = array();
+     foreach ($resultCompleted as $value) {
+      $previouslyCompletedTest = unserialize($value['test']);
+      if ($previouslyCompletedTest instanceOf EfrontCompletedTest) {
+       $alreadyCompletedQuestions = array_merge($alreadyCompletedQuestions, array_keys($previouslyCompletedTest -> questions));
+      }
+     }
+     $alreadyCompletedQuestions = array_unique($alreadyCompletedQuestions);
+     $incompleteQuestions = array_diff(array_keys($this -> questions), $alreadyCompletedQuestions); //Find out which questions haven't been answered yet
+     //Keep only incomplete questions
+     foreach ($testQuestions as $key => $value) {
+      if (!in_array($value->question['id'], $incompleteQuestions) && sizeof($testQuestions) > $poolSize) {
+       unset($testQuestions[$key]);
+      }
+     }
+    }
     $testQuestions = array_slice($testQuestions, 0, $poolSize);
     $temp = array();
     foreach ($testQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
@@ -1677,9 +1696,9 @@ class EfrontTest
             $login = $user;
         }
         if ($onlySolved) {
-            $result = eF_getTableData("completed_tests", "*", "status != '' and status != 'incomplete' and status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+            $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != '' and status != 'incomplete' and status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         } else {
-            $result = eF_getTableData("completed_tests", "*", "status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+            $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         }
         $timesDone = eF_getTableData("completed_tests", "count(*)", "users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         $timesDone = $timesDone[0]['count(*)'];
@@ -1782,7 +1801,7 @@ class EfrontTest
   //$allTestQuestionsFilter = $allTestQuestions;
   // lines added for redo only wrong questions
   $allTestQuestionsFilter = array();
-  $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
   $recentlyCompleted = unserialize($resultCompleted[0]['test']);
   if ($recentlyCompleted -> redoOnlyWrong == true && !$done) {
    foreach ($recentlyCompleted -> questions as $key => $value) {
@@ -2301,7 +2320,7 @@ class EfrontCompletedTest extends EfrontTest
 
      */
     public function complete($userAnswers) {
-  $resultCompleted = eF_getTableData("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc", "", "1");
   $recentlyCompleted = unserialize($resultCompleted[0]['test']);
   //Assign user answers to each question object, as a member
         foreach ($userAnswers as $id => $answer) {
@@ -2402,12 +2421,12 @@ class EfrontCompletedTest extends EfrontTest
                 'time_spent' => $this -> time['spent'] ? $this -> time['spent'] : null,
                 'pending' => $this -> completedTest['pending'] ? $this -> completedTest['pending'] : 0,
                 'score' => $this -> completedTest['score'] ? $this -> completedTest['score'] : null);
-            eF_updateTableData("completed_tests", $fields, "id=".$this -> completedTest['id']);
+            EfrontCompletedTest::updateCompletedTest("completed_tests", $fields, "id=".$this -> completedTest['id']);
             if ($this -> options['maintain_history'] !== '') {
           $result = eF_getTableDataFlat("completed_tests", "id", "status != 'incomplete' and status != 'paused' and users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId'], "timestamp desc");
           if (sizeof($result['id']) > $this -> options['maintain_history']) {
               $deleteThreshold = $result['id'][$this -> options['maintain_history']];
-              eF_updateTableData("completed_tests", array("test" => '', 'status' => 'deleted'), "status != 'incomplete' and status != 'paused' and users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']." and id <= $deleteThreshold and id != ".$this -> completedTest['id']);
+              EfrontCompletedTest::updateCompletedTest("completed_tests", array("test" => '', 'status' => 'deleted'), "status != 'incomplete' and status != 'paused' and users_LOGIN = '".$this -> completedTest['login']."' and tests_ID=".$this -> completedTest['testsId']." and id <= $deleteThreshold and id != ".$this -> completedTest['id']);
           }
             }
         } else {
@@ -2420,7 +2439,8 @@ class EfrontCompletedTest extends EfrontTest
                 'time_spent' => $this -> time['spent'] ? $this -> time['spent'] : null,
                 'pending' => $this -> completedTest['pending'] ? $this -> completedTest['pending'] : 0,
              'score' => $this -> completedTest['score'] ? $this -> completedTest['score'] : null);
-         $id = eF_insertTableData("completed_tests", $fields);
+         //$id = eF_insertTableData("completed_tests", $fields);
+         $id = EfrontCompletedTest::storeCompletedTest("completed_tests", $fields);
          $this -> completedTest['id'] = $id;
          $this -> save();
         }
@@ -3227,6 +3247,31 @@ class EfrontCompletedTest extends EfrontTest
         $courses_attending = implode("','", array_keys($user -> getUserCourses()));
         $analysisResults['courses'] = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON module_hcd_skills.skill_ID = module_hcd_course_offers_skill.skill_ID","module_hcd_course_offers_skill.courses_ID, count(module_hcd_course_offers_skill.skill_ID) as skills_offered", "module_hcd_course_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_course_offers_skill.courses_ID NOT IN ('".$courses_attending."')","","module_hcd_course_offers_skill.courses_ID ORDER BY skills_offered DESC");
         return $analysisResults;
+    }
+    public static function retrieveCompletedTest($table, $fields = "*", $where = "", $order = "", $group = "", $limit = "") {
+     $result = eF_getTableData($table, $fields, $where, $order, $group, $limit);
+     foreach ($result as $key => $value) {
+      if ($GLOBALS['configuration']['compress_tests'] && function_exists('gzinflate') && isset($value['test'])) {
+       if ($inflated = gzinflate($value['test'])) {
+        $result[$key]['test'] = $inflated;
+       }
+      }
+     }
+     return $result;
+    }
+    public static function storeCompletedTest($table, $fields) {
+     if ($GLOBALS['configuration']['compress_tests'] && function_exists('gzdeflate') && isset($fields['test'])) {
+   $fields['test'] = gzdeflate($fields['test']);
+     }
+     $id = eF_insertTableData($table, $fields);
+     return $id;
+    }
+    public static function updateCompletedTest($table, $fields, $where) {
+     if ($GLOBALS['configuration']['compress_tests'] && function_exists('gzdeflate') && isset($fields['test'])) {
+   $fields['test'] = gzdeflate($fields['test']);
+     }
+     $id = eF_updateTableData($table, $fields, $where);
+     return $id;
     }
 }
 /**
@@ -4772,14 +4817,24 @@ class EmptySpacesQuestion extends Question implements iQuestion
         $results['score'] = 0;
         $factor = 1 / sizeof($this -> userAnswer); //If the question has 4 options, then the factor is 1/4.
         for ($i = 0; $i < sizeof($this -> userAnswer); $i++) {
+         $userAnswer = mb_strtolower(trim($this -> userAnswer[$i]));
             //$this -> answer[$i] = explode("|", $this -> answer[$i]);
             $answers = explode("|", $this -> answer[$i]); //Create a copy so that mb_strtolower does not alter the original version
             array_walk($answers, create_function('&$v, $k', '$v = mb_strtolower(trim($v));'));
-            if (isset($this -> answer[$i]) && in_array(mb_strtolower(trim($this -> userAnswer[$i])), $answers)) {
+            $results['correct'][$i] = false;
+            if (isset($this -> answer[$i])) {
+             if (in_array($userAnswer, $answers)) {
+                 $results['score'] += $factor;
+                 $results['correct'][$i] = true; //Use this variable in order for the template to know how to color the answers (green/red)
+             } else {
+              foreach ($answers as $value) {
+               $matches = array();
+               if (preg_match('/^(.*)\*$/', $value, $matches) && mb_substr($userAnswer, 0, mb_strlen($matches[1])) == $matches[1]) {
                 $results['score'] += $factor;
                 $results['correct'][$i] = true; //Use this variable in order for the template to know how to color the answers (green/red)
-            } else {
-                $results['correct'][$i] = false;
+               }
+              }
+             }
             }
             //$this -> answer[$i] = implode(" "._OR." ", $this -> answer[$i]);
         }

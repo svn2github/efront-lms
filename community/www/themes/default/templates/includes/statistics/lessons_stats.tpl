@@ -49,12 +49,12 @@
 <style>
 {literal}
 table#lessonUsersTable {width:100%;}
-table#lessonUsersTable td.login{width:30%;}
+table#lessonUsersTable td.login{width:25%;}
 table#lessonUsersTable td.user_type{width:10%;}
-table#lessonUsersTable td.time_in_lesson{width:15%;}
-table#lessonUsersTable td.overall_progress{width:100px;}
-table#lessonUsersTable td.test_status{width:100px;}
-table#lessonUsersTable td.project_status{width:100px;}
+table#lessonUsersTable td.time_in_lesson{width:10%;}
+table#lessonUsersTable td.overall_progress{width:15%;}
+table#lessonUsersTable td.test_status{width:15%;}
+table#lessonUsersTable td.project_status{width:15%;}
 table#lessonUsersTable td.completed{width:5%;text-align:center;}
 table#lessonUsersTable td.score{width:5%;text-align:center;}
 {/literal}
@@ -189,15 +189,15 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                          <td><a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=user&sel_user={$done_test.users_LOGIN}">#filter:login-{$done_test.users_LOGIN}#</a></td>
                          <td class = "progressCell">
                                 <span style = "display:none">{$done_test.score}</span>
-                                <span class = "progressNumber">#filter:score-{$done_test.score}#%</span>
-                                <span class = "progressBar" style = "width:{$done_test.score}px;">&nbsp;</span>&nbsp;
+                                <span class = "progressNumber">#filter:score-{$done_test.active_score}#%</span>
+                                <span class = "progressBar" style = "width:{$done_test.active_score}px;">&nbsp;</span>&nbsp;
                          </td>
                          <td class = "centerAlign">#filter:score-{$done_test.mastery_score}#%</td>
                          <td class = "centerAlign">{if $done_test.status == 'failed'}<img src = "images/16x16/close.png" alt = "{$smarty.const._FAILED}" title = "{$smarty.const._FAILED}" style = "vertical-align:middle">{else}<img src = "images/16x16/success.png" alt = "{$smarty.const._PASSED}" title = "{$smarty.const._PASSED}" style = "vertical-align:middle">{/if}</td>
                          <td>#filter:timestamp_time-{$done_test.timestamp}#</td>
                          <td class = "centerAlign">
                           {if !$test_info.general.scorm}
-                                <a href = "view_test.php?done_test_id={$done_test.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWTEST}', 3)" target = "POPUP_FRAME">
+                                <a href = "view_test.php?done_test_id={$done_test.active_test_id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._VIEWTEST}', 3)" target = "POPUP_FRAME">
                                  <img src = "images/16x16/search.png" alt = "{$smarty.const._VIEWTEST}" title = "{$smarty.const._VIEWTEST}" /></a>
                              {/if}
                          </td>

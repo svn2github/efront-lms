@@ -235,6 +235,7 @@ CREATE TABLE content (
 -- rules: A serialized array that corresponds to the succession rules applied among lessons in the course
 -- instance_source: If set, this course is an instance, and the field points to the original course id
 -- supervisor_LOGIN: A user that is responsible for authorizing course assignements
+-- depends_on: A course that this course depends on, in order to be accessed.
 CREATE TABLE courses (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
@@ -258,6 +259,7 @@ CREATE TABLE courses (
   rules text,
   instance_source mediumint(8) unsigned default '0',
   supervisor_LOGIN varchar(100) default NULL,
+  depends_on mediumint(8) unsigned default '0',
 -- FOREIGN KEY (directions_ID) REFERENCES directions (id),
 -- FOREIGN KEY (languages_ID) REFERENCES languages (id),
   PRIMARY KEY (id),
@@ -972,6 +974,7 @@ CREATE TABLE tests (
   description text,
   options text,
   publish tinyint(1) default '1',
+  keep_best tinyint(1) default '0',
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
@@ -1003,7 +1006,7 @@ CREATE TABLE completed_tests (
   id mediumint(8) unsigned NOT NULL auto_increment,
   users_LOGIN varchar(100) default NULL,
   tests_ID mediumint(8) unsigned NOT NULL default '0',
-  test longtext,
+  test longblob,
   status varchar(255),
   timestamp int(10) unsigned NOT NULL default 0,
   archive tinyint(1) NOT NULL default 0,

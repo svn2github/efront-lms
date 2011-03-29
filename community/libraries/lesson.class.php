@@ -2257,18 +2257,26 @@ class EfrontLesson
   $completedTests = $meanTestScore = 0;
   $tests = $this -> getTests(true, true);
   $totalTests = sizeof($tests);
-  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$user['login']."' and ct.archive=0 and t.lessons_ID=".$this -> lesson['id']);
+  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score, t.keep_best", "t.id=ct.tests_ID and ct.users_LOGIN='".$user['login']."' and t.lessons_ID=".$this -> lesson['id']);
   foreach ($result as $value) {
    if (in_array($value['tests_ID'], array_keys($tests))) {
-    $meanTestScore += $value['score'];
-    $completedTests++;
+    if ($value['keep_best']) {
+     isset($scores[$value['tests_ID']]) OR $scores[$value['tests_ID']] = $value['score'];
+     $scores[$value['tests_ID']] = max($scores[$value['tests_ID']], $value['score']);
+    } else if ($value['archive'] == 0) {
+     $scores[$value['tests_ID']] = $value['score'];
+    }
    }
   }
+  $meanTestScore = array_sum($scores);
+  $completedTests = sizeof($scores);
   $scormTests = $this -> getLessonScormTestsStatusForUser($user);
   $totalTests += sizeof($scormTests);
   foreach ($scormTests as $value) {
-   $meanTestScore += $value;
-   $completedTests++;
+   if (is_numeric($value)) {
+    $meanTestScore += $value;
+    $completedTests++;
+   }
   }
   if ($totalTests) {
    $completedTestsPercentage = round(100 * $completedTests/$totalTests, 2);
@@ -2283,7 +2291,7 @@ class EfrontLesson
  }
  private function getLessonScormTestsStatusForUser($user) {
   $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
-              "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore",
+              "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore, sd.users_LOGIN",
               "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$this -> lesson['id']);
   $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {

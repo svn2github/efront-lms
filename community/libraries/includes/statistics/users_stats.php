@@ -71,6 +71,7 @@ if (isset($_GET['sel_user'])) {
   foreach ($doneTests[$infoUser -> user['login']] as $test) {
    unset($pendingTests[$test['tests_ID']]); //remove done tests
   }
+
   $smarty -> assign("T_USER_PENDING_TESTS", $pendingTests);
   $smarty -> assign("T_USER_DONE_TESTS", $doneTests[$infoUser -> user['login']]);
   $smarty -> assign("T_USER_STATUS", $status[$_GET['lesson']][$infoUser -> user['login']]);
@@ -326,7 +327,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $workBook = new Spreadsheet_Excel_Writer();
  $workBook -> setTempDir(G_UPLOADPATH);
  $workBook -> setVersion(8);
- $workBook -> send('export_'.$infoUser -> user['login'].'.xls');
  $formatExcelHeaders = & $workBook -> addFormat(array('Size' => 14, 'Bold' => 1, 'HAlign' => 'left'));
  $headerFormat = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
  $formatContent = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
@@ -509,9 +509,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    foreach ($doneTests[$infoUser -> user['login']] as $contentId => $test) {
     $workSheet -> write($row, 1, $lessonNames[$test['lessons_ID']], $fieldLeftFormat);
     $workSheet -> write($row, 2, $test['name'], $fieldCenterFormat);
-    $workSheet -> write($row, 3, formatScore($test['score'])."%", $fieldCenterFormat);
+    $workSheet -> write($row, 3, formatScore($test['active_score'])."%", $fieldCenterFormat);
     $workSheet -> write($row++, 4, formatTimestamp($test['timestamp'], 'time_nosec'), $fieldCenterFormat);
-    $avgScore += $test['score'];
+    $avgScore += $test['active_score'];
    }
    $row +=2;
    $workSheet -> write($row, 2, _AVERAGESCORE, $titleLeftFormat);
@@ -656,8 +656,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $avgScore = 0;
     foreach ($doneTests[$id][$infoUser -> user['login']] as $test) {
      $workSheet -> write($row, 0, $test['name'], $fieldCenterFormat);
-     $workSheet -> write($row++, 1, formatScore($test['score'])."%", $fieldCenterFormat);
-     $avgScore += $test['score'];
+     $workSheet -> write($row++, 1, formatScore($test['active_score'])."%", $fieldCenterFormat);
+     $avgScore += $test['active_score'];
     }
     $workSheet -> write($row, 0, _AVERAGESCORE, $titleCenterFormat);
     $workSheet -> write($row++, 1, formatScore($avgScore / sizeof($doneTests[$id][$infoUser -> user['login']]))."%", $titleCenterFormat);
@@ -676,6 +676,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    }
   }
  }
+ $workBook -> send('export_'.$infoUser -> user['login'].'.xls');
  $workBook -> close();
  exit();
 } else if (isset($_GET['pdf']) && $_GET['pdf'] == 'user') {
@@ -801,7 +802,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   }
   $pdf->printDataSection(_TRAINING.': '._COURSES, $data, $formatting, $subSections);
   $data = $subSections = $userDoneTests = array();
-  $result = EfrontStats :: getStudentsDoneTests($userLessons, $editedUser -> user['login']);
+  $result = EfrontStats :: getStudentsDoneTests($userLessons, $infoUser -> user['login']);
   foreach ($result[$infoUser -> user['login']] as $value) {
    $userDoneTests[$value['lessons_ID']][] = $value;
   }
@@ -826,11 +827,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $subSectionData = array();
     $testsAvgScoreNum = 0;
     foreach ($userDoneTests[$value['id']] as $test) {
-     $testsAvgScore += $test['score'];
+     $testsAvgScore += $test['active_score'];
      $testsAvgScoreNum++;
      $subSectionData[] = array(_TESTNAME => $test['name'],
              _STATUS => $test['status'],
-             _SCORE => formatScore($test['score']).'%');
+             _SCORE => formatScore($test['active_score']).'%');
     }
     $subSections[$lessonId] = array('data' => $subSectionData, 'formatting' => $subsectionFormatting, 'title' => _TESTSFORLESSON.': '.$value['name']);
    }

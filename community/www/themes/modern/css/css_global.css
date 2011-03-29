@@ -75,6 +75,11 @@ z-index:99;
 .divPopup #popup_frame{
 border-width:0px;width:100%;height:100%;padding:0px 0px 0px 0px;
 }
+/*For editor inputs consistency*/
+p {
+  margin: 0; 
+  padding: 0;
+}
 
 table{border-collapse:collapse;}
 a:link,a:visited{color:#444444;text-decoration:none;}
@@ -1502,11 +1507,13 @@ vertical-align:middle;
    background: #FFFFFF;
    margin:0px;
    width:100%;
+   min-width: 300px;
    height: 100%;
   /* font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;*/
 }
-body.mceContentBody {
-  background: #FFF;
+.mceContentBody#tinymce p {
+  margin: 0; 
+  padding: 0; 
 }
 
 sup{font-size:xx-small; vertical-align:top!important;}

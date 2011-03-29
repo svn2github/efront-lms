@@ -26,6 +26,7 @@ tinymceConfigs["simpleEditor"] = {
     force_p_newlines : false,
  plugins : "media",
  convert_urls : false,
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]"
     };
 
@@ -41,7 +42,7 @@ tinymceConfigs["digestEditor"] = {
     force_p_newlines : false,
  plugins : "media",
  convert_urls : false,
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]",
  handle_event_callback : "digestHandleEvent"
     };
@@ -79,8 +80,8 @@ tinymceConfigs["mceEditor"] = {
     theme_advanced_path_location : "bottom",
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
-    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[code|codebase|width|height],embed[*],iframe[*],object[*]",
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
+    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[*],embed[*],iframe[*],object[*],param[*]",
  template_external_list_url : "editor/templates_list.php"
  };
 
@@ -118,8 +119,8 @@ tinymceConfigs["templateEditor"] = {
     theme_advanced_path_location : "bottom",
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
-    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[code|codebase|width|height],embed[*],iframe[*],object[*]"
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
+    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[*],embed[*],iframe[*],object[*],param[*]"
 };
 
 

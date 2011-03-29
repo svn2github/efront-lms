@@ -3321,9 +3321,7 @@ class EfrontDirectoryOnlyFilterIterator extends FilterIterator
 
      */
     function accept() {
-        //return is_dir($this -> key());
-        //pr($this -> current());
-        return is_dir($this -> key());
+        return is_dir($this -> key()) && mb_substr($this->key(), -2) != '..' && mb_substr($this->key(), -1) != '.';
     }
 }
 /**

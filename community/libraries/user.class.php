@@ -1933,7 +1933,6 @@ abstract class EfrontLessonUser extends EfrontUser
  public function getEligibleLessons() {
   $userCourses = $this -> getUserCourses();
   $userLessons = $this -> getUserStatusInLessons(false, true);
-//pr($userLessons);
   $roles = self :: getLessonsRoles();
   $roleNames = self :: getLessonsRoles(true);
   foreach ($userCourses as $course) {
@@ -2371,13 +2370,30 @@ abstract class EfrontLessonUser extends EfrontUser
   $completedTests = $meanTestScore = 0;
   $tests = $lesson -> getTests(true, true);
   $totalTests = sizeof($tests);
-  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$this -> user['login']."' and ct.archive=0 and t.lessons_ID=".$lesson -> lesson['id']);
+//		$result 	= eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score", "t.id=ct.tests_ID and ct.users_LOGIN='".$this -> user['login']."' and ct.archive=0 and t.lessons_ID=".$lesson -> lesson['id']);
+//		pr($result);
+  $result = eF_getTableData("completed_tests ct, tests t", "ct.archive, ct.tests_ID, ct.score, t.keep_best", "t.id=ct.tests_ID and ct.users_LOGIN='".$this -> user['login']."' and t.lessons_ID=".$lesson -> lesson['id']);
+//		pr($result);exit;
   foreach ($result as $value) {
    if (in_array($value['tests_ID'], array_keys($tests))) {
-    $meanTestScore += $value['score'];
-    $completedTests++;
+    if ($value['keep_best']) {
+     isset($scores[$value['tests_ID']]) OR $scores[$value['tests_ID']] = $value['score'];
+     $scores[$value['tests_ID']] = max($scores[$value['tests_ID']], $value['score']);
+    } else if ($value['archive'] == 0) {
+     $scores[$value['tests_ID']] = $value['score'];
+    }
    }
   }
+/*		
+		foreach ($result as $value) {
+			if (in_array($value['tests_ID'], array_keys($tests))) {
+				$meanTestScore += $value['score'];
+				$completedTests++;
+			}
+		}
+*/
+  $meanTestScore = array_sum($scores);
+  $completedTests = sizeof($scores);
   $scormTests = $this -> getUserScormTestsStatusInLesson($lesson);
   $totalTests += sizeof($scormTests);
   foreach ($scormTests as $value) {

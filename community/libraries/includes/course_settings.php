@@ -9,7 +9,7 @@ if (isset($currentUser -> coreAccess['course_settings']) && $currentUser -> core
 }
 
 
-
+$loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/course_settings';
 
 $autocompleteImage = '16x16/certificate.png';
@@ -484,6 +484,12 @@ if ($_GET['op'] == 'course_info') {
 } else if($_GET['op'] == 'delete_certificate_template'){
 } else if ($_GET['op'] == 'course_rules') {
  $courseLessons = $currentCourse -> getCourseLessons();
+ if ($currentCourse -> course['depends_on']) {
+  try {
+   $dependsOn = new EfrontCourse($currentCourse -> course['depends_on']);
+   $smarty -> assign("T_DEPENDSON_COURSE", $dependsOn->course['name']);
+  } catch (Exception $e) {}
+ }
  $rules_form = new HTML_QuickForm("course_rules_form", "post", basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=course_rules", "", null, true);
  if (isset($currentUser -> coreAccess['course_settings']) && $currentUser -> coreAccess['course_settings'] != 'change') {
   $rules_form -> freeze();
@@ -508,6 +514,23 @@ if ($_GET['op'] == 'course_info') {
    } else {
     $message = _DUPLICATESARENOTALLOWED;
     $message_type = 'failure';
+   }
+  }
+  if (isset($_GET['ajax']) && isset($_GET['inter_course_rule'])) {
+   try {
+    if ($_GET['inter_course_rule']) {
+     $dependsOn = new EfrontCourse($_GET['inter_course_rule']);
+     if ($dependsOn -> course['id'] != $currentCourse -> course['id']) {
+      $currentCourse -> course['depends_on'] = $dependsOn -> course['id'];
+     } else {
+      throw new Exception(_YOUCANNOTSETSAMECOURSEASRULE);
+     }
+    } else {
+     $currentCourse -> course['depends_on'] = 0;
+    }
+    $currentCourse -> persist();
+   } catch (Exception $e) {
+    handleAjaxExceptions($e);
    }
   }
  }

@@ -183,6 +183,7 @@
       {/if}
      </td>
      <td class = "centerAlign">
+      <span style="display:none">{$lesson.completed}</span>
       {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smart.const._YES}" title = "{$smarty.const._COMPLETEDON} #filter:timestamp_time-{$lesson.to_timestamp}#">{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}">{/if}
      </td>
      <td class = "centerAlign">
@@ -334,8 +335,8 @@
    <tr>
     <td {if !$test.active}class = "deactivatedElement"{/if}>{$test.name}:</td>
     <td class = "progressCell" style = "vertical-align:top;white-space:nowrap">
-     <span class = "progressNumber">#filter:score-{$test.score}#%</span>
-     <span class = "progressBar" style = "width:{$test.score}px;">&nbsp;</span>
+     <span class = "progressNumber">#filter:score-{$test.active_score}#%</span>
+     <span class = "progressBar" style = "width:{$test.active_score}px;">&nbsp;</span>
      <span style = "margin-left:120px">(#filter:timestamp_time-{$test.timestamp}#)</span>
     </td>
    </tr>

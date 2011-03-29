@@ -41,7 +41,7 @@
                       <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.overall_progress.percentage}px;">&nbsp;</span>
                   </td><td></td>
               </tr>
-              <tr><td>{$smarty.const._AVERAGETESTSCOREOFLASTEXECUTIONS}:&nbsp;</td>
+              <tr><td style = "padding-bottom:15px">{$smarty.const._AVERAGETESTSCOREOFACTIVEEXECUTIONS}:&nbsp;</td>
                   <td class = "progressCell">
                       <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.test_status.mean_score}#%</span>
                       <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.test_status.mean_score}px;">&nbsp;</span>
@@ -54,13 +54,12 @@
                       <span class = "progressBar" style = "width:{$test.score}px;">&nbsp;</span>
                   </td><td></td>
               </tr>
-              <tr><td>{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span> ({$smarty.const._SCOREONLASTEXECUTION}):&nbsp;</td>
+              <tr><td style = "padding-bottom:10px">{$smarty.const._TEST} <span class = "innerTableName">&quot;{$test.name}&quot;</span> ({$smarty.const._SCOREONACTIVEEXECUTION}):&nbsp;</td>
                   <td class = "progressCell">
-                      <span class = "progressNumber">#filter:score-{$test.last_score}#%</span>
-                      <span class = "progressBar" style = "width:{$test.last_score}px;">&nbsp;</span>
+                      <span class = "progressNumber">#filter:score-{$test.active_score}#%</span>
+                      <span class = "progressBar" style = "width:{$test.active_score}px;">&nbsp;</span>
                   </td><td>
-
-                      <a href = "{$smarty.server.PHP_SELF}?ctg={if $_student_}content&view_unit={$test.content_ID}{else}tests{/if}&show_solved_test={$test.last_test_id}">
+                      <a href = "{$smarty.server.PHP_SELF}?ctg={if $_student_}content&view_unit={$test.content_ID}{else}tests{/if}&show_solved_test={$test.active_test_id}">
                           <img class = "handle" src = "images/16x16/search.png" title = "{$smarty.const._VIEWTEST}" alt = "{$smarty.const._VIEWTEST}">
                       </a>
                   </td>
@@ -87,8 +86,8 @@
 
 
               {if $T_USER_PROJECTS}
-              <tr><td>{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>
-                  <td class = "progressCell">
+              <tr><td style = "padding-top:15px;padding-bottom:15px">{$smarty.const._AVERAGEPROJECTSCORE}:&nbsp;</td>
+                  <td class = "progressCell" style = "padding-top:15px">
                       <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.project_status.mean_score}#%</span>
                       <span class = "progressBar" style = "width:{$T_USER_LESSONS_INFO.project_status.mean_score}px;">&nbsp;</span>
                  </td><td></td>

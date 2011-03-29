@@ -177,6 +177,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <tr style="display:none;" id = "answer_all"><td class = "labelCell">{$smarty.const._FORCEUSERANSERALLQUESTIONS}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.answer_all.html}</td></tr>
      {if $T_TEST_FORM.answer_all.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answer_all.error}</td></tr>{/if}
+     <tr style="display:none;" id = "keep_best"><td class = "labelCell">{$smarty.const._RETAINBESTEXECUTION}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.keep_best.html}</td></tr>
+     {if $T_TEST_FORM.keep_best.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.keep_best.error}</td></tr>{/if}
  {if $smarty.const.G_VERSIONTYPE != 'community'}
      <tr style="display:none;" id = "redo_wrong"><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.redo_wrong.html} <span class = "infoCell">{$smarty.const._ALLOWANSWERWRONGINFO}</span></td></tr>
@@ -349,6 +352,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <table class = "randomTest" style = "width:100%">
        <tr><td>{$smarty.const._SELECTOPTION}:</td></tr>
        <tr><td>{$smarty.const._USE} <input name = "random_pool" type = "text" size = "5" value = "{$T_TEST_QUESTIONS_STATISTICS.random_pool}"> {$smarty.const._QUESTIONSINEACHEXECUTION}</td></tr>
+       <tr><td><input type = "checkbox" name = "show_incomplete" {if $T_TEST_QUESTIONS_STATISTICS.show_incomplete}checked{/if}> {$smarty.const._SHOWINCOMPLETEQUESTIONSEACHTIME}</td></tr>
        <tr><td><input type = "checkbox" name = "user_configurable" {if $T_TEST_QUESTIONS_STATISTICS.user_configurable}checked{/if}> {$smarty.const._ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS}</td></tr>
        <tr><td><input type = "checkbox" name = "update_test_time"> {$smarty.const._UPDATETOTALTESTTIME}</td></tr>
        <tr><td><input type = "button" class = "flatButton" value = "{$smarty.const._OK}" onclick = "setRandomPool(this)"></td></tr>
@@ -657,9 +661,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
  {elseif $smarty.get.question_type == 'empty_spaces'}
             <tr><td class = "labelCell"></td>
                 <td class = "elementCell">{$T_QUESTION_FORM.generate_empty_spaces.html}</td></tr>
-            <tr><td></td>
-                <td class = "infoCell">{$smarty.const._SEPARATEALTERNATIVESEXAMPLE}</td></tr>
             <tr><td colspan = "2" >&nbsp;</td></tr>
+            <tr><td></td>
+                <td class = "infoCell">{$smarty.const._SEPARATEALTERNATIVESEXAMPLE}. {$smarty.const._YOUCANUSEASTERISK}</td></tr>
             <tr id = "spacesRow"><td></td><td>
   {foreach name = 'empty_spaces_list' key = key item = item from = $T_QUESTION_FORM.empty_spaces}
          {$T_EXCERPTS.$key} {$item.html} {if $item.error}{$item.error}{/if}

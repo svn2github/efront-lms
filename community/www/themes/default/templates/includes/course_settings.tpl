@@ -107,6 +107,8 @@
 {elseif $T_OP == 'course_rules'}
   <script>var dependson = '&nbsp;{$smarty.const._DEPENDSON}&nbsp;';var generallyavailable = '&nbsp;{$smarty.const._GENERALLYAVAILABLE}&nbsp;';</script>
   {capture name = 't_course_rules_code'}
+   <fieldset class = "fieldsetSeparator">
+    <legend>{$smarty.const._COURSELESSONSRULES}</legend>
       {$T_COURSE_RULES_FORM.javascript}
       <form {$T_COURSE_RULES_FORM.attributes}>
       {$T_COURSE_RULES_FORM.hidden}
@@ -146,6 +148,7 @@
        {/foreach}
       {/foreach}
       </script>
+     </fieldset>
     {/capture}
     {eF_template_printBlock title = $smarty.const._COURSERULES data = $smarty.capture.t_course_rules_code image = '32x32/rules.png' main_options = $T_TABLE_OPTIONS options = $T_COURSE_OPTIONS help='Course_actions'}
 {elseif $T_OP == 'course_order'}

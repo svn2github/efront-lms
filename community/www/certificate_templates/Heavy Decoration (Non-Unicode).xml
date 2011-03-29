@@ -9,8 +9,8 @@
 		<logo file="default" x="33" y="31"></logo>
 		<background file="heavy.png"></background>
 		<orientation name="landscape"></orientation>
-		<creator name="eFront"></creator>
-		<author name="eFront"></author>
+		<creator name="LMS"></creator>
+		<author name="LMS"></author>
 		<subject name="Certificate for "></subject>
 		<keywords name="This is a list of keywords"></keywords>
 		<labels>

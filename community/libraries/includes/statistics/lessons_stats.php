@@ -70,6 +70,7 @@ try {
          handleNormalFlowExceptions($e);
         }
         require_once $path."includes/statistics/stats_filters.php";
+//pr($infoLesson -> getLessonStatusForUsers());exit;
         try {
          if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonUsersTable') {
           //$smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations'));
@@ -345,7 +346,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     if ($branchName) {
         $filename .= '_branch_'.str_replace(" ", "_" , $branchName);
     }
-    $workBook -> send($filename.'.xls');
     $formatExcelHeaders = & $workBook -> addFormat(array('Size' => 14, 'Bold' => 1, 'HAlign' => 'left'));
     $headerFormat = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
     $formatContent = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
@@ -520,7 +520,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> setColumn(0, 0, 5);
 
         $workSheet -> write(1, 1, _TESTSINFORMATION, $headerFormat);
-        $workSheet -> mergeCells(1, 1, 1, 2);
+        $workSheet -> mergeCells(1, 1, 1, 3);
         $workSheet -> setColumn(1, 1, 30);
         $row = 3;
         foreach ($testsInfo as $id => $info) {
@@ -530,8 +530,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $row++;
             foreach ($info['done'] as $results) {
                 $workSheet -> write($row, 1, $results['users_LOGIN'], $fieldLeftFormat);
-                $workSheet -> write($row++, 2, formatScore(round($results['score'], 2))."% -". formatTimestamp($results['timestamp'], 'time'), $fieldCenterFormat);
-                $avgScore[] = $results['score'];
+                $workSheet -> write($row, 2, formatScore(round($results['active_score'], 2))."%", $fieldCenterFormat);
+                $workSheet -> write($row++, 3, formatTimestamp($results['timestamp'], 'time'), $fieldLeftFormat);
+                $avgScore[] = $results['active_score'];
             }
             if (sizeof($avgScore) > 0) {
                 $workSheet -> write($row, 1, _AVERAGESCORE, $fieldLeftBoldFormat);
@@ -544,7 +545,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     }
 
     if (sizeof($lessonQuestions) > 0) {
-        $workSheet -> setColumn(3, 3, 3);
+        $workSheet -> setColumn(3, 3, 25);
         $workSheet -> write(1, 4, _QUESTIONSINFORMATION, $headerFormat);
         $workSheet -> mergeCells(1, 4, 1, 8);
         $workSheet -> setColumn(4, 4, 30);
@@ -609,7 +610,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $workSheet -> write($row, $column, $info['general']['name'], $fieldCenterFormat);
             foreach ($info['done'] as $results) {
              if (isset($rows[$results['users_LOGIN']])) {
-                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['score'], 2))."% -". formatTimestamp($results['timestamp'], 'time'), $fieldCenterFormat);
+                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['active_score'], 2))."% -". formatTimestamp($results['timestamp'], 'time'), $fieldCenterFormat);
              }
             }
             $column++;
@@ -771,6 +772,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
 */
         $row++;
     }
+    $workBook -> send($filename.'.xls');
     $workBook -> close();
     exit(0);
 } else if (isset($_GET['pdf']) && $_GET['pdf'] == 'lesson') {
@@ -862,12 +864,14 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
   foreach ($testsInfo as $id => $info) {
    $data = array();
    foreach ($info['done'] as $results) {
-    $avgScore[] = $results['score'];
+    $avgScore[] = $results['active_score'];
     $data[] = array(_USER => formatLogin($results['users_LOGIN']),
-        _SCORE => formatScore(round($results['score'], 2))."%");
+        _SCORE => formatScore(round($results['active_score'], 2))."%");
    }
-   $data[] = array(_USER => '',
-       _SCORE => formatScore(round(array_sum($avgScore) / sizeof($avgScore), 2))."%");
+   if (!empty($data)) {
+    $data[] = array(_USER => _AVERAGESCORE,
+        _SCORE => formatScore(round(array_sum($avgScore) / sizeof($avgScore), 2))."%");
+   }
    $pdf->printDataSection(_TESTSINFORMATION.': '.$info['general']['name'], $data, $formatting);
   }
   if (sizeof($lessonQuestions) > 0) {

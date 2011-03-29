@@ -406,7 +406,7 @@ class EfrontGroup
   $groupUsers = eF_getTableDataFlat("users_to_groups", "users_LOGIN", "groups_ID=".$this -> group['id']);
         $errors = array();
         foreach ($users as $key => $user) {
-         if (!in_array($user, $groupUsers['users_LOGIN'])) {
+         if (!in_array($user, $groupUsers['users_LOGIN'], true)) {
           $fields[] = array('groups_ID' => $this -> group['id'],
                                'users_LOGIN' => $user);
          }

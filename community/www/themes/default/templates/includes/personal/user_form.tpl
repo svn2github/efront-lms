@@ -109,7 +109,7 @@
             <tr>
              <td>{$test.name}</td>
              <td style = "text-align:center;">{$test.status}</td>
-             <td style = "text-align:center;">#filter:score-{$test.score}#%</td>
+             <td style = "text-align:center;">#filter:score-{$test.active_score}#%</td>
             </tr>
             {/foreach}
            </table>
@@ -164,7 +164,7 @@
          <tr>
           <td>{$test.name}</td>
           <td style = "text-align:center;">{$test.status}</td>
-          <td style = "text-align:center;">#filter:score-{$test.score}#%</td>
+          <td style = "text-align:center;">#filter:score-{$test.active_score}#%</td>
          </tr>
          {/foreach}
         </table>

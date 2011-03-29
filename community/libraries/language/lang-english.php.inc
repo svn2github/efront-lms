@@ -4024,4 +4024,13 @@ define("_USETHECURRENTDATE", "Use the current date");
 define("_USERSCANCHANGEINFO", "Users change their info");
 define("_USERSCANCHANGEPASS", "Users change their password");
 define("_VIEWFEEDBACK", "View feedback");
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME", "Show incomplete questions in each execution");
+define("_RETAINBESTEXECUTION", "Retain best score");
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS", "Average test score (counting each test's active execution)");
+define("_SCOREONACTIVEEXECUTION", "score on active execution");
+define("_YOUCANUSEASTERISK", "If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.");
+define("_COURSELESSONSRULES", "Course lesson rules");
+define("_RULESBETWEENCOURSES", "Rules between courses");
+define("_COURSEDEPENDSON", "Course depends on");
+define("_YOUCANNOTSETSAMECOURSEASRULE", "You cannot set the course as a prerequisite of itself");
 ?>

@@ -1729,10 +1729,16 @@ class EfrontContentTree extends EfrontTree
         $seenNodes = array_keys($seenContent[$this -> lessonId][$login]);
         $resultScorm = eF_getTabledataFlat("scorm_data", "content_ID, lesson_status", "users_LOGIN='$login'");
         $resultScorm = array_combine($resultScorm['content_ID'], $resultScorm['lesson_status']);
-        $result = eF_getTableData("content c, completed_tests ct, tests t", "t.content_ID, ct.status, ct.timestamp", "ct.status != 'deleted' and ct.archive = 0 and c.id = t.content_ID and c.lessons_ID = ".$this -> lessonId." and ct.tests_ID = t.id and ct.users_LOGIN='$login'");
+        $result = eF_getTableData("content c, completed_tests ct, tests t", "t.content_ID, ct.status, ct.timestamp, ct.archive, t.keep_best", "ct.status != 'deleted' and c.id = t.content_ID and c.lessons_ID = ".$this -> lessonId." and ct.tests_ID = t.id and ct.users_LOGIN='$login'");
         foreach ($result as $value) {
-            $resultTests[$value['content_ID']] = $value['status'];
-            $resultTestsTimes[$value['content_ID']] = $value['timestamp'];
+         if ($value['keep_best'] && $value['status'] == 'passed') {
+             $resultTests[$value['content_ID']] = $value['status'];
+         } else if (!$value['archive'] && !isset($resultTests[$value['content_ID']])) {
+             $resultTests[$value['content_ID']] = $value['status'];
+         }
+         if (!$value['archive']) {
+             $resultTestsTimes[$value['content_ID']] = $value['timestamp'];
+         }
         }
         $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($this -> tree), RecursiveIteratorIterator :: SELF_FIRST));
         foreach ($iterator as $key => $value) {

@@ -43,7 +43,17 @@
 - Fixed false job count for users in branch reports
 - Fixed broken link in admin feedback report about displaying feedback
 - Fixed material in progress view not taking into account course rules
-
+- Fixed issue in api2 about login (checktoken) and efrontlogin (password) actions
+- Fixed automatic correction of free text questions disregarding uploaded files
+- Fixed issue in simple editors about loading theme css file
+- Fixed issue about not displaying questions that does not belong to a lesson while editing skill gap tests
+- Added a default p css style with no margin/padding for editor inputs consistency
+- Fixed issue about assigning users with zero-prefixed login into groups (#1221)
+- Fixed error in skill gap test report
+- Added "keep best" option in tests
+- Resolved memory overuse in lesson reports when having many completed tests
+- Allow wildcards in "fill in the gaps" question types
+- Added course prerequisites (course access depends on another course's completion) 
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

@@ -7,8 +7,8 @@ define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Είσοδος στο eFront");
 define("_HEADERLANGUAGEHTMLTAG","el-GR");
 define("_CURRENTLANGUAGESYMBOL","el");
-define("_HEADERLANGUAGETAG", "notes");//el_GR.utf8
-define("_CHARSET","UTF-8");
+define("_HEADERLANGUAGETAG", "greek");//el_GR.utf8
+define("_CHARSET","ISO-8859-7");
 define("_LANGUAGE","Γλώσσα");
 define("_PASSWORD","Κωδικός");
 define("_SUBMIT","Αποστολή");
@@ -4024,4 +4024,11 @@ define("_USETHECURRENTDATE", "Χρησιμοποίηση της τρέχουσα
 define("_USERSCANCHANGEINFO", "Οι χρήστες αλλάζουν τα στοιχεία τους");
 define("_USERSCANCHANGEPASS", "Οι χρήστες αλλάζουν τον κωδικό τους");
 define("_VIEWFEEDBACK", "Προβολή ανάδρασης");
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME", "Προβολή μόνο ερωτήσεων που δεν έχουν ολοκληρωθεί");
+define("_RETAINBESTEXECUTION", "Διατήρηση της καλύτερης επίδοσης");
+define("_YOUCANUSEASTERISK", "Αν βάλετε μία λέξη που τελειώνει με αστερίσκο (*), τότε μόνο το πρώτο μέρος της θα ληφθεί υπόψη κατά τη διόρθωση. Για παράδειγμα, για τη λέξη 'μάθη*' θα θεωρηθούν σωστά τόσο το 'μάθημα' όσο και το 'μάθηση'");
+define("_COURSELESSONSRULES", "Κανόνες μαθημάτων δέσμης");
+define("_RULESBETWEENCOURSES", "Κανόνες μεταξύ δεσμών");
+define("_COURSEDEPENDSON", "Η δέσμη εξαρτάται από");
+define("_YOUCANNOTSETSAMECOURSEASRULE", "Δεν μπορείτε να θέσετε τη δέσμη ως προαπαιτούμενη του εαυτού της");
 ?>

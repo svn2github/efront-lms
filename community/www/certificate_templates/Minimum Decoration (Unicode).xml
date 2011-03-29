@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <certificates>
 	<certificate>
-		<organization text="eFront" font="Freeserif" weight="bold" size="60" color="#005b7f" x="120" y="13"></organization>
+		<organization text="LMS" font="Freeserif" weight="bold" size="60" color="#005b7f" x="120" y="13"></organization>
 		<student font="Freeserif" weight="" size="35" color="#000000" x="5" y="95" align="center"></student>
 		<course font="Freeserif" weight="" size="28" color="#000000" x="5" y="133" align="center"></course>
 		<grade font="Freeserif" weight="bold" size="28" color="#000000" x="160" y="150" align="center"></grade>
@@ -9,8 +9,8 @@
 		<serial font="Freeserif" weight="" size="14" color="#575757" x="107" y="182"></serial>
 		<logo file="default" x="14" y="14"></logo>
 		<orientation name="landscape"></orientation>
-		<creator name="eFront"></creator>
-		<author name="eFront"></author>
+		<creator name="LMS"></creator>
+		<author name="LMS"></author>
 		<subject name="Certificate for "></subject>
 		<keywords name="This is a list of keywords"></keywords>
 		<labels>

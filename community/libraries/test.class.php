@@ -4775,7 +4775,13 @@ class EmptySpacesQuestion extends Question implements iQuestion
         if ($showCorrectAnswers) {
             $innerQuestionString .= '<span class = "correctAnswer">'._RIGHTANSWER.':</span><br/>'.$inputLabels[0];
             for ($k = 0; $k < sizeof($this -> answer); $k++) {
-                $innerQuestionString .= '<span class = "correctAnswer">'.str_replace("|", " "._OR." ", $this -> answer[$k]).'</span>'.$inputLabels[$k + 1];
+             if ($this -> settings['select_list']) {
+              $formattedAnswer = explode("|", $this->answer[$k]);
+              $formattedAnswer = $formattedAnswer[0];
+             } else {
+              $formattedAnswer = str_replace("|", " "._OR." ", $this -> answer[$k]);
+             }
+                $innerQuestionString .= '<span class = "correctAnswer">'.$formattedAnswer.'</span>'.$inputLabels[$k + 1];
             }
         }
         $questionString = '

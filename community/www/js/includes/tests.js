@@ -801,6 +801,7 @@ function checkQuestions() {
       finished[count] = 1;
      } else if (r.hasClassName('emptySpacesQuestion')) {
       r.select('input[type=text]').each(function (s) {s.value ? finished[count] = 1 : null;});
+      r.select('select').each(function (s) {s.value ? finished[count] = 1 : null;});
      } else if (r.hasClassName('rawTextQuestion')) {
       r.select('textarea').each(function (s) {s.value ? finished[count] = 1 : null;});
      } else if (r.hasClassName('dragDropQuestion')) {

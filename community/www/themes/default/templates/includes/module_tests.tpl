@@ -390,7 +390,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     <select name = "question_type" onchange = "if (this.options[this.options.selectedIndex].value) window.location='{$smarty.server.PHP_SELF}?ctg=tests&add_question=1&question_type='+this.options[this.options.selectedIndex].value">
      <option value = "" selected>{$smarty.const._ADDQUESTIONOFTYPE}</option>
      <option value = "" >---------------</option>
-     {foreach name = 'question_types' item = "item" key = "key" from = $T_QUESTIONTYPESTRANSLATIONS}<option value = "{$key}">{$item}</option>{/foreach}
+     {foreach name = 'question_types' item = "item" key = "key" from = $T_QUESTIONTYPESTRANSLATIONS}
+      {if !$T_SKILLGAP_TEST || $key != 'raw_text'}
+      <option value = "{$key}">{$item}</option>
+      {/if}
+     {/foreach}
     </select>
          </span>
    {/if}
@@ -1395,7 +1399,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     <select name = "question_type" onchange = "if (this.options[this.options.selectedIndex].value) window.location='{$smarty.server.PHP_SELF}?ctg=tests&add_question=1&question_type='+this.options[this.options.selectedIndex].value">
      <option value = "">{$smarty.const._ADDQUESTIONOFTYPE}</option>
      <option value = "">---------------</option>
-     {foreach name = 'question_types' item = "item" key = "key" from = $T_QUESTIONTYPESTRANSLATIONS}<option value = "{$key}">{$item}</option>{/foreach}
+     {foreach name = 'question_types' item = "item" key = "key" from = $T_QUESTIONTYPESTRANSLATIONS}
+      {if !$T_SKILLGAP_TEST || $key != 'raw_text'}
+      <option value = "{$key}">{$item}</option>
+      {/if}
+     {/foreach}
     </select>
    </span>
   </div>

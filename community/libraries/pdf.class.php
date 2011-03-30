@@ -114,7 +114,11 @@ class EfrontPdf
      $subSectionData = $subSections[$rowIndex]['data'];
      $subSectionFormatting = $this -> getFormatting($subSections[$rowIndex]['formatting'], current($subSectionData));
 
-     $subSectionTitleFormat = array('bold' => 'B', 'border' => 'T', 'width' => 0) + current($subSectionFormatting);
+     if (!empty($subSectionFormatting)) {
+      $subSectionTitleFormat = array('bold' => 'B', 'border' => 'T', 'width' => 0) + current($subSectionFormatting);
+     } else {
+      $subSectionTitleFormat = array('bold' => 'B', 'border' => 'T', 'width' => 0);
+     }
      $this->pdf->setTextColor(0,0,0);
      $this->pdf->SetFont('', 'B', $this->defaultSettings['content_font_size']);
      $this->printMultiContent($subSections[$rowIndex]['title'], $subSectionTitleFormat, 1);

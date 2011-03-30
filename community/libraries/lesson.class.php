@@ -2290,10 +2290,14 @@ class EfrontLesson
   }
  }
  private function getLessonScormTestsStatusForUser($user) {
+  $result = eF_getTableData("content", "id", "ctg_type='scorm_test' and active=1 and lessons_ID=".$this -> lesson['id']);
+  $tests = array();
+  foreach ($result as $value) {
+   $tests[$value['id']] = 0;
+  }
   $usersDoneScormTests = eF_getTableData("scorm_data sd left outer join content c on c.id=sd.content_ID",
               "c.id, c.ctg_type, sd.masteryscore, sd.lesson_status, sd.score, sd.minscore, sd.maxscore, sd.users_LOGIN",
               "c.ctg_type = 'scorm_test' and (sd.users_LOGIN = '".$user['login']."' or sd.users_LOGIN is null) and c.lessons_ID = ".$this -> lesson['id']);
-  $tests = array();
   foreach ($usersDoneScormTests as $doneScormTest) {
    if (is_numeric($doneScormTest['minscore']) && is_numeric($doneScormTest['maxscore'])) {
     $doneScormTest['score'] = 100 * $doneScormTest['score'] / ($doneScormTest['minscore'] + $doneScormTest['maxscore']);

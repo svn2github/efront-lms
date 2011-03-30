@@ -459,8 +459,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
 
     //lesson users info
     $workSheet -> write(1, 4, _USERSINFO, $headerFormat);
-    $workSheet -> mergeCells(1, 4, 1, 11);
-    $workSheet -> setColumn(4, 10, 15);
+    $workSheet -> mergeCells(1, 4, 1, 12);
+    $workSheet -> setColumn(4, 12, 18);
 
     $workSheet -> write(2, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write(2, 5, _LESSONROLE, $titleLeftFormat);
@@ -485,10 +485,10 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> write($row, 7, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
         $workSheet -> write($row, 8, formatScore($user['overall_progress']['percentage'])."%", $fieldCenterFormat);
         if ($GLOBALS['configuration']['disable_tests'] != 1) {
-            $workSheet -> write($row, 9, formatScore($user['test_status']['percentage'])."%", $fieldCenterFormat);
+            $workSheet -> write($row, 9, formatScore($user['test_status']['mean_score'])."%", $fieldCenterFormat);
         }
         if ($GLOBALS['configuration']['disable_projects'] != 1) {
-            $workSheet -> write($row, 10, formatScore($user['project_status']['percentage'])."%", $fieldCenterFormat);
+            $workSheet -> write($row, 10, formatScore($user['project_status']['mean_score'])."%", $fieldCenterFormat);
         }
         $workSheet -> write($row, 11, $user['completed'] ? _YES : _NO, $fieldCenterFormat);
         $workSheet -> write($row, 12, formatScore($user['score'])."%", $fieldCenterFormat);
@@ -606,11 +606,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         //pr($testsInfo['done']);exit;
         foreach ($testsInfo as $id => $info) {
             $row = 1;
-            $workSheet -> setColumn($column, $column, 20);
+            $workSheet -> setColumn($column, $column, 30);
             $workSheet -> write($row, $column, $info['general']['name'], $fieldCenterFormat);
             foreach ($info['done'] as $results) {
              if (isset($rows[$results['users_LOGIN']])) {
-                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['active_score'], 2))."% -". formatTimestamp($results['timestamp'], 'time'), $fieldCenterFormat);
+                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['active_score'], 2))."% (". formatTimestamp($results['timestamp'], 'time').")", $fieldCenterFormat);
              }
             }
             $column++;
@@ -845,8 +845,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
       _TIMEINLESSON => $user['time_in_lesson']['time_string'],
       _REGISTRATIONDATE => formatTimestamp($user['timestamp']),
       _CONTENT => formatScore($user['overall_progress']['percentage'])."%",
-      _TESTS => formatScore($user['test_status']['percentage'])."%",
-      _PROJECTS => formatScore($user['project_status']['percentage'])."%",
+      _TESTS => formatScore($user['test_status']['mean_score'])."%",
+      _PROJECTS => formatScore($user['project_status']['mean_score'])."%",
       _COMPLETED => $user['completed'] ? _YES.', '._ON.' '.formatTimestamp($user['timestamp_completed']) : _NO,
       _SCORE => formatScore($user['score'])."%");
     }

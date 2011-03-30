@@ -2469,6 +2469,10 @@ abstract class EfrontLessonUser extends EfrontUser
    if ($certificateInfo = unserialize($course['issued_certificate'])) {
     $certificateInfo = unserialize($course['issued_certificate']);
     $courseOptions = unserialize($course['options']);
+    if ($course['certificate_expiration']) {
+     $expirationArray = convertTimeToDays($course['certificate_expiration']);
+     $expire_certificateTimestamp = getCertificateExpirationTimestamp($certificateInfo['date'], $expirationArray);
+    }
     $certificates[] = array("courses_ID" => $course['id'],
           "course_name" => $course['name'],
           "serial_number" => $certificateInfo['serial_number'],
@@ -2476,7 +2480,7 @@ abstract class EfrontLessonUser extends EfrontUser
           "issue_date" => $certificateInfo['date'],
           "active" => $course['active'],
           "export_method" => $courseOptions['certificate_export_method'],
-          "expiration_date"=> ($course['certificate_expiration']) ? ($certificateInfo['date'] + $course['certificate_expiration']) : _NEVER);
+          "expiration_date"=> ($course['certificate_expiration']) ? $expire_certificateTimestamp : _NEVER);
    }
   }
   return $certificates;

@@ -367,12 +367,12 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
                 $values = $form -> getSubmitValues();
             }
 
-            $excerpts = preg_split('/####*/', $currentQuestion -> question['text']);
-      preg_match_all('/####*/', $currentQuestion -> question['text'], $matches);
+            $excerpts = preg_split('/###(\d*)/', $currentQuestion -> question['text']);
+      preg_match_all('/###(\d*)/', $currentQuestion -> question['text'], $matches);
             $smarty -> assign("T_EXCERPTS", $excerpts);
 
             foreach ($values['empty_spaces'] as $key => $value) {
-                $form -> addElement('text', 'empty_spaces['.$key.']', null, 'class = "inputText" style = "width:'.(200+(strlen($matches[0][$key])-3)*20).'px"');
+                $form -> addElement('text', 'empty_spaces['.$key.']', null, 'class = "inputText" style = "width:'.($matches[1][$key] ? $matches[1][$key] : 250).'px"');
                 $form -> setDefaults(array('empty_spaces['.$key.']' => $value));
             }
 

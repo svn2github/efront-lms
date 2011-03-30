@@ -565,6 +565,60 @@ function getDateFormat() {
 }
 /**
 
+ * Return number of months and days for a time interval
+
+ *
+
+ * This function returns an array suitable for use with getCertificateExpirationTimestamp
+
+ * in order to calculate expiration date accurately
+
+ * <br>Example:
+
+ * <code>
+
+ * $expirationArray					= convertTimeToDays($course['certificate_expiration']);
+
+ * $expire_certificateTimestamp 	= getCertificateExpirationTimestamp($certificateInfo['date'], $expirationArray);					
+
+ * </code>
+
+ *
+
+ * @return array ([0] => months [1] => days)
+
+ */
+function convertTimeToDays($interval) {
+ $months = floor($interval / (30 * 24 * 60 * 60));
+ $days = ($interval % (30 * 24 * 60 * 60)) / (24 * 60 * 60);
+ return array($months, $days);
+}
+/**
+
+ * Return the certificate expiration timestamp based on issued certificate timestamp and the return value 
+
+ * of convertTimeToDays() in order to calculate expiration date accurately
+
+ * <br>Example:
+
+ * <code>
+
+ * $expirationArray					= convertTimeToDays($course['certificate_expiration']);
+
+ * $expire_certificateTimestamp 	= getCertificateExpirationTimestamp($certificateInfo['date'], $expirationArray);					
+
+ * </code>
+
+ *
+
+ * @return timestamp
+
+ */
+function getCertificateExpirationTimestamp($issuedTimestamp, $expirationArray){
+ return mktime(0, 0, 0, date("m", $issuedTimestamp) + $expirationArray[0], date("d", $issuedTimestamp) +$expirationArray[1], date("Y", $issuedTimestamp));
+}
+/**
+
  * Format an HTML table to simple text
 
  *

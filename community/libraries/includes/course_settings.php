@@ -263,8 +263,11 @@ if ($_GET['op'] == 'course_info') {
 
     //$dateFormat = eF_dateFormat();
     if (eF_checkParameter($issuedData['date'], 'timestamp')) {
-     $expire_certificateTimestamp = $currentCourse -> course['certificate_expiration'] + $issuedData['date'];
+     //$expire_certificateTimestamp = $currentCourse -> course['certificate_expiration'] + $issuedData['date'];
      //$dateExpire = date($dateFormat, $expire_certificateTimestamp);
+     $expirationArray = convertTimeToDays($currentCourse -> course['certificate_expiration']);
+     $expire_certificateTimestamp = getCertificateExpirationTimestamp($issuedData['date'], $expirationArray);
+
     } else {
      $expire_certificateTimestamp = $currentCourse -> course['certificate_expiration'] + strtotime($issuedData['date']);
      //$dateExpire = date($dateFormat, $expire_certificateTimestamp);

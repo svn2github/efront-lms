@@ -2257,7 +2257,7 @@ class EfrontLesson
   $completedTests = $meanTestScore = 0;
   $tests = $this -> getTests(true, true);
   $totalTests = sizeof($tests);
-  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score, t.keep_best", "t.id=ct.tests_ID and ct.users_LOGIN='".$user['login']."' and t.lessons_ID=".$this -> lesson['id']);
+  $result = eF_getTableData("completed_tests ct, tests t", "ct.tests_ID, ct.score, t.keep_best", "t.id=ct.tests_ID and ct.status != 'deleted' and ct.status != 'incomplete' and ct.users_LOGIN='".$user['login']."' and t.lessons_ID=".$this -> lesson['id']);
   foreach ($result as $value) {
    if (in_array($value['tests_ID'], array_keys($tests))) {
     if ($value['keep_best']) {

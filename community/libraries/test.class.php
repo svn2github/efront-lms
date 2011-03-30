@@ -4535,20 +4535,20 @@ class EmptySpacesQuestion extends Question implements iQuestion
      */
     public function toHTMLQuickForm(&$form) {
         //$inputLabels  = explode('###', $this -> question['text']);
-     $inputLabels = preg_split('/####*/', $this -> question['text']);
-     preg_match_all('/####*/', $this -> question['text'], $matches);
+     $inputLabels = preg_split('/###(\d*)/', $this -> question['text']);
+     preg_match_all('/###(\d*)/', $this -> question['text'], $matches);
         $questionText = '';
         for ($k = 0; $k < sizeof($this -> answer); $k++) {
          $alternatives = explode("|", $this->answer[$k]);
          shuffle($alternatives);
          $alternatives = array_combine($alternatives, $alternatives);
-         $alternatives = array_merge(array('' => ''), $alternatives);
             $elements[] = $form -> addElement("static", null, null, $inputLabels[$k]);
             if (sizeof($alternatives) > 1 && $this -> settings['select_list']) {
+          $alternatives = array('' => '') + $alternatives;
              //$elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*20).'px" autocomplete="off" onfocus = "startAutoCompleter(this, \''.$this->question['id'].'_'.$k.'\', \''.urlencode(json_encode($alternatives)).'\');" onclick = "startAutoCompleter(this, \''.$this->question['id'].'_'.$k.'\', \''.urlencode(json_encode($alternatives)).'\');"');
-             $elements[] = $form -> addElement("select", "question[".$this -> question['id']."][$k]", $inputLabels, $alternatives, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*30).'px" autocomplete="off"');
+             $elements[] = $form -> addElement("select", "question[".$this -> question['id']."][$k]", $inputLabels, $alternatives, 'style = "width:'.($matches[1][$k] ? $matches[1][$k] : 250).'px" autocomplete="off"');
             } else {
-             $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*30).'px" autocomplete="off"');
+             $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.($matches[1][$k] ? $matches[1][$k] : 250).'px" autocomplete="off"');
             }
             if ($this -> userAnswer !== false) {
                 $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => $this -> userAnswer[$k]));
@@ -4664,7 +4664,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      */
     public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
-        $inputLabels = preg_split('/####*/', $this -> question['text']);
+        $inputLabels = preg_split('/###(\d*)/', $this -> question['text']);
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> answer); $k++) {
@@ -4742,7 +4742,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      */
     public function toHTMLSolved(&$form, $showCorrectAnswers = true, $showGivenAnswers = true, $explanation = true) {
-        $inputLabels = preg_split('/####*/', $this -> question['text']);
+        $inputLabels = preg_split('/###(\d*)/', $this -> question['text']);
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> answer); $k++) {

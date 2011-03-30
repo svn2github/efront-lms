@@ -166,8 +166,9 @@ function eF_js_createEmptySpaces() {
   var question_text = document.getElementById('editor_content_data').value; //If the editor isn't set, get the question text from the text area
  }
 
- var excerpts = question_text.split(/####*/g); //Get the question text pieces that are split by ###
- var separators = question_text.match(/####*/g);
+ var excerpts = question_text.split(/###\d*/g); //Get the question text pieces that are split by ###
+ var separators = question_text.match(/###(\d*)/g);
+ //alert(separators);
  var last_node = document.getElementById('empty_spaces_last_node'); //This is the node that the new elements will be inserted before
  var parent_node = last_node.parentNode; //Find the parent element, that will hold the new element
  if (document.getElementById('spacesRow')) { //If the button was pressed again, remove old row and build a new one
@@ -186,7 +187,8 @@ function eF_js_createEmptySpaces() {
  for (var i = 0; i < excerpts.length; i++) { //For each designated empty space, create a span element that will hold the text and the text boxes
   code += excerpts[i];
   if (i != excerpts.length - 1) { //If, for example, we have 3 ###, these split the string to 4 parts. So, we must not insert a text box for the last (trailing) string piece
-   code += '<input type="text" name = "empty_spaces['+i+']" class = "inputText" style = "width:'+(200+(separators[i].length-3)*20)+'px">';
+   separators[i].replace('###', '') ? textboxLength = separators[i].replace('###', '') : textboxLength = '250';
+   code += '<input type="text" name = "empty_spaces['+i+']" class = "inputText" style = "width:'+textboxLength+'px"><br/>';
    //code += '<input type="text" name = "empty_spaces_width['+i+']" style = "width:20px">';
   }
  }

@@ -20,6 +20,7 @@ if (($GLOBALS['configuration']['disable_tests'] == 1 && $_GET['ctg'] == 'tests')
 //Create shorthands for user access rights, to avoid long variable names
 !isset($currentUser -> coreAccess['tests']) || $currentUser -> coreAccess['tests'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
+$loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'scriptaculous/dragdrop';
 $loadScripts[] = 'includes/tests';
 if ($configuration['math_content'] && $configuration['math_images']) {

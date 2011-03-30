@@ -101,7 +101,7 @@ $form -> addRule('estimate_min', _INVALIDFIELDDATA, 'numeric', null, 'client');
 $form -> addRule('estimate_sec', _INVALIDFIELDDATA, 'numeric', null, 'client');
 $form -> addRule('difficulty', _THEFIELD.' '._DIFFICULTY.' '._ISMANDATORY, 'required', null, 'client'); //Difficulty is mandatory and can be only a plain string
 $form -> addRule('question_type', _THEFIELD.' '._QUESTIONTYPE.' '._ISMANDATORY, 'required', null, 'client');
-$form -> addRule('question_text', _THEFIELD.' '._ISMANDATORY, 'required', null);
+//$form -> addRule('question_text', _THEFIELD.' '._ISMANDATORY, 'required', null);
 $form -> setDefaults(array('question_type' => $question_type)); //Set the default selected question type to be 'multiple_one'
 if (isset($_GET['difficulty'])) {
     $form -> setDefaults(array('difficulty' => $_GET['difficulty'])); //If a difficulty is specified, then set it to be selected
@@ -355,27 +355,32 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         }
         break;
     case 'empty_spaces':
-        $form -> addElement('button', 'generate_empty_spaces', _CREATEEMPTYSPACES, 'class = "flatButton" onclick = "eF_js_createEmptySpaces()"');
+  $form -> addElement('advcheckbox', 'select_list', _DISPLAYALTERNATIVESINSELECTBOX, null, 'class = "inputCheckBox"', array(0, 1));
+     $form -> addElement('button', 'generate_empty_spaces', _CREATEEMPTYSPACES, 'class = "flatButton" onclick = "eF_js_createEmptySpaces()"');
+
         if ($form -> isSubmitted() || isset($currentQuestion)) {
             if (isset($currentQuestion) && !$form -> isSubmitted()) {
                 $values['empty_spaces'] = unserialize($currentQuestion -> question['answer']);
+                $form -> setDefaults(array('select_list' => $currentQuestion -> settings['select_list']));
                 //$smarty -> assign("T_QUESTION_TYPE_CODE", "K7");
             } else {
                 $values = $form -> getSubmitValues();
             }
 
-            $excerpts = explode('###', $currentQuestion -> question['text']);
+            $excerpts = preg_split('/####*/', $currentQuestion -> question['text']);
+      preg_match_all('/####*/', $currentQuestion -> question['text'], $matches);
             $smarty -> assign("T_EXCERPTS", $excerpts);
 
             foreach ($values['empty_spaces'] as $key => $value) {
-                $form -> addElement('text', 'empty_spaces['.$key.']', null, 'class = "inputText"');
+                $form -> addElement('text', 'empty_spaces['.$key.']', null, 'class = "inputText" style = "width:'.(200+(strlen($matches[0][$key])-3)*20).'px"');
                 $form -> setDefaults(array('empty_spaces['.$key.']' => $value));
             }
 
             if ($form -> validate()) {
                 $question_values = array('type' => 'empty_spaces',
                                          'options' => '',
-                                         'answer' => serialize($values['empty_spaces']));
+                                         'answer' => serialize($values['empty_spaces']),
+                       'settings' => serialize(array('select_list' => $form -> exportValue('select_list'))));
             }
         }
         break;

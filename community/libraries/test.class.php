@@ -123,10 +123,11 @@ class EfrontTest
                             'master_score' => 50,
                             'redoable' => 0,
                             'onebyone' => 0,
-                            'answers' => 1,
+                            'answers' => 0,
                             'shuffle_questions' => 0,
                             'shuffle_answers' => 0,
                             'given_answers' => 1,
+          'show_answers_if_pass' => 1,
                             'random_pool' => 0,
                             'user_configurable' => 0,
           'show_incomplete' => 0,
@@ -1871,7 +1872,20 @@ class EfrontTest
                                 '.($units[$question -> question['content_ID']] && $done ? '<span style = "vertical-align:middle;margin-left:10px">'._UNIT.' "'.$units[$question -> question['content_ID']].'"</span>' : '').'
         '.(($_SESSION['s_type'] == "student" && $currentLesson -> options['content_report'] == 1)? '<a href = "content_report.php?ctg=tests&edit_question='.$question -> question['id'].'&question_type='.$question -> question['type'].'&lessons_Id='.$_SESSION['s_lessons_ID'].'" onclick = "eF_js_showDivPopup(\''._CONTENTREPORT.'\', 1)" target = "POPUP_FRAME"><img src = "images/16x16/warning.png" border=0 style = "vertical-align:middle" alt = "'._CONTENTREPORT.'" title = "'._CONTENTREPORT.'"/></a>' : '').'
        </td></tr>
-                    </table>'.($done ? $question -> toHTMLSolved(new HTML_QuickForm(), $this -> options['answers'], $this -> options['given_answers']) : $question -> toHTML($form)).'<br/></div>';
+                    </table>';
+   if ($done) {
+    if ($this -> options['answers']) {
+     $showCorrectAnswers = true;
+    } else if ($this -> options['show_answers_if_pass'] && ($this->completedTest['status'] == 'passed' || $this->completedTest['status'] == 'completed')) {
+     $showCorrectAnswers = true;
+    } else {
+     $showCorrectAnswers = false;
+    }
+    $testString .= $question -> toHTMLSolved(new HTML_QuickForm(), $showCorrectAnswers, $this -> options['given_answers']);
+   } else {
+    $testString .= $question -> toHTML($form);
+   }
+   $testString .= '<br/></div>';
             if ($done && !$isFeedback) {
                     $testString .= '
                         <table style = "width:100%" >
@@ -4520,11 +4534,22 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      */
     public function toHTMLQuickForm(&$form) {
-        $inputLabels = explode('###', $this -> question['text']);
+        //$inputLabels  = explode('###', $this -> question['text']);
+     $inputLabels = preg_split('/####*/', $this -> question['text']);
+     preg_match_all('/####*/', $this -> question['text'], $matches);
         $questionText = '';
         for ($k = 0; $k < sizeof($this -> answer); $k++) {
+         $alternatives = explode("|", $this->answer[$k]);
+         shuffle($alternatives);
+         $alternatives = array_combine($alternatives, $alternatives);
+         $alternatives = array_merge(array('' => ''), $alternatives);
             $elements[] = $form -> addElement("static", null, null, $inputLabels[$k]);
-            $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'autocomplete="off"');
+            if (sizeof($alternatives) > 1 && $this -> settings['select_list']) {
+             //$elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*20).'px" autocomplete="off" onfocus = "startAutoCompleter(this, \''.$this->question['id'].'_'.$k.'\', \''.urlencode(json_encode($alternatives)).'\');" onclick = "startAutoCompleter(this, \''.$this->question['id'].'_'.$k.'\', \''.urlencode(json_encode($alternatives)).'\');"');
+             $elements[] = $form -> addElement("select", "question[".$this -> question['id']."][$k]", $inputLabels, $alternatives, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*30).'px" autocomplete="off"');
+            } else {
+             $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*30).'px" autocomplete="off"');
+            }
             if ($this -> userAnswer !== false) {
                 $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => $this -> userAnswer[$k]));
             }
@@ -4639,7 +4664,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      */
     public function preview(&$form, $questionStats = false, $hideAnswerStatus = false) {
-        $inputLabels = explode('###', $this -> question['text']);
+        $inputLabels = preg_split('/####*/', $this -> question['text']);
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> answer); $k++) {
@@ -4717,7 +4742,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
 
      */
     public function toHTMLSolved(&$form, $showCorrectAnswers = true, $showGivenAnswers = true, $explanation = true) {
-        $inputLabels = explode('###', $this -> question['text']);
+        $inputLabels = preg_split('/####*/', $this -> question['text']);
         $this -> toHTMLQuickForm($form); //Assign proper elements to the form
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> answer); $k++) {
@@ -4816,11 +4841,15 @@ class EmptySpacesQuestion extends Question implements iQuestion
     public function correct() {
         $results['score'] = 0;
         $factor = 1 / sizeof($this -> userAnswer); //If the question has 4 options, then the factor is 1/4.
+        //pr($this -> userAnswer);exit;
         for ($i = 0; $i < sizeof($this -> userAnswer); $i++) {
          $userAnswer = mb_strtolower(trim($this -> userAnswer[$i]));
             //$this -> answer[$i] = explode("|", $this -> answer[$i]);
             $answers = explode("|", $this -> answer[$i]); //Create a copy so that mb_strtolower does not alter the original version
             array_walk($answers, create_function('&$v, $k', '$v = mb_strtolower(trim($v));'));
+            if ($this -> settings['select_list']) {
+             $answers = array_slice($answers, 0, 1);
+            }
             $results['correct'][$i] = false;
             if (isset($this -> answer[$i])) {
              if (in_array($userAnswer, $answers)) {
@@ -5619,9 +5648,6 @@ class RawTextQuestion extends Question implements iQuestion
   if ($this -> settings['force_correct'] == 'auto') {
    $splitAnswerWords = preg_split("/\p{Z}|\p{P}|\n/m", $this->userAnswer, -1, PREG_SPLIT_NO_EMPTY);
    array_walk($splitAnswerWords, create_function('&$v', '$v=trim($v);'));
-//pr($splitAnswerWords);
-//pr($this -> userAnswer);
-//pr($this -> settings);
    $totalScore = 0;
    foreach($this -> settings['autocorrect'] as $value) {
     $addScore = false;
@@ -5631,17 +5657,13 @@ class RawTextQuestion extends Question implements iQuestion
         preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer) ||
         preg_match("/(\p{Z}|\p{P}|\n|\r)$word$/mu", $this->userAnswer) ||
         preg_match("/(\p{Z}|\p{P}|\n|\r)$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer);
-     //$found = preg_match("/(".preg_quote($word).")|(".preg_quote($word).")(\p{Z}|\p{P}|\n)|(\p{Z}|\p{P}|\n)(".preg_quote($word).")(\p{Z}|\p{P}|\n)|(\p{Z}|\p{P}|\n)(".preg_quote($word).")/mu", $this->userAnswer, $matches);
      preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer, $matches);
-//pr($matches);
      if ($found) {
       if ($value['contains']) {
-//pr("Setting true because found $word");
        $addScore = true;
       }
      } else {
       if (!$value['contains']) {
-//pr("Setting true because not found $word");
        $addScore = true;
       }
      }
@@ -5650,7 +5672,6 @@ class RawTextQuestion extends Question implements iQuestion
      $totalScore +=$value['score'];
     }
    }
-//pr($totalScore);exit;
    if ($totalScore >= $this->settings['threshold']) {
     $results = array('correct' => '', 'score' => 1);
    } else {
@@ -5661,7 +5682,6 @@ class RawTextQuestion extends Question implements iQuestion
         } else {
             $results = array('correct' => '', 'score' => 0);
         }
-//pr($results);exit;
         return $results;
     }
     /**

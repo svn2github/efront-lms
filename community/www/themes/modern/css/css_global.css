@@ -1163,7 +1163,6 @@ background:#FAFAFA url('../images/css_images/gradient_large.gif') repeat-x top;
 -moz-box-shadow:0 0 4px #AAAAAA;
 -webkit-box-shadow:0 0 4px #AAAAAA;
 box-shadow:0 0 4px #AAAAAA;
-/*border:1px solid #AAAAAA;*/
 margin:5px auto;
 }
 img.blockMoveHandle{display:none}
@@ -1175,14 +1174,16 @@ div.block table.iconTable td{
 text-align:center;
 padding:4px;
 }
+
 div.block table.iconTable td.iconData:hover{
 background-color:#A1B6C8;
-border: 0px solid #2A4562;
--moz-border-radius: 8px;
-border-radius: 8px;
--moz-box-shadow:  3px 3px 3px #888;
+moz-border-radius: 3px;
+border-radius: 10px;
+/*moz-box-shadow:  3px 3px 3px #888;
 -webkit-box-shadow:  3px 3px 3px #888;
-box-shadow:  3px 3px 3px #888;
+box-shadow:  3px 3px 3px #888;*/
+border: 0px solid #999;
+
 }
 div.block table.iconTable a img{
 border-width:0px;

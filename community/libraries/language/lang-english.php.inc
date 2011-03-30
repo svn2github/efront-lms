@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS", "Insert the multiple choices");
 define("_INSERTEXPLANATION", "Insert explanation");
 define("_THISQUESTIONIS", "This question is");
 define("_CREATEEMPTYSPACES", "Create empty spaces");
-define("_EMPTYSPACESEXPLANATION", "Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below");
+define("_EMPTYSPACESEXPLANATION", "Write the question text and wherever you need to insert a blank space, insert ###. If you want a text box to be longer, specify more #, for example ##### (each # equals 30px). When you are done, click on the &quot;Create empty spaces&quot; button below");
 define("_INSERTMATCHCOUPLES", "Insert matching pairs");
 define("_ADDOPTION", "Add option");
 define("_GOTOCALENDAR", "Go to calendar");
@@ -4033,4 +4033,7 @@ define("_COURSELESSONSRULES", "Course lesson rules");
 define("_RULESBETWEENCOURSES", "Rules between courses");
 define("_COURSEDEPENDSON", "Course depends on");
 define("_YOUCANNOTSETSAMECOURSEASRULE", "You cannot set the course as a prerequisite of itself");
+define("_DISPLAYALTERNATIVESINSELECTBOX", "Display alternatives in select box");
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT", "Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct");
+define("_SHOWANSWERSIFSTUDENTPASSED", "Show correct answers only if student passed the test");
 ?>

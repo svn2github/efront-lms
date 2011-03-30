@@ -4,7 +4,8 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-
+$loadScripts[] = 'scriptaculous/controls';
+$loadScripts[] = 'includes/tests';
 if (!$_student_) {
     $showTest = new EfrontTest($_GET['view_unit'], true);
     if (isset($_GET['print'])) {

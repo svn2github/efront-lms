@@ -78,7 +78,8 @@ $form -> addElement('text', 'mastery_score', _MASTERYSCORE, 'size = "5"');
 $form -> addElement('advcheckbox', 'onebyone', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'given_answers', null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'answers', null, null, null, array(0, 1));
+$form -> addElement('advcheckbox', 'answers', null, null, 'id = "answers_checkbox" onclick = "if (this.checked && $(\'show_answers_if_pass_checkbox\').checked) {$(\'show_answers_if_pass_checkbox\').checked = false}"', array(0, 1));
+$form -> addElement('advcheckbox', 'show_answers_if_pass', null, null, 'id = "show_answers_if_pass_checkbox" onclick = "if (this.checked && $(\'answers_checkbox\').checked) {$(\'answers_checkbox\').checked = false}"', array(0, 1));
 $form -> addElement('advcheckbox', 'redirect', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_answers', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_questions', null, null, null, array(0, 1));
@@ -168,7 +169,8 @@ $smarty -> assign("T_QUESTION_TYPES_ICONS", Question::$questionTypesIcons);
 if (isset($_GET['add_test'])) {
     $form -> addElement('submit', 'submit_test', _SAVETESTANDADDQUESTIONS, 'class = "flatButton"');
     $form -> setDefaults(array('given_answers' => 1,
-                               'answers' => 1,
+                               'answers' => 0,
+             'show_answers_if_pass' => 1,
                                'maintain_history' => 5,
                                'publish' => 1,
              'keep_best' => 0,
@@ -222,6 +224,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'onebyone' => $values['onebyone'],
                           'only_forward' => $values['only_forward'],
                                 'given_answers' => $values['given_answers'],
+        'show_answers_if_pass' => $values['show_answers_if_pass'],
                                 'maintain_history' => $values['maintain_history'],
                                 'answers' => $values['answers'],
         'redirect' => $values['redirect'],
@@ -241,6 +244,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'onebyone' => 0,
                           'only_forward' => 0,
                                 'given_answers' => 0,
+        'show_answers_if_pass' => 0,
                                 'maintain_history' => 1,
                                 'answers' => 0,
         'redirect' => 1,

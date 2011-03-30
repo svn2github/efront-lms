@@ -155,6 +155,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <tr style="display:none;" id = "answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.answers.html}</td></tr>
      {if $T_TEST_FORM.answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answers.error}</td></tr>{/if}
+     <tr style="display:none;" id = "show_answers_if_pass"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWANSWERSIFSTUDENTPASSED}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.show_answers_if_pass.html}</td></tr>
+     {if $T_TEST_FORM.show_answers_if_pass.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.show_answers_if_pass.error}</td></tr>{/if}
      <tr style="display:none;" id = "redirect"><td class = "labelCell" style = "white-space:normal">{$smarty.const._DONOTSHOWTESTAFTERSUBMITTING}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.redirect.html}</td></tr>
      {if $T_TEST_FORM.redirect.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redirect.error}</td></tr>{/if}
@@ -573,10 +576,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
           <td class = "elementCell">{$T_QUESTION_FORM.estimate_min.html}{$smarty.const._MINUTESSHORTHAND} : {$T_QUESTION_FORM.estimate_sec.html}{$smarty.const._SECONDSSHORTHAND}</td></tr>
         {if $T_QUESTION_FORM.estimate_min.error}<tr><td></td><td class = "formError">{$T_QUESTION_FORM.estimate_min.error}</td></tr>{/if}
         {if $T_QUESTION_FORM.estimate_sec.error}<tr><td></td><td class = "formError">{$T_QUESTION_FORM.estimate_sec.error}</td></tr>{/if}
-        {if $smarty.get.question_type == 'empty_spaces'}
-         <tr><td></td>
-          <td>{$smarty.const._EMPTYSPACESEXPLANATION}</td></tr>
-        {/if}
    <tr><td></td><td id = "toggleeditor_cell1">
     <div class = "headerTools">
      <span>
@@ -593,6 +592,10 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          <tr><td class = "labelCell">{$T_QUESTION_FORM.question_text.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.question_text.html}</td></tr>
   {if $T_QUESTION_FORM.question_text.error}<tr><td></td><td class = "formError">{$T_QUESTION_FORM.question_text.error}</td></tr>{/if}
+        {if $smarty.get.question_type == 'empty_spaces'}
+         <tr><td></td>
+          <td class = "infoCell">{$smarty.const._EMPTYSPACESEXPLANATION}</td></tr>
+        {/if}
  {if $smarty.get.question_type == 'raw_text'}
    <tr><td class = "labelCell">{$T_QUESTION_FORM.force_correct.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.force_correct.html}</td></tr>
@@ -662,15 +665,20 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             <tr><td class = "labelCell"></td>
                 <td class = "elementCell">{$T_QUESTION_FORM.generate_empty_spaces.html}</td></tr>
             <tr><td colspan = "2" >&nbsp;</td></tr>
-            <tr><td></td>
-                <td class = "infoCell">{$smarty.const._SEPARATEALTERNATIVESEXAMPLE}. {$smarty.const._YOUCANUSEASTERISK}</td></tr>
             <tr id = "spacesRow"><td></td><td>
   {foreach name = 'empty_spaces_list' key = key item = item from = $T_QUESTION_FORM.empty_spaces}
          {$T_EXCERPTS.$key} {$item.html} {if $item.error}{$item.error}{/if}
   {/foreach}
             {$T_EXCERPTS[$smarty.foreach.empty_spaces_list.iteration]}
                 </td></tr>
-            <tr id = "empty_spaces_last_node"><td colspan = "2" >&nbsp;</td></tr>
+            <tr id = "empty_spaces_last_node"><td colspan = "2" ></td></tr>
+            <tr><td></td>
+                <td class = "infoCell">{$smarty.const._SEPARATEALTERNATIVESEXAMPLE}. {$smarty.const._YOUCANUSEASTERISK}</td></tr>
+   <tr><td class = "labelCell">{$T_QUESTION_FORM.select_list.label}:&nbsp;</td>
+             <td class = "elementCell">{$T_QUESTION_FORM.select_list.html}</td></tr>
+   {if $T_QUESTION_FORM.select_list.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.select_list.error}</td></tr>{/if}
+            <tr><td></td>
+                <td class = "infoCell">{$smarty.const._CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT}</td></tr>
  {elseif $smarty.get.question_type == 'multiple_one'}
          <tr><td class = "labelCell questionLabel">{$smarty.const._INSERTMULTIPLEQUESTIONS}:</td>
              <td><table>

@@ -2875,9 +2875,9 @@ class EfrontStats
          $answers[] = $question -> userAnswer ? _TRUE : _FALSE ;
         }
        } elseif ($question instanceOf EmptySpacesQuestion) {
-        $occurences = preg_match_all("/###/", $question -> question['plain_text'], $matches);
+        $occurences = preg_match_all("/####*/", $question -> question['plain_text'], $matches);
         for ($i = 0; $i < $occurences; $i++) {
-         $question -> question['plain_text'] = preg_replace("/###/", "<b>".$question -> userAnswer[$i]."</b>", $question -> question['plain_text'], 1);
+         $question -> question['plain_text'] = preg_replace("/####*/", "<b>".$question -> userAnswer[$i]."</b>", $question -> question['plain_text'], 1);
         }
         $answers[] = $question -> question['plain_text'];
        } elseif (($question instanceOf MultipleOneQuestion)) {

@@ -850,6 +850,9 @@ function toggleAdvancedParameters() {
  if ($('given_answers')) {
   $('given_answers').toggle();
  }
+ if ($('show_answers_if_pass')) {
+  $('show_answers_if_pass').toggle();
+ }
  if ($('answers')) {
   $('answers').toggle();
  }
@@ -895,4 +898,14 @@ if (typeof(showtest) != 'undefined' && showtest) {
 dragdrop = new Object();
 if (typeof(dragDropQuestions) != 'undefined') {
  dragDropQuestions.each(function (s) {initDragDrop(s, dragDropQuestionKeys[s]);})
+}
+
+function startAutoCompleter(el, id, options) {
+ var arrayOptions = decodeURIComponent(options).evalJSON(true);
+ Element.extend(el);
+ if (!$('question_autocomplete_'+id)) {
+  el.up().up().insert(new Element('div', {id:'question_autocomplete_'+id}).addClassName('autocomplete'));
+ }
+ var autocompleter = new Autocompleter.Local(el.identify(), 'question_autocomplete_'+id, arrayOptions, { });
+ autocompleter.activate();
 }

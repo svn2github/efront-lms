@@ -54,6 +54,8 @@
 - Resolved memory overuse in lesson reports when having many completed tests
 - Allow wildcards in "fill in the gaps" question types
 - Added course prerequisites (course access depends on another course's completion) 
+- Allow variable text-box sizes in "empty spaces" questions
+- Added select box option in empty spaces questions
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

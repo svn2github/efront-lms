@@ -146,6 +146,7 @@
     {/foreach}
         </table>
 {/if}
+{*
  <br>
  <div class = "blockHeader">Language compatibility</div>
  <div class = "headerTools">
@@ -201,9 +202,11 @@
         <tr><td>&nbsp;</td></tr>
     </table>
 {/if}
+*}
     </td><td>
     </td></tr>
         <tr><td>&nbsp;</td></tr>
 </table>
+
 {/capture}
 {eF_template_printBlock title=$smarty.const._ENVIRONMENTALCHECK data=$smarty.capture.t_check_status_code image='32x32/generic.png'}

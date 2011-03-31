@@ -222,41 +222,73 @@ foreach ($pear as $key => $value) {
     }
 }
 $smarty -> assign("T_PEAR", $pear);
+/*
 
 $languages = array("english","arabic","bulgarian","chinese_traditional","chinese_simplified","croatian","czech","danish","dutch","finnish","french","german","greek","hindi","italian","japanese","norwegian","polish","portuguese","romanian","russian","spanish","swedish",
-       "albanian","catalan","brazilian","filipino","galician","georgian","hebrew","hungarian","indonesian","latvian","lithuanian","persian","serbian","slovak","slovenian","thai","turkish","ukrainian","vietnamese");
+
+				   "albanian","catalan","brazilian","filipino","galician","georgian","hebrew","hungarian","indonesian","latvian","lithuanian","persian","serbian","slovak","slovenian","thai","turkish","ukrainian","vietnamese");
+
 sort($languages);
+
 foreach ($languages as $value){
- if ($value == "chinese_traditional" || $value == "chinese_simplified") {
-  $languagesArray[$value] = "chinese";
- } elseif ($value == "brazilian") {
-  $languagesArray[$value] = "portuguese";
- } elseif ($value == "turkish") {
-   $languagesArray[$value] = "english";
- } else {
-  $languagesArray[$value] = $value;
- }
+
+	if ($value == "chinese_traditional" || $value == "chinese_simplified") {
+
+		$languagesArray[$value] = "chinese";
+
+	} elseif ($value == "brazilian") {
+
+		$languagesArray[$value] = "portuguese";
+
+	} elseif ($value == "turkish") {
+
+			$languagesArray[$value] = "english";
+
+	} else {
+
+		$languagesArray[$value] = $value;
+
+	}
+
 }
+
+
 
 foreach ($languagesArray as $key => $value) {
- $languageFileContents = file_get_contents($path."language/lang-$key.php.inc");
- preg_match('/.*"_HEADERLANGUAGETAG","(.*)".*/', $languageFileContents, $matches);
- $value = $matches[1];
 
- $locale[$key] = array('language' => $key, //To see the system installed locales, type locale-a in command prompt (linux/unix).
-       'locale' => (setlocale(LC_ALL, $value)),
-       'help' => (setlocale(LC_ALL, $value) === false) ? _YOUSHOULDCHANGEHEADERLANGUAGETAG.'&nbsp;'. $key.'&nbsp;'._LANGUAGEFILE : _YOURSYSTEMSUPPORTS .'&nbsp;'.$key);
+	$languageFileContents = file_get_contents($path."language/lang-$key.php.inc");
+
+	preg_match('#.*"_HEADERLANGUAGETAG","(.*)".*#', $languageFileContents, $matches);
+
+	$value = $matches[1];
+
+
+
+	$locale[$key]   = array('language' => $key,                               //To see the system installed locales, type locale-a in command prompt (linux/unix).
+
+							'locale'   => (setlocale(LC_ALL, $value)),
+
+							'help'     => (setlocale(LC_ALL, $value) === false) ? _YOUSHOULDCHANGEHEADERLANGUAGETAG.'&nbsp;'. $key.'&nbsp;'._LANGUAGEFILE : _YOURSYSTEMSUPPORTS .'&nbsp;'.$key);
+
 }
+
 //setlocale(LC_ALL, _HEADERLANGUAGETAG);
 
 
+
 $correctLocale = $incorrectLocale = array();
+
 foreach ($locale as $key => $value) {
+
     $value['locale'] ? $correctLocale[$key] = $locale[$key] : $incorrectLocale[$key] = $locale[$key];
+
 }
+
 $smarty -> assign("T_CORRECT_LOCALE", $correctLocale);
+
 $smarty -> assign("T_INCORRECT_LOCALE", $incorrectLocale);
 
+*/
 $install = true; //The install variable will be used to check whether any mandatory setting is not met.
 foreach ($mandatory as $key => $value) { //Check mandatory PHP extensions
     if (!$value['enabled']) {
@@ -276,8 +308,6 @@ foreach ($pear as $key => $value) { //Check PEAR packages
 if ($php_version[0] <= 4) { //PHP 4 will not run
     $install = false;
 }
-
-
 function local_checkThemesWritable() {
     $writable = true;
     if (class_exists('FileSystemTree')) {
@@ -290,7 +320,6 @@ function local_checkThemesWritable() {
     }
     return $writable;
 }
-
 function local_checkWritableRecursive($path) {
     $writable = true;
     if (!is_writable($path)) {

@@ -24,6 +24,7 @@
                                     <tr class = "topTitle">
                                         <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
                                         <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
+                                        <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
                                         <td class = "topTitle centerAlign" name = "groups_num">{$smarty.const._GROUPS}</td>
                                         <td class = "topTitle" name = "last_login">{$smarty.const._LASTLOGIN}</td>
                                         <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE2}</td>
@@ -38,6 +39,7 @@
                                     <tr id="row_{$user.login}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
                                             <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}" class = "editLink" {if ($user.pending == 1)}style="color:red;"{/if}><span id="column_{$user.login}" {if !$user.active}style="color:red;"{/if}>#filter:login-{$user.login}#</span></a></td>
                                             <td>{if $user.user_types_ID}{$T_ROLES[$user.user_types_ID]}{else}{$T_ROLES[$user.user_type]}{/if}</td>
+                                            <td>#filter:timestamp-{$user.timestamp}#</td>
                                             <td class = "centerAlign">{$user.groups_num}</td>
                                             <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
                                             <td class = "centerAlign">

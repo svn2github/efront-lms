@@ -932,11 +932,11 @@ abstract class EfrontUser
  public static function getUsersOnline($interval = false) {
   $usersOnline = array();
   //A user may have multiple active entries on the user_times table, one for system, one for unit etc. Pick the most recent
-  $result = eF_getTableData("user_times,users", "users_LOGIN, users.name, users.surname, users.user_type, timestamp_now, session_timestamp, session_id", "users.login=user_times.users_LOGIN and session_expired=0", "timestamp_now desc");
+  $result = eF_getTableData("user_times,users", "users.login, users.name, users.surname, users.user_type, timestamp_now, session_timestamp, session_id", "users.login=user_times.users_LOGIN and session_expired=0", "timestamp_now desc");
   foreach ($result as $value) {
-   if (!isset($parsedUsers[$value['users_LOGIN']])) {
+   if (!isset($parsedUsers[$value['login']])) {
     if ((time() - $value['timestamp_now'] < $interval) || !$interval) {
-     $usersOnline[] = array('login' => $value['users_LOGIN'],
+     $usersOnline[] = array('login' => $value['login'],
              //'name'		   => $value['name'],
              //'surname'	   => $value['surname'],
              'formattedLogin'=> formatLogin(false, $value),
@@ -945,9 +945,9 @@ abstract class EfrontUser
              'session_timestamp' => $value['session_timestamp'],
              'time' => EfrontTimes::formatTimeForReporting(time() - $value['session_timestamp']));
     } else {
-     EfrontUserFactory :: factory($value['users_LOGIN']) -> logout($value['session_id']);
+     EfrontUserFactory :: factory($value['login']) -> logout($value['session_id']);
     }
-    $parsedUsers[$value['users_LOGIN']] = true;
+    $parsedUsers[$value['login']] = true;
    }
   }
   return $usersOnline;

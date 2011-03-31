@@ -78,9 +78,9 @@ if (is_file($path."smarty/smarty_config.php") && is_file($path."language/lang-en
 if (isset($_GET['unattended']) && !isset($_GET['upgrade']) && (!isset($_GET['config']) || !is_file(basename($_GET['config'])))) {
  unset($_GET['unattended']);
 }
-$smarty -> assign("T_INSTALLATION_OPTIONS", array(array('text' => 'Emergency restore', 'image' => "16x16/undo.png", 'href' => 'install/'.basename($_SERVER['PHP_SELF'])."?restore=1")));
 $smarty -> assign("T_VERSION_TYPE", $versionTypes[G_VERSIONTYPE]);
 if (is_file($path."configuration.php")) {
+ $smarty -> assign("T_INSTALLATION_OPTIONS", array(array('text' => 'Emergency restore', 'image' => "16x16/undo.png", 'href' => 'install/'.basename($_SERVER['PHP_SELF'])."?restore=1")));
  $smarty -> assign("T_CONFIGURATION_EXISTS", true);
 }
 if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) {
@@ -89,6 +89,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) 
  }
  $exclude_normal = true;
  require_once $path."includes/check_status.php";
+Installation :: fix($settings_mandatory, 'local');
  if ($_GET['mode'] != 'none' && sizeof($settings_mandatory) > 0) {
   if (!$_GET['mode']) {
    Installation :: fix($settings_mandatory, 'local');
@@ -665,6 +666,7 @@ $loadScripts = array('EfrontScripts',
 $smarty -> assign("T_HEADER_LOAD_SCRIPTS", implode(",", array_unique($loadScripts))); //array_unique, so it doesn't send duplicate entries
 $smarty -> assign("T_MESSAGE", $message);
 $smarty -> assign("T_MESSAGE_TYPE", $message_type);
+$smarty -> load_filter('output', 'eF_template_applyImageMap');
 $smarty -> load_filter('output', 'eF_template_applyThemeToImages');
 $smarty -> display ("install/install.tpl");
 /**
@@ -943,21 +945,39 @@ class Installation
 	 * @static
 	 */
  public static function fix($settings, $mode = 'local') {
+  $sessionSavePathDir = '';
+  if ($settings['session.save_path'] && function_exists('sys_get_temp_dir') && is_writable(sys_get_temp_dir())) { //If the session.save_path does not exist, set it to system's default temp dir
+   $sessionSavePathDir = trim(sys_get_temp_dir(), '\\');
+  } else if (!function_exists('sys_get_temp_dir') || (function_exists('sys_get_temp_dir') && !is_writable(sys_get_temp_dir()))) {
+   $rootDir = dirname(dirname(dirname(__FILE__)));
+   if (is_dir(dirname($rootDir).'/tmp') && is_writable(dirname($rootDir).'/tmp')) {
+    $sessionSavePathDir = dirname($rootDir).'/tmp';
+   } else if (is_writable($rootDir.'/upload')) {
+    $sessionSavePathDir = $rootDir.'/upload';
+   }
+  }
+  //When we need to apply a local php.ini file, even if session.save_path is correctly configured in the system, after applying
+  //the php.ini file, for some reason the session.save_path goes away. So, whenever we are in this function, we *must*
+  //include the session.save_path inside the local php.ini file
+  elseif (!$settings['session.save_path']) {
+   if (ini_get('session.save_path') && is_writable(ini_get('session.save_path'))) {
+    $sessionSavePathDir = ini_get('session.save_path');
+   } else if (function_exists('sys_get_temp_dir') && is_writable(sys_get_temp_dir())) {
+    $sessionSavePathDir = trim(sys_get_temp_dir(), '\\');
+   } else if (!function_exists('sys_get_temp_dir') || (function_exists('sys_get_temp_dir') && !is_writable(sys_get_temp_dir()))) {
+    $rootDir = dirname(dirname(dirname(__FILE__)));
+    if (is_dir(dirname($rootDir).'/tmp') && is_writable(dirname($rootDir).'/tmp')) {
+     $sessionSavePathDir = dirname($rootDir).'/tmp';
+    } else if (is_writable($rootDir.'/upload')) {
+     $sessionSavePathDir = $rootDir.'/upload';
+    }
+   }
+  }
   //local mode: create and apply a local php.ini file
   if ($mode == 'local') {
    $localPhpIniString = "";
-   if ($settings['session.save_path'] && function_exists('sys_get_temp_dir')) { //If the session.save_path does not exist, set it to system's default temp dir
-    $localPhpIniString .= "session.save_path = \"".trim(sys_get_temp_dir(), '\\')."\"\n";
-   }
-   //When we need to apply a local php.ini file, even if session.save_path is correctly configured in the system, after applying
-   //the php.ini file, for some reason the session.save_path goes away. So, whenever we are in this function, we *must*
-   //include the session.save_path inside the local php.ini file
-   elseif (!$settings['session.save_path']) {
-    if (ini_get('session.save_path') && is_writable(ini_get('session.save_path'))) {
-     $localPhpIniString .= "session.save_path = \"".ini_get('session.save_path')."\"\n";
-    } else if (function_exists('sys_get_temp_dir')) {
-     $localPhpIniString .= "session.save_path = \"".trim(sys_get_temp_dir(), '\\')."\"\n";
-    }
+   if ($sessionSavePathDir) {
+    $localPhpIniString .= "session.save_path = \"".$sessionSavePathDir."\"\n";
    }
    if ($settings['magic_quotes_gpc']) {
     $localPhpIniString .= "magic_quotes_gpc = Off\n";
@@ -972,7 +992,7 @@ class Installation
    $localHtaccess = "<IfModule mod_php5.c>
 php_value magic_quotes_gpc Off
 php_value register_globals Off
-".(function_exists('sys_get_temp_dir') ? "php_value session.save_path \"".trim(sys_get_temp_dir(), '\\')."\"" : "")."
+".($sessionSavePathDir ? "php_value session.save_path \"".$sessionSavePathDir."\"" : "")."
 </IfModule>";
    file_put_contents("../.htaccess", $localHtaccess);
   }

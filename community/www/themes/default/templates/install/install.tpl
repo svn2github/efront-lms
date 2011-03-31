@@ -27,7 +27,7 @@
 
   <div style = "text-align:right"><input type = "submit" name = "next_step" value = "Continue &raquo;" onclick = "{if $T_MISSING_SETTINGS}if (confirm('Some mandatory elements were not found. Are you sure you want to continue?')){/if}window.location = '{$smarty.server.PHP_SELF}?step=2{if $smarty.get.upgrade}&upgrade=1{/if}'" class = "flatButton {if $T_MISSING_SETTINGS}inactiveElement{/if}"></div>
   {/capture}
-  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.step_1_code image = '32x32/options.png'}
+  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.step_1_code }
   <script>
   {literal}
   function setErrorReporting(el) {
@@ -222,7 +222,7 @@
                 </table>
 *}
   {/capture}
-  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.step_2_code image = '32x32/options.png'}
+  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.step_2_code }
  {elseif $smarty.get.restore}
   {assign var = "path_title" value = "`$path_title`&nbsp;&raquo;&nbsp;<a href = '`$smarty.server.PHP_SELF`?restore=1'>Emergency restore</a>"}
   <table style = "width:100%">
@@ -235,7 +235,7 @@
     <td class = "centerAlign"><img class = "ajaxHandle" src = "images/16x16/undo.png" alt = "Restore" title = "Restore" onclick = "if (confirm('This operation is irreversible! Are you sure?')) location = location+'&file={$file}';"></td>
    </tr>
   {foreachelse}
-   <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory">No data found</td></tr>
+   <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory" colspan="2">No data found</td></tr>
   {/foreach}
   </table>
  {elseif $smarty.get.finish}
@@ -248,7 +248,7 @@
    <p>Click <a href = "index.php?delete_install=1" style = "font-weight:bold;text-decoration:underline">here</a> to delete the installation directory automatically and navigate to the system <a href = "index.php">index page</a>.</p>
   </div>
   {/capture}
-  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.finish_code image = '32x32/options.png'}
+  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.finish_code }
  {else}
   {capture name = 'start_code'}
   <div style = "text-align:center;font-size:14px;">
@@ -265,20 +265,16 @@
     {/if}
     </tr>
    </table>
-   <p>Need help? Check the <a style = "color:blue" target = "new" href = "http://docs.efrontlearning.net/index.php/Main_Page#Installation_.26_upgrading">documentation</a> or ask the <a style = "color:blue" target = "new" href = "http://forum.efrontlearning.net/index.php">support forums</a>!</p>
+   <p>Need help? Check the <a style = "color:blue" target = "new" href = "http://docs.efrontlearning.net/">documentation</a> or ask the <a style = "color:blue" target = "new" href = "http://forum.efrontlearning.net/">support forums</a>!</p>
   </div>
   {/capture}
-  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.start_code image = '32x32/options.png' options = $T_INSTALLATION_OPTIONS}
+  {eF_template_printBlock title = 'Efront Installation Wizard' content = $smarty.capture.start_code options = $T_INSTALLATION_OPTIONS}
  {/if}
 {/capture}
 
 {capture name = "header_code"}
   <div id = "logo">
-   <a href = "index.php"><img src = "images/logo.png" title = "eFront" alt = "eFront" border = "0"></a>
-  </div>
-  <div id = "info">
-   <div id = "site_name">eFront</div>
-   <div id = "site_motto">Refreshing eLearning</div>
+   <a href = "index.php"><img src = "themes/modern/images/logo/logo.png" title = "eFront" alt = "eFront" border = "0"></a>
   </div>
   <div id = "path">
    <div id = "path_title">{$path_title}</div>

@@ -460,7 +460,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     //lesson users info
     $workSheet -> write(1, 4, _USERSINFO, $headerFormat);
     $workSheet -> mergeCells(1, 4, 1, 12);
-    $workSheet -> setColumn(4, 12, 18);
+    $workSheet -> setColumn(4, 12, 20);
 
     $workSheet -> write(2, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write(2, 5, _LESSONROLE, $titleLeftFormat);

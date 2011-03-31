@@ -2193,7 +2193,8 @@ class EfrontStats
             }
 
             $testInfo['done'] = array();
-            $done_info = eF_getTableData("scorm_data d, users u", "d.users_LOGIN, u.name, u.surname, d.score, d.timestamp, d.lesson_status, d.masteryscore, d.minscore, d.maxscore","d.users_LOGIN = u.LOGIN and d.content_ID = $id");
+            $done_info = eF_getTableData("scorm_data d, users u", "d.users_LOGIN, u.name, u.surname, d.score, d.timestamp, d.lesson_status, d.masteryscore, d.minscore, d.maxscore","d.lesson_status != 'incomplete' and d.users_LOGIN = u.LOGIN and d.content_ID = $id");
+
             foreach ($done_info as $done) {
 
                 $done_test = array();
@@ -2236,6 +2237,7 @@ class EfrontStats
             }
             $tests_info[$id] = $testInfo;
         }
+
         return $tests_info;
     }
 

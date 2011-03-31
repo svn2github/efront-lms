@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS", "Insert the multiple choices");
 define("_INSERTEXPLANATION", "Insert explanation");
 define("_THISQUESTIONIS", "This question is");
 define("_CREATEEMPTYSPACES", "Create empty spaces");
-define("_EMPTYSPACESEXPLANATION", "Write the question text and wherever you need to insert a blank space, insert ###. If you want a text box to be longer, specify more #, for example ##### (each # equals 30px). When you are done, click on the &quot;Create empty spaces&quot; button below");
+define("_EMPTYSPACESEXPLANATION", "Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below");
 define("_INSERTMATCHCOUPLES", "Insert matching pairs");
 define("_ADDOPTION", "Add option");
 define("_GOTOCALENDAR", "Go to calendar");

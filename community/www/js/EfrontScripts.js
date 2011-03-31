@@ -434,12 +434,16 @@ function toggleBlock(el, cookie) {
  hideBlock = el.up().up().select('div.content')[0];
  if (el.hasClassName('open')) {
   new Effect.BlindUp(hideBlock, {duration:0.5});
-  el.removeClassName('open').addClassName('close').removeClassName('sprite16-navigate_up').addClassName('sprite16-navigate_down');
+  el.removeClassName('open').addClassName('close');
+  setImageSrc(el, 16, 'navigate_down');
+  //.removeClassName('sprite16-navigate_up').addClassName('sprite16-navigate_down');
   //el.src = "themes/default/images/16x16/navigate_down.png";
   cookie ? createCookie('innerTables['+cookie+']', 'hidden') : null;
  } else {
   new Effect.BlindDown(hideBlock, {duration:0.5});
-  el.removeClassName('close').addClassName('open').removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
+  el.removeClassName('close').addClassName('open');
+  setImageSrc(el, 16, 'navigate_up');
+  //.removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
   //el.src = "themes/default/images/16x16/navigate_up.png";
   cookie ? createCookie('innerTables['+cookie+']', 'visible') : null;
  }

@@ -31,7 +31,7 @@ try {
         if (isset($_GET['postAjaxRequest'])) {
             if (in_array($_GET['dc'], array_keys($metadata -> metadataAttributes))) {
                 if ($_GET['value']) {
-                    $contentMetadata[$_GET['dc']] = ($_GET['value']);
+                    $contentMetadata[$_GET['dc']] = urldecode($_GET['value']);
                 } else {
                     unset($contentMetadata[$_GET['dc']]);
                 }
@@ -39,7 +39,7 @@ try {
             }
             try {
                 $currentUnit -> persist();
-                echo $_GET['value'];
+                echo urldecode($_GET['value']);
             } catch (Exception $e) {
     handleAjaxExceptions($e);
             }

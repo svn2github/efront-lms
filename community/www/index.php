@@ -197,6 +197,12 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
   }
  } catch (EfrontUserException $e) {}
 }
+if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
+ if (isset($_SESSION['s_login'])) {
+  $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+  $currentUser -> logout(session_id());
+ }
+}
 if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
  try {
   $user = EfrontUserFactory :: factory($_COOKIE['cookie_login']);
@@ -472,12 +478,6 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
  $smarty -> assign('T_RESET_PASSWORD_FORM', $renderer -> toArray());
 }
 /* -------------------------------------------------------End of Reset Password part--------------------------------------------------------- */
-if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
- if (isset($_SESSION['s_login'])) {
-  $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
-  $currentUser -> logout(session_id());
- }
-}
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup']) {
  $users = eF_countTableData("users", "login", "active=1 and archive=0");

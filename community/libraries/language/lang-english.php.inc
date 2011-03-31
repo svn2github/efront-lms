@@ -4036,4 +4036,20 @@ define("_YOUCANNOTSETSAMECOURSEASRULE", "You cannot set the course as a prerequi
 define("_DISPLAYALTERNATIVESINSELECTBOX", "Display alternatives in select box");
 define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT", "Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct");
 define("_SHOWANSWERSIFSTUDENTPASSED", "Show correct answers only if student passed the test");
+define("_OPTIONSCHECKER","Settings checker");
+define("_CHECKBROWSER","Checking browser");
+define("_CHECKRESOLUTION","Checking screen resolution");
+define("_CHECKPOPUPBLOCKER","Checking for Popup blocker");
+define("_CHECKCOOKIES","Checking Cookie state...");
+define("_CHECKFLASH","Checking for Flash");
+define("_CHECKACROBAT","Checking for Adobe Reader");
+define("_CHECKBROWSERIE6","Internet Explorer 6 detected. This browser is obsolete and functionality may be affected");
+define("_CHECKBROWSERFAILED","Unfortunately the browser that you are using is not supported");
+define("_CHECKRESOLUTIONFAILED","Your screen resolution does not meet the minimum requirement of");
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker detected. Please allow popups for this site and try again");
+define("_CHECKCOOKIESFAILED","Cookies appear to be disabled. Please enable cookies");
+define("_CHECKFLASHFAILED","Flash is not installed, out of date");
+define("_CHECKACROBATFAILED","Adobe Reader is not installed");
+define("_CHECKJAVASCRIPT","Checking Javascript");
+define("_CHECKJAVASCRIPTFAILED","Javascript is not enabled in your browser");
 ?>

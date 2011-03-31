@@ -143,6 +143,7 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
         'online' => array('title' => _USERSONLINE, 'image' => '32x32/users.png'),
         'lessons' => array('title' => _COURSES, 'image' => '32x32/theory.png'),
                  'selectedLessons' => array('title' => _SELECTEDCOURSES, 'image' => '32x32/shopping_basket.png'),
+     'checker' => array('title' => _OPTIONSCHECKER, 'image' => '32x32/success.png'),
         'news' => array('title' => _SYSTEMNEWS, 'image' => '32x32/announcements.png'));
  if (!empty($GLOBALS['currentTheme'] -> layout['positions']['enabled'])) {
   $blocks['links'] = array('title' => _LINKS, 'image' => '32x32/generic.png');

@@ -58,6 +58,8 @@
 - Added select box option in empty spaces questions
 - Added option for showing correct answers only if student passed the test
 - Changed course certificate expiration calculations to be more accurate (#1225)
+- Added the settings checker block for layout of the first page
+- Fixed issue about wrong report link in feedbacks
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

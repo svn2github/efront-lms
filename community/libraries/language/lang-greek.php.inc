@@ -4034,4 +4034,19 @@ define("_YOUCANNOTSETSAMECOURSEASRULE", "Δεν μπορείτε να θέσετ
 define("_DISPLAYALTERNATIVESINSELECTBOX", "Εμφάνιση εναλλακτικών σε λίστα επιλογής");
 define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT", "Επιλέγοντας αυτό θα εμφανίζεται μία λίστα επιλογής με τις εναλλακτικές, αντί για πεδίο κειμένου. Σε αυτήν την περίπτωση, μόνο η πρώτη επιλογή θεωρείται σωστή");
 define("_SHOWANSWERSIFSTUDENTPASSED", "Εμφάνιση σωστών απαντήσεων μόνο αν ο μαθητής πέρασε την αξιολόγηση");
+define("_OPTIONSCHECKER","Έλεγχος προαπαιτούμενων");
+define("_CHECKBROWSER","Έλεγχος browser");
+define("_CHECKRESOLUTION","Έλεγχος ανάλυσης οθόνης");
+define("_CHECKPOPUPBLOCKER","Έλεγχος φραγής αναδυόμενων παραθύρων");
+define("_CHECKCOOKIES","Έλεγχος cookies");
+define("_CHECKFLASH","Έλεγχος Flash");
+define("_CHECKACROBAT","Έλεγχος Adobe Reader");
+define("_CHECKBROWSERIE6","Internet Explorer 6. Ο browser σας είναι παλιός");
+define("_CHECKBROWSERFAILED","Δυστυχώς ο browser σας δεν υποστηρίζεται");
+define("_CHECKRESOLUTIONFAILED","Η ανάλυση της οθόνης σας δεν ικανοποιεί τις ελάχιστες απαιτήσεις ");
+define("_CHECKPOPUPBLOCKERFAILED","Εντοπίστηκε φραγή αναδυόμενων παραθύρων. Παρακαλούμε απενεργοποιήστε τη φραγή");
+define("_CHECKCOOKIESFAILED","Τα Cookies είναι απενεργοποιημένα.Παρακαλούμε ενεργοποιήστε τα");
+define("_CHECKFLASHFAILED","Δεν υπάρχει εγκατεστημένο Flash, ή είναι παλιότερη έκδοση");
+define("_CHECKACROBATFAILED","Δεν υπάρχει εγκατεστημένο Adobe Reader");
+define("_CHECKJAVASCRIPTFAILED","Η Javascript δεν είναι ενεργοποιημένη στον browser σας");
 ?>

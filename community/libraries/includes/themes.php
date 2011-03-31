@@ -252,7 +252,8 @@ try {
                         'lessons' => _LESSONS,
                         'selectedLessons' => _SELECTEDLESSONS,
                         'news' => _SYSTEMNEWS,
-                        'links' => _MENU);
+                        'links' => _MENU,
+            'checker' => _OPTIONSCHECKER);
 
         foreach ($customBlocks as $key => $block) {
             $blocks[$key] = htmlspecialchars($block['title'], ENT_QUOTES);

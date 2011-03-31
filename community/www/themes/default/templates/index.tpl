@@ -59,6 +59,11 @@
  {include file = "includes/blocks/search.tpl"}
 {/capture}
 
+{*Block for displaying the system anouncements*}
+{capture name='t_checker_code'}
+ {include file = "includes/blocks/checker.tpl"}
+{/capture}
+
 {if $T_CONFIGURATION.lessons_directory == 1}
  {*Block for displaying the lessons list*}
  {capture name = 't_lessons_code'}

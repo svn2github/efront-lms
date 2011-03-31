@@ -67,7 +67,7 @@ if ($configuration['debug_mode'] == '1' || ($_SESSION['s_login'] && in_array($_S
 }
 
 //Turn on compressed output buffering, unless NO_OUTPUT_BUFFERING is defined or it's turned off from the configuration
-//!defined('NO_OUTPUT_BUFFERING') && $configuration['gz_handler'] ? ob_start ("ob_gzhandler") : null;
+!defined('NO_OUTPUT_BUFFERING') && $configuration['gz_handler'] ? ob_start ("ob_gzhandler") : null;
 
 //Set the memory_limit and max_execution_time PHP settings, but only if system-specific values are greater than global
 isset($configuration['memory_limit']) && $configuration['memory_limit'] && str_replace("M", "", ini_get('memory_limit')) < $configuration['memory_limit'] ? ini_set('memory_limit', $configuration['memory_limit'].'M') : null;
@@ -266,7 +266,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 10262;
+    $build = 10424;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

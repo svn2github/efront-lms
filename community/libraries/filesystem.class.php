@@ -1148,7 +1148,7 @@ class EfrontFile extends ArrayObject
    header('Pragma: public');
    header("Content-Type: application/force-download");
    header("Content-Type: application/download");
-      if (!$GLOBALS['configuration']['gz_handler']) {
+      if (defined('NO_OUTPUT_BUFFERING') || !$GLOBALS['configuration']['gz_handler']) {
        //This does not cooperate well with gzhandler
        header("Content-Length: ".filesize($this['path']));
       }
@@ -1165,7 +1165,42 @@ class EfrontFile extends ArrayObject
    //header("content-type:".$this['mime_type']);
       //header('content-disposition: inline; filename= "'.$this['name'].'"');
      }
-     readfile($this['path']);
+     //readfile($this['path']);
+     $this -> readfileChunked($this['path']);
+     exit;
+    }
+    /**
+
+     * http://www.php.net/manual/en/function.readfile.php
+
+     * 
+
+     * @see readfile
+
+     */
+    private function readfileChunked($filename,$retbytes=true) {
+     $chunksize = 1*(1024*1024); // how many bytes per chunk
+     $buffer = '';
+     $cnt =0;
+     // $handle = fopen($filename, 'rb');
+     $handle = fopen($filename, 'rb');
+     if ($handle === false) {
+      return false;
+     }
+     while (!feof($handle)) {
+      $buffer = fread($handle, $chunksize);
+      echo $buffer;
+      ob_flush();
+      flush();
+      if ($retbytes) {
+       $cnt += strlen($buffer);
+      }
+     }
+     $status = fclose($handle);
+     if ($retbytes && $status) {
+      return $cnt; // return num. bytes delivered like readfile() does.
+     }
+     return $status;
     }
 }
 /**

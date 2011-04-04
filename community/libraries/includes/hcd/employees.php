@@ -15,6 +15,7 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 	 *****************************************************/
  // Create ajax enabled table for employees
  if (isset($_GET['ajax'])) {
+  $smarty -> assign("T_ROLES", EfrontUser :: getRoles(true));
   isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
   if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
@@ -106,7 +107,6 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 
 
    $tableName = "usersTable";
-   $smarty -> assign("T_ROLES", EfrontUser :: getRoles(true));
 
    $dataSource = $employees;
 

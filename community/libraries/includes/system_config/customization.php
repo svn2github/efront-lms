@@ -6,29 +6,28 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $customizationDisableForm = new HTML_QuickForm("customization_disable_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=customization&tab=disable", "", null, true);
 $customizationDisableForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
-$customizationDisableForm -> addElement("advcheckbox", "disable_projects", _PROJECTS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_bookmarks", _BOOKMARKS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_comments", _COMMENTS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_online_users", _ONLINEUSERS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_glossary", _GLOSSARY, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_calendar", _CALENDAR, null, 'class = "inputCheckBox"', array(0, 1));
+$customizationDisableForm -> addElement("advcheckbox", "disable_projects", _PROJECTS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_bookmarks", _BOOKMARKS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_comments", _COMMENTS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_online_users", _ONLINEUSERS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_glossary", _GLOSSARY, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_calendar", _CALENDAR, null, 'class = "inputCheckBox"', array(1, 0));
 
 
 
-$customizationDisableForm -> addElement("advcheckbox", "disable_news", _ANNOUNCEMENTS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_messages", _MESSAGES, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_forum", _FORUMS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_tests", _TESTS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "chat_enabled", _CHAT, null, 'class = "inputCheckBox"', array(1, 0));
-$customizationDisableForm -> addElement("advcheckbox", "disable_tooltip", _TOOLTIP, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_payments", _PAYMENTS, null, 'class = "inputCheckBox"', array(0, 1));
+$customizationDisableForm -> addElement("advcheckbox", "disable_news", _ANNOUNCEMENTS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_messages", _MESSAGES, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_forum", _FORUMS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_tests", _TESTS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "chat_enabled", _CHAT, null, 'class = "inputCheckBox"', array(0, 1));
+$customizationDisableForm -> addElement("advcheckbox", "disable_tooltip", _TOOLTIP, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_payments", _PAYMENTS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("static", "", _WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO);
-$customizationDisableForm -> addElement("advcheckbox", "disable_move_blocks", _MOVEBLOCK, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_change_info", _USERSCANCHANGEINFO, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("advcheckbox", "disable_change_pass", _USERSCANCHANGEPASS, null, 'class = "inputCheckBox"', array(0, 1));
-$customizationDisableForm -> addElement("static", "", _SELECTOPTIONSDISABLED);
+$customizationDisableForm -> addElement("advcheckbox", "disable_move_blocks", _MOVEBLOCK, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_change_info", _USERSCANCHANGEINFO, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_change_pass", _USERSCANCHANGEPASS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> setDefaults($GLOBALS['configuration']);
 
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {

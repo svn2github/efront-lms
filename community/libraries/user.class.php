@@ -824,7 +824,9 @@ abstract class EfrontUser
   }
   //Empty session without destroying it
   foreach ($_SESSION as $key => $value) {
-   unset($_SESSION[$key]);
+   if ($key != 'login_mode') { //'login_mode' is used to facilitate lesson registrations
+    unset($_SESSION[$key]);
+   }
   }
   if ($this -> user['pending']) {
    throw new EfrontUserException(_USERPENDING, EfrontUserException :: USER_PENDING);

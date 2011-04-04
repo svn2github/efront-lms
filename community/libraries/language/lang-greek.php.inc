@@ -4021,8 +4021,8 @@ define("_HIDESUPERVISORFROMUSERS", "Απόκρυψη προϊσταμένου σ
 define("_HIDEJOBFROMUSERS", "Απόκρυψη θέσης εργασίας στους χρήστες");
 define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "Πρέπει να ορίσετε μία προκαθορισμένη τιμή για τα υποχρεωτικά πεδία");
 define("_USETHECURRENTDATE", "Χρησιμοποίηση της τρέχουσας ημερομηνίας");
-define("_USERSCANCHANGEINFO", "Οι χρήστες αλλάζουν τα στοιχεία τους");
-define("_USERSCANCHANGEPASS", "Οι χρήστες αλλάζουν τον κωδικό τους");
+define("_USERSCANCHANGEINFO", "Ενημέρωση λογαριασμού");
+define("_USERSCANCHANGEPASS", "Αλλαγή κωδικού");
 define("_VIEWFEEDBACK", "Προβολή ανάδρασης");
 define("_SHOWINCOMPLETEQUESTIONSEACHTIME", "Προβολή μόνο ερωτήσεων που δεν έχουν ολοκληρωθεί");
 define("_RETAINBESTEXECUTION", "Διατήρηση της καλύτερης επίδοσης");
@@ -4065,5 +4065,7 @@ define("_CLICKHERETOUNCOMPRESSTESTS", "Κάντε κλικ εδώ για να α
 define("_COMPRESS", "Συμπίεση");
 define("_DATABASETASKS", "Λειτουργίες βάσης");
 define("_PLEASEBACKUPBEFORECOMPRESSING", "Παρακαλούμε πάρτε backup των δεδομένων σας προτού (απο)συμπιέσετε τις ολοκληρωμένες αξιολογήσεις");
-define("_CONFIGURATION", "Ρυθμίσεις");
+define("_CONFIGURATION", "Διαμόρφωση");
+define("_SYSTEMOPTIONS", "Ρυθμ. συστήματος");
+define("_CASUAL", "Περιστασιακά");
 ?>

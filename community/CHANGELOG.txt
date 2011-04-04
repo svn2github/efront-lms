@@ -64,6 +64,8 @@
 - Added group self-registration option (Enterprise edition)
 - Content safeguarding made optional
 - Added option for compressing test results in database
+- Switched "disabled options" to "enabled options"
+- Added "users" and "organization" options in professor/student user types
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

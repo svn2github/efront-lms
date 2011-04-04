@@ -126,12 +126,10 @@
      <table style = "width:100%" class = "sortedTable" size = "{$T_UNATTACHED_EMPLOYEES_SIZE}" sortBy = "0" id = "unattachedUsersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=users&">
      <tr class = "topTitle">
       <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
-      <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
+      <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
       <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
       <td class = "topTitle" name = "last_login">{$smarty.const._LASTLOGIN}</td>
-      {if !isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change'}
-        <td class = "topTitle noSort centerAlign">{$smarty.const._OPERATIONS}</td>
-      {/if}
+      <td class = "topTitle noSort centerAlign">{$smarty.const._OPERATIONS}</td>
      </tr>
 
      {foreach name = 'users_list' key = 'key' item = 'user' from = $T_UNATTACHED_EMPLOYEES}
@@ -143,7 +141,7 @@
         #filter:login-{$user.login}#
        {/if}
       </td>
-      <td>{$user.languages_NAME}</td>
+      <td>{if $user.user_types_ID}{$T_ROLES[$user.user_types_ID]}{else}{$T_ROLES[$user.user_type]}{/if}</td>
       <td>#filter:timestamp-{$user.timestamp}#</td>
       <td>{if $user.last_login}#filter:timestamp_time_nosec-{$user.last_login}#{else}{$smarty.const._NEVER}{/if}</td>
       <td class = "centerAlign">

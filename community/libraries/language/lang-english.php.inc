@@ -4021,8 +4021,8 @@ define("_HIDESUPERVISORFROMUSERS", "Hide supervisor from users");
 define("_HIDEJOBFROMUSERS", "Hide job from users");
 define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS", "You must specify a default value for mandatory elements");
 define("_USETHECURRENTDATE", "Use the current date");
-define("_USERSCANCHANGEINFO", "Users change their info");
-define("_USERSCANCHANGEPASS", "Users change their password");
+define("_USERSCANCHANGEINFO", "Account change");
+define("_USERSCANCHANGEPASS", "Password change");
 define("_VIEWFEEDBACK", "View feedback");
 define("_SHOWINCOMPLETEQUESTIONSEACHTIME", "Show incomplete questions in each execution");
 define("_RETAINBESTEXECUTION", "Retain best score");
@@ -4066,4 +4066,6 @@ define("_COMPRESS", "Compress");
 define("_DATABASETASKS", "Database tasks");
 define("_PLEASEBACKUPBEFORECOMPRESSING", "Please backup your data before compressing/uncompressing completed tests");
 define("_CONFIGURATION", "Configuration");
+define("_SYSTEMOPTIONS", "System options");
+define("_CASUAL", "Casual");
 ?>

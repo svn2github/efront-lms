@@ -74,7 +74,7 @@
    {eF_template_printForm form=$T_CUSTOMIZATION_DISABLE_FORM}
   {/capture}
   <div class="tabber">
-   {eF_template_printBlock tabber = "disable" title=$smarty.const._DISABLEOPTIONS data=$smarty.capture.customization_disable image='32x32/generic.png' help = 'System_settings#Disable_options'}
+   {eF_template_printBlock tabber = "disable" title=$smarty.const._SYSTEMOPTIONS data=$smarty.capture.customization_disable image='32x32/generic.png' help = 'System_settings#Disable_options'}
    {eF_template_printBlock tabber = "social" title=$smarty.const._SOCIALOPTIONS data=$smarty.capture.customization_social image='32x32/social.png' help = 'System_settings#Social_options'}
    {eF_template_printBlock tabber = "enterprise" title=$smarty.const._ENTERPRISEOPTIONS data=$smarty.capture.customization_enterprise image='32x32/enterprise.png' help = 'System_settings#Enterprise_options'}
   </div>

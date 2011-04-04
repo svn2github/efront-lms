@@ -69,6 +69,7 @@ try {
         exit;
     } elseif (isset($_GET['add_user_type']) || (isset($_GET['edit_user_type']) && eF_checkParameter($_GET['edit_user_type'], 'text'))) {
         $studentOptions = array("content" => _CONTENT,
+                 "users" => _USERS,
                                       //"calendar"          => _CALENDAR,
                                       "statistics" => _STATISTICS,
                                       //"forum"             => _FORUM,
@@ -82,7 +83,7 @@ try {
   $GLOBALS['configuration']['disable_news'] != 1 ? $studentOptions["news"] = _ANNOUNCEMENTS : null;
   $GLOBALS['configuration']['disable_forum'] != 1 ? $studentOptions["forum"] = _FORUM : null;
         $professorOptions = array("settings" => _LESSONOPTIONS,
-                                      "users" => _LESSONUSERS,
+                                      "users" => _USERS,
                                       "content" => _CONTENT,
                                       //"news"              => _ANNOUNCEMENTS,
                                       "files" => _FILES,

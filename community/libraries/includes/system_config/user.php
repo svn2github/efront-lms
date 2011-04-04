@@ -66,7 +66,7 @@ $userMultipleLoginsForm -> setDefaults(unserialize($GLOBALS['configuration']['mu
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userMultipleLoginsForm -> freeze();
 } else {
- $userMultipleLoginsForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+ $userMultipleLoginsForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
  if ($userMultipleLoginsForm -> isSubmitted() && $userMultipleLoginsForm -> validate()) {
   $values = $userMultipleLoginsForm -> exportValues();
   $multipleLogins = array('global' => $values['global'] ? 1 : 0,
@@ -93,7 +93,7 @@ $userWebserverAuthenticationForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userWebserverAuthenticationForm -> freeze();
 } else {
- $userWebserverAuthenticationForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+ $userWebserverAuthenticationForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
  if ($userWebserverAuthenticationForm -> isSubmitted() && $userWebserverAuthenticationForm -> validate()) {
   $values = $userWebserverAuthenticationForm -> exportValues();
   unset($values['submit']);

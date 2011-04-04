@@ -265,6 +265,22 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         }
         exit;
     }
+    if (isset($_GET['compress_tests']) && $_GET['ajax'] == 1) {
+        try {
+            EfrontCompletedTest :: compressTests();
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        exit;
+    }
+    if (isset($_GET['uncompress_tests']) && $_GET['ajax'] == 1) {
+        try {
+            EfrontCompletedTest:: uncompressTests();
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        exit;
+    }
     if (isset($_GET['cache']) && $_GET['ajax'] == 1) {
         try {
             if ($_GET['cache'] == 'templates') {

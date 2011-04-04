@@ -34,7 +34,7 @@ $customizationDisableForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $customizationDisableForm -> freeze();
 } else {
- $customizationDisableForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+ $customizationDisableForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
 
  if ($customizationDisableForm -> isSubmitted() && $customizationDisableForm -> validate()) { //If the form is submitted and validated
   $values = $customizationDisableForm -> exportValues();

@@ -305,7 +305,7 @@
 
                         </div>
     {/capture}
-    {eF_template_printBlock title = $smarty.const._BRANCHRECORD data = $smarty.capture.t_branch_properties_code image = '32x32/branch.png'}
+    {eF_template_printBlock title = $smarty.const._BRANCHRECORD data = $smarty.capture.t_branch_properties_code image = '32x32/branch.png' options = $T_TABLE_OPTIONS}
    {else}
                 {eF_template_printBlock title = $smarty.const._BRANCHRECORD data = $smarty.capture.t_branch_code image = '32x32/branch.png'}
             {/if}

@@ -95,7 +95,7 @@
     </select>
 {/capture}
 
-{eF_template_printInnerTable
+{eF_template_printBlock
     title=$smarty.const._TRAININGREPORTS
     data=$smarty.capture.t_reports_edit
     absoluteImagePath=1

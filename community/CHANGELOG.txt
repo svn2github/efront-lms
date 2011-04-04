@@ -61,6 +61,9 @@
 - Added the settings checker block for layout of the first page
 - Fixed issue about wrong report link in feedbacks
 - Installation auto-fix for session.save_path now looks for and sets more locations
+- Added group self-registration option (Enterprise edition)
+- Content safeguarding made optional
+- Added option for compressing test results in database
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

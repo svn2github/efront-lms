@@ -72,7 +72,7 @@ var ModuleReportsTableRows = Class.create({
                 after: tr
             });
         }
-    },
+    }
 });
 
 new ModuleReportsTableRows('module-reports-fields', 'module-reports-fields-select','module-reports-add-field');

@@ -529,7 +529,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $workSheet -> mergeCells($row, 1, $row, 2);
             $row++;
             foreach ($info['done'] as $results) {
-                $workSheet -> write($row, 1, $results['users_LOGIN'], $fieldLeftFormat);
+                $workSheet -> write($row, 1, formatLogin($results['users_LOGIN']), $fieldLeftFormat);
                 $workSheet -> write($row, 2, formatScore(round($results['active_score'], 2))."%", $fieldCenterFormat);
                 $workSheet -> write($row++, 3, formatTimestamp($results['timestamp'], 'time'), $fieldLeftFormat);
                 $avgScore[] = $results['active_score'];
@@ -634,7 +634,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $workSheet -> mergeCells($row, 1, $row, 3);
             $row++;
             foreach ($projectsInfo[$id]['done'] as $results) {
-                $workSheet -> write($row, 1, $results['users_LOGIN'], $fieldLeftFormat);
+                $workSheet -> write($row, 1, formatLogin($results['users_LOGIN']), $fieldLeftFormat);
                 $workSheet -> write($row, 2, formatScore(round($results['grade'], 2))."%", $fieldCenterFormat);
                 $workSheet -> write($row++, 3, $results['comments'], $fieldCenterFormat);
                 $avgScore[] = formatScore($results['grade'])."%";
@@ -661,7 +661,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $column = 0;
         foreach ($students as $login => $user) {
             $rows[$login] = $row;
-            $workSheet -> write($row++, $column, $login." (".$user['name']." ".$user['surname'].")", $fieldLeftFormat);
+            $workSheet -> write($row++, $column, formatLogin($login), $fieldLeftFormat);
         }
         $row = 1;
         $column = 1;

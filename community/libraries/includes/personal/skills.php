@@ -39,6 +39,7 @@ if (isset($_GET['ajax']) && isset($_GET['delete_skill']) && $_change_skills_) {
 
 if (isset($_GET['postAjaxRequest']) && $_change_skills_) {
  try {
+  $_GET['specification'] = urldecode($_GET['specification']);
   if (isset($_GET['add_skill'])) {
    if ($_GET['insert'] == "true") {
     $editedEmployee -> addSkills($_GET['add_skill'], $_GET['specification'], $_GET['score']);

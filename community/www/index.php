@@ -588,7 +588,15 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
           "user_type" => $values['user_type'],
           "user_types_ID" => $values['user_types_ID']);
             foreach ($user_profile as $field) { //Get the custom fields values
-             $user_data[$field['name']] = $values[$field['name']];
+             if ($field['type'] == 'date') {
+              $user_data[$field['name']] = mktime($values[$field['name']]['H'], $values[$field['name']]['i'], $values[$field['name']]['s'], $values[$field['name']]['M'], $values[$field['name']]['d'], $values[$field['name']]['Y']);
+             } else if ($field['type'] == 'branchinfo') {
+              $self_registered_jobs[] = array("branch_ID" => $values[$field['name']. "_branches"], "job_description" => $_POST[$field['name']. "_jobs"], "supervisor" => $_POST[$field['name']. "_supervisors"], "mandatory" => $field['mandatory']);
+             } else if ($field['type'] == 'groupinfo') {
+              $groupToAdd = new EfrontGroup($values[$field['name']."_groups"]);
+             } else {
+              $user_data[$field['name']] = $values[$field['name']];
+             }
             }
             try {
           $newUser = EfrontUser :: createUser($user_data);
@@ -606,7 +614,8 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      } else {
       $message = _ADMINISTRATORWILLACTIVATEYOURACCOUNT;
      }
-     eF_redirect(''.basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=success');
+     eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type=success');
+     exit;
     } else {
      $message = _SUCCESSREGISTER;
      $message_type = 'success';

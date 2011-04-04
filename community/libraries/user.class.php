@@ -1104,7 +1104,7 @@ abstract class EfrontUser
       'additional_accounts' => $this -> user['additional_accounts'],
       'short_description' => $this -> user['short_description'],
       'autologin' => $this -> user['autologin']);
-  $userProfile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo'");
+  $userProfile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo' AND type <> 'groupinfo'");
   foreach ($userProfile as $value) {
    $fields[$value['name']] = $this->user[$value['name']];
   }
@@ -2331,16 +2331,6 @@ abstract class EfrontLessonUser extends EfrontUser
   $timeReport = new EfrontTimes();
   $userTimes = $timeReport -> getUserSessionTimeInLesson($this -> user['login'], $lesson -> lesson['id']);
   $userTimes = $timeReport -> formatTimeForReporting($userTimes);
-/*
-		$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($lesson -> lesson['id'] => $lesson -> lesson['id']), array($this -> user['login'] => $this -> user['login']));
-		$userTimes = $userTimes[$lesson -> lesson['id']][$this -> user['login']];
-		$userTimes['time_string'] = '';
-		if ($userTimes['total_seconds']) {
-			!$userTimes['hours']   OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
-			!$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
-			!$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
-		}
-*/
   return $userTimes;
  }
  private function getUserOverallProgressInLesson($lesson) {

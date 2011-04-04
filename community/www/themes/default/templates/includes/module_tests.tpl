@@ -1231,7 +1231,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
         <div class = "headerTools">
          <span>
           <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._RESETEXECUTIONSFORALLUSERS}" title = "{$smarty.const._RESETEXECUTIONSFORALLUSERS}"/>
-          <a href = "javascript:void(0)" onclick = "deleteAllTestsForAllUsers(this);">{$smarty.const._RESETEXECUTIONSFORALLUSERS}</a>
+          <a href = "javascript:void(0)" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteAllTestsForAllUsers(this);">{$smarty.const._RESETEXECUTIONSFORALLUSERS}</a>
          </span>
         </div>
                                     <table class = "sortedTable" style = "width:100%">

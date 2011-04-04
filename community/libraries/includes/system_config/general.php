@@ -17,6 +17,7 @@ $generalSecurityForm -> addElement("text", "updater_period", _UPDATERPERIODSECON
 $generalSecurityForm -> addElement("static", "", _RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME);
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
+$generalSecurityForm -> addElement("advcheckbox", "constrain_access", _CONTRAINACCESSTOCONTENT, null, 'class = "inputCheckBox"', array(0, 1));
 //$generalSecurityForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"'); // Moved to appearance tab
 $generalSecurityForm -> setDefaults($GLOBALS['configuration']);
 //$generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
@@ -30,6 +31,20 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  if ($generalSecurityForm -> isSubmitted() && $generalSecurityForm -> validate()) {
   $values = $generalSecurityForm -> exportValues();
   unset($values['submit']);
+  if ($values['constrain_access']) {
+   $str = "Options -Indexes
+<IfModule rewrite_module>
+ RewriteEngine on
+ RewriteBase /
+ RewriteCond %{REQUEST_URI} ^(.*)\/content\/lessons\/.*$
+ RewriteRule !^((.*.php)|(.*\/))$ %1/view_file.php?server=1
+</IfModule>";
+   if (!is_file(G_CONTENTPATH.".htaccess")) {
+    file_put_contents(G_CONTENTPATH.".htaccess", $str);
+   }
+  } else {
+   unlink(G_CONTENTPATH.".htaccess");
+  }
   foreach ($values as $key => $value) {
    $result = EfrontConfiguration :: setValue($key, $value);
   }
@@ -134,6 +149,7 @@ $generalPHPForm -> addElement("static", "sidenote", _SECONDS);
 $generalPHPForm -> addElement("text", "max_execution_time", _MAXEXECUTIONTIME, 'class = "inputText" style = "width:35px"');
 $generalPHPForm -> addElement("static", "", _LEAVEBLANKTOUSEPHPINI);
 $generalPHPForm -> addElement("advcheckbox", "gz_handler", _GZHANDLER, null, 'class = "inputCheckBox"', array(0, 1));
+$generalPHPForm -> addElement("advcheckbox", "compress_tests", _COMPRESSTESTS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalPHPForm -> addElement("text", "max_file_size", _MAXFILESIZE, 'class = "inputText"');
 $generalPHPForm -> addElement("static", "", _MAXFILEISAFFECTEDANDIS.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
 $generalPHPForm -> addElement("text", "debug_mode", _DEBUGMODE, null, 'class = "inputText"');
@@ -153,7 +169,7 @@ if ($GLOBALS['configuration']['version_hosted']) {
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $generalPHPForm -> freeze();
 } else {
- $generalPHPForm -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+ $generalPHPForm -> addElement("submit", "submit", _SAVE, 'class = "flatButton"');
  if ($generalPHPForm -> isSubmitted() && $generalPHPForm -> validate()) { //If the form is submitted and validated
   $values = $generalPHPForm -> exportValues();
   unset($values['submit']);

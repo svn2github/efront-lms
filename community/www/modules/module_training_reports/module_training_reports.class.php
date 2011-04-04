@@ -128,7 +128,7 @@ class module_training_reports extends EFrontModule {
     }
 
     public function onDeleteCourse($courseId) {
-        eF_deleteTableData('module_reports_courses', 'courses_ID=' . $courseId);
+        eF_deleteTableData('module_time_reports_courses', 'courses_ID=' . $courseId);
         return false;
     }
 

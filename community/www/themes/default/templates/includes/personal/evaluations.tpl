@@ -31,11 +31,15 @@
     <td style = "white-space:nowrap"><span style="display:none">{$evaluation.timestamp}</span>#filter:timestamp_time-{$evaluation.timestamp}#</td>
     <td>{$evaluation.specification}</td>
     <td style = "white-space:nowrap">
+     {if $smarty.session.s_type == 'administrator'}
      <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$evaluation.author}&op=profile" class = "editLink">#filter:login-{$evaluation.author}#</a>
+     {else}
+     #filter:login-{$evaluation.author}#
+     {/if}
     </td>
    {if $_change_evaluations_}
     <td class = "centerAlign">
-     <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$smarty.get.user}&op=evaluations&edit_evaluation={$evaluation.event_ID}&popup=1" target = "POPUP_FRAME" class = "editLink" onclick = "eF_js_showDivPopup('{$smarty.const._NEWEVALUATION}', 1)"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+     <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$smarty.get.user}&op=evaluations&edit_evaluation={$evaluation.event_ID}&popup=1" target = "POPUP_FRAME" class = "editLink" onclick = "eF_js_showDivPopup('{$smarty.const._EVALUATION}', 1)"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETEEVALUATION}')) deleteEvaluation(this, '{$evaluation.event_ID}');" />
     </td>
    {/if}

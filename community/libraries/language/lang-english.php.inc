@@ -4052,4 +4052,18 @@ define("_CHECKFLASHFAILED","Flash is not installed, out of date");
 define("_CHECKACROBATFAILED","Adobe Reader is not installed");
 define("_CHECKJAVASCRIPT","Checking Javascript");
 define("_CHECKJAVASCRIPTFAILED","Javascript is not enabled in your browser");
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION", "You must have enabled supervisor email activation from system settings");
+define("_YEARRANGEFROM", "Year range from");
+define("_YEARRANGETO", "Year range to");
+define("_GROUPNAMEDESCRIPTION", "Group name description");
+define("_GROUPINFORMATION", "Group information");
+define("_CONTRAINACCESSTOCONTENT", "Constrain access to content files to logged in users");
+define("_COMPRESSTESTS", "Compress test results in database");
+define("_MAINTENANCETASKS", "Maintenance tasks");
+define("_CLICKHERETOCOMPRESSTESTS", "Click here to compress completed tests");
+define("_CLICKHERETOUNCOMPRESSTESTS", "Click here to uncompress completed tests");
+define("_COMPRESS", "Compress");
+define("_DATABASETASKS", "Database tasks");
+define("_PLEASEBACKUPBEFORECOMPRESSING", "Please backup your data before compressing/uncompressing completed tests");
+define("_CONFIGURATION", "Configuration");
 ?>

@@ -6,8 +6,8 @@ define("_MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN", "Αλλαγή αναγνωρι
 define("_MODULE_ADMINISTRATOR_TOOLS_USERALREADYEXISTS", "Υπάρχει ήδη χρήστης με αυτό το αναγνωριστικό");
 define("_MODULE_ADMINISTRATOR_TOOLS_OPERATIONCOMPLETEDSUCCESSFULLYBUTHEFOLLOWINGTABLESCOULDNOTBEUPDATED", "Η λειτουργία ολοκληρώθηκε με επιτυχία αλλά οι ακόλουθοι πίνακες δεν ενημερώθηκαν");
 define("_MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS", "Γενική διαχείριση μαθήματος");
-define("_MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE", "SQL μορφή");
-define("_MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND", "SQL εντολή");
+define("_MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE", "διεπαφή SQL");
+define("_MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND", "Eντολή SQL");
 define("_MODULE_ADMINISTRATOR_TOOLS_ROWSINSET", "Γραμμές στο σύνολο");
 define("_MODULE_ADMINISTRATOR_TOOLS_QUERYOK", "Ερώτημα OK");
 define("_MODULE_ADMINISTRATOR_TOOLS_ROWSAFFECTED", "γραμμές επηρεάστηκαν");

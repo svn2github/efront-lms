@@ -3287,6 +3287,28 @@ class EfrontCompletedTest extends EfrontTest
      $id = eF_updateTableData($table, $fields, $where);
      return $id;
     }
+    public static function compressTests() {
+     if (function_exists('gzdeflate')) {
+      $completedTests = eF_getTableData("completed_tests", "id", "test != ''");
+      foreach ($completedTests as $value) {
+       $result = eF_getTableData("completed_tests", "test", "id=".$value['id']);
+       if (unserialize($result[0]['test'])) {
+        eF_updateTableData("completed_tests", array("test" => gzdeflate($result[0]['test'])), "id=".$value['id']);
+       }
+      }
+     }
+    }
+    public static function uncompressTests() {
+     if (function_exists('gzinflate')) {
+      $completedTests = eF_getTableData("completed_tests", "id", "test != ''");
+      foreach ($completedTests as $value) {
+       $result = eF_getTableData("completed_tests", "test", "id=".$value['id']);
+       if (unserialize(gzinflate($result[0]['test']))) {
+        eF_updateTableData("completed_tests", array("test" => gzinflate($result[0]['test'])), "id=".$value['id']);
+       }
+      }
+     }
+    }
 }
 /**
 

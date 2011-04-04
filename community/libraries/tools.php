@@ -2383,7 +2383,7 @@ function eF_redirect($url, $js = false, $target = 'top', $retainUrl = false) {
      if (isset($parts['query']) && $parts['query']) {
          if ($GLOBALS['configuration']['encrypt_url']) {
              $parts['query'] = 'cru='.encryptString($parts['query']);
-         } else {
+         } elseif (isset($_SESSION['s_login'])) {
           $query = explode("&", $parts['query']);
           foreach ($query as $key => $value) {
            $queryParts = explode("=", $value);

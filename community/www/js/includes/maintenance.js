@@ -1,10 +1,15 @@
 function reIndex(el) {
  var parameters = {ajax:1, reindex:1, method:'get'};
     var url = location.toString();
-    ajaxRequest(el, url, parameters, onReIndex);
+    ajaxRequest(el, url, parameters);
 }
-function onReIndex(el, response) {
-//	alert(reindexcomplete);
+function compressTests(el) {
+ var parameters = {ajax:1, compress_tests:1, method:'get'};
+    ajaxRequest(el, location.toString(), parameters);
+}
+function uncompressTests(el) {
+ var parameters = {ajax:1, uncompress_tests:1, method:'get'};
+    ajaxRequest(el, location.toString(), parameters);
 }
 function setPermissions(el, set) {
  $('failed_permissions').update('');

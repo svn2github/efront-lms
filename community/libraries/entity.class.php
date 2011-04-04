@@ -233,7 +233,8 @@ abstract class EfrontEntity
     public static function createDateElement($form, $elementName, $elementLabel, $options = array()) {
      $options = array_merge(array('format' => getDateFormat().' H:i',
              'minYear' => date("Y") - 4,
-             'maxYear' => date("Y") + 3), $options);
+             'maxYear' => date("Y") + 3,
+             'addEmptyOption' => false), $options);
      $el = $form -> createElement("date", $elementName, $elementLabel, $options);
      for ($i = 0; $i < 12; $i++) {
       //$el -> _locale['en']['months_long'][$i] = iconv(_CHARSET, 'UTF-8', strftime("%B", mktime(0, 0, 0, $i+1, 1, 2000)));

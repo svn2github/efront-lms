@@ -45,6 +45,9 @@ $accountOperations = array('profile', 'user_groups');
 if ($currentUser -> user['login'] == $editedUser -> user['login']) {
  $accountOperations[] = 'mapped_accounts';
 }
+if (isset($_GET['add_user'])) {
+ $accountOperations = array('profile');
+}
 $smarty -> assign("T_ACCOUNT_OPERATIONS", $accountOperations);
 $smarty -> assign("T_LEARNING_OPERATIONS", $learningOperations);
 $smarty -> assign("T_ENTERPRISE_OPERATIONS", $enterpriseOperations);
@@ -75,7 +78,7 @@ $options[] = array('image' => '16x16/user.png', 'title' => _ACCOUNT, 'link' => b
 if ($editedUser->user['user_type'] != 'administrator') {
  $options[] = array('image' => '16x16/courses.png', 'title' => _LEARNING, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=personal&user='.$editedUser->user['login']."&op=user_courses", 'selected' => isset($_GET['op']) && in_array($_GET['op'], $learningOperations) ? true : false);
 }
-if (!$_GET['popup']) { //When inside a popup, we don't want the menu
+if (!isset($_GET['add_user']) && !$_GET['popup']) { //When inside a popup, we don't want the menu
  $smarty -> assign("T_TABLE_OPTIONS", $options);
 }
 // Set facebook template variables

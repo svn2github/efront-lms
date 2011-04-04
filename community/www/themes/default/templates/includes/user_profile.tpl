@@ -44,6 +44,7 @@
            {elseif $field.type == 'select'}{$smarty.const._SELECTBOX}
            {elseif $field.type == 'textarea'}{$smarty.const._TEXTAREA}
            {elseif $field.type == 'branchinfo'}{$smarty.const._BRANCHINFORMATION}
+           {elseif $field.type == 'groupinfo'}{$smarty.const._GROUPINFORMATION}
            {elseif $field.type == 'date'}{$smarty.const._DATE}
            {else}{$field.type}{/if}</td>
                                         <td>{$field.languages_NAME}</td>

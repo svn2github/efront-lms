@@ -18,7 +18,7 @@
    {eF_template_printBlock tabber = "security" title=$smarty.const._SECURITYSETTINGS data=$smarty.capture.general_security image='32x32/generic.png' help = 'System_settings#Security_settings'}
    {eF_template_printBlock tabber = "locale" title=$smarty.const._LOCALE data=$smarty.capture.general_locale image='32x32/languages.png' help = 'System_settings#Locale_settings'}
    {eF_template_printBlock tabber = "smtp" title=$smarty.const._EMAILSETTINGS data=$smarty.capture.general_smtp image='32x32/mail.png' help = 'System_settings#E-mail_settings'}
-   {eF_template_printBlock tabber = "php" title=$smarty.const._PHP data=$smarty.capture.external_php image='32x32/php.png' help = 'System_settings#PHP'}
+   {eF_template_printBlock tabber = "php" title=$smarty.const._CONFIGURATION data=$smarty.capture.external_php image='32x32/php.png' help = 'System_settings#PHP'}
   </div>
 
  {elseif $smarty.get.op == 'user'}

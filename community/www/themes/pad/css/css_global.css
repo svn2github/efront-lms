@@ -1089,6 +1089,9 @@ padding:4px 2px;
 width:80%;
 margin:2px 0 5px 10px;
 }
+table.pageLayout form.indexForm select{
+margin:2px 0 5px 10px;
+}
 table.pageLayout form.indexForm .inputSearchText{
 padding:4px 2px 0px 18px;
 width:50%;

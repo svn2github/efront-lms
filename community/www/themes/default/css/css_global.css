@@ -1053,6 +1053,10 @@ margin:2px 0 5px 10px;
 table.pageLayout form.indexForm select{
 margin:2px 0 5px 10px;
 }
+
+table.pageLayout form.indexForm select{
+margin:2px 0 5px 10px;
+}
 table.pageLayout form.indexForm #contact,
 table.pageLayout form.indexForm #comments{
 height:10em;

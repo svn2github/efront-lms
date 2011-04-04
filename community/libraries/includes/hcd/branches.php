@@ -342,6 +342,8 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
 
   if (isset($_GET['edit_branch'])) {
+   $smarty -> assign("T_TABLE_OPTIONS", array(array('text' => _BRANCHSTATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=branches&sel_branch=".$_GET['edit_branch'])));
+
    /* Set the link to the details of the father branch */
    $details_link = 'href="'.basename($_SERVER['PHP_SELF']).'?ctg=module_hcd&op=branches&edit_branch='.$currentBranch -> branch['father_branch_ID'].'"';
    $smarty -> assign("T_BRANCH_NAME", $currentBranch -> branch['name']);

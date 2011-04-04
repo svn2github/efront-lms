@@ -9,7 +9,7 @@
              {if $T_ORPHAN_USER_FOLDERS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._ORPHANUSERFOLDERSCHECK}', 0, 'orphan_user_folders')"/>&nbsp;
-                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGFOLDERS}:\n\n{$T_ORPHAN_USER_FOLDERS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&cleanup=orphan_user_folders'"/>
+                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGFOLDERS}:\n\n{$T_ORPHAN_USER_FOLDERS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks&cleanup=orphan_user_folders'"/>
              {else}
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
@@ -19,8 +19,8 @@
              {if $T_ORPHAN_USERS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._USERSWITHOUTFOLDERSCHECK}', 0, 'users_without_folders')"/>&nbsp;
-                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGUSERS}:\n\n{$T_ORPHAN_USERS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&cleanup=users_without_folders'"/>&nbsp;
-                 <img src = "images/16x16/folders.png" title = "{$smarty.const._CREATEFOLDER}" alt = "{$smarty.const._CREATEFOLDER}" onclick = "if (confirm('{$smarty.const._CREATEFOLLOWINGUSERFOLDERS}:\n\n{$T_ORPHAN_USERS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&create=user_folders'"/>
+                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGUSERS}:\n\n{$T_ORPHAN_USERS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks&cleanup=users_without_folders'"/>&nbsp;
+                 <img src = "images/16x16/folders.png" title = "{$smarty.const._CREATEFOLDER}" alt = "{$smarty.const._CREATEFOLDER}" onclick = "if (confirm('{$smarty.const._CREATEFOLLOWINGUSERFOLDERS}:\n\n{$T_ORPHAN_USERS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks&create=user_folders'"/>
              {else}
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
@@ -30,7 +30,7 @@
              {if $T_ORPHAN_LESSON_FOLDERS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._ORPHANLESSONFOLDERSCHECK}', 0, 'orphan_lesson_folders')"/>&nbsp;
-                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGFOLDERS}:{$T_ORPHAN_LESSON_FOLDERS|@eF_truncate:30}{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&cleanup=orphan_lesson_folders'"/>
+                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGFOLDERS}:{$T_ORPHAN_LESSON_FOLDERS|@eF_truncate:30}{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks&cleanup=orphan_lesson_folders'"/>
              {else}
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
@@ -40,14 +40,14 @@
              {if $T_ORPHAN_LESSONS}
                  <img src = "images/16x16/warning.png" title = "{$smarty.const._PROBLEM}" alt = "{$smarty.const._PROBLEM}"/>&nbsp;
                  <img src = "images/16x16/help.png" title = "{$smarty.const._INFO}" alt = "{$smarty.const._INFO}" onclick = "eF_js_showDivPopup('{$smarty.const._LESSONSWITHOUTFOLDERSCHECK}', 0, 'lessons_without_folders')"/>&nbsp;
-                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGLESSONS}:\n\n{$T_ORPHAN_LESSONS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&cleanup=lessons_without_folders'"/>&nbsp;
-                 <img src = "images/16x16/folders.png" title = "{$smarty.const._CREATEFOLDER}" alt = "{$smarty.const._CREATEFOLDER}" onclick = "if (confirm('{$smarty.const._CREATEFOLLOWINGLESSONFOLDERS}:\n\n{$T_ORPHAN_LESSONS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup&create=lesson_folders'"/>
+                 <img src = "images/16x16/error_delete.png" title = "{$smarty.const._CLEANUP}" alt = "{$smarty.const._CLEANUP}" onclick = "if (confirm('{$smarty.const._PEMANENTLYDELETEFOLLOWINGLESSONS}:\n\n{$T_ORPHAN_LESSONS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks&cleanup=lessons_without_folders'"/>&nbsp;
+                 <img src = "images/16x16/folders.png" title = "{$smarty.const._CREATEFOLDER}" alt = "{$smarty.const._CREATEFOLDER}" onclick = "if (confirm('{$smarty.const._CREATEFOLLOWINGLESSONFOLDERS}:\n\n{$T_ORPHAN_LESSONS}\n\n{$smarty.const._AREYOUSURE}')) location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks&create=lesson_folders'"/>
              {else}
                  <img src = "images/16x16/success.png" title = "{$smarty.const._OK}" alt = "{$smarty.const._OK}"/>
              {/if}
          </td></tr>
          <tr><td></td>
-          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CHECKAGAIN}" onclick = "location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=cleanup'"></td></tr>
+          <td class = "submitCell"><input class = "flatButton" type = "button" value = "{$smarty.const._CHECKAGAIN}" onclick = "location = '{$smarty.server.PHP_SELF}?ctg=maintenance&tab=tasks'"></td></tr>
      </table>
      <div id = "orphan_user_folders" style = "display:none;">
      {capture name = 't_orphan_user_folders_code'}
@@ -202,6 +202,12 @@
         <table>
       <tr><td class = "labelCell">{$smarty.const._CLICKHERETOREINDEX}:&nbsp;</td>
           <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._RECREATE}" onclick = "reIndex(this)"/></td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOCOMPRESSTESTS}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._COMPRESS}" onclick = "compressTests(this)"/></td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOUNCOMPRESSTESTS}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._UNCOMPRESS}" onclick = "uncompressTests(this)"/></td></tr>
+      <tr><td class = ""></td>
+          <td class = "infoCell">{$smarty.const._PLEASEBACKUPBEFORECOMPRESSING}</td></tr>
         </table>
     {/capture}
     {capture name = 't_clear_cache_code'}
@@ -222,15 +228,15 @@
  {capture name = "t_cleanup_div_code"}
   <div class = "tabber">
   {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
-          {eF_template_printBlock tabber = "cleanup" title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_code image='32x32/cleanup.png'}
-          {eF_template_printBlock tabber = "reindex" title=$smarty.const._RECREATESEARCHTABLE data=$smarty.capture.t_reindex_code image='32x32/import_export.png'}
+          {eF_template_printBlock tabber = "tasks" title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_code image='32x32/cleanup.png'}
+          {eF_template_printBlock tabber = "reindex" title=$smarty.const._DATABASETASKS data=$smarty.capture.t_reindex_code image='32x32/import_export.png'}
           {eF_template_printBlock tabber = "permissions" title=$smarty.const._PERMISSIONS data=$smarty.capture.t_permissions_code image='32x32/generic.png'}
   {/if}
           {eF_template_printBlock tabber = "clear_cache" title=$smarty.const._CLEARCACHE data=$smarty.capture.t_clear_cache_code image='32x32/error_delete.png'}
   </div>
  {/capture}
 
-  {eF_template_printBlock tabber = "cleanup" title=$smarty.const._CLEANUP data=$smarty.capture.t_cleanup_div_code image='32x32/cleanup.png'}
+  {eF_template_printBlock tabber = "tasks" title=$smarty.const._MAINTENANCETASKS data=$smarty.capture.t_cleanup_div_code image='32x32/cleanup.png'}
   <div class = "tabbertab {if $smarty.get.tab=='auto_login'}tabbertabdefault{/if}">
    <h3>{$smarty.const._AUTOLOGIN}</h3>
    {capture name = 't_auto_login_code'}

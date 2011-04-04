@@ -55,6 +55,7 @@ class EfrontConfiguration
   'autologout_time' => '5',
         'encrypt_url' => '0', //0: don't encrypt. 1: encrypt
         'eliminate_post_xss' => '1',
+     'constrain_access' => '1',
         //System settings - language
         'onelanguage' => '0',
         'default_language' => 'english',
@@ -128,6 +129,7 @@ class EfrontConfiguration
         //PHP
         'max_file_size' => '50000',
         'gz_handler' => '1',
+     'compress_tests' => '0',
         //Multiple logins
         'multiple_logins' => '',
         'mapped_accounts' => '0', //0: Enabled, 1: disabled for students, 2: disabled for students and professors, 3: disabled for all

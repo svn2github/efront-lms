@@ -69,7 +69,7 @@
    <div class = "tabbertab {if $T_OP=='evaluations'}tabbertabdefault{/if}" title = "{$smarty.const._EVALUATIONS}">{include file = "includes/personal/evaluations.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='history'}tabbertabdefault{/if}" title = "{$smarty.const._HISTORY}">{include file = "includes/personal/history.tpl"}</div>
   </div>
- {elseif $T_OP == 'files' && ($T_EDITEDUSER->user.login==$T_CURRENT_USER->user.login || $T_CURRENT_USER->user.user_type=='administrator')}
+ {elseif $T_OP == 'files'}
   {include file = "includes/personal/files.tpl"}
  {/if}
 {/capture}

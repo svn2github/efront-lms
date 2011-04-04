@@ -54,7 +54,7 @@
       <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$user.job_description_ID}" class = "editLink">{$entry}</a>
      {elseif $item.column == 'course_status'}
       {if $user.count_courses}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=user_courses" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.course_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <span class = "tooltipSpan"></span>
@@ -63,7 +63,7 @@
       {/if}
      {elseif $item.column == 'lesson_status'}
       {if $user.count_lessons}
-       <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
+       <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=user_lessons" class = "editLink {if !$T_CONFIGURATION.disable_tooltip}info{/if}" url = "ask_information.php?users_LOGIN={$user.login}&type=course_status">
         {$user.lesson_status}
         {if !$T_CONFIGURATION.disable_tooltip}
          <span class = "tooltipSpan"></span>
@@ -71,11 +71,11 @@
        </a>
       {/if}
      {elseif $item.column == 'certifications'}
-      {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=certifications" class = "editLink">{$user.certifications}</a>{/if}
+      {if $user.certifications}<a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=certificates" class = "editLink">{$user.certifications}</a>{/if}
      {elseif $item.column == 'certificate_status'}
-      <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=status&tab=certifications" class = "editLink">{$entry}</a>
+      <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&op=certificates" class = "editLink">{$entry}</a>
      {elseif $item.column == 'total_skills'}
-      {if $user.total_skills}<a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=profile&tab=skills" class = "editLink">{$user.total_skills}</a>{/if}
+      {if $user.total_skills}<a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$user.login}&op=skills" class = "editLink">{$user.total_skills}</a>{/if}
      {else}
       {$entry}
      {/if}
@@ -421,7 +421,7 @@
   {/capture}
   {eF_template_printBlock title = $smarty.const._ADDCONDITION data = $smarty.capture.t_add_condition_code image = '32x32/add.png'}
 
-  {if $smarty.get.message_type == 'success' && !$smarty.get.post_another}
+  {if $T_MESSAGE_TYPE == 'success' && !$smarty.get.post_another}
      {*<script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>*}
           <script>finishedAddingConditions = 1;</script>
 

@@ -113,8 +113,12 @@ if (isset($_GET['add_user'])) {
    $constrainAccess[] = 'active';
    if ($currentUser->user['user_type'] != 'administrator') {
     if ($GLOBALS['configuration']['disable_change_info']) {
-     $constrainAccess = 'all';
-    } elseif ($GLOBALS['configuration']['disable_change_pass']) {
+     $allFields = $form -> _elementIndex;
+     unset($allFields['password_']);
+     unset($allFields['passrepeat']);
+     $constrainAccess = array_keys($allFields);
+    }
+    if ($GLOBALS['configuration']['disable_change_pass']) {
      $constrainAccess[] = 'passrepeat';
      $constrainAccess[] = 'password_';
     }

@@ -114,6 +114,13 @@ try {
    }
   }
 
+  if ($course -> course['depends_on']) {
+   try {
+    $dependsOn = new EfrontCourse($course -> course['depends_on']);
+    $tooltipInfo[] = '<div class = "infoEntry"><span>'._DEPENDSON."</span><span>: ".$dependsOn->course['name']."</span></div>";
+   } catch (Exception $e) {}
+  }
+
   if ($string = implode("", $tooltipInfo)) {
    echo $string;
   } else {

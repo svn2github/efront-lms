@@ -66,6 +66,8 @@
 - Added option for compressing test results in database
 - Switched "disabled options" to "enabled options"
 - Added "users" and "organization" options in professor/student user types
+- Excluding lessons that belong to inactive courses (and they do not belong to any other active course) in recipients list in messages
+- Fixed user redirection after course enrollment from index page
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

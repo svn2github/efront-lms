@@ -671,7 +671,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             <tr><td colspan = "2" >&nbsp;</td></tr>
             <tr id = "spacesRow"><td></td><td>
   {foreach name = 'empty_spaces_list' key = key item = item from = $T_QUESTION_FORM.empty_spaces}
-         {$T_EXCERPTS.$key} {$item.html} <br/>{if $item.error}{$item.error}{/if}
+         {$T_EXCERPTS.$key} {$item.html} {if $item.error}{$item.error}{/if}
   {/foreach}
             {$T_EXCERPTS[$smarty.foreach.empty_spaces_list.iteration]}
                 </td></tr>

@@ -4068,4 +4068,5 @@ define("_PLEASEBACKUPBEFORECOMPRESSING", "Παρακαλούμε πάρτε back
 define("_CONFIGURATION", "Διαμόρφωση");
 define("_SYSTEMOPTIONS", "Ρυθμ. συστήματος");
 define("_CASUAL", "Περιστασιακά");
+define("_YOUCANNOTEDITTHISUSER", "Δεν μπορείτε να προσπελάσετε τις πληροφορίες αυτού του χρήστη");
 ?>

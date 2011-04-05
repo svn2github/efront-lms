@@ -4568,9 +4568,9 @@ class EmptySpacesQuestion extends Question implements iQuestion
             if (sizeof($alternatives) > 1 && $this -> settings['select_list']) {
           $alternatives = array('' => '') + $alternatives;
              //$elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.(200+(strlen($matches[0][$k])-3)*20).'px" autocomplete="off" onfocus = "startAutoCompleter(this, \''.$this->question['id'].'_'.$k.'\', \''.urlencode(json_encode($alternatives)).'\');" onclick = "startAutoCompleter(this, \''.$this->question['id'].'_'.$k.'\', \''.urlencode(json_encode($alternatives)).'\');"');
-             $elements[] = $form -> addElement("select", "question[".$this -> question['id']."][$k]", $inputLabels, $alternatives, 'style = "width:'.($matches[1][$k] ? $matches[1][$k] : 250).'px" autocomplete="off"');
+             $elements[] = $form -> addElement("select", "question[".$this -> question['id']."][$k]", $inputLabels, $alternatives, 'autocomplete="off" class = "emptySpacesField"');
             } else {
-             $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'style = "width:'.($matches[1][$k] ? $matches[1][$k] : 250).'px" autocomplete="off"');
+             $elements[] = $form -> addElement("text", "question[".$this -> question['id']."][$k]", $inputLabels, 'class = "emptySpacesField" style = "width:'.($matches[1][$k] ? $matches[1][$k] : 250).'px" autocomplete="off"');
             }
             if ($this -> userAnswer !== false) {
                 $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => $this -> userAnswer[$k]));

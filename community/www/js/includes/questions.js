@@ -188,7 +188,7 @@ function eF_js_createEmptySpaces() {
   code += excerpts[i];
   if (i != excerpts.length - 1) { //If, for example, we have 3 ###, these split the string to 4 parts. So, we must not insert a text box for the last (trailing) string piece
    separators[i].replace('###', '') ? textboxLength = separators[i].replace('###', '') : textboxLength = '250';
-   code += '<input type="text" name = "empty_spaces['+i+']" class = "inputText" style = "width:'+textboxLength+'px"><br/>';
+   code += '<input type="text" name = "empty_spaces['+i+']" class = "inputText emptySpacesField" style = "width:'+textboxLength+'px;">';
    //code += '<input type="text" name = "empty_spaces_width['+i+']" style = "width:20px">';
   }
  }

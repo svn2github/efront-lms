@@ -146,6 +146,16 @@ try {
             $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "users_to_courses.archive=0 and courses.archive=0 and courses.active=1 and courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
         }
 
+        //This code is for excluding lessons that belong to inactive courses and they do not belong to any other active course
+        $lessons_excluded = eF_getTableData("courses c,lessons l, lessons_to_courses lc", "l.id,l.name,SUM(c.active) as active", "l.id=lc.lessons_ID and c.id=lc.courses_ID  AND l.course_only=1", "", "l.id");
+        foreach ($lessons_excluded as $key => $value) {
+         if($value['active'] == 0) {
+          $lessonToRemove = array_search($value['id'] , $lessons['id']);
+          unset($lessons['id'][$lessonToRemove]);
+          unset($lessons['name'][$lessonToRemove]);
+         }
+        }
+
         sizeof($lessons) > 0 ? $lessons = array_combine($lessons['id'], $lessons['name']) : $lessons = array();
         sizeof($courses) > 0 ? $courses = array_combine($courses['id'], $courses['name']) : $courses = array();
         $smarty -> assign("T_LESSONS", $lessons);

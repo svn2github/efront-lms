@@ -27,6 +27,7 @@ try {
         }
         if (isset($_GET['postAjaxRequest'])) {
             if (in_array($_GET['dc'], array_keys($metadata -> metadataAttributes))) {
+             $_GET['value'] = urldecode($_GET['value']);
                 if ($_GET['value']) {
                     $fileMetadata[$_GET['dc']] = $_GET['value'];
                 } else {

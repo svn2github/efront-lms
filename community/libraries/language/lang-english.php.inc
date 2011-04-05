@@ -4068,4 +4068,5 @@ define("_PLEASEBACKUPBEFORECOMPRESSING", "Please backup your data before compres
 define("_CONFIGURATION", "Configuration");
 define("_SYSTEMOPTIONS", "System options");
 define("_CASUAL", "Casual");
+define("_YOUCANNOTEDITTHISUSER", "You cannot access this user's information");
 ?>

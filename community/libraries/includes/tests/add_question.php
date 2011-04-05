@@ -372,7 +372,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
             $smarty -> assign("T_EXCERPTS", $excerpts);
 
             foreach ($values['empty_spaces'] as $key => $value) {
-                $form -> addElement('text', 'empty_spaces['.$key.']', null, 'class = "inputText" style = "width:'.($matches[1][$key] ? $matches[1][$key] : 250).'px"');
+                $form -> addElement('text', 'empty_spaces['.$key.']', null, 'class = "inputText emptySpacesField" style = "width:'.($matches[1][$key] ? $matches[1][$key] : 250).'px"');
                 $form -> setDefaults(array('empty_spaces['.$key.']' => $value));
             }
 

@@ -5,21 +5,7 @@ function toggleOrgChartMode(el) {
  setCookie("orgChartMode", orgChartMode);
  location.reload();
 }
-function removeUserFromBranch(el, user, job, job_at_branch, supervises_branch, father_ID) {
- parameters = {method: "get", ctg:'users', edit_user:user, delete_job_employee:user, delete_job:job, delete_job_at_branch:job_at_branch, supervises_branch:supervises_branch, father_ID:father_ID};
- url = location.pathname.toString();
- ajaxRequest(el, url, parameters, onRemoveUserFromBranch);
-}
-function onRemoveUserFromBranch(el, response) {
- new Effect.Fade(el.up().up());
 
- var tables = sortedTables.size();
- for (i = 0; i < tables; i++) {
-  if (sortedTables[i].id == 'branchUsersTable' || sortedTables[i].id == 'branchJobsTable') {
-   eF_js_rebuildTable(i, 0, 'null', 'desc');
-  }
- }
-}
 
 function deleteJob(el, job, url) {
  if (!url) {
@@ -846,8 +832,7 @@ function onDateUpdated(el) {
 }
 function archiveUser(el, user) {
  parameters = {archive_user:user, method: 'get'};
- var url = 'administrator.php?ctg=users';
- ajaxRequest(el, url, parameters, onArchiveUser);
+ ajaxRequest(el, location.toString(), parameters, onArchiveUser);
 }
 function onArchiveUser(el, response) {
  new Effect.Fade(el.up().up());

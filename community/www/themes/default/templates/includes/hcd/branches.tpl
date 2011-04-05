@@ -99,7 +99,9 @@
                   {assign var = "employees_found" value = '1'}
                   <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
                       <td>
-                     {if ($user.pending == 1)}
+                     {if isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES)}
+                       #filter:login-{$user.login}#
+                     {elseif ($user.pending == 1)}
                           <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
                      {elseif ($user.active == 1)}
                           <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>
@@ -116,12 +118,12 @@
                 <td class = "centerAlign"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>
                {/if}
                       <td class = "centerAlign">
-                      {if $user.active == 1}
+                      {if !isset($T_SUPERVISED_EMPLOYEES) || in_array($user.login, $T_SUPERVISED_EMPLOYEES)}
                           <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">
                            <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                      {/if}
-                      {if $user.login != $smarty.session.s_login}
-                          <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "removeUserFromBranch(this, '{$user.login}', '{$user.job_description_ID}', '{$smarty.get.edit_branch}', '{$user.supervisor}', '{$T_FATHER_BRANCH_ID}');"/>
+                       {if $user.login != $smarty.session.s_login}
+                           <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "removeJobFromUser(this, '{$user.login}', '{$user.job_description_ID}');"/>
+                       {/if}
                       {/if}
                       </td>
 
@@ -150,7 +152,9 @@
           {foreach name = 'users_list' key = 'key' item = 'user' from = $T_EMPLOYEES}
               <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                   <td>
-     {if ($user.pending == 1)}
+              {if isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES)}
+                #filter:login-{$user.login}#
+     {elseif ($user.pending == 1)}
              <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink" style="color:red;">#filter:login-{$user.login}#</a>
               {elseif ($user.active == 1)}
              <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">#filter:login-{$user.login}#</a>
@@ -162,7 +166,7 @@
                   <td><span style="display:none" id="none_position_row{$user.login}">{$user.supervisor}</span>{$user.position_select}</td>
                   <td class = "centerAlign">
              <span style="display:none" id="none_check_row{$user.login}">{if $user.branch_ID == $smarty.get.edit_branch}1{else}0{/if}</span>
-             <input class = "inputCheckBox" type = "checkbox" {if $user.login == $smarty.session.s_login}disabled = "true"{/if} onclick="javascript:show_hide_job_selects('{$user.login}'); ajaxPost('row{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"{if $user.branch_ID == $smarty.get.edit_branch}checked{/if}>
+             <input class = "inputCheckBox" type = "checkbox" {if $user.login == $smarty.session.s_login || (isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES))}disabled = "true"{/if} onclick="javascript:show_hide_job_selects('{$user.login}'); ajaxPost('row{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"{if $user.branch_ID == $smarty.get.edit_branch}checked{/if}>
                   </td>
               </tr>
           {foreachelse}

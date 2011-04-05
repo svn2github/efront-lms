@@ -99,7 +99,7 @@ if (isset($_GET['delete_user']) && eF_checkParameter($_GET['delete_user'], 'logi
             array_walk($users, create_function('&$v, $k, $s', '$s[$v["login"]] ? $v["lessons_num"] = $s[$v["login"]] : $v["lessons_num"] = 0;'), $user_lessons); //Assign lessons number to users array (this way we eliminate the need for an expensive explicit loop)
             array_walk($users, create_function('&$v, $k, $s', '$s[$v["login"]] ? $v["courses_num"] = $s[$v["login"]] : $v["courses_num"] = 0;'), $user_courses);
             array_walk($users, create_function('&$v, $k, $s', '$s[$v["login"]] ? $v["groups_num"] = $s[$v["login"]] : $v["groups_num"] = 0;'), $user_groups);
-            $result = eF_getTableDataFlat("logs", "users_LOGIN, timestamp", "action = 'login'", "timestamp");
+            $result = eF_getTableDataFlat("logs", "users_LOGIN, max(timestamp) as timestamp", "action = 'login'", "timestamp", "users_LOGIN");
             $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
             foreach ($users as $key => $value) {
                 $users[$key]['last_login'] = $lastLogins[$value['login']];

@@ -33,9 +33,7 @@ $smarty -> assign("T_EDITEDUSER", $editedUser);
 $currentEmployee = $currentUser -> aspects['hcd'];
 
 if ($currentUser->user['login'] != $editedUser->user['login'] && $currentUser->user['user_type'] != 'administrator') {
- if (!$currentEmployee -> isSupervisor()) {
-  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=profile&message=".urlencode(_YOUCANNOTEDITTHISUSER)."&message_type=failure");
- } else if (!$currentEmployee -> supervisesEmployee($editedUser->user['login']) && (!$editedEmployee -> isUnassigned() || !$GLOBALS['configuration']['show_unassigned_users_to_supervisors'])) {
+ if (!$currentEmployee -> isSupervisor() || !$currentEmployee -> supervisesEmployee($editedUser->user['login'])) {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=profile&message=".urlencode(_YOUCANNOTEDITTHISUSER)."&message_type=failure");
  }
 }

@@ -167,6 +167,11 @@ try {
             $smarty -> assign("T_JOB_DESCRIPTION_BRANCH_NAME", $currentJob -> job['name']);
             $smarty -> assign("T_JOB_DESCRIPTION_NAME", $currentJob -> job['job_description']);
             $employees = $currentJob -> getEmployees(false, true);
+            if ($currentEmployee -> isSupervisor()) {
+             $supervisedEmployees = $currentEmployee -> getSupervisedEmployees();
+             $supervisedEmployees[] = $currentEmployee -> login;
+             $smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
+            }
             if(!empty($employees)) {
                 $smarty -> assign("T_EMPLOYEES", $employees);
             }
@@ -179,6 +184,7 @@ try {
             /* Administrators can associate lessons or courses to job descriptions - every employee with that job description will have the lessons */
             if ($currentUser -> getType() == "administrator" || $currentEmployee -> getType() == _SUPERVISOR) {
                 $skills = $currentJob -> getSkills();
+
                 // Get with ajax
                 if (isset($_GET['ajax'])) {
               if (isset($_GET['applytoallusers'])) {

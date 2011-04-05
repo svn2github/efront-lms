@@ -15,6 +15,21 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 	 *****************************************************/
  // Create ajax enabled table for employees
  if (isset($_GET['ajax'])) {
+  if (isset($_GET['archive_user']) && eF_checkParameter($_GET['archive_user'], 'login')) { //The administrator asked to delete a user
+   try {
+    if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change') {
+     throw new Exception(_UNAUTHORIZEDACCESS);
+    }
+    $user = EfrontUserFactory :: factory($_GET['archive_user']);
+    if (G_VERSIONTYPE == 'enterprise') {
+     //$user -> aspects['hcd'] -> delete();
+    }
+    $user -> archive();
+   } catch (Exception $e) {
+    handleAjaxExceptions($e);
+   }
+   exit;
+  }
   $smarty -> assign("T_ROLES", EfrontUser :: getRoles(true));
   isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
@@ -55,24 +70,15 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
   } else {
 
    // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
-   if ($currentEmployee -> getType() == _SUPERVISOR) {
-    $exclude_admin_condition = " AND users.user_type != 'administrator'";
+   if ($currentEmployee -> isSupervisor()) {
     $tree = new EfrontBranchesTree();
     $branchPaths = $tree -> toPathString();
     $employees = eF_getTableData("
-     users
-     LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN
-     LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN",
-     "distinct users.*, count(distinct job_description_ID) as jobs_num, branch_ID",
-     "users.user_type <> 'administrator'
-     AND ((module_hcd_employee_works_at_branch.branch_ID IN (" . $_SESSION['supervises_branches'] ." )
-     AND module_hcd_employee_works_at_branch.assigned='1')
-     OR EXISTS
-     (SELECT module_hcd_employees.users_login
-     FROM module_hcd_employees
-     LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login
-     WHERE users.login=module_hcd_employees.users_login
-     AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) $exclude_admin_condition", "login", "login");
+    users u
+    LEFT OUTER JOIN module_hcd_employee_has_job_description ehj ON u.login = ehj.users_LOGIN
+    LEFT OUTER JOIN module_hcd_employee_works_at_branch ewb ON u.login = ewb.users_login",
+    "u.*, count(ehj.job_description_ID) as jobs_num, ewb.branch_ID",
+    "u.user_type != 'administrator' and u.archive = 0 and u.active=1 and u.login in (select users_login from module_hcd_employee_works_at_branch where assigned=1 and branch_ID in (".implode(",", $currentEmployee -> supervisesBranches)."))", "", "login");
 
     foreach ($employees as $key => $value) {
      if (!$value['active'] || $value['archive'] || !$value['jobs_num']) {
@@ -80,8 +86,10 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
      } else {
       $employees[$key]['branch_name'] = eF_truncatePath($branchPaths[$value['branch_ID']], 10);
      }
-
     }
+    $supervisedEmployees = $currentEmployee -> getSupervisedEmployees();
+    $supervisedEmployees[] = $currentEmployee -> login;
+    $smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
 
 
    } else if ($_SESSION['s_type'] == 'administrator') {
@@ -93,7 +101,7 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
     "users.archive = 0","","login");
 
    }
-   $result = eF_getTableDataFlat("logs", "users_LOGIN, timestamp", "action = 'login'", "timestamp");
+   $result = eF_getTableDataFlat("logs", "users_LOGIN, max(timestamp) as timestamp", "action = 'login'", "timestamp", "users_LOGIN");
    $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
 
    foreach ($employees as $key => $value) {
@@ -115,8 +123,6 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
   exit;
  }
 } else {
- $message = _SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION;
- $message_type = 'failure';
- eF_redirect("" . $_SESSION['s_type'] . ".php?ctg=control_panel&message=".urlencode($message)."&message_type=$message_type");
+ eF_redirect("" . $_SESSION['s_type'] . ".php?ctg=control_panel&message=".urlencode(_SORRYYOUDONOTHAVEPERMISSIONTOPERFORMTHISACTION)."&message_type=failure");
  exit;
 }

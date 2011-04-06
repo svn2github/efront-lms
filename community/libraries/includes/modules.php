@@ -203,7 +203,7 @@ try {
  handleAjaxExceptions($e);
 }
 
-$modulesList = eF_getTableData("modules", "*");
+$modulesList = eF_getTableData("modules", "*", "", "active desc");
 
 // Check for errors in modules
 foreach ($modulesList as $key => $module) {

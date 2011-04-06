@@ -20,7 +20,7 @@
                                     <td class = "topTitle">{$smarty.const._AUTHOR}</td>
                                     <td class = "topTitle centerAlign">{$smarty.const._VERSION}</td>
                                     <td class = "topTitle centerAlign">{$smarty.const._STATUS}</td>
-                                    <td class = "topTitle centerAlign">{$smarty.const._FUNCTIONS}</td>
+                                    <td class = "topTitle centerAlign noSort">{$smarty.const._FUNCTIONS}</td>
                                 </tr>
                             {section name = 'modules_list' loop = $T_MODULES}
                                 <tr id="row_{$T_MODULES[modules_list].className}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$T_MODULES[modules_list].active}deactivatedTableElement{/if}">
@@ -29,14 +29,15 @@
                                     <td>{$T_MODULES[modules_list].author}</td>
                                     <td class = "centerAlign">{$T_MODULES[modules_list].version}</td>
                                     <td class = "centerAlign">
-
                                 {if !$T_MODULES[modules_list].errors}
+                                 <span style = "display:none">{$T_MODULES[modules_list].active}</span>
                                     {if $T_MODULES[modules_list].active}
                                         <img class = "ajaxHandle" id="module_status_img" src = "images/16x16/trafficlight_green.png" alt = "{$smarty.const._DEACTIVATE}" title = "{$smarty.const._DEACTIVATE}" {if $change_modules}onclick = "activateModule(this, '{$T_MODULES[modules_list].className}')"{/if}>
                                     {else}
                                         <img class = "ajaxHandle" id="module_status_img" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $change_modules}onclick = "activateModule(this, '{$T_MODULES[modules_list].className}')"{/if}>
                                     {/if}
                                 {else}
+                                 <span style = "display:none">-1</span>
                                         <img src = "images/16x16/close.png" alt = "{$T_MODULES[modules_list].errors}" title = "{$T_MODULES[modules_list].errors}">
                                 {/if}
                                     </td>

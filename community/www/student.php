@@ -84,7 +84,7 @@ try {
 
 $roles = EfrontLessonUser :: getLessonsRoles();
 $userLessons = $currentUser -> getLessons();
-if ($_SESSION['s_lessons_ID']) {
+if ($_SESSION['s_lessons_ID'] && $_GET['ctg'] != 'lessons') {
  try {
   $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']); //Initialize lesson
     } catch (Exception $e) {

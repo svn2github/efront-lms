@@ -680,6 +680,8 @@ class EfrontImportCsv extends EfrontImport
   $this -> clear();
   if ($this -> lines == "") {
    $this -> log["failure"]["missingheader"] = _NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE;
+  } else if ($this -> lines == 1) {
+   $this -> log["failure"]["missingdata"] = _THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY;
   } else {
    // Pairs of values <Csv column header> => <eFront DB field>
    $this -> types = EfrontImport::getTypes($type);

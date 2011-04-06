@@ -68,6 +68,9 @@
 - Added "users" and "organization" options in professor/student user types
 - Excluding lessons that belong to inactive courses (and they do not belong to any other active course) in recipients list in messages
 - Fixed user redirection after course enrollment from index page
+- Supervisors cannot edit other supervisors of the same branch (Enterprise edition)
+- Supervisor permissions updates (Enterprise edition)
+- Fixed notifications going out to inactive users
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

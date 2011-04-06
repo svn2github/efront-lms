@@ -13,6 +13,7 @@
 {else}
  {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
 {/if}
+
 {* Making the previously loaded current lesson options appear again *}
 <script>
 {* Code for changing the sideframe - reloading it if necessary and selecting the right link *}
@@ -349,6 +350,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {include file = "includes/glossary.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'lessons')}
+
  {if $title == ""}
   {assign var = "title" value = '<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons">'|cat:$smarty.const._MYCOURSES|cat:'</a>'}
  {/if}

@@ -787,7 +787,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      if (isset($this -> notification['send_conditions'])) {
     //echo $this -> notification['send_conditions'];
       if ($this -> notification['send_conditions'] == "N;") {
-    $recipients = eF_getTableData("users", "*", "");
+    $recipients = eF_getTableData("users", "*", "active=1 and archive=0");
     //sending_queue_msgs[$key]['recipients'] = _ALLUSERS;
        foreach ($recipients as $recipient) {
         $recipients_list[$recipient['login']] = $recipient;
@@ -804,13 +804,28 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
          $lesson = new EfrontLesson($this -> recipients["lessons_ID"]);
          if (isset($this -> recipients["user_type"])) {
           // return lesson users of specific type
-          $recipients = $lesson -> getUsers($this -> recipients["user_type"]);
+          $recipients = array();
+          foreach ($lesson -> getUsers($this -> recipients["user_type"]) as $value) {
+           if ($value['active']) {
+            $recipients[] = $value;
+           }
+          }
          } else if (isset($this -> recipients["completed"])) {
              // return lesson students according to whether they have completed the lesson or not
-          $recipients = $lesson -> getUsersCompleted($this -> recipients["completed"]);
+          $recipients = array();
+          foreach ($lesson -> getUsersCompleted($this -> recipients["completed"]) as $value) {
+           if ($value['active']) {
+            $recipients[] = $value;
+           }
+          }
          } else {
           // return all users
-          $recipients = $lesson -> getUsers();
+          $recipients = array();
+          foreach ($lesson -> getUsers() as $value) {
+           if ($value['active']) {
+            $recipients[] = $value;
+           }
+          }
          }
         } else if (isset($this -> recipients["courses_ID"])) {
          if ($this -> recipients['user_type'] == "professor") {
@@ -820,12 +835,12 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
          } else {
           $completed_condition = "";
          }
-         $recipients = eF_getTableData("users_to_courses uc, users u", "u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID, uc.user_type as role", "u.archive=0 and uc.archive=0 and uc.users_LOGIN = u.login and uc.courses_ID=". $this -> recipients["courses_ID"] . $completed_condition);
+         $recipients = eF_getTableData("users_to_courses uc, users u", "u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID, uc.user_type as role", "u.active=1 and u.archive=0 and uc.archive=0 and uc.users_LOGIN = u.login and uc.courses_ID=". $this -> recipients["courses_ID"] . $completed_condition);
         } else if (isset($this -> recipients['user_type'])) {
-         $recipients = eF_getTableData("users", "*", "user_type = '". $this -> recipients['user_type']."'");
+         $recipients = eF_getTableData("users", "*", "active=1 and archive=0 and user_type = '". $this -> recipients['user_type']."'");
         } else if (isset($this -> recipients['entity_ID']) && isset($this -> recipients['entity_category'])) {
          if ($this -> recipients['entity_category'] == "survey") {
-          $recipients = eF_getTableData("users_to_surveys JOIN users ON users_LOGIN = users.login", "users.*", "surveys_ID = '".$this -> recipients["entity_ID"]."'");
+          $recipients = eF_getTableData("users_to_surveys JOIN users ON users_LOGIN = users.login", "users.*", "users.active=1 and users.archive=0 and surveys_ID = '".$this -> recipients["entity_ID"]."'");
        $resDone = eF_getTableDataFlat("users_to_done_surveys", "users_LOGIN", "surveys_ID=".$this -> recipients["entity_ID"]);
           $usersToSent = array();
           if (!empty($resDone['users_LOGIN'])){
@@ -837,10 +852,10 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         $recipients = $usersToSent;
           }
          } else if ($this -> recipients['entity_category'] == "projects") {
-       $recipients = eF_getTableData("users_to_projects JOIN users ON users_LOGIN = users.login", "users.*", "projects_ID = '".$this -> recipients["entity_ID"]."'");
+       $recipients = eF_getTableData("users_to_projects JOIN users ON users_LOGIN = users.login", "users.*", "users.active=1 and users.archive=0 and projects_ID = '".$this -> recipients["entity_ID"]."'");
          }
         } else if (isset($this -> recipients["groups_ID"])) {
-         $recipients = eF_getTableData("users_to_groups JOIN users ON users_login = users.login", "users.*", "groups_ID = '".$this -> recipients["groups_ID"]."'");
+         $recipients = eF_getTableData("users_to_groups JOIN users ON users_login = users.login", "users.*", "users.active=1 and users.archive=0 and groups_ID = '".$this -> recipients["groups_ID"]."'");
         } else if (isset($this -> recipients['users_login'])) {
           $recipients = $this -> recipients['users_login'];
         }
@@ -849,7 +864,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         }
        } else {
         if ($this -> notification['recipient'] != "") {
-         $user = eF_getTableData("users", "*", "login = '".$this -> notification['recipient']."'");
+         $user = eF_getTableData("users", "*", "active=1 and archive=0 and login = '".$this -> notification['recipient']."'");
          if (!empty($user)) {
           $recipients_list[$this -> notification['recipient']] = $user[0];
          }
@@ -858,7 +873,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
    }
         } else {
       if ($this -> notification['recipient'] != "") {
-       $user = eF_getTableData("users", "*", "login = '".$this -> notification['recipient']."'");
+       $user = eF_getTableData("users", "*", "active=1 and archive=0 and login = '".$this -> notification['recipient']."'");
        if (!empty($user)) {
         $recipients_list[$this -> notification['recipient']] = $user[0];
        }

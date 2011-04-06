@@ -543,7 +543,7 @@ define("_TESTINFO","Toets informatie");//Test information
 define("_QUESTIONINFO","Vraag informatie");//Question information
 define("_VIEWTEST","Bekijk test");//View test
 define("_SYSTEMSTATISTICS","Systeem rapporten");//System reports
-define("_ORDER","Bestellen");//Order
+define("_ORDER","Volgorde");//Order
 define("_TEST","Toets");//Test
 define("_TOPICSUCCESFULLYCREATED","Het onderwerp is gemaakt");//The topic was created successfully
 define("_SUCCESFULLYPOSTEDMESSAGE","Uw bericht is met succes verzonden");//Your message was posted successfully

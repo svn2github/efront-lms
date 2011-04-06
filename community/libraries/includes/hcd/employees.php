@@ -13,6 +13,8 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 	 SHOW EMPLOYEES
 
 	 *****************************************************/
+  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
+  $smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());
  // Create ajax enabled table for employees
  if (isset($_GET['ajax'])) {
   if (isset($_GET['archive_user']) && eF_checkParameter($_GET['archive_user'], 'login')) { //The administrator asked to delete a user
@@ -41,7 +43,7 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
   }
 
   $smarty -> assign("T_LANGUAGES", EfrontSystem :: getLanguages(true));
-  if ($_GET['ajax'] == "unattachedUsersTable" && $currentEmployee -> getType() == _SUPERVISOR) {
+  if ($_GET['ajax'] == "unattachedUsersTable" && $currentEmployee -> isSupervisor()) {
    // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
 
    $unattached_employee = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*" , " users.user_type <> 'administrator' AND users.archive = 0 AND (EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) and users.active=1 GROUP BY login", "login");
@@ -93,31 +95,62 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 
 
    } else if ($_SESSION['s_type'] == 'administrator') {
-    $employees = eF_getTableData("
-    users
-    LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN",
-    "users.*,
-    count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num",
-    "users.archive = 0","","login");
+    $constraints = array('archive' => false) + createConstraintsFromSortedTable();
+    $employees = EfrontEmployee::getUsers($constraints);
+    $totalEntries = EfrontEmployee::countUsers($constraints);
+/*				
 
+				$employees = eF_getTableData("
+
+				users
+
+				LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN",
+
+				"users.*,
+
+				count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num",
+
+				"users.archive = 0","","login");
+
+*/
    }
-   $result = eF_getTableDataFlat("logs", "users_LOGIN, max(timestamp) as timestamp", "action = 'login'", "timestamp", "users_LOGIN");
-   $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
+/*			
 
-   foreach ($employees as $key => $value) {
-    $employees[$key]['last_login'] = $lastLogins[$value['login']];
-    if (isset($_COOKIE['toggle_active'])) {
-     if (($_COOKIE['toggle_active'] == 1 && !$value['active']) || ($_COOKIE['toggle_active'] == -1 && $value['active'])) {
-      unset($employees[$key]);
-     }
-    }
-   }
+			$result 	= eF_getTableDataFlat("logs", "users_LOGIN, max(timestamp) as timestamp", "action = 'login'", "timestamp", "users_LOGIN");
+
+			$lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
 
 
-   $tableName = "usersTable";
 
+			foreach ($employees as $key => $value) {
+
+				if (isset($value['login']) && isset($lastLogins[$value['login']])) {
+
+					$employees[$key]['last_login'] = $lastLogins[$value['login']];
+
+				} else {
+
+					$employees[$key]['last_login'] = null;
+
+				}
+
+				if (isset($_COOKIE['toggle_active'])) {
+
+					if (($_COOKIE['toggle_active'] == 1 && !$value['active']) || ($_COOKIE['toggle_active'] == -1 && $value['active'])) {
+
+						unset($employees[$key]);
+
+					}
+
+				}
+
+			}
+
+*/
+   $tableName = $_GET['ajax'];
+   $alreadySorted = 1;
+   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
    $dataSource = $employees;
-
    include ("sorted_table.php");
   }
   exit;

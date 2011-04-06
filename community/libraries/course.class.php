@@ -954,8 +954,7 @@ class EfrontCourse
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $select = "u.*, uc.courses_ID,uc.completed,uc.score,uc.user_type as role,uc.from_timestamp as active_in_course, uc.to_timestamp, uc.comments, uc.issued_certificate, 1 as has_course";
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
-  $result = eF_getTableData("users u, users_to_courses uc", $select,
-  implode(" and ", $where), $orderby, false, $limit);
+  $result = eF_getTableData("users u, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
@@ -992,8 +991,7 @@ class EfrontCourse
   $where[] = "user_type != 'administrator'";
   $select = "u.*, r.courses_ID is not null as has_course, r.completed,r.score, r.from_timestamp as active_in_course, r.to_timestamp as timestamp_completed, r.role";
   $from = "users u left outer join (select completed,score,courses_ID,from_timestamp, to_timestamp,users_LOGIN,user_type as role from users_to_courses where courses_ID='".$this -> course['id']."' and archive=0) r on u.login=r.users_LOGIN";
-  $result = eF_getTableData($from, $select,
-  implode(" and ", $where), $orderby, false, $limit);
+  $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {

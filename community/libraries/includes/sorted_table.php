@@ -26,5 +26,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == $tableName) {
    echo $output;
   }
  }
+
  exit;
 }

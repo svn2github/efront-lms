@@ -704,6 +704,7 @@ function eF_js_sortTable(el, other) {
             }
             selectBranch.setAttribute('class', 'inputSelectMed');
          selectBranch.setAttribute('onchange', 'eF_js_filterData('+tableIndex+'); return false;'); //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+         selectBranch.setAttribute('onfocus', 'if ($(\''+tableIndex+'_sortedTable_filter\').value.match("'+sorted_translations["filter"]+'...'+'")) $(\''+tableIndex+'_sortedTable_filter\').value = "";');
          selectBranch.setAttribute('id', tableIndex+'_sortedTable_branchFilter'); //Set its id so we can retrieve its data easily
          if (currentBranchFilter[tableIndex]) {
           div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentBranchFilter">'+currentBranchFilter[tableIndex]+'</span>';
@@ -731,6 +732,7 @@ function eF_js_sortTable(el, other) {
             }
             selectJob.setAttribute('class', 'inputSelectMed');
             selectJob.setAttribute('onchange', 'eF_js_filterData('+tableIndex+'); return false;'); //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+            selectJob.setAttribute('onfocus', 'if ($(\''+tableIndex+'_sortedTable_filter\').value.match("'+sorted_translations["filter"]+'...'+'")) $(\''+tableIndex+'_sortedTable_filter\').value = "";');
          selectJob.setAttribute('id', tableIndex+'_sortedTable_jobFilter'); //Set its id so we can retrieve its data easily						
          if (currentJobFilter[tableIndex]) {
           div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentJobFilter">'+currentJobFilter[tableIndex]+'</span>';

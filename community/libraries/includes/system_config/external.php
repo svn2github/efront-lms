@@ -8,6 +8,7 @@ $externalMainForm = new Html_QuickForm("external_main_form", "post", basename($_
 $externalMainForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $externalMainForm -> addElement("advcheckbox", "api", _ENABLEDAPI, null, 'class = "inputCheckBox"', array(0, 1));
 $externalMainForm -> addElement("select", "editor_type", _EDITORTYPE, array('tinymce' => G_TINYMCE, 'tinymce_new' => G_NEWTINYMCE), 'class = "inputCheckBox"');
+$externalMainForm -> addElement("advcheckbox", "virtual_keyboard", _ENABLEVIRTUALKEYBOARD, null, 'class = "inputCheckBox"', array(0, 1));
 //If we are on a windows system, and the zip_method is already PHP, then don't display option to change it
 if (stripos(php_uname(), 'windows') === false || $GLOBALS['configuration']['zip_method'] != "php") {
  $externalMainForm -> addElement("select", "zip_method", _ZIPHANDLING, array('php' => "PHP", 'system' => _SYSTEM), 'class = "inputSelect"');

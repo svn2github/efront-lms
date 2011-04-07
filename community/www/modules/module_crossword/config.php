@@ -1,4 +1,4 @@
-<?
+<?php
 /**
 
  * PHP Crossword Configuration file

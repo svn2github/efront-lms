@@ -727,7 +727,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                $message = _NOTIFICATIONSETUPSUCCESSFULLY;
                $message_type = 'success';
               }
-              eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=". urlencode($message) . "&message_type=" . $message_type);
+              //eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=".  urlencode($message) . "&message_type=" . $message_type);
              }
             }
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer

@@ -2,23 +2,23 @@
 class module_crossword extends EfrontModule {
 
  public function getName() {
-        return _CROSSWORD_CROSSWORD;
-    }
+  return _CROSSWORD_CROSSWORD;
+ }
 
-    public function getPermittedRoles() {
-        return array("student","professor","administrator");
-    }
+ public function getPermittedRoles() {
+  return array("student","professor","administrator");
+ }
 
  public function getModule() {
   $smarty = $this -> getSmartyVar();
   $currentLesson = $this -> getCurrentLesson();
-        $currentUser = $this -> getCurrentUser();
-   try {
-    $currentContent = new EfrontContentTree($_SESSION['s_lessons_ID']); //Initialize content
-   } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = _ERRORLOADINGCONTENT.": ".$_SESSION['s_lessons_ID'].": ".$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-   }
+  $currentUser = $this -> getCurrentUser();
+  try {
+   $currentContent = new EfrontContentTree($_SESSION['s_lessons_ID']); //Initialize content
+  } catch (Exception $e) {
+   $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+   $message = _ERRORLOADINGCONTENT.": ".$_SESSION['s_lessons_ID'].": ".$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+  }
   //pr($currentUser);exit;
   $roles = EfrontUser :: getRoles();
   //pr($roles);
@@ -35,7 +35,7 @@ class module_crossword extends EfrontModule {
      }
     }
     $questions = $crosslists;
-  //pr($questions);
+    //pr($questions);
     foreach ($questions as $qid => $question) {
      $questions[$qid]->question['text'] = str_replace('#','_',strip_tags($question->question['text'])); //If we ommit this line, then the questions list is html formatted, images are displayed etc, which is *not* the intended behaviour
      //$questions[$qid]->question['answer']           = unserialize($question->question['answer']);
@@ -54,7 +54,7 @@ class module_crossword extends EfrontModule {
 
     $form -> addElement('advcheckbox', 'reveal_answer',_CROSSWORD_SHOWANSWERFIRST, null, 'class = "inputCheckbox"', array(0, 1));
     $form -> addElement('advcheckbox', 'save_pdf', _CROSSWORD_SAVEPDF, null, 'class = "inputCheckbox"', array(0, 1));
-   $form -> addElement('submit', 'submit_options', _SAVECHANGES,'onclick ="return optionSubmit();"', 'class = "flatButton"'); //The submit content button
+    $form -> addElement('submit', 'submit_options', _SAVECHANGES,'onclick ="return optionSubmit();"', 'class = "flatButton"'); //The submit content button
 
     $options = unserialize($res[0]['options']);
 
@@ -94,7 +94,7 @@ class module_crossword extends EfrontModule {
     if (isset($_GET['postAjaxRequest'])) {
      try {
       $result = eF_getTableData("module_crossword_words", "crosslists", "content_ID=".$_GET['view_list']);
-     //pr($result);exit;
+      //pr($result);exit;
       $crosslistsArray = unserialize($result[0]['crosslists']);
       if (isset($_GET['id']) && eF_checkParameter($_GET['id'], 'id')) {
        if (!in_array($_GET['id'], array_values($crosslistsArray))) {
@@ -203,155 +203,154 @@ class module_crossword extends EfrontModule {
      eF_updateTableData("module_crossword_users",array('success' => $success),"crosslists_ID=".$_GET['view_card']." and users_LOGIN='".$_SESSION['s_login']."'");
     }
    }
-    $listsArray = array();
-    $iterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator($currentContent -> tree, RecursiveIteratorIterator :: SELF_FIRST)));
-    foreach ($iterator as $key => $value) {
-     $listsArray[$value['id']] = array( 'id' => $value['id'],
+   $listsArray = array();
+   $iterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator($currentContent -> tree, RecursiveIteratorIterator :: SELF_FIRST)));
+   foreach ($iterator as $key => $value) {
+    $listsArray[$value['id']] = array( 'id' => $value['id'],
               'name' => $value['name']);
-    }
-    if (empty($listsArray)) {
-     $smarty -> assign("T_CROSSWORD_WORDSNAMES", $listsArray);
-     return true;
-    }
-    $str = implode(",",array_keys($listsArray));
-    $lists = eF_getTableData("module_crossword_words","*","content_ID IN (".$str.")");
-    $mastery = eF_getTableDataFlat("module_crossword_users","*","content_ID IN (".$str.")");
-    $masteryArray = array_combine(array_values($mastery['crosslists_ID']) , array_values($mastery['success']));
-    $questionsDiff = eF_getTableDataFlat("questions","*","content_ID IN (".$str.")");
-    $questionsDiffArray = array_combine(array_values($questionsDiff['id']) , array_values($questionsDiff['difficulty']));
-    $validLists = array();
-    foreach ($lists as $key => $value) {
-     $opt = unserialize($value['options']);
-     $crosslists = unserialize($value['crosslists']);
-     if ($opt['active'] == 1 && !empty($crosslists)) {
-      $value['number_crosslists'] = (empty($crosslists) ? 0 : sizeof($crosslists));
-      $validLists[$value['content_ID']] = $value;
-      $validLists[$value['content_ID']]['options'] = $opt;
-      $finishedCrosslists = 0;
-      foreach ($crosslists as $index => $item) {
-       if($masteryArray[$item] == $opt[$questionsDiffArray[$item]]) {
-        $finishedCrosslists++;
-       }
+   }
+   if (empty($listsArray)) {
+    $smarty -> assign("T_CROSSWORD_WORDSNAMES", $listsArray);
+    return true;
+   }
+   $str = implode(",",array_keys($listsArray));
+   $lists = eF_getTableData("module_crossword_words","*","content_ID IN (".$str.")");
+   $mastery = eF_getTableDataFlat("module_crossword_users","*","content_ID IN (".$str.")");
+   $masteryArray = array_combine(array_values($mastery['crosslists_ID']) , array_values($mastery['success']));
+   $questionsDiff = eF_getTableDataFlat("questions","*","content_ID IN (".$str.")");
+   $questionsDiffArray = array_combine(array_values($questionsDiff['id']) , array_values($questionsDiff['difficulty']));
+   $validLists = array();
+   foreach ($lists as $key => $value) {
+    $opt = unserialize($value['options']);
+    $crosslists = unserialize($value['crosslists']);
+    if ($opt['active'] == 1 && !empty($crosslists)) {
+     $value['number_crosslists'] = (empty($crosslists) ? 0 : sizeof($crosslists));
+     $validLists[$value['content_ID']] = $value;
+     $validLists[$value['content_ID']]['options'] = $opt;
+     $finishedCrosslists = 0;
+     foreach ($crosslists as $index => $item) {
+      if($masteryArray[$item] == $opt[$questionsDiffArray[$item]]) {
+       $finishedCrosslists++;
       }
-      $conid = $validLists[$value['content_ID']]['content_ID'];
-      $validLists[$value['content_ID']]['non_finished'] = $value['number_crosslists'] - $finishedCrosslists;
-      $validLists[$value['content_ID']]['mastery'] = ((float)$finishedCrosslists/sizeof($crosslists)*100);
-      $respoints = eF_getTableDataFlat("module_crossword_users","*","content_ID = '$conid' and users_LOGIN='".$_SESSION['s_login']."'");
-   $validLists[$value['content_ID']]['points'] = round($respoints['points'][0]/$respoints['totallength'][0]*100);
-      $validLists[$value['content_ID']]['crosstime'] = $respoints['wordtime'][0];
      }
+     $conid = $validLists[$value['content_ID']]['content_ID'];
+     $validLists[$value['content_ID']]['non_finished'] = $value['number_crosslists'] - $finishedCrosslists;
+     $validLists[$value['content_ID']]['mastery'] = ((float)$finishedCrosslists/sizeof($crosslists)*100);
+     $respoints = eF_getTableDataFlat("module_crossword_users","*","content_ID = '$conid' and users_LOGIN='".$_SESSION['s_login']."'");
+     $validLists[$value['content_ID']]['points'] = round($respoints['points'][0]/$respoints['totallength'][0]*100);
+     $validLists[$value['content_ID']]['crosstime'] = $respoints['wordtime'][0];
     }
+   }
 
    //print_r($validLists);
-    $smarty -> assign("T_CROSSWORD_WORDS", $validLists);
-    $smarty -> assign("T_CROSSWORD_WORDSNAMES", $listsArray);
+   $smarty -> assign("T_CROSSWORD_WORDS", $validLists);
+   $smarty -> assign("T_CROSSWORD_WORDSNAMES", $listsArray);
 
-    if(isset($_GET['view_list']) && !isset($_GET['pdf'])) {
-      $resunit = eF_getTableData("content", "name", "id=".$_GET['view_list']);
-      $smarty -> assign("T_CROSSWORD_UNITNAME", $resunit[0]['name']);
+   if(isset($_GET['view_list']) && !isset($_GET['pdf'])) {
+    $resunit = eF_getTableData("content", "name", "id=".$_GET['view_list']);
+    $smarty -> assign("T_CROSSWORD_UNITNAME", $resunit[0]['name']);
 
-      $_SESSION['contentid'] = $_GET['view_list'];
-      if(isset($_POST) && !empty($_POST['crosstime'])){
-       $userlist = eF_getTableData("module_crossword_users","*","users_LOGIN='".$_SESSION['s_login']."' and content_ID=".$_GET['view_list']."");
-       if(count($userlist)==0){
-       $fields = array('users_LOGIN' => $_SESSION['s_login'],
+    $_SESSION['contentid'] = $_GET['view_list'];
+    if(isset($_POST) && !empty($_POST['crosstime'])){
+     $userlist = eF_getTableData("module_crossword_users","*","users_LOGIN='".$_SESSION['s_login']."' and content_ID=".$_GET['view_list']."");
+     if(count($userlist)==0){
+      $fields = array('users_LOGIN' => $_SESSION['s_login'],
           'content_ID' => $_GET['view_list'],
           'points' => $_POST['points'],
        'totallength' => $_SESSION['WORDLEN'],
           'wordtime' => $_POST['crosstime']);
-       eF_insertTableData("module_crossword_users", $fields);
-       }else{
-        $fields = array('points' => $_POST['points'],
+      eF_insertTableData("module_crossword_users", $fields);
+     }else{
+      $fields = array('points' => $_POST['points'],
         'totallength' => $_SESSION['WORDLEN'],
           'wordtime' => $_POST['crosstime']);
-            eF_updateTableData("module_crossword_users", $fields, "content_ID=".$_GET['view_list']." and users_LOGIN='".$_SESSION['s_login']."'");
-       }
-       $message_type = 'success';
-       $message = _CROSSWORD_GAME_SUCCESSFULLY;
-       eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
-      }
-     $contentid = $_GET['view_list'];
-     $res = eF_getTableData("module_crossword_words", "crosslists,options", "content_ID=".$_GET['view_list']);
-     $reswords = unserialize($res[0]['crosslists']);
-     $maxwords = unserialize($res[0]['options']);
-     $maxwords1 = $maxwords['max_word'];
-     $smarty -> assign("T_CROSSWORD_REVEALANSWER", $maxwords['reveal_answer']);
-     $smarty -> assign("T_CROSSWORD_MAXWORD", $maxwords1+1);
-     $_SESSION['CROSSWORD_MAXWORD']=$maxwords1;
-     require_once('init.php');
-     $rowquesans = "";
-     foreach($reswords as $rowques){
-       $rowquesans .= $rowques.",";
+      eF_updateTableData("module_crossword_users", $fields, "content_ID=".$_GET['view_list']." and users_LOGIN='".$_SESSION['s_login']."'");
      }
-     $quesids = substr($rowquesans,0,-1);
-     $quesans = eF_getTableData("questions","text,answer","id IN($quesids) order by rand() limit $maxwords1");
-     $value = array();
-     foreach($quesans as $row){
-      $answer = unserialize($row['answer']);
-      $answer1 = explode("|",$answer['0']);
-   $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
-     }
-
-     if(!empty($value)){
+     $message_type = 'success';
+     $message = _CROSSWORD_GAME_SUCCESSFULLY;
+     eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
+    }
+    $contentid = $_GET['view_list'];
+    $res = eF_getTableData("module_crossword_words", "crosslists,options", "content_ID=".$_GET['view_list']);
+    $reswords = unserialize($res[0]['crosslists']);
+    $maxwords = unserialize($res[0]['options']);
+    $maxwords1 = $maxwords['max_word'];
+    $smarty -> assign("T_CROSSWORD_REVEALANSWER", $maxwords['reveal_answer']);
+    $smarty -> assign("T_CROSSWORD_MAXWORD", $maxwords1+1);
+    $_SESSION['CROSSWORD_MAXWORD']=$maxwords1;
+    require_once('init.php');
+    $rowquesans = "";
+    foreach($reswords as $rowques){
+     $rowquesans .= $rowques.",";
+    }
+    $quesids = substr($rowquesans,0,-1);
+    $quesans = eF_getTableData("questions","text,answer","id IN($quesids) order by rand() limit $maxwords1");
+    $value = array();
+    foreach($quesans as $row){
+     $answer = unserialize($row['answer']);
+     $answer1 = explode("|",$answer['0']);
+     $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
+    }
+    if(!empty($value)){
      $success = $pc->generateFromWords($value);
      if(!$success){
       $message_type = 'failure';
-       $message = 'SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS';
-       eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
+      $message = 'SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS';
+      eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
      }else{
-     $words = $pc->getWords();
-     $wordlen = "";
-     foreach($words as $rowwords){
-      $wordlen = $wordlen+$rowwords['wordlength'];
-     }
-     $_SESSION['WORDLEN']=$wordlen;
-     $smarty -> assign("T_CROSSWORD_LENGTH", $_SESSION['WORDLEN']);
-     $smarty -> assign("T_CROSSWORD_ANSWERS", $words);
-     }
-
+      $words = $pc->getWords();
+      $wordlen = "";
+      foreach($words as $rowwords){
+       $wordlen = $wordlen+$rowwords['wordlength'];
+      }
+      $_SESSION['WORDLEN']=$wordlen;
+      $smarty -> assign("T_CROSSWORD_LENGTH", $_SESSION['WORDLEN']);
+      $smarty -> assign("T_CROSSWORD_ANSWERS", $words);
      }
 
+    }
 
-      $post_target = $this -> moduleBaseUrl."&view_list=".$_GET['view_list']."";
-      $form = new HTML_QuickForm("crossword_game", "post", $post_target, "", null, true);
-     $form -> addElement('submit', 'submit_crossword', 'SUBMIT', 'class = "flatButton"'); //The submit content button
-      $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
+
+    $post_target = $this -> moduleBaseUrl."&view_list=".$_GET['view_list']."";
+    $form = new HTML_QuickForm("crossword_game", "post", $post_target, "", null, true);
+    $form -> addElement('submit', 'submit_crossword', 'SUBMIT', 'class = "flatButton"'); //The submit content button
+    $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
 
     $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR); //Set javascript error messages
     $form -> setRequiredNote(_REQUIREDNOTE);
     $form -> accept($renderer); //Assign this form to the renderer, so that corresponding template code is created
     $smarty -> assign('T_CROSSWORD_SUBMIT', $renderer -> toArray()); //Assign the form to the template
-     $message = "";
-      //$message_type = 'success';
-     // eF_redirect("".$this -> moduleBaseUrl."&popup=1&finish=1&message=".$message."&message_type=".$message_type);
+    $message = "";
+    //$message_type = 'success';
+    // eF_redirect("".$this -> moduleBaseUrl."&popup=1&finish=1&message=".$message."&message_type=".$message_type);
 
-    }else if (isset($_GET['view_list']) && isset($_GET['pdf']) && $_GET['pdf'] == 'cross') {
-     $resunit = eF_getTableData("content", "name,lessons_ID", "id=".$_GET['view_list']);
-     $reslesson = eF_getTableData("lessons", "name", "id=".$resunit[0]['lessons_ID']);
-      $res = eF_getTableData("module_crossword_words", "crosslists,options", "content_ID=".$_GET['view_list']);
-     $reswords = unserialize($res[0]['crosslists']);
-     $maxwords = unserialize($res[0]['options']);
-     $maxwords1 = $maxwords['max_word'];
-     $_SESSION['CROSSWORD_MAXWORD']=$maxwords1;
-     require_once('init.php');
-     $rowquesans = "";
-     foreach($reswords as $rowques){
-       $rowquesans .= $rowques.",";
-     }
-     $quesids = substr($rowquesans,0,-1);
-     $quesans = eF_getTableData("questions","text,answer","id IN($quesids) order by rand() limit $maxwords1");
-     $value = array();
-     foreach($quesans as $row){
-      $answer = unserialize($row['answer']);
-      $answer1 = explode("|",$answer['0']);
-   $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
-     }
-     $success = $pc->generateFromWords($value);
-     if(!$success){
-      $message_type = 'failure';
-       $message = 'SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS';
-       eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
-     }else{
+   }else if (isset($_GET['view_list']) && isset($_GET['pdf']) && $_GET['pdf'] == 'cross') {
+    $resunit = eF_getTableData("content", "name,lessons_ID", "id=".$_GET['view_list']);
+    $reslesson = eF_getTableData("lessons", "name", "id=".$resunit[0]['lessons_ID']);
+    $res = eF_getTableData("module_crossword_words", "crosslists,options", "content_ID=".$_GET['view_list']);
+    $reswords = unserialize($res[0]['crosslists']);
+    $maxwords = unserialize($res[0]['options']);
+    $maxwords1 = $maxwords['max_word'];
+    $_SESSION['CROSSWORD_MAXWORD']=$maxwords1;
+    require_once('init.php');
+    $rowquesans = "";
+    foreach($reswords as $rowques){
+     $rowquesans .= $rowques.",";
+    }
+    $quesids = substr($rowquesans,0,-1);
+    $quesans = eF_getTableData("questions","text,answer","id IN($quesids) order by rand() limit $maxwords1");
+    $value = array();
+    foreach($quesans as $row){
+     $answer = unserialize($row['answer']);
+     $answer1 = explode("|",$answer['0']);
+     $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
+    }
+    $success = $pc->generateFromWords($value);
+    if(!$success){
+     $message_type = 'failure';
+     $message = 'SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS';
+     eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
+    }else{
      $currentlesson = $reslesson[0]['name'];
 
      $words = $pc->getWords();
@@ -366,9 +365,9 @@ class module_crossword extends EfrontModule {
      $k=1;
      foreach($words as $row){
       if($row['axis']==1){
-      $html1[] .= $k.'. '.$row['question'];
+       $html1[] .= $k.'. '.$row['question'];
       }else{
-      $html2[] .= $k.'. '.$row['question'];
+       $html2[] .= $k.'. '.$row['question'];
       }
       $k++;
 
@@ -376,65 +375,65 @@ class module_crossword extends EfrontModule {
      $answor[] = array_merge($html1,$html2);
 
 
-$dd = $pc->getHTML($answor);
-
-     }
+     $dd = $pc->getHTML($answor);
 
     }
+
+   }
   }
   return true;
  }
 
  public function getSmartyTpl(){
   $smarty = $this -> getSmartyVar();
-        $smarty -> assign("T_MODULE_CROSSWORD_BASEDIR" , $this -> moduleBaseDir);
-        $smarty -> assign("T_MODULE_CROSSWORD_BASEURL" , $this -> moduleBaseUrl);
-        $smarty -> assign("T_MODULE_CROSSWORD_BASELINK", $this -> moduleBaseLink);
-        return $this -> moduleBaseDir . "module.tpl";
+  $smarty -> assign("T_MODULE_CROSSWORD_BASEDIR" , $this -> moduleBaseDir);
+  $smarty -> assign("T_MODULE_CROSSWORD_BASEURL" , $this -> moduleBaseUrl);
+  $smarty -> assign("T_MODULE_CROSSWORD_BASELINK", $this -> moduleBaseLink);
+  return $this -> moduleBaseDir . "module.tpl";
  }
 
  public function getLessonCenterLinkInfo() {
-        $currentUser = $this -> getCurrentUser();
-            return array('title' => _CROSSWORD_CROSSWORD,
+  $currentUser = $this -> getCurrentUser();
+  return array('title' => _CROSSWORD_CROSSWORD,
                          'image' => $this -> moduleBaseDir.'images/crossword32.png',
                          'link' => $this -> moduleBaseUrl);
-    }
+ }
 
-    public function getSidebarLinkInfo() {
+ public function getSidebarLinkInfo() {
 
-     $currentUser = $this -> getCurrentUser();
-        $link_of_menu_system = array (array ('id' => 'crossword_link_id1',
+  $currentUser = $this -> getCurrentUser();
+  $link_of_menu_system = array (array ('id' => 'crossword_link_id1',
                                                'title' => _CROSSWORD_CROSSWORD,
                                                'image' => $this -> moduleBaseDir.'images/crossword16',
                                                'eFrontExtensions' => '1',
                                                'link' => $this -> moduleBaseUrl));
 
   return array ("current_lesson" => $link_of_menu_system);
-    }
+ }
 
  public function getNavigationLinks() {
-        $currentUser = $this -> getCurrentUser();
+  $currentUser = $this -> getCurrentUser();
   $currentLesson = $this -> getCurrentLesson();
   if (isset($_GET['view_list'])){
    $res = eF_getTableData("content","name","id=".$_GET['view_list']);
-            return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-       array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
-       array ('title' => _CROSSWORD_CROSSWORD, 'link' => $this -> moduleBaseUrl),
-       array ('title' => $res[0]['name'], 'link' => $this -> moduleBaseUrl."&view_list=".$_GET['view_list']));
-        } else{
    return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-       array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($currentLesson).".php?ctg=control_panel"),
-       array ('title' => _CROSSWORD_CROSSWORD, 'link' => $this -> moduleBaseUrl));
+   array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
+   array ('title' => _CROSSWORD_CROSSWORD, 'link' => $this -> moduleBaseUrl),
+   array ('title' => $res[0]['name'], 'link' => $this -> moduleBaseUrl."&view_list=".$_GET['view_list']));
+  } else{
+   return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+   array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($currentLesson).".php?ctg=control_panel"),
+   array ('title' => _CROSSWORD_CROSSWORD, 'link' => $this -> moduleBaseUrl));
   }
 
-    }
+ }
 
  public function getLinkToHighlight() {
-        return 'crossword_link_id1';
-    }
+  return 'crossword_link_id1';
+ }
 
  public function onInstall() {
-     eF_executeNew("drop table if exists module_crossword_words");
+  eF_executeNew("drop table if exists module_crossword_words");
   $res1 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_crossword_words` (
         `content_ID` int(10) unsigned NOT NULL,
         `crosslists` text,
@@ -466,11 +465,11 @@ $dd = $pc->getHTML($answor);
 
 
  public function onUninstall() {
-        $res1 = eF_executeNew("DROP TABLE module_crossword_users;");
-        $res2 = eF_executeNew("DROP TABLE module_crossword_words;");
-        $res3 = eF_executeNew("DROP TABLE words;");
-        return ($res1 && $res2 && $res3 && $res4);
-    }
+  $res1 = eF_executeNew("DROP TABLE module_crossword_users;");
+  $res2 = eF_executeNew("DROP TABLE module_crossword_words;");
+  $res3 = eF_executeNew("DROP TABLE words;");
+  return ($res1 && $res2 && $res3 && $res4);
+ }
 
  public function getModuleCSS (){
   return $this->moduleBaseDir.'css/base.css';

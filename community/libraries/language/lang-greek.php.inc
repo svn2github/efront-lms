@@ -4069,5 +4069,6 @@ define("_CONFIGURATION", "Διαμόρφωση");
 define("_SYSTEMOPTIONS", "Ρυθμ. συστήματος");
 define("_CASUAL", "Περιστασιακά");
 define("_YOUCANNOTEDITTHISUSER", "Δεν μπορείτε να προσπελάσετε τις πληροφορίες αυτού του χρήστη");
+define("_ENABLEVIRTUALKEYBOARD","Ενεργοποίηση εικονικού πληκτρολογίου");
 define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY", "Το αρχείο δείχνει να είναι κενό. Ίσως δεν έχει την κατάλληλη μορφή;");
 ?>

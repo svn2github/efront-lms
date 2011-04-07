@@ -11,7 +11,9 @@ if (file_exists("langs/"._CURRENTLANGUAGESYMBOL.".js")) {
 } else {
  $langFile = "en";
 }
-
+if ($GLOBALS['configuration']['virtual_keyboard'] == true) {
+ $vkeyboard = ",Jsvk";
+}
 $str = '
 var tinymceConfigs = new Array();
 tinymceConfigs["simpleEditor"] = {
@@ -19,12 +21,12 @@ tinymceConfigs["simpleEditor"] = {
     editor_selector : "simpleEditor",
     theme : "advanced",
     language : "'.$langFile.'",
- theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo",
+ theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo'.$vkeyboard.'",
     theme_advanced_buttons2 : "",
     theme_advanced_buttons3 : "",
     entity_encoding : "raw",
     force_p_newlines : false,
- plugins : "media",
+ plugins : "media,Jsvk",
  convert_urls : false,
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]"
@@ -35,12 +37,12 @@ tinymceConfigs["digestEditor"] = {
     editor_selector : "digestEditor",
     theme : "advanced",
     language : "'.$langFile.'",
- theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo",
+ theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo'.$vkeyboard.'",
     theme_advanced_buttons2 : "",
     theme_advanced_buttons3 : "",
     entity_encoding : "raw",
     force_p_newlines : false,
- plugins : "media",
+ plugins : "media,Jsvk",
  convert_urls : false,
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]",
@@ -59,12 +61,12 @@ tinymceConfigs["mceEditor"] = {
  accessibility_warnings : false,
  verify_html : false,
  convert_urls : false,
-    plugins : "java,asciimath,asciisvg,table,save,advhr,advimage,advlink,style,emotions,inlinepopups,iespell,preview,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,template,save_template",
+    plugins : "Jsvk,java,asciimath,asciisvg,table,save,advhr,advimage,advlink,style,emotions,inlinepopups,iespell,preview,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,template,save_template",
     theme_advanced_buttons1_add_before : "save,separator",
  theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
     theme_advanced_buttons2 : "forecolor,backcolor",
     theme_advanced_buttons2_add_before : "table",
-    theme_advanced_buttons2_add : "separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,java,separator,pastetext,pasteword,selectall,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,separator,asciimath,asciimathcharmap,separator,template,save_template",
+    theme_advanced_buttons2_add : "separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,java,separator,pastetext,pasteword,selectall,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,separator,asciimath,asciimathcharmap,separator,template,save_template'.$vkeyboard.'",
     theme_advanced_buttons3 : "",
     theme_advanced_disable : "help,cleanup,hr,removeformat,numlist",
     plugin_preview_width : "950",
@@ -98,12 +100,12 @@ tinymceConfigs["templateEditor"] = {
  accessibility_warnings : false,
  verify_html : false,
  convert_urls : false,
-    plugins : "table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,index_link,asciimath,asciisvg",
+    plugins : "Jsvk,table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,index_link,asciimath,asciisvg",
     theme_advanced_buttons1_add_before : "save,separator",
     theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
     theme_advanced_buttons2 : "zoom,separator,forecolor,backcolor",
     theme_advanced_buttons2_add_before : "table",
-    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,separator,pasteword,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,index_link,separator,asciimath,asciimathcharmap",
+    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,separator,pasteword,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,index_link,separator,asciimath,asciimathcharmap'.$vkeyboard.'",
     theme_advanced_buttons3 : "",
     theme_advanced_disable : "formatselect,help,cleanup,hr,removeformat,numlist",
     plugin_preview_width : "950",

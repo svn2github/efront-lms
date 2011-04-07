@@ -1,4 +1,4 @@
-<?
+<?php
 // print out variable dump
 function dump( $var )
 {

@@ -13,8 +13,12 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 	 SHOW EMPLOYEES
 
 	 *****************************************************/
+ if ($currentEmployee -> isSupervisor()) {
+  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect($currentEmployee->supervisesBranches));
+ } else {
   $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
-  $smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());
+ }
+ $smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());
  // Create ajax enabled table for employees
  if (isset($_GET['ajax'])) {
   if (isset($_GET['archive_user']) && eF_checkParameter($_GET['archive_user'], 'login')) { //The administrator asked to delete a user
@@ -75,25 +79,28 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
    if ($currentEmployee -> isSupervisor()) {
     $tree = new EfrontBranchesTree();
     $branchPaths = $tree -> toPathString();
-    $employees = eF_getTableData("
-    users u
-    LEFT OUTER JOIN module_hcd_employee_has_job_description ehj ON u.login = ehj.users_LOGIN
-    LEFT OUTER JOIN module_hcd_employee_works_at_branch ewb ON u.login = ewb.users_login",
-    "u.*, count(ehj.job_description_ID) as jobs_num, ewb.branch_ID",
-    "u.user_type != 'administrator' and u.archive = 0 and u.active=1 and u.login in (select users_login from module_hcd_employee_works_at_branch where assigned=1 and branch_ID in (".implode(",", $currentEmployee -> supervisesBranches)."))", "", "login");
-
-    foreach ($employees as $key => $value) {
-     if (!$value['active'] || $value['archive'] || !$value['jobs_num']) {
-      unset($employees[$key]);
-     } else {
-      $employees[$key]['branch_name'] = eF_truncatePath($branchPaths[$value['branch_ID']], 10);
-     }
-    }
     $supervisedEmployees = $currentEmployee -> getSupervisedEmployees();
     $supervisedEmployees[] = $currentEmployee -> login;
     $smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
 
+    $constraints = array('archive' => false, 'supervisor' => true) + createConstraintsFromSortedTable();
+    $employees = EfrontEmployee::getUsers($constraints);
+    $totalEntries = EfrontEmployee::countUsers($constraints);
+/*				
 
+				$employees = eF_getTableData("
+
+				users u
+
+				LEFT OUTER JOIN module_hcd_employee_has_job_description ehj ON u.login = ehj.users_LOGIN
+
+				LEFT OUTER JOIN module_hcd_employee_works_at_branch ewb ON u.login = ewb.users_login",
+
+				"u.*, count(ehj.job_description_ID) as jobs_num, ewb.branch_ID",
+
+				"u.user_type != 'administrator' and u.archive = 0 and u.active=1 and u.login in (select users_login from module_hcd_employee_works_at_branch where assigned=1 and branch_ID in (".implode(",", $currentEmployee -> supervisesBranches)."))", "", "login");
+
+*/
    } else if ($_SESSION['s_type'] == 'administrator') {
     $constraints = array('archive' => false) + createConstraintsFromSortedTable();
     $employees = EfrontEmployee::getUsers($constraints);

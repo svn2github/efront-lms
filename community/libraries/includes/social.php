@@ -22,6 +22,19 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   $smarty -> assign("T_SOCIAL_INTERFACE", 1);
  }
  if ($_GET['op'] == "dashboard") {
+  if (isset($_GET['ajax']) && isset($_GET['postAjaxRequest']) && $_GET['setStatus']) {
+   try {
+    $editedUser -> setStatus($_GET['setStatus']);
+    exit;
+   } catch (Exception $e) {
+    handleAjaxExceptions($e);
+   }
+  }
+  if (isset($_SESSION['facebook_user']) && $_SESSION['facebook_user'] && $_SESSION['facebook_details']['status']['message']) {
+   $smarty -> assign("T_USER_STATUS", $_SESSION['facebook_details']['status']['message']);
+  } else {
+   $smarty -> assign("T_USER_STATUS", $editedUser -> user['status']);
+  }
   if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal");
   }
@@ -44,6 +57,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    $eligibleLessons = $currentUser -> getEligibleLessons();
    $lessons_list = array_keys($eligibleLessons);
   }
+
   /*Projects list - Users get only projects for their lessons while administrators none*/
   if ($GLOBALS['configuration']['disable_projects'] != 1 && !empty($lessons_list)) {
    if ($currentUser -> getType() == "student") {
@@ -53,6 +67,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     // See projects related to your lessons
     $not_expired_projects = eF_getTableData("projects p, lessons", "p.*, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "p.lessons_ID = lessons.id AND lessons.id IN ('" . implode("','", $lessons_list). "') AND p.deadline > ".time()." ORDER BY p.deadline ASC LIMIT 5");
    }
+
    if (!empty($not_expired_projects)) {
     $smarty -> assign("T_ALL_PROJECTS", $not_expired_projects);
    }

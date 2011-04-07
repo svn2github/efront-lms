@@ -5390,6 +5390,8 @@ class RawTextQuestion extends Question implements iQuestion
 
      */
     public function toHTMLQuickForm(&$form) {
+     global $load_editor;
+  $load_editor = true;
         $elements[] = $form -> createElement("textarea", "question[".$this -> question['id']."]", null, 'class = "simpleEditor" style = "width:100%;height:100px;"');
         $elements[] = $form -> createElement("file", "file_".$this -> question['id'].'[0]', null, 'class = "inputText" id = "file_'.$this -> question['id'].'[0]" style = "display:none"');
         if ($this -> userAnswer !== false) {

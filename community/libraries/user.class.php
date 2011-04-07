@@ -709,26 +709,23 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function setStatus($status) {
-  if (eF_updateTableData("users", array("status" => $status), "login = '".$this -> user['login']."'")) {
-   $this -> user['status'] = $status;
-   EfrontEvent::triggerEvent(array("type" => EfrontEvent::STATUS_CHANGE, "users_LOGIN" => $this -> user['login'], "users_name" => $this->user['name'], "users_surname" => $this->user['surname'], "entity_name" => $status));
-   //echo $status;
-   if ($_SESSION['facebook_user'] && $_SESSION['facebook_details']['status']['message'] != $status) {
-    $path = "../libraries/";
-    require_once $path . "external/facebook-platform/php/facebook.php";
-    $facebook = new Facebook($GLOBALS['configuration']['facebook_api_key'], $GLOBALS['configuration']['facebook_secret']);
-    // check permissions
-    $has_permission = $facebook->api_client->call_method("facebook.users.hasAppPermission", array("ext_perm"=>"status_update"));
-    if($has_permission){
-     $facebook->api_client->call_method("facebook.users.setStatus", array("status" => $status, "status_includes_verb" => true));
-     $temp = $facebook->api_client->fql_query("SELECT status FROM user WHERE uid = " . $_SESSION['facebook_user']);
-     $_SESSION['facebook_details']['status'] = $temp[0]['status'];
-    }
+  eF_updateTableData("users", array("status" => $status), "login = '".$this -> user['login']."'");
+  $this -> user['status'] = $status;
+  EfrontEvent::triggerEvent(array("type" => EfrontEvent::STATUS_CHANGE, "users_LOGIN" => $this -> user['login'], "users_name" => $this->user['name'], "users_surname" => $this->user['surname'], "entity_name" => $status));
+  //echo $status;
+  if ($_SESSION['facebook_user'] && $_SESSION['facebook_details']['status']['message'] != $status) {
+   $path = "../libraries/";
+   require_once $path . "external/facebook-platform/php/facebook.php";
+   $facebook = new Facebook($GLOBALS['configuration']['facebook_api_key'], $GLOBALS['configuration']['facebook_secret']);
+   // check permissions
+   $has_permission = $facebook->api_client->call_method("facebook.users.hasAppPermission", array("ext_perm"=>"status_update"));
+   if($has_permission){
+    $facebook->api_client->call_method("facebook.users.setStatus", array("status" => $status, "status_includes_verb" => true));
+    $temp = $facebook->api_client->fql_query("SELECT status FROM user WHERE uid = " . $_SESSION['facebook_user']);
+    $_SESSION['facebook_details']['status'] = $temp[0]['status'];
    }
-   return true;
-  } else {
-   return false;
   }
+  return true;
  }
  /**
 	 * Logs out user
@@ -824,7 +821,7 @@ abstract class EfrontUser
   }
   //Empty session without destroying it
   foreach ($_SESSION as $key => $value) {
-   if ($key != 'login_mode') { //'login_mode' is used to facilitate lesson registrations
+   if ($key != 'login_mode' && strpos($key, "facebook") === false) { //'login_mode' is used to facilitate lesson registrations
     unset($_SESSION[$key]);
    }
   }

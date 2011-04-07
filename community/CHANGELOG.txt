@@ -90,6 +90,7 @@
 - Deleted frame from editor when toggling pdf content in editing unit (#1034)
 - Moved creating views to installation script
 - Users-to-groups csv import functionality updated for performance
+- Added virtual keyboard in editor and an option to disable it
 
 === Version 3.6.8 build 9777 ===
 - XML API security update

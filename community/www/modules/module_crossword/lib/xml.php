@@ -1,4 +1,4 @@
-<?
+<?php
 function GetXMLChildren($vals, &$i)
 {
  $children = array();

@@ -71,6 +71,7 @@
 - Supervisors cannot edit other supervisors of the same branch (Enterprise edition)
 - Supervisor permissions updates (Enterprise edition)
 - Fixed notifications going out to inactive users
+- Added avatar image in organization chart tooltip
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

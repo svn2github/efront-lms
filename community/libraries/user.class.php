@@ -749,6 +749,7 @@ abstract class EfrontUser
    foreach ($_COOKIE as $cookie_key => $cookie) {
     if (strpos($GLOBALS['configuration']['facebook_api_key'], $cookie) !== false) {
      unset($_COOKIE[$key]);
+     setcookie($key, '', time() - 86400);
     }
    }
   }

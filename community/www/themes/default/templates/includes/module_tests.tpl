@@ -183,11 +183,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <tr style="display:none;" id = "keep_best"><td class = "labelCell">{$smarty.const._RETAINBESTEXECUTION}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.keep_best.html}</td></tr>
      {if $T_TEST_FORM.keep_best.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.keep_best.error}</td></tr>{/if}
- {if $smarty.const.G_VERSIONTYPE != 'community'}
-     <tr style="display:none;" id = "redo_wrong"><td class = "labelCell">{$smarty.const._ALLOWUSERANSERALLRONG}:&nbsp;</td>
-      <td class = "elementCell">{$T_TEST_FORM.redo_wrong.html} <span class = "infoCell">{$smarty.const._ALLOWANSWERWRONGINFO}</span></td></tr>
-     {if $T_TEST_FORM.redo_wrong.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redo_wrong.error}</td></tr>{/if}
- {/if}
     {/if}
    {else}
     {if $T_TEST_FORM.parent_content}

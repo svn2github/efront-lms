@@ -4072,4 +4072,5 @@ define("_YOUCANNOTEDITTHISUSER", "You cannot access this user's information");
 define("_ENABLEVIRTUALKEYBOARD","Enable virtual keyboard");
 define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY", "The file appears to be empty. Perhaps it is not formatted correctly?");
 define("_PROGRAMMEDCERTIFICATEEXPIRY", "Certificate scheduled expiration");
+define("_TESTPASSWORD", "Test password");
 ?>

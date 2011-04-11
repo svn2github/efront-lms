@@ -161,6 +161,11 @@ if (!$_student_) {
                      exit;
                  }
                 }
+                if ($test -> options['test_password']) {
+                 if ($test -> options['test_password'] != urldecode($_GET['test_password'])) {
+                  eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit'].'&message='.urlencode(_INVALIDPASSWORD));
+                 }
+                }
                 $testInstance = $test -> start($currentUser -> user['login']);
                 eF_redirect(basename($_SERVER['PHP_SELF'])."?view_unit=".$_GET['view_unit']);
                 exit;

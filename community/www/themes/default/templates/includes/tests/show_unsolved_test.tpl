@@ -10,7 +10,7 @@
                             <table class = "testInfo">
                                 <tr>
         {if $T_UNIT.ctg_type != 'feedback'}
-         <td rowspan = "6" id = "testInfoImage"><img src = "images/32x32/tests.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
+         <td rowspan = "7" id = "testInfoImage"><img src = "images/32x32/tests.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
                                 {else}
          <td rowspan = "2" id = "testInfoImage"><img src = "images/32x32/feedback.png" alt = "{$T_TEST_DATA->test.name}" title = "{$T_TEST_DATA->test.name}"/></td>
         {/if}
@@ -47,22 +47,22 @@
           <td>{if $T_TEST_STATUS.timesDone}{$T_TEST_STATUS.timesDone}{else}0{/if}&nbsp;{$smarty.const._TIMES}</td></tr>
          <tr><td>{if $T_TEST_STATUS.timesLeft !== false }{$smarty.const._YOUCANDOTHETEST}:&nbsp;</td>
           <td>{$T_TEST_STATUS.timesLeft}&nbsp;{$smarty.const._TIMESMORE}{/if}</td></tr>
+         <tr><td>{if $T_TEST_DATA->options.test_password}{$smarty.const._TESTPASSWORD}:&nbsp;</td>
+          <td><input type = "text" id = "test_password" name = "test_password"/>{/if}</td></tr>
         {/if}
        {/if}
                             </table>
                         </td>
                     <tr><td id = "testProceed">
                     {if $resume_test}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&resume=1'" />
-                    {elseif $T_TEST_DATA->options.user_configurable}
-                     <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._PROCEEDTOTEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1&user_configurable='+parseInt($('user_configurable').value ? $('user_configurable').value : 0)" />
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "{$location}" />
                     {else}
       {if $T_UNIT.ctg_type != 'feedback'}
        {assign var = 'buttonValue' value = $smarty.const._PROCEEDTOTEST}
       {else}
        {assign var = 'buttonValue' value = $smarty.const._PROCEEDTOFEEDBACK}
       {/if}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$buttonValue}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'" />
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$buttonValue}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'+($('test_password') ? '&test_password='+encodeURIComponent($('test_password').value) : '')+($('user_configurable') && parseInt($('user_configurable').value) ? '&user_configurable='+$('user_configurable').value : '')" />
                     {/if}
                     </td></tr>
                 </table>

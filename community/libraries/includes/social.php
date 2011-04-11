@@ -30,11 +30,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     handleAjaxExceptions($e);
    }
   }
-  if (isset($_SESSION['facebook_user']) && $_SESSION['facebook_user'] && $_SESSION['facebook_details']['status']['message']) {
-   $smarty -> assign("T_USER_STATUS", $_SESSION['facebook_details']['status']['message']);
-  } else {
-   $smarty -> assign("T_USER_STATUS", $editedUser -> user['status']);
-  }
+  $smarty -> assign("T_USER_STATUS", $editedUser -> user['status']);
   if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal");
   }

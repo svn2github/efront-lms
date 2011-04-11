@@ -137,7 +137,8 @@ class EfrontTest
                             'display_weights' => 1,
           'only_forward' => 0,
        'answer_all' => 0,
-       'redo_wrong' => 0,
+       'test_password' => 0,
+          'redo_wrong' => 0,
        'redirect' => 0);
     /**
 

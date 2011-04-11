@@ -21,7 +21,7 @@ if (!isset($_GET['add_user'])) {
 }
 
 $roles = EfrontUser :: getRoles(true);
-if ($currentUser->user['user_type'] != 'administrator') {
+if ($currentUser->user['user_type'] != 'administrator' || $currentUser->user['user_types_ID']) {
  $rolesPlain = EfrontUser :: getRoles();
  foreach ($roles as $key => $value) {
   if ($rolesPlain[$key] == 'administrator') {
@@ -45,7 +45,7 @@ $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
 $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
 $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
 $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
-$form -> addElement('select', 'user_type', _USERTYPE, $roles);
+$select = $form -> addElement('select', 'user_type', _USERTYPE, $roles);
 $form -> addElement('select', 'languages_NAME', _LANGUAGE, EfrontSystem :: getLanguages(true, true));
 $form -> addElement("select", "timezone", _TIMEZONE, eF_getTimezones(), 'class = "inputText" style="width:20em"');
 if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
@@ -100,6 +100,7 @@ if (isset($_GET['add_user'])) {
    $constrainAccess[] = 'passrepeat';
    $constrainAccess[] = 'password_';
    $constrainAccess[] = 'user_type';
+   $select -> loadArray(EfrontUser :: getRoles(true)); //so that the selected user type appears correctly
   }
   if ($editedUser -> isLdapUser) {
    $constrainAccess[] = 'passrepeat';
@@ -110,6 +111,7 @@ if (isset($_GET['add_user'])) {
   }
   if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
    $constrainAccess[] = 'user_type';
+   $select -> loadArray(EfrontUser :: getRoles(true)); //so that the selected user type appears correctly
    $constrainAccess[] = 'active';
    if ($currentUser->user['user_type'] != 'administrator') {
     if ($GLOBALS['configuration']['disable_change_info']) {

@@ -72,6 +72,7 @@
 - Supervisor permissions updates (Enterprise edition)
 - Fixed notifications going out to inactive users
 - Added avatar image in organization chart tooltip
+- Added "test password" option in tests (Educational/Enterprise editions)
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

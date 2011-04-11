@@ -458,7 +458,7 @@ color: red;
 /*The tools above table lists*/
 div.headerTools{padding:5px 0px 5px 0px}
 div.headerTools *{vertical-align:middle}
-div.headerTools span{border-left:1px solid black;padding-left:5px;}
+div.headerTools span{border-left:1px solid #bbb;padding-left:5px;}
 div.headerTools span:first-child{border-left:0px solid black;padding-left:0px;}
 
 /*shorthands*/
@@ -754,17 +754,21 @@ vertical-align:top;
 }
 span.progressNumber{
 position:absolute;
+padding:0px;
+margin:0px;
+font-size:11px;
+color:#555;
 text-align:center;
-width:100px;
+height:18px;
 border:1px solid #d3d3d3;
 vertical-align:middle;
 z-index:2
-
 }
 span.progressBar{
 background-color:#A0BDEF;
-border:1px dotted #d3d3d3;
-position:absolute   
+border-right:2px solid #A0BDEF;
+position:absolute;
+height:20px;
 }
 
 /*The main content area classes*/
@@ -1025,7 +1029,7 @@ table#layoutMenu div.layoutBlock{border:solid 1px #b7ddf2;background-color:#ebf4
 table#layoutMenu div.layoutBlock .tool{margin:0px 2px 0px 2px;cursor:pointer}
 
 table#layoutMenu td#left{width:150px;}
-table#layoutMenu td#left div.layout {width:140px;padding:10px 5px 10px 5px;border:1px solid black}
+table#layoutMenu td#left div.layout {width:140px;padding:10px 5px 10px 5px;border:1px solid #BBB}
 table#layoutMenu td#left div.layoutLabel {width:140px;}
 table#layoutMenu td#left div.hideLeft td.layoutLeft,
 table#layoutMenu td#left div.hideRight td.layoutRight{display:none;}
@@ -1040,9 +1044,9 @@ table#layoutMenu td#right div.layoutBlock{width:140px;height:80px;margin-left:au
 table#layoutMenu td#right div.layoutBlock img{margin-top:10px}
 
 table#layoutMenu td#center{}
-table#layoutMenu td#center div.layout {height:100%;padding:10px 5px 10px 5px;border:1px solid black;width:95%;margin-left:auto;margin-right:auto;}
+table#layoutMenu td#center div.layout {height:100%;padding:10px 5px 10px 5px;border:1px solid #bbb;width:95%;margin-left:auto;margin-right:auto;}
 table#layoutMenu td#center div.layout div.layoutBlock{height:100px;margin:10px;}
-table#layoutMenu ul.sortable{border:1px dotted gray;}
+table#layoutMenu ul.sortable{border:2px dotted #aaa;}
 
 table#layoutMenu td#buttons{text-align:center;}
 table#layoutMenu td#buttons div{width:300px;margin:0 auto;}
@@ -1177,17 +1181,16 @@ width:100%;
 }
 div.block table.iconTable td{
 text-align:center;
-padding:4px;
+padding:3px;
 }
 
 div.block table.iconTable td.iconData:hover{
 background-color:#A1B6C8;
-moz-border-radius: 3px;
+-moz-border-radius: 10px;
 border-radius: 10px;
-/*moz-box-shadow:  3px 3px 3px #888;
+/*-moz-box-shadow:  3px 3px 3px #888;
 -webkit-box-shadow:  3px 3px 3px #888;
 box-shadow:  3px 3px 3px #888;*/
-border: 0px solid #999;
 
 }
 div.block table.iconTable a img{
@@ -1241,15 +1244,20 @@ padding:6px;
 background:#EEE;
 }
 div.block .toolbar {
-border-top:solid 0px #2a4562;
-border-bottom:0px solid #2a4562; 
+/*border-top:solid 0px #2a4562;
+border-bottom:0px solid #2a4562; */
 padding:5px 0px 5px 0px;
+margin:0px;
 white-space:nowrap;
 background-color:#dae2e9;
 }
 div.block .toolbar span {
-padding:5px;
+padding-left:5px;
+padding-right:5px;
+padding-top:6px;
+padding-bottom:7px;
 border-right:1px solid #CCC; 
+margin:0px;
 }
 div.block .toolbar span:last-child{
 border-right:0px solid #2a4562;
@@ -1257,6 +1265,8 @@ border-right:0px solid #2a4562;
 div.block .toolbar span.selected {
 background-color:#a1b6c8;
 font-weight:bold;
+padding-top:6px;
+padding-bottom:7px;
 }
 div.block .toolbar img {
 vertical-align:middle;

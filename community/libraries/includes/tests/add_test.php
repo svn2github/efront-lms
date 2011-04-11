@@ -75,6 +75,7 @@ $form -> addElement('text', 'duration', null, 'id = "test_duration" size = "5"')
 $form -> addElement('text', 'redoable', null, 'size = "5"');
 $form -> addElement('text', 'maintain_history', null, 'size = "5"');
 $form -> addElement('text', 'mastery_score', _MASTERYSCORE, 'size = "5"');
+$form -> addElement('text', 'test_password', _TESTPASSWORD, "class = 'inputText'");
 $form -> addElement('advcheckbox', 'onebyone', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'given_answers', null, null, null, array(0, 1));
@@ -234,6 +235,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'display_list' => $values['display_list'],
                                 'display_weights' => $values['display_weights'],
         'answer_all' => $values['answer_all'],
+        'test_password' => $values['test_password'],
         'redo_wrong' => $values['redo_wrong'],
                           'general_threshold' => $values['general_threshold'], //skill-gap option
                               'assign_to_new' => $values['assign_to_new'], //skill-gap option
@@ -254,6 +256,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'display_list' => 0,
                                 'display_weights' => 0,
         'answer_all' => 1,
+        'test_password' => '',
         'redo_wrong' => 0,
                           'general_threshold' => 0, //skill-gap option
                               'assign_to_new' => 0, //skill-gap option

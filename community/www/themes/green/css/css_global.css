@@ -772,7 +772,7 @@ table.statisticsTools{
 font-weight:bold;
 vertical-align:middle;
 }
-table.statisticsTools td#right{text-align:right;white-space:nowrap;width:50%;}
+table.statisticsTools td#right{text-align:right;white-space:nowrap;width:90%;}
 table.statisticsTools td.filter{
 text-align:left;
 padding-right:10px;
@@ -1124,6 +1124,7 @@ padding:4px;
 div.block table.iconTable td.iconData:hover{
 background-color:#CBE1D2;
 border: 1px solid #AFCFB8;
+cursor:pointer;
 }
 div.block table.iconTable a img{
 border-width:0px;

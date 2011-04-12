@@ -828,7 +828,7 @@ table.statisticsTools{
 font-weight:bold;
 vertical-align:middle;
 }
-table.statisticsTools td#right{text-align:right;white-space:nowrap;width:50%;}
+table.statisticsTools td#right{text-align:right;white-space:nowrap;width:90%;}
 table.statisticsTools td.filter{
 text-align:left;
 padding-right:10px;
@@ -1191,6 +1191,7 @@ div.block table.iconTable td.iconData:hover{
 background-color:#A1B6C8;
 -moz-border-radius: 10px;
 border-radius: 10px;
+cursor:pointer;
 /*-moz-box-shadow:  3px 3px 3px #888;
 -webkit-box-shadow:  3px 3px 3px #888;
 box-shadow:  3px 3px 3px #888;*/

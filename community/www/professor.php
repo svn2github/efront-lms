@@ -394,6 +394,9 @@ try {
      }
      if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
          $options = array('lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 1);
+         if (isset($loadedModules['module_shared_files']) && isset($currentLesson -> options['module_shared_files']) && $currentLesson -> options['module_shared_files'] && !$currentLesson -> options['digital_library']) {
+          $options['share'] = false;
+         }
      } else {
          $options = array('delete' => false, 'edit' => false, 'share' => false, 'upload' => false, 'create_folder' => false, 'zip' => false, 'lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 1);
      }

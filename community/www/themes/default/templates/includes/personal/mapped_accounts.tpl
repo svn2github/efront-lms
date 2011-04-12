@@ -19,7 +19,7 @@
    <tr><td>#filter:login-{$item}#&nbsp;</td>
     <td><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEACCOUNT}" title = "{$smarty.const._DELETEACCOUNT}" onclick = "deleteAccount(this, '{$item}')"></td>
   {foreachelse}
-  <tr id = "empty_accounts"><td class = "emptyCategory">{$smarty.const._YOUHAVENTSETADDITIONALACCOUNTS}</td></tr>
+   <tr id = "empty_accounts"><td class = "emptyCategory">{$smarty.const._YOUHAVENTSETADDITIONALACCOUNTS}</td></tr>
   {/foreach}
   </table>
  </fieldset>
@@ -27,11 +27,14 @@
  {if $T_FACEBOOK_ENABLED}
  <fieldset class = "fieldsetSeparator" id = "facebook_accounts">
   <legend>{$smarty.const._FACEBOOKMAPPEDACCOUNT}</legend>
+  <table id = "additional_accounts">
   {if $T_FB_ACCOUNT}
-  <div>{$T_FB_ACCOUNT.fb_name} <img style = "vertical-align:middle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEACCOUNT}" title = "{$smarty.const._DELETEACCOUNT}" onclick = "deleteFacebookAccount(this, '{$T_FB_ACCOUNT.users_LOGIN}')"></div>
+   <tr><td>{$T_FB_ACCOUNT.fb_name}&nbsp;</td>
+    <td><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEACCOUNT}" title = "{$smarty.const._DELETEACCOUNT}" onclick = "deleteFacebookAccount(this, '{$T_FB_ACCOUNT.users_LOGIN}')"></td>
   {else}
-  <div class = "emptyCategory" id = "empty_fb_accounts">{$smarty.const._YOUHAVENTSETFACEBOOKACCOUNT}</div>
+   <tr><td class = "emptyCategory">{$smarty.const._YOUHAVENTSETFACEBOOKACCOUNT}</td></tr>
   {/if}
+  </table>
  </fieldset>
  {/if}
 {/capture}

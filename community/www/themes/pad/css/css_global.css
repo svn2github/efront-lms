@@ -828,7 +828,7 @@ table.statisticsTools{
 font-weight:bold;
 vertical-align:middle;
 }
-table.statisticsTools td#right{text-align:right;white-space:nowrap;width:50%;}
+table.statisticsTools td#right{text-align:right;white-space:nowrap;width:90%;}
 table.statisticsTools td.filter{
 text-align:left;
 padding-right:10px;
@@ -1190,6 +1190,7 @@ border: 0px solid #2A4562;
 -moz-border-radius: 4px;
 -moz-box-shadow:  3px 3px 3px #888;
 -webkit-box-shadow:  3px 3px 3px #888;
+cursor:pointer;
 }
 div.block table.iconTable a img{
 border-width:0px;

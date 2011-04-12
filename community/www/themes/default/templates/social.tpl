@@ -1,6 +1,7 @@
 
 {**************** DASHBOARD PAGE ********************}
 {if $T_OP == 'dashboard'}
+<script>translations['clicktochange'] = '{$smarty.const._CLICKTOCHANGESTATUS}';</script>
        {if $T_CURRENT_USER->coreAccess.calendar != 'hidden' && $T_CONFIGURATION.disable_calendar != 1}
         {capture name = "moduleCalendar"}
                                    <tr><td class = "moduleCell">

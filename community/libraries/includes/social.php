@@ -22,7 +22,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   $smarty -> assign("T_SOCIAL_INTERFACE", 1);
  }
  if ($_GET['op'] == "dashboard") {
-  if (isset($_GET['ajax']) && isset($_GET['postAjaxRequest']) && $_GET['setStatus']) {
+  if (isset($_GET['ajax']) && isset($_GET['postAjaxRequest']) && isset($_GET['setStatus'])) {
    try {
     $editedUser -> setStatus($_GET['setStatus']);
     exit;

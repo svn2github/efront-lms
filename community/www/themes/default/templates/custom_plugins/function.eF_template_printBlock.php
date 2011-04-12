@@ -135,12 +135,19 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
         isset($value['href']) && $value['href'] ? $href = 'href = "'.$value['href'].'"' : $href = 'href = "javascript:void(0)"';
         isset($value['onclick'])&& $value['onclick'] ? $onclick = 'onclick = "'.$value['onclick'].'"' : $onclick = '';
         isset($value['title']) && $value['title'] ? $title = 'title = "'.$value['title'].'" alt = "'.$value['title'].'"' : $title = 'title = "'.$value['text'].'" alt = "'.$value['text'].'"';
+        if ($value['href']) {
+         if ($value['target']) {
+          $cellClick = 'onclick = "'.$value['onclick'].';'.$value['target'].'.location=\''.$value['href'].'\'"';
+         } else {
+          $cellClick = 'onclick = "'.$value['onclick'].';location=\''.$value['href'].'\'"';
+         }
+        }
         if ($counter++ % $params['columns'] == 0) {
          $linksString[$groupId] .= '<tr>';
         }
                     $value['image'] && strpos($value['image'], "modules/") === false ? $value['image'] = 'images/'.$value['image'] : null; //Make sure that modules images are taken using absolute paths
         $linksString[$groupId] .= "
-                     <td style = 'width:$width%;' class = 'iconData'>
+                     <td style = 'width:$width%;' class = 'iconData' $cellClick>
                          <a $id $href $onclick $target>
                           <img $classstr src = '".$value['image']."' $title /><br>
                           ".$value['text']."

@@ -95,8 +95,6 @@
                   <td class = "topTitle noSort centerAlign">{$smarty.const._OPERATIONS}</td>
               </tr>
           {foreach name = 'users_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
-              {if $user.branch_ID == $smarty.get.edit_branch || $smarty.get.showAllEmployees == 1}
-                  {assign var = "employees_found" value = '1'}
                   <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
                       <td>
                      {if isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES)}
@@ -128,11 +126,9 @@
                       </td>
 
                   </tr>
-              {/if}
+    {foreachelse}
+      <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
           {/foreach}
-          {if !$employees_found}
-              <tr class = "oddRowColor defaultRowHeight"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
-          {/if}
           </table>
 <!--/ajax:branchUsersTable-->
 {/if}
@@ -142,14 +138,14 @@
 
 <!--ajax:branchJobsTable-->
 
-   <table style = "width:100%" class = "sortedTable" size = "{$T_EMPLOYEES_SIZE}" sortBy = "0" id = "branchJobsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$smarty.get.edit_branch}&">
+   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "3" order="desc" id = "branchJobsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=branches&edit_branch={$smarty.get.edit_branch}&">
           <tr class = "topTitle">
               <td class = "topTitle" name="login">{$smarty.const._USER}</td>
               <td class = "topTitle" name="description">{$smarty.const._JOBDESCRIPTION}</td>
               <td class = "topTitle" name="supervisor">{$smarty.const._EMPLOYEEPOSITION}</td>
-              <td class = "topTitle" name="branch_ID" align="center">{$smarty.const._CHECK}</td>
+              <td class = "topTitle centerAlign" name="has_branch">{$smarty.const._CHECK}</td>
           </tr>
-          {foreach name = 'users_list' key = 'key' item = 'user' from = $T_EMPLOYEES}
+          {foreach name = 'users_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
               <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                   <td>
               {if isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES)}
@@ -275,7 +271,7 @@
 
   <table style = "width:100%">
       <tr><td>
-   {if $smarty.session.employee_type != _EMPLOYEE && $smarty.get.edit_branch}
+   {if $smarty.get.edit_branch}
     {capture name = 't_branch_properties_code'}
                         <div class="tabber">
                             <div class="tabbertab">

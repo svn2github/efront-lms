@@ -23,7 +23,7 @@ try {
  handleAjaxExceptions($e);
 }
 
-if (isset($currentBranch) && !in_array($currentBranch -> branch['branch_ID'], $supervisor_at_branches['branch_ID'])) {
+if (isset($currentBranch) && $currentUser -> user['user_type'] != 'administrator' && !in_array($currentBranch -> branch['branch_ID'], $supervisor_at_branches['branch_ID'])) {
  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&message=".urlencode(_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH)."&message_type=failure");
 }
 /*****************************************************
@@ -265,94 +265,227 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
    exit;
   }
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchUsersTable') {
-   if ($currentEmployee -> isSupervisor()) {
-    $sbranchesList = implode("','", $currentEmployee -> supervisesBranches);
-    $exclude_admin_condition = " AND users.user_type != 'administrator'";
-    $result = eF_getTableData("users JOIN (module_hcd_employee_has_job_description JOIN module_hcd_job_description ON module_hcd_employee_has_job_description.job_description_ID = module_hcd_job_description.job_description_ID JOIN module_hcd_branch ON module_hcd_job_description.branch_ID = module_hcd_branch.branch_ID JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.branch_ID = module_hcd_branch.branch_ID) ON users.login = module_hcd_employee_has_job_description.users_login", "distinct users.login, users.name, users.surname, users.pending, users.active, module_hcd_job_description.description, module_hcd_job_description.job_description_ID, module_hcd_branch.name as bname, module_hcd_job_description.branch_ID, module_hcd_employee_works_at_branch.supervisor", "users.archive = 0 AND users.active = 1 AND module_hcd_job_description.branch_ID IN ('". $sbranchesList ."') AND module_hcd_job_description.branch_ID = '". $currentBranch -> branch['branch_ID'] . "' AND  users.login = module_hcd_employee_works_at_branch.users_login AND users.login = module_hcd_employee_has_job_description.users_login " . $exclude_admin_condition ,"","");
-
-    $supervisedEmployees = $currentEmployee -> getSupervisedEmployees();
-    $supervisedEmployees[] = $currentEmployee -> login;
-    $smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
-   } else {
-    $result = eF_getTableData("users JOIN (module_hcd_employee_has_job_description JOIN module_hcd_job_description  ON module_hcd_employee_has_job_description.job_description_ID = module_hcd_job_description.job_description_ID JOIN module_hcd_branch ON module_hcd_job_description.branch_ID = module_hcd_branch.branch_ID JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.branch_ID = module_hcd_branch.branch_ID) ON users.login = module_hcd_employee_has_job_description.users_login", "distinct users.login, users.name, users.surname, users.pending, users.active, module_hcd_job_description.description, module_hcd_job_description.job_description_ID, module_hcd_branch.name as bname, module_hcd_job_description.branch_ID, module_hcd_employee_works_at_branch.supervisor", "users.archive = 0 AND module_hcd_job_description.branch_ID = '". $currentBranch -> branch['branch_ID'] . "' AND  users.login = module_hcd_employee_works_at_branch.users_login AND users.login = module_hcd_employee_has_job_description.users_login" ,"","");
-   }
-   foreach ($result as $value) {
-    $employees[$value['login']] = $value;
-   }
-
-   // Both roles are allowed to view all subbranches, if this is asked
-   if ($_GET['showAllEmployees'] == 1) {
-    $sbranchesList = implode("','", $currentBranch -> getAllSubbranches());
-    $subbranches_employees = eF_getTableData("users JOIN (module_hcd_employee_has_job_description JOIN module_hcd_job_description  ON module_hcd_employee_has_job_description.job_description_ID = module_hcd_job_description.job_description_ID JOIN module_hcd_branch ON module_hcd_job_description.branch_ID = module_hcd_branch.branch_ID JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.branch_ID = module_hcd_branch.branch_ID) ON users.login = module_hcd_employee_has_job_description.users_login", "distinct users.login, users.name, users.surname, users.pending, users.active, module_hcd_job_description.description, module_hcd_job_description.job_description_ID, module_hcd_branch.name as bname, module_hcd_job_description.branch_ID, module_hcd_employee_works_at_branch.supervisor", "users.archive = 0 AND module_hcd_job_description.branch_ID IN ('". $sbranchesList ."') AND  users.login = module_hcd_employee_works_at_branch.users_login AND users.login = module_hcd_employee_has_job_description.users_login " . $exclude_admin_condition ,"","");
-    foreach ($subbranches_employees as $sub_employee) {
-     $employees[$sub_employee['login']] = $sub_employee;
-    }
-   }
-
-
-   $dataSource = $employees;
-   $tableName = $_GET['ajax'];
-   include("sorted_table.php");
-  }
-  // Create ajax enabled table for employees
-  if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchJobsTable') {
-
-   isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-
-   if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
-    $sort = $_GET['sort'];
-    isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
-   } else {
-    $sort = 'login';
-   }
-
-   if ($currentEmployee -> isSupervisor()) {
+   $constraints = array('archive' => false, 'active' => 1, 'return_objects' => false) + createConstraintsFromSortedTable();
+         if ($currentEmployee -> isSupervisor()) {
     $supervisedEmployees = $currentEmployee -> getSupervisedEmployees(true);
     $supervisedEmployees[] = $currentEmployee -> login;
     $smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
-   }
-
-   $employees = $currentBranch -> getEmployeesWithJobs();//employees;
-   foreach ($employees as $key => $value) {
-    if (!$value['active']) {
-     unset($employees[$key]);
-    } else if (!$GLOBALS['configuration']['show_unassigned_users_to_supervisors'] && !$value['job_description_ID'] && $currentEmployee -> isSupervisor()) {
-     unset($employees[$key]);
-    }
-   }
-
-   $employees = eF_multiSort($employees, $_GET['sort'], $order);
-
-   if (isset($_GET['filter'])) {
-    $employees = eF_filterData($employees, $_GET['filter']);
-   }
+         }
+         if ($_GET['showAllEmployees'] == 1) {
+          $employees = $currentBranch -> getBranchTreeUsers($constraints);
+          $totalEntries = $currentBranch -> countBranchTreeUsers($constraints);
+         } else {
+          $employees = $currentBranch -> getBranchUsers($constraints);
+          $totalEntries = $currentBranch -> countBranchUsers($constraints);
+         }
+         $dataSource = $employees;
+   $tableName = $_GET['ajax'];
+   $alreadySorted = 1;
+   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+   include("sorted_table.php");
 
 
-   $smarty -> assign("T_EMPLOYEES_SIZE", sizeof($employees));
+/*			
 
-   if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
-    isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-    $employees = array_slice($employees, $offset, $limit);
-   }
+			if ($currentEmployee -> isSupervisor()) {
 
-   if (!empty($employees)) {
-    $employees = $currentBranch -> createEmployeeJobsHtml($employees);
-   }
+				$supervisedEmployees = $currentEmployee -> getSupervisedEmployees();
 
-   if ($employees) { // if false, then there are no job descriptions
-    $smarty -> assign("T_EMPLOYEES", $employees);
-   } else {
-    $smarty -> assign("T_EMPLOYEES_SIZE", 0);
-    $smarty -> assign("T_NOBRANCHJOBSERROR", 1);
-   }
+				$supervisedEmployees[] = $currentEmployee -> login;
 
-   $smarty -> display($_SESSION['s_type'].'.tpl');
-   exit;
+				$smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
+
+			}
+
+			
+
+			
+
+			if ($currentEmployee -> isSupervisor()) {
+
+				$sbranchesList = implode("','", $currentEmployee -> supervisesBranches);
+
+				$exclude_admin_condition = " AND users.user_type != 'administrator'";
+
+				$result = eF_getTableData("users JOIN (module_hcd_employee_has_job_description JOIN module_hcd_job_description ON module_hcd_employee_has_job_description.job_description_ID = module_hcd_job_description.job_description_ID JOIN module_hcd_branch ON module_hcd_job_description.branch_ID = module_hcd_branch.branch_ID JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.branch_ID = module_hcd_branch.branch_ID) ON users.login = module_hcd_employee_has_job_description.users_login", "distinct users.login, users.name, users.surname, users.pending, users.active, module_hcd_job_description.description, module_hcd_job_description.job_description_ID, module_hcd_branch.name as bname, module_hcd_job_description.branch_ID, module_hcd_employee_works_at_branch.supervisor", "users.archive = 0 AND users.active = 1 AND module_hcd_job_description.branch_ID IN ('". $sbranchesList ."') AND module_hcd_job_description.branch_ID = '". $currentBranch -> branch['branch_ID'] . "' AND  users.login = module_hcd_employee_works_at_branch.users_login AND users.login = module_hcd_employee_has_job_description.users_login " . $exclude_admin_condition ,"","");
+
+			} else {
+
+				$result = eF_getTableData("users JOIN (module_hcd_employee_has_job_description JOIN module_hcd_job_description  ON module_hcd_employee_has_job_description.job_description_ID = module_hcd_job_description.job_description_ID JOIN module_hcd_branch ON module_hcd_job_description.branch_ID = module_hcd_branch.branch_ID JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.branch_ID = module_hcd_branch.branch_ID) ON users.login = module_hcd_employee_has_job_description.users_login", "distinct users.login, users.name, users.surname, users.pending, users.active, module_hcd_job_description.description, module_hcd_job_description.job_description_ID, module_hcd_branch.name as bname, module_hcd_job_description.branch_ID, module_hcd_employee_works_at_branch.supervisor", "users.archive = 0 AND module_hcd_job_description.branch_ID = '". $currentBranch -> branch['branch_ID'] . "' AND  users.login = module_hcd_employee_works_at_branch.users_login AND users.login = module_hcd_employee_has_job_description.users_login" ,"","");
+
+			}
+
+			foreach ($result as $value) {
+
+				$employees[$value['login']] = $value;
+
+			}
+
+
+
+			// Both roles are allowed to view all subbranches, if this is asked
+
+			if ($_GET['showAllEmployees'] == 1) {
+
+				$sbranchesList = implode("','", $currentBranch -> getAllSubbranches());
+
+				$subbranches_employees = eF_getTableData("users JOIN (module_hcd_employee_has_job_description JOIN module_hcd_job_description  ON module_hcd_employee_has_job_description.job_description_ID = module_hcd_job_description.job_description_ID JOIN module_hcd_branch ON module_hcd_job_description.branch_ID = module_hcd_branch.branch_ID JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.branch_ID = module_hcd_branch.branch_ID) ON users.login = module_hcd_employee_has_job_description.users_login", "distinct users.login, users.name, users.surname, users.pending, users.active, module_hcd_job_description.description, module_hcd_job_description.job_description_ID, module_hcd_branch.name as bname, module_hcd_job_description.branch_ID, module_hcd_employee_works_at_branch.supervisor", "users.archive = 0 AND module_hcd_job_description.branch_ID IN ('". $sbranchesList ."') AND  users.login = module_hcd_employee_works_at_branch.users_login AND users.login = module_hcd_employee_has_job_description.users_login "  . $exclude_admin_condition ,"","");
+
+				foreach ($subbranches_employees as $sub_employee) {
+
+					$employees[$sub_employee['login']] = $sub_employee;
+
+				}
+
+			}
+
+
+
+
+
+			$dataSource 	  = $employees;
+
+			$tableName        = $_GET['ajax'];
+
+			include("sorted_table.php");
+
+*/
+  }
+  // Create ajax enabled table for employees
+  if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchJobsTable') {
+   $constraints = array('archive' => false, 'active' => 1, 'return_objects' => false) + createConstraintsFromSortedTable();
+         if ($currentEmployee -> isSupervisor()) {
+    $supervisedEmployees = $currentEmployee -> getSupervisedEmployees(true);
+    $supervisedEmployees[] = $currentEmployee -> login;
+    $smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
+    if ($GLOBALS['configuration']['show_unassigned_users_to_supervisors']) {
+           $employees = $currentBranch -> getBranchUsersIncludingUnattached($constraints);
+           $totalEntries = $currentBranch -> countBranchUsersIncludingUnattached($constraints);
+          } else {
+           $employees = $currentBranch -> getBranchUsers($constraints);
+           $totalEntries = $currentBranch -> countBranchUsers($constraints);
+          }
+         } else {
+    $employees = $currentBranch -> getBranchUsersIncludingUnassigned($constraints);
+    $totalEntries = $currentBranch -> countBranchUsersIncludingUnassigned($constraints);
+         }
+   $dataSource = $currentBranch -> createEmployeeJobsHtml($employees);
+   $tableName = $_GET['ajax'];
+   $alreadySorted = 1;
+   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
+   include("sorted_table.php");
+/*			
+
+			isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+
+
+
+			if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
+
+				$sort = $_GET['sort'];
+
+				isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
+
+			} else {
+
+				$sort = 'login';
+
+			}
+
+
+
+			if ($currentEmployee -> isSupervisor()) {
+
+				$supervisedEmployees = $currentEmployee -> getSupervisedEmployees(true);
+
+				$supervisedEmployees[] = $currentEmployee -> login;
+
+				$smarty -> assign("T_SUPERVISED_EMPLOYEES", $supervisedEmployees);
+
+			}
+
+
+
+			$employees = $currentBranch -> getEmployeesWithJobs();//employees;
+
+			$employees = $currentBranch -> getEmployeesIncludingUnassigned();//pr($employees);
+
+			
+
+			foreach ($employees as $key => $value) {
+
+				if (!$value['active']) {
+
+					unset($employees[$key]);
+
+				} else if (!$GLOBALS['configuration']['show_unassigned_users_to_supervisors'] && !$value['job_description_ID'] && $currentEmployee -> isSupervisor()) {
+
+					unset($employees[$key]);
+
+				}
+
+			}
+
+
+
+			$employees = eF_multiSort($employees, $_GET['sort'], $order);
+
+
+
+			if (isset($_GET['filter'])) {
+
+				$employees = eF_filterData($employees, $_GET['filter']);
+
+			}
+
+
+
+
+
+			$smarty -> assign("T_EMPLOYEES_SIZE", sizeof($employees));
+
+
+
+			if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
+
+				isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
+
+				$employees = array_slice($employees, $offset, $limit);
+
+			}
+
+
+
+			if (!empty($employees)) {
+
+				$employees = $currentBranch -> createEmployeeJobsHtml($employees);
+
+			}
+
+
+
+			if ($employees) {	// if false, then there are no job descriptions
+
+				$smarty -> assign("T_EMPLOYEES", $employees);
+
+			} else {
+
+				$smarty -> assign("T_EMPLOYEES_SIZE", 0);
+
+				$smarty -> assign("T_NOBRANCHJOBSERROR", 1);
+
+			}
+
+
+
+			$smarty -> display($_SESSION['s_type'].'.tpl');
+
+			exit;
+
+*/
   }
  }
-
  try {
-
   $target = basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&".(isset($_GET['add_branch']) ? "add_branch=1" : "edit_branch=".$_GET['edit_branch']);
   $form = new HTML_QuickForm("branch_form", "post", $target, "", null, true);
   $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
@@ -365,10 +498,8 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   $form -> addElement('text', 'telephone', _TELEPHONE, 'class = "inputText"');
   $form -> addElement('text', 'email', _EMAIL, 'class = "inputText"');
   $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
-
   if (isset($_GET['edit_branch'])) {
    $smarty -> assign("T_TABLE_OPTIONS", array(array('text' => _BRANCHSTATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=branches&sel_branch=".$_GET['edit_branch'])));
-
    /* Set the link to the details of the father branch */
    $details_link = 'href="'.basename($_SERVER['PHP_SELF']).'?ctg=module_hcd&op=branches&edit_branch='.$currentBranch -> branch['father_branch_ID'].'"';
    $smarty -> assign("T_BRANCH_NAME", $currentBranch -> branch['name']);
@@ -378,7 +509,6 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
           'country' => $currentBranch -> branch['country'],
           'telephone' => $currentBranch -> branch['telephone'],
           'email' => $currentBranch -> branch['email']));
-
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchesTable') {
     $branches = $currentBranch -> getSubbranches();
     if ($_SESSION['s_type'] != "administrator") {
@@ -394,20 +524,17 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
     $tableName = $_GET['ajax'];
     include("sorted_table.php");
    }
-
    $smarty -> assign("T_JOB_DESCRIPTIONS", $currentBranch -> getJobDescriptions(true));
    $show_subbranches_activate = array(
    array('text' => _SHOWEMPLOYEESFROMSUBBRANCHES, 'image' => "16x16/question_type_one_correct.png", 'href' => 'javascript:void(0)', 'onClick' => "ajaxShowAllSubbranches();", 'target' => '_self')
    );
    $smarty -> assign ("T_SUBBRANCHES_LINK", $show_subbranches_activate);
   }
-
   // Variable used to forbid the appearance of the link appearing for the lense;
   $forbidden_link = "";
   /* Select or possible father branches (the ones this supervisor manages) or all (if user is administrator)*/
   if ($currentEmployee -> getType() == _SUPERVISOR) {
    $father_branches = eF_getTableData("module_hcd_branch", "branch_ID, name, father_branch_ID","branch_ID IN (" . implode(",",$currentEmployee -> supervisesBranches). ")", "father_branch_ID ASC,branch_ID ASC");
-
    // Show only existing branches
    $only_existing = 1;
    if ($currentBranch && !$currentEmployee -> supervisesBranch($currentBranch -> branch['father_branch_ID'])) {
@@ -424,12 +551,10 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
    // Show all branches
    $only_existing = 0;
   }
-
   if (!empty($father_branches)) {
    if (isset($_GET['edit_branch'])) {
     $fatherBranchId = $currentBranch -> branch['father_branch_ID'];
    }
-
    // If add_branch request coming from another branch subbranches menu, pre-enter the fatherBranch form
    if (isset($_GET['add_branch'])) {
     if ($currentEmployee -> getType() == _SUPERVISOR) {
@@ -449,12 +574,9 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
    $first_branch = 1;
   }
   $smarty -> assign("T_FATHER_BRANCH_ID", $fatherBranchId);
-
-
  } catch (Exception $e) {
   handleNormalFlowExceptions($e);
  }
-
  if ($form -> isSubmitted() && $form -> validate()) {
   $branch_content = array('name' => $form -> exportValue('branch_name'),
         'address' => $form -> exportValue('address'),
@@ -481,7 +603,6 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   }
  }
  $smarty -> assign('T_BRANCH_FORM', $form -> toArray());
-
  $moduleTabs = array();
  foreach ($currentUser -> getModules() as $module) {
   if ($moduleTab = $module -> getTabSmartyTpl('branches')) {
@@ -489,12 +610,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   }
  }
  $smarty -> assign("T_MODULE_TABS", $moduleTabs);
-
-
-
 } else {
-
-
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchesTable') {
   if ($_SESSION['s_type'] == "administrator") {
    $branches = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.branch_ID, module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees, branch1.branch_ID as father_ID, branch1.name as father, supervisor","");
@@ -505,5 +621,4 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   $tableName = $_GET['ajax'];
   include("sorted_table.php");
  }
-
 }

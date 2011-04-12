@@ -116,14 +116,15 @@ try {
    }
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
    foreach ($lessons as $key => $value) {
-    if ($value['course_only']) {
-     unset($lessons[$key]);
-    } else if (!isset($value['completed'])) { //Populate missing fields in order for sorting to work correctly
+    if (!isset($value['completed'])) { //Populate missing fields in order for sorting to work correctly
      $lessons[$key]['completed'] = '';
      $lessons[$key]['score'] = '';
      $lessons[$key]['active_in_lesson'] = '';
      $lessons[$key]['has_lesson'] = 0;
      $lessons[$key]['user_type'] = '';
+    }
+    if (!$value['active'] && !$_change_lessons_) {
+     unset($lessons[$key]);
     }
    }
    $dataSource = $lessons;

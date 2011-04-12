@@ -116,6 +116,7 @@ try {
      $courses = $editedUser -> getUserCoursesAggregatingResultsIncludingUnassigned($constraints);
      $totalEntries = $editedUser -> countUserCoursesAggregatingResultsIncludingUnassigned($constraints);
     } else {
+     $constraints['active'] = true;
      $courses = $editedUser -> getUserCoursesAggregatingResults($constraints);
      $totalEntries = $editedUser -> countUserCoursesAggregatingResults($constraints);
     }

@@ -348,6 +348,8 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
             $form -> addElement('text', 'drag_drop[1]', null, 'class = "inputText inputText_QuestionChoice"');
             $form -> addElement('text', 'correct_drag_drop[1]', null, 'class = "inputText inputText_QuestionChoice"');
             $form -> addElement('text', 'correct_drag_drop[0]', null, 'class = "inputText inputText_QuestionChoice"');
+            $form -> addElement('text', 'answers_explanation[0]', null, 'class = "inputText inputText_QuestionChoice" style = "display:none"');
+            $form -> addElement('text', 'answers_explanation[1]', null, 'class = "inputText inputText_QuestionChoice" style = "display:none"');
             $form -> addRule('drag_drop[1]', _THEFIELD.' '._ISMANDATORY, 'required', null, 'client');
             $form -> addRule('drag_drop[0]', _THEFIELD.' '._ISMANDATORY, 'required', null, 'client');
             $form -> addRule('correct_drag_drop[0]', _THEFIELD.' '._ISMANDATORY, 'required', null, 'client');

@@ -29,13 +29,27 @@
    </tr>
    {foreach name = 'users_list' key = 'key' item = 'placement' from = $T_PLACEMENTS}
    <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"}">
-    <td><a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$placement.branch_ID}" class = "editLink">{$T_BRANCHES_PATH[$placement.branch_ID]}</a></td>
-    <td><a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$placement.job_description_ID}" class = "editLink">{$placement.description}</a></td>
+    <td>
+     {if !isset($T_SUPERVISES_BRANCHES) || in_array($placement.branch_ID, $T_SUPERVISES_BRANCHES)}
+     <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$placement.branch_ID}" class = "editLink">{$T_BRANCHES_PATH[$placement.branch_ID]}</a>
+     {else}
+     {$T_BRANCHES_PATH[$placement.branch_ID]}
+     {/if}
+    </td>
+    <td>
+     {if !isset($T_SUPERVISES_BRANCHES) || in_array($placement.branch_ID, $T_SUPERVISES_BRANCHES)}
+     <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$placement.job_description_ID}" class = "editLink">{$placement.description}</a>
+     {else}
+     {$placement.description}
+     {/if}
+     </td>
     <td>{if $placement.supervisor == 0}{$smarty.const._EMPLOYEE}{else}{$smarty.const._SUPERVISOR}{/if}</td>
   {if $_change_placements_}
     <td class = "centerAlign">
+    {if !isset($T_SUPERVISES_BRANCHES) || in_array($placement.branch_ID, $T_SUPERVISES_BRANCHES)}
      <a href = "{$smarty.server.REQUEST_URI}&edit_placement={$placement.job_description_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._EDITJOBPLACEMENT}', 2)"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "deleteJob(this, '{$placement.job_description_ID}')"/>
+    {/if}
     </td>
   {/if}
    </tr>

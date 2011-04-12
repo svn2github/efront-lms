@@ -2292,14 +2292,23 @@ class EfrontCourse
                              <td>
                                     <img id = "course_img'.$this -> course['id'].'" src = "images/32x32/courses.png">';
   if (!isset($this -> course['from_timestamp']) || $this -> course['from_timestamp']) {
+   if ($options['courses_link'] && $options['courses_link'] === true) {
+    $coursesLink = basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=course_info';
+   } else if ($options['courses_link']) {
+    $coursesLink = str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'];
+   } elseif ($options['tooltip']) {
+    $coursesLink = 'javascript:void(0)';
+   } else {
+    $coursesLink = '';
+   }
    if ($GLOBALS['configuration']['disable_tooltip'] != 1) {
     if ($options['tooltip']) {
      $courseString .= '
-          <a href = "'.($options['courses_link'] ? str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'] : 'javascript:void(0)').'" class = "info" url = "ask_information.php?courses_ID='.$this -> course['id'].'" >
+          <a href = "'.$coursesLink.'" class = "info" url = "ask_information.php?courses_ID='.$this -> course['id'].'" >
            <span class = "listName">'.$this -> course['name'].'</span>
           </a>';
     } else {
-     $options['courses_link'] ? $courseString .= '<a href = "'.str_replace("#user_type#", $roleBasicType, $options['courses_link']).$this -> course['id'].'">'.$courseString .= $this -> course['name'].'</a>' : $courseString .= $this -> course['name'];
+     $options['courses_link'] ? $courseString .= '<a href = "'.$coursesLink.'">'.$courseString .= $this -> course['name'].'</a>' : $courseString .= $this -> course['name'];
     }
    } else {
     $courseString .= $this -> course['name'];
@@ -2328,39 +2337,30 @@ class EfrontCourse
     }
    }
   }
+  $courseOptions = array();
   if ($roleBasicType == 'professor') {
    if (!isset($GLOBALS['currentUser'] -> coreAccess['course_settings']) || $GLOBALS['currentUser'] -> coreAccess['course_settings'] != 'hidden') {
     $autocompleteImage = '16x16/certificate.png';
      $autocompleteImage = '16x16/autocomplete.png';
-    $courseOptions = array();
-    $courseOptions['information'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_info" >
-                                        <img src = "images/16x16/information.png" title = "'._COURSEINFORMATION.'" alt = "'._COURSEINFORMATION.'" class = "handle"></a>';
-    $courseOptions['completion'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_certificates">
-                                                    <img src = "images/'.$autocompleteImage.'" title = "'._COMPLETION.'" alt = "'._COMPLETION.'" class = "handle"></a>';
-    $courseOptions['rules'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_rules">
-                                                    <img src = "images/16x16/rules.png" title = "'._COURSERULES.'" alt = "'._COURSERULES.'" class = "handle"></a>';
-    $courseOptions['order'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_order">
-                                                    <img src = "images/16x16/order.png" title = "'._COURSEORDER.'" alt = "'._COURSEORDER.'" class = "handle"></a>';
-    $courseOptions['schedule'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=course_scheduling">
-                                                    <img src = "images/16x16/calendar.png" title = "'._COURSESCHEDULE.'" alt = "'._COURSESCHEDULE.'" class = "handle"></a>';
+    $courseOptions['information'] = '<img src = "images/16x16/information.png" title = "'._COURSEINFORMATION.'" alt = "'._COURSEINFORMATION.'" class = "ajaxHandle" onclick = "location = \''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=course_info\'" />&nbsp;';
+    $courseOptions['completion'] = '<img src = "images/'.$autocompleteImage.'" title = "'._COMPLETION.'" alt = "'._COMPLETION.'" class = "ajaxHandle" onclick = "location = \''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=course_certificates\'" />&nbsp;';
+    $courseOptions['rules'] = '<img src = "images/16x16/rules.png" title = "'._COURSERULES.'" alt = "'._COURSERULES.'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=course_rules\'" />&nbsp;';
+    $courseOptions['order'] = '<img src = "images/16x16/order.png" title = "'._COURSEORDER.'" alt = "'._COURSEORDER.'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=course_order\'" />&nbsp;';
+    $courseOptions['schedule'] = '<img src = "images/16x16/calendar.png" title = "'._COURSESCHEDULE.'" alt = "'._COURSESCHEDULE.'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=course_scheduling\'" />&nbsp;';
     if (!isset($GLOBALS['currentUser'] -> coreAccess['course_settings']) || $GLOBALS['currentUser'] -> coreAccess['course_settings'] == 'change') {
-     $courseOptions['export'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=export_course">
-             <img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "handle"></a>';
-     $courseOptions['import'] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op=import_course">
-                                                    <img src = "images/16x16/import.png" title = "'._IMPORTCOURSE.'" alt = "'._IMPORTCOURSE.'" class = "handle"></a>';
+     $courseOptions['export'] = '<img src = "images/16x16/export.png" title = "'._EXPORTCOURSE.'" alt = "'._EXPORTCOURSE.'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=export_course\'" />&nbsp;';
+     $courseOptions['import'] = '<img src = "images/16x16/import.png" title = "'._IMPORTCOURSE.'" alt = "'._IMPORTCOURSE.'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op=import_course\'" />&nbsp;';
     }
     foreach ($GLOBALS['currentUser'] -> getModules() as $module) {
      if ($moduleTabPage = $module -> getTabPageSmartyTpl('course_settings')) {
-      $courseOptions[$moduleTabPage['tab_page']] = '<a href = "professor.php?ctg=lessons&course='.$this -> course['id'].'&op='.$moduleTabPage['tab_page'].'">
-             <img src = "'.$moduleTabPage['image'].'" title = "'.$moduleTabPage['title'].'" alt = "'.$moduleTabPage['title'].'" class = "handle"></a>';
+      $courseOptions[$moduleTabPage['tab_page']] = '<img src = "'.$moduleTabPage['image'].'" title = "'.$moduleTabPage['title'].'" alt = "'.$moduleTabPage['title'].'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op='.$moduleTabPage['tab_page'].'\'"/>&nbsp;';
      }
     }
-    $courseString .= '<span class = "courseActions">&nbsp;('._COURSEACTIONS.':</span>'.implode('', $courseOptions).'<span>)</span>';
+    //$courseString .= implode('', $courseOptions);
    }
   } else {
    if ($this -> course['completed']) {
-    $courseString .= '<span class = "courseActions">&nbsp;</span>
-                                                <img class = "handle" src = "images/16x16/success.png" title = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'" alt = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'">';
+    $courseOptions['completed'] = '<img src = "images/16x16/success.png" title = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'" alt = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'">&nbsp;';
     if ($this -> course['issued_certificate']) {
      $dateTable = unserialize($this -> course['issued_certificate']);
      $certificateExportMethod = $this->options['certificate_export_method'];
@@ -2368,7 +2368,7 @@ class EfrontCourse
    }
   }
   $courseString .= '
-                                </td><td>';
+                                <span style = "margin-left:30px">('._COURSEACTIONS.': '.implode('', $courseOptions).')</span></td><td>';
   if (isset($options['buy_link']) && $options['buy_link'] && sizeof($this -> getInstances()) == 0 && !$this -> course['has_course'] && !$this -> course['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
    $this -> course['price'] ? $priceString = formatPrice($this -> course['price'], array($this -> options['recurring'], $this -> options['recurring_duration']), true) : $priceString = false;
    $courseString .= '

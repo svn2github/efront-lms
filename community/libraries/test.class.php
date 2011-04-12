@@ -5457,7 +5457,7 @@ class RawTextQuestion extends Question implements iQuestion
                                 '.$formArray['question'][$this -> question['id']]['html'].'<div></div>&nbsp;<img id = "add_another_'.$this -> question['id'].'" src = "images/16x16/add.png" alt = "'._ADDANOTHERFILE.'" title = "'._ADDANOTHERFILE.'" style = "display:none" onclick = "addAnotherFile(this)">
                         </td></tr>
                         <tr><td>
-                                <br/><a href = "javascript:void(0)" onclick = "Element.extend(this).hide();$(\'file_'.$this -> question['id'].'[0]\').show();$(\'add_another_'.$this -> question['id'].'\').show()">('._SENDFILEASANSWER.')</a>
+                                <a href = "javascript:void(0)" onclick = "Element.extend(this).hide();$(\'file_'.$this -> question['id'].'[0]\').show();$(\'add_another_'.$this -> question['id'].'\').show()">('._SENDFILEASANSWER.')</a>
                                 <br/>'.$filesString.'
                             </td></tr>
                     </table>

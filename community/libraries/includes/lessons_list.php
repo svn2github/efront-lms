@@ -83,7 +83,7 @@ try {
    $userCourses[$key] = $course;
   }
   $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
-                              'courses_link' => false,
+                              'courses_link' => $roles[$course -> course['user_type']] == 'professor' ? true : false,
                   'catalog' => false,
          'only_progress_link' => true);
   if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {

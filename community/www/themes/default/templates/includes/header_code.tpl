@@ -28,15 +28,14 @@
     <a href = "userpage.php?ctg=personal&user={$T_CURRENT_USER->user.login}" class="headerText" id = "personal_options_link">
      #filter:login-{$smarty.session.s_login}#
     </a>
-
     <div style = "display:none" id = "my_personal_options">
-     <ul style = "list-style:none;padding:0px;">
+     <ul style = "list-style:none;padding:0px;" class = "headerMenu">
      {if $T_CURRENT_USER->coreAccess.dashboard != 'hidden'}
-      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=dashboard">{$smarty.const._DASHBOARD}</a></li>
+      <li onclick = "location='{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=dashboard'">{$smarty.const._DASHBOARD}</li>
      {/if}
-      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=profile">{$smarty.const._ACCOUNT}</a></li>
+      <li onclick = "location='{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=profile'">{$smarty.const._ACCOUNT}</li>
      {if $smarty.session.s_type != 'administrator'}
-      <li><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=user_courses">{$smarty.const._LEARNING}</a></li>
+      <li onclick = "location='{$smarty.server.PHP_SELF}?ctg=personal&user={$T_CURRENT_USER->user.login}&op=user_courses'">{$smarty.const._LEARNING}</li>
      {/if}
 
 

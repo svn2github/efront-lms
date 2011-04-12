@@ -128,6 +128,9 @@ table.centerFull td.left{display:none}
 table.centerFull td.center{width:100%;}
 table.hideCenter td.center{display:none}
 
+ul.headerMenu li {padding:1px 8px 1px 3px;}
+ul.headerMenu li:hover {background:#C7D7F3;cursor:pointer;}
+
 table{border-collapse:collapse;}
 a:link,a:visited{color:#333333;text-decoration:none;}
 a:hover{color:#111111;text-decoration:underline;}

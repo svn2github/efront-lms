@@ -10,6 +10,8 @@ if ($currentUser -> getType() != "administrator" && (($currentEmployee -> getTyp
  exit;
 }
 
+
+
 try {
  /* Check permissions: only admins and supervisors can see branches - the supervisors only their own */
  if (isset($_GET['delete_branch'])) {
@@ -21,6 +23,9 @@ try {
  handleAjaxExceptions($e);
 }
 
+if (isset($currentBranch) && !in_array($currentBranch -> branch['branch_ID'], $supervisor_at_branches['branch_ID'])) {
+ eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&message=".urlencode(_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH)."&message_type=failure");
+}
 /*****************************************************
 
  ON AJAX REQUESTING the branch's job descriptions select

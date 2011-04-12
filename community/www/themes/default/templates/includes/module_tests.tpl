@@ -769,7 +769,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                             <a href = "javascript:void(0)" onclick = "eF_js_removeImgNode(this, 'drag_drop')">
                                 <img src = "images/16x16/error_delete.png" border = "no" alt = "{$smarty.const._REMOVECHOICE}" title = "{$smarty.const._REMOVECHOICE}" /></a>
             {/if}
-                        </td><td style = "padding-left:30px">
+                        </td><td style = "padding-left:30px;white-space:nowrap">
                               <img onclick = "Element.extend(this).next().toggle()" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[drag_drop_list].html}
                         </td></tr>
    {if $T_QUESTION_FORM.drag_drop[drag_drop_list].error || $T_QUESTION_FORM.correct_drag_drop[drag_drop_list].error }<tr><td class = "formError">{$T_QUESTION_FORM.drag_drop[drag_drop_list].error}</td><td>{$T_QUESTION_FORM.correct_drag_drop[drag_drop_list].error}</td></tr>{/if}

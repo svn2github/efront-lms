@@ -127,7 +127,9 @@ table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right; padding-right:4px;}
 table.pageLayout td.footer{color:#333;height:15px;font-size:12px;text-shadow: 0px 0px 0px #000;border-top: 1px solid #ccc;border-bottom: 0px solid #ccc;padding:5px;text-align: right;background:#eee;/*url('../images/css_images/gradient.gif') repeat-x top;*/}
 
-}
+ul.headerMenu li {padding:1px 8px 1px 3px;}
+ul.headerMenu li:hover {background:#C7D7F3;cursor:pointer;}
+
 table.pageLayout td.headerHidden{height:26px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA;}
 table.pageLayout td.headerHidden #logo{display:none}
 table.pageLayout td.headerHidden #info{display:none}
@@ -762,7 +764,8 @@ text-align:center;
 height:18px;
 border:1px solid #d3d3d3;
 vertical-align:middle;
-z-index:2
+z-index:2;
+width:100px;
 }
 span.progressBar{
 background-color:#A0BDEF;

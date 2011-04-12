@@ -73,6 +73,7 @@
 - Fixed notifications going out to inactive users
 - Added avatar image in organization chart tooltip
 - Added "test password" option in tests (Educational/Enterprise editions)
+- Fixed license note and change password being bypassed when clicking on a link or providing it in the adress bar
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

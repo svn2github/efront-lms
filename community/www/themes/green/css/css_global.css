@@ -131,6 +131,9 @@ table{border-collapse:collapse;}
 a:link,a:visited{color:#444444;text-decoration:none;}
 a:hover{color:#222222;border-bottom-width: 1px;border-bottom-style: dotted; border-bottom-color: #999999;}
 
+ul.headerMenu li {padding:1px 8px 1px 3px;}
+ul.headerMenu li:hover {background:#C7D7F3;cursor:pointer;}
+
 /*calendar*/
 table.calendarHeader,
 table.calendar{

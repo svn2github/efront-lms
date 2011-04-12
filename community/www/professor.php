@@ -43,6 +43,11 @@ try {
  exit;
 }
 
+if (isset($_SESSION['s_index_comply'])) {
+ eF_redirect("index.php?ctg=".$_SESSION['s_index_comply']);
+ exit;
+}
+
 if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) && !isset($_GET['tabberajax'])) {
  $_SESSION['previousMainUrl'] = $_SERVER['REQUEST_URI'];
 }

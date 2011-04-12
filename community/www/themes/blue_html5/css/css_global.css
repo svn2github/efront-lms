@@ -156,6 +156,8 @@ table.centerFull td.left{display:none}
 table.centerFull td.center{width:100%;}
 table.hideCenter td.center{display:none}
 
+ul.headerMenu li {padding:1px 8px 1px 3px;}
+ul.headerMenu li:hover {background:#C7D7F3;cursor:pointer;}
 
 /*calendar*/
 table.calendarHeader,

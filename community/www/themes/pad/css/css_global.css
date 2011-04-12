@@ -137,6 +137,10 @@ table.pageLayout td.header #path #tab_handles_div{float:right}
 table.pageLayout td.header #path #path_title{float:left;margin-left:10px}
 table.pageLayout td.header #path #path_language{float:right; padding-right:4px;}
 
+ul.headerMenu li {padding:1px 8px 1px 3px;}
+ul.headerMenu li:hover {background:#C7D7F3;cursor:pointer;}
+
+
 table.pageLayout td.footer{color:#FFFFFF;height:15px;font-size:12px;text-shadow: 1px 1px 1px #000;border-top: 0px solid #1f3349;border-bottom: 0px solid #1f3349;padding:5px;text-align: right;background:#BBB}
 table.pageLayout td.headerHidden{height:30px;border-bottom: 0px solid #999999;padding:0px;vertical-align:top;background:#FAFAFA;}
 table.pageLayout td.headerHidden #logo{display:none}

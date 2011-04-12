@@ -116,6 +116,9 @@ table.pageLayout td.headerHidden #path #path_language{color:#FFFFFF; float:right
 table.pageLayout td.headerHidden a.titleLink {color:#FFFFFF;}
 table.pageLayout td.outerfooter{font-size:14px;border-top: 1px solid #999;padding:5px;background:#FAFAFA url('../images/css_images/gradient_large.jpg') repeat-x top;}
 
+ul.headerMenu li {padding:1px 8px 1px 3px;}
+ul.headerMenu li:hover {background:#C7D7F3;cursor:pointer;}
+
 /*table.inner td.footer * {color:#6D6D6D;}*/
 table.hideLeft td.left, 
 table.hideRight td.right{display:none}

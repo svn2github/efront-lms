@@ -319,6 +319,7 @@ $smarty -> assign('T_LOGIN_FORM', $renderer -> toArray());
 /* -----------------End of Login part-----------------------------*/
 if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) { //Display license agreement
  try {
+  $_SESSION['s_index_comply'] = 'agreement';
   $user = EfrontUserFactory :: factory($_SESSION['s_login']);
   $agreementForm = new HTML_QuickForm("agreement_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=agreement", "", "class = 'indexForm'", true);
   $agreementForm -> addElement('submit', 'submit_decline', _NOTACCEPTANDEXIT, 'class = "flatButton"');
@@ -328,8 +329,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
    if ($values['submit_accept']) {
     $user -> user['viewed_license'] = 1;
     $user -> persist();
-    // Check if the mobile version of eFront is required - if so set a session variable accordingly
-    //eF_setMobile();
+    unset($_SESSION['s_index_comply']);
     EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
     if ($_SESSION['login_mode']) {
      eF_redirect("index.php?ctg=checkout&checkout=1");
@@ -348,6 +348,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
  }
 } else if (isset($_GET['ctg']) && $_GET['ctg'] == 'password_change' && $_SESSION['s_login']) {
  try {
+  $_SESSION['s_index_comply'] = 'password_change';
   $user = EfrontUserFactory :: factory($_SESSION['s_login']);
   $changePasswordForm = new HTML_QuickForm("change_password_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=password_change", "", "class = 'indexForm'", true);
   $changePasswordForm -> addElement('password', 'old_password', _OLDPASSWORD, 'class = "inputText"');
@@ -371,7 +372,12 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     $user -> user['password'] = $newPassword;
     $user -> user['need_pwd_change'] = 0;
     $user -> persist();
-    LoginRedirect($user -> user['user_type']);
+    unset($_SESSION['s_index_comply']);
+    if ($GLOBALS['configuration']['show_license_note'] && $user -> user['viewed_license'] == 0) {
+     eF_redirect("index.php?ctg=agreement");
+    } else {
+     LoginRedirect($user -> user['user_type']);
+    }
    }
   }
   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

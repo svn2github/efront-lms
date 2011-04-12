@@ -4073,4 +4073,5 @@ define("_ENABLEVIRTUALKEYBOARD","Enable virtual keyboard");
 define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY", "The file appears to be empty. Perhaps it is not formatted correctly?");
 define("_PROGRAMMEDCERTIFICATEEXPIRY", "Certificate scheduled expiration");
 define("_TESTPASSWORD", "Test password");
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Sorry, you do not have access to this branch");
 ?>

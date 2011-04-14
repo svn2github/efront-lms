@@ -2356,7 +2356,7 @@ class EfrontCourse
       $courseOptions[$moduleTabPage['tab_page']] = '<img src = "'.$moduleTabPage['image'].'" title = "'.$moduleTabPage['title'].'" alt = "'.$moduleTabPage['title'].'" class = "ajaxHandle" onclick = "location=\''.basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$this -> course['id'].'&op='.$moduleTabPage['tab_page'].'\'"/>&nbsp;';
      }
     }
-    //$courseString .= implode('', $courseOptions);
+    $courseString .= '<span style = "margin-left:30px">('._COURSEACTIONS.': '.implode('', $courseOptions).')</span>';
    }
   } else {
    if ($this -> course['completed']) {
@@ -2365,10 +2365,11 @@ class EfrontCourse
      $dateTable = unserialize($this -> course['issued_certificate']);
      $certificateExportMethod = $this->options['certificate_export_method'];
     }
+    $courseString .= '<span style = "margin-left:30px">'.implode('', $courseOptions).'</span>';
    }
   }
   $courseString .= '
-                                <span style = "margin-left:30px">('._COURSEACTIONS.': '.implode('', $courseOptions).')</span></td><td>';
+                                </td><td>';
   if (isset($options['buy_link']) && $options['buy_link'] && sizeof($this -> getInstances()) == 0 && !$this -> course['has_course'] && !$this -> course['reached_max_users'] && $_SESSION['s_type'] != 'administrator') {
    $this -> course['price'] ? $priceString = formatPrice($this -> course['price'], array($this -> options['recurring'], $this -> options['recurring_duration']), true) : $priceString = false;
    $courseString .= '

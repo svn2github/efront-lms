@@ -7,6 +7,10 @@ function onUpdateBranchJobs(el, response) {
 	if (response.evalJSON(true).status) {
 		$('jobs_for_branch').select('option').each(function (s) {s.remove();});
 		$H(response.evalJSON(true).jobs).each(function (s) {$('jobs_for_branch').insert(new Element('option', {value:s[0]}).update(s[1]));});
+
+		$('positions_for_branch').select('option').each(function (s) {s.remove();});
+		
+		response.evalJSON(true).positions.each(function (s, i) {$('positions_for_branch').insert(new Element('option', {value:i}).update(s));});
 	}
 }
 function deleteJob(el, job) {

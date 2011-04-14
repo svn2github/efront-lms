@@ -304,6 +304,10 @@ border-radius: 4px;
 -webkit-box-shadow: 1px 1px 1px 1px #bbb;
 box-shadow: 1px 1px 1px 1px #bbb;
 text-shadow: 1px 1px 1px #000;
+}
+
+input.flatButton:hover,button.flatButton:hover{
+box-shadow: 2px 2px 2px 2px #bbb;
 
 }
 table.formElements{margin-left:0px;margin-right:0px;}
@@ -922,7 +926,7 @@ border:1px solid #cccccc;
 position:absolute;
 }
 .rawTextQuestion {width:100%;height:100px;}
-.dragDropQuestion .droppable, .dragDropQuestion .draggable{color:white;}
+.dragDropQuestion .droppable, .dragDropQuestion .draggable{color:white;padding:5px;}
 .emptySpacesField{margin-bottom:3px;}
 
 /*Random test table classes*/

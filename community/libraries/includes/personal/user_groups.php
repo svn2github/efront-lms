@@ -11,10 +11,12 @@ if (isset($currentUser->coreAccess['users']) && $currentUser->coreAccess['users'
  $_change_groups_ = true;
 } else if ($currentUser -> user['login'] == $editedUser -> user['login']) {
  $_change_groups_ = false;
-} else if (!$currentEmployee -> isSupervisor()) {
- $_change_groups_ = false;
-} else if ($currentEmployee -> supervisesEmployee($editedUser->user['login'])) {
- $_change_groups_ = true;
+
+
+
+
+
+
 } else {
  $_change_groups_ = false;
 }

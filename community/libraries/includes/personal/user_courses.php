@@ -10,10 +10,12 @@ if (isset($currentUser->coreAccess['users']) && $currentUser->coreAccess['users'
  $_change_courses_ = true;
 } else if ($currentUser -> user['login'] == $editedUser -> user['login']) {
  $_change_courses_ = false;
-} else if (!$currentEmployee -> isSupervisor()) {
- $_change_courses_ = false;
-} else if ($currentEmployee -> supervisesEmployee($editedUser->user['login'])) {
- $_change_courses_ = true;
+
+
+
+
+
+
 } else {
  $_change_courses_ = false;
 }
@@ -113,6 +115,11 @@ try {
     $constraints['required_fields'] = array('has_instances', 'location', 'active_in_course', 'user_type', 'completed', 'score', 'has_course', 'num_lessons');
     $constraints['return_objects'] = false;
     if ($_change_courses_) {
+
+
+
+
+
      $courses = $editedUser -> getUserCoursesAggregatingResultsIncludingUnassigned($constraints);
      $totalEntries = $editedUser -> countUserCoursesAggregatingResultsIncludingUnassigned($constraints);
     } else {

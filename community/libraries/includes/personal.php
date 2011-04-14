@@ -29,15 +29,6 @@ if (!isset($_GET['user'])) {
 $editedUser = EfrontUserFactory :: factory($_GET['user']);
 $editedEmployee = $editedUser -> aspects['hcd'];
 $smarty -> assign("T_EDITEDUSER", $editedUser);
-
-$currentEmployee = $currentUser -> aspects['hcd'];
-
-if ($currentUser->user['login'] != $editedUser->user['login'] && $currentUser->user['user_type'] != 'administrator') {
- if (!$currentEmployee -> isSupervisor() || !$currentEmployee -> supervisesEmployee($editedUser->user['login'])) {
-  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=profile&message=".urlencode(_YOUCANNOTEDITTHISUSER)."&message_type=failure");
- }
-}
-
 $enterpriseOperations = array();
 $learningOperations = array('user_courses', 'user_lessons');
 $accountOperations = array('profile', 'user_groups');

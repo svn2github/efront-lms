@@ -4798,12 +4798,8 @@ class EmptySpacesQuestion extends Question implements iQuestion
         if ($showCorrectAnswers) {
             $innerQuestionString .= '<span class = "correctAnswer">'._RIGHTANSWER.':</span><br/>'.$inputLabels[0];
             for ($k = 0; $k < sizeof($this -> answer); $k++) {
-             if ($this -> settings['select_list']) {
               $formattedAnswer = explode("|", $this->answer[$k]);
               $formattedAnswer = $formattedAnswer[0];
-             } else {
-              $formattedAnswer = str_replace("|", " "._OR." ", $this -> answer[$k]);
-             }
                 $innerQuestionString .= '<span class = "correctAnswer">'.$formattedAnswer.'</span>'.$inputLabels[$k + 1];
             }
         }
@@ -5608,15 +5604,15 @@ class RawTextQuestion extends Question implements iQuestion
         } else {
             $form -> setDefaults(array("question[".$this -> question['id']."]" => ''));
         }
-        $renderer = new HTML_QuickForm_Renderer_ArraySmarty($foo); //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
-        $form -> freeze(); //Freeze the form elements
-        $form -> accept($renderer); //Render the form
-        $formArray = $renderer -> toArray(); //Get the rendered form fields
+        //$renderer           = new HTML_QuickForm_Renderer_ArraySmarty($foo);                //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
+        //$form               -> freeze();                                           //Freeze the form elements
+        //$form               -> accept($renderer);                                  //Render the form
+        //$formArray           = $renderer -> toArray();                             //Get the rendered form fields
         $questionString = '
                     <table width = "100%">
                         <tr><td>'.$this -> question['text'].'</td></tr>
                         <tr><td style = "vertical-align:middle">
-                                '.$formArray['question'][$this -> question['id']]['html'].'
+                                '.$this->userAnswer.'
                                 '.($showCorrectAnswers  && $this -> answer ? '<span class = "correctAnswer"><br/>'._EXAMPLEANSWER.':<br/> '.$this -> answer.'</span>' : '').'
                                 '.$filesString.'
                             </td></tr>
@@ -5677,18 +5673,19 @@ class RawTextQuestion extends Question implements iQuestion
      */
     public function correct() {
   if ($this -> settings['force_correct'] == 'auto') {
-   $splitAnswerWords = preg_split("/\p{Z}|\p{P}|\n/m", $this->userAnswer, -1, PREG_SPLIT_NO_EMPTY);
+   $strippedAnswer = strip_tags($this->userAnswer);
+   $splitAnswerWords = preg_split("/\p{Z}|\p{P}|\n/m", $strippedAnswer, -1, PREG_SPLIT_NO_EMPTY);
    array_walk($splitAnswerWords, create_function('&$v', '$v=trim($v);'));
    $totalScore = 0;
    foreach($this -> settings['autocorrect'] as $value) {
     $addScore = false;
     foreach ($value['words'] as $word) {
      $word = preg_quote($word);//pr(htmlentities($this->userAnswer));
-     $found = preg_match("/^$word$/mu", $this->userAnswer) ||
-        preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer) ||
-        preg_match("/(\p{Z}|\p{P}|\n|\r)$word$/mu", $this->userAnswer) ||
-        preg_match("/(\p{Z}|\p{P}|\n|\r)$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer);
-     preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $this->userAnswer, $matches);
+     $found = preg_match("/^$word$/mu", $strippedAnswer) ||
+        preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $strippedAnswer) ||
+        preg_match("/(\p{Z}|\p{P}|\n|\r)$word$/mu", $strippedAnswer) ||
+        preg_match("/(\p{Z}|\p{P}|\n|\r)$word(\p{Z}|\p{P}|\n|\r)/mu", $strippedAnswer);
+     preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $strippedAnswer, $matches);
      if ($found) {
       if ($value['contains']) {
        $addScore = true;

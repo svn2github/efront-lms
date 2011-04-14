@@ -28,11 +28,12 @@ define('_TRAININGREPORTS_SUCCESSFULLYDELETED', 'The report was deleted');
 define('_TRAININGREPORTS_SUCCESSFULLYCLONED', 'The report was cloned');
 define('_TRAININGREPORTS_SUCCESSFULLYSAVED', 'The report was saved');
 
-define('_TRAININGREPORTS_LEGENDCOMPLETED', 'Lesson who started and completed in this time period');
-define('_TRAININGREPORTS_LEGENDINCOMPLETE', 'Lesson who started but not completed in this time period');
-define('_TRAININGREPORTS_LEGENDOUTSIDE', 'Lesson who started or completed outside the limits of this period');
+define('_TRAININGREPORTS_LEGENDCOMPLETED', 'Lessons that have been completed');
+define('_TRAININGREPORTS_LEGENDINCOMPLETE', 'Lessons that have been started but NOT completed');
+define('_TRAININGREPORTS_LEGENDOUTSIDE', 'Lessons that have NOT ben started');
 
 define('_TRAININGREPORTS_STARTED', 'Started');
-define('_TRAININGREPORTS_ENDED', 'Ended');
+define('_TRAININGREPORTS_NOTSTARTED', 'Νοt started');
+define('_TRAININGREPORTS_ENDED', 'Completed');
 
 ?>

@@ -129,7 +129,6 @@ class TrainingReports_Report {
         $this->to = $to;
     }
 
-
     /**
      * Returns the period's separator.
      * 
@@ -227,16 +226,10 @@ class TrainingReports_Report {
 
             $coursesData = array();
             foreach ($courses as $course) {
+                $course['completed'] = ($course['completed'] == 1 && $course['to_timestamp'] < $this->to);
 
-                if ($course['completed'] == 1) {
-                    if ($course['from_timestamp'] < $this->from || $course['to_timestamp'] > $this->to) {
-                        $course['status'] = 'outside';
-                    } else {
-                        $course['status'] = 'completed';
-                        $countCompleted++;
-                    }
-                } else {
-                    $course['status'] = 'incomplete';
+                if ($course['completed']) {
+                    $countCompleted++;
                 }
 
                 $coursesData[$course['courses_ID']] = $course;
@@ -277,9 +270,9 @@ class TrainingReports_Report {
                 user_type = 'student'
                 AND
                 (
-                    ( from_timestamp > $this->from AND from_timestamp < $this->to )
+                    ( completed = 1 AND to_timestamp <= $this->to )
                     OR
-                    ( to_timestamp > $this->from AND to_timestamp < $this->to )
+                    ( from_timestamp <= $this->to )
                 )
         )";
 
@@ -439,6 +432,7 @@ class TrainingReports_Report {
 
         return $periods;
     }
+
 }
 
 ?>

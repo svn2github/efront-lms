@@ -1998,15 +1998,17 @@ class EfrontContentTree extends EfrontTree
      if ($position !== false) {
       $sourceLink = mb_substr($sourceFileOffset, $position+1);
       mkdir($lesson -> getDirectory().$sourceLink.'/', 0755, true);
-      $copiedFile = $sourceFile -> copy($lesson -> getDirectory().$sourceLink.'/'.basename($sourceFile['path']), false);
+      $destinationPath = $lesson -> getDirectory().$sourceLink.'/'.basename($sourceFile['path']);
+      $copiedFile = $sourceFile -> copy($destinationPath, false);
      } else {
-      $copiedFile = $sourceFile -> copy($lesson -> getDirectory().basename($sourceFile['path']), false);
+      $destinationPath = $lesson -> getDirectory().basename($sourceFile['path']);
+      $copiedFile = $sourceFile -> copy($destinationPath, false);
      }
                     str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
                     $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data);
                 } catch (EfrontFileException $e) {
                     if ($e -> getCode() == EfrontFileException :: FILE_ALREADY_EXISTS) {
-                        $copiedFile = new EfrontFile($lesson -> getDirectory().'/'.basename($sourceFile['path']));
+                        $copiedFile = new EfrontFile($destinationPath);
                         str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
                         $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data, -1, $count);
                     }

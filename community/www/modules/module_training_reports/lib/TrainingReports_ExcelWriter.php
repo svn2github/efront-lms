@@ -30,6 +30,9 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
         $this->setCustomColor(15, 184, 204, 228); // blue
         $this->setCustomColor(17, 147, 205, 221); // cyan
         $this->setCustomColor(18, 250, 192, 144); // orange
+        $this->setCustomColor(19, 247, 150, 70); // incomplete lesson
+        $this->setCustomColor(20, 199, 80, 77); // not started lesson
+        $this->setCustomColor(21, 155, 187, 89); // completed lesson
 
         global $_TIME_REPORTS_EXCEL_FORMATS;
 
@@ -159,8 +162,8 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
                 /* Write data for the course for the given period */
                 foreach ($this->courses as $courseIndex => $course) {
 
-                    $string = '';
-                    $formatName = 'empty';
+                    $string = _TRAININGREPORTS_NOTSTARTED;
+                    $formatName = 'outside';
 
                     if (isset($user['courses'][$course]) == false) {
                         $this->workSheet->write($userIndex + 4, $column + $courseIndex, $string, $this->formats[$formatName]);
@@ -171,19 +174,21 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
                     $from = $courseData['from_timestamp'];
                     $to = $courseData['to_timestamp'];
 
-                    $formatName = $courseData['status'];
 
-                    if ($from > $periodStart && $from < $periodEnd && $to > $periodStart && $to < $periodEnd) {
+                    /* If user has completed */
+                    if (($to > $periodStart && $to < $periodEnd) || ($to > 0 && $to < $periodStart)) {
                         $string = _TRAININGREPORTS_STARTED . " - " . _TRAININGREPORTS_ENDED . "\n" .
                                 formatTimestamp($from) . ' - ' . formatTimestamp($to);
+                        $formatName = 'completed';
                     } else if ($from > $periodStart && $from < $periodEnd) {
                         $string = _TRAININGREPORTS_STARTED . "\n" . formatTimestamp($from);
-                    } else if ($to > $periodStart && $to < $periodEnd) {
-                        $string = _TRAININGREPORTS_ENDED . "\n" . formatTimestamp($to);
-                    } else if ($from < $periodStart && ($to == 0 || $periodEnd < $to)) {
-                        $string = '...';
+                        $formatName = 'incomplete';
+                    } else if ($from < $periodStart) {
+                        $string = _TRAININGREPORTS_STARTED . "\n" . formatTimestamp($from);
+                        $formatName = 'incomplete';
                     } else {
-                        $formatName = 'empty';
+                        $string = _TRAININGREPORTS_NOTSTARTED;
+                        $formatName = 'outside';
                     }
 
                     $this->workSheet->write($userIndex + 4, $column + $courseIndex, $string, $this->formats[$formatName]);
@@ -261,6 +266,7 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
             }
         }
     }
+
 }
 
 $_TIME_REPORTS_EXCEL_FORMATS = array();
@@ -349,7 +355,7 @@ $_TIME_REPORTS_EXCEL_FORMATS['completed'] = array(
     'size' => '8',
     'color' => 'black',
     'textWrap' => 1,
-    'fgcolor' => 14);
+    'fgcolor' => 21);
 
 $_TIME_REPORTS_EXCEL_FORMATS['incomplete'] = array(
     'border' => 1,
@@ -360,7 +366,7 @@ $_TIME_REPORTS_EXCEL_FORMATS['incomplete'] = array(
     'size' => '8',
     'color' => 'black',
     'textWrap' => 1,
-    'fgcolor' => 15);
+    'fgcolor' => 19);
 
 $_TIME_REPORTS_EXCEL_FORMATS['outside'] = array(
     'border' => 1,
@@ -371,7 +377,7 @@ $_TIME_REPORTS_EXCEL_FORMATS['outside'] = array(
     'size' => '8',
     'color' => 'black',
     'textWrap' => 1,
-    'fgcolor' => 18);
+    'fgcolor' => 20);
 
 $_TIME_REPORTS_EXCEL_FORMATS['top_border'] = array(
     'top' => 1,

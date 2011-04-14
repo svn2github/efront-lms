@@ -26,10 +26,11 @@ define('_TRAININGREPORTS_SUCCESSFULLYDELETED', 'Η αναφορά διαγράφ
 define('_TRAININGREPORTS_SUCCESSFULLYCLONED', 'Η αναφορά αντιγράφτηκε');
 define('_TRAININGREPORTS_SUCCESSFULLYSAVED', 'Η αναφορά αποθηκεύτηκε');
 
-define('_TRAININGREPORTS_LEGENDCOMPLETED', 'Μάθημα που άρχισε και ολοκλήρωσε στην δεδομένη περίοδο');
-define('_TRAININGREPORTS_LEGENDINCOMPLETE', 'Μάθημα που άρχισε αλλά δεν ολοκλήρωσε στην δεδομένη περίοδο');
-define('_TRAININGREPORTS_LEGENDOUTSIDE', 'Μάθημα που ξεκίνησε ή ολοκλήρωσe εκτός των ορίων αυτής της περιόδου');
+define('_TRAININGREPORTS_LEGENDCOMPLETED', 'Μάθημα που άρχισε και ολοκλήρωσε');
+define('_TRAININGREPORTS_LEGENDINCOMPLETE', 'Μάθημα που δεν ολοκλήρωσε');
+define('_TRAININGREPORTS_LEGENDOUTSIDE', 'Μάθημα που δεν άρχισε');
 
 define('_TRAININGREPORTS_STARTED', 'Άρχισε');
-define('_TRAININGREPORTS_ENDED', 'Τελείωσε');
+define('_TRAININGREPORTS_NOTSTARTED', 'Δεν άρχισε');
+define('_TRAININGREPORTS_ENDED', 'Ολοκληρώθηκε');
 ?>

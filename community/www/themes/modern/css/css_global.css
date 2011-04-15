@@ -218,7 +218,7 @@ z-index:10;
 
 /*Tooltip classes*/
 a.info{position:relative;z-index:24;}
-a.info .tooltipSpan{display:none;}
+a.info span.tooltipSpan{display:none;}
 
 div.infoEntry span:first-child{font-weight:bold;}
 

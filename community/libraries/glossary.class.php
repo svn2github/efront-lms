@@ -185,7 +185,7 @@ class glossary extends EfrontEntity
     public function getForm($form) {
      $form -> addElement('text', 'name', _TERM, 'id="termField" class = "inputText"');
      $form -> addRule('name', _THEFIELD.' '._TERM.' '._ISMANDATORY, 'required');
-     $form -> addElement('textarea', 'info', _DEFINITION, 'class = "mceEditor inputTextarea"');
+     $form -> addElement('textarea', 'info', _DEFINITION, 'class = "inputTextarea"');
      $form -> addElement('submit', 'submit', _SUBMITTERM, 'class = "flatButton"');
      $form -> addElement('submit', 'submit_term_add_another', _SUBMITANDADDANOTHER, 'class = "flatButton"');
      $form -> setDefaults(array('name' => $this -> glossary['name'], 'info' => $this -> glossary['info']));
@@ -293,7 +293,7 @@ class glossary extends EfrontEntity
      $searchdata[] = "/(\P{L})(".$value['name'].")(\P{L})/usi";
     }
     $searchdatanext[] = "/(yty656hgh".$value['name'].")/usi";
-                $replacedata[] = $value['info'];
+                $replacedata[] = strip_tags($value['info']);
             }
         }
         $text = self :: highlightWords($text, $searchdata, $replacedata);
@@ -347,7 +347,7 @@ class glossary extends EfrontEntity
             $words[$key] = 'encode*()!768atyj'.$word;
         }
         $new_text = implode(' ',$words);
-        return $matches[1]."<a class = 'info glossary' href = 'javascript:void(0)'>".$new_text."<div class = 'tooltipSpan'>yty656hgh".self::encodeWordsInner($matching_text)."</div></a>".$matches[3];
+        return $matches[1]."<a class = 'glossary' href = 'javascript:void(0)' onmouseover = 'new Tip(this, \"yty656hgh".self::encodeWordsInner($matching_text)."\")'>".$new_text."</a>".$matches[3];
     }
     /**
 

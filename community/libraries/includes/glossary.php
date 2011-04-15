@@ -18,16 +18,6 @@ if ($GLOBALS['configuration']['disable_glossary'] == 1 || (isset($currentUser ->
 !isset($currentUser -> coreAccess['glossary']) || $currentUser -> coreAccess['glossary'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $load_editor = true;
 $loadScripts[] = 'includes/filemanager';
-
-$entityName = 'glossary';
-$glossary = eF_getTableData("glossary", "id,name,info", "lessons_ID=".$currentLesson -> lesson['id']);
-foreach ($glossary as $value) {
-    $legalValues[] = $value['id'];
-}
-
-$words = glossary :: getGlossaryWords($glossary);
-$smarty -> assign("T_GLOSSARY", $words);
-
      //This page has a file manager, so bring it on with the correct options
      $basedir = $currentLesson -> getDirectory();
      //Default options for the file manager
@@ -44,9 +34,19 @@ $smarty -> assign("T_GLOSSARY", $words);
                  'metadata' => 0);
         }
         //Default url for the file manager
-        $url = basename($_SERVER['PHP_SELF']).'?ctg=content&'.(isset($_GET['edit']) ? 'edit='.$_GET['edit'] : 'add=1');
+        $url = basename($_SERVER['PHP_SELF']).'?ctg=glossary&'.(isset($_GET['edit']) ? 'edit='.$_GET['edit'] : 'add=1');
         $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
         /**The file manager*/
      include "file_manager.php";
+
+$entityName = 'glossary';
+$glossary = eF_getTableData("glossary", "id,name,info", "lessons_ID=".$currentLesson -> lesson['id']);
+foreach ($glossary as $value) {
+    $legalValues[] = $value['id'];
+}
+
+$words = glossary :: getGlossaryWords($glossary);
+$smarty -> assign("T_GLOSSARY", $words);
+
 
 include("entity.php");

@@ -1,87 +1,85 @@
-=== Version 3.6.9 build ===
-- Debug mode can now be set per user
-- Updating test score now sets/unsets unit progress
-- Fixed LDAP registration ignoring "only LDAP" setting, introduced in build 9931
-- Added code for converting pdf units via view_file.php
-- Added autocomplete input fields to show categories in add lesson advanced settings
-- Added autocomplete="off" for empty space questions to prevent browser from showing the previous answers
+=== Version 3.6.9 build 10653 ===
+- Updated personal pages
+- Added "modern" theme and set it as default theme
 - Dates formatting is no longer system-dependent
+- Updated custom user profile
+- Messages are no longer passed as GET parameters
+- Debug mode can now be set per user
+- Added "keep best" option in tests
+- Allow wildcards in "fill in the gaps" question types
+- Allow variable text-box sizes in "empty spaces" questions
+- Added select box option in empty spaces questions
+- Added option for showing correct answers only if student passed the test
+- Added autocomplete="off" for empty space questions to prevent browser from showing the previous answers
+- Added "test password" option in tests (Educational/Enterprise editions)
+- Resolved memory overuse in lesson reports when having many completed tests
+- Updating test score now sets/unsets unit progress
+- Added option for compressing test results in database
+- Added course prerequisites (course access depends on another course's completion) 
+- Changed course certificate expiration calculations to be more accurate (#1225)
+- Added the settings checker block for layout of the first page
+- Installation auto-fix for session.save_path now looks for and sets more locations
+- Added group self-registration option (Enterprise edition)
 - Users now can't access files on lessons they are not enrolled to, via .htaccess
-- Fixed user courses filter not working properly when language is not english
-- Messages are no longer passed through the get
-- Fixed issue about ignoring timezone when editing user
+- Content safeguarding via .htaccess made optional
+- Switched "disabled options" to "enabled options"
+- Added "users" and "organization" options in professor/student user types (Enterprise edition)
+- Supervisors cannot edit other supervisors of the same branch (Enterprise edition)
+- Supervisor permissions updates (Enterprise edition)
+- Added avatar image in organization chart tooltip (Enterprise edition)
+- Added tinymce simple editor in free text questions
+- Updated exporting content to SCORM to include files previously left out
+- Empty lessons no longer auto-complete
+- Modules list now shows folders of uninstalled modules and allows direct installation
+- Supervisors can't create administrators (Enterprise edition)
+- Supervisors can't edit unassigned users (Enterprise edition)
+- Added entries in "disable options" for changing user info and password
+- Added code for converting pdf units via view_file.php
 - Added module hook for content before showing it
+- Added autocomplete input fields to show categories in add lesson advanced settings
+- Added a redirect to (the supported only) default language even when bypass_language is set (#1132)
+- Added a default <p> css style with no margin/padding for editor inputs consistency
+- Changed views for not considering professor roles in completed lessons/courses columns
+- Updated PEAR to 1.9.2, and packages Mail, Net_STMP, Net_Socket
+- Excluding lessons that belong to inactive courses (and they do not belong to any other active course) in recipients list in messages
+- Fixed LDAP registration ignoring "only LDAP" setting, introduced in build 9931 (Edu/Enterprise edition)
+- Fixed issue about marking as pending the test again when redoOnlyWrong is set and the question was not 100% correct before
+- Fixed SCORM 1.2 import ignoring parameter in <item> manifest entries
+- Fixed user courses filter not working properly when language is not english
+- Fixed ignoring timezone when editing user
 - Fixed test statistics inconsistency between question analysis and response details
 - Fixed test statistics response details export in xls/pdf
 - Fixed user reports not showing user course instances under certain circumstances
-- Fixed SCORM 1.2 import ignoring parameter in <item> manifest entries
 - Fixed issue with glossary terms not displayed correctly in Chrome/Safari http://forum.efrontlearning.net/viewtopic.php?f=5&t=2851&p=14715#p14715
-- Updated custom user profile
-- Updated personal pages
-- Fixed issue about marking as pending the test again when redoOnlyWrong is set and the question was not 100% correct before
-- Changed views for not considering professor roles in completed lessons/courses columns
 - Fixed issue about new lines in course/lesson info in index page (#1136)
-- Added a redirect to (the supported only) default language even when bypass_language is set (#1132)
 - Fixed issue with custom user types not being taken into account in ask.php for courses and lessons
 - Fixed issue about allowing type that has not course_options permissions to add course calendar event
 - Fixed "action on reentry" SCORM option not working
 - Fixed not respecting "no-credit" mode during professor view of SCORM content
 - Fixed erroneous calculation of SCORM score when SCOs set only minscore and not maxscore (Captivate)
-- Added "modern" theme and set it as default theme
-- Supervisors can't create administrators (Enterprise edition)
-- Supervisors can't edit unassigned users (Enterprise edition)
-- Added options in disable options for changing user info and password
 - Fixed deleting unit does not delete associated lesson condition
 - Fixed orphan lesson conditions taken to account during lesson completion
-- Updated PEAR to 1.9.2, and packages Mail, Net_STMP, Net_Socket
-- Modules list now shows folders of uninstalled modules and allows direct installation
 - Fixed displaying Unit column in Feedback questions list
 - Fixed issue about displaying inactive lessons/courses in send message page
 - Fixed issue about assigning default positions in lesson layout to users enrolled lesson after professor have set them
 - Fixed wrong link in feedback list
-- Fixed issue about visibility parameter not being saved correctly in lesson layout setting
-- Fixed false job count for users in branch reports
 - Fixed broken link in admin feedback report about displaying feedback
+- Fixed issue about visibility parameter not being saved correctly in lesson layout setting
+- Fixed false job count for users in branch reports (Enterprise edition)
 - Fixed material in progress view not taking into account course rules
 - Fixed issue in api2 about login (checktoken) and efrontlogin (password) actions
 - Fixed automatic correction of free text questions disregarding uploaded files
 - Fixed issue in simple editors about loading theme css file
-- Fixed issue about not displaying questions that does not belong to a lesson while editing skill gap tests
-- Added a default p css style with no margin/padding for editor inputs consistency
+- Fixed issue about not displaying questions that do not belong to a lesson while editing skill gap tests
 - Fixed issue about assigning users with zero-prefixed login into groups (#1221)
 - Fixed error in skill gap test report
-- Added "keep best" option in tests
-- Resolved memory overuse in lesson reports when having many completed tests
-- Allow wildcards in "fill in the gaps" question types
-- Added course prerequisites (course access depends on another course's completion) 
-- Allow variable text-box sizes in "empty spaces" questions
-- Added select box option in empty spaces questions
-- Added option for showing correct answers only if student passed the test
-- Changed course certificate expiration calculations to be more accurate (#1225)
-- Added the settings checker block for layout of the first page
 - Fixed issue about wrong report link in feedbacks
-- Installation auto-fix for session.save_path now looks for and sets more locations
-- Added group self-registration option (Enterprise edition)
-- Content safeguarding made optional
-- Added option for compressing test results in database
-- Switched "disabled options" to "enabled options"
-- Added "users" and "organization" options in professor/student user types
-- Excluding lessons that belong to inactive courses (and they do not belong to any other active course) in recipients list in messages
 - Fixed user redirection after course enrollment from index page
-- Supervisors cannot edit other supervisors of the same branch (Enterprise edition)
-- Supervisor permissions updates (Enterprise edition)
 - Fixed notifications going out to inactive users
-- Added avatar image in organization chart tooltip
-- Added "test password" option in tests (Educational/Enterprise editions)
 - Fixed license note and change password being bypassed when clicking on a link or providing it in the address bar
 - Fixed facebook connection issues
 - Fixed copying units generating error when file exists in subfolder
-- Added tinymce simple editor in free text questions
-- Updated exporting content to SCORM to include files previously left out
-- Fixed glossary terms displaying inside content in chrome/safari
-- Glossary now accepts rich content
-- Empty lessons no longer auto-complete
-
+-
 === Version 3.6.8 build 9931 ===
 - Added chat module
 - Fixed logging out users from lessons when the session id is used in the past by the same user

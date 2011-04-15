@@ -1160,6 +1160,15 @@ class EfrontCourse
           "lessons_ID" => $this -> course['id'],
           "lessons_name" => $this -> course['name']);
     EfrontEvent::triggerEvent($event);
+    if (EfrontUser::isStudentRole($value['role'])) {
+     $event = array("type" => (-1) * EfrontEvent::COURSE_COMPLETION,
+          "users_LOGIN" => $value['login'],
+          "lessons_ID" => $this -> course['id'],
+          "lessons_name" => $this -> course['name'],
+        "replace" => true,
+        "create_negative" => false);
+     EfrontEvent::triggerEvent($event);
+    }
    }
   }
   $this -> users = false;
@@ -1358,6 +1367,15 @@ class EfrontCourse
           "lessons_ID" => $this -> course['id'],
           "lessons_name" => $this -> course['name']);
     EfrontEvent::triggerEvent($event);
+    if (EfrontUser::isStudentRole($value['user_type'])) {
+     $event = array("type" => (-1) * EfrontEvent::COURSE_COMPLETION,
+          "users_LOGIN" => $value['users_LOGIN'],
+          "lessons_ID" => $this -> course['id'],
+          "lessons_name" => $this -> course['name'],
+        "replace" => true,
+        "create_negative" => false);
+     EfrontEvent::triggerEvent($event);
+    }
    }
   }
   $this -> users = false; //Reset users cache

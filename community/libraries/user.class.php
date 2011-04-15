@@ -3091,7 +3091,14 @@ class EfrontStudent extends EfrontLessonUser
     $certificate = $course -> prepareCertificate($this -> user['login']);
     $course -> issueCertificate($this -> user['login'], $certificate);
    }
-   EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $course -> course['id'], "lessons_name" => $course -> course['name']));
+   $event = array("type" => EfrontEvent::COURSE_COMPLETION,
+       "users_LOGIN" => $this -> user['login'],
+       "lessons_ID" => $course -> course['id'],
+       "lessons_name" => $course -> course['name'],
+       "replace" => true,
+       "create_negative" => false,
+       "delete_negative" => true);
+   EfrontEvent::triggerEvent($event);
    // Assign the related course skills to the employee
    return true;
   } else {

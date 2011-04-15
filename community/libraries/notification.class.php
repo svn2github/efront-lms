@@ -585,7 +585,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
                 $timestamp_column = "users_to_courses.to_timestamp";
             } else if (EfrontEvent::COURSE_COMPLETION == (-1) * $event_notification['event_type']) {
                 $extra_condition = "users_to_courses.completed = '0' AND ";
-                $timestamp_column = "users_to_courses.to_timestamp";
+                $timestamp_column = "users_to_courses.from_timestamp";
             } else if (EfrontEvent::COURSE_PROGRAMMED_START == abs($event_notification['event_type'])) {
                 $timestamp_column = "courses.start_date";
             } else if (EfrontEvent::COURSE_PROGRAMMED_EXPIRY == abs($event_notification['event_type'])) {

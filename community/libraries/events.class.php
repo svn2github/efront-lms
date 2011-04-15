@@ -116,7 +116,7 @@ class EfrontEvent
     const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name
  const COURSE_PROGRAMMED_START = 57; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_PROGRAMMED_EXPIRY = 58;
-    const COURSE_CERTIFICATE_EXPIRY = 59; // users_LOGIN, lessons_ID, lessons_name
+    //const COURSE_CERTIFICATE_EXPIRY = 59;		// users_LOGIN, lessons_ID, lessons_name
     // Test codes: [75-99]
     const TEST_CREATION = 75;
     const TEST_START = 76;
@@ -283,7 +283,7 @@ class EfrontEvent
           EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "courses"),
           EfrontEvent::COURSE_PROGRAMMED_START => array("text" => _PROGRAMMEDCOURSESTART, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
           EfrontEvent::COURSE_PROGRAMMED_EXPIRY => array("text" => _PROGRAMMEDCOURSEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
-          EfrontEvent::COURSE_CERTIFICATE_EXPIRY => array("text" => _PROGRAMMEDCERTIFICATEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
+          //EfrontEvent::COURSE_CERTIFICATE_EXPIRY => array("text" => _PROGRAMMEDCERTIFICATEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
              EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC => array("text" => _NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "category" => "social"),
              EfrontEvent::DELETE_POST_FROM_LESSON_TIMELINE => array("text" => _DELETE_POST_FROM_LESSON_TIMELINE, "category" => "social"),
              EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "tests"),
@@ -661,6 +661,21 @@ class EfrontEvent
     $fields['entity_name'] = $unit_info['name'];
    }
   }
+     $replace = false;
+     if (isset($fields['replace']) && $fields['replace'] === true) {
+      $replace = true;
+      unset($fields['replace']);
+     }
+     $create_negative = true;
+     if (isset($fields['create_negative']) && $fields['create_negative'] === false) {
+      $create_negative = false;
+      unset($fields['create_negative']);
+     }
+     $delete_negative = false;
+     if (isset($fields['delete_negative']) && $fields['delete_negative'] === true) {
+      $delete_negative = true;
+      unset($fields['delete_negative']);
+     }
      // If social eFront module is enabled then log this event
      //if ((isset($GLOBALS['configuration']['social_modules_activated']) && $GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_EVENTS) != 0) {
       // Negative events like not visited, not completed etc are not to be logged
@@ -678,7 +693,7 @@ class EfrontEvent
      // By default all notifications will be sent
      if ($send_notification) {
       $event = new EfrontEvent($fields); // this should create an event instance for our class
-      $event -> appendNewNotification($event_types); // append this notification to the email queue
+      $event -> appendNewNotification($event_types, $replace, $create_negative, $delete_negative); // append this notification to the email queue
      }
     }
     // Substitute templates in message body/subject of emails
@@ -791,7 +806,7 @@ class EfrontEvent
      * 					when an event VISITED is used (*** and vice versa ***)
 
      */
-    public function appendNewNotification($event_types, $replace_notification = false, $create_negative = true) {
+    public function appendNewNotification($event_types, $replace_notification = false, $create_negative = true, $delete_negative = false) {
      if ($create_negative) {
          // Get all (positive and negative) notifications stored for this event (more than one are possible for each event)
          $event_notifications = eF_getTableData("event_notifications", "*", "active = 1 AND (event_type = '".$this -> event['type'] ."' OR event_type = '".(-1) * $this -> event['type'] ."')");
@@ -809,7 +824,7 @@ class EfrontEvent
        foreach ($conditions as $field => $value) {
         // A value of 0 means any* (any lesson, test, content etc)
         if ($value != 0) {
-         if ($this -> event['lessons_ID'] != $value && $this -> event['entity_ID'] != $value) {
+         if ($this -> event['lessons_ID'] != $value && $this -> event['entity_ID'] != $value && $this -> event['courses_ID'] != $value) {
           $conditions_passed = false;
           break;
          }
@@ -821,16 +836,25 @@ class EfrontEvent
         // Set type - entity field: denoting the type of the event ."_". the ID of the involved entity (lesson, test, forum etc)
            if ($this -> event['entity_ID']) {
          $event_notification['id_type_entity'] = $event_notification['id'] . "_" . $event_notification['event_type'] . "_" . $this -> event['entity_ID'];
+         $negativeTypeEntity = "_" . (-1)*$event_notification['event_type'] . "_" . $this -> event['entity_ID'];
         } else if ($this -> event['lessons_ID']) {
          $event_notification['id_type_entity'] = $event_notification['id'] . "_" . $event_notification['event_type'] . "_" . $this -> event['lessons_ID'];
+         $negativeTypeEntity = "_" . (-1)*$event_notification['event_type'] . "_" . $this -> event['lessons_ID'];
+        } else if ($this -> event['courses_ID']) {
+         $event_notification['id_type_entity'] = $event_notification['id'] . "_" . $event_notification['event_type'] . "_" . $this -> event['courses_ID'];
+         $negativeTypeEntity = "_" . (-1)*$event_notification['event_type'] . "_" . $this -> event['courses_ID'];
         } else {
          $event_notification['id_type_entity'] = $event_notification['id'] . "_" . $event_notification['event_type'] . "_";
+         $negativeTypeEntity = "_" . (-1)*$event_notification['event_type'] . "_";
         }
         // Check whether this is of a NOT-event
         if ($event_notification['event_type'] < 0 || $replace_notification) {
          $event_notification['event_type'] = (-1) * $event_notification['event_type'];
          // in that case delete the corresponding record in the table (if such exists)
          eF_deleteTableData("notifications", "id_type_entity= '".$event_notification['id_type_entity'] . "' AND recipient = '". $this -> event['users_LOGIN'] ."'");
+        }
+        if ($delete_negative) {
+         eF_deleteTableData("notifications", "id_type_entity like '%".$negativeTypeEntity."' AND recipient = '". $this -> event['users_LOGIN'] ."'");
         }
         // Set event notification recipients
         if ($event_notification['send_recipients'] == EfrontNotification::TRIGGERINGUSER) {

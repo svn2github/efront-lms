@@ -1017,8 +1017,10 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
       // the event_type is always returned positive from the getAllNotifications method
       if ($events_table[$notification['event_type']]['category'] == "system" || $events_table[$notification['event_type']]['category'] == "branch" || $events_table[$notification['event_type']]['category'] == "job" || $notification['event_type'] == EfrontEvent::NEW_SYSTEM_ANNOUNCEMENT) {
        $notifications[$key]['recipients'] = _ALLUSERS;
-      } else {
+      } elseif (isset($notification['event_type'])) {
        $notifications[$key]['recipients'] = _ALLLESSONUSERS;
+      } else {
+       $notifications[$key]['recipients'] = _ALLACTIVESYSTEMUSERS;
       }
 
      }

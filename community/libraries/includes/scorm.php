@@ -130,6 +130,7 @@ if ($_GET['scorm_review']) {
 
                 }
                 //pr($scormFiles);exit;
+
                 foreach ($scormFiles as $scormFile) {
                     /* Imports scorm package to database */
                     $scormFolderName = EfrontFile :: encode(basename($scormFile['name'], '.zip'));
@@ -183,41 +184,15 @@ if ($_GET['scorm_review']) {
     $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
     $form -> addElement('submit', 'submit_export_scorm', _EXPORT, 'class = "flatButton"');
     if ($form -> isSubmitted() && $form -> validate()) {
-        define ('SCORM_FOLDER', G_ROOTPATH."www/content/scorm_data");
-        if (!is_dir(SCORM_FOLDER)) {
-            mkdir(SCORM_FOLDER, 0755);
-        }
-        $scorm_filename = "scorm_lesson".$lessons_id.".zip";
-
-        if (is_file(SCORM_FOLDER."/".$scorm_filename)) {
-            unlink(SCORM_FOLDER."/".$scorm_filename);
-        }
-
-        $lessons_id = $currentLesson -> lesson['id'];
-
         try {
-            $filesystem = new FileSystemTree($currentLesson -> getDirectory());
-            foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator($filesystem -> tree, RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
-                ($value instanceOf EfrontDirectory) ? $filelist[] = preg_replace("#".$currentLesson -> getDirectory()."#", "", $key).'/' : $filelist[] = preg_replace("#".$currentLesson -> getDirectory()."#", "", $key);
-            }
 
-            $lesson_entries = eF_getTableData("content", "id,name,data", "lessons_ID=" . $lessons_id . " and ctg_type!='tests' and ctg_type!='scorm_test' and ctg_type!='scorm' and active=1");
-
-            require_once("scorm_tools.php");
-            create_manifest($lessons_id, $lesson_entries, $filelist, SCORM_FOLDER);
-
-            $scormDirectory = new EfrontDirectory(SCORM_FOLDER ."/lesson". $lessons_id."/");
-
-            $compressedFile = $scormDirectory -> compress(false, false, true);
-            $scormDirectory -> delete();
+            $compressedFile = $currentLesson -> scormExport();
 
             $smarty -> assign("T_SCORM_EXPORT_FILE", $compressedFile);
             $smarty -> assign("T_MESSAGE", _SUCCESSFULLYEXPORTEDSCORMFILE);
             $smarty -> assign("T_MESSAGE_TYPE", "success");
         } catch (Exception $e) {
-            $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-            $message = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-            $message_type = "failure";
+         handleNormalFlowExceptions($e);
         }
     }
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);

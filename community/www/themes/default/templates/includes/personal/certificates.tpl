@@ -18,9 +18,11 @@
      <td>#filter:timestamp-{$certificate.issue_date}#</td>
      <td>{if !is_numeric($certificate.expiration_date)}{$smarty.const._NEVER}{else}#filter:timestamp-{$certificate.expiration_date}#{/if}</td>
      <td class = "centerAlign">
-      <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$certificate.export_method}&user={$T_EDITEDUSER->user.login}&course={$certificate.courses_ID}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-       <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" class = "handle"/>
-      </a>
+      {if $T_EDITEDUSER->user.login == $smarty.session.s_login}
+      <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" class = "ajaxHandle" onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=lessons&course={$certificate.courses_ID}&export={$certificate.export_method}&user={$T_EDITEDUSER->user.login}')"/>
+      {else}
+      <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" class = "ajaxHandle" onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$certificate.export_method}&user={$T_EDITEDUSER->user.login}&course={$certificate.courses_ID}')"/>
+      {/if}
       {if $_change_certificates_}
       <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&revoke_certificate={$T_EDITEDUSER->user.login}&course={$certificate.courses_ID}" title = "{$smarty.const._REVOKECERTIFICATE}">
        <img src = "images/16x16/error_delete.png" title = "{$smarty.const._REVOKECERTIFICATE}" alt = "{$smarty.const._REVOKECERTIFICATE}" class = "handle"/>

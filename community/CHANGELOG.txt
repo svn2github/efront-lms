@@ -77,6 +77,7 @@
 - Fixed facebook connection issues
 - Fixed copying units generating error when file exists in subfolder
 - Added tinymce simple editor in free text questions
+- Updated exporting content to SCORM to include files previously left out
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

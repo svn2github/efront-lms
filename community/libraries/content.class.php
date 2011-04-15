@@ -647,6 +647,7 @@ class EfrontUnit extends ArrayObject
 
      */
     public function getFiles($returnObjects = false) {
+     $files = array();
         $data = parent :: offsetGet('data');
         preg_match_all("/view_file\.php\?file=(\d+)/", $data, $matchesId);
         $filesId = $matchesId[1];
@@ -2914,7 +2915,7 @@ class EfrontContentFilterIterator extends FilterIterator
 
      */
     function accept() {
-        if ($this -> current() -> offsetGet('ctg_type') != 'tests' && $this -> current() -> offsetGet('ctg_type') != 'scorm_test') {
+        if ($this -> current() -> offsetGet('ctg_type') != 'tests' && $this -> current() -> offsetGet('ctg_type') != 'scorm_test' && $this -> current() -> offsetGet('ctg_type') != 'feedback') {
             return true;
         }
     }

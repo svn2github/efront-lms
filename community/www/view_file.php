@@ -25,7 +25,8 @@ require_once $path."configuration.php";
 try {
  $currentUser = EfrontUser :: checkUserAccess();
 } catch (Exception $e) {
- eF_redirect("index.php?ctg=expired");
+ header("HTTP/1.0 500");
+ echo EfrontSystem :: printErrorMessage("Please login to access this resource");
  exit;
 }
 session_write_close();

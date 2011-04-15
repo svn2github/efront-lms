@@ -2726,6 +2726,7 @@ class FileSystemTree extends EfrontTree
                     strpos($value['mime_type'], "text") !== false ||
                     strpos($value['mime_type'], "pdf") !== false ||
                     strpos($value['mime_type'], "html") !== false ||
+                    strpos($value['mime_type'], "video") !== false ||
                     strpos($value['mime_type'], "flash") !== false) {
                         $filesCode .= '<a href = "javascript:void(0);" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');$(\'preview_frame\').src = \''.$link.'\';" ><img src = "'.$value -> getTypeImage().'" alt = "'.$value['mime_type'].'" title = "'.$value['mime_type'].'" border = "0"/></a></td>';
                     } else {
@@ -2742,7 +2743,7 @@ class FileSystemTree extends EfrontTree
                     if ($show_tooltip) {
                         $filesCode .= $value -> toHTMLTooltipLink($link, true, $tableId);
                     } else {
-                        if (strpos($value['mime_type'], "image") !== false || strpos($value['mime_type'], "text") !== false || strpos($value['mime_type'], "pdf") !== false || strpos($value['mime_type'], "flash") !== false) {
+                        if (strpos($value['mime_type'], "image") !== false || strpos($value['mime_type'], "text") !== false || strpos($value['mime_type'], "pdf") !== false || strpos($value['mime_type'], "flash") !== false || strpos($value['mime_type'], "video") !== false ) {
                             $filesCode .= '<a href = "'.$link.'" target = "PREVIEW_FRAME" onclick = "eF_js_showDivPopup(\''._PREVIEW.'\', 2, \'preview_table_'.$tableId.'\');">'.$value['name'].'</a>';
                         } else {
                             $filesCode .= '<a target = "PREVIEW_FRAME" href = "'.$url.'&download='.urlencode($identifier).'">'.$value['name'].'</a>';

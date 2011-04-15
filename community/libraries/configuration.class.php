@@ -80,9 +80,9 @@ class EfrontConfiguration
   'phplivedocx_username' => '',
   'phplivedocx_password' => '',
         //Appearance
-        'site_name' => '',
-        'site_motto' => '',
-  'motto_on_header' => '1',
+        'site_name' => 'eFront',
+        'site_motto' => 'Refreshing eLearning',
+  'motto_on_header' => '0',
      'lessons_directory' => '1', //0 means 'no', 1 means 'yes', and 2 means 'only after login'
      'collapse_catalog' => '0', // 0 means 'no', 1 means 'yes' and  2 means 'only for lessons'
         'logo' => '', // if empty, the default logo is used

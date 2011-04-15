@@ -17,10 +17,15 @@ try {
         if (in_array($_GET['login'], $additionalAccounts)) {
             $newUser = EfrontUserFactory::factory($_GET['login']);
    $lessonID = $_SESSION['s_lessons_ID'];
+   $courseID = $_SESSION['s_courses_ID'];
    $currentUser -> logout(session_id());
    $newUser -> login($newUser -> user['password'], true);
    if ($_SESSION['s_type'] != 'administrator' && $lessonID) {
-                setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID, time() + 300);
+    if ($courseID) {
+                 setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID."&from_course=".$courseID, time() + 300);
+    } else {
+     setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID, time() + 300);
+    }
             }
    unset($_SESSION['referer']);
    $redirectPage = $GLOBALS['configuration']['login_redirect_page'];

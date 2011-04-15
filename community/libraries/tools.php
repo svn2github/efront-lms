@@ -721,16 +721,26 @@ function setReadPermissions($dir) {
  return array($failedDirectories, $failedFiles);
 }
 function checkPermissions($dir) {
- $failedDirectories = $failedFiles = array();
  $efrontDirectories = array("www", "libraries", "Zend", "PEAR", "backups", "upload");
+ $totalFailedDirectories = $totalFailedFiles = array();
+ foreach ($efrontDirectories as $dir) {
+  $dir = G_ROOTPATH.$dir;
+  list($failedDirectories, $failedFiles) = checkDirectoryPermissions($dir);
+  $totalFailedDirectories = array_merge($totalFailedDirectories, $failedDirectories);
+  $totalFailedFiles = array_merge($totalFailedFiles, $failedFiles);
+ }
+ if (!is_writable($dir)) {
+  $totalFailedDirectories[] = $dir;
+ }
+ return array($totalFailedDirectories, $totalFailedFiles);
+}
+function checkDirectoryPermissions($dir) {
+ $failedDirectories = $failedFiles = array();
  $d = new RecursiveDirectoryIterator($dir);
  foreach (new RecursiveIteratorIterator($d, RecursiveIteratorIterator::SELF_FIRST) as $key => $path) {
   if (!$path -> isWritable()) {
    if ($path->isDir()) {
-    foreach ($efrontDirectories as $key2 => $value2)
-     if (strpos($path -> getPathName(), $value2) !== false) {
-      $failedDirectories[] = $path -> getPathName();
-     }
+    $failedDirectories[] = $path -> getPathName();
    } else {
     $failedFiles[] = $path -> getPathName();
    }

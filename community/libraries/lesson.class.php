@@ -1428,8 +1428,8 @@ class EfrontLesson
     unset($users[$key]);
    }
   }
-        return $users;
-    }
+  return $users;
+ }
  /**
 
 	 * Get users that don't have the lesson
@@ -1604,7 +1604,7 @@ class EfrontLesson
    $roleInLesson = $roles[$key];
    if ($roleInLesson != 'administrator') {
     if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && EfrontUser::isStudentRole($roleInLesson)) {
-     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
+     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORLESSON, EfrontCourseException :: MAX_USERS_LIMIT);
     }
     if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
      $usersToAddToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);
@@ -3010,7 +3010,7 @@ class EfrontLesson
     $this -> chatroom['id'] = $chatroom_info[0]['id'];
    } else {
     //create chatroom if for any reason it does not exist
-                $fields_insert = array ('name' => $this -> lesson['name'], //***Check here
+    $fields_insert = array ('name' => $this -> lesson['name'], //***Check here
                       'type' => 'public',
                       'lessons_ID' => $this -> lesson['id'],
                                      'create_timestamp' => time());
@@ -4243,6 +4243,781 @@ class EfrontLesson
   }
   unlink($this -> directory.'/'."data.dat"); //Delete database dump file
   return $file;
+ }
+ public function scormExport() {
+  $scormExportFolder = G_SCORMPATH.$this->lesson['id']."/";
+  try {
+   $dir = new EfrontDirectory($scormExportFolder);
+   $dir -> delete();
+  } catch (Exception $e) {}
+  $htmlExportFolder = $scormExportFolder.'html/';
+  $filesExportFolder = $scormExportFolder.'html/files/';
+  is_dir($filesExportFolder) OR mkdir($filesExportFolder, 0755, true);
+  //is_dir($htmlExportFolder)  OR mkdir($htmlExportFolder, 0755, true);
+  $filelist = array();
+  $content = new EfrontContentTree($this, true);
+  foreach (new EfrontContentFilterIterator(new EfrontNoSCORMFilterIterator(new EfrontVisitableAndEmptyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator($content -> tree, RecursiveIteratorIterator :: SELF_FIRST))))) as $key => $unit) {
+   $unitFiles = $unit->getFiles(true);
+   $units[] = $unit;
+   $data = $unit['data'];
+   foreach ($unitFiles as $file) {
+    $filePath = str_replace($this->getDirectory(), "/", $file['path']);
+    $data = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']).$filePath, "files".$filePath, $data);
+    $data = str_replace("view_file.php?file=".$file['id'], "files".$filePath, $data);
+   }
+         $unitContent = $this -> createSCORMHtmlFiles($data);
+         $unitFilename = $htmlExportFolder.$unit['name'].".html";
+         file_put_contents($unitFilename, $unitContent);
+         $metadata = $this->getSCORMAssetMetadata($unit);
+         $metadataFilename = $htmlExportFolder.$unit['name'].".xml";
+         file_put_contents($metadataFilename, $metadata);
+         $filelist = array_merge($filelist, $unitFiles);
+  }
+  foreach ($filelist as $file) {
+      $filePath = (str_replace($this->getDirectory(), "", $file['path']));
+   if (!is_dir($filesExportFolder.dirname($filePath))) {
+    mkdir($filesExportFolder.dirname($filePath), 0755, true);
+   }
+      $file -> copy($filesExportFolder.$filePath);
+      $metadata = $this->getSCORMAssetMetadata($file);
+      $metadataFilename = $filesExportFolder.$filePath.".xml";
+      file_put_contents($metadataFilename, $metadata);
+  }
+  /*Create manifest*/
+  $prerequisites = $this -> getSCORMPrerequisites();
+  $organizations_str = $this -> buildSCORMManifestOrganizations($prerequisites);
+  $resources_str = $this -> buildSCORMManifestResources($units);
+  $metadata_str = $this -> buildSCORMManifestMetadata(0);
+  $manifest = $this -> buildSCORMManifestMain($metadata_str . $organizations_str . $resources_str);
+  file_put_contents($scormExportFolder."imsmanifest.xml", $manifest);
+  /*Create functions files*/
+  list($func1, $func2) = $this -> getAPIFunctions();
+  file_put_contents($scormExportFolder."APIWrapper.js", $func1);
+  file_put_contents($scormExportFolder."SCOFunctions.js", $func2);
+  $scormDirectory = new EfrontDirectory($scormExportFolder);
+  if (eF_checkParameter($this->lesson['name'], 'path')) {
+   $filename = $this -> lesson['name'].'.zip';
+  } else {
+   $filename = 'SCO.zip';
+  }
+  $compressedFile = $scormDirectory -> compress($filename, false, true);
+  $scormDirectory -> delete();
+  return $compressedFile;
+ }
+ private function getAPIFunctions()
+ {
+  $func1 = '
+        var startDate;
+        var exitPageStatus;
+        function loadPage()
+        {
+           var result = doLMSInitialize();
+           var status = doLMSGetValue( "cmi.core.lesson_status" );
+           if (status == "not attempted")
+           {
+              // the student is now attempting the lesson
+              doLMSSetValue( "cmi.core.lesson_status", "incomplete" );
+           }
+           exitPageStatus = false;
+           startTimer();
+        }
+        function startTimer()
+        {
+           startDate = new Date().getTime();
+        }
+        function computeTime()
+        {
+           if ( startDate != 0 )
+           {
+              var currentDate = new Date().getTime();
+              var elapsedSeconds = ( (currentDate - startDate) / 1000 );
+              var formattedTime = convertTotalSeconds( elapsedSeconds );
+           }
+           else
+           {
+              formattedTime = "00:00:00.0";
+           }
+           doLMSSetValue( "cmi.core.session_time", formattedTime );
+        }
+        function doBack()
+        {
+           doLMSSetValue( "cmi.core.exit", "suspend" );
+           computeTime();
+           exitPageStatus = true;
+           var result;
+           result = doLMSCommit();
+            // NOTE: LMSFinish will unload the current SCO.  All processing
+            //       relative to the current page must be performed prior
+            //       to calling LMSFinish.
+           result = doLMSFinish();
+        }
+        function doContinue( status )
+        {
+           // Reinitialize Exit to blank
+           doLMSSetValue( "cmi.core.exit", "" );
+           var mode = doLMSGetValue( "cmi.core.lesson_mode" );
+           if ( mode != "review" && mode != "browse" )
+           {
+              doLMSSetValue( "cmi.core.lesson_status", status );
+           }
+           computeTime();
+           exitPageStatus = true;
+           var result;
+           result = doLMSCommit();
+            // NOTE: LMSFinish will unload the current SCO.  All processing
+            //       relative to the current page must be performed prior
+            //       to calling LMSFinish.
+           result = doLMSFinish();
+        }
+        function doQuit( status )
+        {
+           computeTime();
+           exitPageStatus = true;
+           var result;
+           result = doLMSCommit();
+           result = doLMSSetValue("cmi.core.lesson_status", status);
+            // NOTE: LMSFinish will unload the current SCO.  All processing
+            //       relative to the current page must be performed prior
+            //       to calling LMSFinish.
+           result = doLMSFinish();
+        }
+        function unloadPage( status )
+        {
+            if (exitPageStatus != true)
+            {
+                doQuit( status );
+            }
+        }
+        /*******************************************************************************
+
+        ** this function will convert seconds into hours, minutes, and seconds in
+
+        ** CMITimespan type format - HHHH:MM:SS.SS (Hours has a max of 4 digits &
+
+        ** Min of 2 digits
+
+        *******************************************************************************/
+        function convertTotalSeconds(ts)
+        {
+           var sec = (ts % 60);
+           ts -= sec;
+           var tmp = (ts % 3600); //# of seconds in the total # of minutes
+           ts -= tmp; //# of seconds in the total # of hours
+           // convert seconds to conform to CMITimespan type (e.g. SS.00)
+           sec = Math.round(sec*100)/100;
+           var strSec = new String(sec);
+           var strWholeSec = strSec;
+           var strFractionSec = "";
+           if (strSec.indexOf(".") != -1)
+           {
+              strWholeSec = strSec.substring(0, strSec.indexOf("."));
+              strFractionSec = strSec.substring(strSec.indexOf(".")+1, strSec.length);
+           }
+           if (strWholeSec.length < 2)
+           {
+              strWholeSec = "0" + strWholeSec;
+           }
+           strSec = strWholeSec;
+           if (strFractionSec.length)
+           {
+              strSec = strSec+ "." + strFractionSec;
+           }
+           if ((ts % 3600) != 0 )
+              var hour = 0;
+           else var hour = (ts / 3600);
+           if ( (tmp % 60) != 0 )
+              var min = 0;
+           else var min = (tmp / 60);
+           if ((new String(hour)).length < 2)
+              hour = "0"+hour;
+           if ((new String(min)).length < 2)
+              min = "0"+min;
+           var rtnVal = hour+":"+min+":"+strSec;
+           return rtnVal;
+        }
+    ';
+  $func2 = '
+        var _Debug = false; // set this to false to turn debugging off
+                             // and get rid of those annoying alert boxes.
+        // Define exception/error codes
+        var _NoError = 0;
+        var _GeneralException = 101;
+        var _ServerBusy = 102;
+        var _InvalidArgumentError = 201;
+        var _ElementCannotHaveChildren = 202;
+        var _ElementIsNotAnArray = 203;
+        var _NotInitialized = 301;
+        var _NotImplementedError = 401;
+        var _InvalidSetValue = 402;
+        var _ElementIsReadOnly = 403;
+        var _ElementIsWriteOnly = 404;
+        var _IncorrectDataType = 405;
+        // local variable definitions
+        var apiHandle = null;
+        var API = null;
+        var findAPITries = 0;
+        function doLMSInitialize()
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSInitialize was not successful.");
+              return "false";
+           }
+           var result = api.LMSInitialize("");
+           if (result.toString() != "true")
+           {
+              var err = ErrorHandler();
+           }
+           return result.toString();
+        }
+        function doLMSFinish()
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSFinish was not successful.");
+              return "false";
+           }
+           else
+           {
+              // call the LMSFinish function that should be implemented by the API
+              var result = api.LMSFinish("");
+              if (result.toString() != "true")
+              {
+                 var err = ErrorHandler();
+              }
+           }
+           return result.toString();
+        }
+        function doLMSGetValue(name)
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSGetValue was not successful.");
+              return "";
+           }
+           else
+           {
+              var value = api.LMSGetValue(name);
+              var errCode = api.LMSGetLastError().toString();
+              if (errCode != _NoError)
+              {
+                 // an error was encountered so display the error description
+                 var errDescription = api.LMSGetErrorString(errCode);
+                 alert("LMSGetValue("+name+") failed. \n"+ errDescription);
+                 return "";
+              }
+              else
+              {
+                 return value.toString();
+              }
+           }
+        }
+        function doLMSSetValue(name, value)
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSSetValue was not successful.");
+              return;
+           }
+           else
+           {
+              var result = api.LMSSetValue(name, value);
+              if (result.toString() != "true")
+              {
+                 var err = ErrorHandler();
+              }
+           }
+           return;
+        }
+        function doLMSCommit()
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSCommit was not successful.");
+              return "false";
+           }
+           else
+           {
+              var result = api.LMSCommit("");
+              if (result != "true")
+              {
+                 var err = ErrorHandler();
+              }
+           }
+           return result.toString();
+        }
+        function doLMSGetLastError()
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSGetLastError was not successful.");
+              return _GeneralError;
+           }
+           return api.LMSGetLastError().toString();
+        }
+        function doLMSGetErrorString(errorCode)
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSGetErrorString was not successful.");
+           }
+           return api.LMSGetErrorString(errorCode).toString();
+        }
+        function doLMSGetDiagnostic(errorCode)
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSGetDiagnostic was not successful.");
+           }
+           return api.LMSGetDiagnostic(errorCode).toString();
+        }
+        function LMSIsInitialized()
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nLMSIsInitialized() failed.");
+              return false;
+           }
+           else
+           {
+              var value = api.LMSGetValue("cmi.core.student_name");
+              var errCode = api.LMSGetLastError().toString();
+              if (errCode == _NotInitialized)
+              {
+                 return false;
+              }
+              else
+              {
+                 return true;
+              }
+           }
+        }
+        function ErrorHandler()
+        {
+           var api = getAPIHandle();
+           if (api == null)
+           {
+              alert("Unable to locate the LMS API Implementation.\nCannot determine LMS error code.");
+              return;
+           }
+           // check for errors caused by or from the LMS
+           var errCode = api.LMSGetLastError().toString();
+           if (errCode != _NoError)
+           {
+              // an error was encountered so display the error description
+              var errDescription = api.LMSGetErrorString(errCode);
+              if (_Debug == true)
+              {
+                 errDescription += "\n";
+                 errDescription += api.LMSGetDiagnostic(null);
+                 // by passing null to LMSGetDiagnostic, we get any available diagnostics
+                 // on the previous error.
+              }
+              alert(errDescription);
+           }
+           return errCode;
+        }
+        function getAPIHandle()
+        {
+           if (apiHandle == null)
+           {
+              apiHandle = getAPI();
+           }
+           return apiHandle;
+        }
+        function findAPI(win)
+        {
+           while ((win.API == null) && (win.parent != null) && (win.parent != win))
+           {
+              findAPITries++;
+              // Note: 7 is an arbitrary number, but should be more than sufficient
+              if (findAPITries > 7)
+              {
+                 alert("Error finding API -- too deeply nested.");
+                 return null;
+              }
+              win = win.parent;
+           }
+           return win.API;
+        }
+        function getAPI()
+        {
+           var theAPI = findAPI(window);
+           if ((theAPI == null) && (window.opener != null) && (typeof(window.opener) != "undefined"))
+           {
+              theAPI = findAPI(window.opener);
+           }
+           if (theAPI == null)
+           {
+              alert("Unable to find an API adapter");
+           }
+           return theAPI
+        }
+    ';
+  return array($func1, $func2);
+ }
+ private function buildSCORMManifestMain($str)
+ {
+  $manifest = '<?xml version="1.0" encoding="ISO-8859-7"?>
+      <manifest identifier="SingleCourseManifest" version="1.1"
+                xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+                xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                                    http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                                    http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+          ';
+  $manifest .= $str;
+  $manifest .= '</manifest>';
+  return $manifest;
+ }
+ private function buildSCORMManifestMetadata($metadata)
+ {
+  $schema = isset($metadata['schema']) ? $metadata['schema'] : 'ADL SCORM';
+  $schemaversion = isset($metadata['schemaversion']) ? $metadata['schemaversion'] : '1.2';
+  $adlcp_location = isset($metadata['adlcp_location']) ? $metadata['adlcp_location'] : '';
+  $str='
+        <metadata>
+            <schema>'.
+  $schema
+  .'</schema>
+            <schemaversion>'.
+  $schemaversion
+  .'</schemaversion>
+            <adlcp:location>'.
+  $adlcp_location
+  .'</adlcp:location>
+        </metadata>';
+  return $str;
+ }
+ private function buildSCORMManifestResources($units)
+ {
+  $resource_str = '';
+  $dependency_str = '';
+  for ($i = 0 ; $i < sizeof($units) ; $i++) {
+   $resource_str .= '<resource identifier="' . $units[$i]['id'] . '" type="webcontent" adlcp:scormtype="sco" href="html/' . $units[$i]['name'] . '.html">';
+   $resource_str .= '<metadata></metadata>';
+   $resource_str .= '<file href="html/' . $units[$i]['name'] . '.html"/>';
+   $resource_str .= '<dependency identifierref="dep_SPECIAL"/>';
+   $unitFiles = $units[$i]->getFiles(true);
+   for ($j = 0 ; $j < sizeof($unitFiles) ; $j++) {
+    $file = str_replace($this->getDirectory(), "", $unitFiles[$j]['path']);
+    $resource_str .= '<dependency identifierref="dep_' . $i . '_' . $j . '"/>';
+    $dependency_str .= '<resource identifier="dep_' . $i . '_' . $j . '" type="webcontent" adlcp:scormtype="asset" href="'.$file.'">';
+    $dependency_str .= '<metadata></metadata>';
+    $dependency_str .= '<file href="'.$file.'"/>';
+    $dependency_str .= '</resource>';
+   }
+   $resource_str .= '</resource>';
+  }
+  $SPECIAL_str = '<resource identifier="dep_SPECIAL" adlcp:scormtype="asset"
+                    type="webcontent">
+             <file href="SCOFunctions.js"/>
+             <file href="APIWrapper.js"/>
+          </resource>';
+  $final_str = '<resources>' . $resource_str . $dependency_str . $SPECIAL_str. '</resources>';
+  return $final_str;
+ }
+ private function buildSCORMManifestOrganizations($prerequisites)
+ {
+  $tree = eF_getContentTree($nouse, $this->lesson['id'], 0);
+  //$cTree = new EfrontContentTree($lessons_id);
+  for ($i = 0 ; $i < sizeof($tree) ; $i++) {
+   $levels[$i] = $tree[$i]['level'];
+  }
+  for ($i = max($levels) ; $i>= 0 ; $i--) {
+   for ($j = 0 ; $j < sizeof($tree) ; $j++) {
+    if ($tree[$j]["level"] == $i && $tree[$j]["ctg_type"] != "tests" && $tree[$j]["ctg_type"] != "scorm" && $tree[$j]["ctg_type"] != "scorm_test" && $tree[$j]["ctg_type"] != "feedback") {
+     $tree[$j]["string"] = "\n<item identifier=\"item" . $tree[$j]["id"] . "\" identifierref=\"" . $tree[$j]["id"] . "\">\n\t<title>" . ($tree[$j]["name"]) . "</title>\n";
+     /*An to antikeimeno exei prerequisites, pros8ese tis katallhles grammes*/
+     if ($prerequisites[$tree[$j]["id"]]) {
+      //echo "<br> A".$tree[$j]["id"];
+      $tree[$j]["string"] .= "\n<adlcp:prerequisites type=\"aicc_script\">item" . $prerequisites[$tree[$j]["id"]] . "</adlcp:prerequisites>";
+     }
+     if (isset($tree[$j]["children"])) {
+      for ($k = 1 ; $k <= sizeof($tree[$j]["children"]) ; $k++) {
+       $tree[$j]["string"] .= $tree[$j]["children"][$k];
+      }
+     }
+     $tree[$j]["string"] .= "\n</item>";
+     if ($tree[$j]["parent_id"] == 0) {
+      $final_str .= $tree[$j]["string"];
+     } else {
+      for ( $m = 0 ; $m < sizeof($tree) ; $m++) {
+       if ($tree[$m]["id"] == $tree[$j]["parent_id"]) {
+        $tree[$m]["children"][sizeof($tree[$m]["children"]) + 1] = "\t" . $tree[$j]["string"];
+       }
+      }
+     }
+    }
+   }
+  }
+  $content .= "\t" . '<organizations default="org1">' . "\n";
+  $content .= "\t<organization identifier=\"Org\" structure=\"hierarchical\"><title>default</title>" . "\n";
+  $content .= $final_str . "\t" . '</organization></organizations>' . "\n";
+  return $content;
+ }
+ private function getSCORMPrerequisites()
+ {
+  $rules = eF_getTableData("rules", "content_ID,rule_content_ID", "rule_type='hasnot_seen'");
+  $prerequisites = array();
+  foreach ($rules as $value) {
+   $prerequisites[$value['content_ID']] = $value['rule_content_ID'];
+  }
+  return $prerequisites;
+ }
+ private function createSCORMHtmlFiles($content)
+ {
+  $page_script = '
+        var apiHandle = null;
+        var API = null;
+        var findAPITries = 0;
+        function getAPIHandle()
+        {
+           if (apiHandle == null)
+           {
+              apiHandle = getAPI();
+           }
+           return apiHandle;
+        }
+        function findAPI(win)
+        {
+           while ((win.API == null) && (win.parent != null) && (win.parent != win))
+           {
+              findAPITries++;
+              // Note: 7 is an arbitrary number, but should be more than sufficient
+              if (findAPITries > 7)
+              {
+                 alert("Error finding API -- too deeply nested.");
+                 return null;
+              }
+              win = win.parent;
+           }
+           return win.API;
+        }
+        function getAPI()
+        {
+           var theAPI = findAPI(window);
+           if ((theAPI == null) && (window.opener != null) && (typeof(window.opener) != "undefined"))
+           {
+              theAPI = findAPI(window.opener);
+           }
+           if (theAPI == null)
+           {
+              alert("Unable to find an API adapter");
+           }
+           return theAPI
+        }
+        function my_finish()
+        {
+            alert(getAPIHandle().LMSGetLastError());
+            getAPIHandle().LMSSetValue("cmi.core.lesson_status","completed");
+            alert(getAPIHandle().LMSGetLastError());
+            getAPIHandle().LMSFinish("");
+            alert(getAPIHandle().LMSGetLastError());
+        }
+        function my_start()
+        {
+            alert(getAPIHandle().LMSGetLastError());
+            getAPIHandle().LMSInitialize("");
+            alert(getAPIHandle().LMSGetLastError());
+        }
+    ';
+  $page_head = '<html><head><script language=javascript src="../APIWrapper.js"></script><script language=javascript src="../SCOFunctions.js"></script></head><body onunload="return unloadPage(\'incomplete\')">';
+  $page_tail = '
+        <script language="javascript">
+        loadPage();
+        </script>
+    <br><br>
+    <input type = "button" value = "  OK  " onClick = "doQuit(\'completed\')" id=button2 name=button2>
+    ';
+  $overall = $page_head . $content . $page_tail;
+  return $overall;
+ }
+ private function getSCORMAssetMetadata($el)
+ {
+  $metadata = '<?xml version="1.0" encoding="ISO-8859-1"?>
+        <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+            <general>
+                <identifier>
+                </identifier>
+                <title>
+                </title>
+                <catalogentry>
+                    <catalog>
+                    </catalog>
+                    <entry>
+                    </entry>
+                </catalogentry>
+                <language>
+                </language>
+                <description>
+                </description>
+                <keyword>
+                </keyword>
+                <coverage>
+                </coverage>
+                <structure>
+                </structure>
+                <aggregationlevel>
+                </aggregationlevel>
+            </general>
+            <lifecycle>
+                <version>
+                </version>
+                <status>
+                </status>
+                <contribute>
+                    <role>
+                    </role>
+                    <centity>
+                    </centity>
+                    <date>
+                    </date>
+                </contribute>
+            </lifecycle>
+            <metametadata>
+                <identifier>
+                </identifier>
+                <catalogentry>
+                    <catalog>
+                    </catalog>
+                    <entry>
+                    </entry>
+                </catalogentry>
+                <contribute>
+                    <role>
+                    </role>
+                    <centity>
+                    </centity>
+                    <date>
+                    </date>
+                </contribute>
+                <metadatascheme>
+                </metadatascheme>
+                <language>
+                </language>
+            </metametadata>
+            <technical>
+                <format>
+                </format>
+                <size>
+                </size>
+                <location>
+                </location>
+                <requirement>
+                    <type>
+                    </type>
+                    <name>
+                    </name>
+                    <minimumversion>
+                    </minimumversion>
+                    <maximumversion>
+                    </maximumversion>
+                </requirement>
+                <installationremarks>
+                </installationremarks>
+                <otherplatformrequirements>
+                </otherplatformrequirements>
+                <duration>
+                </duration>
+            </technical>
+            <educational>
+                <interactivitytype>
+                </interactivitytype>
+                <learningresourcetype>
+                </learningresourcetype>
+                <interactivitylevel>
+                </interactivitylevel>
+                <semanticdensity>
+                </semanticdensity>
+                <intendedenduserrole>
+                </intendedenduserrole>
+                <context>
+                </context>
+                <typicalagerange>
+                </typicalagerange>
+                <difficulty>
+                </difficulty>
+                <typicallearningtime>
+                </typicallearningtime>
+                <description>
+                </description>
+                <language>
+                </language>
+            </educational>
+            <rights>
+                <cost>
+                </cost>
+                <copyrightandotherrestrictions>
+                </copyrightandotherrestrictions>
+                <description>
+                </description>
+            </rights>
+            <relation>
+                <kind>
+                </kind>
+                <resource>
+                    <identifier>
+                    </identifier>
+                    <description>
+                    </description>
+                    <catalogentry>
+                        <catalog>
+                        </catalog>
+                        <entry>
+                        </entry>
+                    </catalogentry>
+                </resource>
+            </relation>
+            <annotation>
+                <person>
+                </person>
+                <date>
+                </date>
+                <description>
+                </description>
+            </annotation>
+            <classification>
+                <purpose>
+                </purpose>
+                <taxonpath>
+                    <source>
+                    </source>
+                    <taxon>
+                        <id>
+                        </id>
+                        <entry>
+                        </entry>
+                        <taxon>
+                            <id>
+                            </id>
+                            <entry>
+                            </entry>
+                            <taxon>
+                            </taxon>
+                        </taxon>
+                    </taxon>
+                </taxonpath>
+                <description>
+                </description>
+                <keyword>
+                </keyword>
+            </classification>
+        </lom>
+    ';
+  return $metadata;
  }
  public function export2() {
   try {

@@ -21,6 +21,19 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
            <tr><td class = "labelCell">{$T_ENTITY_FORM.name.label}:&nbsp;</td>
                <td class = "elementCell">{$T_ENTITY_FORM.name.html}</td></tr>
            {if $T_ENTITY_FORM.name.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.name.error}</td></tr>{/if}
+       <tr id = "toggleTools"><td colspan = "2" id = "toggleeditor_cell1">
+        <div class = "headerTools">
+         <span>
+          <img onclick = "toggleFileManager(Element.extend(this).next());" class = "ajaxHandle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
+          <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
+         </span>
+         <span>
+          <img src = "images/16x16/order.png" onclick = "javascript:toggleEditor('editor_content_data','mceEditor');" class = "ajaxHandle" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+          <a href = "javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+         </span>
+        </div>
+        </td></tr>
+       <tr><td colspan = "2" id = "filemanager_cell"></td></tr>
            <tr><td class = "labelCell">{$T_ENTITY_FORM.info.label}:&nbsp;</td>
                <td class = "elementCell">{$T_ENTITY_FORM.info.html}</td></tr>
            {if $T_ENTITY_FORM.info.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.info.error}</td></tr>{/if}
@@ -28,6 +41,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
             <td class = "submitCell">{$T_ENTITY_FORM.submit.html} {if $smarty.get.add}{$T_ENTITY_FORM.submit_term_add_another.html}{/if}</td></tr>
        </table>
    </form>
+   <div id = "fmInitial"><div id = "filemanager_div" style = "display:none;">{$T_FILE_MANAGER}</div></div>
   {/capture}
   {eF_template_printBlock title = $smarty.const._GLOSSARY data = $smarty.capture.t_glossary_add_code image = '32x32/glossary.png' help = 'Glossary'}
  {else}
@@ -35,7 +49,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
    {if !$_student_ && $_change_}
              <div class = "headerTools">
                  <img src = "images/16x16/add.png" title = "{$smarty.const._ANNOUNCEMENTADD}" alt = "{$smarty.const._ANNOUNCEMENTADD}"/>
-                 <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&add=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDDEFINITION}', 3)" title = "{$smarty.const._ADDDEFINITION}" target = "POPUP_FRAME">{$smarty.const._ADDDEFINITION}</a>
+                 <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&add=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDDEFINITION}', 4)" title = "{$smarty.const._ADDDEFINITION}" target = "POPUP_FRAME">{$smarty.const._ADDDEFINITION}</a>
              </div>
             {/if}
 
@@ -68,7 +82,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
                             <td>{$term.info}</td>
        {if !$_student_ && $_change_}
                             <td class = "centerAlign" class = "nowrap">
-                               <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&edit={$term.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITDEFINITION}', 3)" target = "POPUP_FRAME"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDITDEFINITION}" title = "{$smarty.const._EDITDEFINITION}" /></a>
+                               <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&edit={$term.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITDEFINITION}', 4)" target = "POPUP_FRAME"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDITDEFINITION}" title = "{$smarty.const._EDITDEFINITION}" /></a>
                                <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteEntity(this, '{$term.id}');"/>
                             </td>
        {/if}
@@ -88,7 +102,7 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
                             <td>{$term.info}</td>
        {if !$_student_ && $_change_}
                             <td class = "centerAlign" class = "nowrap">
-                               <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&edit={$term.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITDEFINITION}', 3)" target = "POPUP_FRAME"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDITDEFINITION}" title = "{$smarty.const._EDITDEFINITION}" /></a>
+                               <a href = "{$smarty.server.PHP_SELF}?ctg=glossary&edit={$term.id}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITDEFINITION}', 4)" target = "POPUP_FRAME"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDITDEFINITION}" title = "{$smarty.const._EDITDEFINITION}" /></a>
                                <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteEntity(this, '{$term.id}');"/>
                             </td>
        {/if}

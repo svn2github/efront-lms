@@ -121,7 +121,7 @@ if (isset($_GET['pdf'])) {
 
  $info = array();
  foreach ($evaluations as $value) {
-  $info[] = array(formatLogin($value['author']).' '.formatTimestamp($value['timestamp']), $value['specification']);
+  $info[] = array(formatLogin($value['author']).' '.formatTimestamp($value['timestamp']), strip_tags($value['specification']));
  }
  $pdf -> printInformationSection(_EVALUATIONS, $info);
 

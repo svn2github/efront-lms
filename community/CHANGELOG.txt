@@ -79,7 +79,8 @@
 - Added tinymce simple editor in free text questions
 - Updated exporting content to SCORM to include files previously left out
 - Fixed glossary terms displaying inside content in chrome/safari
--
+- Glossary now accepts rich content
+- Empty lessons no longer auto-complete
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

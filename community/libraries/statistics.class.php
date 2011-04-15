@@ -1784,7 +1784,7 @@ class EfrontStats
         foreach ($conditions as $conditionId => $condition) {
             switch ($condition['type']) {
                 case 'all_units':
-                    sizeof($notSeenUnits) == 0 ? $passed = 1 : $passed = 0;
+                    sizeof($notSeenUnits) == 0 && sizeof($seenUnits) > 0 ? $passed = 1 : $passed = 0;
                     break;
                 case 'percentage_units':
                     $percentageSeen = round(100 * (sizeof($visitableContentIds) - sizeof($notSeenUnits)) / sizeof($visitableContentIds));

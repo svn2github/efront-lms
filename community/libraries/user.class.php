@@ -2210,7 +2210,9 @@ abstract class EfrontLessonUser extends EfrontUser
   $userLessons = $this -> getUserStatusInLessons();
   $courseLessons = $course -> getCourseLessons();
   foreach ($courseLessons as $key => $lesson) {
-   $lessons[$key] = $userLessons[$key];
+   if (isset($userLessons[$key])) {
+    $lessons[$key] = $userLessons[$key];
+   }
   }
   return $lessons;
  }

@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Inseriu les múltiples opcions");//Insert the
 define("_INSERTEXPLANATION","Insereix explicació");//Insert explanation
 define("_THISQUESTIONIS","Aquesta qüestió és");//This question is
 define("_CREATEEMPTYSPACES","Crear espais buits");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Escriviu el text i la qüestió del que vostè necessita per inserir un espai en blanc, introduïu ###. En acabar, premi el botó \"Crear espais buits\" botó de baix");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Escriviu el text i la qüestió del que vostè necessita per inserir un espai en blanc, introduïu ###. En acabar, premi el botó \"Crear espais buits\" botó de baix");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Insereix parells coincidents");//Insert matching pairs
 define("_ADDOPTION","Afegir opció");//Add option
 define("_GOTOCALENDAR","Anar al calendari");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Vist una fracció de les unitats");//Seen a fraction 
 define("_SPECIFICUNIT","Vist una unitat específica");//Seen a specific unit
 define("_PASSEDALLTESTS","Superat totes les proves");//Passed all tests
 define("_SPECIFICTEST","Passat una prova específica");//Passed a specific test
-define("_INVALIDCONDITION","Condició de no vàlid");//Invalid condition
+define("_INVALIDCONDITION","Condició de no vàlid");//Invalid rule
 define("_THEUSERMUSTHAVE","L&#39;alumne ha de tenir");//The student must have
 define("_UNITSPERCENTAGE","Percentatge");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Agregat condició");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Ha actualitzat condició");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Ha suprimit la condició");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Agregat condició");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Ha actualitzat condició");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Ha suprimit la condició");//Successfully deleted rule
 define("_LESSONCONDITIONS","Lliçó finalització condicions");//Lesson completion rules
-define("_ADDCONDITION","Afegir condició");//Add condition
-define("_CONDITION","Condició");//Condition
-define("_CONDITIONTYPE","Condició de tipus");//Condition type
+define("_ADDCONDITION","Afegir condició");//Add completion rule
+define("_CONDITION","Condició");//Completion rule
+define("_CONDITIONTYPE","Condició de tipus");//Rule type
 define("_RELATIONTOOTHERS","Relació amb altres");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Aneu a la part superior de la pàgina");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Aneu a la part inferior de la pàgina");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Sistema");//System
 define("_EMAILCONFIGURATIONS","E-mail de configuració del servidor");//Emails server configuration
 define("_SAWUNIT","Ajust la unitat com completada");//Set the unit as completed
 define("_NOTSAWUNIT","Ajust la unitat en la qual no es completa");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Condicions acabat");//Conditions completed
+define("_CONDITIONSCOMPLETED","Condicions acabat");//Completion rules completed
 define("_OUTOF","d&#39;");//out of
 define("_LESSONPROGRESS","Lliçó progrés");//Lesson progress
 define("_YOUMUSTSEEUNIT","Heu de veure la unitat");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Heu de veure");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Vostè ha de completar totes les proves amb puntuació mitjana");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Vostè ha de completar la prova");//You must complete test
 define("_WITHSCORE","amb puntuació");//with score
-define("_NOCONDITIONSSET","No hi ha condicions establertes per aquesta lliçó");//There are no conditions set for this lesson
-define("_CONDITIONS","condicions");//conditions
+define("_NOCONDITIONSSET","No hi ha condicions establertes per aquesta lliçó");//There are no completion rules set for this lesson
+define("_CONDITIONS","condicions");//completion rules
 define("_RESUMELESSON","Reprèn la lliçó");//Resume lesson
 define("_STARTLESSON","Inicia la lliçó");//Start lesson
 define("_TRACKING","Rastreig");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Hi ha hagut un problema mentre que la
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","plantilla de certificats s&#39;ha eliminat amb èxit");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Hi va haver un problema en eliminar plantilla de certificat");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","No té el dret de modificar aquesta plantilla de certificat");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Edita condició");//Edit condition
+define("_EDITCONDITION","Edita condició");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","Configurar un servidor SMTP");//SMTP server configuration
 define("_SMTPSERVER","Servidor SMTP");//SMTP server
 define("_SMTPPASSWORD","Contrasenya SMTP");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","El camp s&#39;ha actualitzat");//The field was updated
 define("_LESSONSCORE","Lliçó puntuació");//Lesson score
 define("_COMPLETED","Completat");//Completed
 define("_NOTCOMPLETED","No es completa");//Not completed
-define("_CONDITIONSMET","Compleixen les condicions i en espera d&#39;aprovació");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Compleixen les condicions i en espera d&#39;aprovació");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Estudiant lliçó estat canviat amb èxit");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Ha de ser numèric");//Must be numeric
 define("_DEFAULTCERTIFICATE","Elearning organització certifica que nombre_de_usuario # # # # user_surname ha completat amb èxit # # course_name amb grau # # Aquesta sèrie es va emetre el certificat de data # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","No s&#39;ha pogut enviar");//Could not be sent
 define("_ENVIRONMENTALCHECK","Ambientals de verificació");//Environmental check
 define("_REPAIRTREE","Restaura arbre");//Restore tree
 define("_RULEPROPERTIES","Regla propietats");//Rule properties
-define("_CONDITIONPROPERTIES","Condició de les propietats");//Condition properties
+define("_CONDITIONPROPERTIES","Condició de les propietats");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Comprovar les carpetes orfes lliçó");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Lliçons carpetes sense comprovar");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Les següents carpetes no tenen associada una lliçó");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Desa i crear una altra qüestió");//Save qu
 define("_SAVEASNEWQUESTION","Desa com a nova pregunta");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","L&#39;enquesta s&#39;ha actualitzat amb èxit");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Que hi hagi completat tot el contingut");//You have completed all content
-define("_CONDITIONMET","Condició es va reunir");//Condition met
-define("_CONDITIONNOTMET","Requisit no complert");//Condition not met
+define("_CONDITIONMET","Condició es va reunir");//Completion rules met
+define("_CONDITIONNOTMET","Requisit no complert");//Completion rules met
 define("_OLDMODULES","Antic mòduls");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","L&#39;extensió de PHP LDAP no està carregat");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Vostè compleix amb els requisits complets de la lliçó. Aquesta lliçó ha de ser completat pel professor");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Vostè compleix amb els requisits complets de la lliçó. Aquesta lliçó ha de ser completat pel professor");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Lliçó acabat");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Certificat expedit amb èxit");//Certificate issued successfully
 define("_NOTITLE","Cap títol");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","La contrasenya del compte de LDAP");//LDAP accoun
 define("_USELDAPACCOUNT","Utilitzi el seu compte credencials LDAP per tal d&#39;utilitzar el sistema");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Només mitjançant un registre vàlid en compte LDAP es permet");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","està generalment disponible");//is generally available
-define("_DELETECONDITION","Delete condició");//Delete condition
+define("_DELETECONDITION","Delete condició");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Publicar un missatge del fòrum per a aquesta unitat");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto complet");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Vostè no pot utilitzar dues vegades la mateixa lliçó en una norma");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Completar la di
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Que hi hagi completat totes les proves de diferència de competències que li han assignat. <br> Si us plau, espereu fins que els seus professors li assignen als cursos més adequats d&#39;acord a les seves necessitats.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Els seus resultats s&#39;han enviat als seus professors que aviat assignar als seus cursos d&#39;acord a les seves necessitats identificades d&#39;aquesta prova");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Llocs de treball");//Job placements
-define("_NEWJOBPLACEMENT","Nous llocs de treball");//New job placements
+define("_NEWJOBPLACEMENT","Nous llocs de treball");//New job placement
 define("_UPGRADEMODULE","Mòdul d&#39;actualització");//Upgrade module
 define("_NEWUNITOPTIONS","Nova unitat d&#39;opcions");//New unit options
 define("_UNITOPTIONSFOR","Opcions per a la unitat");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Nota: vostè és la recons
 define("_ACTIONONRENTRYCOMPLETED","Adopció de mesures sobre la reentrada");//Action on re-entry
 define("_LETCONTENTDECIDE","Deixi de decidir el contingut");//Let content decide
 define("_DONTCHANGE","No canviar");//Leave unchanged
-define("_DASHBOARD","Dashboard");//my Dashboard
+define("_DASHBOARD","Dashboard");//Dashboard
 define("_MYWALL","La meva paret");//My wall
 define("_RELATEDPEOPLE","Persones relacionades");//Related people
 define("_LEARNINGACTIVITY","Activitat d&#39;aprenentatge");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","El fitxer carregat no és una imatge");//The uploaded 
 define("_COMMENT","Comentari");//Comment
 define("_COMMENTPROPERTIES","Propietats Comentari");//Comment properties
 define("_EDITCOMMENT","Edita comentari");//Edit comment
-define("_EDITCONDITIONS","Modificar les condicions de");//Edit conditions
+define("_EDITCONDITIONS","Modificar les condicions de");//Edit rules
 define("_EDITINFORMATION","Edita la informació");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Opcions per al mòdul de Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Remitent");//Sender
 define("_ORIGINALMESSAGE","L&#39;original");//Original message
 define("_PRIORITY","Prioritat");//Priority
 define("_PLEASEPICKANOPTION","Si us plau, seleccioneu una opció");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Les condicions de Terminació de complir-se, en espera de la confirmació");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Les condicions de Terminació de complir-se, en espera de la confirmació");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","El progrés global");//Overall progress
 define("_THEORYPROGRESS","Teoria dels progressos");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Mitjana de puntuació de la prova (sense comptar la última execució de cada prova)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Tipus d&#39;operació no admesa");//Unsuppor
 define("_DUPLICATECOMPLETEDPAYMENT","Duplicar acabat de pagar");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","L&#39;estat de pagament no admesos");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","S&#39;ha cancel l&#39;operació");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transacció es va completar amb èxit.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transacció es va completar amb èxit.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal mode de depuració");//Paypal debug mode
 define("_MYACCOUNT","El meu compte");//my Account
 define("_MODULE","Mòdul");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","SCORM comunicació asincrònica");//Asynchronous S
 define("_SCORMASYNCHRONOUSEXPLANATION","Canviar a la comunicació asíncrona si vostè està experimentant problemes per completar el contingut SCORM (especialment en el cas que feu servir Adobe CAPTIVATE contingut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advertència: Els pagaments de Desactivació fixarà els preus a 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Múltiples opcions");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","La seva sessió ha caducat. Si us plau,");//Your session has expired. Please (New)
-define("_CLICKHERE","feu clic aquí");//click here (New)
-define("_TOLOGINAGAIN","connectar-se de nou");//to login again (New)
-define("_SESSIONEXPIRED","Sessió de venciment");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","La seva sessió ha caducat. Si us plau,");//Your session has expired. Please
+define("_CLICKHERE","feu clic aquí");//click here
+define("_TOLOGINAGAIN","connectar-se de nou");//to login again
+define("_SESSIONEXPIRED","Sessió de venciment");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Llista separada per comes dels usuaris per a mostrar informació de depuració en, o 1 per a tots els usuaris");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Febrer");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","Abril");//Apr (New)
+define("_MAYSHORTHAND","De maig");//May (New)
+define("_JUNESHORTHAND","Juny");//Jun (New)
+define("_JULYSHORTHAND","Juliol");//Jul (New)
+define("_AUGUSTSHORTHAND","Agost");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Setembre");//Sep (New)
+define("_OCTOBERSHORTHAND","Octubre");//Oct (New)
+define("_NOVEMBERSHORTHAND","Novembre");//Nov (New)
+define("_DECEMBERSHORTHAND","Desembre");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","No podeu accedir al recurs demanat");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Si us plau, seleccioneu una descripció del treball");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edició de col.locació");//Edit job placement (New)
+define("_NORESPONSE","&lt;sense response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Compte");//Account (New)
+define("_ORGANIZATIONALDATA","Perfil de l&#39;organització");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","En blanc per deixar sense canvis");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Introduïu el valor d&#39;opció o del seu nombre, a partir de 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Amaga supervisor dels usuaris");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Amaga treball dels usuaris");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Heu d&#39;especificar un valor per defecte per als elements obligatoris");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Utilitzeu la data actual");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Explica el canvi");//Account change (New)
+define("_USERSCANCHANGEPASS","Canvi de contrasenya");//Password change (New)
+define("_VIEWFEEDBACK","Veure comentaris");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Mostra incompleta preguntes en cada execució");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Retenir els millors resultats");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Mitjana de qualificacions en les proves (comptant l&#39;execució activa de cada prova)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","La puntuació en l&#39;execució activa");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Si s&#39;especifica una paraula que acaba amb un asterisc (*), només la primera part serà considerada. Per exemple, si especifica 'aprendre *', llavors tant el 'aprenentatge' i 'aprendre' es considera correcte.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Curs normes lliçó");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Regles entre els cursos");//Rules between courses (New)
+define("_COURSEDEPENDSON","Per descomptat depèn de");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","No es pot establir el curs com un requisit previ de si mateix");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Mostra alternatives en caixa de selecció");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","En marcar aquesta mostrarà un quadre de llista amb totes les alternatives, en lloc d&#39;un quadre de text. En aquest cas, només la primera opció es considera correcta");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Mostra respostes correctes només si l&#39;estudiant passa la prova");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Configuració de corrector");//Settings checker (New)
+define("_CHECKBROWSER","Comprovació del navegador");//Checking browser (New)
+define("_CHECKRESOLUTION","Comprovació de la resolució de pantalla");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Comprovació de bloquejador d&#39;elements emergents");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Comprovació de l&#39;estat de galetes ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Comprovació de Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Comprovació d&#39;Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 detectats. Aquest navegador és obsolet i funcionalitat es vegin afectades");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Lamentablement, el navegador que està utilitzant no és compatible");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","La seva resolució de pantalla no compleix amb el requisit mínim de");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Bloquejador d&#39;elements emergents detectats. Si us plau permeti finestres emergents per a aquest lloc i torneu a intentar-");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Les galetes sembla estar desactivat. Si us plau habilitar les galetes");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash no està instal lat, de data");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader no està instal lat");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Comprovació de Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript està activat al vostre navegador");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Vostè ha de tenir habilitat el supervisor d&#39;activació de correu electrònic de la configuració del sistema");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","L&#39;escala anual de");//Year range from (New)
+define("_YEARRANGETO","L&#39;escala anual de");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Descripció del grup nom");//Group name description (New)
+define("_GROUPINFORMATION","Informació del Grup");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Restringir l&#39;accés al contingut dels arxius als usuaris registrats");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Comprimir resultats de les proves en base de dades");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Les tasques de manteniment");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Feu clic aquí per a comprimir proves realitzades");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Feu clic aquí per descomprimir proves realitzades");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Comprimeix");//Compress (New)
+define("_DATABASETASKS","Base de dades de tasques");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Si us plau recolzi les seves dades abans de la compressió / descompressió de proves realitzades");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Configuració");//Configuration (New)
+define("_SYSTEMOPTIONS","Sistema d&#39;opcions");//System options (New)
+define("_CASUAL","Diversos");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","No es pot accedir a la informació de l&#39;usuari");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Habilitar el teclat virtual");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","L&#39;arxiu sembla estar buit. Potser no tingui el format correcte?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificat de venciment programat");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Prova de contrasenya");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ho sentim, vostè no té accés a aquesta branca");//Sorry, you do not have access to this branch (New)
 ?>

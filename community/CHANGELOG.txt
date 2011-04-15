@@ -78,6 +78,8 @@
 - Fixed copying units generating error when file exists in subfolder
 - Added tinymce simple editor in free text questions
 - Updated exporting content to SCORM to include files previously left out
+- Fixed glossary terms displaying inside content in chrome/safari
+-
 
 === Version 3.6.8 build 9931 ===
 - Added chat module

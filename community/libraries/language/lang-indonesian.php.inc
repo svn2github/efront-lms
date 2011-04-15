@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Sisipkan pilihan ganda");//Insert the multipl
 define("_INSERTEXPLANATION","Sisipkan penjelasan");//Insert explanation
 define("_THISQUESTIONIS","Pertanyaan ini adalah");//This question is
 define("_CREATEEMPTYSPACES","Buat isian");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","<br>Tulis teks pertanyaan dan dimanapun anda ingin menyisipkan kolom isian, ketikkan ###. Setelah selesai, klik tombol &quot;Buat isian&quot; di bawah");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","<br>Tulis teks pertanyaan dan dimanapun anda ingin menyisipkan kolom isian, ketikkan ###. Setelah selesai, klik tombol &quot;Buat isian&quot; di bawah");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Sisipkan pasangan yang cocok");//Insert matching pairs
 define("_ADDOPTION","Tambahkan opsi");//Add option
 define("_GOTOCALENDAR","Menuju ke kalender");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Melihat sebagian dari unit");//Seen a fraction of uni
 define("_SPECIFICUNIT","Melihat unit tertentu");//Seen a specific unit
 define("_PASSEDALLTESTS","Lulus semua tes");//Passed all tests
 define("_SPECIFICTEST","Lulus tes tertentu");//Passed a specific test
-define("_INVALIDCONDITION","Kondisi tidak valid");//Invalid condition
+define("_INVALIDCONDITION","Kondisi tidak valid");//Invalid rule
 define("_THEUSERMUSTHAVE","Siswa harus sudah");//The student must have
 define("_UNITSPERCENTAGE","Persentase");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Kondisi berhasil ditambahkan");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Kondisi berhasil diperbarui");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Kondisi berhasil dihapus");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Kondisi berhasil ditambahkan");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Kondisi berhasil diperbarui");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Kondisi berhasil dihapus");//Successfully deleted rule
 define("_LESSONCONDITIONS","Aturan penyelesaian pelajaran");//Lesson completion rules
-define("_ADDCONDITION","Tambahkan kondisi");//Add condition
-define("_CONDITION","Kondisi");//Condition
-define("_CONDITIONTYPE","Jenis kondisi");//Condition type
+define("_ADDCONDITION","Tambahkan kondisi");//Add completion rule
+define("_CONDITION","Kondisi");//Completion rule
+define("_CONDITIONTYPE","Jenis kondisi");//Rule type
 define("_RELATIONTOOTHERS","Kaitannya dengan yang lain");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Gulir ke bagian atas halaman");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Gulir ke bawah bagian halaman");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Sistem");//System
 define("_EMAILCONFIGURATIONS","Konfigurasi server email");//Emails server configuration
 define("_SAWUNIT","Tetapkan unit sudah selesai");//Set the unit as completed
 define("_NOTSAWUNIT","Tetapkan unit tidak selesai");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Kondisi terpenuhi");//Conditions completed
+define("_CONDITIONSCOMPLETED","Kondisi terpenuhi");//Completion rules completed
 define("_OUTOF","dari");//out of
 define("_LESSONPROGRESS","Kemajuan pelajaran");//Lesson progress
 define("_YOUMUSTSEEUNIT","Anda harus melihat unit");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Anda harus melihat");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Anda harus menyelesaikan semua tes dengan skor rata-rata");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Anda harus menyelesaikan tes");//You must complete test
 define("_WITHSCORE","dengan skor");//with score
-define("_NOCONDITIONSSET","Tidak ada kondisi yang ditetapkan untuk pelajaran ini");//There are no conditions set for this lesson
-define("_CONDITIONS","kondisi");//conditions
+define("_NOCONDITIONSSET","Tidak ada kondisi yang ditetapkan untuk pelajaran ini");//There are no completion rules set for this lesson
+define("_CONDITIONS","kondisi");//completion rules
 define("_RESUMELESSON","Lanjutkan pelajaran");//Resume lesson
 define("_STARTLESSON","Mulai pelajaran");//Start lesson
 define("_TRACKING","Pelacakan");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Ada masalah saat kloning klise sertif
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Klise sertifikat berhasil dihapus");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Ada masalah saat menghapus klise sertifikat");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Anda tidak memiliki hak untuk memodifikasi klise sertifikat ini");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Sunting kondisi");//Edit condition
+define("_EDITCONDITION","Sunting kondisi");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","Konfigurasi Server SMTP");//SMTP server configuration
 define("_SMTPSERVER","Server SMTP");//SMTP server
 define("_SMTPPASSWORD","Kata sandi SMTP");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Kolom telah diperbarui");//The field was updated
 define("_LESSONSCORE","Skor pelajaran");//Lesson score
 define("_COMPLETED","Selesai");//Completed
 define("_NOTCOMPLETED","Tidak selesai");//Not completed
-define("_CONDITIONSMET","Kondisi terpenuhi dan menunggu pengesahan");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Kondisi terpenuhi dan menunggu pengesahan");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Status pelajaran siswa berhasil diubah");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Harus angka");//Must be numeric
 define("_DEFAULTCERTIFICATE","Organisasi Elearning memberikan sertifikat kepada \n\n #user_name# #user_surname# \n\n telah berhasil menyelesaikan \n #course_name# \n dengan nilai \n\n #grade# \n\nsertifikat ini diterbitkan pada #date#");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Tidak dapat dikirim");//Could not be sent
 define("_ENVIRONMENTALCHECK","Pemeriksaan lingkungan");//Environmental check
 define("_REPAIRTREE","Pulihkan susunan");//Restore tree
 define("_RULEPROPERTIES","Properti aturan");//Rule properties
-define("_CONDITIONPROPERTIES","Properti kondisi");//Condition properties
+define("_CONDITIONPROPERTIES","Properti kondisi");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Pemeriksaan map pelajaran yang cacat");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Pemeriksaan pelajaran tanpa map");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Map berikut tidak memiliki kaitan dengan pelajaran");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Simpan dan buat pertanyaan lain");//Save que
 define("_SAVEASNEWQUESTION","Simpan sebagai pertanyaan baru");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Jajak pendapat berhasil diperbarui");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Anda telah menyelesaikan semua konten");//You have completed all content
-define("_CONDITIONMET","Kondisi terpenuhi");//Condition met
-define("_CONDITIONNOTMET","Kondisi tidak terpenuhi");//Condition not met
+define("_CONDITIONMET","Kondisi terpenuhi");//Completion rules met
+define("_CONDITIONNOTMET","Kondisi tidak terpenuhi");//Completion rules met
 define("_OLDMODULES","Modul lama");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","Ektensi PHP LDAP tidak dimuat");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Anda memenuhi kondisi penyelesaian pelajaran. Pelajaran ini harus ditetapkan sudah selesai oleh profesor");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Anda memenuhi kondisi penyelesaian pelajaran. Pelajaran ini harus ditetapkan sudah selesai oleh profesor");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Pelajaran selesai");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Sertifikat berhasil diterbitkan");//Certificate issued successfully
 define("_NOTITLE","Tidak ada judul");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","Kata sandi akun LDAP");//LDAP account password
 define("_USELDAPACCOUNT","Gunakan akun LDAP anda menggunakan sistem");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Hanya pendaftaran dengan menggunakan akun LDAP yang diijinkan");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","tersedia secara umum");//is generally available
-define("_DELETECONDITION","Hapus kondisi");//Delete condition
+define("_DELETECONDITION","Hapus kondisi");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Kirim pesan ke forum untuk unit ini");//Post forum message for this unit
 define("_AUTOCOMPLETE","Selesai otomatis");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Anda tidak dapat menerapkan dua aturan pada pelajaran yang sama");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Selesaikan tes 
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Anda telah menyelesaikan semua tes kesenjangan keahlian yang ditugaskan kepada anda. <br>Tunggu sampai profesor menentukan kursus yang paling sesuai dengan kebutuhan anda.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Hasil telah dikirim ke profesor yang akan segera memberikan kursus sesuai dengan kebutuhan anda seperti yang diidentifikasikan dari tes ini");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Penempatan kerja");//Job placements
-define("_NEWJOBPLACEMENT","Penempatan kerja baru");//New job placements
+define("_NEWJOBPLACEMENT","Penempatan kerja baru");//New job placement
 define("_UPGRADEMODULE","Mutakhirkan modul");//Upgrade module
 define("_NEWUNITOPTIONS","Opsi baru unit");//New unit options
 define("_UNITOPTIONSFOR","Opsi untuk unit");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Catatan: anda mengunjungi 
 define("_ACTIONONRENTRYCOMPLETED","Tindakan pada pengulangan entri");//Action on re-entry
 define("_LETCONTENTDECIDE","Diputuskan oleh konten");//Let content decide
 define("_DONTCHANGE","Biarkan tidak berubah");//Leave unchanged
-define("_DASHBOARD","Panel instrumen saya");//my Dashboard
+define("_DASHBOARD","Panel instrumen saya");//Dashboard
 define("_MYWALL","Dinding saya");//My wall
 define("_RELATEDPEOPLE","Khayalak yang terkait");//Related people
 define("_LEARNINGACTIVITY","Aktivitas belajar");//Learning activity
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Tindakan ini akan menghapus kustomisasi 
 define("_SYSTEMENTITIES","Entitas sistem");//System entities
 define("_ALLEVENTS","Semua even");//All events
 define("_COLLAPSECATALOG","Tutup katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Periode ditambahkan berhasil");//Period was added successfully (New)
+define("_PERIODWASADDEDSUCCESSFULLY ","Periode ditambahkan berhasil");//Period was added successfully
 define("_THEMES","Tema");//Themes
 define("_CUSTOMIZATION","Kustomisasi");//Customization
 define("_EXTERNALPAGES","Halaman eksternal");//External pages
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Berkas yang diunggah bukan gambar");//The uploaded fil
 define("_COMMENT","Komentar");//Comment
 define("_COMMENTPROPERTIES","Properti komentar");//Comment properties
 define("_EDITCOMMENT","Sunting komentar");//Edit comment
-define("_EDITCONDITIONS","Sunting kondisi");//Edit conditions
+define("_EDITCONDITIONS","Sunting kondisi");//Edit rules
 define("_EDITINFORMATION","Sunting informasi");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Opsi untuk modul Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Pengirim");//Sender
 define("_ORIGINALMESSAGE","Pesan asli");//Original message
 define("_PRIORITY","Prioritas");//Priority
 define("_PLEASEPICKANOPTION","Silahkan pilih salah satu opsi");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Kondisi penyelesaian terpenuhi, menunggu konfirmasi");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Kondisi penyelesaian terpenuhi, menunggu konfirmasi");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Total kemajuan");//Overall progress
 define("_THEORYPROGRESS","Kemajuan teori");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Skor rata-rata tes (menghitung pengerjaan terakhir setiap tes)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Jenis tindakan tidak didukung");//Unsupporte
 define("_DUPLICATECOMPLETEDPAYMENT","Duplikasi pembayaran yang telah selesai");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Status pembayaran tidak didukung");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Anda telah membatalkan transaksi");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksi selesai dengan sukses.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksi selesai dengan sukses.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Modus debug Paypal");//Paypal debug mode
 define("_MYACCOUNT","Akun saya");//my Account
 define("_MODULE","Modul");//Module
@@ -3996,4 +3996,82 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Sesi anda telah kadaluarsa. Silahkan");//
 define("_CLICKHERE","klik di sini");//click here
 define("_TOLOGINAGAIN","untuk login kembali");//to login again
 define("_SESSIONEXPIRED","Sesi kadaluarsa");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","daftar dipisahkan koma pengguna untuk menampilkan informasi debug, atau 1 untuk semua pengguna");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Februari");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","April");//Apr (New)
+define("_MAYSHORTHAND","Mei");//May (New)
+define("_JUNESHORTHAND","Juni");//Jun (New)
+define("_JULYSHORTHAND","Juli");//Jul (New)
+define("_AUGUSTSHORTHAND","Agustus");//Aug (New)
+define("_SEPTEMBERSHORTHAND","September");//Sep (New)
+define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
+define("_NOVEMBERSHORTHAND","November");//Nov (New)
+define("_DECEMBERSHORTHAND","Desember");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Anda tidak dapat mengakses sumber daya yang diminta");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Silakan pilih sebuah deskripsi pekerjaan");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edit penempatan kerja");//Edit job placement (New)
+define("_NORESPONSE","&lt;tidak ada response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Account");//Account (New)
+define("_ORGANIZATIONALDATA","Profil Organisasi");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank untuk meninggalkan berubah");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Masukkan nilai atau nomor pilihan, dimulai dari 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Sembunyikan pengawas dari pengguna");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Sembunyikan pekerjaan dari pengguna");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Anda harus menentukan nilai default untuk elemen wajib");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Menggunakan tanggal saat ini");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Perubahan account");//Account change (New)
+define("_USERSCANCHANGEPASS","Sandi perubahan");//Password change (New)
+define("_VIEWFEEDBACK","Lihat Komentar");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Tampilkan lengkap pertanyaan dalam setiap pelaksanaan");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Mempertahankan nilai terbaik");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Rata-rata skor tes (menghitung eksekusi aktif setiap tes&#39;s)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","skor di eksekusi aktif");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Jika Anda menetapkan sebuah kata yang diakhiri dengan tanda bintang (*), hanya bagian pertama akan dipertimbangkan. Misalnya, jika Anda menetapkan 'belajar *', maka kedua 'belajar' dan 'belajar' akan dianggap benar.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Kursus pelajaran aturan");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Aturan antara program");//Rules between courses (New)
+define("_COURSEDEPENDSON","Kursus tergantung pada");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Anda tidak dapat mengatur kursus sebagai prasyarat dari dirinya sendiri");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Tampilan alternatif dalam kotak pilih");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Memeriksa ini akan menampilkan list box dengan semua alternatif, bukan kotak teks. Dalam hal ini, hanya pilihan pertama dianggap benar");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Tampilkan jawaban yang benar hanya jika siswa lulus ujian");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Pengaturan checker");//Settings checker (New)
+define("_CHECKBROWSER","Memeriksa browser");//Checking browser (New)
+define("_CHECKRESOLUTION","Memeriksa resolusi layar");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Memeriksa Pemblokir Popup");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Memeriksa Cookie negara ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Memeriksa Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Memeriksa Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 terdeteksi. Browser ini usang dan fungsionalitas mungkin akan terpengaruh");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Sayangnya, browser yang Anda gunakan tidak didukung");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","resolusi layar Anda tidak memenuhi persyaratan minimum");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker terdeteksi. Silakan tunggu popup untuk situs ini dan coba lagi");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookie tampaknya dinonaktifkan. Harap aktifkan cookie");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash tidak terpasang, dari tanggal");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader tidak diinstal");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Memeriksa Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript tidak diaktifkan di browser Anda");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Anda harus mengaktifkan pengawas aktivasi email dari pengaturan sistem");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Tahun berkisar dari");//Year range from (New)
+define("_YEARRANGETO","Tahun range");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Nama grup deskripsi");//Group name description (New)
+define("_GROUPINFORMATION","Kelompok informasi");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Membatasi akses ke konten file ke pengguna masuk log");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Kompres hasil tes dalam database");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Tugas pemeliharaan");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Klik di sini untuk kompres tes selesai");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Klik di sini untuk uncompress tes selesai");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Kompres");//Compress (New)
+define("_DATABASETASKS","Database tugas");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Silakan backup data Anda sebelum menekan / Uncompressing tes selesai");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfigurasi");//Configuration (New)
+define("_SYSTEMOPTIONS","Sistem pilihan");//System options (New)
+define("_CASUAL","Lepas");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Anda tidak dapat mengakses informasi ini pengguna");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Aktifkan virtual keyboard");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","File ini tampaknya kosong. Mungkin tidak diformat dengan benar?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Dijadwalkan Sertifikat kadaluarsa");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Uji password");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Maaf, Anda tidak memiliki akses ke cabang ini");//Sorry, you do not have access to this branch (New)
 ?>

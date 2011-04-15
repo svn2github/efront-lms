@@ -1160,12 +1160,8 @@ class EfrontFile extends ArrayObject
    header('Expires: 0');
    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
    header('Pragma: public');
-   //header("Content-Type: application/force-download");
-   //header("Content-Type: application/download");
-   //header("content-type:".$this['mime_type']);
-      //header('content-disposition: inline; filename= "'.$this['name'].'"');
      }
-     //readfile($this['path']);
+//    	readfile($this['path']);
      $this -> readfileChunked($this['path']);
      exit;
     }

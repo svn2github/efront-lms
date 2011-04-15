@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Insérer les réponses à choix multiples");/
 define("_INSERTEXPLANATION","Insérer une explication");//Insert explanation
 define("_THISQUESTIONIS","Cette question est");//This question is
 define("_CREATEEMPTYSPACES","Créer des espaces vides");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Ecrire le texte de la question et où vous devez insérer un espace blanc, ajouter # # #. Lorsque vous avez terminé, cliquez sur le bouton &#39;Créer des espaces vides&#39;");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Ecrire le texte de la question et où vous devez insérer un espace blanc, ajouter # # #. Lorsque vous avez terminé, cliquez sur le bouton &#39;Créer des espaces vides&#39;");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Insérer des paires assorties");//Insert matching pairs
 define("_ADDOPTION","Ajouter un champ");//Add option
 define("_GOTOCALENDAR","Aller au calendrier");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Vu une fraction d&#39;unités");//Seen a fraction of 
 define("_SPECIFICUNIT","Vu une unité spécifique");//Seen a specific unit
 define("_PASSEDALLTESTS","Passé avec succès tous les tests");//Passed all tests
 define("_SPECIFICTEST","Passé un test spécifique");//Passed a specific test
-define("_INVALIDCONDITION","Condition incorrecte");//Invalid condition
+define("_INVALIDCONDITION","Condition incorrecte");//Invalid rule
 define("_THEUSERMUSTHAVE","L&#39;utilisateur doit avoir");//The student must have
 define("_UNITSPERCENTAGE","Pourcentage");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","La condition a été ajoutée avec succès");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","La condition a été mise à jour avec succès");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","La condition a été supprimée avec succès");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","La condition a été ajoutée avec succès");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","La condition a été mise à jour avec succès");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","La condition a été supprimée avec succès");//Successfully deleted rule
 define("_LESSONCONDITIONS","Conditions d&#39;achèvement de la leçon");//Lesson completion rules
-define("_ADDCONDITION","Ajouter la condition");//Add condition
-define("_CONDITION","Condition");//Condition
-define("_CONDITIONTYPE","Type de condition");//Condition type
+define("_ADDCONDITION","Ajouter la condition");//Add completion rule
+define("_CONDITION","Condition");//Completion rule
+define("_CONDITIONTYPE","Type de condition");//Rule type
 define("_RELATIONTOOTHERS","Rapports avec les autres");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Faites défiler vers le haut de la page");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Faites défiler vers le bas de la page");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Système");//System
 define("_EMAILCONFIGURATIONS","Configuration du serveur E-mail");//Emails server configuration
 define("_SAWUNIT","Définir l&#39;unité comme achevée");//Set the unit as completed
 define("_NOTSAWUNIT","Définir l&#39;unité comme non achevée");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Conditions remplies");//Conditions completed
+define("_CONDITIONSCOMPLETED","Conditions remplies");//Completion rules completed
 define("_OUTOF","sur");//out of
 define("_LESSONPROGRESS","Progrès de la leçon");//Lesson progress
 define("_YOUMUSTSEEUNIT","Vous devez voir l&#39;unité");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Vous devez voir");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Vous devez réussir aux tests avec la moyenne");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Vous devez terminer le test");//You must complete test
 define("_WITHSCORE","avec un score");//with score
-define("_NOCONDITIONSSET","Il n&#39;y a pas de conditions fixées pour cette leçon");//There are no conditions set for this lesson
-define("_CONDITIONS","conditions");//conditions
+define("_NOCONDITIONSSET","Il n&#39;y a pas de conditions fixées pour cette leçon");//There are no completion rules set for this lesson
+define("_CONDITIONS","conditions");//completion rules
 define("_RESUMELESSON","Reprendre la leçon");//Resume lesson
 define("_STARTLESSON","Début de la leçon");//Start lesson
 define("_TRACKING","Suivi");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Il y avait un problème lors de clona
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","modèle de certificat a été supprimé avec succès");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Il y avait un problème lors de la suppression modèle de certificat");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Vous n&#39;avez pas le droit de modifier ce modèle de certificat");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Modifier la condition");//Edit condition
+define("_EDITCONDITION","Modifier la condition");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","Configuration du serveur SMTP");//SMTP server configuration
 define("_SMTPSERVER","Serveur SMTP");//SMTP server
 define("_SMTPPASSWORD","Mot de passe SMTP");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Le domaine a été mis à jour");//The field was updated
 define("_LESSONSCORE","Score de la leçon");//Lesson score
 define("_COMPLETED","Terminé");//Completed
 define("_NOTCOMPLETED","Non terminé");//Not completed
-define("_CONDITIONSMET","Les conditions ont été remplies et sont en attente d&#39;approbation");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Les conditions ont été remplies et sont en attente d&#39;approbation");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Le statut de la leçon utilisateur a été changé avec succès");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Doit être numérique");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront plate-forme d&#39;e-learning certifie que \n\n #Prénom# #Nom# \n\n a terminé avec succès # # Nom du cours avec le niveau # # Ce certificat a été délivré le # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","N&#39;a pas pu être envoyé");//Could not be sent
 define("_ENVIRONMENTALCHECK","Vérifier l&#39;environnement");//Environmental check
 define("_REPAIRTREE","Restaurer l&#39;arbre");//Restore tree
 define("_RULEPROPERTIES","Propriétés de la règle");//Rule properties
-define("_CONDITIONPROPERTIES","Propriétés de la condition");//Condition properties
+define("_CONDITIONPROPERTIES","Propriétés de la condition");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Vérifier les dossiers de leçons orphelines");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Vérifier les leçons sans dossiers");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Les dossiers suivants n&#39;ont pas de leçon associée");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Sauvegarder la question et en créer une nou
 define("_SAVEASNEWQUESTION","Enregistrer en tant que nouvelle question");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Le sondage a été mis à jour avec succès");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Vous avez terminé la totalité du contenu");//You have completed all content
-define("_CONDITIONMET","Condition remplies");//Condition met
-define("_CONDITIONNOTMET","Condition non remplies");//Condition not met
+define("_CONDITIONMET","Condition remplies");//Completion rules met
+define("_CONDITIONNOTMET","Condition non remplies");//Completion rules met
 define("_OLDMODULES","Anciens modules");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","L&#39;extension LDAP de PHP n&#39;est pas chargée");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Vous remplissez toutes les conditions pour terminer la leçon. Cette leçon doit être telle que complété par le formateur");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Vous remplissez toutes les conditions pour terminer la leçon. Cette leçon doit être telle que complété par le formateur");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Leçon terminée");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Le certificat a été délivré avec succès");//Certificate issued successfully
 define("_NOTITLE","Pas de titre");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","Mot de passe LDAP du compte");//LDAP account pass
 define("_USELDAPACCOUNT","Utiliser votre compte LDAP afin de pouvoir utiliser le système");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Seul l&#39;enregistrement en utilisant un compte LDAP valide est autorisé");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","est généralement disponible");//is generally available
-define("_DELETECONDITION","Supprimer la condition");//Delete condition
+define("_DELETECONDITION","Supprimer la condition");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Afficher les messages du forum pour cette unité");//Post forum message for this unit
 define("_AUTOCOMPLETE","Totaux automatiques");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Vous ne pouvez pas utiliser deux fois la même règle pour une leçon");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Completer le te
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Vous avez terminé tous les tests sur les écarts de compétences qui vous ont été attribué. <br> S&#39;il vous plaît attendez jusqu&#39;à ce que vos formateurs  vous ai attribué les cours les plus approprié à vos besoins.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Vos résultats ont été envoyés à vos formateurs qui vont bientôt vous assigner à vos cours en fonction de vos besoins identifiés à partir de ce test");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Emplois");//Job placements
-define("_NEWJOBPLACEMENT","Nouvel emploi");//New job placements
+define("_NEWJOBPLACEMENT","Nouvel emploi");//New job placement
 define("_UPGRADEMODULE","Module de mise à jour");//Upgrade module
 define("_NEWUNITOPTIONS","Nouvelle options d&#39;unité");//New unit options
 define("_UNITOPTIONSFOR","Options pour l&#39;unité");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Note: vous aller revoir ce
 define("_ACTIONONRENTRYCOMPLETED","Action sur la rentrée");//Action on re-entry
 define("_LETCONTENTDECIDE","Je décide du contenu");//Let content decide
 define("_DONTCHANGE","Ne pas modifier");//Leave unchanged
-define("_DASHBOARD","Dashboard");//my Dashboard
+define("_DASHBOARD","Dashboard");//Dashboard
 define("_MYWALL","Mon mur");//My wall
 define("_RELATEDPEOPLE","Related People");//Related people
 define("_LEARNINGACTIVITY","L&#39;activité d&#39;apprentissage");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Le fichier téléchargé n&#39;est pas une image");//T
 define("_COMMENT","Commentaire");//Comment
 define("_COMMENTPROPERTIES","Les propriétés des commentaires");//Comment properties
 define("_EDITCOMMENT","Modifier un commentaire");//Edit comment
-define("_EDITCONDITIONS","Modifier les conditions");//Edit conditions
+define("_EDITCONDITIONS","Modifier les conditions");//Edit rules
 define("_EDITINFORMATION","Modifier les informations");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Options pour le module Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Sender");//Sender
 define("_ORIGINALMESSAGE","Message d&#39;origine");//Original message
 define("_PRIORITY","Priorité");//Priority
 define("_PLEASEPICKANOPTION","S&#39;il vous plaît choisir une option");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Conditions d&#39;achèvement atteint, en attente de confirmation");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Conditions d&#39;achèvement atteint, en attente de confirmation");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Globalement, les progrès");//Overall progress
 define("_THEORYPROGRESS","Théorie des progrès");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Moyenne des essais (sans compter la dernière exécution de chaque test)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Opération de type non pris en charge");//Un
 define("_DUPLICATECOMPLETEDPAYMENT","Dupliquer complété le paiement");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Le statut du paiement non pris en charge");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Vous avez annulé l&#39;opération");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transaction a été effectuée avec succès.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","La transaction a été effectuée avec succès.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal en mode debug");//Paypal debug mode
 define("_MYACCOUNT","Mon compte");//my Account
 define("_MODULE","Module");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asynchrone SCORM communication");//Asynchronous SC
 define("_SCORMASYNCHRONOUSEXPLANATION","Passer à la communication asynchrone si vous éprouvez des difficultés à compléter le contenu SCORM (en particulier dans le cas où vous utilisez Adobe Captivate contenu généré)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Attention: La désactivation des paiements fixés tous les prix à 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","De multiples options");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Votre session a expiré. S&#39;il vous plaît");//Your session has expired. Please (New)
-define("_CLICKHERE","cliquez ici");//click here (New)
-define("_TOLOGINAGAIN","pour vous connecter à nouveau");//to login again (New)
-define("_SESSIONEXPIRED","La session est expirée");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Votre session a expiré. S&#39;il vous plaît");//Your session has expired. Please
+define("_CLICKHERE","cliquez ici");//click here
+define("_TOLOGINAGAIN","pour vous connecter à nouveau");//to login again
+define("_SESSIONEXPIRED","La session est expirée");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Comma liste séparée par des utilisateurs d&#39;afficher des informations de débogage sur, ou 1 pour tous les utilisateurs");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Février");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","Avril");//Apr (New)
+define("_MAYSHORTHAND","Mai");//May (New)
+define("_JUNESHORTHAND","Juin");//Jun (New)
+define("_JULYSHORTHAND","Juillet");//Jul (New)
+define("_AUGUSTSHORTHAND","Août");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Septembre");//Sep (New)
+define("_OCTOBERSHORTHAND","Octobre");//Oct (New)
+define("_NOVEMBERSHORTHAND","Novembre");//Nov (New)
+define("_DECEMBERSHORTHAND","Décembre");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Vous ne pouvez pas accéder à la ressource demandée");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","S&#39;il vous plaît sélectionnez une description de poste");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edit de placement");//Edit job placement (New)
+define("_NORESPONSE","&lt;pas response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Compte");//Account (New)
+define("_ORGANIZATIONALDATA","Profil de l&#39;organisation");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank de laisser inchangée");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Entrez la valeur d&#39;option ou de son numéro, à partir de 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Masquer le superviseur des utilisateurs");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Emploi Cacher des utilisateurs");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Vous devez spécifier une valeur par défaut pour les éléments obligatoires");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Utilisez la date du jour");//Use the current date (New)
+define("_USERSCANCHANGEINFO","changement de compte");//Account change (New)
+define("_USERSCANCHANGEPASS","Changer mot de passe");//Password change (New)
+define("_VIEWFEEDBACK","Voir les informations");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Afficher les questions incomplètes dans chaque exécution");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Conserver le meilleur score");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Moyenne des scores du test (en comptant l&#39;exécution active chaque test)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","score sur l&#39;exécution active");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Si vous spécifiez un mot qui se termine par un astérisque (*), seule la première partie sera considérée. Par exemple, si vous spécifiez 'apprendre*', puis d 'apprendre' et 'apprendre' sera considéré comme exact.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","règles de leçon de golf");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Règlement entre les cours");//Rules between courses (New)
+define("_COURSEDEPENDSON","Dépend bien entendu de");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Vous ne pouvez pas définir le cours comme une condition sine qua non de lui-même");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Les possibilités d&#39;affichage dans la boîte de sélection");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","En cochant cette affiche une boîte de liste avec toutes les solutions de rechange, au lieu d&#39;une zone de texte. Dans ce cas, seule la première option est considérée comme correcte");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Voir les réponses correctes que si l&#39;élève satisfait à l&#39;épreuve");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","checker Paramètres");//Settings checker (New)
+define("_CHECKBROWSER","Vérification du navigateur");//Checking browser (New)
+define("_CHECKRESOLUTION","Vérification de la résolution d&#39;écran");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Vérification de bloqueur de fenêtres pop-up");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Vérification de l&#39;état Cookie ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Vérification de Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Vérification pour Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 détecté. Ce navigateur est obsolète et les fonctionnalités peuvent être affectés");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Malheureusement, le navigateur que vous utilisez n&#39;est pas supporté");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Votre résolution d&#39;écran ne répond pas à l&#39;exigence minimale de");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","bloqueur de fenêtres pop-up détecté. S&#39;il vous plaît autoriser les popups pour ce site et essayez à nouveau");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies semble être désactivé. S&#39;il vous plaît activer les cookies");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash n&#39;est pas installé, mis à jour");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader n&#39;est pas installé");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Vérification Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript n&#39;est pas activé dans votre navigateur");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Vous devez avoir activé le courriel d&#39;activation est superviseur de paramètres du système");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Année de gamme");//Year range from (New)
+define("_YEARRANGETO","gamme de l&#39;année");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Description Le nom du groupe");//Group name description (New)
+define("_GROUPINFORMATION","Informations sur le groupe");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Contraindre l&#39;accès au contenu des fichiers aux utilisateurs enregistrés");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Compresser les résultats des tests de base de données");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Les tâches de maintenance");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Cliquez ici pour compresser les tests achevés");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Cliquez ici pour décompresser les tests achevés");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Comprimer");//Compress (New)
+define("_DATABASETASKS","tâches de base de données");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","S&#39;il vous plaît sauvegarder vos données avant de compression / décompression de tests effectués");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Configuration");//Configuration (New)
+define("_SYSTEMOPTIONS","options du système");//System options (New)
+define("_CASUAL","Occasionnels");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Vous ne pouvez pas accéder aux informations de cet utilisateur");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Activer clavier virtuel");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Le fichier semble vide. Peut-être qu&#39;il n&#39;est pas formaté correctement?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificat prévue d&#39;expiration");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Test de mot de passe");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Désolé, vous n&#39;avez pas accès à cette branche");//Sorry, you do not have access to this branch (New)
 ?>

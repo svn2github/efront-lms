@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","მრავალი არჩევან�
 define("_INSERTEXPLANATION","განმარტებების ჩამატება");//Insert explanation
 define("_THISQUESTIONIS","ეს შეკითხვა არის");//This question is
 define("_CREATEEMPTYSPACES","შორისების შექმნა");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","შეიტანეთ შეკითხვის ტექსტი და ყველგან, შორისის ნაცვლად ჩაამატეთ სიმბოლოები ###. დასრულების შემდეგ დააჭირეთ ღილაკს \"შორისების შექმნა\"");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","შეიტანეთ შეკითხვის ტექსტი და ყველგან, შორისის ნაცვლად ჩაამატეთ სიმბოლოები ###. დასრულების შემდეგ დააჭირეთ ღილაკს \"შორისების შექმნა\"");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","შესაბამისი წყვილების ჩამატება");//Insert matching pairs
 define("_ADDOPTION","ვარიანტის დამატება");//Add option
 define("_GOTOCALENDAR","გადასვლა კალენდარზე");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","ბლოკის ნაწილების გა
 define("_SPECIFICUNIT","ცალკეული ბლოკის გაცნობა");//Seen a specific unit
 define("_PASSEDALLTESTS","ყველა ტესტის შესრულება");//Passed all tests
 define("_SPECIFICTEST","ცალკეული ტესტის შესრულება");//Passed a specific test
-define("_INVALIDCONDITION","უმართებლო პირობა");//Invalid condition
+define("_INVALIDCONDITION","უმართებლო პირობა");//Invalid rule
 define("_THEUSERMUSTHAVE","მოსწავლეს უნდა ჰქონდეს");//The student must have
 define("_UNITSPERCENTAGE","პროცენტი");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","პირობა დაემატა");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","პირობა განახლდა");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","პირობა წაიშალა");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","პირობა დაემატა");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","პირობა განახლდა");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","პირობა წაიშალა");//Successfully deleted rule
 define("_LESSONCONDITIONS","გაკვეთილის დასრულების პირობები");//Lesson completion rules
-define("_ADDCONDITION","პირობის დამატება");//Add condition
-define("_CONDITION","პირობა");//Condition
-define("_CONDITIONTYPE","პირობის ტიპი");//Condition type
+define("_ADDCONDITION","პირობის დამატება");//Add completion rule
+define("_CONDITION","პირობა");//Completion rule
+define("_CONDITIONTYPE","პირობის ტიპი");//Rule type
 define("_RELATIONTOOTHERS","მიმართება სხვებთან");//Relation to others
 define("_SCROLLTOTOPOFPAGE","გევრდის თავში");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","გვერდის ბოლოს");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","სისტემა");//System
 define("_EMAILCONFIGURATIONS","ელფოსტის სერვერის კონფიგურაცია");//Emails server configuration
 define("_SAWUNIT","ბლოკის მონიშვნა შესრულებულად");//Set the unit as completed
 define("_NOTSAWUNIT","ბლოკის მონიშვნა დასასრულებლად");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","პირობები შესრულდა");//Conditions completed
+define("_CONDITIONSCOMPLETED","პირობები შესრულდა");//Completion rules completed
 define("_OUTOF",", სულ");//out of
 define("_LESSONPROGRESS","მოსწრება გაკვეთილზე");//Lesson progress
 define("_YOUMUSTSEEUNIT","უნდა გაეცნოთ ბლოკს");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","უნდა გაეცნოთ გაკვეთი�
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","უნდა გაიაროთ ყველა ტესტი საშუალო ქულებით");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","უნდა გაიაროთ ტესტი");//You must complete test
 define("_WITHSCORE","ქულებით");//with score
-define("_NOCONDITIONSSET","ამ გაკვეთილისთვის პირობები არაა");//There are no conditions set for this lesson
-define("_CONDITIONS","პირობები");//conditions
+define("_NOCONDITIONSSET","ამ გაკვეთილისთვის პირობები არაა");//There are no completion rules set for this lesson
+define("_CONDITIONS","პირობები");//completion rules
 define("_RESUMELESSON","გაკვეთილის გაგრძელება");//Resume lesson
 define("_STARTLESSON","გაკვეთილის დაწყება");//Start lesson
 define("_TRACKING","თვალმიდევნება");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","");//There was a problem while clonin
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","პირობის რედაქტირება");//Edit condition
+define("_EDITCONDITION","პირობის რედაქტირება");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP სერვერის კონფიგურაცია");//SMTP server configuration
 define("_SMTPSERVER","SMTP სერვერი");//SMTP server
 define("_SMTPPASSWORD","SMTP პაროლი");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","ველი განახლდა");//The field was 
 define("_LESSONSCORE","გაკვეთილის ქულები");//Lesson score
 define("_COMPLETED","დასრულდა");//Completed
 define("_NOTCOMPLETED","არ დასრულებულა");//Not completed
-define("_CONDITIONSMET","პირობები შესრულდა და დამტკიცებას ელოდება");//Conditions met and awaiting approval
+define("_CONDITIONSMET","პირობები შესრულდა და დამტკიცებას ელოდება");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","მოსწავლის გაკვეთილის სტატუსი შეიცვალა");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","რიცხვი უნდა იყოს");//Must be numeric
 define("_DEFAULTCERTIFICATE","ქართული უნივერსიტეტი ადასტურებს, რომ მოსწავლემ \n\n #user_name# #user_surname# \n\n წარმატებით გაიარა კურსი \n #course_name# \n შეფასებით \n\n #grade# \n\n ამ სერთიფიკატის გაცემის თარიღია #date#");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","გაგზავნა ვერ ხერხდე�
 define("_ENVIRONMENTALCHECK","გარემოს შემოწმება");//Environmental check
 define("_REPAIRTREE","განტოტვის აღდგენა");//Restore tree
 define("_RULEPROPERTIES","წესის პარამეტრები");//Rule properties
-define("_CONDITIONPROPERTIES","პირობის პარამეტრები");//Condition properties
+define("_CONDITIONPROPERTIES","პირობის პარამეტრები");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","განცალკავებული გაკვეთილების მოძიება დასტებში");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","დასტის გარე გაკვეთილების მოძიება");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","გაკვეთილები არ უკავშირდება შემდეგ დასტებს");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","შეკითხვის შენახ�
 define("_SAVEASNEWQUESTION","შენახვა ახალ შეკითხვად");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","კენჭისყრა განახლდა");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","თქვენ სრულად გაეცანით მასალას");//You have completed all content
-define("_CONDITIONMET","პირობა შესრულდა");//Condition met
-define("_CONDITIONNOTMET","პირობა არ შესრულებულა");//Condition not met
+define("_CONDITIONMET","პირობა შესრულდა");//Completion rules met
+define("_CONDITIONNOTMET","პირობა არ შესრულებულა");//Completion rules met
 define("_OLDMODULES","ველი მოდულები");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP LDAP პაკეტი არ ჩატვირთულა");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","თქვენ შეასრულეთ ყველა პირობა გაკვეთილისთვის. ახალა მასწავლებელმა უნდა მიუთითოს იგი დასრულებულად");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","თქვენ შეასრულეთ ყველა პირობა გაკვეთილისთვის. ახალა მასწავლებელმა უნდა მიუთითოს იგი დასრულებულად");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","გაკვეთილი დასრულდა");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","სერთიფიკატი გაცემულია");//Certificate issued successfully
 define("_NOTITLE","უსათაურო");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP ანგარიშის პაროლ�
 define("_USELDAPACCOUNT","ისარგებლეთ თქვენი LDAP ანგარიშით სისტემაში შემოსასვლელად");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","საზოგადოდ მისაწვდომია");//is generally available
-define("_DELETECONDITION","პირობის ამოღება");//Delete condition
+define("_DELETECONDITION","პირობის ამოღება");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","ფორუმის გამოხმაურების გაგზავნა ამ ბლოკისათვის");//Post forum message for this unit
 define("_AUTOCOMPLETE","თვითშევსება");//Auto complete
 define("_DUPLICATESARENOTALLOWED","წესით, არ გაქვთ ერთი გაკვეთილით ორჯერ სარგებლობის უფლება");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","გაიარ
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","თქვენ შეასრულეთ თქვენზე გაპიროვნებული უნარების შეფასების ყველა ტესტი. <br>გთხოვთ დაელოდოთ, სანამ თქვენი მასწავლებლები თქვენთვის სასარგებლო საჭირო კურსებს შემოგთავაზებენ.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","თქვენი შედეგები თქვენს მასწავლებელს გადაეგზავნა, რომელიც ტესტის შედეგების გათვალისწინებით უახლოეს დროში დაგინიშნავთ თქვენთვის საჭირო კურსებს");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","ვკანასიები");//Job placements
-define("_NEWJOBPLACEMENT","ახალი ვაკანსიები");//New job placements
+define("_NEWJOBPLACEMENT","ახალი ვაკანსიები");//New job placement
 define("_UPGRADEMODULE","მოდულის განახლება");//Upgrade module
 define("_NEWUNITOPTIONS","ახალი ბლოკის პარამეტრები");//New unit options
 define("_UNITOPTIONSFOR","მოდულის პარამეტრები");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","შენიშვნა: 
 define("_ACTIONONRENTRYCOMPLETED","ქმედება ხელახლა გახსნისას");//Action on re-entry
 define("_LETCONTENTDECIDE","გადაწყვეტილება მასალიდან გამომდინარე");//Let content decide
 define("_DONTCHANGE","უცვლელად დატოვება");//Leave unchanged
-define("_DASHBOARD","");//my Dashboard
+define("_DASHBOARD","");//Dashboard
 define("_MYWALL","");//My wall
 define("_RELATEDPEOPLE","");//Related people
 define("_LEARNINGACTIVITY","");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","");//The uploaded file is not an image
 define("_COMMENT","");//Comment
 define("_COMMENTPROPERTIES","");//Comment properties
 define("_EDITCOMMENT","");//Edit comment
-define("_EDITCONDITIONS","");//Edit conditions
+define("_EDITCONDITIONS","");//Edit rules
 define("_EDITINFORMATION","");//Edit information
 define("_FACEBOOK","");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","");//Sender
 define("_ORIGINALMESSAGE","");//Original message
 define("_PRIORITY","");//Priority
 define("_PLEASEPICKANOPTION","");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","");//Overall progress
 define("_THEORYPROGRESS","");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","");//Unsupported operation type
 define("_DUPLICATECOMPLETEDPAYMENT","");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","");//Paypal debug mode
 define("_MYACCOUNT","");//my Account
 define("_MODULE","");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication
 define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","");//Your session has expired. Please (New)
-define("_CLICKHERE","");//click here (New)
-define("_TOLOGINAGAIN","");//to login again (New)
-define("_SESSIONEXPIRED","");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","");//Your session has expired. Please
+define("_CLICKHERE","");//click here
+define("_TOLOGINAGAIN","");//to login again
+define("_SESSIONEXPIRED","");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","");//Jan (New)
+define("_FEBRUARYSHORTHAND","");//Feb (New)
+define("_MARCHSHORTHAND","");//Mar (New)
+define("_APRILSHORTHAND","");//Apr (New)
+define("_MAYSHORTHAND","");//May (New)
+define("_JUNESHORTHAND","");//Jun (New)
+define("_JULYSHORTHAND","");//Jul (New)
+define("_AUGUSTSHORTHAND","");//Aug (New)
+define("_SEPTEMBERSHORTHAND","");//Sep (New)
+define("_OCTOBERSHORTHAND","");//Oct (New)
+define("_NOVEMBERSHORTHAND","");//Nov (New)
+define("_DECEMBERSHORTHAND","");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","");//Edit job placement (New)
+define("_NORESPONSE","");//&lt;no response&gt; (New)
+define("_ACCOUNT","");//Account (New)
+define("_ORGANIZATIONALDATA","");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","");//Use the current date (New)
+define("_USERSCANCHANGEINFO","");//Account change (New)
+define("_USERSCANCHANGEPASS","");//Password change (New)
+define("_VIEWFEEDBACK","");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","");//score on active execution (New)
+define("_YOUCANUSEASTERISK","");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","");//Rules between courses (New)
+define("_COURSEDEPENDSON","");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","");//Settings checker (New)
+define("_CHECKBROWSER","");//Checking browser (New)
+define("_CHECKRESOLUTION","");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","");//Checking Cookie state... (New)
+define("_CHECKFLASH","");//Checking for Flash (New)
+define("_CHECKACROBAT","");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","");//Year range from (New)
+define("_YEARRANGETO","");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","");//Group name description (New)
+define("_GROUPINFORMATION","");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","");//Compress test results in database (New)
+define("_MAINTENANCETASKS","");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","");//Click here to uncompress completed tests (New)
+define("_COMPRESS","");//Compress (New)
+define("_DATABASETASKS","");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","");//Configuration (New)
+define("_SYSTEMOPTIONS","");//System options (New)
+define("_CASUAL","");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","");//Sorry, you do not have access to this branch (New)
 ?>

@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Ievietojiet vairākas izvēles");//Insert the
 define("_INSERTEXPLANATION","Ielikt paskaidrojums");//Insert explanation
 define("_THISQUESTIONIS","Šis jautājums ir");//This question is
 define("_CREATEEMPTYSPACES","Izveidojiet tukšu telpu");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Uzrakstiet jautājumu teksts, un, kur jums ir nepieciešama, lai ievietotu tukšu vietu, ievietojiet ###. Kad tas ir paveikts, noklikšķiniet uz \"Create tukšas telpas\" pogu zem");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Uzrakstiet jautājumu teksts, un, kur jums ir nepieciešama, lai ievietotu tukšu vietu, ievietojiet ###. Kad tas ir paveikts, noklikšķiniet uz \"Create tukšas telpas\" pogu zem");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Ielikt sakritības pairs");//Insert matching pairs
 define("_ADDOPTION","Pievienot izvēle");//Add option
 define("_GOTOCALENDAR","Iet uz kalendāru");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Raugoties daļa vienību");//Seen a fraction of units
 define("_SPECIFICUNIT","Uzskatīt par īpašu vienību");//Seen a specific unit
 define("_PASSEDALLTESTS","Nodots visiem testiem");//Passed all tests
 define("_SPECIFICTEST","Nodots īpašas testēšanas");//Passed a specific test
-define("_INVALIDCONDITION","Nederīgs stāvoklis");//Invalid condition
+define("_INVALIDCONDITION","Nederīgs stāvoklis");//Invalid rule
 define("_THEUSERMUSTHAVE","Skolēnu jābūt");//The student must have
 define("_UNITSPERCENTAGE","Procenti");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Veiksmīgi pievienots nosacījums");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Veiksmīgi atjaunināti nosacījums");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Veiksmīgi svītrots nosacījums");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Veiksmīgi pievienots nosacījums");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Veiksmīgi atjaunināti nosacījums");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Veiksmīgi svītrots nosacījums");//Successfully deleted rule
 define("_LESSONCONDITIONS","Nodarbība pabeigšanas nosacījumi");//Lesson completion rules
-define("_ADDCONDITION","Pievienot nosacījums");//Add condition
-define("_CONDITION","Stāvoklis");//Condition
-define("_CONDITIONTYPE","Stāvoklis tips");//Condition type
+define("_ADDCONDITION","Pievienot nosacījums");//Add completion rule
+define("_CONDITION","Stāvoklis");//Completion rule
+define("_CONDITIONTYPE","Stāvoklis tips");//Rule type
 define("_RELATIONTOOTHERS","Saistība ar citiem");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Ritiniet uz augšu");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Ritiniet uz leju of page");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","System");//System
 define("_EMAILCONFIGURATIONS","E-pasta servera konfigurācija");//Emails server configuration
 define("_SAWUNIT","Iestatīt vienības par pabeigtiem");//Set the unit as completed
 define("_NOTSAWUNIT","Iestatīt vienības, kas nav pabeigts");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Nosacījumi, kas pabeigti");//Conditions completed
+define("_CONDITIONSCOMPLETED","Nosacījumi, kas pabeigti");//Completion rules completed
 define("_OUTOF","no");//out of
 define("_LESSONPROGRESS","Nodarbība progress");//Lesson progress
 define("_YOUMUSTSEEUNIT","Jums nepieciešams skatīt vienība");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Jums nepieciešams skatīt");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Jums ir jāaizpilda visi testi ar vidējo punktu skaitu");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Jums ir jāaizpilda tests");//You must complete test
 define("_WITHSCORE","ar score");//with score
-define("_NOCONDITIONSSET","Nav nosacījumus attiecībā uz šo stunda");//There are no conditions set for this lesson
-define("_CONDITIONS","nosacījumus");//conditions
+define("_NOCONDITIONSSET","Nav nosacījumus attiecībā uz šo stunda");//There are no completion rules set for this lesson
+define("_CONDITIONS","nosacījumus");//completion rules
 define("_RESUMELESSON","Resume stunda");//Resume lesson
 define("_STARTLESSON","Sākums stunda");//Start lesson
 define("_TRACKING","Izsekošana");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Radās problēma, klonēšanas sertif
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikāts veidne ir veiksmīgi izdzēsts");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Radās problēma, dzēšot sertifikātu veidnes");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Jums nav tiesību mainīt šo sertifikātu veidni");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Edit nosacījums");//Edit condition
+define("_EDITCONDITION","Edit nosacījums");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP servera konfigurēšana");//SMTP server configuration
 define("_SMTPSERVER","SMTP serveris");//SMTP server
 define("_SMTPPASSWORD","SMTP parole");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Jomā tika atjaunināts");//The field was updated
 define("_LESSONSCORE","Nodarbība score");//Lesson score
 define("_COMPLETED","Pabeigts");//Completed
 define("_NOTCOMPLETED","Nav pabeigts");//Not completed
-define("_CONDITIONSMET","Nosacījumi ievēroti, un gaida apstiprinājumu");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Nosacījumi ievēroti, un gaida apstiprinājumu");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Student stunda statuss mainīts veiksmīgi");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Jābūt Skaitliskie");//Must be numeric
 define("_DEFAULTCERTIFICATE","ELearning organizācija apliecina, ka Lietotāja_vārds # # # # user_surname ir sekmīgi pabeidzis # course_name # ar grade # grade # Šī apliecība ir izdota # datumu #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Nevarēja nosūtīt");//Could not be sent
 define("_ENVIRONMENTALCHECK","Vides pārbaudīt");//Environmental check
 define("_REPAIRTREE","Atjaunot koks");//Restore tree
 define("_RULEPROPERTIES","Reglamenta īpašības");//Rule properties
-define("_CONDITIONPROPERTIES","Stāvoklis īpašības");//Condition properties
+define("_CONDITIONPROPERTIES","Stāvoklis īpašības");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Orphan stunda mapes pārbaudīt");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Nodarbības bez mapes pārbaudīt");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Šādas mapes nav mācība saistīts");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Saglabāt jautājumu, kā arī izveidot jaun
 define("_SAVEASNEWQUESTION","Saglabāt kā jaunu jautājumu");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Aptaujas tika atjaunināts veiksmīgi");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Jums ir pabeigta visu saturu");//You have completed all content
-define("_CONDITIONMET","Nosacījums izpildīts");//Condition met
-define("_CONDITIONNOTMET","Nosacījums nav izpildīts");//Condition not met
+define("_CONDITIONMET","Nosacījums izpildīts");//Completion rules met
+define("_CONDITIONNOTMET","Nosacījums nav izpildīts");//Completion rules met
 define("_OLDMODULES","Vecā modules");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","The PHP LDAP pagarināšana nav piekrauts");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Jūs atbilst stunda pilnībā apstākļos. Šī nodarbība ir jānosaka, kā pabeigta ar profesors");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Jūs atbilst stunda pilnībā apstākļos. Šī nodarbība ir jānosaka, kā pabeigta ar profesors");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Nodarbība pabeigts");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Sertifikāts, kas izdots veiksmīgi");//Certificate issued successfully
 define("_NOTITLE","Nr virsraksts");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP konta paroli");//LDAP account password
 define("_USELDAPACCOUNT","Izmantojiet savu LDAP kontu credentials, lai izmantotu sistēmas");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Tikai reģistrācijas, izmantojot derīgu LDAP konts ir atļauts");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","parasti ir pieejams");//is generally available
-define("_DELETECONDITION","Dzēst nosacījums");//Delete condition
+define("_DELETECONDITION","Dzēst nosacījums");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Post forums vēstījums šī vienība");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto pabeigt");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Jūs nevarat izmantot divreiz vienu un to pašu stunda parasti");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Pabeigt prasmju
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Jūs esat pabeidzis visas prasmju plaisu testu piešķir jums. <br> Lūdzu, uzgaidiet, kamēr jūsu profesori piešķirt Jums vispiemērotāko kursi atbilstoši Jūsu vajadzībām.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Jūsu rezultāti ir nosūtīti uz Jūsu profesori, kas drīzumā piešķirt kursi jūsu atbilstoši Jūsu vajadzībām, kā noteiktas no šā testa");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Darbs izvietojumi");//Job placements
-define("_NEWJOBPLACEMENT","Jaunu darba vietu iekārtošanas");//New job placements
+define("_NEWJOBPLACEMENT","Jaunu darba vietu iekārtošanas");//New job placement
 define("_UPGRADEMODULE","Upgrade modulis");//Upgrade module
 define("_NEWUNITOPTIONS","New vienība iespējas");//New unit options
 define("_UNITOPTIONSFOR","Iespējas attiecībā uz struktūrvienību");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Piezīme: Jums ir pārskat
 define("_ACTIONONRENTRYCOMPLETED","Rīcību par atkārtotu ieceļošanu");//Action on re-entry
 define("_LETCONTENTDECIDE","Ļaujiet saturs nolemt");//Let content decide
 define("_DONTCHANGE","Atstājiet nemainīgs");//Leave unchanged
-define("_DASHBOARD","Dashboard");//my Dashboard
+define("_DASHBOARD","Dashboard");//Dashboard
 define("_MYWALL","Mana siena");//My wall
 define("_RELATEDPEOPLE","Saistītie cilvēki");//Related people
 define("_LEARNINGACTIVITY","Mācīšanās aktivitāte");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Augšupielādēts fails nav attēls");//The uploaded f
 define("_COMMENT","Komentārs");//Comment
 define("_COMMENTPROPERTIES","Komentēt īpašības");//Comment properties
 define("_EDITCOMMENT","Edit comment");//Edit comment
-define("_EDITCONDITIONS","Rediģēt nosacījumi");//Edit conditions
+define("_EDITCONDITIONS","Rediģēt nosacījumi");//Edit rules
 define("_EDITINFORMATION","Rediģēt informāciju");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Iespējas Facebook modulis");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Sūtītājs");//Sender
 define("_ORIGINALMESSAGE","Original message");//Original message
 define("_PRIORITY","Prioritāte");//Priority
 define("_PLEASEPICKANOPTION","Lūdzu, izvēlieties opciju");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Pabeigšanas nosacījumi izpildīti, apstiprinājumu līdz");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Pabeigšanas nosacījumi izpildīti, apstiprinājumu līdz");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Kopumā progress");//Overall progress
 define("_THEORYPROGRESS","Teorija progress");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Vidējā testa rezultāts (skaitot katra testa pēdējā izpildei)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Neatbalstīts darbības veids");//Unsupporte
 define("_DUPLICATECOMPLETEDPAYMENT","Duplicate izpildītu maksājuma");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Neatbalstīts maksājuma statuss");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Jums ir atcelts darījums");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Darījums tika pabeigts veiksmīgi.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Darījums tika pabeigts veiksmīgi.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
 define("_MYACCOUNT","Mans konts");//my Account
 define("_MODULE","Modulis");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asinhronā SCORM komunikācijas");//Asynchronous S
 define("_SCORMASYNCHRONOUSEXPLANATION","Pārslēgt uz asinhronas komunikācijas, ja Jums rodas problēmas, aizpildot SCORM saturu (it īpaši, ja Jūs lietojat Adobe aizraut radītu saturu)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Brīdinājums: Atslēdz maksājumi tiks noteikti visām cenām uz 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Vairākas iespējas");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Jūsu sesija ir beigusies. Lūdzu");//Your session has expired. Please (New)
-define("_CLICKHERE","noklikšķiniet šeit");//click here (New)
-define("_TOLOGINAGAIN","pieteikties atkal");//to login again (New)
-define("_SESSIONEXPIRED","Sesija beidzās");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Jūsu sesija ir beigusies. Lūdzu");//Your session has expired. Please
+define("_CLICKHERE","noklikšķiniet šeit");//click here
+define("_TOLOGINAGAIN","pieteikties atkal");//to login again
+define("_SESSIONEXPIRED","Sesija beidzās");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Komatu atdalīti saraksts ar lietotājiem, lai parādītu atkļūdošanas informāciju par, 1 vai visiem lietotājiem");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Februāris");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","Aprīlis");//Apr (New)
+define("_MAYSHORTHAND","Var");//May (New)
+define("_JUNESHORTHAND","Jūnijs");//Jun (New)
+define("_JULYSHORTHAND","Jūlijs");//Jul (New)
+define("_AUGUSTSHORTHAND","Augusts");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Septembris");//Sep (New)
+define("_OCTOBERSHORTHAND","Oktobris");//Oct (New)
+define("_NOVEMBERSHORTHAND","Novembris");//Nov (New)
+define("_DECEMBERSHORTHAND","Decembris");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Jūs nevarat piekļūt pieprasītais resurss");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Lūdzu, izvēlieties amata apraksts");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edit darbā iekārtošanas");//Edit job placement (New)
+define("_NORESPONSE","&lt;Nav response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Kontu");//Account (New)
+define("_ORGANIZATIONALDATA","Organizatoriskie profilu");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank atstāt nemainīgu");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Ievadiet iespēju vērtību vai tās numuru, sākot no 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Hide vadītājs lietotāju");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Hide darbu lietotāju");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Jums jānorāda noklusējuma vērtību obligātie elementi");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Izmantojiet pašreizējo datumu");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Vērā izmaiņas");//Account change (New)
+define("_USERSCANCHANGEPASS","Paroles maiņa");//Password change (New)
+define("_VIEWFEEDBACK","Apskatīt atsauksmes");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Rādīt nepilnīga jautājumiem katrā izpildes");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Saglabā labākais rezultāts");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Vidējais pārbaudes rezultāts (skaitot katra testa aktīvas izpildes)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","rādītājs aktīvas izpildes");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Ja jūs norādiet vārdu, beidzas ar zvaigznīti (*), tikai tās pirmā daļa tiks ņemtas vērā. Piemēram, ja norādāt 'mācīties *', tad gan 'mācību' un 'mācīties', tiks izskatīti pareizi.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Protams, nodarbībā noteikumi");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Noteikumiem starp kursiem");//Rules between courses (New)
+define("_COURSEDEPENDSON","Protams, ir atkarīgs");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Jūs nevarat noteikt kursu, kas ir priekšnoteikums, pats par sevi");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Displejs alternatīvas izvēlieties ailē");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Atzīmējot šo parādīs sarakstu kaste ar visu alternatīvu, nevis tekstlodziņa. Šajā gadījumā tikai pirmais variants ir pareizs");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Rādīt pareizo atbilžu tikai tad, ja students izturējis testu");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Uzstādījumi pārbaudītājs");//Settings checker (New)
+define("_CHECKBROWSER","Pārbaude pārlūku");//Checking browser (New)
+define("_CHECKRESOLUTION","Pārbaude ekrāna izšķirtspēja");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Pārbaude Popup bloķētāju");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Pārbaude Cookie valsts ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Pārbaude Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Pārbaude Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 konstatēta. Šī pārlūkprogramma ir novecojusi un funkcionalitāte var ietekmēt");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Diemžēl pārlūks, kuru izmantojat, nav atbalstīta");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Ekrāna izšķirtspēja neatbilst minimālajām prasībām");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Uznirstošo logu bloķētājs konstatēta. Lūdzu, ļaujiet izlecošos logus šajā vietnē un mēģiniet vēlreiz");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies šķiet izslēgta. Lūdzu, iespējojiet sīkfailus");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash nav instalēts, novecojusi");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader nav instalēts");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Pārbaude Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript nav iespējotas jūsu pārlūkprogrammā");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Jums ir jābūt iespējota vadītājs e-pasta aktivācijas no sistēmas iestatījumiem");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Gads sākot ar");//Year range from (New)
+define("_YEARRANGETO","Gadā diapazons");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Grupas nosaukums aprakstu");//Group name description (New)
+define("_GROUPINFORMATION","Grupas informāciju");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Ierobežot piekļuvi saturam failus pieteicies lietotāju");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Saspiest testa rezultāti datu bāzē");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Apkopes uzdevumi");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Noklikšķiniet šeit, lai saspiestu pabeigti testi");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Uzklikšķināt šeit, lai atspiest pabeigti testi");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Komprese");//Compress (New)
+define("_DATABASETASKS","Datu bāzes uzdevumi");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Lūdzu, backup jūsu datus, pirms saspiešanas / uncompressing pabeigta pārbaudes");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfigurācija");//Configuration (New)
+define("_SYSTEMOPTIONS","Sistēmu iespējas");//System options (New)
+define("_CASUAL","Gadījuma rakstura");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Jūs nevarat piekļūt šai lietotāja informāciju");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Iespējot virtuālā tastatūra");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","No lietas materiāliem šķiet, ir tukšs. Varbūt tas nav pareizi formatēts?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertifikāts paredzēts beigām");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Testa paroli");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Atvainojiet, jums nav piekļuves šim filiāles");//Sorry, you do not have access to this branch (New)
 ?>

@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Conectare la eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","ro");//en
 define("_CURRENTLANGUAGESYMBOL","ro");//en
-define("_HEADERLANGUAGETAG","romanian");//english
+define("_HEADERLANGUAGETAG","romanian");//en_US.utf8
 define("_CHARSET","ISO-8859-2");//ISO-8859-1
 define("_LANGUAGE","Limba");//Language
 define("_PASSWORD","Parola");//Password
@@ -46,7 +46,7 @@ define("_SUCCESSREGISTER","V-aţi înregistrat cu succes");//You have registered
 define("_LESSONSREGISTRATION","Înregistrarea pentru lecţie");//Lesson registration
 define("_YOUREMAIL","Adresa dvs. de e-mail");//Your Email 
 define("_MESSAGESUBJECT","Subiectul mesajului");//Message subject
-define("_PASSWORDLEAVEBLANK","Parola (necompletat, pentru a lăsa nemodificat)");//Password (blank to leave unchanged)#####################
+define("_PASSWORDLEAVEBLANK","Parola (necompletat, pentru a lăsa nemodificat)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Datele personale au fost modificate cu succes");//Your personal info has been successfully altered
 define("_REGISTRATIONDATE","Data înregistrării");//Registration date
 define("_SAVECHANGES","Salvaţi modificările");//Save
@@ -60,7 +60,7 @@ define("_LESSONS","Lecţii");//Lessons
 define("_RECREATESEARCHTABLE","Recreează tabelul de căutare");//Recreate search table
 define("_LESSONSREGISTRATIONS","Înregistrări ale lecţiei");//Lesson registrations
 define("_TOOLS","Instrumente");//Tools
-define("_ONLINEUSERS","Utilizatori conectaţi");//Connected users
+define("_ONLINEUSERS","Utilizatori conectaţi");//Connected
 define("_DATE","Dată");//Date
 define("_STUDENT","Student");//Student
 define("_LINE","Linie");//Line
@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Introduceţi opţiunile multiple");//Insert t
 define("_INSERTEXPLANATION","Introduceti o explicaţie");//Insert explanation
 define("_THISQUESTIONIS","Această întrebare este");//This question is
 define("_CREATEEMPTYSPACES","Creaţi spaţii libere");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Scriţi textul întrebării şi oriunde aveţi nevoie să inseraţi un spaţiu gol, introduceţi ###. Când aţi terminat, faceţi clic pe butonul de mai jos \"Creare spatii libere\" ");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Scriţi textul întrebării şi oriunde aveţi nevoie să inseraţi un spaţiu gol, introduceţi ###. Când aţi terminat, faceţi clic pe butonul de mai jos \"Creare spatii libere\" ");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Inserare perechi de potrivire");//Insert matching pairs
 define("_ADDOPTION","Adăugare opţiune");//Add option
 define("_GOTOCALENDAR","Du-te la calendar");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","O parte dintre unităţi au fost văzute");//Seen a f
 define("_SPECIFICUNIT","O unitate specifică a fost văzută");//Seen a specific unit
 define("_PASSEDALLTESTS","Toate testele au fost promovate");//Passed all tests
 define("_SPECIFICTEST","Un test specific a fost promovat");//Passed a specific test
-define("_INVALIDCONDITION","Condiţie nevalidă");//Invalid condition
+define("_INVALIDCONDITION","Condiţie nevalidă");//Invalid rule
 define("_THEUSERMUSTHAVE","Studentul trebuie să aibă");//The student must have
 define("_UNITSPERCENTAGE","Procente");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Condiţie adăugată cu succes");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Condiţie actualizată cu succes");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Condiţie ştearsă cu succes");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Condiţie adăugată cu succes");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Condiţie actualizată cu succes");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Condiţie ştearsă cu succes");//Successfully deleted rule
 define("_LESSONCONDITIONS","Reguli de terminare a lecţiei");//Lesson completion rules
-define("_ADDCONDITION","Adăugare condiţie");//Add condition
-define("_CONDITION","Condiţie");//Condition
-define("_CONDITIONTYPE","Tip de condiţie");//Condition type
+define("_ADDCONDITION","Adăugare condiţie");//Add completion rule
+define("_CONDITION","Condiţie");//Completion rule
+define("_CONDITIONTYPE","Tip de condiţie");//Rule type
 define("_RELATIONTOOTHERS","Relaţia cu alţii");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Mergeţi la începutul paginii");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Mergeţi la partea de jos a paginii");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Sistem");//System
 define("_EMAILCONFIGURATIONS","Configuraţie server de e-mail");//Emails server configuration
 define("_SAWUNIT","Setaţi unitatea drept completată");//Set the unit as completed
 define("_NOTSAWUNIT","Setaţi unitatea drept necompletată");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Condiţii de completare");//Conditions completed
+define("_CONDITIONSCOMPLETED","Condiţii de completare");//Completion rules completed
 define("_OUTOF","din");//out of
 define("_LESSONPROGRESS","Progres lecţie");//Lesson progress
 define("_YOUMUSTSEEUNIT","Trebuie să completaţi unitatea");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Trebuie completat");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Trebuie să completaţi toate testele spun cu scorul minim de");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Trebuie să completaţi testul");//You must complete test
 define("_WITHSCORE","cu scorul de");//with score
-define("_NOCONDITIONSSET","Nu există condiţii stabilite pentru această lecţie");//There are no conditions set for this lesson
-define("_CONDITIONS","condiţii");//conditions
+define("_NOCONDITIONSSET","Nu există condiţii stabilite pentru această lecţie");//There are no completion rules set for this lesson
+define("_CONDITIONS","condiţii");//completion rules
 define("_RESUMELESSON","Reia lecţia");//Resume lesson
 define("_STARTLESSON","Start lecţie");//Start lesson
 define("_TRACKING","Urmărire");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","A intervenit o problemă în timpul c
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Şablonul de certificat a fost şters cu succes");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","A intervenit o problemă în timpul ştergerii şablonului de certificat");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Nu aveţi drepturi pentru a modifica acest şablon de certificat");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Editare condiţie");//Edit condition
+define("_EDITCONDITION","Editare condiţie");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","Configuraţie server SMTP");//SMTP server configuration
 define("_SMTPSERVER","Server SMTP");//SMTP server
 define("_SMTPPASSWORD","Parola SMTP");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Câmpul a fost actualizat");//The field was updated
 define("_LESSONSCORE","Calificativul lecţiei");//Lesson score
 define("_COMPLETED","Finalizat");//Completed
 define("_NOTCOMPLETED","Nefinalizat");//Not completed
-define("_CONDITIONSMET","Condiţii îndeplinite; se aşteaptă aprobarea");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Condiţii îndeplinite; se aşteaptă aprobarea");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Starea lecţiei studentului a fost schimbată cu succes");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Trebuie să fie numeric");//Must be numeric
 define("_DEFAULTCERTIFICATE","Platforma e-learning certifică faptul că \n\n #user_name# #user_surname# \n\n a încheiat cu succes \n #course_name# \n cu calificativul \n\n #grade# \n\nAcest certificat a fost eliberat pe data de #date#");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Nu a putut fi trimis");//Could not be sent
 define("_ENVIRONMENTALCHECK","Verificare sistem");//Environmental check
 define("_REPAIRTREE","Restabilire arbore");//Restore tree
 define("_RULEPROPERTIES","Proprietăţile regulii");//Rule properties
-define("_CONDITIONPROPERTIES","Proprietăţile condiţiei");//Condition properties
+define("_CONDITIONPROPERTIES","Proprietăţile condiţiei");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Verificare directoare lecţii orfane");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Lecţii fără a verifica directoarele");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Următoarele directoare nu au o lecţie asociată");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Salvare întrebare şi creare întrebare nou
 define("_SAVEASNEWQUESTION","Salvare ca întrebare nouă");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Sondajul a fost actualizat cu succes");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Aţi completat tot conţinutul");//You have completed all content
-define("_CONDITIONMET","Condiţie îndeplinită");//Condition met
-define("_CONDITIONNOTMET","Condiţie neîndeplinită");//Condition not met
+define("_CONDITIONMET","Condiţie îndeplinită");//Completion rules met
+define("_CONDITIONNOTMET","Condiţie neîndeplinită");//Completion rules met
 define("_OLDMODULES","Module vechi");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","Extensia PHP LDAP nu este încărcată");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Se îndeplinesc condiţiile de completare a lecţiei. Această lecţie trebuie să fie marcată completată de către profesor");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Se îndeplinesc condiţiile de completare a lecţiei. Această lecţie trebuie să fie marcată completată de către profesor");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Lecţie completă");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Certificat emis cu succes");//Certificate issued successfully
 define("_NOTITLE","Nici un titlu");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","parola contului LDAP");//LDAP account password
 define("_USELDAPACCOUNT","Folosiţi datele de cont LDAP pentru a utiliza sistemul");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Se permit doar înregistrări folosind un cont valid LDAP");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","este, în general disponibil");//is generally available
-define("_DELETECONDITION","Ştergere condiţie");//Delete condition
+define("_DELETECONDITION","Ştergere condiţie");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Postare mesaj pe forum pentru această unitate");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto-completare");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Nu puteţi folosi de două ori aceeaşi lecţie într-o regulă");//You can&#039;t use twice the same lesson in a rule
@@ -1505,7 +1505,7 @@ define("_VACANCIES","Poziţii disponibile");//Available placements
 define("_AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION","Sunteţi sigur(ă) că doriţi să eliminaţi această descriere de loc de muncă?");//Are you sure you want to remove that job position?
 define("_JOBDESCRIPTIONDATA","Descrierea postului");//Job position data
 define("_HAVINGJOBDESCRIPTION","având poziţia");// having the job position 
-define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "Nu există utilizatori asignaţi la această descriere a postului");
+define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "No users are currently assigned to this job position");
 define("_SUCCESSFULLYCREATEDJOBDESCRIPTION","S-a creat cu succes descrierea postului");//Successfully created job position
 define("_JOBDESCRIPTIONCOULDNOTBECREATED","Descrierea postului nu a putut fi creată");//Job position could not be created
 define("_JOBDESCRIPTIONDATAUPDATED","Datele despre descrierea postului au fost actualizate cu succes");//Job position data were successfully updated
@@ -1531,7 +1531,7 @@ define("_NOSKILLSREGISTEREDASPREREQUISITES","Nici o calificare înregistrată dr
 define("_SATISFYANYCRITERIA","Satisfacerea oricărui criteriu");//Satisfy any criteria
 define("_SATISFYALLCRITERIA","Satisfacerea tuturor criteriilor");//Satisfy all criteria
 define("_WORKINGATBRANCH","Grupul de lucru la filială");//Working at branch
-define("_WITHJOBDESCRIPTION" ,"Cu poziţia");
+define("_WITHJOBDESCRIPTION" ,"With job position");
 define("_FINDEMPLOYEES","Găsiţi utilizatori");//Find users
 define("_WITHSKILL","Cu deprinderea");//With skill
 define("_EMPLOYEESFULFILLINGCRITERIA","Utilizatorii care îndeplinesc criteriile");//Users fulfilling the criteria
@@ -1611,11 +1611,11 @@ define("_ADVANCED","Criterii avansate");//Advanced criteria
 define("_MYSTUDENTS","Studenţii mei");//My students
 define("_EMPLOYEE","Utilizator");//User
 define("_NOBRANCHJOBSERROR","Nu au fost înregistrate descrieri de locuri de muncă pentru această ramură");//No job positions have been registered for this branch
-define("_TESTSTATISTICS","Rapoarte de teste");//Tests reports
+define("_TESTSTATISTICS","Rapoarte de teste");//Test reports
 define("_CHOOSETEST","Alegere test");//Choose test
 define("_USERPROFILE","Profilul utilizatorului");//Public profile
 define("_VIEWBRANCHES","Vezi ramuri");//View branches
-define("_NOEMPLOYEESFOUND","Nu au fost găsiţi angajaţi");//No users were found
+define("_NOEMPLOYEESFOUND","Nu au fost găsiţi angajaţi");//No users found
 define("_SEARCHEMPLOYEE","Caută angajaţi");//Find users
 define("_ALLBRANCHES","Toate sucursalele");//All branches
 define("_ANSWERS","Răspunsuri");//Answers
@@ -2234,7 +2234,7 @@ define("_AUTOMATICALLYASSIGNTOALLNEWSTUDENTS","Atribuire automată tuturor noilo
 define("_SKILLGAPTESTSTOBECOMPLETED","Testele diferenţelor de îndemânare pentru completat");//Skill gap tests to be completed
 define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLY","Testul diferenţelor de îndemânare finalizat cu succes");//Skill gap test completed successfully
 define("_RELEVANCE","Relevanţa");//Relevance
-define("_KNOWLEDGEOFLESSON" , "Cunoştinţe de lecţie");
+define("_KNOWLEDGEOFLESSON" , "Knowledge of lesson");
 define("_KNOWLEDGEOFCOURSE","Cunoştinţe de curs");//Knowledge of course
 define("_NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS","Nu sunt corelate îndemânări cu întrebările testului");//No skills correlated with the test&#039;s questions
 define("_OPENFILEMANAGER","Deschidere manager fişiere");//Open file manager
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Completaţi tes
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Aţi completat toate testele pentu diferenţe de îndemânare. <br> Vă rugăm să aşteptaţi pînă când profesorii dvs. vă vor atribui cele mai potrivite cursuri în funcţie de nevoile dumneavoastră.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Rezultatele dvs. au fost trimise profesorilor dvs. care vă vor atribui în curând cursuri în funcţie de nevoile identificate prin acest test");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Plasamente de locuri de muncă");//Job placements
-define("_NEWJOBPLACEMENT","Noi plasamente de locuri de muncă");//New job placements
+define("_NEWJOBPLACEMENT","Noi plasamente de locuri de muncă");//New job placement
 define("_UPGRADEMODULE","Actualizare modul");//Upgrade module
 define("_NEWUNITOPTIONS","Opţiuni ale noii unităţi");//New unit options
 define("_UNITOPTIONSFOR","Opţiuni pentru unitate");//Options for unit
@@ -2451,8 +2451,8 @@ define("_ROOMSUCCESSFULLYDELETED","Cameră ştearsă cu succes");//Room successf
 define("_LESSONROOMSCANNOTBEDELETED","Camerele lecţiilor nu pot fi şterse");//Lesson rooms cannot be deleted
 define("_CHANGESIDEBARWIDTH","Schimbare lăţime bară laterală");//Change sidebar width
 define("_SIDEBARWIDTH","Lăţime bara laterală");//Sidebar width
-define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Valoarea prezentată nu este numerică!");
-define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Valorile barei laterale trebuie să fie între");
+define("_VALUESUBMITTEDISNOTNUMERICAL" ,"Value submitted is not numerical!");
+define("_SIDEBARVALUESMUSTBEBETWEEN" ,"Sidebar values must be between");
 define("_ACTIVATEEFRONTCHAT","Activare chat");//Activate chat
 define("_DEACTIVATEEFRONTCHAT","Dezactivare chat");//Deactivate chat
 define("_ENABLEMATHCONTENT","Activare introducere de conţinut matematic");//Enable mathematic type content
@@ -2488,7 +2488,7 @@ define("_FORTHEJOBDESCRIPTION","pentru locul de muncă");//for the job position
 define("_ADMINISTRATORSNOJOBDESCRIPTIONS","Nu le pot fi atribuite locuri de muncă administratorilor");//Administrators can not be assigned with jobs
 define("_SUGGESTSKILLSACCORDINGTOLESSONS","Sugestii de aptitudini în funcţie de lecţiile de care aparţine întrebarea");//Suggest skills according to the lessons the question belongs
 define("_NOSKILLSTOPROPOSE","Nu au fost găsite aptitudini pentru sugestii");//No skills were found for suggestion
-define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"Toate aptitudinile propuse sunt deja corelate");
+define("_ALLPROPOSEDSKILLSAREALREADYCORRELATED" ,"All proposed skills are already correlated");
 define("_ADDITIONALFOOTER","Subsol adiţional");//Additional footer
 define("_YOUHAVECOMPLETEDTHELESSON","Aţi completat lecţia");//You have completed the lesson
 define("_RECURRINGPAYMENTS","Plăţi recursive");//Recurring payments
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Notă: dvs. revizitaţi ac
 define("_ACTIONONRENTRYCOMPLETED","Acţiunea la re-completare");//Action on re-entry
 define("_LETCONTENTDECIDE","Lăsaţi conţinutul să decidă");//Let content decide
 define("_DONTCHANGE","Lăsaţi neschimbat");//Leave unchanged
-define("_DASHBOARD","Tablou de bord");//my Dashboard
+define("_DASHBOARD","Tablou de bord");//Dashboard
 define("_MYWALL","Peretele meu");//My wall
 define("_RELATEDPEOPLE","Persoane asociate");//Related people
 define("_LEARNINGACTIVITY","Activitate de învăţare");//Learning activity
@@ -2667,7 +2667,7 @@ define("_GOTOMYPROFILE","Du-te la profilul meu");//Go to my profile
 define("_GOTOPEOPLELIST","Du-te la lista de persoane");//Go to people&#039;s list
 define("_PEOPLE","Persoane");//People
 define("_EVERYONE","Fiecare");//Everyone
-define("_RECENTLYCHANGED" ,"Status schimbat recent");
+define("_RECENTLYCHANGED" ,"Recently changed status");
 define("_RELATEDTOCURRENTLESSON","Relaţionat cu lecţia curentă");//Related to current lesson
 define("_NORELATEDPEOPLEFOUND","Nu s-au găsit de persoane asociate");//No related people found
 define("_ADDCOMMENTTOMYPROFILE","Adaugă comentariu la profilul meu");//Add comment to my profile
@@ -2699,7 +2699,7 @@ define("_DELETEMESSAGEFORLESSONTIMELINETOPIC","Ştergere mesaj la subiectul lec�
 define("_DELETEDAPOSTFORLESSONTOPIC","S-a eliminat un mesaj la subiectul lecţiei");//Deleted a post for lesson topic
 define("_TOPICPOSTDOESNOTEXISTANYMORE","Mesajul la subiectul lecţiei nu mai există");//Lesson topic post does not exist any more
 define("_LESSONTIMELINETOPICDELETED","Subiect lecţiei a fost şters cu succes");//Lesson topic successfully deleted
-define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC","Sunteţi sigur că doriţi să ştergeţi subiectul şi toate mesajele din subiectul lecţiei");
+define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" , "Are you sure you want to delete the topic and all posts of lesson topic");
 define("_GOTOCOMPLETESYSTEMTIMELINE","Du-te la cronologia completă a sistemului");//Goto complete system timeline
 define("_SYSTEMTIMELINE","Cronologia sistemului");//System timeline
 define("_LOGOWIDTH","Lăţime logo");//Logo width
@@ -2962,8 +2962,8 @@ define("_NEWTOPICPUBLISHEDINTHEFORUMOF","Un subiect nou a fost publicat în foru
 define("_NEWMESSAGEPOSTFORFORUM","Mesaj nou postat în forumul de");//New message posted in the forum of
 define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","Un mesaj nou a fost postat pe forumul de");//A new messages has been posted in the forum of
 define("_CHANGEINUNIT","Schimbare în unitatea");//Change in unit
-define("_UNITTITLED" , "Unitatea numită");
-define("_HASBEENMODIFIEDAS" ,"a fost modificat(ă) după cum urmează");
+define("_UNITTITLED" , "The unit titled");
+define("_HASBEENMODIFIEDAS" ,"has been modified as follows");
 define("_SHOWCURRENCYSYMBOLBEFOREPRICE","Arată simbolul monezii înainte de preţ");//Show currency symbol before price
 define("_CERTIFICATEEXPIRED","Certificat expirat");//Certificate expired
 define("_CERTIFICATEISSUEDON","Certificat eliberat pe");//Certificate issued on
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Fişierul încărcat nu este o imagine");//The uploade
 define("_COMMENT","Comentează");//Comment
 define("_COMMENTPROPERTIES","Proprietăţi comentariu");//Comment properties
 define("_EDITCOMMENT","Editare comentariu");//Edit comment
-define("_EDITCONDITIONS","Editare condiţii");//Edit conditions
+define("_EDITCONDITIONS","Editare condiţii");//Edit rules
 define("_EDITINFORMATION","Editare informaţii");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Opţiuni pentru modulul Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Expeditor");//Sender
 define("_ORIGINALMESSAGE","Mesaj original");//Original message
 define("_PRIORITY","Prioritate");//Priority
 define("_PLEASEPICKANOPTION","Vă rugăm să alegeţi o opţiune");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Condiţii de finalizare îndeplinite, confirmare în aşteptare");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Condiţii de finalizare îndeplinite, confirmare în aşteptare");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Progres global");//Overall progress
 define("_THEORYPROGRESS","Progres teorie");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Calificativul mediu al testului (numărând ultima execuţie a fiecărui test)");//Average test score (counting each test's last execution)
@@ -3315,7 +3315,7 @@ define("_NOTIFICATIONTIME","Timp");//Time
 define("_RESEND","Retrimitere e-mail");//Resend email
 define("_CERTIFICATESTATISTICS","Rapoarte certificate");//Certificate reports
 define("_WANTUSERSCERTIFICATEDALLCOURSES","Utilizatorii care luat o certificare pentru orice curs");//Users that got a certification for any course
-define("_EVENTSTATISTICS","Rapoarte evenimente");//Events reports
+define("_EVENTSTATISTICS","Rapoarte evenimente");//Event reports
 define("_EVENTSMATCHINGTHECRITERIA","Evenimente potrivite criteriilor");//Events matching criteria
 define("_NOEVENTSFOUND","Nici un eveniment nu se potriveşte criteriului de căutare");//No events match your search criteria
 define("_VISITEDTHESYSTEM","a vizitat sistemul");//visited the system
@@ -3353,7 +3353,7 @@ define("_WASREMOVEDFROMGROUP","a fost eliminat din grup");//was removed from gro
 define("_ONNEWSKILL","Asignare îndemânare");//Skill assignment
 define("_WASASSIGNEDSKILL","i-a fost atribuit(ă) calificarea");//was assigned skill
 define("_ONSKILLREMOVAL","Suprimare îndemânare");//Skill removal
-define("_DOESNOTHAVEANYMORESKILL","nu are mai îndemânarea");//does not have anymore skill
+define("_DOESNOTHAVEANYMORESKILL","nu are mai îndemânarea");//does not have anymore the skill
 define("_ONSKILLEDIT","Au fost editate îndemânările utilizatorului");//User skill edited
 define("_HADHISSKILLEDITEDTO","are o descriere nouă pentru calificare");//has a new description for skill
 define("_ONHCDHIRED","Utilizator angajat");//User hired
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Tip de operaţiune nesuportată");//Unsuppor
 define("_DUPLICATECOMPLETEDPAYMENT","Plată finalizată duplicat");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Status de plată nesuportat");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Aţi anulat tranzacţia");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Tranzacţia a fost finalizată cu succes.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Tranzacţia a fost finalizată cu succes.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Modul de depanare Paypal");//Paypal debug mode
 define("_MYACCOUNT","Contul meu");//my Account
 define("_MODULE","Modul");//Module
@@ -3592,7 +3592,7 @@ define("_SHOWHELP","Afişează link-uri pentru ajutor");//Display help links
 define("_ALLOWUSERANSERALLRONG","Permiteţi elevilor să refacă numai întrebăile cu răspuns greşit");//Allow students to redo only the wrong answered questions
 define("_ALLOWANSWERWRONGINFO","Numai dacă repetiţiile de test sunt permise");//Only if test repetitions are allowed
 define("_USERREDOWRONG","Refaceţi numai răspunsurile greşite");//Redo only wrong answered
-define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema implicită nu poate fi importată");//Default theme can not be inported
+define("_DEFAULTTHEMECANNOTBEIMPORTED","Tema implicită nu poate fi importată");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Acces expirat");//Access expired
 define("_LESSONSCHEDULE","Programare lecţii");//Lessons schedule
 define("_COURSESTARTSAT","Cursul începe pe data de");//The course starts on
@@ -3805,7 +3805,7 @@ define("_FREELESSONSANDCOURSESWHEREASSIGNEDPLEASEREVIEWNONFREE","Ai fost înscri
 define("_SUPERVISORS","Supervizori");//Supervisors
 define("_COURSEOPTIONS","Opţiuni de curs");//Course options
 define("_RESETEXECUTIONSFORALLUSERS","Resetare execuţii pentru toţi utilizatorii");//Reset executions for all users
-define("_ADVANCEDUSERREPORTS","Generator de rapoarte utilizatori");//Users reports generator
+define("_ADVANCEDUSERREPORTS","Generator de rapoarte utilizatori");//User reports generator
 define("_ADDTOGROUP","Adaugă la grup");//Add to group
 define("_ASSIGNCOURSE","Atribuire curs");//Assign course
 define("_ASSIGNLESSON","Atribuire lecţie");//Assign lesson
@@ -3955,7 +3955,7 @@ define("_RESULTSFOR","Rezultate pentru");//Results for
 define("_THANKYOUFORCOMPLETING","Vă mulţumim pentru completare");//Thank you for completing
 define("_NOREPORTSFOUNDINTHESYSTEM","Nu au fost găsite rapoarte în sistem");//No reports found in the system
 define("_YOUMAYCREATEONE","Puteţi crea unul");//You may create one
-define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nu puteţi schimba modul lecţiei pentru că există utilizatori înscrişi la curs");//You cannot change lesson mode because there are users enrolled to the course (New)
+define("_YOUCANNOTCHANGEMODECOURSENOTEMPTY","Nu puteţi schimba modul lecţiei pentru că există utilizatori înscrişi la curs");//You cannot change lesson mode because there are users enrolled to the course
 define("_YOUCANNOTREMOVETHELASTELEMENT","Nu se poate elimina ultimul element");//You cannot remove the last element
 define("_CONTAINS","Conţine");//Contains
 define("_NOTCONTAINS","Nu conţine");//Does not contain
@@ -3966,9 +3966,9 @@ define("_AUTOCORRECTOPTIONS","opţiuni Auto-corectă");//Auto-correct options
 define("_QUESTIONCORRECTION","Întrebare corecţie");//Question correction
 define("_SEPARATEWORDSWITHPIPE","cuvinte separate cu ţeavă |");//Separate words with pipe |
 define("_POINTS","Puncte");//Points
-define("_THEUSERDOESNOTHAVETHISCOURSE","Utilizatorul nu are acest curs");//The user does not have this course (New)
-define("_THEUSERDOESNOTHAVETHISLESSON","Utilizatorul nu are această lecţie");//The user does not have this lesson (New)
-define("_USERACCESSGRANTED","Accesul utilizatorului este permis");//User access granted (New)
+define("_THEUSERDOESNOTHAVETHISCOURSE","Utilizatorul nu are acest curs");//The user does not have this course
+define("_THEUSERDOESNOTHAVETHISLESSON","Utilizatorul nu are această lecţie");//The user does not have this lesson
+define("_USERACCESSGRANTED","Accesul utilizatorului este permis");//User access granted
 define("_FORCECHANGEPASSWORD","Vigoare schimbe parola la conectare iniţială");//Force password change upon initial login
 define("_CHANGEPASSWORD","Schimbare parolă");//Change password
 define("_OLDPASSWORD","Vechi parola");//Old password
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","SCORM comunicare asincronă");//Asynchronous SCORM
 define("_SCORMASYNCHRONOUSEXPLANATION","Comutaţi la comunicare asincrone, dacă aveţi probleme la completarea conţinut SCORM (mai ales în cazul în care sunt utilizaţi Adobe Captivate continut generat)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Atentie: Plăţile Dezactivarea va stabili toate preturile la 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Multiple opţiuni de");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Sesiunea dvs. a expirat. Vă rugăm să");//Your session has expired. Please (New)
-define("_CLICKHERE","click aici");//click here (New)
-define("_TOLOGINAGAIN","sa va logati din nou");//to login again (New)
-define("_SESSIONEXPIRED","Sesiunea a expirat");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Sesiunea dvs. a expirat. Vă rugăm să");//Your session has expired. Please
+define("_CLICKHERE","click aici");//click here
+define("_TOLOGINAGAIN","sa va logati din nou");//to login again
+define("_SESSIONEXPIRED","Sesiunea a expirat");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","lista separata prin virgula de utilizatori pentru a afişa informaţii cu privire la depanare, sau 1 pentru toţi utilizatorii");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Ian");//Jan (New)
+define("_FEBRUARYSHORTHAND","Februarie");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","Aprilie");//Apr (New)
+define("_MAYSHORTHAND","Poate");//May (New)
+define("_JUNESHORTHAND","Iunie");//Jun (New)
+define("_JULYSHORTHAND","Iulie");//Jul (New)
+define("_AUGUSTSHORTHAND","August");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Septembrie");//Sep (New)
+define("_OCTOBERSHORTHAND","Octombrie");//Oct (New)
+define("_NOVEMBERSHORTHAND","Noiembrie");//Nov (New)
+define("_DECEMBERSHORTHAND","Decembrie");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Nu puteţi accesa resursele solicitate");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Vă rugăm să selectaţi o fişă a postului");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Editare de plasare de locuri de muncă");//Edit job placement (New)
+define("_NORESPONSE","&lt;No response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Cont");//Account (New)
+define("_ORGANIZATIONALDATA","Organizatorice profil");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank a lăsa neschimbat");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Introduceţi valoarea opţiunii sau numărul său, pornind de la 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Ascunde supraveghetor de la utilizatori");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Ascunde de locuri de muncă de la utilizatori");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Trebuie să specificaţi o valoare implicită pentru elementele obligatorii");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Utilizaţi data curentă");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Considerare schimbările");//Account change (New)
+define("_USERSCANCHANGEPASS","Schimbare parolă");//Password change (New)
+define("_VIEWFEEDBACK","Vezi feedback");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Arată întrebări incomplete în fiecare execuţie");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Păstra cel mai bun scor");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Scorul mediu al test (de numărare de executie pentru fiecare test utilizator)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","scor privind executarea active");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Dacă specificaţi un cuvânt care se termină cu un asterisc (*), numai prima sa parte vor fi luate în considerare. De exemplu, dacă specificaţi 'invata *', atunci ambele 'învăţare' şi 'să înveţe', vor fi considerate corecte.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Curs lecţie normele");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Reguli între cursuri");//Rules between courses (New)
+define("_COURSEDEPENDSON","Depinde, bineînţeles,");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Nu puteţi seta cursul ca o condiţie de sine");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","alternative Afişare în caseta selectaţi");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Verificarea aceasta va afişa o casetă listă cu toate alternativele, în loc de o casetă text. În acest caz, numai prima opţiune este considerat corect");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Arată răspunsurile corecte numai dacă studentul a trecut testul");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Setări Checker");//Settings checker (New)
+define("_CHECKBROWSER","Verificarea browser");//Checking browser (New)
+define("_CHECKRESOLUTION","Verificarea rezoluţia ecranului");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Verificarea pentru popup blocker");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Verificarea Cookie de stat ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Verificarea pentru Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Verificarea pentru Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 detectate. Acest browser este învechit şi funcţionalităţi pot fi afectate");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Din păcate, browser-ul pe care îl utilizaţi nu este acceptată");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","rezoluţia ecranului nu îndeplineşte cerinţele minime de");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","popup blocker detectate. Vă rugăm să permiteţi popup-uri pentru acest site şi să încercaţi din nou");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookie-urile par a fi dezactivat. Vă rugăm să activaţi cookies");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash nu este instalat, din data");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader nu este instalat");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Verificarea Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript nu este activat în browser-ul dvs.");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Trebuie să aveţi activat de e-mail de activare supraveghetor de la setările de sistem");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Gama de la Anul");//Year range from (New)
+define("_YEARRANGETO","Gama de Anul");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Numele grupului descriere");//Group name description (New)
+define("_GROUPINFORMATION","Grupul de informaţii");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Constrângere acces la conţinutul fişierelor pentru utilizatorii autentificaţi");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Comprimare rezultatele testului în baza de date");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Activităţi de întreţinere");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Click aici pentru a comprima teste finalizate");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Click aici pentru a decomprima teste finalizate");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Comprima");//Compress (New)
+define("_DATABASETASKS","Baza de date sarcini");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Vă rugăm să backup de date înainte de comprimarea / decomprimarea testele completate");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Configurare");//Configuration (New)
+define("_SYSTEMOPTIONS","Sistemul de opţiuni");//System options (New)
+define("_CASUAL","Ocazional");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Nu puteţi accesa informaţiile acestui utilizator");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Activează tastatură virtuală");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Fişierul pare a fi gol. Poate că nu este formatat corect?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificat programate expirare");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Test parola");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ne pare rău, nu aveţi acces la această ramură");//Sorry, you do not have access to this branch (New)
 ?>

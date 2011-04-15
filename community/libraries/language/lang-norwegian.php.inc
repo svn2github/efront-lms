@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Sett inn flere valg");//Insert the multiple c
 define("_INSERTEXPLANATION","Sett forklaring");//Insert explanation
 define("_THISQUESTIONIS","Dette spørsmålet er");//This question is
 define("_CREATEEMPTYSPACES","Opprett tom mellomrom");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Skriv spørsmålet tekst og hvor du trenger å sette inn en tom plass, sette inn # # #. Når du er ferdig, klikker du på \"Opprett tomt mellomrom\"-knappen nedenfor");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Skriv spørsmålet tekst og hvor du trenger å sette inn en tom plass, sette inn # # #. Når du er ferdig, klikker du på \"Opprett tomt mellomrom\"-knappen nedenfor");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Sett inn søkeord parene");//Insert matching pairs
 define("_ADDOPTION","Legg til alternativet");//Add option
 define("_GOTOCALENDAR","Gå til kalenderen");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Sett en brøkdel av enheter");//Seen a fraction of un
 define("_SPECIFICUNIT","Sett en bestemt enhet");//Seen a specific unit
 define("_PASSEDALLTESTS","Bestått alle tester");//Passed all tests
 define("_SPECIFICTEST","Bestått en bestemt test");//Passed a specific test
-define("_INVALIDCONDITION","Ugyldig tilstand");//Invalid condition
+define("_INVALIDCONDITION","Ugyldig tilstand");//Invalid rule
 define("_THEUSERMUSTHAVE","Studenten må ha");//The student must have
 define("_UNITSPERCENTAGE","Prosentvis");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Lagt tilstand");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Oppdatert tilstand");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Slettet tilstand");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Lagt tilstand");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Oppdatert tilstand");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Slettet tilstand");//Successfully deleted rule
 define("_LESSONCONDITIONS","Leksjon ferdigstillelse betingelser");//Lesson completion rules
-define("_ADDCONDITION","Legg til betingelse");//Add condition
-define("_CONDITION","Tilstand");//Condition
-define("_CONDITIONTYPE","Tilstand type");//Condition type
+define("_ADDCONDITION","Legg til betingelse");//Add completion rule
+define("_CONDITION","Tilstand");//Completion rule
+define("_CONDITIONTYPE","Tilstand type");//Rule type
 define("_RELATIONTOOTHERS","Forhold til andre");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Bla til toppen av siden");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Bla til bunnen av siden");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","System");//System
 define("_EMAILCONFIGURATIONS","E-post server konfigurasjon");//Emails server configuration
 define("_SAWUNIT","Sett enheten som avsluttet");//Set the unit as completed
 define("_NOTSAWUNIT","Sett enhet som ikke fullført");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Betingelser avsluttet");//Conditions completed
+define("_CONDITIONSCOMPLETED","Betingelser avsluttet");//Completion rules completed
 define("_OUTOF","ut av");//out of
 define("_LESSONPROGRESS","Leksjon fremgang");//Lesson progress
 define("_YOUMUSTSEEUNIT","Du må se enhet");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Du må se");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Du må fullføre alle testene med bety scorer");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Du må fullføre test");//You must complete test
 define("_WITHSCORE","med poengsummen");//with score
-define("_NOCONDITIONSSET","Det er ingen betingelser satt for denne leksjonen");//There are no conditions set for this lesson
-define("_CONDITIONS","betingelser");//conditions
+define("_NOCONDITIONSSET","Det er ingen betingelser satt for denne leksjonen");//There are no completion rules set for this lesson
+define("_CONDITIONS","betingelser");//completion rules
 define("_RESUMELESSON","Fortsett leksjon");//Resume lesson
 define("_STARTLESSON","Start leksjon");//Start lesson
 define("_TRACKING","Sporing");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Det oppstod et problem mens kloning s
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Sertifikat malen ble slettet");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Det oppstod et problem under sletting sertifikatmal");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Du har ikke rettighetene til å endre dette sertifikatet malen");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Rediger tilstand");//Edit condition
+define("_EDITCONDITION","Rediger tilstand");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP server konfigurasjon");//SMTP server configuration
 define("_SMTPSERVER","SMTP-server");//SMTP server
 define("_SMTPPASSWORD","SMTP-passord");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Feltet ble oppdatert");//The field was updated
 define("_LESSONSCORE","Leksjon scorer");//Lesson score
 define("_COMPLETED","Fullført");//Completed
 define("_NOTCOMPLETED","Ikke fullført");//Not completed
-define("_CONDITIONSMET","Vilkår er oppfylt og venter på godkjenning");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Vilkår er oppfylt og venter på godkjenning");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Student leksjon status endret");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Må være numeriske");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront eLearning plattform organisasjonen erklærer at bruker_navn # # # # user_surname har fullført # # course_name med karakteren # klasse # Dette sertifikatet ble utstedt på # dato #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Kunne ikke bli sendt");//Could not be sent
 define("_ENVIRONMENTALCHECK","Environmental sjekk");//Environmental check
 define("_REPAIRTREE","Gjenopprett treet");//Restore tree
 define("_RULEPROPERTIES","Regel egenskaper");//Rule properties
-define("_CONDITIONPROPERTIES","Tilstand egenskaper");//Condition properties
+define("_CONDITIONPROPERTIES","Tilstand egenskaper");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Frittstående leksjon mapper sjekk");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Lessons uten mapper sjekk");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Følgende mapper ikke har en leksjon knyttet");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Lagre spørsmål og opprette en ny");//Save 
 define("_SAVEASNEWQUESTION","Lagre som nytt spørsmål");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Avstemningen ble oppdatert");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Du har fullført alt innhold");//You have completed all content
-define("_CONDITIONMET","Tilstand oppfylt");//Condition met
-define("_CONDITIONNOTMET","Tilstand ikke møtt");//Condition not met
+define("_CONDITIONMET","Tilstand oppfylt");//Completion rules met
+define("_CONDITIONNOTMET","Tilstand ikke møtt");//Completion rules met
 define("_OLDMODULES","Old moduler");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","The PHP LDAP extension er ikke lastes");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Du oppfyller leksjon fullstendige vilkår. Denne lærdommen må være angitt som avsluttet av professor");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Du oppfyller leksjon fullstendige vilkår. Denne lærdommen må være angitt som avsluttet av professor");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Leksjon komplett");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Vitnemål utstedes vellykket");//Certificate issued successfully
 define("_NOTITLE","Ingen tittel");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP passord");//LDAP account password
 define("_USELDAPACCOUNT","Bruk LDAP-kontoen din påloggingsinformasjon for å kunne bruke systemet");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Kun registrering ved hjelp av en gyldig LDAP-konto er tillatt");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","er tilgjengelig");//is generally available
-define("_DELETECONDITION","Slett tilstand");//Delete condition
+define("_DELETECONDITION","Slett tilstand");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Post forum for denne enheten");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto komplett");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Du kan ikke bruke to ganger samme leksjon i en regel");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Fullføre dykti
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Du har fullført alle faglige gapet testene er tilordnet til deg. <br> Vent til din professorer gir deg den mest egnede kurs etter behov.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Resultatene er sendt til professorer som snart vil tildele kurs til i henhold til dine behov som er identifisert fra denne testen");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Jobb plasseringer");//Job placements
-define("_NEWJOBPLACEMENT","Ny jobb plasseringer");//New job placements
+define("_NEWJOBPLACEMENT","Ny jobb plasseringer");//New job placement
 define("_UPGRADEMODULE","Oppgrader modulen");//Upgrade module
 define("_NEWUNITOPTIONS","Ny enhet alternativer");//New unit options
 define("_UNITOPTIONSFOR","Alternativer for enhet");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Merk: Du er revisiting den
 define("_ACTIONONRENTRYCOMPLETED","Handling på ny oppføring");//Action on re-entry
 define("_LETCONTENTDECIDE","La innhold bestemme");//Let content decide
 define("_DONTCHANGE","La være uforandret");//Leave unchanged
-define("_DASHBOARD","Dashboard");//my Dashboard
+define("_DASHBOARD","Dashboard");//Dashboard
 define("_MYWALL","My wall");//My wall
 define("_RELATEDPEOPLE","Relaterte personer");//Related people
 define("_LEARNINGACTIVITY","Læringsaktiviteten");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Den opplastede filen er ikke et bilde");//The uploaded
 define("_COMMENT","Kommentar");//Comment
 define("_COMMENTPROPERTIES","Kommentar egenskaper");//Comment properties
 define("_EDITCOMMENT","Rediger kommentar");//Edit comment
-define("_EDITCONDITIONS","Rediger forhold");//Edit conditions
+define("_EDITCONDITIONS","Rediger forhold");//Edit rules
 define("_EDITINFORMATION","Endre informasjon");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Valg for Facebook-modulen");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Avsender");//Sender
 define("_ORIGINALMESSAGE","Opprinnelig melding");//Original message
 define("_PRIORITY","Prioritet");//Priority
 define("_PLEASEPICKANOPTION","Vennligst velg et alternativ");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Completion vilkårene oppfylt, bekreftelse påvente");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Completion vilkårene oppfylt, bekreftelse påvente");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Samlet fremgang");//Overall progress
 define("_THEORYPROGRESS","Teori fremgang");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Gjennomsnittlig test score (teller hver test siste henrettelse)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Uegnet drift type");//Unsupported operation 
 define("_DUPLICATECOMPLETEDPAYMENT","Duplicate fullført betaling");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Uegnet betaling status");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Du har kansellert transaksjonen");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksjonen ble fullført.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksjonen ble fullført.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal feilsøkingsmodus");//Paypal debug mode
 define("_MYACCOUNT","Min konto");//my Account
 define("_MODULE","Modul");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asynkron kommunikasjon SCORM");//Asynchronous SCOR
 define("_SCORMASYNCHRONOUSEXPLANATION","Bytt til asynkron kommunikasjon hvis du opplever problemer med å fullføre SCORM-innhold (særlig i tilfelle du bruker Adobe Captivate generert innhold)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Advarsel: Deaktivering betalinger vil sette alle priser til 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Flere alternativer");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Økten er utløpt. Vennligst");//Your session has expired. Please (New)
-define("_CLICKHERE","klikk her");//click here (New)
-define("_TOLOGINAGAIN","å logge inn på nytt");//to login again (New)
-define("_SESSIONEXPIRED","Sesjon utløpt");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Økten er utløpt. Vennligst");//Your session has expired. Please
+define("_CLICKHERE","klikk her");//click here
+define("_TOLOGINAGAIN","å logge inn på nytt");//to login again
+define("_SESSIONEXPIRED","Sesjon utløpt");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Kommaseparert liste over brukere å vise debug informasjon om, eller 1 for alle brukere");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Februar");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","April");//Apr (New)
+define("_MAYSHORTHAND","Mai");//May (New)
+define("_JUNESHORTHAND","Juni");//Jun (New)
+define("_JULYSHORTHAND","Juli");//Jul (New)
+define("_AUGUSTSHORTHAND","August");//Aug (New)
+define("_SEPTEMBERSHORTHAND","September");//Sep (New)
+define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
+define("_NOVEMBERSHORTHAND","November");//Nov (New)
+define("_DECEMBERSHORTHAND","Desember");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Du kan ikke vise den forespurte ressursen");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Velg en stillingsbeskrivelse");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Rediger jobb plassering");//Edit job placement (New)
+define("_NORESPONSE","&lt;Ingen response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Konto");//Account (New)
+define("_ORGANIZATIONALDATA","Organisatoriske profil");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank å forlate uendret");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Skriv inn opsjonsverdien eller nummer, som starter fra 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Skjul veileder fra brukere");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Skjul jobb fra brukere");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Du må angi en standardverdi for obligatoriske elementer");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Bruk dagens dato");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Endres kontoen");//Account change (New)
+define("_USERSCANCHANGEPASS","Endring av passord");//Password change (New)
+define("_VIEWFEEDBACK","Vis tilbakemeldinger");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Vis ufullstendig spørsmål i hver utføring");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Behold beste score");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Gjennomsnittlig test score (teller hver test er aktive kjøring)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","score på aktiv kjøring");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Hvis du angir et ord som slutter med en stjerne (*), bare den første delen vil bli vurdert. For eksempel, hvis du angir 'lære *', så både 'learning' og 'lære' vil bli vurdert korrekt.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Kurs leksjon regler");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Regler mellom kurs");//Rules between courses (New)
+define("_COURSEDEPENDSON","Kurs avhenger");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Du kan ikke sette kurset som en forutsetning av seg selv");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Vise alternativer i Velg boksen");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Sjekke denne vil vise en liste med alle alternativer, i stedet for en tekstboks. I dette tilfellet, er bare det første alternativet vurderes riktig");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Vis riktige svar bare hvis studenten har bestått prøven");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Innstillinger kontrolløren");//Settings checker (New)
+define("_CHECKBROWSER","Kontroll nettleser");//Checking browser (New)
+define("_CHECKRESOLUTION","Kontroll skjermoppløsning");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Kontrollere for Popup blocker");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Kontrollerer Cookie state ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Kontrollere for Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Kontrollere for Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 oppdaget. Denne nettleseren er foreldet og funksjonalitet kan påvirkes");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Dessverre nettleseren som du bruker, støttes ikke");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Skjermoppløsningen ikke oppfyller minstekravet på");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Popup blokkering oppdaget. Vennligst tillat popup-vinduer for denne siden og prøv igjen");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies ser ut til å være deaktivert. Aktiver informasjonskapsler");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash er ikke installert, utdatert");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader er ikke installert");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Kontroll Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript er ikke aktivert i nettleseren din");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Du må ha aktivert veileder e aktivisering av systeminnstillinger");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","År spenner fra");//Year range from (New)
+define("_YEARRANGETO","År område til");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Gruppenavn beskrivelsen");//Group name description (New)
+define("_GROUPINFORMATION","Gruppe informasjon");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Begrense tilgang til innhold filer for innloggede brukere");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Komprimere testresultater i database");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Vedlikeholdsoppgaver");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Klikk her for å komprimere gjennomført tester");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Klikk her for å pakke ferdig tester");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Komprimer");//Compress (New)
+define("_DATABASETASKS","Database oppgaver");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Vennligst backup av dine data før du komprimere / pakke fullført tester");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfigurasjon");//Configuration (New)
+define("_SYSTEMOPTIONS","System opsjoner");//System options (New)
+define("_CASUAL","Casual");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Du kan ikke tilgang til denne brukerens informasjon");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Aktiver virtuelle tastaturet");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Filen ser ut til å være tom. Kanskje det ikke er formatert riktig?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertifikat planlagte utløpet");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Test passord");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Beklager, du har ikke tilgang til denne grenen");//Sorry, you do not have access to this branch (New)
 ?>

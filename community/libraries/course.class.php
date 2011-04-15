@@ -3038,7 +3038,7 @@ class EfrontCourse
   $from = array("courses.*", "t.*");
   if (in_array('has_instances', array_keys($select))) {
    unset($select['has_instances']);
-   $from[] = "(select count(id) from courses c1 where c1.instance_source=courses.id ) as has_instances";
+   $from[] = "(select count(id) from courses c1 where c1.instance_source=courses.id and c1.archive=0) as has_instances";
   }
   $sql = prepareGetTableData("courses c", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData("courses, ($sql) t", implode(",", $from), "courses.id=t.id");

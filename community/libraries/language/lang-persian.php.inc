@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","درج در انتخاب چندگانه");//I
 define("_INSERTEXPLANATION","توضیحی درج");//Insert explanation
 define("_THISQUESTIONIS","این سوال است.");//This question is
 define("_CREATEEMPTYSPACES","ایجاد فضاهای خالی");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","نوشتن متن پرسش و هر جا که شما نیاز به یک فضای خالی درج ، درج # # #. هنگامی که شما انجام می شود ، با کلیک بر روی \"ایجاد فضای خالی\" را کلیک کنید در زیر");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","نوشتن متن پرسش و هر جا که شما نیاز به یک فضای خالی درج ، درج # # #. هنگامی که شما انجام می شود ، با کلیک بر روی \"ایجاد فضای خالی\" را کلیک کنید در زیر");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","درج تطبیق جفت");//Insert matching pairs
 define("_ADDOPTION","اضافه کردن گزینه");//Add option
 define("_GOTOCALENDAR","رفتن به تقویم");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","ورود به کسر واحدهای");//Seen a fracti
 define("_SPECIFICUNIT","ورود یک واحد خاص");//Seen a specific unit
 define("_PASSEDALLTESTS","تصویب تمام آزمون");//Passed all tests
 define("_SPECIFICTEST","تصویب یک آزمایش خاص");//Passed a specific test
-define("_INVALIDCONDITION","وضعیت نامعتبر");//Invalid condition
+define("_INVALIDCONDITION","وضعیت نامعتبر");//Invalid rule
 define("_THEUSERMUSTHAVE","دانش آموز باید");//The student must have
 define("_UNITSPERCENTAGE","درصد");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","با موفقیت ارسال وضعیت");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","با موفقیت به روز شده در شرایط");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","با موفقیت حذف شد شرط");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","با موفقیت ارسال وضعیت");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","با موفقیت به روز شده در شرایط");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","با موفقیت حذف شد شرط");//Successfully deleted rule
 define("_LESSONCONDITIONS","درس شرایط تکمیل");//Lesson completion rules
-define("_ADDCONDITION","اضافه کردن شرط");//Add condition
-define("_CONDITION","وضعیت");//Condition
-define("_CONDITIONTYPE","نوع وضعیت");//Condition type
+define("_ADDCONDITION","اضافه کردن شرط");//Add completion rule
+define("_CONDITION","وضعیت");//Completion rule
+define("_CONDITIONTYPE","نوع وضعیت");//Rule type
 define("_RELATIONTOOTHERS","ارتباط با دیگران");//Relation to others
 define("_SCROLLTOTOPOFPAGE","رفته به ابتدای صفحه");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","طومار به پایین صفحه");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","سیستم");//System
 define("_EMAILCONFIGURATIONS","پست الکترونیکی تنظیمات سرور");//Emails server configuration
 define("_SAWUNIT","مجموعه ای از واحد به عنوان تکمیل");//Set the unit as completed
 define("_NOTSAWUNIT","مجموعه واحد را تکمیل کنید");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","شرایط تکمیل");//Conditions completed
+define("_CONDITIONSCOMPLETED","شرایط تکمیل");//Completion rules completed
 define("_OUTOF","خارج از");//out of
 define("_LESSONPROGRESS","پیشرفت درس");//Lesson progress
 define("_YOUMUSTSEEUNIT","شما باید دستگاه را ببینید");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","شما باید ببینید");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","شما باید تمام آزمایشات را با میانگین نمره کامل");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","شما باید تست کامل");//You must complete test
 define("_WITHSCORE","با نمره");//with score
-define("_NOCONDITIONSSET","هیچ مجموعه شرایط را برای این درس وجود دارد.");//There are no conditions set for this lesson
-define("_CONDITIONS","شرایط");//conditions
+define("_NOCONDITIONSSET","هیچ مجموعه شرایط را برای این درس وجود دارد.");//There are no completion rules set for this lesson
+define("_CONDITIONS","شرایط");//completion rules
 define("_RESUMELESSON","درس رزومه");//Resume lesson
 define("_STARTLESSON","شروع درس");//Start lesson
 define("_TRACKING","ردیابی");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","مشکل بود در حالی که ش
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","قالب گواهی با موفقیت حذف شد");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","بود در حالی که مشکل حذف قالب گواهی وجود دارد");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","شما از حقوق را نداشته باشند این گواهی برای تغییر قالب");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","شرایط ویرایش");//Edit condition
+define("_EDITCONDITION","شرایط ویرایش");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP پیکربندی سرور");//SMTP server configuration
 define("_SMTPSERVER","سرور SMTP");//SMTP server
 define("_SMTPPASSWORD","رمز عبور SMTP");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","به روز شده در این زمینه بود");//The
 define("_LESSONSCORE","نمره درس");//Lesson score
 define("_COMPLETED","پایان یافته");//Completed
 define("_NOTCOMPLETED","نه به پایان");//Not completed
-define("_CONDITIONSMET","شرایط ملاقات کرده و در انتظار تصویب");//Conditions met and awaiting approval
+define("_CONDITIONSMET","شرایط ملاقات کرده و در انتظار تصویب");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","دانش آموز با موفقیت تغییر وضعیت درس");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","باید عددی");//Must be numeric
 define("_DEFAULTCERTIFICATE","این سازمان که در تالار گفتگو certifies user_name # # # # user_surname را با موفقیت به اتمام course_name # # # با کلاس کلاس # این گواهی نامه در تاریخ صادر شد # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","قابل ارسال");//Could not be sent
 define("_ENVIRONMENTALCHECK","بررسی محیط زیست");//Environmental check
 define("_REPAIRTREE","درخت بازگرداندن");//Restore tree
 define("_RULEPROPERTIES","خواص قاعده");//Rule properties
-define("_CONDITIONPROPERTIES","خواص وضعیت");//Condition properties
+define("_CONDITIONPROPERTIES","خواص وضعیت");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","پوشه های یتیم درس بررسی");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","دروس پوشه بدون چک");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","پوشه های زیر می توانم یک درس مربوط ندارد");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","سوال را ذخیره کرده و ایج�
 define("_SAVEASNEWQUESTION","ذخیره به عنوان سوال جدید");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","این نظر سنجی با موفقیت به روزآوری شد");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","شما کامل همه مطالب");//You have completed all content
-define("_CONDITIONMET","شرط دیدار کرد");//Condition met
-define("_CONDITIONNOTMET","شرط نیست آشنا");//Condition not met
+define("_CONDITIONMET","شرط دیدار کرد");//Completion rules met
+define("_CONDITIONNOTMET","شرط نیست آشنا");//Completion rules met
 define("_OLDMODULES","ماژول های قدیمی");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","در PHP توسعه LDAP است که پر نشده");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","شما واجد شرایط تکمیل درس است. در این درس باید به عنوان مجموعه ای که توسط استاد به اتمام");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","شما واجد شرایط تکمیل درس است. در این درس باید به عنوان مجموعه ای که توسط استاد به اتمام");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","درس به اتمام");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","صدور گواهی نامه با موفقیت");//Certificate issued successfully
 define("_NOTITLE","بدون عنوان");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP رمز عبور حساب");//LDAP account pa
 define("_USELDAPACCOUNT","استفاده از اعتبار نامه های شما در حساب LDAP به منظور استفاده از سیستم");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","فقط ثبت نام با استفاده از یک حساب معتبر LDAP مجاز است");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","است که به طور کلی در دسترس");//is generally available
-define("_DELETECONDITION","شرط حذف");//Delete condition
+define("_DELETECONDITION","شرط حذف");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","ارسال پیام برای این انجمن واحد");//Post forum message for this unit
 define("_AUTOCOMPLETE","تکمیل خودکار");//Auto complete
 define("_DUPLICATESARENOTALLOWED","شما نمی توانید در استفاده از دو بار همان درس را در یک حکومت");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","تکمیل مه
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","شما کامل همه شکاف مهارت آزمون به شما اختصاص داده. <br> لطفا تا استادان خود را واگذار تا به شما دوره های مناسب با توجه به نیازهای شما صبر کنید.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","نتایج شما را به استادان خود را واگذار خواهد کرد که به زودی دوره ها را به شما ارسال شده است بر اساس نیازهای خود را به عنوان شناسایی شده از این آزمایش");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","placements فرصت های شغلی");//Job placements
-define("_NEWJOBPLACEMENT","placements جدید کار");//New job placements
+define("_NEWJOBPLACEMENT","placements جدید کار");//New job placement
 define("_UPGRADEMODULE","ماژول ارتقا");//Upgrade module
 define("_NEWUNITOPTIONS","گزینه های جدید واحد");//New unit options
 define("_UNITOPTIONSFOR","انتخاب واحد");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","توجه : شما revisiti
 define("_ACTIONONRENTRYCOMPLETED","در عمل دخول مجدد");//Action on re-entry
 define("_LETCONTENTDECIDE","اجازه دهید از مطالب تصمیم می گیرید");//Let content decide
 define("_DONTCHANGE","مرخصی بدون تغییر");//Leave unchanged
-define("_DASHBOARD","داشبورد");//my Dashboard
+define("_DASHBOARD","داشبورد");//Dashboard
 define("_MYWALL","دیوار من");//My wall
 define("_RELATEDPEOPLE","افراد مرتبط");//Related people
 define("_LEARNINGACTIVITY","فعالیت های یادگیری");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","فایل ارسال شده تصویر نیست");//The
 define("_COMMENT","نظر");//Comment
 define("_COMMENTPROPERTIES","خواص بازخورد (نظر شما");//Comment properties
 define("_EDITCOMMENT","نظر ویرایش");//Edit comment
-define("_EDITCONDITIONS","شرایط ویرایش");//Edit conditions
+define("_EDITCONDITIONS","شرایط ویرایش");//Edit rules
 define("_EDITINFORMATION","اطلاعات ویرایش");//Edit information
 define("_FACEBOOK","فیس بوک");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","گزینه ها ماژول برای فیس بوک");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","فرستنده");//Sender
 define("_ORIGINALMESSAGE","پیام اصلی");//Original message
 define("_PRIORITY","اولویت");//Priority
 define("_PLEASEPICKANOPTION","لطفا یکی از گزینه انتخاب");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","شرایط اتمام ملاقات کرد ، در انتظار تایید");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","شرایط اتمام ملاقات کرد ، در انتظار تایید");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","پیشرفت کلی");//Overall progress
 define("_THEORYPROGRESS","پیشرفت تئوری");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","میانگین نمره آزمون (شمارش آخرین اعدام هر آزمون)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","نوع عملیات پشتیبانی نشد�
 define("_DUPLICATECOMPLETEDPAYMENT","تکراری به پایان پرداخت");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","وضعیت پرداخت پشتیبانی نشده");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","شما باید لغو معامله");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","معامله با موفقیت به پایان رسید.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","معامله با موفقیت به پایان رسید.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","حالت دیباگ پیش پرداخت");//Paypal debug mode
 define("_MYACCOUNT","حساب من");//my Account
 define("_MODULE","ماژول");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","آسنکرون ارتباط SCORM");//Asynchronous
 define("_SCORMASYNCHRONOUSEXPLANATION","تغییر به ارتباطات ناهمزمان اگر شما در حال تجربه مشکل تکمیل محتوای SCORM (به خصوص در مورد شما با استفاده از محتوای تولید شده ادوبی اسیر)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","هشدار : غیر فعال کردن پرداخت تمام قیمت ها به مجموعه ای 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","گزینه های متعدد");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","جلسه شما منقضی شده است. لطفا");//Your session has expired. Please (New)
-define("_CLICKHERE","اینجا را کلیک کنید");//click here (New)
-define("_TOLOGINAGAIN","برای ورود به سایت دوباره");//to login again (New)
-define("_SESSIONEXPIRED","جلسه تمام شده");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","جلسه شما منقضی شده است. لطفا");//Your session has expired. Please
+define("_CLICKHERE","اینجا را کلیک کنید");//click here
+define("_TOLOGINAGAIN","برای ورود به سایت دوباره");//to login again
+define("_SESSIONEXPIRED","جلسه تمام شده");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","لیستی که توسط ویرگول جدا شده از کاربران برای نشان دادن اطلاعات در مورد اشکال زدایی ، یا 1 برای تمام کاربران");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","ژان");//Jan (New)
+define("_FEBRUARYSHORTHAND","فوریه");//Feb (New)
+define("_MARCHSHORTHAND","اسیب رساندن");//Mar (New)
+define("_APRILSHORTHAND","آوریل");//Apr (New)
+define("_MAYSHORTHAND","مه");//May (New)
+define("_JUNESHORTHAND","ژوئن");//Jun (New)
+define("_JULYSHORTHAND","ژوئیه");//Jul (New)
+define("_AUGUSTSHORTHAND","اوت");//Aug (New)
+define("_SEPTEMBERSHORTHAND","سپتامبر");//Sep (New)
+define("_OCTOBERSHORTHAND","اکتبر");//Oct (New)
+define("_NOVEMBERSHORTHAND","نوامبر");//Nov (New)
+define("_DECEMBERSHORTHAND","دسامبر");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","شما می توانید منابع درخواست دسترسی نیست");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","لطفا انتخاب کنید شرح شغل");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","ویرایش کاریابی");//Edit job placement (New)
+define("_NORESPONSE","&lt;noresponse&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","حساب کاربری");//Account (New)
+define("_ORGANIZATIONALDATA","مشخصات سازمانی");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","خالی را ترک بدون تغییر");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","مقدار گزینه را وارد کنید و یا شماره آن ، شروع از 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","سرپرست مخفی از کاربران");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","کار پنهان کردن از کاربران");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","شما باید یک مقدار پیش فرض برای عناصر اجباری مشخص");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","استفاده از تاریخ جاری");//Use the current date (New)
+define("_USERSCANCHANGEINFO","تغییر حساب کاربری");//Account change (New)
+define("_USERSCANCHANGEPASS","تغییر رمز عبور");//Password change (New)
+define("_VIEWFEEDBACK","مشاهده نظرات");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","سوال نمایش ناقص در هر اعدام");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","حفظ بهترین امتیاز");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","میانگین نمره آزمون (شمارش اعدام فعال در هر آزمون)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","نمره در اعدام فعال");//score on active execution (New)
+define("_YOUCANUSEASTERISK","اگر کلمه ای به پایان می رسد که با ستاره (*) ، فقط قسمت اول آن خواهد شد در نظر گرفته شما را مشخص کنید. به عنوان مثال ، اگر شما تعیین &#39;یادگیری *&#39; ، و سپس هر دو &#39;یادگیری&#39; و &#39;یادگیری&#39; نظر گرفته خواهد شد درست باشد.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","قواعد درس به درس");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","قوانین بین دوره");//Rules between courses (New)
+define("_COURSEDEPENDSON","البته بستگی دارد");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","شما می توانید البته به عنوان پیش شرط از خود تنظیم شده باشد");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","جایگزین های صفحه نمایش را در جعبه را انتخاب کنید");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","چک کردن این کار یک جعبه لیست را با تمام گزینه های نمایش داده شود ، به جای آن از جعبه متن. در این مورد ، تنها گزینه اول در نظر گرفته شده درست");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","نمایش پاسخ درست تنها در صورتی دانشجویی گذشت تست");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","جستجوگر تنظیمات");//Settings checker (New)
+define("_CHECKBROWSER","مرورگر چک کردن");//Checking browser (New)
+define("_CHECKRESOLUTION","چک کردن صفحه نمایش با وضوح");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","برای چک کردن پاپاپ بلاکر");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","دولت چک کردن کوکی...");//Checking Cookie state... (New)
+define("_CHECKFLASH","برای چک کردن فلش");//Checking for Flash (New)
+define("_CHECKACROBAT","برای چک کردن ادوبی ریدر");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","اینترنت اکسپلورر 6 شناسایی شده است. این مرورگر است و قابلیت های منسوخ ممکن است تحت تاثیر قرار");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","متاسفانه مرورگر است که شما با استفاده از پشتیبانی نمی شود");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","وضوح صفحه نمایش شما از حداقل مورد نیاز از برآورده نمی");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","پاپاپ بلاکر شناسایی شده است. لطفا اجازه پرهای برای این سایت و دوباره سعی کنید");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","کوکی ها به نظر می رسد فعال نیست. لطفا فعال کردن کوکی");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","فلش نصب نشده باشد ، خارج از تاریخ");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","ادوبی ریدر نصب نشده است");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","چک کردن جاوا اسکریپت");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","جاوا اسکریپت در مرورگر شما فعال نیست");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","شما باید ایمیل فعال سازی حساب کاربری سرپرست از تنظیمات سیستم را فعال کنید");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","محدوده سال از");//Year range from (New)
+define("_YEARRANGETO","محدوده سال به");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","گروه توضیحات نام");//Group name description (New)
+define("_GROUPINFORMATION","اطلاعات گروه");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","دسترسی محدود به محتوای فایل ها را به کاربران ثبتنامکرده");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","فشرده سازی نتایج آزمون در پایگاه داده");//Compress test results in database (New)
+define("_MAINTENANCETASKS","تعمیر و نگهداری وظایف");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","اینجا را کلیک کنید برای فشرده سازی آزمون تکمیل");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","اینجا را کلیک کنید غیرفشرده آزمون تکمیل");//Click here to uncompress completed tests (New)
+define("_COMPRESS","فشرده کردن");//Compress (New)
+define("_DATABASETASKS","وظایف بانک اطلاعات");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","لطفا اطلاعات خود نسخه پشتیبان تهیه قبل از فشرده سازی / uncompressing آزمون تکمیل");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","پیکر بندی");//Configuration (New)
+define("_SYSTEMOPTIONS","گزینه های سیستم");//System options (New)
+define("_CASUAL","اتفاقی");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","شما می توانید اطلاعات به این کاربر دسترسی نیست");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","فعال کردن صفحه کلید مجازی");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","فایل به نظر می رسد خالی می باشد. شاید این فرمت به درستی؟");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","برنامه ریزی انقضای گواهینامه");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","رمز عبور تست");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","با عرض پوزش ، شما دسترسی به این شعبه ندارد");//Sorry, you do not have access to this branch (New)
 ?>

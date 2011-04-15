@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Aseta useita valintoja");//Insert the multipl
 define("_INSERTEXPLANATION","Lisää selitystä");//Insert explanation
 define("_THISQUESTIONIS","Tämä kysymys on");//This question is
 define("_CREATEEMPTYSPACES","Luo tyhjiä välejä");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Kirjoita kysymys tekstin ja missä sinun täytyy lisätä tyhjään tilaan, aseta # # #. Kun olet valmis, klikkaa \"Luo tyhjä spaces\"-painiketta");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Kirjoita kysymys tekstin ja missä sinun täytyy lisätä tyhjään tilaan, aseta # # #. Kun olet valmis, klikkaa \"Luo tyhjä spaces\"-painiketta");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Lisää vastaavia paria");//Insert matching pairs
 define("_ADDOPTION","Lisää vaihtoehto");//Add option
 define("_GOTOCALENDAR","Siirry kalenteriin");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Seen murto-yksikköä");//Seen a fraction of units
 define("_SPECIFICUNIT","Nähnyt erityistä yksikköä");//Seen a specific unit
 define("_PASSEDALLTESTS","Läpäissyt kaikki testit");//Passed all tests
 define("_SPECIFICTEST","Passed erityinen testi");//Passed a specific test
-define("_INVALIDCONDITION","Virheellinen edellytys");//Invalid condition
+define("_INVALIDCONDITION","Virheellinen edellytys");//Invalid rule
 define("_THEUSERMUSTHAVE","Opiskelijan on oltava");//The student must have
 define("_UNITSPERCENTAGE","Prosenttia");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Lisätty ehto");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Päivitetty onnistuneesti edellytys");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Onnistuneesti poistettu ehto");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Lisätty ehto");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Päivitetty onnistuneesti edellytys");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Onnistuneesti poistettu ehto");//Successfully deleted rule
 define("_LESSONCONDITIONS","Oppitunnin suoritusaika edellytykset");//Lesson completion rules
-define("_ADDCONDITION","Lisää ehto");//Add condition
-define("_CONDITION","Edellytys");//Condition
-define("_CONDITIONTYPE","Edellytys tyyppi");//Condition type
+define("_ADDCONDITION","Lisää ehto");//Add completion rule
+define("_CONDITION","Edellytys");//Completion rule
+define("_CONDITIONTYPE","Edellytys tyyppi");//Rule type
 define("_RELATIONTOOTHERS","Suhde muihin");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Siirry sivun alkuun");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Siirry bottom of page");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","System");//System
 define("_EMAILCONFIGURATIONS","E-Mail Server Configuration");//Emails server configuration
 define("_SAWUNIT","Aseta yksikkönä sellaisena kuin se on valmistunut");//Set the unit as completed
 define("_NOTSAWUNIT","Aseta yksikkö ei valmistunut");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Edellytykset valmistunut");//Conditions completed
+define("_CONDITIONSCOMPLETED","Edellytykset valmistunut");//Completion rules completed
 define("_OUTOF","ulos");//out of
 define("_LESSONPROGRESS","Oppitunnin kehitykseen");//Lesson progress
 define("_YOUMUSTSEEUNIT","Sinun täytyy nähdä yksikkö");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Sinun täytyy nähdä");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Sinun täytyy täyttää kaikki testit tarkoita pisteet");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Sinun on täydellinen testi");//You must complete test
 define("_WITHSCORE","kanssa pisteet");//with score
-define("_NOCONDITIONSSET","Ei ole olemassa asetettuja edellytyksiä tämän läksyn");//There are no conditions set for this lesson
-define("_CONDITIONS","edellytykset");//conditions
+define("_NOCONDITIONSSET","Ei ole olemassa asetettuja edellytyksiä tämän läksyn");//There are no completion rules set for this lesson
+define("_CONDITIONS","edellytykset");//completion rules
 define("_RESUMELESSON","Jatka oppitunti");//Resume lesson
 define("_STARTLESSON","Aloita oppitunti");//Start lesson
 define("_TRACKING","Seuranta");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Oli ongelma, kun kloonauksen todistuk
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Todistus malli poistettu onnistuneesti");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Oli ongelma, kun poistaminen todistuksen malli");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Sinulla ei ole oikeuksia muuttaa tämän todistuksen malli");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Edit edellytys");//Edit condition
+define("_EDITCONDITION","Edit edellytys");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP-palvelimen konfigurointi");//SMTP server configuration
 define("_SMTPSERVER","SMTP-palvelin");//SMTP server
 define("_SMTPPASSWORD","SMTP-salasana");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Kentän on päivitetty");//The field was updated
 define("_LESSONSCORE","Oppitunnin pisteet");//Lesson score
 define("_COMPLETED","Valmistui");//Completed
 define("_NOTCOMPLETED","Not completed");//Not completed
-define("_CONDITIONSMET","Ehdot täyttyvät ja odottaa hyväksyntää");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Ehdot täyttyvät ja odottaa hyväksyntää");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Student oppitunti tila muuttunut onnistuneesti");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Täytyy olla numeerinen");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront eLearning platform järjestö todistaa, että # USER_NAME # # user_surname # on menestyksellisesti suorittanut # course_name #-luokan # grade # Tämä todistus on myönnetty # date #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Ei voitu lähettää");//Could not be sent
 define("_ENVIRONMENTALCHECK","Environmental check");//Environmental check
 define("_REPAIRTREE","Palauta tree");//Restore tree
 define("_RULEPROPERTIES","Työjärjestyksen ominaisuudet");//Rule properties
-define("_CONDITIONPROPERTIES","Edellytys ominaisuudet");//Condition properties
+define("_CONDITIONPROPERTIES","Edellytys ominaisuudet");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Orphan oppitunti kansiot check");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Lessons ilman kansioita check");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Seuraavat kansiot eivät opetus liittyvät");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Tallenna kysymykseen sekä luoda toisen");//
 define("_SAVEASNEWQUESTION","Tallenna uusi kysymys");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Kyselyn on päivitetty onnistuneesti");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Olette täyttäneet kaikki sisältö");//You have completed all content
-define("_CONDITIONMET","Edellytys täyttyy");//Condition met
-define("_CONDITIONNOTMET","Edellytys ei täyty");//Condition not met
+define("_CONDITIONMET","Edellytys täyttyy");//Completion rules met
+define("_CONDITIONNOTMET","Edellytys ei täyty");//Completion rules met
 define("_OLDMODULES","Vanha-moduulit");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP LDAP-laajennus ei ole ladattuna");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Voit täyttää oppitunti täydelliset olosuhteet. Tämä oppitunti on asetettu valmiiksi professori");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Voit täyttää oppitunti täydelliset olosuhteet. Tämä oppitunti on asetettu valmiiksi professori");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Oppitunnin täydellinen");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Myöntämä onnistuneesti");//Certificate issued successfully
 define("_NOTITLE","Ei nimeä");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP-tilin salasana");//LDAP account password
 define("_USELDAPACCOUNT","Käytä LDAP-tunnukset, jotta järjestelmän käytön");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Vain rekisteröinnin käyttäen kelvollista LDAP-tili on sallittu");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","on yleisesti saatavilla");//is generally available
-define("_DELETECONDITION","Poista edellytys");//Delete condition
+define("_DELETECONDITION","Poista edellytys");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Post foorumin viesti tälle yksikölle");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto täydellinen");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Et voi käyttää kahdesti saman oppitunnin sääntö");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Täytä ammatti
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Olet täyttänyt kaikki ammattitaidon puute testit osoitetaan sinulle. <br> Odota, kunnes professoria antaa teille parhaiten soveltuvan kurssien mukaan omiin tarpeisiisi.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Sinun tulokset ovat olleet lähetetään professoreille, jotka pian antaa kursseja omaan mukaan teidän tarpeet tunnistaa tämän testin");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Työhönsijoittamisprosentti");//Job placements
-define("_NEWJOBPLACEMENT","Uusi työhönsijoittamisprosentti");//New job placements
+define("_NEWJOBPLACEMENT","Uusi työhönsijoittamisprosentti");//New job placement
 define("_UPGRADEMODULE","Upgrade-moduuli");//Upgrade module
 define("_NEWUNITOPTIONS","Uusi yksikkö vaihtoehtoja");//New unit options
 define("_UNITOPTIONSFOR","Vaihtoehdot yksikkö");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Huom: olet uudelleenarvioi
 define("_ACTIONONRENTRYCOMPLETED","Toiminta paluuajan");//Action on re-entry
 define("_LETCONTENTDECIDE","Anna sisällöstä päättää");//Let content decide
 define("_DONTCHANGE","Jätä ennalleen");//Leave unchanged
-define("_DASHBOARD","Ohjausnäkymään");//my Dashboard
+define("_DASHBOARD","Ohjausnäkymään");//Dashboard
 define("_MYWALL","My wall");//My wall
 define("_RELATEDPEOPLE","Liittyvät ihmiset");//Related people
 define("_LEARNINGACTIVITY","Oppimistoiminnan");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Ladattu tiedosto ei ole kuva");//The uploaded file is 
 define("_COMMENT","Kommentin");//Comment
 define("_COMMENTPROPERTIES","Kommentti ominaisuudet");//Comment properties
 define("_EDITCOMMENT","Muokkaa kommenttia");//Edit comment
-define("_EDITCONDITIONS","Muokkaa ehdot");//Edit conditions
+define("_EDITCONDITIONS","Muokkaa ehdot");//Edit rules
 define("_EDITINFORMATION","Muokkaa tietoja");//Edit information
 define("_FACEBOOK","Facebookia");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Vaihtoehdot Facebook-moduuli");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Lähettäjältä");//Sender
 define("_ORIGINALMESSAGE","Alkuperäinen viesti");//Original message
 define("_PRIORITY","Ensisijaisia");//Priority
 define("_PLEASEPICKANOPTION","Ole hyvä ja valita vaihtoehto");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Täydennys edellytykset täyttyvät, vahvistus ennen");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Täydennys edellytykset täyttyvät, vahvistus ennen");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Yleisestä edistymisestä");//Overall progress
 define("_THEORYPROGRESS","Theory kehitys");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Keskimääräinen tulos on (laskemalla kunkin testin viimeinen execution)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Tueta tyyppi");//Unsupported operation type
 define("_DUPLICATECOMPLETEDPAYMENT","Duplicate päätökseen maksu");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Tueta maksun tila");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Olet peruuttanut kaupan");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Kauppa saatiin päätökseen onnistuneesti.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Kauppa saatiin päätökseen onnistuneesti.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypalin debug-tila");//Paypal debug mode
 define("_MYACCOUNT","Tililläni");//my Account
 define("_MODULE","Moduulissa");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asynchronous SCORM viestintä");//Asynchronous SCO
 define("_SCORMASYNCHRONOUSEXPLANATION","Vaihda asynkroninen viestintä jos sinulla on ongelmia valmiiksi SCORM sisältö (varsinkin jos käytät Adobe Captivate luomaa sisältöä)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varoitus: poistaminen maksut asettaa kaikki hinnat 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Useita vaihtoehtoja");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Istunto on vanhentunut. Ole hyvä");//Your session has expired. Please (New)
-define("_CLICKHERE","klikkaa tästä");//click here (New)
-define("_TOLOGINAGAIN","kirjautua uudelleen");//to login again (New)
-define("_SESSIONEXPIRED","Session päättyi");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Istunto on vanhentunut. Ole hyvä");//Your session has expired. Please
+define("_CLICKHERE","klikkaa tästä");//click here
+define("_TOLOGINAGAIN","kirjautua uudelleen");//to login again
+define("_SESSIONEXPIRED","Session päättyi");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Pilkuin eroteltu luettelo käyttäjistä näyttää debug tietoja, tai 1 kaikille käyttäjille");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Helmi");//Feb (New)
+define("_MARCHSHORTHAND","Maalis");//Mar (New)
+define("_APRILSHORTHAND","Huhti");//Apr (New)
+define("_MAYSHORTHAND","Toukokuu");//May (New)
+define("_JUNESHORTHAND","Kesä");//Jun (New)
+define("_JULYSHORTHAND","Heinä");//Jul (New)
+define("_AUGUSTSHORTHAND","Elo");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Syys");//Sep (New)
+define("_OCTOBERSHORTHAND","Loka");//Oct (New)
+define("_NOVEMBERSHORTHAND","Marraskuu");//Nov (New)
+define("_DECEMBERSHORTHAND","Joulu");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Et voi käyttää aineisto");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Valitse työnkuva");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Muokkaa työharjoittelua");//Edit job placement (New)
+define("_NORESPONSE","&lt;ei response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Tili");//Account (New)
+define("_ORGANIZATIONALDATA","Organisaation profiili");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank jättää ennalleen");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Anna option arvon tai sen määrä, alkaen 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Piilota ohjaaja käyttäjiltä");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Piilota työ käyttäjiltä");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Sinun on määritettävä oletusarvo pakolliset tiedot");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Käytä päivämäärä");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Tili muutos");//Account change (New)
+define("_USERSCANCHANGEPASS","Salasanan vaihto");//Password change (New)
+define("_VIEWFEEDBACK","Näytä palaute");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Näytä puutteellisia kysymyksiä jokaisen suorituksen");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Säilytä parhaat pisteet");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Keskimääräinen tulos on (laskee kunkin koe aktiivinen toteuttaminen)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","pisteet aktiivista toteuttamista");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Jos määrität sanan, joka päättyy Tähdellä (*), vain sen ensimmäinen osa otetaan huomioon. Jos esimerkiksi määrität 'oppia*', molemmat 'oppimista' ja 'oppia' katsotaan oikein.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Kurssin opetus säännöt");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Säännöt kurssien välillä");//Rules between courses (New)
+define("_COURSEDEPENDSON","Kurssin riippuu");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Et voi asettaa kurssin edellytyksenä itse");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Näytä vaihtoehtoja valitse valintaruutu");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kun tämä näkyy luetteloruudussa kaikki vaihtoehdot, eikä tekstikehystä. Tässä tapauksessa vain ensimmäinen vaihtoehto on pitää oikeina");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Näytä oikeat vastaukset vain, jos opiskelija läpäisi testin");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Asetukset tarkistin");//Settings checker (New)
+define("_CHECKBROWSER","Tarkistaminen selain");//Checking browser (New)
+define("_CHECKRESOLUTION","Tarkistaminen näytön resoluutio");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Tarkistaminen ponnahdusikkunoiden esto");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Tarkistetaan Cookie tila ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Tarkistetaan Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Tarkistaminen Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 havaitaan. Tämä selain on vanhentunut ja toiminnot voivat vaikuttaa");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Valitettavasti selainta käytät ei tueta");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Näytön resoluutio ei täytä vähimmäisvaatimusta");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Ponnahdusikkunoiden esto havaittu. Odota ponnahdusikkunat tällä sivustolla ja yritä uudelleen");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Evästeet näyttävät olevan käytössä. Ota evästeet");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash ei ole asennettuna, vanhentunut");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader ei ole asennettu");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Tarkistaminen Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript ei ole käytössä selaimessasi");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Sinulla tulee olla päällä ohjaaja email aktivointi järjestelmästä asetukset");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Vuosi vaihtelevat");//Year range from (New)
+define("_YEARRANGETO","Vuosi alue");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Ryhmän nimi kuvaus");//Group name description (New)
+define("_GROUPINFORMATION","Ryhmän tiedot");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Rajoita pääsyä sisältöön tiedostoja kirjautuneet käyttäjät");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Pakkaa testitulokset tietokantaan");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Huoltotehtävät");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Klikkaa tästä pakata valmiiksi testit");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Klikkaa tästä purkamaan päätökseen testit");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Puristaa");//Compress (New)
+define("_DATABASETASKS","Tietokannan tehtävät");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Ole hyvä ja varmuuskopioida tiedot ennen puristamalla / uncompressing päätökseen testit");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Kokoonpano");//Configuration (New)
+define("_SYSTEMOPTIONS","Järjestelmän asetukset");//System options (New)
+define("_CASUAL","Rento");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Et voi käyttää tätä käyttäjän tiedot");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Ota virtuaalinen näppäimistö");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Tiedosto saattaa olla tyhjä. Ehkä se ei ole alustettu oikein?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Todistus aikataulun päättyminen");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Testaa salasana");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Sinulla ei ole pääsyä tälle alalle");//Sorry, you do not have access to this branch (New)
 ?>

@@ -32,6 +32,20 @@ function onClearQueueMessages(el, response) {
 		alert('Some problem emerged');
 	}
 }
+function clearSentQueueMessages(el) {
+	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+	var parameters = {delete_all_sent_notifications:1, ajax:1, method: 'get'};
+	ajaxRequest(el, location.toString(), parameters, onClearSentQueueMessages);	
+}
+function onClearSentQueueMessages(el, response) {
+	el.down().remove();
+	if (response.evalJSON(true).status) {
+		eF_js_redrawPage('sentQueueTable', true);
+	} else {
+		alert('Some problem emerged');
+	}
+}
 function sendSentMessage(el, id) {
 	var parameters = {sent_notification_id:id, ajax:1, method: 'get'};
 	ajaxRequest(el, 'send_notifications.php', parameters);	

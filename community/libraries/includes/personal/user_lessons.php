@@ -112,10 +112,18 @@ try {
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonsTable') {
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'directions_ID', 'completed','active_in_lesson', 'user_type', 'score', 'has_lesson'));
    if ($_change_lessons_) {
-    $lessons = $editedUser -> getUserStatusInIndependentLessons() + $editedUser -> getNonLessons(true);
+    $nonLessons = array();
+    foreach ($editedUser -> getNonLessons(true) as $key => $lesson) {
+     if (!$lesson -> lesson['course_only']) {
+      $nonLessons[$key] = $lesson;
+     }
+    }
+
+    $lessons = $editedUser -> getUserStatusInIndependentLessons() + $nonLessons;
    } else {
     $lessons = $editedUser -> getUserStatusInIndependentLessons();
    }
+
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
    foreach ($lessons as $key => $value) {
     if (!isset($value['completed'])) { //Populate missing fields in order for sorting to work correctly

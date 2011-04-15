@@ -100,6 +100,7 @@ try {
    $course = new EfrontCourse($_GET['courseLessonsTable_source']);
    $courseLessons = $course -> getCourseLessons();
    $userLessons = $editedUser -> getUserStatusInCourseLessons($course);
+
    foreach ($userLessons as $key => $value) {
     $courseLessons[$key] = $value;
    }

@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Helyezze be a több választási");//Insert t
 define("_INSERTEXPLANATION","Insert magyarázat");//Insert explanation
 define("_THISQUESTIONIS","Ez a kérdés a");//This question is
 define("_CREATEEMPTYSPACES","Hozzon létre üres tereket");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Írjuk be a szóban forgó szöveget, és bárhol is kell beszúrni egy üres hely, helyezze ###. Ha kész, kattintson a &quot;Create üres tereket&quot; gombra");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Írjuk be a szóban forgó szöveget, és bárhol is kell beszúrni egy üres hely, helyezze ###. Ha kész, kattintson a &quot;Create üres tereket&quot; gombra");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Helyezze be illő párok");//Insert matching pairs
 define("_ADDOPTION","Összead lehetőség");//Add option
 define("_GOTOCALENDAR","Áttérés a naptárhoz");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Látott egy része egységek");//Seen a fraction of u
 define("_SPECIFICUNIT","Látott egy különleges egység");//Seen a specific unit
 define("_PASSEDALLTESTS","Végigjárta tesztek");//Passed all tests
 define("_SPECIFICTEST","Letett egy speciális vizsgálati");//Passed a specific test
-define("_INVALIDCONDITION","Érvénytelen feltétel");//Invalid condition
+define("_INVALIDCONDITION","Érvénytelen feltétel");//Invalid rule
 define("_THEUSERMUSTHAVE","A hallgatónak rendelkeznie kell");//The student must have
 define("_UNITSPERCENTAGE","Százalékponttal");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Sikeresen ki feltétel");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Sikeresen frissítve feltétel");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Sikeresen törölve feltétel");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Sikeresen ki feltétel");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Sikeresen frissítve feltétel");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Sikeresen törölve feltétel");//Successfully deleted rule
 define("_LESSONCONDITIONS","Lecke befejezése szabályok");//Lesson completion rules
-define("_ADDCONDITION","Add feltétel");//Add condition
-define("_CONDITION","Feltétellel");//Condition
-define("_CONDITIONTYPE","Feltétel típus");//Condition type
+define("_ADDCONDITION","Add feltétel");//Add completion rule
+define("_CONDITION","Feltétellel");//Completion rule
+define("_CONDITIONTYPE","Feltétel típus");//Rule type
 define("_RELATIONTOOTHERS","Másokkal kapcsolatban");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Lapozzunk a lap tetejére");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Lapozzunk az oldal alján");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Rendszerének");//System
 define("_EMAILCONFIGURATIONS","E-mail szerver konfiguráció");//Emails server configuration
 define("_SAWUNIT","Állítsa be a egység befejezett");//Set the unit as completed
 define("_NOTSAWUNIT","Állítsa be a egység nem fejeződött be");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Feltételek befejezett");//Conditions completed
+define("_CONDITIONSCOMPLETED","Feltételek befejezett");//Completion rules completed
 define("_OUTOF","out of");//out of
 define("_LESSONPROGRESS","Lesson haladás");//Lesson progress
 define("_YOUMUSTSEEUNIT","You must see egység");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","You must see");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Végre kell hajtania az összes teszt az átlagos pontszám");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Meg kell teljes vizsgálati");//You must complete test
 define("_WITHSCORE","A pontszám");//with score
-define("_NOCONDITIONSSET","Nincsenek meg a feltételek ezt a leckét");//There are no conditions set for this lesson
-define("_CONDITIONS","feltételeit");//conditions
+define("_NOCONDITIONSSET","Nincsenek meg a feltételek ezt a leckét");//There are no completion rules set for this lesson
+define("_CONDITIONS","feltételeit");//completion rules
 define("_RESUMELESSON","Folytatás lecke");//Resume lesson
 define("_STARTLESSON","Start lecke");//Start lesson
 define("_TRACKING","Nyomonkövetés");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Ott volt a probléma, míg klónozás
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Tanúsítványsablon sikeresen törölve");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Ott volt a probléma, míg törlése tanúsítványsablon");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Nem kell a jogot, hogy módosítsa ezt a tanúsítványsablon");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Edit feltétel");//Edit condition
+define("_EDITCONDITION","Edit feltétel");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP szerver konfiguráció");//SMTP server configuration
 define("_SMTPSERVER","SMTP szerver");//SMTP server
 define("_SMTPPASSWORD","SMTP-jelszó");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","A mező volt frissítve");//The field was updated
 define("_LESSONSCORE","Score tanulság");//Lesson score
 define("_COMPLETED","Befejeződött");//Completed
 define("_NOTCOMPLETED","Nem fejeződött be");//Not completed
-define("_CONDITIONSMET","Feltételek teljesülnek, és jóváhagyásra vár");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Feltételek teljesülnek, és jóváhagyásra vár");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Diák lecke állapot megváltoztatásáról");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Kell lennie numerikus");//Must be numeric
 define("_DEFAULTCERTIFICATE","E-learning szervezet tanúsítja, hogy a felhasználónév # # # # user_surname sikeresen # course_name fokozatú # # # fokozatú Ezt az igazolást adtak ki, dátum # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Nem lehet elküldeni");//Could not be sent
 define("_ENVIRONMENTALCHECK","A környezetvédelmi ellenőrzés");//Environmental check
 define("_REPAIRTREE","Restore fa");//Restore tree
 define("_RULEPROPERTIES","Szabály tulajdonságai");//Rule properties
-define("_CONDITIONPROPERTIES","Állapot tulajdonságai");//Condition properties
+define("_CONDITIONPROPERTIES","Állapot tulajdonságai");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Árva leckét mappák megtekintéséhez");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Tanulságok nélküli mappák megtekintéséhez");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Az alábbi mappákat nem jár a leckét");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Mentés kérdésre, hozzon létre egy másik
 define("_SAVEASNEWQUESTION","Mentés új kérdés");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","A felmérés frissítés sikeres volt");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Befejezte összes tartalom");//You have completed all content
-define("_CONDITIONMET","Feltétel teljesül");//Condition met
-define("_CONDITIONNOTMET","Feltétel nem teljesül");//Condition not met
+define("_CONDITIONMET","Feltétel teljesül");//Completion rules met
+define("_CONDITIONNOTMET","Feltétel nem teljesül");//Completion rules met
 define("_OLDMODULES","Régi modulok");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","A PHP LDAP kiterjesztés nincs betöltve az");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Ön megfelel a lecke teljes feltételeknek. Ezt a leckét kell meghatározni, mint kitölteni a professzor");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Ön megfelel a lecke teljes feltételeknek. Ezt a leckét kell meghatározni, mint kitölteni a professzor");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Lecke kész");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Kiállított igazolást sikeresen");//Certificate issued successfully
 define("_NOTITLE","No title");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP fiók jelszava");//LDAP account password
 define("_USELDAPACCOUNT","Használd az LDAP fiók hitelesítő adatait annak érdekében, hogy a rendszer használatához");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Csak egy érvényes regisztráció, LDAP fiók megengedett");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","általánosan elérhető");//is generally available
-define("_DELETECONDITION","Törlés feltétel");//Delete condition
+define("_DELETECONDITION","Törlés feltétel");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Post fórum üzenet ez az egység");//Post forum message for this unit
 define("_AUTOCOMPLETE","Komplett auto");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Nem lehet használni kétszer ugyanazt a leckét a szabály");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Töltse ki a k�
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Ön kitöltötte az összes skill szakadék tesztek Önhöz. <br> Kérjük, várjon, amíg a tanár rendelheti Önnek leginkább megfelelő tanfolyamokat az Ön igényeihez.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Az eredményeket küldtek el a professzor, aki hamarosan rendelheti el a tanfolyamokat az Ön igényeinek megfelelően megállapítják az e vizsgálat");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Elhelyezésének");//Job placements
-define("_NEWJOBPLACEMENT","Új elhelyezésének");//New job placements
+define("_NEWJOBPLACEMENT","Új elhelyezésének");//New job placement
 define("_UPGRADEMODULE","Upgrade modul");//Upgrade module
 define("_NEWUNITOPTIONS","Új egység opciók");//New unit options
 define("_UNITOPTIONSFOR","Options for egység");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Megjegyzés: Az Ön felele
 define("_ACTIONONRENTRYCOMPLETED","Fellépés az ismételt belépési");//Action on re-entry
 define("_LETCONTENTDECIDE","Let tartalom dönt");//Let content decide
 define("_DONTCHANGE","Változatlanul hagyja");//Leave unchanged
-define("_DASHBOARD","Saját beállítópult");//my Dashboard
+define("_DASHBOARD","Saját beállítópult");//Dashboard
 define("_MYWALL","My Wall");//My wall
 define("_RELATEDPEOPLE","Kapcsolódó emberek");//Related people
 define("_LEARNINGACTIVITY","Tanulási tevékenység");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","A feltöltött fájl nem egy kép");//The uploaded fil
 define("_COMMENT","Megjegyzést");//Comment
 define("_COMMENTPROPERTIES","Tulajdonságok comment");//Comment properties
 define("_EDITCOMMENT","Edit comment");//Edit comment
-define("_EDITCONDITIONS","Edit feltételek");//Edit conditions
+define("_EDITCONDITIONS","Edit feltételek");//Edit rules
 define("_EDITINFORMATION","Edit információ");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Options for Facebook modul");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Feladótól");//Sender
 define("_ORIGINALMESSAGE","Eredeti üzenet");//Original message
 define("_PRIORITY","Elsőbbséget");//Priority
 define("_PLEASEPICKANOPTION","Kérjük, válasszon egy lehetőséget");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Teljesítés feltételei teljesülnek, megerősítés folyamatban");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Teljesítés feltételei teljesülnek, megerősítés folyamatban");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Teljes fejlődés");//Overall progress
 define("_THEORYPROGRESS","Elmélet fejlődés");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Átlagos pontszám vizsgálatot (számolás minden vizsgálat utolsó teljesítés)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Nem támogatott művelet típusa");//Unsuppo
 define("_DUPLICATECOMPLETEDPAYMENT","Két példányban kitöltött kifizetési");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Nem támogatott fizetési status");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Van törölte az ügyletet,");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A tranzakció sikeresen lezárult.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","A tranzakció sikeresen lezárult.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
 define("_MYACCOUNT","fiókomban");//my Account
 define("_MODULE","Modult");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Aszinkron kommunikáció SCORM");//Asynchronous SC
 define("_SCORMASYNCHRONOUSEXPLANATION","Váltás aszinkron kommunikáció, ha hibát tapasztal kitöltése SCORM tartalom (főleg abban az esetben, ha az Adobe Captivate generált tartalom)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Figyelem: Ha kikapcsolja a kifizetések meg az árak 0-ra");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Több választási lehetőség");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","A munkamenet lejárt. Kérjük,");//Your session has expired. Please (New)
-define("_CLICKHERE","kattintson ide");//click here (New)
-define("_TOLOGINAGAIN","ismételt bejelentkezés");//to login again (New)
-define("_SESSIONEXPIRED","Session lejárt");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","A munkamenet lejárt. Kérjük,");//Your session has expired. Please
+define("_CLICKHERE","kattintson ide");//click here
+define("_TOLOGINAGAIN","ismételt bejelentkezés");//to login again
+define("_SESSIONEXPIRED","Session lejárt");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Vesszővel elválasztott listája felhasználók show debug információk, vagy 1 az összes felhasználó");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Február");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","Április");//Apr (New)
+define("_MAYSHORTHAND","Május");//May (New)
+define("_JUNESHORTHAND","Június");//Jun (New)
+define("_JULYSHORTHAND","Július");//Jul (New)
+define("_AUGUSTSHORTHAND","Augusztus");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Szeptember");//Sep (New)
+define("_OCTOBERSHORTHAND","Október");//Oct (New)
+define("_NOVEMBERSHORTHAND","November");//Nov (New)
+define("_DECEMBERSHORTHAND","December");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Nem tud hozzáférni a kért erőforrás");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Kérjük, válassza ki a munkaköri leírást");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edit az elhelyezkedés");//Edit job placement (New)
+define("_NORESPONSE","&lt;Nincs response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Számla");//Account (New)
+define("_ORGANIZATIONALDATA","Szervezeti profil");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Üres változatlanul hagyja");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Adja meg a beállítás értékét, vagy a számot, kezdve 0-tól");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Hide felügyelője felhasználók");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Hide munkát a felhasználók");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Meg kell adnia egy alapértelmezett értéket a kötelező elemek");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Használja az aktuális dátum");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Számla változás");//Account change (New)
+define("_USERSCANCHANGEPASS","Jelszó megváltoztatása");//Password change (New)
+define("_VIEWFEEDBACK","Nézd meg visszajelzés");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Megjelenítés hiányos kérdésre összpontosít az egyes végrehajtási");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Őrizze meg a legjobb pontszám");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Átlagos vizsgálati pontszám (számolva minden egyes vizsgált aktív teljesítés)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","pontszám aktív végrehajtás");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Ha megadja a szót, hogy véget ér a csillaggal (*), csak az első részét kell tekinteni. Például, ha meg 'tanulni *', akkor mindkét 'tanulás' és a 'tanulni' kell tekinteni helyes.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Természetesen leckét szabályok");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Szabályok között tanfolyamok");//Rules between courses (New)
+define("_COURSEDEPENDSON","Természetesen attól függ,");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Nem lehet beállítani a kurzus előfeltétele a maga");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Kijelző alternatívák legördülő lista");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Ha bejelöli ezt, akkor megjelenik egy lista az összes alternatívát, hanem a szövegdoboz. Ebben az esetben csak az első opció akkor helyes");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Helyes válaszok megjelenítése csak akkor, ha hallgató a tesztel");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Beállítások-ellenőrző");//Settings checker (New)
+define("_CHECKBROWSER","Ellenőrzése böngésző");//Checking browser (New)
+define("_CHECKRESOLUTION","Ellenőrzése képernyő felbontás");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Ellenőrzése Popup blokkoló");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Cookie ellenőrzése az állami ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Ellenőrzése Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Ellenőrzése az Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 észlelt. Ez a böngésző elavult és a funkcionalitás hatással lehet a");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Sajnos a böngésző, amit használ nem támogatja");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","A képernyő felbontása nem éri el a minimális követelmény");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Pop-up blokkoló észlelt. Kérjük, hogy pop-upok az ezen az oldalon, és próbálja újra");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","A cookie-k úgy tűnik, hogy le van tiltva. Kérjük, engedélyezze a sütiket");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash nincs telepítve, elavult");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Az Adobe Reader nincs telepítve");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Javascript ellenőrzése");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript nincs engedélyezve a böngészőjében");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Meg kell lehetővé tették felügyelő e-mail aktiváció a rendszer beállításait");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Év tól");//Year range from (New)
+define("_YEARRANGETO","Év tartomány");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Csoport neve leírása");//Group name description (New)
+define("_GROUPINFORMATION","Csoport információk");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Kényszerítés hozzáférést a tartalomhoz fájlokat bejelentkezett felhasználók");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Tömörítése vizsgálati eredmények az adatbázisban");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Karbantartási feladatokat");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Kattintson ide, hogy tömöríteni befejezett vizsgálatok");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Kattintson ide, hogy tömörítse befejezett vizsgálatok");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Borogatás");//Compress (New)
+define("_DATABASETASKS","Adatbázis feladatok");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Kérjük hát az adatokat, mielőtt tömörítő / kicsomagolása befejezett vizsgálatok");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfigurációs");//Configuration (New)
+define("_SYSTEMOPTIONS","Rendszer beállítások");//System options (New)
+define("_CASUAL","Alkalmi");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Nem tudja elérni ezt a felhasználói információk");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Engedélyezése virtuális billentyűzet");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","A fájl üresnek tűnik. Lehet, hogy nem megfelelően formázva?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Tanúsítvány ütemezett lejárati");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Teszt jelszó");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Elnézést, ha nem férnek hozzá az ágazat");//Sorry, you do not have access to this branch (New)
 ?>

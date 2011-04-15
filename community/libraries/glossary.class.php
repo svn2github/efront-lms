@@ -185,7 +185,7 @@ class glossary extends EfrontEntity
     public function getForm($form) {
      $form -> addElement('text', 'name', _TERM, 'id="termField" class = "inputText"');
      $form -> addRule('name', _THEFIELD.' '._TERM.' '._ISMANDATORY, 'required');
-     $form -> addElement('textarea', 'info', _DEFINITION, 'class = "simpleEditor inputTextarea"');
+     $form -> addElement('textarea', 'info', _DEFINITION, 'class = "mceEditor inputTextarea"');
      $form -> addElement('submit', 'submit', _SUBMITTERM, 'class = "flatButton"');
      $form -> addElement('submit', 'submit_term_add_another', _SUBMITANDADDANOTHER, 'class = "flatButton"');
      $form -> setDefaults(array('name' => $this -> glossary['name'], 'info' => $this -> glossary['info']));
@@ -347,7 +347,7 @@ class glossary extends EfrontEntity
             $words[$key] = 'encode*()!768atyj'.$word;
         }
         $new_text = implode(' ',$words);
-        return $matches[1]."<a class = 'info glossary' href = 'javascript:void(0)'>".$new_text."<span class = 'tooltipSpan'>yty656hgh".self::encodeWordsInner($matching_text)."</span></a>".$matches[3];
+        return $matches[1]."<a class = 'info glossary' href = 'javascript:void(0)'>".$new_text."<div class = 'tooltipSpan'>yty656hgh".self::encodeWordsInner($matching_text)."</div></a>".$matches[3];
     }
     /**
 

@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","הכנס את מספר האפשרויות");/
 define("_INSERTEXPLANATION","הכנס הסבר");//Insert explanation
 define("_THISQUESTIONIS","זו השאלה");//This question is
 define("_CREATEEMPTYSPACES","יצירת חללים ריקים");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","כתוב את הטקסט ואת השאלה היכן אתה צריך להכניס שטח ריק, הכנס # # #. בסיום, לחץ על \"צור חללים ריקים\" שמתחת");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","כתוב את הטקסט ואת השאלה היכן אתה צריך להכניס שטח ריק, הכנס # # #. בסיום, לחץ על \"צור חללים ריקים\" שמתחת");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","הכנס התאמת זוגות");//Insert matching pairs
 define("_ADDOPTION","הוסף אפשרות");//Add option
 define("_GOTOCALENDAR","עבור אל לוח השנה");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","ראיתי חלק קטן של יחידות");//Seen a
 define("_SPECIFICUNIT","ראית יחידה מסוימת");//Seen a specific unit
 define("_PASSEDALLTESTS","עבר את כל הבדיקות");//Passed all tests
 define("_SPECIFICTEST","עבר בדיקה ספציפית");//Passed a specific test
-define("_INVALIDCONDITION","מצב לא חוקי");//Invalid condition
+define("_INVALIDCONDITION","מצב לא חוקי");//Invalid rule
 define("_THEUSERMUSTHAVE","התלמיד חייב להיות");//The student must have
 define("_UNITSPERCENTAGE","אחוז");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","תנאי נוסף בהצלחה");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","בהצלחה עדכון מצב");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","נמחקו בהצלחה המצב");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","תנאי נוסף בהצלחה");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","בהצלחה עדכון מצב");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","נמחקו בהצלחה המצב");//Successfully deleted rule
 define("_LESSONCONDITIONS","שיעור השלמת התנאים");//Lesson completion rules
-define("_ADDCONDITION","הוסף תנאי");//Add condition
-define("_CONDITION","מצב");//Condition
-define("_CONDITIONTYPE","סוג מצב");//Condition type
+define("_ADDCONDITION","הוסף תנאי");//Add completion rule
+define("_CONDITION","מצב");//Completion rule
+define("_CONDITIONTYPE","סוג מצב");//Rule type
 define("_RELATIONTOOTHERS","ביחס לאחרים");//Relation to others
 define("_SCROLLTOTOPOFPAGE","גלול אל ראש הדף");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","גלול לתחתית העמוד");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","מערכת");//System
 define("_EMAILCONFIGURATIONS","שרת הדואר האלקטרוני תצורה");//Emails server configuration
 define("_SAWUNIT","בחר את יחידת כפי הושלמה");//Set the unit as completed
 define("_NOTSAWUNIT","בחר את יחידת לא הושלמה");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","תנאים הושלמה");//Conditions completed
+define("_CONDITIONSCOMPLETED","תנאים הושלמה");//Completion rules completed
 define("_OUTOF","מתוך");//out of
 define("_LESSONPROGRESS","שיעור ההתקדמות");//Lesson progress
 define("_YOUMUSTSEEUNIT","אתה חייב לראות את יחידת");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","אתה חייב לראות");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","עליך להשלים את כל הבדיקות מתכוון עם ניקוד");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","עליך להשלים את הבדיקה");//You must complete test
 define("_WITHSCORE","עם ניקוד");//with score
-define("_NOCONDITIONSSET","אין תנאים הציב שיעור זה");//There are no conditions set for this lesson
-define("_CONDITIONS","תנאי שימוש");//conditions
+define("_NOCONDITIONSSET","אין תנאים הציב שיעור זה");//There are no completion rules set for this lesson
+define("_CONDITIONS","תנאי שימוש");//completion rules
 define("_RESUMELESSON","שיעור חדש");//Resume lesson
 define("_STARTLESSON","התחל שיעור");//Start lesson
 define("_TRACKING","מעקב");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","היתה בעיה בעת שיבוט �
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","תבנית תעודת נמחק בהצלחה");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","הייתה בעיה, למרות שמחיקת תבנית תעודה");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","אין לך את הזכות לשנות תבנית זו תעודת");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","מצב עריכה");//Edit condition
+define("_EDITCONDITION","מצב עריכה");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","תצורת שרת SMTP");//SMTP server configuration
 define("_SMTPSERVER","שרת SMTP");//SMTP server
 define("_SMTPPASSWORD","סיסמת SMTP");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","השדה עודכנה");//The field was updated
 define("_LESSONSCORE","שיעור ניקוד");//Lesson score
 define("_COMPLETED","הושלם");//Completed
 define("_NOTCOMPLETED","לא הושלם");//Not completed
-define("_CONDITIONSMET","תנאים נפגשו ו ממתינה לאישור");//Conditions met and awaiting approval
+define("_CONDITIONSMET","תנאים נפגשו ו ממתינה לאישור");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","סטודנטים שיעור מצב שונה בהצלחה");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","חייב להיות מספרי");//Must be numeric
 define("_DEFAULTCERTIFICATE","Elearning ארגון certifies כי USER_NAME # # # # user_surname הושלמה בהצלחה course_name # # # כיתה עם כיתה # אישור זה שפורסם ב # # תאריך");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","אין אפשרות לשלוח");//Could not be sent
 define("_ENVIRONMENTALCHECK","בדיקה סביבתית");//Environmental check
 define("_REPAIRTREE","שחזור עץ");//Restore tree
 define("_RULEPROPERTIES","כלל נכסים");//Rule properties
-define("_CONDITIONPROPERTIES","מצב נכסים");//Condition properties
+define("_CONDITIONPROPERTIES","מצב נכסים");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","יתום לקח לבדוק תיקיות");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","שיעורים מבלי לבדוק תיקיות");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","את התיקיות הבאות אין לקח המקושרים");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","שמור שאלה וליצור אחר");//Sa
 define("_SAVEASNEWQUESTION","שמור כמו חדש שאלה");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","את הסקר עודכן בהצלחה");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","אתה צריך להשלים את כל התוכן");//You have completed all content
-define("_CONDITIONMET","מצב נפגשו");//Condition met
-define("_CONDITIONNOTMET","מצב לא נפגשנו");//Condition not met
+define("_CONDITIONMET","מצב נפגשו");//Completion rules met
+define("_CONDITIONNOTMET","מצב לא נפגשנו");//Completion rules met
 define("_OLDMODULES","הקיתעה מודולים");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","סיומת של PHP LDAP אינה נטענת");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","אתה עומד השיעור השלם של תנאים. שיעור זה צריך להיות מוגדר כ הושלמה על ידי פרופ");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","אתה עומד השיעור השלם של תנאים. שיעור זה צריך להיות מוגדר כ הושלמה על ידי פרופ");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","שיעור השלמת");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","התעודה הנפיקה בהצלחה");//Certificate issued successfully
 define("_NOTITLE","ללא כותרת");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","סיסמת החשבון LDAP");//LDAP account pas
 define("_USELDAPACCOUNT","השתמש בחשבון שלך LDAP אישורים כדי להשתמש במערכת");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","רק באמצעות רישום חוקי של LDAP חשבון מותר");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","תהיה זמינה");//is generally available
-define("_DELETECONDITION","מחיקת התנאי");//Delete condition
+define("_DELETECONDITION","מחיקת התנאי");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","פורום הודעה זו יחידה");//Post forum message for this unit
 define("_AUTOCOMPLETE","להשלים אוטומטית");//Auto complete
 define("_DUPLICATESARENOTALLOWED","לא ניתן להשתמש פעמיים באותו השיעור של כלל");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","השלם את �
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","אתה צריך להשלים את כל הבדיקות מיומנות הפער שהוקצו לך. <br> אנא המתן עד פרופסורים להקצות לך את המתאים ביותר קורסים בהתאם לצרכים שלך.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","התוצאות שלך נשלחו שלך מי פרופסורים בקרוב להקצות קורסים שלך בהתאם לצרכים שלך כפי זיהו זה המבחן");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","עבודה מיקומים");//Job placements
-define("_NEWJOBPLACEMENT","עבודה חדשה מיקומים");//New job placements
+define("_NEWJOBPLACEMENT","עבודה חדשה מיקומים");//New job placement
 define("_UPGRADEMODULE","שדרוג מודול");//Upgrade module
 define("_NEWUNITOPTIONS","יחידת אפשרויות חדשות");//New unit options
 define("_UNITOPTIONSFOR","אופציות יחידה");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","הערה: אתה revisitin
 define("_ACTIONONRENTRYCOMPLETED","פעילות על כניסה מחדש");//Action on re-entry
 define("_LETCONTENTDECIDE","תן תוכן להחליט");//Let content decide
 define("_DONTCHANGE","השאר ללא שינוי");//Leave unchanged
-define("_DASHBOARD","לוח מחוונים");//my Dashboard
+define("_DASHBOARD","לוח מחוונים");//Dashboard
 define("_MYWALL","הקיר שלי");//My wall
 define("_RELATEDPEOPLE","אנשים קשורים");//Related people
 define("_LEARNINGACTIVITY","פעילות למידה");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","הקובץ שהועלה היא לא תמונה");//The
 define("_COMMENT","תגובה");//Comment
 define("_COMMENTPROPERTIES","מאפייני תגובה");//Comment properties
 define("_EDITCOMMENT","עריכת תגובה");//Edit comment
-define("_EDITCONDITIONS","תנאים ערוך");//Edit conditions
+define("_EDITCONDITIONS","תנאים ערוך");//Edit rules
 define("_EDITINFORMATION","ערוך פרטים");//Edit information
 define("_FACEBOOK","פייסבוק");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","אפשרויות עבור מודול פייסבוק");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","שולח");//Sender
 define("_ORIGINALMESSAGE","ההודעה המקורית");//Original message
 define("_PRIORITY","עדיפות");//Priority
 define("_PLEASEPICKANOPTION","אנא בחר אפשרות");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","השלמת התנאים נפגשו, ממתינים לאישור");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","השלמת התנאים נפגשו, ממתינים לאישור");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","בסך הכל התקדמות");//Overall progress
 define("_THEORYPROGRESS","התקדמות תורת");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","ציון ממוצע הבדיקה (ספירת כל ביצוע של הבדיקה האחרונה)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","סוג הפעולה לא נתמכת");//Unsu
 define("_DUPLICATECOMPLETEDPAYMENT","שכפל השלמת התשלום");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","מעמד התשלום לא נתמך");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","יש לך ביטל את העסקה");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","העסקה הושלמה בהצלחה.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","העסקה הושלמה בהצלחה.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","מצב Paypal באגים");//Paypal debug mode
 define("_MYACCOUNT","החשבון שלי");//my Account
 define("_MODULE","מודול");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asynchronous תקשורת SCORM");//Asynchronous S
 define("_SCORMASYNCHRONOUSEXPLANATION","לעבור תקשורת סינכרונית אם אתה נתקל בבעיות בהשלמת תוכן SCORM (במיוחד במקרה אתה משתמש Adobe Captivate תוכן שנוצר)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","אזהרה: השבתת התשלומים יהיה להגדיר את כל המחירים 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","אפשרויות מרובות");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","פג. בבקשה");//Your session has expired. Please (New)
-define("_CLICKHERE","לחץ כאן");//click here (New)
-define("_TOLOGINAGAIN","כדי להתחבר שוב");//to login again (New)
-define("_SESSIONEXPIRED","מושב פג");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","פג. בבקשה");//Your session has expired. Please
+define("_CLICKHERE","לחץ כאן");//click here
+define("_TOLOGINAGAIN","כדי להתחבר שוב");//to login again
+define("_SESSIONEXPIRED","מושב פג");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","רשימה של מופרדים בפסיקים למשתמשים להציג מידע על באגים, או 1 עבור כל המשתמשים");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","ינואר");//Jan (New)
+define("_FEBRUARYSHORTHAND","פבואר");//Feb (New)
+define("_MARCHSHORTHAND","לקלקל");//Mar (New)
+define("_APRILSHORTHAND","אפריל");//Apr (New)
+define("_MAYSHORTHAND","במאי");//May (New)
+define("_JUNESHORTHAND","יוני");//Jun (New)
+define("_JULYSHORTHAND","יולי");//Jul (New)
+define("_AUGUSTSHORTHAND","אוגוסט");//Aug (New)
+define("_SEPTEMBERSHORTHAND","ספטמבר");//Sep (New)
+define("_OCTOBERSHORTHAND","אוקטובר");//Oct (New)
+define("_NOVEMBERSHORTHAND","נובמבר");//Nov (New)
+define("_DECEMBERSHORTHAND","דצמבר");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","אתה לא יכול לגשת המשאב המבוקש");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","אנא בחר תיאור העבודה");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","עריכת השמה");//Edit job placement (New)
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","חשבון");//Account (New)
+define("_ORGANIZATIONALDATA","ארגוני פרופיל");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","בלנק לעזוב ללא שינוי");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","הזן את ערך האופציה או מספר שלה, החל מ 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","הסתר המפקח ממשתמשים");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","הסתר העבודה ממשתמשים");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","אתה חייב לציין ערך ברירת מחדל עבור רכיבים חובה");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","השתמש את התאריך הנוכחי");//Use the current date (New)
+define("_USERSCANCHANGEINFO","חשבון שינוי");//Account change (New)
+define("_USERSCANCHANGEPASS","שינוי הסיסמה");//Password change (New)
+define("_VIEWFEEDBACK","צפה משוב");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","הצג שאלות הושלם ביצוע כל");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","לשמור על התוצאה הטובה ביותר");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","ממוצע דירוג הבדיקה (ספירת ביצוע פעיל של כל מבחן)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","הציון על ביצוע הפעילות");//score on active execution (New)
+define("_YOUCANUSEASTERISK","אם תציין מילה המסתיימת בכוכבית (*), רק החלק הראשון שלו ייחשב. לדוגמה, אם תציין 'ללמוד *', ואז הן 'למידה' ו 'לומדים' תחשב נכונה.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","קורס כללי השיעור");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","כללים בין קורסים");//Rules between courses (New)
+define("_COURSEDEPENDSON","כמובן תלוי");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","אתה לא יכול להגדיר את הקורס כתנאי מוקדם של עצמה");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","הצגת חלופות בתיבה בחר");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","בדיקת זה יציג תיבת רשימה עם כל החלופות, במקום בתיבת טקסט. במקרה זה, רק האפשרות הראשונה נחשבת נכונה");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","תשובות הצג נכונה רק אם התלמיד במבחן");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","הגדרות בודק");//Settings checker (New)
+define("_CHECKBROWSER","בדיקת הדפדפן");//Checking browser (New)
+define("_CHECKRESOLUTION","בדיקת רזולוציית המסך");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","בדיקת חוסם החלונות הקופצים");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","קוקי המדינה בודק ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","בדיקת פלאש");//Checking for Flash (New)
+define("_CHECKACROBAT","בדיקת התוכנה Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 זוהה. דפדפן זה מיושן פונקציונליות עלול להיות מושפע");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","למרבה הצער את הדפדפן שבו אתה משתמש אינו נתמך");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","רזולוציית המסך שלך לא עומד בדרישות המינימום של");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","חוסם חלונות קופצים זוהה. בבקשה לאפשר חלונות קופצים באתר זה ונסה שוב");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","עוגיות להיראות נכים. נא לאפשר עוגיות");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","הפלאש לא מותקן, מעודכנת");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader אינו מותקן");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","בדיקת Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","JavaScript אינו מאופשר בדפדפן שלך");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","עליך להפעיל את הודעת ההפעלה המפקח מן הגדרות המערכת");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","השנה נע בין");//Year range from (New)
+define("_YEARRANGETO","השנה טווח");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","תיאור הקבוצה שם");//Group name description (New)
+define("_GROUPINFORMATION","קבוצת המידע");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","גישה הגבל את תוכן הקבצים למשתמשים המחוברים כרגע");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","דחיסת תוצאות הבדיקה באתר");//Compress test results in database (New)
+define("_MAINTENANCETASKS","תחזוקה משימות");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","לחץ כאן כדי לדחוס בדיקות הושלמה");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","לחץ כאן כדי לבטל את הדחיסה של בדיקות הושלמה");//Click here to uncompress completed tests (New)
+define("_COMPRESS","לדחוס");//Compress (New)
+define("_DATABASETASKS","מסד משימות");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","אנא גיבוי הנתונים שלך לפני דחיסת / uncompressing בדיקות הושלמה");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","תצורה");//Configuration (New)
+define("_SYSTEMOPTIONS","מערכת אפשרויות");//System options (New)
+define("_CASUAL","אגבי");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","אתה לא יכול לגשת למידע הזה של המשתמש");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","אפשר מקלדת וירטואלית");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","הקובץ נראה ריק. אולי זה לא מעוצבת כהלכה?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","תעודת מתוזמנת תפוגה");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","מבחן הסיסמה");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","מצטערים, אין לך גישה הסניף הזה");//Sorry, you do not have access to this branch (New)
 ?>

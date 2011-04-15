@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Fut e zgjedhje të shumta");//Insert the mult
 define("_INSERTEXPLANATION","Fut shpjegim");//Insert explanation
 define("_THISQUESTIONIS","Kjo pyetje është");//This question is
 define("_CREATEEMPTYSPACES","Krijo hapësira bosh");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Shkruani tekstin e pyetjes dhe kudo që ju duhet për të futur një hapësire bosh, insert ###. Kur jeni bërë, pastaj kliko tek 'Krijo bosh hapėsira 'butonin më poshtë'");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Shkruani tekstin e pyetjes dhe kudo që ju duhet për të futur një hapësire bosh, insert ###. Kur jeni bërë, pastaj kliko tek 'Krijo bosh hapėsira 'butonin më poshtë'");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Fut matching pair");//Insert matching pairs
 define("_ADDOPTION","Shto opsion");//Add option
 define("_GOTOCALENDAR","Go to calendar");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Parë një pjesë e njësive të");//Seen a fraction 
 define("_SPECIFICUNIT","Një njësi e posaçme e parë");//Seen a specific unit
 define("_PASSEDALLTESTS","Kaluar të gjithë testet");//Passed all tests
 define("_SPECIFICTEST","Kaloi një test të veçantë");//Passed a specific test
-define("_INVALIDCONDITION","Invalid kusht");//Invalid condition
+define("_INVALIDCONDITION","Invalid kusht");//Invalid rule
 define("_THEUSERMUSTHAVE","Studenti duhet të ketë");//The student must have
 define("_UNITSPERCENTAGE","Përqindja");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Me sukses shtoi kusht");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Ri-freskua me sukses kusht");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Fshi me sukses kusht");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Me sukses shtoi kusht");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Ri-freskua me sukses kusht");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Fshi me sukses kusht");//Successfully deleted rule
 define("_LESSONCONDITIONS","Mësim kompletimin kushtet");//Lesson completion rules
-define("_ADDCONDITION","Shto kusht");//Add condition
-define("_CONDITION","Kushti");//Condition
-define("_CONDITIONTYPE","Kushti type");//Condition type
+define("_ADDCONDITION","Shto kusht");//Add completion rule
+define("_CONDITION","Kushti");//Completion rule
+define("_CONDITIONTYPE","Kushti type");//Rule type
 define("_RELATIONTOOTHERS","Raporti për të tjerët");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Shkoni në fillim të faqes");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Shkoni në fund të faqes");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Sistemit");//System
 define("_EMAILCONFIGURATIONS","E-mail server configuration");//Emails server configuration
 define("_SAWUNIT","Set si njësi e përfunduar");//Set the unit as completed
 define("_NOTSAWUNIT","Set e jo si njësi e përfunduar");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Kushtet e përfunduar");//Conditions completed
+define("_CONDITIONSCOMPLETED","Kushtet e përfunduar");//Completion rules completed
 define("_OUTOF","jashtë");//out of
 define("_LESSONPROGRESS","Mësim përparim");//Lesson progress
 define("_YOUMUSTSEEUNIT","Ju duhet të shikoni njësi");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Ju duhet të shikoni");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Ju duhet të plotësoni të gjitha testeve do të thotë me rezultatin");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Ju duhet të plotësoni test");//You must complete test
 define("_WITHSCORE","me rezultatin");//with score
-define("_NOCONDITIONSSET","Nuk ka të kushteve të vendosura për këtë mësim");//There are no conditions set for this lesson
-define("_CONDITIONS","kushtet");//conditions
+define("_NOCONDITIONSSET","Nuk ka të kushteve të vendosura për këtë mësim");//There are no completion rules set for this lesson
+define("_CONDITIONS","kushtet");//completion rules
 define("_RESUMELESSON","Resume mësim");//Resume lesson
 define("_STARTLESSON","Fillimi mësim");//Start lesson
 define("_TRACKING","Ndjekja");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Nuk ishte një problem, ndërsa kloni
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","template Certifikata u fshi me sukses");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Nuk ishte një problem gjatë fshirjes template certifikatë");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Ju nuk keni të drejtat për të ndryshuar këtë template certifikatë");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Edit kusht");//Edit condition
+define("_EDITCONDITION","Edit kusht");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP server Konfigurimi");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
 define("_SMTPPASSWORD","SMTP password");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","The field u ri-freskua me");//The field was updated
 define("_LESSONSCORE","Rezultati i mësimit");//Lesson score
 define("_COMPLETED","Kompletuar");//Completed
 define("_NOTCOMPLETED","Nuk është përfunduar");//Not completed
-define("_CONDITIONSMET","Kushtet u takua në pritje të miratimit dhe");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Kushtet u takua në pritje të miratimit dhe");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Student mësim statusit ndryshuar me sukses");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Duhet të jetë numerike");//Must be numeric
 define("_DEFAULTCERTIFICATE","Elearning organizatės vërteton se user_name # # # # user_surname ka përfunduar me sukses course_name # # # me grade grade # Kjo certifikatë ishte lëshuar në datën # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Nuk mund të dërgohet");//Could not be sent
 define("_ENVIRONMENTALCHECK","Kontrolloni të Mjedisit");//Environmental check
 define("_REPAIRTREE","Restauro pemë");//Restore tree
 define("_RULEPROPERTIES","Rregulla pronat");//Rule properties
-define("_CONDITIONPROPERTIES","Kushti pronat");//Condition properties
+define("_CONDITIONPROPERTIES","Kushti pronat");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Jetim mësim folders kontrolloni");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Mësimet e pa kontrolluar dosjet");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Dosjet e mëposhtme nuk kanë një përvojë të lidhur");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Save pyetje dhe do të krijojë një tjetër
 define("_SAVEASNEWQUESTION","Ruaje si pyetje të re");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Sondazhi u ri-freskua me sukses");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Ju keni përfunduar të gjitha përmbajtjet");//You have completed all content
-define("_CONDITIONMET","Kushti u takua");//Condition met
-define("_CONDITIONNOTMET","Kushti nuk u takua");//Condition not met
+define("_CONDITIONMET","Kushti u takua");//Completion rules met
+define("_CONDITIONNOTMET","Kushti nuk u takua");//Completion rules met
 define("_OLDMODULES","Old module");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP extension i LDAP nuk është i krimbur në para");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Ju mësimi i plotësojnë kushtet e plotë. Ky mësim duhet të vendosen si kompletuar nga profesori");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Ju mësimi i plotësojnë kushtet e plotë. Ky mësim duhet të vendosen si kompletuar nga profesori");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Mësim i përfunduar");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Certifikata e lëshuar me sukses");//Certificate issued successfully
 define("_NOTITLE","No title");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP account password");//LDAP account password
 define("_USELDAPACCOUNT","Perdor llogarine tuaj LDAP kredencialet në mënyrë që të përdorin sistemin");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Vetëm një regjistrim të përdorni LDAP vlefshme llogari është e lejuar");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","në përgjithësi është i vlefshëm");//is generally available
-define("_DELETECONDITION","Fshije kusht");//Delete condition
+define("_DELETECONDITION","Fshije kusht");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Post forum mesazh për këtë njësi");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto plotë");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Ju nuk mund të përdorni të njëjtin mësim dy herë në një rregull");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Përfundimi i h
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Ju keni përfunduar të gjitha aftësi hendekun teste të caktuar për ju. <br> Ju lutem prisni deri sa ju të profesorëve të caktojë më të përshtatshme kurse sipas nevojave tuaja.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Your rezultatet janë dërguar në tuaj profesorët të cilët së shpejti do të caktojë për kurset tuaj sipas nevojave tuaja si identifikuara nga kjo analizë");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Job placements");//Job placements
-define("_NEWJOBPLACEMENT","New punë placements");//New job placements
+define("_NEWJOBPLACEMENT","New punë placements");//New job placement
 define("_UPGRADEMODULE","Upgrade modul");//Upgrade module
 define("_NEWUNITOPTIONS","New njësi options");//New unit options
 define("_UNITOPTIONSFOR","Mundësitë e zgjedhjes për njësi");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Shënim: jeni revisiting k
 define("_ACTIONONRENTRYCOMPLETED","Veprimit të ri-hyrjes");//Action on re-entry
 define("_LETCONTENTDECIDE","Le të vendosin content");//Let content decide
 define("_DONTCHANGE","Leave pandryshuar");//Leave unchanged
-define("_DASHBOARD","Paneli i drejtimit");//my Dashboard
+define("_DASHBOARD","Paneli i drejtimit");//Dashboard
 define("_MYWALL","Mur im");//My wall
 define("_RELATEDPEOPLE","Njerëz Related");//Related people
 define("_LEARNINGACTIVITY","Aktiviteti Learning");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","File uploaded nuk është një imazh");//The uploaded 
 define("_COMMENT","Koment");//Comment
 define("_COMMENTPROPERTIES","Pronat Koment");//Comment properties
 define("_EDITCOMMENT","Edit comment");//Edit comment
-define("_EDITCONDITIONS","Kushtet Edit");//Edit conditions
+define("_EDITCONDITIONS","Kushtet Edit");//Edit rules
 define("_EDITINFORMATION","Informacion Edit");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Mundësitë e zgjedhjes për modul Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Sender");//Sender
 define("_ORIGINALMESSAGE","Mesazhi origjinal");//Original message
 define("_PRIORITY","Prioritet");//Priority
 define("_PLEASEPICKANOPTION","Ju lutem zgjidhni një opsion");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Kushtet Përfundimi u takua, në pritje të konfirmimit");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Kushtet Përfundimi u takua, në pritje të konfirmimit");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Përparim përgjithësi");//Overall progress
 define("_THEORYPROGRESS","Progres Teoria");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Rezultati mesatar i testit (pa llogaritur ekzekutimin e fundit çdo provë e)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Lloji Unsupported operacion");//Unsupported 
 define("_DUPLICATECOMPLETEDPAYMENT","Duplicate përfunduar pagesa");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Statusi Unsupported pagesë");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Ju keni anuluar transaksionin");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksioni është përfunduar me sukses.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaksioni është përfunduar me sukses.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
 define("_MYACCOUNT","My account");//my Account
 define("_MODULE","Module");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asinkrone komunikimit SCORM");//Asynchronous SCORM
 define("_SCORMASYNCHRONOUSEXPLANATION","Kalo në komunikim asinkron nëse jeni duke përjetuar probleme të kompletuar përmbajtjen SCORM (sidomos në rast se ju jeni duke përdorur Adobe robëroj generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Warning: Paaftësi e pagesave do të vendosë të gjitha çmimet në 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","mundësitë e shumëfishta");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Sesioni juaj ka skaduar. Ju lutem");//Your session has expired. Please (New)
-define("_CLICKHERE","kliko këtu");//click here (New)
-define("_TOLOGINAGAIN","të identifikohen përsëri");//to login again (New)
-define("_SESSIONEXPIRED","Sesioni i skaduar");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Sesioni juaj ka skaduar. Ju lutem");//Your session has expired. Please
+define("_CLICKHERE","kliko këtu");//click here
+define("_TOLOGINAGAIN","të identifikohen përsëri");//to login again
+define("_SESSIONEXPIRED","Sesioni i skaduar");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Lista e ndarë me presje e përdoruesve për të treguar debug informacion mbi, ose 1 për të gjithë përdoruesit");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Shkurt");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","Prill");//Apr (New)
+define("_MAYSHORTHAND","Mund të");//May (New)
+define("_JUNESHORTHAND","Qershor");//Jun (New)
+define("_JULYSHORTHAND","Korrik");//Jul (New)
+define("_AUGUSTSHORTHAND","Gusht");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Shtator");//Sep (New)
+define("_OCTOBERSHORTHAND","Tetor");//Oct (New)
+define("_NOVEMBERSHORTHAND","Nëntor");//Nov (New)
+define("_DECEMBERSHORTHAND","Dhjetor");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ju nuk mund të hyni në burim e kërkuar");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Ju lutem zgjidhni një përshkrim të punës");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edit punësim");//Edit job placement (New)
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Llogari");//Account (New)
+define("_ORGANIZATIONALDATA","Profili Organizative");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Bosh të lënë i pandryshuar");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Shkruani vlerën e mundësi ose numrin e saj, duke filluar nga 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","mbikëqyrësi Hide nga shfrytëzuesit");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","punë Hide nga shfrytëzuesit");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Ju duhet të specifikoni vlerën e prezgjedhur për elementët e detyrueshme");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Përdorimi datën e tanishme");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Llogaria ndryshim");//Account change (New)
+define("_USERSCANCHANGEPASS","ndryshim Fjalëkalimi");//Password change (New)
+define("_VIEWFEEDBACK","Shiko reagimet");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Show pyetje jo të plota në çdo ekzekutim");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Mbajë rezultatin më të mirë");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Nota mesatare test (duke numëruar ekzekutimit aktiv çdo test-së)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","Rezultati për ekzekutimin e aktive");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Nëse ju specifikoni një fjalë që përfundon me një yll (*), vetëm pjesën e parë do të merren parasysh. Për shembull, nëse ju specifikoni mësoni*', atëherë të dy 'të mësuarit' dhe 'të mësojnë' do të konsiderohet i saktë.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","mësim Rregullat e kursit");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Rregullat në mes të kurseve");//Rules between courses (New)
+define("_COURSEDEPENDSON","Sigurisht varet nga");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Ju nuk mund të përcaktuar kurs si një parakusht i vetë");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","alternativa të vendosë, në kutinë e zgjidhni");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kontrolluar kjo do të tregojë një kuti listë me të gjitha alternativat, në vend të një kutie teksti. Në këtë rast, vetëm opsionin e parë konsiderohet e saktë");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Përgjigjet Show saktë vetëm nëse studenti kaluan testin");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Paneli i punëve Checker");//Settings checker (New)
+define("_CHECKBROWSER","Kontrolli browser");//Checking browser (New)
+define("_CHECKRESOLUTION","Checking screen resolution");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Kontrolluar për Popup blocker");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Kontrolluar Cookie shtet ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Kontrolluar për Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Kontrolluar për Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 zbuluar. Ky shfletues është e vjetëruar dhe funksionalitetin mund të preken");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Për fat të keq të shfletuesit që ju jeni duke përdorur nuk është i mbështetur");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","zgjidhjen e juaj ekran nuk i plotëson kërkesat minimale të");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker zbuluar. Ju lutemi të lejojë popups për këtë faqe dhe të provoni përsëri");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies duket të jetë me aftësi të kufizuara. Ju lutem aktivizoni cookies");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash nuk është i instaluar, nga data");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader nuk është i instaluar");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Kontrolluar Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript nuk është aktivizuar në shfletuesin tënd");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Ju duhet të keni aktivizuar mail aktivizimi mbikëqyrësi nga parametrat e sistemit");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Viti varg nga");//Year range from (New)
+define("_YEARRANGETO","Viti varg të");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Përshkrimi i grupit Emri");//Group name description (New)
+define("_GROUPINFORMATION","informacion Group");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","qasje të kufizojnë në përmbajtjen e dosjeve të përdoruesit e regjistruar në");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Rezultatet e testimit Compress në bazën e të dhënave");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Mirëmbajtjen e detyrave");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Kliko këtu për të compress teste përfunduar");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Kliko këtu për të uncompress teste përfunduar");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Ngjesh");//Compress (New)
+define("_DATABASETASKS","detyrat Baza e të dhënave");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Ju lutemi të dhënat tuaja backup para se compressing / uncompressing testit të plotësuar");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfiguracion");//Configuration (New)
+define("_SYSTEMOPTIONS","opsionet e Sistemit");//System options (New)
+define("_CASUAL","Rastësor");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Ju nuk mund të ketë qasje në informata this user&#39;s");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Enable keyboard virtuale");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","File duket të jetë bosh. Ndoshta nuk është i formatuar si duhet?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikata planifikuar skadimit");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Fjalëkalimi Test");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Na vjen keq, ju nuk keni qasje në këtë degë");//Sorry, you do not have access to this branch (New)
 ?>

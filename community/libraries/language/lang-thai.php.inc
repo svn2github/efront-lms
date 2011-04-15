@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","ข้อเลือกตอบ");//Insert 
 define("_INSERTEXPLANATION","เพิ่มคำอธิบาย เฉลยคำตอบ");//Insert explanation
 define("_THISQUESTIONIS","คำถามคือ");//This question is
 define("_CREATEEMPTYSPACES","สร้างช่องว่างเพื่อเติมคำ");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","แทรกตัวเลือกคู่");//Insert matching pairs
 define("_ADDOPTION","เพิ่มตัวเลือกตอบอีก");//Add option
 define("_GOTOCALENDAR","ไปหน้าปฏิทินกิจกรรม");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","เข้าเรียนในรายการ�
 define("_SPECIFICUNIT","เข้าเรียนในเนื้อหา-หน่วยเรียนที่ระบุไวุ้");//Seen a specific unit
 define("_PASSEDALLTESTS","สอบผ่านเกณฑ์ทุกแบบทดสอบ");//Passed all tests
 define("_SPECIFICTEST","สอบผ่านแบบทดสอบที่ระบุคือ");//Passed a specific test
-define("_INVALIDCONDITION","เกณฑ์:เงื่อนไขไม่ถูกต้อง");//Invalid condition
+define("_INVALIDCONDITION","เกณฑ์:เงื่อนไขไม่ถูกต้อง");//Invalid rule
 define("_THEUSERMUSTHAVE","ผู้เรียนต้อง");//The student must have
 define("_UNITSPERCENTAGE","ค่าร้อยละ");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","ได้เพิ่มเงื่อนไขให้เรียบร้อยแล้ว");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","ได้ปรับปรุงเงื่อนไขให้เรียบร้อยแล้ว");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","ได้ลบเงื่อนไขออกเรียบร้อยแล้ว");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","ได้เพิ่มเงื่อนไขให้เรียบร้อยแล้ว");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","ได้ปรับปรุงเงื่อนไขให้เรียบร้อยแล้ว");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","ได้ลบเงื่อนไขออกเรียบร้อยแล้ว");//Successfully deleted rule
 define("_LESSONCONDITIONS","เกณฑ์-เงื่อนไขการผ่านเนื้อหา-หน่วยเรียน");//Lesson completion rules
-define("_ADDCONDITION","เพิ่มเกณฑ์:เงื่อนไขการเรียน");//Add condition
-define("_CONDITION","เกณฑ์:เงื่อนไขการเรียน");//Condition
-define("_CONDITIONTYPE","ประเภทเกณฑ์:เงื่อนไขการเรียน");//Condition type
+define("_ADDCONDITION","เพิ่มเกณฑ์:เงื่อนไขการเรียน");//Add completion rule
+define("_CONDITION","เกณฑ์:เงื่อนไขการเรียน");//Completion rule
+define("_CONDITIONTYPE","ประเภทเกณฑ์:เงื่อนไขการเรียน");//Rule type
 define("_RELATIONTOOTHERS","เลือกเกณฑ์คำเชื่อมใช้");//Relation to others
 define("_SCROLLTOTOPOFPAGE","เลื่อนไปที่ส่วนบนสุดของหน้า");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","เลื่อนไปที่ส่วนล่างสุดของหน้า");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","การบริหารจัดการ");//System
 define("_EMAILCONFIGURATIONS","การตั้งค่า E-mail server");//Emails server configuration
 define("_SAWUNIT","คลิกที่นี่ เพื่อแจ้งผลการเรียนว่า คุณได้เข้าเรียนรู้และทำกิจกรรมในเนื้อหา-หน่วยเรียนนี้ ครบเรียบร้อยแล้ว (อาจารย์ผู้สอนจะเข้าตรวจสอบเวลาที่บันทึกการเข้าเรียนของคุณอีกครั้ง)");//Set the unit as completed
 define("_NOTSAWUNIT","คลิกตั้งค่าย้อนกลับไป เพื่อแจ้งว่ายังเรียนไม่เสร็จ ขอเรียนซ้ำหรือยังเรียนไม่ครบตามเงื่อนไขการเรียน ในเนื้อหา-หน่วยเรียนนี้");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","ได้ผ่านเกณฑ์:เงื่อนไขแล้ว");//Conditions completed
+define("_CONDITIONSCOMPLETED","ได้ผ่านเกณฑ์:เงื่อนไขแล้ว");//Completion rules completed
 define("_OUTOF","จากทั้งหมด");//out of
 define("_LESSONPROGRESS","ความก้าวหน้าทางการเรียน");//Lesson progress
 define("_YOUMUSTSEEUNIT","คุณต้องเรียนเนื้อหา-หน่วยเรียน");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","คุณต้องเรียน");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","คุณต้องทำแบบทดสอบให้เสร็จทั้งหมดและได้คะแนนผ่านเกณฑ์เฉลี่ย");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","คุณต้องทำแบบทดสอบให้เสร็จคือ");//You must complete test
 define("_WITHSCORE","โดยต้องได้คะแนนไม่ต่ำกว่า");//with score
-define("_NOCONDITIONSSET","ไม่มีการกำหนดเงื่อนไขการเข้าเรียนในเนื้อหา-หน่วยเรียนนี้");//There are no conditions set for this lesson
-define("_CONDITIONS","เกณฑ์:เงื่อนไขการผ่าน");//conditions
+define("_NOCONDITIONSSET","ไม่มีการกำหนดเงื่อนไขการเข้าเรียนในเนื้อหา-หน่วยเรียนนี้");//There are no completion rules set for this lesson
+define("_CONDITIONS","เกณฑ์:เงื่อนไขการผ่าน");//completion rules
 define("_RESUMELESSON","ให้ย้อนกลับไปเริ่มต้นเนื้อหา-หน่วยเรียนใหม่");//Resume lesson
 define("_STARTLESSON","เริ่มเรียนเนื้อหา-หน่วยเรียน");//Start lesson
 define("_TRACKING","การติดตาม");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","มีปัญหาในขณะ�
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","แม่แบบหนังสือรับรองถูกลบแล้ว");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","ในขณะที่เกิดปัญหาในการลบแม่แบบหนังสือรับรองได้");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","คุณไม่ได้รับสิทธิ์ในการปรับเปลี่ยนแม่แบบใบรับรองนี้");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","แก้ไขเกณฑ์:เงื่อนไข");//Edit condition
+define("_EDITCONDITION","แก้ไขเกณฑ์:เงื่อนไข");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","การตั้งค่าเครื่องแม่ข่ายบริการ SMTP");//SMTP server configuration
 define("_SMTPSERVER","SMTP server");//SMTP server
 define("_SMTPPASSWORD","SMTP password");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","ได้ปรับปรุงเขตข้อม�
 define("_LESSONSCORE","คะแนนในเนื้อหา-หน่วยเรียน");//Lesson score
 define("_COMPLETED","เรียนจบแล้ว");//Completed
 define("_NOTCOMPLETED","ยังไม่เสร็จ");//Not completed
-define("_CONDITIONSMET","ครบตามเกณฑ์:เงื่อนไขและรอการตรวจสอบเพื่ออนุมัติผล");//Conditions met and awaiting approval
+define("_CONDITIONSMET","ครบตามเกณฑ์:เงื่อนไขและรอการตรวจสอบเพื่ออนุมัติผล");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","เปลี่ยนสถานภาพของผู้เรียนในบทเรียนเรียบร้อยแล้ว");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","ต้องเป็นตัวเลข");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront elearning platform organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","ไม่สามารถส่งได้");//Coul
 define("_ENVIRONMENTALCHECK","ตรวจสอบค่าบริการระบบ");//Environmental check
 define("_REPAIRTREE","คืนรูปแบบโครงสร้างเดิม");//Restore tree
 define("_RULEPROPERTIES","การกำหนดตั้งค่าเงื่อนไขการเรียน");//Rule properties
-define("_CONDITIONPROPERTIES","ลักษณะเงื่อนไข-ข้อบังคับ");//Condition properties
+define("_CONDITIONPROPERTIES","ลักษณะเงื่อนไข-ข้อบังคับ");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","ตรวจสอบเนื้อหา-หน่วยเรียนที่อยู่นอกแฟ้มจัดเก็บ");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","ตรวจสอบเนื้อหา-หน่วยเรียนที่ไม่มีแฟ้มจัดเก็บ");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","แฟ้มรายการต่อไปนี้ไม่ได้มีเนื้อหา-หน่วยเรียนที่เกี่ยวข้อง");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","บันทึกคำถามและ�
 define("_SAVEASNEWQUESTION","บันทึกเป็นคำถามใหม่");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","ได้ปรับปรุงแบบสำรวจเรียบร้อยแล้ว");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","คุณได้เรียนครบทุกเนื้อหาแล้ว");//You have completed all content
-define("_CONDITIONMET","ผ่านเกณฑ์");//Condition met
-define("_CONDITIONNOTMET","ยังไม่ผ่านเกณฑ์");//Condition not met
+define("_CONDITIONMET","ผ่านเกณฑ์");//Completion rules met
+define("_CONDITIONNOTMET","ยังไม่ผ่านเกณฑ์");//Completion rules met
 define("_OLDMODULES","โมดูลเดิม");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","The PHP LDAP extension ยังไม่เปิดระบบบริการหรือไม่สนับสนุนไว้รองรับ");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","คุณได้เรียนครบตามเกณฑ์:เงื่อนไขของเนื้อหา-หน่วยเรียนแล้ว.แต่อาจารย์ผู้สอนจะเป็นผู้พิจารณากำหนดให้ผ่านในลำดับต่อไป");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","คุณได้เรียนครบตามเกณฑ์:เงื่อนไขของเนื้อหา-หน่วยเรียนแล้ว.แต่อาจารย์ผู้สอนจะเป็นผู้พิจารณากำหนดให้ผ่านในลำดับต่อไป");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","เนื้อหา-หน่วยเรียนที่เสร็จแล้ว");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","ออกใบประกาศนียบัตรให้เรียบร้อยแล้ว");//Certificate issued successfully
 define("_NOTITLE","ไม่มีชื่อ");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP account password");//LDAP account password
 define("_USELDAPACCOUNT","Use your LDAP account credentials in order to use the system");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Only registration using a valid LDAP account is permitted");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","เปิดให้เรียนโดยไม่มีเงื่อนไข");//is generally available
-define("_DELETECONDITION","ลบเงื่อนไข");//Delete condition
+define("_DELETECONDITION","ลบเงื่อนไข");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","ส่งเรื่องอภิปรายในเนื้อหา-หน่วยเรียนนี้");//Post forum message for this unit
 define("_AUTOCOMPLETE","เปิดใช้ระบบเช็คจบโดยอัตโนมัติ");//Auto complete
 define("_DUPLICATESARENOTALLOWED","คุณไม่สามารถ&#039;ใช้เงื่อนไขเดิมซ้ำกันในเนื้อหา-หน่วยเรียนเดิม");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Complete the sk
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","การแทนที่งาน");//Job placements
-define("_NEWJOBPLACEMENT","การแทนที่งานใหม่");//New job placements
+define("_NEWJOBPLACEMENT","การแทนที่งานใหม่");//New job placement
 define("_UPGRADEMODULE","ปรับปรุงรุ่นโปรแกรมโมดูลเสริม");//Upgrade module
 define("_NEWUNITOPTIONS","สร้าง:ตั้งค่าเนื้อหา-หน่วยเรียนใหม่");//New unit options
 define("_UNITOPTIONSFOR","การแก้ไขตั้งค่าเนื้อหา-หน่วยเรียน:");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","คำเตือน: ก
 define("_ACTIONONRENTRYCOMPLETED","การกระทำ หลังจากจบแล้ว");//Action on re-entry
 define("_LETCONTENTDECIDE","ให้เนื้อหาตัดสิน");//Let content decide
 define("_DONTCHANGE","ปล่อยไว้ ยังไม่เปลี่ยนแปลง");//Leave unchanged
-define("_DASHBOARD","แผงควบคุม");//my Dashboard
+define("_DASHBOARD","แผงควบคุม");//Dashboard
 define("_MYWALL","ผนังของฉัน");//My wall
 define("_RELATEDPEOPLE","คนที่เกี่ยวข้อง");//Related people
 define("_LEARNINGACTIVITY","กิจกรรมการเรียนรู้");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","ไฟล์ที่อัพโหลดไม่ไ
 define("_COMMENT","ความคิดเห็น");//Comment
 define("_COMMENTPROPERTIES","คุณสมบัติความคิดเห็น");//Comment properties
 define("_EDITCOMMENT","แก้ไขความคิดเห็น");//Edit comment
-define("_EDITCONDITIONS","เงื่อนไข Edit");//Edit conditions
+define("_EDITCONDITIONS","เงื่อนไข Edit");//Edit rules
 define("_EDITINFORMATION","แก้ไขข้อมูล");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","ตัวเลือกสำหรับโมดูล Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","ผู้ส่ง");//Sender
 define("_ORIGINALMESSAGE","ข้อความต้นฉบับ");//Original message
 define("_PRIORITY","ลำดับความสำคัญ");//Priority
 define("_PLEASEPICKANOPTION","โปรดเลือกตัวเลือก");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","เงื่อนไข Completion พบกันที่รอการยืนยัน");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","เงื่อนไข Completion พบกันที่รอการยืนยัน");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","ความคืบหน้าโดยรวม");//Overall progress
 define("_THEORYPROGRESS","ความคืบหน้าทฤษฎี");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","คะแนนเฉลี่ย (นับการกระทำล่าสุดทดสอบแต่ละ)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","ประเภทการทำงาน�
 define("_DUPLICATECOMPLETEDPAYMENT","ซ้ำเสร็จสิ้นการชำระเงิน");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","สถานะการชำระเงินสนับสนุน");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","คุณได้ยกเลิกการทำรายการ");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","ซื้อขายได้เสร็จสมบูรณ์.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","ซื้อขายได้เสร็จสมบูรณ์.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","PayPal โหมดดีบัก");//Paypal debug mode
 define("_MYACCOUNT","บัญชีของฉัน");//my Account
 define("_MODULE","Module");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","");//Asynchronous SCORM communication
 define("_SCORMASYNCHRONOUSEXPLANATION","");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","เซสชันของคุณหมดอายุแล้ว กรุณา");//Your session has expired. Please (New)
-define("_CLICKHERE","คลิกที่นี่");//click here (New)
-define("_TOLOGINAGAIN","เพื่อเข้าสู่ระบบอีกครั้ง");//to login again (New)
-define("_SESSIONEXPIRED","Session หมดอายุ");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","เซสชันของคุณหมดอายุแล้ว กรุณา");//Your session has expired. Please
+define("_CLICKHERE","คลิกที่นี่");//click here
+define("_TOLOGINAGAIN","เพื่อเข้าสู่ระบบอีกครั้ง");//to login again
+define("_SESSIONEXPIRED","Session หมดอายุ");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Comma คั่นรายการของผู้ใช้เพื่อแสดงข้อมูลเกี่ยวกับการแก้ปัญหาหรือ 1 สำหรับผู้ใช้ทั้งหมด");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","กุมภาพันธ์");//Feb (New)
+define("_MARCHSHORTHAND","ทำให้เสียโฉม");//Mar (New)
+define("_APRILSHORTHAND","เมษายน");//Apr (New)
+define("_MAYSHORTHAND","เดือนพฤษภาคม");//May (New)
+define("_JUNESHORTHAND","มิถุนายน");//Jun (New)
+define("_JULYSHORTHAND","กรกฎาคม");//Jul (New)
+define("_AUGUSTSHORTHAND","สิงหาคม");//Aug (New)
+define("_SEPTEMBERSHORTHAND","กันยายน");//Sep (New)
+define("_OCTOBERSHORTHAND","ตุลาคม");//Oct (New)
+define("_NOVEMBERSHORTHAND","พฤศจิกายน");//Nov (New)
+define("_DECEMBERSHORTHAND","Dec");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","คุณไม่สามารถเข้าถึงทรัพยากรที่ต้องการ");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","กรุณาเลือกรายละเอียดงาน");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","แก้ไขตำแหน่งงาน");//Edit job placement (New)
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","บัญชี");//Account (New)
+define("_ORGANIZATIONALDATA","โปรไฟล์ขององค์การ");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","ปล่อยว่างไว้เพื่อไม่เปลี่ยนแปลง");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","ป้อนค่าตัวเลือกหรือหมายเลขของมันเริ่มจาก 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","ผู้ดูแลซ่อนจากผู้ใช้");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","ซ่อนจากผู้ใช้งาน");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","คุณต้องระบุค่าเริ่มต้นสำหรับองค์ประกอบที่จำเป็น");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","ใช้วันที่ปัจจุบัน");//Use the current date (New)
+define("_USERSCANCHANGEINFO","เปลี่ยนบัญชี");//Account change (New)
+define("_USERSCANCHANGEPASS","เปลี่ยนรหัสผ่าน");//Password change (New)
+define("_VIEWFEEDBACK","ดูความคิดเห็น");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","แสดงคำถามที่ไม่สมบูรณ์ในการทำงานแต่ละ");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","เก็บคะแนนที่ดีที่สุด");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","คะแนนเฉลี่ย (โดยนับการปฏิบัติงานการทดสอบของแต่ละ)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","คะแนนในการปฏิบัติงาน");//score on active execution (New)
+define("_YOUCANUSEASTERISK","ถ้าคุณระบุคำที่ลงท้ายด้วยเครื่องหมายดอกจัน (*), เฉพาะส่วนแรกจะได้รับการพิจารณา ตัวอย่างเช่นหากคุณระบุได้เรียนรู้ *'จากนั้นทั้งสอง'เรียนรู้'และ'เรียนรู้'จะได้รับการพิจารณาให้ถูกต้อง");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","หลักสูตรกฎบทเรียน");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","กติการะหว่างหลักสูตร");//Rules between courses (New)
+define("_COURSEDEPENDSON","ขึ้นอยู่กับหลักสูตร");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","คุณไม่สามารถกำหนดหลักสูตรถือเป็นเงื่อนไขเบื้องต้นของตัวเอง");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","ทางเลือกแสดงในกล่องเลือก");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","การตรวจสอบนี้จะแสดงช่องรายการที่มีทางเลือกทั้งหมดแทนของกล่องข้อความ ในกรณีนี้จะมีเพียงตัวเลือกแรกจะถือว่าถูกต้อง");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","แสดงคำตอบที่ถูกต้องเฉพาะในกรณีที่นักเรียนผ่านการทดสอบ");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","ตัวตรวจสอบการตั้งค่า");//Settings checker (New)
+define("_CHECKBROWSER","การตรวจสอบเบราว์เซอร์");//Checking browser (New)
+define("_CHECKRESOLUTION","การตรวจสอบความละเอียดหน้าจอ");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","สำหรับการตรวจสอบตัวป้องกันป๊อปอัพ");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","ตรวจสอบสถานะ Cookie ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","การตรวจสอบสำหรับ Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","การตรวจสอบสำหรับ Adob​​e Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 ที่ตรวจพบ เบราว์เซอร์นี้จึงเลิกใช้และการทำงานที่อาจได้รับผลกระทบ");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","แต่น่าเสียดายที่เบราว์เซอร์ที่คุณใช้อยู่ไม่สนับสนุน");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","ความละเอียดหน้าจอของคุณไม่ตรงตามความต้องการขั้นต่ำของ");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","ตัวป้องกันป๊อปอัพที่ตรวจพบ โปรดให้ป๊อปอัปสำหรับเว็บไซต์นี้และลองอีกครั้ง");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies ปรากฏว่าถูกปิดใช้งาน กรุณาเปิดใช้งานคุกกี้");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash ไม่ได้ติดตั้งออกจากวันที่");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader ไม่ได้ติดตั้ง");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","การตรวจสอบ Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","ไม่ได้เปิดใช้จาวาสคริปต์ในเบราว์เซอร์ของคุณ");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","คุณต้องเปิดใช้การเปิดใช้งานอีเมลผู้ดูแลจากการตั้งค่าระบบ");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","จากช่วงปี");//Year range from (New)
+define("_YEARRANGETO","ช่วงต้นปีจนถึง");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","คำอธิบายชื่อกลุ่ม");//Group name description (New)
+define("_GROUPINFORMATION","ข้อมูลกลุ่ม");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","จำกัด การเข้าถึงเนื้อหาไฟล์ไปยังผู้ใช้เข้าสู่ระบบ");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","บีบอัดผลการทดสอบในฐานข้อมูล");//Compress test results in database (New)
+define("_MAINTENANCETASKS","งานบำรุงรักษา");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","คลิกที่นี่เพื่อบีบอัดการทดสอบเสร็จสิ้น");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","คลิกที่นี่เพื่อยกเลิกการบีบอัดการทดสอบเสร็จสิ้น");//Click here to uncompress completed tests (New)
+define("_COMPRESS","ลูกประคบ");//Compress (New)
+define("_DATABASETASKS","งานฐานข้อมูล");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","โปรดสำรองข้อมูลก่อนการบีบอัด / uncompressing การทดสอบเสร็จสิ้น");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","การกำหนดค่า");//Configuration (New)
+define("_SYSTEMOPTIONS","ตัวเลือกระบบ");//System options (New)
+define("_CASUAL","ไม่เป็นทางการ");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","คุณไม่สามารถเข้าถึงข้อมูลของผู้ใช้นี้");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","เปิดใช้งานแป้นพิมพ์เสมือน");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ไฟล์ที่ดูเหมือนจะว่างเปล่า บางทีอาจจะเป็นรูปแบบที่ไม่ถูกต้องหรือไม่");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","กำหนดหนังสือรับรองหมดอายุ");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","รหัสผ่านการทดสอบ");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","ขออภัยคุณไม่ได้เข้าสู่สาขานี้");//Sorry, you do not have access to this branch (New)
 ?>

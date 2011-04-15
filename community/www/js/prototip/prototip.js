@@ -13,10 +13,10 @@ var Prototip = {
 
 var Tips = {
   options: {
-    paths: { // paths can be relative to this file or an absolute url
-      images: 'js/prototip/'
+    paths: {                                // paths can be relative to this file or an absolute url
+      images:     'js/prototip/'      
     },
-    zIndex: 6000 // raise if required
+    zIndex: 6000                            // raise if required
   }
 };
 
@@ -30,9 +30,9 @@ Prototip.Styles = {
     hideOn: 'mouseleave',
     hook:false,
     radius: 6,
- showOn: 'mousemove',
- stem: {position: 'topLeft', height: 12, width: 15 },
- width:'400px'
+	showOn: 'mousemove',
+	stem: {position: 'topLeft', height: 12, width: 15 },    
+	width:'400px'
   }
 };
 
@@ -40,34 +40,34 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 
 function generateTips() {
-   $$('a.info').each(function(element) {
-    if (element.readAttribute('url')) {
-     element.observe('mouseover', function () {
-      new Tip(element, {
-       ajax: {url: element.readAttribute('url')}
-      });
-     });
-    } else if (element.select('span.tooltipSpan').length > 0) {
-     element.observe('mouseover', function () {
-      new Tip(element, element.select('span.tooltipSpan')[0].innerHTML);
-     });
-    }
-   });
+	  $$('a.info').each(function(element) {
+		  if (element.readAttribute('url')) {
+			  element.observe('mouseover', function () {
+				  new Tip(element, {
+					  ajax: {url: element.readAttribute('url')}
+				  });				  
+			  });
+		  } else if (element.select('.tooltipSpan').length > 0) {
+			  element.observe('mouseover', function () {
+				  new Tip(element, element.select('.tooltipSpan')[0].innerHTML);
+			  });
+		  }
+	  });
 }
 document.observe('dom:loaded', generateTips);
 
 function createPersonalTip() {
- var options = {
-        hideAfter: 1,
-        hideOn: false,
-        hook:true,
-        hook: {tip:'topMiddle', target:'bottomMiddle', mouse:false},
-        offset:{x:0,y:4},
-     stem: {position:'topMiddle', height:12, width:15 },
-     width:'auto'
-    };
- if ($('personal_options_link')) {
-  new Tip($('personal_options_link'), $('personal_options_link').next(), options);
- }
+	var options = {
+				    hideAfter: 1,
+				    hideOn: false,
+				    hook:true,
+				    hook: {tip:'topMiddle', target:'bottomMiddle', mouse:false},
+				    offset:{x:0,y:4},
+					stem: {position:'topMiddle', height:12, width:15 },
+					width:'auto'
+				};
+	if ($('personal_options_link')) {
+		new Tip($('personal_options_link'), $('personal_options_link').next(), options);
+	}
 }
 document.observe('dom:loaded', createPersonalTip);

@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","複数の選択肢を挿入して");//Insert 
 define("_INSERTEXPLANATION","挿入説明");//Insert explanation
 define("_THISQUESTIONIS","この質問は");//This question is
 define("_CREATEEMPTYSPACES","スペースを作成");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","質問を書いてテキストを挿入する必要がどこに空白スペースを挿入＃ ＃ ＃ 。変更が終了したら、をクリックして、 \"空のスペースを作成する\"ボタンをクリックしてください");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","質問を書いてテキストを挿入する必要がどこに空白スペースを挿入＃ ＃ ＃ 。変更が終了したら、をクリックして、 \"空のスペースを作成する\"ボタンをクリックしてください");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","マッチングのペアを挿入");//Insert matching pairs
 define("_ADDOPTION","追加オプション");//Add option
 define("_GOTOCALENDAR","カレンダーに行く");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","台の端数を見られる");//Seen a fraction of un
 define("_SPECIFICUNIT","見られる、特定のユニット");//Seen a specific unit
 define("_PASSEDALLTESTS","渡されたすべてのテスト");//Passed all tests
 define("_SPECIFICTEST","渡される、特定のテスト");//Passed a specific test
-define("_INVALIDCONDITION","無効な状態");//Invalid condition
+define("_INVALIDCONDITION","無効な状態");//Invalid rule
 define("_THEUSERMUSTHAVE","その生徒必要があります。");//The student must have
 define("_UNITSPERCENTAGE","割合");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","正常に追加されました条件");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","正常に更新さ条件");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","正常に削除さ条件");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","正常に追加されました条件");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","正常に更新さ条件");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","正常に削除さ条件");//Successfully deleted rule
 define("_LESSONCONDITIONS","レッスンを完了条件");//Lesson completion rules
-define("_ADDCONDITION","追加条件");//Add condition
-define("_CONDITION","条件");//Condition
-define("_CONDITIONTYPE","条件の種類");//Condition type
+define("_ADDCONDITION","追加条件");//Add completion rule
+define("_CONDITION","条件");//Completion rule
+define("_CONDITIONTYPE","条件の種類");//Rule type
 define("_RELATIONTOOTHERS","関係を他の");//Relation to others
 define("_SCROLLTOTOPOFPAGE","スクロールしてページのトップへ");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","ページ下部までスクロールして");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","システム");//System
 define("_EMAILCONFIGURATIONS","電子メールサーバーの設定");//Emails server configuration
 define("_SAWUNIT","単位として設定して完了");//Set the unit as completed
 define("_NOTSAWUNIT","単位として設定するには完了する");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","条件を完了");//Conditions completed
+define("_CONDITIONSCOMPLETED","条件を完了");//Completion rules completed
 define("_OUTOF","アウトの");//out of
 define("_LESSONPROGRESS","レッスン進捗状況");//Lesson progress
 define("_YOUMUSTSEEUNIT","ユニットを参照する必要があります。");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","を参照する必要があります。");//You must compl
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","すべてのテストを完了する必要があります平均スコア");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","完全なテストをする必要があります。");//You must complete test
 define("_WITHSCORE","性によるスコア");//with score
-define("_NOCONDITIONSSET","条件の設定がないこのレッスン");//There are no conditions set for this lesson
-define("_CONDITIONS","条件");//conditions
+define("_NOCONDITIONSSET","条件の設定がないこのレッスン");//There are no completion rules set for this lesson
+define("_CONDITIONS","条件");//completion rules
 define("_RESUMELESSON","レッスンを再開する");//Resume lesson
 define("_STARTLESSON","スタート]ボタンを教訓");//Start lesson
 define("_TRACKING","トラッキング");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","証明書テンプレートのクロ�
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","証明書テンプレートが正常に削除された");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","証明書テンプレートを削除中に問題があった");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","あなたは、この証明書テンプレートを変更する権限を持っていない");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","編集条件");//Edit condition
+define("_EDITCONDITION","編集条件");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTPサーバーの構成");//SMTP server configuration
 define("_SMTPSERVER","SMTPサーバー");//SMTP server
 define("_SMTPPASSWORD","SMTPのパスワード");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","のフィールドが更新さ");//The field was updated
 define("_LESSONSCORE","レッスンによるスコア");//Lesson score
 define("_COMPLETED","完了");//Completed
 define("_NOTCOMPLETED","未完成");//Not completed
-define("_CONDITIONSMET","条件を満たし、現在承認待ち");//Conditions met and awaiting approval
+define("_CONDITIONSMET","条件を満たし、現在承認待ち");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","学生のレッスンを正常にステータスが変更されました");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","数値しなければならない");//Must be numeric
 define("_DEFAULTCERTIFICATE","eラーニングプラットフォーム組織efront user_nameの証明が＃ ＃ ＃ ＃は正常に完了user_surnameグレード＃ ＃ ＃ course_nameこの証明書が発行さグレード＃ ＃日付＃");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","送信できませんでした");//Could not be sent
 define("_ENVIRONMENTALCHECK","環境チェック");//Environmental check
 define("_REPAIRTREE","復元カテゴリ");//Restore tree
 define("_RULEPROPERTIES","ルールのプロパティ");//Rule properties
-define("_CONDITIONPROPERTIES","条件のプロパティ");//Condition properties
+define("_CONDITIONPROPERTIES","条件のプロパティ");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","孤児のレッスンフォルダの検索]チェック");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","レッスンでフォルダの検索]チェック");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","は、次のフォルダに関連付けられた教訓はありません。");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","別の質問を作成保存");//Save questio
 define("_SAVEASNEWQUESTION","新しい質問を付けて保存");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","今回の調査は、正常に更新済み");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","すべてのコンテンツが完了");//You have completed all content
-define("_CONDITIONMET","条件満たさ");//Condition met
-define("_CONDITIONNOTMET","条件が満たさ");//Condition not met
+define("_CONDITIONMET","条件満たさ");//Completion rules met
+define("_CONDITIONNOTMET","条件が満たさ");//Completion rules met
 define("_OLDMODULES","古いモジュール");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","拡張子は、 PHPのLDAP読み込まれていない");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","レッスンの完全な条件を満たしている。このレッスンを完了する必要がありますとして設定された教授");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","レッスンの完全な条件を満たしている。このレッスンを完了する必要がありますとして設定された教授");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","レッスンを完了する");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","証明書は発行さ正常に");//Certificate issued successfully
 define("_NOTITLE","いいえタイトル");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAPのアカウントのパスワード");//LDAP
 define("_USELDAPACCOUNT","LDAPアカウントの資格情報を使用して、システムを使用するために");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","ユーザ登録を使用して、有効なLDAPアカウントのみが許可さ");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","は一般的に利用できる");//is generally available
-define("_DELETECONDITION","削除の条件");//Delete condition
+define("_DELETECONDITION","削除の条件");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","フォーラムのメッセージを投稿このユニット");//Post forum message for this unit
 define("_AUTOCOMPLETE","自動補完");//Auto complete
 define("_DUPLICATESARENOTALLOWED","使用することはできませんの2倍のレッスンで同じルール");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","下記のスキ
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","あなたに割り当てられたすべてのスキルギャップのテストを完了している。 <br>あなたの教授になるまでに、お客様のニーズに応じて最も適したコースを割り当てるので、しばらくお待ちください。");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","あなたの結果はすぐにコースを割り当てるとなります。教授に送信されているお客様のお客様のニーズに応じてこのテストからの確認として");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","仕事位置");//Job placements
-define("_NEWJOBPLACEMENT","新しい仕事位置");//New job placements
+define("_NEWJOBPLACEMENT","新しい仕事位置");//New job placement
 define("_UPGRADEMODULE","アップグレードモジュール");//Upgrade module
 define("_NEWUNITOPTIONS","新ユニットのオプション");//New unit options
 define("_UNITOPTIONSFOR","ユニット用オプション");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","注：このユニット�
 define("_ACTIONONRENTRYCOMPLETED","アクション再入国");//Action on re-entry
 define("_LETCONTENTDECIDE","させるコンテンツを決定");//Let content decide
 define("_DONTCHANGE","変更しない");//Leave unchanged
-define("_DASHBOARD","ダッシュボード");//my Dashboard
+define("_DASHBOARD","ダッシュボード");//Dashboard
 define("_MYWALL","私の壁");//My wall
 define("_RELATEDPEOPLE","関連のある人");//Related people
 define("_LEARNINGACTIVITY","学習活動");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","アップロードされたファイルのイメージ
 define("_COMMENT","コメント");//Comment
 define("_COMMENTPROPERTIES","コメントのプロパティ");//Comment properties
 define("_EDITCOMMENT","[編集]コメント");//Edit comment
-define("_EDITCONDITIONS","[編集]条件");//Edit conditions
+define("_EDITCONDITIONS","[編集]条件");//Edit rules
 define("_EDITINFORMATION","情報を編集する");//Edit information
 define("_FACEBOOK","Facebookに登録する");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","オプションをFacebookに登録するモジュールの");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","送信者");//Sender
 define("_ORIGINALMESSAGE","元のメッセージ");//Original message
 define("_PRIORITY","優先順位");//Priority
 define("_PLEASEPICKANOPTION","してくださいオプションを選択");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","完了条件に、保留中の確認が満たさ");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","完了条件に、保留中の確認が満たさ");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","全体の進行状況");//Overall progress
 define("_THEORYPROGRESS","理論進捗状況");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","平均テストのスコア（各テストの実行を最後にカウント）");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","されていない操作タイプ");//Unsupp
 define("_DUPLICATECOMPLETEDPAYMENT","重複して支払いを完了");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","サポートされて支払い状況");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","場合は、トランザクションをキャンセルして");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","トランザクションが正常に完了した。");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","トランザクションが正常に完了した。");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","ペイパル、デバッグモード");//Paypal debug mode
 define("_MYACCOUNT","マイアカウント");//my Account
 define("_MODULE","モジュール");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","非同期SCORMの通信");//Asynchronous SCORM com
 define("_SCORMASYNCHRONOUSEXPLANATION","非同期通信に切り替えて、あなたが問題をSCORMコンテンツを完了する（大文字と小文字を中心にするには、Adobeは、生成されたコンテンツを魅了している）が発生している場合");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：無効の支払いはすべて0に価格を設定します");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","複数のオプション");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","セッションが期限切れになっています。してください。");//Your session has expired. Please (New)
-define("_CLICKHERE","ここをクリックしてください");//click here (New)
-define("_TOLOGINAGAIN","再度ログインする");//to login again (New)
-define("_SESSIONEXPIRED","セッションの有効期限が切れ");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","セッションが期限切れになっています。してください。");//Your session has expired. Please
+define("_CLICKHERE","ここをクリックしてください");//click here
+define("_TOLOGINAGAIN","再度ログインする");//to login again
+define("_SESSIONEXPIRED","セッションの有効期限が切れ");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","ユーザーのカンマ区切りのリストは、デバッグ情報を、1すべてのユーザーに対して表示する");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","月");//Jan (New)
+define("_FEBRUARYSHORTHAND","Feb");//Feb (New)
+define("_MARCHSHORTHAND","マー");//Mar (New)
+define("_APRILSHORTHAND","Apr");//Apr (New)
+define("_MAYSHORTHAND","5月");//May (New)
+define("_JUNESHORTHAND","ジュン");//Jun (New)
+define("_JULYSHORTHAND","Jul");//Jul (New)
+define("_AUGUSTSHORTHAND","Aug");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Sep");//Sep (New)
+define("_OCTOBERSHORTHAND","Oct");//Oct (New)
+define("_NOVEMBERSHORTHAND","Nov");//Nov (New)
+define("_DECEMBERSHORTHAND","Dec");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","あなたは要求されたリソースにアクセスすることはできません");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","職務記述書を選択してください。");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","職業紹介を編集する");//Edit job placement (New)
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","アカウント");//Account (New)
+define("_ORGANIZATIONALDATA","組織のプロファイル");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","ブランクはそのまま残して");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","0から始まる、オプションの値またはその番号を入力してください");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","ユーザーから隠すスーパーバイザー");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","ユーザーから隠すジョブ");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","あなたは必須の要素のデフォルト値を指定する必要があります。");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","現在の日付を使用してください");//Use the current date (New)
+define("_USERSCANCHANGEINFO","アカウントの変更");//Account change (New)
+define("_USERSCANCHANGEPASS","パスワードの変更");//Password change (New)
+define("_VIEWFEEDBACK","友達からのフィードバック");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","各実行で表示不完全な質問");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","最高のスコアを保持する");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","平均テストのスコア（各テストのアクティブな実行カウント）");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","アクティブな実行のスコア");//score on active execution (New)
+define("_YOUCANUSEASTERISK","あなたは、その最初の部分が考慮されるアスタリスク（*）で終わる単語を指定する場合。たとえば、両方が正しいとみなされるの学習'学習'し、'を学ぶ*'を指定した場合。");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","コー​​スレッスンルール");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","コー​​スの間のルール");//Rules between courses (New)
+define("_COURSEDEPENDSON","コー​​スに依存");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","あなたは、それ自体の前提条件としてコースを設定することはできません。");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","選択ボックスで表示の選択肢");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","これは、テキストボックスの代わりに、すべての選択肢を持つリストボックスが表示されますチェックしています。この場合において、最初のオプションだけが正しいと考えられる");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","地図を表示正解は、生徒が試験に合格した場合、");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","設定チェッカー");//Settings checker (New)
+define("_CHECKBROWSER","チェックブラウザ");//Checking browser (New)
+define("_CHECKRESOLUTION","画面の解像度を確認する");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","ポップアップブロッカーのチェック");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","チェッククッキーの状態...");//Checking Cookie state... (New)
+define("_CHECKFLASH","フラッシュのチェック");//Checking for Flash (New)
+define("_CHECKACROBAT","Adobe Readerの確認");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6が検出されました。このブラウザは廃止され、機能が影響を受けることがあります");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","あなたがサポートされていない使用していることを残念なことに、ブラウザ");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","画面の解像度は、最小要件を満たしていない");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","ポップアップブロッカーが検出されました。このサイトのポップアップを許可してもう一度試してください");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","クッキーが無効になって表示されます。クッキーを有効にしてください");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","フラッシュは、日付のうち、インストールされていない");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Readerがインストールされていない");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Javascriptをチェック");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascriptがお使いのブラウザで有効になっていません");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","あなたはシステム設定からスーパバイザメールアクティベーションを有効にする必要があります");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","年間の範囲から");//Year range from (New)
+define("_YEARRANGETO","年間の範囲内に");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","グループ名の説明");//Group name description (New)
+define("_GROUPINFORMATION","グループ情報");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","縦横のアクセスは、ユーザーにログインしているファイルをコンテンツページを表示する");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","データベース内の圧縮試験結果");//Compress test results in database (New)
+define("_MAINTENANCETASKS","メンテナンスタスク");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","完了検査を圧縮するにはここをクリック");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","完了検査を解凍するにはここをクリック");//Click here to uncompress completed tests (New)
+define("_COMPRESS","圧縮");//Compress (New)
+define("_DATABASETASKS","データベースタスク");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","圧縮/解凍が完了検査をする前にデータのバックアップをしてください");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","構成");//Configuration (New)
+define("_SYSTEMOPTIONS","システムオプション");//System options (New)
+define("_CASUAL","カジュアル");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","あなたは、このユーザーの情報をアクセスすることはできません");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","仮想キーボードを有効にする");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ファイルが空で表示されます。おそらく、それが正しくフォーマットされていない？");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","証明書は有効期限をスケジュール");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","テストパスワード");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","申し訳ありませんが、このブランチへのアクセスを持っていない");//Sorry, you do not have access to this branch (New)
 ?>

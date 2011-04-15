@@ -64,6 +64,10 @@ try {
   eF_deleteTableData("notifications");
   echo json_encode(array('status' => 1));
   exit;
+ } elseif (isset($_GET['delete_all_sent_notifications'])) {
+  eF_deleteTableData("sent_notifications");
+  echo json_encode(array('status' => 1));
+  exit;
  }
 } catch (Exception $e) {
  if ($_GET['ajax']) {
@@ -727,7 +731,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                $message = _NOTIFICATIONSETUPSUCCESSFULLY;
                $message_type = 'success';
               }
-              //eF_redirect("".$_SESSION['s_type'].".php?ctg=digests&message=".  urlencode($message) . "&message_type=" . $message_type);
+              eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=digests&message=". urlencode($message) . "&message_type=" . $message_type);
              }
             }
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
@@ -750,6 +754,14 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
 
   // Getting first the messages' queue table, because it is ajaxed
   $smarty -> assign("T_TIMESTAMP_NOW", time());
+
+  if (isset($_GET['ajax']) && $_GET['ajax'] == 'sentQueueTable') {
+   $dataSource = EfrontNotification::getRecentlySent();
+   $tableName = $_GET['ajax'];
+   include("sorted_table.php");
+   //$smarty -> assign("T_RECENTLY_SENT_NOTIFICATIONS", EfrontNotification::getRecentlySent());			
+  }
+
   if (isset($_GET['ajax']) && $_GET['ajax'] == 'msgQueueTable') {
    isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
@@ -1094,9 +1106,6 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
 
   $smarty -> assign('T_NOTIFICATION_VARIABLES_FORM', $renderer -> toArray()); //Assign the form to the template
 
-
-  // Get recently sent messages - do that after submitting the new global variables
-  $smarty -> assign("T_RECENTLY_SENT_NOTIFICATIONS", EfrontNotification::getRecentlySent());
 
   $options = array(array('image' => '16x16/go_into.png', 'text' => _RESTOREDEFAULTNOTIFICATIONS, 'href' => 'administrator.php?ctg=digests&add_default=1'));
   $smarty -> assign("T_TABLE_OPTIONS", $options);

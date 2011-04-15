@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","कई विकल्पों के डा
 define("_INSERTEXPLANATION","स्पष्टीकरण डालें");//Insert explanation
 define("_THISQUESTIONIS","यह सवाल यह है");//This question is
 define("_CREATEEMPTYSPACES","रिक्त स्थान खाली बनाएँ");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","प्रश्न लिखें और जहां आप पाठ को डालने की जरूरत है एक रिक्त स्थान , डालने # # # . जब आप काम कर रहे हैं , पर क्लिक करें \" खाली स्थान बनाएँ \" बटन के नीचे");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","प्रश्न लिखें और जहां आप पाठ को डालने की जरूरत है एक रिक्त स्थान , डालने # # # . जब आप काम कर रहे हैं , पर क्लिक करें \" खाली स्थान बनाएँ \" बटन के नीचे");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","मिलान डालें जोड़ी");//Insert matching pairs
 define("_ADDOPTION","विकल्प जोड़ें");//Add option
 define("_GOTOCALENDAR","कैलेंडर पर जाएँ");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","देखा इकाइयों का एक ह�
 define("_SPECIFICUNIT","देखा एक विशेष इकाई");//Seen a specific unit
 define("_PASSEDALLTESTS","सभी परीक्षण उत्तीर्ण");//Passed all tests
 define("_SPECIFICTEST","उत्तीर्ण एक विशिष्ट परीक्षण");//Passed a specific test
-define("_INVALIDCONDITION","अमान्य स्थिति");//Invalid condition
+define("_INVALIDCONDITION","अमान्य स्थिति");//Invalid rule
 define("_THEUSERMUSTHAVE","इस छात्र होना चाहिए");//The student must have
 define("_UNITSPERCENTAGE","प्रतिशत");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","सफलतापूर्वक जोड़ा स्थिति");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","सफलतापूर्वक अद्यतन स्थिति");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","सफलतापूर्वक हटा दिया गया स्थिति");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","सफलतापूर्वक जोड़ा स्थिति");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","सफलतापूर्वक अद्यतन स्थिति");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","सफलतापूर्वक हटा दिया गया स्थिति");//Successfully deleted rule
 define("_LESSONCONDITIONS","नालचिक पूरा करने की स्थिति");//Lesson completion rules
-define("_ADDCONDITION","स्थिति जोड़ें");//Add condition
-define("_CONDITION","दशा");//Condition
-define("_CONDITIONTYPE","दशा के प्रकार");//Condition type
+define("_ADDCONDITION","स्थिति जोड़ें");//Add completion rule
+define("_CONDITION","दशा");//Completion rule
+define("_CONDITIONTYPE","दशा के प्रकार");//Rule type
 define("_RELATIONTOOTHERS","दूसरों के संबंध");//Relation to others
 define("_SCROLLTOTOPOFPAGE","स्क्रॉल करने के लिए पृष्ठ शीर्ष");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","नीचे स्क्रॉल करने के लिए पृष्ठ");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","सिस्टम");//System
 define("_EMAILCONFIGURATIONS","ई मेल सर्वर विन्यास");//Emails server configuration
 define("_SAWUNIT","पूरी यूनिट के रूप में सेट करें");//Set the unit as completed
 define("_NOTSAWUNIT","यूनिट के रूप में सेट पूरा नहीं");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","शर्तों को पूरा");//Conditions completed
+define("_CONDITIONSCOMPLETED","शर्तों को पूरा");//Completion rules completed
 define("_OUTOF","बाहर");//out of
 define("_LESSONPROGRESS","नालचिक प्रगति");//Lesson progress
 define("_YOUMUSTSEEUNIT","आपको देखना होगा कि इकाई");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","आपको देखना होगा कि");//You m
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","आप सभी को पूरा करना चाहिए परीक्षणों के साथ स्कोर का मतलब है");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","आपको पूर्ण परीक्षण");//You must complete test
 define("_WITHSCORE","स्कोर के साथ");//with score
-define("_NOCONDITIONSSET","परिस्थितियों के लिए निर्धारित नहीं हैं इस सबक");//There are no conditions set for this lesson
-define("_CONDITIONS","शर्तें");//conditions
+define("_NOCONDITIONSSET","परिस्थितियों के लिए निर्धारित नहीं हैं इस सबक");//There are no completion rules set for this lesson
+define("_CONDITIONS","शर्तें");//completion rules
 define("_RESUMELESSON","चालू सबक");//Resume lesson
 define("_STARTLESSON","आरंभ सबक");//Start lesson
 define("_TRACKING","ट्रैकिंग");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","वहाँ थोड़ी दे�
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","प्रमाणपत्र टेम्पलेट को सफलतापूर्वक नष्ट किया गया");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","वहाँ थोड़ी देर के प्रमाणपत्र टेम्पलेट को हटाने में समस्या थी");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","आप अधिकार नहीं है इस प्रमाणपत्र टेम्पलेट को संशोधित करना");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","स्थिति संपादित करें");//Edit condition
+define("_EDITCONDITION","स्थिति संपादित करें");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP सर्वर विन्यास");//SMTP server configuration
 define("_SMTPSERVER","SMTP सर्वर");//SMTP server
 define("_SMTPPASSWORD","SMTP पासवर्ड");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","इस क्षेत्र नवीनीकृत �
 define("_LESSONSCORE","नालचिक स्कोर");//Lesson score
 define("_COMPLETED","पूर्ण");//Completed
 define("_NOTCOMPLETED","पूरा नहीं");//Not completed
-define("_CONDITIONSMET","मुलाकात की और शर्तों की स्वीकृति की प्रतीक्षा कर");//Conditions met and awaiting approval
+define("_CONDITIONSMET","मुलाकात की और शर्तों की स्वीकृति की प्रतीक्षा कर");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","छात्र सबक स्थिति बदल सफलतापूर्वक");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","संख्यात्मक होना चाहिए");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront elearning मंच संगठन certifies कि user_name # # # # user_surname ने सफलतापूर्वक पूरा course_name # # # ग्रेड ग्रेड के साथ यह प्रमाणपत्र जारी किया गया था पर # # # तारीख");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","भेजा नहीं जा सका");//Could n
 define("_ENVIRONMENTALCHECK","पर्यावरण की जाँच");//Environmental check
 define("_REPAIRTREE","पुनर्स्थापित वृक्ष");//Restore tree
 define("_RULEPROPERTIES","गुण नियम");//Rule properties
-define("_CONDITIONPROPERTIES","दशा गुण");//Condition properties
+define("_CONDITIONPROPERTIES","दशा गुण");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","अनाथ सबक फ़ोल्डर की जाँच");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","सबक फ़ोल्डर की जाँच के बिना");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","निम्न फ़ोल्डर नहीं है सबक संबद्ध");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","सहेजें और बनाने �
 define("_SAVEASNEWQUESTION","नया प्रश्न के रूप में सहेजें");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","सर्वेक्षण से सफलतापूर्वक अपडेट किया गया");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","आपने पूरा सभी सामग्री");//You have completed all content
-define("_CONDITIONMET","दशा से मिले");//Condition met
-define("_CONDITIONNOTMET","दशा नहीं मिले");//Condition not met
+define("_CONDITIONMET","दशा से मिले");//Completion rules met
+define("_CONDITIONNOTMET","दशा नहीं मिले");//Completion rules met
 define("_OLDMODULES","पुराने मॉड्यूल");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP का विस्तार LDAP लोड नहीं है");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","आप पूरी की शर्तों को पूरा सबक है . यह सबक के रूप में सेट करने की जरूरत है प्रोफेसर के द्वारा पूरी की");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","आप पूरी की शर्तों को पूरा सबक है . यह सबक के रूप में सेट करने की जरूरत है प्रोफेसर के द्वारा पूरी की");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","पूरा नालचिक");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","प्रमाणपत्र जारी सफलतापूर्वक");//Certificate issued successfully
 define("_NOTITLE","शीर्षक कोई");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP खाता पासवर्ड");//LDAP 
 define("_USELDAPACCOUNT","अपने खाते का उपयोग करें LDAP क्रेडेंशियल्स का उपयोग करने के लिए इस प्रणाली");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","केवल एक वैध LDAP खाते का प्रयोग करते हुए पंजीकरण की अनुमति है");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","आमतौर पर उपलब्ध है");//is generally available
-define("_DELETECONDITION","स्थिति को हटाएँ");//Delete condition
+define("_DELETECONDITION","स्थिति को हटाएँ");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","इस यूनिट के लिए संदेश पोस्ट मंच");//Post forum message for this unit
 define("_AUTOCOMPLETE","स्वतः पूर्ण");//Auto complete
 define("_DUPLICATESARENOTALLOWED","आप का उपयोग नहीं कर सकते सबक में एक दो बार एक ही नियम");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","नीचे �
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","क्या आप को सौंपा परीक्षणों सब कौशल अंतर को पूरा कर लिया है. <br> जब तक अपने प्रोफेसरों के लिए आप अपनी आवश्यकताओं के अनुसार सबसे उपयुक्त पाठ्यक्रमों assign कृपया प्रतीक्षा करें.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","अपने परिणाम है जो जल्दी ही करने के लिए पाठ्यक्रमों निर्दिष्ट करेंगे अपने प्रोफेसरों के लिए भेजा गया है अपनी अपनी आवश्यकताओं के इस परीक्षण से की पहचान के रूप में अनुसार");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","नौकरी प्लेसमेंट");//Job placements
-define("_NEWJOBPLACEMENT","नई नौकरी प्लेसमेंट");//New job placements
+define("_NEWJOBPLACEMENT","नई नौकरी प्लेसमेंट");//New job placement
 define("_UPGRADEMODULE","Upgrade मॉड्यूल");//Upgrade module
 define("_NEWUNITOPTIONS","नई इकाई के विकल्प");//New unit options
 define("_UNITOPTIONSFOR","यूनिट के लिए विकल्प");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","नोट: आप इस �
 define("_ACTIONONRENTRYCOMPLETED","लड़ाई पुनः पर प्रविष्टि");//Action on re-entry
 define("_LETCONTENTDECIDE","दो सामग्री फैसला");//Let content decide
 define("_DONTCHANGE","अपरिवर्तित छोड़ दो");//Leave unchanged
-define("_DASHBOARD","डैशबोर्ड");//my Dashboard
+define("_DASHBOARD","डैशबोर्ड");//Dashboard
 define("_MYWALL","मेरी दीवार");//My wall
 define("_RELATEDPEOPLE","संबंधित लोगों को");//Related people
 define("_LEARNINGACTIVITY","सीखने की गतिविधि");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","अपलोड की गई फ़ाइल एक �
 define("_COMMENT","टिप्पणी");//Comment
 define("_COMMENTPROPERTIES","टिप्पणी गुण");//Comment properties
 define("_EDITCOMMENT","टिप्पणी संपादित करें");//Edit comment
-define("_EDITCONDITIONS","संपादित करें शर्तें");//Edit conditions
+define("_EDITCONDITIONS","संपादित करें शर्तें");//Edit rules
 define("_EDITINFORMATION","जानकारी संपादित करें");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Facebook मॉड्यूल के लिए विकल्प");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","प्रेषक");//Sender
 define("_ORIGINALMESSAGE","मूल संदेश");//Original message
 define("_PRIORITY","प्राथमिकता");//Priority
 define("_PLEASEPICKANOPTION","कृपया एक विकल्प चुनें");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","पूरा शर्तों मिले, लंबित पुष्टि");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","पूरा शर्तों मिले, लंबित पुष्टि");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","समग्र प्रगति");//Overall progress
 define("_THEORYPROGRESS","सिद्धांत प्रगति");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","औसत परीक्षण स्कोर (एक परीक्षण पिछले निष्पादन गिनती)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","असमर्थित आपरेशन 
 define("_DUPLICATECOMPLETEDPAYMENT","डुप्लिकेट भुगतान पूरा");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","असमर्थित भुगतान की स्थिति");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","तुम सौदा रद्द कर दिया है");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","लेनदेन को सफलतापूर्वक पूरा किया गया.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","लेनदेन को सफलतापूर्वक पूरा किया गया.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","पेपैल डिबग मोड");//Paypal debug mode
 define("_MYACCOUNT","मेरा खाता");//my Account
 define("_MODULE","मॉड्यूल");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","अतुल्यकालिक संचार 
 define("_SCORMASYNCHRONOUSEXPLANATION","स्विच अतुल्यकालिक संचार के लिए यदि आप SCORM सामग्री पूरा मुसीबत (विशेषकर के मामले में आप एडोब मुगध सृजित सामग्री का उपयोग कर रहे हैं) अनुभव कर रहे हैं");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","चेतावनी: अक्षम भुगतान सभी की कीमतों 0 पर सेट हो जाएगा");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","कई विकल्प");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","आपका सत्र समाप्त हो गया है. कृपया");//Your session has expired. Please (New)
-define("_CLICKHERE","यहाँ क्लिक करें");//click here (New)
-define("_TOLOGINAGAIN","फिर लॉगइन करने के लिए");//to login again (New)
-define("_SESSIONEXPIRED","सत्र समाप्त हो गया");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","आपका सत्र समाप्त हो गया है. कृपया");//Your session has expired. Please
+define("_CLICKHERE","यहाँ क्लिक करें");//click here
+define("_TOLOGINAGAIN","फिर लॉगइन करने के लिए");//to login again
+define("_SESSIONEXPIRED","सत्र समाप्त हो गया");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","अल्पविराम उपयोगकर्ताओं की अलग सूची के बारे में जानकारी डिबग, या सभी उपयोगकर्ताओं के लिए 1 दिखाने के लिए");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","जनवरी");//Jan (New)
+define("_FEBRUARYSHORTHAND","फ़रवरी");//Feb (New)
+define("_MARCHSHORTHAND","मार्च");//Mar (New)
+define("_APRILSHORTHAND","अप्रैल");//Apr (New)
+define("_MAYSHORTHAND","मई");//May (New)
+define("_JUNESHORTHAND","जून");//Jun (New)
+define("_JULYSHORTHAND","जुलाई");//Jul (New)
+define("_AUGUSTSHORTHAND","अगस्त");//Aug (New)
+define("_SEPTEMBERSHORTHAND","सितम्बर");//Sep (New)
+define("_OCTOBERSHORTHAND","अक्टूबर");//Oct (New)
+define("_NOVEMBERSHORTHAND","नवम्बर");//Nov (New)
+define("_DECEMBERSHORTHAND","दिसम्बर");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","तुम अनुरोध संसाधन का उपयोग नहीं कर सकते");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","एक नौकरी वर्णन का चयन करें");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","नौकरी स्थान संपादित करें");//Edit job placement (New)
+define("_NORESPONSE","response&gt; &lt;no");//&lt;no response&gt; (New)
+define("_ACCOUNT","खाता");//Account (New)
+define("_ORGANIZATIONALDATA","संगठनात्मक प्रोफाइल");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","रिक्त अपरिवर्तित छोड़ने के लिए");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","विकल्प मान या उसके नंबर दर्ज करें, 0 से शुरू");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","उपयोगकर्ताओं से छुपाना पर्यवेक्षक");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","उपयोगकर्ताओं से छुपाना काम");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","आप अनिवार्य तत्वों के लिए कोई डिफ़ॉल्ट मान निर्दिष्ट करना होगा");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","वर्तमान दिनांक का उपयोग करें");//Use the current date (New)
+define("_USERSCANCHANGEINFO","खाता परिवर्तन");//Account change (New)
+define("_USERSCANCHANGEPASS","पासवर्ड को बदलने");//Password change (New)
+define("_VIEWFEEDBACK","दृश्य प्रतिक्रिया");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","प्रत्येक निष्पादन में दिखाएँ अधूरा प्रश्न");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","सर्वश्रेष्ठ स्कोर रखें");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","औसत परीक्षण स्कोर (प्रत्येक परीक्षण सक्रिय निष्पादन गिनती)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","सक्रिय निष्पादन पर स्कोर");//score on active execution (New)
+define("_YOUCANUSEASTERISK","यदि आप एक शब्द है कि एक तारांकन (*), केवल अपने पहले भाग में विचार किया जाएगा के साथ समाप्त होता निर्दिष्ट करें. उदाहरण के लिए, यदि आप निर्दिष्ट '* सीखना' है, तो दोनों और 'जानने' सीखने ';होना सही माना जाएगा.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","कोर्स सबक नियम");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","पाठ्यक्रम के बीच नियम");//Rules between courses (New)
+define("_COURSEDEPENDSON","पाठ्यक्रम पर निर्भर करता है");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","आप स्वयं की एक शर्त के रूप में पाठ्यक्रम सेट नहीं कर सकते");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","चयन बॉक्स में प्रदर्शित विकल्प");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","जाँच इस सभी विकल्पों के साथ एक पाठ बॉक्स के बजाय किसी सूची बॉक्स, प्रदर्शित करेगा. इस मामले में, केवल पहला विकल्प सही माना जाता है");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","दिखाएँ सही जवाब सिर्फ अगर छात्र परीक्षा उत्तीर्ण");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","सेटिंग्स परीक्षक");//Settings checker (New)
+define("_CHECKBROWSER","जाँच ब्राउज़र");//Checking browser (New)
+define("_CHECKRESOLUTION","स्क्रीन संकल्प की जाँच");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","पॉपअप अवरोधक के लिए जाँच");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","जाँच कुकी राज्य ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","फ्लैश के लिए जांच की जा रही");//Checking for Flash (New)
+define("_CHECKACROBAT","एडोब रीडर के लिए जाँच");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","इंटरनेट एक्सप्लोरर 6 का पता चला. इस ब्राउज़र पुराना है और कार्यक्षमता प्रभावित हो सकता है");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","दुर्भाग्य ब्राउज़र है कि आप का समर्थन नहीं है प्रयोग कर रहे हैं");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","अपनी स्क्रीन संकल्प न्यूनतम आवश्यकता के अनुरूप नहीं है");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","पॉपअप अवरोधक का पता चला. कृपया इस साइट के लिए पॉपअप की अनुमति देते हैं और फिर कोशिश करें");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","कुकीज़ को निष्क्रिय किया जा दिखाई देते हैं. कृपया कुकी सक्षम");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","फ्लैश की तारीख से बाहर नहीं स्थापित है,");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","एडोब रीडर स्थापित नहीं है");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","जावास्क्रिप्ट जाँच");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","अपने ब्राउज़र में जावास्क्रिप्ट सक्षम नहीं है");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","आप प्रणाली सेटिंग्स से पर्यवेक्षक ईमेल सक्रियण है सक्षम होना चाहिए");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","वर्ष रेंज से");//Year range from (New)
+define("_YEARRANGETO","वर्ष श्रेणी के लिए");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","समूह नाम और विवरण");//Group name description (New)
+define("_GROUPINFORMATION","समूह जानकारी");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","विवश का उपयोग करने के लिए उपयोगकर्ताओं में लॉग इन फ़ाइलों की सामग्री के लिए");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","सेक डेटाबेस में परीक्षण के परिणाम");//Compress test results in database (New)
+define("_MAINTENANCETASKS","रखरखाव कार्यों");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","यहाँ क्लिक करें पूरा परीक्षण सेक");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","यहाँ क्लिक करें पूरा परीक्षण uncompress");//Click here to uncompress completed tests (New)
+define("_COMPRESS","संक्षिप्त करना");//Compress (New)
+define("_DATABASETASKS","डेटाबेस कार्यों");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","compressing / uncompressing पूरा परीक्षण से पहले बैकअप अपने डेटा करें");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","विन्यास");//Configuration (New)
+define("_SYSTEMOPTIONS","प्रणाली के विकल्प");//System options (New)
+define("_CASUAL","आकस्मिक");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","आप इस प्रयोक्ता की जानकारी तक नहीं पहुँच सकते");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","आभासी कुंजीपटल सक्षम करें");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","फ़ाइल रिक्त प्रतीत होता है. शायद यह सही ढंग से स्वरूपित नहीं है?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","प्रमाणपत्र समय समाप्ति अनुसूचित");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","टेस्ट पासवर्ड");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","क्षमा करें, इस शाखा के लिए पहुँच नहीं है");//Sorry, you do not have access to this branch (New)
 ?>

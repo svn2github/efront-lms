@@ -233,14 +233,23 @@
 <!--/ajax:msgQueueTable-->
         {/capture}
         {capture name = 't_sent_messages_code'}
-            <table style = "width:100%" class = "sortedTable">
+            {if $smarty.session.s_type == "administrator" && (!isset($T_CURRENT_USER->coreAccess.notifications) || $T_CURRENT_USER->coreAccess.notifications == 'change')}
+            <div class = "headerTools">
+             <span>
+              <img src="images/16x16/error_delete.png" title="{$smarty.const._CLEARQUEUEMESSAGES}" alt="{$smarty.const._CLEARQUEUEMESSAGES}">
+     <a href="javascript:void(0)" onclick = "clearSentQueueMessages(this)">{$smarty.const._CLEARQUEUEMESSAGES}</a>
+             </span>
+            </div>
+            {/if}
+<!--ajax:sentQueueTable-->
+            <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "sentQueueTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=digests&">
                 <tr class = "topTitle">
                     <td class = "topTitle" width = "15%">{$smarty.const._DATE}</td>
                     <td class = "topTitle">{$smarty.const._RECIPIENT}</td>
                     <td class = "topTitle">{$smarty.const._SUBJECT}</td>
                     <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                 </tr>
-          {foreach name = 'recent_messages_list' key = 'key' item = 'recent_message' from = $T_RECENTLY_SENT_NOTIFICATIONS}
+          {foreach name = 'recent_messages_list' key = 'key' item = 'recent_message' from = $T_DATA_SOURCE}
           <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
               <td >#filter:timestamp_time-{$recent_message.timestamp}#</td>
               <td >{$recent_message.recipient}</td>
@@ -253,13 +262,10 @@
               </td>
           </tr>
           {foreachelse}
-            <tr><td colspan=4>
-            <table width = "100%">
-                <tr><td class = "emptyCategory">{$smarty.const._NOMESSAGESFOUND}</td></tr>
-            </table>
-            </td></tr>
+          <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "4">{$smarty.const._NODATAFOUND}</td></tr>
           {/foreach}
      </table>
+<!--/ajax:sentQueueTable-->
         {/capture}
        {capture name = "t_configuration_form_code"}
    {$T_NOTIFICATION_VARIABLES_FORM.javascript}

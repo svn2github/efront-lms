@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","选项");//Insert the multiple choices
 define("_INSERTEXPLANATION","插入解释");//Insert explanation
 define("_THISQUESTIONIS","这个题目是");//This question is
 define("_CREATEEMPTYSPACES","创建空白");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","在需要填空处插入###");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","在需要填空处插入###");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","插入匹配对");//Insert matching pairs
 define("_ADDOPTION","添加选项");//Add option
 define("_GOTOCALENDAR","转到日历");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","看到的一小部分单元");//Seen a fraction of un
 define("_SPECIFICUNIT","看到一个具体单元");//Seen a specific unit
 define("_PASSEDALLTESTS","通过所有考试");//Passed all tests
 define("_SPECIFICTEST","通过一个具体的考试");//Passed a specific test
-define("_INVALIDCONDITION","无效的条件");//Invalid condition
+define("_INVALIDCONDITION","无效的条件");//Invalid rule
 define("_THEUSERMUSTHAVE","学员必须做完");//The student must have
 define("_UNITSPERCENTAGE","百分比");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","成功的附加条件");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","成功更新条件");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","成功删除条件");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","成功的附加条件");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","成功更新条件");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","成功删除条件");//Successfully deleted rule
 define("_LESSONCONDITIONS","课程完成规则");//Lesson completion rules
-define("_ADDCONDITION","添加条件");//Add condition
-define("_CONDITION","条件");//Condition
-define("_CONDITIONTYPE","条件类型");//Condition type
+define("_ADDCONDITION","添加条件");//Add completion rule
+define("_CONDITION","条件");//Completion rule
+define("_CONDITIONTYPE","条件类型");//Rule type
 define("_RELATIONTOOTHERS","和其他条件的关系");//Relation to others
 define("_SCROLLTOTOPOFPAGE","翻阅到返回页首");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","滚动到页面底部");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","系统设置");//System
 define("_EMAILCONFIGURATIONS","电子邮件服务器配置");//Emails server configuration
 define("_SAWUNIT","标记为已经学习");//Set the unit as completed
 define("_NOTSAWUNIT","标记为未学习");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","条件完成");//Conditions completed
+define("_CONDITIONSCOMPLETED","条件完成");//Completion rules completed
 define("_OUTOF","/");//out of
 define("_LESSONPROGRESS","课程进度");//Lesson progress
 define("_YOUMUSTSEEUNIT","你必须看到单元");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","您必须见");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","您必须完成所有考试，平均得分");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","您必须完成考试");//You must complete test
 define("_WITHSCORE","与评分");//with score
-define("_NOCONDITIONSSET","有没有条件，订定这个课程");//There are no conditions set for this lesson
-define("_CONDITIONS","条件");//conditions
+define("_NOCONDITIONSSET","有没有条件，订定这个课程");//There are no completion rules set for this lesson
+define("_CONDITIONS","条件");//completion rules
 define("_RESUMELESSON","继续学习");//Resume lesson
 define("_STARTLESSON","开始学习");//Start lesson
 define("_TRACKING","跟踪");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","有一个问题，同时克隆证书�
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","已成功删除证书模板");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","有一个问题，同时删除证书模板");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","您没有权利修改此证书模板");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","编辑规则");//Edit condition
+define("_EDITCONDITION","编辑规则");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP服务器配置");//SMTP server configuration
 define("_SMTPSERVER","SMTP服务器");//SMTP server
 define("_SMTPPASSWORD","SMTP密码");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","外地已更新");//The field was updated
 define("_LESSONSCORE","课程评分");//Lesson score
 define("_COMPLETED","完成");//Completed
 define("_NOTCOMPLETED","未完成");//Not completed
-define("_CONDITIONSMET","条件符合并等待批准");//Conditions met and awaiting approval
+define("_CONDITIONSMET","条件符合并等待批准");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","学生的课程，成功地改变现状");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","必须数字");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront网络学习平台的组织，证明用户名＃ ＃ ＃ ＃ user_surname已成功地完成＃ course_name ＃级＃级＃这证书签发对＃日期＃");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","无法寄出");//Could not be sent
 define("_ENVIRONMENTALCHECK","环境选中");//Environmental check
 define("_REPAIRTREE","还原树");//Restore tree
 define("_RULEPROPERTIES","法治的属性");//Rule properties
-define("_CONDITIONPROPERTIES","条件属性");//Condition properties
+define("_CONDITIONPROPERTIES","条件属性");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","孤儿的课程，文件夹的所有内容");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","课程，没有文件夹选中");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","下列文件夹中没有一个相关的课程");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","保存题目，并创建另一个");//Save q
 define("_SAVEASNEWQUESTION","另存为新题目");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","这项调查是在成功更新");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","您已经完成了所有内容");//You have completed all content
-define("_CONDITIONMET","条件满足");//Condition met
-define("_CONDITIONNOTMET","条件不符合");//Condition not met
+define("_CONDITIONMET","条件满足");//Completion rules met
+define("_CONDITIONNOTMET","条件不符合");//Completion rules met
 define("_OLDMODULES","旧插件");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP的LDAP的扩展是不加载");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","你满足课程的完全条件。这个课程，需要设置完成所教师");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","你满足课程的完全条件。这个课程，需要设置完成所教师");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","课程已学习完成");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","签发的证书成功");//Certificate issued successfully
 define("_NOTITLE","无标题");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP的账户密码");//LDAP account password
 define("_USELDAPACCOUNT","使用您的LDAP账户凭据，以便使用该系统");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","只有注册使用有效的LDAP账户允许");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","一般可用");//is generally available
-define("_DELETECONDITION","删除条件");//Delete condition
+define("_DELETECONDITION","删除条件");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","论坛会议后的信息，这个单元的");//Post forum message for this unit
 define("_AUTOCOMPLETE","自动完成");//Auto complete
 define("_DUPLICATESARENOTALLOWED","您不能使用两次同样的课程，在一个法治");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","完成技能差
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","您已完成了所有试验技能差距分配给您。 <br>请等待，直到你的教授指派给您最合适的课程，根据您的需要。");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","您的结果已发送到您的教授谁不久将指定课程，您根据您的需要确定从这个考试");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","就业安置");//Job placements
-define("_NEWJOBPLACEMENT","新安排就业");//New job placements
+define("_NEWJOBPLACEMENT","新安排就业");//New job placement
 define("_UPGRADEMODULE","升级插件");//Upgrade module
 define("_NEWUNITOPTIONS","新单位的选择");//New unit options
 define("_UNITOPTIONSFOR","选择单位");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","注意：您重温这个�
 define("_ACTIONONRENTRYCOMPLETED","操作再入");//Action on re-entry
 define("_LETCONTENTDECIDE","让内容决定");//Let content decide
 define("_DONTCHANGE","维持不变");//Leave unchanged
-define("_DASHBOARD","仪表板");//my Dashboard
+define("_DASHBOARD","仪表板");//Dashboard
 define("_MYWALL","我的墙");//My wall
 define("_RELATEDPEOPLE","有关人士");//Related people
 define("_LEARNINGACTIVITY","学习活动");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","上传的文件不是图像");//The uploaded file is n
 define("_COMMENT","评论");//Comment
 define("_COMMENTPROPERTIES","评论性质");//Comment properties
 define("_EDITCOMMENT","编辑评论");//Edit comment
-define("_EDITCONDITIONS","编辑规则");//Edit conditions
+define("_EDITCONDITIONS","编辑规则");//Edit rules
 define("_EDITINFORMATION","修改信息");//Edit information
 define("_FACEBOOK","脸谱");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Facebook的插件选项");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","发件人");//Sender
 define("_ORIGINALMESSAGE","原始邮件");//Original message
 define("_PRIORITY","优先");//Priority
 define("_PLEASEPICKANOPTION","请选择一个选项");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","完成条件满足，待确认");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","完成条件满足，待确认");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","总体进展");//Overall progress
 define("_THEORYPROGRESS","理论进展");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","平均考试成绩（每个考试的最后结果）");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","不支持的操作类型");//Unsupported ope
 define("_DUPLICATECOMPLETEDPAYMENT","复制完成付款");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","不支持的付款状态");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","您已取消交易");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","该交易已成功完成。");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","该交易已成功完成。");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","贝宝调试模式");//Paypal debug mode
 define("_MYACCOUNT","我的帐户");//my Account
 define("_MODULE","插件");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","异步SCORM通信");//Asynchronous SCORM communica
 define("_SCORMASYNCHRONOUSEXPLANATION","切换到异步通信，如果您遇到麻烦完成SCORM的内容（尤其是如果您使用Adobe Captivate中生成的内容）");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","警告：禁用所有价格付款将设置为0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","多个选项");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","您的会话已过期。请");//Your session has expired. Please (New)
-define("_CLICKHERE","点击这里");//click here (New)
-define("_TOLOGINAGAIN","重新登录");//to login again (New)
-define("_SESSIONEXPIRED","会话超时");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","您的会话已过期。请");//Your session has expired. Please
+define("_CLICKHERE","点击这里");//click here
+define("_TOLOGINAGAIN","重新登录");//to login again
+define("_SESSIONEXPIRED","会话超时");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","逗号分隔的用户列表，显示调试信息，或者为所有用户一");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","扬");//Jan (New)
+define("_FEBRUARYSHORTHAND","二月");//Feb (New)
+define("_MARCHSHORTHAND","三月");//Mar (New)
+define("_APRILSHORTHAND","四月");//Apr (New)
+define("_MAYSHORTHAND","五月");//May (New)
+define("_JUNESHORTHAND","六月");//Jun (New)
+define("_JULYSHORTHAND","七月");//Jul (New)
+define("_AUGUSTSHORTHAND","八月");//Aug (New)
+define("_SEPTEMBERSHORTHAND","九月");//Sep (New)
+define("_OCTOBERSHORTHAND","十月");//Oct (New)
+define("_NOVEMBERSHORTHAND","十一月");//Nov (New)
+define("_DECEMBERSHORTHAND","十二月");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","您无法访问请求的资源");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","请选择职位描述");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","编辑就业");//Edit job placement (New)
+define("_NORESPONSE","&lt;无response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","帐户");//Account (New)
+define("_ORGANIZATIONALDATA","组织形象");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","离开不变空白");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","进入选项值或它的编号，从0开始");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","从用户隐藏监");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","隐藏用户的工作");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","你必须指定一个强制性的元素的默认值");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","使用当前日期");//Use the current date (New)
+define("_USERSCANCHANGEINFO","帐户更改");//Account change (New)
+define("_USERSCANCHANGEPASS","密码更改");//Password change (New)
+define("_VIEWFEEDBACK","查看反馈");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","在每次执行显示不全的问题");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","保留最好成绩");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","平均考试成绩（计数每次测试的积极执行）");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","积极贯彻得分");//score on active execution (New)
+define("_YOUCANUSEASTERISK","如果您指定一个字，有星号（*）只有它的第一部分将考虑结束。例如，如果指定'学习*'，那么这两个'学习'和'学'会被认为是正确的。");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","当然教训规则");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","规则不同课程");//Rules between courses (New)
+define("_COURSEDEPENDSON","当然取决于");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","你可以不设置先决条件作为其自身的课程");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","在选择框中显示方式");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","检查这将显示所有的选择列表框，而不是一个文本框。在这种情况下，只有一个选项是认为是正确的");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","显示正确的答案只有当学生通过测试");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","设置检查");//Settings checker (New)
+define("_CHECKBROWSER","检查浏览器");//Checking browser (New)
+define("_CHECKRESOLUTION","检查屏幕分辨率");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","检查弹出窗口拦截器");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","检查Cookie的状态...");//Checking Cookie state... (New)
+define("_CHECKFLASH","检查闪光");//Checking for Flash (New)
+define("_CHECKACROBAT","检查为Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6的检测。此浏览器是过时的和功能可能受到影响");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","不幸的是，您所使用的浏览器不支持");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","您的屏幕分辨率不符合最低要求的");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","弹出窗口拦截器检测。请允许此网站的弹出窗口，然后再试一次");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","饼干似乎被禁用。请启用Cookie");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash是没有安装的，过时的");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader是没有安装");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","检查的Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","JavaScript不是浏览器中启用");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","您必须启用从系统设置监控电子邮件激活");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","今年范围");//Year range from (New)
+define("_YEARRANGETO","今年范围");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","组名称描述");//Group name description (New)
+define("_GROUPINFORMATION","组信息");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","限制访问内容在登录用户的文件");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","在数据库压缩试验结果");//Compress test results in database (New)
+define("_MAINTENANCETASKS","维护任务");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","点击这里完成的测试压缩");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","点击这里解压缩完成的测试");//Click here to uncompress completed tests (New)
+define("_COMPRESS","压缩");//Compress (New)
+define("_DATABASETASKS","数据库任务");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","请在压缩/解压完成的测试数据备份");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","配置");//Configuration (New)
+define("_SYSTEMOPTIONS","系统选项");//System options (New)
+define("_CASUAL","休闲");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","您不能访问该用户的信息");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","启用虚拟键盘");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","该文件显示为空。也许是格式不正确？");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","证书期满");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","测试密码");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","对不起，您没有访问此分支");//Sorry, you do not have access to this branch (New)
 ?>

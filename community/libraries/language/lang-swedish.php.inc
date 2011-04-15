@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Infoga de valbara alternativen");//Insert the
 define("_INSERTEXPLANATION","Infoga förklaring");//Insert explanation
 define("_THISQUESTIONIS","Denna fråga är");//This question is
 define("_CREATEEMPTYSPACES","Skapa tomma utrymmen");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Skriv frågetexten och där du vill infoga ett tomt utrymme skriver du # # #. När du är klar, klicka på \"Skapa tomt utrymme\" knappen nedan");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Skriv frågetexten och där du vill infoga ett tomt utrymme skriver du # # #. När du är klar, klicka på \"Skapa tomt utrymme\" knappen nedan");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Infoga matchande par");//Insert matching pairs
 define("_ADDOPTION","Lägg till alternativ");//Add option
 define("_GOTOCALENDAR","Gå till kalendern");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Sett en bråkdel av avsnitten");//Seen a fraction of 
 define("_SPECIFICUNIT","Sett ett särskilt avsnitt");//Seen a specific unit
 define("_PASSEDALLTESTS","Klarat alla tester");//Passed all tests
 define("_SPECIFICTEST","Klarat ett visst test");//Passed a specific test
-define("_INVALIDCONDITION","Ogiltiga villkor");//Invalid condition
+define("_INVALIDCONDITION","Ogiltiga villkor");//Invalid rule
 define("_THEUSERMUSTHAVE","Eleven måste ha");//The student must have
 define("_UNITSPERCENTAGE","Procent");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Vilkoret lades till");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Villkoret uppdaterat");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Villkoret har tagits bort");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Vilkoret lades till");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Villkoret uppdaterat");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Villkoret har tagits bort");//Successfully deleted rule
 define("_LESSONCONDITIONS","Villkor för lektionens slutförande");//Lesson completion rules
-define("_ADDCONDITION","Lägg till villkor");//Add condition
-define("_CONDITION","Villkor");//Condition
-define("_CONDITIONTYPE","Typ av villkor");//Condition type
+define("_ADDCONDITION","Lägg till villkor");//Add completion rule
+define("_CONDITION","Villkor");//Completion rule
+define("_CONDITIONTYPE","Typ av villkor");//Rule type
 define("_RELATIONTOOTHERS","I förhållande till andra regler");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Bläddra till sidans topp");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Bläddra till botten av sidan");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","System");//System
 define("_EMAILCONFIGURATIONS","Konfiguration av e-postserver");//Emails server configuration
 define("_SAWUNIT","Ange avsnittet som klart");//Set the unit as completed
 define("_NOTSAWUNIT","Ange avsnittet som inte klart");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Villkoren uppfyllda");//Conditions completed
+define("_CONDITIONSCOMPLETED","Villkoren uppfyllda");//Completion rules completed
 define("_OUTOF","av");//out of
 define("_LESSONPROGRESS","Lektionsframsteg");//Lesson progress
 define("_YOUMUSTSEEUNIT","Du måste se avsnittet");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Du måste se");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Du måste göra alla tester med minst medelpoäng");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Du måste göra test");//You must complete test
 define("_WITHSCORE","med poängen");//with score
-define("_NOCONDITIONSSET","Det finns inga villkor som för den här lektionen");//There are no conditions set for this lesson
-define("_CONDITIONS","villkor");//conditions
+define("_NOCONDITIONSSET","Det finns inga villkor som för den här lektionen");//There are no completion rules set for this lesson
+define("_CONDITIONS","villkor");//completion rules
 define("_RESUMELESSON","Återgå till lektionen");//Resume lesson
 define("_STARTLESSON","Börja lektionen");//Start lesson
 define("_TRACKING","Spåra");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Det uppstod ett problem när kloning 
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certifikatmall har tagits bort");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Det uppstod ett problem vid radering certifikatmallen");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Du har inte rätt att ändra detta certifikatmallen");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Redigera villkor");//Edit condition
+define("_EDITCONDITION","Redigera villkor");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","Konfiguration av SMTP-server");//SMTP server configuration
 define("_SMTPSERVER","SMTP-server");//SMTP server
 define("_SMTPPASSWORD","SMTP-lösenord");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Fältet uppdaterades");//The field was updated
 define("_LESSONSCORE","Lektionspoäng");//Lesson score
 define("_COMPLETED","Färdig");//Completed
 define("_NOTCOMPLETED","Inte färdig");//Not completed
-define("_CONDITIONSMET","Villkoren uppfyllda. Avvaktar godkännande");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Villkoren uppfyllda. Avvaktar godkännande");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Elevs lektionsstatus ändrades");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Måste vara numeriska");//Must be numeric
 define("_DEFAULTCERTIFICATE","Elearningorganisationen intygar att user_name # # # # user_surname har framgångsrikt slutfört # course_name # med betyg # grade # Detta intyg utfärdades den # datum #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Kunde inte skickas");//Could not be sent
 define("_ENVIRONMENTALCHECK","Miljökontroll");//Environmental check
 define("_REPAIRTREE","Återställ träd");//Restore tree
 define("_RULEPROPERTIES","Regelegenskaper");//Rule properties
-define("_CONDITIONPROPERTIES","Villkorsegenskaper");//Condition properties
+define("_CONDITIONPROPERTIES","Villkorsegenskaper");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Sök lektionsmappar utan tillhörighet");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Sök lektioner utan mappar");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Följande mappar saknar associerad lektion");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Spara frågan och skapa en annan");//Save qu
 define("_SAVEASNEWQUESTION","Spara som ny fråga");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Omröstningen uppdaterades");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Ni har fyllt i allt innehåll");//You have completed all content
-define("_CONDITIONMET","Villkoret är uppfyllt");//Condition met
-define("_CONDITIONNOTMET","Villkoret är inte uppfyllt");//Condition not met
+define("_CONDITIONMET","Villkoret är uppfyllt");//Completion rules met
+define("_CONDITIONNOTMET","Villkoret är inte uppfyllt");//Completion rules met
 define("_OLDMODULES","Gamla moduler");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP LDAP filändelsen är inte installerad");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Du har klarat lektionen. Denna lektion måste dock registreras som slutförd av läraren.");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Du har klarat lektionen. Denna lektion måste dock registreras som slutförd av läraren.");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Lektion avklarad");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Intyg har utfärdats");//Certificate issued successfully
 define("_NOTITLE","Ingen titel");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","Lösenord till LDAP-konto");//LDAP account passwo
 define("_USELDAPACCOUNT","Använd ditt LDAP-kontobevis för att använda systemet");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Endast registrering med hjälp av ett giltigt LDAP-konto är tillåtet");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","är allmänt tillgänglig");//is generally available
-define("_DELETECONDITION","Ta bort villkoret");//Delete condition
+define("_DELETECONDITION","Ta bort villkoret");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Skicka forummeddelande för detta avsnitt");//Post forum message for this unit
 define("_AUTOCOMPLETE","Komplettera automatiskt");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Du kan inte använda samma lektion två gånger i en regel");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Genomför kompe
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Du har genomfört alla kompetensgapstester som du blivit tilldelad. <br> Vänta tills du blivit tilldelad de mest lämpliga kurserna  utifrån dina behov.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Ditt resultat har skickats in och du kommer snart att tilldelas de kurser som detta test identifierat som lämpliga för dina behov");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Befattningar");//Job placements
-define("_NEWJOBPLACEMENT","Ny befattning");//New job placements
+define("_NEWJOBPLACEMENT","Ny befattning");//New job placement
 define("_UPGRADEMODULE","Uppgradera modul");//Upgrade module
 define("_NEWUNITOPTIONS","Alternativ för ny enhet");//New unit options
 define("_UNITOPTIONSFOR","Alternativ för enhet");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Obs: Du är tillbaka på e
 define("_ACTIONONRENTRYCOMPLETED","Åtgärder vid återkomst");//Action on re-entry
 define("_LETCONTENTDECIDE","Låt innehållet avgöra");//Let content decide
 define("_DONTCHANGE","Lämna oförändrad");//Leave unchanged
-define("_DASHBOARD","Anslagstavla");//my Dashboard
+define("_DASHBOARD","Anslagstavla");//Dashboard
 define("_MYWALL","Min anslagstavla");//My wall
 define("_RELATEDPEOPLE","Relaterade personer");//Related people
 define("_LEARNINGACTIVITY","Läraktivitet");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Den uppladdade filen är inte en bild");//The uploaded
 define("_COMMENT","Kommentar");//Comment
 define("_COMMENTPROPERTIES","Kommentaregenskaper");//Comment properties
 define("_EDITCOMMENT","Redigera kommentar");//Edit comment
-define("_EDITCONDITIONS","Redigera villkor");//Edit conditions
+define("_EDITCONDITIONS","Redigera villkor");//Edit rules
 define("_EDITINFORMATION","Redigera information");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Alternativ för Facebookmodul");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Avsändare");//Sender
 define("_ORIGINALMESSAGE","Ursprungligt meddelande");//Original message
 define("_PRIORITY","Prioritet");//Priority
 define("_PLEASEPICKANOPTION","Vänligen välj ett alternativ");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Genomförandevillkoren är uppfyllda, avvaktar bekräftelse");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Genomförandevillkoren är uppfyllda, avvaktar bekräftelse");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Allmäna framsteg");//Overall progress
 define("_THEORYPROGRESS","Teoretiska framsteg");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Genomsnittliga testpoäng (det sist genomförda av varje test räknas)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Operationen stöds ej");//Unsupported operat
 define("_DUPLICATECOMPLETEDPAYMENT","Duplicera avslutad betalning");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Betalningsstaus stöds ej");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Du har avbrutit transaktionen");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen genomfördes.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Transaktionen genomfördes.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
 define("_MYACCOUNT","Mitt konto");//my Account
 define("_MODULE","Modul");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asynkron SCORM kommunikation");//Asynchronous SCOR
 define("_SCORMASYNCHRONOUSEXPLANATION","Växla till asynkron kommunikation om du upplever problem med att slutföra SCORM-material (speciellt om du använder Adobe Captivate innehåll)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Varning: Inaktivera betalningar kommer att ställa alla priser till 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Flera alternativ");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Din session har gått ut. Vänligen");//Your session has expired. Please (New)
-define("_CLICKHERE","Klicka här");//click here (New)
-define("_TOLOGINAGAIN","att logga in igen");//to login again (New)
-define("_SESSIONEXPIRED","Sessionen har upphört");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Din session har gått ut. Vänligen");//Your session has expired. Please
+define("_CLICKHERE","Klicka här");//click here
+define("_TOLOGINAGAIN","att logga in igen");//to login again
+define("_SESSIONEXPIRED","Sessionen har upphört");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Kommaseparerad lista med användare för att visa felsökningsinformation på, eller 1 för alla användare");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Februari");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","April");//Apr (New)
+define("_MAYSHORTHAND","Maj");//May (New)
+define("_JUNESHORTHAND","Juni");//Jun (New)
+define("_JULYSHORTHAND","Juli");//Jul (New)
+define("_AUGUSTSHORTHAND","Augusti");//Aug (New)
+define("_SEPTEMBERSHORTHAND","September");//Sep (New)
+define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
+define("_NOVEMBERSHORTHAND","November");//Nov (New)
+define("_DECEMBERSHORTHAND","December");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Du kan inte komma den begärda resursen");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Välj en arbetsbeskrivning");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Redigera arbetsförmedling");//Edit job placement (New)
+define("_NORESPONSE","&lt;Inga response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Konto");//Account (New)
+define("_ORGANIZATIONALDATA","Organisatoriska profil");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Blank att lämna oförändrat");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Ange optionsvärdet eller dess nummer, med start från 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Göm handledare från användare");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Dölj jobb från användare");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Du måste ange ett standardvärde för obligatoriska inslag");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Använd det aktuella datumet");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Konto förändring");//Account change (New)
+define("_USERSCANCHANGEPASS","Byte av lösenord");//Password change (New)
+define("_VIEWFEEDBACK","Visa feedback");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Visa ofullständiga frågor i varje körning");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Behåll bästa poäng");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Genomsnittligt testresultat (räknat varje test aktiva utförande)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","poäng på aktiva utförande");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Om du anger ett ord som slutar med en asterisk (*), bara dess första del kommer att beaktas. Till exempel, om du anger 'lära *', sedan både 'lärande' och 'lära' kommer att anses korrekt.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Kurs lektion regler");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Regler mellan kurser");//Rules between courses (New)
+define("_COURSEDEPENDSON","Naturligtvis beror på");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Du kan inte ställa in kursen som en förutsättning i sig");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Visa alternativ välj fält");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kontrollera detta visas en listruta med alla alternativ, i stället för en textruta. I detta fall är det endast det första alternativet anses korrekt");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Visa de rätta svaren endast om eleven klarat provet");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Inställningar checker");//Settings checker (New)
+define("_CHECKBROWSER","Kontrollera webbläsare");//Checking browser (New)
+define("_CHECKRESOLUTION","Kontroll skärmupplösning");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Kontroll av popup-blockeraren");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Kontrollerar Cookie stat ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Kontroll för Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Kontroll för Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 upptäckts. Den här webbläsaren är föråldrat och funktionalitet kan påverkas");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Tyvärr webbläsare som du använder stöds inte");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Din skärmupplösning uppfyller inte minimikravet på");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Popupspärr upptäckts. Vänligen tillåta popup-fönster för den här webbplatsen och försök igen");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies verkar vara inaktiverad. Aktivera cookies");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash är inte installerat, inaktuella");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader är inte installerat");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Kontroll Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript är inte aktiverat i din webbläsare");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Du måste ha aktiverat aktivering handledare e-post från systeminställningar");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","År varierar från");//Year range from (New)
+define("_YEARRANGETO","Årtalsintervall till");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Gruppnamn beskrivning");//Group name description (New)
+define("_GROUPINFORMATION","Grupp information");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Begränsa åtkomst till innehåll filer för inloggade användare");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Komprimera testresultat i databasen");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Underhållsuppgifter");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Klicka här för att komprimera avslutade tester");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Klicka här för att packa avslutade tester");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Komprimera");//Compress (New)
+define("_DATABASETASKS","Databas uppgifter");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Vänligen säkerhetskopiera dina data innan komprimering / dekomprimering avslutat test");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfiguration");//Configuration (New)
+define("_SYSTEMOPTIONS","Systemalternativ");//System options (New)
+define("_CASUAL","Casual");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Du kan inte komma den här användarens information");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Aktivera virtuellt tangentbord");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Filen verkar vara tom. Kanske det inte är rätt formaterad?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Intyg schemalagda utgångsdatum");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Testa lösenord");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Tyvärr har du inte tillgång till denna gren");//Sorry, you do not have access to this branch (New)
 ?>

@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Вставить множественный �
 define("_INSERTEXPLANATION","Вставить объяснение");//Insert explanation
 define("_THISQUESTIONIS","Этот вопрос");//This question is
 define("_CREATEEMPTYSPACES","Создать пустоты");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Наберите текст вопроса и везде, где нужно вставить пропуск вставьте ###. Когда вы закончите, нажмите на \"Создать пустоты\"");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Наберите текст вопроса и везде, где нужно вставить пропуск вставьте ###. Когда вы закончите, нажмите на \"Создать пустоты\"");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Вставить пары соответствий");//Insert matching pairs
 define("_ADDOPTION","Добавить вариант");//Add option
 define("_GOTOCALENDAR","Перейти к календарю");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Просмотреть часть модулей");//
 define("_SPECIFICUNIT","Просмотреть конкретный модуль");//Seen a specific unit
 define("_PASSEDALLTESTS","Выполнить все тесты");//Passed all tests
 define("_SPECIFICTEST","Выполнить определенный тест");//Passed a specific test
-define("_INVALIDCONDITION","Неверные условия");//Invalid condition
+define("_INVALIDCONDITION","Неверные условия");//Invalid rule
 define("_THEUSERMUSTHAVE","Учащийся должен");//The student must have
 define("_UNITSPERCENTAGE","Процент");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Условие добавлено");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Условие обновлено");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Условие удалено");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Условие добавлено");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Условие обновлено");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Условие удалено");//Successfully deleted rule
 define("_LESSONCONDITIONS","Условия выполнения урока");//Lesson completion rules
-define("_ADDCONDITION","Добавить условие");//Add condition
-define("_CONDITION","Условие");//Condition
-define("_CONDITIONTYPE","Тип условия");//Condition type
+define("_ADDCONDITION","Добавить условие");//Add completion rule
+define("_CONDITION","Условие");//Completion rule
+define("_CONDITIONTYPE","Тип условия");//Rule type
 define("_RELATIONTOOTHERS","Связь с другими");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Перейти наверх");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Перейти вниз страницы");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Система");//System
 define("_EMAILCONFIGURATIONS","Конфигурация сервера электронной почты");//Emails server configuration
 define("_SAWUNIT","Отметить блок как выполненный");//Set the unit as completed
 define("_NOTSAWUNIT","Отметить блок как невыполненный");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Условия выполнены");//Conditions completed
+define("_CONDITIONSCOMPLETED","Условия выполнены");//Completion rules completed
 define("_OUTOF","из");//out of
 define("_LESSONPROGRESS","Процент прохождения материала");//Lesson progress
 define("_YOUMUSTSEEUNIT","Вы должны просмотреть блок");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Вы должны просмотреть");//You must comp
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Вы должны выполнить все тесты со средним баллом");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Вы должны выполнить тест");//You must complete test
 define("_WITHSCORE","с баллом");//with score
-define("_NOCONDITIONSSET","Нет условий для этого урока");//There are no conditions set for this lesson
-define("_CONDITIONS","условия");//conditions
+define("_NOCONDITIONSSET","Нет условий для этого урока");//There are no completion rules set for this lesson
+define("_CONDITIONS","условия");//completion rules
 define("_RESUMELESSON","Возобновить урок");//Resume lesson
 define("_STARTLESSON","Начните урок");//Start lesson
 define("_TRACKING","Отслеживание");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Существовал в то вре
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Сертификат шаблон был успешно удален");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Существовал проблемы при удалении шаблона сертификата");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","У вас нет прав на изменение этого шаблона сертификата");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Изменить условия");//Edit condition
+define("_EDITCONDITION","Изменить условия");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","Конфигурация SMTP-сервера");//SMTP server configuration
 define("_SMTPSERVER","SMTP-сервер");//SMTP server
 define("_SMTPPASSWORD","SMTP пароль");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Поле было обновлено");//The field was u
 define("_LESSONSCORE","Балл урока");//Lesson score
 define("_COMPLETED","Выполнено");//Completed
 define("_NOTCOMPLETED","Не выполнено");//Not completed
-define("_CONDITIONSMET","Условия выполнены и ожидают утверждения");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Условия выполнены и ожидают утверждения");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Статус урока изменен");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Должно быть числовое");//Must be numeric
 define("_DEFAULTCERTIFICATE","Настоящим подтверждается, что \n\n #user_name# #user_surname# \n\n успешно прошел обучение по курсу \n #course_name# \n с оценкой \n\n #grade# \n\n Этот сертификат выдан #date#");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Не может быть отправлено");//Coul
 define("_ENVIRONMENTALCHECK","Проверка окружения");//Environmental check
 define("_REPAIRTREE","Восстановить дерево");//Restore tree
 define("_RULEPROPERTIES","Свойства правила");//Rule properties
-define("_CONDITIONPROPERTIES","Свойства условия");//Condition properties
+define("_CONDITIONPROPERTIES","Свойства условия");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Проверить папки на наличие потерянных уроков");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Проверить папки на уроки без папок");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Следующие папки не имеют ассоциированных уроков");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Сохранить вопрос и созд�
 define("_SAVEASNEWQUESTION","Сохранить как новый вопрос");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Опрос был обновлен");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Вы прошли весь материал");//You have completed all content
-define("_CONDITIONMET","Условие выполнено");//Condition met
-define("_CONDITIONNOTMET","Условие не выполнено");//Condition not met
+define("_CONDITIONMET","Условие выполнено");//Completion rules met
+define("_CONDITIONNOTMET","Условие не выполнено");//Completion rules met
 define("_OLDMODULES","Старые модули");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","Расширение PHP для поддержки LDAP не загружено");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Вы выполнили все требования урока. Теперь этот урок должен быть признан преподавателем как выполненный");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Вы выполнили все требования урока. Теперь этот урок должен быть признан преподавателем как выполненный");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Урок выполнен");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Сертификат выдан");//Certificate issued successfully
 define("_NOTITLE","Без заголовка");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","Пароль учетной записи LDAP");/
 define("_USELDAPACCOUNT","Используйте вашу учетную запись  LDAP для входа в систему");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Разрешена регистрация только с использованием действующей учетной записи LDAP");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","общедоступна");//is generally available
-define("_DELETECONDITION","Удалить условие");//Delete condition
+define("_DELETECONDITION","Удалить условие");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Отправить сообщение форума сообщение для этого блока");//Post forum message for this unit
 define("_AUTOCOMPLETE","Автоматическое завершение");//Auto complete
 define("_DUPLICATESARENOTALLOWED","По правилам, Вы не можете использовать дважды один и тот же урок");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Выполни�
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Вы выполнили все назначенные Вам тесты на наличие навыков. <br>Подождите, когда ваш преподаватель назначит вам наиболее подходящие курсы, в соответствии с выявленными потребностями.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Ваши результаты были отправлены Вашему преподавателю, который в ближайшее время назначит Вам курсы, соответствующие вашим потребностям, выявленным в результате этого теста");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Назначения на должность");//Job placements
-define("_NEWJOBPLACEMENT","Новые назначения на должность");//New job placements
+define("_NEWJOBPLACEMENT","Новые назначения на должность");//New job placement
 define("_UPGRADEMODULE","Обновление модулей");//Upgrade module
 define("_NEWUNITOPTIONS","Свойства нового блока");//New unit options
 define("_UNITOPTIONSFOR","Свойства модуля");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Примечание: Вы
 define("_ACTIONONRENTRYCOMPLETED","Действия при повторном входе");//Action on re-entry
 define("_LETCONTENTDECIDE","Решить, исходя из содержания");//Let content decide
 define("_DONTCHANGE","Оставить без изменений");//Leave unchanged
-define("_DASHBOARD","Мое информационное табло");//my Dashboard
+define("_DASHBOARD","Мое информационное табло");//Dashboard
 define("_MYWALL","Моя стена");//My wall
 define("_RELATEDPEOPLE","Похожие люди");//Related people
 define("_LEARNINGACTIVITY","Учебная деятельность");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Загруженный файл не является 
 define("_COMMENT","Комментарий");//Comment
 define("_COMMENTPROPERTIES","Свойства комментария");//Comment properties
 define("_EDITCOMMENT","Изменить комментарий");//Edit comment
-define("_EDITCONDITIONS","Изменить условия");//Edit conditions
+define("_EDITCONDITIONS","Изменить условия");//Edit rules
 define("_EDITINFORMATION","Изменить информацию");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Функции модуля для Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Отправитель");//Sender
 define("_ORIGINALMESSAGE","Исходное сообщение");//Original message
 define("_PRIORITY","Приоритет");//Priority
 define("_PLEASEPICKANOPTION","Пожалуйста, выберите опцию");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Условия завершения соблюдены, ожидайте подтверждения");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Условия завершения соблюдены, ожидайте подтверждения");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Общий прогресс");//Overall progress
 define("_THEORYPROGRESS","Прогресс в части теории");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Средняя оценка на тесте (с учетом последнего выполнения каждого теста)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Неподдерживаемый тип оп
 define("_DUPLICATECOMPLETEDPAYMENT","Повторяющийся завершенный платеж");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Неподдерживаемый статус платежа");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Вы отменили операцию");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Операция была завершена успешно.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Операция была завершена успешно.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal в режиме отладки");//Paypal debug mode
 define("_MYACCOUNT","Моя учетная запись");//my Account
 define("_MODULE","Модуль");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Асинхронный режим SCORM");//Asynch
 define("_SCORMASYNCHRONOUSEXPLANATION","Переключитесь в режим асинхронной передачи, если у вас возникают проблемы вполнением SCORM-материалов (особенно если вы используете материалы, созданные в Adobe Captivate)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Предупреждение: Отключение платежей установит все цены на 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Несколько вариантов");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Вы слишком долго бездействовали и ваша сессия была закрыта. Пожалуйста,");//Your session has expired. Please (New)
-define("_CLICKHERE","нажмите здесь");//click here (New)
-define("_TOLOGINAGAIN","чтобы снова войти");//to login again (New)
-define("_SESSIONEXPIRED","Сессия окончена");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Вы слишком долго бездействовали и ваша сессия была закрыта. Пожалуйста,");//Your session has expired. Please
+define("_CLICKHERE","нажмите здесь");//click here
+define("_TOLOGINAGAIN","чтобы снова войти");//to login again
+define("_SESSIONEXPIRED","Сессия окончена");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Разделенный запятыми список пользователей, чтобы показать отладки информацию о, или 1 для всех пользователей");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Ян");//Jan (New)
+define("_FEBRUARYSHORTHAND","Фев");//Feb (New)
+define("_MARCHSHORTHAND","Мар");//Mar (New)
+define("_APRILSHORTHAND","Май");//Apr (New)
+define("_MAYSHORTHAND","Май");//May (New)
+define("_JUNESHORTHAND","Июн");//Jun (New)
+define("_JULYSHORTHAND","Июл");//Jul (New)
+define("_AUGUSTSHORTHAND","Авг");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Сен");//Sep (New)
+define("_OCTOBERSHORTHAND","Окт");//Oct (New)
+define("_NOVEMBERSHORTHAND","Ноя");//Nov (New)
+define("_DECEMBERSHORTHAND","Дек");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Вы не можете получить доступ к запрашиваемому ресурсу");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Пожалуйста, выберите Job Description");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Изменить трудоустройства");//Edit job placement (New)
+define("_NORESPONSE","&lt;нет response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Счет");//Account (New)
+define("_ORGANIZATIONALDATA","Организационные профиля");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Бланк оставить без изменений");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Введите значение параметра или его номер, начиная с 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Скрыть руководителя от пользователей");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Скрыть работу с пользователями");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Вы должны указать значение по умолчанию для элементов, имеющих обязательную");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Используйте текущую дату");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Счет изменения");//Account change (New)
+define("_USERSCANCHANGEPASS","Изменение пароля");//Password change (New)
+define("_VIEWFEEDBACK","Просмотреть отзывы");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Показать неполных вопросов в каждом исполнении");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Сохранить лучший результат");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Средняя оценка испытаний (с учетом активного выполнения каждого теста)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","Оценка на активное выполнение");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Если указать слово, которое заканчивается звездочкой (*), только ее первой части будут рассмотрены. Например, если указать 'учиться *', то как 'обучение' и 'учиться' будет считаться правильным.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","правила курс Урок");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Правила между курсами");//Rules between courses (New)
+define("_COURSEDEPENDSON","Конечно, зависит от");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Вы не можете установить курс в качестве предварительного условия о себе");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Показать альтернатив в окне выбора");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Проверка этого появится список всех альтернатив, а не в текстовом поле. В этом случае, только первый вариант считается правильным");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Показать правильные ответы, только если студент прошел испытания");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Настройки проверки");//Settings checker (New)
+define("_CHECKBROWSER","Проверка браузера");//Checking browser (New)
+define("_CHECKRESOLUTION","Проверка разрешение экрана");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Проверка на блокировщик всплывающих окон");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Проверка состояния печенья ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Проверка на Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Проверка наличия Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 обнаружено. Этот браузер является устаревшим и функциональные возможности могут быть затронуты");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","К сожалению, браузер, который вы используете, не поддерживается");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Ваше разрешение экрана не соответствует минимальным требованиям");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Блокировщик всплывающих окон обнаружено. Просьба разрешить всплывающие окна для этого сайта и попробуйте еще раз");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Печенье по всей видимости, инвалидов. Пожалуйста, включите куки");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash не установлен, устаревший");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader не установлен");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Проверка Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript не разрешены в Вашем браузере");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Вы должны иметь включен активации руководителю письмо от настройки системы");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Год от");//Year range from (New)
+define("_YEARRANGETO","Год диапазон");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Название группы описание");//Group name description (New)
+define("_GROUPINFORMATION","Информация о группе");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Ограничение доступа к содержимому файлов зарегистрированных пользователей");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Сжатие результаты тестов в базе данных");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Задачи обслуживания");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Нажмите здесь, чтобы сжать завершены испытания");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Нажмите здесь, чтобы распаковать завершены испытания");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Сжимать");//Compress (New)
+define("_DATABASETASKS","База данных задач");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Пожалуйста, создайте резервную копию данных до сжатия / распаковки завершены испытания");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Конфигурация");//Configuration (New)
+define("_SYSTEMOPTIONS","Системные настройки");//System options (New)
+define("_CASUAL","Случайный");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Вы не можете получить доступ к информации этого пользователя");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Включить виртуальную клавиатуру");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Файл выглядит пустым. Может быть, это не правильный формат?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертификат запланированного срока");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Испытание пароль");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","К сожалению, вы не имеете доступа к этой отрасли");//Sorry, you do not have access to this branch (New)
 ?>

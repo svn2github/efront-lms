@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Voeg meerdere keuzes toe");//Insert the multi
 define("_INSERTEXPLANATION","Voeg uitleg toe");//Insert explanation
 define("_THISQUESTIONIS","Deze vraag is");//This question is
 define("_CREATEEMPTYSPACES","Maak lege ruimtes");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Schrijf de tekst daar waar een lege ruimte moet komen voet u ### toe. Wanneer u klaar bent, klikt u op de \"Maak lege ruimtes\" knop hieronder");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Schrijf de tekst daar waar een lege ruimte moet komen voet u ### toe. Wanneer u klaar bent, klikt u op de \"Maak lege ruimtes\" knop hieronder");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Invoegen passende combinaties");//Insert matching pairs
 define("_ADDOPTION","Optie Toevoegen");//Add option
 define("_GOTOCALENDAR","Ga naar kalender");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Deel van de eenheden gezien");//Seen a fraction of un
 define("_SPECIFICUNIT","Specifieke eenheid gezien");//Seen a specific unit
 define("_PASSEDALLTESTS","Alle toetsen succesvol voltooid");//Passed all tests
 define("_SPECIFICTEST","Alle specifieke toetsen succesvol voltooid");//Passed a specific test
-define("_INVALIDCONDITION","Ongeldige voorwaarde");//Invalid condition
+define("_INVALIDCONDITION","Ongeldige voorwaarde");//Invalid rule
 define("_THEUSERMUSTHAVE","De student moet hebben");//The student must have
 define("_UNITSPERCENTAGE","Percentage");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Voorwaarde toegevoegd");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Voorwaarde Bijgewerkt");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Voorwaarde verwijderd");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Voorwaarde toegevoegd");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Voorwaarde Bijgewerkt");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Voorwaarde verwijderd");//Successfully deleted rule
 define("_LESSONCONDITIONS","Voorwaarden les voltooiing");//Lesson completion rules
-define("_ADDCONDITION","Voorwaarde toevoegen");//Add condition
-define("_CONDITION","Voorwaarde");//Condition
-define("_CONDITIONTYPE","Type Voorwaarde");//Condition type
+define("_ADDCONDITION","Voorwaarde toevoegen");//Add completion rule
+define("_CONDITION","Voorwaarde");//Completion rule
+define("_CONDITIONTYPE","Type Voorwaarde");//Rule type
 define("_RELATIONTOOTHERS","Betrokkenheid bij anderen");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Ga naar het begin van de pagina");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Ga naar het einde van de pagina");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Systeem");//System
 define("_EMAILCONFIGURATIONS","E-mail server configuratie");//Emails server configuration
 define("_SAWUNIT","Markeer als voltooid");//Set the unit as completed
 define("_NOTSAWUNIT","Markeer als niet voltooid");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Voorwaarden voldaan");//Conditions completed
+define("_CONDITIONSCOMPLETED","Voorwaarden voldaan");//Completion rules completed
 define("_OUTOF","uit");//out of
 define("_LESSONPROGRESS","Les vooruitgang");//Lesson progress
 define("_YOUMUSTSEEUNIT","U moet eenheid zien");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","U moet zien");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","U moet voor alle toetsen slagen met een gemiddelde score van");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","U moet toets afronden");//You must complete test
 define("_WITHSCORE","met score");//with score
-define("_NOCONDITIONSSET","Er zijn geen voorwaarden gesteld voor deze les");//There are no conditions set for this lesson
-define("_CONDITIONS","voorwaarden");//conditions
+define("_NOCONDITIONSSET","Er zijn geen voorwaarden gesteld voor deze les");//There are no completion rules set for this lesson
+define("_CONDITIONS","voorwaarden");//completion rules
 define("_RESUMELESSON","Vervolg les");//Resume lesson
 define("_STARTLESSON","Start les");//Start lesson
 define("_TRACKING","Volgen");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Er was een probleem, terwijl het klon
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Certificaatsjabloon werd met succes verwijderd");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Er was een probleem tijdens het verwijderen van certificaatsjabloon");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Je hoeft niet de rechten om dit certificaat sjabloon wijzigen");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Voorwaarde bewerken");//Edit condition
+define("_EDITCONDITION","Voorwaarde bewerken");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP-server configuratie");//SMTP server configuration
 define("_SMTPSERVER","SMTP-server");//SMTP server
 define("_SMTPPASSWORD","SMTP-wachtwoord");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Velf bijgewerkt");//The field was updated
 define("_LESSONSCORE","Les score");//Lesson score
 define("_COMPLETED","Afgerond");//Completed
 define("_NOTCOMPLETED","Niet afgerond");//Not completed
-define("_CONDITIONSMET","Voorwaarden voldaan en in afwachting van goedkeuring");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Voorwaarden voldaan en in afwachting van goedkeuring");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Student les status veranderd");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Moet numeriek zijn");//Must be numeric
 define("_DEFAULTCERTIFICATE","eFront eLearning platform organisatie verklaart dat user_name # # # # user_surname heeft met succes afgesloten course_name # # # met rang rang # Dit certificaat is afgegeven op datum # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Kan niet worden verzonden");//Could not be sent
 define("_ENVIRONMENTALCHECK","Omgevingscontrole");//Environmental check
 define("_REPAIRTREE","Herstel boomstructuur");//Restore tree
 define("_RULEPROPERTIES","Regel eigenschappen");//Rule properties
-define("_CONDITIONPROPERTIES","Voorwaarden eigenschappen");//Condition properties
+define("_CONDITIONPROPERTIES","Voorwaarden eigenschappen");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Ongekoppelde les mappen controleren");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Lessen zonder mappen controleren");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","De volgende mappen hebben geen les");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Vraag opslaan en maak een andere");//Save qu
 define("_SAVEASNEWQUESTION","Opslaan als nieuwe vraag");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","De poll is bijgewerkt");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","U heeft alle inhoud afgerond");//You have completed all content
-define("_CONDITIONMET","Voorwaarde voldaan");//Condition met
-define("_CONDITIONNOTMET","Voorwaarde niet voldaan");//Condition not met
+define("_CONDITIONMET","Voorwaarde voldaan");//Completion rules met
+define("_CONDITIONNOTMET","Voorwaarde niet voldaan");//Completion rules met
 define("_OLDMODULES","Oud-modules");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","De PHP LDAP-uitbreiding is niet geladen");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","U heeft volledig voldaan aan de voorwaarden van de les. Deze les moet door de professor als afgerond worden ingesteld");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","U heeft volledig voldaan aan de voorwaarden van de les. Deze les moet door de professor als afgerond worden ingesteld");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Les afgerond");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Certificaat afgegeven");//Certificate issued successfully
 define("_NOTITLE","Geen titel");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP-account wachtwoord");//LDAP account password
 define("_USELDAPACCOUNT","Gebruik uw LDAP-account gegevens om gebruik te maken van het systeem");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Alleen registratie met behulp van een geldig LDAP-account is toegestaan");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","is algemeen beschikbaar");//is generally available
-define("_DELETECONDITION","Voorwaarde verwijderen");//Delete condition
+define("_DELETECONDITION","Voorwaarde verwijderen");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Plaats forum bericht voor deze eenheid");//Post forum message for this unit
 define("_AUTOCOMPLETE","Auto compleet");//Auto complete
 define("_DUPLICATESARENOTALLOWED","U kunt niet twee keer dezelfde les gebruiken in de regel");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Vul de ondersta
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","U heeft alle vaardigheidtoetsen voldaan die aan u zijn toegewezen. <br> Wacht tot de professor u de meest geschikte cursussen toewijst op basis van de toest.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Uw resultaten zijn verzonden naar uw professoren die binnenkort zal toewijzen aan uw cursussen aan de hand van uw behoeften, als geïdentificeerd op basis van deze test");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Werk stages");//Job placements
-define("_NEWJOBPLACEMENT","Nieuwe baan stages");//New job placements
+define("_NEWJOBPLACEMENT","Nieuwe baan stages");//New job placement
 define("_UPGRADEMODULE","Upgrade module");//Upgrade module
 define("_NEWUNITOPTIONS","Nieuwe eenheid opties");//New unit options
 define("_UNITOPTIONSFOR","Opties voor eenheid");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Opmerking: u bent opnieuw 
 define("_ACTIONONRENTRYCOMPLETED","Actie voor terug ingeven");//Action on re-entry
 define("_LETCONTENTDECIDE","Laat de inhoud bepalen");//Let content decide
 define("_DONTCHANGE","Laat ongewijzigd");//Leave unchanged
-define("_DASHBOARD","mijn Dashboard");//my Dashboard
+define("_DASHBOARD","mijn Dashboard");//Dashboard
 define("_MYWALL","Mijn prikbord");//My wall
 define("_RELATEDPEOPLE","Betrokken personen");//Related people
 define("_LEARNINGACTIVITY","Leeractiviteit");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Het geüploade bestand is geen afbeelding");//The uplo
 define("_COMMENT","Reactie");//Comment
 define("_COMMENTPROPERTIES","Reactie eigenschappen");//Comment properties
 define("_EDITCOMMENT","Wijzig reactie");//Edit comment
-define("_EDITCONDITIONS","Wijzig voorwaarden");//Edit conditions
+define("_EDITCONDITIONS","Wijzig voorwaarden");//Edit rules
 define("_EDITINFORMATION","Bewerk informatie");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Opties voor Facebook module");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Afzender");//Sender
 define("_ORIGINALMESSAGE","Oorspronkelijk bericht");//Original message
 define("_PRIORITY","Prioriteit");//Priority
 define("_PLEASEPICKANOPTION","Selecteer een optie");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Afrondings voorwaarden voldaan, in afwachting van de bevestiging");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Afrondings voorwaarden voldaan, in afwachting van de bevestiging");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Globale vooruitgang");//Overall progress
 define("_THEORYPROGRESS","Theorie vooruitgang");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Gemiddelde test score (telt met de laatste uitvoering van elke toets)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Niet ondersteunde operatie type");//Unsuppor
 define("_DUPLICATECOMPLETEDPAYMENT","Dupliceerd voltooide betaling");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Niet ondersteunde betaling status");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","U hebt de transactie geannuleerd");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","De transactie werd succesvol afgerond.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","De transactie werd succesvol afgerond.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
 define("_MYACCOUNT","Mijn account");//my Account
 define("_MODULE","Module");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asynchrone communicatie SCORM");//Asynchronous SCO
 define("_SCORMASYNCHRONOUSEXPLANATION","Over te schakelen naar asynchrone communicatie indien u problemen ondervindt het invullen van SCORM content (met name in het geval u gebruik maakt van Adobe Captivate generated content)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Waarschuwing: Het uitschakelen betalingen zal alle prijzen op 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Meerdere opties");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Uw sessie is verlopen. Gelieve");//Your session has expired. Please (New)
-define("_CLICKHERE","klik hier");//click here (New)
-define("_TOLOGINAGAIN","om in te loggen opnieuw");//to login again (New)
-define("_SESSIONEXPIRED","Sessie is verlopen");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Uw sessie is verlopen. Gelieve");//Your session has expired. Please
+define("_CLICKHERE","klik hier");//click here
+define("_TOLOGINAGAIN","om in te loggen opnieuw");//to login again
+define("_SESSIONEXPIRED","Sessie is verlopen");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Door komma&#39;s gescheiden lijst van gebruikers aan te tonen debug-informatie op, of 1 voor alle gebruikers");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Jan");//Jan (New)
+define("_FEBRUARYSHORTHAND","Februari");//Feb (New)
+define("_MARCHSHORTHAND","Mar");//Mar (New)
+define("_APRILSHORTHAND","April");//Apr (New)
+define("_MAYSHORTHAND","Kan");//May (New)
+define("_JUNESHORTHAND","Juni");//Jun (New)
+define("_JULYSHORTHAND","Juli");//Jul (New)
+define("_AUGUSTSHORTHAND","Augustus");//Aug (New)
+define("_SEPTEMBERSHORTHAND","September");//Sep (New)
+define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
+define("_NOVEMBERSHORTHAND","November");//Nov (New)
+define("_DECEMBERSHORTHAND","December");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","U kunt geen toegang tot de aangevraagde bron");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Selecteer een functiebeschrijving");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Edit arbeidsbemiddeling");//Edit job placement (New)
+define("_NORESPONSE","&lt;geen response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Account");//Account (New)
+define("_ORGANIZATIONALDATA","Organisatorische profiel");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Leeg te laten ongewijzigd");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Voer de optie waarde of het nummer, beginnend bij 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Verberg promotor van gebruikers");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Verberg beroep van gebruikers");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","U moet een standaard waarde voor de verplichte elementen");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Gebruik de huidige datum");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Account te wijzigen");//Account change (New)
+define("_USERSCANCHANGEPASS","Wachtwoord te wijzigen");//Password change (New)
+define("_VIEWFEEDBACK","Feedback bekijken");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Toon onvolledige vragen in elke uitvoering");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Bewaar beste score");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Gemiddelde toetsscore (het tellen van elke proef de actieve uitvoering)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","score op actieve uitvoering");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Als u een woord dat eindigt met een sterretje (*), alleen het eerste deel zal worden overwogen. Bijvoorbeeld, als u opgeeft 'leren*', dan zijn zowel 'leren' en 'leren' wordt juist beschouwd.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Natuurlijk les regels");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Regels tussen opleidingen");//Rules between courses (New)
+define("_COURSEDEPENDSON","Hangt natuurlijk af van");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","U kunt de cursus niet is ingesteld als een conditio sine qua non van zichzelf");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Display alternatieven in select box");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Controle zal dit een keuzelijst display met alle alternatieven, in plaats van een tekstvak. In dit geval wordt alleen de eerste optie als correct beschouwd");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Toon correcte antwoorden alleen als student geslaagd voor de test");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Instellingen checker");//Settings checker (New)
+define("_CHECKBROWSER","Controle browser");//Checking browser (New)
+define("_CHECKRESOLUTION","Het controleren van schermresolutie");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Controleren op Popup blocker");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Het controleren van Cookie staat ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Controle voor Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Controle voor Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6 gedetecteerd. Deze browser is verouderd en de functionaliteit kan worden beïnvloed");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Helaas is de browser die u gebruikt wordt niet ondersteund");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Uw schermresolutie niet voldoet aan de minimale eis van");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker gedetecteerd. Gelieve pop-ups toestaan ​​voor deze site en probeer het opnieuw");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Cookies lijken te worden uitgeschakeld. Schakel cookies");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash is niet geïnstalleerd of verouderd");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader is niet geïnstalleerd");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Controleren Javascript");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript is niet ingeschakeld in uw browser");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Je moet in staat hebben gesteld promotor e-activering van het systeem-instellingen");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Jaar variëren van");//Year range from (New)
+define("_YEARRANGETO","Jaar scala aan");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Groepsnaam beschrijving");//Group name description (New)
+define("_GROUPINFORMATION","Groep informatie");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Beperk de toegang tot bestanden voor ingelogde gebruikers content");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Comprimeren testresultaten in de database");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Onderhoudstaken");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Klik hier om voltooide tests te comprimeren");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Klik hier om voltooide tests decomprimeren");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Comprimeren");//Compress (New)
+define("_DATABASETASKS","Database taken");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Maak een backup van uw gegevens voordat het comprimeren / decomprimeren afgesloten tests");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Configuratie");//Configuration (New)
+define("_SYSTEMOPTIONS","Systeem opties");//System options (New)
+define("_CASUAL","Toevallig");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","U geen toegang tot gegevens van deze gebruiker");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Staat virtueel toetsenbord");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Het bestand lijkt leeg te zijn. Misschien is het niet correct geformatteerd?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificaat geplande vervaldatum");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Test wachtwoord");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Sorry, je hebt geen toegang tot deze tak");//Sorry, you do not have access to this branch (New)
 ?>

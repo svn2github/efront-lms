@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Įdėkite kelis pasirinkimus");//Insert the m
 define("_INSERTEXPLANATION","Įtraukti paaiškinimas");//Insert explanation
 define("_THISQUESTIONIS","Šis klausimas yra");//This question is
 define("_CREATEEMPTYSPACES","Sukurti tuščių ertmių");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Rašykite klausimą tekstą ir kur norite įterpti tuščia, įterpti ###. Kai baigsite, paspauskite \"Sukurti tuščios erdvės\" mygtuką apačioje");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Rašykite klausimą tekstą ir kur norite įterpti tuščia, įterpti ###. Kai baigsite, paspauskite \"Sukurti tuščios erdvės\" mygtuką apačioje");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Įtraukti tinkančių porų");//Insert matching pairs
 define("_ADDOPTION","Pridėti variantą");//Add option
 define("_GOTOCALENDAR","Grįžti į kalendorių");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Seen frakcija vienetų");//Seen a fraction of units
 define("_SPECIFICUNIT","Mato vienetą");//Seen a specific unit
 define("_PASSEDALLTESTS","Praėjo visus bandymus,");//Passed all tests
 define("_SPECIFICTEST","Zdany konkrečiai bandymo");//Passed a specific test
-define("_INVALIDCONDITION","Neteisingas būklė");//Invalid condition
+define("_INVALIDCONDITION","Neteisingas būklė");//Invalid rule
 define("_THEUSERMUSTHAVE","Studentas privalo turėti");//The student must have
 define("_UNITSPERCENTAGE","Procentas");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Sėkmingai pridėta sąlyga,");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Sėkmingai atnaujinta sąlyga");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Sėkmingai ištrintas sąlyga");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Sėkmingai pridėta sąlyga,");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Sėkmingai atnaujinta sąlyga");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Sėkmingai ištrintas sąlyga");//Successfully deleted rule
 define("_LESSONCONDITIONS","Pamoka užbaigimo sąlygos");//Lesson completion rules
-define("_ADDCONDITION","Pridėti sąlyga");//Add condition
-define("_CONDITION","Būklė");//Condition
-define("_CONDITIONTYPE","Būklė tipas");//Condition type
+define("_ADDCONDITION","Pridėti sąlyga");//Add completion rule
+define("_CONDITION","Būklė");//Completion rule
+define("_CONDITIONTYPE","Būklė tipas");//Rule type
 define("_RELATIONTOOTHERS","Ryšys su kitais");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Nueikite į viršų");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Pereikite prie puslapio apačioje");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Sistema");//System
 define("_EMAILCONFIGURATIONS","E-mail serverio konfigūracijos");//Emails server configuration
 define("_SAWUNIT","Nustatykite vieneto užbaigtais");//Set the unit as completed
 define("_NOTSAWUNIT","Nustatykite vieneto kaip nebaigė");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Sąlygos baigtas");//Conditions completed
+define("_CONDITIONSCOMPLETED","Sąlygos baigtas");//Completion rules completed
 define("_OUTOF","iš");//out of
 define("_LESSONPROGRESS","Pamoka pažanga");//Lesson progress
 define("_YOUMUSTSEEUNIT","Jūs turite pamatyti vienetas");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Jūs turite pamatyti");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Jūs turite užpildyti visus bandymus su vidutinis balas");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Turite visą bandymo");//You must complete test
 define("_WITHSCORE","su rezultatas");//with score
-define("_NOCONDITIONSSET","Nėra sąlygos, nustatytos šio pamoka");//There are no conditions set for this lesson
-define("_CONDITIONS","sąlygos");//conditions
+define("_NOCONDITIONSSET","Nėra sąlygos, nustatytos šio pamoka");//There are no completion rules set for this lesson
+define("_CONDITIONS","sąlygos");//completion rules
 define("_RESUMELESSON","Atnaujinti pamoka");//Resume lesson
 define("_STARTLESSON","Pradėti pamokos");//Start lesson
 define("_TRACKING","Sekti");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Iškilo problema, o klonavimą pažym
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Pažymėjimas šablonas buvo sėkmingai ištrintas");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Iškilo problema, nors ištrynus pažymos formą");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Jūs neturite teisių keisti šios pažymos formą");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Redaguoti sąlyga");//Edit condition
+define("_EDITCONDITION","Redaguoti sąlyga");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","SMTP serverio konfigūracija");//SMTP server configuration
 define("_SMTPSERVER","SMTP serveris");//SMTP server
 define("_SMTPPASSWORD","SMTP slaptažodis");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Srityje buvo atnaujintas");//The field was updated
 define("_LESSONSCORE","Pamoka rezultatas");//Lesson score
 define("_COMPLETED","Įgyvendintas");//Completed
 define("_NOTCOMPLETED","Nebaigė");//Not completed
-define("_CONDITIONSMET","Sąlygos įvykdytos, ir laukia patvirtinimo");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Sąlygos įvykdytos, ir laukia patvirtinimo");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Studentų pamoka statusas pakeistas sėkmingai");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Turi būti skaitinė");//Must be numeric
 define("_DEFAULTCERTIFICATE","Elearning organizacija patvirtina, kad vartotojo vardas # # # # user_surname sėkmingai baigė # course_name # įvertinimo # laipsnių # Šis sertifikatas buvo išduotas # date #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Negali būti išsiųstas");//Could not be sent
 define("_ENVIRONMENTALCHECK","Aplinkos patikrinti");//Environmental check
 define("_REPAIRTREE","Atkurti medis");//Restore tree
 define("_RULEPROPERTIES","Darbo tvarkos taisyklių savybės");//Rule properties
-define("_CONDITIONPROPERTIES","Būklė savybės");//Condition properties
+define("_CONDITIONPROPERTIES","Būklė savybės");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Retųjų pamoka katalogai patikrinti");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Pamokos be aplankų patikrinimas");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Šie katalogai neturite pamoką susijusių");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Išsaugoti klausimą ir sukurti kitą");//Sa
 define("_SAVEASNEWQUESTION","Išsaugoti kaip naują klausimą");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","Apklausa buvo sėkmingai atnaujintas");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Jūs visi turinio");//You have completed all content
-define("_CONDITIONMET","Būklė susitiko");//Condition met
-define("_CONDITIONNOTMET","Sąlyga neįvykdyta");//Condition not met
+define("_CONDITIONMET","Būklė susitiko");//Completion rules met
+define("_CONDITIONNOTMET","Sąlyga neįvykdyta");//Completion rules met
 define("_OLDMODULES","Senas moduliai");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","PHP LDAP išplėtimas nėra įkrauta");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Spełniasz pamoka visa sąlygomis. Ši pamoka turi būti nustatyti kaip baigtas profesorius");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Spełniasz pamoka visa sąlygomis. Ši pamoka turi būti nustatyti kaip baigtas profesorius");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Pamoka baigta");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Sertifikatas išduotas sėkmingai");//Certificate issued successfully
 define("_NOTITLE","No title");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","LDAP sąskaitos slaptažodį");//LDAP account pas
 define("_USELDAPACCOUNT","Naudokite savo LDAP sąskaitos siekiant naudotis sistema");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Tik registruoti naudojant svarbūs LDAP sąskaitoje, leidžiama");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","yra visuotinai prieinamos");//is generally available
-define("_DELETECONDITION","Ištrinti sąlyga");//Delete condition
+define("_DELETECONDITION","Ištrinti sąlyga");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Rašyti žinutė šio vieneto");//Post forum message for this unit
 define("_AUTOCOMPLETE","Automatinis užpildymas");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Jūs negalite naudoti du kartus per tą pačią pamoką taisyklė");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Užbaigti įgū
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Jūs visi įgūdžių atotrūkį bandymus priskirti jums. <br> Prašome palaukti, kol jūsų dėstytojai suteikia jums tinkamiausią kursų pagal savo poreikius.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Jūsų rezultatai buvo išsiųstas į jūsų profesorių, kurie netrukus bus priskirti kursus savo pagal savo poreikius, kaip nustatyta šio bandymo");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Darbo vietos");//Job placements
-define("_NEWJOBPLACEMENT","Naujos darbo vietos");//New job placements
+define("_NEWJOBPLACEMENT","Naujos darbo vietos");//New job placement
 define("_UPGRADEMODULE","Atnaujinkite modulis");//Upgrade module
 define("_NEWUNITOPTIONS","Naujas vieneto funkcijos");//New unit options
 define("_UNITOPTIONSFOR","Funkcijos vieneto");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Pastaba: Jūs persvarstyti
 define("_ACTIONONRENTRYCOMPLETED","Veiksmų sugrįžti");//Action on re-entry
 define("_LETCONTENTDECIDE","Tegul turinio nuspręsti");//Let content decide
 define("_DONTCHANGE","Nekeisti");//Leave unchanged
-define("_DASHBOARD","Skydelis");//my Dashboard
+define("_DASHBOARD","Skydelis");//Dashboard
 define("_MYWALL","My Wall");//My wall
 define("_RELATEDPEOPLE","Susijusios žmonių");//Related people
 define("_LEARNINGACTIVITY","Mokymosi veikla");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Įkeltas failas yra ne vaizdas");//The uploaded file i
 define("_COMMENT","Komentaras");//Comment
 define("_COMMENTPROPERTIES","Komentaras savybės");//Comment properties
 define("_EDITCOMMENT","Redaguoti komentarą");//Edit comment
-define("_EDITCONDITIONS","Redaguoti sąlygos");//Edit conditions
+define("_EDITCONDITIONS","Redaguoti sąlygos");//Edit rules
 define("_EDITINFORMATION","Redaguoti informaciją");//Edit information
 define("_FACEBOOK","Facebook");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Funkcijos modulio Facebook");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Siuntėjas");//Sender
 define("_ORIGINALMESSAGE","Original message");//Original message
 define("_PRIORITY","Prioritetas");//Priority
 define("_PLEASEPICKANOPTION","Prašome pasirinkti parinktį");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Baigimas sąlygos tenkinamos, patvirtinimą, kol bus");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Baigimas sąlygos tenkinamos, patvirtinimą, kol bus");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Apskritai pažanga");//Overall progress
 define("_THEORYPROGRESS","Teorija pažanga");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Vidutinis bandymo rezultatas (skaičiuojant kiekvieno bandymo paskutinę vykdymas)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Nepalaikoma operacija tipas");//Unsupported 
 define("_DUPLICATECOMPLETEDPAYMENT","Dviem egzemplioriais užpildytas mokėjimo");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Nepalaikomas mokėjimo statuso");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Jūs atšaukti sandorį");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Sandoris buvo baigtas sėkmingai.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Sandoris buvo baigtas sėkmingai.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Paypal debug mode");//Paypal debug mode
 define("_MYACCOUNT","Mano sąskaita");//my Account
 define("_MODULE","Modulis");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Asinchroninis SCORM komunikacijos");//Asynchronous
 define("_SCORMASYNCHRONOUSEXPLANATION","Perjungti į asinchroniniu jei jums kyla problemų užbaigti SCORM kiekis (ypač jei jūs naudojate Adobe Sužavėk kuriamo turinio)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Įspėjimas: Išjungti mokėjimai bus nustatyti visos kainos iki 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Keli variantai");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Jūsų sesija baigėsi. Prašome");//Your session has expired. Please (New)
-define("_CLICKHERE","spauskite čia");//click here (New)
-define("_TOLOGINAGAIN","prisijungti iš naujo");//to login again (New)
-define("_SESSIONEXPIRED","Plenarinio posėdžio pasibaigęs");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Jūsų sesija baigėsi. Prašome");//Your session has expired. Please
+define("_CLICKHERE","spauskite čia");//click here
+define("_TOLOGINAGAIN","prisijungti iš naujo");//to login again
+define("_SESSIONEXPIRED","Plenarinio posėdžio pasibaigęs");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Atskirti kableliais sąrašas vartotojai Rodyti derinti informacijos apie, arba 1 visiems vartotojams");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Sau");//Jan (New)
+define("_FEBRUARYSHORTHAND","Vasaris");//Feb (New)
+define("_MARCHSHORTHAND","Kov");//Mar (New)
+define("_APRILSHORTHAND","Balandis");//Apr (New)
+define("_MAYSHORTHAND","Gegužės");//May (New)
+define("_JUNESHORTHAND","Birželis");//Jun (New)
+define("_JULYSHORTHAND","Liepa");//Jul (New)
+define("_AUGUSTSHORTHAND","Rugpjūtis");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Rugsėjis");//Sep (New)
+define("_OCTOBERSHORTHAND","Spalis");//Oct (New)
+define("_NOVEMBERSHORTHAND","Lapkritis");//Nov (New)
+define("_DECEMBERSHORTHAND","Gruodis");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Jūs negalite naudotis reikalinga informacija");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Prašome pasirinkti darbo aprašymas");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Redaguoti įdarbinimo");//Edit job placement (New)
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Sąskaita");//Account (New)
+define("_ORGANIZATIONALDATA","Organizacinė profilis");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Tuščia palikti nepakeistą");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Įveskite sandorių vertės arba jo numerį, pradedant nuo 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Slėpti vadovas iš vartotojų");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Slėpti darbo naudotojų");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Jūs turite nustatyti numatytąją vertę privalomi elementai");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Naudokite esamą datą");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Sąskaita keisti");//Account change (New)
+define("_USERSCANCHANGEPASS","Slaptažodžio keitimas");//Password change (New)
+define("_VIEWFEEDBACK","Peržiūrėti atsiliepimus");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Rodyti neišsamus klausimų kiekvienoje vykdymas");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Išsaugoti geriausias rezultatas");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Vidutinis bandymo rezultatas (skaičiuojant kiekvieno bandymo aktyvų vykdymas)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","balas aktyvus vykdymas");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Jei nurodysite žodį, kuris baigiasi žvaigždute (*), tik jo pirmoji dalis, bus svarstomi. Pavyzdžiui, jei nurodysite 'išmokti*', tada ir 'mokymosi' ir 'mokytis' bus laikoma teisinga.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Modulio pamoka taisyklės");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Taisyklės tarp kursai");//Rules between courses (New)
+define("_COURSEDEPENDSON","Modulio priklauso nuo");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Jūs negalite nustatyti žinoma kaip pati prielaida");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Rodyti alternatyvas pasirinkite langelį");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Jei pažymėsite šią rodys sąrašo lauką su visais alternatyvas, vietoj teksto lauką. Šiuo atveju tik pirmasis variantas yra laikomas teisingu");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Rodyti teisingus atsakymus tik tada, jei studentas išlaikė testą");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Nustatymai tikrintuvas");//Settings checker (New)
+define("_CHECKBROWSER","Tikrinimas naršyklė");//Checking browser (New)
+define("_CHECKRESOLUTION","Tikrinimas ekrano skiriamoji geba");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Tikrinimas, ar iškylančių langų blokavimą");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Tikrinimas Cookie valstybės ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Tikrinimas Flash");//Checking for Flash (New)
+define("_CHECKACROBAT","Tikrinimas, ar Adobe Reader");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Internet Explorer 6, aptikti. Ši naršyklė yra pasenusi ir funkcijos gali būti paveikti");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Deja naršyklė, kurią naudojate, yra nepalaikomas");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Jūsų ekrano skiriamoji geba neatitinka minimalių reikalavimų");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Iškylančių langų blokavimą aptiktas. Prašau leisti iššokantys langai šioje svetainėje ir bandykite dar kartą");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Slapukai atrodo išjungtas. Prašome įjungti slapukų");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Flash neįdiegta, pasenusi");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Adobe Reader nėra įdiegtas");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Tikrinimas Javascript,");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","Javascript yra išjungtas jūsų naršyklėje");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Turite įjungti vadovas pašto aktyvavimo iš sistemos parametrai");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Metai nuo");//Year range from (New)
+define("_YEARRANGETO","Metai iki");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Grupės pavadinimas aprašymas");//Group name description (New)
+define("_GROUPINFORMATION","Grupės informacija");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Apriboti prieigą prie turinio failus prisijungę vartotojai");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Suspausti bandymo rezultatus duomenų bazėje");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Techninės priežiūros užduotys");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Spauskite čia norėdami suspausti baigti bandymai");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Spauskite čia norėdami zdekompresować baigti bandymai");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Suspausti");//Compress (New)
+define("_DATABASETASKS","Duomenų bazė uždaviniai");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Prašome atsarginę kopiją jūsų duomenų prieš suspaudžiant / uncompressing baigti bandymai");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Konfigūracija");//Configuration (New)
+define("_SYSTEMOPTIONS","Sistemos galimybės");//System options (New)
+define("_CASUAL","Atsitiktinis");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Jūs negalite naudotis šia vartotojo informacija");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Įjungti virtualią klaviatūrą");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Bylos atrodo tuščias. Galbūt tai nėra teisingai suformatuotas?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Pažymėjimas reguliaraus pabaigos");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Bandymo slaptažodį");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Atsiprašome, jūs neturite prieigos prie šio filialo");//Sorry, you do not have access to this branch (New)
 ?>

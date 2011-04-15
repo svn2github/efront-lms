@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Убаците вишеструки избо�
 define("_INSERTEXPLANATION","Уметни објашњење");//Insert explanation
 define("_THISQUESTIONIS","То је питање");//This question is
 define("_CREATEEMPTYSPACES","Направите празно место");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Писање текста и на питање где год вам је потребан да убаците празан простор, убаците ###. Када сте завршили, кликните на \"Креирај празних простора\" буттон испод");//Write the question text and wherever you need to insert a blank space, insert ###. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Писање текста и на питање где год вам је потребан да убаците празан простор, убаците ###. Када сте завршили, кликните на \"Креирај празних простора\" буттон испод");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Уметни погађањем парова");//Insert matching pairs
 define("_ADDOPTION","Додај опцију");//Add option
 define("_GOTOCALENDAR","Иди на календар");//Go to calendar
@@ -981,16 +981,16 @@ define("_PERCENTAGEUNITS","Гледано делићу јединице");//Seen
 define("_SPECIFICUNIT","Видио одређену јединицу");//Seen a specific unit
 define("_PASSEDALLTESTS","Прошао све тестове");//Passed all tests
 define("_SPECIFICTEST","Прошао одређени тест");//Passed a specific test
-define("_INVALIDCONDITION","Погрешна услов");//Invalid condition
+define("_INVALIDCONDITION","Погрешна услов");//Invalid rule
 define("_THEUSERMUSTHAVE","Ученик мора да има");//The student must have
 define("_UNITSPERCENTAGE","Проценат");//Percentage
-define("_SUCCESFULLYADDEDCONDITION","Успешно додат услов");//Successfully added condition
-define("_SUCCESFULLYUPDATEDCONDITION","Успешно ажуриран услов");//Successfully updated condition
-define("_SUCCESFULLYDELETEDCONDITION","Успешно избрисан услов");//Successfully deleted condition
+define("_SUCCESFULLYADDEDCONDITION","Успешно додат услов");//Successfully added rule
+define("_SUCCESFULLYUPDATEDCONDITION","Успешно ажуриран услов");//Successfully updated rule
+define("_SUCCESFULLYDELETEDCONDITION","Успешно избрисан услов");//Successfully deleted rule
 define("_LESSONCONDITIONS","Сат завршетка услови");//Lesson completion rules
-define("_ADDCONDITION","Додај услов");//Add condition
-define("_CONDITION","Околности");//Condition
-define("_CONDITIONTYPE","Стање тыпе");//Condition type
+define("_ADDCONDITION","Додај услов");//Add completion rule
+define("_CONDITION","Околности");//Completion rule
+define("_CONDITIONTYPE","Стање тыпе");//Rule type
 define("_RELATIONTOOTHERS","Односу на друге");//Relation to others
 define("_SCROLLTOTOPOFPAGE","Померите се на врх странице");//Scroll to top of page
 define("_SCROLLTOBOTTOMOFPAGE","Померите се на дно странице");//Scroll to bottom of page
@@ -999,7 +999,7 @@ define("_SYSTEM","Системски");//System
 define("_EMAILCONFIGURATIONS","Е-маил сервер конфигурација");//Emails server configuration
 define("_SAWUNIT","Постави као јединица довршена");//Set the unit as completed
 define("_NOTSAWUNIT","Постави као јединицу не доврши");//Set the unit as not completed
-define("_CONDITIONSCOMPLETED","Услови завршен");//Conditions completed
+define("_CONDITIONSCOMPLETED","Услови завршен");//Completion rules completed
 define("_OUTOF","ван");//out of
 define("_LESSONPROGRESS","Сат току");//Lesson progress
 define("_YOUMUSTSEEUNIT","Морате видети јединица");//You must complete unit
@@ -1009,8 +1009,8 @@ define("_YOUMUSTSEE","Морате погледати");//You must complete
 define("_YOUMUSTCOMPLETEALLTESTSWITHSCORE","Морате попунити све тестове са меан сцоре");//You must complete all tests with mean score
 define("_YOUMUSTCOMPLETETEST","Треба да комплетан тест");//You must complete test
 define("_WITHSCORE","с партитура");//with score
-define("_NOCONDITIONSSET","Не постоје услови за овај сат");//There are no conditions set for this lesson
-define("_CONDITIONS","услови");//conditions
+define("_NOCONDITIONSSET","Не постоје услови за овај сат");//There are no completion rules set for this lesson
+define("_CONDITIONS","услови");//completion rules
 define("_RESUMELESSON","Наставите поново сат");//Resume lesson
 define("_STARTLESSON","Крените сат");//Start lesson
 define("_TRACKING","Праћење");//Tracking
@@ -1044,7 +1044,7 @@ define("_PROBLEMCLONECERTIFICATETEMPLATE","Дошло је до проблема
 define("_SUCCESSFULLYDELETECERTIFICATETEMPLATE","Сертификат Шаблон је успешно обрисан");//Certificate template was successfully deleted
 define("_PROBLEMDELETECERTIFICATETEMPLATE","Дошло је до проблема приликом брисања сертификат Темплате");//There was a problem while deleting certificate template
 define("_CERTIFICATETEMPLATENOACCESS","Немате право да измени овај шаблон сертификата");//You don't have the rights to modify this certificate template
-define("_EDITCONDITION","Уреди услов");//Edit condition
+define("_EDITCONDITION","Уреди услов");//Edit rule
 define("_SMTPSERVERCONFIGURATIONS","СМТП сервер конфигурацију");//SMTP server configuration
 define("_SMTPSERVER","СМТП сервер");//SMTP server
 define("_SMTPPASSWORD","СМТП лозинка");//SMTP password
@@ -1109,7 +1109,7 @@ define("_FIELDUPDATED","Поље је ажуриран");//The field was updated
 define("_LESSONSCORE","Сат партитура");//Lesson score
 define("_COMPLETED","Цомплетед");//Completed
 define("_NOTCOMPLETED","Није завршио");//Not completed
-define("_CONDITIONSMET","Услови испуњени и чека на одобрење");//Conditions met and awaiting approval
+define("_CONDITIONSMET","Услови испуњени и чека на одобрење");//Completion rules met and awaiting approval
 define("_STUDENTSTATUSCHANGED","Студентски сат успешно промењен статус");//Student lesson status changed successfully
 define("_MUSTBENUMERIC","Мора бити бројчана");//Must be numeric
 define("_DEFAULTCERTIFICATE","ЕЛеарнинг организација која издаје сертификате корисничко_име # # # # усер_сурнаме је успешно завршен цоурсе_наме # # # са оценом оценом # Овај цертификат је издат на датум # #");//Elearning organization certifies that \n\n #user_name# #user_surname# \n\n has successfully completed \n #course_name# \n with grade \n\n #grade# \n\nThis certificate was issued on #date#
@@ -1149,7 +1149,7 @@ define("_COULDNOTBESEND","Није могла бити послата");//Could 
 define("_ENVIRONMENTALCHECK","Енвиронментал цхецк");//Environmental check
 define("_REPAIRTREE","Враћање стабло");//Restore tree
 define("_RULEPROPERTIES","Правило својства");//Rule properties
-define("_CONDITIONPROPERTIES","Стање некретнине");//Condition properties
+define("_CONDITIONPROPERTIES","Стање некретнине");//Rule properties
 define("_ORPHANLESSONFOLDERSCHECK","Сиротана сат фасцикле цхецк");//Orphan lesson folders check
 define("_LESSONSWITHOUTFOLDERSCHECK","Лекције без фасцикле цхецк");//Lessons without folders check
 define("_FOLDERSWITHOUTALESSONASSOCIATED","Следећих фасцикли немате сат повезан");//The following folders do not have a lesson associated
@@ -1258,11 +1258,11 @@ define("_SAVEQUESTIONANDCREATENEW","Сачувај питање и створи�
 define("_SAVEASNEWQUESTION","Сачувај као ново питање");//Save as new question
 define("_SUCCESFULLYUPDATEDPOLL","У анкети је успешно ажуриран");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Ви сте завршили целокупни садржај");//You have completed all content
-define("_CONDITIONMET","Околности су се састали");//Condition met
-define("_CONDITIONNOTMET","Стање није достигнута");//Condition not met
+define("_CONDITIONMET","Околности су се састали");//Completion rules met
+define("_CONDITIONNOTMET","Стање није достигнута");//Completion rules met
 define("_OLDMODULES","Старе модули");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","ПХП ЛДАП продужење не учита");//The PHP LDAP extension is not loaded
-define("_LESSONCONDITIONSCOMPLETED","Ви задовољавају сат-ову условима. Тај сат мора бити постављена као готов до професора");//You meet the lesson's complete conditions. This lesson needs to be set as completed by the professor
+define("_LESSONCONDITIONSCOMPLETED","Ви задовољавају сат-ову условима. Тај сат мора бити постављена као готов до професора");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
 define("_LESSONCOMPLETE","Сат завршио");//Lesson completed
 define("_CERTIFICATEISSUEDSUCCESFULLY","Систем издаје успешно");//Certificate issued successfully
 define("_NOTITLE","Без наслова");//No title
@@ -1291,7 +1291,7 @@ define("_LDAPACCOUNTPASSWORD","ЛДАП лозинку");//LDAP account password
 define("_USELDAPACCOUNT","Користите ваше акредитиве ЛДАП кориснички налог да бисте могли да користите систем");//Use your LDAP account credentials in order to use the system
 define("_ONLYLDAPREGISTRATIONPERMITTED","Само за регистрацију користећи важећу ЛДАП кориснички рачун је дозвољен");//Only registration using a valid LDAP account is permitted
 define("_GENERALLYAVAILABLE","је уопштено доступна");//is generally available
-define("_DELETECONDITION","Избрисати услов");//Delete condition
+define("_DELETECONDITION","Избрисати услов");//Delete rule
 define("_ADDFORUMPOSTONTHISUNIT","Пост форума поруке за ову јединицу");//Post forum message for this unit
 define("_AUTOCOMPLETE","Аутоматско допуњавање");//Auto complete
 define("_DUPLICATESARENOTALLOWED","Не можете да користите два пута исти час у правилу");//You can&#039;t use twice the same lesson in a rule
@@ -2270,7 +2270,7 @@ define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Цела је �
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","Сте попунили сва скилл ГАП тестови додијељен вама. <br> Молимо сачекајте док се професорима додијелили вам најрелевантније курсева у складу са вашим потребама.");//You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.
 define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Ваши резултати су послате на вашу професори који ће се ускоро придружити курсевима на свој према Вашим потребама, као идентификовани из овог теста");//Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test
 define("_JOBPLACEMENTS","Јоб пласмани");//Job placements
-define("_NEWJOBPLACEMENT","Нови посао пласмани");//New job placements
+define("_NEWJOBPLACEMENT","Нови посао пласмани");//New job placement
 define("_UPGRADEMODULE","Надоградња модула");//Upgrade module
 define("_NEWUNITOPTIONS","Нова јединица опције");//New unit options
 define("_UNITOPTIONSFOR","Опције за јединицу");//Options for unit
@@ -2634,7 +2634,7 @@ define("_YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT","Напомена: ви с�
 define("_ACTIONONRENTRYCOMPLETED","Активност на ре-ентры");//Action on re-entry
 define("_LETCONTENTDECIDE","Нека одлуче садржај");//Let content decide
 define("_DONTCHANGE","Оставите непромијењен");//Leave unchanged
-define("_DASHBOARD","Контролна табла");//my Dashboard
+define("_DASHBOARD","Контролна табла");//Dashboard
 define("_MYWALL","Мој зид");//My wall
 define("_RELATEDPEOPLE","Повезани људи");//Related people
 define("_LEARNINGACTIVITY","Активности учења");//Learning activity
@@ -3128,7 +3128,7 @@ define("_NOTANIMAGEFILE","Отпремљена датотека није сли�
 define("_COMMENT","Коментар");//Comment
 define("_COMMENTPROPERTIES","Коментар својства");//Comment properties
 define("_EDITCOMMENT","Измени коментар");//Edit comment
-define("_EDITCONDITIONS","Измени услова");//Edit conditions
+define("_EDITCONDITIONS","Измени услова");//Edit rules
 define("_EDITINFORMATION","Измени податке");//Edit information
 define("_FACEBOOK","Фацебоок");//Facebook
 define("_OPTIONSFORFACEBOOKMODULE","Опције за Фацебоок-модул");//Options for Facebook module
@@ -3264,7 +3264,7 @@ define("_SENDER","Пошиљалац");//Sender
 define("_ORIGINALMESSAGE","Оригинал Мессаге");//Original message
 define("_PRIORITY","Приоритет");//Priority
 define("_PLEASEPICKANOPTION","Молимо Вас да изаберете опцију");//Please pick an option
-define("_YOUHAVEMETCONDITIONS","Завршетак услови испуњени, потврда на чекању");//Completion conditions met, confirmation pending
+define("_YOUHAVEMETCONDITIONS","Завршетак услови испуњени, потврда на чекању");//Completion rules met, confirmation pending
 define("_OVERALLPROGRESS","Укупан напредак");//Overall progress
 define("_THEORYPROGRESS","Теорија напредак");//Theory progress
 define("_AVERAGETESTSCOREOFLASTEXECUTIONS","Просечна Резултат теста (рачунајући последњи извршења сваки тест се)");//Average test score (counting each test's last execution)
@@ -3464,7 +3464,7 @@ define("_UNSUPPORTEDOPERATIONTYPE","Неподржан тип операције
 define("_DUPLICATECOMPLETEDPAYMENT","Дупликат завршена плаћања");//Duplicate completed payment
 define("_UNSUPPORTEDPAYMENTSTATUS","Унсуппортед уплату Статус");//Unsupported payment status
 define("_YOUHAVECANCELLEDTHETRANSACTION","Отказали сте трансакција");//You have cancelled the transaction
-define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Трансакција је успешно завршена.");//The transaction was completed successfully.
+define("_TRANSACTIONCOMPLETELESSONSWILLBEASSIGNED","Трансакција је успешно завршена.");//The transaction was completed successfully. Your selection will be assigned shortly
 define("_PAYPALDEBUG","Паыпал отклањање грешака режим");//Paypal debug mode
 define("_MYACCOUNT","Мој налог");//my Account
 define("_MODULE","Модул");//Module
@@ -3992,8 +3992,86 @@ define("_SCORMASYNCHROUNOUS","Асинхрони СЦОРМ комуникаци
 define("_SCORMASYNCHRONOUSEXPLANATION","Пребаци се на асинхроне комуникације, ако имате проблема са завршетку СЦОРМ садржај (нарочито у случају да се користе Адобе Цаптивате садржај који генеришу)");//Switch to asynchronous communication if you are experiencing trouble completing SCORM content (especially in case you are using Adobe Captivate generated content)
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO","Упозорење: Онемогућавање плаћања ће поставити Све цене на 0");//Warning: Disabling payments will set all prices to 0
 define("_MULTIPLEOPTIONS","Више опција");//Multiple options
-define("_YOURSESSIONHASEXPIREDPLEASE","Ваша сесија је истекла. Молимо");//Your session has expired. Please (New)
-define("_CLICKHERE","кликните овде");//click here (New)
-define("_TOLOGINAGAIN","да се пријавите поново");//to login again (New)
-define("_SESSIONEXPIRED","Сесија је истекла");//Session expired (New)
+define("_YOURSESSIONHASEXPIREDPLEASE","Ваша сесија је истекла. Молимо");//Your session has expired. Please
+define("_CLICKHERE","кликните овде");//click here
+define("_TOLOGINAGAIN","да се пријавите поново");//to login again
+define("_SESSIONEXPIRED","Сесија је истекла");//Session expired
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Зарезом одвојена листа корисника да покаже дебуг информације, или 1 за све кориснике");//Comma separated list of users to show debug information on, or 1 for all users (New)
+define("_JANUARYSHORTHAND","Јан");//Jan (New)
+define("_FEBRUARYSHORTHAND","Мар");//Feb (New)
+define("_MARCHSHORTHAND","Јан");//Mar (New)
+define("_APRILSHORTHAND","Мар");//Apr (New)
+define("_MAYSHORTHAND","Мај");//May (New)
+define("_JUNESHORTHAND","Јун");//Jun (New)
+define("_JULYSHORTHAND","Јул");//Jul (New)
+define("_AUGUSTSHORTHAND","Јул");//Aug (New)
+define("_SEPTEMBERSHORTHAND","Нов");//Sep (New)
+define("_OCTOBERSHORTHAND","Оцт");//Oct (New)
+define("_NOVEMBERSHORTHAND","Нов");//Nov (New)
+define("_DECEMBERSHORTHAND","Нов");//Dec (New)
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Не можете да приступите тражено");//You cannot access the requested resource (New)
+define("_PLEASESELECTAJOB","Молимо Вас да изаберете опис посла");//Please select a job description (New)
+define("_EDITJOBPLACEMENT","Измени одредишта за пласман за посао");//Edit job placement (New)
+define("_NORESPONSE","&lt;но респонсе&gt;");//&lt;no response&gt; (New)
+define("_ACCOUNT","Налог");//Account (New)
+define("_ORGANIZATIONALDATA","Организациони профил");//Organizational profile (New)
+define("_BLANKTOLEAVEUNCHANGED","Празна да напусти непромењен");//Blank to leave unchanged (New)
+define("_OPTIONNUMBERSTARTINGFROMZERO","Унесите вредност опције или њен број, почев од 0");//Enter the option value or its number, starting from 0 (New)
+define("_HIDESUPERVISORFROMUSERS","Сакриј супервизор од стране корисника");//Hide supervisor from users (New)
+define("_HIDEJOBFROMUSERS","Сакриј посао од стране корисника");//Hide job from users (New)
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Морате навести вредности за обавезне елементе");//You must specify a default value for mandatory elements (New)
+define("_USETHECURRENTDATE","Користите тренутни датум");//Use the current date (New)
+define("_USERSCANCHANGEINFO","Промене на рачуну");//Account change (New)
+define("_USERSCANCHANGEPASS","Промену лозинке");//Password change (New)
+define("_VIEWFEEDBACK","Погледајте коментаре");//View feedback (New)
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Прикажи непотпуна питања у сваком извршењу");//Show incomplete questions in each execution (New)
+define("_RETAINBESTEXECUTION","Задржавање најбољи резултат");//Retain best score (New)
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Просечна теста (рачунајући активне извршење сваког теста)");//Average test score (counting each test's active execution) (New)
+define("_SCOREONACTIVEEXECUTION","Оцена на активном извршењу");//score on active execution (New)
+define("_YOUCANUSEASTERISK","Ако наведете реч која се завршава са звездицом (*), само њен први део ће бити разматране. На пример, ако одредите 'Леарн *', а затим и 'учења' и 'уче' ће се сматрати исправна.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
+define("_COURSELESSONSRULES","Курс лекција правила");//Course lesson rules (New)
+define("_RULESBETWEENCOURSES","Правила између курсеви");//Rules between courses (New)
+define("_COURSEDEPENDSON","Курс зависи");//Course depends on (New)
+define("_YOUCANNOTSETSAMECOURSEASRULE","Не можете да поставите курс, као предуслов за себе");//You cannot set the course as a prerequisite of itself (New)
+define("_DISPLAYALTERNATIVESINSELECTBOX","Приказ изаберите алтернатива у поље");//Display alternatives in select box (New)
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Провера ово ће приказати листи са свим алтернативама, уместо оквира за текст. У овом случају, само прва опција је тачно ако је");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
+define("_SHOWANSWERSIFSTUDENTPASSED","Прикажи тацни одговори само ако ученик прошао тест");//Show correct answers only if student passed the test (New)
+define("_OPTIONSCHECKER","Подешавања Цхецкер");//Settings checker (New)
+define("_CHECKBROWSER","Провера претраживача");//Checking browser (New)
+define("_CHECKRESOLUTION","Провера резолуција екрана");//Checking screen resolution (New)
+define("_CHECKPOPUPBLOCKER","Провера за блокатор искачућих прозора");//Checking for Popup blocker (New)
+define("_CHECKCOOKIES","Провера стања кукица ...");//Checking Cookie state... (New)
+define("_CHECKFLASH","Провера за Фласх");//Checking for Flash (New)
+define("_CHECKACROBAT","Провера за Адобе Реадер");//Checking for Adobe Reader (New)
+define("_CHECKBROWSERIE6","Програмом Интернет Екплорер 6 откривени. Овај прегледач је застарео и функционалност може бити под утицајем");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
+define("_CHECKBROWSERFAILED","Нажалост прегледач који користите није подржан");//Unfortunately the browser that you are using is not supported (New)
+define("_CHECKRESOLUTIONFAILED","Резолуцију екрана не задовољава минималне захтеве");//Your screen resolution does not meet the minimum requirement of (New)
+define("_CHECKPOPUPBLOCKERFAILED","Блокатор искачућих прозора откривени. Молимо, дозволите искачуће прозоре за овај сајт и покушајте поново");//Popup blocker detected. Please allow popups for this site and try again (New)
+define("_CHECKCOOKIESFAILED","Колачићи изгледа може да буде онемогућен. Молимо Вас да омогућите колачиће");//Cookies appear to be disabled. Please enable cookies (New)
+define("_CHECKFLASHFAILED","Блиц није инсталиран, од датума");//Flash is not installed, out of date (New)
+define("_CHECKACROBATFAILED","Адобе Реадер-није инсталиран");//Adobe Reader is not installed (New)
+define("_CHECKJAVASCRIPT","Провера Јавасцрипт");//Checking Javascript (New)
+define("_CHECKJAVASCRIPTFAILED","ЈаваСцрипт није омогућен у вашем прегледачу");//Javascript is not enabled in your browser (New)
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Морате имати омогућен супервизор активациони е-маил из подешавања система");//You must have enabled supervisor email activation from system settings (New)
+define("_YEARRANGEFROM","Годину у распону од");//Year range from (New)
+define("_YEARRANGETO","Године опсег");//Year range to (New)
+define("_GROUPNAMEDESCRIPTION","Име групе опис");//Group name description (New)
+define("_GROUPINFORMATION","Информације о групи");//Group information (New)
+define("_CONTRAINACCESSTOCONTENT","Ограничавају приступ садржају датотеке пријављени корисници");//Constrain access to content files to logged in users (New)
+define("_COMPRESSTESTS","Компримовање теста у бази");//Compress test results in database (New)
+define("_MAINTENANCETASKS","Одржавање послове");//Maintenance tasks (New)
+define("_CLICKHERETOCOMPRESSTESTS","Кликните овде да бисте компресовање завршена тестови");//Click here to compress completed tests (New)
+define("_CLICKHERETOUNCOMPRESSTESTS","Кликните овде да бисте декомпримује завршена тестови");//Click here to uncompress completed tests (New)
+define("_COMPRESS","Компреса");//Compress (New)
+define("_DATABASETASKS","База података задаци");//Database tasks (New)
+define("_PLEASEBACKUPBEFORECOMPRESSING","Молимо Вас да направите резервну копију својих података пре компресије / Унцомпрессинг завршена тестови");//Please backup your data before compressing/uncompressing completed tests (New)
+define("_CONFIGURATION","Конфигурација");//Configuration (New)
+define("_SYSTEMOPTIONS","Опција система");//System options (New)
+define("_CASUAL","Повремени");//Casual (New)
+define("_YOUCANNOTEDITTHISUSER","Ви не можете да приступите информацијама овог корисника");//You cannot access this user's information (New)
+define("_ENABLEVIRTUALKEYBOARD","Омогућите виртуелна тастатура");//Enable virtual keyboard (New)
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Датотека Чини се да је празна. Можда то није правилно форматирана?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертификат заказано истека");//Certificate scheduled expiration (New)
+define("_TESTPASSWORD","Тест лозинку");//Test password (New)
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Жао нам је, немате приступ овој грани");//Sorry, you do not have access to this branch (New)
 ?>

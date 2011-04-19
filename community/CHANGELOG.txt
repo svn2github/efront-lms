@@ -1,3 +1,9 @@
+=== Version 3.6.9 build ===
+- Fixed subforum/topics count in forums list
+- fixed personal profile fields appearing even if meaningless
+- Fixed mapped accounts disregarding system setting
+- Fixed clicking on icons including a link with popups, does not load the popup
+
 === Version 3.6.9 build 10653 ===
 - Updated personal pages
 - Added "modern" theme and set it as default theme

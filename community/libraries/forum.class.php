@@ -91,13 +91,16 @@ class f_forums extends EfrontEntity
         }
         $forumTree = array();
         $tempForums = $forums;
+        $count = 0;
         //Convert array to tree. At the end of the loop, the $forums array will hold the forum tree, where each node is an array of its child nodes
         while (sizeof($tempForums) > 0 && $count++ < 1000) { //$count is put here to prevent infinite loops
             $node = current($tempForums); //Get the key/node pairs of the first array element
             $key = key($tempForums);
             $parent_id = $node['parent_id'];
             $forumTree[$parent_id][] = $node['id']; //Append to the tree array, at the forum id index, the id of its child
-            $forumTree[$node['id']] = array();
+            if (!isset($forumTree[$node['id']])) {
+             $forumTree[$node['id']] = array();
+            }
             $forums[$node['id']] = $node; //Copy node to forums, which will be used later as forums source
             unset($tempForums[$key]); //We visited the node, so delete it from the (array) graph
         }

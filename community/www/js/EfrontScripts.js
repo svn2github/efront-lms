@@ -100,7 +100,7 @@ function eF_js_showDivPopup(popup_title, size, popup_data_id) {
     	var dimmer_side = side_frame.$('dimmer');
 	}
 	
-    if (!popup_table.visible()) {		
+    if (!popup_table.visible()) {
     	if ($('scormFrameID')) {
     		$('scormFrameID').style.visibility = 'hidden';
     	}
@@ -150,7 +150,7 @@ function eF_js_showDivPopup(popup_title, size, popup_data_id) {
         popup_table.style.marginLeft = popup_table.offsetWidth  < popup_table.parentNode.offsetWidth  ? parseInt((popup_table.parentNode.offsetWidth  - popup_table.offsetWidth)  / 2) + "px" : "0";    //Bring it to the center of the screen
         popup_table.style.marginTop  = popup_table.offsetHeight < window_height ? parseInt(scroll_offset + ((window_height - popup_table.offsetHeight) / 2)) + "px" : scroll_offset + "px";    //Bring it to the middle of the screen        
 
-    } else {
+    } else if (popup_title == '' && size == '') {
     	if ($('scormFrameID')) {
     		$('scormFrameID').style.visibility = 'visible';
     	}

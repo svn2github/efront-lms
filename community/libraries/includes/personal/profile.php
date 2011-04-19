@@ -30,21 +30,69 @@ if ($currentUser->user['user_type'] != 'administrator' || $currentUser->user['us
  }
 }
 
+$constrainAccess = array();
+if (!isset($_GET['add_user'])) {
+ if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change')) {
+  $constrainAccess = 'all';
+ } else {
+  $constrainAccess = array();
+  $constrainAccess[] = 'login';
+  if ($editedUser -> user['user_type'] == 'administrator' && $editedUser -> user['user_types_ID'] == 0 && $currentUser -> user['user_type'] == 'administrator' && $currentUser -> user['user_types_ID'] != 0) {
+   //An admin subtype can't change a pure admin
+   $constrainAccess[] = 'passrepeat';
+   $constrainAccess[] = 'password_';
+   $constrainAccess[] = 'user_type';
+   $roles = EfrontUser :: getRoles(true); //so that the selected user type appears correctly
+  }
+  if ($editedUser -> isLdapUser) {
+   $constrainAccess[] = 'passrepeat';
+   $constrainAccess[] = 'password_';
+  }
+
+  if ($GLOBALS['configuration']['onelanguage']) {
+   $constrainAccess[] = 'languages_NAME';
+  }
+
+  if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
+   $constrainAccess[] = 'user_type';
+   $constrainAccess[] = 'active';
+   $roles = EfrontUser :: getRoles(true); //so that the selected user type appears correctly
+   if ($currentUser->user['user_type'] != 'administrator') {
+    if ($GLOBALS['configuration']['disable_change_info'] && $GLOBALS['configuration']['disable_change_pass']) {
+     $constrainAccess = 'all';
+    } else if ($GLOBALS['configuration']['disable_change_info']) {
+     $contrainAllButPassword = true;
+     $constrainAccess[] = 'file_upload';
+    } else if ($GLOBALS['configuration']['disable_change_pass']) {
+     $constrainAccess[] = 'password_';
+    }
+   }
+  }
+
+ }
+}
+
 $form = new HTML_QuickForm("user_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$editedUser -> user['login']."&op=profile".(isset($_GET['add_user']) ? '&add_user=1' : ''), "", null, true);
 $form -> addElement('static', '', '<img src = "view_file.php?file='.$avatar['path'].'" alt = "'.$editedUser -> user['login'].'" title = "'.$editedUser -> user['login'].'"/>');
-$form -> addElement('file', 'file_upload', _IMAGEFILE, 'class = "inputText"');
-$form -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
-$form -> addElement("static", "sidenote", '(<a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=personal&user='.$editedUser -> user['login'].'&op=profile&show_avatars_list=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup(\''._VIEWLIST.'\', 2)">'._VIEWLIST.'</a>)');
-$form -> addElement('select', 'system_avatar' , _ORSELECTONEFROMLIST, $systemAvatars, "id = 'select_avatar'");
+if (!in_array('file_upload', $constrainAccess) && $constrainAccess != 'all') {
+ $form -> addElement('file', 'file_upload', _IMAGEFILE, 'class = "inputText"');
+ $form -> addElement("static", "file_upload_text", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);
+ $form -> addElement("static", "sidenote", '(<a href = "'.basename($_SERVER['PHP_SELF']).'?ctg=personal&user='.$editedUser -> user['login'].'&op=profile&show_avatars_list=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup(\''._VIEWLIST.'\', 2)">'._VIEWLIST.'</a>)');
+ $form -> addElement('select', 'system_avatar' , _ORSELECTONEFROMLIST, $systemAvatars, "id = 'select_avatar'");
+}
 $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
-$form -> addElement("static", "sidenote", _BLANKTOLEAVEUNCHANGED);
-$form -> addElement('password', 'password_', _PASSWORD, 'autocomplete="off" class = "inputText"');
-$form -> addElement("static", "", str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS));
-$form -> addElement('password', 'passrepeat', _REPEATPASSWORD, 'class = "inputText "');
+if (!in_array('password_', $constrainAccess) && $constrainAccess != 'all') {
+ $form -> addElement("static", "sidenote", _BLANKTOLEAVEUNCHANGED);
+ $passwordElement = $form -> addElement('password', 'password_', _PASSWORD, 'autocomplete="off" class = "inputText"');
+ $form -> addElement("static", "", str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS));
+ $passrepeatElement = $form -> addElement('password', 'passrepeat', _REPEATPASSWORD, 'class = "inputText "');
+}
 $form -> addElement('text', 'name', _NAME, 'class = "inputText"');
 $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
 $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
-$form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
+if (!in_array('active', $constrainAccess) && $constrainAccess != 'all') {
+ $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
+}
 $select = $form -> addElement('select', 'user_type', _USERTYPE, $roles);
 $form -> addElement('select', 'languages_NAME', _LANGUAGE, EfrontSystem :: getLanguages(true, true));
 $form -> addElement("select", "timezone", _TIMEZONE, eF_getTimezones(), 'class = "inputText" style="width:20em"');
@@ -90,43 +138,12 @@ if (isset($_GET['add_user'])) {
   $form -> setDefaults(array('user_type' => $editedUser -> user['user_types_ID']));
  }
  $form -> setDefaults(array("system_avatar" => $avatar['name']));
- if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change')) {
-  $constrainAccess = 'all';
- } else {
-  $constrainAccess = array();
-  $constrainAccess[] = 'login';
-  if ($editedUser -> user['user_type'] == 'administrator' && $editedUser -> user['user_types_ID'] == 0 && $currentUser -> user['user_type'] == 'administrator' && $currentUser -> user['user_types_ID'] != 0) {
-   //An admin subtype can't change a pure admin
-   $constrainAccess[] = 'passrepeat';
-   $constrainAccess[] = 'password_';
-   $constrainAccess[] = 'user_type';
-   $select -> loadArray(EfrontUser :: getRoles(true)); //so that the selected user type appears correctly
-  }
-  if ($editedUser -> isLdapUser) {
-   $constrainAccess[] = 'passrepeat';
-   $constrainAccess[] = 'password_';
-  }
-  if ($GLOBALS['configuration']['onelanguage']) {
-   $constrainAccess[] = 'languages_NAME';
-  }
-  if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
-   $constrainAccess[] = 'user_type';
-   $select -> loadArray(EfrontUser :: getRoles(true)); //so that the selected user type appears correctly
-   $constrainAccess[] = 'active';
-   if ($currentUser->user['user_type'] != 'administrator') {
-    if ($GLOBALS['configuration']['disable_change_info']) {
-     $allFields = $form -> _elementIndex;
-     unset($allFields['password_']);
-     unset($allFields['passrepeat']);
-     $constrainAccess = array_keys($allFields);
-    }
-    if ($GLOBALS['configuration']['disable_change_pass']) {
-     $constrainAccess[] = 'passrepeat';
-     $constrainAccess[] = 'password_';
-    }
-   }
-  }
- }
+}
+if ($contrainAllButPassword) {
+ $allFields = $form -> _elementIndex;
+ unset($allFields['password_']);
+ unset($allFields['passrepeat']);
+ $constrainAccess = $constrainAccess + array_keys($allFields);
 }
 if ($constrainAccess != 'all') {
  $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
@@ -143,7 +160,6 @@ if ($form -> isSubmitted() && $form -> validate()) {
            'surname' => $values['surname'],
         'active' => $values['active'],
         'email' => $values['email'],
-        'password' => $values['password_'],
         'user_type' => $roles[$values['user_type']],
         'languages_NAME' => $values['languages_NAME'],
         'timezone' => $values['timezone'],
@@ -176,32 +192,30 @@ if ($form -> isSubmitted() && $form -> validate()) {
     $_SESSION['s_language'] = $editedUser -> user['languages_NAME'];
    }
   }
-  $avatarDirectory = G_UPLOADPATH.$editedUser -> user['login'].'/avatars';
-  is_dir($avatarDirectory) OR mkdir($avatarDirectory, 0755);
-  try {
-   $filesystem = new FileSystemTree($avatarDirectory);
-   $uploadedFile = $filesystem -> uploadFile('file_upload', $avatarDirectory);
-   eF_normalizeImage($avatarDirectory . "/" . $uploadedFile['name'], $uploadedFile['extension'], 150, 100);// Normalize avatar picture to 150xDimY or DimX x 100
-   $editedUser -> user['avatar'] = $uploadedFile['id'];
-  } catch (Exception $e) {
-   if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {
-    throw $e;
+  if (!in_array('file_upload', $constrainAccess) && $constrainAccess != 'all') {
+   $avatarDirectory = G_UPLOADPATH.$editedUser -> user['login'].'/avatars';
+   is_dir($avatarDirectory) OR mkdir($avatarDirectory, 0755);
+   try {
+    $filesystem = new FileSystemTree($avatarDirectory);
+    $uploadedFile = $filesystem -> uploadFile('file_upload', $avatarDirectory);
+    eF_normalizeImage($avatarDirectory . "/" . $uploadedFile['name'], $uploadedFile['extension'], 150, 100);// Normalize avatar picture to 150xDimY or DimX x 100
+    $editedUser -> user['avatar'] = $uploadedFile['id'];
+   } catch (Exception $e) {
+    if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {
+     throw $e;
+    }
+    if ($form -> exportValue('system_avatar') == "") {
+     $selectedAvatar = 'unknown_small.png';
+    } else if ($form -> exportValue('system_avatar') != "") {
+     $selectedAvatar = $form -> exportValue('system_avatar');
+    }
+    if (isset($selectedAvatar)) {
+     $selectedAvatar = $avatarsFileSystemTree -> seekNode(G_SYSTEMAVATARSPATH.$selectedAvatar);
+     $newList = FileSystemTree :: importFiles($selectedAvatar['path']); //Import the file to the database, so we can access it with view_file
+     $editedUser -> user['avatar'] = key($newList);
+    }
    }
-   if ($form -> exportValue('system_avatar') == "") {
-    $selectedAvatar = 'unknown_small.png';
-   } else if (!$personal_profile_form || $form -> exportValue('system_avatar') != "") {
-    $selectedAvatar = $form -> exportValue('system_avatar');
-   }
-   if (isset($selectedAvatar)) {
-    $selectedAvatar = $avatarsFileSystemTree -> seekNode(G_SYSTEMAVATARSPATH.$selectedAvatar);
-    $newList = FileSystemTree :: importFiles($selectedAvatar['path']); //Import the file to the database, so we can access it with view_file
-    $editedUser -> user['avatar'] = key($newList);
-   }
-  }
-  EfrontEvent::triggerEvent(array("type" => EfrontEvent::AVATAR_CHANGE, "users_LOGIN" => $editedUser -> user['login'], "users_name" => $editedUser->user['name'], "users_surname" => $editedUser->user['surname'], "lessons_ID" => 0, "lessons_name" => "", "entity_ID" => $editedUser -> user['avatar']));
-  if ($personal_profile_form) {
-   $editedUser -> user['short_description'] = $form ->exportValue('short_description');
-   EfrontEvent::triggerEvent(array("type" => EfrontEvent::PROFILE_CHANGE, "users_LOGIN" => $editedUser -> user['login'], "users_name" => $editedUser->user['name'], "users_surname" => $editedUser->user['surname'], "lessons_ID" => 0, "lessons_name" => ""));
+   EfrontEvent::triggerEvent(array("type" => EfrontEvent::AVATAR_CHANGE, "users_LOGIN" => $editedUser -> user['login'], "users_name" => $editedUser->user['name'], "users_surname" => $editedUser->user['surname'], "lessons_ID" => 0, "lessons_name" => "", "entity_ID" => $editedUser -> user['avatar']));
   }
   $editedUser -> persist();
   if ($editedUser->user['user_type'] == 'administrator' || !isset($_GET['add_user'])) {

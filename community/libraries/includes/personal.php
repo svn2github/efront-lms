@@ -34,7 +34,11 @@ $learningOperations = array('user_courses', 'user_lessons');
 $accountOperations = array('profile', 'user_groups');
 $fileOperations = array();
 if ($currentUser -> user['login'] == $editedUser -> user['login']) {
- $accountOperations[] = 'mapped_accounts';
+ if (!$GLOBALS['configuration']['mapped_accounts'] ||
+  $GLOBALS['configuration']['mapped_accounts'] == 1 && $currentUser -> user['user_type'] != 'student' ||
+  $GLOBALS['configuration']['mapped_accounts'] == 2 && $currentUser -> user['user_type'] == 'administrator') {
+  $accountOperations[] = 'mapped_accounts';
+ }
 }
 if (isset($_GET['add_user'])) {
  $accountOperations = array('profile');

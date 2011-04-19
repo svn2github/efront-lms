@@ -50,6 +50,9 @@
     </span>
    {/if}
    {if $T_MAPPED_ACCOUNTS}
+    {if !$T_CONFIGURATION.mapped_accounts ||
+     $T_CONFIGURATION.mapped_accounts == 1 && $smarty.session.s_type!='student' ||
+     $T_CONFIGURATION.mapped_accounts == 2 && $smarty.session.s_type=='administrator'}
     <span class = "headerText"></span>
     <select class = "inputSelectMed" onchange = "if (this.value) changeAccount(this.value)" >
      <option value="">[{$smarty.const._SWITCHACCOUNT}]</option>
@@ -57,6 +60,7 @@
      <option value="{$item.login}">#filter:login-{$item.login}#</option>
                  {/foreach}
              </select>
+             {/if}
             {/if}
       <a class = "headerText" href = "index.php?logout=true">{$smarty.const._LOGOUT}</a>
   {/if}

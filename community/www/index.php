@@ -678,7 +678,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
    $to = $form -> exportValue("email");
    $subject = $form -> exportValue("message_subject");
    $body = $form -> exportValue("message_body");
-   if (eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$sender."]", $body, false, true)) {
+   if (eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$to."]", $body, false, true)) {
     $message = _SENDSUCCESS;
     $message_type = 'success';
     eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);

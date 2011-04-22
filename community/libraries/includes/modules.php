@@ -30,22 +30,27 @@ try {
 
         $className = $_GET['delete_module'];
         $module_folder_position = eF_getTableData("modules", "position", "className='". $className."'");
+  if (empty($module_folder_position)) {// for deleting not installed modules
+   try {
+       $folder = new EfrontDirectory(G_MODULESPATH.$className.'/');
+          $folder -> delete();
+         } catch (Exception $e) {/*Do nothing*/}
+  } else {
+         $folder = $module_folder_position[0]['position'];
+         require_once G_MODULESPATH.$folder."/".$className.".class.php";
 
-        $folder = $module_folder_position[0]['position'];
-        require_once G_MODULESPATH.$folder."/".$className.".class.php";
+         if (class_exists($className)) {
+             $module = new $className("administrator.php?ctg=module&op=".$className, $folder);
+             try {
+              $module -> onUninstall();
+             } catch (Exception $e) {/*Do nothing*/}
+         }
 
-        if (class_exists($className)) {
-            $module = new $className("administrator.php?ctg=module&op=".$className, $folder);
-            try {
-             $module -> onUninstall();
-            } catch (Exception $e) {/*Do nothing*/}
-        }
-
-        // PROBLEM: if the folder is open and cannot be deleted then the module cannot be reinstalled
-        $folder = new EfrontDirectory(G_MODULESPATH.$folder.'/');
-        $folder -> delete();
-        eF_deleteTableData("modules", "className='".$className."'");
-
+         // PROBLEM: if the folder is open and cannot be deleted then the module cannot be reinstalled
+         $folder = new EfrontDirectory(G_MODULESPATH.$folder.'/');
+         $folder -> delete();
+         eF_deleteTableData("modules", "className='".$className."'");
+  }
         exit;
     } elseif(isset($_GET['activate_module']) && eF_checkParameter($_GET['activate_module'], 'filename')) {
         if (isset($currentUser -> coreAccess['modules']) && $currentUser -> coreAccess['modules'] != 'change') {

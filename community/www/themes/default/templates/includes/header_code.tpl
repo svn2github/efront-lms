@@ -49,7 +49,7 @@
      <span id = "header_total_messages"></span>
     </span>
    {/if}
-   {if $T_MAPPED_ACCOUNTS}
+   {if $T_MAPPED_ACCOUNTS && $smarty.get.ctg !='agreement'}
     {if !$T_CONFIGURATION.mapped_accounts ||
      $T_CONFIGURATION.mapped_accounts == 1 && $smarty.session.s_type!='student' ||
      $T_CONFIGURATION.mapped_accounts == 2 && $smarty.session.s_type=='administrator'}

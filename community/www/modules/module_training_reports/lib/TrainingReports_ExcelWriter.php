@@ -171,7 +171,7 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
                     }
 
                     $courseData = $user['courses'][$course];
-                    $from = $courseData['from_timestamp'];
+                    $from = $courseData['first_access'];
                     $to = $courseData['to_timestamp'];
 
 
@@ -180,10 +180,10 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
                         $string = _TRAININGREPORTS_STARTED . " - " . _TRAININGREPORTS_ENDED . "\n" .
                                 formatTimestamp($from) . ' - ' . formatTimestamp($to);
                         $formatName = 'completed';
-                    } else if ($from > $periodStart && $from < $periodEnd) {
+                    } else if ($from != null && $from > $periodStart && $from < $periodEnd) {
                         $string = _TRAININGREPORTS_STARTED . "\n" . formatTimestamp($from);
                         $formatName = 'incomplete';
-                    } else if ($from < $periodStart) {
+                    } else if ($from != null && $from < $periodStart) {
                         $string = _TRAININGREPORTS_STARTED . "\n" . formatTimestamp($from);
                         $formatName = 'incomplete';
                     } else {

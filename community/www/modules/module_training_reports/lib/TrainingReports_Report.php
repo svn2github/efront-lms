@@ -227,6 +227,7 @@ class TrainingReports_Report {
             $coursesData = array();
             foreach ($courses as $course) {
                 $course['completed'] = ($course['completed'] == 1 && $course['to_timestamp'] < $this->to);
+//                $course['first_access'] = $this->getUserCourseFirstAccess($login, $course['courses_ID']);
 
                 if ($course['completed']) {
                     $countCompleted++;
@@ -259,33 +260,58 @@ class TrainingReports_Report {
             $usersFields[] = 'login';
         }
 
-        $where = "
-        active = 1 AND
-        login IN (
-            SELECT users_LOGIN
-            FROM users_to_courses
-            WHERE
-                courses_ID IN (" . implode(',', $this->courses) . ")
-                AND
-                user_type = 'student'
-                AND
-                (
-                    ( completed = 1 AND to_timestamp <= $this->to )
-                    OR
-                    ( from_timestamp <= $this->to )
-                )
-        )";
+        $fields = implode(',', $usersFields);
+        $tables = 'users AS u INNER JOIN users_to_courses AS utc ON u.login = utc.users_LOGIN';
+        $where = ' u.active = 1 AND
+            utc.courses_ID IN (' . implode(',', $this->courses) . ')
+            AND
+            utc.user_type = "student"
+            AND
+            (
+                ( utc.completed = 1 AND utc.to_timestamp <= ' . $this->to . ' )
+                OR
+                ( utc.from_timestamp <= ' . $this->to . ' )
+            )';
 
-        $users = eF_getTableData('users', implode(',', $usersFields), $where);
+        $group = 'u.login';
+
+        $users = eF_getTableData($tables, $fields, $where, '', $group);
+
+
+//        $where = "
+//        active = 1 AND
+//        login IN (
+//            SELECT users_LOGIN
+//            FROM users_to_courses
+//            WHERE
+//                courses_ID IN (" . implode(',', $this->courses) . ")
+//                AND
+//                user_type = 'student'
+//                AND
+//                (
+//                    ( completed = 1 AND to_timestamp <= $this->to )
+//                    OR
+//                    ( from_timestamp <= $this->to )
+//                )
+//        )";
+//
+//        $users = eF_getTableData('users', implode(',', $usersFields), $where);
 
         return $users;
+    }
+
+    private function getUserCourseFirstAccess($login, $courseID) {
+        $fields = 'MIN(timestamp_now) AS first_access';
+        $where = 'users_LOGIN =\'' . $login . '\' AND courses_ID = ' . $courseID;
+        $results = eF_getTableData('user_times', $fields, $where);
+
+        return isset($results[0]) ? $results[0]['first_access'] : null;
     }
 
     private function getUserCourses($login) {
 
         $fields = 'courses_ID, from_timestamp, to_timestamp, completed';
         $where = 'users_LOGIN =\'' . $login . '\' AND courses_ID IN (' . implode(',', $this->courses) . ')';
-
         $results = eF_getTableData('users_to_courses', $fields, $where);
 
         return $results;

@@ -3226,11 +3226,11 @@ define("_TOTALPRICEAFTERDISCOUNT","Preço total depois desconto");//Total price 
 define("_SUCCESSFULLYENROLLED","O processo de matrícula foi concluído com sucesso");//The enrollment procedure was completed successfully
 define("_SORRYYOUALREADYHAVETHELESSONSYOUSELECTED","Parece que você já está matriculada nas lições que você selecionou");//We are sorry, but it seems that you are already enrolled to the lessons you selected
 define("_ADDITIONALACCOUNTALREADYEXISTS","Essa conta já existe nas suas contas ligadas");//This account already exists in your mapped accounts
-define("_TRIGGERINGUSERSNAME","Alterar nome do usuário");//Triggering user&#039;s name
-define("_TRIGGERINGUSERSSURNAME","Alterar sobrenome do usuário");//Triggering user&#039;s surname
-define("_TRIGGERINGUSERSLOGIN","Alterar LogIn do usuário");//Triggering user&#039;s login
-define("_TRIGGERINGUSERSTYPE","Alterar tipo do usuário");//Triggering user&#039;s type
-define("_TRIGGERINGUSERSEMAIL","Alterar e-mail do usuário");//Triggering user&#039;s email
+define("_TRIGGERINGUSERSNAME","Ativar o uso do nome do usuário");//Triggering user&#039;s name
+define("_TRIGGERINGUSERSSURNAME","Ativar o uso do sobrenome do usuário");//Triggering user&#039;s surname
+define("_TRIGGERINGUSERSLOGIN","Ativar o uso do login do usuário");//Triggering user&#039;s login
+define("_TRIGGERINGUSERSTYPE","Ativar o uso do tipo do usuário");//Triggering user&#039;s type
+define("_TRIGGERINGUSERSEMAIL","Ativar o uso do e-mail do usuário");//Triggering user&#039;s email
 define("_FUTUREASSIGNMENTSWILL","Coordenações futuros vai ser aplicados as todas posições de emprego descrito como: ");//Future assignments will apply to all job positions described as: 
 define("_FUTUREASSIGNMENTSWILLNOT","Coordenações futuros vai ser aplicados apenas este posição de emprego descrito como: ");//Future assignments will apply only to this job position described as: 
 define("_NOCORRELATEDSKILLSHAVEBEENFOUND","Nenhuma outra habilidade relacionada foi encontrada");//No other correlated skills have been found

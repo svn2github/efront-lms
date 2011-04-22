@@ -55,7 +55,7 @@
                         </td>
                     <tr><td id = "testProceed">
                     {if $resume_test}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "{$location}" />
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$smarty.const._RESUMETEST}&nbsp;&raquo;" onclick = "javascript:location=location+'&resume=1'" />
                     {else}
       {if $T_UNIT.ctg_type != 'feedback'}
        {assign var = 'buttonValue' value = $smarty.const._PROCEEDTOTEST}

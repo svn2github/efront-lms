@@ -1410,7 +1410,7 @@ CREATE TABLE lessons_timeline_topics_data (
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE user_profile (
-  name varchar(20) NOT NULL,
+  name varchar(50) NOT NULL,
   description varchar(100) NOT NULL,
   db_type varchar(10) NOT NULL,
   size tinyint(3) unsigned default 255,

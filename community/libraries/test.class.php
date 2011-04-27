@@ -2106,7 +2106,8 @@ class EfrontTest
                             sec = seconds.toString()
                             if (min.length == 1) {min = "0" + min;}
                             if (sec.length == 1) {sec = "0" + sec;}
-                            $("time_left").update(hours + ":" + min + ":" + sec);';
+                            $("time_left").update(hours + ":" + min + ":" + sec);
+                        }';
             } else {
                 $str .= '
                     var min = new String(3);

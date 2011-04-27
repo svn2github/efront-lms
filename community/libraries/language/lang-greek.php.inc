@@ -4071,6 +4071,8 @@ define("_CASUAL", "Περιστασιακά");
 define("_YOUCANNOTEDITTHISUSER", "Δεν μπορείτε να προσπελάσετε τις πληροφορίες αυτού του χρήστη");
 define("_ENABLEVIRTUALKEYBOARD","Ενεργοποίηση εικονικού πληκτρολογίου");
 define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY", "Το αρχείο δείχνει να είναι κενό. Ίσως δεν έχει την κατάλληλη μορφή;");
+define("_PROGRAMMEDCERTIFICATEEXPIRY", "Προγραμματισμένη εκπνοή πιστοποιητικού");
 define("_TESTPASSWORD", "Συνθηματικό αξιολόγησης");
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Λυπούμαστε αλλά δεν έχετε πρόσβαση σε αυτό το τμήμα");
+define("_SHOWCOMPLETEORGCHART", "Προβολή πλήρους ιεραρχίας εταιρείας στους χρήστες");
 ?>

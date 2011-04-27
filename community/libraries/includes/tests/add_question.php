@@ -29,19 +29,26 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
 }
 //Default url for the file manager
 $url = basename($_SERVER['PHP_SELF']).'?ctg=tests&'.(isset($_GET['edit_question']) ? 'edit_question='.$_GET['edit_question'] : 'add_question=1');
-$filesystem = new FileSystemTree($basedir, true);
+/*$filesystem = new FileSystemTree($basedir, true);
+
 $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($filesystem -> tree)));
 
-foreach ($filesystemIterator as $key => $value) {
-    $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
-  $value -> offsetSet(_INSERT, '<div style="text-align:center"><img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" /></div>');
-}
-$extraColumns = array(_INSERT);
-//$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
 
+
+foreach ($filesystemIterator as $key => $value) {
+
+    $value['id'] == -1 ? $identifier = $value['path'] : $identifier = $value['id'];
+
+ 	$value -> offsetSet(_INSERT, '<div style="text-align:center"><img src = "images/16x16/arrow_right.png" alt = "'._INSERTEDITOR.'" title = "'._INSERTEDITOR.'" class = "ajaxHandle" onclick = "insert_editor(this, $(\'span_'.urlencode($identifier).'\').innerHTML)" /></div>');
+
+}
+
+$extraColumns = array(_INSERT);
+
+*/
+$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
 /**The file manager*/
 include "file_manager.php";
-
 //This page also needs an editor and ASCIIMathML
 $load_editor = true;
 if ($configuration['math_content'] && $configuration['math_images']) {
@@ -49,15 +56,12 @@ if ($configuration['math_content'] && $configuration['math_images']) {
 } elseif ($configuration['math_content']) {
     $loadScripts[] = 'ASCIIMathML';
 }
-
 $questionTypes = Question :: $questionTypes;
 // Remove development questions from automatically corrected skillgap tests
 if ($skillgap_tests) {
     unset($questionTypes['raw_text']);
 }
-
 isset($_GET['question_type']) && in_array($_GET['question_type'], array_keys($questionTypes)) ? $question_type = $_GET['question_type'] : $question_type = 'multiple_one';
-
 if (isset($_GET['edit_question'])) { //We are changing an existing question.
     $currentQuestion = QuestionFactory :: factory($_GET['edit_question']);
     $postTarget = basename($_SERVER['PHP_SELF'])."?ctg=tests&from_unit=".$_GET['from_unit']."&edit_question=".$currentQuestion -> question['id']."&question_type=".$currentQuestion -> question['type'];
@@ -73,11 +77,9 @@ if (strpos($_SERVER['HTTP_REFERER'], 'edit_test') !== false) {
 }
 $form = new HTML_QuickForm("question_form", "post", $postTarget, "", null, true);
 $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
-
 if (!$skillgap_tests) {
     $optionsArray = $currentContent -> toHTMLSelectOptions();
     $optionsArray = array(0 => _NOPARENT) + $optionsArray;
-
     $form -> addElement('select', 'content_ID', _UNITPARENT, $optionsArray); //Build a select box with all content units
     $form -> addRule('content_ID', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required'); //The content id must be present and a numeric value.
     $form -> addRule('content_ID', _INVALIDID, 'numeric');
@@ -93,7 +95,6 @@ $form -> addElement('text', 'estimate_min', _ESTIMATETIMETOCOMPLETE, 'size = "3"
 $form -> addElement('text', 'estimate_sec', null, 'size = "3"');
 $form -> addElement('textarea', 'question_text', _QUESTIONTEXT, 'class = "mceEditor inputTextarea_QuestionText" style = "width:100%;height:250px;" id = "editor_content_data"');
 $form -> addElement('textarea', 'explanation', _EXPLANATION, 'class = "mceEditor" style = "width:99%;height:100px;" id = "question_explanation_data"'); //The style needs to be here, since when a textarea is in "display:none" mode, the tinymce does not render the class correctly
-
 $form -> addElement('submit', 'submit_question', _SAVEQUESTION, 'class = "flatButton"');
 $form -> addElement('submit', 'submit_new_question', _SAVEASNEWQUESTION, 'class = "flatButton"');
 

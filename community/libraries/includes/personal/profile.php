@@ -49,10 +49,6 @@ if (!isset($_GET['add_user'])) {
    $constrainAccess[] = 'password_';
   }
 
-  if ($GLOBALS['configuration']['onelanguage']) {
-   $constrainAccess[] = 'languages_NAME';
-  }
-
   if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
    $constrainAccess[] = 'user_type';
    $constrainAccess[] = 'active';
@@ -94,7 +90,11 @@ if (!in_array('active', $constrainAccess) && $constrainAccess != 'all') {
  $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
 }
 $select = $form -> addElement('select', 'user_type', _USERTYPE, $roles);
-$form -> addElement('select', 'languages_NAME', _LANGUAGE, EfrontSystem :: getLanguages(true, true));
+$languages = EfrontSystem :: getLanguages(true, true);
+if ($GLOBALS['configuration']['onelanguage']) {
+ $languages = array($GLOBALS['configuration']['default_language'] => $languages[$GLOBALS['configuration']['default_language']]);
+}
+$form -> addElement('select', 'languages_NAME', _LANGUAGE, $languages);
 $form -> addElement("select", "timezone", _TIMEZONE, eF_getTimezones(), 'class = "inputText" style="width:20em"');
 if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
  $load_editor = true;

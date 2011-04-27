@@ -161,6 +161,7 @@ class EfrontConfiguration
 
      // Enterprise settings
      'show_organization_chart' => '1',
+     'show_complete_org_chart' => '1',
      'show_user_form' => '0',
      'show_unassigned_users_to_supervisors' => '1',
      'allow_users_to_delete_supervisor_files'=> '1',

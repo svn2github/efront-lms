@@ -1,4 +1,4 @@
-=== Version 3.6.9 build ===
+=== Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list
 - Fixed personal profile fields appearing even if meaningless
 - Fixed mapped accounts disregarding system setting

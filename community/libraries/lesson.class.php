@@ -5931,7 +5931,7 @@ class EfrontLesson
 	 * @access public
 
 	 */
- public function getEvents($topic_ID = false, $returnObjects = false, $avatarSize, $limit = false) {
+ public function getEvents($topic_ID = false, $returnObjects = false, $avatarSize = 0, $limit = false) {
   if (!($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_LESSON_TIMELINES)) {
    return array();
   }

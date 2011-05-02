@@ -23,7 +23,7 @@
      <img src = "images/16x16/success.png" alt = "{$smarty.const._PARTOFTHISGROUP}" title = "{$smarty.const._PARTOFTHISGROUP}" />
     {/if}
    {else}
-    <input class = "inputCheckBox" type = "checkbox" id = "group_{$group.id}" name = "{$group.id}" onclick ="ajaxUserPost('group', '{$group.id}', this);" {if $group.partof == 1}checked{/if}>
+    <input class = "inputCheckBox" type = "checkbox" id = "group_{$group.id}" name = "{$group.id}" onclick ="ajaxUserGroupPost('{$group.id}', this, 'groupsTable');" {if $group.partof == 1}checked{/if}>
    {/if}
    </td>
   </tr>

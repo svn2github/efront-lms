@@ -57,6 +57,7 @@ class module_rss extends EfrontModule
                     only_summary int(11) default 0,
                     lessons_ID int(11) default -1)");
   eF_insertTableData("module_rss_feeds", array('title' => 'eFront news', 'url' => 'http://www.efrontlearning.net/product/efront-news?format=feed&type=rss&install=1', 'active' => 1, 'lessons_ID' => -1));
+  //eF_insertTableData("module_rss_feeds", array('title' => 'eFront blog', 'url' => 'http://blog.efrontlearning.net/feeds/posts/default', 'active' => 1, 'lessons_ID' => -1));		
         eF_executeNew("drop table if exists module_rss_provider");
         eF_executeNew("CREATE TABLE module_rss_provider(id int(11) not null auto_increment primary key,
                     mode varchar(255),
@@ -402,6 +403,15 @@ class module_rss extends EfrontModule
                     } else if ($value -> date) {
                      $data['timestamp'] = (string)$value -> date;
                     }
+                    $rss[] = $data;
+                } else if ($key == 'entry') {
+                 //pr(strtotime((string)$value -> updated));
+                    $data = array('title' => (string)$value -> title, 'description' => (string)$value -> content, 'timestamp' => strtotime((string)$value -> updated));
+                 foreach ($value->link as $link) {
+                  if ($link['rel'] == 'alternate') {
+                   $data['link'] = (string)$link['href'];
+                  }
+                 }
                     $rss[] = $data;
                 }
             }

@@ -203,6 +203,37 @@ class TrainingReports_Report {
         return $periodOptions;
     }
 
+    public function getExtendedFieldDefinitions() {
+
+        $definitions = array();
+
+        $fields = eF_getTableData('user_profile');
+
+        foreach ($fields as $field) {
+            $definitions[$field['name']] = $field;
+        }
+        return $definitions;
+    }
+
+    private function sanitizeExtendedField($value, $definition) {
+        $sanitized = ($value == null) ? '' : $value;
+
+        switch ($definition['type']) {
+            case 'date':
+                $sanitized = formatTimestamp($value, 'time');
+                break;
+            case 'select':
+                $options = unserialize($definition['options']);
+                $sanitized = isset($options[$value]) ? $options[$value] : $value;
+                break;
+            case 'textarea':
+            case 'text':
+            default:
+        }
+
+        return $sanitized;
+    }
+
     /**
      * Return the user data.
      * 
@@ -216,6 +247,7 @@ class TrainingReports_Report {
             return $usersData;
         }
 
+        $fieldDefinitions = $this->getExtendedFieldDefinitions();
         $users = $this->getUsers();
 
         foreach ($users as $user) {
@@ -227,13 +259,19 @@ class TrainingReports_Report {
             $coursesData = array();
             foreach ($courses as $course) {
                 $course['completed'] = ($course['completed'] == 1 && $course['to_timestamp'] < $this->to);
-//                $course['first_access'] = $this->getUserCourseFirstAccess($login, $course['courses_ID']);
+                $course['first_access'] = $this->getUserCourseFirstAccess($login, $course['courses_ID']);
 
                 if ($course['completed']) {
                     $countCompleted++;
                 }
 
                 $coursesData[$course['courses_ID']] = $course;
+            }
+
+            foreach ($user as $key => $value) {
+                if (isset($fieldDefinitions[$key])) {
+                    $user[$key] = $this->sanitizeExtendedField($value, $fieldDefinitions[$key]);
+                }
             }
 
             $user['last_login'] = $this->getUserLastLogin($login);
@@ -277,31 +315,11 @@ class TrainingReports_Report {
 
         $users = eF_getTableData($tables, $fields, $where, '', $group);
 
-
-//        $where = "
-//        active = 1 AND
-//        login IN (
-//            SELECT users_LOGIN
-//            FROM users_to_courses
-//            WHERE
-//                courses_ID IN (" . implode(',', $this->courses) . ")
-//                AND
-//                user_type = 'student'
-//                AND
-//                (
-//                    ( completed = 1 AND to_timestamp <= $this->to )
-//                    OR
-//                    ( from_timestamp <= $this->to )
-//                )
-//        )";
-//
-//        $users = eF_getTableData('users', implode(',', $usersFields), $where);
-
         return $users;
     }
 
     private function getUserCourseFirstAccess($login, $courseID) {
-        $fields = 'MIN(timestamp_now) AS first_access';
+        $fields = 'MIN(session_timestamp) AS first_access';
         $where = 'users_LOGIN =\'' . $login . '\' AND courses_ID = ' . $courseID;
         $results = eF_getTableData('user_times', $fields, $where);
 

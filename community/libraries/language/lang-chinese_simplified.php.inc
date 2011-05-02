@@ -3158,7 +3158,7 @@ define("_COULDNOTCONNECTTOFACEBOOK","无法连接到Facebook");//Could not conne
 define("_LOGINWITHYOURFACEBOOKACCOUNT","登录您的Facebook帐户");//Login with your Facebook account
 define("_HERE","这里");//here
 define("_MESSAGEPROPERTIES","消息属性");//Message properties
-define("_TOPICPROPERTIES","");//Topic properties
+define("_TOPICPROPERTIES","主题属性");//Topic properties
 define("_POLLPROPERTIES","调查属性");//Poll properties
 define("_FORUMPROPERTIES","论坛属性");//Forum properties
 define("_UPDATETHEME","更新主题");//Update theme

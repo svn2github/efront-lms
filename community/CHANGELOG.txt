@@ -1,3 +1,7 @@
+=== Version 3.6.9 build ===
+- Fixed lesson timeline requesting all events instead of the ones to show
+- Fixed group assignment in user's page
+
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list
 - Fixed personal profile fields appearing even if meaningless

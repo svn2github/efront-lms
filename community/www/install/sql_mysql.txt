@@ -701,7 +701,8 @@ CREATE TABLE users_to_lessons (
   comments text,
   to_timestamp int(10) unsigned default NULL,
   primary key (users_LOGIN, lessons_ID),
-  index(users_LOGIN)
+  index(users_LOGIN),
+  index(lessons_ID)
 ) DEFAULT CHARSET=utf8;
 
 --

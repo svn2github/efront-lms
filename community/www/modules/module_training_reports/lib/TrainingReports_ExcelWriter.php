@@ -45,7 +45,7 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
         $this->workSheet->setInputEncoding('utf-8');
 
         $this->fieldsWidths = array();
-        $this->coursesWidth = 0;
+        $this->coursesWidth = 19;
 
         $this->fieldsOptions = TrainingReports_Report::getFieldsOptions();
         $this->coursesOptions = TrainingReports_Report::getCoursesOptions();
@@ -176,7 +176,7 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
 
 
                     /* If user has completed */
-                    if (($to > $periodStart && $to < $periodEnd) || ($to > 0 && $to < $periodStart)) {
+                    if ($from != null && ($to > $periodStart && $to < $periodEnd) || ($to > 0 && $to < $periodStart)) {
                         $string = _TRAININGREPORTS_STARTED . " - " . _TRAININGREPORTS_ENDED . "\n" .
                                 formatTimestamp($from) . ' - ' . formatTimestamp($to);
                         $formatName = 'completed';

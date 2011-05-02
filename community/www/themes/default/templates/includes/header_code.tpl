@@ -41,6 +41,8 @@
 
 
 
+
+
      </ul>
     </div>
    {if $T_CURRENT_USER->coreAccess.personal_messages != 'hidden' && $T_CONFIGURATION.disable_messages != 1}

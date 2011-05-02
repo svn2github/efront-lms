@@ -1,6 +1,8 @@
-=== Version 3.6.9 build ===
+=== Version 3.6.9 build 10720 ===
 - Fixed lesson timeline requesting all events instead of the ones to show
 - Fixed group assignment in user's page
+- Fixed setting "organization" to "hide" actually hiding links from users
+- Changed "name/surname" constants to "first name/last name"
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

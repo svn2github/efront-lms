@@ -254,7 +254,7 @@ class EfrontNotification
                   ._WELCOMETOOUR.' '._ELEARNINGPLATFORM.". <br>"._ACCOUNTACTIVATEDWITHPERSONALINFORMATION."<br><br>".
                  _LOGIN .': ###users_login###<br>'.
                  _FIRSTNAME .': ###users_name###<br>'.
-                 _SURNAME .': ###users_surname###<br>'.
+                 _LASTNAME .': ###users_surname###<br>'.
                  _EMAILADDRESS.': ###users_email###<br>'.
                  _LANGUAGE.': ###users_language###<br>'.
                  _COMMENTS.': ###users_comments###<br><br>';

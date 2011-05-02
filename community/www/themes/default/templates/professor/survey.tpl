@@ -501,8 +501,8 @@
             <form {$T_PUBLISH_FORM.attributes}>
                 <table width = "100%" class="sortedTable" rowsPerPage="10">
                     <tr>
-                        <td class = "topTitle" align = "left">{$smarty.const._NAME}</td>
-                        <td class = "topTitle" align = "left">{$smarty.const._SURNAME}</td>
+                        <td class = "topTitle" align = "left">{$smarty.const._FIRSTNAME}</td>
+                        <td class = "topTitle" align = "left">{$smarty.const._LASTNAME}</td>
                         <td class = "topTitle" align = "left">{$smarty.const._EMAIL}</td>
                         <td class = "topTitle" align = "left">{$smarty.const._LOGIN}</td>
                         <td class = "topTitle" align = "left">{$smarty.const._SURVEYSELECTION}</td>

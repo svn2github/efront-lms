@@ -240,8 +240,8 @@
   <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$T_COMPLETETEST_BASEURL}&">
    <tr class = "topTitle">
     <td class = "topTitle" name = "login">{$smarty.const._LOGIN}</td>
-    <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>
-    <td class = "topTitle" name = "surname">{$smarty.const._SURNAME}</td>
+    <td class = "topTitle" name = "name">{$smarty.const._FIRSTNAME}</td>
+    <td class = "topTitle" name = "surname">{$smarty.const._LASTNAME}</td>
     <td class = "topTitle">{$smarty.const._TEST}</td>
     <td class = "topTitle centerAlign">{$smarty.const._COMPLETE_TEST_SETVALUES}</td>
    </tr>

@@ -213,7 +213,7 @@ if (isset($_GET['excel'])) {
 
     $workSheet -> write(2, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write(2, 5, _FIRSTNAME, $titleLeftFormat);
-    $workSheet -> write(2, 6, _SURNAME, $titleLeftFormat);
+    $workSheet -> write(2, 6, _LASTNAME, $titleLeftFormat);
     $workSheet -> write(2, 7, _COURSEROLE, $titleLeftFormat);
     //$workSheet -> write(2, 7, _TOTALTIME, $titleCenterFormat);
     $workSheet -> write(2, 8, _SCORE, $titleCenterFormat);

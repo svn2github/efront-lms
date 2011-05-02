@@ -62,8 +62,8 @@
      <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$T_MODULE_ADMINISTRATOR_TOOLS_BASEURL}&lessons_ID={$smarty.get.lessons_ID}&">
       <tr class = "topTitle">
        <td class = "topTitle" name = "login">{$smarty.const._LOGIN}</td>
-       <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>
-       <td class = "topTitle" name = "surname">{$smarty.const._SURNAME}</td>
+       <td class = "topTitle" name = "name">{$smarty.const._FIRSTNAME}</td>
+       <td class = "topTitle" name = "surname">{$smarty.const._LASTNAME}</td>
        <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
        <td class = "topTitle" name = "role">{$smarty.const._USERROLEINLESSON}</td>
        <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>

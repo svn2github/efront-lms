@@ -13,13 +13,13 @@ if ($currentUser -> coreAccess['users'] == 'hidden') {
 }
 
 if (!isset($_GET['user'])) {
- if ($currentUser->user['coreAccess']['dashboard'] != 'hidden') {
+ if ($currentUser->coreAccess['dashboard'] != 'hidden') {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=dashboard");
  } else {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=profile");
  }
 } else if (!isset($_GET['op'])) {
- if ($currentUser -> user['login'] == $_GET['user'] && $currentUser->user['coreAccess']['dashboard'] != 'hidden') {
+ if ($currentUser -> user['login'] == $_GET['user'] && $currentUser->coreAccess['dashboard'] != 'hidden') {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=dashboard");
  } else {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$_GET['user']."&op=profile");

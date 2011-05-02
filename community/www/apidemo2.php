@@ -98,7 +98,7 @@
             $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
             $form -> addElement('password', 'password', _PASSWORD, 'class = "inputText"');
             $form -> addElement('text', 'name', _FIRSTNAME, 'class = "inputText"');
-            $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
+            $form -> addElement('text', 'surname', _LASTNAME, 'class = "inputText"');
             $form -> addElement('text', 'email', _EMAIL, 'class = "inputText"');
             $form -> addElement('text', 'language', _LANGUAGE, 'class = "inputText"');
             break;
@@ -108,7 +108,7 @@
             $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
             $form -> addElement('password', 'password', _PASSWORD, 'class = "inputText"');
             $form -> addElement('text', 'name', _FIRSTNAME, 'class = "inputText"');
-            $form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
+            $form -> addElement('text', 'surname', _LASTNAME, 'class = "inputText"');
             $form -> addElement('text', 'email', _EMAIL, 'class = "inputText"');
             $form -> addElement('text', 'language', _LANGUAGE, 'class = "inputText"');
             break;

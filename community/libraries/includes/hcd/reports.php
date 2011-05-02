@@ -240,7 +240,7 @@ $form -> addElement('radio', 'criteria', null, null, 'any_criteria', 'id="any_cr
 /* For advanced search form: All information that regard employees (taken from the main form) */
 $form -> addElement('text', 'new_login', _LOGIN, 'class = "inputText" id="new_login" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'name', _FIRSTNAME, 'class = "inputText" id="name" onChange="javascript:setAdvancedCriterion(this);"');
-$form -> addElement('text', 'surname', _SURNAME, 'class = "inputText" id="surname" onChange="javascript:setAdvancedCriterion(this);"');
+$form -> addElement('text', 'surname', _LASTNAME, 'class = "inputText" id="surname" onChange="javascript:setAdvancedCriterion(this);"');
 $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText" id="email" onChange="javascript:setAdvancedCriterion(this);"');
 $roles = eF_getTableDataFlat("user_types", "*");
 $roles_array[''] = "";

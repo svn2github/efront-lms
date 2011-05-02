@@ -83,8 +83,8 @@ if (!in_array('password_', $constrainAccess) && $constrainAccess != 'all') {
  $form -> addElement("static", "", str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS));
  $passrepeatElement = $form -> addElement('password', 'passrepeat', _REPEATPASSWORD, 'class = "inputText "');
 }
-$form -> addElement('text', 'name', _NAME, 'class = "inputText"');
-$form -> addElement('text', 'surname', _SURNAME, 'class = "inputText"');
+$form -> addElement('text', 'name', _FIRSTNAME, 'class = "inputText"');
+$form -> addElement('text', 'surname', _LASTNAME, 'class = "inputText"');
 $form -> addElement('text', 'email', _EMAILADDRESS, 'class = "inputText"');
 if (!in_array('active', $constrainAccess) && $constrainAccess != 'all') {
  $form -> addElement('advcheckbox', 'active', _ACTIVEUSER, null, 'class = "inputCheckbox" id="activeCheckbox" ', array(0, 1));
@@ -105,8 +105,8 @@ $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Regi
 $form -> registerRule('checkNotExist', 'callback', 'eF_checkNotExist');
 $form -> addRule('password_', str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS), 'minlength', $GLOBALS['configuration']['password_length'], 'client');
 $form -> addRule(array('password_', 'passrepeat'), _PASSWORDSDONOTMATCH, 'compare', null, 'client');
-$form -> addRule('name', _THEFIELD.' '._NAME.' '._ISMANDATORY, 'required', null, 'client');
-$form -> addRule('surname', _THEFIELD.' '._SURNAME.' '._ISMANDATORY, 'required', null, 'client');
+$form -> addRule('name', _THEFIELD.' '._FIRSTNAME.' '._ISMANDATORY, 'required', null, 'client');
+$form -> addRule('surname', _THEFIELD.' '._LASTNAME.' '._ISMANDATORY, 'required', null, 'client');
 $form -> addRule('email', _INVALIDFIELDDATA, 'checkParameter', 'email');
 if (isset($_GET['add_user'])) {
  $form -> addRule('login', _THELOGIN.' &quot;'.($form -> exportValue('login')).'&quot; '._ALREADYEXISTS, 'checkNotExist', 'login');

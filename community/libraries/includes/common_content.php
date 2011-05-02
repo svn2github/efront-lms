@@ -104,7 +104,14 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          if ($currentUnit['scorm_version'] == '1.2') {
           $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
           $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
-    $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+
+           if (strpos($currentUnit['data'], 'window.open') !== false) {
+     preg_match("/\"scormFrameName\".*\"\)'/U", $currentUnit['data'], $matches);
+     $popupParameter = mb_substr($matches[0], mb_strpos($matches[0], '"scormFrameName", "') + mb_strlen('"scormFrameName", "'), mb_strpos($matches[0], ")'"));
+     $form -> setDefaults(array('popup_parameters' => $popupParameter));
+    } else {
+           $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+    }
          }
 
    if (strpos($currentUnit['data'], 'iframe') !== false) {

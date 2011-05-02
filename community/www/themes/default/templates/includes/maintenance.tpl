@@ -246,8 +246,8 @@
             <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=maintenance&autologin=1&">
                 <tr class = "topTitle">
                     <td class = "topTitle" name = "login">{$smarty.const._LOGIN}</td>
-                    <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>
-                    <td class = "topTitle" name = "surname">{$smarty.const._SURNAME}</td>
+                    <td class = "topTitle" name = "name">{$smarty.const._FIRSTNAME}</td>
+                    <td class = "topTitle" name = "surname">{$smarty.const._LASTNAME}</td>
      <td class = "topTitle centerAlign" name = "access_link">{$smarty.const._ACCESSLINK}</td>
                     <td class = "topTitle centerAlign" name = "autologin">{$smarty.const._CHECK}</td>
 

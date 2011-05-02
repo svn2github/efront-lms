@@ -5,6 +5,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 
+
 if (isset($currentUser->coreAccess['organization']) && $currentUser->coreAccess['organization'] != 'change') {
  $_change_skills_ = false;
 } else if ($currentUser -> user['user_type'] == 'administrator') {

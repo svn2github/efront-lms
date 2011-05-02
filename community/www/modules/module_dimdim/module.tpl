@@ -69,10 +69,10 @@
                             {literal}
                             <script>
                             function ajaxSendMails() {
-                                var url =  '{/literal}{$T_DIMDIM_MODULE_BASEURL}&edit_dimdim={$smarty.get.edit_dimdim}&mail_users=1{literal}&postAjaxRequest=1';
+                                var url = '{/literal}{$T_DIMDIM_MODULE_BASEURL}&edit_dimdim={$smarty.get.edit_dimdim}&mail_users=1{literal}&postAjaxRequest=1';
                                 if ($('dimdimUsersTable_currentFilter')) {
-			                		url = url+'&filter='+$('dimdimUsersTable_currentFilter').innerHTML;
-			             		}
+                     url = url+'&filter='+$('dimdimUsersTable_currentFilter').innerHTML;
+                  }
                                 $('mail_image').writeAttribute('src', 'images/others/progress1.gif').show();
                                 new Ajax.Request(url, {
                                     method:'get',
@@ -102,11 +102,11 @@
                     </tr>
                     </table>
 <!--ajax:dimdimUsersTable-->
-                    <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "dimdimUsersTable" useAjax = "1" rowsPerPage = "20"  url = "{$T_DIMDIM_MODULE_BASEURL}&edit_dimdim={$smarty.get.edit_dimdim}&">
+                    <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "dimdimUsersTable" useAjax = "1" rowsPerPage = "20" url = "{$T_DIMDIM_MODULE_BASEURL}&edit_dimdim={$smarty.get.edit_dimdim}&">
                         <tr class = "topTitle">
                             <td class = "topTitle" name="login">{$smarty.const._LOGIN}</td>
-                            <td class = "topTitle" name="name">{$smarty.const._NAME}</td>
-                            <td class = "topTitle" name="surname">{$smarty.const._SURNAME}</td>
+                            <td class = "topTitle" name="name">{$smarty.const._FIRSTNAME}</td>
+                            <td class = "topTitle" name="surname">{$smarty.const._LASTNAME}</td>
                             <td class = "topTitle" name="email">{$smarty.const._EMAIL}</td>
                             <td class = "topTitle noSort" name="login" align="center">{$smarty.const._CHECK}</td>
                         </tr>
@@ -146,28 +146,28 @@
                 function ajaxPost(id, el, table_id) {
                      Element.extend(el);
 
-                     var baseUrl =  '{/literal}{$T_DIMDIM_MODULE_BASEURL}{literal}&edit_dimdim={/literal}{$smarty.get.edit_dimdim}{literal}&postAjaxRequest=1';
+                     var baseUrl = '{/literal}{$T_DIMDIM_MODULE_BASEURL}{literal}&edit_dimdim={/literal}{$smarty.get.edit_dimdim}{literal}&postAjaxRequest=1';
 
                      if (id) {
                          var url = baseUrl + '&user=' + id + '&insert='+el.checked;
-                         var img_id   = 'img_'+ id;
-						if ($(table_id+'_currentFilter')) {
-			                url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
-			            }                         
+                         var img_id = 'img_'+ id;
+      if ($(table_id+'_currentFilter')) {
+                   url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
+               }
                      } else if (table_id && table_id == 'dimdimUsersTable') {
                          el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';
-                         var img_id   = 'img_selectAll';
+                         var img_id = 'img_selectAll';
                          if ($(table_id+'_currentFilter')) {
-			                url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
-			             }
+                   url = url+'&filter='+$(table_id+'_currentFilter').innerHTML;
+                }
                      }
 
                      var position = eF_js_findPos(el);
-                     var img      = document.createElement("img");
+                     var img = document.createElement("img");
 
                      img.style.position = 'absolute';
-                     img.style.top      = Element.positionedOffset(Element.extend(el)).top  + 'px';
-                     img.style.left     = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
+                     img.style.top = Element.positionedOffset(Element.extend(el)).top + 'px';
+                     img.style.left = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
 
                      img.setAttribute("id", img_id);
                      img.setAttribute('src', 'images/others/progress1.gif');
@@ -180,29 +180,32 @@
                                  onSuccess: function (transport) {
                                      // Update all form tables
                                      /*
-                                     var tables = sortedTables.size();
-                                     var i;
-                                     for (i = 0; i < tables; i++) {
-                                         if (sortedTables[i].id == 'dimdimUsersTable') {
-                                             eF_js_rebuildTable(i, 0, 'null', 'desc');
-                                         }
-                                     }
-                                     */
 
+                                     var tables = sortedTables.size();
+
+                                     var i;
+
+                                     for (i = 0; i < tables; i++) {
+
+                                         if (sortedTables[i].id == 'dimdimUsersTable') {
+
+                                             eF_js_rebuildTable(i, 0, 'null', 'desc');
+
+                                         }
+
+                                     }
+
+                                     */
                                      img.style.display = 'none';
                                      img.setAttribute('src', 'images/16x16/success.png');
                                      new Effect.Appear(img_id);
                                      window.setTimeout('Effect.Fade("'+img_id+'")', 2500);
-
                                      }
                             });
                 }
                 </script>
                 {/literal}
-
-
         {/capture}
-
         {capture name = 't_dimdim_tabber'}
             <div class="tabber" >
                <div class="tabbertab">
@@ -217,9 +220,7 @@
                 {/if}
             </div>
         {/capture}
-
-        {eF_template_printBlock title=$smarty.const._DIMDIM_DIMDIMMEETINGDATA data=$smarty.capture.t_dimdim_tabber absoluteImagePath=1  image=$T_DIMDIM_MODULE_BASELINK|cat:'images/dimdim32.png'}
-
+        {eF_template_printBlock title=$smarty.const._DIMDIM_DIMDIMMEETINGDATA data=$smarty.capture.t_dimdim_tabber absoluteImagePath=1 image=$T_DIMDIM_MODULE_BASELINK|cat:'images/dimdim32.png'}
     {else}
         {capture name = 't_dimdim_list_code'}
             {if $T_DIMDIM_CURRENTLESSONTYPE == "professor"}
@@ -231,7 +232,6 @@
                 </td></tr>
             </table>
             {/if}
-
             <table class="sortedTable" id = "module_dimdim_sortedTable" border = "0" width = "100%" sortBy = "0">
                 <tr class = "topTitle">
                     <td class = "topTitle">{$smarty.const._DIMDIM_NAME}</td>
@@ -249,29 +249,29 @@
                     <td >{if $meeting.status == "0"}{$smarty.const._DIMDIMNOTSTARTED}{elseif $meeting.status == "1"}{$smarty.const._DIMDIMSTARTED}{else}{$smarty.const._DIMDIMFINISHED}{/if}</td>
                     <td align = "center">
                         {if $T_DIMDIM_CURRENTLESSONTYPE == "professor"}
-	                        <table>
-	                            <tr>
-	                            {if $meeting.status != "2"}
-	                            <td width="30%">
-	                                <a href = "{$T_DIMDIM_MODULE_BASEURL}&edit_dimdim={$meeting.id}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-	                            </td>
-	                            <td width="30%">
-	                                {if $meeting.status == "0" && !$meeting.mayStart}<img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" class = "inactiveImage" title = "{$smarty.const._DIMDIMJOINMEETING}" alt = "{$smarty.const._DIMDIMJOINMEETING}" />{elseif $meeting.mayStart}<a href = "{$T_DIMDIM_MODULE_BASEURL}&start_meeting={$meeting.id}" onClick="return confirm('{$smarty.const._DIMDIM_AREYOUSUREYOUWANTTOSTARTTHECONFERENCE}')" class = "editLink"><img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" title = "{$smarty.const._DIMDIMSTARTMEETING}" alt = "{$smarty.const._DIMDIMSTARTMEETING}" /></a>{/if}
-	                            </td>
-	                            <td width="30%">
-	                            {else}
-	                            <td align="center">
-	                            {/if}
-	                                <a href = "{$T_DIMDIM_MODULE_BASEURL}&delete_dimdim={$meeting.id}" onclick = "return confirm('{$smarty.const._DIMDIMAREYOUSUREYOUWANTTODELETEEVENT}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
-	                            </td>
-	                            </tr>
-	                         </table>
+                         <table>
+                             <tr>
+                             {if $meeting.status != "2"}
+                             <td width="30%">
+                                 <a href = "{$T_DIMDIM_MODULE_BASEURL}&edit_dimdim={$meeting.id}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                             </td>
+                             <td width="30%">
+                                 {if $meeting.status == "0" && !$meeting.mayStart}<img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" class = "inactiveImage" title = "{$smarty.const._DIMDIMJOINMEETING}" alt = "{$smarty.const._DIMDIMJOINMEETING}" />{elseif $meeting.mayStart}<a href = "{$T_DIMDIM_MODULE_BASEURL}&start_meeting={$meeting.id}" onClick="return confirm('{$smarty.const._DIMDIM_AREYOUSUREYOUWANTTOSTARTTHECONFERENCE}')" class = "editLink"><img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" title = "{$smarty.const._DIMDIMSTARTMEETING}" alt = "{$smarty.const._DIMDIMSTARTMEETING}" /></a>{/if}
+                             </td>
+                             <td width="30%">
+                             {else}
+                             <td align="center">
+                             {/if}
+                                 <a href = "{$T_DIMDIM_MODULE_BASEURL}&delete_dimdim={$meeting.id}" onclick = "return confirm('{$smarty.const._DIMDIMAREYOUSUREYOUWANTTODELETEEVENT}')" class = "deleteLink"><img border = "0" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
+                             </td>
+                             </tr>
+                          </table>
                          {else}
                             {if $meeting.status == "0"}
-                            	<img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" class = "inactiveImage" title = "{$smarty.const._DIMDIMJOINMEETING}" alt = "{$smarty.const._DIMDIMJOINMEETING}" />
+                             <img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" class = "inactiveImage" title = "{$smarty.const._DIMDIMJOINMEETING}" alt = "{$smarty.const._DIMDIMJOINMEETING}" />
                             {elseif $meeting.status == "1" }
-                            	<a href = "{$meeting.joiningUrl}"  class = "editLink"><img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" title = "{$smarty.const._DIMDIMJOINMEETING}" alt = "{$smarty.const._DIMDIMJOINMEETING}" /></a>
-                           	{/if}
+                             <a href = "{$meeting.joiningUrl}" class = "editLink"><img border = "0" src = "{$T_DIMDIM_MODULE_BASELINK}images/server_client_exchange.png" title = "{$smarty.const._DIMDIMJOINMEETING}" alt = "{$smarty.const._DIMDIMJOINMEETING}" /></a>
+                            {/if}
                          {/if}
                     </td>
                 </tr>
@@ -282,7 +282,6 @@
         {/capture}
 
 
-        {eF_template_printBlock title=$smarty.const._DIMDIM_DIMDIMLIST data=$smarty.capture.t_dimdim_list_code absoluteImagePath=1  image=$T_DIMDIM_MODULE_BASELINK|cat:'images/dimdim32.png'}
+        {eF_template_printBlock title=$smarty.const._DIMDIM_DIMDIMLIST data=$smarty.capture.t_dimdim_list_code absoluteImagePath=1 image=$T_DIMDIM_MODULE_BASELINK|cat:'images/dimdim32.png'}
     {/if}
 {/if}
-

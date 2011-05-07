@@ -62,7 +62,7 @@ try {
     $t_offset = str_replace('//','/', $filesBaseUrl.$offset.'/');
     $t_offset = str_replace('//','/', $t_offset);
  $smarty -> assign("T_OFFSET", $t_offset);
-
+   $files = $folders = array();
     //for_type defines which kind of files we need.
     switch ($_GET['for_type']) {
         case 'image': $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('image')); break;
@@ -76,12 +76,16 @@ try {
     $directory != $rootDir ? $tree = $filesystem -> seekNode($directory['path']) : $tree = $filesystem -> tree;
     foreach (new EfrontDirectoryOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($tree, RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
         $value['image'] = $value -> getTypeImage();
-        $files[] = $value;
+        $folders[] = (array)$value;
     }
     foreach (new EfrontFileOnlyFilterIterator(new EfrontFileTypeFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($tree, RecursiveIteratorIterator :: SELF_FIRST)), $filter, $mode)) as $key => $value) {
         $value['image'] = $value -> getTypeImage();
-        $files[] = $value;
+        $files[] = (array)$value;
     }
+    //for sorting files
+ $folders = eF_multiSort($folders, 'name');
+ $files = eF_multiSort($files, 'name');
+ $files = array_merge((array)$folders, (array)$files);
 
     $smarty -> assign("T_FILES", $files);
 } catch (Exception $e) {

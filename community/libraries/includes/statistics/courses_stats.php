@@ -183,28 +183,25 @@ if (isset($_GET['excel'])) {
 
     $workSheet -> write(2, 1, _COURSE, $fieldLeftFormat);
     $workSheet -> write(2, 2, $infoCourse -> course['name'], $fieldRightFormat);
-    $workSheet -> write(3, 1, _DIRECTION, $fieldLeftFormat);
-    $workSheet -> write(3, 2, $basicInfo['direction'], $fieldRightFormat);
+    $workSheet -> write(3, 1, _CATEGORY, $fieldLeftFormat);
+    $workSheet -> write(3, 2, $infoCourse -> course['category_path'], $fieldRightFormat);
     $workSheet -> write(4, 1, _LESSONS, $fieldLeftFormat);
-    $workSheet -> writeNumber(4, 2, $basicInfo['lessons'], $fieldRightFormat);
-
+    $workSheet -> writeNumber(4, 2, $infoCourse -> course['num_lessons'], $fieldRightFormat);
     if ($groupname || $branchName) {
         $workSheet -> write(5, 1, _STUDENTS, $fieldLeftFormat);
-        $workSheet -> writeNumber(5, 2, sizeof($studentLogins), $fieldRightFormat);
+        $workSheet -> writeNumber(5, 2, $infoCourse -> course['users_per_role']['student'], $fieldRightFormat);
         $workSheet -> write(6, 1, _PROFESSORS, $fieldLeftFormat);
-        $workSheet -> writeNumber(6, 2, sizeof($professorLogins), $fieldRightFormat);
+        $workSheet -> writeNumber(6, 2, $infoCourse -> course['users_per_role']['professor'], $fieldRightFormat);
     } else {
         $workSheet -> write(5, 1, _STUDENTS, $fieldLeftFormat);
-        $workSheet -> writeNumber(5, 2, $basicInfo['students'], $fieldRightFormat);
+        $workSheet -> writeNumber(5, 2, $infoCourse -> course['users_per_role']['student'], $fieldRightFormat);
         $workSheet -> write(6, 1, _PROFESSORS, $fieldLeftFormat);
-        $workSheet -> write(6, 2, $basicInfo['professors'], $fieldRightFormat);
+        $workSheet -> write(6, 2, $infoCourse -> course['users_per_role']['professor'], $fieldRightFormat);
     }
-
     $workSheet -> write(7, 1, _PRICE, $fieldLeftFormat);
     $workSheet -> write(7, 2, $infoCourse -> course['price'].' '.$GLOBALS['CURRENCYNAMES'][$GLOBALS['configuration']['currency']], $fieldRightFormat);
     $workSheet -> write(8, 1, _LANGUAGE, $fieldLeftFormat);
-    $workSheet -> write(8, 2, $basicInfo['language'], $fieldRightFormat);
-
+    $workSheet -> write(8, 2, $infoCourse -> course['languages_NAME'], $fieldRightFormat);
 
     //course users info
     $workSheet -> write(1, 4, _USERSINFO, $headerFormat);

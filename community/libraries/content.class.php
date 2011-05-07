@@ -2069,11 +2069,13 @@ class EfrontContentTree extends EfrontTree
      */
     public function copyScorm($sid, $sourceUnit, $targetUnit){
         $newUnit = $this -> copySimpleUnit($sourceUnit, $targetUnit, false);
-        $data = eF_getTableData("scorm_data", "*", "id = ".$sid);
-        $scorm_array = $data[0];
-        unset($scorm_array['id']);
-        $scorm_array['content_ID'] = $newUnit -> offsetGet('id');
-        eF_insertTableData("scorm_data", $scorm_array);
+        if ($sid) {
+         $data = eF_getTableData("scorm_data", "*", "id = ".$sid);
+         $scorm_array = $data[0];
+         unset($scorm_array['id']);
+         $scorm_array['content_ID'] = $newUnit -> offsetGet('id');
+         eF_insertTableData("scorm_data", $scorm_array);
+        }
         return $newUnit;
     }
     public function fromXMLNode($node){

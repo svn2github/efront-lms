@@ -97,7 +97,7 @@ try {
                 }
             } elseif (strpos($file_insert['mime_type'] , "html") !== false) {
                 $html_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
-                echo '<iframe src="'.$html_return.'" frameborder="0" name="htmlFrame_'.urlencode($file_insert['id']).'" width="100%" height="100%"></iframe>';
+                echo '<iframe src="'.$html_return.'" frameborder="0" name="htmlFrame_'.urlencode($file_insert['id']).'" width="100%" height="500px"></iframe>';
             } elseif (strpos($file_insert['extension'] , "class") !== false) {
                 //$java_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
                 $codebase_return = mb_substr($file_insert['directory'], mb_strlen(G_ROOTPATH."www/"));

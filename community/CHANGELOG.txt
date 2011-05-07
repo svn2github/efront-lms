@@ -1,8 +1,14 @@
 === Version 3.6.9 build 10720 ===
 - Fixed lesson timeline requesting all events instead of the ones to show
 - Fixed group assignment in user's page
+- Fixed setDefaults about popup parameters in editing scorm content
 - Fixed setting "organization" to "hide" actually hiding links from users
 - Changed "name/surname" constants to "first name/last name"
+- Added code for sorting files in editor popup windows
+- Changed lesson selectbox to autocomplete field in copy from another lesson
+- Fixed basic info in course reports for excel exporting
+- Extended api to consider custom user profile fields for creating user
+- Fixed issue in getForumTree()(#1354)
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

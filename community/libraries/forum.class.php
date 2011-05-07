@@ -103,6 +103,7 @@ class f_forums extends EfrontEntity
             }
             $forums[$node['id']] = $node; //Copy node to forums, which will be used later as forums source
             unset($tempForums[$key]); //We visited the node, so delete it from the (array) graph
+         reset($tempForums); //Fixed issue in getForumTree()(#1354)
         }
         return $forumTree;
     }

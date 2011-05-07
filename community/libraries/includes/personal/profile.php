@@ -98,8 +98,9 @@ $form -> addElement('select', 'languages_NAME', _LANGUAGE, $languages);
 $form -> addElement("select", "timezone", _TIMEZONE, eF_getTimezones(), 'class = "inputText" style="width:20em"');
 if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
  $load_editor = true;
- $form -> addElement('textarea', 'short_description', _SHORTDESCRIPTIONCV, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:14em;"'); //The unit content itself
+ $form -> addElement('textarea', 'short_description', _SHORTDESCRIPTIONCV, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:14em;"');
 }
+$form -> addElement('textarea', 'comments', _COMMENTS, 'class = "inputContentTextarea" style = "width:100%;height:5em;"');
 
 $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 $form -> registerRule('checkNotExist', 'callback', 'eF_checkNotExist');
@@ -166,7 +167,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
          'timestamp' => time(),
         'password' => EfrontUser::createPassword($values['password_']),
         'user_types_ID' => $values['user_type'],
-        'short_description' => $values['short_description']);
+        'short_description' => $values['short_description'],
+        'comments' => $values['comments']);
   foreach ($userProfile as $field) { //Get the custom fields values
    if ($field['type'] == "date") {
     $timestampValues = $values[$field['name']];

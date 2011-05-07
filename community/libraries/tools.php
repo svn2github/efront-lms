@@ -2604,7 +2604,11 @@ function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $on
                   $toField => $recipient,
                   'Date' => date("r"));
     if ($bcc) {
-     $hdrs['To'] = 'noreply@'.$_SERVER["HTTP_HOST"];
+     if (substr($_SERVER["HTTP_HOST"], 0, 4) == "www.") {
+      $hdrs['To'] = 'noreply@'.substr($_SERVER["HTTP_HOST"], 4);
+     } else {
+      $hdrs['To'] = 'noreply@'.$_SERVER["HTTP_HOST"];
+     }
     }
     $params = array("text_charset" => "UTF-8",
                     "html_charset" => "UTF-8",

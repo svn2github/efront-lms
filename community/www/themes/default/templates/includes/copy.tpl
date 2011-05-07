@@ -4,7 +4,7 @@
  <tr><td class = "moduleCell">
      {capture name = 't_copy_content_code'}
          <table>
-             <tr><td class = "labelCell">{$smarty.const._SELECTLESSONTOCOPYFROM}:&nbsp;</td>
+<!-- <tr><td class = "labelCell">{$smarty.const._SELECTLESSONTOCOPYFROM}:&nbsp;</td>
                  <td class = "elementCell">
                  <select name = 'user_lessons' onchange = "document.location='{$smarty.server.PHP_SELF}?ctg=copy&from='+this.options[this.selectedIndex].value">
                      <option value = "0">{$smarty.const._SELECTLESSON}</option>
@@ -15,6 +15,19 @@
                  {/foreach}
                  </select>
              </td></tr>
+-->
+             <tr><td class = "labelCell">{$smarty.const._COPYPROPERTIESFROM}:</td>
+                    <td class = "elementCell">
+                     <input type = "hidden" id = "copy_properties"/>
+                        <input type = "text" id = "autocomplete_copy" class = "autoCompleteTextBox"/>
+                        <img id = "busy_copy" src = "images/16x16/clock.png" style="display:none;" alt = "{$smarty.const._LOADING}" title = "{$smarty.const._LOADING}"/>
+                        <div id = "autocomplete_lessons_copy" class = "autocomplete"></div>&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+
+
+
+
          </table>
    <br/>
         {if $smarty.get.from}

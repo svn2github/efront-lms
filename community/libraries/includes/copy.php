@@ -15,20 +15,35 @@ if (!$_change_) {
     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
     exit;
 }
+$loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/copy';
 try {
     //Get the user's lessons list, so that he can pick a lesson to copy from
-    $lessons = $currentUser -> getLessons(true);
+   // changed to autocomplete field
+/*    $lessons = $currentUser -> getLessons(true);
 
     unset($lessons[$currentLesson -> lesson['id']]);
+
     $direction_lessons = array();
+
     foreach ($lessons as $lesson){
-        $direction = $lesson -> getDirection();
+
+        $direction = $lesson -> getDirection();   
+
         $direction_lessons[$direction['name']][] = array('id' => $lesson -> lesson['id'], 'name' => $lesson -> lesson['name']);
+
     }
+
+    
+
     $smarty -> assign("T_USER_LESSONS", $direction_lessons);
 
+ */
     if (isset($_GET['from']) && in_array($_GET['from'], array_keys($userLessons))) {
+     if ($_GET['from'] == $_SESSION['s_lessons_ID']) {
+         $message = _YOUCANNOTCOPYFROMTHESAMELESSON;
+      eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=copy&message=".urlencode($message)."&message_type=failure");
+     }
         //We asked to copy the glossary
         if (isset($_GET['entity']) && $_GET['entity'] == 'glossary') {
             try {
@@ -52,7 +67,6 @@ try {
                  unset($result[$key]['content_ID']);
                  unset($result[$key]['id']);
              }
-
              eF_insertTableDataMultiple("questions", $result);
              glossary :: clearDuplicates($currentLesson);
             } catch (Exception $e) {
@@ -93,7 +107,6 @@ try {
             $sourceContent = new EfrontContentTree($_GET['from'], true);
             $sourceIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sourceContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
             $smarty -> assign("T_SOURCE_TREE", $sourceContent -> toHTML($sourceIterator, 'dhtmlSourceTree', array('noclick' => true, 'drag' => true, 'expand' => true)));
-
             $currentIds[] = 0; //0 is a valid parent node
             foreach ($iterator as $key => $value) {
                 $currentIds[] = $value['id'];
@@ -101,7 +114,6 @@ try {
             foreach ($sourceIterator as $key => $value) {
                 $sourceIds[] = $value['id'];
             }
-
             try {
                 if (isset($_GET['node_orders'])) { //Save new order through AJAX call
                     $nodeOrders = explode(",", $_GET['node_orders']);
@@ -112,7 +124,6 @@ try {
                     if ($_GET['transfered']) {
                         $transferedNodesCheck = unserialize($_GET['transfered']);
                     }
-
                     $copiedTests = array();
                     $copiedUnits = array();
                     foreach ($nodeOrders as $value) {
@@ -130,10 +141,8 @@ try {
                             $previousContentId = $id;
                         }
                     }
-
                     Question :: clearDuplicates($currentLesson);
                     glossary :: clearDuplicates($currentLesson);
-
                     if (isset($errorMessages) && $errorMessages) {
                         header("HTTP/1.0 500 ");
                         echo _ERRORSAVINGTREE."\n".implode("\n", $errorMessages);

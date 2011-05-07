@@ -19,7 +19,7 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=create_lesson&name=<name>&category=<category_id>&course_only=<course_only>&language=<language>&price=<price>	creates a new lesson with corresponding fields
 
-/api2.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname> 	creates a new user with corresponding fields
+/api2.php?token=<token>&action=create_user&login=<login>&password=<password>&email=<email>&languages=<languages>&name=<name>&surname<surname>&custom_field_name=<custom_field_value> creates a new user with corresponding fields
 
 /api2.php?token=<token>&action=update_user&login=<login>&password=<password>&email=<email>&name=<name>&surname<surname> 	updates a user profile with corresponding fields
 
@@ -328,6 +328,20 @@ In case of error it returns also a message entity with description of the error 
                             $insert['name'] = $_GET['name'];
                             $insert['surname'] = $_GET['surname'];
        $insert['active'] = 1; // Added makriria
+       //Added lines for setting also custom profile fields
+                            $userProfile = eF_getTableData("user_profile", "*", "active=1");
+       foreach ($userProfile as $value) {
+        if (isset($_GET[$value['name']]) && eF_checkParameter($_GET[$value['name']], 'text') !== false) {
+         if ($value['type'] == "select" && in_array($_GET[$value['name']], unserialize($value['options'])) === false) {
+          echo "<xml>";
+          echo "<status>error</status>";
+          echo "<message>Invalid value for ".$_GET[$value['name']]."</message>";
+          echo "</xml>";
+          exit;
+         }
+         $insert[$value['name']] = $_GET[$value['name']];
+        }
+       }
        $languages = EfrontSystem :: getLanguages(true, true);
        if ($_GET['languages'] != "" && in_array($_GET['languages'], array_keys($languages)) === false) {
         echo "<xml>";

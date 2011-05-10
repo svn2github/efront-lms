@@ -2287,6 +2287,8 @@ class EfrontCourse
     $checkLessons = $courseLessons;
    } else {
     foreach ($courseLessons as $key => $value) {
+     $checkLessons[$key]->lesson['start_date'] = $value->lesson['start_date'];
+     $checkLessons[$key]->lesson['end_date'] = $value->lesson['end_date'];
      $temp[$key] = $checkLessons[$key]; //bring them in the correct order
     }
     $checkLessons = $temp;
@@ -2399,8 +2401,9 @@ class EfrontCourse
   $courseString .= '
                                 </td></tr>';
   if (sizeof($eligible) > 0) {
+   //changed from subtree_course to subcoursetree because of #1332	
    $courseString .= '
-                            <tr id = "subtree_course'.$this -> course['id'].'" name = "default_visible" '.$display_lessons.'>
+                            <tr id = "subcoursetree'.$this -> course['id'].'" name = "default_visible" '.$display_lessons.'>
                                 <td colspan = "2">
                                  <table>';
    foreach ($eligible as $lessonId => $lesson) {

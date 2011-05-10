@@ -144,6 +144,7 @@ class EfrontConfiguration
   'disable_surveys' => '0',
   'disable_news' => '0',
   'disable_messages' => '0',
+     'disable_messages_student'=> '0',
   'disable_forum' => '0',
   'disable_tests' => '0',
   'disable_tooltip' => '0',

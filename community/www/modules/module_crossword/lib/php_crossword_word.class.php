@@ -86,7 +86,7 @@ class PHP_Crossword_Word
     {
         $axis = $this->getCrossAxis();
         $cells = array();
-        for ($i = 0; $i < strlen($this->word); $i++)
+        for ($i = 0; $i < mb_strlen($this->word); $i++)
          if ($this->cells[$i]->canCross($axis))
              $cells[] =& $this->cells[$i];
         if (!count($cells) )

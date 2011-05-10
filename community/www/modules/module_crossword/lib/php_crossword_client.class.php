@@ -335,7 +335,7 @@ class PHPCrosswordClient
    $t =& $ty;
   }
 
-        for ($i=0; $i<strlen($item['WORD']); $i++)
+        for ($i=0; $i<mb_strlen($item['WORD']); $i++)
         {
          $this->_letters[$tx][$ty] = $item['WORD'][$i];
          $t++;

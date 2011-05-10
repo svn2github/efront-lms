@@ -4076,4 +4076,5 @@ define("_TESTPASSWORD", "Συνθηματικό αξιολόγησης");
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Λυπούμαστε αλλά δεν έχετε πρόσβαση σε αυτό το τμήμα");
 define("_SHOWCOMPLETEORGCHART", "Προβολή πλήρους ιεραρχίας εταιρείας στους χρήστες");
 define("_YOUCANNOTCOPYFROMTHESAMELESSON","Δεν μπορείτε να αντιγράψεται υλικό από το ίδιο μάθημα");
+define("_MESSAGESSTUDENTS","Μηνύματα από μαθητές");
 ?>

@@ -4076,4 +4076,5 @@ define("_TESTPASSWORD", "Test password");
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Sorry, you do not have access to this branch");
 define("_SHOWCOMPLETEORGCHART", "Show full organization chart to users");
 define("_YOUCANNOTCOPYFROMTHESAMELESSON","You can not copy from the same lesson");
+define("_MESSAGESSTUDENTS","Messages from students");
 ?>

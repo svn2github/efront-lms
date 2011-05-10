@@ -20,5 +20,22 @@ define("_CROSSWORD_SUCCESSFULLY","Options were successfully saved");
 define("_CROSSWORD_GAME_SUCCESSFULLY","Crossword completed successfully");
 define("_CROSSWORD_TIMES","times");
 define("_CROSSWORD_TIME","Time");
-
+define("_CROSSWORD_ACROSS","Across");
+define("_CROSSWORD_DOWN","Down");
+define("_CROSSWORD_GAMESTARTED","Game Started");
+define("_CROSSWORD_CHECK","Check");
+define("_CROSSWORD_CHECKDISABLED","Check Disabled");
+define("_CROSSWORD_CHECKALL","Check all");
+define("_CROSSWORD_CHECKED","Checked");
+define("_CROSSWORD_MATCHED","matched");
+define("_CROSSWORD_REVEAL","Reveal");
+define("_CROSSWORD_REVEALED","Revealed");
+define("_CROSSWORD_ACROSSFIRSTLETTER","A");
+define("_CROSSWORD_DOWNFIRSTLETTER","D");
+define("_CROSSWORD_NOCOMPLETEWORDSFOUND","No complete words found");
+define("_CROSSWORD_HAVENOTSUFFICIENTPOINTS","You have not won sufficient points");
+define("_CROSSWORD_THEWORD","The word");
+define("_CROSSWORD_ISINCOMPLETE","is incomplete");
+define("_CROSSWORD_DIDNOTMATCH","did nοt match");
+define("_CROSSWORD_UNABLEGENERATECROSSWORD","SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS");
 ?>

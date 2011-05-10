@@ -20,5 +20,6 @@ $pc->setGroupID($groupid);
 $pc->setMaxWords($max_words);
 
 // just support for Lithuanian charset
-$charset = $pc->groupid == 'lt' ? 'ISO-8859-13' : 'ISO-8859-1';
+//$charset = $pc->groupid == 'lt' ? 'ISO-8859-13' : 'UTF-8';
+$charset = 'UTF-8';
 ?>

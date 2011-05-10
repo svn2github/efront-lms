@@ -393,7 +393,7 @@ try {
             if ($currentUser -> coreAccess['statistics'] != 'hidden') {
                 $controlPanelOptions[14] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=lesson");
             }
-            if ($currentUser -> coreAccess['settings'] != 'hidden') {
+            if ($currentUser -> coreAccess['settings'] != 'hidden' && $currentLesson -> lesson['course_only'] != 1) {
                 $controlPanelOptions[13] = array('text' => _SCHEDULING, 'image' => "32x32/schedule.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=scheduling");
             }
             if ($currentUser -> coreAccess['files'] != 'hidden') {

@@ -156,6 +156,29 @@
 {eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_list_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1}
 {/if}
 {elseif $smarty.session.s_type == "student"}
+<script>
+var translationgamestarted = '{$smarty.const._CROSSWORD_GAMESTARTED}';
+var translationscore = '{$smarty.const._SCORE}';
+var translationstatus = '{$smarty.const._STATUS}';
+var translationacross = '{$smarty.const._CROSSWORD_ACROSS}';
+var translationdown = '{$smarty.const._CROSSWORD_DOWN}';
+var translationtime = '{$smarty.const._CROSSWORD_TIME}';
+var translationcheck = '{$smarty.const._CROSSWORD_CHECK}';
+var translationcheckdisabled = '{$smarty.const._CROSSWORD_CHECKDISABLED}';
+var translationcheckall = '{$smarty.const._CROSSWORD_CHECKALL}';
+var translationchecked = '{$smarty.const._CROSSWORD_CHECKED}';
+var translationmatched = '{$smarty.const._CROSSWORD_MATCHED}';
+var translationreveal = '{$smarty.const._CROSSWORD_REVEAL}';
+var translationrevealed = '{$smarty.const._CROSSWORD_REVEALED}';
+var translationacrossfirstletter = '{$smarty.const._CROSSWORD_ACROSSFIRSTLETTER}';
+var translationdownfirstletter = '{$smarty.const._CROSSWORD_DOWNFIRSTLETTER}';
+var translationnocompletewordsfound = '{$smarty.const._CROSSWORD_NOCOMPLETEWORDSFOUND}';
+var translationsubmit = '{$smarty.const._SUBMIT}';
+var translationhavenotpoints = '{$smarty.const._CROSSWORD_HAVENOTSUFFICIENTPOINTS}';
+var translationword = '{$smarty.const._CROSSWORD_THEWORD}';
+var translationincomplete = '{$smarty.const._CROSSWORD_ISINCOMPLETE}';
+var translationdidnotmatch = '{$smarty.const._CROSSWORD_DIDNOTMATCH}';
+</script>
  {if $smarty.get.finish == 1}
 
  {elseif isset($smarty.get.view_list)}

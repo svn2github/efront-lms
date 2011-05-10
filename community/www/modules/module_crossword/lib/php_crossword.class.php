@@ -153,7 +153,7 @@ class PHP_Crossword
    // try to find other words and place them
             $this->__autoGenerate();
             //dump($this->grid->countWords());
-   // if we have enough words - 
+   // if we have enough words - 	
             if ($this->grid->countWords() == $this->max_words)
    {
     $this->_items = $this->__getItems();
@@ -162,7 +162,7 @@ class PHP_Crossword
         }
   if ($this->_debug)
             echo "ERROR: unable to generate {$this->max_words} words crossword (tried {$this->_full_tries} times)";
-  return FALSE;
+        return FALSE;
     }
  /**
 
@@ -222,7 +222,7 @@ class PHP_Crossword
   $value = "";
             $items[] = array(
     "word" => $w->word,
-             "wordlength" => strlen($w->word),
+             "wordlength" => mb_strlen($w->word),
     "question" => $this->getQuestion($w->word),
     "x" => $w->getStartX() + 1,
     "y" => $w->getStartY() + 1,
@@ -263,6 +263,7 @@ class PHP_Crossword
             $this->_tries++;
             // dump( "Words: " . $this->grid->countWords() . ", Tries: $this->_tries" );
             $w =& $this->grid->getRandomWord();
+//pr($w);
             if ($w == PC_WORDS_FULLY_CROSSED)
             {
                 // echo "NOTE: All words fully crossed...";
@@ -270,6 +271,7 @@ class PHP_Crossword
             }
             $axis = $w->getCrossAxis();
             $cells =& $w->getCrossableCells();
+//pr($cells);
             // dump( "TRYING WORD: ".$w->word );
             while (count($cells))
             {
@@ -278,8 +280,11 @@ class PHP_Crossword
                 //dump( "TRYING CELL: [$cell->x/$cell->y]:". $cell->letter );
                 //dump( "COUNT CELLS: ". count($cells) );
                 $list =& $this->__getWordWithStart($cell, $axis);
+      //pr($this);exit;	           
                 $word = $list[0];
                 $start =& $list[1];
+//pr($word);
+//pr($start);exit;
                 if ($start)
                 {
                     $this->grid->placeWord($word, $start->x, $start->y, $axis);
@@ -290,6 +295,7 @@ class PHP_Crossword
                 unset($cells[$n]);
             }
         }
+    //exit;
     }
  /**
 
@@ -359,11 +365,11 @@ class PHP_Crossword
             $s = $cell->y - $start->y;
             $e = $end->y - $cell->y;
         }
-        $l = strlen($word);
+        $l = mb_strlen($word);
         do
         {
             $offset = isset($pos) ? $pos+1 : 0;
-            $pos = strpos($word, $cell->letter, $offset);
+            $pos = mb_strpos($word, $cell->letter, $offset);
             $a = $l-$pos-1;
             if ($pos <= $s && $a <= $e)
             {
@@ -396,7 +402,7 @@ class PHP_Crossword
         $this->_match_line = $this->__getMatchLine($cell, $start, $end, $axis);
         $match = $this->__getMatchLike($this->_match_line);
         $min = $this->__getMatchMin($this->_match_line);
-        $max = strlen($this->_match_line);
+        $max = mb_strlen($this->_match_line);
         $regexp = $this->__getMatchRegexp($this->_match_line);
         $rs = $this->__loadWords($match, $min, $max);
         return $this->__pickWord($rs, $regexp);
@@ -489,7 +495,7 @@ class PHP_Crossword
     {
         $str = preg_replace("/^_+/", "", $str, 1);
         $str = preg_replace("/_+$/", "", $str, 1);
-        return strlen($str);
+        return mb_strlen($str);
     }
  /**
 
@@ -521,9 +527,9 @@ class PHP_Crossword
 	 */
     function __getMatchRegexp($str)
     {
-        $str = preg_replace("/^_*/e", "'^.{0,'.strlen('\\0').'}'", $str, 1);
-        $str = preg_replace("/_*$/e", "'.{0,'.strlen('\\0').'}$'", $str, 1);
-        $str = preg_replace("/_+/e", "'.{'.strlen('\\0').'}'", $str);
+        $str = preg_replace("/^_*/e", "'^.{0,'.mb_strlen('\\0').'}'", $str, 1);
+        $str = preg_replace("/_*$/e", "'.{0,'.mb_strlen('\\0').'}$'", $str, 1);
+        $str = preg_replace("/_+/e", "'.{'.mb_strlen('\\0').'}'", $str);
         return $str;
     }
  /**
@@ -813,6 +819,7 @@ class PHP_Crossword
 	 */
  function generateFromWords($words_list)
  {
+ //	pr($this);exit;
 // save current settings
   $_tmp_groupid = $this->groupid;
   $_max_words = $this->max_words;

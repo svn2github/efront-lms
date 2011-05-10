@@ -1,4 +1,4 @@
-=== Version 3.6.9 build 10720 ===
+=== Version 3.6.9 build ===
 - Fixed lesson timeline requesting all events instead of the ones to show
 - Fixed group assignment in user's page
 - Fixed setDefaults about popup parameters in editing scorm content
@@ -9,6 +9,13 @@
 - Fixed basic info in course reports for excel exporting
 - Extended api to consider custom user profile fields for creating user
 - Fixed issue in getForumTree()(#1354)
+- Added comments field to user's profile page
+- Added option for allowing students to send messages
+- Fixed issue in external survey about background color
+- Fixed issue when exporting reports not taking into account the sub-branches checkbox
+- Fixed issue about expanding a category after collapsing all in catalog (#1332)
+- Fixed issue about not talking into account course lessons scheduling in catalog
+- Removed scheduling icon in control panel for course lessons
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

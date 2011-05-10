@@ -191,13 +191,15 @@
       <img class = "handle" src = "images/16x16/navigate_left.png" title = "&laquo; {$smarty.const._PREVIOUS}" alt = "&laquo; {$smarty.const._PREVIOUS}" /></a>
     {/if}
     {if $_change_}
-     <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1" title = "{$smarty.const._NEWMESSAGE}">
-      <img class = "handle" src = "images/16x16/add.png" title = "{$smarty.const._NEWMESSAGE}" alt = "{$smarty.const._NEWMESSAGE}" /></a>
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1&reply={$T_PERSONALMESSAGE.id}" title = "{$smarty.const._REPLY}">
-                     <img class = "handle" src = "images/16x16/mail.png" title = "{$smarty.const._REPLY}" alt = "{$smarty.const._REPLY}" ></a>
-                    <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1&forward={$T_PERSONALMESSAGE.id}" title = "{$smarty.const._FORWARD}">
-                     <img class = "handle" src = "images/16x16/arrow_right.png" title = "{$smarty.const._FORWARD}" alt = "{$smarty.const._FORWARD}" ></a>
-                {/if}
+     {if $smarty.session.s_type != 'student' || $T_CONFIGURATION.disable_messages_student == 0}
+      <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1" title = "{$smarty.const._NEWMESSAGE}">
+       <img class = "handle" src = "images/16x16/add.png" title = "{$smarty.const._NEWMESSAGE}" alt = "{$smarty.const._NEWMESSAGE}" /></a>
+                     <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1&reply={$T_PERSONALMESSAGE.id}" title = "{$smarty.const._REPLY}">
+                      <img class = "handle" src = "images/16x16/mail.png" title = "{$smarty.const._REPLY}" alt = "{$smarty.const._REPLY}" ></a>
+                     <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1&forward={$T_PERSONALMESSAGE.id}" title = "{$smarty.const._FORWARD}">
+                      <img class = "handle" src = "images/16x16/arrow_right.png" title = "{$smarty.const._FORWARD}" alt = "{$smarty.const._FORWARD}" ></a>
+                 {/if}
+    {/if}
                     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSURETODELETEMESSAGE}')) deleteMessage(this, '{$T_PERSONALMESSAGE.id}');">
                     <img class = "ajaxHandle" src = "images/16x16/file_explorer.png" title = "{$smarty.const._MOVETOFOLDER}" alt = "{$smarty.const._MOVETOFOLDER}" onclick = "moveMessage(this, '{$T_PERSONALMESSAGE.id}')"/>
                     <select id = "target_message_folder">{$folders_options}</select>
@@ -217,10 +219,12 @@
   {capture name = "t_messages_code"}
    <div class = "headerTools">
     {if $_change_}
+     {if $smarty.session.s_type != 'student' || $T_CONFIGURATION.disable_messages_student == 0}
      <span>
       <img src = "images/16x16/add.png" title = "{$smarty.const._NEWMESSAGE}" alt = "{$smarty.const._NEWMESSAGE}" />
       <a href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1" title = "{$smarty.const._NEWMESSAGE}">{$smarty.const._NEWMESSAGE}</a>
      </span>
+     {/if}
     {/if}
    </div>
 <!--ajax:messagesTable-->

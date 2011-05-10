@@ -133,22 +133,28 @@ class PHP_Crossword_Grid
    $c =& $cy;
   }
   // dump( "PLACING WORD: $cx x $cy - {$w->word}" );
-  for ($i = 0; $i < strlen($word); $i++)
+//pr($word);		
+//pr($s);
+//pr(mb_strlen($word));
+  for ($i = 0; $i < mb_strlen($word); $i++)
   {
    $c = $s + $i;
    $cell =& $this->cells[$cx][$cy];
-   $cell->setLetter($w->word[$i], $axis, $this);
+$one_letter = mb_substr($w->word, $i, 1);
+   $cell->setLetter($one_letter, $axis, $this);
    $w->cells[$i] =& $cell;
   }
+//pr($this);exit;
   // disable cell before first cell
   $c = $s - 1;
   if ($c >= 0 )
   $this->cells[$cx][$cy]->setCanCross(PC_AXIS_BOTH, FALSE);
   $this->cells[$cx][$cy]->number = $w->inum; // sandy addition
   // disable cell after first cell
-  $c = $s + strlen($word);
+  $c = $s + mb_strlen($word);
   if (is_object($this->cells[$cx][$cy]))
   $this->cells[$cx][$cy]->setCanCross(PC_AXIS_BOTH, FALSE);
+
  }
 
  /**
@@ -168,7 +174,7 @@ class PHP_Crossword_Grid
 	 */
  function canPlaceWord($word, $x, $y, $axis)
  {
-  for ($i = 0; $i < strlen($word); $i++)
+  for ($i = 0; $i < mb_strlen($word); $i++)
   {
    if ($axis == PC_AXIS_H )
    $cell =& $this->cells[$x+$i][$y];
@@ -179,7 +185,8 @@ class PHP_Crossword_Grid
     echo "ERROR!!! Word: $word, x=$x, y=$y, axis=$axis";
     echo $this->getHTML(1);
    }
-   if (!$cell->canSetLetter($word[$i], $axis))
+$one_letter = mb_substr($word, $i, 1);
+   if (!$cell->canSetLetter($one_letter, $axis))
    return FALSE;
   }
   return TRUE;
@@ -221,7 +228,7 @@ class PHP_Crossword_Grid
  {
   $n = $axis == PC_AXIS_H ? $this->cols : $this->rows;
   if (!is_null($word))
-  $length = strlen($word);
+  $length = mb_strlen($word);
   if ($n == $length) return 0;
   return rand(0, $n-$length-1);
  }
@@ -239,7 +246,7 @@ class PHP_Crossword_Grid
  function getCenterPos($axis, $word = '')
  {
   $n = $axis == PC_AXIS_H ? $this->cols : $this->rows;
-  $n-= strlen($word);
+  $n-= mb_strlen($word);
   $n = floor($n / 2);
   return $n;
  }
@@ -374,7 +381,6 @@ class PHP_Crossword_Grid
      } else {
       $letter="&nbsp;";
      }
-
      $html.= "<td bgcolor='{$color}' class='{$class}$cellflag'>$letter</td>";
 
     }

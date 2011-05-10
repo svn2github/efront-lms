@@ -1,4 +1,4 @@
-{include  file = "includes/header.tpl"}
+{include file = "includes/header.tpl"}
         {if ( $T_ACCESS == '-1')}
             {eF_template_printMessage message=$smarty.const._YOUCANTDOTHESURVEYCONTACTLESSONPROFESSOR type='failure'}
         {else}
@@ -28,6 +28,7 @@
           {/if}
           {if ($T_SCREEN == '2')}
             {assign var = "title" value = '<a class="titleLink" href ="#">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo&nbsp;<a class="titleLink" href="#">'|cat:$T_SURVEYNAME|cat:'</a>'}
+    {capture name = "t_survey_code"}
                     <center>
                     <table width="98%" border="0px">
                     <tr><td colspan="2" class="externalSurvey">{$smarty.const._SURVEY}</td></tr>
@@ -40,17 +41,22 @@
                     <tr><td colspan="2">&nbsp;</td></tr>
                     </table>
                     {eF_template_printSurvey questions=$T_SURVEY_QUESTIONS intro=$T_SURVEY_STARTTEXT user_type='external' coupon=$smarty.get.coupon username=$smarty.get.username surveys_ID=$smarty.get.surveys_ID}
+    {/capture}
+    {eF_template_printBlock title = $smarty.const._SURVEY data = $smarty.capture.t_survey_code image = '32x32/survey.png'}
          {/if}
          {if ($T_SCREEN == '3')}
             {assign var = "title" value = '<a class="titleLink" href ="#">'|cat:$smarty.const._SURVEY|cat:'</a>&nbsp;&raquo&nbsp;<a class="titleLink" href="#">'|cat:$T_SURVEYNAME|cat:'</a>'}
                 {eF_template_printMessage message=$smarty.const._SURVEYSUBMISSIONSUCCESSFUL type='success'}
-                <table align="center" widht="100%">    
-                    {section name='survey_screen_3' loop=$T_SURVEY_INFO}
-                        <tr>
-                            <td class="externalSurve" align="center">{$T_SURVEY_INFO[survey_screen_3].end_text}</td>
-                        </tr>   
-                    {/section}
-                </table>
+                {capture name = "t_survey_code_3"}
+                 <table align="center" widht="100%">
+                     {section name='survey_screen_3' loop=$T_SURVEY_INFO}
+                         <tr>
+                             <td class="externalSurve" align="center">{$T_SURVEY_INFO[survey_screen_3].end_text}</td>
+                         </tr>
+                     {/section}
+                 </table>
+                {/capture}
+             {eF_template_printBlock title = $smarty.const._SURVEY data = $smarty.capture.t_survey_code_3 image = '32x32/survey.png'}
           {/if}
         {/if}
     </body>

@@ -112,7 +112,7 @@ try {
      }
         exit;
     } elseif (isset($_GET['add'])) {
-  if (!$_change_) {
+  if (!$_change_ || ($GLOBALS['configuration']['disable_messages_student'] == 1 && $_SESSION['s_type'] == "student")) {
    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=messages&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
    exit;
   }

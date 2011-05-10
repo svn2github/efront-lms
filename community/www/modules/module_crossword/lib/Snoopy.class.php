@@ -685,13 +685,13 @@ t
        chr(176),
        chr(39),
        chr(128),
-       "ä",
-       "ö",
-       "ü",
-       "Ä",
-       "Ö",
-       "Ü",
-       "ß",
+       "Î´",
+       "Ï†",
+       "ÏŒ",
+       "Î”",
+       "Î¦",
+       "Î¬",
+       "Î¯",
       );
 
   $text = preg_replace($search,$replace,$document);
@@ -770,7 +770,7 @@ t
     foreach ( $this->cookies as $cookieKey => $cookieVal ) {
     $cookie_headers .= $cookieKey."=".urlencode($cookieVal)."; ";
     }
-    $headers .= substr($cookie_headers,0,-2) . "\r\n";
+    $headers .= mb_substr($cookie_headers,0,-2) . "\r\n";
    }
   }
   if(!empty($this->rawheaders))
@@ -787,7 +787,7 @@ t
    $headers .= "\r\n";
   }
   if(!empty($body))
-   $headers .= "Content-length: ".strlen($body)."\r\n";
+   $headers .= "Content-length: ".mb_strlen($body)."\r\n";
   if(!empty($this->user) || !empty($this->pass))
    $headers .= "Authorization: Basic ".base64_encode($this->user.":".$this->pass)."\r\n";
 
@@ -798,7 +798,7 @@ t
    socket_set_timeout($fp, $this->read_timeout);
   $this->timed_out = false;
 
-  fwrite($fp,$headers.$body,strlen($headers.$body));
+  fwrite($fp,$headers.$body,mb_strlen($headers.$body));
 
   $this->_redirectaddr = false;
   unset($this->headers);
@@ -849,7 +849,7 @@ t
   $results = '';
   do {
       $_data = fread($fp, $this->maxlength);
-      if (strlen($_data) == 0) {
+      if (mb_strlen($_data) == 0) {
           break;
       }
       $results .= $_data;
@@ -925,7 +925,7 @@ t
     foreach ( $this->cookies as $cookieKey => $cookieVal ) {
     $cookie_str .= $cookieKey."=".urlencode($cookieVal)."; ";
     }
-    $headers[] = substr($cookie_str,0,-2);
+    $headers[] = mb_substr($cookie_str,0,-2);
    }
   }
   if(!empty($this->rawheaders))
@@ -942,7 +942,7 @@ t
     $headers[] = "Content-type: $content_type";
   }
   if(!empty($body))
-   $headers[] = "Content-length: ".strlen($body);
+   $headers[] = "Content-length: ".mb_strlen($body);
   if(!empty($this->user) || !empty($this->pass))
    $headers[] = "Authorization: BASIC ".base64_encode($this->user.":".$this->pass);
 

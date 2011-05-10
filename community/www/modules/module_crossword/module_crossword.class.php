@@ -54,7 +54,7 @@ class module_crossword extends EfrontModule {
 
     $form -> addElement('advcheckbox', 'reveal_answer',_CROSSWORD_SHOWANSWERFIRST, null, 'class = "inputCheckbox"', array(0, 1));
     $form -> addElement('advcheckbox', 'save_pdf', _CROSSWORD_SAVEPDF, null, 'class = "inputCheckbox"', array(0, 1));
-    $form -> addElement('submit', 'submit_options', _SAVECHANGES,'onclick ="return optionSubmit();"', 'class = "flatButton"'); //The submit content button
+    $form -> addElement('submit', 'submit_options', _SAVECHANGES,'onclick ="return optionSubmit();" class = "flatButton"'); //The submit content button
 
     $options = unserialize($res[0]['options']);
 
@@ -268,7 +268,7 @@ class module_crossword extends EfrontModule {
      }
      $message_type = 'success';
      $message = _CROSSWORD_GAME_SUCCESSFULLY;
-     eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
+     eF_redirect($this -> moduleBaseUrl."&message=".urlencode($message)."&message_type=".$message_type);
     }
     $contentid = $_GET['view_list'];
     $res = eF_getTableData("module_crossword_words", "crosslists,options", "content_ID=".$_GET['view_list']);
@@ -283,7 +283,7 @@ class module_crossword extends EfrontModule {
     foreach($reswords as $rowques){
      $rowquesans .= $rowques.",";
     }
-    $quesids = substr($rowquesans,0,-1);
+    $quesids = mb_substr($rowquesans,0,-1);
     $quesans = eF_getTableData("questions","text,answer","id IN($quesids) order by rand() limit $maxwords1");
     $value = array();
     foreach($quesans as $row){
@@ -292,11 +292,12 @@ class module_crossword extends EfrontModule {
      $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
     }
     if(!empty($value)){
+   //pr($value);exit;	
      $success = $pc->generateFromWords($value);
      if(!$success){
       $message_type = 'failure';
-      $message = 'SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS';
-      eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
+      $message = _CROSSWORD_UNABLEGENERATECROSSWORD;
+      eF_redirect($this -> moduleBaseUrl."&message=".urlencode($message)."&message_type=".$message_type);
      }else{
       $words = $pc->getWords();
       $wordlen = "";
@@ -332,12 +333,13 @@ class module_crossword extends EfrontModule {
     $maxwords = unserialize($res[0]['options']);
     $maxwords1 = $maxwords['max_word'];
     $_SESSION['CROSSWORD_MAXWORD']=$maxwords1;
+
     require_once('init.php');
     $rowquesans = "";
     foreach($reswords as $rowques){
      $rowquesans .= $rowques.",";
     }
-    $quesids = substr($rowquesans,0,-1);
+    $quesids = mb_substr($rowquesans,0,-1);
     $quesans = eF_getTableData("questions","text,answer","id IN($quesids) order by rand() limit $maxwords1");
     $value = array();
     foreach($quesans as $row){
@@ -346,10 +348,11 @@ class module_crossword extends EfrontModule {
      $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
     }
     $success = $pc->generateFromWords($value);
+
     if(!$success){
      $message_type = 'failure';
-     $message = 'SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS';
-     eF_redirect($this -> moduleBaseUrl."&message=".$message."&message_type=".$message_type);
+     $message = _CROSSWORD_UNABLEGENERATECROSSWORD;
+     eF_redirect($this -> moduleBaseUrl."&message=".urlencode($message)."&message_type=".$message_type);
     }else{
      $currentlesson = $reslesson[0]['name'];
 
@@ -360,8 +363,8 @@ class module_crossword extends EfrontModule {
      $html2 = array();
      $html1[] = $currentlesson;
      $html1[] .= $resunit[0]['name'];
-     $html1[] .= "Across";
-     $html2[] = "Down";
+     $html1[] .= _CROSSWORD_ACROSS;
+     $html2[] = _CROSSWORD_DOWN;
      $k=1;
      foreach($words as $row){
       if($row['axis']==1){
@@ -376,7 +379,7 @@ class module_crossword extends EfrontModule {
 
 
      $dd = $pc->getHTML($answor);
-
+     exit;
     }
 
    }
@@ -453,9 +456,9 @@ class module_crossword extends EfrontModule {
 
   eF_executeNew("drop table if exists words");
   $res3 = eF_executeNew("CREATE TABLE IF NOT EXISTS `words` (
-    `groupid` varchar(10) collate latin1_general_ci NOT NULL default '''lt''',
-    `word` varchar(20) collate latin1_general_ci NOT NULL default '',
-    `question` text collate latin1_general_ci NOT NULL default '',
+    `groupid` varchar(10) collate utf8_general_ci NOT NULL default '''lt''',
+    `word` varchar(20) collate utf8_general_ci NOT NULL default '',
+    `question` text collate utf8_general_ci NOT NULL default '',
     PRIMARY KEY (`word`,`groupid`),
     KEY `groupid` (`groupid`),
     FULLTEXT KEY `word_3` (`word`)

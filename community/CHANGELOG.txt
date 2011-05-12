@@ -16,6 +16,13 @@
 - Fixed issue about expanding a category after collapsing all in catalog (#1332)
 - Fixed issue about not talking into account course lessons scheduling in catalog
 - Removed scheduling icon in control panel for course lessons
+- Added check in landing page in case of inactive module
+- Fixed module chat for different user timezones
+- Course lessons in unique mode can now be edited even if inactive
+- Fixed publish page of surveys not taking into account archived users
+- Added a check for possible existing token in api2
+- Added option for deleting old api tokens (over one month) in maintenance
+- Fixed email account activation not working
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

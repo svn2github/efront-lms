@@ -71,13 +71,15 @@ function chatHeartbeat() {
 
 
  if (!$_SESSION['last_msg']){
-  $my_t=getdate();
-  $_SESSION['last_msg'] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+  //$my_t=getdate();
+  //$_SESSION['last_msg'] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+  $_SESSION['last_msg'] = date("Y-m-d H:i:s", time()-date("Z")); //fix for timezone differences
  }
 
  if (!$_SESSION['last_lesson_msg']){
-  $my_t=getdate();
-  $_SESSION['last_lesson_msg'] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+  //$my_t=getdate();
+  //$_SESSION['last_lesson_msg'] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+  $_SESSION['last_lesson_msg'] = date("Y-m-d H:i:s", time()-date("Z")); //fix for timezone differences
  }
 
  $lesson_rooms = join("','",$_SESSION['lesson_rooms']);
@@ -279,10 +281,10 @@ function sendChat() {
 EOD;
  //unset($_SESSION['tsChatBoxes'][$_POST['to']]);
  if ($to != $_SESSION['lessonname']){
-  $sql = "insert into module_chat (module_chat.from_user,module_chat.to_user,message,sent,module_chat.isLesson) values ('".mysql_real_escape_string($from)."', '".mysql_real_escape_string($to)."','".mysql_real_escape_string($message)."',NOW(), '0')";
+  $sql = "insert into module_chat (module_chat.from_user,module_chat.to_user,message,sent,module_chat.isLesson) values ('".mysql_real_escape_string($from)."', '".mysql_real_escape_string($to)."','".mysql_real_escape_string($message)."','".date("Y-m-d H:i:s", time()-date("Z"))."', '0')";
  }
  else{
-  $sql = "insert into module_chat (module_chat.from_user,module_chat.to_user,message,sent,module_chat.isLesson) values ('".mysql_real_escape_string($from)."', '".mysql_real_escape_string($to)."','".mysql_real_escape_string($message)."',NOW(), '1')";
+  $sql = "insert into module_chat (module_chat.from_user,module_chat.to_user,message,sent,module_chat.isLesson) values ('".mysql_real_escape_string($from)."', '".mysql_real_escape_string($to)."','".mysql_real_escape_string($message)."','".date("Y-m-d H:i:s", time()-date("Z"))."', '1')";
  }
  $query = mysql_query($sql);
  echo $_SESSION['chatboxesnum'];

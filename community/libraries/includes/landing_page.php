@@ -18,23 +18,31 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
 //$centerLinkInfo = $module -> getCenterLinkInfo();
-$InnertableHTML = $loadedModules[$redirectPage] -> getLandingPageModule();
-($InnertableHTML === true) ? $module_smarty_file = $loadedModules[$redirectPage] -> getLandingPageSmartyTpl() : $module_smarty_file = false;
+//pr($loadedModules);
+//pr($GLOBALS['configuration']['login_redirect_page']);exit;
+if (array_keys($loadedModules, $GLOBALS['configuration']['login_redirect_page'])) { //in case module is inactive
+ $InnertableHTML = $loadedModules[$redirectPage] -> getLandingPageModule();
+ ($InnertableHTML === true) ? $module_smarty_file = $loadedModules[$redirectPage] -> getLandingPageSmartyTpl() : $module_smarty_file = false;
 
-// If the module has a lesson innertable
-if ($InnertableHTML) {
- // Get module html - two ways: pure HTML or PHP+smarty
- // If no smarty file is defined then false will be returned
- if ($module_smarty_file) {
-  // Execute the php code -> The code has already been executed by above (**HERE**)
-  // Let smarty know to include the module smarty file
-  $innertable_module[$redirectPage] = array('smarty_file' => $module_smarty_file);
- } else {
-  // Present the pure HTML cod
-  $innertable_module[$redirectPage] = array('html_code' => $InnertableHTML);
+
+ // If the module has a lesson innertable
+ if ($InnertableHTML) {
+  // Get module html - two ways: pure HTML or PHP+smarty
+  // If no smarty file is defined then false will be returned
+  if ($module_smarty_file) {
+   // Execute the php code -> The code has already been executed by above (**HERE**)
+   // Let smarty know to include the module smarty file
+   $innertable_module[$redirectPage] = array('smarty_file' => $module_smarty_file);
+  } else {
+   // Present the pure HTML cod
+   $innertable_module[$redirectPage] = array('html_code' => $InnertableHTML);
+  }
  }
+
+ //pr($innertable_module);
+
+ $smarty -> assign("T_INNERTABLE_MODULE", $innertable_module);
+
+} else {
+ eF_redirect("userpage.php");
 }
-
-//pr($innertable_module);
-
-$smarty -> assign("T_INNERTABLE_MODULE", $innertable_module);

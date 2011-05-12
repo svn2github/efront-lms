@@ -4077,4 +4077,5 @@ define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Sorry, you do not have access to
 define("_SHOWCOMPLETEORGCHART", "Show full organization chart to users");
 define("_YOUCANNOTCOPYFROMTHESAMELESSON","You can not copy from the same lesson");
 define("_MESSAGESSTUDENTS","Messages from students");
+define("_CLICKHERETOREDELETEOLDTOKENS","Click here to delete api tokens created more than one month ago");
 ?>

@@ -76,8 +76,10 @@ $$('div.block').ancestors().each(function (s) {
  eF_js_showDivPopup('{$div_error}');
 {/if}
 
+
+{* If this creates problems in the future "Permission denied to get property Window.document" check "security.fileuri.strict_origin_policy: true" *}
 if (parent.frames[0].document.getElementById('dimmer'))
- parent.frames[0].document.getElementById('dimmer').style.display = 'none'
+ parent.frames[0].document.getElementById('dimmer').style.display = 'none';
 
 {* Make the loading div disappear (again most of the times) once for lesson changing *}
 if (top.sideframe && top.sideframe.document && top.sideframe.document.getElementById('loading_sidebar'))
@@ -143,8 +145,9 @@ if (!usingHorizontalInterface) {
   top.sideframe.document.getElementById('current_location').value = top.mainframe.location.toString();
  }
 } else {
- if ($('current_location')) {
-  $('current_location').value = document.location.toString();
+ // $('current_location') caused js error in browse.php
+ if (document.getElementById('current_location')) {
+  document.getElementById('current_location').value = document.location.toString();
  }
 }
 {/literal}

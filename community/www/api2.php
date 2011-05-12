@@ -96,10 +96,27 @@ In case of error it returns also a message entity with description of the error 
                         $insert['status'] = "unlogged";
                         $insert['expired'] = 0;
                         $insert['create_timestamp'] = time();
-                        eF_insertTableData("tokens", $insert);
-                        echo "<xml>";
-      echo "<token>".$token."</token>";
-      echo "</xml>";
+                        try {
+                         eF_insertTableData("tokens", $insert);
+                         echo "<xml>";
+       echo "<token>".$token."</token>";
+       echo "</xml>";
+                        } catch (Exception $e) {
+                         $result = eF_getTableData("tokens", "*", "token='".$token."'");
+                         if ($result[0]['token'] == $token) {
+                          unset($insert['token']);
+                          eF_updateTableData("tokens", $insert, "token='".$token."'");
+                          echo "<xml>";
+        echo "<status>ok</status>";
+        echo "</xml>";
+        break;
+                         }
+       echo "<xml>";
+       echo "<status>error</status>";
+                            echo "<message>Some problem occured</message>";
+       echo "</xml>";
+       break;
+      }
                     }
                     break;
                  case 'efrontlogin':{

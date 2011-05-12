@@ -4077,4 +4077,5 @@ define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Λυπούμαστε αλλά δ
 define("_SHOWCOMPLETEORGCHART", "Προβολή πλήρους ιεραρχίας εταιρείας στους χρήστες");
 define("_YOUCANNOTCOPYFROMTHESAMELESSON","Δεν μπορείτε να αντιγράψεται υλικό από το ίδιο μάθημα");
 define("_MESSAGESSTUDENTS","Μηνύματα από μαθητές");
+define("_CLICKHERETOREDELETEOLDTOKENS","Κάντε κλικ εδώ για να διαγράψετε τα api tokens που δημιουργήθηκαν περισσότερο από ένα μήνα πριν");
 ?>

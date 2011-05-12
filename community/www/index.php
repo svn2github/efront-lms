@@ -613,7 +613,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
           //pr($self_registered_jobs);
     if ($configuration['activation'] == 0) {
      if ($configuration['mail_activation'] == 1){
-      $tmp = eF_getTableData("users","timestamp","login='".$user_data['login']."'");
+      $tmp = eF_getTableData("users","timestamp, login, name,surname","login='".$user_data['login']."'");
       $timestamp = $tmp[0]["timestamp"];
       EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_ON_EMAIL_ACTIVATION, "users_LOGIN" => $tmp[0]['login'], "users_name" => $tmp[0]['name'], "users_surname" => $tmp[0]['surname'], "timestamp" => $timestamp, "entity_name" => $timestamp));
       $message = _YOUWILLRECEIVEMAILFORACCOUNTACTIVATION;

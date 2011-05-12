@@ -38,9 +38,9 @@ class PHP_Crossword_Grid
  var $cols;
  var $cells = array();
  var $words = array();
- var $inum = 0; # sandy addition
- var $maxinum = 0; # sandy addition
- var $totwords = 0; # sandy addition
+ var $inum = 0;
+ var $maxinum = 0;
+ var $totwords = 0;
  /**
 
 	 * Constructor
@@ -363,12 +363,12 @@ $one_letter = mb_substr($word, $i, 1);
     else $class = 'cellDebug';
     $html .= "\n";
     if (isset($this->cells[$x][$y]->number)) {
-     //global $maxinum, $totwords, $wc, $fillflag, $cellflag; # sandy addition
-     $tempinum = $this->cells[$x][$y]->number; # sandy addition
+     //global $maxinum, $totwords, $wc, $fillflag, $cellflag; 
+     $tempinum = $this->cells[$x][$y]->number;
      //$tempinum = $tempinum + 10 - $maxinum - $wc;
      //dump($tempinum);
      //$tempinum = $tempinum + 10 - $this->maxinum - $this->totwords;
-     $html.= "<td class='cellNumber$cellflag' align=right valign=bottom><b>$tempinum</b></td>"; # sandy addition
+     $html.= "<td class='cellNumber$cellflag' align=right valign=bottom><b>$tempinum</b></td>";
     }
     elseif ($y == -1)
     $html.= "<td bgcolor='{$color}' class='{$class}$cellflag'>&nbsp;</td>";
@@ -458,7 +458,7 @@ $one_letter = mb_substr($word, $i, 1);
     //$html .= "\n";
 
     if (isset($this->cells[$x][$y]->number)) {
-     $tempinum = $this->cells[$x][$y]->number; # sandy addition
+     $tempinum = $this->cells[$x][$y]->number;
      $pdf -> Cell(5, 5, "$tempinum", 0, 0, L, 0);
     }
     elseif ($y == -1){
@@ -557,7 +557,7 @@ $one_letter = mb_substr($word, $i, 1);
     //$html .= "\n";
 
     if (isset($this->cells[$x][$y]->number)) {
-     $tempinum = $this->cells[$x][$y]->number; # sandy addition
+     $tempinum = $this->cells[$x][$y]->number;
      $pdf -> Cell(5, 5, "$tempinum", 0, 0, L, 0);
     }
     elseif ($y == -1){

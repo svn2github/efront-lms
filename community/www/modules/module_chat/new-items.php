@@ -28,8 +28,9 @@ if ($_SESSION['s_lessons_ID']){
    $_SESSION["lessonname"] = str_replace(' ','_',$lesson['name']);
    if (!in_array($_SESSION["lessonname"], $_SESSION['lesson_rooms']))
     $_SESSION['lesson_rooms'][] = str_replace(' ','_',$_SESSION["lessonname"]);
-   $my_t=getdate();
-   $_SESSION["last_lesson_msg"] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+   //$my_t=getdate();
+   //$_SESSION["last_lesson_msg"] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
+   $_SESSION['last_lesson_msg'] = date("Y-m-d H:i:s", time()-date("Z")); //Fix for timezone differences
   }
  }
  else{

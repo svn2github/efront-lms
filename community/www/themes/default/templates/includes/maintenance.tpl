@@ -206,6 +206,9 @@
           <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._COMPRESS}" onclick = "compressTests(this)"/></td></tr>
       <tr><td class = "labelCell">{$smarty.const._CLICKHERETOUNCOMPRESSTESTS}:&nbsp;</td>
           <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._UNCOMPRESS}" onclick = "uncompressTests(this)"/></td></tr>
+      <tr><td class = "labelCell">{$smarty.const._CLICKHERETOREDELETEOLDTOKENS}:&nbsp;</td>
+          <td class = "submitCell"><input type = "button" class = "flatButton" value = "{$smarty.const._DELETE}" onclick = "deleteTokens(this)"/></td></tr>
+
       <tr><td class = ""></td>
           <td class = "infoCell">{$smarty.const._PLEASEBACKUPBEFORECOMPRESSING}</td></tr>
         </table>

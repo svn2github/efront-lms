@@ -265,6 +265,15 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         }
         exit;
     }
+    if (isset($_GET['delete_tokens']) && $_GET['ajax'] == 1) {
+        try {
+           $one_month_ego = time()-30*24*60*60;
+           eF_deleteTableData("tokens","create_timestamp < ".$one_month_ego);
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        exit;
+    }
     if (isset($_GET['compress_tests']) && $_GET['ajax'] == 1) {
         try {
             EfrontCompletedTest :: compressTests();

@@ -586,9 +586,9 @@ s
 
  function _striplinks($document)
  {
-  preg_match_all("'<\s*a\s.*?href\s*=\s*			# find <a href=
-      ([\"\'])?					# find single or double quote
-      (?(1) (.*?)\\1 | ([^\s\>]+)) # if quote found, match up to next matching
+  preg_match_all("'<\s*a\s.*?href\s*=\s*
+      ([\"\'])?				
+      (?(1) (.*?)\\1 | ([^\s\>]+))
 
       'isx",$document,$links);
 

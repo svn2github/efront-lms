@@ -797,7 +797,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      if (isset($this -> notification['send_conditions'])) {
     //echo $this -> notification['send_conditions'];
       if ($this -> notification['send_conditions'] == "N;") {
-    $recipients = eF_getTableData("users", "*", "active=1 and archive=0");
+       $recipients = eF_getTableData("users", "*", "active=1 and archive=0");
     //sending_queue_msgs[$key]['recipients'] = _ALLUSERS;
        foreach ($recipients as $recipient) {
         $recipients_list[$recipient['login']] = $recipient;
@@ -874,7 +874,12 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         }
        } else {
         if ($this -> notification['recipient'] != "") {
-         $user = eF_getTableData("users", "*", "active=1 and archive=0 and login = '".$this -> notification['recipient']."'");
+         preg_match("/\d+_(\d+)/", $this -> notification['id_type_entity'], $matches);
+         if ($matches[1] == EfrontEvent::SYSTEM_ON_EMAIL_ACTIVATION) { //In this case, we want an inactive user to receive the email
+          $user = eF_getTableData("users", "*", "archive=0 and login = '".$this -> notification['recipient']."'");
+         } else {
+          $user = eF_getTableData("users", "*", "active=1 and archive=0 and login = '".$this -> notification['recipient']."'");
+         }
          if (!empty($user)) {
           $recipients_list[$this -> notification['recipient']] = $user[0];
          }

@@ -81,7 +81,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $courseUsers = $editCourse -> countCourseUsers(array('archive' => false));
    $smarty -> assign("T_COURSE_HAS_USERS", $courseUsers['count']);
 
-      $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+      $constraints = array('archive' => false) + createConstraintsFromSortedTable();
       $lessons = $editCourse -> getCourseLessonsIncludingUnassigned($constraints);
       $totalEntries = $editCourse -> countCourseLessonsIncludingUnassigned($constraints);
    $dataSource = EfrontLesson :: convertLessonObjectsToArrays($lessons);

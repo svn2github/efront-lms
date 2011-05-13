@@ -23,6 +23,7 @@
 - Added a check for possible existing token in api2
 - Added option for deleting old api tokens (over one month) in maintenance
 - Fixed email account activation not working
+- Fixed issue about toggling blocks twice (#1382)
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

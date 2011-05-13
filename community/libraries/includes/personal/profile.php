@@ -1,6 +1,6 @@
 <?php
 try {
- $systemAvatars = array("" => _USENONE);
+ $systemAvatars = array('' => '', 'none' => _USENONE);
  $avatarsFileSystemTree = new FileSystemTree(G_SYSTEMAVATARSPATH);
  foreach (new EfrontFileTypeFilterIterator(new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator($avatarsFileSystemTree -> tree, RecursiveIteratorIterator :: SELF_FIRST))), array('png')) as $key => $value) {
   $systemAvatars[basename($key)] = basename($key);
@@ -206,7 +206,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
     if ($e -> getCode() != UPLOAD_ERR_NO_FILE) {
      throw $e;
     }
-    if ($form -> exportValue('system_avatar') == "") {
+    if ($form -> exportValue('system_avatar') == "none") {
      $selectedAvatar = 'unknown_small.png';
     } else if ($form -> exportValue('system_avatar') != "") {
      $selectedAvatar = $form -> exportValue('system_avatar');

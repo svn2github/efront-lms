@@ -18,9 +18,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
 //$centerLinkInfo = $module -> getCenterLinkInfo();
-//pr($loadedModules);
-//pr($GLOBALS['configuration']['login_redirect_page']);exit;
-if (array_keys($loadedModules, $GLOBALS['configuration']['login_redirect_page'])) { //in case module is inactive
+if (array_key_exists($GLOBALS['configuration']['login_redirect_page'], $loadedModules )) { //in case module is inactive
  $InnertableHTML = $loadedModules[$redirectPage] -> getLandingPageModule();
  ($InnertableHTML === true) ? $module_smarty_file = $loadedModules[$redirectPage] -> getLandingPageSmartyTpl() : $module_smarty_file = false;
 

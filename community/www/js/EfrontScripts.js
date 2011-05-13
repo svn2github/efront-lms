@@ -412,19 +412,21 @@ function toggleBlock(el, cookie) {
 
 	if (el.hasClassName('open')) {
 		new Effect.BlindUp(hideBlock, {duration:0.5});
-		el.removeClassName('open').addClassName('close');
+		//changed order because of #1382
 		setImageSrc(el, 16, 'navigate_down');
+		el.removeClassName('open').addClassName('close');
+
 		//.removeClassName('sprite16-navigate_up').addClassName('sprite16-navigate_down');
 		//el.src = "themes/default/images/16x16/navigate_down.png";
 		cookie ? createCookie('innerTables['+cookie+']', 'hidden') : null;
-	} else {
+	} else {	
 		new Effect.BlindDown(hideBlock, {duration:0.5});
+		setImageSrc(el, 16, 'navigate_up');	
 		el.removeClassName('close').addClassName('open');
-		setImageSrc(el, 16, 'navigate_up');
 
 		//.removeClassName('sprite16-navigate_down').addClassName('sprite16-navigate_up');
 		//el.src = "themes/default/images/16x16/navigate_up.png";
-		cookie ? createCookie('innerTables['+cookie+']', 'visible') : null;
+		cookie ? createCookie('innerTables['+cookie+']', 'visible') : null;	
 	}	
 }
 

@@ -142,10 +142,11 @@ try {
                 $questionsInfo = array();
                 foreach ($info as $id => $questionInfo) {
                     $questionsInfo[$id] = array('text' => $questionInfo['general']['reduced_text'],
-                                                        'type' => $questionInfo['general']['type'],
-                                                        'difficulty' => $questionInfo['general']['difficulty'],
-                                                        'times_done' => $questionInfo['done']['times_done'],
-                                                        'avg_score' => round($questionInfo['done']['avg_score'], 2));
+                           'complete_text' => trim(strip_tags($questionInfo['general']['text'])),
+                                                'type' => $questionInfo['general']['type'],
+                                                'difficulty' => $questionInfo['general']['difficulty'],
+                                                'times_done' => $questionInfo['done']['times_done'],
+                                                'avg_score' => round($questionInfo['done']['avg_score'], 2));
                 }
                 $smarty -> assign("T_QUESTIONS_INFORMATION", $questionsInfo);
             }
@@ -567,7 +568,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
                        'drag_drop' => 'DD');
 
         foreach ($questionsInfo as $id => $questionInfo) {
-            $workSheet -> write($row, 4, $questionInfo['text'], $fieldLeftFormat);
+            $workSheet -> write($row, 4, $questionInfo['complete_text'], $fieldLeftFormat);
             $workSheet -> write($row, 5, $questionShortHands[$questionInfo['type']], $fieldCenterFormat);
             $workSheet -> write($row, 6, Question :: $questionDifficulties[$questionInfo['difficulty']], $fieldCenterFormat);
             $workSheet -> write($row, 7, $questionInfo['times_done'], $fieldCenterFormat);

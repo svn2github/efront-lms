@@ -24,6 +24,8 @@
 - Added option for deleting old api tokens (over one month) in maintenance
 - Fixed email account activation not working
 - Fixed issue about toggling blocks twice (#1382)
+- Fixed profile page not keeping custom avatar
+- Tests info in excel export of lesson reports no longer truncates questions
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

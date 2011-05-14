@@ -92,7 +92,7 @@ try {
             echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
         }
         exit;
-    } else if ($_GET['type'] == 'forum' && (!$_student_ || $forum_config['students_add_forums']) && (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalForumValues)))) {
+    } else if ($_GET['type'] == 'forum' && (!$_student_ || $forum_config['students_add_forums']) && (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalForumValues))) && (!$_GET['parent_forum_id'] || $forums[$_GET['parent_forum_id']]['status'] != 2)) {
   $load_editor = 1;
         if ($_admin_) {
             $lessons = eF_getTableDataFlat("lessons", "id, name", "active=1");
@@ -371,7 +371,7 @@ try {
             $smarty -> assign("T_FORUM_TOPICS", $topics);
             $smarty -> assign("T_FORUM_POLLS", $polls);
 
-            if ((!$currentUser -> coreAccess['forum'] || $currentUser -> coreAccess['forum'] == 'change') && ($currentUser -> user['user_type'] != 'student' || (isset($forum_config) && $forum_config['students_add_forums']))) {
+            if ((!$currentUser -> coreAccess['forum'] || $currentUser -> coreAccess['forum'] == 'change') && ($currentUser -> user['user_type'] != 'student' || (isset($forum_config) && $forum_config['students_add_forums'])) && (!isset($_GET['forum']) || $forums[$_GET['forum']]['status'] != 2)) {
                 $forum_options = array(1 => array('text' => _NEWFORUM, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum&add=1&type=forum&parent_forum_id=$parent_forum&popup=1", 'onclick' => "eF_js_showDivPopup('"._NEWFORUM."', 2)", 'target' => "POPUP_FRAME"));
                 $smarty -> assign("T_FORUM_OPTIONS", $forum_options);
             }

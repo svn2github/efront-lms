@@ -580,7 +580,7 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
  } catch (Exception $e) {
   handleNormalFlowExceptions($e);
  }
- if ($_change) {
+ if ($_change_) {
   $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
  } else {
   $form -> freeze();

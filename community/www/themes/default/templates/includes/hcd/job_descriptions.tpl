@@ -378,12 +378,14 @@
  {else}
   {*moduleAllSkills: Show job_descriptions *}
   {capture name = 't_job_descriptions_code'}
+   {if $_change_}
    <div class = "headerTools">
     <span>
      <img src = "images/16x16/add.png" title = "{$smarty.const._NEWJOBDESCRIPTION}" alt = "{$smarty.const._NEWJOBDESCRIPTION}" >
         <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&add_job_description=1">{$smarty.const._NEWJOBDESCRIPTION}</a>
        </span>
    </div>
+   {/if}
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'jobsTable'}
 <!--ajax:jobsTable-->
    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "jobsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&">
@@ -405,7 +407,9 @@
      <td class = "centerAlign"> {$job_description.skill_req}</td>
      <td class = "centerAlign">
       <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+      {if $_change_}
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION}')) deleteJob(this, '{$job_description.job_description_ID}');"/>
+      {/if}
      </td>
     </tr>
     {foreachelse}

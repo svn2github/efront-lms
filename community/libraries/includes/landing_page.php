@@ -21,8 +21,6 @@ $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
 if (array_key_exists($GLOBALS['configuration']['login_redirect_page'], $loadedModules )) { //in case module is inactive
  $InnertableHTML = $loadedModules[$redirectPage] -> getLandingPageModule();
  ($InnertableHTML === true) ? $module_smarty_file = $loadedModules[$redirectPage] -> getLandingPageSmartyTpl() : $module_smarty_file = false;
-
-
  // If the module has a lesson innertable
  if ($InnertableHTML) {
   // Get module html - two ways: pure HTML or PHP+smarty
@@ -42,5 +40,5 @@ if (array_key_exists($GLOBALS['configuration']['login_redirect_page'], $loadedMo
  $smarty -> assign("T_INNERTABLE_MODULE", $innertable_module);
 
 } else {
- eF_redirect("userpage.php");
+ eF_redirect($_SESSION['s_type'].".php");
 }

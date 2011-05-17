@@ -111,6 +111,7 @@ try {
             foreach ($iterator as $key => $value) {
                 $currentIds[] = $value['id'];
             }
+ //pr($currentIds);           
             foreach ($sourceIterator as $key => $value) {
                 $sourceIds[] = $value['id'];
             }
@@ -126,14 +127,18 @@ try {
                     }
                     $copiedTests = array();
                     $copiedUnits = array();
+                    $map = array();
                     foreach ($nodeOrders as $value) {
                         list($id, $parentContentId) = explode("-", $value);
                         if (!in_array($id, $transferedNodesCheck)) {
-                            if (eF_checkParameter($id, 'id') !== false && eF_checkParameter($parentContentId, 'id') !== false && in_array($id, $sourceIds) && in_array($parentContentId, $currentIds)) {
+                            if (eF_checkParameter($id, 'id') !== false && eF_checkParameter($parentContentId, 'id') !== false && in_array($id, $sourceIds) && in_array($map[$parentContentId], $currentIds)) {
                                 //echo "Copying $id to parent $parentContentId with previous $previousContentId\n";
                                 try {
-                                    $createdUnit = $currentContent -> copyUnit($id, $parentContentId, $previousContentId);
+                                    $createdUnit = $currentContent -> copyUnit($id, $map[$parentContentId], $previousContentId);
                                     $transferedNodes[] = intval($id);
+            //#1383
+                                    $currentIds[] = $createdUnit['id'];
+            $map[intval($id)] = $createdUnit['id'];
                                 } catch (Exception $e) {
                                     $errorMessages[] = $e -> getMessage().' '.$e -> getCode();
                                 }

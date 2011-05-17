@@ -7,15 +7,19 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $themeSettingsTools = array(array('text' => _THEMES, 'image' => "16x16/layout.png", 'href' => basename($_SERVER['PHP_SELF']).'?ctg=themes'));
 $smarty -> assign ("T_THEMES_LINK", $themeSettingsTools);
 $loginRedirectArray = array();
-//pr($loadedModules);exit;
 foreach ($loadedModules as $module) {
  $className = $module -> className;
- if (isset($loadedModules[$className]) && $loadedModules[$className] -> getLandingPageModule()) {
+ if (isset($loadedModules[$className]) && $loadedModules[$className] -> getLandingPageSmartyTpl()) {
   $loginRedirectArray[$className] = $className;
  }
 }
 $loginRedirectArray['lesson_catalog'] = _LESSONSCATALOG;
 $loginRedirectArray['user_dashboard'] = _USERDASHBOARD;
+//Added in case current module is inactive or not loaded for administrator
+if (array_key_exists($GLOBALS['configuration']['login_redirect_page'], $loginRedirectArray) === false) {
+ $loginRedirectArray[$GLOBALS['configuration']['login_redirect_page']] = $GLOBALS['configuration']['login_redirect_page'];
+}
+
 $appearanceMainForm = new Html_QuickForm("appearance_main_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=appearance&tab=main", "", null, true);
 $appearanceMainForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $appearanceMainForm -> addElement("advcheckbox", "show_footer", _SHOWFOOTER, null, 'class = "inputCheckBox"', array(0, 1));

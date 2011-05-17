@@ -166,7 +166,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
         'timezone' => $values['timezone'],
          'timestamp' => time(),
         'password' => EfrontUser::createPassword($values['password_']),
-        'user_types_ID' => $values['user_type'],
+        'user_types_ID' => is_numeric($values['user_type']) ? $values['user_type'] : 0,
         'short_description' => $values['short_description'],
         'comments' => $values['comments']);
   foreach ($userProfile as $field) { //Get the custom fields values
@@ -179,6 +179,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
   if (isset($_GET['add_user'])) {
    $editedUser = EfrontUser :: createUser($userProperties);
   } else {
+   !$editedUser->user['pending'] OR $editedUser->user['pending'] = !$userProperties['active'];
    foreach ($constrainAccess as $value) {
     unset($userProperties[$value]);
    }

@@ -27,6 +27,9 @@
 - Fixed profile page not keeping custom avatar
 - Tests info in excel export of lesson reports no longer truncates questions
 - You can no longer create subforums in locked forums
+- Fixed issue about copying from another lesson (#1383)
+- Fixed administrator not being able to activate self-registered users set to "pending"
+- Fixed potential security issue in loading javascript files
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

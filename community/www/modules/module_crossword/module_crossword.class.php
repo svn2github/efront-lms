@@ -447,7 +447,7 @@ class module_crossword extends EfrontModule {
   $res2 = eF_executeNew("CREATE TABLE `module_crossword_users` (
         `users_LOGIN` VARCHAR( 100 ) NOT NULL ,
         `content_ID` MEDIUMINT( 11 ) NOT NULL ,
-        `crosslists_ID` MEDIUMINT( 11 ) NOT NULL ,
+        `crosslists_ID` MEDIUMINT( 11 ) NOT NULL default 0,
         `success` MEDIUMINT( 11 ) NOT NULL DEFAULT '0',
         `points` VARCHAR( 50 ) NOT NULL,
         `totallength` VARCHAR( 50 ) NOT NULL,
@@ -458,7 +458,7 @@ class module_crossword extends EfrontModule {
   $res3 = eF_executeNew("CREATE TABLE IF NOT EXISTS `words` (
     `groupid` varchar(10) collate utf8_general_ci NOT NULL default '''lt''',
     `word` varchar(20) collate utf8_general_ci NOT NULL default '',
-    `question` text collate utf8_general_ci NOT NULL default '',
+    `question` text collate utf8_general_ci NOT NULL,
     PRIMARY KEY (`word`,`groupid`),
     KEY `groupid` (`groupid`),
     FULLTEXT KEY `word_3` (`word`)

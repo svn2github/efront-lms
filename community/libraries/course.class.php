@@ -3605,8 +3605,8 @@ class EfrontCourse
    try {
     $dependsOn = new EfrontCourse($this -> course['depends_on']);
     if ($dependsOn -> course['active'] && !$dependsOn -> course['archive']) {
-     $result = eF_getTableData("users_to_courses", "completed", "users_LOGIN='".$user."' and courses_ID=".$dependsOn->course['id']);
-     if (!$result[0]['completed']) {
+     $result = eF_getTableData("users_to_courses", "completed, user_type", "users_LOGIN='".$user."' and courses_ID=".$dependsOn->course['id']);
+     if (!$result[0]['completed'] && $roles[$result[0]['user_type']] == 'student') {
       foreach ($allowed as $key => $value) {
        $allowed[$key] = 0;
       }

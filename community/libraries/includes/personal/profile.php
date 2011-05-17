@@ -179,7 +179,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
   if (isset($_GET['add_user'])) {
    $editedUser = EfrontUser :: createUser($userProperties);
   } else {
-   !$editedUser->user['pending'] OR $editedUser->user['pending'] = !$userProperties['active'];
+   !$editedUser->user['pending'] OR $editedUser->user['pending'] = !$userProperties['active']; //If the user was pending, then set his status as the opposite of 			
    foreach ($constrainAccess as $value) {
     unset($userProperties[$value]);
    }

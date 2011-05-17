@@ -6,6 +6,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 
 try {
+
     /* Check permissions: manage only job descriptions of the branches you own */
  if (isset($_GET['edit_job_description'])) {
         $currentJob = new EfrontJob($_GET['edit_job_description']);
@@ -18,7 +19,15 @@ try {
         eF_redirect("".$_SESSION['s_type'].".php?ctg=module_hcd&op=job_descriptions&message=".$message."&message_type=".$message_type);
         exit;
     }
-    if (isset($_GET['postAjaxRequest'])) {
+
+
+    $_change_ = true;
+    if ((isset($currentUser -> coreAccess['organization']) && $currentUser -> coreAccess['organization'] == 'view') || (!$currentEmployee->isSupervisor() && $currentUser -> getType() != "administrator")) {
+     $_change_ = false;
+    }
+    $smarty -> assign("_change_", $_change_);
+
+    if (isset($_GET['postAjaxRequest']) && $_change_) {
         try {
    if (isset($_GET['skill'])) {
                 if ($_GET['insert'] == 'true') {
@@ -88,7 +97,7 @@ try {
     }
 
 
-    if (isset($_GET['delete_job_description'])) {
+    if (isset($_GET['delete_job_description']) && $_change_) {
   try {
       $currentJob = new EfrontJob($_GET['delete_job_description']);
          $currentJob -> delete();
@@ -96,7 +105,7 @@ try {
       handleAjaxExceptions($e);
      }
      exit;
-    } else if (isset($_GET['remove_user_job'])) {
+    } else if (isset($_GET['remove_user_job']) && $_change_) {
   try {
    $editedUser = EfrontUserFactory :: factory($_GET['user']);
    $editedEmployee = $editedUser -> aspects['hcd'];
@@ -182,12 +191,12 @@ try {
                 $details_link = "";
             }
             /* Administrators can associate lessons or courses to job descriptions - every employee with that job description will have the lessons */
-            if ($currentUser -> getType() == "administrator" || $currentEmployee -> getType() == _SUPERVISOR) {
+            if (($currentUser -> getType() == "administrator" || $currentEmployee -> getType() == _SUPERVISOR)) {
                 $skills = $currentJob -> getSkills();
 
                 // Get with ajax
                 if (isset($_GET['ajax'])) {
-              if (isset($_GET['applytoallusers'])) {
+              if (isset($_GET['applytoallusers']) && $_change_) {
             try {
                 switch ($_GET['applytoallusers']) {
                  case 'course':
@@ -335,8 +344,11 @@ try {
         /* The details link has the html code for the "view branch details" lense icon on the right of the branches drop down */
         $smarty -> assign("T_BRANCH_INFO", $details_link);
 
-        $form -> addElement('submit', 'submit_job_description_details', _SUBMIT, 'class = "flatButton"');
-
+        if ($_change_) {
+         $form -> addElement('submit', 'submit_job_description_details', _SUBMIT, 'class = "flatButton"');
+        } else {
+         $form -> freeze();
+        }
         /* Set default values */
         if (isset($_GET['edit_job_description'])) {
             $form -> setDefaults(array( 'job_description_name' => $currentJob -> job['description'],

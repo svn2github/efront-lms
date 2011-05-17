@@ -40,7 +40,9 @@
                         <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$branch.branch_ID}" class = "editLink">
                          <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}"/>
                         </a>
+                        {if $_change_}
                         <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODISMISSTHEBRANCH}')) deleteBranch(this, '{$branch.branch_ID}', '{$branch.father_ID}')"/>
+                        {/if}
                     {/if}
                     </td>
                 </tr>
@@ -119,7 +121,7 @@
                       {if !isset($T_SUPERVISED_EMPLOYEES) || in_array($user.login, $T_SUPERVISED_EMPLOYEES)}
                           <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile" class = "editLink">
                            <img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                       {if $user.login != $smarty.session.s_login}
+                       {if $user.login != $smarty.session.s_login && $_change_}
                            <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "removeJobFromUser(this, '{$user.login}', '{$user.job_description_ID}');"/>
                        {/if}
                       {/if}
@@ -162,7 +164,7 @@
                   <td><span style="display:none" id="none_position_row{$user.login}">{$user.supervisor}</span>{$user.position_select}</td>
                   <td class = "centerAlign">
              <span style="display:none" id="none_check_row{$user.login}">{if $user.branch_ID == $smarty.get.edit_branch}1{else}0{/if}</span>
-             <input class = "inputCheckBox" type = "checkbox" {if $user.login == $smarty.session.s_login || (isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES))}disabled = "true"{/if} onclick="javascript:show_hide_job_selects('{$user.login}'); ajaxPost('row{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"{if $user.branch_ID == $smarty.get.edit_branch}checked{/if}>
+             <input class = "inputCheckBox" type = "checkbox" {if !$_change_ || $user.login == $smarty.session.s_login || (isset($T_SUPERVISED_EMPLOYEES) && !in_array($user.login, $T_SUPERVISED_EMPLOYEES))}disabled = "true"{/if} onclick="javascript:show_hide_job_selects('{$user.login}'); ajaxPost('row{$user.login}', this);" name = "check_{$user.login}" id = "check_row{$user.login}"{if $user.branch_ID == $smarty.get.edit_branch}checked{/if}>
                   </td>
               </tr>
           {foreachelse}
@@ -179,7 +181,7 @@
 
       {*Sub-Branches: moduleAllBranches: Show subbranches *}
       {capture name = 't_subbranches_code'}
-       {if $smarty.session.employee_type != _EMPLOYEE}
+       {if $_change_}
      <div class = "headerTools">
       <span>
        <img src = "images/16x16/add.png" title = "{$smarty.const._NEWSUBBRANCH}" alt = "{$smarty.const._NEWSUBBRANCH}" >
@@ -193,13 +195,14 @@
 
       {*Show job_descriptions of this branch*}
    {capture name = 't_branch_jobs'}
+    {if $_change_}
     <div class = "headerTools">
      <span>
       <img src = "images/16x16/add.png" title = "{$smarty.const._NEWJOBDESCRIPTION}" alt = "{$smarty.const._NEWJOBDESCRIPTION}" >
             <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=job_descriptions&add_job_description=1&add_to_branch={$smarty.get.edit_branch}">{$smarty.const._NEWJOBDESCRIPTION}</a>
            </span>
     </div>
-
+    {/if}
           <table width = "100%" class = "sortedTable">
               <tr class = "topTitle">
                   <td class = "topTitle">{$smarty.const._JOBDESCRIPTION}</td>
@@ -216,7 +219,9 @@
                   <td class = "centerAlign">{$job_description.skill_req}</td>
                   <td class = "centerAlign">
                    <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions&edit_job_description={$job_description.job_description_ID}" class = "editLink"><img class="handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+                   {if $_change_}
                    <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION}')) deleteJob(this, '{$job_description.job_description_ID}', '{$smarty.server.PHP_SELF}?ctg=module_hcd&op=job_descriptions')" />
+                   {/if}
                   </td>
               </tr>
      {foreachelse}
@@ -248,7 +253,7 @@
                                         <td class = "centerAlign">{if $lesson.skills_offered == 0}{$smarty.const._NONESKILL}{else}{$lesson.skills_offered}{/if}</td>
                                         <td>#filter:timestamp-{$lesson.created}#</td>
                          <td class = "centerAlign">
-                         {if $smarty.session.s_type == "administrator" || $branch.supervisor == 1}
+                         {if $_change_ && ($smarty.session.s_type == "administrator" || $branch.supervisor == 1)}
                           <input class = "inputCheckBox" type = "checkbox" name = "{$lesson.id}" onclick="javascript:ajaxBranchLessonPost('{$lesson.id}', this);" {if $lesson.branches_ID == $smarty.get.edit_branch} checked {/if} >
                          {/if}
                          </td>
@@ -262,7 +267,7 @@
 
 
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=module_hcd&op=branches&edit_branch=`$smarty.get.edit_branch`&"}
-  {assign var = "_change_handles_" value = true}
+  {assign var = "_change_handles_" value = $_change_}
   {capture name ='t_branch_courses'}
    {include file = "includes/common/courses_list.tpl"}
   {/capture}
@@ -315,7 +320,7 @@
         {*moduleAllBranches: Show branches *}
         {capture name = 't_branches_code'}
             {* Only supervisors and administrators may change branch data - currently all - TODO: selected *}
-         {if $smarty.session.employee_type != _EMPLOYEE}
+         {if $_change_}
     <div class = "headerTools">
      <span>
       <img src = "images/16x16/add.png" title = "{$smarty.const._NEWBRANCH}" alt = "{$smarty.const._NEWBRANCH}" >
@@ -327,7 +332,7 @@
   {$smarty.capture.t_branches_table_code}
 
         {/capture}
-        {if $smarty.session.employee_type != _EMPLOYEE}
+        {if $_change_}
            {eF_template_printBlock title = $smarty.const._UPDATEBRANCHES data = $smarty.capture.t_branches_code image = '32x32/branch.png'}
         {else}
            {eF_template_printBlock title = $smarty.const._VIEWBRANCHES data = $smarty.capture.t_branches_code image = '32x32/branch.png'}

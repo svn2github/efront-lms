@@ -10,11 +10,11 @@
 - Extended api to consider custom user profile fields for creating user
 - Fixed issue in getForumTree()(#1354)
 - Added comments field to user's profile page
-- Added option for allowing students to send messages
+- Added option for not allowing students to send messages
 - Fixed issue in external survey about background color
 - Fixed issue when exporting reports not taking into account the sub-branches checkbox
 - Fixed issue about expanding a category after collapsing all in catalog (#1332)
-- Fixed issue about not talking into account course lessons scheduling in catalog
+- Fixed issue about not taking into account course lessons scheduling in catalog
 - Removed scheduling icon in control panel for course lessons
 - Added check in landing page in case of inactive module
 - Fixed module chat for different user timezones
@@ -30,6 +30,8 @@
 - Fixed issue about copying from another lesson (#1383)
 - Fixed administrator not being able to activate self-registered users set to "pending"
 - Fixed potential security issue in loading javascript files
+- Fixed organization options not taking into account user type set to "view"
+- Fixed professor losing access in forums when courses are set to depend on other courses
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

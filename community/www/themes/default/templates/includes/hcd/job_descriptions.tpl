@@ -102,7 +102,7 @@
       <td class = "centerAlign"><a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a></td>
       {/if}
       <td align="center">
-       {if (!isset($T_SUPERVISED_EMPLOYEES) || in_array($user.login, $T_SUPERVISED_EMPLOYEES))}
+       {if (!isset($T_SUPERVISED_EMPLOYEES) || in_array($user.login, $T_SUPERVISED_EMPLOYEES)) && $_change_}
         {if $user.active == 1}
          <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile&tab=placements" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
         {else}
@@ -135,14 +135,14 @@
     {if $smarty.get.edit_job_description != ""}
     <table width="100%">
      <tr>
-      {if $smarty.session.s_type == "administrator"}
+      {if $smarty.session.s_type == "administrator" && $_change_}
       <td align="left">
        <table><tr><td>
        <a href="{$smarty.server.PHP_SELF}?ctg=module_hcd&op=skills&add_skill=1"><img src="images/16x16/add.png" title="{$smarty.const._NEWSKILL}" alt="{$smarty.const._NEWSKILL}"/ border="0"></a></td><td><a href="{$smarty.server.PHP_SELF}?ctg=module_hcd&op=skills&add_skill=1">{$smarty.const._NEWSKILL}</a>
        </td></tr></table>
       </td>
       {/if}
-      {if $smarty.session.s_type == "administrator" || $smarty.session.employee_type == $smarty.const._SUPERVISOR}
+      {if ($smarty.session.s_type == "administrator" || $smarty.session.employee_type == $smarty.const._SUPERVISOR) && $_change_}
       <td align ="right">
 
        <table><tr><td>{$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}</td>
@@ -175,7 +175,7 @@
       </td>
       <td>{$skill.category}</td>
       <td align="center">
-       <input class = "inputCheckBox" type = "checkbox" id="skill_{$skill.skill_ID}" name = "skill" onclick = "ajaxPost('{$skill.skill_ID}', this);"
+       <input class = "inputCheckBox" type = "checkbox" id="skill_{$skill.skill_ID}" name = "skill" {if $_change_}onclick = "ajaxPost('{$skill.skill_ID}', this);"{else}disabled{/if}
        {if $skill.job_description_ID == $smarty.get.edit_job_description}
         checked
        {/if}

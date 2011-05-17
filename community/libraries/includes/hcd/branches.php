@@ -10,7 +10,11 @@ if ($currentUser -> getType() != "administrator" && (($currentEmployee -> getTyp
  exit;
 }
 
-
+$_change_ = true;
+if ((isset($currentUser -> coreAccess['organization']) && $currentUser -> coreAccess['organization'] == 'view') || (!$currentEmployee->isSupervisor() && $currentUser -> getType() != "administrator")) {
+ $_change_ = false;
+}
+$smarty -> assign("_change_", $_change_);
 
 try {
  /* Check permissions: only admins and supervisors can see branches - the supervisors only their own */
@@ -46,7 +50,7 @@ if (isset($_GET['postAjaxRequest'])) {
   exit;
  }
 }
-if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branch
+if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to delete a branch
  try {
   $currentBranch = new EfrontBranch($_GET['delete_branch']);
   $currentBranch -> delete();
@@ -56,7 +60,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
  }
 } else if (isset($_GET['add_branch']) || isset($_GET['edit_branch'])) {
  if ($_GET['ajax']) {
-  if (isset($_GET['remove_user_job'])) {
+  if (isset($_GET['remove_user_job']) && $_change_) {
    try {
     $editedUser = EfrontUserFactory :: factory($_GET['user']);
     $editedEmployee = $editedUser -> aspects['hcd'];
@@ -66,7 +70,7 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
    }
    exit;
    // First job is to assign the jobs Assign jobs
-  } else if (isset($_GET['postAjaxRequest'])) {
+  } else if (isset($_GET['postAjaxRequest']) && $_change_) {
    if (isset($_GET['add_lesson'])) {
     /* Find all employees having this skill */
     if ($_GET['insert'] == "true") {
@@ -497,7 +501,6 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   $form -> addElement('text', 'country', _COUNTRY, 'class = "inputText"');
   $form -> addElement('text', 'telephone', _TELEPHONE, 'class = "inputText"');
   $form -> addElement('text', 'email', _EMAIL, 'class = "inputText"');
-  $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
   if (isset($_GET['edit_branch'])) {
    $smarty -> assign("T_TABLE_OPTIONS", array(array('text' => _BRANCHSTATISTICS, 'image' => "16x16/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics&option=branches&sel_branch=".$_GET['edit_branch'])));
    /* Set the link to the details of the father branch */
@@ -576,6 +579,11 @@ if (isset($_GET['delete_branch'])) { //The administrator asked to delete a branc
   $smarty -> assign("T_FATHER_BRANCH_ID", $fatherBranchId);
  } catch (Exception $e) {
   handleNormalFlowExceptions($e);
+ }
+ if ($_change) {
+  $form -> addElement('submit', 'submit_branch_details', _SUBMIT, 'class = "flatButton"');
+ } else {
+  $form -> freeze();
  }
  if ($form -> isSubmitted() && $form -> validate()) {
   $branch_content = array('name' => $form -> exportValue('branch_name'),

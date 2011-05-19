@@ -208,8 +208,8 @@
    </div>
    <div class = "headerTools">
     <span>
-     <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDCONDITION}" title = "{$smarty.const._ADDCONDITION}" />
-     <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add_condition=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">{$smarty.const._ADDCONDITION}</a>
+     <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDNEWCONDITION}" title = "{$smarty.const._ADDNEWCONDITION}" />
+     <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add_condition=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">{$smarty.const._ADDNEWCONDITION}</a>
      {*<a href = "javascript:void(0)" onclick = "addCondition()">{$smarty.const._ADDCONDITION}</a>*}
     </span>
     <span>

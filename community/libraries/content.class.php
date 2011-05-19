@@ -1913,15 +1913,27 @@ class EfrontContentTree extends EfrontTree
             } else {
                 $newParentUnit = $this -> copySimpleUnit($sourceUnit, false);
             }
-            $sourceTree = new EfrontContentTree($sourceUnit -> offsetGet('lessons_ID'), true);
-            $children = $sourceTree -> getNodeChildren($sourceUnit); //$children is a RecursiveArrayIterator
+            /*commented out when changed copy.php with $map (#1383)
+
+            $sourceTree    = new EfrontContentTree($sourceUnit -> offsetGet('lessons_ID'), true);
+
+            $children      = $sourceTree -> getNodeChildren($sourceUnit);   //$children is a RecursiveArrayIterator
+
             while ($children -> valid()) {
+
                 $childUnit = $children -> current();
+
                 if ($childUnit instanceof EfrontUnit){
+
                     $this -> copyUnit($childUnit, $newParentUnit);
+
                 }
+
                 $children -> next();
+
             }
+
+            */
             return $newParentUnit;
         }
     }

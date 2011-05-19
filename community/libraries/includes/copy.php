@@ -132,9 +132,9 @@ try {
                         list($id, $parentContentId) = explode("-", $value);
                         if (!in_array($id, $transferedNodesCheck)) {
                             if (eF_checkParameter($id, 'id') !== false && eF_checkParameter($parentContentId, 'id') !== false && in_array($id, $sourceIds) && in_array($map[$parentContentId], $currentIds)) {
-                                //echo "Copying $id to parent $parentContentId with previous $previousContentId\n";
+                               // echo "Copying $id to parent $map[$parentContentId] with previous $map[$previousContentId] \n";
                                 try {
-                                    $createdUnit = $currentContent -> copyUnit($id, $map[$parentContentId], $previousContentId);
+                                    $createdUnit = $currentContent -> copyUnit($id, $map[$parentContentId], $map[$previousContentId]);
                                     $transferedNodes[] = intval($id);
             //#1383
                                     $currentIds[] = $createdUnit['id'];
@@ -142,6 +142,8 @@ try {
                                 } catch (Exception $e) {
                                     $errorMessages[] = $e -> getMessage().' '.$e -> getCode();
                                 }
+                            } else {
+                             $map[intval($id)] = $id;
                             }
                             $previousContentId = $id;
                         }

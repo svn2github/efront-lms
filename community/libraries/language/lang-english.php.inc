@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR", "Unknown separator");
 define("_LDAPUSER", "This user authenticates through the LDAP server");
 define("_EXECUTE", "Execute");
 define("_RECREATE", "Recreate");
-define("_CLICKHERETOREINDEX", "Click here to recreate the search table");
+define("_CLICKHERETOREINDEX", "Recreate the search table");
 define("_TRANSLATION", "Translation");
 define("_ENGLISHNAME", "Name in english");
 define("_SUCCESSFULLYADDEDLANGUAGE", "The language was successfully created");
@@ -4060,8 +4060,8 @@ define("_GROUPINFORMATION", "Group information");
 define("_CONTRAINACCESSTOCONTENT", "Constrain access to content files to logged in users");
 define("_COMPRESSTESTS", "Compress test results in database");
 define("_MAINTENANCETASKS", "Maintenance tasks");
-define("_CLICKHERETOCOMPRESSTESTS", "Click here to compress completed tests");
-define("_CLICKHERETOUNCOMPRESSTESTS", "Click here to uncompress completed tests");
+define("_CLICKHERETOCOMPRESSTESTS", "Compress completed tests");
+define("_CLICKHERETOUNCOMPRESSTESTS", "Uncompress completed tests");
 define("_COMPRESS", "Compress");
 define("_DATABASETASKS", "Database tasks");
 define("_PLEASEBACKUPBEFORECOMPRESSING", "Please backup your data before compressing/uncompressing completed tests");
@@ -4077,5 +4077,7 @@ define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH", "Sorry, you do not have access to
 define("_SHOWCOMPLETEORGCHART", "Show full organization chart to users");
 define("_YOUCANNOTCOPYFROMTHESAMELESSON","You can not copy from the same lesson");
 define("_MESSAGESSTUDENTS","Messages from students");
-define("_CLICKHERETOREDELETEOLDTOKENS","Click here to delete api tokens created more than one month ago");
+define("_CLICKHERETOREDELETEOLDTOKENS","Delete api tokens more than one month old");
+define("_ADDNEWCONDITION", "Add new condition");
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS", "Delete advanced report views");
 ?>

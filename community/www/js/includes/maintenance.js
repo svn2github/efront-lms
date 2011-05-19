@@ -8,6 +8,12 @@ function deleteTokens(el) {
     var url    = location.toString();
     ajaxRequest(el, url, parameters);
 }
+function deleteViews(el) {
+	var parameters = {ajax:1, delete_views:1, method:'get'};
+    var url    = location.toString();
+    ajaxRequest(el, url, parameters);
+}
+
 function compressTests(el) {
 	var parameters = {ajax:1, compress_tests:1, method:'get'};
     ajaxRequest(el, location.toString(), parameters);

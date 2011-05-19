@@ -32,6 +32,9 @@
 - Fixed potential security issue in loading javascript files
 - Fixed organization options not taking into account user type set to "view"
 - Fixed professor losing access in forums when courses are set to depend on other courses
+- Fixed issues with lesson layout setting and custom professor types (#1397)
+- Fixed issue about "Show only a message after submitting test" and failed test (http://forum.efrontlearning.net/viewtopic.php?f=12&t=3122)
+- Fixed pdf export of user reports not including completion information when the completion date is not set
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

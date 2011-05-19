@@ -44,10 +44,17 @@ try {
             $personal_messages = eF_getTableData("f_personal_messages pm, f_folders ff", "pm.title, pm.id, pm.timestamp, pm.sender", "pm.users_LOGIN='".$currentUser -> user['login']."' and f_folders_ID=ff.id and ff.name='Incoming' and viewed='no'", "pm.timestamp desc limit 10"); //Get unseen messages in Incoming folder
             $smarty -> assign("T_PERSONAL_MESSAGES", $personal_messages);
 
-            $personal_message_options = array(
-            array('text' => _MESSAGES, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._NEWMESSAGE."', 2)", 'target' => 'POPUP_FRAME'),
-            array('text' => _GOTOINBOX, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages")
-            );
+            if ( $GLOBALS['configuration']['disable_messages_student'] == 1 && $_SESSION['s_type'] == "student") {
+             $personal_message_options = array(
+             array('text' => _GOTOINBOX, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages")
+             );
+            } else {
+             $personal_message_options = array(
+             array('text' => _MESSAGES, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._NEWMESSAGE."', 2)", 'target' => 'POPUP_FRAME'),
+             array('text' => _GOTOINBOX, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages")
+             );
+            }
+
             $smarty -> assign("T_PERSONAL_MESSAGES_OPTIONS", $personal_message_options);
             $smarty -> assign("T_PERSONAL_MESSAGES_LINK", basename($_SERVER['PHP_SELF'])."?ctg=messages");
         }

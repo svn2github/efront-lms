@@ -274,6 +274,20 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
         }
         exit;
     }
+    if (isset($_GET['delete_views']) && $_GET['ajax'] == 1) {
+        try {
+           eF_executeNew("drop view if exists users_view");
+           eF_executeNew("drop view if exists lessons_status_view");
+           eF_executeNew("drop view if exists courses_status_view");
+           eF_executeNew("drop view if exists logins_view");
+           eF_executeNew("drop view if exists skills_view");
+           eF_executeNew("drop view if exists employees_view");
+           eF_executeNew("drop view if exists works_at_branch_view");
+        } catch (Exception $e) {
+         handleAjaxExceptions($e);
+        }
+        exit;
+    }
     if (isset($_GET['compress_tests']) && $_GET['ajax'] == 1) {
         try {
             EfrontCompletedTest :: compressTests();

@@ -104,7 +104,7 @@
             {/capture}
         {/if}
         {if !$T_NO_TEST}
-   {if !$T_TEST_DATA->options.redirect || ($T_TEST_STATUS.status != 'completed' && $T_TEST_STATUS.status != 'passed')}
+   {if !$T_TEST_DATA->options.redirect || ($T_TEST_STATUS.status != 'completed' && $T_TEST_STATUS.status != 'failed' && $T_TEST_STATUS.status != 'passed')}
     {$T_TEST_FORM.javascript}
     <form {$T_TEST_FORM.attributes}>
      {$T_TEST_FORM.hidden}

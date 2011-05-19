@@ -39,8 +39,8 @@ try {
     exit;
 }
 try {
+ $roles = EfrontUser :: getRoles();
     if (isset($_POST['firstlist']) && isset($_POST['secondlist'])) {
-
         parse_str($_POST['firstlist']);
         parse_str($_POST['secondlist']);
         parse_str($_POST['visibility']);
@@ -61,7 +61,7 @@ try {
         }
         //lesson control panel positions
         else {
-            if (isset($_POST['set_default']) && ($currentUser -> user['user_type'] == 'administrator' || $currentLesson -> getRole($currentUser -> user['login']) == 'professor')) {
+            if (isset($_POST['set_default']) && ($currentUser -> user['user_type'] == 'administrator' || $roles[$currentLesson -> getRole($currentUser -> user['login'])] == 'professor')) {
                 $currentLesson -> setOptions(array("default_positions" => $positions));
                 $positions = serialize(array('first' => array_unique($firstlist), 'second' => array_unique($secondlist), 'visibility' => $visibility, 'update' => true));
                 $lessonStudents = $currentLesson -> getUsers('student');

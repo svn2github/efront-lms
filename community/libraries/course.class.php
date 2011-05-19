@@ -2287,9 +2287,11 @@ class EfrontCourse
     $checkLessons = $courseLessons;
    } else {
     foreach ($courseLessons as $key => $value) {
-     $checkLessons[$key]->lesson['start_date'] = $value->lesson['start_date'];
-     $checkLessons[$key]->lesson['end_date'] = $value->lesson['end_date'];
-     $temp[$key] = $checkLessons[$key]; //bring them in the correct order
+     if (isset($checkLessons[$key])) {
+      $checkLessons[$key]->lesson['start_date'] = $value->lesson['start_date'];
+      $checkLessons[$key]->lesson['end_date'] = $value->lesson['end_date'];
+      $temp[$key] = $checkLessons[$key]; //bring them in the correct order
+     }
     }
     $checkLessons = $temp;
    }

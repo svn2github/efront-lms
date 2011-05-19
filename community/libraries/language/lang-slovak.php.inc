@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Neznámy separátor");//Unknown separator
 define("_LDAPUSER","Tento užívateľ sa overuje prostredníctvom LDAP serveru");//This user authenticates through the LDAP server
 define("_EXECUTE","Vykonaj");//Execute
 define("_RECREATE","Znovu vytvor (Recreate)");//Recreate
-define("_CLICKHERETOREINDEX","Kliknite sem pre znovuvytvorenie hľadacej tabuľky");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Kliknite sem pre znovuvytvorenie hľadacej tabuľky");//Recreate the search table
 define("_TRANSLATION","Preklad");//Translation
 define("_ENGLISHNAME","Názov v angličtine");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Tento jazyk bol úspešne vytvorený");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Vaša relácia vypršala. Prosím");//You
 define("_CLICKHERE","kliknite tu");//click here
 define("_TOLOGINAGAIN","sa znovu prihlásiť");//to login again
 define("_SESSIONEXPIRED","Relácia skončila");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Čiarkou oddelený zoznam užívateľov pre zobrazenie informácií o ladenie, alebo 1 pre všetkých používateľov");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Februára");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Apríl");//Apr (New)
-define("_MAYSHORTHAND","Môže");//May (New)
-define("_JUNESHORTHAND","Júna");//Jun (New)
-define("_JULYSHORTHAND","Júl");//Jul (New)
-define("_AUGUSTSHORTHAND","Augusta");//Aug (New)
-define("_SEPTEMBERSHORTHAND","September");//Sep (New)
-define("_OCTOBERSHORTHAND","Október");//Oct (New)
-define("_NOVEMBERSHORTHAND","Lis");//Nov (New)
-define("_DECEMBERSHORTHAND","Decembra");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Môžete získať prístup k požadovanému prostriedku");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Prosím, vyberte popis práce");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Úpravy pracovné umiestnenie");//Edit job placement (New)
-define("_NORESPONSE","&lt;No Response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Účet");//Account (New)
-define("_ORGANIZATIONALDATA","Organizačné profil");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Prázdny ponechať");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Zadajte hodnotu možnosti alebo jej číslo, ktoré začína od 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Z vedúci od užívateľov");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Z práce od užívateľov");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Musíte zadať predvolenú hodnotu pre povinné prvky");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Používať aktuálny dátum");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Do úvahy zmeny");//Account change (New)
-define("_USERSCANCHANGEPASS","Zmena hesla");//Password change (New)
-define("_VIEWFEEDBACK","Zobraziť reakcie");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Zobraziť neúplné otázky v každom prevedení");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Udržať najlepšie skóre");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Priemerné skóre test (počítanie každej skúške je aktívny výkon)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","skóre na aktívny výkon");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Ak zadáte slovo, ktoré končia s hviezdičkou (*), iba jeho prvá časť nebude braný ohľad. Napríklad, ak zadáte 'učiť sa *', potom sa obaja 'učenie' a 'učiť' budú považované za správne.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Samozrejme lekcie pravidiel");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Pravidlá medzi kurzy");//Rules between courses (New)
-define("_COURSEDEPENDSON","Samozrejme záleží na");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Nemôžete nastaviť kurz ako predpoklad sám o sebe");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Zobrazenie alternatívy zvoliť poľa");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Zaškrtnutím tejto zobrazí zoznam box so všetkými alternatívami, miesto textového poľa. V tomto prípade je iba prvá možnosť za správne");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Ukázať správne odpovede iba vtedy, ak študent zložil skúšku");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Kontrola nastavenia");//Settings checker (New)
-define("_CHECKBROWSER","Kontrola prehliadača");//Checking browser (New)
-define("_CHECKRESOLUTION","Kontrola rozlíšenie obrazovky");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Kontrola blokovanie automaticky otváraných");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Kontrola stavu Cookie ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Kontrola Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Kontrola Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 zistené. Tento prehliadač je zastaraný a funkčnosť môže byť ovplyvnený");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Bohužiaľ v prehliadači, ktorý používate, nie je podporovaný");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Rozlíšenie obrazovky nespĺňa minimálne požiadavky");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Blokovanie automaticky otváraných okien nezistili. Prosím povoliť automaticky otvárané okná pre túto stránku a skúste to znova");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies sa zdajú byť zakázaná. Povoľte prosím cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash nie je nainštalovaný, zastaraný");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader nie je nainštalovaný");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Kontrola Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript nie je povolený vo vašom prehliadači");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Musíte mať povolené vedúci e-mail aktivačný od nastavenia systému");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Rok v rozsahu od");//Year range from (New)
-define("_YEARRANGETO","Rok rozsah");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Názov skupiny opis");//Group name description (New)
-define("_GROUPINFORMATION","Informácie o skupine");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Obmedziť prístup k obsahu súborov na prihlásených užívateľov");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Komprimovať výsledky testov v databáze");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Údržby");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Kliknite tu pre kompresiu dokončenie testov");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Kliknite tu pre dekomprimovať dokončenie testov");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Komprimovať");//Compress (New)
-define("_DATABASETASKS","Databáza úloh");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Prosím zálohovať vaše dáta pred kompresiu / dekompresiu dokončené testy");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfigurácia");//Configuration (New)
-define("_SYSTEMOPTIONS","Možnosti systému");//System options (New)
-define("_CASUAL","Ležérny");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Nemáte prístup k tejto používateľskej informácie");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Povoliť virtuálnej klávesnice");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Súbor sa zdá byť prázdny. Možno to nie je správne formátovaný?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikát plánovanej konca");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test heslo");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ospravedlňujeme sa, ale nemáte prístup k tomuto odboru");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Čiarkou oddelený zoznam užívateľov pre zobrazenie informácií o ladenie, alebo 1 pre všetkých používateľov");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Februára");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Apríl");//Apr
+define("_MAYSHORTHAND","Môže");//May
+define("_JUNESHORTHAND","Júna");//Jun
+define("_JULYSHORTHAND","Júl");//Jul
+define("_AUGUSTSHORTHAND","Augusta");//Aug
+define("_SEPTEMBERSHORTHAND","September");//Sep
+define("_OCTOBERSHORTHAND","Október");//Oct
+define("_NOVEMBERSHORTHAND","Lis");//Nov
+define("_DECEMBERSHORTHAND","Decembra");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Môžete získať prístup k požadovanému prostriedku");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Prosím, vyberte popis práce");//Please select a job description
+define("_EDITJOBPLACEMENT","Úpravy pracovné umiestnenie");//Edit job placement
+define("_NORESPONSE","&lt;No Response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Účet");//Account
+define("_ORGANIZATIONALDATA","Organizačné profil");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Prázdny ponechať");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Zadajte hodnotu možnosti alebo jej číslo, ktoré začína od 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Z vedúci od užívateľov");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Z práce od užívateľov");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Musíte zadať predvolenú hodnotu pre povinné prvky");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Používať aktuálny dátum");//Use the current date
+define("_USERSCANCHANGEINFO","Do úvahy zmeny");//Account change
+define("_USERSCANCHANGEPASS","Zmena hesla");//Password change
+define("_VIEWFEEDBACK","Zobraziť reakcie");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Zobraziť neúplné otázky v každom prevedení");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Udržať najlepšie skóre");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Priemerné skóre test (počítanie každej skúške je aktívny výkon)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","skóre na aktívny výkon");//score on active execution
+define("_YOUCANUSEASTERISK","Ak zadáte slovo, ktoré končia s hviezdičkou (*), iba jeho prvá časť nebude braný ohľad. Napríklad, ak zadáte 'učiť sa *', potom sa obaja 'učenie' a 'učiť' budú považované za správne.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Samozrejme lekcie pravidiel");//Course lesson rules
+define("_RULESBETWEENCOURSES","Pravidlá medzi kurzy");//Rules between courses
+define("_COURSEDEPENDSON","Samozrejme záleží na");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Nemôžete nastaviť kurz ako predpoklad sám o sebe");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Zobrazenie alternatívy zvoliť poľa");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Zaškrtnutím tejto zobrazí zoznam box so všetkými alternatívami, miesto textového poľa. V tomto prípade je iba prvá možnosť za správne");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Ukázať správne odpovede iba vtedy, ak študent zložil skúšku");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Kontrola nastavenia");//Settings checker
+define("_CHECKBROWSER","Kontrola prehliadača");//Checking browser
+define("_CHECKRESOLUTION","Kontrola rozlíšenie obrazovky");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Kontrola blokovanie automaticky otváraných");//Checking for Popup blocker
+define("_CHECKCOOKIES","Kontrola stavu Cookie ...");//Checking Cookie state...
+define("_CHECKFLASH","Kontrola Flash");//Checking for Flash
+define("_CHECKACROBAT","Kontrola Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 zistené. Tento prehliadač je zastaraný a funkčnosť môže byť ovplyvnený");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Bohužiaľ v prehliadači, ktorý používate, nie je podporovaný");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Rozlíšenie obrazovky nespĺňa minimálne požiadavky");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Blokovanie automaticky otváraných okien nezistili. Prosím povoliť automaticky otvárané okná pre túto stránku a skúste to znova");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies sa zdajú byť zakázaná. Povoľte prosím cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash nie je nainštalovaný, zastaraný");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader nie je nainštalovaný");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Kontrola Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript nie je povolený vo vašom prehliadači");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Musíte mať povolené vedúci e-mail aktivačný od nastavenia systému");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Rok v rozsahu od");//Year range from
+define("_YEARRANGETO","Rok rozsah");//Year range to
+define("_GROUPNAMEDESCRIPTION","Názov skupiny opis");//Group name description
+define("_GROUPINFORMATION","Informácie o skupine");//Group information
+define("_CONTRAINACCESSTOCONTENT","Obmedziť prístup k obsahu súborov na prihlásených užívateľov");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Komprimovať výsledky testov v databáze");//Compress test results in database
+define("_MAINTENANCETASKS","Údržby");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Kliknite tu pre kompresiu dokončenie testov");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Kliknite tu pre dekomprimovať dokončenie testov");//Uncompress completed tests
+define("_COMPRESS","Komprimovať");//Compress
+define("_DATABASETASKS","Databáza úloh");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Prosím zálohovať vaše dáta pred kompresiu / dekompresiu dokončené testy");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfigurácia");//Configuration
+define("_SYSTEMOPTIONS","Možnosti systému");//System options
+define("_CASUAL","Ležérny");//Casual
+define("_YOUCANNOTEDITTHISUSER","Nemáte prístup k tejto používateľskej informácie");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Povoliť virtuálnej klávesnice");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Súbor sa zdá byť prázdny. Možno to nie je správne formátovaný?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikát plánovanej konca");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test heslo");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ospravedlňujeme sa, ale nemáte prístup k tomuto odboru");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Zobraziť celú organizačnú schému pre užívateľov");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nie je možné kopírovať z jednej lekcii");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Správy od študentov");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Odstrániť api žetóny viac ako jeden mesiac staré");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Pridať nový stav");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Vymazať pokročilé zobrazenie prehľadov");//Delete advanced report views (New)
 ?>

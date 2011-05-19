@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Ukendt separator");//Unknown separator
 define("_LDAPUSER","Denne bruger godkender via LDAP server");//This user authenticates through the LDAP server
 define("_EXECUTE","Udfør");//Execute
 define("_RECREATE","Recreate");//Recreate
-define("_CLICKHERETOREINDEX","Klik her for at genskabe den søgning tabellen");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Klik her for at genskabe den søgning tabellen");//Recreate the search table
 define("_TRANSLATION","Oversættelse");//Translation
 define("_ENGLISHNAME","Navn på engelsk");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Sproget er blevet oprettet");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Din session er udløbet. Venligst");//You
 define("_CLICKHERE","klik her");//click here
 define("_TOLOGINAGAIN","at logge ind igen");//to login again
 define("_SESSIONEXPIRED","Sessionen er udløbet");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Kommasepareret liste med brugere til at vise debug information om, eller 1 for alle brugere");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Februar");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","April");//Apr (New)
-define("_MAYSHORTHAND","Maj");//May (New)
-define("_JUNESHORTHAND","Juni");//Jun (New)
-define("_JULYSHORTHAND","Juli");//Jul (New)
-define("_AUGUSTSHORTHAND","August");//Aug (New)
-define("_SEPTEMBERSHORTHAND","September");//Sep (New)
-define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
-define("_NOVEMBERSHORTHAND","November");//Nov (New)
-define("_DECEMBERSHORTHAND","December");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Du kan ikke få adgang til anmodede ressource");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Vælg en jobbeskrivelse");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Rediger arbejdsformidling");//Edit job placement (New)
-define("_NORESPONSE","&lt;Ingen response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Konto");//Account (New)
-define("_ORGANIZATIONALDATA","Organisatorisk profil");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blank for at forlade uændret");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Indtast mulighed værdi eller dens nummer, startende fra 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Skjul vejleder fra brugerne");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Skjul job fra brugere");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Du skal angive en standardværdi for obligatoriske elementer");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Brug den aktuelle dato");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Konto sig");//Account change (New)
-define("_USERSCANCHANGEPASS","Ændring af adgangskode");//Password change (New)
-define("_VIEWFEEDBACK","Se Feedback");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Vis ufuldstændige spørgsmål i hver udførelse");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Fastholde bedste score");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Gennemsnitlig test score (der tæller hver test aktive udførelse)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","score på aktive udførelse");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Hvis du angiver et ord, der ender med en stjerne (*), kun den første del vil blive overvejet. For eksempel, hvis du angiver 'lære *', så både 'learning' 'lære' vil blive overvejet korrekte.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Kursus lektion regler");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Regler mellem kurser");//Rules between courses (New)
-define("_COURSEDEPENDSON","Afhænger selvfølgelig af");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Du kan ikke indstille kurset som en forudsætning for sig selv");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Display alternativer i udvalgte rubrik");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Markering af dette vil vise en liste med alle de alternativer, i stedet for en tekstboks. I dette tilfælde er det kun første model korrekt");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Vis korrekte svar, hvis studerende har bestået prøven");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Indstillinger checker");//Settings checker (New)
-define("_CHECKBROWSER","Kontrol browser");//Checking browser (New)
-define("_CHECKRESOLUTION","Kontrol skærmopløsning");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Kontrol for popup blocker");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Kontrol Cookie tilstand ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Kontrol for Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Kontrol til Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 opdaget. Denne browser er forældet og funktionalitet kan blive påvirket");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Desværre browser, du bruger, er ikke understøttet");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Din skærmopløsning opfylder ikke minimumskravet på");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Popup blocker opdaget. Lad popups for dette websted, og prøv igen");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies synes at være handicappet. Du skal aktivere cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash er ikke installeret, forældet");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader ikke er installeret");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Kontrol Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript er ikke aktiveret i din browser");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Du skal have aktiveret vejleder mail aktivering fra systemets indstillinger");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","År strækker sig fra");//Year range from (New)
-define("_YEARRANGETO","År sortiment til");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Gruppenavn beskrivelse");//Group name description (New)
-define("_GROUPINFORMATION","Gruppen information");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Begræns adgangen til indhold filer til brugere der er logget");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Komprimere testresultater i database");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Vedligeholdelsesopgaver");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Klik her for at komprimere gennemførte tests");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Klik her for at dekomprimere gennemførte tests");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Komprimere");//Compress (New)
-define("_DATABASETASKS","Database opgaver");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Venligst backup af dine data, før komprimering / dekomprimering gennemførte tests");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfiguration");//Configuration (New)
-define("_SYSTEMOPTIONS","System muligheder");//System options (New)
-define("_CASUAL","Casual");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Du kan ikke få adgang til denne brugers oplysninger");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Aktiver virtuelle tastatur");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Filen ser ud til at være tom. Måske er det ikke formateret korrekt?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikat planlagte udløb");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test adgangskode");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Beklager, men du har ikke adgang til denne gren");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Kommasepareret liste med brugere til at vise debug information om, eller 1 for alle brugere");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Februar");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","April");//Apr
+define("_MAYSHORTHAND","Maj");//May
+define("_JUNESHORTHAND","Juni");//Jun
+define("_JULYSHORTHAND","Juli");//Jul
+define("_AUGUSTSHORTHAND","August");//Aug
+define("_SEPTEMBERSHORTHAND","September");//Sep
+define("_OCTOBERSHORTHAND","Oktober");//Oct
+define("_NOVEMBERSHORTHAND","November");//Nov
+define("_DECEMBERSHORTHAND","December");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Du kan ikke få adgang til anmodede ressource");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Vælg en jobbeskrivelse");//Please select a job description
+define("_EDITJOBPLACEMENT","Rediger arbejdsformidling");//Edit job placement
+define("_NORESPONSE","&lt;Ingen response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Konto");//Account
+define("_ORGANIZATIONALDATA","Organisatorisk profil");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blank for at forlade uændret");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Indtast mulighed værdi eller dens nummer, startende fra 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Skjul vejleder fra brugerne");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Skjul job fra brugere");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Du skal angive en standardværdi for obligatoriske elementer");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Brug den aktuelle dato");//Use the current date
+define("_USERSCANCHANGEINFO","Konto sig");//Account change
+define("_USERSCANCHANGEPASS","Ændring af adgangskode");//Password change
+define("_VIEWFEEDBACK","Se Feedback");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Vis ufuldstændige spørgsmål i hver udførelse");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Fastholde bedste score");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Gennemsnitlig test score (der tæller hver test aktive udførelse)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","score på aktive udførelse");//score on active execution
+define("_YOUCANUSEASTERISK","Hvis du angiver et ord, der ender med en stjerne (*), kun den første del vil blive overvejet. For eksempel, hvis du angiver 'lære *', så både 'learning' 'lære' vil blive overvejet korrekte.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Kursus lektion regler");//Course lesson rules
+define("_RULESBETWEENCOURSES","Regler mellem kurser");//Rules between courses
+define("_COURSEDEPENDSON","Afhænger selvfølgelig af");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Du kan ikke indstille kurset som en forudsætning for sig selv");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Display alternativer i udvalgte rubrik");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Markering af dette vil vise en liste med alle de alternativer, i stedet for en tekstboks. I dette tilfælde er det kun første model korrekt");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Vis korrekte svar, hvis studerende har bestået prøven");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Indstillinger checker");//Settings checker
+define("_CHECKBROWSER","Kontrol browser");//Checking browser
+define("_CHECKRESOLUTION","Kontrol skærmopløsning");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Kontrol for popup blocker");//Checking for Popup blocker
+define("_CHECKCOOKIES","Kontrol Cookie tilstand ...");//Checking Cookie state...
+define("_CHECKFLASH","Kontrol for Flash");//Checking for Flash
+define("_CHECKACROBAT","Kontrol til Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 opdaget. Denne browser er forældet og funktionalitet kan blive påvirket");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Desværre browser, du bruger, er ikke understøttet");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Din skærmopløsning opfylder ikke minimumskravet på");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker opdaget. Lad popups for dette websted, og prøv igen");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies synes at være handicappet. Du skal aktivere cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash er ikke installeret, forældet");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader ikke er installeret");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Kontrol Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript er ikke aktiveret i din browser");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Du skal have aktiveret vejleder mail aktivering fra systemets indstillinger");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","År strækker sig fra");//Year range from
+define("_YEARRANGETO","År sortiment til");//Year range to
+define("_GROUPNAMEDESCRIPTION","Gruppenavn beskrivelse");//Group name description
+define("_GROUPINFORMATION","Gruppen information");//Group information
+define("_CONTRAINACCESSTOCONTENT","Begræns adgangen til indhold filer til brugere der er logget");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Komprimere testresultater i database");//Compress test results in database
+define("_MAINTENANCETASKS","Vedligeholdelsesopgaver");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Klik her for at komprimere gennemførte tests");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Klik her for at dekomprimere gennemførte tests");//Uncompress completed tests
+define("_COMPRESS","Komprimere");//Compress
+define("_DATABASETASKS","Database opgaver");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Venligst backup af dine data, før komprimering / dekomprimering gennemførte tests");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfiguration");//Configuration
+define("_SYSTEMOPTIONS","System muligheder");//System options
+define("_CASUAL","Casual");//Casual
+define("_YOUCANNOTEDITTHISUSER","Du kan ikke få adgang til denne brugers oplysninger");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Aktiver virtuelle tastatur");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Filen ser ud til at være tom. Måske er det ikke formateret korrekt?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikat planlagte udløb");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test adgangskode");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Beklager, men du har ikke adgang til denne gren");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Vis fuld organisationsdiagram for brugerne");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Du kan ikke kopiere fra den samme lektion");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Beskeder fra de studerende");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Slet api tokens mere end en måned gammel");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Tilføj ny betingelse");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Slet avanceret rapport visninger");//Delete advanced report views (New)
 ?>

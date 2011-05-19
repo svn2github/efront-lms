@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Onbekend separator");//Unknown separator
 define("_LDAPUSER","Deze gebruiker verifieert door middel van de LDAP-server");//This user authenticates through the LDAP server
 define("_EXECUTE","Uitvoeren");//Execute
 define("_RECREATE","Opnieuw aanmaken");//Recreate
-define("_CLICKHERETOREINDEX","Klik hier om de zoekopdracht tabel opnieuw te creeeren");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Klik hier om de zoekopdracht tabel opnieuw te creeeren");//Recreate the search table
 define("_TRANSLATION","Vertaling");//Translation
 define("_ENGLISHNAME","Naam in het Engels");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","De taal is gemaakt");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Uw sessie is verlopen. Gelieve");//Your s
 define("_CLICKHERE","klik hier");//click here
 define("_TOLOGINAGAIN","om in te loggen opnieuw");//to login again
 define("_SESSIONEXPIRED","Sessie is verlopen");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Door komma&#39;s gescheiden lijst van gebruikers aan te tonen debug-informatie op, of 1 voor alle gebruikers");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Februari");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","April");//Apr (New)
-define("_MAYSHORTHAND","Kan");//May (New)
-define("_JUNESHORTHAND","Juni");//Jun (New)
-define("_JULYSHORTHAND","Juli");//Jul (New)
-define("_AUGUSTSHORTHAND","Augustus");//Aug (New)
-define("_SEPTEMBERSHORTHAND","September");//Sep (New)
-define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
-define("_NOVEMBERSHORTHAND","November");//Nov (New)
-define("_DECEMBERSHORTHAND","December");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","U kunt geen toegang tot de aangevraagde bron");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Selecteer een functiebeschrijving");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Edit arbeidsbemiddeling");//Edit job placement (New)
-define("_NORESPONSE","&lt;geen response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Account");//Account (New)
-define("_ORGANIZATIONALDATA","Organisatorische profiel");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Leeg te laten ongewijzigd");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Voer de optie waarde of het nummer, beginnend bij 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Verberg promotor van gebruikers");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Verberg beroep van gebruikers");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","U moet een standaard waarde voor de verplichte elementen");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Gebruik de huidige datum");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Account te wijzigen");//Account change (New)
-define("_USERSCANCHANGEPASS","Wachtwoord te wijzigen");//Password change (New)
-define("_VIEWFEEDBACK","Feedback bekijken");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Toon onvolledige vragen in elke uitvoering");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Bewaar beste score");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Gemiddelde toetsscore (het tellen van elke proef de actieve uitvoering)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","score op actieve uitvoering");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Als u een woord dat eindigt met een sterretje (*), alleen het eerste deel zal worden overwogen. Bijvoorbeeld, als u opgeeft 'leren*', dan zijn zowel 'leren' en 'leren' wordt juist beschouwd.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Natuurlijk les regels");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Regels tussen opleidingen");//Rules between courses (New)
-define("_COURSEDEPENDSON","Hangt natuurlijk af van");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","U kunt de cursus niet is ingesteld als een conditio sine qua non van zichzelf");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Display alternatieven in select box");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Controle zal dit een keuzelijst display met alle alternatieven, in plaats van een tekstvak. In dit geval wordt alleen de eerste optie als correct beschouwd");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Toon correcte antwoorden alleen als student geslaagd voor de test");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Instellingen checker");//Settings checker (New)
-define("_CHECKBROWSER","Controle browser");//Checking browser (New)
-define("_CHECKRESOLUTION","Het controleren van schermresolutie");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Controleren op Popup blocker");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Het controleren van Cookie staat ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Controle voor Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Controle voor Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 gedetecteerd. Deze browser is verouderd en de functionaliteit kan worden beïnvloed");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Helaas is de browser die u gebruikt wordt niet ondersteund");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Uw schermresolutie niet voldoet aan de minimale eis van");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Popup blocker gedetecteerd. Gelieve pop-ups toestaan ​​voor deze site en probeer het opnieuw");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies lijken te worden uitgeschakeld. Schakel cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash is niet geïnstalleerd of verouderd");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader is niet geïnstalleerd");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Controleren Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript is niet ingeschakeld in uw browser");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Je moet in staat hebben gesteld promotor e-activering van het systeem-instellingen");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Jaar variëren van");//Year range from (New)
-define("_YEARRANGETO","Jaar scala aan");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Groepsnaam beschrijving");//Group name description (New)
-define("_GROUPINFORMATION","Groep informatie");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Beperk de toegang tot bestanden voor ingelogde gebruikers content");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Comprimeren testresultaten in de database");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Onderhoudstaken");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Klik hier om voltooide tests te comprimeren");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Klik hier om voltooide tests decomprimeren");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Comprimeren");//Compress (New)
-define("_DATABASETASKS","Database taken");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Maak een backup van uw gegevens voordat het comprimeren / decomprimeren afgesloten tests");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Configuratie");//Configuration (New)
-define("_SYSTEMOPTIONS","Systeem opties");//System options (New)
-define("_CASUAL","Toevallig");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","U geen toegang tot gegevens van deze gebruiker");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Staat virtueel toetsenbord");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Het bestand lijkt leeg te zijn. Misschien is het niet correct geformatteerd?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificaat geplande vervaldatum");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test wachtwoord");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Sorry, je hebt geen toegang tot deze tak");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Door komma&#39;s gescheiden lijst van gebruikers aan te tonen debug-informatie op, of 1 voor alle gebruikers");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Februari");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","April");//Apr
+define("_MAYSHORTHAND","Kan");//May
+define("_JUNESHORTHAND","Juni");//Jun
+define("_JULYSHORTHAND","Juli");//Jul
+define("_AUGUSTSHORTHAND","Augustus");//Aug
+define("_SEPTEMBERSHORTHAND","September");//Sep
+define("_OCTOBERSHORTHAND","Oktober");//Oct
+define("_NOVEMBERSHORTHAND","November");//Nov
+define("_DECEMBERSHORTHAND","December");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","U kunt geen toegang tot de aangevraagde bron");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Selecteer een functiebeschrijving");//Please select a job description
+define("_EDITJOBPLACEMENT","Edit arbeidsbemiddeling");//Edit job placement
+define("_NORESPONSE","&lt;geen response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Account");//Account
+define("_ORGANIZATIONALDATA","Organisatorische profiel");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Leeg te laten ongewijzigd");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Voer de optie waarde of het nummer, beginnend bij 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Verberg promotor van gebruikers");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Verberg beroep van gebruikers");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","U moet een standaard waarde voor de verplichte elementen");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Gebruik de huidige datum");//Use the current date
+define("_USERSCANCHANGEINFO","Account te wijzigen");//Account change
+define("_USERSCANCHANGEPASS","Wachtwoord te wijzigen");//Password change
+define("_VIEWFEEDBACK","Feedback bekijken");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Toon onvolledige vragen in elke uitvoering");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Bewaar beste score");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Gemiddelde toetsscore (het tellen van elke proef de actieve uitvoering)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","score op actieve uitvoering");//score on active execution
+define("_YOUCANUSEASTERISK","Als u een woord dat eindigt met een sterretje (*), alleen het eerste deel zal worden overwogen. Bijvoorbeeld, als u opgeeft 'leren*', dan zijn zowel 'leren' en 'leren' wordt juist beschouwd.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Natuurlijk les regels");//Course lesson rules
+define("_RULESBETWEENCOURSES","Regels tussen opleidingen");//Rules between courses
+define("_COURSEDEPENDSON","Hangt natuurlijk af van");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","U kunt de cursus niet is ingesteld als een conditio sine qua non van zichzelf");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Display alternatieven in select box");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Controle zal dit een keuzelijst display met alle alternatieven, in plaats van een tekstvak. In dit geval wordt alleen de eerste optie als correct beschouwd");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Toon correcte antwoorden alleen als student geslaagd voor de test");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Instellingen checker");//Settings checker
+define("_CHECKBROWSER","Controle browser");//Checking browser
+define("_CHECKRESOLUTION","Het controleren van schermresolutie");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Controleren op Popup blocker");//Checking for Popup blocker
+define("_CHECKCOOKIES","Het controleren van Cookie staat ...");//Checking Cookie state...
+define("_CHECKFLASH","Controle voor Flash");//Checking for Flash
+define("_CHECKACROBAT","Controle voor Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 gedetecteerd. Deze browser is verouderd en de functionaliteit kan worden beïnvloed");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Helaas is de browser die u gebruikt wordt niet ondersteund");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Uw schermresolutie niet voldoet aan de minimale eis van");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker gedetecteerd. Gelieve pop-ups toestaan ​​voor deze site en probeer het opnieuw");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies lijken te worden uitgeschakeld. Schakel cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash is niet geïnstalleerd of verouderd");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader is niet geïnstalleerd");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Controleren Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript is niet ingeschakeld in uw browser");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Je moet in staat hebben gesteld promotor e-activering van het systeem-instellingen");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Jaar variëren van");//Year range from
+define("_YEARRANGETO","Jaar scala aan");//Year range to
+define("_GROUPNAMEDESCRIPTION","Groepsnaam beschrijving");//Group name description
+define("_GROUPINFORMATION","Groep informatie");//Group information
+define("_CONTRAINACCESSTOCONTENT","Beperk de toegang tot bestanden voor ingelogde gebruikers content");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Comprimeren testresultaten in de database");//Compress test results in database
+define("_MAINTENANCETASKS","Onderhoudstaken");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Klik hier om voltooide tests te comprimeren");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Klik hier om voltooide tests decomprimeren");//Uncompress completed tests
+define("_COMPRESS","Comprimeren");//Compress
+define("_DATABASETASKS","Database taken");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Maak een backup van uw gegevens voordat het comprimeren / decomprimeren afgesloten tests");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Configuratie");//Configuration
+define("_SYSTEMOPTIONS","Systeem opties");//System options
+define("_CASUAL","Toevallig");//Casual
+define("_YOUCANNOTEDITTHISUSER","U geen toegang tot gegevens van deze gebruiker");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Staat virtueel toetsenbord");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Het bestand lijkt leeg te zijn. Misschien is het niet correct geformatteerd?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificaat geplande vervaldatum");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test wachtwoord");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Sorry, je hebt geen toegang tot deze tak");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Toon volledige organogram van de gebruikers");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","U kunt niet kopiëren van dezelfde les");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Berichten van studenten");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Verwijderen api tokens meer dan een maand oud");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Voeg een nieuwe voorwaarde");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Verwijderen geavanceerd rapport bekeken");//Delete advanced report views (New)
 ?>

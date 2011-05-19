@@ -35,6 +35,13 @@
 - Fixed issues with lesson layout setting and custom professor types (#1397)
 - Fixed issue about "Show only a message after submitting test" and failed test (http://forum.efrontlearning.net/viewtopic.php?f=12&t=3122)
 - Fixed pdf export of user reports not including completion information when the completion date is not set
+- A user who is reassigned to a course/lesson, now retains the completion date, if there is one
+- Fixed access to files when "restricted access" is on and lessons share folders
+- Recurring payments option in courses/lessons no longer shows up when payments are disabled
+- Courses in user reports now sort by course order by default
+- Course/lesson completion status in pdf reports displays even if a completion date does not exist
+- Added "AND" mode for "multiple/many" questions
+- Fixed "OR" mode to fail when the user has given a false answer
 
 === Version 3.6.9 build 10697 ===
 - Fixed subforum/topics count in forums list

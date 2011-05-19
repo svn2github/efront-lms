@@ -1300,9 +1300,9 @@ class EfrontCourse
          'to_timestamp' => 0);
    } elseif ($roleInCourse != $courseUsers[$user]['user_type'] || $courseUsers[$user]['archive']) {
     $fields = array('archive' => 0,
-        'user_type' => $roleInCourse,
-        'from_timestamp' => $confirmed ? time() : 0);
-    !$courseUsers[$user]['archive'] OR $fields['to_timestamp'] = 0;
+        'user_type' => $roleInCourse);
+    //!$courseUsers[$user]['archive'] OR $fields['to_timestamp'] = 0;
+    $confirmed OR $fields['from_timestamp'] = 0;
     $where = "users_LOGIN='".$user."' and courses_ID=".$this -> course['id'];
     self::persistCourseUsers($fields, $where, $this -> course['id'], $user);
     $existingUsers[] = $courseUsers[$user];
@@ -1333,9 +1333,9 @@ class EfrontCourse
      }
     } elseif ($roleInCourse != $courseLessonsToUsers[$id][$user]['user_type'] || $courseLessonsToUsers[$id][$user]['archive']) {
      $fields = array('archive' => 0,
-         'user_type' => $roleInCourse,
-         'from_timestamp' => $confirmed ? time() : 0);
-     !$courseLessonsToUsers[$id][$user]['archive'] OR $fields['to_timestamp'] = 0;
+         'user_type' => $roleInCourse);
+     //!$courseLessonsToUsers[$id][$user]['archive'] OR $fields['to_timestamp'] = 0;
+     $confirmed OR $fields['from_timestamp'] = 0;
      eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$user."' and lessons_ID=".$id);
      if (EfrontUser::isStudentRole($roleInCourse)) {
       foreach ($courseLessonsAutoAssignProjects[$id] as $projectId) {

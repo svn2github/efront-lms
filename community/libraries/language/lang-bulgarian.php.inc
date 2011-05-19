@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Неизвестен разделител");//Unknow
 define("_LDAPUSER","Този потребител удостоверява чрез LDAP сървър");//This user authenticates through the LDAP server
 define("_EXECUTE","Изпълнение");//Execute
 define("_RECREATE","Развличам");//Recreate
-define("_CLICKHERETOREINDEX","Щракнете тук, за да пресъздадете търсене таблица");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Щракнете тук, за да пресъздадете търсене таблица");//Recreate the search table
 define("_TRANSLATION","Превод");//Translation
 define("_ENGLISHNAME","Име на английски");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Езикът е успешно създаден");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Вашата сесия е изтекла
 define("_CLICKHERE","натиснете тук");//click here
 define("_TOLOGINAGAIN","да влезете отново");//to login again
 define("_SESSIONEXPIRED","Сесия е изтекъл");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Разделени със запетая, списък на потребителите да се покаже информация за отстраняване на грешки, или 1 за всички потребители");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Ян");//Jan (New)
-define("_FEBRUARYSHORTHAND","Февруари");//Feb (New)
-define("_MARCHSHORTHAND","Мар");//Mar (New)
-define("_APRILSHORTHAND","Април");//Apr (New)
-define("_MAYSHORTHAND","Май");//May (New)
-define("_JUNESHORTHAND","Юни");//Jun (New)
-define("_JULYSHORTHAND","Юли");//Jul (New)
-define("_AUGUSTSHORTHAND","Август");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Септември");//Sep (New)
-define("_OCTOBERSHORTHAND","Октомври");//Oct (New)
-define("_NOVEMBERSHORTHAND","Ноември");//Nov (New)
-define("_DECEMBERSHORTHAND","Декември");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Вие не можете да осъществите достъп до необходимият ресурс");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Моля, изберете описание на длъжността");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Редактиране на устройване на работа");//Edit job placement (New)
-define("_NORESPONSE","&lt;Няма response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Сметка");//Account (New)
-define("_ORGANIZATIONALDATA","Организационно профил");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Празно, за да не се променя");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Въведете стойност на опция или си номер, като се започне от 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Скрий надзор от страна на потребители");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Скрий работа от страна на потребители");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Трябва да зададете стойност по подразбиране за задължителните елементи");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Използване на текущата дата");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Профил промяна");//Account change (New)
-define("_USERSCANCHANGEPASS","Промяна на паролата");//Password change (New)
-define("_VIEWFEEDBACK","Вижте коментарите");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Покажи непълна въпроси във всяка изпълнение");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Запазете най-добър резултат");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Тестът за средния резултат (като се брои активното изпълнение на всяко изпитване е)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","резултат на активното изпълнение");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Ако зададете дума, която завършва със звездичка (*), само първата му част ще бъдат разгледани. Например, ако сте задали 'научиш *', тогава и 'живот' и 'учене' ще се счита за правилно.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Курс урок правила");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Правила между курсовете");//Rules between courses (New)
-define("_COURSEDEPENDSON","Курса зависи от");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Не можете да ходите като предпоставка за себе си");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Покажи алтернативи изберете полето");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Проверка на това ще се покаже прозорец списък с всички алтернативи, вместо текстово поле. В този случай само първата опция се счита за правилно");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Показване на правилните отговори, само ако студентът издържал теста");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Настройки на проверка");//Settings checker (New)
-define("_CHECKBROWSER","Проверка на браузъра");//Checking browser (New)
-define("_CHECKRESOLUTION","Проверка на резолюцията на екрана");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Проверка за блокирането на изскачащи прозорци");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Проверка Cookie държава ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Проверка за Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Проверка за Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 открити. Този браузър е остаряла и функционалност могат да бъдат засегнати");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","За съжаление на браузъра, който използвате, не се поддържа");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Разделителната способност на екрана не отговаря на минималните изисквания на");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Блокирането на изскачащи прозорци открити. Моля, изчакайте изскачащи прозорци за този сайт и опитайте отново");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Бисквитките изглеждат хората с увреждания. Моля, разрешете бисквитките");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash не е инсталиран, изтекъл срок на годност");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader не е инсталиран");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Проверка на Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript не е активиран във Вашия браузър");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Трябва да имате възможност за активиране надзор имейл от настройките на системата");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Година варират от");//Year range from (New)
-define("_YEARRANGETO","Година диапазон, за да");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Името на групата описание");//Group name description (New)
-define("_GROUPINFORMATION","Информация за групата");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Ограничи достъп до съдържанието на файловете регистрирани потребители");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Компресиране на резултатите от теста в базата данни");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Задачи по техническото обслужване");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Щракнете тук, за да компресирате завършени тестове");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Щракнете тук, за да декомпресирате завършени тестове");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Компрес");//Compress (New)
-define("_DATABASETASKS","База данни задачи");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Моля архивирате вашите данни, преди компресиране / uncompressing завършени тестове");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Конфигурация");//Configuration (New)
-define("_SYSTEMOPTIONS","Система възможности");//System options (New)
-define("_CASUAL","Случаен");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Нямате достъп до информация на този потребител");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Разрешаване на виртуална клавиатура");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Изглежда че файлът е празен. Може би това не е форматиран правилно?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертификат редовни изтичането");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Тест парола");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","За съжаление, не е нужно да имат достъп до тази част");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Разделени със запетая, списък на потребителите да се покаже информация за отстраняване на грешки, или 1 за всички потребители");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Ян");//Jan
+define("_FEBRUARYSHORTHAND","Февруари");//Feb
+define("_MARCHSHORTHAND","Мар");//Mar
+define("_APRILSHORTHAND","Април");//Apr
+define("_MAYSHORTHAND","Май");//May
+define("_JUNESHORTHAND","Юни");//Jun
+define("_JULYSHORTHAND","Юли");//Jul
+define("_AUGUSTSHORTHAND","Август");//Aug
+define("_SEPTEMBERSHORTHAND","Септември");//Sep
+define("_OCTOBERSHORTHAND","Октомври");//Oct
+define("_NOVEMBERSHORTHAND","Ноември");//Nov
+define("_DECEMBERSHORTHAND","Декември");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Вие не можете да осъществите достъп до необходимият ресурс");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Моля, изберете описание на длъжността");//Please select a job description
+define("_EDITJOBPLACEMENT","Редактиране на устройване на работа");//Edit job placement
+define("_NORESPONSE","&lt;Няма response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Сметка");//Account
+define("_ORGANIZATIONALDATA","Организационно профил");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Празно, за да не се променя");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Въведете стойност на опция или си номер, като се започне от 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Скрий надзор от страна на потребители");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Скрий работа от страна на потребители");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Трябва да зададете стойност по подразбиране за задължителните елементи");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Използване на текущата дата");//Use the current date
+define("_USERSCANCHANGEINFO","Профил промяна");//Account change
+define("_USERSCANCHANGEPASS","Промяна на паролата");//Password change
+define("_VIEWFEEDBACK","Вижте коментарите");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Покажи непълна въпроси във всяка изпълнение");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Запазете най-добър резултат");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Тестът за средния резултат (като се брои активното изпълнение на всяко изпитване е)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","резултат на активното изпълнение");//score on active execution
+define("_YOUCANUSEASTERISK","Ако зададете дума, която завършва със звездичка (*), само първата му част ще бъдат разгледани. Например, ако сте задали 'научиш *', тогава и 'живот' и 'учене' ще се счита за правилно.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Курс урок правила");//Course lesson rules
+define("_RULESBETWEENCOURSES","Правила между курсовете");//Rules between courses
+define("_COURSEDEPENDSON","Курса зависи от");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Не можете да ходите като предпоставка за себе си");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Покажи алтернативи изберете полето");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Проверка на това ще се покаже прозорец списък с всички алтернативи, вместо текстово поле. В този случай само първата опция се счита за правилно");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Показване на правилните отговори, само ако студентът издържал теста");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Настройки на проверка");//Settings checker
+define("_CHECKBROWSER","Проверка на браузъра");//Checking browser
+define("_CHECKRESOLUTION","Проверка на резолюцията на екрана");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Проверка за блокирането на изскачащи прозорци");//Checking for Popup blocker
+define("_CHECKCOOKIES","Проверка Cookie държава ...");//Checking Cookie state...
+define("_CHECKFLASH","Проверка за Flash");//Checking for Flash
+define("_CHECKACROBAT","Проверка за Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 открити. Този браузър е остаряла и функционалност могат да бъдат засегнати");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","За съжаление на браузъра, който използвате, не се поддържа");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Разделителната способност на екрана не отговаря на минималните изисквания на");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Блокирането на изскачащи прозорци открити. Моля, изчакайте изскачащи прозорци за този сайт и опитайте отново");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Бисквитките изглеждат хората с увреждания. Моля, разрешете бисквитките");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash не е инсталиран, изтекъл срок на годност");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader не е инсталиран");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Проверка на Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript не е активиран във Вашия браузър");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Трябва да имате възможност за активиране надзор имейл от настройките на системата");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Година варират от");//Year range from
+define("_YEARRANGETO","Година диапазон, за да");//Year range to
+define("_GROUPNAMEDESCRIPTION","Името на групата описание");//Group name description
+define("_GROUPINFORMATION","Информация за групата");//Group information
+define("_CONTRAINACCESSTOCONTENT","Ограничи достъп до съдържанието на файловете регистрирани потребители");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Компресиране на резултатите от теста в базата данни");//Compress test results in database
+define("_MAINTENANCETASKS","Задачи по техническото обслужване");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Щракнете тук, за да компресирате завършени тестове");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Щракнете тук, за да декомпресирате завършени тестове");//Uncompress completed tests
+define("_COMPRESS","Компрес");//Compress
+define("_DATABASETASKS","База данни задачи");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Моля архивирате вашите данни, преди компресиране / uncompressing завършени тестове");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Конфигурация");//Configuration
+define("_SYSTEMOPTIONS","Система възможности");//System options
+define("_CASUAL","Случаен");//Casual
+define("_YOUCANNOTEDITTHISUSER","Нямате достъп до информация на този потребител");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Разрешаване на виртуална клавиатура");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Изглежда че файлът е празен. Може би това не е форматиран правилно?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертификат редовни изтичането");//Certificate scheduled expiration
+define("_TESTPASSWORD","Тест парола");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","За съжаление, не е нужно да имат достъп до тази част");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Показване на пълната таблица организация на потребителите");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Не можете да копирате от един и същи урок");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Съобщения от студенти");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Изтриване на API символите, повече от един месец");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Добавяне на нова състояние");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Изтриване на разширен отчет мнения");//Delete advanced report views (New)
 ?>

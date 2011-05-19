@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Nežinomas separatorius");//Unknown separator
 define("_LDAPUSER","Šis vartotojas patvirtina per LDAP serveris");//This user authenticates through the LDAP server
 define("_EXECUTE","Execute");//Execute
 define("_RECREATE","Atkurti");//Recreate
-define("_CLICKHERETOREINDEX","Spauskite čia norėdami atkurti paiešką lentelė");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Spauskite čia norėdami atkurti paiešką lentelė");//Recreate the search table
 define("_TRANSLATION","Vertimo");//Translation
 define("_ENGLISHNAME","Pavadinimas anglų");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Kalba buvo sėkmingai sukurta");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Jūsų sesija baigėsi. Prašome");//Your
 define("_CLICKHERE","spauskite čia");//click here
 define("_TOLOGINAGAIN","prisijungti iš naujo");//to login again
 define("_SESSIONEXPIRED","Plenarinio posėdžio pasibaigęs");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Atskirti kableliais sąrašas vartotojai Rodyti derinti informacijos apie, arba 1 visiems vartotojams");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Sau");//Jan (New)
-define("_FEBRUARYSHORTHAND","Vasaris");//Feb (New)
-define("_MARCHSHORTHAND","Kov");//Mar (New)
-define("_APRILSHORTHAND","Balandis");//Apr (New)
-define("_MAYSHORTHAND","Gegužės");//May (New)
-define("_JUNESHORTHAND","Birželis");//Jun (New)
-define("_JULYSHORTHAND","Liepa");//Jul (New)
-define("_AUGUSTSHORTHAND","Rugpjūtis");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Rugsėjis");//Sep (New)
-define("_OCTOBERSHORTHAND","Spalis");//Oct (New)
-define("_NOVEMBERSHORTHAND","Lapkritis");//Nov (New)
-define("_DECEMBERSHORTHAND","Gruodis");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Jūs negalite naudotis reikalinga informacija");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Prašome pasirinkti darbo aprašymas");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Redaguoti įdarbinimo");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Sąskaita");//Account (New)
-define("_ORGANIZATIONALDATA","Organizacinė profilis");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Tuščia palikti nepakeistą");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Įveskite sandorių vertės arba jo numerį, pradedant nuo 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Slėpti vadovas iš vartotojų");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Slėpti darbo naudotojų");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Jūs turite nustatyti numatytąją vertę privalomi elementai");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Naudokite esamą datą");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Sąskaita keisti");//Account change (New)
-define("_USERSCANCHANGEPASS","Slaptažodžio keitimas");//Password change (New)
-define("_VIEWFEEDBACK","Peržiūrėti atsiliepimus");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Rodyti neišsamus klausimų kiekvienoje vykdymas");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Išsaugoti geriausias rezultatas");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Vidutinis bandymo rezultatas (skaičiuojant kiekvieno bandymo aktyvų vykdymas)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","balas aktyvus vykdymas");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Jei nurodysite žodį, kuris baigiasi žvaigždute (*), tik jo pirmoji dalis, bus svarstomi. Pavyzdžiui, jei nurodysite 'išmokti*', tada ir 'mokymosi' ir 'mokytis' bus laikoma teisinga.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Modulio pamoka taisyklės");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Taisyklės tarp kursai");//Rules between courses (New)
-define("_COURSEDEPENDSON","Modulio priklauso nuo");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Jūs negalite nustatyti žinoma kaip pati prielaida");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Rodyti alternatyvas pasirinkite langelį");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Jei pažymėsite šią rodys sąrašo lauką su visais alternatyvas, vietoj teksto lauką. Šiuo atveju tik pirmasis variantas yra laikomas teisingu");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Rodyti teisingus atsakymus tik tada, jei studentas išlaikė testą");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Nustatymai tikrintuvas");//Settings checker (New)
-define("_CHECKBROWSER","Tikrinimas naršyklė");//Checking browser (New)
-define("_CHECKRESOLUTION","Tikrinimas ekrano skiriamoji geba");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Tikrinimas, ar iškylančių langų blokavimą");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Tikrinimas Cookie valstybės ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Tikrinimas Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Tikrinimas, ar Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6, aptikti. Ši naršyklė yra pasenusi ir funkcijos gali būti paveikti");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Deja naršyklė, kurią naudojate, yra nepalaikomas");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Jūsų ekrano skiriamoji geba neatitinka minimalių reikalavimų");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Iškylančių langų blokavimą aptiktas. Prašau leisti iššokantys langai šioje svetainėje ir bandykite dar kartą");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Slapukai atrodo išjungtas. Prašome įjungti slapukų");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash neįdiegta, pasenusi");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader nėra įdiegtas");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Tikrinimas Javascript,");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript yra išjungtas jūsų naršyklėje");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Turite įjungti vadovas pašto aktyvavimo iš sistemos parametrai");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Metai nuo");//Year range from (New)
-define("_YEARRANGETO","Metai iki");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Grupės pavadinimas aprašymas");//Group name description (New)
-define("_GROUPINFORMATION","Grupės informacija");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Apriboti prieigą prie turinio failus prisijungę vartotojai");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Suspausti bandymo rezultatus duomenų bazėje");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Techninės priežiūros užduotys");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Spauskite čia norėdami suspausti baigti bandymai");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Spauskite čia norėdami zdekompresować baigti bandymai");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Suspausti");//Compress (New)
-define("_DATABASETASKS","Duomenų bazė uždaviniai");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Prašome atsarginę kopiją jūsų duomenų prieš suspaudžiant / uncompressing baigti bandymai");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfigūracija");//Configuration (New)
-define("_SYSTEMOPTIONS","Sistemos galimybės");//System options (New)
-define("_CASUAL","Atsitiktinis");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Jūs negalite naudotis šia vartotojo informacija");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Įjungti virtualią klaviatūrą");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Bylos atrodo tuščias. Galbūt tai nėra teisingai suformatuotas?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Pažymėjimas reguliaraus pabaigos");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Bandymo slaptažodį");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Atsiprašome, jūs neturite prieigos prie šio filialo");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Atskirti kableliais sąrašas vartotojai Rodyti derinti informacijos apie, arba 1 visiems vartotojams");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Sau");//Jan
+define("_FEBRUARYSHORTHAND","Vasaris");//Feb
+define("_MARCHSHORTHAND","Kov");//Mar
+define("_APRILSHORTHAND","Balandis");//Apr
+define("_MAYSHORTHAND","Gegužės");//May
+define("_JUNESHORTHAND","Birželis");//Jun
+define("_JULYSHORTHAND","Liepa");//Jul
+define("_AUGUSTSHORTHAND","Rugpjūtis");//Aug
+define("_SEPTEMBERSHORTHAND","Rugsėjis");//Sep
+define("_OCTOBERSHORTHAND","Spalis");//Oct
+define("_NOVEMBERSHORTHAND","Lapkritis");//Nov
+define("_DECEMBERSHORTHAND","Gruodis");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Jūs negalite naudotis reikalinga informacija");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Prašome pasirinkti darbo aprašymas");//Please select a job description
+define("_EDITJOBPLACEMENT","Redaguoti įdarbinimo");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Sąskaita");//Account
+define("_ORGANIZATIONALDATA","Organizacinė profilis");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Tuščia palikti nepakeistą");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Įveskite sandorių vertės arba jo numerį, pradedant nuo 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Slėpti vadovas iš vartotojų");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Slėpti darbo naudotojų");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Jūs turite nustatyti numatytąją vertę privalomi elementai");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Naudokite esamą datą");//Use the current date
+define("_USERSCANCHANGEINFO","Sąskaita keisti");//Account change
+define("_USERSCANCHANGEPASS","Slaptažodžio keitimas");//Password change
+define("_VIEWFEEDBACK","Peržiūrėti atsiliepimus");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Rodyti neišsamus klausimų kiekvienoje vykdymas");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Išsaugoti geriausias rezultatas");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Vidutinis bandymo rezultatas (skaičiuojant kiekvieno bandymo aktyvų vykdymas)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","balas aktyvus vykdymas");//score on active execution
+define("_YOUCANUSEASTERISK","Jei nurodysite žodį, kuris baigiasi žvaigždute (*), tik jo pirmoji dalis, bus svarstomi. Pavyzdžiui, jei nurodysite 'išmokti*', tada ir 'mokymosi' ir 'mokytis' bus laikoma teisinga.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Modulio pamoka taisyklės");//Course lesson rules
+define("_RULESBETWEENCOURSES","Taisyklės tarp kursai");//Rules between courses
+define("_COURSEDEPENDSON","Modulio priklauso nuo");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Jūs negalite nustatyti žinoma kaip pati prielaida");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Rodyti alternatyvas pasirinkite langelį");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Jei pažymėsite šią rodys sąrašo lauką su visais alternatyvas, vietoj teksto lauką. Šiuo atveju tik pirmasis variantas yra laikomas teisingu");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Rodyti teisingus atsakymus tik tada, jei studentas išlaikė testą");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Nustatymai tikrintuvas");//Settings checker
+define("_CHECKBROWSER","Tikrinimas naršyklė");//Checking browser
+define("_CHECKRESOLUTION","Tikrinimas ekrano skiriamoji geba");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Tikrinimas, ar iškylančių langų blokavimą");//Checking for Popup blocker
+define("_CHECKCOOKIES","Tikrinimas Cookie valstybės ...");//Checking Cookie state...
+define("_CHECKFLASH","Tikrinimas Flash");//Checking for Flash
+define("_CHECKACROBAT","Tikrinimas, ar Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6, aptikti. Ši naršyklė yra pasenusi ir funkcijos gali būti paveikti");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Deja naršyklė, kurią naudojate, yra nepalaikomas");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Jūsų ekrano skiriamoji geba neatitinka minimalių reikalavimų");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Iškylančių langų blokavimą aptiktas. Prašau leisti iššokantys langai šioje svetainėje ir bandykite dar kartą");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Slapukai atrodo išjungtas. Prašome įjungti slapukų");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash neįdiegta, pasenusi");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader nėra įdiegtas");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Tikrinimas Javascript,");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript yra išjungtas jūsų naršyklėje");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Turite įjungti vadovas pašto aktyvavimo iš sistemos parametrai");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Metai nuo");//Year range from
+define("_YEARRANGETO","Metai iki");//Year range to
+define("_GROUPNAMEDESCRIPTION","Grupės pavadinimas aprašymas");//Group name description
+define("_GROUPINFORMATION","Grupės informacija");//Group information
+define("_CONTRAINACCESSTOCONTENT","Apriboti prieigą prie turinio failus prisijungę vartotojai");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Suspausti bandymo rezultatus duomenų bazėje");//Compress test results in database
+define("_MAINTENANCETASKS","Techninės priežiūros užduotys");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Spauskite čia norėdami suspausti baigti bandymai");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Spauskite čia norėdami zdekompresować baigti bandymai");//Uncompress completed tests
+define("_COMPRESS","Suspausti");//Compress
+define("_DATABASETASKS","Duomenų bazė uždaviniai");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Prašome atsarginę kopiją jūsų duomenų prieš suspaudžiant / uncompressing baigti bandymai");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfigūracija");//Configuration
+define("_SYSTEMOPTIONS","Sistemos galimybės");//System options
+define("_CASUAL","Atsitiktinis");//Casual
+define("_YOUCANNOTEDITTHISUSER","Jūs negalite naudotis šia vartotojo informacija");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Įjungti virtualią klaviatūrą");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Bylos atrodo tuščias. Galbūt tai nėra teisingai suformatuotas?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Pažymėjimas reguliaraus pabaigos");//Certificate scheduled expiration
+define("_TESTPASSWORD","Bandymo slaptažodį");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Atsiprašome, jūs neturite prieigos prie šio filialo");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Rodyti visą organizacijos schemą vartotojai");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Jūs negalite kopijuoti iš tos pačios pamokos");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Žinutės iš studentų");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Ištrinti API žetonai daugiau nei vieno mėnesio amžiaus");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Pridėti naują sąlygą");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Ištrinti Išplėstinės ataskaitos peržiūros");//Delete advanced report views (New)
 ?>

@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","알 수없는 세퍼레이터");//Unknown separator
 define("_LDAPUSER","LDAP 서버를 통해 사용자를 인증");//This user authenticates through the LDAP server
 define("_EXECUTE","실행");//Execute
 define("_RECREATE","재현");//Recreate
-define("_CLICKHERETOREINDEX","여기를 클릭하여 검색 테이블을 재현");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","여기를 클릭하여 검색 테이블을 재현");//Recreate the search table
 define("_TRANSLATION","번역");//Translation
 define("_ENGLISHNAME","에 이름을 영어");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","언어를 성공적으로 만들었습니다");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","세션이 만료되었습니다. 제발")
 define("_CLICKHERE","여기를 클릭하세요");//click here
 define("_TOLOGINAGAIN","다시 로그인");//to login again
 define("_SESSIONEXPIRED","세션이 만료되었습니다");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","사용자의 쉼표로 구분된 목록에 대한 정보를 디버그 또는 1 모든 사용자에 대해 표시");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","월");//Jan (New)
-define("_FEBRUARYSHORTHAND","Feb");//Feb (New)
-define("_MARCHSHORTHAND","흠을 내다");//Mar (New)
-define("_APRILSHORTHAND","Apr");//Apr (New)
-define("_MAYSHORTHAND","월");//May (New)
-define("_JUNESHORTHAND","Jun");//Jun (New)
-define("_JULYSHORTHAND","Jul");//Jul (New)
-define("_AUGUSTSHORTHAND","Aug");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Sep");//Sep (New)
-define("_OCTOBERSHORTHAND","Oct");//Oct (New)
-define("_NOVEMBERSHORTHAND","Nov");//Nov (New)
-define("_DECEMBERSHORTHAND","Dec");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","당신이 요청한 리소스에 액세스할 수 없습니다");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","직업 설명을 선택하십시오");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","취업 알선 편집");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","계정");//Account (New)
-define("_ORGANIZATIONALDATA","조직 개요");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","빈은 변경되지 떠나");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","0에서 시작 옵션 값 또는 그 번호를 입력하십시오");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","사용자로부터 숨기기 감독관");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","사용자로부터 숨기기 직업");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","당신은 필수 요소에 대한 기본값을 지정해야합니다");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","현재 날짜를 사용하여");//Use the current date (New)
-define("_USERSCANCHANGEINFO","계정 변경");//Account change (New)
-define("_USERSCANCHANGEPASS","비밀 번호 변경");//Password change (New)
-define("_VIEWFEEDBACK","의견보기");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","각각의 실행에 표시 불완전 질문");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","최고 점수를 보유");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","평균 시험 점수 (각 시험의 적극적인 실행 계산)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","적극적인 실행에 반드시 득점");//score on active execution (New)
-define("_YOUCANUSEASTERISK","당신은 단지 첫 번째 부분은 간주됩니다 별표 (*)로 끝나는 단어를 지정하십시오. 예를 들어, 당신은 모두가 올바른 것으로 간주된다 &#39;자세히&#39;, &#39;학습&#39;다음 &#39;을 배울 *&#39;를 지정하면.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","코스 수업 규칙");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","코스 사이의 규칙");//Rules between courses (New)
-define("_COURSEDEPENDSON","코스에 따라 다릅니다");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","당신은 자체의 전제 조건으로 코스를 설정할 수 없습니다");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","선택 상자에 표시 대안");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","이것은 텍스트 상자 대신, 모든 대안으로 목록 상자를 표시합니다 확인중. 이 경우에는 첫 번째 옵션이 올바른 것으로 간주됩니다");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","보기 정답은 학생이 테스트를 통과하는 경우");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","설정 검사기");//Settings checker (New)
-define("_CHECKBROWSER","확인 브라우저");//Checking browser (New)
-define("_CHECKRESOLUTION","화면 해상도를 확인");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","팝업 차단기에 대한 확인");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","체크 쿠키 상태 ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","플래시에 대한 확인");//Checking for Flash (New)
-define("_CHECKACROBAT","어도비 리더에 대한 확인");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6이 감지되었습니다. 이 브라우저는 무용지물이다 기능이 영향을받을 수");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","당신은 지원되지 않습니다 사용중인 브라우저 불행히도");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","화면 해상도가 최소 요구 사항을 충족시키지 못한다");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","팝업 차단기가 감지되었습니다. 이 사이트에 대한 팝업을 허용하고 다시 시도하십시오");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","쿠키가 허용되어 나타납니다. 쿠키를 활성화하십시오");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","플래시는 날짜 중에 설치되지 않습니다");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader 프로그램이 설치되어 있지 않습니다");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","자바 스크립트 확인");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","JavaScript가 브라우저에서 활성화되어 있지 않습니다");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","당신은 시스템 설정에서 관리자 이메일 정품 인증을 활성화해야합니다");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","년 범위에서");//Year range from (New)
-define("_YEARRANGETO","올해의 범위");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","그룹 이름 설명");//Group name description (New)
-define("_GROUPINFORMATION","그룹 정보");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","제약 액세스는 사용자가 로그 인한 파일을 내용으로");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","데이터베이스 압축 시험 결과");//Compress test results in database (New)
-define("_MAINTENANCETASKS","유지 보수 작업");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","완료 검사를 압축하려면 여기를 클릭");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","완료 검사를 압축하려면 여기를 클릭");//Click here to uncompress completed tests (New)
-define("_COMPRESS","압박 붕대");//Compress (New)
-define("_DATABASETASKS","데이터베이스 작업");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","압축 / uncompressing 완료 테스트를하기 전에 백업 데이터를하시기 바랍니다");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","구성");//Configuration (New)
-define("_SYSTEMOPTIONS","시스템 옵션");//System options (New)
-define("_CASUAL","캐쥬얼");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","이 사용자의 정보에 액세스할 수 없습니다");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","가상 키보드를 사용");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","파일이 비어있는 것으로 나타납니다. 아마도 그것이 형식이 올바르지 않습니다?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","인증서가 만료 예정");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","테스트 비밀 번호");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","죄송합니다, 당신은이 지점에 액세스할 수 없습니다");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","사용자의 쉼표로 구분된 목록에 대한 정보를 디버그 또는 1 모든 사용자에 대해 표시");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","월");//Jan
+define("_FEBRUARYSHORTHAND","Feb");//Feb
+define("_MARCHSHORTHAND","흠을 내다");//Mar
+define("_APRILSHORTHAND","Apr");//Apr
+define("_MAYSHORTHAND","월");//May
+define("_JUNESHORTHAND","Jun");//Jun
+define("_JULYSHORTHAND","Jul");//Jul
+define("_AUGUSTSHORTHAND","Aug");//Aug
+define("_SEPTEMBERSHORTHAND","Sep");//Sep
+define("_OCTOBERSHORTHAND","Oct");//Oct
+define("_NOVEMBERSHORTHAND","Nov");//Nov
+define("_DECEMBERSHORTHAND","Dec");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","당신이 요청한 리소스에 액세스할 수 없습니다");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","직업 설명을 선택하십시오");//Please select a job description
+define("_EDITJOBPLACEMENT","취업 알선 편집");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","계정");//Account
+define("_ORGANIZATIONALDATA","조직 개요");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","빈은 변경되지 떠나");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","0에서 시작 옵션 값 또는 그 번호를 입력하십시오");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","사용자로부터 숨기기 감독관");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","사용자로부터 숨기기 직업");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","당신은 필수 요소에 대한 기본값을 지정해야합니다");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","현재 날짜를 사용하여");//Use the current date
+define("_USERSCANCHANGEINFO","계정 변경");//Account change
+define("_USERSCANCHANGEPASS","비밀 번호 변경");//Password change
+define("_VIEWFEEDBACK","의견보기");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","각각의 실행에 표시 불완전 질문");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","최고 점수를 보유");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","평균 시험 점수 (각 시험의 적극적인 실행 계산)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","적극적인 실행에 반드시 득점");//score on active execution
+define("_YOUCANUSEASTERISK","당신은 단지 첫 번째 부분은 간주됩니다 별표 (*)로 끝나는 단어를 지정하십시오. 예를 들어, 당신은 모두가 올바른 것으로 간주된다 &#39;자세히&#39;, &#39;학습&#39;다음 &#39;을 배울 *&#39;를 지정하면.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","코스 수업 규칙");//Course lesson rules
+define("_RULESBETWEENCOURSES","코스 사이의 규칙");//Rules between courses
+define("_COURSEDEPENDSON","코스에 따라 다릅니다");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","당신은 자체의 전제 조건으로 코스를 설정할 수 없습니다");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","선택 상자에 표시 대안");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","이것은 텍스트 상자 대신, 모든 대안으로 목록 상자를 표시합니다 확인중. 이 경우에는 첫 번째 옵션이 올바른 것으로 간주됩니다");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","보기 정답은 학생이 테스트를 통과하는 경우");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","설정 검사기");//Settings checker
+define("_CHECKBROWSER","확인 브라우저");//Checking browser
+define("_CHECKRESOLUTION","화면 해상도를 확인");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","팝업 차단기에 대한 확인");//Checking for Popup blocker
+define("_CHECKCOOKIES","체크 쿠키 상태 ...");//Checking Cookie state...
+define("_CHECKFLASH","플래시에 대한 확인");//Checking for Flash
+define("_CHECKACROBAT","어도비 리더에 대한 확인");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6이 감지되었습니다. 이 브라우저는 무용지물이다 기능이 영향을받을 수");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","당신은 지원되지 않습니다 사용중인 브라우저 불행히도");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","화면 해상도가 최소 요구 사항을 충족시키지 못한다");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","팝업 차단기가 감지되었습니다. 이 사이트에 대한 팝업을 허용하고 다시 시도하십시오");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","쿠키가 허용되어 나타납니다. 쿠키를 활성화하십시오");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","플래시는 날짜 중에 설치되지 않습니다");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader 프로그램이 설치되어 있지 않습니다");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","자바 스크립트 확인");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","JavaScript가 브라우저에서 활성화되어 있지 않습니다");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","당신은 시스템 설정에서 관리자 이메일 정품 인증을 활성화해야합니다");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","년 범위에서");//Year range from
+define("_YEARRANGETO","올해의 범위");//Year range to
+define("_GROUPNAMEDESCRIPTION","그룹 이름 설명");//Group name description
+define("_GROUPINFORMATION","그룹 정보");//Group information
+define("_CONTRAINACCESSTOCONTENT","제약 액세스는 사용자가 로그 인한 파일을 내용으로");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","데이터베이스 압축 시험 결과");//Compress test results in database
+define("_MAINTENANCETASKS","유지 보수 작업");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","완료 검사를 압축하려면 여기를 클릭");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","완료 검사를 압축하려면 여기를 클릭");//Uncompress completed tests
+define("_COMPRESS","압박 붕대");//Compress
+define("_DATABASETASKS","데이터베이스 작업");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","압축 / uncompressing 완료 테스트를하기 전에 백업 데이터를하시기 바랍니다");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","구성");//Configuration
+define("_SYSTEMOPTIONS","시스템 옵션");//System options
+define("_CASUAL","캐쥬얼");//Casual
+define("_YOUCANNOTEDITTHISUSER","이 사용자의 정보에 액세스할 수 없습니다");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","가상 키보드를 사용");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","파일이 비어있는 것으로 나타납니다. 아마도 그것이 형식이 올바르지 않습니다?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","인증서가 만료 예정");//Certificate scheduled expiration
+define("_TESTPASSWORD","테스트 비밀 번호");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","죄송합니다, 당신은이 지점에 액세스할 수 없습니다");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","보기 전체 조직도 사용자에게");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","당신은 같은 수업에서 복사할 수 없습니다");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","학생들의 메세지는 메세지");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","삭제 API는 하나 이상의 한달 전 토큰");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","새로운 조건을 추가");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","삭제 리포트보기 고급");//Delete advanced report views (New)
 ?>

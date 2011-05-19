@@ -106,6 +106,9 @@ if (isset($_GET['sel_user'])) {
     $lessons = $infoUser -> getUserStatusInCourseLessons(new EfrontCourse($_GET['courseLessonsTable_source']));
     $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
     $dataSource = $lessons;
+    if (!$_GET['sort']) {
+     $_GET['sort'] = 'eliminate'; //Assign a default sort that does not exist, thus eliminating default sorting by name. This happens because $dataSource here is alread pre-sorted by course succession
+    }
    }
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'operations', 'sort_by_column' => 4));
    $smarty -> assign("T_DATASOURCE_OPERATIONS", array('progress'));
@@ -817,7 +820,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $data[$lessonId] = array(_NAME => $value['name'],
           _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsTreePaths[$value['directions_ID']]),
           _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
-          _COMPLETED => $value['timestamp_completed']? formatTimestamp($value['timestamp_completed']) : '-',
+          _COMPLETED => $value['completed'] ? _YES.($value['timestamp_completed'] ? ', '._ON.' '.formatTimestamp($value['timestamp_completed']): '') : '-',
           _SCORE => formatScore($value['score']).'%',
           _TIME => $value['time_in_lesson']['time_string']);
    if (isset($userDoneTests[$value['id']])) {
@@ -841,7 +844,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $lessonsAvgScore = round(array_sum($completedScores) / sizeof($completedScores), 2);
   }
   $info = array(array(_COURSESAVERAGE, $coursesAvgScore.'%'),
-       array(_LESSONSAVERAGE, $lessonsAvgScore.'%'),
+       array(_STANDALONELESSONSAVERAGE, $lessonsAvgScore.'%'),
        array(_TESTSAVERAGE, round(($testsAvgScore/$testsAvgScoreNum) ,2).'%'));
   $pdf -> printInformationSection(_OVERALL, $info);
  }

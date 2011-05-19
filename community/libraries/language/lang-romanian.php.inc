@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Separator necunoscut");//Unknown separator
 define("_LDAPUSER","Acest utilizator se autentifică prin serverul LDAP");//This user authenticates through the LDAP server
 define("_EXECUTE","Execuţie");//Execute
 define("_RECREATE","Re-creează");//Recreate
-define("_CLICKHERETOREINDEX","Faceţi clic aici pentru a re-crea tabelul de căutare");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Faceţi clic aici pentru a re-crea tabelul de căutare");//Recreate the search table
 define("_TRANSLATION","Traducere");//Translation
 define("_ENGLISHNAME","Denumirea în engleză");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Limba a fost creată cu succes");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Sesiunea dvs. a expirat. Vă rugăm să")
 define("_CLICKHERE","click aici");//click here
 define("_TOLOGINAGAIN","sa va logati din nou");//to login again
 define("_SESSIONEXPIRED","Sesiunea a expirat");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","lista separata prin virgula de utilizatori pentru a afişa informaţii cu privire la depanare, sau 1 pentru toţi utilizatorii");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Ian");//Jan (New)
-define("_FEBRUARYSHORTHAND","Februarie");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Aprilie");//Apr (New)
-define("_MAYSHORTHAND","Poate");//May (New)
-define("_JUNESHORTHAND","Iunie");//Jun (New)
-define("_JULYSHORTHAND","Iulie");//Jul (New)
-define("_AUGUSTSHORTHAND","August");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Septembrie");//Sep (New)
-define("_OCTOBERSHORTHAND","Octombrie");//Oct (New)
-define("_NOVEMBERSHORTHAND","Noiembrie");//Nov (New)
-define("_DECEMBERSHORTHAND","Decembrie");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Nu puteţi accesa resursele solicitate");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Vă rugăm să selectaţi o fişă a postului");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Editare de plasare de locuri de muncă");//Edit job placement (New)
-define("_NORESPONSE","&lt;No response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Cont");//Account (New)
-define("_ORGANIZATIONALDATA","Organizatorice profil");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blank a lăsa neschimbat");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Introduceţi valoarea opţiunii sau numărul său, pornind de la 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Ascunde supraveghetor de la utilizatori");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Ascunde de locuri de muncă de la utilizatori");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Trebuie să specificaţi o valoare implicită pentru elementele obligatorii");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Utilizaţi data curentă");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Considerare schimbările");//Account change (New)
-define("_USERSCANCHANGEPASS","Schimbare parolă");//Password change (New)
-define("_VIEWFEEDBACK","Vezi feedback");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Arată întrebări incomplete în fiecare execuţie");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Păstra cel mai bun scor");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Scorul mediu al test (de numărare de executie pentru fiecare test utilizator)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","scor privind executarea active");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Dacă specificaţi un cuvânt care se termină cu un asterisc (*), numai prima sa parte vor fi luate în considerare. De exemplu, dacă specificaţi 'invata *', atunci ambele 'învăţare' şi 'să înveţe', vor fi considerate corecte.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Curs lecţie normele");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Reguli între cursuri");//Rules between courses (New)
-define("_COURSEDEPENDSON","Depinde, bineînţeles,");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Nu puteţi seta cursul ca o condiţie de sine");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","alternative Afişare în caseta selectaţi");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Verificarea aceasta va afişa o casetă listă cu toate alternativele, în loc de o casetă text. În acest caz, numai prima opţiune este considerat corect");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Arată răspunsurile corecte numai dacă studentul a trecut testul");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Setări Checker");//Settings checker (New)
-define("_CHECKBROWSER","Verificarea browser");//Checking browser (New)
-define("_CHECKRESOLUTION","Verificarea rezoluţia ecranului");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Verificarea pentru popup blocker");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Verificarea Cookie de stat ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Verificarea pentru Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Verificarea pentru Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 detectate. Acest browser este învechit şi funcţionalităţi pot fi afectate");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Din păcate, browser-ul pe care îl utilizaţi nu este acceptată");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","rezoluţia ecranului nu îndeplineşte cerinţele minime de");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","popup blocker detectate. Vă rugăm să permiteţi popup-uri pentru acest site şi să încercaţi din nou");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookie-urile par a fi dezactivat. Vă rugăm să activaţi cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash nu este instalat, din data");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader nu este instalat");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Verificarea Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript nu este activat în browser-ul dvs.");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Trebuie să aveţi activat de e-mail de activare supraveghetor de la setările de sistem");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Gama de la Anul");//Year range from (New)
-define("_YEARRANGETO","Gama de Anul");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Numele grupului descriere");//Group name description (New)
-define("_GROUPINFORMATION","Grupul de informaţii");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Constrângere acces la conţinutul fişierelor pentru utilizatorii autentificaţi");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Comprimare rezultatele testului în baza de date");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Activităţi de întreţinere");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Click aici pentru a comprima teste finalizate");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Click aici pentru a decomprima teste finalizate");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Comprima");//Compress (New)
-define("_DATABASETASKS","Baza de date sarcini");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Vă rugăm să backup de date înainte de comprimarea / decomprimarea testele completate");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Configurare");//Configuration (New)
-define("_SYSTEMOPTIONS","Sistemul de opţiuni");//System options (New)
-define("_CASUAL","Ocazional");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Nu puteţi accesa informaţiile acestui utilizator");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Activează tastatură virtuală");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Fişierul pare a fi gol. Poate că nu este formatat corect?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificat programate expirare");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test parola");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ne pare rău, nu aveţi acces la această ramură");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","lista separata prin virgula de utilizatori pentru a afişa informaţii cu privire la depanare, sau 1 pentru toţi utilizatorii");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Ian");//Jan
+define("_FEBRUARYSHORTHAND","Februarie");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Aprilie");//Apr
+define("_MAYSHORTHAND","Poate");//May
+define("_JUNESHORTHAND","Iunie");//Jun
+define("_JULYSHORTHAND","Iulie");//Jul
+define("_AUGUSTSHORTHAND","August");//Aug
+define("_SEPTEMBERSHORTHAND","Septembrie");//Sep
+define("_OCTOBERSHORTHAND","Octombrie");//Oct
+define("_NOVEMBERSHORTHAND","Noiembrie");//Nov
+define("_DECEMBERSHORTHAND","Decembrie");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Nu puteţi accesa resursele solicitate");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Vă rugăm să selectaţi o fişă a postului");//Please select a job description
+define("_EDITJOBPLACEMENT","Editare de plasare de locuri de muncă");//Edit job placement
+define("_NORESPONSE","&lt;No response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Cont");//Account
+define("_ORGANIZATIONALDATA","Organizatorice profil");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blank a lăsa neschimbat");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Introduceţi valoarea opţiunii sau numărul său, pornind de la 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Ascunde supraveghetor de la utilizatori");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Ascunde de locuri de muncă de la utilizatori");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Trebuie să specificaţi o valoare implicită pentru elementele obligatorii");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Utilizaţi data curentă");//Use the current date
+define("_USERSCANCHANGEINFO","Considerare schimbările");//Account change
+define("_USERSCANCHANGEPASS","Schimbare parolă");//Password change
+define("_VIEWFEEDBACK","Vezi feedback");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Arată întrebări incomplete în fiecare execuţie");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Păstra cel mai bun scor");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Scorul mediu al test (de numărare de executie pentru fiecare test utilizator)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","scor privind executarea active");//score on active execution
+define("_YOUCANUSEASTERISK","Dacă specificaţi un cuvânt care se termină cu un asterisc (*), numai prima sa parte vor fi luate în considerare. De exemplu, dacă specificaţi 'invata *', atunci ambele 'învăţare' şi 'să înveţe', vor fi considerate corecte.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Curs lecţie normele");//Course lesson rules
+define("_RULESBETWEENCOURSES","Reguli între cursuri");//Rules between courses
+define("_COURSEDEPENDSON","Depinde, bineînţeles,");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Nu puteţi seta cursul ca o condiţie de sine");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","alternative Afişare în caseta selectaţi");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Verificarea aceasta va afişa o casetă listă cu toate alternativele, în loc de o casetă text. În acest caz, numai prima opţiune este considerat corect");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Arată răspunsurile corecte numai dacă studentul a trecut testul");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Setări Checker");//Settings checker
+define("_CHECKBROWSER","Verificarea browser");//Checking browser
+define("_CHECKRESOLUTION","Verificarea rezoluţia ecranului");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Verificarea pentru popup blocker");//Checking for Popup blocker
+define("_CHECKCOOKIES","Verificarea Cookie de stat ...");//Checking Cookie state...
+define("_CHECKFLASH","Verificarea pentru Flash");//Checking for Flash
+define("_CHECKACROBAT","Verificarea pentru Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 detectate. Acest browser este învechit şi funcţionalităţi pot fi afectate");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Din păcate, browser-ul pe care îl utilizaţi nu este acceptată");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","rezoluţia ecranului nu îndeplineşte cerinţele minime de");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","popup blocker detectate. Vă rugăm să permiteţi popup-uri pentru acest site şi să încercaţi din nou");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookie-urile par a fi dezactivat. Vă rugăm să activaţi cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash nu este instalat, din data");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader nu este instalat");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Verificarea Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript nu este activat în browser-ul dvs.");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Trebuie să aveţi activat de e-mail de activare supraveghetor de la setările de sistem");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Gama de la Anul");//Year range from
+define("_YEARRANGETO","Gama de Anul");//Year range to
+define("_GROUPNAMEDESCRIPTION","Numele grupului descriere");//Group name description
+define("_GROUPINFORMATION","Grupul de informaţii");//Group information
+define("_CONTRAINACCESSTOCONTENT","Constrângere acces la conţinutul fişierelor pentru utilizatorii autentificaţi");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Comprimare rezultatele testului în baza de date");//Compress test results in database
+define("_MAINTENANCETASKS","Activităţi de întreţinere");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Click aici pentru a comprima teste finalizate");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Click aici pentru a decomprima teste finalizate");//Uncompress completed tests
+define("_COMPRESS","Comprima");//Compress
+define("_DATABASETASKS","Baza de date sarcini");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Vă rugăm să backup de date înainte de comprimarea / decomprimarea testele completate");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Configurare");//Configuration
+define("_SYSTEMOPTIONS","Sistemul de opţiuni");//System options
+define("_CASUAL","Ocazional");//Casual
+define("_YOUCANNOTEDITTHISUSER","Nu puteţi accesa informaţiile acestui utilizator");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Activează tastatură virtuală");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Fişierul pare a fi gol. Poate că nu este formatat corect?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificat programate expirare");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test parola");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ne pare rău, nu aveţi acces la această ramură");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Arată organigrama completă a utilizatorilor");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nu puteti copia de la aceeasi lectie");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Mesaje de la studenţi");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","api Ştergeţi jetoanele mai mult de o lună");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Adauga stare nouă");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Ştergeţi avansat vizualizari raport");//Delete advanced report views (New)
 ?>

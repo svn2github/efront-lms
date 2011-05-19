@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Невідомий розділювач");//Unknown 
 define("_LDAPUSER","Цей користувач виконує аутентифікацію за допомогою LDAP сервера");//This user authenticates through the LDAP server
 define("_EXECUTE","Виконати");//Execute
 define("_RECREATE","Відновити");//Recreate
-define("_CLICKHERETOREINDEX","Натисніть, щоб відновити пошукову таблицю");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Натисніть, щоб відновити пошукову таблицю");//Recreate the search table
 define("_TRANSLATION","Переклад");//Translation
 define("_ENGLISHNAME","Найменування англійською мовою");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Мова створена");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Ваша сесія закінчилас�
 define("_CLICKHERE","натисніть тут");//click here
 define("_TOLOGINAGAIN","Увійти, щоб знову");//to login again
 define("_SESSIONEXPIRED","Сесія минув");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Розділений комами список користувачів, щоб показати налагодження інформацію про, або 1 для всіх користувачів");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Ян");//Jan (New)
-define("_FEBRUARYSHORTHAND","Лютий");//Feb (New)
-define("_MARCHSHORTHAND","Березень");//Mar (New)
-define("_APRILSHORTHAND","Травень");//Apr (New)
-define("_MAYSHORTHAND","Травень");//May (New)
-define("_JUNESHORTHAND","Червень");//Jun (New)
-define("_JULYSHORTHAND","Липень");//Jul (New)
-define("_AUGUSTSHORTHAND","Серпень");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Вересень");//Sep (New)
-define("_OCTOBERSHORTHAND","Жовтень");//Oct (New)
-define("_NOVEMBERSHORTHAND","Листопад");//Nov (New)
-define("_DECEMBERSHORTHAND","Грудень");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ви не можете отримати доступ до запитуваного ресурсу");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Будь ласка, виберіть Job Description");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Змінити працевлаштування");//Edit job placement (New)
-define("_NORESPONSE","&lt;Немає response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Рахунок");//Account (New)
-define("_ORGANIZATIONALDATA","Організаційні профілю");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Бланк залишити без змін");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Введіть значення параметра або його номер, починаючи з 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Приховати керівника від користувачів");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Приховати роботу з користувачами");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Ви повинні вказати значення за замовчуванням для елементів, що мають обов&#39;язкову");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Використовуйте поточну дату");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Рахунок зміни");//Account change (New)
-define("_USERSCANCHANGEPASS","Зміна пароля");//Password change (New)
-define("_VIEWFEEDBACK","Переглянути коментарі");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Показати неповних питань у кожному виконанні");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Зберегти кращий результат");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Середня оцінка випробувань (з урахуванням активного виконання кожного тесту)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","Оцінка на активне виконання");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Якщо вказати слово, яке закінчується зірочкою (*), тільки її першій частині будуть розглянуті. Наприклад, якщо вказати 'вчитися *', то як 'навчанняv' і 'вчитися' буде вважатися правильним.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","правила курс Урок");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Правила між курсами");//Rules between courses (New)
-define("_COURSEDEPENDSON","Звичайно, залежить від");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Ви не можете встановити курс в якості попередньої умови про себе");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Показати альтернатив у вікні вибору");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Перевірка цього з&#39;явиться список всіх альтернатив, а не в текстовому полі. У цьому випадку, тільки перший варіант вважається правильним");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Показати правильні відповіді, тільки якщо студент пройшов випробування");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Установки перевірки");//Settings checker (New)
-define("_CHECKBROWSER","Перевірка браузера");//Checking browser (New)
-define("_CHECKRESOLUTION","Перевірка дозвіл екрану");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Перевірка на блокувальник спливаючих вікон");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Перевірка стану печива ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Перевірка на Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Перевірка наявності Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 виявлено. Цей браузер є застарілим і функціональні можливості можуть бути порушені");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","На жаль, браузер, який ви використовуєте, не підтримується");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Ваш дозвіл екрану не відповідає мінімальним вимогам");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Блокувальник спливаючих вікон виявлено. Прохання дозволити спливаючі вікна для цього сайту і спробуйте ще раз");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Печиво по всій видимості, інвалідів. Будь ласка, увімкніть кукі");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash не встановлений, застарілий");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader не встановлено");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Перевірка Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript не дозволені у Вашому браузері");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Ви повинні мати включений активації керівнику лист від налаштування системи");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Рік від");//Year range from (New)
-define("_YEARRANGETO","Рік діапазон");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Назва групи опис");//Group name description (New)
-define("_GROUPINFORMATION","Інформація про групу");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Обмеження доступу до вмісту файлів зареєстрованих користувачів");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Стиснення результати тестів у базі даних");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Завдання обслуговування");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Натисніть тут, щоб стиснути завершені випробування");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Натисніть тут, щоб розпакувати завершені випробування");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Стискати");//Compress (New)
-define("_DATABASETASKS","База даних завдань");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Будь ласка, створіть резервну копію даних до стиснення / розпакування завершені випробування");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Конфігурація");//Configuration (New)
-define("_SYSTEMOPTIONS","Системні налаштування");//System options (New)
-define("_CASUAL","Випадковий");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Ви не можете отримати доступ до інформації цього користувача");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Включити віртуальну клавіатуру");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Файл виглядає порожнім. Може бути, це не правильний формат?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертифікат запланованого терміну");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Випробування пароль");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","На жаль, ви не маєте доступу до цієї галузі");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Розділений комами список користувачів, щоб показати налагодження інформацію про, або 1 для всіх користувачів");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Ян");//Jan
+define("_FEBRUARYSHORTHAND","Лютий");//Feb
+define("_MARCHSHORTHAND","Березень");//Mar
+define("_APRILSHORTHAND","Травень");//Apr
+define("_MAYSHORTHAND","Травень");//May
+define("_JUNESHORTHAND","Червень");//Jun
+define("_JULYSHORTHAND","Липень");//Jul
+define("_AUGUSTSHORTHAND","Серпень");//Aug
+define("_SEPTEMBERSHORTHAND","Вересень");//Sep
+define("_OCTOBERSHORTHAND","Жовтень");//Oct
+define("_NOVEMBERSHORTHAND","Листопад");//Nov
+define("_DECEMBERSHORTHAND","Грудень");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ви не можете отримати доступ до запитуваного ресурсу");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Будь ласка, виберіть Job Description");//Please select a job description
+define("_EDITJOBPLACEMENT","Змінити працевлаштування");//Edit job placement
+define("_NORESPONSE","&lt;Немає response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Рахунок");//Account
+define("_ORGANIZATIONALDATA","Організаційні профілю");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Бланк залишити без змін");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Введіть значення параметра або його номер, починаючи з 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Приховати керівника від користувачів");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Приховати роботу з користувачами");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Ви повинні вказати значення за замовчуванням для елементів, що мають обов&#39;язкову");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Використовуйте поточну дату");//Use the current date
+define("_USERSCANCHANGEINFO","Рахунок зміни");//Account change
+define("_USERSCANCHANGEPASS","Зміна пароля");//Password change
+define("_VIEWFEEDBACK","Переглянути коментарі");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Показати неповних питань у кожному виконанні");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Зберегти кращий результат");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Середня оцінка випробувань (з урахуванням активного виконання кожного тесту)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","Оцінка на активне виконання");//score on active execution
+define("_YOUCANUSEASTERISK","Якщо вказати слово, яке закінчується зірочкою (*), тільки її першій частині будуть розглянуті. Наприклад, якщо вказати 'вчитися *', то як 'навчанняv' і 'вчитися' буде вважатися правильним.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","правила курс Урок");//Course lesson rules
+define("_RULESBETWEENCOURSES","Правила між курсами");//Rules between courses
+define("_COURSEDEPENDSON","Звичайно, залежить від");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Ви не можете встановити курс в якості попередньої умови про себе");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Показати альтернатив у вікні вибору");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Перевірка цього з&#39;явиться список всіх альтернатив, а не в текстовому полі. У цьому випадку, тільки перший варіант вважається правильним");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Показати правильні відповіді, тільки якщо студент пройшов випробування");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Установки перевірки");//Settings checker
+define("_CHECKBROWSER","Перевірка браузера");//Checking browser
+define("_CHECKRESOLUTION","Перевірка дозвіл екрану");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Перевірка на блокувальник спливаючих вікон");//Checking for Popup blocker
+define("_CHECKCOOKIES","Перевірка стану печива ...");//Checking Cookie state...
+define("_CHECKFLASH","Перевірка на Flash");//Checking for Flash
+define("_CHECKACROBAT","Перевірка наявності Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 виявлено. Цей браузер є застарілим і функціональні можливості можуть бути порушені");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","На жаль, браузер, який ви використовуєте, не підтримується");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Ваш дозвіл екрану не відповідає мінімальним вимогам");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Блокувальник спливаючих вікон виявлено. Прохання дозволити спливаючі вікна для цього сайту і спробуйте ще раз");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Печиво по всій видимості, інвалідів. Будь ласка, увімкніть кукі");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash не встановлений, застарілий");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader не встановлено");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Перевірка Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript не дозволені у Вашому браузері");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Ви повинні мати включений активації керівнику лист від налаштування системи");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Рік від");//Year range from
+define("_YEARRANGETO","Рік діапазон");//Year range to
+define("_GROUPNAMEDESCRIPTION","Назва групи опис");//Group name description
+define("_GROUPINFORMATION","Інформація про групу");//Group information
+define("_CONTRAINACCESSTOCONTENT","Обмеження доступу до вмісту файлів зареєстрованих користувачів");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Стиснення результати тестів у базі даних");//Compress test results in database
+define("_MAINTENANCETASKS","Завдання обслуговування");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Натисніть тут, щоб стиснути завершені випробування");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Натисніть тут, щоб розпакувати завершені випробування");//Uncompress completed tests
+define("_COMPRESS","Стискати");//Compress
+define("_DATABASETASKS","База даних завдань");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Будь ласка, створіть резервну копію даних до стиснення / розпакування завершені випробування");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Конфігурація");//Configuration
+define("_SYSTEMOPTIONS","Системні налаштування");//System options
+define("_CASUAL","Випадковий");//Casual
+define("_YOUCANNOTEDITTHISUSER","Ви не можете отримати доступ до інформації цього користувача");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Включити віртуальну клавіатуру");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Файл виглядає порожнім. Може бути, це не правильний формат?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертифікат запланованого терміну");//Certificate scheduled expiration
+define("_TESTPASSWORD","Випробування пароль");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","На жаль, ви не маєте доступу до цієї галузі");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Показати повний графік організації для користувачів");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Ви не можете копіювати з того ж уроку");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Повідомлення від студентів");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Видалити API маркерів більше одного місяця");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Додати нову умову");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Видалити розширений звіт переглядів");//Delete advanced report views (New)
 ?>

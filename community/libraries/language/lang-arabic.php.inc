@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","غير معروف فاصل");//Unknown separator
 define("_LDAPUSER","هذا المستخدم من خلال authenticates خادم LDAP");//This user authenticates through the LDAP server
 define("_EXECUTE","تنفيذ");//Execute
 define("_RECREATE","اعد تكوين");//Recreate
-define("_CLICKHERETOREINDEX","اضغط هنا لاعادة البحث الجدول");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","اضغط هنا لاعادة البحث الجدول");//Recreate the search table
 define("_TRANSLATION","الترجمة");//Translation
 define("_ENGLISHNAME","الاسم في English");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","لغة نجحت عملية انشاء");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","لقد انتهت جلستك. الرجا�
 define("_CLICKHERE","اضغط هنا");//click here
 define("_TOLOGINAGAIN","لتسجيل الدخول مرة أخرى");//to login again
 define("_SESSIONEXPIRED","انتهت الدورة");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","فاصلة فصل قائمة من المستخدمين لعرض معلومات عن التصحيح ، أو 1 لجميع المستخدمين");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","يناير");//Jan (New)
-define("_FEBRUARYSHORTHAND","فبراير");//Feb (New)
-define("_MARCHSHORTHAND","مارس");//Mar (New)
-define("_APRILSHORTHAND","أبريل");//Apr (New)
-define("_MAYSHORTHAND","قد");//May (New)
-define("_JUNESHORTHAND","يونيو");//Jun (New)
-define("_JULYSHORTHAND","يوليو");//Jul (New)
-define("_AUGUSTSHORTHAND","أغسطس");//Aug (New)
-define("_SEPTEMBERSHORTHAND","سبتمبر");//Sep (New)
-define("_OCTOBERSHORTHAND","أكتوبر");//Oct (New)
-define("_NOVEMBERSHORTHAND","نوفمبر");//Nov (New)
-define("_DECEMBERSHORTHAND","ديسمبر");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","لا يمكنك الوصول إلى المورد المطلوب");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","الرجاء تحديد الوصف الوظيفي");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","تحرير التوظيف");//Edit job placement (New)
-define("_NORESPONSE","&lt;noresponse&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","حساب");//Account (New)
-define("_ORGANIZATIONALDATA","التنظيمية الشخصي");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","على بياض لترك دون تغيير");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","أدخل قيمة الخيار أو رقم ، بدءا من 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","إخفاء المشرف من المستخدمين");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","إخفاء مهمة من المستخدمين");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","يجب تحديد قيمة افتراضية لعناصر إلزامية");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","استخدام التاريخ الحالي");//Use the current date (New)
-define("_USERSCANCHANGEINFO","تغيير حساب");//Account change (New)
-define("_USERSCANCHANGEPASS","تغيير كلمة المرور");//Password change (New)
-define("_VIEWFEEDBACK","عرض الملاحظات");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","الأسئلة إظهار كاملة في تنفيذ كل");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","الإبقاء على أفضل نتيجة");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","متوسط ​​درجات الاختبار (عد تنفيذ كل اختبار النشيطة)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","نقاط على التنفيذ النشط");//score on active execution (New)
-define("_YOUCANUSEASTERISK","إذا قمت بتحديد الكلمة التي تنتهي بنجمة (*) ، وسوف ينظر فقط الجزء الأول. على سبيل المثال ، إذا قمت بتحديد &#39;تعلم *&#39; ، ثم كل من &#39;التعلم&#39; و &#39;تعلم&#39; سيتم النظر الصحيح.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","دورة القواعد الدرس");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","قواعد بين المقررات");//Rules between courses (New)
-define("_COURSEDEPENDSON","بالطبع يعتمد على");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","لا يمكنك تعيين مسار كشرط أساسي في حد ذاته");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","بدائل العرض في مربع تحديد");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","فحص هذا سيتم عرض مربع قائمة مع جميع البدائل ، بدلا من مربع النص. في هذه الحالة ، يعتبر الخيار الأول فقط الصحيح");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","الإجابات إظهار الصحيح إلا إذا مرت الطالب اختبار");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","إعدادات المدقق");//Settings checker (New)
-define("_CHECKBROWSER","فحص المتصفح");//Checking browser (New)
-define("_CHECKRESOLUTION","التحقق من دقة الشاشة");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","التحقق من وجود مانع النوافذ المنبثقة");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","فحص كوكي الدولة...");//Checking Cookie state... (New)
-define("_CHECKFLASH","التحقق من وجود فلاش");//Checking for Flash (New)
-define("_CHECKACROBAT","التحقق من وجود برنامج أدوبي ريدر");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","الكشف عن إنترنت إكسبلورر 6. هذا المتصفح قد عفا عليه الزمن ، ويمكن أن تتأثر وظائف");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","للأسف المتصفح الذي تستخدمه غير معتمد");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","دقة الشاشة لا تلبي الحد الأدنى المطلوب من");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","الكشف عن مانع النوافذ المنبثقة. الرجاء السماح بالنوافذ لهذا الموقع وحاول مرة أخرى");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","يبدو أن ملفات تعريف الارتباط معطل. الرجاء تمكين الكوكيز");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","لم يتم تثبيت فلاش ، عفا عليها الزمن");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","لم يتم تثبيت برنامج أدوبي ريدر");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","فحص جافا سكريبت");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","لم يتم تمكين جافا سكريبت في المتصفح");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","يجب تمكين أنت المشرف تفعيل البريد الإلكتروني من إعدادات النظام");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","الفترة الزمنية من");//Year range from (New)
-define("_YEARRANGETO","الفترة الزمنية ل");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","اسم المجموعة الوصف");//Group name description (New)
-define("_GROUPINFORMATION","معلومات المجموعة");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","تقييد الوصول إلى محتوى الملفات لتسجيل الدخول للمستخدمين");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","نتائج اختبار ضغط في قاعدة بيانات");//Compress test results in database (New)
-define("_MAINTENANCETASKS","صيانة المهام");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","انقر هنا لضغط اختبارات الانتهاء");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","اضغط هنا لإلغاء ضغط اختبارات الانتهاء");//Click here to uncompress completed tests (New)
-define("_COMPRESS","ضغط");//Compress (New)
-define("_DATABASETASKS","المهام قاعدة البيانات");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","يرجى احتياطية بياناتك قبل ضغط / الفتح اختبارات الانتهاء");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","التكوين");//Configuration (New)
-define("_SYSTEMOPTIONS","خيارات النظام");//System options (New)
-define("_CASUAL","عرضي");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","لا يمكنك الوصول إلى المعلومات هذا المستخدم");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","تمكن لوحة المفاتيح الافتراضية");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","الملف يبدو أن يكون فارغا. ربما يكون غير مهيأ بشكل صحيح؟");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","شهادة المقرر انقضاء");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","اختبار كلمة المرور");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","عذرا ، لم يكن لديك الوصول إلى هذا الفرع");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","فاصلة فصل قائمة من المستخدمين لعرض معلومات عن التصحيح ، أو 1 لجميع المستخدمين");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","يناير");//Jan
+define("_FEBRUARYSHORTHAND","فبراير");//Feb
+define("_MARCHSHORTHAND","مارس");//Mar
+define("_APRILSHORTHAND","أبريل");//Apr
+define("_MAYSHORTHAND","قد");//May
+define("_JUNESHORTHAND","يونيو");//Jun
+define("_JULYSHORTHAND","يوليو");//Jul
+define("_AUGUSTSHORTHAND","أغسطس");//Aug
+define("_SEPTEMBERSHORTHAND","سبتمبر");//Sep
+define("_OCTOBERSHORTHAND","أكتوبر");//Oct
+define("_NOVEMBERSHORTHAND","نوفمبر");//Nov
+define("_DECEMBERSHORTHAND","ديسمبر");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","لا يمكنك الوصول إلى المورد المطلوب");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","الرجاء تحديد الوصف الوظيفي");//Please select a job description
+define("_EDITJOBPLACEMENT","تحرير التوظيف");//Edit job placement
+define("_NORESPONSE","&lt;noresponse&gt;");//&lt;no response&gt;
+define("_ACCOUNT","حساب");//Account
+define("_ORGANIZATIONALDATA","التنظيمية الشخصي");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","على بياض لترك دون تغيير");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","أدخل قيمة الخيار أو رقم ، بدءا من 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","إخفاء المشرف من المستخدمين");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","إخفاء مهمة من المستخدمين");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","يجب تحديد قيمة افتراضية لعناصر إلزامية");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","استخدام التاريخ الحالي");//Use the current date
+define("_USERSCANCHANGEINFO","تغيير حساب");//Account change
+define("_USERSCANCHANGEPASS","تغيير كلمة المرور");//Password change
+define("_VIEWFEEDBACK","عرض الملاحظات");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","الأسئلة إظهار كاملة في تنفيذ كل");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","الإبقاء على أفضل نتيجة");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","متوسط ​​درجات الاختبار (عد تنفيذ كل اختبار النشيطة)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","نقاط على التنفيذ النشط");//score on active execution
+define("_YOUCANUSEASTERISK","إذا قمت بتحديد الكلمة التي تنتهي بنجمة (*) ، وسوف ينظر فقط الجزء الأول. على سبيل المثال ، إذا قمت بتحديد &#39;تعلم *&#39; ، ثم كل من &#39;التعلم&#39; و &#39;تعلم&#39; سيتم النظر الصحيح.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","دورة القواعد الدرس");//Course lesson rules
+define("_RULESBETWEENCOURSES","قواعد بين المقررات");//Rules between courses
+define("_COURSEDEPENDSON","بالطبع يعتمد على");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","لا يمكنك تعيين مسار كشرط أساسي في حد ذاته");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","بدائل العرض في مربع تحديد");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","فحص هذا سيتم عرض مربع قائمة مع جميع البدائل ، بدلا من مربع النص. في هذه الحالة ، يعتبر الخيار الأول فقط الصحيح");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","الإجابات إظهار الصحيح إلا إذا مرت الطالب اختبار");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","إعدادات المدقق");//Settings checker
+define("_CHECKBROWSER","فحص المتصفح");//Checking browser
+define("_CHECKRESOLUTION","التحقق من دقة الشاشة");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","التحقق من وجود مانع النوافذ المنبثقة");//Checking for Popup blocker
+define("_CHECKCOOKIES","فحص كوكي الدولة...");//Checking Cookie state...
+define("_CHECKFLASH","التحقق من وجود فلاش");//Checking for Flash
+define("_CHECKACROBAT","التحقق من وجود برنامج أدوبي ريدر");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","الكشف عن إنترنت إكسبلورر 6. هذا المتصفح قد عفا عليه الزمن ، ويمكن أن تتأثر وظائف");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","للأسف المتصفح الذي تستخدمه غير معتمد");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","دقة الشاشة لا تلبي الحد الأدنى المطلوب من");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","الكشف عن مانع النوافذ المنبثقة. الرجاء السماح بالنوافذ لهذا الموقع وحاول مرة أخرى");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","يبدو أن ملفات تعريف الارتباط معطل. الرجاء تمكين الكوكيز");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","لم يتم تثبيت فلاش ، عفا عليها الزمن");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","لم يتم تثبيت برنامج أدوبي ريدر");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","فحص جافا سكريبت");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","لم يتم تمكين جافا سكريبت في المتصفح");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","يجب تمكين أنت المشرف تفعيل البريد الإلكتروني من إعدادات النظام");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","الفترة الزمنية من");//Year range from
+define("_YEARRANGETO","الفترة الزمنية ل");//Year range to
+define("_GROUPNAMEDESCRIPTION","اسم المجموعة الوصف");//Group name description
+define("_GROUPINFORMATION","معلومات المجموعة");//Group information
+define("_CONTRAINACCESSTOCONTENT","تقييد الوصول إلى محتوى الملفات لتسجيل الدخول للمستخدمين");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","نتائج اختبار ضغط في قاعدة بيانات");//Compress test results in database
+define("_MAINTENANCETASKS","صيانة المهام");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","انقر هنا لضغط اختبارات الانتهاء");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","اضغط هنا لإلغاء ضغط اختبارات الانتهاء");//Uncompress completed tests
+define("_COMPRESS","ضغط");//Compress
+define("_DATABASETASKS","المهام قاعدة البيانات");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","يرجى احتياطية بياناتك قبل ضغط / الفتح اختبارات الانتهاء");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","التكوين");//Configuration
+define("_SYSTEMOPTIONS","خيارات النظام");//System options
+define("_CASUAL","عرضي");//Casual
+define("_YOUCANNOTEDITTHISUSER","لا يمكنك الوصول إلى المعلومات هذا المستخدم");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","تمكن لوحة المفاتيح الافتراضية");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","الملف يبدو أن يكون فارغا. ربما يكون غير مهيأ بشكل صحيح؟");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","شهادة المقرر انقضاء");//Certificate scheduled expiration
+define("_TESTPASSWORD","اختبار كلمة المرور");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","عذرا ، لم يكن لديك الوصول إلى هذا الفرع");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","عرض مخطط هيكلي كامل للمستخدمين");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","لا يمكنك نسخ من نفس الدرس");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","رسائل من الطلاب");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","المعهد حذف الرموز أكثر من شهر واحد القديمة");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","إضافة شرط جديد");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","المتقدمة حذف جهات النظر تقرير");//Delete advanced report views (New)
 ?>

@@ -185,7 +185,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         break;
 
     case 'multiple_many':
-  $form -> addElement('advcheckbox', 'answers_or', _USEORLOGICTOCORRECTANSWERS, null, 'class = "inputCheckBox"', array(0, 1));
+  $form -> addElement('select', 'answers_logic', _SCORECALCULATIONMODE, array('' => _DEFAULT, 'or' => mb_strtoupper(_OR), 'and' => mb_strtoupper(_AND)));
         if ($form -> isSubmitted() || isset($currentQuestion)) {
             if (isset($currentQuestion) && !$form -> isSubmitted()) {
                 $values['multiple_many'] = unserialize($currentQuestion -> question['options']);
@@ -213,14 +213,17 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
                 $form -> setDefaults(array('multiple_many['.$key.']' => $value));
                 $form -> setDefaults(array('correct_multiple_many['.$key.']' => $values['correct_multiple_many'][$key]));
                 $form -> setDefaults(array('answers_explanation['.$key.']' => $values['answers_explanation'][$key]));
-    $form -> setDefaults(array('answers_or' => $currentQuestion -> settings['answers_or']));
+            }
+            $form -> setDefaults(array('answers_logic' => $currentQuestion -> settings['answers_logic']));
+            if ($currentQuestion -> settings['answers_or']) { //For compatibility reasons, this used to be 'answers_or'
+             $form -> setDefaults(array('answers_logic' => 'or'));
             }
 
             if ($form -> validate()) {
                 $question_values = array('type' => 'multiple_many',
                                          'options' => serialize($values['multiple_many']),
                                          'answer' => serialize($values['correct_multiple_many']),
-           'settings' => serialize(array('answers_or' => $form -> exportValue('answers_or'))));
+           'settings' => serialize(array('answers_logic' => $form -> exportValue('answers_logic'))));
             }
         } else {
             //By default, only 2 options are displayed

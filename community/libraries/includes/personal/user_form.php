@@ -145,7 +145,7 @@ if (isset($_GET['pdf'])) {
    $data[$courseId] = array(_NAME => $value['name'],
          _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),
          _REGISTRATIONDATE => formatTimestamp($value['active_in_course']),
-         _COMPLETED => $value['to_timestamp'] ? formatTimestamp($value['to_timestamp']) : '-',
+         _COMPLETED => $value['completed'] ? _YES.($value['to_timestamp'] ? ', '._ON.' '.formatTimestamp($value['to_timestamp']) : '') : '-'
          _SCORE => formatScore($value['score']).'%',
          'active' => $value['active']);
 
@@ -157,7 +157,7 @@ if (isset($_GET['pdf'])) {
     $subSectionData = array();
     foreach ($courseLessons[$value['id']] as $lessonId => $courseLesson) {
      $subSectionData[$lessonId] = array(_NAME => $courseLesson['name'],
-                _COMPLETED => $courseLesson['timestamp_completed'] ? formatTimestamp($courseLesson['timestamp_completed']) : '-',
+                _COMPLETED => $courseLesson['completed'] ? _YES.($courseLesson['timestamp_completed'] ? ', '._ON.' '.formatTimestamp($courseLesson['timestamp_completed']): '') : '-',
                 _SCORE => formatScore($courseLesson['score']).'%');
 /*
 					if (isset($userDoneTests[$value['id']])) {
@@ -184,7 +184,7 @@ if (isset($_GET['pdf'])) {
    $data[$lessonId] = array(_NAME => $value['name'],
         _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),
         _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
-        _COMPLETED => $value['timestamp_completed']? formatTimestamp($value['timestamp_completed']) : '-',
+        _COMPLETED => $value['completed'] ? _YES.($value['timestamp_completed'] ? ', '._ON.' '.formatTimestamp($value['timestamp_completed']): '') : '-',
         _SCORE => formatScore($value['score']).'%');
 /*
 			if (isset($userDoneTests[$value['id']])) {

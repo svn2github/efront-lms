@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Unknown ndarës");//Unknown separator
 define("_LDAPUSER","Ky përdorues authenticates përmes LDAP server");//This user authenticates through the LDAP server
 define("_EXECUTE","Ekzekutoj");//Execute
 define("_RECREATE","Rikrijojë");//Recreate
-define("_CLICKHERETOREINDEX","Kliko këtu për të dëfrehem tryezën e kërkimit");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Kliko këtu për të dëfrehem tryezën e kërkimit");//Recreate the search table
 define("_TRANSLATION","Translation");//Translation
 define("_ENGLISHNAME","Emri në anglisht");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Gjuha u krijua me sukses");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Sesioni juaj ka skaduar. Ju lutem");//You
 define("_CLICKHERE","kliko këtu");//click here
 define("_TOLOGINAGAIN","të identifikohen përsëri");//to login again
 define("_SESSIONEXPIRED","Sesioni i skaduar");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Lista e ndarë me presje e përdoruesve për të treguar debug informacion mbi, ose 1 për të gjithë përdoruesit");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Shkurt");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Prill");//Apr (New)
-define("_MAYSHORTHAND","Mund të");//May (New)
-define("_JUNESHORTHAND","Qershor");//Jun (New)
-define("_JULYSHORTHAND","Korrik");//Jul (New)
-define("_AUGUSTSHORTHAND","Gusht");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Shtator");//Sep (New)
-define("_OCTOBERSHORTHAND","Tetor");//Oct (New)
-define("_NOVEMBERSHORTHAND","Nëntor");//Nov (New)
-define("_DECEMBERSHORTHAND","Dhjetor");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ju nuk mund të hyni në burim e kërkuar");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Ju lutem zgjidhni një përshkrim të punës");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Edit punësim");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Llogari");//Account (New)
-define("_ORGANIZATIONALDATA","Profili Organizative");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Bosh të lënë i pandryshuar");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Shkruani vlerën e mundësi ose numrin e saj, duke filluar nga 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","mbikëqyrësi Hide nga shfrytëzuesit");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","punë Hide nga shfrytëzuesit");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Ju duhet të specifikoni vlerën e prezgjedhur për elementët e detyrueshme");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Përdorimi datën e tanishme");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Llogaria ndryshim");//Account change (New)
-define("_USERSCANCHANGEPASS","ndryshim Fjalëkalimi");//Password change (New)
-define("_VIEWFEEDBACK","Shiko reagimet");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Show pyetje jo të plota në çdo ekzekutim");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Mbajë rezultatin më të mirë");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Nota mesatare test (duke numëruar ekzekutimit aktiv çdo test-së)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","Rezultati për ekzekutimin e aktive");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Nëse ju specifikoni një fjalë që përfundon me një yll (*), vetëm pjesën e parë do të merren parasysh. Për shembull, nëse ju specifikoni mësoni*', atëherë të dy 'të mësuarit' dhe 'të mësojnë' do të konsiderohet i saktë.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","mësim Rregullat e kursit");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Rregullat në mes të kurseve");//Rules between courses (New)
-define("_COURSEDEPENDSON","Sigurisht varet nga");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Ju nuk mund të përcaktuar kurs si një parakusht i vetë");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","alternativa të vendosë, në kutinë e zgjidhni");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kontrolluar kjo do të tregojë një kuti listë me të gjitha alternativat, në vend të një kutie teksti. Në këtë rast, vetëm opsionin e parë konsiderohet e saktë");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Përgjigjet Show saktë vetëm nëse studenti kaluan testin");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Paneli i punëve Checker");//Settings checker (New)
-define("_CHECKBROWSER","Kontrolli browser");//Checking browser (New)
-define("_CHECKRESOLUTION","Checking screen resolution");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Kontrolluar për Popup blocker");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Kontrolluar Cookie shtet ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Kontrolluar për Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Kontrolluar për Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 zbuluar. Ky shfletues është e vjetëruar dhe funksionalitetin mund të preken");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Për fat të keq të shfletuesit që ju jeni duke përdorur nuk është i mbështetur");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","zgjidhjen e juaj ekran nuk i plotëson kërkesat minimale të");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Popup blocker zbuluar. Ju lutemi të lejojë popups për këtë faqe dhe të provoni përsëri");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies duket të jetë me aftësi të kufizuara. Ju lutem aktivizoni cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash nuk është i instaluar, nga data");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader nuk është i instaluar");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Kontrolluar Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript nuk është aktivizuar në shfletuesin tënd");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Ju duhet të keni aktivizuar mail aktivizimi mbikëqyrësi nga parametrat e sistemit");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Viti varg nga");//Year range from (New)
-define("_YEARRANGETO","Viti varg të");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Përshkrimi i grupit Emri");//Group name description (New)
-define("_GROUPINFORMATION","informacion Group");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","qasje të kufizojnë në përmbajtjen e dosjeve të përdoruesit e regjistruar në");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Rezultatet e testimit Compress në bazën e të dhënave");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Mirëmbajtjen e detyrave");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Kliko këtu për të compress teste përfunduar");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Kliko këtu për të uncompress teste përfunduar");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Ngjesh");//Compress (New)
-define("_DATABASETASKS","detyrat Baza e të dhënave");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Ju lutemi të dhënat tuaja backup para se compressing / uncompressing testit të plotësuar");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfiguracion");//Configuration (New)
-define("_SYSTEMOPTIONS","opsionet e Sistemit");//System options (New)
-define("_CASUAL","Rastësor");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Ju nuk mund të ketë qasje në informata this user&#39;s");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Enable keyboard virtuale");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","File duket të jetë bosh. Ndoshta nuk është i formatuar si duhet?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikata planifikuar skadimit");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Fjalëkalimi Test");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Na vjen keq, ju nuk keni qasje në këtë degë");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Lista e ndarë me presje e përdoruesve për të treguar debug informacion mbi, ose 1 për të gjithë përdoruesit");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Shkurt");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Prill");//Apr
+define("_MAYSHORTHAND","Mund të");//May
+define("_JUNESHORTHAND","Qershor");//Jun
+define("_JULYSHORTHAND","Korrik");//Jul
+define("_AUGUSTSHORTHAND","Gusht");//Aug
+define("_SEPTEMBERSHORTHAND","Shtator");//Sep
+define("_OCTOBERSHORTHAND","Tetor");//Oct
+define("_NOVEMBERSHORTHAND","Nëntor");//Nov
+define("_DECEMBERSHORTHAND","Dhjetor");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ju nuk mund të hyni në burim e kërkuar");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Ju lutem zgjidhni një përshkrim të punës");//Please select a job description
+define("_EDITJOBPLACEMENT","Edit punësim");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Llogari");//Account
+define("_ORGANIZATIONALDATA","Profili Organizative");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Bosh të lënë i pandryshuar");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Shkruani vlerën e mundësi ose numrin e saj, duke filluar nga 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","mbikëqyrësi Hide nga shfrytëzuesit");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","punë Hide nga shfrytëzuesit");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Ju duhet të specifikoni vlerën e prezgjedhur për elementët e detyrueshme");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Përdorimi datën e tanishme");//Use the current date
+define("_USERSCANCHANGEINFO","Llogaria ndryshim");//Account change
+define("_USERSCANCHANGEPASS","ndryshim Fjalëkalimi");//Password change
+define("_VIEWFEEDBACK","Shiko reagimet");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Show pyetje jo të plota në çdo ekzekutim");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Mbajë rezultatin më të mirë");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Nota mesatare test (duke numëruar ekzekutimit aktiv çdo test-së)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","Rezultati për ekzekutimin e aktive");//score on active execution
+define("_YOUCANUSEASTERISK","Nëse ju specifikoni një fjalë që përfundon me një yll (*), vetëm pjesën e parë do të merren parasysh. Për shembull, nëse ju specifikoni mësoni*', atëherë të dy 'të mësuarit' dhe 'të mësojnë' do të konsiderohet i saktë.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","mësim Rregullat e kursit");//Course lesson rules
+define("_RULESBETWEENCOURSES","Rregullat në mes të kurseve");//Rules between courses
+define("_COURSEDEPENDSON","Sigurisht varet nga");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Ju nuk mund të përcaktuar kurs si një parakusht i vetë");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","alternativa të vendosë, në kutinë e zgjidhni");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kontrolluar kjo do të tregojë një kuti listë me të gjitha alternativat, në vend të një kutie teksti. Në këtë rast, vetëm opsionin e parë konsiderohet e saktë");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Përgjigjet Show saktë vetëm nëse studenti kaluan testin");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Paneli i punëve Checker");//Settings checker
+define("_CHECKBROWSER","Kontrolli browser");//Checking browser
+define("_CHECKRESOLUTION","Checking screen resolution");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Kontrolluar për Popup blocker");//Checking for Popup blocker
+define("_CHECKCOOKIES","Kontrolluar Cookie shtet ...");//Checking Cookie state...
+define("_CHECKFLASH","Kontrolluar për Flash");//Checking for Flash
+define("_CHECKACROBAT","Kontrolluar për Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 zbuluar. Ky shfletues është e vjetëruar dhe funksionalitetin mund të preken");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Për fat të keq të shfletuesit që ju jeni duke përdorur nuk është i mbështetur");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","zgjidhjen e juaj ekran nuk i plotëson kërkesat minimale të");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker zbuluar. Ju lutemi të lejojë popups për këtë faqe dhe të provoni përsëri");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies duket të jetë me aftësi të kufizuara. Ju lutem aktivizoni cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash nuk është i instaluar, nga data");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader nuk është i instaluar");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Kontrolluar Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript nuk është aktivizuar në shfletuesin tënd");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Ju duhet të keni aktivizuar mail aktivizimi mbikëqyrësi nga parametrat e sistemit");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Viti varg nga");//Year range from
+define("_YEARRANGETO","Viti varg të");//Year range to
+define("_GROUPNAMEDESCRIPTION","Përshkrimi i grupit Emri");//Group name description
+define("_GROUPINFORMATION","informacion Group");//Group information
+define("_CONTRAINACCESSTOCONTENT","qasje të kufizojnë në përmbajtjen e dosjeve të përdoruesit e regjistruar në");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Rezultatet e testimit Compress në bazën e të dhënave");//Compress test results in database
+define("_MAINTENANCETASKS","Mirëmbajtjen e detyrave");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Kliko këtu për të compress teste përfunduar");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Kliko këtu për të uncompress teste përfunduar");//Uncompress completed tests
+define("_COMPRESS","Ngjesh");//Compress
+define("_DATABASETASKS","detyrat Baza e të dhënave");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Ju lutemi të dhënat tuaja backup para se compressing / uncompressing testit të plotësuar");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfiguracion");//Configuration
+define("_SYSTEMOPTIONS","opsionet e Sistemit");//System options
+define("_CASUAL","Rastësor");//Casual
+define("_YOUCANNOTEDITTHISUSER","Ju nuk mund të ketë qasje në informata this user&#39;s");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Enable keyboard virtuale");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","File duket të jetë bosh. Ndoshta nuk është i formatuar si duhet?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikata planifikuar skadimit");//Certificate scheduled expiration
+define("_TESTPASSWORD","Fjalëkalimi Test");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Na vjen keq, ju nuk keni qasje në këtë degë");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Tabela organizative Show plotë të përdoruesit");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Ju nuk mund të kopjoni nga mësimi të njëjtën");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Mesazhe nga studentët");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","api Delete argumentet më shumë se një muaj i vjetër");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Shto kusht i ri");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Fshije avancuar shikime raport");//Delete advanced report views (New)
 ?>

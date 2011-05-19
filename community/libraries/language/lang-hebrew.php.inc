@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","לא ידוע מפריד");//Unknown separator
 define("_LDAPUSER","משתמש זה מאמת את דרך שרת LDAP");//This user authenticates through the LDAP server
 define("_EXECUTE","וביצוע");//Execute
 define("_RECREATE","מחדש");//Recreate
-define("_CLICKHERETOREINDEX","לחץ כאן כדי לשחזר את טבלת החיפוש");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","לחץ כאן כדי לשחזר את טבלת החיפוש");//Recreate the search table
 define("_TRANSLATION","תרגום");//Translation
 define("_ENGLISHNAME","שם באנגלית");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","השפה נוצרה בהצלחה");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","פג. בבקשה");//Your session has exp
 define("_CLICKHERE","לחץ כאן");//click here
 define("_TOLOGINAGAIN","כדי להתחבר שוב");//to login again
 define("_SESSIONEXPIRED","מושב פג");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","רשימה של מופרדים בפסיקים למשתמשים להציג מידע על באגים, או 1 עבור כל המשתמשים");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","ינואר");//Jan (New)
-define("_FEBRUARYSHORTHAND","פבואר");//Feb (New)
-define("_MARCHSHORTHAND","לקלקל");//Mar (New)
-define("_APRILSHORTHAND","אפריל");//Apr (New)
-define("_MAYSHORTHAND","במאי");//May (New)
-define("_JUNESHORTHAND","יוני");//Jun (New)
-define("_JULYSHORTHAND","יולי");//Jul (New)
-define("_AUGUSTSHORTHAND","אוגוסט");//Aug (New)
-define("_SEPTEMBERSHORTHAND","ספטמבר");//Sep (New)
-define("_OCTOBERSHORTHAND","אוקטובר");//Oct (New)
-define("_NOVEMBERSHORTHAND","נובמבר");//Nov (New)
-define("_DECEMBERSHORTHAND","דצמבר");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","אתה לא יכול לגשת המשאב המבוקש");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","אנא בחר תיאור העבודה");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","עריכת השמה");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","חשבון");//Account (New)
-define("_ORGANIZATIONALDATA","ארגוני פרופיל");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","בלנק לעזוב ללא שינוי");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","הזן את ערך האופציה או מספר שלה, החל מ 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","הסתר המפקח ממשתמשים");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","הסתר העבודה ממשתמשים");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","אתה חייב לציין ערך ברירת מחדל עבור רכיבים חובה");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","השתמש את התאריך הנוכחי");//Use the current date (New)
-define("_USERSCANCHANGEINFO","חשבון שינוי");//Account change (New)
-define("_USERSCANCHANGEPASS","שינוי הסיסמה");//Password change (New)
-define("_VIEWFEEDBACK","צפה משוב");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","הצג שאלות הושלם ביצוע כל");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","לשמור על התוצאה הטובה ביותר");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","ממוצע דירוג הבדיקה (ספירת ביצוע פעיל של כל מבחן)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","הציון על ביצוע הפעילות");//score on active execution (New)
-define("_YOUCANUSEASTERISK","אם תציין מילה המסתיימת בכוכבית (*), רק החלק הראשון שלו ייחשב. לדוגמה, אם תציין 'ללמוד *', ואז הן 'למידה' ו 'לומדים' תחשב נכונה.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","קורס כללי השיעור");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","כללים בין קורסים");//Rules between courses (New)
-define("_COURSEDEPENDSON","כמובן תלוי");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","אתה לא יכול להגדיר את הקורס כתנאי מוקדם של עצמה");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","הצגת חלופות בתיבה בחר");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","בדיקת זה יציג תיבת רשימה עם כל החלופות, במקום בתיבת טקסט. במקרה זה, רק האפשרות הראשונה נחשבת נכונה");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","תשובות הצג נכונה רק אם התלמיד במבחן");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","הגדרות בודק");//Settings checker (New)
-define("_CHECKBROWSER","בדיקת הדפדפן");//Checking browser (New)
-define("_CHECKRESOLUTION","בדיקת רזולוציית המסך");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","בדיקת חוסם החלונות הקופצים");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","קוקי המדינה בודק ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","בדיקת פלאש");//Checking for Flash (New)
-define("_CHECKACROBAT","בדיקת התוכנה Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 זוהה. דפדפן זה מיושן פונקציונליות עלול להיות מושפע");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","למרבה הצער את הדפדפן שבו אתה משתמש אינו נתמך");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","רזולוציית המסך שלך לא עומד בדרישות המינימום של");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","חוסם חלונות קופצים זוהה. בבקשה לאפשר חלונות קופצים באתר זה ונסה שוב");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","עוגיות להיראות נכים. נא לאפשר עוגיות");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","הפלאש לא מותקן, מעודכנת");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader אינו מותקן");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","בדיקת Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","JavaScript אינו מאופשר בדפדפן שלך");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","עליך להפעיל את הודעת ההפעלה המפקח מן הגדרות המערכת");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","השנה נע בין");//Year range from (New)
-define("_YEARRANGETO","השנה טווח");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","תיאור הקבוצה שם");//Group name description (New)
-define("_GROUPINFORMATION","קבוצת המידע");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","גישה הגבל את תוכן הקבצים למשתמשים המחוברים כרגע");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","דחיסת תוצאות הבדיקה באתר");//Compress test results in database (New)
-define("_MAINTENANCETASKS","תחזוקה משימות");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","לחץ כאן כדי לדחוס בדיקות הושלמה");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","לחץ כאן כדי לבטל את הדחיסה של בדיקות הושלמה");//Click here to uncompress completed tests (New)
-define("_COMPRESS","לדחוס");//Compress (New)
-define("_DATABASETASKS","מסד משימות");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","אנא גיבוי הנתונים שלך לפני דחיסת / uncompressing בדיקות הושלמה");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","תצורה");//Configuration (New)
-define("_SYSTEMOPTIONS","מערכת אפשרויות");//System options (New)
-define("_CASUAL","אגבי");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","אתה לא יכול לגשת למידע הזה של המשתמש");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","אפשר מקלדת וירטואלית");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","הקובץ נראה ריק. אולי זה לא מעוצבת כהלכה?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","תעודת מתוזמנת תפוגה");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","מבחן הסיסמה");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","מצטערים, אין לך גישה הסניף הזה");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","רשימה של מופרדים בפסיקים למשתמשים להציג מידע על באגים, או 1 עבור כל המשתמשים");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","ינואר");//Jan
+define("_FEBRUARYSHORTHAND","פבואר");//Feb
+define("_MARCHSHORTHAND","לקלקל");//Mar
+define("_APRILSHORTHAND","אפריל");//Apr
+define("_MAYSHORTHAND","במאי");//May
+define("_JUNESHORTHAND","יוני");//Jun
+define("_JULYSHORTHAND","יולי");//Jul
+define("_AUGUSTSHORTHAND","אוגוסט");//Aug
+define("_SEPTEMBERSHORTHAND","ספטמבר");//Sep
+define("_OCTOBERSHORTHAND","אוקטובר");//Oct
+define("_NOVEMBERSHORTHAND","נובמבר");//Nov
+define("_DECEMBERSHORTHAND","דצמבר");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","אתה לא יכול לגשת המשאב המבוקש");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","אנא בחר תיאור העבודה");//Please select a job description
+define("_EDITJOBPLACEMENT","עריכת השמה");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","חשבון");//Account
+define("_ORGANIZATIONALDATA","ארגוני פרופיל");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","בלנק לעזוב ללא שינוי");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","הזן את ערך האופציה או מספר שלה, החל מ 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","הסתר המפקח ממשתמשים");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","הסתר העבודה ממשתמשים");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","אתה חייב לציין ערך ברירת מחדל עבור רכיבים חובה");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","השתמש את התאריך הנוכחי");//Use the current date
+define("_USERSCANCHANGEINFO","חשבון שינוי");//Account change
+define("_USERSCANCHANGEPASS","שינוי הסיסמה");//Password change
+define("_VIEWFEEDBACK","צפה משוב");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","הצג שאלות הושלם ביצוע כל");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","לשמור על התוצאה הטובה ביותר");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","ממוצע דירוג הבדיקה (ספירת ביצוע פעיל של כל מבחן)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","הציון על ביצוע הפעילות");//score on active execution
+define("_YOUCANUSEASTERISK","אם תציין מילה המסתיימת בכוכבית (*), רק החלק הראשון שלו ייחשב. לדוגמה, אם תציין 'ללמוד *', ואז הן 'למידה' ו 'לומדים' תחשב נכונה.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","קורס כללי השיעור");//Course lesson rules
+define("_RULESBETWEENCOURSES","כללים בין קורסים");//Rules between courses
+define("_COURSEDEPENDSON","כמובן תלוי");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","אתה לא יכול להגדיר את הקורס כתנאי מוקדם של עצמה");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","הצגת חלופות בתיבה בחר");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","בדיקת זה יציג תיבת רשימה עם כל החלופות, במקום בתיבת טקסט. במקרה זה, רק האפשרות הראשונה נחשבת נכונה");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","תשובות הצג נכונה רק אם התלמיד במבחן");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","הגדרות בודק");//Settings checker
+define("_CHECKBROWSER","בדיקת הדפדפן");//Checking browser
+define("_CHECKRESOLUTION","בדיקת רזולוציית המסך");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","בדיקת חוסם החלונות הקופצים");//Checking for Popup blocker
+define("_CHECKCOOKIES","קוקי המדינה בודק ...");//Checking Cookie state...
+define("_CHECKFLASH","בדיקת פלאש");//Checking for Flash
+define("_CHECKACROBAT","בדיקת התוכנה Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 זוהה. דפדפן זה מיושן פונקציונליות עלול להיות מושפע");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","למרבה הצער את הדפדפן שבו אתה משתמש אינו נתמך");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","רזולוציית המסך שלך לא עומד בדרישות המינימום של");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","חוסם חלונות קופצים זוהה. בבקשה לאפשר חלונות קופצים באתר זה ונסה שוב");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","עוגיות להיראות נכים. נא לאפשר עוגיות");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","הפלאש לא מותקן, מעודכנת");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader אינו מותקן");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","בדיקת Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","JavaScript אינו מאופשר בדפדפן שלך");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","עליך להפעיל את הודעת ההפעלה המפקח מן הגדרות המערכת");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","השנה נע בין");//Year range from
+define("_YEARRANGETO","השנה טווח");//Year range to
+define("_GROUPNAMEDESCRIPTION","תיאור הקבוצה שם");//Group name description
+define("_GROUPINFORMATION","קבוצת המידע");//Group information
+define("_CONTRAINACCESSTOCONTENT","גישה הגבל את תוכן הקבצים למשתמשים המחוברים כרגע");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","דחיסת תוצאות הבדיקה באתר");//Compress test results in database
+define("_MAINTENANCETASKS","תחזוקה משימות");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","לחץ כאן כדי לדחוס בדיקות הושלמה");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","לחץ כאן כדי לבטל את הדחיסה של בדיקות הושלמה");//Uncompress completed tests
+define("_COMPRESS","לדחוס");//Compress
+define("_DATABASETASKS","מסד משימות");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","אנא גיבוי הנתונים שלך לפני דחיסת / uncompressing בדיקות הושלמה");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","תצורה");//Configuration
+define("_SYSTEMOPTIONS","מערכת אפשרויות");//System options
+define("_CASUAL","אגבי");//Casual
+define("_YOUCANNOTEDITTHISUSER","אתה לא יכול לגשת למידע הזה של המשתמש");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","אפשר מקלדת וירטואלית");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","הקובץ נראה ריק. אולי זה לא מעוצבת כהלכה?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","תעודת מתוזמנת תפוגה");//Certificate scheduled expiration
+define("_TESTPASSWORD","מבחן הסיסמה");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","מצטערים, אין לך גישה הסניף הזה");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","הצג תרשים ארגוני מלא למשתמשים");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","אתה לא יכול להעתיק אותה מן השיעור");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","הודעות לסטודנטים");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","API מחק אסימונים יותר בן חודש");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","הוסף תנאי חדש");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","מחיקת מתקדמות ייחודיות דוח");//Delete advanced report views (New)
 ?>

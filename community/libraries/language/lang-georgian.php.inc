@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","უცნობი გამყოფი");//Unknown
 define("_LDAPUSER","ეს მონაწილე LDAP სერვერით შემოდის");//This user authenticates through the LDAP server
 define("_EXECUTE","შესრულება");//Execute
 define("_RECREATE","ხელახლა შექმნა");//Recreate
-define("_CLICKHERETOREINDEX","დაწკაპეთ საძიებო ცხრილის ხელახლა შესაქმნელად");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","დაწკაპეთ საძიებო ცხრილის ხელახლა შესაქმნელად");//Recreate the search table
 define("_TRANSLATION","თარგმანი");//Translation
 define("_ENGLISHNAME","სახელი ინგლისურად");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","ენა შეიქმნა");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","");//Your session has expired. Please
 define("_CLICKHERE","");//click here
 define("_TOLOGINAGAIN","");//to login again
 define("_SESSIONEXPIRED","");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","");//Jan (New)
-define("_FEBRUARYSHORTHAND","");//Feb (New)
-define("_MARCHSHORTHAND","");//Mar (New)
-define("_APRILSHORTHAND","");//Apr (New)
-define("_MAYSHORTHAND","");//May (New)
-define("_JUNESHORTHAND","");//Jun (New)
-define("_JULYSHORTHAND","");//Jul (New)
-define("_AUGUSTSHORTHAND","");//Aug (New)
-define("_SEPTEMBERSHORTHAND","");//Sep (New)
-define("_OCTOBERSHORTHAND","");//Oct (New)
-define("_NOVEMBERSHORTHAND","");//Nov (New)
-define("_DECEMBERSHORTHAND","");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","");//Edit job placement (New)
-define("_NORESPONSE","");//&lt;no response&gt; (New)
-define("_ACCOUNT","");//Account (New)
-define("_ORGANIZATIONALDATA","");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","");//Use the current date (New)
-define("_USERSCANCHANGEINFO","");//Account change (New)
-define("_USERSCANCHANGEPASS","");//Password change (New)
-define("_VIEWFEEDBACK","");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","");//score on active execution (New)
-define("_YOUCANUSEASTERISK","");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","");//Rules between courses (New)
-define("_COURSEDEPENDSON","");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","");//Settings checker (New)
-define("_CHECKBROWSER","");//Checking browser (New)
-define("_CHECKRESOLUTION","");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","");//Checking Cookie state... (New)
-define("_CHECKFLASH","");//Checking for Flash (New)
-define("_CHECKACROBAT","");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","");//Year range from (New)
-define("_YEARRANGETO","");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","");//Group name description (New)
-define("_GROUPINFORMATION","");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","");//Compress test results in database (New)
-define("_MAINTENANCETASKS","");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","");//Click here to uncompress completed tests (New)
-define("_COMPRESS","");//Compress (New)
-define("_DATABASETASKS","");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","");//Configuration (New)
-define("_SYSTEMOPTIONS","");//System options (New)
-define("_CASUAL","");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","");//Jan
+define("_FEBRUARYSHORTHAND","");//Feb
+define("_MARCHSHORTHAND","");//Mar
+define("_APRILSHORTHAND","");//Apr
+define("_MAYSHORTHAND","");//May
+define("_JUNESHORTHAND","");//Jun
+define("_JULYSHORTHAND","");//Jul
+define("_AUGUSTSHORTHAND","");//Aug
+define("_SEPTEMBERSHORTHAND","");//Sep
+define("_OCTOBERSHORTHAND","");//Oct
+define("_NOVEMBERSHORTHAND","");//Nov
+define("_DECEMBERSHORTHAND","");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","");//Please select a job description
+define("_EDITJOBPLACEMENT","");//Edit job placement
+define("_NORESPONSE","");//&lt;no response&gt;
+define("_ACCOUNT","");//Account
+define("_ORGANIZATIONALDATA","");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","");//Use the current date
+define("_USERSCANCHANGEINFO","");//Account change
+define("_USERSCANCHANGEPASS","");//Password change
+define("_VIEWFEEDBACK","");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","");//score on active execution
+define("_YOUCANUSEASTERISK","");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","");//Course lesson rules
+define("_RULESBETWEENCOURSES","");//Rules between courses
+define("_COURSEDEPENDSON","");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","");//Settings checker
+define("_CHECKBROWSER","");//Checking browser
+define("_CHECKRESOLUTION","");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","");//Checking for Popup blocker
+define("_CHECKCOOKIES","");//Checking Cookie state...
+define("_CHECKFLASH","");//Checking for Flash
+define("_CHECKACROBAT","");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","");//Year range from
+define("_YEARRANGETO","");//Year range to
+define("_GROUPNAMEDESCRIPTION","");//Group name description
+define("_GROUPINFORMATION","");//Group information
+define("_CONTRAINACCESSTOCONTENT","");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","");//Compress test results in database
+define("_MAINTENANCETASKS","");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","");//Uncompress completed tests
+define("_COMPRESS","");//Compress
+define("_DATABASETASKS","");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","");//Configuration
+define("_SYSTEMOPTIONS","");//System options
+define("_CASUAL","");//Casual
+define("_YOUCANNOTEDITTHISUSER","");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","");//Certificate scheduled expiration
+define("_TESTPASSWORD","");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","");//Delete advanced report views (New)
 ?>

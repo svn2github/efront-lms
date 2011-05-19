@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Неизвестный разделитель");//Un
 define("_LDAPUSER","Этот пользователь выполняет аутентификацию с помощью LDAP-сервера");//This user authenticates through the LDAP server
 define("_EXECUTE","Выполнить");//Execute
 define("_RECREATE","Восстановить");//Recreate
-define("_CLICKHERETOREINDEX","Нажмите, чтобы восстановить поисковую таблицу");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Нажмите, чтобы восстановить поисковую таблицу");//Recreate the search table
 define("_TRANSLATION","Перевод");//Translation
 define("_ENGLISHNAME","Наименование на английском языке");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Язык создан");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Вы слишком долго безде
 define("_CLICKHERE","нажмите здесь");//click here
 define("_TOLOGINAGAIN","чтобы снова войти");//to login again
 define("_SESSIONEXPIRED","Сессия окончена");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Разделенный запятыми список пользователей, чтобы показать отладки информацию о, или 1 для всех пользователей");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Ян");//Jan (New)
-define("_FEBRUARYSHORTHAND","Фев");//Feb (New)
-define("_MARCHSHORTHAND","Мар");//Mar (New)
-define("_APRILSHORTHAND","Май");//Apr (New)
-define("_MAYSHORTHAND","Май");//May (New)
-define("_JUNESHORTHAND","Июн");//Jun (New)
-define("_JULYSHORTHAND","Июл");//Jul (New)
-define("_AUGUSTSHORTHAND","Авг");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Сен");//Sep (New)
-define("_OCTOBERSHORTHAND","Окт");//Oct (New)
-define("_NOVEMBERSHORTHAND","Ноя");//Nov (New)
-define("_DECEMBERSHORTHAND","Дек");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Вы не можете получить доступ к запрашиваемому ресурсу");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Пожалуйста, выберите Job Description");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Изменить трудоустройства");//Edit job placement (New)
-define("_NORESPONSE","&lt;нет response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Счет");//Account (New)
-define("_ORGANIZATIONALDATA","Организационные профиля");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Бланк оставить без изменений");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Введите значение параметра или его номер, начиная с 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Скрыть руководителя от пользователей");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Скрыть работу с пользователями");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Вы должны указать значение по умолчанию для элементов, имеющих обязательную");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Используйте текущую дату");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Счет изменения");//Account change (New)
-define("_USERSCANCHANGEPASS","Изменение пароля");//Password change (New)
-define("_VIEWFEEDBACK","Просмотреть отзывы");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Показать неполных вопросов в каждом исполнении");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Сохранить лучший результат");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Средняя оценка испытаний (с учетом активного выполнения каждого теста)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","Оценка на активное выполнение");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Если указать слово, которое заканчивается звездочкой (*), только ее первой части будут рассмотрены. Например, если указать 'учиться *', то как 'обучение' и 'учиться' будет считаться правильным.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","правила курс Урок");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Правила между курсами");//Rules between courses (New)
-define("_COURSEDEPENDSON","Конечно, зависит от");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Вы не можете установить курс в качестве предварительного условия о себе");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Показать альтернатив в окне выбора");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Проверка этого появится список всех альтернатив, а не в текстовом поле. В этом случае, только первый вариант считается правильным");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Показать правильные ответы, только если студент прошел испытания");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Настройки проверки");//Settings checker (New)
-define("_CHECKBROWSER","Проверка браузера");//Checking browser (New)
-define("_CHECKRESOLUTION","Проверка разрешение экрана");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Проверка на блокировщик всплывающих окон");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Проверка состояния печенья ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Проверка на Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Проверка наличия Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 обнаружено. Этот браузер является устаревшим и функциональные возможности могут быть затронуты");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","К сожалению, браузер, который вы используете, не поддерживается");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Ваше разрешение экрана не соответствует минимальным требованиям");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Блокировщик всплывающих окон обнаружено. Просьба разрешить всплывающие окна для этого сайта и попробуйте еще раз");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Печенье по всей видимости, инвалидов. Пожалуйста, включите куки");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash не установлен, устаревший");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader не установлен");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Проверка Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript не разрешены в Вашем браузере");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Вы должны иметь включен активации руководителю письмо от настройки системы");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Год от");//Year range from (New)
-define("_YEARRANGETO","Год диапазон");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Название группы описание");//Group name description (New)
-define("_GROUPINFORMATION","Информация о группе");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Ограничение доступа к содержимому файлов зарегистрированных пользователей");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Сжатие результаты тестов в базе данных");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Задачи обслуживания");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Нажмите здесь, чтобы сжать завершены испытания");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Нажмите здесь, чтобы распаковать завершены испытания");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Сжимать");//Compress (New)
-define("_DATABASETASKS","База данных задач");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Пожалуйста, создайте резервную копию данных до сжатия / распаковки завершены испытания");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Конфигурация");//Configuration (New)
-define("_SYSTEMOPTIONS","Системные настройки");//System options (New)
-define("_CASUAL","Случайный");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Вы не можете получить доступ к информации этого пользователя");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Включить виртуальную клавиатуру");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Файл выглядит пустым. Может быть, это не правильный формат?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертификат запланированного срока");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Испытание пароль");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","К сожалению, вы не имеете доступа к этой отрасли");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Разделенный запятыми список пользователей, чтобы показать отладки информацию о, или 1 для всех пользователей");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Ян");//Jan
+define("_FEBRUARYSHORTHAND","Фев");//Feb
+define("_MARCHSHORTHAND","Мар");//Mar
+define("_APRILSHORTHAND","Май");//Apr
+define("_MAYSHORTHAND","Май");//May
+define("_JUNESHORTHAND","Июн");//Jun
+define("_JULYSHORTHAND","Июл");//Jul
+define("_AUGUSTSHORTHAND","Авг");//Aug
+define("_SEPTEMBERSHORTHAND","Сен");//Sep
+define("_OCTOBERSHORTHAND","Окт");//Oct
+define("_NOVEMBERSHORTHAND","Ноя");//Nov
+define("_DECEMBERSHORTHAND","Дек");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Вы не можете получить доступ к запрашиваемому ресурсу");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Пожалуйста, выберите Job Description");//Please select a job description
+define("_EDITJOBPLACEMENT","Изменить трудоустройства");//Edit job placement
+define("_NORESPONSE","&lt;нет response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Счет");//Account
+define("_ORGANIZATIONALDATA","Организационные профиля");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Бланк оставить без изменений");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Введите значение параметра или его номер, начиная с 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Скрыть руководителя от пользователей");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Скрыть работу с пользователями");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Вы должны указать значение по умолчанию для элементов, имеющих обязательную");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Используйте текущую дату");//Use the current date
+define("_USERSCANCHANGEINFO","Счет изменения");//Account change
+define("_USERSCANCHANGEPASS","Изменение пароля");//Password change
+define("_VIEWFEEDBACK","Просмотреть отзывы");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Показать неполных вопросов в каждом исполнении");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Сохранить лучший результат");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Средняя оценка испытаний (с учетом активного выполнения каждого теста)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","Оценка на активное выполнение");//score on active execution
+define("_YOUCANUSEASTERISK","Если указать слово, которое заканчивается звездочкой (*), только ее первой части будут рассмотрены. Например, если указать 'учиться *', то как 'обучение' и 'учиться' будет считаться правильным.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","правила курс Урок");//Course lesson rules
+define("_RULESBETWEENCOURSES","Правила между курсами");//Rules between courses
+define("_COURSEDEPENDSON","Конечно, зависит от");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Вы не можете установить курс в качестве предварительного условия о себе");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Показать альтернатив в окне выбора");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Проверка этого появится список всех альтернатив, а не в текстовом поле. В этом случае, только первый вариант считается правильным");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Показать правильные ответы, только если студент прошел испытания");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Настройки проверки");//Settings checker
+define("_CHECKBROWSER","Проверка браузера");//Checking browser
+define("_CHECKRESOLUTION","Проверка разрешение экрана");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Проверка на блокировщик всплывающих окон");//Checking for Popup blocker
+define("_CHECKCOOKIES","Проверка состояния печенья ...");//Checking Cookie state...
+define("_CHECKFLASH","Проверка на Flash");//Checking for Flash
+define("_CHECKACROBAT","Проверка наличия Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 обнаружено. Этот браузер является устаревшим и функциональные возможности могут быть затронуты");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","К сожалению, браузер, который вы используете, не поддерживается");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Ваше разрешение экрана не соответствует минимальным требованиям");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Блокировщик всплывающих окон обнаружено. Просьба разрешить всплывающие окна для этого сайта и попробуйте еще раз");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Печенье по всей видимости, инвалидов. Пожалуйста, включите куки");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash не установлен, устаревший");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader не установлен");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Проверка Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript не разрешены в Вашем браузере");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Вы должны иметь включен активации руководителю письмо от настройки системы");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Год от");//Year range from
+define("_YEARRANGETO","Год диапазон");//Year range to
+define("_GROUPNAMEDESCRIPTION","Название группы описание");//Group name description
+define("_GROUPINFORMATION","Информация о группе");//Group information
+define("_CONTRAINACCESSTOCONTENT","Ограничение доступа к содержимому файлов зарегистрированных пользователей");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Сжатие результаты тестов в базе данных");//Compress test results in database
+define("_MAINTENANCETASKS","Задачи обслуживания");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Нажмите здесь, чтобы сжать завершены испытания");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Нажмите здесь, чтобы распаковать завершены испытания");//Uncompress completed tests
+define("_COMPRESS","Сжимать");//Compress
+define("_DATABASETASKS","База данных задач");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Пожалуйста, создайте резервную копию данных до сжатия / распаковки завершены испытания");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Конфигурация");//Configuration
+define("_SYSTEMOPTIONS","Системные настройки");//System options
+define("_CASUAL","Случайный");//Casual
+define("_YOUCANNOTEDITTHISUSER","Вы не можете получить доступ к информации этого пользователя");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Включить виртуальную клавиатуру");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Файл выглядит пустым. Может быть, это не правильный формат?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Сертификат запланированного срока");//Certificate scheduled expiration
+define("_TESTPASSWORD","Испытание пароль");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","К сожалению, вы не имеете доступа к этой отрасли");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Показать полный график организации для пользователей");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Вы не можете копировать из того же урока");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Сообщения от студентов");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Удалить API маркеров более одного месяца");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Добавить новое условие");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Удалить расширенный отчет просмотров");//Delete advanced report views (New)
 ?>

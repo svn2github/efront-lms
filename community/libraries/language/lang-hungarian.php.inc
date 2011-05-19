@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Ismeretlen elválasztó");//Unknown separator
 define("_LDAPUSER","Ez a felhasználó hitelesítés az LDAP-szerveren keresztül");//This user authenticates through the LDAP server
 define("_EXECUTE","Végrehajtani");//Execute
 define("_RECREATE","Alakitsa");//Recreate
-define("_CLICKHERETOREINDEX","Kattintson ide, hogy újra a keresést tábla");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Kattintson ide, hogy újra a keresést tábla");//Recreate the search table
 define("_TRANSLATION","Fordítói");//Translation
 define("_ENGLISHNAME","Neve angolul");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","A nyelv sikeresen létrejött");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","A munkamenet lejárt. Kérjük,");//Your 
 define("_CLICKHERE","kattintson ide");//click here
 define("_TOLOGINAGAIN","ismételt bejelentkezés");//to login again
 define("_SESSIONEXPIRED","Session lejárt");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Vesszővel elválasztott listája felhasználók show debug információk, vagy 1 az összes felhasználó");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Február");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Április");//Apr (New)
-define("_MAYSHORTHAND","Május");//May (New)
-define("_JUNESHORTHAND","Június");//Jun (New)
-define("_JULYSHORTHAND","Július");//Jul (New)
-define("_AUGUSTSHORTHAND","Augusztus");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Szeptember");//Sep (New)
-define("_OCTOBERSHORTHAND","Október");//Oct (New)
-define("_NOVEMBERSHORTHAND","November");//Nov (New)
-define("_DECEMBERSHORTHAND","December");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Nem tud hozzáférni a kért erőforrás");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Kérjük, válassza ki a munkaköri leírást");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Edit az elhelyezkedés");//Edit job placement (New)
-define("_NORESPONSE","&lt;Nincs response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Számla");//Account (New)
-define("_ORGANIZATIONALDATA","Szervezeti profil");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Üres változatlanul hagyja");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Adja meg a beállítás értékét, vagy a számot, kezdve 0-tól");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Hide felügyelője felhasználók");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Hide munkát a felhasználók");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Meg kell adnia egy alapértelmezett értéket a kötelező elemek");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Használja az aktuális dátum");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Számla változás");//Account change (New)
-define("_USERSCANCHANGEPASS","Jelszó megváltoztatása");//Password change (New)
-define("_VIEWFEEDBACK","Nézd meg visszajelzés");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Megjelenítés hiányos kérdésre összpontosít az egyes végrehajtási");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Őrizze meg a legjobb pontszám");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Átlagos vizsgálati pontszám (számolva minden egyes vizsgált aktív teljesítés)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","pontszám aktív végrehajtás");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Ha megadja a szót, hogy véget ér a csillaggal (*), csak az első részét kell tekinteni. Például, ha meg 'tanulni *', akkor mindkét 'tanulás' és a 'tanulni' kell tekinteni helyes.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Természetesen leckét szabályok");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Szabályok között tanfolyamok");//Rules between courses (New)
-define("_COURSEDEPENDSON","Természetesen attól függ,");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Nem lehet beállítani a kurzus előfeltétele a maga");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Kijelző alternatívák legördülő lista");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Ha bejelöli ezt, akkor megjelenik egy lista az összes alternatívát, hanem a szövegdoboz. Ebben az esetben csak az első opció akkor helyes");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Helyes válaszok megjelenítése csak akkor, ha hallgató a tesztel");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Beállítások-ellenőrző");//Settings checker (New)
-define("_CHECKBROWSER","Ellenőrzése böngésző");//Checking browser (New)
-define("_CHECKRESOLUTION","Ellenőrzése képernyő felbontás");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Ellenőrzése Popup blokkoló");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Cookie ellenőrzése az állami ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Ellenőrzése Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Ellenőrzése az Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 észlelt. Ez a böngésző elavult és a funkcionalitás hatással lehet a");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Sajnos a böngésző, amit használ nem támogatja");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","A képernyő felbontása nem éri el a minimális követelmény");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Pop-up blokkoló észlelt. Kérjük, hogy pop-upok az ezen az oldalon, és próbálja újra");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","A cookie-k úgy tűnik, hogy le van tiltva. Kérjük, engedélyezze a sütiket");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash nincs telepítve, elavult");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Az Adobe Reader nincs telepítve");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Javascript ellenőrzése");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript nincs engedélyezve a böngészőjében");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Meg kell lehetővé tették felügyelő e-mail aktiváció a rendszer beállításait");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Év tól");//Year range from (New)
-define("_YEARRANGETO","Év tartomány");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Csoport neve leírása");//Group name description (New)
-define("_GROUPINFORMATION","Csoport információk");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Kényszerítés hozzáférést a tartalomhoz fájlokat bejelentkezett felhasználók");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Tömörítése vizsgálati eredmények az adatbázisban");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Karbantartási feladatokat");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Kattintson ide, hogy tömöríteni befejezett vizsgálatok");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Kattintson ide, hogy tömörítse befejezett vizsgálatok");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Borogatás");//Compress (New)
-define("_DATABASETASKS","Adatbázis feladatok");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Kérjük hát az adatokat, mielőtt tömörítő / kicsomagolása befejezett vizsgálatok");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfigurációs");//Configuration (New)
-define("_SYSTEMOPTIONS","Rendszer beállítások");//System options (New)
-define("_CASUAL","Alkalmi");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Nem tudja elérni ezt a felhasználói információk");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Engedélyezése virtuális billentyűzet");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","A fájl üresnek tűnik. Lehet, hogy nem megfelelően formázva?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Tanúsítvány ütemezett lejárati");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Teszt jelszó");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Elnézést, ha nem férnek hozzá az ágazat");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Vesszővel elválasztott listája felhasználók show debug információk, vagy 1 az összes felhasználó");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Február");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Április");//Apr
+define("_MAYSHORTHAND","Május");//May
+define("_JUNESHORTHAND","Június");//Jun
+define("_JULYSHORTHAND","Július");//Jul
+define("_AUGUSTSHORTHAND","Augusztus");//Aug
+define("_SEPTEMBERSHORTHAND","Szeptember");//Sep
+define("_OCTOBERSHORTHAND","Október");//Oct
+define("_NOVEMBERSHORTHAND","November");//Nov
+define("_DECEMBERSHORTHAND","December");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Nem tud hozzáférni a kért erőforrás");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Kérjük, válassza ki a munkaköri leírást");//Please select a job description
+define("_EDITJOBPLACEMENT","Edit az elhelyezkedés");//Edit job placement
+define("_NORESPONSE","&lt;Nincs response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Számla");//Account
+define("_ORGANIZATIONALDATA","Szervezeti profil");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Üres változatlanul hagyja");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Adja meg a beállítás értékét, vagy a számot, kezdve 0-tól");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Hide felügyelője felhasználók");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Hide munkát a felhasználók");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Meg kell adnia egy alapértelmezett értéket a kötelező elemek");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Használja az aktuális dátum");//Use the current date
+define("_USERSCANCHANGEINFO","Számla változás");//Account change
+define("_USERSCANCHANGEPASS","Jelszó megváltoztatása");//Password change
+define("_VIEWFEEDBACK","Nézd meg visszajelzés");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Megjelenítés hiányos kérdésre összpontosít az egyes végrehajtási");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Őrizze meg a legjobb pontszám");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Átlagos vizsgálati pontszám (számolva minden egyes vizsgált aktív teljesítés)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","pontszám aktív végrehajtás");//score on active execution
+define("_YOUCANUSEASTERISK","Ha megadja a szót, hogy véget ér a csillaggal (*), csak az első részét kell tekinteni. Például, ha meg 'tanulni *', akkor mindkét 'tanulás' és a 'tanulni' kell tekinteni helyes.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Természetesen leckét szabályok");//Course lesson rules
+define("_RULESBETWEENCOURSES","Szabályok között tanfolyamok");//Rules between courses
+define("_COURSEDEPENDSON","Természetesen attól függ,");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Nem lehet beállítani a kurzus előfeltétele a maga");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Kijelző alternatívák legördülő lista");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Ha bejelöli ezt, akkor megjelenik egy lista az összes alternatívát, hanem a szövegdoboz. Ebben az esetben csak az első opció akkor helyes");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Helyes válaszok megjelenítése csak akkor, ha hallgató a tesztel");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Beállítások-ellenőrző");//Settings checker
+define("_CHECKBROWSER","Ellenőrzése böngésző");//Checking browser
+define("_CHECKRESOLUTION","Ellenőrzése képernyő felbontás");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Ellenőrzése Popup blokkoló");//Checking for Popup blocker
+define("_CHECKCOOKIES","Cookie ellenőrzése az állami ...");//Checking Cookie state...
+define("_CHECKFLASH","Ellenőrzése Flash");//Checking for Flash
+define("_CHECKACROBAT","Ellenőrzése az Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 észlelt. Ez a böngésző elavult és a funkcionalitás hatással lehet a");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Sajnos a böngésző, amit használ nem támogatja");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","A képernyő felbontása nem éri el a minimális követelmény");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Pop-up blokkoló észlelt. Kérjük, hogy pop-upok az ezen az oldalon, és próbálja újra");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","A cookie-k úgy tűnik, hogy le van tiltva. Kérjük, engedélyezze a sütiket");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash nincs telepítve, elavult");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Az Adobe Reader nincs telepítve");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Javascript ellenőrzése");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript nincs engedélyezve a böngészőjében");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Meg kell lehetővé tették felügyelő e-mail aktiváció a rendszer beállításait");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Év tól");//Year range from
+define("_YEARRANGETO","Év tartomány");//Year range to
+define("_GROUPNAMEDESCRIPTION","Csoport neve leírása");//Group name description
+define("_GROUPINFORMATION","Csoport információk");//Group information
+define("_CONTRAINACCESSTOCONTENT","Kényszerítés hozzáférést a tartalomhoz fájlokat bejelentkezett felhasználók");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Tömörítése vizsgálati eredmények az adatbázisban");//Compress test results in database
+define("_MAINTENANCETASKS","Karbantartási feladatokat");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Kattintson ide, hogy tömöríteni befejezett vizsgálatok");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Kattintson ide, hogy tömörítse befejezett vizsgálatok");//Uncompress completed tests
+define("_COMPRESS","Borogatás");//Compress
+define("_DATABASETASKS","Adatbázis feladatok");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Kérjük hát az adatokat, mielőtt tömörítő / kicsomagolása befejezett vizsgálatok");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfigurációs");//Configuration
+define("_SYSTEMOPTIONS","Rendszer beállítások");//System options
+define("_CASUAL","Alkalmi");//Casual
+define("_YOUCANNOTEDITTHISUSER","Nem tudja elérni ezt a felhasználói információk");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Engedélyezése virtuális billentyűzet");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","A fájl üresnek tűnik. Lehet, hogy nem megfelelően formázva?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Tanúsítvány ütemezett lejárati");//Certificate scheduled expiration
+define("_TESTPASSWORD","Teszt jelszó");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Elnézést, ha nem férnek hozzá az ágazat");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Megjelenítés a teljes szervezeti diagram a felhasználók");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nem lehet másolni az ugyanazon lecke");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Üzenetek a diákok");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Törlés api érmék több mint egy hónapos");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Új állapot");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Törlés Részletes jelentés nézet");//Delete advanced report views (New)
 ?>

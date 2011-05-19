@@ -729,9 +729,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             </td><td>
                 <a href = "javascript:void(0)" onclick = "eF_js_addAdditionalChoice('multiple_many')">{$smarty.const._ADDOPTION}</a>
             </td></tr>
-   <tr><td class = "labelCell">{$T_QUESTION_FORM.answers_or.label}:&nbsp;</td>
-             <td class = "elementCell">{$T_QUESTION_FORM.answers_or.html}</td></tr>
-   {if $T_QUESTION_FORM.answers_or.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.answers_or.error}</td></tr>{/if}
+   <tr><td class = "labelCell">{$T_QUESTION_FORM.answers_logic.label}:&nbsp;</td>
+             <td class = "elementCell">{$T_QUESTION_FORM.answers_logic.html}</td></tr>
+   {if $T_QUESTION_FORM.answers_logic.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.answers_logic.error}</td></tr>{/if}
  {elseif $smarty.get.question_type == 'match'}
          <tr><td class = "labelCell questionLabel">{$smarty.const._INSERTMATCHCOUPLES}:</td>
              <td><table>

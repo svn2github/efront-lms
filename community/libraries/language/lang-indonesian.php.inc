@@ -1191,7 +1191,7 @@ define("_WARNING","Peringatan");//Warning
 define("_DEFINITIONCOULDNOTBEINSERTED","Definisi tidak dapat disisipkan");//Definition could not be inserted
 define("_SUCCESFULLYUPDATEDDEFINITION","Berhasil memperbarui definisi");//Successfully updated definition
 define("_SUCCESFULLYDELETEDDEFINITION","Berhasil menghapus definisi");//Successfully deleted definition
-define("_DEFINITIONCOULDNOTBEUPDATED","Definisi tidak dapat diperbarui");//Definition could not be updated
+define("_DEFINITIONCOULDNOTBEUPDATED","Definisi tidak dapat diperbarui");//Deinition could not be updated
 define("_SUBMITTERM","Kirim istilah");//Submit term
 define("_EDITDEFINITION","Sunting definisi");//Edit definition
 define("_NOFOLDERSFOUNDTOCOPYTO","Tidak ada map yang disalin/dipindah ke");//There are no folders to copy/move to
@@ -1259,7 +1259,7 @@ define("_SAVEASNEWQUESTION","Simpan sebagai pertanyaan baru");//Save as new ques
 define("_SUCCESFULLYUPDATEDPOLL","Jajak pendapat berhasil diperbarui");//The poll was updated successfully
 define("_YOUHAVESEENALLCONTENT","Anda telah menyelesaikan semua konten");//You have completed all content
 define("_CONDITIONMET","Aturan penyelesaian terpenuhi");//Completion rules met
-define("_CONDITIONNOTMET","Aturan penyelesaian tidak terpenuhi");//Completion rules not met
+define("_CONDITIONNOTMET","Aturan penyelesaian tidak terpenuhi");//Completion rules met
 define("_OLDMODULES","Modul lama");//Old modules
 define("_PHPLDAPEXTENSIONISNOTLOADED","Ektensi PHP LDAP tidak dimuat");//The PHP LDAP extension is not loaded
 define("_LESSONCONDITIONSCOMPLETED","Anda memenuhi aturan penyelesaian pelajaran. Pelajaran ini harus ditetapkan sudah selesai oleh profesor");//You meet the lesson's completion rules. This lesson needs to be set as completed by the professor
@@ -1531,7 +1531,7 @@ define("_NOSKILLSREGISTEREDASPREREQUISITES","Tidak ada keahlian yang terdaftar s
 define("_SATISFYANYCRITERIA","Memenuhi kriteria apapun");//Satisfy any criteria
 define("_SATISFYALLCRITERIA","Memenuhi semua kriteria");//Satisfy all criteria
 define("_WORKINGATBRANCH","Bekerja di cabang");//Working at branch
-define("_WITHJOBDESCRIPTION","Dengan posisi pekerjaan");//With job position
+define("_WITHJOBDESCRIPTION" ,"With job position");
 define("_FINDEMPLOYEES","Temukan pengguna");//Find users
 define("_WITHSKILL","Dengan keahlian");//With skill
 define("_EMPLOYEESFULFILLINGCRITERIA","Pengguna yang memenuhi kriteria");//Users fulfilling the criteria
@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Pemisah tidak diketahui");//Unknown separator
 define("_LDAPUSER","Pengguna ini terotentifikasi melalui LDAP server");//This user authenticates through the LDAP server
 define("_EXECUTE","Jalankan");//Execute
 define("_RECREATE","Buat ulang");//Recreate
-define("_CLICKHERETOREINDEX","Klik di sini untuk membuat ulang tabel pencarian");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Klik di sini untuk membuat ulang tabel pencarian");//Recreate the search table
 define("_TRANSLATION","Terjemahan");//Translation
 define("_ENGLISHNAME","Nama dalam bahasa Inggris");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Bahasa berhasil dibuat");//The language was successfully created
@@ -2962,8 +2962,8 @@ define("_NEWTOPICPUBLISHEDINTHEFORUMOF","Topik baru telah diterbitkan di forum")
 define("_NEWMESSAGEPOSTFORFORUM","Pesan baru telah dikirimkan di forum");//New message posted in the forum of
 define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","Pesan baru telah dikirim di forum");//A new messages has been posted in the forum of
 define("_CHANGEINUNIT","Perubahan dalam unit");//Change in unit
-define("_UNITTITLED","Unit berjudul");//The unit titled
-define("_HASBEENMODIFIEDAS","telah dimodifikasi sebagai berikut");//has been modified as follows
+define("_UNITTITLED" , "The unit titled");
+define("_HASBEENMODIFIEDAS" ,"has been modified as follows");
 define("_SHOWCURRENCYSYMBOLBEFOREPRICE","Tampilkan simbol mata uang sebelum biaya");//Show currency symbol before price
 define("_CERTIFICATEEXPIRED","Masa berlaku sertifikat habis");//Certificate expired
 define("_CERTIFICATEISSUEDON","Sertifikat diterbitkan pada");//Certificate issued on
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Tindakan ini akan menghapus kustomisasi 
 define("_SYSTEMENTITIES","Entitas sistem");//System entities
 define("_ALLEVENTS","Semua even");//All events
 define("_COLLAPSECATALOG","Tutup katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY","Periode berhasil ditambahkan");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY ","Periode ditambahkan berhasil");//Period was added successfully (New)
 define("_THEMES","Tema");//Themes
 define("_CUSTOMIZATION","Kustomisasi");//Customization
 define("_EXTERNALPAGES","Halaman eksternal");//External pages
@@ -3815,7 +3815,7 @@ define("_REMOVEFROMGROUP","Hapus dari kelompok");//Remove from group
 define("_RESETLEARNINGPROGRESS","Atur ulang kemajuan belajar");//Reset learning progress
 define("_BUILDER","Pembuatan");//Builder
 define("_ADDREPORT","Tambahkan laporan baru");//Add new report
-define("_CONDITIONTYPE","Tipe kondisi");//Condition type
+define("_CONDITIONTYPE","Tipe aturan");//Condition type
 define("_CONDITIONSPECIFICATION","Spesifikasi kondisi");//Condition specification
 define("_ADDCOLUMN","Tambahkan kolom");//Add column
 define("_RELATIONWITHTHEFOLLOWINGCONDITION","Hubungan dengan berikutnya");//Relation with next
@@ -4060,8 +4060,8 @@ define("_GROUPINFORMATION","Informasi kelompok");//Group information
 define("_CONTRAINACCESSTOCONTENT","Pengguna harus login untuk mengakses berkas konten");//Constrain access to content files to logged in users
 define("_COMPRESSTESTS","Mampatkan hasil tes dalam basis data");//Compress test results in database
 define("_MAINTENANCETASKS","Tugas pemeliharaan");//Maintenance tasks
-define("_CLICKHERETOCOMPRESSTESTS","Klik di sini untuk memampatkan komplit tes");//Click here to compress completed tests
-define("_CLICKHERETOUNCOMPRESSTESTS","Klik di sini untuk mengekstrak komplit tes");//Click here to uncompress completed tests
+define("_CLICKHERETOCOMPRESSTESTS","Klik di sini untuk memampatkan komplit tes");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Klik di sini untuk mengekstrak komplit tes");//Uncompress completed tests
 define("_COMPRESS","Mampatkan");//Compress
 define("_DATABASETASKS","Tugas basis data");//Database tasks
 define("_PLEASEBACKUPBEFORECOMPRESSING","Silahkan cadangkan data anda sebelum memampatkan/mengekstrak komplit tes");//Please backup your data before compressing/uncompressing completed tests
@@ -4074,4 +4074,10 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Berkas ini sepert
 define("_PROGRAMMEDCERTIFICATEEXPIRY","Penjadwalan masa berlaku sertifikat");//Certificate scheduled expiration
 define("_TESTPASSWORD","Uji kata sandi");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Maaf, anda tidak memiliki akses ke cabang ini");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Tampilkan struktur organisasi penuh kepada pengguna");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Anda tidak dapat menyalin dari pelajaran yang sama");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Pesan dari siswa");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Hapus api token lebih dari satu bulan lama");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Tambahkan kondisi baru");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Hapus maju dilihat laporan");//Delete advanced report views (New)
 ?>

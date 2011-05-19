@@ -4080,4 +4080,6 @@ define("_MESSAGESSTUDENTS","Μηνύματα από μαθητές");
 define("_CLICKHERETOREDELETEOLDTOKENS","Διαγραφή api tokens παλαιότερων από ένα μήνα");
 define("_ADDNEWCONDITION", "Προσθήκη συνθήκης");
 define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS", "Διαγραφή views της γεννήτριας αναφορών χρηστών");
+define("_STANDALONELESSONSAVERAGE", "Μέση βαθμολογία σε όλα τα ανεξάρτητα μαθήματα");
+define("_USEANDLOGICTOCORRECTANSWERS", "Χρήση λογικής AND για υπολογισμό σωστής απάντησης");
 ?>

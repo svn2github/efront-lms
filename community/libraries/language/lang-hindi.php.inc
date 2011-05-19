@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","अज्ञात विभाजक");//Unknown se
 define("_LDAPUSER","यह प्रयोक्ता authenticates LDAP सर्वर के माध्यम से");//This user authenticates through the LDAP server
 define("_EXECUTE","Execute");//Execute
 define("_RECREATE","फिर");//Recreate
-define("_CLICKHERETOREINDEX","फिर खोज के लिए यहाँ क्लिक करें तालिका");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","फिर खोज के लिए यहाँ क्लिक करें तालिका");//Recreate the search table
 define("_TRANSLATION","अनुवाद");//Translation
 define("_ENGLISHNAME","नाम अंग्रेजी में");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","इस भाषा का सफलतापूर्वक बनाया गया था");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","आपका सत्र समाप्
 define("_CLICKHERE","यहाँ क्लिक करें");//click here
 define("_TOLOGINAGAIN","फिर लॉगइन करने के लिए");//to login again
 define("_SESSIONEXPIRED","सत्र समाप्त हो गया");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","अल्पविराम उपयोगकर्ताओं की अलग सूची के बारे में जानकारी डिबग, या सभी उपयोगकर्ताओं के लिए 1 दिखाने के लिए");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","जनवरी");//Jan (New)
-define("_FEBRUARYSHORTHAND","फ़रवरी");//Feb (New)
-define("_MARCHSHORTHAND","मार्च");//Mar (New)
-define("_APRILSHORTHAND","अप्रैल");//Apr (New)
-define("_MAYSHORTHAND","मई");//May (New)
-define("_JUNESHORTHAND","जून");//Jun (New)
-define("_JULYSHORTHAND","जुलाई");//Jul (New)
-define("_AUGUSTSHORTHAND","अगस्त");//Aug (New)
-define("_SEPTEMBERSHORTHAND","सितम्बर");//Sep (New)
-define("_OCTOBERSHORTHAND","अक्टूबर");//Oct (New)
-define("_NOVEMBERSHORTHAND","नवम्बर");//Nov (New)
-define("_DECEMBERSHORTHAND","दिसम्बर");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","तुम अनुरोध संसाधन का उपयोग नहीं कर सकते");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","एक नौकरी वर्णन का चयन करें");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","नौकरी स्थान संपादित करें");//Edit job placement (New)
-define("_NORESPONSE","response&gt; &lt;no");//&lt;no response&gt; (New)
-define("_ACCOUNT","खाता");//Account (New)
-define("_ORGANIZATIONALDATA","संगठनात्मक प्रोफाइल");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","रिक्त अपरिवर्तित छोड़ने के लिए");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","विकल्प मान या उसके नंबर दर्ज करें, 0 से शुरू");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","उपयोगकर्ताओं से छुपाना पर्यवेक्षक");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","उपयोगकर्ताओं से छुपाना काम");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","आप अनिवार्य तत्वों के लिए कोई डिफ़ॉल्ट मान निर्दिष्ट करना होगा");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","वर्तमान दिनांक का उपयोग करें");//Use the current date (New)
-define("_USERSCANCHANGEINFO","खाता परिवर्तन");//Account change (New)
-define("_USERSCANCHANGEPASS","पासवर्ड को बदलने");//Password change (New)
-define("_VIEWFEEDBACK","दृश्य प्रतिक्रिया");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","प्रत्येक निष्पादन में दिखाएँ अधूरा प्रश्न");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","सर्वश्रेष्ठ स्कोर रखें");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","औसत परीक्षण स्कोर (प्रत्येक परीक्षण सक्रिय निष्पादन गिनती)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","सक्रिय निष्पादन पर स्कोर");//score on active execution (New)
-define("_YOUCANUSEASTERISK","यदि आप एक शब्द है कि एक तारांकन (*), केवल अपने पहले भाग में विचार किया जाएगा के साथ समाप्त होता निर्दिष्ट करें. उदाहरण के लिए, यदि आप निर्दिष्ट '* सीखना' है, तो दोनों और 'जानने' सीखने ';होना सही माना जाएगा.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","कोर्स सबक नियम");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","पाठ्यक्रम के बीच नियम");//Rules between courses (New)
-define("_COURSEDEPENDSON","पाठ्यक्रम पर निर्भर करता है");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","आप स्वयं की एक शर्त के रूप में पाठ्यक्रम सेट नहीं कर सकते");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","चयन बॉक्स में प्रदर्शित विकल्प");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","जाँच इस सभी विकल्पों के साथ एक पाठ बॉक्स के बजाय किसी सूची बॉक्स, प्रदर्शित करेगा. इस मामले में, केवल पहला विकल्प सही माना जाता है");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","दिखाएँ सही जवाब सिर्फ अगर छात्र परीक्षा उत्तीर्ण");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","सेटिंग्स परीक्षक");//Settings checker (New)
-define("_CHECKBROWSER","जाँच ब्राउज़र");//Checking browser (New)
-define("_CHECKRESOLUTION","स्क्रीन संकल्प की जाँच");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","पॉपअप अवरोधक के लिए जाँच");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","जाँच कुकी राज्य ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","फ्लैश के लिए जांच की जा रही");//Checking for Flash (New)
-define("_CHECKACROBAT","एडोब रीडर के लिए जाँच");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","इंटरनेट एक्सप्लोरर 6 का पता चला. इस ब्राउज़र पुराना है और कार्यक्षमता प्रभावित हो सकता है");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","दुर्भाग्य ब्राउज़र है कि आप का समर्थन नहीं है प्रयोग कर रहे हैं");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","अपनी स्क्रीन संकल्प न्यूनतम आवश्यकता के अनुरूप नहीं है");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","पॉपअप अवरोधक का पता चला. कृपया इस साइट के लिए पॉपअप की अनुमति देते हैं और फिर कोशिश करें");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","कुकीज़ को निष्क्रिय किया जा दिखाई देते हैं. कृपया कुकी सक्षम");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","फ्लैश की तारीख से बाहर नहीं स्थापित है,");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","एडोब रीडर स्थापित नहीं है");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","जावास्क्रिप्ट जाँच");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","अपने ब्राउज़र में जावास्क्रिप्ट सक्षम नहीं है");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","आप प्रणाली सेटिंग्स से पर्यवेक्षक ईमेल सक्रियण है सक्षम होना चाहिए");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","वर्ष रेंज से");//Year range from (New)
-define("_YEARRANGETO","वर्ष श्रेणी के लिए");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","समूह नाम और विवरण");//Group name description (New)
-define("_GROUPINFORMATION","समूह जानकारी");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","विवश का उपयोग करने के लिए उपयोगकर्ताओं में लॉग इन फ़ाइलों की सामग्री के लिए");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","सेक डेटाबेस में परीक्षण के परिणाम");//Compress test results in database (New)
-define("_MAINTENANCETASKS","रखरखाव कार्यों");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","यहाँ क्लिक करें पूरा परीक्षण सेक");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","यहाँ क्लिक करें पूरा परीक्षण uncompress");//Click here to uncompress completed tests (New)
-define("_COMPRESS","संक्षिप्त करना");//Compress (New)
-define("_DATABASETASKS","डेटाबेस कार्यों");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","compressing / uncompressing पूरा परीक्षण से पहले बैकअप अपने डेटा करें");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","विन्यास");//Configuration (New)
-define("_SYSTEMOPTIONS","प्रणाली के विकल्प");//System options (New)
-define("_CASUAL","आकस्मिक");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","आप इस प्रयोक्ता की जानकारी तक नहीं पहुँच सकते");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","आभासी कुंजीपटल सक्षम करें");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","फ़ाइल रिक्त प्रतीत होता है. शायद यह सही ढंग से स्वरूपित नहीं है?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","प्रमाणपत्र समय समाप्ति अनुसूचित");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","टेस्ट पासवर्ड");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","क्षमा करें, इस शाखा के लिए पहुँच नहीं है");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","अल्पविराम उपयोगकर्ताओं की अलग सूची के बारे में जानकारी डिबग, या सभी उपयोगकर्ताओं के लिए 1 दिखाने के लिए");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","जनवरी");//Jan
+define("_FEBRUARYSHORTHAND","फ़रवरी");//Feb
+define("_MARCHSHORTHAND","मार्च");//Mar
+define("_APRILSHORTHAND","अप्रैल");//Apr
+define("_MAYSHORTHAND","मई");//May
+define("_JUNESHORTHAND","जून");//Jun
+define("_JULYSHORTHAND","जुलाई");//Jul
+define("_AUGUSTSHORTHAND","अगस्त");//Aug
+define("_SEPTEMBERSHORTHAND","सितम्बर");//Sep
+define("_OCTOBERSHORTHAND","अक्टूबर");//Oct
+define("_NOVEMBERSHORTHAND","नवम्बर");//Nov
+define("_DECEMBERSHORTHAND","दिसम्बर");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","तुम अनुरोध संसाधन का उपयोग नहीं कर सकते");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","एक नौकरी वर्णन का चयन करें");//Please select a job description
+define("_EDITJOBPLACEMENT","नौकरी स्थान संपादित करें");//Edit job placement
+define("_NORESPONSE","response&gt; &lt;no");//&lt;no response&gt;
+define("_ACCOUNT","खाता");//Account
+define("_ORGANIZATIONALDATA","संगठनात्मक प्रोफाइल");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","रिक्त अपरिवर्तित छोड़ने के लिए");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","विकल्प मान या उसके नंबर दर्ज करें, 0 से शुरू");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","उपयोगकर्ताओं से छुपाना पर्यवेक्षक");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","उपयोगकर्ताओं से छुपाना काम");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","आप अनिवार्य तत्वों के लिए कोई डिफ़ॉल्ट मान निर्दिष्ट करना होगा");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","वर्तमान दिनांक का उपयोग करें");//Use the current date
+define("_USERSCANCHANGEINFO","खाता परिवर्तन");//Account change
+define("_USERSCANCHANGEPASS","पासवर्ड को बदलने");//Password change
+define("_VIEWFEEDBACK","दृश्य प्रतिक्रिया");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","प्रत्येक निष्पादन में दिखाएँ अधूरा प्रश्न");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","सर्वश्रेष्ठ स्कोर रखें");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","औसत परीक्षण स्कोर (प्रत्येक परीक्षण सक्रिय निष्पादन गिनती)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","सक्रिय निष्पादन पर स्कोर");//score on active execution
+define("_YOUCANUSEASTERISK","यदि आप एक शब्द है कि एक तारांकन (*), केवल अपने पहले भाग में विचार किया जाएगा के साथ समाप्त होता निर्दिष्ट करें. उदाहरण के लिए, यदि आप निर्दिष्ट '* सीखना' है, तो दोनों और 'जानने' सीखने ';होना सही माना जाएगा.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","कोर्स सबक नियम");//Course lesson rules
+define("_RULESBETWEENCOURSES","पाठ्यक्रम के बीच नियम");//Rules between courses
+define("_COURSEDEPENDSON","पाठ्यक्रम पर निर्भर करता है");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","आप स्वयं की एक शर्त के रूप में पाठ्यक्रम सेट नहीं कर सकते");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","चयन बॉक्स में प्रदर्शित विकल्प");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","जाँच इस सभी विकल्पों के साथ एक पाठ बॉक्स के बजाय किसी सूची बॉक्स, प्रदर्शित करेगा. इस मामले में, केवल पहला विकल्प सही माना जाता है");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","दिखाएँ सही जवाब सिर्फ अगर छात्र परीक्षा उत्तीर्ण");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","सेटिंग्स परीक्षक");//Settings checker
+define("_CHECKBROWSER","जाँच ब्राउज़र");//Checking browser
+define("_CHECKRESOLUTION","स्क्रीन संकल्प की जाँच");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","पॉपअप अवरोधक के लिए जाँच");//Checking for Popup blocker
+define("_CHECKCOOKIES","जाँच कुकी राज्य ...");//Checking Cookie state...
+define("_CHECKFLASH","फ्लैश के लिए जांच की जा रही");//Checking for Flash
+define("_CHECKACROBAT","एडोब रीडर के लिए जाँच");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","इंटरनेट एक्सप्लोरर 6 का पता चला. इस ब्राउज़र पुराना है और कार्यक्षमता प्रभावित हो सकता है");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","दुर्भाग्य ब्राउज़र है कि आप का समर्थन नहीं है प्रयोग कर रहे हैं");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","अपनी स्क्रीन संकल्प न्यूनतम आवश्यकता के अनुरूप नहीं है");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","पॉपअप अवरोधक का पता चला. कृपया इस साइट के लिए पॉपअप की अनुमति देते हैं और फिर कोशिश करें");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","कुकीज़ को निष्क्रिय किया जा दिखाई देते हैं. कृपया कुकी सक्षम");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","फ्लैश की तारीख से बाहर नहीं स्थापित है,");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","एडोब रीडर स्थापित नहीं है");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","जावास्क्रिप्ट जाँच");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","अपने ब्राउज़र में जावास्क्रिप्ट सक्षम नहीं है");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","आप प्रणाली सेटिंग्स से पर्यवेक्षक ईमेल सक्रियण है सक्षम होना चाहिए");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","वर्ष रेंज से");//Year range from
+define("_YEARRANGETO","वर्ष श्रेणी के लिए");//Year range to
+define("_GROUPNAMEDESCRIPTION","समूह नाम और विवरण");//Group name description
+define("_GROUPINFORMATION","समूह जानकारी");//Group information
+define("_CONTRAINACCESSTOCONTENT","विवश का उपयोग करने के लिए उपयोगकर्ताओं में लॉग इन फ़ाइलों की सामग्री के लिए");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","सेक डेटाबेस में परीक्षण के परिणाम");//Compress test results in database
+define("_MAINTENANCETASKS","रखरखाव कार्यों");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","यहाँ क्लिक करें पूरा परीक्षण सेक");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","यहाँ क्लिक करें पूरा परीक्षण uncompress");//Uncompress completed tests
+define("_COMPRESS","संक्षिप्त करना");//Compress
+define("_DATABASETASKS","डेटाबेस कार्यों");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","compressing / uncompressing पूरा परीक्षण से पहले बैकअप अपने डेटा करें");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","विन्यास");//Configuration
+define("_SYSTEMOPTIONS","प्रणाली के विकल्प");//System options
+define("_CASUAL","आकस्मिक");//Casual
+define("_YOUCANNOTEDITTHISUSER","आप इस प्रयोक्ता की जानकारी तक नहीं पहुँच सकते");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","आभासी कुंजीपटल सक्षम करें");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","फ़ाइल रिक्त प्रतीत होता है. शायद यह सही ढंग से स्वरूपित नहीं है?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","प्रमाणपत्र समय समाप्ति अनुसूचित");//Certificate scheduled expiration
+define("_TESTPASSWORD","टेस्ट पासवर्ड");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","क्षमा करें, इस शाखा के लिए पहुँच नहीं है");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","दिखाएँ पूर्ण संगठन चार्ट उपयोगकर्ताओं के लिए");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","आप एक ही सबक से प्रतिलिपि नहीं कर सकते");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","छात्रों से संदेश");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","हटाएँ एपीआई एक से अधिक महीने पुराने टोकन");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","नई शर्त जोड़ें");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","हटाएँ रिपोर्ट दृश्य उन्नत");//Delete advanced report views (New)
 ?>

@@ -4008,10 +4008,12 @@ class MultipleManyQuestion extends Question implements iQuestion
         $c = sizeof($this -> answer);
         $f = sizeof($this -> userAnswer) - sizeof($this -> answer);
         //$results['score'] = max(0, $nc / ($c+$f) - $nf / max($c, $f));			//Used for taking into account false questions as well
-        if ($this -> settings['answers_or'] != 1) {
-   $results['score'] = max(0, $nc / $c - $nf / max($c, $f));
+  if ($this -> settings['answers_logic'] == 'or' || $this -> settings['answers_or'] == 1) { //$this -> settings['answers_or'] == 1 is here for compatibility reasons
+   $nc > 0 && $nf == 0 ? $results['score'] = 1 : $results['score'] = 0;
+  } else if ($this -> settings['answers_logic'] == 'and') {
+   $nc == $c && $nf == 0 ? $results['score'] = 1 : $results['score'] = 0;
   } else {
-   $nc == 0 ? $results['score'] = 0 : $results['score'] = 1;
+   $results['score'] = max(0, $nc / $c - $nf / max($c, $f));
   }
         return $results;
     }
@@ -6306,7 +6308,7 @@ abstract class Question
      */
     public $options = array();
  public $settings = array('force_correct' => 'manual',
-        'answers_or' => 0);
+        'answers_logic' => '');
     /**
 
      * Question's answer(s)

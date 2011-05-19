@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Không biết separator");//Unknown separator
 define("_LDAPUSER","Người sử dụng này authenticates thông qua các máy phục vụ LDAP");//This user authenticates through the LDAP server
 define("_EXECUTE","Thực hiện");//Execute
 define("_RECREATE","Recreate");//Recreate
-define("_CLICKHERETOREINDEX","Click vào đây để tìm kiếm lí bảng");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Click vào đây để tìm kiếm lí bảng");//Recreate the search table
 define("_TRANSLATION","Translation");//Translation
 define("_ENGLISHNAME","Tên trong Tiếng Anh");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Ngôn ngữ đã được tạo thành công");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Phiên của bạn đã hết hạn. Xin"
 define("_CLICKHERE","bấm vào đây");//click here
 define("_TOLOGINAGAIN","đăng nhập lại");//to login again
 define("_SESSIONEXPIRED","Kỳ họp đã hết hạn");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Bằng dấu phẩy danh sách người dùng để hiển thị thông tin gỡ lỗi, hoặc 1 cho tất cả người dùng");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Tháng hai");//Feb (New)
-define("_MARCHSHORTHAND","Làm hư");//Mar (New)
-define("_APRILSHORTHAND","Tháng tư");//Apr (New)
-define("_MAYSHORTHAND","May");//May (New)
-define("_JUNESHORTHAND","Tháng Sáu");//Jun (New)
-define("_JULYSHORTHAND","Tháng bảy");//Jul (New)
-define("_AUGUSTSHORTHAND","Tháng Tám");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Tháng Chín");//Sep (New)
-define("_OCTOBERSHORTHAND","Tháng Mười");//Oct (New)
-define("_NOVEMBERSHORTHAND","Tháng mười một");//Nov (New)
-define("_DECEMBERSHORTHAND","Tháng mười hai");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Bạn không thể truy cập các tài nguyên yêu cầu");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Hãy chọn một mô tả công việc");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Chỉnh sửa vị trí công việc");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Tài khoản");//Account (New)
-define("_ORGANIZATIONALDATA","Tổ chức thông tin");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Trống để lại không thay đổi");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Nhập giá trị tùy chọn hoặc số của nó, bắt đầu từ 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Ẩn giám sát từ người dùng");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Ẩn công việc từ người dùng");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Bạn phải chỉ định một giá trị mặc định cho các yếu tố bắt buộc");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Sử dụng ngày tháng hiện tại");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Tài khoản thay đổi");//Account change (New)
-define("_USERSCANCHANGEPASS","Thay đổi mật khẩu");//Password change (New)
-define("_VIEWFEEDBACK","Xem thông tin phản hồi");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Hiển thị đầy đủ các câu hỏi trong mỗi thực");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Giữ lại điểm số tốt nhất");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Kiểm tra điểm số trung bình (tính thực hiện hoạt động của mỗi thử nghiệm)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","số điểm về thực hiện hoạt động");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Nếu bạn chỉ định một từ kết thúc bằng một dấu sao (*), chỉ lần đầu tiên một phần của nó sẽ được xem xét. Ví dụ, nếu bạn chỉ định 'học *', sau đó cả hai 'học tập' và 'học hỏi' sẽ được xem xét chính xác.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Khóa học quy tắc");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Quy tắc giữa các khóa học");//Rules between courses (New)
-define("_COURSEDEPENDSON","Tất nhiên phụ thuộc vào");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Bạn không thể thiết lập các khóa học như là một điều kiện tiên quyết của chính nó");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Hiển thị lựa chọn thay thế trong hộp lựa chọn");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kiểm tra này sẽ hiển thị một hộp danh sách với tất cả các lựa chọn thay thế, thay vì một hộp văn bản. Trong trường hợp này, chỉ có các tùy chọn đầu tiên được xem là đúng");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Hiển thị câu trả lời đúng chỉ khi học sinh thông qua các bài kiểm tra");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Cài đặt kiểm tra");//Settings checker (New)
-define("_CHECKBROWSER","Kiểm tra trình duyệt");//Checking browser (New)
-define("_CHECKRESOLUTION","Kiểm tra độ phân giải màn hình");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Kiểm tra Ngăn chặn Popup");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Kiểm tra Cookie nhà nước ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Kiểm tra cho Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Kiểm tra cho Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 phát hiện. Trình duyệt này là lỗi thời và chức năng có thể bị ảnh hưởng");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Thật không may là trình duyệt mà bạn đang sử dụng không được hỗ trợ");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","độ phân giải màn hình của bạn không đáp ứng yêu cầu tối thiểu");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Ngăn chặn Popup phát hiện. Xin vui lòng cho phép quảng cáo cho trang web này và thử lại");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies xuất hiện để được vô hiệu hóa. Vui lòng kích hoạt cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash không được cài đặt, trong ngày");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader không được cài đặt");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Kiểm tra Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript không được kích hoạt trong trình duyệt của bạn");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Bạn phải kích hoạt kích hoạt email từ thiết lập hệ thống giám sát");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Năm từ");//Year range from (New)
-define("_YEARRANGETO","Năm phạm vi");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Tên nhóm Mô tả");//Group name description (New)
-define("_GROUPINFORMATION","Nhóm thông tin");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Hạn chế quyền truy cập vào nội dung tập tin để đăng nhập người dùng");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Nén kết quả kiểm tra trong cơ sở dữ liệu");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Nhiệm vụ bảo trì");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Click vào đây để nén các bài kiểm tra hoàn thành");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Click vào đây để giải nén các bài kiểm tra hoàn thành");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Nén");//Compress (New)
-define("_DATABASETASKS","Nhiệm vụ cơ sở dữ liệu");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Hãy sao lưu dữ liệu của bạn trước khi nén / Uncompressing thử nghiệm hoàn thành");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Cấu hình");//Configuration (New)
-define("_SYSTEMOPTIONS","Hệ thống lựa chọn");//System options (New)
-define("_CASUAL","Casual");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Bạn không thể truy cập thông tin của người dùng này");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Kích hoạt tính năng bàn phím ảo");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Các tập tin dường như là trống rỗng. Có lẽ nó không phải là định dạng đúng?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Giấy chứng nhận dự kiến ​​hết hạn");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Kiểm tra mật khẩu");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Xin lỗi, bạn không có quyền truy cập đến chi nhánh này");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Bằng dấu phẩy danh sách người dùng để hiển thị thông tin gỡ lỗi, hoặc 1 cho tất cả người dùng");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Tháng hai");//Feb
+define("_MARCHSHORTHAND","Làm hư");//Mar
+define("_APRILSHORTHAND","Tháng tư");//Apr
+define("_MAYSHORTHAND","May");//May
+define("_JUNESHORTHAND","Tháng Sáu");//Jun
+define("_JULYSHORTHAND","Tháng bảy");//Jul
+define("_AUGUSTSHORTHAND","Tháng Tám");//Aug
+define("_SEPTEMBERSHORTHAND","Tháng Chín");//Sep
+define("_OCTOBERSHORTHAND","Tháng Mười");//Oct
+define("_NOVEMBERSHORTHAND","Tháng mười một");//Nov
+define("_DECEMBERSHORTHAND","Tháng mười hai");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Bạn không thể truy cập các tài nguyên yêu cầu");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Hãy chọn một mô tả công việc");//Please select a job description
+define("_EDITJOBPLACEMENT","Chỉnh sửa vị trí công việc");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Tài khoản");//Account
+define("_ORGANIZATIONALDATA","Tổ chức thông tin");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Trống để lại không thay đổi");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Nhập giá trị tùy chọn hoặc số của nó, bắt đầu từ 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Ẩn giám sát từ người dùng");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Ẩn công việc từ người dùng");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Bạn phải chỉ định một giá trị mặc định cho các yếu tố bắt buộc");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Sử dụng ngày tháng hiện tại");//Use the current date
+define("_USERSCANCHANGEINFO","Tài khoản thay đổi");//Account change
+define("_USERSCANCHANGEPASS","Thay đổi mật khẩu");//Password change
+define("_VIEWFEEDBACK","Xem thông tin phản hồi");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Hiển thị đầy đủ các câu hỏi trong mỗi thực");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Giữ lại điểm số tốt nhất");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Kiểm tra điểm số trung bình (tính thực hiện hoạt động của mỗi thử nghiệm)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","số điểm về thực hiện hoạt động");//score on active execution
+define("_YOUCANUSEASTERISK","Nếu bạn chỉ định một từ kết thúc bằng một dấu sao (*), chỉ lần đầu tiên một phần của nó sẽ được xem xét. Ví dụ, nếu bạn chỉ định 'học *', sau đó cả hai 'học tập' và 'học hỏi' sẽ được xem xét chính xác.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Khóa học quy tắc");//Course lesson rules
+define("_RULESBETWEENCOURSES","Quy tắc giữa các khóa học");//Rules between courses
+define("_COURSEDEPENDSON","Tất nhiên phụ thuộc vào");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Bạn không thể thiết lập các khóa học như là một điều kiện tiên quyết của chính nó");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Hiển thị lựa chọn thay thế trong hộp lựa chọn");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kiểm tra này sẽ hiển thị một hộp danh sách với tất cả các lựa chọn thay thế, thay vì một hộp văn bản. Trong trường hợp này, chỉ có các tùy chọn đầu tiên được xem là đúng");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Hiển thị câu trả lời đúng chỉ khi học sinh thông qua các bài kiểm tra");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Cài đặt kiểm tra");//Settings checker
+define("_CHECKBROWSER","Kiểm tra trình duyệt");//Checking browser
+define("_CHECKRESOLUTION","Kiểm tra độ phân giải màn hình");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Kiểm tra Ngăn chặn Popup");//Checking for Popup blocker
+define("_CHECKCOOKIES","Kiểm tra Cookie nhà nước ...");//Checking Cookie state...
+define("_CHECKFLASH","Kiểm tra cho Flash");//Checking for Flash
+define("_CHECKACROBAT","Kiểm tra cho Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 phát hiện. Trình duyệt này là lỗi thời và chức năng có thể bị ảnh hưởng");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Thật không may là trình duyệt mà bạn đang sử dụng không được hỗ trợ");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","độ phân giải màn hình của bạn không đáp ứng yêu cầu tối thiểu");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Ngăn chặn Popup phát hiện. Xin vui lòng cho phép quảng cáo cho trang web này và thử lại");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies xuất hiện để được vô hiệu hóa. Vui lòng kích hoạt cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash không được cài đặt, trong ngày");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader không được cài đặt");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Kiểm tra Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript không được kích hoạt trong trình duyệt của bạn");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Bạn phải kích hoạt kích hoạt email từ thiết lập hệ thống giám sát");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Năm từ");//Year range from
+define("_YEARRANGETO","Năm phạm vi");//Year range to
+define("_GROUPNAMEDESCRIPTION","Tên nhóm Mô tả");//Group name description
+define("_GROUPINFORMATION","Nhóm thông tin");//Group information
+define("_CONTRAINACCESSTOCONTENT","Hạn chế quyền truy cập vào nội dung tập tin để đăng nhập người dùng");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Nén kết quả kiểm tra trong cơ sở dữ liệu");//Compress test results in database
+define("_MAINTENANCETASKS","Nhiệm vụ bảo trì");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Click vào đây để nén các bài kiểm tra hoàn thành");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Click vào đây để giải nén các bài kiểm tra hoàn thành");//Uncompress completed tests
+define("_COMPRESS","Nén");//Compress
+define("_DATABASETASKS","Nhiệm vụ cơ sở dữ liệu");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Hãy sao lưu dữ liệu của bạn trước khi nén / Uncompressing thử nghiệm hoàn thành");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Cấu hình");//Configuration
+define("_SYSTEMOPTIONS","Hệ thống lựa chọn");//System options
+define("_CASUAL","Casual");//Casual
+define("_YOUCANNOTEDITTHISUSER","Bạn không thể truy cập thông tin của người dùng này");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Kích hoạt tính năng bàn phím ảo");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Các tập tin dường như là trống rỗng. Có lẽ nó không phải là định dạng đúng?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Giấy chứng nhận dự kiến ​​hết hạn");//Certificate scheduled expiration
+define("_TESTPASSWORD","Kiểm tra mật khẩu");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Xin lỗi, bạn không có quyền truy cập đến chi nhánh này");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Tổ chức biểu đồ hiển thị đầy đủ cho người dùng");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Bạn không thể sao chép từ cùng một bài học");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Thông điệp từ sinh viên");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Xóa api thẻ nhiều hơn một tháng tuổi");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Thêm điều kiện mới");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Xóa nâng cao quan điểm báo cáo");//Delete advanced report views (New)
 ?>

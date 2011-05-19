@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Nepoznati separator");//Unknown separator
 define("_LDAPUSER","Ovaj korisnik authenticates putem LDAP poslužitelj");//This user authenticates through the LDAP server
 define("_EXECUTE","Execute");//Execute
 define("_RECREATE","Recreate");//Recreate
-define("_CLICKHERETOREINDEX","Kliknite ovdje da biste recreate pretraživanje tablice");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Kliknite ovdje da biste recreate pretraživanje tablice");//Recreate the search table
 define("_TRANSLATION","Translation");//Translation
 define("_ENGLISHNAME","Naziv na engleski");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Jezik je uspješno kreirana");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Vaša sesija je istekla. Molimo");//Your 
 define("_CLICKHERE","kliknite ovdje");//click here
 define("_TOLOGINAGAIN","za prijavu opet");//to login again
 define("_SESSIONEXPIRED","Sjednica je istekao");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Zarezom odvojen popis korisnika pokazati ispravljanje informacije o ili 1 za sve korisnike");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Veljače");//Feb (New)
-define("_MARCHSHORTHAND","Pokvariti");//Mar (New)
-define("_APRILSHORTHAND","Travnja");//Apr (New)
-define("_MAYSHORTHAND","Svibnja");//May (New)
-define("_JUNESHORTHAND","Lipnja");//Jun (New)
-define("_JULYSHORTHAND","Srpnja");//Jul (New)
-define("_AUGUSTSHORTHAND","Kolovoz");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Rujna");//Sep (New)
-define("_OCTOBERSHORTHAND","Listopada");//Oct (New)
-define("_NOVEMBERSHORTHAND","Studenog");//Nov (New)
-define("_DECEMBERSHORTHAND","Prosinca");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ne možete pristupiti traženi");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Molimo odaberite opis posla");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Uredi zapošljavanje");//Edit job placement (New)
-define("_NORESPONSE","&lt;nema response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Račun");//Account (New)
-define("_ORGANIZATIONALDATA","Organizacijski profil");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blank da ostaviti nepromijenjene");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Unesite vrijednost opcije ili broj, počevši od 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Sakrij supervizora od korisnika");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Sakrij posao od korisnika");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Morate navesti default vrijednost za obvezne elemente");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Koristi trenutni datum");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Račun promjena");//Account change (New)
-define("_USERSCANCHANGEPASS","Izmjena zaporke");//Password change (New)
-define("_VIEWFEEDBACK","Pogledaj komentare");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Prikaži nepotpun pitanja u svakoj izvršenje");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Zadržati najbolji rezultat");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Prosječna rezultat testa (računajući svaki test aktivnih izvršenje)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","rezultat na aktivna izvršenje");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Ako ste naveli riječi koja završava s zvjezdicom (*), samo njezin prvi dio će se smatrati. Na primjer, ako ste odredili 'naučiti *', a zatim i 'učenje' i 'učiti' smatrat će se ispraviti.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Tečaj sat pravila");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Pravila između tečajeva");//Rules between courses (New)
-define("_COURSEDEPENDSON","Tečaj ovisi o");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Ne možete postaviti naravno kao preduvjet za sebe");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Prikaz alternative u okviru odaberite");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Provjera ovo će se prikazati popis okvir sa svim alternativama, umjesto tekstnog okvira. U tom slučaju, samo prva opcija se smatra ispravno");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Prikaži točnih odgovora samo ako učenik prošao test");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Postavke za provjeru");//Settings checker (New)
-define("_CHECKBROWSER","Provjera preglednik");//Checking browser (New)
-define("_CHECKRESOLUTION","Provjera razlučivost zaslona");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Provjera za Popup Blocker");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Provjera Cookie države ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Provjera za Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Provjera za Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 otkrivena. Ovaj preglednik je zastario i funkcionalnost mogu biti pogođeni");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Nažalost preglednik koji koristite nije podržana");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Vaš zaslon za rješavanje ne ispunjava minimalne zahtjeve za");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Popup Blocker otkriti. Molimo dopustite pučanstvo za ove stranice i pokušajte ponovno");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Kolačići Čini se da osobe s invaliditetom. Molimo omogućite kolačiće");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash nije instaliran, zastario");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader nije instaliran");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Provjera Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","JavaScript nije omogućen u vašem pregledniku");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Morate imati omogućen aktivaciju nadzornik elektronička pošta from postavke sustava");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Godine u rasponu od");//Year range from (New)
-define("_YEARRANGETO","Godina raspon");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Naziv grupe opis");//Group name description (New)
-define("_GROUPINFORMATION","Grupa informacije");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Ograničiti pristup sadržaju datoteke prijavljeni korisnici");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Sažimanje rezultata u baze podataka");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Zadatke održavanja");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Kliknite ovdje za komprimirati završena ispitivanja");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Kliknite ovdje da biste otpakirati završena ispitivanja");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Oblog");//Compress (New)
-define("_DATABASETASKS","Baza podataka zadatke");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Molimo sigurnosna kopija tvoj podaci prije sažimanje / uncompressing završena ispitivanja");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfiguracija");//Configuration (New)
-define("_SYSTEMOPTIONS","Sustav opcije");//System options (New)
-define("_CASUAL","Casual");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Ne možete pristupiti ovoj korisnika informacija");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Omogući virtualna tipkovnica");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Datoteke pojavljuje se prazan. Možda to nije ispravno oblikovan?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Potvrda zakazana isteka");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test lozinku");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Žao nam je, nemate pristup ovoj grani");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Zarezom odvojen popis korisnika pokazati ispravljanje informacije o ili 1 za sve korisnike");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Veljače");//Feb
+define("_MARCHSHORTHAND","Pokvariti");//Mar
+define("_APRILSHORTHAND","Travnja");//Apr
+define("_MAYSHORTHAND","Svibnja");//May
+define("_JUNESHORTHAND","Lipnja");//Jun
+define("_JULYSHORTHAND","Srpnja");//Jul
+define("_AUGUSTSHORTHAND","Kolovoz");//Aug
+define("_SEPTEMBERSHORTHAND","Rujna");//Sep
+define("_OCTOBERSHORTHAND","Listopada");//Oct
+define("_NOVEMBERSHORTHAND","Studenog");//Nov
+define("_DECEMBERSHORTHAND","Prosinca");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ne možete pristupiti traženi");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Molimo odaberite opis posla");//Please select a job description
+define("_EDITJOBPLACEMENT","Uredi zapošljavanje");//Edit job placement
+define("_NORESPONSE","&lt;nema response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Račun");//Account
+define("_ORGANIZATIONALDATA","Organizacijski profil");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blank da ostaviti nepromijenjene");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Unesite vrijednost opcije ili broj, počevši od 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Sakrij supervizora od korisnika");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Sakrij posao od korisnika");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Morate navesti default vrijednost za obvezne elemente");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Koristi trenutni datum");//Use the current date
+define("_USERSCANCHANGEINFO","Račun promjena");//Account change
+define("_USERSCANCHANGEPASS","Izmjena zaporke");//Password change
+define("_VIEWFEEDBACK","Pogledaj komentare");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Prikaži nepotpun pitanja u svakoj izvršenje");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Zadržati najbolji rezultat");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Prosječna rezultat testa (računajući svaki test aktivnih izvršenje)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","rezultat na aktivna izvršenje");//score on active execution
+define("_YOUCANUSEASTERISK","Ako ste naveli riječi koja završava s zvjezdicom (*), samo njezin prvi dio će se smatrati. Na primjer, ako ste odredili 'naučiti *', a zatim i 'učenje' i 'učiti' smatrat će se ispraviti.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Tečaj sat pravila");//Course lesson rules
+define("_RULESBETWEENCOURSES","Pravila između tečajeva");//Rules between courses
+define("_COURSEDEPENDSON","Tečaj ovisi o");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Ne možete postaviti naravno kao preduvjet za sebe");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Prikaz alternative u okviru odaberite");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Provjera ovo će se prikazati popis okvir sa svim alternativama, umjesto tekstnog okvira. U tom slučaju, samo prva opcija se smatra ispravno");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Prikaži točnih odgovora samo ako učenik prošao test");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Postavke za provjeru");//Settings checker
+define("_CHECKBROWSER","Provjera preglednik");//Checking browser
+define("_CHECKRESOLUTION","Provjera razlučivost zaslona");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Provjera za Popup Blocker");//Checking for Popup blocker
+define("_CHECKCOOKIES","Provjera Cookie države ...");//Checking Cookie state...
+define("_CHECKFLASH","Provjera za Flash");//Checking for Flash
+define("_CHECKACROBAT","Provjera za Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 otkrivena. Ovaj preglednik je zastario i funkcionalnost mogu biti pogođeni");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Nažalost preglednik koji koristite nije podržana");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Vaš zaslon za rješavanje ne ispunjava minimalne zahtjeve za");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Popup Blocker otkriti. Molimo dopustite pučanstvo za ove stranice i pokušajte ponovno");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Kolačići Čini se da osobe s invaliditetom. Molimo omogućite kolačiće");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash nije instaliran, zastario");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader nije instaliran");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Provjera Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","JavaScript nije omogućen u vašem pregledniku");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Morate imati omogućen aktivaciju nadzornik elektronička pošta from postavke sustava");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Godine u rasponu od");//Year range from
+define("_YEARRANGETO","Godina raspon");//Year range to
+define("_GROUPNAMEDESCRIPTION","Naziv grupe opis");//Group name description
+define("_GROUPINFORMATION","Grupa informacije");//Group information
+define("_CONTRAINACCESSTOCONTENT","Ograničiti pristup sadržaju datoteke prijavljeni korisnici");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Sažimanje rezultata u baze podataka");//Compress test results in database
+define("_MAINTENANCETASKS","Zadatke održavanja");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Kliknite ovdje za komprimirati završena ispitivanja");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Kliknite ovdje da biste otpakirati završena ispitivanja");//Uncompress completed tests
+define("_COMPRESS","Oblog");//Compress
+define("_DATABASETASKS","Baza podataka zadatke");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Molimo sigurnosna kopija tvoj podaci prije sažimanje / uncompressing završena ispitivanja");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfiguracija");//Configuration
+define("_SYSTEMOPTIONS","Sustav opcije");//System options
+define("_CASUAL","Casual");//Casual
+define("_YOUCANNOTEDITTHISUSER","Ne možete pristupiti ovoj korisnika informacija");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Omogući virtualna tipkovnica");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Datoteke pojavljuje se prazan. Možda to nije ispravno oblikovan?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Potvrda zakazana isteka");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test lozinku");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Žao nam je, nemate pristup ovoj grani");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Prikaži puni organizacijski dijagram za korisnike");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Ne možete kopirati iz iste sat");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Poruke od studenata");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Brisanje API tokeni više od mjesec dana stara");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Dodati novi uvjet");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Brisanje napredno izvješće pogleda");//Delete advanced report views (New)
 ?>

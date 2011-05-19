@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","未知分离");//Unknown separator
 define("_LDAPUSER","此用户验证通过LDAP服务器");//This user authenticates through the LDAP server
 define("_EXECUTE","执行");//Execute
 define("_RECREATE","再现");//Recreate
-define("_CLICKHERETOREINDEX","点击这里重新搜索表");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","点击这里重新搜索表");//Recreate the search table
 define("_TRANSLATION","翻译");//Translation
 define("_ENGLISHNAME","名称在英语");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","语言已成功创建");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","您的会话已过期。请");//Your sess
 define("_CLICKHERE","点击这里");//click here
 define("_TOLOGINAGAIN","重新登录");//to login again
 define("_SESSIONEXPIRED","会话超时");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","逗号分隔的用户列表，显示调试信息，或者为所有用户一");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","扬");//Jan (New)
-define("_FEBRUARYSHORTHAND","二月");//Feb (New)
-define("_MARCHSHORTHAND","三月");//Mar (New)
-define("_APRILSHORTHAND","四月");//Apr (New)
-define("_MAYSHORTHAND","五月");//May (New)
-define("_JUNESHORTHAND","六月");//Jun (New)
-define("_JULYSHORTHAND","七月");//Jul (New)
-define("_AUGUSTSHORTHAND","八月");//Aug (New)
-define("_SEPTEMBERSHORTHAND","九月");//Sep (New)
-define("_OCTOBERSHORTHAND","十月");//Oct (New)
-define("_NOVEMBERSHORTHAND","十一月");//Nov (New)
-define("_DECEMBERSHORTHAND","十二月");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","您无法访问请求的资源");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","请选择职位描述");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","编辑就业");//Edit job placement (New)
-define("_NORESPONSE","&lt;无response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","帐户");//Account (New)
-define("_ORGANIZATIONALDATA","组织形象");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","离开不变空白");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","进入选项值或它的编号，从0开始");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","从用户隐藏监");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","隐藏用户的工作");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","你必须指定一个强制性的元素的默认值");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","使用当前日期");//Use the current date (New)
-define("_USERSCANCHANGEINFO","帐户更改");//Account change (New)
-define("_USERSCANCHANGEPASS","密码更改");//Password change (New)
-define("_VIEWFEEDBACK","查看反馈");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","在每次执行显示不全的问题");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","保留最好成绩");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","平均考试成绩（计数每次测试的积极执行）");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","积极贯彻得分");//score on active execution (New)
-define("_YOUCANUSEASTERISK","如果您指定一个字，有星号（*）只有它的第一部分将考虑结束。例如，如果指定'学习*'，那么这两个'学习'和'学'会被认为是正确的。");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","当然教训规则");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","规则不同课程");//Rules between courses (New)
-define("_COURSEDEPENDSON","当然取决于");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","你可以不设置先决条件作为其自身的课程");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","在选择框中显示方式");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","检查这将显示所有的选择列表框，而不是一个文本框。在这种情况下，只有一个选项是认为是正确的");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","显示正确的答案只有当学生通过测试");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","设置检查");//Settings checker (New)
-define("_CHECKBROWSER","检查浏览器");//Checking browser (New)
-define("_CHECKRESOLUTION","检查屏幕分辨率");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","检查弹出窗口拦截器");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","检查Cookie的状态...");//Checking Cookie state... (New)
-define("_CHECKFLASH","检查闪光");//Checking for Flash (New)
-define("_CHECKACROBAT","检查为Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6的检测。此浏览器是过时的和功能可能受到影响");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","不幸的是，您所使用的浏览器不支持");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","您的屏幕分辨率不符合最低要求的");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","弹出窗口拦截器检测。请允许此网站的弹出窗口，然后再试一次");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","饼干似乎被禁用。请启用Cookie");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash是没有安装的，过时的");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader是没有安装");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","检查的Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","JavaScript不是浏览器中启用");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","您必须启用从系统设置监控电子邮件激活");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","今年范围");//Year range from (New)
-define("_YEARRANGETO","今年范围");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","组名称描述");//Group name description (New)
-define("_GROUPINFORMATION","组信息");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","限制访问内容在登录用户的文件");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","在数据库压缩试验结果");//Compress test results in database (New)
-define("_MAINTENANCETASKS","维护任务");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","点击这里完成的测试压缩");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","点击这里解压缩完成的测试");//Click here to uncompress completed tests (New)
-define("_COMPRESS","压缩");//Compress (New)
-define("_DATABASETASKS","数据库任务");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","请在压缩/解压完成的测试数据备份");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","配置");//Configuration (New)
-define("_SYSTEMOPTIONS","系统选项");//System options (New)
-define("_CASUAL","休闲");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","您不能访问该用户的信息");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","启用虚拟键盘");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","该文件显示为空。也许是格式不正确？");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","证书期满");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","测试密码");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","对不起，您没有访问此分支");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","逗号分隔的用户列表，显示调试信息，或者为所有用户一");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","扬");//Jan
+define("_FEBRUARYSHORTHAND","二月");//Feb
+define("_MARCHSHORTHAND","三月");//Mar
+define("_APRILSHORTHAND","四月");//Apr
+define("_MAYSHORTHAND","五月");//May
+define("_JUNESHORTHAND","六月");//Jun
+define("_JULYSHORTHAND","七月");//Jul
+define("_AUGUSTSHORTHAND","八月");//Aug
+define("_SEPTEMBERSHORTHAND","九月");//Sep
+define("_OCTOBERSHORTHAND","十月");//Oct
+define("_NOVEMBERSHORTHAND","十一月");//Nov
+define("_DECEMBERSHORTHAND","十二月");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","您无法访问请求的资源");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","请选择职位描述");//Please select a job description
+define("_EDITJOBPLACEMENT","编辑就业");//Edit job placement
+define("_NORESPONSE","&lt;无response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","帐户");//Account
+define("_ORGANIZATIONALDATA","组织形象");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","离开不变空白");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","进入选项值或它的编号，从0开始");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","从用户隐藏监");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","隐藏用户的工作");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","你必须指定一个强制性的元素的默认值");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","使用当前日期");//Use the current date
+define("_USERSCANCHANGEINFO","帐户更改");//Account change
+define("_USERSCANCHANGEPASS","密码更改");//Password change
+define("_VIEWFEEDBACK","查看反馈");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","在每次执行显示不全的问题");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","保留最好成绩");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","平均考试成绩（计数每次测试的积极执行）");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","积极贯彻得分");//score on active execution
+define("_YOUCANUSEASTERISK","如果您指定一个字，有星号（*）只有它的第一部分将考虑结束。例如，如果指定'学习*'，那么这两个'学习'和'学'会被认为是正确的。");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","当然教训规则");//Course lesson rules
+define("_RULESBETWEENCOURSES","规则不同课程");//Rules between courses
+define("_COURSEDEPENDSON","当然取决于");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","你可以不设置先决条件作为其自身的课程");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","在选择框中显示方式");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","检查这将显示所有的选择列表框，而不是一个文本框。在这种情况下，只有一个选项是认为是正确的");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","显示正确的答案只有当学生通过测试");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","设置检查");//Settings checker
+define("_CHECKBROWSER","检查浏览器");//Checking browser
+define("_CHECKRESOLUTION","检查屏幕分辨率");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","检查弹出窗口拦截器");//Checking for Popup blocker
+define("_CHECKCOOKIES","检查Cookie的状态...");//Checking Cookie state...
+define("_CHECKFLASH","检查闪光");//Checking for Flash
+define("_CHECKACROBAT","检查为Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6的检测。此浏览器是过时的和功能可能受到影响");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","不幸的是，您所使用的浏览器不支持");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","您的屏幕分辨率不符合最低要求的");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","弹出窗口拦截器检测。请允许此网站的弹出窗口，然后再试一次");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","饼干似乎被禁用。请启用Cookie");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash是没有安装的，过时的");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader是没有安装");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","检查的Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","JavaScript不是浏览器中启用");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","您必须启用从系统设置监控电子邮件激活");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","今年范围");//Year range from
+define("_YEARRANGETO","今年范围");//Year range to
+define("_GROUPNAMEDESCRIPTION","组名称描述");//Group name description
+define("_GROUPINFORMATION","组信息");//Group information
+define("_CONTRAINACCESSTOCONTENT","限制访问内容在登录用户的文件");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","在数据库压缩试验结果");//Compress test results in database
+define("_MAINTENANCETASKS","维护任务");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","点击这里完成的测试压缩");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","点击这里解压缩完成的测试");//Uncompress completed tests
+define("_COMPRESS","压缩");//Compress
+define("_DATABASETASKS","数据库任务");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","请在压缩/解压完成的测试数据备份");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","配置");//Configuration
+define("_SYSTEMOPTIONS","系统选项");//System options
+define("_CASUAL","休闲");//Casual
+define("_YOUCANNOTEDITTHISUSER","您不能访问该用户的信息");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","启用虚拟键盘");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","该文件显示为空。也许是格式不正确？");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","证书期满");//Certificate scheduled expiration
+define("_TESTPASSWORD","测试密码");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","对不起，您没有访问此分支");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","显示完整的组织结构图用户");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","您不能复制了同样的问题");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","从学生的邮件");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","删除API标记一个月以上的老");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","添加新条件");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","删除高级报告的意见");//Delete advanced report views (New)
 ?>

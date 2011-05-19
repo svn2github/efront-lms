@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","未知の区切り");//Unknown separator
 define("_LDAPUSER","このユーザーを認証するLDAPサーバー");//This user authenticates through the LDAP server
 define("_EXECUTE","実行");//Execute
 define("_RECREATE","再現");//Recreate
-define("_CLICKHERETOREINDEX","ここをクリックして、再度検索テーブル");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","ここをクリックして、再度検索テーブル");//Recreate the search table
 define("_TRANSLATION","翻訳");//Translation
 define("_ENGLISHNAME","英語の名前を");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","その言語が正常に作成さ");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","セッションが期限切れになっ�
 define("_CLICKHERE","ここをクリックしてください");//click here
 define("_TOLOGINAGAIN","再度ログインする");//to login again
 define("_SESSIONEXPIRED","セッションの有効期限が切れ");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","ユーザーのカンマ区切りのリストは、デバッグ情報を、1すべてのユーザーに対して表示する");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","月");//Jan (New)
-define("_FEBRUARYSHORTHAND","Feb");//Feb (New)
-define("_MARCHSHORTHAND","マー");//Mar (New)
-define("_APRILSHORTHAND","Apr");//Apr (New)
-define("_MAYSHORTHAND","5月");//May (New)
-define("_JUNESHORTHAND","ジュン");//Jun (New)
-define("_JULYSHORTHAND","Jul");//Jul (New)
-define("_AUGUSTSHORTHAND","Aug");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Sep");//Sep (New)
-define("_OCTOBERSHORTHAND","Oct");//Oct (New)
-define("_NOVEMBERSHORTHAND","Nov");//Nov (New)
-define("_DECEMBERSHORTHAND","Dec");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","あなたは要求されたリソースにアクセスすることはできません");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","職務記述書を選択してください。");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","職業紹介を編集する");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","アカウント");//Account (New)
-define("_ORGANIZATIONALDATA","組織のプロファイル");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","ブランクはそのまま残して");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","0から始まる、オプションの値またはその番号を入力してください");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","ユーザーから隠すスーパーバイザー");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","ユーザーから隠すジョブ");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","あなたは必須の要素のデフォルト値を指定する必要があります。");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","現在の日付を使用してください");//Use the current date (New)
-define("_USERSCANCHANGEINFO","アカウントの変更");//Account change (New)
-define("_USERSCANCHANGEPASS","パスワードの変更");//Password change (New)
-define("_VIEWFEEDBACK","友達からのフィードバック");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","各実行で表示不完全な質問");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","最高のスコアを保持する");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","平均テストのスコア（各テストのアクティブな実行カウント）");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","アクティブな実行のスコア");//score on active execution (New)
-define("_YOUCANUSEASTERISK","あなたは、その最初の部分が考慮されるアスタリスク（*）で終わる単語を指定する場合。たとえば、両方が正しいとみなされるの学習'学習'し、'を学ぶ*'を指定した場合。");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","コー​​スレッスンルール");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","コー​​スの間のルール");//Rules between courses (New)
-define("_COURSEDEPENDSON","コー​​スに依存");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","あなたは、それ自体の前提条件としてコースを設定することはできません。");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","選択ボックスで表示の選択肢");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","これは、テキストボックスの代わりに、すべての選択肢を持つリストボックスが表示されますチェックしています。この場合において、最初のオプションだけが正しいと考えられる");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","地図を表示正解は、生徒が試験に合格した場合、");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","設定チェッカー");//Settings checker (New)
-define("_CHECKBROWSER","チェックブラウザ");//Checking browser (New)
-define("_CHECKRESOLUTION","画面の解像度を確認する");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","ポップアップブロッカーのチェック");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","チェッククッキーの状態...");//Checking Cookie state... (New)
-define("_CHECKFLASH","フラッシュのチェック");//Checking for Flash (New)
-define("_CHECKACROBAT","Adobe Readerの確認");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6が検出されました。このブラウザは廃止され、機能が影響を受けることがあります");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","あなたがサポートされていない使用していることを残念なことに、ブラウザ");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","画面の解像度は、最小要件を満たしていない");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","ポップアップブロッカーが検出されました。このサイトのポップアップを許可してもう一度試してください");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","クッキーが無効になって表示されます。クッキーを有効にしてください");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","フラッシュは、日付のうち、インストールされていない");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Readerがインストールされていない");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Javascriptをチェック");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascriptがお使いのブラウザで有効になっていません");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","あなたはシステム設定からスーパバイザメールアクティベーションを有効にする必要があります");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","年間の範囲から");//Year range from (New)
-define("_YEARRANGETO","年間の範囲内に");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","グループ名の説明");//Group name description (New)
-define("_GROUPINFORMATION","グループ情報");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","縦横のアクセスは、ユーザーにログインしているファイルをコンテンツページを表示する");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","データベース内の圧縮試験結果");//Compress test results in database (New)
-define("_MAINTENANCETASKS","メンテナンスタスク");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","完了検査を圧縮するにはここをクリック");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","完了検査を解凍するにはここをクリック");//Click here to uncompress completed tests (New)
-define("_COMPRESS","圧縮");//Compress (New)
-define("_DATABASETASKS","データベースタスク");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","圧縮/解凍が完了検査をする前にデータのバックアップをしてください");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","構成");//Configuration (New)
-define("_SYSTEMOPTIONS","システムオプション");//System options (New)
-define("_CASUAL","カジュアル");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","あなたは、このユーザーの情報をアクセスすることはできません");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","仮想キーボードを有効にする");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ファイルが空で表示されます。おそらく、それが正しくフォーマットされていない？");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","証明書は有効期限をスケジュール");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","テストパスワード");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","申し訳ありませんが、このブランチへのアクセスを持っていない");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","ユーザーのカンマ区切りのリストは、デバッグ情報を、1すべてのユーザーに対して表示する");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","月");//Jan
+define("_FEBRUARYSHORTHAND","Feb");//Feb
+define("_MARCHSHORTHAND","マー");//Mar
+define("_APRILSHORTHAND","Apr");//Apr
+define("_MAYSHORTHAND","5月");//May
+define("_JUNESHORTHAND","ジュン");//Jun
+define("_JULYSHORTHAND","Jul");//Jul
+define("_AUGUSTSHORTHAND","Aug");//Aug
+define("_SEPTEMBERSHORTHAND","Sep");//Sep
+define("_OCTOBERSHORTHAND","Oct");//Oct
+define("_NOVEMBERSHORTHAND","Nov");//Nov
+define("_DECEMBERSHORTHAND","Dec");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","あなたは要求されたリソースにアクセスすることはできません");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","職務記述書を選択してください。");//Please select a job description
+define("_EDITJOBPLACEMENT","職業紹介を編集する");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","アカウント");//Account
+define("_ORGANIZATIONALDATA","組織のプロファイル");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","ブランクはそのまま残して");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","0から始まる、オプションの値またはその番号を入力してください");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","ユーザーから隠すスーパーバイザー");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","ユーザーから隠すジョブ");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","あなたは必須の要素のデフォルト値を指定する必要があります。");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","現在の日付を使用してください");//Use the current date
+define("_USERSCANCHANGEINFO","アカウントの変更");//Account change
+define("_USERSCANCHANGEPASS","パスワードの変更");//Password change
+define("_VIEWFEEDBACK","友達からのフィードバック");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","各実行で表示不完全な質問");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","最高のスコアを保持する");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","平均テストのスコア（各テストのアクティブな実行カウント）");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","アクティブな実行のスコア");//score on active execution
+define("_YOUCANUSEASTERISK","あなたは、その最初の部分が考慮されるアスタリスク（*）で終わる単語を指定する場合。たとえば、両方が正しいとみなされるの学習'学習'し、'を学ぶ*'を指定した場合。");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","コー​​スレッスンルール");//Course lesson rules
+define("_RULESBETWEENCOURSES","コー​​スの間のルール");//Rules between courses
+define("_COURSEDEPENDSON","コー​​スに依存");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","あなたは、それ自体の前提条件としてコースを設定することはできません。");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","選択ボックスで表示の選択肢");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","これは、テキストボックスの代わりに、すべての選択肢を持つリストボックスが表示されますチェックしています。この場合において、最初のオプションだけが正しいと考えられる");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","地図を表示正解は、生徒が試験に合格した場合、");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","設定チェッカー");//Settings checker
+define("_CHECKBROWSER","チェックブラウザ");//Checking browser
+define("_CHECKRESOLUTION","画面の解像度を確認する");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","ポップアップブロッカーのチェック");//Checking for Popup blocker
+define("_CHECKCOOKIES","チェッククッキーの状態...");//Checking Cookie state...
+define("_CHECKFLASH","フラッシュのチェック");//Checking for Flash
+define("_CHECKACROBAT","Adobe Readerの確認");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6が検出されました。このブラウザは廃止され、機能が影響を受けることがあります");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","あなたがサポートされていない使用していることを残念なことに、ブラウザ");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","画面の解像度は、最小要件を満たしていない");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","ポップアップブロッカーが検出されました。このサイトのポップアップを許可してもう一度試してください");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","クッキーが無効になって表示されます。クッキーを有効にしてください");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","フラッシュは、日付のうち、インストールされていない");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Readerがインストールされていない");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Javascriptをチェック");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascriptがお使いのブラウザで有効になっていません");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","あなたはシステム設定からスーパバイザメールアクティベーションを有効にする必要があります");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","年間の範囲から");//Year range from
+define("_YEARRANGETO","年間の範囲内に");//Year range to
+define("_GROUPNAMEDESCRIPTION","グループ名の説明");//Group name description
+define("_GROUPINFORMATION","グループ情報");//Group information
+define("_CONTRAINACCESSTOCONTENT","縦横のアクセスは、ユーザーにログインしているファイルをコンテンツページを表示する");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","データベース内の圧縮試験結果");//Compress test results in database
+define("_MAINTENANCETASKS","メンテナンスタスク");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","完了検査を圧縮するにはここをクリック");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","完了検査を解凍するにはここをクリック");//Uncompress completed tests
+define("_COMPRESS","圧縮");//Compress
+define("_DATABASETASKS","データベースタスク");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","圧縮/解凍が完了検査をする前にデータのバックアップをしてください");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","構成");//Configuration
+define("_SYSTEMOPTIONS","システムオプション");//System options
+define("_CASUAL","カジュアル");//Casual
+define("_YOUCANNOTEDITTHISUSER","あなたは、このユーザーの情報をアクセスすることはできません");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","仮想キーボードを有効にする");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ファイルが空で表示されます。おそらく、それが正しくフォーマットされていない？");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","証明書は有効期限をスケジュール");//Certificate scheduled expiration
+define("_TESTPASSWORD","テストパスワード");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","申し訳ありませんが、このブランチへのアクセスを持っていない");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","地図を完全な組織図のユーザーに");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","あなたは同じレッスンからコピーすることはできません。");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","学生からのメッセージ");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","削除APIは、一ヶ月以上古いトークン");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","新しい条件を追加する");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","削除は、レポートビューを高度な");//Delete advanced report views (New)
 ?>

@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Okänd fältavskiljare");//Unknown separator
 define("_LDAPUSER","Denna användare autentiseras via LDAP-server");//This user authenticates through the LDAP server
 define("_EXECUTE","Utför");//Execute
 define("_RECREATE","Återskapa");//Recreate
-define("_CLICKHERETOREINDEX","Klicka här för att återskapa söktabellen");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Klicka här för att återskapa söktabellen");//Recreate the search table
 define("_TRANSLATION","Översättning");//Translation
 define("_ENGLISHNAME","Namn på engelska");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Språket har skapats");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Din session har gått ut. Vänligen");//Y
 define("_CLICKHERE","Klicka här");//click here
 define("_TOLOGINAGAIN","att logga in igen");//to login again
 define("_SESSIONEXPIRED","Sessionen har upphört");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Kommaseparerad lista med användare för att visa felsökningsinformation på, eller 1 för alla användare");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Februari");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","April");//Apr (New)
-define("_MAYSHORTHAND","Maj");//May (New)
-define("_JUNESHORTHAND","Juni");//Jun (New)
-define("_JULYSHORTHAND","Juli");//Jul (New)
-define("_AUGUSTSHORTHAND","Augusti");//Aug (New)
-define("_SEPTEMBERSHORTHAND","September");//Sep (New)
-define("_OCTOBERSHORTHAND","Oktober");//Oct (New)
-define("_NOVEMBERSHORTHAND","November");//Nov (New)
-define("_DECEMBERSHORTHAND","December");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Du kan inte komma den begärda resursen");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Välj en arbetsbeskrivning");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Redigera arbetsförmedling");//Edit job placement (New)
-define("_NORESPONSE","&lt;Inga response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Konto");//Account (New)
-define("_ORGANIZATIONALDATA","Organisatoriska profil");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blank att lämna oförändrat");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Ange optionsvärdet eller dess nummer, med start från 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Göm handledare från användare");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Dölj jobb från användare");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Du måste ange ett standardvärde för obligatoriska inslag");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Använd det aktuella datumet");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Konto förändring");//Account change (New)
-define("_USERSCANCHANGEPASS","Byte av lösenord");//Password change (New)
-define("_VIEWFEEDBACK","Visa feedback");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Visa ofullständiga frågor i varje körning");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Behåll bästa poäng");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Genomsnittligt testresultat (räknat varje test aktiva utförande)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","poäng på aktiva utförande");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Om du anger ett ord som slutar med en asterisk (*), bara dess första del kommer att beaktas. Till exempel, om du anger 'lära *', sedan både 'lärande' och 'lära' kommer att anses korrekt.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Kurs lektion regler");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Regler mellan kurser");//Rules between courses (New)
-define("_COURSEDEPENDSON","Naturligtvis beror på");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Du kan inte ställa in kursen som en förutsättning i sig");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Visa alternativ välj fält");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kontrollera detta visas en listruta med alla alternativ, i stället för en textruta. I detta fall är det endast det första alternativet anses korrekt");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Visa de rätta svaren endast om eleven klarat provet");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Inställningar checker");//Settings checker (New)
-define("_CHECKBROWSER","Kontrollera webbläsare");//Checking browser (New)
-define("_CHECKRESOLUTION","Kontroll skärmupplösning");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Kontroll av popup-blockeraren");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Kontrollerar Cookie stat ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Kontroll för Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Kontroll för Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 upptäckts. Den här webbläsaren är föråldrat och funktionalitet kan påverkas");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Tyvärr webbläsare som du använder stöds inte");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Din skärmupplösning uppfyller inte minimikravet på");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Popupspärr upptäckts. Vänligen tillåta popup-fönster för den här webbplatsen och försök igen");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies verkar vara inaktiverad. Aktivera cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash är inte installerat, inaktuella");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader är inte installerat");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Kontroll Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript är inte aktiverat i din webbläsare");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Du måste ha aktiverat aktivering handledare e-post från systeminställningar");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","År varierar från");//Year range from (New)
-define("_YEARRANGETO","Årtalsintervall till");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Gruppnamn beskrivning");//Group name description (New)
-define("_GROUPINFORMATION","Grupp information");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Begränsa åtkomst till innehåll filer för inloggade användare");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Komprimera testresultat i databasen");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Underhållsuppgifter");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Klicka här för att komprimera avslutade tester");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Klicka här för att packa avslutade tester");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Komprimera");//Compress (New)
-define("_DATABASETASKS","Databas uppgifter");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Vänligen säkerhetskopiera dina data innan komprimering / dekomprimering avslutat test");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfiguration");//Configuration (New)
-define("_SYSTEMOPTIONS","Systemalternativ");//System options (New)
-define("_CASUAL","Casual");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Du kan inte komma den här användarens information");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Aktivera virtuellt tangentbord");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Filen verkar vara tom. Kanske det inte är rätt formaterad?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Intyg schemalagda utgångsdatum");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Testa lösenord");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Tyvärr har du inte tillgång till denna gren");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Kommaseparerad lista med användare för att visa felsökningsinformation på, eller 1 för alla användare");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Februari");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","April");//Apr
+define("_MAYSHORTHAND","Maj");//May
+define("_JUNESHORTHAND","Juni");//Jun
+define("_JULYSHORTHAND","Juli");//Jul
+define("_AUGUSTSHORTHAND","Augusti");//Aug
+define("_SEPTEMBERSHORTHAND","September");//Sep
+define("_OCTOBERSHORTHAND","Oktober");//Oct
+define("_NOVEMBERSHORTHAND","November");//Nov
+define("_DECEMBERSHORTHAND","December");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Du kan inte komma den begärda resursen");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Välj en arbetsbeskrivning");//Please select a job description
+define("_EDITJOBPLACEMENT","Redigera arbetsförmedling");//Edit job placement
+define("_NORESPONSE","&lt;Inga response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Konto");//Account
+define("_ORGANIZATIONALDATA","Organisatoriska profil");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blank att lämna oförändrat");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Ange optionsvärdet eller dess nummer, med start från 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Göm handledare från användare");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Dölj jobb från användare");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Du måste ange ett standardvärde för obligatoriska inslag");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Använd det aktuella datumet");//Use the current date
+define("_USERSCANCHANGEINFO","Konto förändring");//Account change
+define("_USERSCANCHANGEPASS","Byte av lösenord");//Password change
+define("_VIEWFEEDBACK","Visa feedback");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Visa ofullständiga frågor i varje körning");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Behåll bästa poäng");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Genomsnittligt testresultat (räknat varje test aktiva utförande)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","poäng på aktiva utförande");//score on active execution
+define("_YOUCANUSEASTERISK","Om du anger ett ord som slutar med en asterisk (*), bara dess första del kommer att beaktas. Till exempel, om du anger 'lära *', sedan både 'lärande' och 'lära' kommer att anses korrekt.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Kurs lektion regler");//Course lesson rules
+define("_RULESBETWEENCOURSES","Regler mellan kurser");//Rules between courses
+define("_COURSEDEPENDSON","Naturligtvis beror på");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Du kan inte ställa in kursen som en förutsättning i sig");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Visa alternativ välj fält");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Kontrollera detta visas en listruta med alla alternativ, i stället för en textruta. I detta fall är det endast det första alternativet anses korrekt");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Visa de rätta svaren endast om eleven klarat provet");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Inställningar checker");//Settings checker
+define("_CHECKBROWSER","Kontrollera webbläsare");//Checking browser
+define("_CHECKRESOLUTION","Kontroll skärmupplösning");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Kontroll av popup-blockeraren");//Checking for Popup blocker
+define("_CHECKCOOKIES","Kontrollerar Cookie stat ...");//Checking Cookie state...
+define("_CHECKFLASH","Kontroll för Flash");//Checking for Flash
+define("_CHECKACROBAT","Kontroll för Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 upptäckts. Den här webbläsaren är föråldrat och funktionalitet kan påverkas");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Tyvärr webbläsare som du använder stöds inte");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Din skärmupplösning uppfyller inte minimikravet på");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Popupspärr upptäckts. Vänligen tillåta popup-fönster för den här webbplatsen och försök igen");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies verkar vara inaktiverad. Aktivera cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash är inte installerat, inaktuella");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader är inte installerat");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Kontroll Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript är inte aktiverat i din webbläsare");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Du måste ha aktiverat aktivering handledare e-post från systeminställningar");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","År varierar från");//Year range from
+define("_YEARRANGETO","Årtalsintervall till");//Year range to
+define("_GROUPNAMEDESCRIPTION","Gruppnamn beskrivning");//Group name description
+define("_GROUPINFORMATION","Grupp information");//Group information
+define("_CONTRAINACCESSTOCONTENT","Begränsa åtkomst till innehåll filer för inloggade användare");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Komprimera testresultat i databasen");//Compress test results in database
+define("_MAINTENANCETASKS","Underhållsuppgifter");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Klicka här för att komprimera avslutade tester");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Klicka här för att packa avslutade tester");//Uncompress completed tests
+define("_COMPRESS","Komprimera");//Compress
+define("_DATABASETASKS","Databas uppgifter");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Vänligen säkerhetskopiera dina data innan komprimering / dekomprimering avslutat test");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfiguration");//Configuration
+define("_SYSTEMOPTIONS","Systemalternativ");//System options
+define("_CASUAL","Casual");//Casual
+define("_YOUCANNOTEDITTHISUSER","Du kan inte komma den här användarens information");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Aktivera virtuellt tangentbord");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Filen verkar vara tom. Kanske det inte är rätt formaterad?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Intyg schemalagda utgångsdatum");//Certificate scheduled expiration
+define("_TESTPASSWORD","Testa lösenord");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Tyvärr har du inte tillgång till denna gren");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Visa fullständig organisationsplan för användare");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Du kan inte kopiera från samma lektion");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Meddelanden från studenter");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Ta bort api tokens mer än en månad gammal");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Lägg till nya villkor");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Radera avancerad rapport visningar");//Delete advanced report views (New)
 ?>

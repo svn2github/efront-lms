@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","ไม่รู้จักตัวแยกคั�
 define("_LDAPUSER","สมาชิกผู้นี้ใช้ระบบตรวจสอบสิทธิ์ผ่านระบบ LDAP server");//This user authenticates through the LDAP server
 define("_EXECUTE","เรียกใช้");//Execute
 define("_RECREATE","สร้างใหม่อีก");//Recreate
-define("_CLICKHERETOREINDEX","คลิกที่นี่เพื่อสร้างตารางค้นหาใหม่>");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","คลิกที่นี่เพื่อสร้างตารางค้นหาใหม่>");//Recreate the search table
 define("_TRANSLATION","ภาษาที่แปล");//Translation
 define("_ENGLISHNAME","ชื่อภาษาอังกฤษ");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","สร้างภาษาให้เรียบร้อยแล้ว");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","เซสชันของคุณห�
 define("_CLICKHERE","คลิกที่นี่");//click here
 define("_TOLOGINAGAIN","เพื่อเข้าสู่ระบบอีกครั้ง");//to login again
 define("_SESSIONEXPIRED","Session หมดอายุ");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Comma คั่นรายการของผู้ใช้เพื่อแสดงข้อมูลเกี่ยวกับการแก้ปัญหาหรือ 1 สำหรับผู้ใช้ทั้งหมด");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","กุมภาพันธ์");//Feb (New)
-define("_MARCHSHORTHAND","ทำให้เสียโฉม");//Mar (New)
-define("_APRILSHORTHAND","เมษายน");//Apr (New)
-define("_MAYSHORTHAND","เดือนพฤษภาคม");//May (New)
-define("_JUNESHORTHAND","มิถุนายน");//Jun (New)
-define("_JULYSHORTHAND","กรกฎาคม");//Jul (New)
-define("_AUGUSTSHORTHAND","สิงหาคม");//Aug (New)
-define("_SEPTEMBERSHORTHAND","กันยายน");//Sep (New)
-define("_OCTOBERSHORTHAND","ตุลาคม");//Oct (New)
-define("_NOVEMBERSHORTHAND","พฤศจิกายน");//Nov (New)
-define("_DECEMBERSHORTHAND","Dec");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","คุณไม่สามารถเข้าถึงทรัพยากรที่ต้องการ");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","กรุณาเลือกรายละเอียดงาน");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","แก้ไขตำแหน่งงาน");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","บัญชี");//Account (New)
-define("_ORGANIZATIONALDATA","โปรไฟล์ขององค์การ");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","ปล่อยว่างไว้เพื่อไม่เปลี่ยนแปลง");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","ป้อนค่าตัวเลือกหรือหมายเลขของมันเริ่มจาก 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","ผู้ดูแลซ่อนจากผู้ใช้");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","ซ่อนจากผู้ใช้งาน");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","คุณต้องระบุค่าเริ่มต้นสำหรับองค์ประกอบที่จำเป็น");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","ใช้วันที่ปัจจุบัน");//Use the current date (New)
-define("_USERSCANCHANGEINFO","เปลี่ยนบัญชี");//Account change (New)
-define("_USERSCANCHANGEPASS","เปลี่ยนรหัสผ่าน");//Password change (New)
-define("_VIEWFEEDBACK","ดูความคิดเห็น");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","แสดงคำถามที่ไม่สมบูรณ์ในการทำงานแต่ละ");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","เก็บคะแนนที่ดีที่สุด");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","คะแนนเฉลี่ย (โดยนับการปฏิบัติงานการทดสอบของแต่ละ)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","คะแนนในการปฏิบัติงาน");//score on active execution (New)
-define("_YOUCANUSEASTERISK","ถ้าคุณระบุคำที่ลงท้ายด้วยเครื่องหมายดอกจัน (*), เฉพาะส่วนแรกจะได้รับการพิจารณา ตัวอย่างเช่นหากคุณระบุได้เรียนรู้ *'จากนั้นทั้งสอง'เรียนรู้'และ'เรียนรู้'จะได้รับการพิจารณาให้ถูกต้อง");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","หลักสูตรกฎบทเรียน");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","กติการะหว่างหลักสูตร");//Rules between courses (New)
-define("_COURSEDEPENDSON","ขึ้นอยู่กับหลักสูตร");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","คุณไม่สามารถกำหนดหลักสูตรถือเป็นเงื่อนไขเบื้องต้นของตัวเอง");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","ทางเลือกแสดงในกล่องเลือก");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","การตรวจสอบนี้จะแสดงช่องรายการที่มีทางเลือกทั้งหมดแทนของกล่องข้อความ ในกรณีนี้จะมีเพียงตัวเลือกแรกจะถือว่าถูกต้อง");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","แสดงคำตอบที่ถูกต้องเฉพาะในกรณีที่นักเรียนผ่านการทดสอบ");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","ตัวตรวจสอบการตั้งค่า");//Settings checker (New)
-define("_CHECKBROWSER","การตรวจสอบเบราว์เซอร์");//Checking browser (New)
-define("_CHECKRESOLUTION","การตรวจสอบความละเอียดหน้าจอ");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","สำหรับการตรวจสอบตัวป้องกันป๊อปอัพ");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","ตรวจสอบสถานะ Cookie ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","การตรวจสอบสำหรับ Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","การตรวจสอบสำหรับ Adob​​e Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 ที่ตรวจพบ เบราว์เซอร์นี้จึงเลิกใช้และการทำงานที่อาจได้รับผลกระทบ");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","แต่น่าเสียดายที่เบราว์เซอร์ที่คุณใช้อยู่ไม่สนับสนุน");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","ความละเอียดหน้าจอของคุณไม่ตรงตามความต้องการขั้นต่ำของ");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","ตัวป้องกันป๊อปอัพที่ตรวจพบ โปรดให้ป๊อปอัปสำหรับเว็บไซต์นี้และลองอีกครั้ง");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies ปรากฏว่าถูกปิดใช้งาน กรุณาเปิดใช้งานคุกกี้");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash ไม่ได้ติดตั้งออกจากวันที่");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader ไม่ได้ติดตั้ง");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","การตรวจสอบ Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","ไม่ได้เปิดใช้จาวาสคริปต์ในเบราว์เซอร์ของคุณ");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","คุณต้องเปิดใช้การเปิดใช้งานอีเมลผู้ดูแลจากการตั้งค่าระบบ");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","จากช่วงปี");//Year range from (New)
-define("_YEARRANGETO","ช่วงต้นปีจนถึง");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","คำอธิบายชื่อกลุ่ม");//Group name description (New)
-define("_GROUPINFORMATION","ข้อมูลกลุ่ม");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","จำกัด การเข้าถึงเนื้อหาไฟล์ไปยังผู้ใช้เข้าสู่ระบบ");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","บีบอัดผลการทดสอบในฐานข้อมูล");//Compress test results in database (New)
-define("_MAINTENANCETASKS","งานบำรุงรักษา");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","คลิกที่นี่เพื่อบีบอัดการทดสอบเสร็จสิ้น");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","คลิกที่นี่เพื่อยกเลิกการบีบอัดการทดสอบเสร็จสิ้น");//Click here to uncompress completed tests (New)
-define("_COMPRESS","ลูกประคบ");//Compress (New)
-define("_DATABASETASKS","งานฐานข้อมูล");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","โปรดสำรองข้อมูลก่อนการบีบอัด / uncompressing การทดสอบเสร็จสิ้น");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","การกำหนดค่า");//Configuration (New)
-define("_SYSTEMOPTIONS","ตัวเลือกระบบ");//System options (New)
-define("_CASUAL","ไม่เป็นทางการ");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","คุณไม่สามารถเข้าถึงข้อมูลของผู้ใช้นี้");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","เปิดใช้งานแป้นพิมพ์เสมือน");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ไฟล์ที่ดูเหมือนจะว่างเปล่า บางทีอาจจะเป็นรูปแบบที่ไม่ถูกต้องหรือไม่");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","กำหนดหนังสือรับรองหมดอายุ");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","รหัสผ่านการทดสอบ");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","ขออภัยคุณไม่ได้เข้าสู่สาขานี้");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Comma คั่นรายการของผู้ใช้เพื่อแสดงข้อมูลเกี่ยวกับการแก้ปัญหาหรือ 1 สำหรับผู้ใช้ทั้งหมด");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","กุมภาพันธ์");//Feb
+define("_MARCHSHORTHAND","ทำให้เสียโฉม");//Mar
+define("_APRILSHORTHAND","เมษายน");//Apr
+define("_MAYSHORTHAND","เดือนพฤษภาคม");//May
+define("_JUNESHORTHAND","มิถุนายน");//Jun
+define("_JULYSHORTHAND","กรกฎาคม");//Jul
+define("_AUGUSTSHORTHAND","สิงหาคม");//Aug
+define("_SEPTEMBERSHORTHAND","กันยายน");//Sep
+define("_OCTOBERSHORTHAND","ตุลาคม");//Oct
+define("_NOVEMBERSHORTHAND","พฤศจิกายน");//Nov
+define("_DECEMBERSHORTHAND","Dec");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","คุณไม่สามารถเข้าถึงทรัพยากรที่ต้องการ");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","กรุณาเลือกรายละเอียดงาน");//Please select a job description
+define("_EDITJOBPLACEMENT","แก้ไขตำแหน่งงาน");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","บัญชี");//Account
+define("_ORGANIZATIONALDATA","โปรไฟล์ขององค์การ");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","ปล่อยว่างไว้เพื่อไม่เปลี่ยนแปลง");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","ป้อนค่าตัวเลือกหรือหมายเลขของมันเริ่มจาก 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","ผู้ดูแลซ่อนจากผู้ใช้");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","ซ่อนจากผู้ใช้งาน");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","คุณต้องระบุค่าเริ่มต้นสำหรับองค์ประกอบที่จำเป็น");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","ใช้วันที่ปัจจุบัน");//Use the current date
+define("_USERSCANCHANGEINFO","เปลี่ยนบัญชี");//Account change
+define("_USERSCANCHANGEPASS","เปลี่ยนรหัสผ่าน");//Password change
+define("_VIEWFEEDBACK","ดูความคิดเห็น");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","แสดงคำถามที่ไม่สมบูรณ์ในการทำงานแต่ละ");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","เก็บคะแนนที่ดีที่สุด");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","คะแนนเฉลี่ย (โดยนับการปฏิบัติงานการทดสอบของแต่ละ)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","คะแนนในการปฏิบัติงาน");//score on active execution
+define("_YOUCANUSEASTERISK","ถ้าคุณระบุคำที่ลงท้ายด้วยเครื่องหมายดอกจัน (*), เฉพาะส่วนแรกจะได้รับการพิจารณา ตัวอย่างเช่นหากคุณระบุได้เรียนรู้ *'จากนั้นทั้งสอง'เรียนรู้'และ'เรียนรู้'จะได้รับการพิจารณาให้ถูกต้อง");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","หลักสูตรกฎบทเรียน");//Course lesson rules
+define("_RULESBETWEENCOURSES","กติการะหว่างหลักสูตร");//Rules between courses
+define("_COURSEDEPENDSON","ขึ้นอยู่กับหลักสูตร");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","คุณไม่สามารถกำหนดหลักสูตรถือเป็นเงื่อนไขเบื้องต้นของตัวเอง");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","ทางเลือกแสดงในกล่องเลือก");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","การตรวจสอบนี้จะแสดงช่องรายการที่มีทางเลือกทั้งหมดแทนของกล่องข้อความ ในกรณีนี้จะมีเพียงตัวเลือกแรกจะถือว่าถูกต้อง");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","แสดงคำตอบที่ถูกต้องเฉพาะในกรณีที่นักเรียนผ่านการทดสอบ");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","ตัวตรวจสอบการตั้งค่า");//Settings checker
+define("_CHECKBROWSER","การตรวจสอบเบราว์เซอร์");//Checking browser
+define("_CHECKRESOLUTION","การตรวจสอบความละเอียดหน้าจอ");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","สำหรับการตรวจสอบตัวป้องกันป๊อปอัพ");//Checking for Popup blocker
+define("_CHECKCOOKIES","ตรวจสอบสถานะ Cookie ...");//Checking Cookie state...
+define("_CHECKFLASH","การตรวจสอบสำหรับ Flash");//Checking for Flash
+define("_CHECKACROBAT","การตรวจสอบสำหรับ Adob​​e Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 ที่ตรวจพบ เบราว์เซอร์นี้จึงเลิกใช้และการทำงานที่อาจได้รับผลกระทบ");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","แต่น่าเสียดายที่เบราว์เซอร์ที่คุณใช้อยู่ไม่สนับสนุน");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","ความละเอียดหน้าจอของคุณไม่ตรงตามความต้องการขั้นต่ำของ");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","ตัวป้องกันป๊อปอัพที่ตรวจพบ โปรดให้ป๊อปอัปสำหรับเว็บไซต์นี้และลองอีกครั้ง");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies ปรากฏว่าถูกปิดใช้งาน กรุณาเปิดใช้งานคุกกี้");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash ไม่ได้ติดตั้งออกจากวันที่");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader ไม่ได้ติดตั้ง");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","การตรวจสอบ Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","ไม่ได้เปิดใช้จาวาสคริปต์ในเบราว์เซอร์ของคุณ");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","คุณต้องเปิดใช้การเปิดใช้งานอีเมลผู้ดูแลจากการตั้งค่าระบบ");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","จากช่วงปี");//Year range from
+define("_YEARRANGETO","ช่วงต้นปีจนถึง");//Year range to
+define("_GROUPNAMEDESCRIPTION","คำอธิบายชื่อกลุ่ม");//Group name description
+define("_GROUPINFORMATION","ข้อมูลกลุ่ม");//Group information
+define("_CONTRAINACCESSTOCONTENT","จำกัด การเข้าถึงเนื้อหาไฟล์ไปยังผู้ใช้เข้าสู่ระบบ");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","บีบอัดผลการทดสอบในฐานข้อมูล");//Compress test results in database
+define("_MAINTENANCETASKS","งานบำรุงรักษา");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","คลิกที่นี่เพื่อบีบอัดการทดสอบเสร็จสิ้น");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","คลิกที่นี่เพื่อยกเลิกการบีบอัดการทดสอบเสร็จสิ้น");//Uncompress completed tests
+define("_COMPRESS","ลูกประคบ");//Compress
+define("_DATABASETASKS","งานฐานข้อมูล");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","โปรดสำรองข้อมูลก่อนการบีบอัด / uncompressing การทดสอบเสร็จสิ้น");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","การกำหนดค่า");//Configuration
+define("_SYSTEMOPTIONS","ตัวเลือกระบบ");//System options
+define("_CASUAL","ไม่เป็นทางการ");//Casual
+define("_YOUCANNOTEDITTHISUSER","คุณไม่สามารถเข้าถึงข้อมูลของผู้ใช้นี้");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","เปิดใช้งานแป้นพิมพ์เสมือน");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ไฟล์ที่ดูเหมือนจะว่างเปล่า บางทีอาจจะเป็นรูปแบบที่ไม่ถูกต้องหรือไม่");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","กำหนดหนังสือรับรองหมดอายุ");//Certificate scheduled expiration
+define("_TESTPASSWORD","รหัสผ่านการทดสอบ");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","ขออภัยคุณไม่ได้เข้าสู่สาขานี้");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","แผนผังองค์กรแสดงเต็มให้กับผู้ใช้");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","คุณไม่สามารถคัดลอกจากบทเดียวกัน");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","ข้อความจากนักเรียน");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","API ลบสัญญาณมากกว่าหนึ่งเดือนเก่า");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","เพิ่มเงื่อนไขใหม่");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","ลบมุมมองรายงานขั้นสูง");//Delete advanced report views (New)
 ?>

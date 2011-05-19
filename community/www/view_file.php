@@ -45,7 +45,9 @@ try {
    $file = new EfrontFile($filePath);
   }
   preg_match("#content/lessons/(\d+)/#", $file['path'], $matches);
-  if ($currentUser->user['user_type'] != 'administrator' && $matches[1] && !in_array($matches[1], array_keys($currentUser -> getLessons()))) {
+  $result = eF_getTableDataFlat("lessons l, users_to_lessons ul", "id, share_folder", "l.archive=0 and l.id=ul.lessons_ID and ul.archive=0 and ul.users_LOGIN='".$currentUser->user['login']."'");
+  $legalFolders = array_unique(array_merge($result['id'], $result['share_folder']));
+  if ($currentUser->user['user_type'] != 'administrator' && $matches[1] && !in_array($matches[1], $legalFolders)) {
    throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
   }
  } else {

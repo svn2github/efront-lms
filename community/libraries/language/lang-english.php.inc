@@ -4080,4 +4080,6 @@ define("_MESSAGESSTUDENTS","Messages from students");
 define("_CLICKHERETOREDELETEOLDTOKENS","Delete api tokens more than one month old");
 define("_ADDNEWCONDITION", "Add new condition");
 define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS", "Delete advanced report views");
+define("_STANDALONELESSONSAVERAGE", "Average score in all standalone lessons");
+define("_SCORECALCULATIONMODE", "Score calculation mode");
 ?>

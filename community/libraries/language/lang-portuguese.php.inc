@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Desconhecido separador");//Unknown separator
 define("_LDAPUSER","Esse usuário autentica através do servidor LDAP");//This user authenticates through the LDAP server
 define("_EXECUTE","Executa");//Execute
 define("_RECREATE","Recriar");//Recreate
-define("_CLICKHERETOREINDEX","Clique aqui para recriar a tabela pesquisa");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Clique aqui para recriar a tabela pesquisa");//Recreate the search table
 define("_TRANSLATION","Tradução");//Translation
 define("_ENGLISHNAME","Nome em Inglês");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","A linguagem foi criada com êxito");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Sua sessão expirou. Por favor");//Your s
 define("_CLICKHERE","clique aqui");//click here
 define("_TOLOGINAGAIN","logar novamente");//to login again
 define("_SESSIONEXPIRED","Sessão expirada");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Lista separada por vírgulas de usuários para mostrar informações de depuração em, ou 1 para todos os usuários");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Fevereiro");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Abril");//Apr (New)
-define("_MAYSHORTHAND","Maio");//May (New)
-define("_JUNESHORTHAND","Junho");//Jun (New)
-define("_JULYSHORTHAND","Julho");//Jul (New)
-define("_AUGUSTSHORTHAND","Agosto");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Setembro");//Sep (New)
-define("_OCTOBERSHORTHAND","Outubro");//Oct (New)
-define("_NOVEMBERSHORTHAND","Novembro");//Nov (New)
-define("_DECEMBERSHORTHAND","Dezembro");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Você não pode acessar o recurso solicitado");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Por favor, selecione uma descrição do trabalho");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Editar colocação profissional");//Edit job placement (New)
-define("_NORESPONSE","&lt;sem response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Conta");//Account (New)
-define("_ORGANIZATIONALDATA","Perfil Organizacional");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blank manter inalterada");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Digite o valor da opção ou do seu número, a partir de 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Ocultar supervisor de usuários");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Ocultar trabalho dos usuários");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Você deve especificar um valor padrão para os elementos obrigatórios");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Use a data atual");//Use the current date (New)
-define("_USERSCANCHANGEINFO","mudança Conta");//Account change (New)
-define("_USERSCANCHANGEPASS","Alteração de senha");//Password change (New)
-define("_VIEWFEEDBACK","Exibir comentários");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Mostrar perguntas incompletas em cada execução");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Guarde melhor pontuação");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Média da pontuação do teste (contagem de execução ativa de cada teste)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","pontuação na execução activa");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Se você especificar uma palavra que termina com um asterisco (*), apenas a primeira parte serão consideradas. Por exemplo, se você especificar 'aprender *', ambos 'aprendizagem' e 'aprender' será considerada correta.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Curso de aula regras");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Regras entre os cursos");//Rules between courses (New)
-define("_COURSEDEPENDSON","Curso depende");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Você não pode definir o curso como um pré-requisito, por si só");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","alternativas de exibição na caixa de seleção");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Marcar esta irá mostrar uma caixa de listagem com todas as alternativas, em vez de uma caixa de texto. Neste caso, somente a primeira opção é considerada correta");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Mostrar respostas corretas apenas se o aluno passou no teste");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","verificador Configurações");//Settings checker (New)
-define("_CHECKBROWSER","Verificar navegador");//Checking browser (New)
-define("_CHECKRESOLUTION","Verificando a resolução da tela");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Verificação de bloqueador de pop-ups");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Verificar estado Cookie ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Verificação de Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Verificando o Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 detectado. Este navegador é obsoleto e funcionalidade pode ser afetada");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Infelizmente, o navegador que você está usando não é suportado");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Sua resolução de tela não atende ao requisito mínimo de");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","bloqueador de pop-ups detectado. Por favor, permita popups para este site e tente novamente");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Os cookies parecem estar desativado. Ative os cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash não está instalado, fora da data");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader não estiver instalado");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Verificando Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","O Javascript não está habilitado no seu navegador");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Você deve ter habilitado o e-mail de ativação supervisor de configurações do sistema");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Ano da gama");//Year range from (New)
-define("_YEARRANGETO","intervalo do ano ao");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Descrição do Grupo nome");//Group name description (New)
-define("_GROUPINFORMATION","informação do Grupo");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Restringir o acesso a arquivos de conteúdo para usuários logados");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Comprimir os resultados dos testes em banco de dados");//Compress test results in database (New)
-define("_MAINTENANCETASKS","As tarefas de manutenção");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Clique aqui para comprimir os testes foram concluídos");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Clique aqui para descompactar os testes foram concluídos");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Comprimir");//Compress (New)
-define("_DATABASETASKS","tarefas de banco de dados");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Por favor, backup de seus dados antes de compactar / descompactar os testes foram concluídos");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Configuração");//Configuration (New)
-define("_SYSTEMOPTIONS","Opções do sistema");//System options (New)
-define("_CASUAL","Casuais");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Você não pode acessar as informações do utilizador");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Habilite o teclado virtual");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","O arquivo parece estar vazio. Talvez não seja formatado corretamente?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificado de vencimento prevista");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Teste senha");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Desculpe, você não tem acesso a esse ramo");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Lista separada por vírgulas de usuários para mostrar informações de depuração em, ou 1 para todos os usuários");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Fevereiro");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Abril");//Apr
+define("_MAYSHORTHAND","Maio");//May
+define("_JUNESHORTHAND","Junho");//Jun
+define("_JULYSHORTHAND","Julho");//Jul
+define("_AUGUSTSHORTHAND","Agosto");//Aug
+define("_SEPTEMBERSHORTHAND","Setembro");//Sep
+define("_OCTOBERSHORTHAND","Outubro");//Oct
+define("_NOVEMBERSHORTHAND","Novembro");//Nov
+define("_DECEMBERSHORTHAND","Dezembro");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Você não pode acessar o recurso solicitado");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Por favor, selecione uma descrição do trabalho");//Please select a job description
+define("_EDITJOBPLACEMENT","Editar colocação profissional");//Edit job placement
+define("_NORESPONSE","&lt;sem response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Conta");//Account
+define("_ORGANIZATIONALDATA","Perfil Organizacional");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blank manter inalterada");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Digite o valor da opção ou do seu número, a partir de 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Ocultar supervisor de usuários");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Ocultar trabalho dos usuários");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Você deve especificar um valor padrão para os elementos obrigatórios");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Use a data atual");//Use the current date
+define("_USERSCANCHANGEINFO","mudança Conta");//Account change
+define("_USERSCANCHANGEPASS","Alteração de senha");//Password change
+define("_VIEWFEEDBACK","Exibir comentários");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Mostrar perguntas incompletas em cada execução");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Guarde melhor pontuação");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Média da pontuação do teste (contagem de execução ativa de cada teste)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","pontuação na execução activa");//score on active execution
+define("_YOUCANUSEASTERISK","Se você especificar uma palavra que termina com um asterisco (*), apenas a primeira parte serão consideradas. Por exemplo, se você especificar 'aprender *', ambos 'aprendizagem' e 'aprender' será considerada correta.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Curso de aula regras");//Course lesson rules
+define("_RULESBETWEENCOURSES","Regras entre os cursos");//Rules between courses
+define("_COURSEDEPENDSON","Curso depende");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Você não pode definir o curso como um pré-requisito, por si só");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","alternativas de exibição na caixa de seleção");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Marcar esta irá mostrar uma caixa de listagem com todas as alternativas, em vez de uma caixa de texto. Neste caso, somente a primeira opção é considerada correta");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Mostrar respostas corretas apenas se o aluno passou no teste");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","verificador Configurações");//Settings checker
+define("_CHECKBROWSER","Verificar navegador");//Checking browser
+define("_CHECKRESOLUTION","Verificando a resolução da tela");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Verificação de bloqueador de pop-ups");//Checking for Popup blocker
+define("_CHECKCOOKIES","Verificar estado Cookie ...");//Checking Cookie state...
+define("_CHECKFLASH","Verificação de Flash");//Checking for Flash
+define("_CHECKACROBAT","Verificando o Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 detectado. Este navegador é obsoleto e funcionalidade pode ser afetada");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Infelizmente, o navegador que você está usando não é suportado");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Sua resolução de tela não atende ao requisito mínimo de");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","bloqueador de pop-ups detectado. Por favor, permita popups para este site e tente novamente");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Os cookies parecem estar desativado. Ative os cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash não está instalado, fora da data");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader não estiver instalado");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Verificando Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","O Javascript não está habilitado no seu navegador");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Você deve ter habilitado o e-mail de ativação supervisor de configurações do sistema");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Ano da gama");//Year range from
+define("_YEARRANGETO","intervalo do ano ao");//Year range to
+define("_GROUPNAMEDESCRIPTION","Descrição do Grupo nome");//Group name description
+define("_GROUPINFORMATION","informação do Grupo");//Group information
+define("_CONTRAINACCESSTOCONTENT","Restringir o acesso a arquivos de conteúdo para usuários logados");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Comprimir os resultados dos testes em banco de dados");//Compress test results in database
+define("_MAINTENANCETASKS","As tarefas de manutenção");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Clique aqui para comprimir os testes foram concluídos");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Clique aqui para descompactar os testes foram concluídos");//Uncompress completed tests
+define("_COMPRESS","Comprimir");//Compress
+define("_DATABASETASKS","tarefas de banco de dados");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Por favor, backup de seus dados antes de compactar / descompactar os testes foram concluídos");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Configuração");//Configuration
+define("_SYSTEMOPTIONS","Opções do sistema");//System options
+define("_CASUAL","Casuais");//Casual
+define("_YOUCANNOTEDITTHISUSER","Você não pode acessar as informações do utilizador");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Habilite o teclado virtual");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","O arquivo parece estar vazio. Talvez não seja formatado corretamente?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificado de vencimento prevista");//Certificate scheduled expiration
+define("_TESTPASSWORD","Teste senha");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Desculpe, você não tem acesso a esse ramo");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Mostrar organograma completa para os usuários");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Você não pode copiar a mesma lição");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Mensagens dos alunos");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","api Excluir tokens mais de um mês de idade");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Adicionar nova condição");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Excluir avançada exibições de relatório");//Delete advanced report views (New)
 ?>

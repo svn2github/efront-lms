@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Nezināma separators");//Unknown separator
 define("_LDAPUSER","Šis lietotājs autentificē ar LDAP serveri");//This user authenticates through the LDAP server
 define("_EXECUTE","Execute");//Execute
 define("_RECREATE","Recreate");//Recreate
-define("_CLICKHERETOREINDEX","Uzklikšķināt šeit, lai atjaunotu meklēt galda");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Uzklikšķināt šeit, lai atjaunotu meklēt galda");//Recreate the search table
 define("_TRANSLATION","Translation");//Translation
 define("_ENGLISHNAME","Nosaukums latviešu valodā");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Valoda tika veiksmīgi izveidots");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Jūsu sesija ir beigusies. Lūdzu");//You
 define("_CLICKHERE","noklikšķiniet šeit");//click here
 define("_TOLOGINAGAIN","pieteikties atkal");//to login again
 define("_SESSIONEXPIRED","Sesija beidzās");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Komatu atdalīti saraksts ar lietotājiem, lai parādītu atkļūdošanas informāciju par, 1 vai visiem lietotājiem");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Februāris");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Aprīlis");//Apr (New)
-define("_MAYSHORTHAND","Var");//May (New)
-define("_JUNESHORTHAND","Jūnijs");//Jun (New)
-define("_JULYSHORTHAND","Jūlijs");//Jul (New)
-define("_AUGUSTSHORTHAND","Augusts");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Septembris");//Sep (New)
-define("_OCTOBERSHORTHAND","Oktobris");//Oct (New)
-define("_NOVEMBERSHORTHAND","Novembris");//Nov (New)
-define("_DECEMBERSHORTHAND","Decembris");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Jūs nevarat piekļūt pieprasītais resurss");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Lūdzu, izvēlieties amata apraksts");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","Edit darbā iekārtošanas");//Edit job placement (New)
-define("_NORESPONSE","&lt;Nav response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Kontu");//Account (New)
-define("_ORGANIZATIONALDATA","Organizatoriskie profilu");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blank atstāt nemainīgu");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Ievadiet iespēju vērtību vai tās numuru, sākot no 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Hide vadītājs lietotāju");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Hide darbu lietotāju");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Jums jānorāda noklusējuma vērtību obligātie elementi");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Izmantojiet pašreizējo datumu");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Vērā izmaiņas");//Account change (New)
-define("_USERSCANCHANGEPASS","Paroles maiņa");//Password change (New)
-define("_VIEWFEEDBACK","Apskatīt atsauksmes");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Rādīt nepilnīga jautājumiem katrā izpildes");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Saglabā labākais rezultāts");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Vidējais pārbaudes rezultāts (skaitot katra testa aktīvas izpildes)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","rādītājs aktīvas izpildes");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Ja jūs norādiet vārdu, beidzas ar zvaigznīti (*), tikai tās pirmā daļa tiks ņemtas vērā. Piemēram, ja norādāt 'mācīties *', tad gan 'mācību' un 'mācīties', tiks izskatīti pareizi.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Protams, nodarbībā noteikumi");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Noteikumiem starp kursiem");//Rules between courses (New)
-define("_COURSEDEPENDSON","Protams, ir atkarīgs");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Jūs nevarat noteikt kursu, kas ir priekšnoteikums, pats par sevi");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Displejs alternatīvas izvēlieties ailē");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Atzīmējot šo parādīs sarakstu kaste ar visu alternatīvu, nevis tekstlodziņa. Šajā gadījumā tikai pirmais variants ir pareizs");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Rādīt pareizo atbilžu tikai tad, ja students izturējis testu");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Uzstādījumi pārbaudītājs");//Settings checker (New)
-define("_CHECKBROWSER","Pārbaude pārlūku");//Checking browser (New)
-define("_CHECKRESOLUTION","Pārbaude ekrāna izšķirtspēja");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Pārbaude Popup bloķētāju");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Pārbaude Cookie valsts ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Pārbaude Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Pārbaude Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 konstatēta. Šī pārlūkprogramma ir novecojusi un funkcionalitāte var ietekmēt");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Diemžēl pārlūks, kuru izmantojat, nav atbalstīta");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Ekrāna izšķirtspēja neatbilst minimālajām prasībām");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Uznirstošo logu bloķētājs konstatēta. Lūdzu, ļaujiet izlecošos logus šajā vietnē un mēģiniet vēlreiz");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies šķiet izslēgta. Lūdzu, iespējojiet sīkfailus");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash nav instalēts, novecojusi");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader nav instalēts");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Pārbaude Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript nav iespējotas jūsu pārlūkprogrammā");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Jums ir jābūt iespējota vadītājs e-pasta aktivācijas no sistēmas iestatījumiem");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Gads sākot ar");//Year range from (New)
-define("_YEARRANGETO","Gadā diapazons");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Grupas nosaukums aprakstu");//Group name description (New)
-define("_GROUPINFORMATION","Grupas informāciju");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Ierobežot piekļuvi saturam failus pieteicies lietotāju");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Saspiest testa rezultāti datu bāzē");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Apkopes uzdevumi");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","Noklikšķiniet šeit, lai saspiestu pabeigti testi");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","Uzklikšķināt šeit, lai atspiest pabeigti testi");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Komprese");//Compress (New)
-define("_DATABASETASKS","Datu bāzes uzdevumi");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Lūdzu, backup jūsu datus, pirms saspiešanas / uncompressing pabeigta pārbaudes");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Konfigurācija");//Configuration (New)
-define("_SYSTEMOPTIONS","Sistēmu iespējas");//System options (New)
-define("_CASUAL","Gadījuma rakstura");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Jūs nevarat piekļūt šai lietotāja informāciju");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Iespējot virtuālā tastatūra");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","No lietas materiāliem šķiet, ir tukšs. Varbūt tas nav pareizi formatēts?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertifikāts paredzēts beigām");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Testa paroli");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Atvainojiet, jums nav piekļuves šim filiāles");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Komatu atdalīti saraksts ar lietotājiem, lai parādītu atkļūdošanas informāciju par, 1 vai visiem lietotājiem");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Februāris");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Aprīlis");//Apr
+define("_MAYSHORTHAND","Var");//May
+define("_JUNESHORTHAND","Jūnijs");//Jun
+define("_JULYSHORTHAND","Jūlijs");//Jul
+define("_AUGUSTSHORTHAND","Augusts");//Aug
+define("_SEPTEMBERSHORTHAND","Septembris");//Sep
+define("_OCTOBERSHORTHAND","Oktobris");//Oct
+define("_NOVEMBERSHORTHAND","Novembris");//Nov
+define("_DECEMBERSHORTHAND","Decembris");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Jūs nevarat piekļūt pieprasītais resurss");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Lūdzu, izvēlieties amata apraksts");//Please select a job description
+define("_EDITJOBPLACEMENT","Edit darbā iekārtošanas");//Edit job placement
+define("_NORESPONSE","&lt;Nav response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Kontu");//Account
+define("_ORGANIZATIONALDATA","Organizatoriskie profilu");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blank atstāt nemainīgu");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Ievadiet iespēju vērtību vai tās numuru, sākot no 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Hide vadītājs lietotāju");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Hide darbu lietotāju");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Jums jānorāda noklusējuma vērtību obligātie elementi");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Izmantojiet pašreizējo datumu");//Use the current date
+define("_USERSCANCHANGEINFO","Vērā izmaiņas");//Account change
+define("_USERSCANCHANGEPASS","Paroles maiņa");//Password change
+define("_VIEWFEEDBACK","Apskatīt atsauksmes");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Rādīt nepilnīga jautājumiem katrā izpildes");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Saglabā labākais rezultāts");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Vidējais pārbaudes rezultāts (skaitot katra testa aktīvas izpildes)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","rādītājs aktīvas izpildes");//score on active execution
+define("_YOUCANUSEASTERISK","Ja jūs norādiet vārdu, beidzas ar zvaigznīti (*), tikai tās pirmā daļa tiks ņemtas vērā. Piemēram, ja norādāt 'mācīties *', tad gan 'mācību' un 'mācīties', tiks izskatīti pareizi.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Protams, nodarbībā noteikumi");//Course lesson rules
+define("_RULESBETWEENCOURSES","Noteikumiem starp kursiem");//Rules between courses
+define("_COURSEDEPENDSON","Protams, ir atkarīgs");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Jūs nevarat noteikt kursu, kas ir priekšnoteikums, pats par sevi");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Displejs alternatīvas izvēlieties ailē");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Atzīmējot šo parādīs sarakstu kaste ar visu alternatīvu, nevis tekstlodziņa. Šajā gadījumā tikai pirmais variants ir pareizs");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Rādīt pareizo atbilžu tikai tad, ja students izturējis testu");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Uzstādījumi pārbaudītājs");//Settings checker
+define("_CHECKBROWSER","Pārbaude pārlūku");//Checking browser
+define("_CHECKRESOLUTION","Pārbaude ekrāna izšķirtspēja");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Pārbaude Popup bloķētāju");//Checking for Popup blocker
+define("_CHECKCOOKIES","Pārbaude Cookie valsts ...");//Checking Cookie state...
+define("_CHECKFLASH","Pārbaude Flash");//Checking for Flash
+define("_CHECKACROBAT","Pārbaude Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 konstatēta. Šī pārlūkprogramma ir novecojusi un funkcionalitāte var ietekmēt");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Diemžēl pārlūks, kuru izmantojat, nav atbalstīta");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Ekrāna izšķirtspēja neatbilst minimālajām prasībām");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Uznirstošo logu bloķētājs konstatēta. Lūdzu, ļaujiet izlecošos logus šajā vietnē un mēģiniet vēlreiz");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies šķiet izslēgta. Lūdzu, iespējojiet sīkfailus");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash nav instalēts, novecojusi");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader nav instalēts");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Pārbaude Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript nav iespējotas jūsu pārlūkprogrammā");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Jums ir jābūt iespējota vadītājs e-pasta aktivācijas no sistēmas iestatījumiem");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Gads sākot ar");//Year range from
+define("_YEARRANGETO","Gadā diapazons");//Year range to
+define("_GROUPNAMEDESCRIPTION","Grupas nosaukums aprakstu");//Group name description
+define("_GROUPINFORMATION","Grupas informāciju");//Group information
+define("_CONTRAINACCESSTOCONTENT","Ierobežot piekļuvi saturam failus pieteicies lietotāju");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Saspiest testa rezultāti datu bāzē");//Compress test results in database
+define("_MAINTENANCETASKS","Apkopes uzdevumi");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","Noklikšķiniet šeit, lai saspiestu pabeigti testi");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Uzklikšķināt šeit, lai atspiest pabeigti testi");//Uncompress completed tests
+define("_COMPRESS","Komprese");//Compress
+define("_DATABASETASKS","Datu bāzes uzdevumi");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Lūdzu, backup jūsu datus, pirms saspiešanas / uncompressing pabeigta pārbaudes");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Konfigurācija");//Configuration
+define("_SYSTEMOPTIONS","Sistēmu iespējas");//System options
+define("_CASUAL","Gadījuma rakstura");//Casual
+define("_YOUCANNOTEDITTHISUSER","Jūs nevarat piekļūt šai lietotāja informāciju");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Iespējot virtuālā tastatūra");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","No lietas materiāliem šķiet, ir tukšs. Varbūt tas nav pareizi formatēts?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertifikāts paredzēts beigām");//Certificate scheduled expiration
+define("_TESTPASSWORD","Testa paroli");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Atvainojiet, jums nav piekļuves šim filiāles");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Rādīt pilnu organizācijas diagrammas lietotājiem");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nevar kopēt no viena stunda");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Ziņojumi no studentiem");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Dzēst api žetoniem vairāk par vienu mēnesi vecu");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Pievienot jaunu nosacījumu");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Dzēst uzlabotas ziņojumu viedokļi");//Delete advanced report views (New)
 ?>

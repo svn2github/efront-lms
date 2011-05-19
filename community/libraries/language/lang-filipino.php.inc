@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Hindi alam separator");//Unknown separator
 define("_LDAPUSER","Ang user na ito authenticates sa pamamagitan ng LDAP server");//This user authenticates through the LDAP server
 define("_EXECUTE","Pugutan ng ulo");//Execute
 define("_RECREATE","Maglibang");//Recreate
-define("_CLICKHERETOREINDEX","Mag-click dito upang maglibang ng paghahanap mesa");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Mag-click dito upang maglibang ng paghahanap mesa");//Recreate the search table
 define("_TRANSLATION","Translation");//Translation
 define("_ENGLISHNAME","Pangalan sa english");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Ang wika ay matagumpay na nalikha");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Ang iyong session ay natapos na. Pakiusap
 define("_CLICKHERE","i-click dito");//click here
 define("_TOLOGINAGAIN","sa login muli");//to login again
 define("_SESSIONEXPIRED","Session nang bisa");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Pinaghiwalay ng kuwit na listahan ng mga gumagamit upang ipakita debug impormasyon sa, o 1 para sa lahat ng mga gumagamit");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Pebrero");//Feb (New)
-define("_MARCHSHORTHAND","Pinsalain");//Mar (New)
-define("_APRILSHORTHAND","Abril");//Apr (New)
-define("_MAYSHORTHAND","May");//May (New)
-define("_JUNESHORTHAND","Hunyo");//Jun (New)
-define("_JULYSHORTHAND","Hulyo");//Jul (New)
-define("_AUGUSTSHORTHAND","Agosto");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Septiyembre");//Sep (New)
-define("_OCTOBERSHORTHAND","Oktubre");//Oct (New)
-define("_NOVEMBERSHORTHAND","Nobyembre");//Nov (New)
-define("_DECEMBERSHORTHAND","Disyembre");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ikaw ay hindi maaaring ma-access ang hiniling na resource");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","Mangyaring pumili ng isang deskripsyon ng trabaho");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","I-edit ang trabaho ng pagkakalagay");//Edit job placement (New)
-define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Account");//Account (New)
-define("_ORGANIZATIONALDATA","Organizational profile");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Blangko na umalis hindi magbabago");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","Ipasok ang mga opsyon na halaga o ang mga numero, simula mula 0");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","Itago ang mga superbisor mula sa mga gumagamit");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","Itago ang mga trabaho mula sa mga gumagamit");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Kailangan mong tukuyin ang isang default na halaga para sa sapilitan elemento");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Gamitin ang kasalukuyang petsa");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Baguhin Account");//Account change (New)
-define("_USERSCANCHANGEPASS","Baguhin ang Password");//Password change (New)
-define("_VIEWFEEDBACK","View feedback");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Ipakita ang mga hindi kumpletong mga katanungan sa bawat pagpapatupad");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","Panatilihin ang pinakamahusay na iskor");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Average score test (nadaragdagan aktibong pagpapatupad bawat pagsubok&#39;s)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","iskor sa aktibong pagpapatupad");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Kung tinukoy mo ang isang salita na nagtatapos sa isang asterisk (*), lamang ng kanyang unang bahagi ay isasaalang-alang. Halimbawa, kung tinukoy 'malaman*', pagkatapos ay parehong 'pag-aaral' at 'malaman' ay itinuturing na tama.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Kurso lesson tuntunin");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","Batas sa pagitan ng mga kurso");//Rules between courses (New)
-define("_COURSEDEPENDSON","Course ay depende sa");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Ikaw ay hindi maaaring itakda ang mga kurso bilang isang unang kailangan ng kanyang sarili");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","Ipakita ang mga alternatibo sa piliin ang kahon");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Sinusuri ito ay magpapakita ng isang listahan na kahon na may lahat ng mga alternatibo, sa halip ng isang kahon ng teksto. Sa kasong ito, ang unang lamang ang option ay itinuturing na tama");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Ipakita ang mga tamang sagot na lamang kung mag-aaral lumipas ang mga pagsubok");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Setting checker");//Settings checker (New)
-define("_CHECKBROWSER","Sinusuri browser");//Checking browser (New)
-define("_CHECKRESOLUTION","Sinusuri resolution ng screen");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Sinusuri para sa Popup blocker");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Sinusuri Cookie estado ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Sinusuri para sa Flash");//Checking for Flash (New)
-define("_CHECKACROBAT","Sinusuri para sa Adobe Reader");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 napansin. Ang browser na ito ay luma na at functionality ay maaaring maapektuhan");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Sa kasamaang palad ang browser na ginagamit ninyo ay hindi suportado");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Ang iyong screen resolution ay hindi umabot sa pinakamababang kinakailangan ng");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Popup blocker napansin. Mangyaring payagan ang mga popup para sa site na ito at subukan muli");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Cookies lalabas na pinagana. Mangyaring paganahin ang cookies");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flash ay hindi na-install, na sa petsa");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader ay hindi na-install");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Sinusuri Javascript");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Ang Javascript ay hindi pinagana sa iyong browser");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Kailangan mo enable ang supervisor email activation mula sa mga setting ng sistema");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Taon mula sa hanay ng");//Year range from (New)
-define("_YEARRANGETO","Taon na hanay sa");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Ang pangalan ng grupo paglalarawan");//Group name description (New)
-define("_GROUPINFORMATION","Group impormasyon");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Puwersahin access sa mga nilalaman ng mga file na naka-log in mga gumagamit");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","Siksikin mga resulta ng pagsubok sa database");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Maintenance na gawain");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","I-click dito upang pumiga nakumpleto pagsusulit");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","I-click dito upang uncompress nakumpleto pagsusulit");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Siksikin");//Compress (New)
-define("_DATABASETASKS","Database gawain");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","Mangyaring backup ang iyong data bago pigain / uncompressing nakumpleto pagsusulit");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Configuration");//Configuration (New)
-define("_SYSTEMOPTIONS","Sistema ng mga opsyon");//System options (New)
-define("_CASUAL","Nagkataon");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Ikaw ay hindi maaaring ma-access ang impormasyon na ito user");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","Paganahin ang virtual keyboard");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Ang file ay lilitaw upang maging walang laman. Marahil ito ay hindi na-format ng tama?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertipiko scheduled expiration");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test password");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Paumanhin, hindi ka magkaroon ng access sa mga ito sangay");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Pinaghiwalay ng kuwit na listahan ng mga gumagamit upang ipakita debug impormasyon sa, o 1 para sa lahat ng mga gumagamit");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Pebrero");//Feb
+define("_MARCHSHORTHAND","Pinsalain");//Mar
+define("_APRILSHORTHAND","Abril");//Apr
+define("_MAYSHORTHAND","May");//May
+define("_JUNESHORTHAND","Hunyo");//Jun
+define("_JULYSHORTHAND","Hulyo");//Jul
+define("_AUGUSTSHORTHAND","Agosto");//Aug
+define("_SEPTEMBERSHORTHAND","Septiyembre");//Sep
+define("_OCTOBERSHORTHAND","Oktubre");//Oct
+define("_NOVEMBERSHORTHAND","Nobyembre");//Nov
+define("_DECEMBERSHORTHAND","Disyembre");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Ikaw ay hindi maaaring ma-access ang hiniling na resource");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","Mangyaring pumili ng isang deskripsyon ng trabaho");//Please select a job description
+define("_EDITJOBPLACEMENT","I-edit ang trabaho ng pagkakalagay");//Edit job placement
+define("_NORESPONSE","&lt;no response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Account");//Account
+define("_ORGANIZATIONALDATA","Organizational profile");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Blangko na umalis hindi magbabago");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","Ipasok ang mga opsyon na halaga o ang mga numero, simula mula 0");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","Itago ang mga superbisor mula sa mga gumagamit");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","Itago ang mga trabaho mula sa mga gumagamit");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Kailangan mong tukuyin ang isang default na halaga para sa sapilitan elemento");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Gamitin ang kasalukuyang petsa");//Use the current date
+define("_USERSCANCHANGEINFO","Baguhin Account");//Account change
+define("_USERSCANCHANGEPASS","Baguhin ang Password");//Password change
+define("_VIEWFEEDBACK","View feedback");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Ipakita ang mga hindi kumpletong mga katanungan sa bawat pagpapatupad");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","Panatilihin ang pinakamahusay na iskor");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Average score test (nadaragdagan aktibong pagpapatupad bawat pagsubok&#39;s)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","iskor sa aktibong pagpapatupad");//score on active execution
+define("_YOUCANUSEASTERISK","Kung tinukoy mo ang isang salita na nagtatapos sa isang asterisk (*), lamang ng kanyang unang bahagi ay isasaalang-alang. Halimbawa, kung tinukoy 'malaman*', pagkatapos ay parehong 'pag-aaral' at 'malaman' ay itinuturing na tama.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Kurso lesson tuntunin");//Course lesson rules
+define("_RULESBETWEENCOURSES","Batas sa pagitan ng mga kurso");//Rules between courses
+define("_COURSEDEPENDSON","Course ay depende sa");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Ikaw ay hindi maaaring itakda ang mga kurso bilang isang unang kailangan ng kanyang sarili");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","Ipakita ang mga alternatibo sa piliin ang kahon");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Sinusuri ito ay magpapakita ng isang listahan na kahon na may lahat ng mga alternatibo, sa halip ng isang kahon ng teksto. Sa kasong ito, ang unang lamang ang option ay itinuturing na tama");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Ipakita ang mga tamang sagot na lamang kung mag-aaral lumipas ang mga pagsubok");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Setting checker");//Settings checker
+define("_CHECKBROWSER","Sinusuri browser");//Checking browser
+define("_CHECKRESOLUTION","Sinusuri resolution ng screen");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Sinusuri para sa Popup blocker");//Checking for Popup blocker
+define("_CHECKCOOKIES","Sinusuri Cookie estado ...");//Checking Cookie state...
+define("_CHECKFLASH","Sinusuri para sa Flash");//Checking for Flash
+define("_CHECKACROBAT","Sinusuri para sa Adobe Reader");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 napansin. Ang browser na ito ay luma na at functionality ay maaaring maapektuhan");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Sa kasamaang palad ang browser na ginagamit ninyo ay hindi suportado");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Ang iyong screen resolution ay hindi umabot sa pinakamababang kinakailangan ng");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Popup blocker napansin. Mangyaring payagan ang mga popup para sa site na ito at subukan muli");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Cookies lalabas na pinagana. Mangyaring paganahin ang cookies");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flash ay hindi na-install, na sa petsa");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader ay hindi na-install");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Sinusuri Javascript");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Ang Javascript ay hindi pinagana sa iyong browser");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Kailangan mo enable ang supervisor email activation mula sa mga setting ng sistema");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Taon mula sa hanay ng");//Year range from
+define("_YEARRANGETO","Taon na hanay sa");//Year range to
+define("_GROUPNAMEDESCRIPTION","Ang pangalan ng grupo paglalarawan");//Group name description
+define("_GROUPINFORMATION","Group impormasyon");//Group information
+define("_CONTRAINACCESSTOCONTENT","Puwersahin access sa mga nilalaman ng mga file na naka-log in mga gumagamit");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","Siksikin mga resulta ng pagsubok sa database");//Compress test results in database
+define("_MAINTENANCETASKS","Maintenance na gawain");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","I-click dito upang pumiga nakumpleto pagsusulit");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","I-click dito upang uncompress nakumpleto pagsusulit");//Uncompress completed tests
+define("_COMPRESS","Siksikin");//Compress
+define("_DATABASETASKS","Database gawain");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","Mangyaring backup ang iyong data bago pigain / uncompressing nakumpleto pagsusulit");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Configuration");//Configuration
+define("_SYSTEMOPTIONS","Sistema ng mga opsyon");//System options
+define("_CASUAL","Nagkataon");//Casual
+define("_YOUCANNOTEDITTHISUSER","Ikaw ay hindi maaaring ma-access ang impormasyon na ito user");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","Paganahin ang virtual keyboard");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Ang file ay lilitaw upang maging walang laman. Marahil ito ay hindi na-format ng tama?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertipiko scheduled expiration");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test password");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Paumanhin, hindi ka magkaroon ng access sa mga ito sangay");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Ipakita ang buong organisasyon tsart sa mga gumagamit");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Ikaw ay hindi maaaring kopyahin mula sa parehong lesson");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","Mga mensahe mula sa mga mag-aaral");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Tanggalin API token higit sa isang buwang gulang");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","Magdagdag ng bagong kalagayan");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Tanggalin ang mga advanced na views ulat");//Delete advanced report views (New)
 ?>

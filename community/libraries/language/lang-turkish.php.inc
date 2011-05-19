@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Bilinmeyen Ayıraç");//Unknown separator
 define("_LDAPUSER","LDAP sunucusu üzerinden Bu kullanıcı kimlik doğrulaması");//This user authenticates through the LDAP server
 define("_EXECUTE","Yürütme");//Execute
 define("_RECREATE","Yeniden Oluştur");//Recreate
-define("_CLICKHERETOREINDEX","Yeniden Oluşturmak İçin Tıklayınız");//Click here to recreate the search table
+define("_CLICKHERETOREINDEX","Yeniden Oluşturmak İçin Tıklayınız");//Recreate the search table
 define("_TRANSLATION","Çeviri");//Translation
 define("_ENGLISHNAME","İngilizce Adı");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Dil Başarıyla Oluşturuldu");//The language was successfully created
@@ -3996,82 +3996,88 @@ define("_YOURSESSIONHASEXPIREDPLEASE","Oturumunuz zaman aşımına uğradı. Lü
 define("_CLICKHERE","buraya tıklayın");//click here
 define("_TOLOGINAGAIN","yeniden giriş");//to login again
 define("_SESSIONEXPIRED","Oturum süresi doldu");//Session expired
-define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","kullanıcıların Virgülle ayrılmış liste hakkında bilgi debug veya 1 tüm kullanıcılar için göstermek");//Comma separated list of users to show debug information on, or 1 for all users (New)
-define("_JANUARYSHORTHAND","Jan");//Jan (New)
-define("_FEBRUARYSHORTHAND","Şub");//Feb (New)
-define("_MARCHSHORTHAND","Mar");//Mar (New)
-define("_APRILSHORTHAND","Nis");//Apr (New)
-define("_MAYSHORTHAND","Mayıs");//May (New)
-define("_JUNESHORTHAND","Haziran");//Jun (New)
-define("_JULYSHORTHAND","Temmuz");//Jul (New)
-define("_AUGUSTSHORTHAND","Ağu");//Aug (New)
-define("_SEPTEMBERSHORTHAND","Eylül");//Sep (New)
-define("_OCTOBERSHORTHAND","Eki");//Oct (New)
-define("_NOVEMBERSHORTHAND","Kas");//Nov (New)
-define("_DECEMBERSHORTHAND","Ara");//Dec (New)
-define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Eğer istenen kaynağın erişemiyor");//You cannot access the requested resource (New)
-define("_PLEASESELECTAJOB","bir iş tanımı seçiniz");//Please select a job description (New)
-define("_EDITJOBPLACEMENT","iş bulma Düzenle");//Edit job placement (New)
-define("_NORESPONSE","&lt;No response&gt;");//&lt;no response&gt; (New)
-define("_ACCOUNT","Hesap");//Account (New)
-define("_ORGANIZATIONALDATA","Örgütsel profili");//Organizational profile (New)
-define("_BLANKTOLEAVEUNCHANGED","Boş değiştirmeden bırakmak için");//Blank to leave unchanged (New)
-define("_OPTIONNUMBERSTARTINGFROMZERO","0 dan başlayarak, seçenek değerini veya numarasını girin");//Enter the option value or its number, starting from 0 (New)
-define("_HIDESUPERVISORFROMUSERS","kullanıcılardan gizle gözetmen");//Hide supervisor from users (New)
-define("_HIDEJOBFROMUSERS","kullanıcılardan gizle iş");//Hide job from users (New)
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Eğer zorunlu elemanlar için varsayılan bir değer belirtmek gerekir");//You must specify a default value for mandatory elements (New)
-define("_USETHECURRENTDATE","Geçerli tarih kullanın");//Use the current date (New)
-define("_USERSCANCHANGEINFO","Hesap değişikliği");//Account change (New)
-define("_USERSCANCHANGEPASS","Şifrenizi değiştirin");//Password change (New)
-define("_VIEWFEEDBACK","Görüşleri Gör");//View feedback (New)
-define("_SHOWINCOMPLETEQUESTIONSEACHTIME","her yürütme göster eksik sorular");//Show incomplete questions in each execution (New)
-define("_RETAINBESTEXECUTION","En iyi skoru koru");//Retain best score (New)
-define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Ortalama test puanı (her test aktif yürütme sayma)");//Average test score (counting each test's active execution) (New)
-define("_SCOREONACTIVEEXECUTION","etkin yürütme üzerinde puan");//score on active execution (New)
-define("_YOUCANUSEASTERISK","Yalnızca ilk bölümü olarak kabul edilecektir bir yıldız (*) ile biten bir kelime belirtirseniz. Örneğin, hem de doğru olarak kabul edilecektir 'öğrenmek*', 'öğrenme', sonra  'öğrenmek' belirtirseniz.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct. (New)
-define("_COURSELESSONSRULES","Ders ders kurallar");//Course lesson rules (New)
-define("_RULESBETWEENCOURSES","dersler arasında Kurallar");//Rules between courses (New)
-define("_COURSEDEPENDSON","Elbette bağlıdır");//Course depends on (New)
-define("_YOUCANNOTSETSAMECOURSEASRULE","Eğer kendisi ön şartı olarak ders ayarlayamaz");//You cannot set the course as a prerequisite of itself (New)
-define("_DISPLAYALTERNATIVESINSELECTBOX","seçin kutusunda Ekran alternatifleri");//Display alternatives in select box (New)
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Bu metin kutusu yerine, tüm alternatifleri içeren bir liste kutusu görüntüler kontrol ediliyor. Bu durumda, sadece ilk seçenek doğru olarak kabul edilir");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct (New)
-define("_SHOWANSWERSIFSTUDENTPASSED","Göstermek doğru cevap sadece öğrenci test geçtiyseniz");//Show correct answers only if student passed the test (New)
-define("_OPTIONSCHECKER","Ayarları denetleyicisi");//Settings checker (New)
-define("_CHECKBROWSER","Kontrol tarayıcı");//Checking browser (New)
-define("_CHECKRESOLUTION","ekran çözünürlüğü kontrolü");//Checking screen resolution (New)
-define("_CHECKPOPUPBLOCKER","Açılır pencere engelleyicisi denetleniyor");//Checking for Popup blocker (New)
-define("_CHECKCOOKIES","Kontrol Cookie devlet ...");//Checking Cookie state... (New)
-define("_CHECKFLASH","Flaş denetleniyor");//Checking for Flash (New)
-define("_CHECKACROBAT","Adobe Reader denetleniyor");//Checking for Adobe Reader (New)
-define("_CHECKBROWSERIE6","Internet Explorer 6 algılandı. Bu tarayıcı ve eskimiş olan işlevselliği etkilenebilir");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected (New)
-define("_CHECKBROWSERFAILED","Eğer desteklenmiyor kullanmakta olduğunuz Maalesef tarayıcı");//Unfortunately the browser that you are using is not supported (New)
-define("_CHECKRESOLUTIONFAILED","Ekran çözünürlüğü minimum gereksinimi karşılamak değil");//Your screen resolution does not meet the minimum requirement of (New)
-define("_CHECKPOPUPBLOCKERFAILED","Açılır pencere engelleyicisi algılandı. Bu site için popup izin ve tekrar deneyin");//Popup blocker detected. Please allow popups for this site and try again (New)
-define("_CHECKCOOKIESFAILED","Çerezleri devre dışı olarak görünür. Lütfen çerezleri etkinleştirin");//Cookies appear to be disabled. Please enable cookies (New)
-define("_CHECKFLASHFAILED","Flaş güncel, yüklü değilse");//Flash is not installed, out of date (New)
-define("_CHECKACROBATFAILED","Adobe Reader yüklü değil");//Adobe Reader is not installed (New)
-define("_CHECKJAVASCRIPT","Javascript kontrolü");//Checking Javascript (New)
-define("_CHECKJAVASCRIPTFAILED","Javascript tarayıcınızda etkin değil");//Javascript is not enabled in your browser (New)
-define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Sistem ayarları danışmanı e-posta etkinleştirme etkin olmalıdır");//You must have enabled supervisor email activation from system settings (New)
-define("_YEARRANGEFROM","Yıl aralığından");//Year range from (New)
-define("_YEARRANGETO","Yıl aralığına");//Year range to (New)
-define("_GROUPNAMEDESCRIPTION","Grup adını açıklaması");//Group name description (New)
-define("_GROUPINFORMATION","Grup bilgileri");//Group information (New)
-define("_CONTRAINACCESSTOCONTENT","Sınırlamak erişim kullanıcıları giriş dosya içeriğine");//Constrain access to content files to logged in users (New)
-define("_COMPRESSTESTS","veritabanında sıkıştır test sonuçları");//Compress test results in database (New)
-define("_MAINTENANCETASKS","Bakım görevleri");//Maintenance tasks (New)
-define("_CLICKHERETOCOMPRESSTESTS","tamamlanmış testler sıkıştırmak için buraya tıklayın");//Click here to compress completed tests (New)
-define("_CLICKHERETOUNCOMPRESSTESTS","tamamlanmış testler uncompress için buraya tıklayın");//Click here to uncompress completed tests (New)
-define("_COMPRESS","Sıkıştırmak");//Compress (New)
-define("_DATABASETASKS","Veritabanı görevleri");//Database tasks (New)
-define("_PLEASEBACKUPBEFORECOMPRESSING","sıkıştırarak / uncompressing tamamlandı testleri önce veri yedekleme lütfen");//Please backup your data before compressing/uncompressing completed tests (New)
-define("_CONFIGURATION","Yapılandırma");//Configuration (New)
-define("_SYSTEMOPTIONS","Sistem seçenekleri");//System options (New)
-define("_CASUAL","Gündelik");//Casual (New)
-define("_YOUCANNOTEDITTHISUSER","Bu kullanıcının bilgi erişemiyor");//You cannot access this user's information (New)
-define("_ENABLEVIRTUALKEYBOARD","sanal klavye etkinleştirin");//Enable virtual keyboard (New)
-define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Dosya boş gibi görünüyor. Belki de doğru biçimlendirilmiş değil mi?");//The file appears to be empty. Perhaps it is not formatted correctly? (New)
-define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertifika son planlanmış");//Certificate scheduled expiration (New)
-define("_TESTPASSWORD","Test şifre");//Test password (New)
-define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Üzgünüz, bu şubesine erişim yok");//Sorry, you do not have access to this branch (New)
+define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","kullanıcıların Virgülle ayrılmış liste hakkında bilgi debug veya 1 tüm kullanıcılar için göstermek");//Comma separated list of users to show debug information on, or 1 for all users
+define("_JANUARYSHORTHAND","Jan");//Jan
+define("_FEBRUARYSHORTHAND","Şub");//Feb
+define("_MARCHSHORTHAND","Mar");//Mar
+define("_APRILSHORTHAND","Nis");//Apr
+define("_MAYSHORTHAND","Mayıs");//May
+define("_JUNESHORTHAND","Haziran");//Jun
+define("_JULYSHORTHAND","Temmuz");//Jul
+define("_AUGUSTSHORTHAND","Ağu");//Aug
+define("_SEPTEMBERSHORTHAND","Eylül");//Sep
+define("_OCTOBERSHORTHAND","Eki");//Oct
+define("_NOVEMBERSHORTHAND","Kas");//Nov
+define("_DECEMBERSHORTHAND","Ara");//Dec
+define("_YOUCANNOTACCESSTHEREQUESTEDRESOURCE","Eğer istenen kaynağın erişemiyor");//You cannot access the requested resource
+define("_PLEASESELECTAJOB","bir iş tanımı seçiniz");//Please select a job description
+define("_EDITJOBPLACEMENT","iş bulma Düzenle");//Edit job placement
+define("_NORESPONSE","&lt;No response&gt;");//&lt;no response&gt;
+define("_ACCOUNT","Hesap");//Account
+define("_ORGANIZATIONALDATA","Örgütsel profili");//Organizational profile
+define("_BLANKTOLEAVEUNCHANGED","Boş değiştirmeden bırakmak için");//Blank to leave unchanged
+define("_OPTIONNUMBERSTARTINGFROMZERO","0 dan başlayarak, seçenek değerini veya numarasını girin");//Enter the option value or its number, starting from 0
+define("_HIDESUPERVISORFROMUSERS","kullanıcılardan gizle gözetmen");//Hide supervisor from users
+define("_HIDEJOBFROMUSERS","kullanıcılardan gizle iş");//Hide job from users
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Eğer zorunlu elemanlar için varsayılan bir değer belirtmek gerekir");//You must specify a default value for mandatory elements
+define("_USETHECURRENTDATE","Geçerli tarih kullanın");//Use the current date
+define("_USERSCANCHANGEINFO","Hesap değişikliği");//Account change
+define("_USERSCANCHANGEPASS","Şifrenizi değiştirin");//Password change
+define("_VIEWFEEDBACK","Görüşleri Gör");//View feedback
+define("_SHOWINCOMPLETEQUESTIONSEACHTIME","her yürütme göster eksik sorular");//Show incomplete questions in each execution
+define("_RETAINBESTEXECUTION","En iyi skoru koru");//Retain best score
+define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Ortalama test puanı (her test aktif yürütme sayma)");//Average test score (counting each test's active execution)
+define("_SCOREONACTIVEEXECUTION","etkin yürütme üzerinde puan");//score on active execution
+define("_YOUCANUSEASTERISK","Yalnızca ilk bölümü olarak kabul edilecektir bir yıldız (*) ile biten bir kelime belirtirseniz. Örneğin, hem de doğru olarak kabul edilecektir 'öğrenmek*', 'öğrenme', sonra  'öğrenmek' belirtirseniz.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Ders ders kurallar");//Course lesson rules
+define("_RULESBETWEENCOURSES","dersler arasında Kurallar");//Rules between courses
+define("_COURSEDEPENDSON","Elbette bağlıdır");//Course depends on
+define("_YOUCANNOTSETSAMECOURSEASRULE","Eğer kendisi ön şartı olarak ders ayarlayamaz");//You cannot set the course as a prerequisite of itself
+define("_DISPLAYALTERNATIVESINSELECTBOX","seçin kutusunda Ekran alternatifleri");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Bu metin kutusu yerine, tüm alternatifleri içeren bir liste kutusu görüntüler kontrol ediliyor. Bu durumda, sadece ilk seçenek doğru olarak kabul edilir");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_SHOWANSWERSIFSTUDENTPASSED","Göstermek doğru cevap sadece öğrenci test geçtiyseniz");//Show correct answers only if student passed the test
+define("_OPTIONSCHECKER","Ayarları denetleyicisi");//Settings checker
+define("_CHECKBROWSER","Kontrol tarayıcı");//Checking browser
+define("_CHECKRESOLUTION","ekran çözünürlüğü kontrolü");//Checking screen resolution
+define("_CHECKPOPUPBLOCKER","Açılır pencere engelleyicisi denetleniyor");//Checking for Popup blocker
+define("_CHECKCOOKIES","Kontrol Cookie devlet ...");//Checking Cookie state...
+define("_CHECKFLASH","Flaş denetleniyor");//Checking for Flash
+define("_CHECKACROBAT","Adobe Reader denetleniyor");//Checking for Adobe Reader
+define("_CHECKBROWSERIE6","Internet Explorer 6 algılandı. Bu tarayıcı ve eskimiş olan işlevselliği etkilenebilir");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
+define("_CHECKBROWSERFAILED","Eğer desteklenmiyor kullanmakta olduğunuz Maalesef tarayıcı");//Unfortunately the browser that you are using is not supported
+define("_CHECKRESOLUTIONFAILED","Ekran çözünürlüğü minimum gereksinimi karşılamak değil");//Your screen resolution does not meet the minimum requirement of
+define("_CHECKPOPUPBLOCKERFAILED","Açılır pencere engelleyicisi algılandı. Bu site için popup izin ve tekrar deneyin");//Popup blocker detected. Please allow popups for this site and try again
+define("_CHECKCOOKIESFAILED","Çerezleri devre dışı olarak görünür. Lütfen çerezleri etkinleştirin");//Cookies appear to be disabled. Please enable cookies
+define("_CHECKFLASHFAILED","Flaş güncel, yüklü değilse");//Flash is not installed, out of date
+define("_CHECKACROBATFAILED","Adobe Reader yüklü değil");//Adobe Reader is not installed
+define("_CHECKJAVASCRIPT","Javascript kontrolü");//Checking Javascript
+define("_CHECKJAVASCRIPTFAILED","Javascript tarayıcınızda etkin değil");//Javascript is not enabled in your browser
+define("_YOUMUSTHAVESETEMAILSUPERVISORACTIVATION","Sistem ayarları danışmanı e-posta etkinleştirme etkin olmalıdır");//You must have enabled supervisor email activation from system settings
+define("_YEARRANGEFROM","Yıl aralığından");//Year range from
+define("_YEARRANGETO","Yıl aralığına");//Year range to
+define("_GROUPNAMEDESCRIPTION","Grup adını açıklaması");//Group name description
+define("_GROUPINFORMATION","Grup bilgileri");//Group information
+define("_CONTRAINACCESSTOCONTENT","Sınırlamak erişim kullanıcıları giriş dosya içeriğine");//Constrain access to content files to logged in users
+define("_COMPRESSTESTS","veritabanında sıkıştır test sonuçları");//Compress test results in database
+define("_MAINTENANCETASKS","Bakım görevleri");//Maintenance tasks
+define("_CLICKHERETOCOMPRESSTESTS","tamamlanmış testler sıkıştırmak için buraya tıklayın");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","tamamlanmış testler uncompress için buraya tıklayın");//Uncompress completed tests
+define("_COMPRESS","Sıkıştırmak");//Compress
+define("_DATABASETASKS","Veritabanı görevleri");//Database tasks
+define("_PLEASEBACKUPBEFORECOMPRESSING","sıkıştırarak / uncompressing tamamlandı testleri önce veri yedekleme lütfen");//Please backup your data before compressing/uncompressing completed tests
+define("_CONFIGURATION","Yapılandırma");//Configuration
+define("_SYSTEMOPTIONS","Sistem seçenekleri");//System options
+define("_CASUAL","Gündelik");//Casual
+define("_YOUCANNOTEDITTHISUSER","Bu kullanıcının bilgi erişemiyor");//You cannot access this user's information
+define("_ENABLEVIRTUALKEYBOARD","sanal klavye etkinleştirin");//Enable virtual keyboard
+define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Dosya boş gibi görünüyor. Belki de doğru biçimlendirilmiş değil mi?");//The file appears to be empty. Perhaps it is not formatted correctly?
+define("_PROGRAMMEDCERTIFICATEEXPIRY","Sertifika son planlanmış");//Certificate scheduled expiration
+define("_TESTPASSWORD","Test şifre");//Test password
+define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Üzgünüz, bu şubesine erişim yok");//Sorry, you do not have access to this branch
+define("_SHOWCOMPLETEORGCHART","Göstermek tam organizasyon şeması kullanıcılara");//Show full organization chart to users (New)
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Aynı ders kopya edemez");//You can not copy from the same lesson (New)
+define("_MESSAGESSTUDENTS","öğrencilerden Mesajlar");//Messages from students (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Silmek api birden fazla aylık belirteçleri");//Delete api tokens more than one month old (New)
+define("_ADDNEWCONDITION","yeni durum ekle");//Add new condition (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Silmek rapor görünümleri ileri");//Delete advanced report views (New)
 ?>

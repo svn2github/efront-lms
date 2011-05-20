@@ -1,32 +1,37 @@
-=== Version 3.6.9 build ===
+=== Version 3.6.9 build 10905 ===
+- Added comments field to user's profile page
+- Added option for not allowing students to send messages
+- Added "AND" mode for "multiple/many" questions
+- Added check in landing page in case of inactive module
+- Added code for sorting files in editor popup windows
+- Added a check for possible existing token in api2
+- Added option for deleting old api tokens (over one month) in maintenance
+- Changed "name/surname" constants to "first name/last name"
+- Changed lesson selectbox to autocomplete field in copy from another lesson
+- Tests info in excel export of lesson reports no longer truncates questions
+- You can no longer create subforums in locked forums
+- A user who is reassigned to a course/lesson, now retains the completion date, if there is one
+- Recurring payments option in courses/lessons no longer shows up when payments are disabled
+- Courses in user reports now sort by course order by default
+- Course/lesson completion status in pdf reports displays even if a completion date does not exist
+- Extended api to consider custom user profile fields for creating user
+- Removed scheduling icon in control panel for course lessons
+- Course lessons in unique mode can now be edited even if inactive
+- Fixed module chat for different user timezones
 - Fixed lesson timeline requesting all events instead of the ones to show
 - Fixed group assignment in user's page
 - Fixed setDefaults about popup parameters in editing scorm content
 - Fixed setting "organization" to "hide" actually hiding links from users
-- Changed "name/surname" constants to "first name/last name"
-- Added code for sorting files in editor popup windows
-- Changed lesson selectbox to autocomplete field in copy from another lesson
 - Fixed basic info in course reports for excel exporting
-- Extended api to consider custom user profile fields for creating user
 - Fixed issue in getForumTree()(#1354)
-- Added comments field to user's profile page
-- Added option for not allowing students to send messages
 - Fixed issue in external survey about background color
 - Fixed issue when exporting reports not taking into account the sub-branches checkbox
 - Fixed issue about expanding a category after collapsing all in catalog (#1332)
 - Fixed issue about not taking into account course lessons scheduling in catalog
-- Removed scheduling icon in control panel for course lessons
-- Added check in landing page in case of inactive module
-- Fixed module chat for different user timezones
-- Course lessons in unique mode can now be edited even if inactive
 - Fixed publish page of surveys not taking into account archived users
-- Added a check for possible existing token in api2
-- Added option for deleting old api tokens (over one month) in maintenance
 - Fixed email account activation not working
 - Fixed issue about toggling blocks twice (#1382)
 - Fixed profile page not keeping custom avatar
-- Tests info in excel export of lesson reports no longer truncates questions
-- You can no longer create subforums in locked forums
 - Fixed issue about copying from another lesson (#1383)
 - Fixed administrator not being able to activate self-registered users set to "pending"
 - Fixed potential security issue in loading javascript files
@@ -35,12 +40,7 @@
 - Fixed issues with lesson layout setting and custom professor types (#1397)
 - Fixed issue about "Show only a message after submitting test" and failed test (http://forum.efrontlearning.net/viewtopic.php?f=12&t=3122)
 - Fixed pdf export of user reports not including completion information when the completion date is not set
-- A user who is reassigned to a course/lesson, now retains the completion date, if there is one
 - Fixed access to files when "restricted access" is on and lessons share folders
-- Recurring payments option in courses/lessons no longer shows up when payments are disabled
-- Courses in user reports now sort by course order by default
-- Course/lesson completion status in pdf reports displays even if a completion date does not exist
-- Added "AND" mode for "multiple/many" questions
 - Fixed "OR" mode to fail when the user has given a false answer
 
 === Version 3.6.9 build 10697 ===

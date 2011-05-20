@@ -283,7 +283,7 @@ class EfrontPdf
   $this->pdf->Ln(12);
   $this->pdf->SetFont($defaultFont, 'B', $this->defaultSettings['medium_header_font_size']);
   $this->pdf->SetFillColor(220, 220, 220);
-  $this->pdf->MultiCell(0, $this->defaultSettings['header_height'], $text, 'BT', 'C', true, 1);
+  $this->pdf->MultiCell(0, $this->defaultSettings['header_height'], $text, 'BT', 'C', true, 1, '', '', true, 0, false, false,$this->defaultSettings['header_height'], 'M');
   $this->pdf->SetFillColor(240, 240, 240);
  }
 

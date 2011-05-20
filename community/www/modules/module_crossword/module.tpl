@@ -261,7 +261,7 @@ var translationdidnotmatch = '{$smarty.const._CROSSWORD_DIDNOTMATCH}';
     "",
     [
       {foreach name = "crossword_list" item = "crosswordlist" key = "key" from = $T_CROSSWORD_ANSWERS}
-     new oyCrosswordClue({$crosswordlist.wordlength}, "{$crosswordlist.question}", '{$crosswordlist.word}', "26f265b96e01081a5ef26a432eda9cff", '{$crosswordlist.axis-1}', {$crosswordlist.x}, {$crosswordlist.y}),
+     new oyCrosswordClue({$crosswordlist.wordlength}, "{$crosswordlist.question|replace:'"':'\"'}", '{$crosswordlist.word}', "26f265b96e01081a5ef26a432eda9cff", '{$crosswordlist.axis-1}', {$crosswordlist.x}, {$crosswordlist.y}),
     {/foreach}
    ],
      {$T_CROSSWORD_MAXWORD},

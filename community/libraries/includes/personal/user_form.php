@@ -145,7 +145,7 @@ if (isset($_GET['pdf'])) {
    $data[$courseId] = array(_NAME => $value['name'],
          _CATEGORY => str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPathStrings[$value['directions_ID']]),
          _REGISTRATIONDATE => formatTimestamp($value['active_in_course']),
-         _COMPLETED => $value['completed'] ? _YES.($value['to_timestamp'] ? ', '._ON.' '.formatTimestamp($value['to_timestamp']) : '') : '-'
+         _COMPLETED => $value['completed'] ? _YES.($value['to_timestamp'] ? ', '._ON.' '.formatTimestamp($value['to_timestamp']) : '') : '-',
          _SCORE => formatScore($value['score']).'%',
          'active' => $value['active']);
 

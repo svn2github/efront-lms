@@ -54,7 +54,7 @@ if (isset($_GET['sel_user'])) {
  }
 
  if ($isSupervisor || $currentUser -> user['user_type'] == 'administrator') {
-  $smarty -> assign("T_EDIT_USER_LINK", array(array('text' => _EDITUSER, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=users&edit_user=".$_GET['sel_user'])));
+  $smarty -> assign("T_EDIT_USER_LINK", array(array('text' => _EDITUSER, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$_GET['sel_user'])));
  }
 
  $directionsTree = new EfrontDirectionsTree();
@@ -828,10 +828,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
              _STATUS => array('width' => '13%', 'fill' => true, 'align' => 'C'),
              _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'));
     $subSectionData = array();
-    $testsAvgScoreNum = 0;
     foreach ($userDoneTests[$value['id']] as $test) {
-     $testsAvgScore += $test['active_score'];
-     $testsAvgScoreNum++;
      $subSectionData[] = array(_TESTNAME => $test['name'],
              _STATUS => $test['status'],
              _SCORE => formatScore($test['active_score']).'%');
@@ -843,9 +840,18 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   if (sizeof($completedScores) > 0) {
     $lessonsAvgScore = round(array_sum($completedScores) / sizeof($completedScores), 2);
   }
+/*
+		$testsAvgScoreNum = 0;
+		$testsAvgScore    = 0; 
+		foreach ($userDoneTests as $lessonId => $tests) {
+				foreach ($tests as $test) {
+					$testsAvgScore += $test['active_score'];
+					$testsAvgScoreNum++;
+				}
+		}
+*/
   $info = array(array(_COURSESAVERAGE, $coursesAvgScore.'%'),
-       array(_STANDALONELESSONSAVERAGE, $lessonsAvgScore.'%'),
-       array(_TESTSAVERAGE, round(($testsAvgScore/$testsAvgScoreNum) ,2).'%'));
+       array(_STANDALONELESSONSAVERAGE, $lessonsAvgScore.'%'));
   $pdf -> printInformationSection(_OVERALL, $info);
  }
  $pdf -> OutputPdf('user_form_'.$infoUser -> user['login'].'.pdf');

@@ -285,6 +285,19 @@ class module_administrator_tools extends EfrontModule {
     } elseif (isset($_GET['ajax']) && isset($_GET['deactivate']) && in_array($_GET['deactivate'], array_keys($lessonSettings))) {
      $this -> toggleSetting($_GET['deactivate'], 0);
      exit;
+    } elseif ($_GET['tab'] == "global_settings" && isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
+     $res = eF_getTableData("lessons","id,options", "id=".$_GET['lessons_ID']);
+     $options = unserialize($res[0]["options"]);
+     $order = unserialize($options['default_positions']);
+     //pr($order);exit;
+     $result = eF_getTableData("lessons","id,options");
+     foreach ($result as $key => $value) {
+      $temp = unserialize($value["options"]);
+      $temp['default_positions'] = $options['default_positions'];
+      eF_updateTableData("lessons", array('options' => serialize($temp)), "id=".$value['id']);
+     }
+     //$this -> setMessageVar(urlencode(_MODULE_ADMINISTRATOR_TOOLS_BLOCKORDERCOPIED), 'success');
+     eF_redirect($this -> moduleBaseUrl."&tab=global_settings&message_type=success&message=".urlencode(_MODULE_ADMINISTRATOR_TOOLS_BLOCKORDERCOPIED));
     }
    } catch (Exception $e) {
     handleAjaxExceptions($e);

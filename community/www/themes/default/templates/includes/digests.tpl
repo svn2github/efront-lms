@@ -59,6 +59,14 @@
 
  var addEditNotification = true;
  </script>
+<script>
+var customFieldsConsts = new Array();
+var customFieldsKeys = new Array();
+{foreach name = 'custom_fields_list' key = 'key' item = 'field' from = $T_USERCUSTOMFIELDS}
+ customFieldsConsts.push("{$field}");
+ customFieldsKeys.push("{$key}");
+{/foreach}
+</script>
  {capture name="t_main_digests_page"}
          {$T_DIGESTS_FORM.javascript}
          <form {$T_DIGESTS_FORM.attributes}>

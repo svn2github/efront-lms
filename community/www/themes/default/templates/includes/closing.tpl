@@ -77,13 +77,6 @@ $$('div.block').ancestors().each(function (s) {
 {/if}
 
 
-{* If this creates problems in the future "Permission denied to get property Window.document" check "security.fileuri.strict_origin_policy: true" *}
-if (parent.frames[0].document.getElementById('dimmer'))
- parent.frames[0].document.getElementById('dimmer').style.display = 'none';
-
-{* Make the loading div disappear (again most of the times) once for lesson changing *}
-if (top.sideframe && top.sideframe.document && top.sideframe.document.getElementById('loading_sidebar'))
-    top.sideframe.document.getElementById('loading_sidebar').style.display = 'none'; //no prototype here please
 
 {* Let outputfilter.eF_template_includeScripts.php know to send notifications, after sending for ajax tables *}
 {if ($T_TRIGGER_NEXT_NOTIFICATIONS_SEND == 1)}
@@ -166,5 +159,14 @@ if (!usingHorizontalInterface) {
  {else}
   redirectLocation ='index.php?ctg=login&register_lessons=1';
  {/if}
+
+ {* Moved here because of EF-567*}
+ {* If this creates problems in the future "Permission denied to get property Window.document" check "security.fileuri.strict_origin_policy: true" *}
+ if (parent.frames[0].document.getElementById('dimmer'))
+  parent.frames[0].document.getElementById('dimmer').style.display = 'none';
+
+ {* Make the loading div disappear (again most of the times) once for lesson changing *}
+ if (top.sideframe && top.sideframe.document && top.sideframe.document.getElementById('loading_sidebar'))
+     top.sideframe.document.getElementById('loading_sidebar').style.display = 'none'; //no prototype here please
 
 </script>

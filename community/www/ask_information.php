@@ -20,7 +20,7 @@ try {
   //$lessonInformation['language'] = $languages[$lesson -> lesson['languages_NAME']];
   if ($lessonInformation['professors']) {
    foreach ($lessonInformation['professors'] as $value) {
-    $professorsString[] = $value['name'].' '.$value['surname'];
+    $professorsString[] = formatLogin($value['login']);
    }
    $lessonInformation['professors'] = implode(", ", $professorsString);
   }
@@ -87,7 +87,7 @@ try {
 
   if ($courseInformation['professors']) {
    foreach ($courseInformation['professors'] as $value) {
-    $professorsString[] = $value['name'].' '.$value['surname'];
+    $professorsString[] = formatLogin($value['login']);
    }
    $courseInformation['professors'] = implode(", ", $professorsString);
   }

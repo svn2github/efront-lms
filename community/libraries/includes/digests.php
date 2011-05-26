@@ -194,7 +194,13 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                                         "md5("._WRITETEXTORENTERTEMPLATETOBEENCODED.")" => _MD5ENCODINGOF);
 
             $smarty -> assign("T_BASIC_TEMPLATED", sizeof($basic_templates_array));
-
+            $userProfile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo' AND type <> 'groupinfo'");
+   $userCustomFields = array();
+            foreach ($userProfile as $value) {
+    $basic_templates_array["triggering_users_".$value['name']] = _TRIGGERINGUSERS." ".$value['name'];
+    $userCustomFields["triggering_users_".$value['name']] = _TRIGGERINGUSERS." ".$value['name'];
+   }
+            $smarty -> assign("T_USERCUSTOMFIELDS", $userCustomFields);
             if ($_GET['edit_notification'] && $_GET['event'] == 1) {
 
              $basic_templates_array["triggering_users_name"] = _TRIGGERINGUSERSNAME;
@@ -202,6 +208,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
              $basic_templates_array["triggering_users_login"] = _TRIGGERINGUSERSLOGIN;
              $basic_templates_array["triggering_user_type"] = _TRIGGERINGUSERSTYPE;
              $basic_templates_array["triggering_users_email"] = _TRIGGERINGUSERSEMAIL;
+
 
              $event_notification = eF_getTableData("event_notifications", "*", "id = '".$_GET['edit_notification']."'");
 

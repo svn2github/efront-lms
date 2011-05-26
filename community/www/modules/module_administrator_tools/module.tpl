@@ -10,6 +10,25 @@
 {/capture}
 
 {capture name = 't_global_settings_code'}
+  <fieldset class = "fieldsetSeparator">
+   <legend>{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_BLOCKSORDER}</legend>
+
+
+       <table class = "statisticsTools statisticsSelectList">
+                <tr><td class = "labelCell">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_COPYBLOCKSORDERFROMLESSON}:</td>
+                    <td class = "elementCell" colspan = "4">
+                        <input type = "text" id = "autocomplete_blockorder" class = "autoCompleteTextBox"/>
+                        <img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "{$smarty.const._LOADING}" title = "{$smarty.const._LOADING}"/>
+                        <div id = "module_administrator_tools_autocomplete_lessons_blockorder" class = "autocomplete"></div>&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr><td></td>
+                 <td class = "infoCell" colspan = "4">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
+         </table>
+
+
+
+  </fieldset>
   {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS columns = 4 links = $T_LESSON_SETTINGS image='32x32/lessons.png' main_options = $T_TABLE_OPTIONS groups = $T_LESSON_SETTINGS_GROUPS}
 {/capture}
 

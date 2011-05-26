@@ -1668,8 +1668,7 @@ class EfrontLesson
     $updateFields = array('active' => 1,
           'archive' => 0,
           'from_timestamp' => $value['confirmed'] ? time() : 0,
-          'user_type' => $value['role'],
-          'to_timestamp' => 0);
+          'user_type' => $value['role']);
     eF_updateTableData("users_to_lessons", $updateFields, "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
    } else {
     $newUsers[] = $value['login'];

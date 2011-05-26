@@ -2254,21 +2254,26 @@ class EfrontCourse
  public function toHTML($lessons = false, $options = array(), $checkLessons = array()) {
   !isset($options['courses_link']) ? $options['courses_link'] = false : null;
   !isset($options['lessons_link']) ? $options['lessons_link'] = false : null;
-  if (isset($options['collapse']) && $options['collapse'] == 2) {
-   $display = '';
-   $display_lessons = 'style = "display:none"';
-   $imageString = 'down';
-  } elseif (isset($options['collapse']) && $options['collapse'] == 1) {
-   $display = 'style = "display:none"';
-   $display_lessons = 'style = "display:none"';
-   $classString = ' class = "visible" ';
-   $imageString = 'up';
-  } else {
-   $display = '';
-   $display_lessons = '';
-   $classString = ' class = "visible" ';
-   $imageString = 'up';
-  }
+ /*	if (isset($options['collapse']) && $options['collapse'] == 2) {
+			$display 			= '';
+			$display_lessons 	= 'style = "display:none"';
+			$imageString = 'down';
+		} elseif (isset($options['collapse']) && $options['collapse'] == 1) {
+			$display 			= 'style = "display:none"';
+			$display_lessons 	= 'style = "display:none"';
+			$classString = ' class = "visible" ';
+			$imageString = 'up';
+		} else {
+			$display 			= '';
+			$display_lessons 	= '';
+			$classString = ' class = "visible" ';
+			$imageString = 'up';
+		}
+	*/
+  $display = '';
+  $display_lessons = '';
+  $classString = ' class = "visible" ';
+  $imageString = 'up';
   $roles = EfrontLessonUser :: getLessonsRoles();
   $roleNames = EfrontLessonUser :: getLessonsRoles(true);
   if ($this -> course['user_type']) {

@@ -63,6 +63,7 @@
       {/if}
        <tr><td class = "labelCell">{$T_ENTITY_FORM.hide_navigation.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.hide_navigation.html}</td></tr>
+      {if !$T_SCORM}
        <tr><td class = "labelCell">{$T_ENTITY_FORM.hide_complete_unit.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.hide_complete_unit.html}</td></tr>
        <tr><td class = "labelCell">{$T_ENTITY_FORM.auto_complete.label}:&nbsp;</td>
@@ -71,11 +72,9 @@
        <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_question.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.complete_question.html}&nbsp;{$T_ENTITY_FORM.questions.html}</td></tr>
       {/if}
-
-       {if !$T_SCORM}
         <tr><td class = "labelCell">{$T_ENTITY_FORM.pdf_check.label}:&nbsp;</td>
          <td class = "elementCell">{$T_ENTITY_FORM.pdf_check.html}</td></tr>
-       {/if}
+      {/if}
        <tr style="display:none;" id="pdf_content"><td class = "labelCell">{$T_ENTITY_FORM.pdf_content.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.pdf_content.html}</td></tr>
        <tr style="display:none;" id="pdf_upload"><td class = "labelCell">{$T_ENTITY_FORM.pdf_upload.label}:&nbsp;</td>
@@ -366,7 +365,7 @@
   {*moduleShowUnit: A specific content page*}
   {capture name = "moduleShowUnit"}
    <tr><td class = "moduleCell" style = "height:100%">
-   {if $T_AUTO_SET_SEEN_UNIT}<script>autoSetSeenUnit = 1;</script>{/if}
+   {if $T_AUTO_SET_SEEN_UNIT && $T_UNIT.ctg_type !='scorm' && $T_UNIT.ctg_type != 'scorm_test'}<script>autoSetSeenUnit = 1;</script>{/if}
    {if $T_UNIT.options.previous}{assign var = "T_PREVIOUS_UNIT" value = ""}{/if}
    {if $T_UNIT.options.continue}{assign var = "T_NEXT_UNIT" value = ""}{/if}
    {if $T_UNIT.name}{assign var = "unit_name" value = $T_UNIT.name}{else}{assign var = "unit_name" value = $smarty.const._NOCONTENT}{/if}

@@ -43,4 +43,7 @@ define("_MODULE_ADMINISTRATOR_TOOLS_JOBCOURSES", "Job courses");
 define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTIONTOALLSIMILARJOBS", "This will copy the selected job's courses to all jobs with the same name, replacing their existing selection");
 define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTION", "Copy selection");
 define("_MODULE_ADMINISTRATOR_TOOLS_SUCCESSFULLYASSIGNEDCOURSESTOJOBS", "Successfully assigned %y courses to %x jobs");
+define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKSORDER", "Blocks order");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYBLOCKSORDERFROMLESSON", "Copy blocks order from lesson");
+define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKORDERCOPIED", "Blocks order was copied successfully");
 ?>

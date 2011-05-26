@@ -85,7 +85,8 @@ try {
   $options = array('lessons_link' => '#user_type#.php?lessons_ID=',
                               'courses_link' => $roles[$course -> course['user_type']] == 'professor' ? true : false,
                   'catalog' => false,
-         'only_progress_link' => true);
+         'only_progress_link' => true,
+         'collapse' => $GLOBALS['configuration']['collapse_catalog']);
   if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
    $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
   }

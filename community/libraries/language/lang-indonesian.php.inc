@@ -19,7 +19,7 @@ define("_SENDSUCCESS","Pesan anda berhasil dikirim. Terima kasih telah menghubun
 define("_SENDFAILURE","Ada masalah yang timbul. Silahkan ulangi lagi.");//A problem has come up. Please try again.
 define("_LOGIN","Login");//Login
 define("_NAME","Nama");//Name
-define("_SURNAME","Nama panggilan");//Surname
+define("_SURNAME","Nama belakang");//Surname
 define("_ADDRESS","Alamat");//Address
 define("_POSTCODE","Kode pos");//Post code
 define("_CITY","Kota");//City
@@ -1210,7 +1210,7 @@ define("_VERSION","Versi");//Version
 define("_THEFIELDSINYOURCSVFILEMUSTCONTAINTHEFOLLOWINGFIELDS","Berkas csv anda harus berisi kolom berikut");//The fields in your csv file must contain the following fields
 define("_IFEMPTYNEWPASSWORD","Kolom merah wajib diisi. Jika tidak ada kata sandi yang diberikan, kata sandi awal akan ditetapkan sama dengan kata sandi masuk.");//Fields in red are mandatory. If there is no password given, the initial password will be set the same as the login. Please specify 'ldap' for password, if you want the users to authenticate via LDAP
 define("_PLEASECHECKYOURCSVFILEFORMAT","Silahkan cek format berkas CSV anda");//Please check the format of your CSV file
-define("_CERTIFICATEINSTRUCTIONS","Pada klise, gunakan #organization# untuk nama organisasi, #user_name# untuk nama pengguna, #user_surname# untuk nama panggilan pengguna, #course_name# untuk nama kursus, #grade# untuk nilai dan #date# untuk tanggal.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
+define("_CERTIFICATEINSTRUCTIONS","Pada klise, gunakan #organization# untuk nama organisasi, #user_name# untuk nama pengguna, #user_surname# untuk nama belakang pengguna, #course_name# untuk nama kursus, #grade# untuk nilai dan #date# untuk tanggal.");//In the template, use #organization# for organization&#039;s name, #user_name# for user&#039;s name, #user_surname# for user&#039;s surname, #course_name# for course&#039;s name, #grade# for grade and #date# for date.
 define("_CERTIFICATEINSTRUCTIONSXML","Pada klise, gunakan &lt;organization&gt;&lt;/organization&gt; untuk nama organisasi, &lt;student&gt;&lt;/student&gt; untuk nama lengkap siswa, &lt;course&gt;&lt;/course&gt; untuk nama kursus, &lt;grade&gt;&lt;/grade&gt; untuk nilai, &lt;serial&gt;&lt;/serial&gt; untuk nomor seri, &lt;date&gt;&lt;/date&gt; untuk tanggal, &lt;logo&gt;&lt;/logo&gt; untuk logo, &lt;background&gt;&lt;/background&gt; untuk latar dan &lt;orientation&gt;&lt;/orientation&gt; untuk orientasi halaman.");//In the template, use &lt;organization&gt;&lt;/organization&gt; for organization&#039;s name, &lt;student&gt;&lt;/student&gt; for student&#039;s full name, &lt;course&gt;&lt;/course&gt; for course&#039;s name, &lt;grade&gt;&lt;/grade&gt; for grade, &lt;serial&gt;&lt;/serial&gt; for serial number, &lt;date&gt;&lt;/date&gt; for date, &lt;logo&gt;&lt;/logo&gt; for logo, &lt;background&gt;&lt;/background&gt; for background and &lt;orientation&gt;&lt;/orientation&gt; for page orientation.
 define("_VOTES","Beri suara");//Votes
 define("_PERCENTAGE","Persentase");//Percentage
@@ -1808,7 +1808,7 @@ define("_SKILLCATEGORYDATAUPDATED","Data kategori keahlian diperbarui");//Skill 
 define("_SUCCESSFULLYCREATEDSKILLCATEGORY","Kategori keahlian berhasil dibuat");//Skill category successfully created
 define("_SKILLCATEGORYDELETED","Kategori keahlian dihapus");//Skill category deleted
 define("_USERDOESNOTEXIST","Pengguna tidak ada");//The user does not exist
-define("_INVALIDSURNAME","Penentuan nama terakhir pengguna tidak valid");//The user last name specified is not valid
+define("_INVALIDSURNAME","Penentuan nama belakang pengguna tidak valid");//The user last name specified is not valid
 define("_INVALIDEMAIL","Penentuan email pengguna tidak valid");//The user email specified is not valid
 define("_USERALREADYEXISTS","Pengguna dengan login yang ditentukan sudah ada");//A user with the specified login already exists
 define("_EMAILALREADYEXISTS","Pengguna dengan email yang ditentukan sudah ada");//A user with the specified email already exists
@@ -2089,7 +2089,7 @@ define("_UNKNOWNSEPARATOR","Pemisah tidak diketahui");//Unknown separator
 define("_LDAPUSER","Pengguna ini terotentifikasi melalui LDAP server");//This user authenticates through the LDAP server
 define("_EXECUTE","Jalankan");//Execute
 define("_RECREATE","Buat ulang");//Recreate
-define("_CLICKHERETOREINDEX","Klik di sini untuk membuat ulang tabel pencarian");//Recreate the search table
+define("_CLICKHERETOREINDEX","Buat ulang tabel pencarian");//Recreate the search table
 define("_TRANSLATION","Terjemahan");//Translation
 define("_ENGLISHNAME","Nama dalam bahasa Inggris");//Name in english
 define("_SUCCESSFULLYADDEDLANGUAGE","Bahasa berhasil dibuat");//The language was successfully created
@@ -2862,7 +2862,7 @@ define("_COULDNOTRETRIEVEEMPLOYEESJOBS","Tidak dapat mengambil pekerjaan penggun
 define("_ADDTEXTTEMPLATE","Tambahkan klise teks");//Add text template
 define("_NONOTIFICATIONRECIPIENTSDEFINED","Penerima pemberitahuan tidak didefinisikan");//No notification recipients defined
 define("_HIDESIDEBARIMAGES","Sembunyikan gambar panel samping");//Hide sidebar images
-define("_RECIPIENTSSURNAME","Nama panggilan penerima");//Recipient&#039;s surname
+define("_RECIPIENTSSURNAME","Nama belakang penerima");//Recipient&#039;s surname
 define("_MESSAGESQUEUE","Antrian pesan");//Messages queue
 define("_SENDNEXTQUEUEMESSAGES","Kirim antrian pesan berikutnya");//Send next queue messages
 define("_COURSE_ACQUISITION_AS_STUDENT","Akuisisi kursus sebagai mahasiswa");//Course acquisition as student
@@ -3227,7 +3227,7 @@ define("_SUCCESSFULLYENROLLED","Prosedur pendaftaran telah diselesaikan dengan s
 define("_SORRYYOUALREADYHAVETHELESSONSYOUSELECTED","Mohon maaf, tampaknya anda sudah terdaftar pada pelajaran yang anda pilih");//We are sorry, but it seems that you are already enrolled to the lessons you selected
 define("_ADDITIONALACCOUNTALREADYEXISTS","Akun ini sudah ada dipemetaan akun anda");//This account already exists in your mapped accounts
 define("_TRIGGERINGUSERSNAME","Nama pengguna yang terpicu");//Triggering user&#039;s name
-define("_TRIGGERINGUSERSSURNAME","Nama panggilan pengguna yang terpicu");//Triggering user&#039;s surname
+define("_TRIGGERINGUSERSSURNAME","Nama belakang pengguna yang terpicu");//Triggering user&#039;s surname
 define("_TRIGGERINGUSERSLOGIN","Login pengguna yang terpicu");//Triggering user&#039;s login
 define("_TRIGGERINGUSERSTYPE","Tipe pengguna yang terpicu");//Triggering user&#039;s type
 define("_TRIGGERINGUSERSEMAIL","Email pengguna yang terpicu");//Triggering user&#039;s email
@@ -3272,10 +3272,10 @@ define("_AVERAGEPROJECTSCORE","Skor rata-rata proyek");//Average project score
 define("_HELP","Bantuan");//Help
 define("_LOGOUTUSERAFTER","Keluarkan pengguna setelah");//Logout users after
 define("_MINUTESOFINACTIVITY","menit tanpa aktivitas");//minutes of inactivity
-define("_ENABLED","Ketersediaan");//Enabled
-define("_DISABLEDFORSTUDENTS","Nonaktifkan untuk siswa");//Disabled for students
-define("_DISABLEDFORPROFESSORSANDSTUDENTS","Nonaktifkan untuk siswa dan profesor");//Disabled for students and professors
-define("_DISABLEDFORALL","Nonaktifkan");//Disabled
+define("_ENABLED","Diaktifkan");//Enabled
+define("_DISABLEDFORSTUDENTS","Dinonaktifkan untuk siswa");//Disabled for students
+define("_DISABLEDFORPROFESSORSANDSTUDENTS","Dinonaktifkan untuk siswa dan profesor");//Disabled for students and professors
+define("_DISABLEDFORALL","Dinonaktifkan");//Disabled
 define("_COPYPROPERTIESFROM","Salin properti dari");//Copy properties from
 define("_SHAREFOLDERWITH","Bagi-pakai map dengan");//Share folder with
 define("_CLONELESSON","Klon pelajaran");//Clone lesson
@@ -4060,11 +4060,11 @@ define("_GROUPINFORMATION","Informasi kelompok");//Group information
 define("_CONTRAINACCESSTOCONTENT","Pengguna harus login untuk mengakses berkas konten");//Constrain access to content files to logged in users
 define("_COMPRESSTESTS","Mampatkan hasil tes dalam basis data");//Compress test results in database
 define("_MAINTENANCETASKS","Tugas pemeliharaan");//Maintenance tasks
-define("_CLICKHERETOCOMPRESSTESTS","Klik di sini untuk memampatkan komplit tes");//Compress completed tests
-define("_CLICKHERETOUNCOMPRESSTESTS","Klik di sini untuk mengekstrak komplit tes");//Uncompress completed tests
+define("_CLICKHERETOCOMPRESSTESTS","Mampatkan tes yang komplit");//Compress completed tests
+define("_CLICKHERETOUNCOMPRESSTESTS","Ekstrak tes yang komplit");//Uncompress completed tests
 define("_COMPRESS","Mampatkan");//Compress
 define("_DATABASETASKS","Tugas basis data");//Database tasks
-define("_PLEASEBACKUPBEFORECOMPRESSING","Silahkan cadangkan data anda sebelum memampatkan/mengekstrak komplit tes");//Please backup your data before compressing/uncompressing completed tests
+define("_PLEASEBACKUPBEFORECOMPRESSING","Silahkan cadangkan data anda sebelum memampatkan/mengekstrak tes yang komplit");//Please backup your data before compressing/uncompressing completed tests
 define("_CONFIGURATION","Konfigurasi");//Configuration
 define("_SYSTEMOPTIONS","Opsi sistem");//System options
 define("_CASUAL","Sederhana");//Casual
@@ -4072,12 +4072,12 @@ define("_YOUCANNOTEDITTHISUSER","Anda tidak dapat mengakses informasi pengguna i
 define("_ENABLEVIRTUALKEYBOARD","Aktifkan keyboard virtual");//Enable virtual keyboard
 define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Berkas ini sepertinya kosong. Mungkin berkas ini tidak diformat dengan benar?");//The file appears to be empty. Perhaps it is not formatted correctly?
 define("_PROGRAMMEDCERTIFICATEEXPIRY","Penjadwalan masa berlaku sertifikat");//Certificate scheduled expiration
-define("_TESTPASSWORD","Uji kata sandi");//Test password
+define("_TESTPASSWORD","Kata sandi tes");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Maaf, anda tidak memiliki akses ke cabang ini");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","Tampilkan struktur organisasi penuh kepada pengguna");//Show full organization chart to users (New)
+define("_SHOWCOMPLETEORGCHART","Tampilkan seluruh struktur organisasi kepada pengguna");//Show full organization chart to users (New)
 define("_YOUCANNOTCOPYFROMTHESAMELESSON","Anda tidak dapat menyalin dari pelajaran yang sama");//You can not copy from the same lesson (New)
 define("_MESSAGESSTUDENTS","Pesan dari siswa");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","Hapus api token lebih dari satu bulan lama");//Delete api tokens more than one month old (New)
+define("_CLICKHERETOREDELETEOLDTOKENS","Hapus token api yang lebih dari satu bulan lamanya");//Delete api tokens more than one month old (New)
 define("_ADDNEWCONDITION","Tambahkan kondisi baru");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Hapus maju dilihat laporan");//Delete advanced report views (New)
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Hapus tampilan laporan lanjutan");//Delete advanced report views (New)
 ?>

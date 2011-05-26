@@ -81,7 +81,7 @@ class module_crossword extends EfrontModule {
       $message = _CROSSWORD_PROBLEMOCCURED;
       $message_type = 'failure';
      }
-     eF_redirect("".$this -> moduleBaseUrl."&view_list=".$_GET['view_list']."&tab=options&message=".$message."&message_type=".$message_type);
+     eF_redirect("".$this -> moduleBaseUrl."&view_list=".$_GET['view_list']."&tab=options&message=".urlencode($message)."&message_type=".$message_type);
     }
 
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer

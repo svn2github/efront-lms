@@ -297,7 +297,7 @@ define("_FIND","Εύρεση");
 define("_INSERTHYPERLINK","Εισαγωγή υπερσυνδέσμου");
 define("_INSERTIMAGE","Εισαγωγή εικόνας");
 define("_NORMAL","Βασικό");
-define("_DEFAULT","Καθορισμένο");
+define("_DEFAULT","Προκαθορισμένο");
 define("_BOLD","Έντονη γραφή");
 define("_ITALIC","Πλάγια γραφή");
 define("_UNDERLINED","Υπογράμμιση");
@@ -4081,5 +4081,6 @@ define("_CLICKHERETOREDELETEOLDTOKENS","Διαγραφή api tokens παλαιό
 define("_ADDNEWCONDITION", "Προσθήκη συνθήκης");
 define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS", "Διαγραφή views της γεννήτριας αναφορών χρηστών");
 define("_STANDALONELESSONSAVERAGE", "Μέση βαθμολογία σε όλα τα ανεξάρτητα μαθήματα");
-define("_USEANDLOGICTOCORRECTANSWERS", "Χρήση λογικής AND για υπολογισμό σωστής απάντησης");
+define("_SCORECALCULATIONMODE", "Τρόπος υπολογισμού του σκορ");
+define("_TRIGGERINGUSERS","Πεδίο χρήστη που δημιούργησε το συμβάν");
 ?>

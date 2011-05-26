@@ -822,7 +822,8 @@ class EfrontDirectionsTree extends EfrontTree
     <div style = "padding-top:12px;padding-bottom:12px">
      '.$searchString;
   $hideCollapseAll = $hideExpandAll = '';
-  if (isset($options['collapse']) && $options['collapse'] || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
+  //if (isset($options['collapse']) && $options['collapse'] || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
+  if (($options['collapse'] && !isset($_COOKIE['collapse_catalog'])) || ($options['collapse'] && $_COOKIE['collapse_catalog'] == 1) || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'])) {
    $hideCollapseAll = 'style = "display:none"';
   } else {
    $hideExpandAll = 'style = "display:none"';
@@ -1003,7 +1004,7 @@ class EfrontDirectionsTree extends EfrontTree
   return $treeString;
  }
  private function getTreeDisplaySettings($options) {
-  if (($options['collapse']) || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'] && !isset($options['collapse']))) {
+  if (($options['collapse'] && !isset($_COOKIE['collapse_catalog'])) || ($options['collapse'] && $_COOKIE['collapse_catalog'] == 1) || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'])) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';

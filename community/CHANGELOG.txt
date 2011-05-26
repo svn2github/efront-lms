@@ -1,4 +1,15 @@
+=== Version 3.6.9 build ===
+- Added course lessons schedule display in course info page
+- Added copy blocks order from lesson X in module administrator_tools
+- Fixed username format in course/lesson info pages
+- Fixed issue EF-567 about logging out using facebook connect
+- Added categories path for lessons in users reports in lesson tab
+- Fixed EF-617 where glossary added an extra space in unit data
+- Removed unit options that where meaningless for SCORM, when editing such content
+- Added custom user profile fields for user triggering the event notifications
+
 === Version 3.6.9 build 10905 ===
+- Fixed potential security issue while including javascript files
 - Added comments field to user's profile page
 - Added option for not allowing students to send messages
 - Added "AND" mode for "multiple/many" questions
@@ -34,7 +45,6 @@
 - Fixed profile page not keeping custom avatar
 - Fixed issue about copying from another lesson (#1383)
 - Fixed administrator not being able to activate self-registered users set to "pending"
-- Fixed potential security issue in loading javascript files
 - Fixed organization options not taking into account user type set to "view"
 - Fixed professor losing access in forums when courses are set to depend on other courses
 - Fixed issues with lesson layout setting and custom professor types (#1397)

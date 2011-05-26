@@ -149,8 +149,12 @@
            {/foreach}
             {assign var = "language" value = $T_ADDITIONAL_LESSON_INFO[$id].language}
             {if $language}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._LANGUAGE}:</span> {$T_LANGUAGES[$language]}</div>{/if}
-            {if $T_ADDITIONAL_LESSON_INFO[$id].professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].professors_string}</div>{/if}
-            {if $T_ADDITIONAL_LESSON_INFO[$id].content || $T_ADDITIONAL_LESSON_INFO[$id].tests || $T_ADDITIONAL_LESSON_INFO[$id].projects}
+          {if $T_ADDITIONAL_LESSON_INFO[$id].start_date}
+        <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._STARTDATE}:</span> #filter:timestamp_time_nosec-{$T_ADDITIONAL_LESSON_INFO[$id].start_date}#</div>
+        <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._ENDDATE}:</span> #filter:timestamp_time_nosec-{$T_ADDITIONAL_LESSON_INFO[$id].end_date}#</div>
+       {/if}
+       {if $T_ADDITIONAL_LESSON_INFO[$id].professors_string}<div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._PROFESSORS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].professors_string}</div>{/if}
+       {if $T_ADDITIONAL_LESSON_INFO[$id].content || $T_ADDITIONAL_LESSON_INFO[$id].tests || $T_ADDITIONAL_LESSON_INFO[$id].projects}
              {strip}<div class = "lessonInfo">
        {if $T_ADDITIONAL_LESSON_INFO[$id].content}<span class = "infoTitle">{$smarty.const._UNITS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].content}{/if}
        {if $T_ADDITIONAL_LESSON_INFO[$id].tests}{if $T_ADDITIONAL_LESSON_INFO[$id].content},{/if} <span class = "infoTitle">{$smarty.const._TESTS}:</span> {$T_ADDITIONAL_LESSON_INFO[$id].tests}{/if}

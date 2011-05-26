@@ -43,4 +43,7 @@ define("_MODULE_ADMINISTRATOR_TOOLS_JOBCOURSES", "Δέσμες θέσεων ερ
 define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTIONTOALLSIMILARJOBS", "Αυτή η λειτουργία θα αντιγράψει τις δέσμες της επιλεγμένης θέση εργασίας σε όλες τις θέσεις εργασίας με το ίδιο όνομα, αντικαθιστώντας τη δική τους λίστα δεσμών");
 define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTION", "Αντιγραφή επιλογής");
 define("_MODULE_ADMINISTRATOR_TOOLS_SUCCESSFULLYASSIGNEDCOURSESTOJOBS", "Ανατέθηκαν επιτυχώς %y δέσμες σε %x θέσεις εργασίας");
+define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKSORDER", "Σειρά μπλοκς");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYBLOCKSORDERFROMLESSON", "Αντιγραφή σειράς των μπλοκς από το μάθημα");
+define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKORDERCOPIED", "Η σειρά των μπλοκς αντιγράφθηκε με επιτυχία");
 ?>

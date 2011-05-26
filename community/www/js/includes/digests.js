@@ -334,6 +334,9 @@ function changeTemplates(mode) {
     	addValueToSelect ("triggering_users_login"  , trigUserLogiConst, select_item);
     	addValueToSelect ("triggering_user_type"    , trigUserTypeConst, select_item);
     	addValueToSelect ("triggering_users_email"  , trigUserEmailConst, select_item);
+    	for (var i = 0; i < customFieldsKeys.length; i++) {	
+    		addValueToSelect(customFieldsKeys[i], customFieldsConsts[i], select_item);
+    	}
     }
     
     

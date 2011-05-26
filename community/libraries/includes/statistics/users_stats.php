@@ -97,6 +97,9 @@ if (isset($_GET['sel_user'])) {
      $lessons = array_intersect_key($lessons, $userLessons);
     }
     $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+    foreach ($lessons as $key => $value) {
+     $lessons[$key]['name'] = $directionsTreePaths[$value['directions_ID']].'&nbsp;&rarr;&nbsp;'.$value['name'];
+    }
     $dataSource = $lessons;
    }
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseLessonsTable' && eF_checkParameter($_GET['courseLessonsTable_source'], 'id')) {

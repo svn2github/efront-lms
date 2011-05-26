@@ -322,7 +322,8 @@ class glossary extends EfrontEntity
         foreach ($textPieces as $piece) {
             if ( (mb_strpos($piece, '<') === FALSE) && ($found == false) ) {
                 if ($newPiece = preg_replace_callback($searchdata, array('glossary', 'encodeWords'), " ".$piece." ")) {
-                    $piece = $newPiece;
+                    //because of EF-617
+                 $piece = mb_substr(mb_substr($newPiece,1), 0, -1);
                 }
             }
             $newTextPieces[] = $piece;

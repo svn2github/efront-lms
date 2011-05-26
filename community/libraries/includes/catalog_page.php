@@ -79,7 +79,11 @@ if (!isset($_GET['checkout'])) {
    }
    $lessonInfo[$key] = new LearningObjectInformation(unserialize($lesson -> lesson['info']));
    $additionalInfo[$key] = $lesson -> getInformation();
+   $additionalInfo[$key]['start_date'] = $lesson -> lesson['start_date'];
+   $additionalInfo[$key]['end_date'] = $lesson -> lesson['end_date'];
   }
+
+
 
   $smarty -> assign("T_ADDITIONAL_LESSON_INFO", $additionalInfo);
   $smarty -> assign("T_COURSE_LESSON_INFO", $lessonInfo);

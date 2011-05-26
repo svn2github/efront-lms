@@ -171,6 +171,76 @@
   {/if}
   {$T_UNIT.data}
  {else}
+  {capture name = 't_content_footer_code'}
+       <table class = "navigationTable">
+        <tr>
+         <td class = "previousUnitHandleIcon">
+    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
+     {if $T_PREVIOUS_UNIT}
+      {assign var = "show_content_footer" value = 1}
+          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_PREVIOUS_UNIT.id}" title = "{$T_PREVIOUS_UNIT.name}">
+           <img class = "handle" src = "images/32x32/navigate_left.png" title = "{$T_PREVIOUS_UNIT.name}" alt = "{$T_PREVIOUS_UNIT.name}" />
+          </a>
+     {/if}
+    {/if}
+         </td>
+         <td class = "previousUnitHandle">
+    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
+     {if $T_PREVIOUS_UNIT}
+      {assign var = "show_content_footer" value = 1}
+          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_PREVIOUS_UNIT.id}" title = "{$T_PREVIOUS_UNIT.name}">
+           {$T_PREVIOUS_UNIT.name|eF_truncate:30}
+          </a>
+     {/if}
+    {/if}
+         </td>
+         <td class = "completeUnitHandle">
+     {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}{assign var = "hideStyle" value = ''}{assign var = "show_content_footer" value = 1}{else}{assign var = "hideStyle" value = 'style = "visibility:hidden"'}{/if}
+     {if $T_QUESTION}
+      {assign var = "show_content_footer" value = 1}
+          <div class = "unitQuestionArea" {$hideStyle}>
+           <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
+           <span id = "contentQuestionAnswer">
+            <input class = "flatButton" type = "button" value = "{$smarty.const._SUBMIT}" onclick = "answerQuestion(this)">
+            <img class = "ajaxHandle" style = "display:none" id = "correct_answer" src = "images/32x32/success.png" alt = "{$smarty.const._CORRECTANSWER}" title = "{$smarty.const._CORRECTANSWER}">
+            <img class = "ajaxHandle" style = "display:none" id = "wrong_answer" src = "images/32x32/error_delete.png" alt = "{$smarty.const._WRONGANSWER}" title = "{$smarty.const._WRONGANSWER}">
+           </span>
+          </div>
+     {elseif $_change_ && $_student_}
+          <a {if !$hideStyle}id = "seenLink"{/if} href = "javascript:void(0)" onclick = "setSeenUnit();" {$hideStyle}>
+            {if $T_SEEN_UNIT}
+             <img class = "handle" src = "images/32x32/unit_completed.png" title = "{$smarty.const._NOTSAWUNIT}" alt = "{$smarty.const._NOTSAWUNIT}" />
+             <div>{$smarty.const._NOTSAWUNIT}</div>
+            {else}
+             <img class = "handle" src = "images/32x32/unit.png" title = "{$smarty.const._SAWUNIT}" alt = "{$smarty.const._SAWUNIT}" />
+             <div>{$smarty.const._SAWUNIT}</div>
+            {/if}
+          </a>
+     {/if}
+         </td>
+         <td class = "nextUnitHandle">
+    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
+     {if $T_NEXT_UNIT}
+      {assign var = "show_content_footer" value = 1}
+          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_NEXT_UNIT.id}" title = "{$T_NEXT_UNIT.name}">
+           {$T_NEXT_UNIT.name|eF_truncate:30}
+          </a>
+     {/if}
+    {/if}
+         </td>
+         <td class = "nextUnitHandleIcon">
+    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
+     {if $T_NEXT_UNIT}
+      {assign var = "show_content_footer" value = 1}
+          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_NEXT_UNIT.id}" title = "{$T_NEXT_UNIT.name}">
+           <img class = "handle" src = "images/32x32/navigate_right.png" title = "{$T_NEXT_UNIT.name}" alt = "{$T_NEXT_UNIT.name}" />
+          </a>
+     {/if}
+    {/if}
+         </td>
+       </table>
+  {/capture}
+
   {capture name = 't_content_code'}
     {*Variables needed in js functions*}
     <script>var sawunit = '{$smarty.const._SAWUNIT}';var notsawunit = '{$smarty.const._NOTSAWUNIT}';var unitId = '{$T_UNIT.id}';
@@ -216,71 +286,11 @@
          {/if}
         {/if}
        </td></tr>
+      {if $show_content_footer}
       <tr><td>
-       <table class = "navigationTable">
-        <tr>
-         <td class = "previousUnitHandleIcon">
-    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
-     {if $T_PREVIOUS_UNIT}
-          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_PREVIOUS_UNIT.id}" title = "{$T_PREVIOUS_UNIT.name}">
-           <img class = "handle" src = "images/32x32/navigate_left.png" title = "{$T_PREVIOUS_UNIT.name}" alt = "{$T_PREVIOUS_UNIT.name}" />
-          </a>
-     {/if}
-    {/if}
-         </td>
-         <td class = "previousUnitHandle">
-    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
-     {if $T_PREVIOUS_UNIT}
-          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_PREVIOUS_UNIT.id}" title = "{$T_PREVIOUS_UNIT.name}">
-           {$T_PREVIOUS_UNIT.name|eF_truncate:30}
-          </a>
-     {/if}
-    {/if}
-         </td>
-         <td class = "completeUnitHandle">
-     {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}{assign var = "hideStyle" value = ''}{else}{assign var = "hideStyle" value = 'style = "visibility:hidden"'}{/if}
-     {if $T_QUESTION}
-          <div class = "unitQuestionArea" {$hideStyle}>
-           <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
-           <span id = "contentQuestionAnswer">
-            <input class = "flatButton" type = "button" value = "{$smarty.const._SUBMIT}" onclick = "answerQuestion(this)">
-            <img class = "ajaxHandle" style = "display:none" id = "correct_answer" src = "images/32x32/success.png" alt = "{$smarty.const._CORRECTANSWER}" title = "{$smarty.const._CORRECTANSWER}">
-            <img class = "ajaxHandle" style = "display:none" id = "wrong_answer" src = "images/32x32/error_delete.png" alt = "{$smarty.const._WRONGANSWER}" title = "{$smarty.const._WRONGANSWER}">
-           </span>
-          </div>
-     {elseif $_change_ && $_student_}
-          <a {if !$hideStyle}id = "seenLink"{/if} href = "javascript:void(0)" onclick = "setSeenUnit();" {$hideStyle}>
-            {if $T_SEEN_UNIT}
-             <img class = "handle" src = "images/32x32/unit_completed.png" title = "{$smarty.const._NOTSAWUNIT}" alt = "{$smarty.const._NOTSAWUNIT}" />
-             <div>{$smarty.const._NOTSAWUNIT}</div>
-            {else}
-             <img class = "handle" src = "images/32x32/unit.png" title = "{$smarty.const._SAWUNIT}" alt = "{$smarty.const._SAWUNIT}" />
-             <div>{$smarty.const._SAWUNIT}</div>
-            {/if}
-          </a>
-     {/if}
-         </td>
-         <td class = "nextUnitHandle">
-    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
-     {if $T_NEXT_UNIT}
-          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_NEXT_UNIT.id}" title = "{$T_NEXT_UNIT.name}">
-           {$T_NEXT_UNIT.name|eF_truncate:30}
-          </a>
-     {/if}
-    {/if}
-         </td>
-         <td class = "nextUnitHandleIcon">
-    {if ($T_UNIT.data || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback') && !$T_TEST_UNDERGOING && $T_UNIT.options.hide_navigation != 1 && $T_UNIT.options.hide_navigation != 3}
-     {if $T_NEXT_UNIT}
-          <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_NEXT_UNIT.id}" title = "{$T_NEXT_UNIT.name}">
-           <img class = "handle" src = "images/32x32/navigate_right.png" title = "{$T_NEXT_UNIT.name}" alt = "{$T_NEXT_UNIT.name}" />
-          </a>
-     {/if}
-    {/if}
-         </td>
-       </table>
+       {$smarty.capture.t_content_footer_code}
       </td></tr>
-
+      {/if}
    {/if}
    {if $T_CONFIGURATION.disable_comments != 1 && $T_CURRENT_LESSON->options.comments && $T_COMMENTS}
     {section name = 'comments_list' loop = $T_COMMENTS}

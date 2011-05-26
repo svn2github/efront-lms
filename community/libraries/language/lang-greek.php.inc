@@ -4083,4 +4083,5 @@ define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS", "Διαγραφή views της
 define("_STANDALONELESSONSAVERAGE", "Μέση βαθμολογία σε όλα τα ανεξάρτητα μαθήματα");
 define("_SCORECALCULATIONMODE", "Τρόπος υπολογισμού του σκορ");
 define("_TRIGGERINGUSERS","Πεδίο χρήστη που δημιούργησε το συμβάν");
+define("_MODIFIED", "Ενημερώθηκε");
 ?>

@@ -535,6 +535,27 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         $smarty -> assign("T_UNIT_OPTIONS", $options);
         $smarty -> assign("T_UNIT_SETTINGS", array('nohandle' => 1));
+        if ((!$currentLesson -> options['show_right_bar'] && $_student_) || $_COOKIE['rightSideBar'] == 'hidden') {
+            $smarty -> assign("T_LAYOUT_CLASS", "centerFull hideLeft");
+        } else {
+            $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
+        }
+        if ((!$currentLesson -> options['show_horizontal_bar'] && $_student_) || $_COOKIE['horizontalSideBar'] == 'hidden') {
+            $smarty -> assign("T_HEADER_CLASS", "headerHidden");
+        } else {
+            $smarty -> assign("T_HEADER_CLASS", "header"); //$currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft");    //Whether to show the sidemenu on the left or on the right
+        }
+        if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport'] && $currentUser -> getType($currentLesson) == "student") {
+            $smarty -> assign("T_MAXIMIZE_VIEWPORT", 1);
+        }
+        if (isset($currentUnit['options']['scorm_asynchronous']) && $currentUnit['options']['scorm_asynchronous']) {
+            $smarty -> assign("T_SCORM_ASYNCHRONOUS", 1);
+        } else {
+         $smarty -> assign("T_SCORM_ASYNCHRONOUS", 0);
+        }
+  if (isset($currentUnit['options']['object_ids']) && $currentUnit['options']['object_ids']) {
+            $smarty -> assign("T_OBJECT_IDS", $currentUnit['options']['object_ids']);
+        }
         $content_side_modules = array();
         foreach ($loadedModules as $module) {
             if (isset($currentLesson -> options[$module -> className]) && $currentLesson -> options[$module -> className] == 1) {
@@ -562,27 +583,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             }
         }
         $smarty -> assign("T_CONTENT_SIDE_MODULES", $content_side_modules);
-        if ((!$currentLesson -> options['show_right_bar'] && $_student_) || $_COOKIE['rightSideBar'] == 'hidden') {
-            $smarty -> assign("T_LAYOUT_CLASS", "centerFull hideLeft");
-        } else {
-            $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
-        }
-        if ((!$currentLesson -> options['show_horizontal_bar'] && $_student_) || $_COOKIE['horizontalSideBar'] == 'hidden') {
-            $smarty -> assign("T_HEADER_CLASS", "headerHidden");
-        } else {
-            $smarty -> assign("T_HEADER_CLASS", "header"); //$currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft");    //Whether to show the sidemenu on the left or on the right
-        }
-        if (isset($currentUnit['options']['maximize_viewport']) && $currentUnit['options']['maximize_viewport'] && $currentUser -> getType($currentLesson) == "student") {
-            $smarty -> assign("T_MAXIMIZE_VIEWPORT", 1);
-        }
-        if (isset($currentUnit['options']['scorm_asynchronous']) && $currentUnit['options']['scorm_asynchronous']) {
-            $smarty -> assign("T_SCORM_ASYNCHRONOUS", 1);
-        } else {
-         $smarty -> assign("T_SCORM_ASYNCHRONOUS", 0);
-        }
-  if (isset($currentUnit['options']['object_ids']) && $currentUnit['options']['object_ids']) {
-            $smarty -> assign("T_OBJECT_IDS", $currentUnit['options']['object_ids']);
-        }
     } catch (Exception $e) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
         $message = $e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

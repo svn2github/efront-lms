@@ -2636,10 +2636,10 @@ class FileSystemTree extends EfrontTree
         }
         $filesCode = '
                         <table class = "sortedTable" style = "width:100%" size = "'.$size.'" id = "'.$tableId.'" useAjax = "1" rowsPerPage = "20" other = "'.urlencode($currentDirectory).'" url = "'.$url.'&" nomass = "1" currentDir = "'.(isset($currentDir['path']) ? $currentDir['path'] : '').'">
-                      <tr>'.($options['show_type'] ? '<td class = "topTitle centerAlign" name = "extension">'._FILETYPE.'</td>' : '').'
-                       '.($options['show_name'] ? '<td class = "topTitle" name = "name" id = "filename_'.$tableId.'">'._FILENAME.'</td>' : '').'
+                      <tr>'.($options['show_type'] ? '<td class = "topTitle centerAlign" name = "extension">'._TYPE.'</td>' : '').'
+                       '.($options['show_name'] ? '<td class = "topTitle" name = "name" id = "filename_'.$tableId.'">'._NAME.'</td>' : '').'
                        '.($options['show_size'] ? '<td class = "topTitle" name = "size">'._SIZE.'</td>' : '').'
-                       '.($options['show_date'] ? '<td class = "topTitle" name = "timestamp">'._LASTMODIFIED.'</td>' : '').'
+                       '.($options['show_date'] ? '<td class = "topTitle" name = "timestamp">'._MODIFIED.'</td>' : '').'
         '.$extraColumnsString.'
                        '.($_SESSION['s_lessons_ID'] && $options['share'] ? '<td class = "topTitle centerAlign" name = "shared">'._SHARE.'</td>' : '').'
                        '.($options['show_tools'] ? '<td class = "topTitle centerAlign noSort">'._OPERATIONS.'</td>' : '').'

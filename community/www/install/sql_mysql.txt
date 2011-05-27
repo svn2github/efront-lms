@@ -1164,6 +1164,7 @@ CREATE TABLE files (
 -- is_default: Whether this is the default group, meaning that new users are assigned to it
 -- key_max_usage: How many times a key may be used
 -- key_current_usage: How many times the key has been used so far
+-- self_enroll: Whether to allow users to enroll to the group themselves
 CREATE TABLE groups (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
@@ -1177,6 +1178,7 @@ CREATE TABLE groups (
   assign_profile_to_new tinyint(1) default 0,
   unique_key varchar(255) default "",
   is_default tinyint(1) default 0,
+  self_enroll tinyint(1) default 0,
   key_max_usage mediumint(8) unsigned default 0,
   key_current_usage mediumint(8) unsigned default 0,
   PRIMARY KEY (id)

@@ -2650,7 +2650,7 @@ class FileSystemTree extends EfrontTree
                 $parentDir['path'] = '';
             }
             $filesCode .= '
-               <tr class = "defaultRowHeight eventRowColor"><td class = "centerAlign" colspan = "100%">'._CURRENTLYBROWSINGFOLDER.': '.str_replace($this -> dir['path'], '', $currentDir['path']).'</td></tr>
+               <tr class = "defaultRowHeight eventRowColor"><td class = "centerAlign" colspan = "100%">'._CURRENTLYBROWSINGFOLDER.': '.EfrontFile :: decode(str_replace($this -> dir['path'], '', $currentDir['path'])).'</td></tr>
                      <tr class = "defaultRowHeight oddRowColor">
                       <td class = "centerAlign"><span style = "display:none"></span><img src = "images/16x16/folder_up.png" alt = "'._UPONELEVEL.'" title = "'._UPONELEVEL.'"/></td>
                       <td><a class="editLink" href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($parentDir['path']).'\');">.. ('._UPONELEVEL.')</a></td>
@@ -3242,6 +3242,11 @@ class FileSystemTree extends EfrontTree
                     break;
                 case 'java':
                     if ($key == 'class') {
+                        $fileTypes[$key] = $filetype;
+                    }
+                    break;
+                case 'document':
+                    if ($key == 'html' || $key == "htm") {
                         $fileTypes[$key] = $filetype;
                     }
                     break;

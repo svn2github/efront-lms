@@ -95,6 +95,7 @@ $loadScripts[] = 'includes/groups';
               $fields['user_types_ID'] = $values['user_types_ID'];
               $fields['unique_key'] = $values['unique_key'];
               $fields['is_default'] = $values['is_default'];
+              $fields['self_enroll'] = $values['self_enroll'];
               $fields['key_max_usage'] = $values['key_max_usage'] ? $values['key_max_usage'] : 0;
               if (isset($_GET['edit_user_group'])) {
                $values['key_max_usage'] OR $fields['key_current_usage'] = 0;

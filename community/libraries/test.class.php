@@ -4199,7 +4199,7 @@ class TrueFalseQuestion extends Question implements iQuestion
     public function toHTMLQuickForm(&$form) {
         //$elements[] = $form -> createElement("radio", "question[".$this -> question['id']."]", _FALSE, _FALSE, 0, "class = inputRadio");
         //$elements[] = $form -> createElement("radio", "question[".$this -> question['id']."]", _TRUE, _TRUE, 1, "class = inputRadio");
-        $form -> addElement("radio", "question[".$this -> question['id']."]", _FALSE, _FALSE, 0, "class = inputRadio");
+     $form -> addElement("radio", "question[".$this -> question['id']."]", _FALSE, _FALSE, 0, "class = inputRadio");
         $form -> addElement("radio", "question[".$this -> question['id']."]", _TRUE, _TRUE, 1, "class = inputRadio");
         //$form -> addGroup($elements, "question[".$this -> question['id']."]", null, "<br/>", false);
         if ($this -> userAnswer !== false) {
@@ -4271,8 +4271,8 @@ class TrueFalseQuestion extends Question implements iQuestion
                     <table class = "unsolvedQuestion trueFalseQuestion">
                         <tr><td>'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>
                         <tr><td>
-                                '.$formArray['question'][$this -> question['id']][0]['html'].'<br/>
-                                '.$formArray['question'][$this -> question['id']][1]['html'].'
+                                '.$formArray['question'][$this -> question['id']][1]['html'].'<br/>
+                                '.$formArray['question'][$this -> question['id']][0]['html'].'
                             </td></tr>
                     </table>';
         return $questionString;
@@ -4397,20 +4397,20 @@ class TrueFalseQuestion extends Question implements iQuestion
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($foo); //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
         $form -> accept($renderer); //Render the form
         $formArray = $renderer -> toArray(); //Get the rendered form fields
-  if ($showCorrectAnswers) {
-   $innerQuestionString .= '<span class = "'.($this -> answer[0] == 0 ? 'correctAnswer' : 'wrongAnswer').'">'.$formArray['question'][$this -> question['id']][0]['html'];
-  } else {
-   $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][0]['html'];
+     if ($showCorrectAnswers) {
+   $innerQuestionString .= '<span class = "'.($this -> answer[0] == 1 ? 'correctAnswer' : 'wrongAnswer').'">'.$formArray['question'][$this -> question['id']][1]['html'];
+        } else {
+   $innerQuestionString .= '<span>'.$formArray['question'][$this -> question['id']][1]['html'];
   }
-  if ($showGivenAnswers && $showCorrectAnswers && $this -> userAnswer == 0) {
+  if ($showGivenAnswers && $showCorrectAnswers && $this -> userAnswer == 1) {
          $results['correct'] ? $innerQuestionString .= '&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._CORRECTANSWER : $innerQuestionString .= '&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._WRONGANSWER;
         }
   if ($showCorrectAnswers) {
-   $innerQuestionString .= '<br><span class = "'.($this -> answer[0] == 1 ? 'correctAnswer' : 'wrongAnswer').'">'.$formArray['question'][$this -> question['id']][1]['html'];
-        } else {
-   $innerQuestionString .= '<br><span>'.$formArray['question'][$this -> question['id']][1]['html'];
+   $innerQuestionString .= '<br><span class = "'.($this -> answer[0] == 0 ? 'correctAnswer' : 'wrongAnswer').'">'.$formArray['question'][$this -> question['id']][0]['html'];
+  } else {
+   $innerQuestionString .= '<br><span>'.$formArray['question'][$this -> question['id']][0]['html'];
   }
-  if ($showGivenAnswers && $showCorrectAnswers && $this -> userAnswer == 1) {
+  if ($showGivenAnswers && $showCorrectAnswers && $this -> userAnswer == 0) {
          $results['correct'] ? $innerQuestionString .= '&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._CORRECTANSWER : $innerQuestionString .= '&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._WRONGANSWER;
         }
         $innerQuestionString .= '</span> <br/>';

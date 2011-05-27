@@ -7,6 +7,7 @@
 - Fixed EF-617 where glossary added an extra space in unit data
 - Removed unit options that where meaningless for SCORM, when editing such content
 - Added custom user profile fields for user triggering the event notifications
+- Added self-enrollment option to groups (Enterprise version)
 
 === Version 3.6.9 build 10905 ===
 - Fixed potential security issue while including javascript files

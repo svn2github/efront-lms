@@ -604,14 +604,14 @@ class module_gift_aiken extends EfrontModule {
                             $question['answer'] = $answers;
                         }
                         $question['answer'] = serialize($question['answer']);
-                        $question['answer'] = str_replace("'", "&#39;", $question['answer']);
-                        $question['answer'] = str_replace("\r", "", $question['answer']);
+                        //$question['answer'] = str_replace("'", "&#39;", $question['answer']);
+                        //$question['answer'] = str_replace("\r", "", $question['answer']);
                     }
 
-                    $question['text'] = str_replace("'", "&#39;", $question['text']);
+                    //$question['text'] = str_replace("'", "&#39;", $question['text']);
                     if (isset($question['explanation'])) {
-                        $question['explanation'] = str_replace("'", "&#39;", $question['explanation']);
-                        $question['explanation'] = str_replace("\r", "", $question['explanation']);
+                        //$question['explanation'] = str_replace("'", "&#39;", $question['explanation']);
+                        //$question['explanation'] = str_replace("\r", "", $question['explanation']);
                     }
 
                     if (Question :: createQuestion($question)) {

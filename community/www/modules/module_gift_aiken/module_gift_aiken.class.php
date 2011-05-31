@@ -82,7 +82,6 @@ class module_gift_aiken extends EfrontModule {
             } else {
                 if (trim($line) != "") {
                     if (preg_match('/^ANSWER:[ ]*(?P<option_tag>[a-zA-Z])/i', $line, $matches)) {
-
                         $correct_answer = $matches['option_tag'];
 
                         // Find the count of the correct answer
@@ -590,8 +589,8 @@ class module_gift_aiken extends EfrontModule {
 
                     if (sizeof($question['options'])) {
                         $question['options'] = serialize($question['options']);
-                        $question['options'] = str_replace("'", "&#39;", $question['options']);
-                        $question['options'] = str_replace("\r", "", $question['options']);
+                        //$question['options'] = str_replace("'", "&#39;", $question['options']);
+                        //$question['options'] = str_replace("\r", "", $question['options']);
                     }
                     if (sizeof($question['answer'])) {
 

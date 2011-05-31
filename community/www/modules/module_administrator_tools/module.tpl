@@ -128,6 +128,14 @@
 {/if}
 {/capture}
 
+{capture name = "t_change_files_encoding_code"}
+ {eF_template_printForm form = $T_FILE_ENCODINGS_FORM}
+{/capture}
+
+{capture name = "t_change_user_type_code"}
+ {eF_template_printForm form = $T_CHANGE_USER_TYPE_FORM}
+{/capture}
+
 {capture name = 't_unenroll_courses_code'}
 <table class = "formElements">
  <tr><td class = "labelCell">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_ENTITYTYPE}:&nbsp;</td>
@@ -243,6 +251,8 @@
   {eF_template_printBlock tabber = "global_settings" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS data = $smarty.capture.t_global_settings_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}
+  {eF_template_printBlock tabber = "files_encoding" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGEFILESENCODING data = $smarty.capture.t_change_files_encoding_code image='32x32/folders.png'}
+  {eF_template_printBlock tabber = "change_user_type" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGEUSERTYPES data = $smarty.capture.t_change_user_type_code image='32x32/users.png'}
  </div>
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}

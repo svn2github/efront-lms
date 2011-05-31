@@ -174,6 +174,7 @@ class module_administrator_tools extends EfrontModule {
    //$GLOBALS['load_editor'] = true;
    $smarty = $this -> getSmartyVar();
    $currentUser = $this -> getCurrentUser();
+///////////CHANGE USER LOGINS///////////////////
    $form = new HTML_QuickForm("change_login_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools", "", null, true);
    $form -> addElement('static', 'sidenote', '<img id = "module_administrator_tools_busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
    $form -> addElement('text', 'selection_user', _MODULE_ADMINISTRATOR_TOOLS_SELECTUSERTOCHANGELOGINFOR, 'id = "module_administrator_tools_autocomplete_users" class = "autoCompleteTextBox" style = "width:400px"' );
@@ -275,6 +276,8 @@ class module_administrator_tools extends EfrontModule {
    } catch (Exception $e) {
     handleAjaxExceptions($e);
    }
+///////////END OF CHANGE USER LOGINS///////////////////
+///////////GLOBAL LESSON SETTINGS///////////////////			
    $lessonSettings = $this -> getLessonSettings();
    $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
    $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
@@ -302,6 +305,8 @@ class module_administrator_tools extends EfrontModule {
    } catch (Exception $e) {
     handleAjaxExceptions($e);
    }
+///////////END OF GLOBAL LESSON SETTINGS///////////////////
+///////////SQL INTERFACE///////////////////			
    $sqlForm = new HTML_QuickForm("sql_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=sql", "", null, true);
    $sqlForm -> addElement('text', 'sql_command', _MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND, 'style = "width:600px"' );
    $sqlForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
@@ -332,6 +337,8 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_SQL_FORM", $sqlForm -> toArray());
+///////////END OF SQL INTERFACE///////////////////
+///////////SET COURSE LESSON USERS///////////////////			
    if (isset($_GET['lessons_ID'])) {
     $currentLesson = new EfrontLesson($_GET['lessons_ID']);
     $smarty -> assign("T_CURRENT_LESSON", $currentLesson);
@@ -381,6 +388,93 @@ class module_administrator_tools extends EfrontModule {
      handleAjaxExceptions($e);
     }
    }
+///////////END OF SET COURSE LESSON USERS///////////////////
+///////////CHANGE FILE ENCODING///////////////////		
+   $fileEncodingsForm = new HTML_QuickForm("file_encodings_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=files_encoding", "", null, true);
+   $fileEncodingsForm -> addElement('select', 'encoding', _MODULE_ADMINISTRATOR_TOOLS_SELECTENCODINGCONVERSION, array('UTF-8 => UTF7-IMAP', 'UTF7-IMAP => UTF-8'));
+   $fileEncodingsForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+   if ($fileEncodingsForm -> isSubmitted() && $fileEncodingsForm -> validate()) {
+    try {
+     $values = $fileEncodingsForm -> exportValues();
+     if ($values['encoding'] == 0) {
+      $from = 'UTF-8';
+      $to = 'UTF7-IMAP';
+     } else if ($values['encoding'] == 1) {
+      $from = 'UTF7-IMAP';
+      $to = 'UTF-8';
+     }
+     $filesystem = new FileSystemTree(G_CONTENTPATH);
+     $convertedCounter = 0;
+     foreach (new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($filesystem->tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
+      if (mb_check_encoding(basename($key), $from) && ($converted = mb_convert_encoding(basename($key), $to, $from)) != basename($key)) {
+       $value->rename(dirname($value['path'])."/".$converted);
+       $convertedCounter++;
+       $contentLink = htmlspecialchars(str_replace(G_ROOTPATH.'www/', '', $value['path']));
+       $convertedContentLink = htmlspecialchars(dirname($contentLink)."/".$converted);
+       $result = eF_getTableData("content", "id, data", "data like '%".$contentLink."%'");
+       foreach ($result as $value) {
+        $newData = str_replace($contentLink, $convertedContentLink, $value['data']);
+        eF_updateTableData("content", array('data' => $newData), "id=".$value['id']);
+       }
+       $result = eF_getTableData("projects", "id, data", "data like '%".$contentLink."%'");
+       foreach ($result as $value) {
+        $newData = str_replace($contentLink, $convertedContentLink, $value['data']);
+        eF_updateTableData("projects", array('data' => $newData), "id=".$value['id']);
+       }
+       $result = eF_getTableData("tests", "id, description", "description like '%".$contentLink."%'");
+       foreach ($result as $value) {
+        $newData = str_replace($contentLink, $convertedContentLink, $value['data']);
+        eF_updateTableData("tests", array('description' => $newData), "id=".$value['id']);
+       }
+       $result = eF_getTableData("questions", "id, text", "text like '%".$contentLink."%'");
+       foreach ($result as $value) {
+        $newData = str_replace($contentLink, $convertedContentLink, $value['data']);
+        eF_updateTableData("questions", array('text' => $newData), "id=".$value['id']);
+       }
+      }
+     }
+     $message = "Converted $convertedCounter files";
+     $message_type='success';
+    } catch (Exception $e) {
+     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+     $message_type = 'failure';
+    }
+   }
+   $smarty -> assign("T_FILE_ENCODINGS_FORM", $fileEncodingsForm -> toArray());
+///////////END OF CHANGE FILE ENCODING///////////////////			
+///////////CHANGE USER TYPE///////////////////
+   $userTypes = EfrontUser::getRoles(true);
+   $userTypesMapping = EfrontUser::getRoles();
+   $changeUserTypeForm = new HTML_QuickForm("change_user_type_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=change_user_type", "", null, true);
+   $changeUserTypeForm -> addElement('select', 'from_type', _MODULE_ADMINISTRATOR_TOOLS_SELECTSOURCEUSERTYPE, $userTypes);
+   $changeUserTypeForm -> addElement('select', 'to_type', _MODULE_ADMINISTRATOR_TOOLS_SELECTTARGETUSERTYPE, $userTypes);
+   $changeUserTypeForm -> addElement('checkbox', 'change_courses', _MODULE_ADMINISTRATOR_TOOLS_CHANGETYPEINCOURSESASWELL);
+   $changeUserTypeForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+   if ($changeUserTypeForm -> isSubmitted() && $changeUserTypeForm -> validate()) {
+    try {
+     $values = $changeUserTypeForm -> exportValues();
+     if ($userTypesMapping[$values['from_type']] == $userTypesMapping[$values['to_type']]) {
+      eF_updateTableData("users", array("user_type" => $values['to_type']), "user_type='".$values['from_type']."'");
+      if ($values['change_courses']) {
+       eF_updateTableData("users_to_lessons", array("user_type" => $values['to_type']), "user_type='".$values['from_type']."'");
+       eF_updateTableData("users_to_courses", array("user_type" => $values['to_type']), "user_type='".$values['from_type']."'");
+      }
+      $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+      $message_type='success';
+     } else {
+      $message = _MODULE_ADMINISTRATOR_TOOLS_BASICTYPESMUSTMATCH;
+      $message_type='failure';
+     }
+    } catch (Exception $e) {
+     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+     $message_type = 'failure';
+    }
+   }
+   $smarty -> assign("T_CHANGE_USER_TYPE_FORM", $changeUserTypeForm -> toArray());
+///////////END OF CHANGE USER TYPE///////////////////			
+///////////UNENROLL USERS///////////////////			
   } catch (Exception $e) {
    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

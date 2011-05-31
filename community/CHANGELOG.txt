@@ -8,6 +8,7 @@
 - Removed unit options that where meaningless for SCORM, when editing such content
 - Added custom user profile fields for user triggering the event notifications
 - Added self-enrollment option to groups (Enterprise version)
+- Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
 
 === Version 3.6.9 build 10905 ===
 - Fixed potential security issue while including javascript files

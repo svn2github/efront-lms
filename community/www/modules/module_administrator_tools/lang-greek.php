@@ -46,4 +46,13 @@ define("_MODULE_ADMINISTRATOR_TOOLS_SUCCESSFULLYASSIGNEDCOURSESTOJOBS", "Ανα�
 define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKSORDER", "Σειρά μπλοκς");
 define("_MODULE_ADMINISTRATOR_TOOLS_COPYBLOCKSORDERFROMLESSON", "Αντιγραφή σειράς των μπλοκς από το μάθημα");
 define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKORDERCOPIED", "Η σειρά των μπλοκς αντιγράφθηκε με επιτυχία");
+define("_MODULE_ADMINISTRATOR_TOOLS_CHANGEFILESENCODING", "Αλλαγή κωδικοποίησης αρχείων");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTENCODINGFROM", "Αρχική κωδικοποίηση");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTENCODINGTO", "Επιθυμητή κωδικοποίηση");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTENCODINGCONVERSION", "Επιλέξτε μετατροπή κωδικοποίησης");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTSOURCEUSERTYPE", "Επιλέξτε αρχικό τύπο χρήστη");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTTARGETUSERTYPE", "Επιλέξτε τελικό τύπο χρήστη");
+define("_MODULE_ADMINISTRATOR_TOOLS_CHANGEUSERTYPES", "Αλλαγή τύπου χρηστών");
+define("_MODULE_ADMINISTRATOR_TOOLS_CHANGETYPEINCOURSESASWELL", "Αλλαγή του τύπου και σε μαθήματα/δέσμες");
+define("_MODULE_ADMINISTRATOR_TOOLS_BASICTYPESMUSTMATCH", "Οι βασικοί τύποι πρέπει να ταιριάζουν");
 ?>

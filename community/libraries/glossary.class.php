@@ -293,7 +293,8 @@ class glossary extends EfrontEntity
      $searchdata[] = "/(\P{L})(".$value['name'].")(\P{L})/usi";
     }
     $searchdatanext[] = "/(yty656hgh".$value['name'].")/usi";
-                $replacedata[] = str_replace(array("\r\n", "\n"), '<br/>', htmlentities(strip_tags($value['info']), ENT_QUOTES));
+                $replacedata[] = str_replace("'", "&#39;" ,str_replace(array("\r\n", "\n"), '<br/>', strip_tags($value['info'])));
+             //$replacedata[]    = str_replace(array("\r\n", "\n"), '<br/>', strip_tags($value['info']));
             }
         }
         $text = self :: highlightWords($text, $searchdata, $replacedata);

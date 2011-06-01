@@ -165,7 +165,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
         'languages_NAME' => $values['languages_NAME'],
         'timezone' => $values['timezone'],
          'timestamp' => time(),
-        'password' => $values['password_'],
+        'password' => EfrontUser::createPassword($values['password_']),
         'user_types_ID' => is_numeric($values['user_type']) ? $values['user_type'] : 0,
         'short_description' => $values['short_description'],
         'comments' => $values['comments']);

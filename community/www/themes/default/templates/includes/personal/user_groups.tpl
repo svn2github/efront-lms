@@ -18,7 +18,7 @@
    </td>
    <td>{$group.description}</td>
    <td class = "centerAlign">
-   {if !$_change_groups_ && !($_self_groups_ && $group.self_enroll)}
+   {if !$_change_groups_}
     {if $group.partof == 1}
      <img src = "images/16x16/success.png" alt = "{$smarty.const._PARTOFTHISGROUP}" title = "{$smarty.const._PARTOFTHISGROUP}" />
     {/if}

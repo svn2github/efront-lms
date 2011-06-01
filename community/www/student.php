@@ -340,7 +340,7 @@ try {
      require_once ("landing_page.php");
  }
  elseif ($ctg == 'news') {
-  //$_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));		//Commented out so that dashboard news links are working
+  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once ("news.php");
  }

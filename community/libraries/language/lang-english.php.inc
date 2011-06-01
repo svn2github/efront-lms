@@ -4084,5 +4084,4 @@ define("_STANDALONELESSONSAVERAGE", "Average score in all standalone lessons");
 define("_SCORECALCULATIONMODE", "Score calculation mode");
 define("_TRIGGERINGUSERS","Triggering user&#039;s");
 define("_MODIFIED", "Modified");
-define("_USERSSELFENROLL", "Users can add themselves");
 ?>

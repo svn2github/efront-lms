@@ -2882,9 +2882,9 @@ class FileSystemTree extends EfrontTree
 
      */
     public function handleAjaxActions($currentUser) {
-        if (isset($_GET['delete']) && (eF_checkParameter($_GET['delete'], 'id') || strpos(urldecode($_GET['delete']), $this -> dir['path']) !== false)) {
+        if (isset($_GET['delete_file']) && (eF_checkParameter($_GET['delete_file'], 'id') || strpos(urldecode($_GET['delete_file']), $this -> dir['path']) !== false)) {
             try {
-                $file = new EfrontFile(urldecode($_GET['delete']));
+                $file = new EfrontFile(urldecode($_GET['delete_file']));
                 $file -> delete();
             } catch (Exception $e) {
              handleAjaxExceptions($e);

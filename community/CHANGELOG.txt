@@ -1,14 +1,13 @@
-=== Version 3.6.9 build ===
+=== Version 3.6.9 build 11013 ===
 - Added course lessons schedule display in course info page
 - Added copy blocks order from lesson X in module administrator_tools
+- Added categories path for lessons in users reports in lesson tab
+- Added custom user profile fields for user triggering the event notifications
+- Removed unit options that where meaningless for SCORM, when editing such content
+- Fixed deleting glossary entries deletes files instead
 - Fixed username format in course/lesson info pages
 - Fixed issue EF-567 about logging out using facebook connect
-- Added categories path for lessons in users reports in lesson tab
 - Fixed EF-617 where glossary added an extra space in unit data
-- Removed unit options that where meaningless for SCORM, when editing such content
-- Added custom user profile fields for user triggering the event notifications
-- Added self-enrollment option to groups (Enterprise version)
-- Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
 
 === Version 3.6.9 build 10905 ===
 - Fixed potential security issue while including javascript files

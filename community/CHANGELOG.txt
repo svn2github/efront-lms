@@ -1,4 +1,4 @@
-=== Version 3.6.9 build 11013 ===
+=== Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page
 - Added copy blocks order from lesson X in module administrator_tools
 - Added categories path for lessons in users reports in lesson tab

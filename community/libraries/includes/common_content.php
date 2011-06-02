@@ -425,6 +425,18 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     }
    }
    $smarty -> assign("T_UNIT", $currentUnit);
+   $times = new EfrontTimes();
+   $userTimeInUnit = EfrontTimes::formatTimeForReporting($times->getUserSessionTimeInUnit($currentUser->user['login'], $currentUnit['id']));
+   $smarty -> assign("T_USER_TIME_IN_UNIT", $userTimeInUnit);
+   $smarty -> assign("T_USER_CURRENT_TIME_IN_UNIT", $times->getUserCurrentSessionTimeInUnit($currentUser->user['login'], $currentUnit['id']));
+   $userTimeInLesson = EfrontTimes::formatTimeForReporting($times->getUserSessionTimeInLessonContent($currentUser->user['login'], $currentLesson->lesson['id']));
+   $smarty -> assign("T_USER_CURRENT_TIME_IN_LESSON", $userTimeInLesson['total_seconds']);
+   $smarty -> assign("T_USER_TIME_IN_LESSON", $userTimeInLesson);
+   foreach ($currentLesson->getConditions() as $value) {
+    if ($value['type'] == 'time_in_lesson') {
+     $smarty -> assign("T_REQUIRED_TIME_IN_LESSON", $value['options'][0]*60);
+    }
+   }
    //Next and previous units are needed for navigation buttons
    //package_ID denotes that a SCORM 2004 unit is active.
    if (!isset($_GET['package_ID'])) {
@@ -479,6 +491,19 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             if (isset($_GET['set_seen'])) {
                 try {
                     $currentUser -> setSeenUnit($currentUnit, $currentLesson, $_GET['set_seen']);
+                    $newUserProgress = EfrontStats :: getUsersLessonStatus($currentLesson, $currentUser -> user['login']);
+                    $newPercentage = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['overall_progress'];
+                    $newConditionsPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['conditions_passed'];
+                    $newLessonPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['lesson_passed'];
+                    $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
+                    echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, false, false, false));
+                } catch (Exception $e) {
+                 handleAjaxExceptions($e);
+                }
+                exit;
+            }
+            if (isset($_GET['ajax']) && isset($_GET['check_conditions'])) {
+                try {
                     $newUserProgress = EfrontStats :: getUsersLessonStatus($currentLesson, $currentUser -> user['login']);
                     $newPercentage = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['overall_progress'];
                     $newConditionsPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['conditions_passed'];

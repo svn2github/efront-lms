@@ -281,12 +281,14 @@ abstract class EfrontUser
   }
   !isset($userProperties['user_type']) ? $userProperties['user_type'] = 'student' : null; //If a user type is not specified, by default make the new user student
   isset($userProperties['password']) ? $passwordNonTransformed = $userProperties['password'] : $passwordNonTransformed = $userProperties['login'];
+   //pr($userProperties);
   if ($userProperties['password'] != 'ldap') {
    !isset($userProperties['password']) ? $userProperties['password'] = EfrontUser::createPassword($userProperties['login']) : $userProperties['password'] = self :: createPassword($userProperties['password']);
    if ($GLOBALS['configuration']['force_change_password']) {
     $userProperties['need_pwd_change'] = 1;
    }
   }
+   //pr($userProperties);exit;
   //!isset($userProperties['password'])	   ? $userProperties['password']	   = md5($userProperties['login'].G_MD5KEY)		: $userProperties['password'] = md5($userProperties['password'].G_MD5KEY);		//If password is not specified, use login instead
   !isset($userProperties['email']) ? $userProperties['email'] = '' : null; // 0 means not pending, 1 means pending
   !isset($userProperties['languages_NAME']) ? $userProperties['languages_NAME'] = $GLOBALS['configuration']['default_language'] : null; //If language is not specified, use default language
@@ -297,7 +299,7 @@ abstract class EfrontUser
   eF_insertTableData("users", $userProperties);
   // Assign to the new user all skillgap tests that should be automatically assigned to every new student
   $newUser = EfrontUserFactory :: factory($userProperties['login']);
-  $newUser -> user['password'] = $passwordNonTransformed;
+  //$newUser -> user['password'] = $passwordNonTransformed;	//commented out because it was not needed any more, and created problems. Will be removed in next pass
   global $currentUser; // this is for running eF_loadAllModules ..needs to go somewhere else
   if (!$currentUser) {
    $currentUser = $newUser;

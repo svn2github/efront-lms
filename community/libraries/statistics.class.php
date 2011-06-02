@@ -976,433 +976,6 @@ class EfrontStats
     }
 
     /**
-     * Get lesson(s) status for user(s)
-     *
-     * This function is used to calculate the specified lessons status for the specified users
-     * It calculates the progress, percentages, scores etc that describe the users' status
-     * to the lesson.
-     * <br/>Example:
-     * <code>
-     * $status = EfrontStats :: getUsersLessonStatus(34, 'jdoe');		//Get the status for user jdoe in lesson with id 34
-     * $status = EfrontStats :: getUsersLessonStatus(false, 'jdoe');	//Get the status for user jdoe in all lessons
-     * $status = EfrontStats :: getUsersLessonStatus(34);				//Get the status for all users in lesson with id 34
-     * $status = EfrontStats :: getUsersLessonStatus();					//Get the status for all users in all lessons
-     * </code>
-     * Note: This function is designed so that there is never the need to call it inside a loop
-     * Since it is database-intensive, make sure that it is NEVER called inside a loop!
-     *
-     * @param array $lessons an array of lesson ids or EfrontLesson objects
-     * @param array $users An array of user logins
-     * @return array The lesson status
-     * @since 3.5.0
-     * @access public
-     */
-    public static function getUsersLessonStatusAll($lessons = false, $users = false, $options = array()) {
-
-/*
-        $studentLessons = array();
-        foreach ($lessons as $lesson) {
-            if (in_array('student', $usersLessonsTypes[$lesson -> lesson['id']])) {    //Calculate these statistics only if the lesson has students
-            	$studentLessons[$lesson -> lesson['id']] = $lessons[$lesson -> lesson['id']];
-            }
-        }
-        $usersDoneContent      = EfrontStats :: getStudentsSeenContent($studentLessons, array_keys($users));    //Calculate the done content for users in this lesson
-		$usersAssignedProjects = EfrontStats :: getStudentsAssignedProjects($studentLessons, array_keys($users));
-		$usersDoneTests        = EfrontStats :: getStudentsDoneTests($studentLessons, array_keys($users));
-*/
-     $usersDoneContent = EfrontStats :: getStudentsSeenContent($lessons, $users, $options); //Calculate the done content for users in this lesson
-     $usersAssignedProjects = array();
-     if (!isset($options['noprojects']) || !$options['noprojects']) {
-   $usersAssignedProjects = EfrontStats :: getStudentsAssignedProjects($lessons, $users);
-     }
-     $usersDoneTests = array();
-     if (!isset($options['notests']) || !$options['notests']) {
-      $usersDoneTests = EfrontStats :: getStudentsDoneTests($lessons, $users);
-     }
-
-        $roles = EfrontLessonUser :: getLessonsRoles();
-        //transpose projects array, from (login => array(project id => project)) to array(lesson id => array(login => array(project id => project)))
-        $temp = array();
-        foreach ($usersAssignedProjects as $login => $userProjects) {
-            foreach ($userProjects as $projectId => $project) {
-                $temp[$project['lessons_ID']][$login][$projectId] = $project;
-            }
-        }
-        $usersAssignedProjects = $temp;
-
-        //transpose tests array, from (login => array(test id => test)) to array(lesson id => array(login => array(test id => test)))
-        $temp = array();
-        foreach ($usersDoneTests as $login => $userTests) {
-            foreach ($userTests as $contentID => $test) {
-                $temp[$test['lessons_ID']][$login][$contentID] = $test;
-            }
-        }
-        $usersDoneTests = $temp;
-
-        if ($lessons === false) {
-            $lessons = eF_getTableData("lessons", "*");
-        } else if (!is_array($lessons)) {
-            $lessons = array($lessons);
-        }
-
-        foreach ($lessons as $key => $lesson) {
-            if (!($lesson instanceof EfrontLesson)) {
-                $lesson = new EfrontLesson($lesson);
-            }
-            $temp[$lesson -> lesson['id']] = $lesson;
-        }
-        $lessons = $temp; //Transform $lessons array so that keys hold the ids
-
-        if ($users != false) {
-            !is_array($users) ? $users = array($users) : null; //Convert single login to array
-        } else {
-            $users = eF_getTableDataFlat("users", "login", "user_type != 'administrator'");
-            $users = $users['login'];
-        }
-
-        //Assign users their information
-        $result = eF_getTableData("users", "*", "login in ('".implode("','", $users)."') and user_type != 'administrator'");
-        $users = array();
-        foreach ($result as $value) {
-            $users[$value['login']] = $value;
-        }
-
-        //Get lessons info for users
-        if (sizeof($lessons) > 0) {
-         $result = eF_getTableData("users_to_lessons", "*", "archive=0 and users_LOGIN in ('".implode("','", array_keys($users))."') and lessons_ID in (".implode(",", array_keys($lessons)).")");
-         foreach ($result as $value) {
-             if (in_array($value['users_LOGIN'], array_keys($users))) {
-                 $lesson = $lessons[$value['lessons_ID']];
-                 if ($lesson -> lesson['duration'] && $value['from_timestamp']) {
-                     $value['remaining'] = $value['from_timestamp'] + $lesson -> lesson['duration']*3600*24 - time();
-                 } else {
-                     $value['remaining'] = null;
-                 }
-                 //Check whether the lesson registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled
-                 if ($lesson -> lesson['duration'] && $value['from_timestamp'] && $lesson -> lesson['duration'] * 3600 * 24 + $value['from_timestamp'] < time()) {
-                     $lesson -> archiveLessonUsers($value['users_LOGIN']);
-                 } else {
-                  $usersLessons[$value['lessons_ID']][$value['users_LOGIN']] = $value;
-                  $usersLessonsTypes[$value['lessons_ID']][$value['users_LOGIN']] = $roles[$value['user_type']]; //Handy since we need to know whether a lesson has any students
-                 }
-             }
-            }
-        }
-
-        //Build a caching set for conditions, so that we avoid looping queries inside $lesson -> getConditions();
-        $result = eF_getTableData("lesson_conditions", "*");
-  $conditions = array();
-        foreach ($result as $value) {
-         $conditions[$value['lessons_ID']][] = $value;
-        }
-        $lessonStatus = array();
-        foreach ($lessons as $lesson) {
-            if (in_array('student', $usersLessonsTypes[$lesson -> lesson['id']])) { //Calculate these statistics only if the lesson has students
-    !isset($conditions[$lesson -> lesson['id']]) ? $conditions[$lesson -> lesson['id']] = array() : null;
-                $lessonConditions = $lesson -> getConditions($conditions[$lesson -> lesson['id']]);
-                $lessonContent = new EfrontContentTree($lesson);
-                $doneContent = isset($usersDoneContent[$lesson -> lesson['id']]) ? $usersDoneContent[$lesson -> lesson['id']] : array();
-                $doneTests = isset($usersDoneTests[$lesson -> lesson['id']]) ? $usersDoneTests[$lesson -> lesson['id']] : array();
-
-                $assignedProjects = isset($usersAssignedProjects[$lesson -> lesson['id']]) ? $usersAssignedProjects[$lesson -> lesson['id']] : array();
-
-                $visitableContentIds = array();
-                $visitableExampleIds = array();
-                $visitableTestIds = array();
-                $testIds = array();
-
-                foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
-                    switch($value -> offsetGet('ctg_type')) {
-                     case 'theory':
-                     case 'scorm':
-                      $visitableContentIds[$key] = $key; //Get the not-test unit ids for this content
-                      break;
-                     case 'examples':
-                      $visitableExampleIds[$key] = $key; //Get the not-test unit ids for this content
-                      break;
-                     case 'tests':
-                     case 'scorm_test':
-                      $visitableTestIds[$key] = $key; //Get the scorm test unit ids for this content
-                      $testIds[$key] = $key; //Get the test unit ids for this content
-                      break;
-                    }
-                }
-
-                $visitableUnits = $visitableContentIds + $visitableExampleIds + $visitableTestIds;
-/*
-                $visitableContentIds = array();
-                foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'theory', 'active' => 1))) as $key => $value) {
-                    $visitableContentIds[$key] = $key;                                                    //Get the not-test unit ids for this content
-                }
-                foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'scorm', 'active' => 1))) as $key => $value) {
-                    $visitableContentIds[$key] = $key;                                                    //Get the scorm ids for this content
-                }
-
-                $visitableExampleIds = array();
-                foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'examples', 'active' => 1))) as $key => $value) {
-                    $visitableExampleIds[$key] = $key;                                                    //Get the not-test unit ids for this content
-                }
-
-                $visitableTestIds = array();
-                foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'tests', 'active' => 1))) as $key => $value) {
-                    $visitableTestIds[$key] = $key;                                                    //Get the test unit ids for this content
-                }
-                foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'scorm_test', 'active' => 1))) as $key => $value) {
-                    $visitableTestIds[$key] = $key;                                                    //Get the scorm test unit ids for this content
-                }
-                $visitableUnits = $visitableContentIds + $visitableExampleIds + $visitableTestIds;
-
-                //$plain testIds, as opposed to $visitableTestIds, are used for statistics, so that inactive tests done by the user are also calculated
-                $testIds = array();
-                foreach ($iterator = (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'tests'))) as $key => $value) {
-                    $testIds[$key] = $key;                                                    //Get the test unit ids for this content
-                }
-                foreach ($iterator = (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($lessonContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('ctg_type' => 'scorm_test'))) as $key => $value) {
-                    $testIds[$key] = $key;                                                    //Get the scorm test unit ids for this content
-                }
-*/
-            }
-
-            foreach ($usersLessons[$lesson -> lesson['id']] as $login => $value) {
-
-                $lessonStatus[$lesson -> lesson['id']][$login] = array('login' => $login,
-                                                                        'name' => $users[$login]['name'],
-                                                                        'surname' => $users[$login]['surname'],
-                                                                        'basic_user_type' => $users[$login]['user_type'],
-                                                                        'user_type' => $value['user_type'], //The user's role in the lesson
-                              'user_types_ID' => $users[$login]['user_types_ID'],
-                                                                        'different_role' => (!$users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_type']) || ($users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_types_ID']), //Whether the user has a role different than the default in this lesson
-                                                                        'active' => $users[$login]['active'],
-                                                                        'lesson_name' => $lesson -> lesson['name'],
-                                                                        'from_timestamp' => $value['from_timestamp'],
-                                                                        'remaining' => $value['remaining']);
-                //Student - specific information
-                if ($roles[$value['user_type']] == 'student') {
-                    !isset($doneContent[$login]) ? $doneContent[$login] = array() : null;
-                    !isset($assignedProjects[$login]) ? $assignedProjects[$login] = array() : null;
-
-                    list($conditionsMet, $lessonPassed) = self :: checkConditions($doneContent[$login], $lessonConditions, $visitableUnits, $visitableTestIds);
-
-                    //Content progress is theory and examples units seen
-                    $contentProgress = 0;
-                    if (isset($doneContent[$login]) && sizeof($doneContent[$login]) > 0 && (sizeof($visitableContentIds) > 0 || sizeof($visitableExampleIds) > 0)) {
-                        $contentProgress = round(100 * sizeof(array_diff_key($doneContent[$login], $visitableTestIds)) / (sizeof($visitableContentIds) + sizeof($visitableExampleIds)), 2);
-                    }
-
-                    //Calculate tests average score and progress
-                    $testsProgress = 0;
-                    $numCompletedTests = 0;
-                    $testsAvgScore = array();
-                    if (sizeof($testIds) > 0 && isset($doneTests[$login]) && sizeof($doneTests[$login]) > 0) {
-                        foreach ($doneTests[$login] as $doneTest) {
-                            $testsAvgScore[] = $doneTest['score'];
-                        }
-
-                        $testsAvgScore = array_sum($testsAvgScore) / sizeof($testsAvgScore);
-
-                        $numCompletedTests = 0;
-                        if (!isset($doneTest[$login['lesson_status']]) || $doneTest[$login['lesson_status']] == 'passed' || $doneTest[$login['lesson_status']] == 'completed') {
-                             $numCompletedTests++;
-                        }
-                        $testsProgress = round(100 * $numCompletedTests / sizeof($visitableTestIds), 2);
-                    } else {
-                        $testsAvgScore = 0;
-                    }
-
-                    //Calculate projects average score and build done projects list, since we don't have this automatically
-                    $doneProjects = array();
-                    $projectsAvgScore = array();
-                    $projectsProgress = 0;
-                    if (sizeof($assignedProjects[$login]) > 0) {
-                        foreach ($assignedProjects[$login] as $id => $project) {
-                            if ($project['grade'] !== '' || $project['upload_timestamp']) {
-                                $doneProjects[$id] = $project;
-                                $projectsAvgScore[] = $project['grade'];
-                            }
-                        }
-                        sizeof($doneProjects) > 0 ? $projectsAvgScore = array_sum($projectsAvgScore) / sizeof($projectsAvgScore) : $projectsAvgScore = 0;
-
-                        $projectsProgress = round(100 * sizeof($doneProjects) / sizeof($assignedProjects[$login]), 2);
-                    } else {
-                        $projectsAvgScore = 0;
-                    }
-
-                    //Calculate overall progress, the number of done content + done (passed for SCORM) tests divided with the total units number
-                    $overallProgress = 0;
-
-                    if (sizeof($visitableUnits) > 0) {
-                        $overallProgress = round(100 * (sizeof(array_intersect(array_keys($visitableUnits), array_keys($doneContent[$login])))) / sizeof($visitableUnits), 2);
-                    }
-
-                    $lessonStatus[$lesson -> lesson['id']][$login]['assigned_projects'] = $assignedProjects[$login]; //the total assigned projects to the user, with information for each one.
-                    $lessonStatus[$lesson -> lesson['id']][$login]['projects_progress'] = $projectsProgress; //the projects percentage done
-                    $lessonStatus[$lesson -> lesson['id']][$login]['projects_avg_score'] = $projectsAvgScore; //the projects average score
-                    $lessonStatus[$lesson -> lesson['id']][$login]['tests_progress'] = $testsProgress; //the tests percentage done
-                    $lessonStatus[$lesson -> lesson['id']][$login]['tests_avg_score'] = $testsAvgScore; //the tests average score
-                    $lessonStatus[$lesson -> lesson['id']][$login]['content_progress'] = $contentProgress; //the content (theory_examples) percentage done
-                    $lessonStatus[$lesson -> lesson['id']][$login]['overall_progress'] = $overallProgress; //the total percentage done, including content and tests
-                    $lessonStatus[$lesson -> lesson['id']][$login]['lesson_passed'] = $lessonPassed;
-                    $lessonStatus[$lesson -> lesson['id']][$login]['total_conditions'] = sizeof($lessonConditions);
-                    $lessonStatus[$lesson -> lesson['id']][$login]['conditions_passed']= array_sum($conditionsMet);
-                    $lessonStatus[$lesson -> lesson['id']][$login]['completed'] = $value['completed'];
-                    $lessonStatus[$lesson -> lesson['id']][$login]['score'] = $value['score'];
-                    $lessonStatus[$lesson -> lesson['id']][$login]['comments'] = $value['comments'] ? $value['comments'] : 0;
-                }
-            }
-        }
-
-        return $lessonStatus;
-    }
-    /**
-     * Get user(s) status in course(s)
-     *
-     * This function is used to calculate the user's status in the course, ie the score, completed
-     * etc. It also calculates statistics for all lessons inside the course
-     * <br>Example:
-     * <code>
-     * $status = EfrontStats :: getUsersCourseStatus(34, 'jdoe');		//Get the status for user jdoe in course with id 34
-     * $status = EfrontStats :: getUsersCourseStatus(false, 'jdoe');	//Get the status for user jdoe in all courses
-     * $status = EfrontStats :: getUsersCourseStatus(34);				//Get the status for all users in course with id 34
-     * $status = EfrontStats :: getUsersCourseStatus();					//Get the status for all users in all courses
-     *</code>
-     * Note: This function is designed so that there is never the need to call it inside a loop
-     * Since it is database-intensive, make sure that it is NEVER called inside a loop!
-     *
-     * @param mixed $courses an array of course ids or EfrontCourse objects
-     * @param mixed $users an array of users logins
-     * @return array The user status in courses
-     * @since 3.5.0
-     * @access public
-     */
-    public static function getUsersCourseStatusAll($courses = false, $users = false, $options = array()) {
-        $roles = EfrontLessonUser :: getLessonsRoles();
-        foreach ($roles as $key => $value) {
-         $value == 'student' ? $studentLessonRoles[] = $key : null;
-        }
-
-        if ($courses === false) {
-            $courses = eF_getTableData("courses", "*");
-        } else if (!is_array($courses)) {
-            $courses = array($courses);
-        }
-        $coursesLessons = array();
-
-        foreach ($courses as $key => $course) {
-            if (!($course instanceof EfrontCourse)) {
-                $courses[$key] = new EfrontCourse($course);
-            }
-            $coursesLessons = $courses[$key] -> getCourseLessons() + $coursesLessons;
-        }
-
-        $lessonsStatus = self :: getUsersLessonStatusAll($coursesLessons, $users, $options);
-
-        if ($users != false) {
-            !is_array($users) ? $users = array($users) : null; //Convert single login to array
-        } else {
-            $users = eF_getTableDataFlat("users", "login", "user_type != 'administrator'");
-            $users = $users['login'];
-        }
-
-/*
-        $result  	    = eF_getTableDataFlat("users_to_lessons ul", "lessons_ID", "ul.lessons_ID in (".implode(",", array_keys($coursesLessons)).") and ul.users_LOGIN in ('".implode("','", $users)."') and ul.user_type in ('".implode("','", $studentLessonRoles)."')");
-        $studentLessons = array_combine($result['lessons_ID'], $result['lessons_ID']);
-		if (sizeof($lessonsStatus) > 0) {
-	        //get statistics array
-	        $lessonsStatus = self :: getUsersLessonStatus($studentLessons, $users);
-		}
-*/
-        //Assign users their information
-        $result = eF_getTableData("users", "*", "login in ('".implode("','", $users)."') and user_type != 'administrator'");
-        $users = array();
-        foreach ($result as $value) {
-            $users[$value['login']] = $value;
-        }
-
-
-        //Get lessons info for users
-        $result = eF_getTableData("users_to_courses", "*");
-        foreach ($result as $value) {
-            if (in_array($value['users_LOGIN'], array_keys($users))) {
-                $course = $courses[$value['courses_ID']];
-
-                if ($course -> course['start_date'] && $course -> course['start_date'] > time()) {
-                 $value['remaining'] = null;
-                } elseif ($course -> course['end_date'] && $course -> course['end_date'] < time()) {
-                 $value['remaining'] = 0;
-                } else if ($course -> options['duration'] && $value['from_timestamp']) {
-                 if ($value['from_timestamp'] < $course -> course['start_date']) {
-                  $value['from_timestamp'] = $course -> course['start_date'];
-                 }
-                    $value['remaining'] = $value['from_timestamp'] + $course -> options['duration']*3600*24 - time();
-                    if ($course -> course['end_date'] && $course -> course['end_date'] < $value['from_timestamp'] + $course -> options['duration']*3600*24) {
-                     $value['remaining'] = $course -> course['end_date'] - time();
-                    }
-                } else {
-                    $value['remaining'] = null;
-                }
-                //Check whether the course registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled
-                if ($course -> course['duration'] && $value['from_timestamp'] && $course -> course['duration'] * 3600 * 24 + $value['from_timestamp'] < time()) {
-                    $course -> archiveCourseUsers($value['users_LOGIN']);
-                } else {
-                    $usersCourses[$value['courses_ID']][$value['users_LOGIN']] = $value;
-                    $usersCoursesTypes[$value['courses_ID']][$value['users_LOGIN']] = $roles[$value['user_type']]; //Handy since we need to know whether a course has any students
-                }
-            }
-        }
-
-        $courseStatus = array();
-        foreach ($courses as $course) {
-            //transpose and filter s statistics array, for convenience, from  lesson id => login to login => lesson id
-            $courseLessons = $course -> getCourseLessons();
-         foreach ($lessonsStatus as $lessonId => $info) {
-                if (in_array($lessonId, array_keys($courseLessons))) {
-                    foreach ($info as $login => $stats) {
-                        $userLessonStatus[$course -> course['id']][$login][$lessonId] = $stats;
-                    }
-                }
-            }
-
-            if (sizeof($usersCourses[$course -> course['id']]) > 0) {
-                foreach ($usersCourses[$course -> course['id']] as $login => $value) {
-                    $courseStatus[$course -> course['id']][$login] = array('login' => $login,
-                                                                            'name' => $users[$login]['name'],
-                                                                            'surname' => $users[$login]['surname'],
-                                                                            'basic_user_type' => $users[$login]['user_type'],
-                                                                            'user_type' => $value['user_type'], //User type in course
-                                                                            'user_types_ID' => $users[$login]['user_types_ID'],
-                                                                         'different_role' => (!$users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_type']) || ($users[$login]['user_types_ID'] && $value['user_type'] != $users[$login]['user_types_ID']), //Whether the user has a role different than the default in this lesson
-                                     'active' => $users[$login]['active'],
-                                                                            'course_name' => $course -> course['name'],
-                                                                            'from_timestamp' => $value['from_timestamp'],
-                                                                            'remaining' => $value['remaining']);
-                    //Student - specific information
-                    if ($roles[$value['user_type']] == 'student') {
-                        $courseStatus[$course -> course['id']][$login]['completed'] = $value['completed'];
-                        $courseStatus[$course -> course['id']][$login]['to_timestamp'] = $value['to_timestamp'];
-                        $courseStatus[$course -> course['id']][$login]['score'] = $value['score'];
-                        $courseStatus[$course -> course['id']][$login]['comments'] = $value['comments'];
-                        $courseStatus[$course -> course['id']][$login]['issued_certificate'] = $value['issued_certificate'];
-                        $courseStatus[$course -> course['id']][$login]['total_lessons'] = sizeof($course -> countCourseLessons());
-                        //Count completed lessons
-                        $completedLessons = 0;
-                        if (isset($userLessonStatus[$course -> course['id']][$login])) {
-                            foreach ($userLessonStatus[$course -> course['id']][$login] as $lesson) {
-                                if ($lesson['completed']) {
-                                    $completedLessons++;
-                                }
-                            }
-                        }
-                        $courseStatus[$course -> course['id']][$login]['completed_lessons'] = $completedLessons;
-                    }
-                    //Append the course's lessons information
-                    $courseStatus[$course -> course['id']][$login]['lesson_status'] = $userLessonStatus[$course -> course['id']][$login];
-                }
-            }
-        }
-
-        return $courseStatus;
-    }
-    /**
      * Get user(s) status in course(s)
      *
      * This function is used to calculate the user's status in the course, ie the score, completed
@@ -1563,6 +1136,11 @@ class EfrontStats
             $storeCache = true;
         }
 */
+     $times = new EfrontTimes();
+     $usersTimesInLessonContent = array();
+     foreach ($times->getUsersSessionTimeInLessonContent($lesson->lesson['id']) as $value) {
+      $usersTimesInLessonContent[$value['users_LOGIN']] = $value['time'];
+     }
      $usersDoneContent = EfrontStats :: getStudentsSeenContent($lesson, $user, $options); //Calculate the done content for users in this lesson
      $usersAssignedProjects = array();
      if (!isset($options['noprojects']) || !$options['noprojects']) {
@@ -1677,7 +1255,7 @@ class EfrontStats
                     !isset($doneContent[$login]) ? $doneContent[$login] = array() : null;
                     !isset($assignedProjects[$login]) ? $assignedProjects[$login] = array() : null;
 
-                    list($conditionsMet, $lessonPassed) = self :: checkConditions($doneContent[$login], $lessonConditions, $visitableUnits, $visitableTestIds);
+                    list($conditionsMet, $lessonPassed) = self :: checkConditions($doneContent[$login], $lessonConditions, $visitableUnits, $visitableTestIds, $usersTimesInLessonContent[$login]);
 
                     //Content progress is theory and examples units seen
                     $contentProgress = 0;
@@ -1776,7 +1354,7 @@ class EfrontStats
      * @access public
      * @static
      */
-    public static function checkConditions($seenUnits, $conditions, $visitableContentIds, $visitableTestIds) {
+    public static function checkConditions($seenUnits, $conditions, $visitableContentIds, $visitableTestIds, $userTimesInLessonContent) {
         !$seenUnits ? $seenUnits = array() : null;
         $notSeenUnits = array_diff_key($visitableContentIds, $seenUnits); //The units that the user has yet to see
         $conditionsMet = array();
@@ -1811,6 +1389,13 @@ class EfrontStats
                 case 'specific_test':
                     in_array($condition['options'][0], array_keys($seenUnits)) || !in_array($condition['options'][0], $visitableTestIds) ? $passed = 1 : $passed = 0;
                     break;
+                case 'time_in_lesson':
+                 if ($userTimesInLessonContent >= $condition['options'][0]*60) {
+                  $passed = 1;
+                 } else {
+                  $passed = 0;
+                 }
+                 break;
                 default:
                     break;
             }

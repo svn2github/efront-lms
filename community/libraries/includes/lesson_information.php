@@ -142,7 +142,8 @@ if ($_GET['edit_info'] && $_change_ && !$_student_) {
                 $conditions[$key]['test_passing_score'] = $allTestsScore[$condition['options'][0]];
             }
         }
-        list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']], $conditions, $visitableContentIds, $testsIds);
+        $times = new EfrontTimes();
+        list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']], $conditions, $visitableContentIds, $testsIds, $times->getUserSessionTimeInLessonContent($currentUser -> user['login'], $currentLesson -> lesson['id']));
         $smarty -> assign("T_CONDITIONS", $conditions);
         $smarty -> assign("T_CONDITIONS_STATUS", $conditionsStatus);
         //$smarty -> assign("T_LESSON_PASSED", $lessonPassed);

@@ -20,6 +20,8 @@
                          {$smarty.const._MUSTCOMPLETEALLTESTS}{if !$T_CONDITIONS_STATUS[$key]}<img src = "images/16x16/forbidden.png" title = "{$smarty.const._CONDITIONNOTMET}" alt = "{$smarty.const._CONDITIONNOTMET}" style = "vertical-align:middle;margin-left:25px">{else}<img src = "images/16x16/success.png" title = "{$smarty.const._CONDITIONMET}" alt = "{$smarty.const._CONDITIONMET}" style = "vertical-align:middle;margin-left:25px">{/if}
                      {elseif $condition.type == 'specific_test'}
                          {$smarty.const._MUSTCOMPLETETEST} &quot;{$T_TREE_NAMES[$condition.options.0]}&quot;{if !$T_CONDITIONS_STATUS[$key]}<img src = "images/16x16/forbidden.png" title = "{$smarty.const._CONDITIONNOTMET}" alt = "{$smarty.const._CONDITIONNOTMET}" style = "vertical-align:middle;margin-left:25px">{else}<img src = "images/16x16/success.png" title = "{$smarty.const._CONDITIONMET}" alt = "{$smarty.const._CONDITIONMET}" style = "vertical-align:middle;margin-left:25px">{/if}
+                  {elseif $condition.type == 'time_in_lesson'}
+                      {"%x"|str_replace:$condition.options.0:$smarty.const._MUSTSPENDXMINUTESINLESSON}
                      {/if}
                          </td></tr>
                  {/foreach}

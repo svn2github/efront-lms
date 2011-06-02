@@ -77,6 +77,10 @@
                         <td>{$T_COMPLETE_LESSON_FORM.specific_test.html}</td></tr>
                     {if $T_COMPLETE_LESSON_FORM.specific_test.error}<tr><td class = "formError">{$T_COMPLETE_LESSON_FORM.specific_test.error}</td></tr>{/if}
 
+                    <tr id = "time_in_lesson" {if $T_CURRENT_CONDITION.type != "time_in_lesson" && $smarty.post.condition_types != "time_in_lesson"}style = "display:none"{/if}><td class = "labelCell">{$smarty.const._MINUTES}:&nbsp;</td>
+                        <td>{$T_COMPLETE_LESSON_FORM.time_in_lesson.html}</td></tr>
+                    {if $T_COMPLETE_LESSON_FORM.time_in_lesson.error}<tr><td class = "formError">{$T_COMPLETE_LESSON_FORM.time_in_lesson.error}</td></tr>{/if}
+
                     <tr><td class = "labelCell">{$smarty.const._RELATIONTOOTHERS}:&nbsp;</td>
                         <td>{$T_COMPLETE_LESSON_FORM.relation.html}</td></tr>
                     {if $T_COMPLETE_LESSON_FORM.relation.error}<tr><td class = "formError">{$T_COMPLETE_LESSON_FORM.relation.error}</td></tr>{/if}
@@ -116,6 +120,8 @@
                             {if $item.type == 'all_units'}
                             {elseif $item.type == 'percentage_units'}
               {$item.options.0}%
+                            {elseif $item.type == 'time_in_lesson'}
+              {$item.options.0}'
                             {elseif $item.type == 'specific_unit'}
               {$T_TREE_NAMES[$item.options.0]}
                             {elseif $item.type == 'all_tests'}

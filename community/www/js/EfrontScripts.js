@@ -566,7 +566,13 @@ var targetWin = window.open (pageURL, title, 'scrollbars=yes, width='+w+', heigh
 
 
 function periodicUpdater() {
-	ajaxRequest(document.body, 'periodic_updater.php', {method:'get'}, onPeriodicUpdater);
+	if ($('user_current_time_in_unit')) {
+		var parameters = {method:'post', user_current_time_in_unit:$('user_current_time_in_unit').innerHTML};
+	} else {
+		var parameters = {method:'get'};
+	}
+	//alert(parameters.time);
+	ajaxRequest(document.body, 'periodic_updater.php', parameters, onPeriodicUpdater);
 }
 
 function onPeriodicUpdater(el, response) {

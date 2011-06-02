@@ -29,6 +29,12 @@ $condition_types = array('all_units' => _PASSEDALLUNITS,
                          'all_tests' => _PASSEDALLTESTS,
                          'specific_test' => _SPECIFICTEST
                          );
+
+
+
+
+
+
 $smarty -> assign("T_LESSON_CONDITIONS", $conditions);
 $smarty -> assign("T_CONDITION_TYPES", $condition_types);
 
@@ -244,6 +250,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     $form -> addRule('percentage_units', _THEFIELD.' '._ISMANDATORY, 'required', null, 'client');
     $form -> addRule('percentage_units', _INVALIDPERCENTAGE, 'numeric');
 
+    $form -> addElement('text', 'time_in_lesson', _MINUTES, 'style = "width:5em"');
+    $form -> addRule('time_in_lesson', _INVALIDDATA, 'numeric', null, 'client');
+
     $form -> addElement('select', 'relation', null, array('and' => _AND, 'or' => _OR));
 
     $form -> addElement('submit', 'submit_complete_lesson_condition', _SUBMIT, 'class = "flatButton"');
@@ -257,6 +266,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
         switch ($conditions[$_GET['edit_condition']]['type']) {
             case 'percentage_units': $defaults = array('percentage_units' => $options[0]); break;
             case 'specific_unit': $defaults = array('specific_unit' => $options[0]); break;
+            case 'time_in_lesson': $defaults = array('time_in_lesson' => $options[0]); break;
             //case 'all_tests':        $defaults = array('all_tests'        => $options[0]); break;
             //case 'specific_test':    $defaults = array('specific_test'    => $options[0]); break;
             default: break;
@@ -278,6 +288,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
                 case 'specific_unit': $fields['options'] = serialize(array(0 => $form -> exportValue('specific_unit'))); break;
                 //case 'all_tests':        $fields['options'] = serialize(array(0 => $form -> exportValue('all_tests')));           break;
                 case 'specific_test': $fields['options'] = serialize(array(0 => $form -> exportValue('specific_test'))); break;
+                case 'time_in_lesson': $fields['options'] = serialize(array(0 => $form -> exportValue('time_in_lesson'))); break;
                 default: break;
             }
 

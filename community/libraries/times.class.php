@@ -1,14 +1,14 @@
 <?php
 /**
-* EfrontTimes Class file
-*
-* @package eFront
-* @version 3.5.0
-*/
+ * EfrontTimes Class file
+ *
+ * @package eFront
+ * @version 3.5.0
+ */
 
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
-    exit;
+ exit;
 }
 
 /**
@@ -50,22 +50,71 @@ class EfrontTimes
 
  public function getUserTotalSessionTime($user) {
   $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."'");
-  return $result[0]['sum(time)'];
+  if ($result[0]['sum(time)']) {
+   return $result[0]['sum(time)'];
+  } else {
+   return 0;
+  }
  }
 
  public function getUserSessionTimeInCourse($user, $course) {
   $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and courses_ID = ".$course);
-  return $result[0]['sum(time)'];
+  if ($result[0]['sum(time)']) {
+   return $result[0]['sum(time)'];
+  } else {
+   return 0;
+  }
  }
 
  public function getUserSessionTimeInLesson($user, $lesson) {
   $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and lessons_ID = ".$lesson);
-  return $result[0]['sum(time)'];
+  if ($result[0]['sum(time)']) {
+   return $result[0]['sum(time)'];
+  } else {
+   return 0;
+  }
+ }
+
+ public function getUserSessionTimeInLessonContent($user, $lesson) {
+  $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)");
+  if ($result[0]['sum(time)']) {
+   return $result[0]['sum(time)'];
+  } else {
+   return 0;
+  }
+ }
+
+ public function getUsersSessionTimeInLessonContent($lesson) {
+  $result = eF_getTableData("user_times", "users_LOGIN, sum(time) as time", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)", "", "users_LOGIN");
+  return $result;
+ }
+
+ public function getUsersSessionTimeInLessonsContent() {
+  $result = eF_getTableData("content", "id, lessons_ID", "active=1");
+  $contentIdsPerLesson = array();
+  foreach ($result as $value) {
+   $contentIdsPerLesson[$value['lessons_ID']] = $value['id'];
+  }
+  pr($contentIdsPerLesson);
+  $result = eF_getTableData("user_times", "users_LOGIN, sum(time) as time", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)", "", "users_LOGIN");
  }
 
  public function getUserSessionTimeInUnit($user, $unit) {
   $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and entity = 'unit' and entity_ID = ".$unit);
-  return $result[0]['sum(time)'];
+  if ($result[0]['sum(time)']) {
+   return $result[0]['sum(time)'];
+  } else {
+   return 0;
+  }
+ }
+
+ public function getUserCurrentSessionTimeInUnit($user, $unit) {
+  $result = eF_getTableData("user_times", "time", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and entity = 'unit' and entity_ID = ".$unit." and session_id='".session_id()."' and session_expired=0");
+  if ($result[0]['time']) {
+   return $result[0]['time'];
+  } else {
+   return 0;
+  }
  }
 
  public function getUserSessionTimeInCourses($user) {
@@ -195,7 +244,7 @@ class EfrontTimes
   if ($seconds >= 60) {
    $totalTime['seconds'] = $seconds % 60;
    $totalTime['minutes'] += floor($seconds / 60);
-  } else {
+  } elseif ($seconds) {
    $totalTime['seconds'] = $seconds;
   }
   if ($totalTime['minutes'] >= 60) {
@@ -244,9 +293,9 @@ class EfrontTimes
 
   //Get system times for users
   $timeNow = time();
-     for ($t = $firstDay; $t <= $timeNow - 86400; $t+=86400) {
+  for ($t = $firstDay; $t <= $timeNow - 86400; $t+=86400) {
    $userTimes[$t] = EfrontTimes::getDeprecatedUserTimesPerDay(array('from' => $t, 'to' => $t+86400));
-     }
+  }
 
   foreach ($userTimes as $timestamp => $users) {
    foreach ($users as $login => $times) {
@@ -309,30 +358,30 @@ class EfrontTimes
 	 * @param array $interval
 	 */
  private static function getDeprecatedUserTimesPerDay($interval) {
-/*
-		$scormTimes = eF_getTableData("scorm_data sd, content c", "sd.total_time", "c.id=sd.content_ID and users_LOGIN = '".$user['login']."' and c.lessons_ID=".$this -> lesson['id']);
-		$scormSeconds = 0;
-		foreach ($scormTimes as $value) {
+  /*
+		 $scormTimes = eF_getTableData("scorm_data sd, content c", "sd.total_time", "c.id=sd.content_ID and users_LOGIN = '".$user['login']."' and c.lessons_ID=".$this -> lesson['id']);
+		 $scormSeconds = 0;
+		 foreach ($scormTimes as $value) {
 			$scormSeconds += convertTimeToSeconds($value['total_time']);
-		}
-		$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
-		$userTimes = $userTimes[$this -> lesson['id']][$user['login']];
+			}
+			$userTimes = EfrontStats :: getUsersTimeAll(false, false, array($this -> lesson['id'] => $this -> lesson['id']), array($user['login'] => $user['login']));
+			$userTimes = $userTimes[$this -> lesson['id']][$user['login']];
 
-		if ($userTimes['total_seconds'] < $scormSeconds) {
+			if ($userTimes['total_seconds'] < $scormSeconds) {
 			$newTimes = convertSecondsToTime($scormSeconds);
 			$newTimes['total_seconds'] = $scormSeconds;
 			$newTimes['accesses']	   = $userTimes['accesses'];
 			$userTimes = $newTimes;
-		}
+			}
 
-		$userTimes['time_string'] = '';
-		if ($userTimes['total_seconds']) {
+			$userTimes['time_string'] = '';
+			if ($userTimes['total_seconds']) {
 			!$userTimes['hours']   OR $userTimes['time_string'] .= $userTimes['hours']._HOURSSHORTHAND.' ';
 			!$userTimes['minutes'] OR $userTimes['time_string'] .= $userTimes['minutes']._MINUTESSHORTHAND.' ';
 			!$userTimes['seconds'] OR $userTimes['time_string'] .= $userTimes['seconds']._SECONDSSHORTHAND;
-		}
+			}
 
-*/
+			*/
 
   if ($interval && eF_checkParameter($interval['from'], 'timestamp') && eF_checkParameter($interval['to'], 'timestamp')) {
    $from = $interval['from'];
@@ -402,39 +451,39 @@ class EfrontTimes
 	 * @param unknown_type $firstDay
 	 */
  private static function getDeprecatedUserTimesPerDay2($firstDay) {
-     for ($t = $firstDay; $t <= time(); $t+=86400) {
-      $logs = eF_getTableData("logs", "timestamp, action, users_LOGIN", "timestamp >= ".$t." and timestamp < ".($t+86400), "timestamp");
+  for ($t = $firstDay; $t <= time(); $t+=86400) {
+   $logs = eF_getTableData("logs", "timestamp, action, users_LOGIN", "timestamp >= ".$t." and timestamp < ".($t+86400), "timestamp");
    $timesPerUser = $resultPerUser = array();
-      foreach ($logs as $key => $value) {
-       $resultPerUser[$value['users_LOGIN']]['timestamp'][] = $value['timestamp'];
-       $resultPerUser[$value['users_LOGIN']]['action'][] = $value['action'];
-      }
+   foreach ($logs as $key => $value) {
+    $resultPerUser[$value['users_LOGIN']]['timestamp'][] = $value['timestamp'];
+    $resultPerUser[$value['users_LOGIN']]['action'][] = $value['action'];
+   }
 
-      foreach ($resultPerUser as $login => $result) {
-       $times = array();
-       if (sizeof($result) > 0) {
-        for ($i = 0; $i < sizeof($result['action']) - 1; $i++) { //The algorithm goes like this: We search for the 'login' actions in the log. When one is found, then we search either for the next 'login' or 'logout' action, if there are no other actions, or the last non-login or logout action. This way, we calculate the true time spent inside the system. If we calculated only the logout-login times, then when a user had closed a window without logging out first, the online time would be reported falsely
-         if ($result['action'][$i] == 'login') {
-          $count = $i + 1;
-          $end_action = $result['timestamp'][$count];
-          while ($result['action'][$count] != 'logout' && $result['action'][$count] != 'login' && $count < sizeof($result['action'])) {
-           $end_action = $result['timestamp'][$count];
-           $count++;
-          }
-          if ($end_action - $result['timestamp'][$i] <= 1800){ //only take into account intervals less than one hour
-           $times['duration'][] = $end_action - $result['timestamp'][$i];
-          }
-         }
-        }
+   foreach ($resultPerUser as $login => $result) {
+    $times = array();
+    if (sizeof($result) > 0) {
+     for ($i = 0; $i < sizeof($result['action']) - 1; $i++) { //The algorithm goes like this: We search for the 'login' actions in the log. When one is found, then we search either for the next 'login' or 'logout' action, if there are no other actions, or the last non-login or logout action. This way, we calculate the true time spent inside the system. If we calculated only the logout-login times, then when a user had closed a window without logging out first, the online time would be reported falsely
+      if ($result['action'][$i] == 'login') {
+       $count = $i + 1;
+       $end_action = $result['timestamp'][$count];
+       while ($result['action'][$count] != 'logout' && $result['action'][$count] != 'login' && $count < sizeof($result['action'])) {
+        $end_action = $result['timestamp'][$count];
+        $count++;
        }
-       if (!empty($times)) {
-        $timesPerUser[$login] = array_sum($times['duration']);
+       if ($end_action - $result['timestamp'][$i] <= 1800){ //only take into account intervals less than one hour
+        $times['duration'][] = $end_action - $result['timestamp'][$i];
        }
       }
+     }
+    }
+    if (!empty($times)) {
+     $timesPerUser[$login] = array_sum($times['duration']);
+    }
+   }
 
    $dayLogs[$t] = $timesPerUser;
-     }
+  }
 
-     return $dayLogs;
+  return $dayLogs;
  }
 }

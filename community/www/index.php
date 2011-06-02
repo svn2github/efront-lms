@@ -630,7 +630,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
       $newUser -> login($_SESSION['ldap_user_pwd'], $encrypted);
       unset($_SESSION['ldap_user_pwd']);
      } else {
-      $newUser -> login($user_data['password'], $encrypted);
+      $newUser -> login($newUser->user['password'], $encrypted);
      }
      if ($GLOBALS['configuration']['force_change_password'] && !$newUser -> isLdapUser && $newUser -> user['need_pwd_change']) {
       eF_redirect("index.php?ctg=password_change");

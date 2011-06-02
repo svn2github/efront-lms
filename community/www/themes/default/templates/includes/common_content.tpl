@@ -166,11 +166,17 @@
    </td></tr>
   {/capture}
  {elseif $smarty.get.bare}
+  <span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>
+  <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
+  <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
   {if $T_SCORM}
    {$smarty.capture.t_scorm_form_code}
   {/if}
   {$T_UNIT.data}
  {else}
+  <span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>
+  <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
+  <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
   {capture name = 't_content_footer_code'}
        <table class = "navigationTable">
         <tr>
@@ -323,10 +329,22 @@
       <span class = "{if $T_USER_PROGRESS.lesson_passed}success{else}failure{/if}">{$smarty.const._CONDITIONSCOMPLETED}: <span id = "passed_conditions">{$T_USER_PROGRESS.conditions_passed}</span> {$smarty.const._OUTOF} {$T_USER_PROGRESS.total_conditions}</span>
      </a>
     {/if}
+    </div>
     {if $T_SCORM && $T_NOCREDIT}
      <div><script>var nocredit = false</script>{$smarty.const._YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT}</div>
     {/if}
-    </div>
+
+    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display">{$T_USER_TIME_IN_UNIT.hours}:{$T_USER_TIME_IN_UNIT.minutes}:{$T_USER_TIME_IN_UNIT.seconds}</span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display">{$T_USER_TIME_IN_LESSON.hours}:{$T_USER_TIME_IN_LESSON.minutes}:{$T_USER_TIME_IN_LESSON.seconds}</span></div>
+    <script>
+    var seconds = {$T_USER_TIME_IN_UNIT.seconds};
+    var minutes = {$T_USER_TIME_IN_UNIT.minutes};
+    var hours = {$T_USER_TIME_IN_UNIT.hours};
+    var lesson_seconds = {$T_USER_TIME_IN_LESSON.seconds};
+    var lesson_minutes = {$T_USER_TIME_IN_LESSON.minutes};
+    var lesson_hours = {$T_USER_TIME_IN_LESSON.hours};
+    var start_timer = true;
+    </script>
    {/if}
   {/capture}
 

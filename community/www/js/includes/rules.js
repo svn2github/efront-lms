@@ -35,6 +35,7 @@ function selectCondition(el) {
     $('specific_unit').hide();
     //$('all_tests').hide();
     $('specific_test').hide();
+    $('time_in_lesson').hide();
     //$('specific_test_score').hide();
 
     switch (el.options[el.selectedIndex].value) {
@@ -50,6 +51,9 @@ function selectCondition(el) {
         case 'specific_test' :
             $('specific_test').show();
             //$('specific_test_score').show();
+            break;
+        case 'time_in_lesson' :
+            $('time_in_lesson').show();
             break;
         default:
             break;

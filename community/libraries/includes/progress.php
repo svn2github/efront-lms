@@ -31,7 +31,8 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
         $testsIds[$key] = $key; //Get the not-test unit ids for this content
     }
 
-    list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$editedUser -> user['login']], $conditions, $visitableContentIds, $testsIds);
+    $times = new EfrontTimes();
+    list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$editedUser -> user['login']], $conditions, $visitableContentIds, $testsIds, $times->getUserSessionTimeInLessonContent($editedUser -> user['login'], $currentLesson -> lesson['id']));
     $smarty -> assign("T_CONDITIONS", $conditions);
     $smarty -> assign("T_CONDITIONS_STATUS", $conditionsStatus);
     foreach ($iterator = new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree)), array('id', 'name')) as $key => $value) {

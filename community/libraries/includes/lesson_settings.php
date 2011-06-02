@@ -372,7 +372,12 @@ if ($_GET['op'] == 'reset_lesson') {
  if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
   $lessonSettings['show_horizontal_bar'] = array('text' => _SHOWHORIZONTALBAR, 'image' => "32x32/generic.png", 'onClick' => 'activate(this, \'show_horizontal_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => !isset($currentLesson -> options['show_horizontal_bar']) || $currentLesson -> options['show_horizontal_bar'] ? null : 'inactiveImage');
  }
-    //$lessonSettings['complete_next_lesson']= array('text' => _MOVETONEXTLESSONONCOMPLETE,'image' => "32x32/options.png", 'onClick' => 'activate(this, \'complete_next_lesson\')',      'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['complete_next_lesson']) && $currentLesson -> options['complete_next_lesson'] ? null : 'inactiveImage');
+
+
+
+
+
+ //$lessonSettings['complete_next_lesson']= array('text' => _MOVETONEXTLESSONONCOMPLETE,'image' => "32x32/options.png", 'onClick' => 'activate(this, \'complete_next_lesson\')',      'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['complete_next_lesson']) && $currentLesson -> options['complete_next_lesson'] ? null : 'inactiveImage');
 
 
     ///MODULES6

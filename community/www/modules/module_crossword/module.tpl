@@ -178,6 +178,12 @@ var translationhavenotpoints = '{$smarty.const._CROSSWORD_HAVENOTSUFFICIENTPOINT
 var translationword = '{$smarty.const._CROSSWORD_THEWORD}';
 var translationincomplete = '{$smarty.const._CROSSWORD_ISINCOMPLETE}';
 var translationdidnotmatch = '{$smarty.const._CROSSWORD_DIDNOTMATCH}';
+var translationcrosswordcompleted = '{$smarty.const._CROSSWORD_CROSSWORDCOMPLETED}';
+var translationyouscored = '{$smarty.const._CROSSWORD_YOUSCORED}';
+var translationstarting = '{$smarty.const._CROSSWORD_STRARTING}';
+var translationrank = '{$smarty.const._CROSSWORD_RANK}';
+var translationsubmittingscore = '{$smarty.const._CROSSWORD_SUBMITTINGSCORE}';
+var translationgameinprogress = '{$smarty.const._CROSSWORD_GAMEINPROGRESS}';
 </script>
  {if $smarty.get.finish == 1}
 

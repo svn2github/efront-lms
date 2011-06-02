@@ -38,4 +38,10 @@ define("_CROSSWORD_THEWORD","The word");
 define("_CROSSWORD_ISINCOMPLETE","is incomplete");
 define("_CROSSWORD_DIDNOTMATCH","did nοt match");
 define("_CROSSWORD_UNABLEGENERATECROSSWORD","SORRY, UNABLE TO GENERATE CROSSWORD FROM YOUR WORDS");
+define("_CROSSWORD_CROSSWORDCOMPLETED","Crossword completed");
+define("_CROSSWORD_YOUSCORED","You scored");
+define("_CROSSWORD_STRARTING","Starting...");
+define("_CROSSWORD_RANK","rank");
+define("_CROSSWORD_SUBMITTINGSCORE","Submitting score...");
+define("_CROSSWORD_GAMEINPROGRESS","Game is in progress. Do you want to leave the game?");
 ?>

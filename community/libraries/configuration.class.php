@@ -191,10 +191,11 @@ class EfrontConfiguration
      'lock_down' => '0',
         'chat_enabled' => '0',
         'zip_method' => 'php',
-        'version_key' => '',
      'theme' => '1', //Default theme id, in a clean install this is 1
         'database_version' => G_VERSION_NUM,
   'help_url' => 'http://docs.efrontlearning.net/index.php',
+     //Version
+        'version_key' => '',
      'version_hosted' => '0',
 
         //Notifications

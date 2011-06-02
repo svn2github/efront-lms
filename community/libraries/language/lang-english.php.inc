@@ -4084,4 +4084,11 @@ define("_STANDALONELESSONSAVERAGE", "Average score in all standalone lessons");
 define("_SCORECALCULATIONMODE", "Score calculation mode");
 define("_TRIGGERINGUSERS","Triggering user&#039;s");
 define("_MODIFIED", "Modified");
+define("_USERSSELFENROLL", "Users can add themselves");
+define("_SPENTTIMEINLESSON", "Spent time in lesson");
+define("_TOTALTIMESPENTONTHISUNIT", "Time spent on unit");
+define("_YOUMUSTSPENDXMINUTESINLESSON", "You must spend %x minutes studying content");
+define("_MUSTSPENDXMINUTESINLESSON", "Must spend %x minutes studying content");
+define("_TOTALTIMESPENTONTHISLESSON", "Time spent on lesson");
+define("_TIMERS", "Timers");
 ?>

@@ -61,7 +61,7 @@ if (in_array(_CHARSET, $defaultEncodings)) {
 	$encodings[_CHARSET] = _CHARSET;
 }
 */
-$encodings['UTF8'] = 'UTF8';
+$encodings['UTF-8'] = 'UTF-8';
 $encodings = array_merge($encodings, $defaultEncodings);
 // Hard-coded cities per time zone - hopefully all are DST aware
 $generalLocaleForm -> addElement("select", "default_language", _DEFAULTLANGUAGE, EfrontSystem :: getLanguages(true, true), 'class = "inputSelect"');

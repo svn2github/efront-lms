@@ -348,7 +348,6 @@ class module_crossword extends EfrontModule {
      $value[]= array('ANSWER'=>$answer1['0'],'QUESTION'=>$row['text']);
     }
     $success = $pc->generateFromWords($value);
-
     if(!$success){
      $message_type = 'failure';
      $message = _CROSSWORD_UNABLEGENERATECROSSWORD;
@@ -357,7 +356,6 @@ class module_crossword extends EfrontModule {
      $currentlesson = $reslesson[0]['name'];
 
      $words = $pc->getWords();
-
      $answor = array();
      $html1 = array();
      $html2 = array();
@@ -366,6 +364,7 @@ class module_crossword extends EfrontModule {
      $html1[] .= _CROSSWORD_ACROSS;
      $html2[] = _CROSSWORD_DOWN;
      $k=1;
+  //pr($words);		
      foreach($words as $row){
       if($row['axis']==1){
        $html1[] .= $k.'. '.$row['question'];
@@ -375,8 +374,11 @@ class module_crossword extends EfrontModule {
       $k++;
 
      }
+  //pr($html1);
+  //pr($html2);
+  //exit;			
      $answor[] = array_merge($html1,$html2);
-
+   //pr($answor); exit;
 
      $dd = $pc->getHTML($answor);
      exit;

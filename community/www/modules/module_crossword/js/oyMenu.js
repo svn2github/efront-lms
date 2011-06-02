@@ -123,7 +123,7 @@ oyCrosswordMenu.prototype.installWelcomeMenu = function(){
 	this.addNewLine(target);
 	
 	this.addAction( 
-		target, "Start Now", "Starting...", "strt",
+		target, "Start Now", translationstarting, "strt",
 		function(){				 
 			oThis.puzz.bind();	
 			oThis.puzz.hlist.clickItem(0);			
@@ -249,16 +249,16 @@ oyCrosswordMenu.prototype.installDoneMenu = function(){
 	var target = document.getElementById("oygPuzzleFooter");
 	target.innerHTML = "";
 	 
-	this.addNoneWordAction(target, "Crossword Completed.");	 
+	this.addNoneWordAction(target, translationcrosswordcompleted);	 
 	this.addNewLine(target);
 	
 	var comword = document.getElementById("completewordlength").value;	
 	
 	var comscore =   Math.round(this.score/comword*100);  
 	
-	var msg = "You scored " + comscore + " %";
+	var msg = translationyouscored + comscore + " %";
 	if (this.rank != -1){
-		msg += " (rank <b>" +  this.rank + "</b>)";
+		msg += " ("+ translationrank + " <b>" +  this.rank + "</b>)";
 	}  
 	msg += ".";
 	
@@ -268,7 +268,7 @@ oyCrosswordMenu.prototype.installDoneMenu = function(){
 	var oThis = this;
 	this.addSubmitLeaveMenuItems(target);
 	    
-	this.footer.stateOk("Crossword Completed.");
+	this.footer.stateOk(translationcrosswordcompleted);
 	 
 	this.server.trackAction(this.puzz.uid, "ovr");
 	
@@ -280,7 +280,7 @@ oyCrosswordMenu.prototype.addSubmitLeaveMenuItems = function(target){
 		var caption = "Submit <b>Score</b>";  
 		if (this.matches > 0 && this.scoreSubmittedMatches < this.matches){		
 			var oThis = this;
-			this.addAction(target, caption, "Submitting score...", "sbmt",
+			this.addAction(target, caption, translationsubmittingscore, "sbmt",
 				function(){	 	 		 
 					oThis.submitScore();
 					oThis.invalidateMenu();
@@ -322,7 +322,7 @@ oyCrosswordMenu.prototype.leaveGameEarly = function(url){
 
 	var canLeave = true;
 	if (this.puzz.started && !this.over){
-		canLeave = confirm("Game is in progress. Do you want to leave the game?");
+		canLeave = confirm(translationgameinprogress);
 	}	  
 	if (canLeave){ 
 		window.location = url;
@@ -495,7 +495,7 @@ oyCrosswordMenu.prototype.checkWordStatus = function(clue){
 
 oyCrosswordMenu.prototype.askNickName = function(score){
 	if (score){
-		score = "Score: " + score + ". ";
+		score = translationscore+ ": " + score + ". ";
 	} else { 
 		score = "";
 	}

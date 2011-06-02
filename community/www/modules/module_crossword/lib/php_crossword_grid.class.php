@@ -504,10 +504,11 @@ $one_letter = mb_substr($word, $i, 1);
 
 
   foreach($answor[0] as $row1){
-      $pdf -> MultiCell(170, 20, $row1, 0, L, 170, 1);
-      $pdf -> Cell(5, 5, "", 0, 1, L, 0);
-     }
 
+      $pdf -> MultiCell(0, 20, $row1, 0, L, false, 1, '', '', true, 0, true);
+ //   		$pdf -> Cell(5, 5, '', 0, 1, L, 0);
+     }
+//exit;		
  // set font
  $pdf->SetFont('FreeSerif', '', 10);
 

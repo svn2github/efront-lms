@@ -442,3 +442,77 @@ if (typeof(matchscreenobjectid) != 'undefined' && matchscreenobjectid) {
 if (typeof(autoSetSeenUnit) != 'undefined' && autoSetSeenUnit) {
 	setSeenUnit(1);
 }
+
+function checkLessonConditions() {
+	el = document.body;
+	parameters = {check_conditions:true, method: 'get'};
+	var url    = window.location.toString();
+	ajaxRequest(el, url, parameters, onCheckLessonConditions);	
+}
+function onCheckLessonConditions(el, response) {
+	results = response.evalJSON();
+    if ($('passed_conditions')) {
+    	$('passed_conditions').update(parseInt(results[1]));
+    }
+    if ($('lesson_passed')) {
+    	if (results[2] == true) {
+    		$('lesson_passed').down().removeClassName('failure').addClassName('success');
+    		$('completed_block').show();
+			Effect.ScrollTo('completed_block');
+    	} 
+    }	
+}
+
+function startContentTimer() {
+    if (seconds <= 59) {seconds++;}
+    else {
+        if (seconds == 60 ) {seconds = 0;}
+        if (minutes <= 59)  {minutes++;}
+        else {
+            if (minutes == 60) {minutes = 0;}
+            hours++;
+        }
+    }
+    min = minutes.toString();
+    sec = seconds.toString()
+    if (min.length == 1) {min = "0" + min;}
+    if (sec.length == 1) {sec = "0" + sec;}
+
+    $("user_time_in_unit_display").update(hours + ":" + min + ":" + sec);
+    $("user_current_time_in_unit").update(parseInt($("user_current_time_in_unit").innerHTML)+1);
+
+    if (lesson_seconds <= 59) {lesson_seconds++;}
+    else {
+        if (lesson_seconds == 60 ) {lesson_seconds = 0;}
+        if (lesson_minutes <= 59)  {lesson_minutes++;}
+        else {
+            if (lesson_minutes == 60) {lesson_minutes = 0;}
+            lesson_hours++;
+        }
+    }
+    lesson_min = lesson_minutes.toString();
+    lesson_sec = lesson_seconds.toString()
+    if (lesson_min.length == 1) {lesson_min = "0" + lesson_min;}
+    if (lesson_sec.length == 1) {lesson_sec = "0" + lesson_sec;}
+
+    $("user_time_in_lesson_display").update(lesson_hours + ":" + lesson_min + ":" + lesson_sec);
+    
+    var newUserTimeInLesson = parseInt($("user_time_in_lesson").innerHTML)+1;
+    $("user_time_in_lesson").update(newUserTimeInLesson);
+    if (newUserTimeInLesson == $('required_time_in_lesson').innerHTML) {
+    	checkLessonConditions();
+    }
+
+	contentTimer = setTimeout("startContentTimer()", 1000);
+}
+if (typeof(start_timer) != 'undefined' && start_timer) {
+	startContentTimer();
+    window.onblur  = function () {
+    	clearTimeout(contentTimer);
+    };    
+    window.onfocus = function() {  
+    	clearTimeout(contentTimer);
+    	startContentTimer();
+    };
+}
+

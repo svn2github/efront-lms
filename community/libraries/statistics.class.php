@@ -1138,7 +1138,12 @@ class EfrontStats
 */
      $times = new EfrontTimes();
      $usersTimesInLessonContent = array();
-     foreach ($times->getUsersSessionTimeInLessonContent($lesson->lesson['id']) as $value) {
+     if ($lesson instanceOf EfrontLesson) {
+      $lessonId = $lesson->lesson['id'];
+     } else {
+      $lessonId = $lesson;
+     }
+     foreach ($times->getUsersSessionTimeInLessonContent($lessonId) as $value) {
       $usersTimesInLessonContent[$value['users_LOGIN']] = $value['time'];
      }
      $usersDoneContent = EfrontStats :: getStudentsSeenContent($lesson, $user, $options); //Calculate the done content for users in this lesson

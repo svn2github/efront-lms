@@ -94,7 +94,7 @@ if (isset($_GET['fct'])) {
 
     $cart = cart :: prepareCart(false);
  if (!cart :: compactCart($cart)) {
-  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
+  eF_redirect("userpage.php?ctg=lessons&catalog=1");
  }
 
  $cart = cart :: filterCart($cart, $lessons, $courses);

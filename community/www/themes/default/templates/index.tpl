@@ -129,7 +129,7 @@
     {elseif $smarty.get.ctg == 'login'}
         {eF_template_printBlock title = $smarty.const._LOGINENTRANCE content = $smarty.capture.t_login_code image = "32x32/keys.png"}
         {assign var = "layoutClass" value = "hideBoth"}
-    {elseif isset($smarty.get.ctg) && in_array($smarty.get.ctg, array_keys($T_POSITIONS.enabled))}
+    {elseif isset($smarty.get.ctg) && $T_POSITIONS.enabled[$smarty.get.ctg]}
      {* Changed because of #896. Problem when block contained {,} *}
      {insert name = "customBlock" file = "`$T_CUSTOM_BLOCKS[$smarty.get.ctg].name`.tpl" assign = "content"}
   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=`$smarty.get.ctg`'>`$T_CUSTOM_BLOCKS[$smarty.get.ctg].title`</a>"}
@@ -152,6 +152,7 @@
         {/if}
     {/if}
 {/capture}
+
 {capture name = "right_code"}
     {if $T_POSITIONS.rightList || !$T_POSITIONS}
         {if isset($T_POSITIONS.rightList)}
@@ -188,6 +189,7 @@
 
 {if $smarty.get.ctg == 'agreement' && $smarty.session.s_login}
     {capture name = "center_code"}
+     {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=agreement'>`$smarty.const._LICENSENOTE`</a>"}
         {if $T_MESSAGE && !$T_FACEBOOK_ACCOUNT_MERGE_POPUP}
           {eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}
         {/if}

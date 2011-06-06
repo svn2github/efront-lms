@@ -174,7 +174,7 @@ class module_administrator_tools extends EfrontModule {
    //$GLOBALS['load_editor'] = true;
    $smarty = $this -> getSmartyVar();
    $currentUser = $this -> getCurrentUser();
-///////////CHANGE USER LOGINS///////////////////
+   ///////////CHANGE USER LOGINS///////////////////
    $form = new HTML_QuickForm("change_login_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools", "", null, true);
    $form -> addElement('static', 'sidenote', '<img id = "module_administrator_tools_busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
    $form -> addElement('text', 'selection_user', _MODULE_ADMINISTRATOR_TOOLS_SELECTUSERTOCHANGELOGINFOR, 'id = "module_administrator_tools_autocomplete_users" class = "autoCompleteTextBox" style = "width:400px"' );
@@ -276,8 +276,8 @@ class module_administrator_tools extends EfrontModule {
    } catch (Exception $e) {
     handleAjaxExceptions($e);
    }
-///////////END OF CHANGE USER LOGINS///////////////////
-///////////GLOBAL LESSON SETTINGS///////////////////			
+   ///////////END OF CHANGE USER LOGINS///////////////////
+   ///////////GLOBAL LESSON SETTINGS///////////////////
    $lessonSettings = $this -> getLessonSettings();
    $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
    $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
@@ -305,8 +305,8 @@ class module_administrator_tools extends EfrontModule {
    } catch (Exception $e) {
     handleAjaxExceptions($e);
    }
-///////////END OF GLOBAL LESSON SETTINGS///////////////////
-///////////SQL INTERFACE///////////////////			
+   ///////////END OF GLOBAL LESSON SETTINGS///////////////////
+   ///////////SQL INTERFACE///////////////////
    $sqlForm = new HTML_QuickForm("sql_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=sql", "", null, true);
    $sqlForm -> addElement('text', 'sql_command', _MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND, 'style = "width:600px"' );
    $sqlForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
@@ -337,8 +337,8 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_SQL_FORM", $sqlForm -> toArray());
-///////////END OF SQL INTERFACE///////////////////
-///////////SET COURSE LESSON USERS///////////////////			
+   ///////////END OF SQL INTERFACE///////////////////
+   ///////////SET COURSE LESSON USERS///////////////////
    if (isset($_GET['lessons_ID'])) {
     $currentLesson = new EfrontLesson($_GET['lessons_ID']);
     $smarty -> assign("T_CURRENT_LESSON", $currentLesson);
@@ -388,8 +388,8 @@ class module_administrator_tools extends EfrontModule {
      handleAjaxExceptions($e);
     }
    }
-///////////END OF SET COURSE LESSON USERS///////////////////
-///////////CHANGE FILE ENCODING///////////////////		
+   ///////////END OF SET COURSE LESSON USERS///////////////////
+   ///////////CHANGE FILE ENCODING///////////////////
    $fileEncodingsForm = new HTML_QuickForm("file_encodings_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=files_encoding", "", null, true);
    $fileEncodingsForm -> addElement('select', 'encoding', _MODULE_ADMINISTRATOR_TOOLS_SELECTENCODINGCONVERSION, array('UTF-8 => UTF7-IMAP', 'UTF7-IMAP => UTF-8'));
    $fileEncodingsForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
@@ -442,8 +442,8 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_FILE_ENCODINGS_FORM", $fileEncodingsForm -> toArray());
-///////////END OF CHANGE FILE ENCODING///////////////////			
-///////////CHANGE USER TYPE///////////////////
+   ///////////END OF CHANGE FILE ENCODING///////////////////
+   ///////////CHANGE USER TYPE///////////////////
    $userTypes = EfrontUser::getRoles(true);
    $userTypesMapping = EfrontUser::getRoles();
    $changeUserTypeForm = new HTML_QuickForm("change_user_type_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=change_user_type", "", null, true);
@@ -473,8 +473,8 @@ class module_administrator_tools extends EfrontModule {
     }
    }
    $smarty -> assign("T_CHANGE_USER_TYPE_FORM", $changeUserTypeForm -> toArray());
-///////////END OF CHANGE USER TYPE///////////////////			
-///////////UNENROLL USERS///////////////////			
+   ///////////END OF CHANGE USER TYPE///////////////////
+   ///////////UNENROLL USERS///////////////////
   } catch (Exception $e) {
    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';

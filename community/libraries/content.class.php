@@ -1179,7 +1179,7 @@ class EfrontContentTree extends EfrontTree
 
      * @access public
 
-     * @todo implement $parentUnit/$preciousUnit functionality, when not present inside $unit
+     * @todo implement $parentUnit/$previousUnit functionality, when not present inside $unit
 
      */
     public function insertNode($unit, $parentUnit = false, $previousUnit = false) {

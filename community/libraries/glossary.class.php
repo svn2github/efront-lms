@@ -249,6 +249,10 @@ class glossary extends EfrontEntity
                 $initials[$letter][] = $words[$key];
             }
         }
+        //Added lines to sort terms in each tab (#1460)
+        foreach ($initials as $key => $value) {
+         $initials[$key] = eF_multiSort($value, 'name');
+        }
         $setNum = isset($initials["0-9"]);
         $setSym = isset($initials["Symbols"]);
         if( $setNum || $setSym) {

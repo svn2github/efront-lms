@@ -1,6 +1,7 @@
 === Version 3.6.10 build ===
 - Added self-enrollment option to groups (Enterprise version)
 - Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
+- Added sorting terms in each tab in glossary page
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

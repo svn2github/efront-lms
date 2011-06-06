@@ -40,7 +40,7 @@ ob_start ("ob_gzhandler");
 foreach (explode(",", $_GET['load']) as $value) {
  if (is_file("$value.js")) {
   $real_path = realpath("$value.js");
-  if (strpos($real_path, dirname(__FILE__)) !== false) {
+  if (strpos($real_path, dirname(__FILE__)) !== false || strpos($real_path, dirname(dirname(__FILE__)).'/modules/') !== false) {
    lastModificationTime(filemtime("$value.js"));
    include("$value.js");echo "\n";
   }

@@ -252,9 +252,9 @@ var customFieldsKeys = new Array();
 <!--ajax:sentQueueTable-->
             <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "sentQueueTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=digests&">
                 <tr class = "topTitle">
-                    <td class = "topTitle" width = "15%">{$smarty.const._DATE}</td>
-                    <td class = "topTitle">{$smarty.const._RECIPIENT}</td>
-                    <td class = "topTitle">{$smarty.const._SUBJECT}</td>
+                    <td class = "topTitle" width = "15%" name = "timestamp">{$smarty.const._DATE}</td>
+                    <td class = "topTitle" name = "recipient">{$smarty.const._RECIPIENT}</td>
+                    <td class = "topTitle" name = "subject">{$smarty.const._SUBJECT}</td>
                     <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                 </tr>
           {foreach name = 'recent_messages_list' key = 'key' item = 'recent_message' from = $T_DATA_SOURCE}

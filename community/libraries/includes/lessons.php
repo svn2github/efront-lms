@@ -197,6 +197,10 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                    'price' => $editLesson -> lesson['price'],
                                    'recurring' => $editLesson -> options['recurring'],
   $editLesson -> options['recurring'].'_duration' => $editLesson -> options['recurring_duration']));
+  if ($editLesson -> lesson['share_folder']) {
+   $shareFolderLesson = new EfrontLesson($editLesson -> lesson['share_folder']);
+   $smarty -> assign("T_SHARE_FOLDER_WITH", $shareFolderLesson->lesson['name']);
+  }
   if (($editLesson -> lesson['course_only'] && sizeof($editLesson -> getCourses()) > 0) || (!$editLesson -> lesson['course_only'] && sizeof($editLesson -> getUsers()) > 0)) {
    $courseOnly -> freeze();
    $directAccess -> freeze();
@@ -216,22 +220,22 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
   $form -> addElement('submit', 'submit_lesson', _SUBMIT, 'class = "flatButton"');
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
    $values = $form -> exportValues();
-   if (!$values['share_folder'] || !is_numeric($values['share_folder']) || !is_dir(G_LESSONSPATH.$values['share_folder'])) {
+   if (!$values['share_folder'] || !is_numeric($values['share_folder']) || !is_dir(G_LESSONSPATH.$values['share_folder']) || $_POST['autocomplete_share'] == '') {
     unset($values['share_folder']);
    }
-   $GLOBALS['configuration']['onelanguage'] == true ? $languages_NAME = $GLOBALS['configuration']['default_language']: $languages_NAME = $form -> exportValue('languages_NAME');
+   $GLOBALS['configuration']['onelanguage'] == true ? $languages_NAME = $GLOBALS['configuration']['default_language']: $languages_NAME = $values['languages_NAME'];
    if (isset($_GET['add_lesson'])) { //The second case is when the administrator adds a new lesson
-    $fields_insert = array('name' => $form -> exportValue('name'),
+    $fields_insert = array('name' => $values['name'],
                                        'languages_NAME' => $languages_NAME,
-                                       'directions_ID' => $form -> exportValue('directions_ID'),
-                                       'active' => $form -> exportValue('active'),
-                                       'duration' => $form -> exportValue('duration') ? $form -> exportValue('duration') : 0,
-                                       'share_folder' => $form -> exportValue('share_folder') ? $form -> exportValue('share_folder') : 0,
-                                       'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
-                        'show_catalog' => $form -> exportValue('show_catalog'),
-                                       'course_only' => $form -> exportValue('course_only') == '' ? 0 : $form -> exportValue('course_only'),
+                                       'directions_ID' => $values['directions_ID'],
+                                       'active' => $values['active'],
+                                       'duration' => $values['duration'] ? $values['duration'] : 0,
+                                       'share_folder' => $values['share_folder'] ? $values['share_folder'] : 0,
+                                       'max_users' => $values['max_users'] ? $values['max_users'] : null,
+                        'show_catalog' => $values['show_catalog'],
+                                       'course_only' => $values['course_only'] == '' ? 0 : $values['course_only'],
                         'created' => time(),
-                        'price' => $form -> exportValue('price'));
+                        'price' => $values['price']);
     try {
      //If we asked to copy properties for another lesson, initialize it and get its properties (except for recurring options, which are already defined in the same page)
      if ($values['copy_properties']) {
@@ -243,8 +247,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
      //Create the new lesson
      $newLesson = EfrontLesson :: createLesson($fields_insert);
      //If a recurring payment is set, set this up to the lesson properties
-     if ($form -> exportValue('price') && $form -> exportValue('recurring') && in_array($form -> exportValue('recurring'), array_keys($recurringOptions))) {
-      $newLesson -> options['recurring'] = $form -> exportValue('recurring');
+     if ($values['price'] && $values['recurring'] && in_array($values['recurring'], array_keys($recurringOptions))) {
+      $newLesson -> options['recurring'] = $values['recurring'];
       if ($newLesson -> options['recurring']) {
        $newLesson -> options['recurring_duration'] = $form -> exportValue($newLesson -> options['recurring'].'_duration');
       }
@@ -276,16 +280,16 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
      $message_type = 'failure';
     }
    } elseif (isset($_GET['edit_lesson'])) { //The first case is when the administrator is editing a lesson
-    $fields_update = array('name' => $form -> exportValue('name'),
-                                       'directions_ID' => $form -> exportValue('directions_ID'),
+    $fields_update = array('name' => $values['name'],
+                                       'directions_ID' => $values['directions_ID'],
                                        'languages_NAME' => $languages_NAME,
-                                       'active' => $form -> exportValue('active'),
-                                       'duration' => $form -> exportValue('duration') ? $form -> exportValue('duration') : 0,
-                                       'share_folder' => $form -> exportValue('share_folder') ? $form -> exportValue('share_folder') : 0,
-                                       'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
-            'show_catalog' => $form -> exportValue('show_catalog'),
-                                       'course_only' => $form -> exportValue('course_only'),
-                                       'price' => $form -> exportValue('price'));
+                                       'active' => $values['active'],
+                                       'duration' => $values['duration'] ? $values['duration'] : 0,
+                                       'share_folder' => $values['share_folder'] ? $values['share_folder'] : 0,
+                                       'max_users' => $values['max_users'] ? $values['max_users'] : null,
+            'show_catalog' => $values['show_catalog'],
+                                       'course_only' => $values['course_only'],
+                                       'price' => $values['price']);
     if ($values['copy_properties']) {
      $copyPropertiesLesson = new EfrontLesson($values['copy_properties']);
      unset($copyPropertiesLesson -> options['recurring']);
@@ -293,8 +297,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
      $editLesson -> options = $copyPropertiesLesson -> options;
     }
     $editLesson -> lesson = array_merge($editLesson -> lesson, $fields_update);
-    if ($form -> exportValue('price') && $form -> exportValue('recurring') && in_array($form -> exportValue('recurring'), array_keys($recurringOptions))) {
-     $editLesson -> options['recurring'] = $form -> exportValue('recurring');
+    if ($values['price'] && $values['recurring'] && in_array($values['recurring'], array_keys($recurringOptions))) {
+     $editLesson -> options['recurring'] = $values['recurring'];
      if ($editLesson -> options['recurring']) {
       $editLesson -> options['recurring_duration'] = $form -> exportValue($editLesson -> options['recurring'].'_duration');
      }
@@ -305,11 +309,11 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
      $editLesson -> persist();
      $lesson_forum = eF_getTableData("f_forums", "id", "lessons_ID=".$_GET['edit_lesson']); //update lesson's forum and chat names as well
      if (sizeof($lesson_forum) > 0) {
-      eF_updateTableData("f_forums", array('title' => $form -> exportValue('name')), "id=".$lesson_forum[0]['id']);
+      eF_updateTableData("f_forums", array('title' => $values['name']), "id=".$lesson_forum[0]['id']);
      }
      $lesson_chat = eF_getTableData("chatrooms", "id", "lessons_ID=".$_GET['edit_lesson']);
      if (sizeof($lesson_chat) > 0) {
-      eF_updateTableData("chatrooms", array('name' => $form -> exportValue('name')), "id=".$lesson_chat[0]['id']);
+      eF_updateTableData("chatrooms", array('name' => $values['name']), "id=".$lesson_chat[0]['id']);
      }
      eF_redirect(basename(basename($_SERVER['PHP_SELF'])).'?ctg=lessons&message='.urlencode(_LESSONUPDATED).'&message_type=success');
     } catch (Exception $e) {

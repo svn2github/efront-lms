@@ -2899,7 +2899,7 @@ class EfrontCompletedTest extends EfrontTest
             }
             function editQuestionFeedback(el, id) {
                 Element.extend(el);
-                url = "'.$url.'&ajax=1&question=" + id + "&question_feedback=" + $("edit_question_"+id+"_feedback").value;
+                url = "'.$url.'&ajax=1&question=" + id + "&question_feedback=" + encodeURIComponent($("edit_question_"+id+"_feedback").value);
                 if ($("progress_img_"+id)) {
                     $("progress_img_"+id).writeAttribute("src", "images/others/progress1.gif").show();
                 } else {

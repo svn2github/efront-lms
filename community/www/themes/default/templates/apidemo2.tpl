@@ -38,6 +38,15 @@
                             <td class = "labelCell">{$T_ACTION_FORM.login.label}:&nbsp;</td>
                             <td class = "elementCell">{$T_ACTION_FORM.login.html}</td>
                         </tr>
+                    {elseif $T_ACTION == 'efrontlogin_ajax'}
+                        <tr>
+                            <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
+                            <td class = "elementCell">{$T_ACTION_FORM.token.html}</td>
+                        </tr>
+        <tr>
+                            <td class = "labelCell">{$T_ACTION_FORM.login.label}:&nbsp;</td>
+                            <td class = "elementCell">{$T_ACTION_FORM.login.html}</td>
+                        </tr>
      {elseif $T_ACTION == 'efrontlogout'}
                         <tr>
                             <td class = "labelCell">{$T_ACTION_FORM.token.label}:&nbsp;</td>
@@ -390,6 +399,10 @@
                     </tr>
                 </table>
             </form>
+            {if $T_LOGIN_AJAX_TOKEN}
+    <script type = "text/javascript" src = "js/scriptaculous/prototype.js"> </script>
+    <script>new Ajax.Request("api2.php?action=efrontlogin&token={$T_LOGIN_AJAX_TOKEN}&login={$T_LOGIN_AJAX_LOGIN}", {ldelim}onComplete: function(transport) {ldelim}$('output').value=transport.responseText;{rdelim}{rdelim})</script>
+   {/if}
         </td></tr>
     {/capture}
     <table class = "leftAlign" width="100%">

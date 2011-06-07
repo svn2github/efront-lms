@@ -12,35 +12,36 @@
     $loadScripts = array_merge($loadScripts, array('scriptaculous/prototype','scriptaculous/scriptaculous','scriptaculous/effects','scriptaculous/controls'));
 
     $actions = array();
-    $actions[0] = "token";
-    $actions[1] = "login";
-    $actions[2] = "efrontlogin";
- $actions[3] = "create_lesson";
-    $actions[4] = "create_user";
-    $actions[5] = "user_info";
-    $actions[6] = "user_lessons";
-    $actions[7] = "user_courses";
-    $actions[8] = "update_user";
-    $actions[9] = "activate_user";
-    $actions[10] = "deactivate_user";
-    $actions[11] = "remove_user";
-    $actions[12] = "groups";
-    $actions[13] = "group_info";
-    $actions[14] = "group_to_user";
-    $actions[15] = "group_from_user";
-    $actions[16] = "catalog";
-    $actions[17] = "lessons";
-    $actions[18] = "lesson_info";
-    $actions[19] = "lesson_to_user";
-    $actions[20] = "lesson_from_user";
-    $actions[21] = "courses";
-    $actions[22] = "course_info";
-    $actions[23] = "course_to_user";
-    $actions[24] = "course_from_user";
- $actions[25] = "course_lessons";
- $actions[26] = "curriculum_to_user";
- $actions[27] = "efrontlogout";
-    $actions[28] = "logout";
+    $actions[] = "token";
+    $actions[] = "login";
+    $actions[] = "efrontlogin";
+    $actions[] = "efrontlogin_ajax";
+ $actions[] = "create_lesson";
+    $actions[] = "create_user";
+    $actions[] = "user_info";
+    $actions[] = "user_lessons";
+    $actions[] = "user_courses";
+    $actions[] = "update_user";
+    $actions[] = "activate_user";
+    $actions[] = "deactivate_user";
+    $actions[] = "remove_user";
+    $actions[] = "groups";
+    $actions[] = "group_info";
+    $actions[] = "group_to_user";
+    $actions[] = "group_from_user";
+    $actions[] = "catalog";
+    $actions[] = "lessons";
+    $actions[] = "lesson_info";
+    $actions[] = "lesson_to_user";
+    $actions[] = "lesson_from_user";
+    $actions[] = "courses";
+    $actions[] = "course_info";
+    $actions[] = "course_to_user";
+    $actions[] = "course_from_user";
+ $actions[] = "course_lessons";
+ $actions[] = "curriculum_to_user";
+ $actions[] = "efrontlogout";
+    $actions[] = "logout";
 
     $smarty -> assign("T_ACTIONS", $actions);
 
@@ -80,7 +81,12 @@
    $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
             break;
         }
-  case 'efrontlogout':{
+        case 'efrontlogin_ajax':{
+            $form -> addElement('text', 'token', _TOKEN, 'class = "inputText"');
+   $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
+            break;
+        }
+        case 'efrontlogout':{
             $form -> addElement('text', 'token', _TOKEN, 'class = "inputText"');
    $form -> addElement('text', 'login', _LOGIN, 'class = "inputText"');
             break;
@@ -229,7 +235,7 @@
             break;
         }
     }
-    $form -> addElement('textarea', 'output', _OUTPUT, 'class = "simpleEditor inputTextarea" style = "disabled:true;width:60%;height:120px"');
+    $form -> addElement('textarea', 'output', _OUTPUT, 'id = "output" class = "simpleEditor inputTextarea" style = "disabled:true;width:60%;height:120px"');
     $form -> addElement('submit', 'submit_action', _SUBMIT, 'class = "flatButton"');
 
     if ($form -> isSubmitted()) {
@@ -259,6 +265,10 @@
      $login = $values['login'];
      /*
 
+					 * Update: See "efrontlogin_ajax" below on how to do this (and on apidemo2.tpl file as well)
+
+					 * 
+
 					 * WARNING: This will not work as expected: It will simply register the user as being login, without actually logging 
 
 					 * in the browser to the system, due to the inability to set session variables through fopen() (and streams in general).
@@ -275,28 +285,24 @@
 
 					 * 		echo '
 
-					 *			<script type = "text/javascript" src = "js/scriptaculous/prototype.php"> </script>
+					 *			<script type = "text/javascript" src = "js/scriptaculous/prototype.js"> </script>
 
-					 *			<script>new Ajax.Request("api2.php?action=efrontlogin&token='.$token.'&login=professor")</script>';
+					 *			<script>new Ajax.Request("api2.php?action=efrontlogin&token='.$token.'&login='.$login.'")</script>';
 
 					 */
                     if ($stream = fopen(G_SERVERNAME.'api2.php?action=efrontlogin&token='.$token.'&login='.$login, 'r')) {
                         $output = stream_get_contents($stream);
                         fclose($stream);
                     }
-                    //echo "<script>var mine = window.open('api2.php?action=efrontlogin&token=".$token."&login=".$login."', 'api', 'width=1,height=1,left=0,top=0,scrollbars=no');</script>";
-     /*
-
-					echo '
-
-						<script type = "text/javascript" src = "js/scriptaculous/prototype.php"> </script>
-
-						<script>new Ajax.Request("api2.php?action=efrontlogin&token='.$token.'&login=professor")</script>';					
-
-					 */
                     break;
                 }
-    case 'efrontlogout':{
+                case 'efrontlogin_ajax':{
+                 session_start();
+                 $smarty -> assign("T_LOGIN_AJAX_TOKEN", $values['token']);
+                 $smarty -> assign("T_LOGIN_AJAX_LOGIN", $values['login']);
+                    break;
+                }
+                case 'efrontlogout':{
                     $token = $values['token'];
      $login = $values['login'];
                     if ($stream = fopen(G_SERVERNAME.'api2.php?action=efrontlogout&token='.$token.'&login='.$login, 'r')) {

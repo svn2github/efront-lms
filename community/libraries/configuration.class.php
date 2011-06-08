@@ -72,6 +72,7 @@ class EfrontConfiguration
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
         'api' => '0',
+     'api_ip' => '', //Set an IP to constrain the XML API
      'virtual_keyboard' => '1',
   'math_content' => '0',
   'math_server' => 'http://www.imathas.com/cgi-bin/mimetex.cgi',

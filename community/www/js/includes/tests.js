@@ -836,7 +836,7 @@ function handleDrop(s,d, e) {
 	dragdrop[s.id]=d.id
 	Droppables.remove(d);
 }
-function handleDrag(s, e) {	        
+function handleDrag(s, e,questionId) {	        
 	if (dragdrop[s.element.id]) {
 		Droppables.add($(dragdrop[s.element.id]), {accept:'draggable', onDrop:handleDrop});
 		$('source_'+questionId+'_'+s.element.id.match(/firstlist_\d+_(\d+)/)[1]).insert(s.element.remove());
@@ -845,7 +845,7 @@ function handleDrag(s, e) {
 function initDragDrop(questionId, keys) {
 	for (var i = 0; i < keys.length; i++) {
 		Droppables.add('secondlist_'+questionId+'_'+keys[i], {accept:'draggable', onDrop:handleDrop});
-		new Draggable('firstlist_'+questionId+'_'+keys[i], {revert:'failure', onStart:handleDrag});
+		new Draggable('firstlist_'+questionId+'_'+keys[i], {revert:'failure', onStart:function (s,e) {handleDrag(s,e,questionId);}});
 	}
 }
 

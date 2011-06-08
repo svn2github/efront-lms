@@ -7,6 +7,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 !isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
 
+$loadScripts[] = 'scriptaculous/dragdrop';
 $loadScripts[] = 'includes/content';
 $loadScripts[] = 'includes/comments';
 

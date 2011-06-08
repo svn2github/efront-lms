@@ -254,7 +254,7 @@ try {
                         $headerOptions[] = array('text' => _STARTLESSON, 'image' => '32x32/start.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$firstUnit['id']);
                     }
                 }
-                if (isset($currentLesson -> options['show_dashboard']) && !$currentLesson -> options['show_dashboard']) {
+                if (isset($currentLesson -> options['show_dashboard']) && !$currentLesson -> options['show_dashboard'] && $firstUnseenUnit) {
                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=content&view_unit=".$firstUnseenUnit['id']);
                 }
                 $currentLesson -> options['lesson_info'] ? $headerOptions[] = array('text' => _LESSONINFORMATION, 'image' => '32x32/information.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_information&popup=1', 'onClick' => "eF_js_showDivPopup('"._LESSONINFORMATION."', 2)", 'target' => 'POPUP_FRAME') : null;

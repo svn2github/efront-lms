@@ -5886,7 +5886,7 @@ class DragDropQuestion extends Question implements iQuestion
               </script>
              </td>
              <td style = 'width:20%;' class = 'dragDropTarget'></td>
-             <td style = 'width:20%;height:100%;' id = 'source_".$this -> question['id']."_$key'>
+             <td style = 'width:20%;height:100%;border:1px dotted gray' id = 'source_".$this -> question['id']."_$key'>
               <div class = 'draggable' id = 'firstlist_".$this -> question['id']."_$key'>".$this -> answer[$key].$value['html']."</div>
                  <script>
                   //new Draggable('firstlist_".$this -> question['id']."_$key', {revert:'failure', onStart:handleDrag});

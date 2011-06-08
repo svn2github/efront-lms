@@ -3217,6 +3217,40 @@ class EfrontStudent extends EfrontLessonUser
   }
   return $nextLesson;
  }
+ /**
+	 * Get the previous lesson in row, or in the course, if specified
+	 *
+	 * @param EfrontLesson $lesson The lesson to account
+	 * @param mixed $course The course to regard, or false
+	 * @return int The id of the previous lesson in row
+	 * @since 3.6.3
+	 * @access public
+	 */
+ public function getPreviousLesson($lesson, $course = false) {
+  $previousLesson = false;
+  if ($course) {
+   ($course instanceOf EfrontCourse) OR $course = new EfrontCourse($course);
+   $eligibility = new ArrayIterator($course -> checkRules($_SESSION['s_login']));
+   while ($eligibility -> valid() && ($key = $eligibility -> key()) != $lesson -> lesson['id']) {
+    $previous = $key;
+    $eligibility -> next();
+   }
+   if (isset($previous) && $previous) {
+    $previousLesson = $previous;
+   }
+  } else {
+   $directionsTree = new EfrontDirectionsTree();
+   $userLessons = new ArrayIterator($directionsTree -> getLessonsList($this -> getUserLessons()));
+   while ($userLessons -> valid() && ($key = $userLessons -> current()) != $lesson -> lesson['id']) {
+    $userLessons -> next();
+   }
+   $userLessons -> previous();
+   if ($userLessons -> valid() && $userLessons -> current()) {
+    $previousLesson = $userLessons -> current();
+   }
+  }
+  return $previousLesson;
+ }
 }
 /**
  * User Factory class

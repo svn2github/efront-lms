@@ -86,7 +86,7 @@ In case of error it returns also a message entity with description of the error 
 */
  $path = "../libraries/";
  require_once $path."configuration.php";
-    if ($GLOBALS['configuration']['api']) {
+    if ($GLOBALS['configuration']['api'] && (!$GLOBALS['configuration']['api_ip'] || $GLOBALS['configuration']['api_ip'] == $_SERVER['REMOTE_ADDR'])) {
         if (isset($_GET['action'])) {
             switch($_GET['action']) {
                 case 'token':

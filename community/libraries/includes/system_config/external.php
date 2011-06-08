@@ -7,6 +7,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $externalMainForm = new Html_QuickForm("external_main_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=external&tab=main", "", null, true);
 $externalMainForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $externalMainForm -> addElement("advcheckbox", "api", _ENABLEDAPI, null, 'class = "inputCheckBox"', array(0, 1));
+$externalMainForm -> addElement("text", "api_ip", _CONSTRAINAPIIP, 'class = "inputText"');
 $externalMainForm -> addElement("select", "editor_type", _EDITORTYPE, array('tinymce' => G_TINYMCE, 'tinymce_new' => G_NEWTINYMCE), 'class = "inputCheckBox"');
 $externalMainForm -> addElement("advcheckbox", "virtual_keyboard", _ENABLEVIRTUALKEYBOARD, null, 'class = "inputCheckBox"', array(0, 1));
 //If we are on a windows system, and the zip_method is already PHP, then don't display option to change it

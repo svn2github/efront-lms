@@ -4091,4 +4091,7 @@ define("_YOUMUSTSPENDXMINUTESINLESSON", "Πρέπει να αφιερώσετε 
 define("_MUSTSPENDXMINUTESINLESSON", "Πρέπει να αφιερώσει %x λεπτά στο περιεχόμενο");
 define("_TOTALTIMESPENTONTHISLESSON", "Χρόνος στο μάθημα");
 define("_TIMERS", "Χρονόμετρα");
+define("_PREVIOUSUNIT", "Προηγούμενη ενότητα");
+define("_NEXTUNIT", "Επόμενη ενότητα");
+define("_PREVIOUSLESSON", "Προηγούμενο μάθημα");
 ?>

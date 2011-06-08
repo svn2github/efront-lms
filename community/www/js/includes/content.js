@@ -516,3 +516,26 @@ if (typeof(start_timer) != 'undefined' && start_timer) {
     };
 }
 
+function handleDrop(s,d, e) {	        
+	s.setStyle({left:'auto', top:'auto'});
+	d.next().insert(s.remove());
+	s.down().value = d.down().value;
+	dragdrop[s.id]=d.id
+	Droppables.remove(d);
+}
+function handleDrag(s, e,questionId) {	        
+	if (dragdrop[s.element.id]) {
+		Droppables.add($(dragdrop[s.element.id]), {accept:'draggable', onDrop:handleDrop});
+		$('source_'+questionId+'_'+s.element.id.match(/firstlist_\d+_(\d+)/)[1]).insert(s.element.remove());
+	}
+}
+function initDragDrop(questionId, keys) {
+	for (var i = 0; i < keys.length; i++) {
+		Droppables.add('secondlist_'+questionId+'_'+keys[i], {accept:'draggable', onDrop:handleDrop});
+		new Draggable('firstlist_'+questionId+'_'+keys[i], {revert:'failure', onStart:function (s,e) {handleDrag(s,e,questionId);}});
+	}
+}
+dragdrop = new Object();
+if (typeof(dragDropQuestions) != 'undefined') {
+	dragDropQuestions.each(function (s) {initDragDrop(s, dragDropQuestionKeys[s]);})
+}

@@ -4091,4 +4091,8 @@ define("_YOUMUSTSPENDXMINUTESINLESSON", "You must spend %x minutes studying cont
 define("_MUSTSPENDXMINUTESINLESSON", "Must spend %x minutes studying content");
 define("_TOTALTIMESPENTONTHISLESSON", "Time in lesson");
 define("_TIMERS", "Timers");
+define("_PREVIOUSUNIT", "Previous unit");
+define("_NEXTUNIT", "Next unit");
+define("_PREVIOUSLESSON", "Previous lesson");
+define("_CONSTRAINAPIIP", "Contrain API usage to a specific IP");
 ?>

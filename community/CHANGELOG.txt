@@ -3,6 +3,7 @@
 - Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
 - Added sorting terms in each tab in glossary page
 - Fixed issue about inserting & in question feedback
+- Added option to constrain XML API usage to a specific IP
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

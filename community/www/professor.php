@@ -518,7 +518,7 @@ try {
      require_once("lesson_information.php");
  }
  elseif ($ctg == 'news') {
-  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
+  //$_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));		//Commented out so that dashboard news links are working
      /***/
      include ("news.php");
  }

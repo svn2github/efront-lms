@@ -81,7 +81,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      //For deleting data from editor when toggling pdf content in editing unit. In order to write data again (#1034)
      $form -> addElement('hidden', 'content_toggle', null, 'id="content_toggle"');
      $form -> addElement('advcheckbox', 'hide_complete_unit', _HIDECOMPLETEUNITICON, null, 'class = "inputCheckbox"', array(0, 1));
-     $form -> addElement('advcheckbox', 'auto_complete', _AUTOCOMPLETE, null, 'class = "inputCheckbox"', array(0, 1));
+     $form -> addElement('advcheckbox', 'auto_complete', _AUTOCOMPLETE, null, 'id = "auto_complete" onclick = "setCompletion(this);" class = "inputCheckbox"', array(0, 1));
+     $form -> addElement('text', 'complete_time', _COMPLETEAFTERSECONDS, 'id = "complete_time"  onclick = "setCompletion(this);" size = "5"');
      $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'maximize_viewport', _MAXIMIZEVIEWABLEAREA, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('advcheckbox', 'scorm_asynchronous', _SCORMASYNCHROUNOUS, null, 'class = "inputCheckbox"', array(0, 1));
@@ -144,7 +145,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
           }
       }
       if (!empty($lessonQuestions) || $currentUnit['options']['complete_question']) {
-       $form -> addElement('advcheckbox', 'complete_question', _COMPLETEWITHQUESTION, null, 'class = "inputCheckbox" onclick = "$(\'complete_questions\').toggle()"', array(0, 1));
+       $form -> addElement('advcheckbox', 'complete_question', _COMPLETEWITHQUESTION, null, 'id = "complete_question" class = "inputCheckbox" onclick = "setCompletion(this);$(\'complete_questions\').toggle()"', array(0, 1));
        $form -> addElement('select', 'questions', null, $lessonQuestions, 'id = "complete_questions" style = "display:none"');
       }
      }
@@ -157,6 +158,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
               'name' => $currentUnit['name'],
               'ctg_type' => $currentUnit['ctg_type'],
                  'complete_question' => $currentUnit['options']['complete_question'] ? 1 : 0,
+              'complete_time' => $currentUnit['options']['complete_time'] ? $currentUnit['options']['complete_time'] : '',
                                 'questions' => $currentUnit['options']['complete_question'],
                                 'parent_content_ID' => isset($_GET['view_unit']) ? $_GET['view_unit'] : 0));
      //If the "complete with question" option is set, show the selected question
@@ -230,7 +232,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                    'object_ids' => $values['object_ids'],
                                      'no_before_unload' => $values['no_before_unload'],
                                'reentry_action' => isset($values['reentry_action']) ? $values['reentry_action'] : false,
-                      'complete_question' => $values['complete_question'] ? $values['questions'] : 0));
+                      'complete_question' => $values['complete_question'] ? $values['questions'] : 0,
+                   'complete_time' => $values['complete_time'] ? $values['complete_time'] : ''));
 
 
     if (isset($_GET['edit'])) {
@@ -437,6 +440,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     if ($value['type'] == 'time_in_lesson') {
      $smarty -> assign("T_REQUIRED_TIME_IN_LESSON", $value['options'][0]*60);
     }
+   }
+   if ($currentUnit['options']['complete_time']) {
+    $smarty -> assign("T_REQUIRED_TIME_IN_UNIT", $currentUnit['options']['complete_time']);
    }
    //Next and previous units are needed for navigation buttons
    //package_ID denotes that a SCORM 2004 unit is active.

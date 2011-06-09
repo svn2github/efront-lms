@@ -464,6 +464,7 @@ function onCheckLessonConditions(el, response) {
 }
 
 function startContentTimer() {
+	
     if (seconds <= 59) {seconds++;}
     else {
         if (seconds == 60 ) {seconds = 0;}
@@ -478,8 +479,14 @@ function startContentTimer() {
     if (min.length == 1) {min = "0" + min;}
     if (sec.length == 1) {sec = "0" + sec;}
 
-    $("user_time_in_unit_display").update(hours + ":" + min + ":" + sec);
+    $("user_time_in_unit_display").update(hours + ":" + min + ":" + sec);    
     $("user_current_time_in_unit").update(parseInt($("user_current_time_in_unit").innerHTML)+1);
+    
+    var newUserTotalTimeInUnit = parseInt($("user_total_time_in_unit").innerHTML)+1;
+    $('user_total_time_in_unit').update(newUserTotalTimeInUnit);
+    if (newUserTotalTimeInUnit == parseInt($('required_time_in_unit').innerHTML)) {
+    	setSeenUnit(true);
+    }    
 
     if (lesson_seconds <= 59) {lesson_seconds++;}
     else {
@@ -495,25 +502,53 @@ function startContentTimer() {
     if (lesson_min.length == 1) {lesson_min = "0" + lesson_min;}
     if (lesson_sec.length == 1) {lesson_sec = "0" + lesson_sec;}
 
-    $("user_time_in_lesson_display").update(lesson_hours + ":" + lesson_min + ":" + lesson_sec);
-    
+    $("user_time_in_lesson_display").update(lesson_hours + ":" + lesson_min + ":" + lesson_sec);    
     var newUserTimeInLesson = parseInt($("user_time_in_lesson").innerHTML)+1;
     $("user_time_in_lesson").update(newUserTimeInLesson);
-    if (newUserTimeInLesson == $('required_time_in_lesson').innerHTML) {
+    if (newUserTimeInLesson == parseInt($('required_time_in_lesson').innerHTML)) {
     	checkLessonConditions();
     }
 
-	contentTimer = setTimeout("startContentTimer()", 1000);
+	//contentTimer = setTimeout("startContentTimer()", 1000);	
 }
 if (typeof(start_timer) != 'undefined' && start_timer) {
-	startContentTimer();
-    window.onblur  = function () {
-    	clearTimeout(contentTimer);
-    };    
-    window.onfocus = function() {  
-    	clearTimeout(contentTimer);
-    	startContentTimer();
-    };
+	pe = false;
+	//startContentTimer();
+	var isIE = (navigator.appName == "Microsoft Internet Explorer");
+	if (isIE) {
+		document.onfocusout = function () {
+			if (pe) {
+				pe.stop();
+			}
+	    	//clearTimeout(contentTimer);
+	    };    
+	    document.onfocusin = function() {
+			if (pe) {
+				pe.stop();
+			}
+	    	pe = new PeriodicalExecuter(startContentTimer, 1);
+	    	//clearTimeout(contentTimer);
+	    	//startContentTimer();
+	    };
+	} else {
+	    window.onblur  = function () {
+			if (pe) {
+				pe.stop();
+			}
+	    	//clearTimeout(contentTimer);
+	    };    
+	    window.onfocus = function() {
+			if (pe) {
+				pe.stop();
+			}
+	    	pe = new PeriodicalExecuter(startContentTimer, 1);
+	    	//clearTimeout(contentTimer);
+	    	//startContentTimer();
+	    };
+	}
+	if (!pe) {
+		pe = new PeriodicalExecuter(startContentTimer, 1);
+	}
 }
 
 function handleDrop(s,d, e) {	        
@@ -538,4 +573,30 @@ function initDragDrop(questionId, keys) {
 dragdrop = new Object();
 if (typeof(dragDropQuestions) != 'undefined') {
 	dragDropQuestions.each(function (s) {initDragDrop(s, dragDropQuestionKeys[s]);})
+}
+
+function setCompletion(el) {
+	Element.extend(el);
+	if (el.identify() == 'complete_question') {
+		if ($('auto_complete')) {
+			$('auto_complete').checked = '';
+		}
+		if ($('complete_time')) {
+			$('complete_time').value = '';
+		}
+	} else if (el.identify() == 'auto_complete') {
+		if ($('complete_question')) {
+			$('complete_question').checked = "";
+		}
+		if ($('complete_time')) {
+			$('complete_time').value = '';
+		}
+	} if (el.identify() == 'complete_time') {
+		if ($('auto_complete')) {
+			$('auto_complete').checked = '';
+		}
+		if ($('complete_question')) {
+			$('complete_question').checked = '';
+		}
+	}
 }

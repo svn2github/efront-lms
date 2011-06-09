@@ -14,6 +14,7 @@ $generalSecurityForm -> addElement("text", "password_length", _MINIMUMPASSWORDLE
 $generalSecurityForm -> addElement("advcheckbox", "force_change_password", _FORCECHANGEPASSWORD, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("text", "autologout_time", _LOGOUTUSERAFTERMINUTES, 'size = "5"');
 $generalSecurityForm -> addElement("text", "updater_period", _UPDATERPERIODSECONDS, 'size = "8"');
+//$generalSecurityForm -> addElement("text", "inactivity_logout", _LOGOUTUSERIFINACTIVEFORMINUTES, 'size = "5"');
 $generalSecurityForm -> addElement("static", "", _RECOMMENDEDVALUEMORETHAN2000LESSTHANAUTOLOGOUTTIME);
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));

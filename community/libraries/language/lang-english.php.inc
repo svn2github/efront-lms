@@ -4095,4 +4095,6 @@ define("_PREVIOUSUNIT", "Previous unit");
 define("_NEXTUNIT", "Next unit");
 define("_PREVIOUSLESSON", "Previous lesson");
 define("_CONSTRAINAPIIP", "IPs allowed to connect to the API");
+define("_LOGOUTUSERIFINACTIVEFORMINUTES", "Log out user if inactive for (minutes)");
+define("_COMPLETEAFTERSECONDS", "Complete after (seconds)");
 ?>

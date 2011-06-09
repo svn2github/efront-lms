@@ -4095,4 +4095,6 @@ define("_PREVIOUSUNIT", "Προηγούμενη ενότητα");
 define("_NEXTUNIT", "Επόμενη ενότητα");
 define("_PREVIOUSLESSON", "Προηγούμενο μάθημα");
 define("_CONSTRAINAPIIP", "IPs που επιτρέπεται να συνδεθούν στο API");
+define("_LOGOUTUSERIFINACTIVEFORMINUTES", "Αποσύνδεση χρήστη μετά από αδράνεια (λεπτά)");
+define("_COMPLETEAFTERSECONDS", "Ολοκλήρωση μετά από (δευτερόλεπτα)");
 ?>

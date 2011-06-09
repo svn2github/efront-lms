@@ -4094,5 +4094,5 @@ define("_TIMERS", "Timers");
 define("_PREVIOUSUNIT", "Previous unit");
 define("_NEXTUNIT", "Next unit");
 define("_PREVIOUSLESSON", "Previous lesson");
-define("_CONSTRAINAPIIP", "Contrain API usage to a specific IP");
+define("_CONSTRAINAPIIP", "IPs allowed to connect to the API");
 ?>

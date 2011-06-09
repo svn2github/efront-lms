@@ -3242,11 +3242,11 @@ class EfrontStudent extends EfrontLessonUser
    $directionsTree = new EfrontDirectionsTree();
    $userLessons = new ArrayIterator($directionsTree -> getLessonsList($this -> getUserLessons()));
    while ($userLessons -> valid() && ($key = $userLessons -> current()) != $lesson -> lesson['id']) {
+    $previous = $key;
     $userLessons -> next();
    }
-   $userLessons -> previous();
-   if ($userLessons -> valid() && $userLessons -> current()) {
-    $previousLesson = $userLessons -> current();
+   if (isset($previous) && $previous) {
+    $previousLesson = $previous;
    }
   }
   return $previousLesson;

@@ -2192,7 +2192,7 @@ class EfrontContentTree extends EfrontTree
 
      * @param RecursiveIteratorIterator $iterator The content tree iterator
 
-     * @param string $treeId The HTML id that will be assigned to the tree
+     * @param string $treeId The HTML id that will be assigned to the tree. It MUST start with 'dhtml_'
 
      * @param array $options Behaviour options for the tree
 

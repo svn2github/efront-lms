@@ -4094,4 +4094,5 @@ define("_TIMERS", "Χρονόμετρα");
 define("_PREVIOUSUNIT", "Προηγούμενη ενότητα");
 define("_NEXTUNIT", "Επόμενη ενότητα");
 define("_PREVIOUSLESSON", "Προηγούμενο μάθημα");
+define("_CONSTRAINAPIIP", "IPs που επιτρέπεται να συνδεθούν στο API");
 ?>

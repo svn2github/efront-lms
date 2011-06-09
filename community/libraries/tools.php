@@ -834,10 +834,15 @@ function eF_decodeIP($hex_ip) {
 * @version 1.0
 
 */
-function eF_checkIP()
+function eF_checkIP($api = false)
 {
+ if ($api) {
+     $allowedIPs = $GLOBALS['configuration']['api_ip']; //Read the allowed IPs		
+ } else {
+  $allowedIPs = $GLOBALS['configuration']['ip_white_list']; //Read the allowed IPs
+  $disAllowedIPs = $GLOBALS['configuration']['ip_black_list']; //Read the allowed IPs
+ }
     $client_ip = $_SERVER['REMOTE_ADDR'];
-    $allowedIPs = $GLOBALS['configuration']['ip_white_list']; //Read the allowed IPs
     if (!$allowedIPs || !$client_ip) { //If the database doesn't
         $ok1 = true;
     } else {
@@ -857,7 +862,6 @@ function eF_checkIP()
             $ok1 = $ok1 | $temp;
         }
     }
-    $disAllowedIPs = $GLOBALS['configuration']['ip_black_list']; //Read the allowed IPs
     if (!$disAllowedIPs || !$client_ip) { //If the database doesn't
         $ok2 = false;
     } else {

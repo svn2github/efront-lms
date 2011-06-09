@@ -1337,8 +1337,8 @@ abstract class EfrontUser
   }
   if ($role) {
    $result = eF_getTableData("user_types", "*", "id='".$role."'");
-   unserialize($result[0]['core_access']) ? $this -> coreAccess = unserialize($result[0]['core_access']) : null;
-   unserialize($result[0]['modules_access']) ? $this -> modulesAccess = unserialize($result[0]['modules_access']) : null;
+   unserialize($result[0]['core_access']) ? $this -> coreAccess = unserialize($result[0]['core_access']) : $this -> coreAccess = null;
+   unserialize($result[0]['modules_access']) ? $this -> modulesAccess = unserialize($result[0]['modules_access']) : $this -> modulesAccess = null;
   }
  }
  /**

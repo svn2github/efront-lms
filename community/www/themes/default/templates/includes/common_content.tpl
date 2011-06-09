@@ -68,8 +68,10 @@
         <td class = "elementCell">{$T_ENTITY_FORM.hide_complete_unit.html}</td></tr>
        <tr><td class = "labelCell">{$T_ENTITY_FORM.auto_complete.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.auto_complete.html}</td></tr>
+      {if $T_ENTITY_FORM.complete_time}
        <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_time.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.complete_time.html}</td></tr>
+      {/if}
       {if $T_ENTITY_FORM.complete_question}
        <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_question.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.complete_question.html}&nbsp;{$T_ENTITY_FORM.questions.html}</td></tr>

@@ -600,3 +600,9 @@ function setCompletion(el) {
 		}
 	}
 }
+/*
+function testme(e) {
+	$('updateme').update(Math.random());
+}
+document.observe('mousemove', testme);
+*/

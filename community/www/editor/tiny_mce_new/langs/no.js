@@ -12,8 +12,53 @@ not_set:"--ikke sett--",
 clipboard_msg:"Klipp ut / Kopier /Lim inn fungerer ikke i Mozilla og Firefox. Vil du vite mer om dette?",
 clipboard_no_support:"For tiden ikke st\u00F8ttet av nettleseren din, bruk tastatursnarveier i stedet.",
 popup_blocked:"Beklager, det er registrert at du har popup-sperre aktivert i nettleseren. Du m\u00E5 oppheve popup-sperren for nettstedet for \u00E5 f\u00E5 tilgang til dette verkt\u00F8yet",
-invalid_data:"Feil: Ugyldige verdier er skrevet inn, disse er merket med r\u00F8dt",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Flere farger"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Justering",
@@ -151,7 +196,8 @@ langs:"Spr\u00E5k",
 wait:"Vennligst vent...",
 sug:"Framlegg",
 no_sug:"Ingen framlegg",
-no_mpell:"Ingen stavefeil funnet."
+no_mpell:"Ingen stavefeil funnet.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Sett inn sideskift"
@@ -167,4 +213,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

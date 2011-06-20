@@ -12,8 +12,53 @@ not_set:"--\u672A\u8A2D\u7F6E--",
 clipboard_msg:"\u5F88\u62B1\u6B49\uFF0C\u60A8\u7684\u700F\u89BD\u5668\u4E0D\u652F\u6301\u8907\u88FD\u529F\u80FD\u3002 ",
 clipboard_no_support:"\u60A8\u7684\u700F\u89BD\u5668\u7576\u524D\u4E0D\u652F\u6301\u6B64\u529F\u80FD\uFF0C\u8ACB\u6309Ctrl + C\u5FEB\u6377\u9375\u4EE3\u66FF",
 popup_blocked:"\u60A8\u7684\u700F\u89BD\u5668\u963B\u6B62\u4E86\u6253\u958B\u65B0\u8996\u7A97\u3002\u60A8\u9700\u8981\u53D6\u6D88\u700F\u89BD\u5668\u6B64\u529F\u80FD\u4EE5\u66F4\u597D\u5730\u4F7F\u7528\u6B64\u63D2\u4EF6\u3002 ",
-invalid_data:"\u60A8\u8F38\u5165\u7684\u8CC7\u6599\u6709\u932F\u8AA4\u3002 (\u8ACB\u898B\u7D05\u8272\u90E8\u5206)",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u66F4\u591A\u984F\u8272"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u5C0D\u9F4A\u65B9\u5F0F",
@@ -159,7 +204,8 @@ langs:"\u8A9E\u8A00",
 wait:"\u8ACB\u7A0D\u5019\u3002 ",
 sug:"\u5EFA\u8B70",
 no_sug:"\u6C92\u6709\u5EFA\u8B70\u2026",
-no_mpell:"\u672A\u767C\u73FE\u932F\u8AA4"
+no_mpell:"\u672A\u767C\u73FE\u932F\u8AA4",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u63D2\u5165\u5206\u9801\u7B26\u865F"
@@ -184,4 +230,25 @@ upper_roman:"\u5927\u5BEB\u7684\u7F85\u99AC\u6578\u5B57",
 circle:"\u5713\u5708",
 disc:"\u9ED1\u9EDE",
 square:"\u65B9\u584A"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

@@ -47,5 +47,8 @@ link_target_blank:"Otvori poveznicu u novom prozoru",
 link_titlefield:"Naslov",
 link_is_email:"URL koji ste unijeli izgleda kao e-mail adresa, \u017Eelite li dodati potrebni mailto: prefiks?",
 link_is_external:"URL koji ste unijeli izgleda kao vanjska poveznica, \u017Eelite li dodati potrebni http:// prefiks?",
-link_list:"Lista poveznica"
+link_list:"Lista poveznica",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

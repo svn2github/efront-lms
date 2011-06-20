@@ -59,5 +59,12 @@ path:"Kelias",
 newdocument:"Ar tikrai norite i\u0161valyti vis\u0105 turin\u012F?",
 toolbar_focus:"Per\u0161okimas prie \u012Franki\u0173 juostos mygtuk\u0173 - Alt+Q, Per\u0161okimas prie redaktoriaus - Alt-Z, Per\u0161okimas prie element\u0173 kelio - Alt-X",
 more_colors:"Daugiau spalv\u0173",
-link_delta_width:"70"
+link_delta_width:"70",
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

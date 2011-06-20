@@ -58,5 +58,11 @@ clipboard_msg:"Copiar/Cortar/Pegar non est\u00E1 disponible en Mozilla e Firefox
 path:"Ruta",
 newdocument:"\u00BFSeguro que desexa limpar todo o contido?",
 toolbar_focus:"Ir \u00F3s bot\u00F3ns de ferramentas - Alt+Q, Ir \u00F3 editor - Alt-Z, Ir \u00E1 ruta do elemento - Alt-X",
-more_colors:"M\u00E1is cores"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

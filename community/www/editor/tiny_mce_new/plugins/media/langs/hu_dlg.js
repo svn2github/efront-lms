@@ -99,5 +99,12 @@ flv_autostart:"Aut\u00F3 start",
 flv_loop:"Ism\u00E9tl\u00E9s",
 flv_showscalemodes:"Nagy\u00EDt\u00E1si m\u00F3dok mutat\u00E1sa",
 flv_smoothvideo:"Vide\u00F3 sim\u00EDt\u00E1sa",
-flv_jscallback:"JS Callback"
+flv_jscallback:"JS Callback",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

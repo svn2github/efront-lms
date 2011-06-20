@@ -15,7 +15,7 @@ margin:8px 8px 0 8px;
 }
 
 html {background:#F0F0EE;}
-td {font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif;}
+td {font-family:Trebuchet MS,verdana,geneva,arial,helvetica,sans-serif; font-size:10px;}
 textarea {resize:none;outline:none;}
 a:link, a:visited {color:black;}
 a:hover {color:#2B6FB6;}

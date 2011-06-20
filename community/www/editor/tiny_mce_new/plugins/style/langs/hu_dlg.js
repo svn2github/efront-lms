@@ -59,5 +59,12 @@ visibility:"L\u00E1that\u00F3s\u00E1g",
 zindex:"Z-index",
 overflow:"Kifut\u00E1s",
 placement:"Elhelyez\u00E9s",
-clip:"Lev\u00E1g\u00E1s"
+clip:"Lev\u00E1g\u00E1s",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

@@ -47,5 +47,8 @@ link_target_blank:"Link in een nieuw venster openen",
 link_titlefield:"Titel",
 link_is_email:"De ingevoerde URL lijkt op een e-mailadres. Wilt u de vereiste mailto: tekst voorvoegen?",
 link_is_external:"De ingevoerde URL lijkt op een externe link. Wilt u de vereiste http:// tekst voorvoegen?",
-link_list:"Link lijst"
+link_list:"Link lijst",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

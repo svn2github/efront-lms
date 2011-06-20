@@ -185,6 +185,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
    }
    if (!$values['password_']) {//If a password is not set, don't set it
     unset($userProperties['password']);
+   } else {
+    $userProperties['password'] = EfrontUser::createPassword($userProperties['password']); //encode the password
    }
    $editedUser->user = array_merge($editedUser->user, $userProperties);
    $editedUser->persist();

@@ -59,5 +59,12 @@ visibility:"Shikueshm\u00EBria",
 zindex:"Indeksi Z",
 overflow:"Mbivendosja",
 placement:"Vendosja",
-clip:"Prerja"
+clip:"Prerja",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

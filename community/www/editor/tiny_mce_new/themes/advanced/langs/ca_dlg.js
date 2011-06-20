@@ -47,5 +47,8 @@ link_target_blank:"Obre l\'enlla\u00E7 a una nova finestra",
 link_titlefield:"T\u00EDtol",
 link_is_email:"L\'URL que heu introdu\u00EFt sembla ser una adre\u00E7a de correu, voleu afegir-hi el prefix requerit mailto: ?",
 link_is_external:"L\'URL que heu introdu\u00EFt sembla ser un enlla\u00E7 extern, voleu afegir-hi el prefix requerit http:// ?",
-link_list:"Llista d\'enlla\u00E7os"
+link_list:"Llista d\'enlla\u00E7os",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

@@ -99,5 +99,12 @@ flv_autostart:"\u0391\u03C5\u03C4\u03CC\u03BC\u03B1\u03C4\u03B7 \u03B5\u03BA\u03
 flv_loop:"\u0395\u03C0\u03B1\u03BD\u03AC\u03BB\u03B7\u03C8\u03B7",
 flv_showscalemodes:"\u0395\u03BC\u03C6\u03AC\u03BD\u03B9\u03C3\u03B7 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03B9\u03CE\u03BD \u03BA\u03BB\u03AF\u03BC\u03B1\u03BA\u03B1\u03C2",
 flv_smoothvideo:"\u039F\u03BC\u03B1\u03BB\u03BF\u03C0\u03BF\u03AF\u03B7\u03C3\u03B7 \u03B5\u03B9\u03BA\u03CC\u03BD\u03B1\u03C2 \u03B2\u03AF\u03BD\u03C4\u03B5\u03BF",
-flv_jscallback:"JS Callback"
+flv_jscallback:"JS Callback",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

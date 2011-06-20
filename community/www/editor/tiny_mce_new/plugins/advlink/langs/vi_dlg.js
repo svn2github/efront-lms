@@ -1,4 +1,6 @@
 tinyMCE.addI18n('vi.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Th\u00EAm/S\u1EEDa Li\u00EAn k\u1EBFt",
 url:"URL Li\u00EAn k\u1EBFt",
 target:"\u0110\u00EDch",

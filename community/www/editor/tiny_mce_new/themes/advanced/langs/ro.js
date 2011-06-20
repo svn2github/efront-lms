@@ -58,5 +58,11 @@ clipboard_msg:"Copierea/T\u0103ierea/Lipirea nu sunt disponibile \u00EEn Mozilla
 path:"Cale",
 newdocument:"Sigur dori\u0163i s\u0103 \u015Fterge\u0163i tot?",
 toolbar_focus:"S\u0103ri\u0163i la instrumente - Alt+Q, S\u0103ri\u0163i la editor - Alt-Z, S\u0103ri\u0163i la cale - Alt-X",
-more_colors:"Mai multe culori"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

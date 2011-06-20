@@ -59,5 +59,12 @@ visibility:"Viditelnost",
 zindex:"Z-index",
 overflow:"P\u0159ete\u010Den\u00ED (overflow)",
 placement:"Um\u00EDst\u011Bni",
-clip:"O\u0159ez\u00E1n\u00ED (clip)"
+clip:"O\u0159ez\u00E1n\u00ED (clip)",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

@@ -26,7 +26,6 @@ if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
     exit;
 }
 
-
 try {
     //There are 2 legal modes: 'lessons' and 'external'. In the first case, we read the legitimate directory from the session. In the second case, we take it from global constant    
     if ($_GET['mode'] == 'lesson') {
@@ -65,10 +64,11 @@ try {
    $files = $folders = array();
     //for_type defines which kind of files we need.
     switch ($_GET['for_type']) {
-        case 'image': $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('image')); break;
+        case 'image' : $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('image')); break;
         case 'java' : $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('java')); break;
-        case 'media': $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('media')); break;
-        case 'files': $mode = false; $filter = array(); break;
+        case 'media' : $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('media')); break;
+  case 'document' : $mode = true; $filter = array_keys(FileSystemTree :: getFileTypes('document')); break;
+        case 'files' : $mode = false; $filter = array(); break;
         default : $mode = true; $filter = array(); break;
     }
 

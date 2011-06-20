@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ka.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"\u10E1\u10D0\u10D4\u10E0\u10D7\u10DD",
 tab_appearance:"\u10DB\u10D3\u10D2\u10DD\u10DB\u10D0\u10E0\u10D4\u10DD\u10D1\u10D0",
 tab_advanced:"\u10D3\u10D0\u10DB\u10D0\u10E2\u10D4\u10D1\u10D8\u10D7",

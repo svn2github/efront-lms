@@ -276,9 +276,9 @@
              <table>
               <tr><td>
                       <ul class = "sortable" id = "layoutfirstlist">
-                      {if !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.first) && !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleIconFunctions}{/if}
-                      {if !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.first) && !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleContentTree}{/if}
-                      {if !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleProjectsList}{/if}
+                      {if !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.first) && !in_array('moduleIconFunctions', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleIconFunctions}{$smarty.capture.layout_moduleIconFunctions}{/if}
+                      {if !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.first) && !in_array('moduleContentTree', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleContentTree}{$smarty.capture.layout_moduleContentTree}{/if}
+                      {if !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleProjectsList', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleProjectsList}{$smarty.capture.layout_moduleProjectsList}{/if}
                       {foreach name = positions_first key = "key" item = "innerTable" from = $T_DEFAULT_POSITIONS.first}
                           {if !$T_INVALID_OPTIONS.$innerTable}
                               {assign var = "capture_name" value = "layout_"|cat:$innerTable}
@@ -288,15 +288,15 @@
                       </ul>
                   </td><td>
                       <ul class = "sortable" id = "layoutsecondlist">
-                      {if !in_array('moduleNewsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleNewsList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleNewsList}{/if}
-                      {if !in_array('modulePersonalMessagesList', $T_DEFAULT_POSITIONS.first) && !in_array('modulePersonalMessagesList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_modulePersonalMessagesList}{/if}
-                      {if !in_array('moduleForumList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleForumList', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleForumList}{/if}
-                      {if !in_array('moduleComments', $T_DEFAULT_POSITIONS.first) && !in_array('moduleComments', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleComments}{/if}
-                      {if !in_array('moduleCalendar', $T_DEFAULT_POSITIONS.first) && !in_array('moduleCalendar', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleCalendar}{/if}
-                      {if !in_array('moduleDigitalLibrary', $T_DEFAULT_POSITIONS.first) && !in_array('moduleDigitalLibrary', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleDigitalLibrary}{/if}
-                      {if !in_array('moduleTimeline', $T_DEFAULT_POSITIONS.first) && !in_array('moduleTimeline', $T_DEFAULT_POSITIONS.second)}{$smarty.capture.layout_moduleTimeline}{/if}
+                      {if !in_array('moduleNewsList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleNewsList', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleNewsList}{$smarty.capture.layout_moduleNewsList}{/if}
+                      {if !in_array('modulePersonalMessagesList', $T_DEFAULT_POSITIONS.first) && !in_array('modulePersonalMessagesList', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.modulePersonalMessagesList}{$smarty.capture.layout_modulePersonalMessagesList}{/if}
+                      {if !in_array('moduleForumList', $T_DEFAULT_POSITIONS.first) && !in_array('moduleForumList', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleForumList}{$smarty.capture.layout_moduleForumList}{/if}
+       {if !in_array('moduleComments', $T_DEFAULT_POSITIONS.first) && !in_array('moduleComments', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleComments}{$smarty.capture.layout_moduleComments}{/if}
+       {if !in_array('moduleCalendar', $T_DEFAULT_POSITIONS.first) && !in_array('moduleCalendar', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleCalendar}{$smarty.capture.layout_moduleCalendar}{/if}
+                      {if !in_array('moduleDigitalLibrary', $T_DEFAULT_POSITIONS.first) && !in_array('moduleDigitalLibrary', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleDigitalLibrary}{$smarty.capture.layout_moduleDigitalLibrary}{/if}
+                      {if !in_array('moduleTimeline', $T_DEFAULT_POSITIONS.first) && !in_array('moduleTimeline', $T_DEFAULT_POSITIONS.second) && !$T_INVALID_OPTIONS.moduleTimeline}{$smarty.capture.layout_moduleTimeline}{/if}
                       {foreach name = positions_second key = "key" item = "innerTable" from = $T_DEFAULT_POSITIONS.second}
-                          {if !$T_INVALID_OPTIONS.$innerTable}
+        {if !$T_INVALID_OPTIONS.$innerTable}
                               {assign var = "capture_name" value = "layout_"|cat:$innerTable}
                               {$smarty.capture.$capture_name}
                           {/if}

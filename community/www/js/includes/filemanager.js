@@ -1,3 +1,4 @@
+var toggledInstanceEditor;
 function toggleEditBox(el, fileId) {
 	Element.extend(el);
 	if (el.hasClassName("sprite16-edit")) {
@@ -132,7 +133,7 @@ function onInsertEditor(el, response) {
     if (tinyMCEmode) {
 		tinyMCE.activeEditor.execCommand('mceInsertContent', false, response);
     } else {
-    	insertatcursor($(tinyMCE.activeEditor.id), response);
+    	insertatcursor($(toggledInstanceEditor), response);
     }	
 }
 function insertatcursor(myField, myValue) {

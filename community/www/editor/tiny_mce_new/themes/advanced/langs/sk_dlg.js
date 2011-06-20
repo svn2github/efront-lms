@@ -47,5 +47,8 @@ link_target_blank:"Otvori\u0165 odkaz v novom okne",
 link_titlefield:"Titulok",
 link_is_email:"Zadan\u00E9 URL vyzer\u00E1 ako e-mailov\u00E1 adresa, chcete doplni\u0165 povinn\u00FD prefix mailto:?",
 link_is_external:"Zadan\u00E9 URL vyzer\u00E1 ako extern\u00FD odkaz, chcete doplni\u0165 povinn\u00FD prefix http://?",
-link_list:"Zoznam odkazov"
+link_list:"Zoznam odkazov",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

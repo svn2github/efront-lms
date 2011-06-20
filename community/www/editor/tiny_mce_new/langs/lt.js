@@ -12,8 +12,53 @@ not_set:"-- Nenurodyta --",
 clipboard_msg:"Kopijavimas/i\u0161kirpimas/\u012Fd\u0117jimas paspaudus \u0161\u012F mygtuk\u0105 negalimas Mozilla ir Firefox nar\u0161ykl\u0117se.\nNukopijuoti galima paspaudus: Ctrl + C, i\u0161kirpti: Ctrl + X, \u012Fd\u0117ti: Ctrl + V.\nAr norite daugiau informacijos apie \u0161i\u0105 problem\u0105?",
 clipboard_no_support:"\u0160i nar\u0161ykl\u0117 nepalaiko \u0161io veikimo, tod\u0117l naudokite klaviat\u016Bros spar\u010Diuosius klavi\u0161us.",
 popup_blocked:"Atsipra\u0161ome, ta\u010Diau pasteb\u0117jome, kad j\u016Bs\u0173 i\u0161kylan\u010Di\u0173 lang\u0173 blokavimo programa i\u0161jung\u0117 lang\u0105, kuris teikia aplikacijai funkcionalum\u0105. Tur\u0117tum\u0117te atjungti i\u0161kylan\u010Di\u0173 lang\u0173 blokavim\u0105 \u0161iam tinklalapiui, kad i\u0161naudotum\u0117te visas galimybes.",
-invalid_data:"Klaida: Blogai \u012Fvestos reik\u0161m\u0117s, kurios pa\u017Eym\u0117tos raudonai.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Daugiau spalv\u0173"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Lygiavimas",
@@ -169,7 +214,8 @@ langs:"Kalbos",
 wait:"Pra\u0161ome palaukti...",
 sug:"Pasi\u016Blymai",
 no_sug:"Pasi\u016Blym\u0173 nerasta",
-no_mpell:"Klaid\u0173 nerasta."
+no_mpell:"Klaid\u0173 nerasta.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u012Eterpti puslapio pabaigos \u017Eym\u0119."
@@ -194,4 +240,25 @@ upper_roman:"Did\u017Eiaisiais rom\u0117n\u0173",
 circle:"Apskritimas",
 disc:"Diskas",
 square:"Kvadratas"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

@@ -99,5 +99,12 @@ flv_autostart:"Execu\u00E7\u00E3o Autom\u00E1tica",
 flv_loop:"Loop",
 flv_showscalemodes:"Mostrar modos escala",
 flv_smoothvideo:"Smooth video",
-flv_jscallback:"JS callback"
+flv_jscallback:"JS callback",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

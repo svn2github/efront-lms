@@ -1,4 +1,6 @@
 tinyMCE.addI18n('id.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Sisipkan/Ubah link",
 url:"Link URL",
 target:"Target",

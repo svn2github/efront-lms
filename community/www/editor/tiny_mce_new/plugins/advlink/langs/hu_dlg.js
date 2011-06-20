@@ -1,4 +1,6 @@
 tinyMCE.addI18n('hu.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Link besz\u00FAr\u00E1s/szerkeszt\u00E9s",
 url:"Link URL",
 target:"Target",

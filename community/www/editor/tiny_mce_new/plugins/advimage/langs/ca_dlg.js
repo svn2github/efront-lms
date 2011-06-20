@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ca.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"General",
 tab_appearance:"Aparen\u00E7a",
 tab_advanced:"Avan\u00E7at",

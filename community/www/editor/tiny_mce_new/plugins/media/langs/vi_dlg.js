@@ -99,5 +99,12 @@ flv_autostart:"T\u1EF1 b\u1EAFt \u0111\u1EA7u",
 flv_loop:"L\u1EB7p",
 flv_showscalemodes:"Hi\u1EC3n th\u1ECB ch\u1EBF \u0111\u1ED9 thang",
 flv_smoothvideo:"Video m\u01B0\u1EE3t",
-flv_jscallback:"H\u00E0m g\u1ECDi ng\u01B0\u1EE3c JS"
+flv_jscallback:"H\u00E0m g\u1ECDi ng\u01B0\u1EE3c JS",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

@@ -68,5 +68,11 @@ colorpicker_delta_height:"Altezza",
 charmap_delta_width:"Larghezza",
 charmap_delta_height:"Altezza",
 anchor_delta_width:"Larghezza",
-anchor_delta_height:"Altezza"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

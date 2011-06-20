@@ -12,8 +12,53 @@ not_set:"-- \u05DC\u05D0 \u05D4\u05D5\u05D2\u05D3\u05E8 --",
 clipboard_msg:"\r\n        \u05D4\u05E2\u05EA\u05E7\u05D4/\u05D2\u05D6\u05D9\u05E8\u05D4 \u05D5\u05D4\u05D3\u05D1\u05E7\u05D4 \u05D0\u05D9\u05E0\u05DD \u05D6\u05DE\u05D9\u05E0\u05D9\u05DD \u05D1 Mozilla \u05D5\u05D1-Firefox.\r\n        \u05D4\u05D0\u05DD \u05D1\u05E8\u05E6\u05D5\u05E0\u05DA \u05DC\u05E7\u05D1\u05DC \u05DE\u05D9\u05D3\u05E2 \u05E0\u05D5\u05E1\u05E3 \u05E2\u05DC \u05D4\u05E0\u05D5\u05E9\u05D0?\r\n      ",
 clipboard_no_support:"\u05DB\u05E8\u05D2\u05E2 \u05DC\u05D0 \u05E0\u05EA\u05DE\u05DA \u05E2\u05DC \u05D9\u05D3\u05D9 \u05D4\u05D3\u05E4\u05D3\u05E4\u05DF \u05E9\u05DC\u05DA. \u05D4\u05E9\u05EA\u05DE\u05E9 \u05D1\u05E7\u05D9\u05E6\u05D5\u05E8\u05D9 \u05D4\u05DE\u05E7\u05DC\u05D3\u05EA.",
 popup_blocked:"\u05D7\u05D5\u05E1\u05DD \u05E4\u05E8\u05D9\u05D8\u05D9\u05DD \u05DE\u05D5\u05E7\u05E4\u05E6\u05D9\u05DD \u05DE\u05E0\u05E2 \u05DE\u05D7\u05DC\u05D5\u05DF \u05D7\u05E9\u05D5\u05D1 \u05DE\u05DC\u05D4\u05E4\u05EA\u05D7,\u05D0\u05DD \u05D1\u05E8\u05E6\u05D5\u05E0\u05DA \u05DC\u05D4\u05E9\u05EA\u05DE\u05E9 \u05D1\u05DB\u05DC\u05D9 \u05D6\u05D4 \u05E2\u05DC\u05D9\u05DA \u05DC\u05D1\u05D8\u05DC \u05D0\u05EA \u05D7\u05D5\u05E1\u05DD \u05D4\u05E4\u05E8\u05D9\u05D8\u05D9\u05DD",
-invalid_data:"\u05E9\u05D2\u05D9\u05D0\u05D4: \u05D4\u05D5\u05E7\u05DC\u05D3 \u05DE\u05D9\u05D3\u05E2 \u05DC\u05D0 \u05EA\u05E7\u05E0\u05D9. \u05D4\u05DE\u05D9\u05D3\u05E2 \u05E1\u05D5\u05DE\u05DF \u05D1\u05D0\u05D3\u05D5\u05DD.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u05E2\u05D5\u05D3 \u05E6\u05D1\u05E2\u05D9\u05DD"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u05D9\u05D9\u05E9\u05D5\u05E8",
@@ -151,7 +196,8 @@ langs:"\u05E9\u05E4\u05D5\u05EA",
 wait:"\u05E0\u05D0 \u05DC\u05D4\u05DE\u05EA\u05D9\u05DF..",
 sug:"\u05D4\u05E6\u05E2\u05D5\u05EA",
 no_sug:"\u05D0\u05D9\u05DF \u05D4\u05E6\u05E2\u05D5\u05EA",
-no_mpell:"\u05DC\u05D0 \u05E0\u05DE\u05E6\u05D0\u05D5 \u05E9\u05D2\u05D9\u05D0\u05D5\u05EA \u05D0\u05D9\u05D5\u05EA"
+no_mpell:"\u05DC\u05D0 \u05E0\u05DE\u05E6\u05D0\u05D5 \u05E9\u05D2\u05D9\u05D0\u05D5\u05EA \u05D0\u05D9\u05D5\u05EA",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u05D4\u05D5\u05E1\u05E4\u05EA \u05DE\u05E2\u05D1\u05E8 \u05D3\u05E3"
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"\u05E2\u05D2\u05D5\u05DC",
 disc:"\u05D3\u05D9\u05E1\u05E7",
 square:"\u05DE\u05E8\u05D5\u05D1\u05E2"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

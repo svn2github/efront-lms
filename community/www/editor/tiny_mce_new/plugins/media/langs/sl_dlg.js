@@ -99,5 +99,12 @@ flv_autostart:"Samodejni zagon",
 flv_loop:"Zanka",
 flv_showscalemodes:"Prika\u017Ei na\u010Dine pove\u010Dave",
 flv_smoothvideo:"Meh\u010Daj video",
-flv_jscallback:"Klicani JavaScript"
+flv_jscallback:"Klicani JavaScript",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

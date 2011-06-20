@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sl.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Vstavi/uredi povezavo",
 url:"Naslov URL",
 target:"Cilj",

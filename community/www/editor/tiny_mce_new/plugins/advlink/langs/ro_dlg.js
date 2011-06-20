@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ro.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Insereaz\u0103/editeaz\u0103 link",
 url:"URL leg\u0103tur\u0103",
 target:"\u0162int\u0103",

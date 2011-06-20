@@ -58,5 +58,11 @@ clipboard_msg:"Funkcie kop\u00EDrova\u0165/vystrihn\u00FA\u0165/vlo\u017Ei\u0165
 path:"Cesta",
 newdocument:"Ste si naozaj ist\u00ED, \u017Ee chcete odstr\u00E1ni\u0165 v\u0161etok obsah?",
 toolbar_focus:"Prechod na li\u0161tu n\u00E1strojov - Alt+Q, prechod do editora - Alt-Z, prechod na cestu k objektom - Alt-X",
-more_colors:"\u010Eal\u0161ie farby"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

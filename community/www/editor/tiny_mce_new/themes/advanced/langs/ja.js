@@ -58,5 +58,11 @@ clipboard_msg:"\u30B3\u30D4\u30FC/\u5207\u308A\u53D6\u308A/\u8CBC\u308A\u4ED8\u3
 path:"\u30D1\u30B9",
 newdocument:"\u7DE8\u96C6\u4E2D\u306E\u30C7\u30FC\u30BF\u3092\u7834\u68C4\u3057\u3066\u3082\u3088\u308D\u3057\u3044\u3067\u3059\u304B\uFF1F",
 toolbar_focus:"\u30C4\u30FC\u30EB\u30DC\u30BF\u30F3\u3078\u30B8\u30E3\u30F3\u30D7 - Alt+Q, \u30A8\u30C7\u30A3\u30BF\u306B\u30B8\u30E3\u30F3\u30D7 - Alt-Z, \u30A8\u30EC\u30E1\u30F3\u30C8\u30D1\u30B9\u3078\u30B8\u30E3\u30F3\u30D7 - Alt-X",
-more_colors:"\u305D\u306E\u4ED6\u306E\u8272"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

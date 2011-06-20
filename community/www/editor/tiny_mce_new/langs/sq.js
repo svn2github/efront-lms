@@ -12,8 +12,53 @@ not_set:"-- pa v\u00EBn\u00EB --",
 clipboard_msg:"Kopja/Prerja/Ngjitja nuk suportohen n\u00EB Mozilla dhe Firefox.\nD\u00EBshironi m\u00EB shum\u00EB informacione p\u00EBr k\u00EBt\u00EB \u00E7\u00EBshtje?",
 clipboard_no_support:"Aktualisht nuk suportohet nga Shfletuesi juaj, p\u00EBrdorni tastjer\u00EBn.",
 popup_blocked:"Ju k\u00EBrkojm\u00EB ndjes\u00EB, por bllokuesi i popup-eve ka bllokuar nj\u00EB dritare q\u00EB ofron funksjonalitet p\u00EBr programin. Duhet t'a \u00E7aktivizoni bllokuesin e popup-eve n\u00EB m\u00EBnyr\u00EB q\u00EB t'i p\u00EBrdorni opsionet.",
-invalid_data:"Gabim: Keni futur vlera t\u00EB pavlefshme, t\u00EB cilat jan\u00EB sh\u00EBnuar me t\u00EB kuqe.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"M\u00EB shum\u00EB ngjyra"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Drejtimi",
@@ -151,7 +196,8 @@ langs:"Gjuh\u00EBt",
 wait:"Ju lutem prisni...",
 sug:"Sygjerimet",
 no_sug:"Asnj\u00EB sygjerim",
-no_mpell:"Nuk u gjet asnj\u00EB gabim."
+no_mpell:"Nuk u gjet asnj\u00EB gabim.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Fut thyerje faqeje."
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

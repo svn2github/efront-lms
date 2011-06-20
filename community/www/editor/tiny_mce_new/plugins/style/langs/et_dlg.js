@@ -59,5 +59,12 @@ visibility:"N\u00E4htavus",
 zindex:"Z-viit",
 overflow:"\u00DClevool",
 placement:"Asetus",
-clip:"Klipp"
+clip:"Klipp",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

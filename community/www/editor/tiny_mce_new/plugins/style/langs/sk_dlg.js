@@ -59,5 +59,12 @@ visibility:"Vidite\u013Enos\u0165",
 zindex:"Z-index",
 overflow:"Prete\u010Denie (overflow)",
 placement:"Umiestnenie",
-clip:"Orezanie (clip)"
+clip:"Orezanie (clip)",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

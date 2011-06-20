@@ -47,5 +47,8 @@ link_target_blank:"\u00D6\u0096ppna l\u00E4nken i ett nytt f\u00F6nster",
 link_titlefield:"Titel",
 link_is_email:"L\u00E4nken du angav verkar vara en e-post adress. Vill du infoga mailto: prefixet p\u00E5 l\u00E4nken?",
 link_is_external:"L\u00E4nken du angav verkar vara en extern adress. Vill du infoga http:// prefixet p\u00E5 l\u00E4nken?",
-link_list:"L\u00E4nklista"
+link_list:"L\u00E4nklista",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

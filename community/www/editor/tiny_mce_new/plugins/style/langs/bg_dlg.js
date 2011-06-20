@@ -59,5 +59,12 @@ visibility:"\u0412\u0438\u0434\u0438\u043C\u043E\u0441\u0442",
 zindex:"Z-index",
 overflow:"Overflow",
 placement:"\u0420\u0430\u0437\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0435",
-clip:"\u041E\u0442\u0440\u0435\u0436\u0438"
+clip:"\u041E\u0442\u0440\u0435\u0436\u0438",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

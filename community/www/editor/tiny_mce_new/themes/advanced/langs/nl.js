@@ -58,5 +58,11 @@ clipboard_msg:"Kopi\u00EBren/knippen/plakken is niet beschikbaar in Mozilla en F
 path:"Pad",
 newdocument:"Weet u zeker dat u alle inhoud wilt wissen?",
 toolbar_focus:"Spring naar werkbalk - Alt+Q, Spring naar tekst - Alt-Z, Spring naar elementpad - Alt-X",
-more_colors:"Meer kleuren"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

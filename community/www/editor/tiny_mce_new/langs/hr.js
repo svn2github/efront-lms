@@ -12,8 +12,53 @@ not_set:"-- Nije postavljeno --",
 clipboard_msg:"Kopiraj/Izre\u017Ei/Zalijepi nije dostupno Mozilla i Firefox preglednicima.\nVi\u0161e informacija?",
 clipboard_no_support:"Trenuta\u010Dno va\u0161 preglednik ne podr\u017Eava ovu opciju, poku\u0161ajte koristiti tipkovni\u010Dku kraticu.",
 popup_blocked:"Oprostite, izgleda da je va\u0161 popup-blocker onemogu\u0107io prozor u sklopu ovog programa. Morate onemogu\u0107iti blokiranje popup prozora da bi u potpunosti iskoristili ovaj alat.",
-invalid_data:"Gre\u0161ka: Une\u0161ene su nevaljane vrijednosti, ozna\u010Dene su crvenom bojom.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Vi\u0161e boja"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Poravnavanje",
@@ -152,7 +197,8 @@ langs:"Jezici",
 wait:"Pri\u010Dekajte...",
 sug:"Prijedlozi",
 no_sug:"Nema prijedloga",
-no_mpell:"Nije prona\u0111ena nijedna pravopisna gre\u0161ke."
+no_mpell:"Nije prona\u0111ena nijedna pravopisna gre\u0161ke.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Umetni prijelom."
@@ -177,4 +223,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

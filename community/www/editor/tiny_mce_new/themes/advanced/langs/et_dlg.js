@@ -47,5 +47,8 @@ link_target_blank:"Ava link uues aknas",
 link_titlefield:"Tiitel",
 link_is_email:"URL, mille te sisestasite, tundub olevat emaili aadress, kas soovite, et lisataks mailto: eesliite?",
 link_is_external:"URL, mille sisestasite, tundub olevat v\u00E4line link, kas soovite, et lisataks http:// eesliite?",
-link_list:"Lingi loetelu"
+link_list:"Lingi loetelu",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

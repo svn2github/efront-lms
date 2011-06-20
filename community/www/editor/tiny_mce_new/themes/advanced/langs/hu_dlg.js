@@ -47,5 +47,8 @@ link_target_blank:"Link \u00FAj ablakba nyit\u00E1sa",
 link_titlefield:"C\u00EDm",
 link_is_email:"A be\u00EDrt URL e-mail c\u00EDmnek t\u0171nik, k\u00EDv\u00E1nja a sz\u00FCks\u00E9ges mailto:-val kieg\u00E9sz\u00EDteni?",
 link_is_external:"A be\u00EDrt URL k\u00FCls\u0151 hivatkoz\u00E1snak t\u0171nik, k\u00EDv\u00E1nja a sz\u00FCks\u00E9ges http://-vel kieg\u00E9sz\u00EDteni?",
-link_list:"Link lista"
+link_list:"Link lista",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

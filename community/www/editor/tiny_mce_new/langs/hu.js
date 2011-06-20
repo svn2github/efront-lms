@@ -12,8 +12,53 @@ not_set:"-- Nincs megadva --",
 clipboard_msg:"A M\u00E1sol\u00E1s/Kiv\u00E1g\u00E1s/Besz\u00FAr\u00E1s funkci\u00F3k nem \u00E9rhet\u0151ek el Mozilla \u00E9s Firefox alatt.\nK\u00EDv\u00E1n t\u00F6bbet tudni err\u0151l a t\u00E9m\u00E1r\u00F3l?",
 clipboard_no_support:"Jelenleg nem t\u00E1mogatja a b\u00F6ng\u00E9sz\u0151je, haszn\u00E1lja a billenty\u0171kombin\u00E1ci\u00F3kat helyette.",
 popup_blocked:"A felugr\u00F3 ablakok tilt\u00E1sa miatt nem siker\u00FClt megjelen\u00EDteni egy, az alkalmaz\u00E1shoz sz\u00FCks\u00E9ges ablakot. Enged\u00E9lyezze a b\u00F6ng\u00E9sz\u0151j\u00E9ben a felugr\u00F3 ablakokat, hogy minden funkci\u00F3t haszn\u00E1lhasson.",
-invalid_data:"Hiba: \u00C9rv\u00E9nytelen adatok, pirossal jel\u00F6lve.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"T\u00F6bb sz\u00EDn"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Igaz\u00EDt\u00E1s",
@@ -151,7 +196,8 @@ langs:"Nyelvek",
 wait:"K\u00E9rem, v\u00E1rjon...",
 sug:"Aj\u00E1nl\u00E1sok",
 no_sug:"Nincs aj\u00E1nl\u00E1s",
-no_mpell:"Nem tal\u00E1ltam helyes\u00EDr\u00E1si hib\u00E1t."
+no_mpell:"Nem tal\u00E1ltam helyes\u00EDr\u00E1si hib\u00E1t.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Oldalt\u00F6r\u00E9s besz\u00FAr\u00E1sa."
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"K\u00F6r",
 disc:"Lemez",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

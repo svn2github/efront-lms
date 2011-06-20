@@ -1,4 +1,6 @@
 tinyMCE.addI18n('lt.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"\u012Eterpti/Redaguoti nuorod\u0105",
 url:"Nuorodos URL adresas",
 target:"Paskirtis",

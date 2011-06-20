@@ -11,7 +11,9 @@ if (file_exists("langs/"._CURRENTLANGUAGESYMBOL.".js")) {
 } else {
  $langFile = "en";
 }
-
+if ($GLOBALS['configuration']['virtual_keyboard'] == true) {
+ $vkeyboard = ",Jsvk";
+}
 $str = '
 var tinymceConfigs = new Array();
 tinymceConfigs["simpleEditor"] = {
@@ -19,16 +21,14 @@ tinymceConfigs["simpleEditor"] = {
     editor_selector : "simpleEditor",
     theme : "advanced",
     language : "'.$langFile.'",
- theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo",
+ theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo'.$vkeyboard.'",
     theme_advanced_buttons2 : "",
     theme_advanced_buttons3 : "",
     entity_encoding : "raw",
     force_p_newlines : false,
-    force_br_newlines : true,
-    convert_newlines_to_brs : false,
- plugins : "media",
+ plugins : "media,Jsvk",
  convert_urls : false,
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]"
     };
 
@@ -37,16 +37,14 @@ tinymceConfigs["digestEditor"] = {
     editor_selector : "digestEditor",
     theme : "advanced",
     language : "'.$langFile.'",
- theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo",
+ theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo'.$vkeyboard.'",
     theme_advanced_buttons2 : "",
     theme_advanced_buttons3 : "",
     entity_encoding : "raw",
     force_p_newlines : false,
-    force_br_newlines : true,
-    convert_newlines_to_brs : false,
- plugins : "media",
+ plugins : "media,Jsvk",
  convert_urls : false,
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]",
  handle_event_callback : "digestHandleEvent"
     };
@@ -60,41 +58,33 @@ tinymceConfigs["mceEditor"] = {
     theme_advanced_resizing_use_cookie : false,
     entity_encoding : "raw",
     force_p_newlines : false,
-    force_br_newlines : true,
- forced_root_block : \'\',
-    convert_newlines_to_brs : false,
-    apply_source_formatting : true,
  accessibility_warnings : false,
  verify_html : false,
  convert_urls : false,
-    plugins : "java,asciimath,asciisvg,table,save,advhr,advimage,advlink,style,emotions,inlinepopups,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,fullscreen,template,save_template",
+    plugins : "Jsvk,java,asciimath,asciisvg,table,save,advhr,advimage,advlink,style,emotions,inlinepopups,iespell,preview,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,template,save_template",
     theme_advanced_buttons1_add_before : "save,separator",
-    theme_advanced_buttons1_add : "fontselect,fontsizeselect,styleselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
-    theme_advanced_buttons2 : "zoom,separator,forecolor,backcolor",
+ theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
+    theme_advanced_buttons2 : "forecolor,backcolor",
     theme_advanced_buttons2_add_before : "table",
-    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,java,separator,pastetext,pasteword,selectall,preview,fullscreen,separator,copy,paste,separator,search,anchor,separator,asciimath,asciimathcharmap,separator,template,save_template",
+    theme_advanced_buttons2_add : "separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,java,separator,pastetext,pasteword,selectall,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,separator,asciimath,asciimathcharmap,separator,template,save_template'.$vkeyboard.'",
     theme_advanced_buttons3 : "",
-    theme_advanced_disable : "formatselect,help,cleanup,hr,removeformat,numlist",
-    plugin_preview_width : "700",
-    plugin_preview_height : "700",
-    paste_create_paragraphs : false,
-    paste_create_linebreaks : false,
+    theme_advanced_disable : "help,cleanup,hr,removeformat,numlist",
+    plugin_preview_width : "950",
+    plugin_preview_height : "500",
  font_size_style_values : "10,13,16,18,24,32,48",
  theme_advanced_font_sizes : "10px,13px,16px,18px,24px,32px,48px",
     paste_use_dialog : true,
     paste_auto_cleanup_on_paste : true,
     paste_convert_middot_lists : false,
-    paste_unindented_list_class : "unindentedList",
-    paste_convert_headers_to_strong : true,
+    paste_retain_style_properties : "all",
     theme_advanced_toolbar_location : "top",
     theme_advanced_toolbar_align : "left",
     theme_advanced_path_location : "bottom",
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
- convert_urls : false,
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
-    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[code|codebase|width|height],embed[*],iframe[*],object[*]",
- template_external_list_url : "editor/templates_list.php"
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
+    extended_valid_elements : "*[*]",
+    template_external_list_url : "editor/templates_list.php"
  };
 
 tinymceConfigs["templateEditor"] = {
@@ -107,40 +97,32 @@ tinymceConfigs["templateEditor"] = {
     theme_advanced_resizing_use_cookie : false,
     entity_encoding : "raw",
     force_p_newlines : false,
-    force_br_newlines : true,
- forced_root_block : \'\',
-    convert_newlines_to_brs : false,
-    apply_source_formatting : true,
  accessibility_warnings : false,
  verify_html : false,
  convert_urls : false,
-    plugins : "table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,fullscreen,index_link,asciimath,asciisvg",
+    plugins : "Jsvk,table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,index_link,asciimath,asciisvg",
     theme_advanced_buttons1_add_before : "save,separator",
     theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
     theme_advanced_buttons2 : "zoom,separator,forecolor,backcolor",
     theme_advanced_buttons2_add_before : "table",
-    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,separator,pasteword,preview,fullscreen,separator,copy,paste,separator,search,anchor,index_link,separator,asciimath,asciimathcharmap",
+    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,separator,pasteword,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,index_link,separator,asciimath,asciimathcharmap'.$vkeyboard.'",
     theme_advanced_buttons3 : "",
     theme_advanced_disable : "formatselect,help,cleanup,hr,removeformat,numlist",
-    plugin_preview_width : "700",
-    plugin_preview_height : "700",
-    paste_create_paragraphs : false,
-    paste_create_linebreaks : false,
+    plugin_preview_width : "950",
+    plugin_preview_height : "500",
  font_size_style_values : "10,13,16,18,24,32,48",
  theme_advanced_font_sizes : "10px,13px,16px,18px,24px,32px,48px",
     paste_use_dialog : true,
     paste_auto_cleanup_on_paste : true,
     paste_convert_middot_lists : false,
-    paste_unindented_list_class : "unindentedList",
-    paste_convert_headers_to_strong : true,
+    paste_retain_style_properties : "all",
     theme_advanced_toolbar_location : "top",
     theme_advanced_toolbar_align : "left",
     theme_advanced_path_location : "bottom",
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
- convert_urls : false,
- content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css",
-    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[code|codebase|width|height],embed[*],iframe[*],object[*]"
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
+    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[*],embed[*],iframe[*],object[*],param[*]"
 };
 
 
@@ -169,6 +151,7 @@ function toggleEditor(id, editor_selector) {
   tinyMCEmode = true;
  }
  else {
+  //alert(tinyMCE.get(id).getContent());
   tinyMCE.execCommand(\'mceRemoveControl\', false, id);
   tinyMCEmode = false;
  }
@@ -179,7 +162,6 @@ function digestHandleEvent(e) {
        }
        return true;
 }
-
 ';
 print $str;
 ?>

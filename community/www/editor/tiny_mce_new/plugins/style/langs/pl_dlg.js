@@ -59,5 +59,12 @@ visibility:"Widoczno\u015B\u0107",
 zindex:"Z-index",
 overflow:"Przepe\u0142niony",
 placement:"Umieszczenie",
-clip:"Clip"
+clip:"Clip",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

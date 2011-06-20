@@ -58,5 +58,11 @@ clipboard_msg:"Kopiraj/Izre\u017Ei/Zalepi nije dostupno u Mozilla i Firefox preg
 path:"Staza",
 newdocument:"Jeste li sigurni da \u017Eelite izbrisati celi sadr\u017Eaj?",
 toolbar_focus:"Pre\u0111i na alatnu traku - Alt+Q, pre\u0111i na ure\u0111iva\u010D - Alt-Z, pre\u0111i na element path - Alt-X",
-more_colors:"Vi\u0161e boja"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

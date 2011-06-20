@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sq.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"T\u00EB P\u00EBrgjithshme",
 tab_appearance:"Pamja",
 tab_advanced:"T\u00EB Avancuara",

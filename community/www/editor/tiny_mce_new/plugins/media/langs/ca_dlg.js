@@ -99,5 +99,12 @@ flv_autostart:"Inici autom\u00E0tic",
 flv_loop:"Bucle",
 flv_showscalemodes:"Mostra els modes d'escalat",
 flv_smoothvideo:"V\u00EDdeo suau",
-flv_jscallback:"Crida de retorn JS"
+flv_jscallback:"Crida de retorn JS",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

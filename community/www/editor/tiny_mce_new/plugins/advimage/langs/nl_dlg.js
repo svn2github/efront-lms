@@ -1,4 +1,6 @@
 tinyMCE.addI18n('nl.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"Algemeen",
 tab_appearance:"Weergave",
 tab_advanced:"Geavanceerd",

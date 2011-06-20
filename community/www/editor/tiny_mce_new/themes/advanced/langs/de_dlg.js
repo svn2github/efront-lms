@@ -47,5 +47,8 @@ link_target_blank:"Neues Fenster \u00F6ffnen",
 link_titlefield:"Titel",
 link_is_email:"Diese Adresse scheint eine E-Mail-Adresse zu sein. M\u00F6chten Sie das dazu ben\u00F6tigte \"mailto:\" voranstellen?",
 link_is_external:"Diese Adresse scheint ein externer Link zu sein. M\u00F6chten Sie das dazu ben\u00F6tigte \"http://\" voranstellen?",
-link_list:"Linkliste"
+link_list:"Linkliste",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

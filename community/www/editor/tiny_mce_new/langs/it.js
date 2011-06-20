@@ -12,8 +12,53 @@ not_set:"-- Non impostato --",
 clipboard_msg:"Copia/Taglia/Incolla non \u00E8 disponibile in Mozilla e Firefox.\nSi desidera avere maggiori informazioni su questo problema?",
 clipboard_no_support:"Attualmente non supportato dal  browser in uso, usare le scorciatoie da tastiera.",
 popup_blocked:"Spiacente, ma il blocco delle popup ha disabilitato una finestra che fornisce funzionalit\u00E0 dell'applicazione. Si deve disabilitare il blocco delle popup per questo sito per poter utlizzare appieno questo strumento.",
-invalid_data:"Errore: valori inseriti non validi, sono marcati in rosso.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Colori aggiuntivi"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Allineamento",
@@ -187,7 +232,8 @@ langs:"Lingue",
 wait:"Attendere prego...",
 sug:"Suggerimenti",
 no_sug:"Nessun suggerimento",
-no_mpell:"Nessun errore rilevato."
+no_mpell:"Nessun errore rilevato.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Inserisci intterruzione di pagina."
@@ -212,4 +258,25 @@ upper_roman:"Maiuscolo lettere romane",
 circle:"Cerchio",
 disc:"Punto",
 square:"Quadrato"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

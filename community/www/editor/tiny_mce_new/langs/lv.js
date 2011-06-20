@@ -12,8 +12,53 @@ not_set:"-- Nav nor\u0101d\u012Bts --",
 clipboard_msg:"Iesp\u0113ja Kop\u0113t/Izgriezt/Iekop\u0113t nav pieejama p\u0101rl\u016Bkiem Mozilla and Firefox.\nVai J\u016Bs v\u0113laties uzzin\u0101t vair\u0101k par \u0161o probl\u0113mu?",
 clipboard_no_support:"\u0160obr\u012Bd J\u016Bsu p\u0101rl\u016Bks neatbalsta \u0161o iesp\u0113ju, t\u0101 viet\u0101 l\u016Bdzu izmantotjiet tastat\u016Bras sa\u012Bsin\u0101jumtausti\u0146us.",
 popup_blocked:"Atvainojiet, bet m\u0113s esam konstat\u0113ju\u0161i, ka J\u016Bsu uzleco\u0161o logu blo\u0137\u0113t\u0101js ir atsp\u0113jojis logu, kas nodro\u0161ina programmas funkcionalit\u0101ti. Lai piln\u012Bb\u0101 izmantotu \u0161o r\u012Bku, Jums ir j\u0101atsl\u0113dz uzleco\u0161o logu blo\u0137\u0113tajs \u0161ai vietnei. ",
-invalid_data:"K\u013C\u016Bda: Ievad\u012Btas neder\u012Bgas v\u0113rt\u012Bbas. T\u0101s ir atz\u012Bm\u0113tas sarkan\u0101 kr\u0101s\u0101.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Vair\u0101k kr\u0101su"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Novietojums",
@@ -151,7 +196,8 @@ langs:"Languages",
 wait:"Please wait...",
 sug:"Suggestions",
 no_sug:"No suggestions",
-no_mpell:"No misspellings found."
+no_mpell:"No misspellings found.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Insert page break."
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

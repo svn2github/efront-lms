@@ -58,5 +58,11 @@ clipboard_msg:"Copiar/recortar/colar n\u00E3o est\u00E1 dispon\u00EDvel no Mozil
 path:"Endere\u00E7o",
 newdocument:"Tem a certeza que deseja apagar tudo?",
 toolbar_focus:"Ir para as ferramentas - Alt+Q, Ir para o editor - Alt-Z, Ir para o endere\u00E7o do elemento - Alt-X",
-more_colors:"Mais cores"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

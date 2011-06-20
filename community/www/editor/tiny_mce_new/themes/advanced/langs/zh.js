@@ -60,5 +60,12 @@ newdocument:"\u60A8\u78BA\u8A8D\u8981\u6E05\u9664\u5168\u90E8\u5167\u5BB9\u55CE\
 toolbar_focus:"\u5DE5\u5177\u6309\u9215- Alt+Q,\u7DE8\u8F2F\u5668- Alt-Z,\u5143\u4EF6\u4F4D\u7F6E- Alt-X",
 more_colors:"\u66F4\u591A\u984F\u8272",
 link_delta_width:"40",
-link_delta_height:"60"
+link_delta_height:"60",
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

@@ -59,5 +59,12 @@ visibility:"Redzam\u012Bba",
 zindex:"Z-index",
 overflow:"P\u0101rm\u0113rs",
 placement:"Izvietojums",
-clip:"Klips"
+clip:"Klips",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

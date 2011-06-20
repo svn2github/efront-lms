@@ -58,5 +58,11 @@ clipboard_msg:"Les fonctions Copier/Couper/Coller ne sont pas valables sur Mozil
 path:"Chemin",
 newdocument:"\u00CAtes-vous s\u00FBr de vouloir effacer l'int\u00E9gralit\u00E9 du document ?",
 toolbar_focus:"Atteindre les boutons de l'\u00E9diteur - Alt+Q, Aller \u00E0 l'\u00E9diteur - Alt-Z, Aller au chemin de l'\u00E9l\u00E9ment - Alt-X",
-more_colors:"Plus de couleurs"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

@@ -12,8 +12,53 @@ not_set:"--\u672A\u8BBE\u7F6E--",
 clipboard_msg:"\u590D\u5236\u3001\u526A\u5207\u3001\u7C98\u8D34\u529F\u80FD\u5728Mozilla\u548CFirefox\u4E2D\u4E0D\u80FD\u4F7F\u7528\u3002 \n\u662F\u5426\u9700\u8981\u4E86\u89E3\u66F4\u591A\u6709\u5173\u6B64\u95EE\u9898\u7684\u8D44\u8BAF\uFF1F",
 clipboard_no_support:"\u8FD8\u4E0D\u652F\u6301\u60A8\u7684\u6D4F\u89C8\u5668\uFF0C\u8BF7\u4F7F\u7528\u952E\u76D8\u5FEB\u901F\u952E",
 popup_blocked:"\u62B1\u6B49\uFF01\u5F39\u51FA\u7A97\u53E3\u5DF2\u88AB\u963B\u6B62\uFF0C\u8BF7\u8C03\u6574\u6D4F\u89C8\u5668\u8BBE\u7F6E\uFF0C\u5141\u8BB8\u6B64\u7F51\u7AD9\u53EF\u5F39\u51FA\u65B0\u89C6\u7A97\uFF0C\u4EE5\u4FBF\u4F7F\u7528\u6B64\u5DE5\u5177",
-invalid_data:"\u9519\u8BEF:\u65E0\u6548\u8F93\u5165\u503C\uFF0C\u5DF2\u6807\u8BB0\u4E3A\u7EA2\u8272\u3002",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u66F4\u591A\u989C\u8272"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u5BF9\u9F50\u65B9\u5F0F",
@@ -155,7 +200,8 @@ langs:"\u8BED\u8A00",
 wait:"\u8BF7\u7A0D\u5019...",
 sug:"\u63A8\u8350\u5B57\u8BCD",
 no_sug:"\u65E0\u62FC\u5199\u63A8\u8350",
-no_mpell:"\u672A\u53D1\u73B0\u62FC\u5199\u9519\u8BEF"
+no_mpell:"\u672A\u53D1\u73B0\u62FC\u5199\u9519\u8BEF",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u63D2\u5165\u5206\u9875\u7B26\u53F7"
@@ -336,7 +382,7 @@ align_textbottom:"\u6587\u5B57\u4E0B\u65B9",
 align_left:"\u9760\u5DE6",
 align_right:"\u9760\u53F3",
 image_list:"\u56FE\u7247\u6E05\u5355",
-insert_image:"插入图像"
+insert_image:"插入图像"	
 },
 advlink_dlg:{
 title:"\u63D2\u5165/\u7F16\u8F91\u94FE\u63A5",
@@ -390,7 +436,7 @@ ltr:"\u7531\u5DE6\u5230\u53F3",
 rtl:"\u7531\u53F3\u5230\u5DE6",
 link_list:"\u94FE\u63A5\u6E05\u5355",
 insert_hyperlink: "插入超链接",
-selectonewantaslink: "选择一个做为待插入的超链接"
+selectonewantaslink: "选择一个做为待插入的超链接"	
 },
 emotions_dlg:{
 title:"\u63D2\u5165\u56FE\u91CA",
@@ -824,4 +870,25 @@ insert_java: '插入的Java文件'
 java:{
 title : '插入的Java文件',
 image_desc : '插入的Java文件'
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

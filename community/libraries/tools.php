@@ -2648,20 +2648,20 @@ function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $on
 
  */
 function eF_getCorrectLanguageMessage($message, $language) {
-    $language_tag = "<------------------------".$language."------------------------>";
+    $language_tag = "&lt;------------------------".$language."------------------------&gt;";
     $pos = strpos($message, $language_tag);
     if ($pos) {
         $message = substr($message, ($pos + strlen($language_tag)));
         // get message text until next language
-        if (($i = strpos($message, "<------------------------"))) {
+        if (($i = strpos($message, "&lt;------------------------"))) {
             return substr($message, 0, $i);
         } else {
             // this is the last language tag, return entire remaining message
             return $message;
         }
     } else {
-        // this particular language tag is not defined, return default language
-        if (($i = strpos($message, "<------------------------"))) {
+        // this particular language tag is not defined, return default language    
+        if (($i = strpos($message, "&lt;------------------------"))) {
             return substr($message, 0, $i);
         } else {
             // no language tag defined

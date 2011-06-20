@@ -58,5 +58,11 @@ clipboard_msg:"A M\u00E1sol\u00E1s/Kiv\u00E1g\u00E1s/Besz\u00FAr\u00E1s funkci\u
 path:"\u00DAtvonal",
 newdocument:"Biztosan t\u00F6rli az eddigi tartalmat?",
 toolbar_focus:"Eszk\u00F6zgombokra ugr\u00E1s - Alt+Q, Szerkeszt\u0151h\u00F6z ugr\u00E1s - Alt-Z, Elem\u00FAtvonalhoz ugr\u00E1s - Alt-X",
-more_colors:"T\u00F6bb sz\u00EDn"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

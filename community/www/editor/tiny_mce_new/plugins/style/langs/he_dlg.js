@@ -59,5 +59,12 @@ visibility:"\u05E8\u05D0\u05D5\u05EA",
 zindex:"Z-index",
 overflow:"\u05D2\u05DC\u05D9\u05E9\u05D4",
 placement:"\u05DE\u05D9\u05E7\u05D5\u05DD",
-clip:"\u05E7\u05DC\u05D9\u05E4"
+clip:"\u05E7\u05DC\u05D9\u05E4",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

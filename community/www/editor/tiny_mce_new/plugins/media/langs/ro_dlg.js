@@ -99,5 +99,12 @@ flv_autostart:"Auto pornire",
 flv_loop:"Repetare",
 flv_showscalemodes:"Afi\u015Fare moduri scalare",
 flv_smoothvideo:"Smooth video",
-flv_jscallback:"JS Callback"
+flv_jscallback:"JS Callback",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

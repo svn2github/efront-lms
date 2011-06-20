@@ -47,5 +47,8 @@ link_target_blank:"Otev\u0159\u00EDt odkaz v nov\u00E9m okn\u011B",
 link_titlefield:"Titulek",
 link_is_email:"Zadan\u00E9 URL vypad\u00E1 jako e-mailov\u00E1 adresa, chcete doplnit povinn\u00FD prefix mailto:?",
 link_is_external:"Zadan\u00E9 URL vypad\u00E1 jako extern\u00ED odkaz, chcete doplnit povinn\u00FD prefix http://?",
-link_list:"Seznam odkaz\u016F"
+link_list:"Seznam odkaz\u016F",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

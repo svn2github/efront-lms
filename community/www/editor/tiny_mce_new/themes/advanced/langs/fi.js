@@ -58,5 +58,11 @@ clipboard_msg:"Kopioi/Leikkaa/Liit\u00E4 -painikkeet eiv\u00E4t toimi Mozilla ja
 path:"Polku",
 newdocument:"Haluatko varmasti tyhjent\u00E4\u00E4 kaiken sis\u00E4ll\u00F6n?",
 toolbar_focus:"Siirry ty\u00F6kaluihin - Alt+Q, Siirry tekstieditoriin - Alt-Z, Siirry elementin polkuun - Alt-X",
-more_colors:"Enemm\u00E4n v\u00E4rej\u00E4"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

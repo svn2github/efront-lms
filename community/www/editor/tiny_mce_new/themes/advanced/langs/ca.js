@@ -58,5 +58,11 @@ clipboard_msg:"Copia/Retalla/Enganxa no es troba disponible ni al Mozilla ni al 
 path:"Cam\u00ED",
 newdocument:"Esteu segur que voleu buidar tots els continguts?",
 toolbar_focus:"Salta als botons d\'eina - Alt+Q, Salta a l\'editor - Alt-Z, Salta al cam\u00ED de l\'element - Alt-X",
-more_colors:"M\u00E9s colors"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

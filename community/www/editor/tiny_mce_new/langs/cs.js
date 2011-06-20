@@ -12,8 +12,53 @@ not_set:"- Nenastaveno -",
 clipboard_msg:"Funkce kop\u00EDrovat/vyjmout/vlo\u017Eit nejsou podporovan\u00E9 v prohl\u00ED\u017Ee\u010D\u00EDch Mozilla a Firefox.\nChcete v\u00EDce informac\u00ED o tomto probl\u00E9mu?",
 clipboard_no_support:"Tato funkce nen\u00ED va\u0161\u00EDm prohl\u00ED\u017Ee\u010Dem podporov\u00E1na. Pou\u017Eijte m\u00EDsto toho kl\u00E1vesov\u00E9 zkratky.",
 popup_blocked:"Omlouv\u00E1me se, ale blokov\u00E1n\u00ED vyskakovac\u00EDch oken neumo\u017Enilo otev\u0159\u00EDt okno, kter\u00E9 poskytuje funk\u010Dnost aplikace. Pro pln\u00E9 vyu\u017Eit\u00ED mo\u017Enost\u00ED aplikace mus\u00EDte vypnout blokov\u00E1n\u00ED vyskakovac\u00EDch oken pro tento web.",
-invalid_data:"Chyba: Byly zad\u00E1ny neplatn\u00E9 hodnoty a tyto byly ozna\u010Deny \u010Derven\u011B.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Dal\u0161\u00ED barvy"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Zarovn\u00E1n\u00ED",
@@ -157,7 +202,8 @@ langs:"Jazyky",
 wait:"\u010Cekejte pros\u00EDm...",
 sug:"N\u00E1pov\u011Bda",
 no_sug:"\u017D\u00E1dn\u00E1 n\u00E1pov\u011Bda",
-no_mpell:"Nebyly nalezeny \u017E\u00E1dn\u00E9 chyby."
+no_mpell:"Nebyly nalezeny \u017E\u00E1dn\u00E9 chyby.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Vlo\u017Eit konec str\u00E1nky"
@@ -182,4 +228,25 @@ upper_roman:"Velk\u00E9 \u0159\u00EDmsk\u00E9 \u010D\u00EDslice",
 circle:"Kole\u010Dko",
 disc:"Punt\u00EDk",
 square:"\u010Ctvere\u010Dek"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

@@ -47,5 +47,8 @@ link_target_blank:"Atv\u0113rt saiti jaun\u0101 log\u0101",
 link_titlefield:"Nosaukums",
 link_is_email:"Ievad\u012Btais URL \u0161\u0137iet ir e-pasta adrese, vai tu v\u0113lies pirms t\u0101s pievienot mailto: pried\u0113kli? ",
 link_is_external:"Ievad\u012Btais URL \u0161\u0137iet ir \u0101r\u0113j\u0101 saite, vai tu v\u0113lies pirms t\u0101s pievienot http:// pried\u0113kli?",
-link_list:"Sai\u0161u saraksts"
+link_list:"Sai\u0161u saraksts",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

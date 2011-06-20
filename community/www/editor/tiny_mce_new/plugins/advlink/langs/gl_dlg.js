@@ -1,4 +1,6 @@
 tinyMCE.addI18n('gl.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Insertar/editar hiperv\u00EDnculo",
 url:"URL do hiperv\u00EDnculo",
 target:"Destino",

@@ -59,5 +59,12 @@ visibility:"Matomumas",
 zindex:"Z-indeksas",
 overflow:"Perpildymas",
 placement:"Talpinimas",
-clip:"\u012Era\u0161as"
+clip:"\u012Era\u0161as",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

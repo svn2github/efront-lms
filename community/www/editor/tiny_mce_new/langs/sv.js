@@ -12,8 +12,53 @@ not_set:"-- Inte satt --",
 clipboard_msg:"Kopiera/klipp ut/klistra in \u00E4r inte tillg\u00E4ngligt i din webbl\u00E4sare.\nVill du veta mer?",
 clipboard_no_support:"Funktionen \u00E4r inte tillg\u00E4nglig i din webbl\u00E4sare, anv\u00E4nd tangentbordsgenv\u00E4garna i st\u00E4llet.",
 popup_blocked:"Popup blockerare detekterad. St\u00E4ng av den s\u00E5 att dialogerna kan \u00F6ppnas.",
-invalid_data:"Fel: Inkorrekta v\u00E4rden har matats in, dessa \u00E4r markerade i r\u00F6tt.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Fler f\u00E4rger"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Justering",
@@ -151,7 +196,8 @@ langs:"Spr\u00E5k",
 wait:"Var god v\u00E4nta...",
 sug:"F\u00F6rslag",
 no_sug:"Inga f\u00F6rslag",
-no_mpell:"Inga felstavningar funna."
+no_mpell:"Inga felstavningar funna.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Infoga sidbrytning"
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Cirkel",
 disc:"Disc",
 square:"Fyrkant"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

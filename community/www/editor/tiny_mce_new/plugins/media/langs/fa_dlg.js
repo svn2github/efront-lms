@@ -99,5 +99,12 @@ flv_autostart:"\u0634\u0631\u0648\u0639 \u0627\u062A\u0648\u0645\u0627\u062A\u06
 flv_loop:"\u062D\u0644\u0642\u0647 (Loop)",
 flv_showscalemodes:"\u0646\u0645\u0627\u06CC\u0634 \u062D\u0627\u0644\u062A \u0647\u0627\u06CC \u0645\u0642\u06CC\u0627\u0633",
 flv_smoothvideo:"\u0648\u06CC\u062F\u0626\u0648\u06CC \u0635\u0627\u0641",
-flv_jscallback:"JS Callback"
+flv_jscallback:"JS Callback",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

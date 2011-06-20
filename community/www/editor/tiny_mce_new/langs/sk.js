@@ -12,8 +12,53 @@ not_set:"-- Nezadan\u00E9 --",
 clipboard_msg:"Funkcie kop\u00EDrova\u0165/vystrihn\u00FA\u0165/vlo\u017Ei\u0165 nie s\u00FA podporovan\u00E9 v prehliada\u010Doch Mozilla a Firefox.\nChcete viac inform\u00E1ci\u00ED o tomto probl\u00E9me?",
 clipboard_no_support:"T\u00E1to funkcia nie je va\u0161\u00EDm prehliada\u010Dom podporovan\u00E1. Pou\u017Eite namiesto toho kl\u00E1vesov\u00FA skratku.",
 popup_blocked:"Ospravedl\u0148ujeme sa, ale blokovanie vyskakovac\u00EDch okien neumo\u017Enilo otvori\u0165 okno, ktor\u00E9 poskytuje funk\u010Dnos\u0165 aplik\u00E1cie. Pre pln\u00E9 vyu\u017Eitie mo\u017Enost\u00ED aplik\u00E1cie mus\u00EDte vypn\u00FA\u0165 blokovanie vyskakovac\u00EDch okien pre tento web.",
-invalid_data:"Chyba: Boli zadan\u00E9 neplatn\u00E9 hodnoty a tieto boli ozna\u010Den\u00E9 \u010Dervenou farbou.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u010Eal\u0161ie farby"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Zarovnanie",
@@ -157,7 +202,8 @@ langs:"Jazyky",
 wait:"\u010Cakajte pros\u00EDm...",
 sug:"Ponuky",
 no_sug:"\u017Diadne ponuky",
-no_mpell:"Bez pravopisn\u00FDch ch\u00FDb."
+no_mpell:"Bez pravopisn\u00FDch ch\u00FDb.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Vlo\u017Ei\u0165 koniec str\u00E1nky."
@@ -182,4 +228,25 @@ upper_roman:"Ve\u013Ek\u00E9 r\u00EDmske \u010D\u00EDslice",
 circle:"Kr\u00FA\u017Eok",
 disc:"Pln\u00E9 koliesko",
 square:"\u0160tvor\u010Dek"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

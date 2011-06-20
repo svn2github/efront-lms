@@ -284,10 +284,13 @@ try {
         //This is a notifier for cookies handling the show/hide status of inner tables. It affects only control panel and is considered inside printInnerTable smarty plugin
         $innerTableIdentifier = $currentUser -> user['user_type'].'_cpanel';
         //Calculate element positions, so they can be rearreanged accordingly to the user selection
+        $elementPositions = array();
         if ($_admin_) {
             $elementPositions[0]['positions'] = $GLOBALS['configuration'][$_SESSION['s_login']."_positions"];
         } else {
-            $elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
+         if ($GLOBALS['configuration']['disable_move_blocks'] != 1) {
+             $elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
+         }
             if ($_student_ && sizeof($elementPositions) == 0 && $currentLesson -> options['default_positions']) {
                 $elementPositions[0]['positions'] = $currentLesson -> options['default_positions'];
             }

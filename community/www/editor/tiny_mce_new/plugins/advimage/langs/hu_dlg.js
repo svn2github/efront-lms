@@ -1,4 +1,6 @@
 tinyMCE.addI18n('hu.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"\u00C1ltal\u00E1nos",
 tab_appearance:"Megjelen\u00E9s",
 tab_advanced:"Halad\u00F3",

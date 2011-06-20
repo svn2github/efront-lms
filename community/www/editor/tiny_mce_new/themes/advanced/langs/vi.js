@@ -58,5 +58,11 @@ clipboard_msg:"Sao ch\u00E9p/C\u1EAFt/D\u00E1n kh\u00F4ng c\u00F3 s\u1EB5n trong
 path:"\u0110\u01B0\u1EDDng d\u1EABn",
 newdocument:"B\u1EA1n c\u00F3 ch\u1EAFc ch\u1EAFn mu\u1ED1n x\u00F3a t\u1EA5t c\u1EA3 n\u1ED9i dung?",
 toolbar_focus:"Nh\u1EA3y t\u1EDBi c\u00E1c n\u00FAt c\u00F4ng c\u1EE5 - Alt+Q, T\u1EDBi tr\u00ECnh so\u1EA1n th\u1EA3o - Alt-Z, T\u1EDBi \u0111\u01B0\u1EDDng d\u1EABn c\u00E1c ph\u1EA7n t\u1EED - Alt-X",
-more_colors:"Th\u00EAm m\u00E0u"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

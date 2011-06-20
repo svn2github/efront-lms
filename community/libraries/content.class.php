@@ -654,6 +654,7 @@ class EfrontUnit extends ArrayObject
         preg_match_all("#(".G_SERVERNAME.")*content/lessons/(.*)\"#U", $data, $matchesPath);
         $filesPath = $matchesPath[2];
         foreach ($filesId as $file) {
+         $file = trim($file, "';");
             $returnObjects ? $files[] = new EfrontFile($file) : $files[] = $file;
         }
         foreach ($filesPath as $file) {

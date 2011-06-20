@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sr.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Ubaci/promijeni link",
 url:"URL link",
 target:"Meta",

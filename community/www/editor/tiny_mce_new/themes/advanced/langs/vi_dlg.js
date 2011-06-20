@@ -47,5 +47,8 @@ link_target_blank:"M\u1EDF li\u00EAn k\u1EBFt trong c\u1EEDa s\u1ED5 m\u1EDBi",
 link_titlefield:"Ti\u00EAu \u0111\u1EC1",
 link_is_email:"URL b\u1EA1n \u0111\u00E3 nh\u1EADp c\u00F3 v\u1EBB l\u00E0 m\u1ED9t \u0111\u1ECBa ch\u1EC9 \u0111i\u1EC7n th\u01B0, B\u1EA1n c\u00F3 mu\u1ED1n th\u00EAm ti\u1EC1n t\u1ED1 mailto?",
 link_is_external:"URL b\u1EA1n \u0111\u00E3 nh\u1EADp c\u00F3 v\u1EBB l\u00E0 m\u1ED9t li\u00EAn k\u1EBFt ngo\u00E0i, b\u1EA1n c\u00F3 mu\u1ED1n th\u00EAm ti\u1EC1n t\u1ED1 http://?",
-link_list:"Danh s\u00E1ch li\u00EAn k\u1EBFt"
+link_list:"Danh s\u00E1ch li\u00EAn k\u1EBFt",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

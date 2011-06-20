@@ -59,5 +59,12 @@ visibility:"Sichtbar",
 zindex:"Z-Wert",
 overflow:"Verhalten bei \u00DCbergr\u00F6\u00DFe",
 placement:"Platzierung",
-clip:"Ausschnitt"
+clip:"Ausschnitt",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

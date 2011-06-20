@@ -59,5 +59,12 @@ visibility:"G\u00F6r\u00FCn\u00FCrl\u00FCk",
 zindex:"Z-indeksi",
 overflow:"Ta\u015Fma",
 placement:"Yerle\u015Ftir",
-clip:"K\u0131rp"
+clip:"K\u0131rp",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

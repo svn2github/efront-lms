@@ -58,5 +58,11 @@ clipboard_msg:"Kopeeri/L\u00F5ika/Kleebi ei ole Mozillas ja Firefoxis saadaval. 
 path:"Tee",
 newdocument:"Oled sa kindel, et tahad kustutada k\u00F5ik sisud?",
 toolbar_focus:"H\u00FCppa t\u00F6\u00F6riista nuppudele - Alt+Q, H\u00FCppa redigeerijale - Alt-Z, H\u00FCppa elemendi teele - Alt-X",
-more_colors:"Rohkem v\u00E4rve"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

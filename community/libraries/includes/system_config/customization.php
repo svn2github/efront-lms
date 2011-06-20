@@ -11,6 +11,8 @@ $customizationDisableForm -> addElement("advcheckbox", "disable_bookmarks", _BOO
 $customizationDisableForm -> addElement("advcheckbox", "disable_comments", _COMMENTS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_online_users", _ONLINEUSERS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_glossary", _GLOSSARY, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_shared_glossary", _SHAREDGLOSSARY, null, 'class = "inputCheckBox"', array(1, 0));
+
 $customizationDisableForm -> addElement("advcheckbox", "disable_calendar", _CALENDAR, null, 'class = "inputCheckBox"', array(1, 0));
 
 
@@ -29,6 +31,7 @@ $customizationDisableForm -> addElement("static", "", _WARNINGDISABLINGPAYMENTSW
 $customizationDisableForm -> addElement("advcheckbox", "disable_move_blocks", _MOVEBLOCK, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_change_info", _USERSCANCHANGEINFO, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_change_pass", _USERSCANCHANGEPASS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("static", "", _YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO);
 $customizationDisableForm -> setDefaults($GLOBALS['configuration']);
 
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {

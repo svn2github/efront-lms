@@ -52,7 +52,7 @@
 <script>var ie=1;</script>
 <![endif]-->
 <script type="text/javascript">
- disableSelection(document.getElementById("chat_bar"))
+ var must_disable_selection = true;
 </script>
 
 {/if}

@@ -58,5 +58,11 @@ clipboard_msg:"Mozilla Firefox da Kes/Kopyala/Yap\u0131\u015Ft\u0131r kullan\u01
 path:"Yol",
 newdocument:"T\u00FCm i\u00E7eriklerleri temizlemek istedi\u011Finizden emin misiniz?",
 toolbar_focus:"Alt+Q ara\u00E7 d\u00FC\u011Fmelerine ge\u00E7. Alt+Z: Edit\u00F6re ge\u00E7. Alt+X:Elementin yoluna ge\u00E7.",
-more_colors:"Daha fazla renk"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

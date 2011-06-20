@@ -1,4 +1,6 @@
 tinyMCE.addI18n('zh.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"\u63D2\u5165/\u7DE8\u8F2F\u8D85\u93C8\u63A5",
 url:"\u93C8\u63A5\u5730\u5740",
 target:"\u6253\u958B\u65B9\u5F0F",

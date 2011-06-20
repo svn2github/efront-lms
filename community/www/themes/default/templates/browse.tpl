@@ -37,6 +37,8 @@ function setValue(id, name) { //with new version of editor top.document changed 
     } else if (parent.document.getElementById('file')) {
         parent.document.getElementById('file').value=name;
         parent.document.getElementById('codebase').value='{/literal}{$T_OFFSET}{literal}';
+    } else if (parent.document.getElementById('document')) {
+        parent.document.getElementById('document').value='{/literal}{$T_OFFSET}{literal}'+name;
     }
 }
 {/literal}

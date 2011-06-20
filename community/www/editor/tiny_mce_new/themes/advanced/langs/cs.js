@@ -58,5 +58,11 @@ clipboard_msg:"Funkce kop\u00EDrovat/vyjmout/vlo\u017Eit nejsou podporovan\u00E9
 path:"Cesta",
 newdocument:"Jste si opravdu jisti, \u017Ee chcete odstranit ve\u0161ker\u00FD obsah?",
 toolbar_focus:"P\u0159echod na li\u0161tu n\u00E1stroj\u016F - Alt+Q, p\u0159echod do editoru - Alt-Z, p\u0159echod na cestu prvk\u016F - Alt-X",
-more_colors:"Dal\u0161\u00ED barvy"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

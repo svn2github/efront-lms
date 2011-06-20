@@ -1,4 +1,6 @@
 tinyMCE.addI18n('hr.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Umetni/uredi poveznicu",
 url:"URL poveznice",
 target:"Meta",

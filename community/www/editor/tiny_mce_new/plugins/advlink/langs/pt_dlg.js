@@ -1,4 +1,6 @@
 tinyMCE.addI18n('pt.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Inserir/editar hyperlink",
 url:"URL do hyperlink",
 target:"Alvo",

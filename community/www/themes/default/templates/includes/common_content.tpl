@@ -127,8 +127,8 @@
           <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
          </span>
          <span>
-          <img src = "images/16x16/order.png" onclick = "javascript:toggleEditor('editor_content_data','mceEditor');" class = "ajaxHandle" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-          <a href = "javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+          <img src = "images/16x16/order.png" onclick = "toggledInstanceEditor = 'editor_content_data'; javascript:toggleEditor('editor_content_data','mceEditor');" class = "ajaxHandle" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+          <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'editor_content_data';javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
          </span>
         </div>
         </td></tr>
@@ -145,7 +145,13 @@
     {eF_template_printBlock title=$smarty.const._UNITPROPERTIES data=$smarty.capture.t_insert_content_code image='32x32/edit.png' help ='Content'}
    </td></tr>
   {/capture}
-
+ {elseif $smarty.get.apply_all}
+  {capture name = 't_all_units_properties_code'}
+   {eF_template_printForm form = $T_ALL_UNITS_PROPERTIES_FORM}
+  {/capture}
+  {capture name = "moduleInsertContent"}
+   {eF_template_printBlock title=$smarty.const._ALLUNITSPROPERTIES data=$smarty.capture.t_all_units_properties_code image='32x32/edit.png'}
+  {/capture}
  {elseif !$T_UNIT && $_student_}
   {if $smarty.get.type == 'theory'}
    {assign var = "specific_title" value = $smarty.const._THEORY}
@@ -382,6 +388,7 @@
    {if $T_UNIT}
    <div>{counter name = "content_tools"}. <a title = "{$smarty.const._CONTENTMETADATA}" href = "{$smarty.server.PHP_SELF}?ctg=metadata&unit={$T_UNIT.id}">{$smarty.const._CONTENTMETADATA|eF_truncate:40}</a></div>
    {/if}
+   <div>{counter name = "content_tools"}. <a title = "{$smarty.const._APPLYFUNCTIONTOALLUNITS}" href = "{$smarty.server.PHP_SELF}?ctg=content&apply_all=1">{$smarty.const._APPLYFUNCTIONTOALLUNITS|eF_truncate:40}</a></div>
   {/capture}
 
   {capture name = "t_end_of_lesson_code"}

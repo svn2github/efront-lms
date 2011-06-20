@@ -16,8 +16,8 @@
 
 				ed.windowManager.open({
 					file : url + '/java.php',
-					width : 520 + parseInt(ed.getLang('java.delta_width', 0)),
-					height : 520 + parseInt(ed.getLang('java.delta_height', 0)),
+					width : 950 + parseInt(ed.getLang('java.delta_width', 0)),
+					height : 300 + parseInt(ed.getLang('java.delta_height', 0)),
 					inline : 1
 				}, {
 					plugin_url : url

@@ -58,5 +58,11 @@ clipboard_msg:"Akcje Kopiuj/Wytnij/Wklej nie s\u0105 dost\u0119pne w Mozilli i F
 path:"\u015Acie\u017Cka",
 newdocument:"Czy jeste\u015B pewnien, ze chcesz wyczy\u015Bci\u0107 ca\u0142\u0105 zawarto\u015B\u0107?",
 toolbar_focus:"Przeskocz do przycisk\u00F3w narz\u0119dzi - Alt+Q, Przeskocz do edytora - Alt-Z, Przeskocz do elementu \u015Bcie\u017Cki - Alt-X",
-more_colors:"Wi\u0119cej kolor\u00F3w"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

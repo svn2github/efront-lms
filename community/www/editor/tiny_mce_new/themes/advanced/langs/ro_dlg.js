@@ -47,5 +47,8 @@ link_target_blank:"Deschide leg\u0103tura \u00EEntr-o fereastr\u0103 nou\u0103",
 link_titlefield:"Titlu",
 link_is_email:"URL-ul pe care l-a\u0163i introdus pare a fi o adres\u0103 de e-mail. Dori\u0163i s\u0103 adaug \u015Fi prefixul mailto: necesar?",
 link_is_external:"URL-ul pe care l-a\u0163i introdus pare a fi o leg\u0103tur\u0103 extern\u0103. Dori\u0163i s\u0103 adaug \u015Fi prefixul http:// necesar?",
-link_list:"Lista de leg\u0103turi"
+link_list:"Lista de leg\u0103turi",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

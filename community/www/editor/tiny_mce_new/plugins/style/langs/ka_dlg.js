@@ -59,5 +59,12 @@ visibility:"\u10D0\u10E1\u10D0\u10EE\u10D5\u10D0",
 zindex:"Z-\u10D8\u10DC\u10D3\u10D4\u10E5\u10E1\u10D8",
 overflow:"\u10D2\u10D0\u10D3\u10D0\u10D5\u10E1\u10D4\u10D1\u10D0",
 placement:"\u10D2\u10D0\u10DC\u10D7\u10D0\u10D5\u10E1\u10D4\u10D1\u10D0",
-clip:"\u10DB\u10DD\u10D9\u10D5\u10D4\u10D7\u10D0"
+clip:"\u10DB\u10DD\u10D9\u10D5\u10D4\u10D7\u10D0",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

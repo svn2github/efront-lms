@@ -186,9 +186,16 @@ class glossary extends EfrontEntity
      $form -> addElement('text', 'name', _TERM, 'id="termField" class = "inputText"');
      $form -> addRule('name', _THEFIELD.' '._TERM.' '._ISMANDATORY, 'required');
      $form -> addElement('textarea', 'info', _DEFINITION, 'class = "inputTextarea"');
+     if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
+      $form -> addElement('select', 'lessons_ID', _LESSON, array( $_SESSION['s_lessons_ID']=> _FORTHISLESSON, 0 => _FORANYLESSON));
+     }
      $form -> addElement('submit', 'submit', _SUBMITTERM, 'class = "flatButton"');
      $form -> addElement('submit', 'submit_term_add_another', _SUBMITANDADDANOTHER, 'class = "flatButton"');
-     $form -> setDefaults(array('name' => $this -> glossary['name'], 'info' => $this -> glossary['info']));
+     if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
+      $form -> setDefaults(array('name' => $this -> glossary['name'], 'info' => $this -> glossary['info'], 'lessons_ID' => $this -> glossary['lessons_ID']));
+     } else {
+      $form -> setDefaults(array('name' => $this -> glossary['name'], 'info' => $this -> glossary['info']));
+     }
         return $form;
     }
     /**
@@ -202,11 +209,20 @@ class glossary extends EfrontEntity
         if (isset($_GET['edit'])) {
             $this -> glossary["name"] = $form -> exportValue('name');
             $this -> glossary["info"] = $form -> exportValue('info');
+            if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
+             $this -> glossary["lessons_ID"] = $form -> exportValue('lessons_ID');
+            }
             $this -> persist();
         } else {
-         $fields = array("name" => $form -> exportValue('name'),
+         if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
+           $fields = array("name" => $form -> exportValue('name'),
+                         "info" => $form -> exportValue('info'),
+                         "lessons_ID" => $form -> exportValue('lessons_ID'));
+         } else {
+           $fields = array("name" => $form -> exportValue('name'),
                          "info" => $form -> exportValue('info'),
                          "lessons_ID" => $_SESSION['s_lessons_ID']);
+         }
             $glossary = self :: create($fields);
             $this -> glossary = $glossary;
         }
@@ -282,7 +298,11 @@ class glossary extends EfrontEntity
 
      */
     public static function applyGlossary($text, $lessonId) {
-        $glossary_words = eF_getTableData("glossary", "name,info", "lessons_ID=".$lessonId); //Get all the glossary words of this lesson
+     if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
+         $glossary_words = eF_getTableData("glossary", "name,info", "lessons_ID=".$lessonId." OR lessons_ID=0"); //Get all the glossary words of this lesson
+     } else {
+      $glossary_words = eF_getTableData("glossary", "name,info", "lessons_ID=".$lessonId); //Get all the glossary words of this lesson
+     }
         $searchdata = array();
         $searchdatanext = array();
         $replacedata = array();

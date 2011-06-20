@@ -47,5 +47,8 @@ link_target_blank:"Opne i nytt vindauget",
 link_titlefield:"Tittel",
 link_is_email:"Nettadressa du skreiv inn ser ut til \u00E5 vere ein e-postadresse. \u00D8nskjer du \u00E5 leggje til det obligatoriske mailto:-prefikset?",
 link_is_external:"Nettadressa du skreiv inn ser ut til \u00E5 vere ein ekstern nettadresse. \u00D8nskjer du \u00E5 leggje til det obligatoriske http://-prefikset?",
-link_list:"Lenkjeliste"
+link_list:"Lenkjeliste",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

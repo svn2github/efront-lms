@@ -12,8 +12,53 @@ not_set:"-- Nestat\u0103 --",
 clipboard_msg:"Copiere/T\u0103iere/Lipire nu sunt disponibile \u00EEn  Mozilla \u015Fi Firefox.\nDori\u0163i mai multe informa\u0163ii despre aceast\u0103 problem\u0103?",
 clipboard_no_support:"Deocamdat\u0103 nu este suportat\u0103 de browser. V\u0103 rug\u0103m s\u0103 folosi\u0163i combina\u0163ii de taste.",
 popup_blocked:"Ne pare r\u0103u, dar un popup-blocker a dezativat o fereastr\u0103 care d\u0103 func\u0163ionalitate aplica\u0163iei.Trebuie s\u0103 dezactiva\u0163i acel popup-blocker pentru acest site pentru a folosi aplica\u0163ia la capacitate maxim\u0103.",
-invalid_data:"Ave\u0163i erori. Datele gre\u015Fite sunt \u00EEn ro\u015Fu.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Mai multe culori"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Aliniere",
@@ -151,7 +196,8 @@ langs:"Limbi",
 wait:"V\u0103 rog a\u015Ftepta\u0163i...",
 sug:"Sugestii",
 no_sug:"Nu sunt sugestii.",
-no_mpell:"Nu sunt gre\u015Feli."
+no_mpell:"Nu sunt gre\u015Feli.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Insereaz\u0103 un separator de pagin\u0103"
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

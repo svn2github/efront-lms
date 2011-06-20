@@ -142,6 +142,7 @@ class EfrontConfiguration
   'disable_comments' => '0',
   'disable_online_users' => '0',
   'disable_glossary' => '0',
+     'disable_shared_glossary'=> '1',
   'disable_calendar' => '0',
   'disable_surveys' => '0',
   'disable_news' => '0',

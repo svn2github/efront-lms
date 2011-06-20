@@ -59,5 +59,12 @@ visibility:"Vidnost",
 zindex:"Indeks-Z",
 overflow:"Prelivanje",
 placement:"Polo\u017Eaj",
-clip:"Obre\u017Ei"
+clip:"Obre\u017Ei",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

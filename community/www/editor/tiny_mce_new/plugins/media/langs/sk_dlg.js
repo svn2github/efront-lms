@@ -99,5 +99,12 @@ flv_autostart:"Automatick\u00E9 spustenie",
 flv_loop:"Opakovanie",
 flv_showscalemodes:"Zobrazi\u0165 vo\u013Eby zmeny ve\u013Ekosti",
 flv_smoothvideo:"Vyhladzen\u00E9 video",
-flv_jscallback:"Sp\u00E4tn\u00E9 volanie Javascriptu"
+flv_jscallback:"Sp\u00E4tn\u00E9 volanie Javascriptu",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

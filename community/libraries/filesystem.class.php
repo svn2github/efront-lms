@@ -2527,14 +2527,14 @@ class FileSystemTree extends EfrontTree
             $uploadFormString = $this -> getUploadForm($uploadForm);
             if ($uploadForm -> isSubmitted() && $uploadForm -> validate()) {
                 $uploadedFile = $this -> handleUploadForm($uploadForm);
-                $uploadFormString .= '<script type = "text/javascript" src = "js/scriptaculous/prototype.php"> </script>
+                $uploadFormString .= '
                    <script>if (window.name == "POPUP_FRAME") {(parent.eF_js_showDivPopup("", "", "upload_file_table_'.$tableId.'"));parent.eF_js_rebuildTable(parent.$(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($currentDirectory).'\');parent.$(\'uploading_image\').hide()}</script>';
             }
             $createFolderForm = new HTML_QuickForm("create_folder_form", "post", $url, "", "target = 'POPUP_FRAME'", true);
             $createFolderString = $this -> getCreateDirectoryForm($createFolderForm);
             if ($createFolderForm -> isSubmitted() && $createFolderForm -> validate()) {
                 $this -> handleCreateDirectoryForm($createFolderForm);
-                $createFolderString .= '<script type = "text/javascript" src = "js/scriptaculous/prototype.php"> </script>
+                $createFolderString .= '
                    <script>if (window.name == "POPUP_FRAME") {(parent.eF_js_showDivPopup("", "", "create_directory_table_'.$tableId.'"));parent.eF_js_rebuildTable(parent.$(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($currentDirectory).'\');}</script>';
             }
             /*

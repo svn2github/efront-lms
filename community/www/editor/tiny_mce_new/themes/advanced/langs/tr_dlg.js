@@ -47,5 +47,8 @@ link_target_blank:"Ba\u011Flant\u0131y\u0131 yeni pencerede a\u00E7",
 link_titlefield:"Ba\u015Fl\u0131k",
 link_is_email:"Girdi\u011Finiz URL e-posta adresi gibi g\u00F6r\u00FCn\u00FCyor; gerekli olan mailto: \u00F6nekinin eklenmesini ister misiniz? prefix?",
 link_is_external:"Girdi\u011Fiz URL d\u0131\u015F ba\u011Flant\u0131 gibi g\u00F6r\u00FCn\u00FCyor; gerekli olan http:// \u00F6nekinin eklenmesini ister misiniz?",
-link_list:"Ba\u011Flant\u0131 listesi"
+link_list:"Ba\u011Flant\u0131 listesi",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

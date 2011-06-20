@@ -47,5 +47,8 @@ link_target_blank:"\u00C5ben link i nyt vindue",
 link_titlefield:"Titel",
 link_is_email:"Den URL, der er indtastet, ser ud til at v\u00E6re en emailadresse. Vil du have tilf\u00F8jet det p\u00E5kr\u00E6vede mailto: foran?",
 link_is_external:"Den URL, der er indtastet, ser ud til at v\u00E6re et eksternt link. Vil du have tilf\u00F8jet det p\u00E5kr\u00E6vede http:// foran?",
-link_list:"Liste over links"
+link_list:"Liste over links",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

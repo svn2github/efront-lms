@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sr.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"Osnovno",
 tab_appearance:"Izgled",
 tab_advanced:"Napredno",

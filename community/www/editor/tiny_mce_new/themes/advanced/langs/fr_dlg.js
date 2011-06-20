@@ -47,5 +47,8 @@ link_target_blank:"Ouvrir dans une nouvelle fen\u00EAtre",
 link_titlefield:"Titre",
 link_is_email:"L'URL que vous avez saisie semble \u00EAtre une adresse e-mail, souhaitez-vous ajouter le pr\u00E9fixe \u00AB mailto: \u00BB ?",
 link_is_external:"L'URL que vous avez saisie semble \u00EAtre une adresse web externe. Souhaitez-vous ajouter le pr\u00E9fixe \u00AB http:// \u00BB ?",
-link_list:"Liste de liens"
+link_list:"Liste de liens",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

@@ -12,8 +12,53 @@ not_set:"-- Ayarlanmad\u0131 --",
 clipboard_msg:"Mozilla Firefox da Kes/Kopyala/Yap\u0131\u015Ft\u0131r \u00F6zelli\u011Fi kullan\u0131lmamaktad\u0131r. \nBu konu hakk\u0131nda bilgi almak ister misiniz?",
 clipboard_no_support:"\u015Eu an kulland\u0131\u011F\u0131n\u0131z taray\u0131c\u0131n\u0131z klavye k\u0131sayollar\u0131n\u0131 desteklememektedir.",
 popup_blocked:"\u00DCzg\u00FCn\u00FCz, a\u00E7\u0131l\u0131r pencere engelleyiciniz uygulama i\u00E7in gerekli bir pencereyi engelledi. Bu arac\u0131 tam olarak kullanabilmek i\u00E7in a\u00E7\u0131l\u0131r pencere engelleyicisini kapat\u0131n\u0131z.",
-invalid_data:"Hata: Invalid values entered, these are marked in red.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Daha fazla renk"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Hizalama",
@@ -151,7 +196,8 @@ langs:"Diller",
 wait:"L\u00FCtfen bekleyin...",
 sug:"\u00D6neriler",
 no_sug:"\u00D6neri yok",
-no_mpell:"\u0130mla hatas\u0131 bulunamad\u0131."
+no_mpell:"\u0130mla hatas\u0131 bulunamad\u0131.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Sayfa sonu ekle."
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

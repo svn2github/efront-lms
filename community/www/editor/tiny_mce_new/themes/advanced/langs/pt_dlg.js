@@ -47,5 +47,8 @@ link_target_blank:"Abrir hyperlink em nova janela",
 link_titlefield:"T\u00EDtulo",
 link_is_email:"A URL digitada parece ser um endere\u00E7o de e-mail. Deseja acrescentar o prefixo necess\u00E1rio mailto:?",
 link_is_external:"A URL digitada parece conduzir a um link externo. Deseja acrescentar o prefixo necess\u00E1rio http://?",
-link_list:"Lista de Links"
+link_list:"Lista de Links",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

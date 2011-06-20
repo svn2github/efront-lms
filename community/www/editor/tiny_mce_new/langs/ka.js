@@ -12,8 +12,53 @@ not_set:"- \u10D0\u10E0 \u10D0\u10E0\u10D8\u10E1 \u10D3\u10D0\u10E7\u10D4\u10DC\
 clipboard_msg:"\u10D9\u10DD\u10DE\u10D8\u10E0\u10D4\u10D1\u10D0, \u10D0\u10DB\u10DD\u10ED\u10E0\u10D0 \u10D3\u10D0 \u10E9\u10D0\u10E1\u10DB\u10D0 Firefox-\u10E8\u10D8 \u10D0\u10E0 \u10DB\u10E3\u10E8\u10D0\u10DD\u10D1\u10E1.\r\n\u10D2\u10E1\u10E3\u10E0\u10D7 \u10DB\u10D8\u10D8\u10E6\u10DD\u10D7 \u10D3\u10D0\u10DB\u10D0\u10E2\u10D4\u10D1\u10D8\u10D7\u10D8 \u10D8\u10DC\u10E4\u10DD\u10E0\u10DB\u10D0\u10EA\u10D8\u10D0?",
 clipboard_no_support:"\u10D0\u10E0 \u10D0\u10E5\u10D5\u10E1 \u10D7\u10E5\u10D5\u10D4\u10DC\u10D8 \u10D1\u10E0\u10D0\u10E3\u10D6\u10D4\u10E0\u10D8\u10E1 \u10DB\u10EE\u10D0\u10E0\u10D3\u10D0\u10ED\u10D4\u10E0\u10D0. \u10D2\u10D0\u10DB\u10DD\u10D8\u10E7\u10D4\u10DC\u10D4\u10D7 \u10D9\u10DA\u10D0\u10D5\u10D8\u10D0\u10E2\u10E3\u10E0\u10E3\u10DA\u10D8 \u10E8\u10D4\u10DB\u10DD\u10D9\u10DA\u10D4\u10D1\u10D4\u10D1\u10D8.",
 popup_blocked:"\u0411\u043B\u043E\u043A\u0438\u0440\u0430\u0442\u043E\u0440 \u0432\u0441\u043F\u043B\u044B\u0432\u0430\u044E\u0449\u0438\u0445 \u043E\u043A\u043E\u043D \u0437\u0430\u043A\u0440\u044B\u043B \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E\u0435 \u043E\u043A\u043D\u043E. \u0414\u043B\u044F \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B, \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u0435 \u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043A\u0443 \u043D\u0430 \u044D\u0442\u043E\u043C \u0441\u0430\u0439\u0442\u0435.",
-invalid_data:"\u10E8\u10D4\u10EA\u10D3\u10DD\u10DB\u10D0: \u10E8\u10D4\u10E7\u10D5\u10D0\u10DC\u10D8\u10DA\u10D8\u10D0 \u10D0\u10E0\u10D0 \u10E1\u10EC\u10DD\u10E0\u10D8 \u10DB\u10DC\u10D8\u10E8\u10D5\u10DC\u10DA\u10D4\u10DD\u10D1\u10D0, \u10D8\u10E1 \u10DB\u10DD\u10DC\u10D8\u10E1\u10DC\u10E3\u10DA\u10D8\u10D0 \u10EC\u10D8\u10D7\u10DA\u10D0\u10D3.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u10E1\u10EE\u10D5\u10D0 \u10E4\u10D4\u10E0\u10D4\u10D1\u10D8..."
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u10D2\u10D0\u10E1\u10EC\u10DD\u10E0\u10D4\u10D1\u10D0",
@@ -154,7 +199,8 @@ langs:"\u042F\u0437\u044B\u043A\u0438",
 wait:"\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u043F\u043E\u0434\u043E\u0436\u0434\u0438\u0442\u0435...",
 sug:"\u0412\u0430\u0440\u0438\u0430\u043D\u0442\u044B",
 no_sug:"\u041D\u0435\u0442 \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u043E\u0432",
-no_mpell:"\u041E\u0448\u0438\u0431\u043E\u043A \u043D\u0435 \u043E\u0431\u043D\u0430\u0440\u0443\u0436\u0435\u043D\u043E."
+no_mpell:"\u041E\u0448\u0438\u0431\u043E\u043A \u043D\u0435 \u043E\u0431\u043D\u0430\u0440\u0443\u0436\u0435\u043D\u043E.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u10D2\u10D5\u10D4\u10E0\u10D3\u10D8\u10E1 \u10D2\u10D0\u10DB\u10E7\u10DD\u10E4\u10D8\u10E1 \u10D3\u10D0\u10DB\u10D0\u10E2\u10D4\u10D1\u10D0"
@@ -179,4 +225,25 @@ upper_roman:"\u0417\u0430\u0433\u043B\u0430\u0432\u043D\u044B\u0435 \u0440\u0438
 circle:"\u10EC\u10E0\u10D4\u10D4\u10D1\u10D8",
 disc:"\u10EC\u10E0\u10D4\u10EC\u10D8\u10E0\u10D4\u10D1\u10D8",
 square:"\u10D9\u10D5\u10D0\u10D3\u10E0\u10D0\u10E2\u10D4\u10D1\u10D8"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

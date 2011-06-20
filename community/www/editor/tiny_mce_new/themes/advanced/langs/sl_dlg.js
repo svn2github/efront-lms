@@ -47,5 +47,8 @@ link_target_blank:"odpri povezavo v novem oknu",
 link_titlefield:"Naslov",
 link_is_email:"Vneseni naslov verjetno prestavlja e-naslov, \u017Eelite da dodam zahtevano predpono \'mailto:\'?",
 link_is_external:"Vneseni naslov verjetno predstavlja zunanjo povezavo, \u017Eelite da dodam zahtevano predpono \'http://\'?",
-link_list:"Seznam povezav"
+link_list:"Seznam povezav",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

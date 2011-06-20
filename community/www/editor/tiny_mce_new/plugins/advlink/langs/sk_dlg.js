@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sk.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Vlo\u017Ei\u0165/upravi\u0165 odkaz",
 url:"URL odkazu",
 target:"Cie\u013E",

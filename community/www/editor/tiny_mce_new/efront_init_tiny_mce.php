@@ -27,7 +27,8 @@ tinymceConfigs["simpleEditor"] = {
     entity_encoding : "raw",
     force_p_newlines : false,
  plugins : "media,Jsvk",
- convert_urls : false,
+ convert_urls : true,
+ document_base_url:"'.G_SERVERNAME.'",
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]"
     };
@@ -43,7 +44,8 @@ tinymceConfigs["digestEditor"] = {
     entity_encoding : "raw",
     force_p_newlines : false,
  plugins : "media,Jsvk",
- convert_urls : false,
+ convert_urls : true,
+ document_base_url:"'.G_SERVERNAME.'",
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
  extended_valid_elements : "*[*]",
  handle_event_callback : "digestHandleEvent"
@@ -60,13 +62,15 @@ tinymceConfigs["mceEditor"] = {
     force_p_newlines : false,
  accessibility_warnings : false,
  verify_html : false,
- convert_urls : false,
-    plugins : "Jsvk,java,asciimath,asciisvg,table,save,advhr,advimage,advlink,style,emotions,inlinepopups,iespell,preview,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,template,save_template",
+ convert_urls : true,
+ gecko_spellcheck : true,
+ document_base_url:"'.G_SERVERNAME.'",
+    plugins : "tooltip,spellchecker,iframe,Jsvk,java,asciimath,asciisvg,table,save,advhr,advimage,advlink,style,emotions,inlinepopups,iespell,preview,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,template,save_template",
     theme_advanced_buttons1_add_before : "save,separator",
- theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
+ theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink,tooltip",
     theme_advanced_buttons2 : "forecolor,backcolor",
     theme_advanced_buttons2_add_before : "table",
-    theme_advanced_buttons2_add : "separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,java,separator,pastetext,pasteword,selectall,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,separator,asciimath,asciimathcharmap,separator,template,save_template'.$vkeyboard.'",
+    theme_advanced_buttons2_add : "separator,emotions,iespell,spellchecker,advhr,separator,sub,sup,separator,print,separator,image,media,java,iframe,separator,pastetext,pasteword,selectall,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,separator,asciimath,asciimathcharmap,separator,template,save_template'.$vkeyboard.'",
     theme_advanced_buttons3 : "",
     theme_advanced_disable : "help,cleanup,hr,removeformat,numlist",
     plugin_preview_width : "950",
@@ -83,8 +87,8 @@ tinymceConfigs["mceEditor"] = {
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
-    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[*],embed[*],iframe[*],object[*],param[*]",
- template_external_list_url : "editor/templates_list.php"
+    extended_valid_elements : "*[*]",
+    template_external_list_url : "editor/templates_list.php"
  };
 
 tinymceConfigs["templateEditor"] = {
@@ -99,13 +103,14 @@ tinymceConfigs["templateEditor"] = {
     force_p_newlines : false,
  accessibility_warnings : false,
  verify_html : false,
- convert_urls : false,
-    plugins : "Jsvk,table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,index_link,asciimath,asciisvg",
+ convert_urls : true,
+ document_base_url:"'.G_SERVERNAME.'",
+    plugins : "spellchecker,iframe,Jsvk,table,save,advhr,advimage,advlink,style,emotions,iespell,preview,zoom,searchreplace,print,contextmenu,media,paste,directionality,fullscreen,index_link,asciimath,asciisvg",
     theme_advanced_buttons1_add_before : "save,separator",
     theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,bullist,separator,indent,outdent,separator,undo,redo,separator,link,unlink",
     theme_advanced_buttons2 : "zoom,separator,forecolor,backcolor",
     theme_advanced_buttons2_add_before : "table",
-    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,advhr,separator,sub,sup,separator,print,separator,image,media,separator,pasteword,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,index_link,separator,asciimath,asciimathcharmap'.$vkeyboard.'",
+    theme_advanced_buttons2_add : "separator,charmap,separator,emotions,iespell,spellchecker,advhr,separator,sub,sup,separator,print,separator,image,media,iframe,separator,pasteword,preview,fullscreen,separator,copy,paste,separator,ltr,rtl,separator,search,anchor,index_link,separator,asciimath,asciimathcharmap'.$vkeyboard.'",
     theme_advanced_buttons3 : "",
     theme_advanced_disable : "formatselect,help,cleanup,hr,removeformat,numlist",
     plugin_preview_width : "950",
@@ -122,8 +127,8 @@ tinymceConfigs["templateEditor"] = {
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
-    extended_valid_elements : "a[name|href|target|title|onclick|class|style],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],hr[class|width|size|noshade|style],font[face|size|color|style],span[class|align|style],applet[*],embed[*],iframe[*],object[*],param[*]"
-};
+    extended_valid_elements : "*[*]"
+    };
 
 
 

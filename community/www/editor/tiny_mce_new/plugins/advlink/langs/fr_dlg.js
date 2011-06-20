@@ -1,4 +1,6 @@
 tinyMCE.addI18n('fr.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Ins\u00E9rer / \u00E9diter un lien",
 url:"URL du lien",
 target:"Cible",

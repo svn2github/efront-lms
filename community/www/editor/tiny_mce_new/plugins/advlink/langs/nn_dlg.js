@@ -1,4 +1,6 @@
 tinyMCE.addI18n('nn.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Set inn / rediger lenkje",
 url:"Lenkje-URL",
 target:"M\u00E5l",

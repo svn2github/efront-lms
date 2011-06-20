@@ -58,5 +58,11 @@ clipboard_msg:"Copy/Cut/Paste tidak tersedia pada Mozilla dan Firefox.\nButuh in
 path:"Path",
 newdocument:"Yakin untuk menghapus semua konten?",
 toolbar_focus:"Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X",
-more_colors:"More colors"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

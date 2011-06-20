@@ -12,8 +12,8 @@
       <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
      </span>
      <span>
-      <img onclick = "javascript:toggleEditor('editor_data', 'mceEditor');" class = "ajaxHandle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-      <a href = "javascript:toggleEditor('editor_data', 'mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+      <img onclick = "toggledInstanceEditor = 'editor_data';javascript:toggleEditor('editor_data', 'mceEditor');" class = "ajaxHandle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+      <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'editor_data';javascript:toggleEditor('editor_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
      </span>
     </div>
     </td></tr>

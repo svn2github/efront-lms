@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sq.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Fut/edito lidhje",
 url:"URL e lidhjes",
 target:"Sh\u00EBnjestra",

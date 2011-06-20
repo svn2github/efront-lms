@@ -12,8 +12,53 @@ not_set:"-- \u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E15\u0E31\u0E49\u0E07\u0E04\u
 clipboard_msg:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01 / \u0E15\u0E31\u0E14 / \u0E27\u0E32\u0E07\u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E21\u0E35\u0E43\u0E2B\u0E49\u0E1A\u0E23\u0E34\u0E01\u0E32\u0E23\u0E43\u0E19 Mozilla \u0E41\u0E25\u0E30 Firefox.\nDo \u0E04\u0E38\u0E13\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E40\u0E15\u0E34\u0E21\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E01\u0E31\u0E1A\u0E1B\u0E31\u0E0D\u0E2B\u0E32\u0E19\u0E35\u0E49\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?",
 clipboard_no_support:"\u0E02\u0E13\u0E30\u0E19\u0E35\u0E49\u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E2A\u0E19\u0E31\u0E1A\u0E2A\u0E19\u0E38\u0E19\u0E40\u0E1A\u0E23\u0E32\u0E40\u0E0B\u0E2D\u0E23\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13 \u0E43\u0E2B\u0E49\u0E43\u0E0A\u0E49\u0E41\u0E1B\u0E49\u0E19\u0E1E\u0E34\u0E21\u0E1E\u0E4C\u0E25\u0E31\u0E14\u0E41\u0E17\u0E19",
 popup_blocked:"\u0E02\u0E2D\u0E2D\u0E20\u0E31\u0E22\u0E41\u0E15\u0E48\u0E40\u0E23\u0E32\u0E1E\u0E1A\u0E27\u0E48\u0E32\u0E04\u0E38\u0E13\u0E21\u0E35\u0E23\u0E30\u0E1A\u0E1A\u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\u0E1B\u0E4A\u0E2D\u0E1B\u0E2D\u0E31\u0E1B \u0E04\u0E38\u0E13\u0E08\u0E30\u0E15\u0E49\u0E2D\u0E07\u0E1B\u0E34\u0E14\u0E01\u0E32\u0E23\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E01\u0E32\u0E23\u0E1A\u0E25\u0E47\u0E2D\u0E04\u0E1B\u0E4A\u0E2D\u0E1B\u0E2D\u0E31\u0E1B",
-invalid_data:"\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: \u0E1B\u0E49\u0E2D\u0E19\u0E04\u0E48\u0E32\u0E43\u0E19\u0E0A\u0E49\u0E2D\u0E07\u0E2A\u0E35\u0E41\u0E14\u0E07\u0E43\u0E2B\u0E49\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u0E2A\u0E35\u0E2D\u0E37\u0E48\u0E19\u0E46"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u0E15\u0E33\u0E41\u0E2B\u0E19\u0E48\u0E07\u0E08\u0E31\u0E14\u0E27\u0E32\u0E07",
@@ -151,7 +196,8 @@ langs:"\u0E20\u0E32\u0E29\u0E32",
 wait:"\u0E42\u0E1B\u0E23\u0E14\u0E23\u0E2D...",
 sug:"\u0E04\u0E33\u0E41\u0E19\u0E30\u0E19\u0E33",
 no_sug:"\u0E44\u0E21\u0E48\u0E21\u0E35\u0E04\u0E33\u0E41\u0E19\u0E30\u0E19\u0E33",
-no_mpell:"\u0E44\u0E21\u0E48\u0E1E\u0E1A\u0E23\u0E30\u0E1A\u0E1A\u0E2A\u0E30\u0E01\u0E14\u0E04\u0E33\u0E1C\u0E34\u0E14"
+no_mpell:"\u0E44\u0E21\u0E48\u0E1E\u0E1A\u0E23\u0E30\u0E1A\u0E1A\u0E2A\u0E30\u0E01\u0E14\u0E04\u0E33\u0E1C\u0E34\u0E14",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u0E43\u0E2A\u0E48\u0E40\u0E2A\u0E49\u0E19\u0E41\u0E1A\u0E48\u0E07\u0E2B\u0E19\u0E49\u0E32"
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

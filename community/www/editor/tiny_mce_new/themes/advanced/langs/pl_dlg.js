@@ -47,5 +47,8 @@ link_target_blank:"Otw\u00F3rz link w nowym oknie",
 link_titlefield:"Tytu\u0142",
 link_is_email:"URL kt\u00F3ry otworzy\u0142e\u015B wydaje si\u0119 by\u0107 adresem mailowym, czy chcesz doda\u0107 odpowiedni prefix mailto: ?",
 link_is_external:"URL kt\u00F3ry otworzy\u0142e\u015B wydaje si\u0119 by\u0107 zewn\u0119trznym linkiem, czy chcesz doda\u0107 wymagany prefix http:// ?",
-link_list:"Lista link\u00F3w"
+link_list:"Lista link\u00F3w",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

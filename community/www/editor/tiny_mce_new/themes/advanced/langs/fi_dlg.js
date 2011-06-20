@@ -47,5 +47,8 @@ link_target_blank:"Avaa linkki uuteen ikkunaan",
 link_titlefield:"Otsikko",
 link_is_email:"Antamasi osoite n\u00E4ytt\u00E4\u00E4 olevan s\u00E4hk\u00F6postiosoite. Haluatko lis\u00E4t\u00E4 siihen mailto:-etuliitteen?",
 link_is_external:"Antamasi osoite n\u00E4ytt\u00E4\u00E4 johtavan ulkopuoliselle sivustolle. Haluatko lis\u00E4t\u00E4 linkin eteen http://-etuliitteen? (suositus)",
-link_list:"Linkkilista"
+link_list:"Linkkilista",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

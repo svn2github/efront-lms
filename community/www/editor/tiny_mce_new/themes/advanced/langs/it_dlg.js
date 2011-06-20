@@ -47,5 +47,8 @@ link_target_blank:"Apri link in una nuova finestra",
 link_titlefield:"Titolo",
 link_is_email:"L'URL inserito sembra essere un indirizzo email. Aggiungere il necessario prefisso mailto: ?",
 link_is_external:"L'URL inserito sembra essere un link esterno. Aggiungere il necessario prefisso http:// ?",
-link_list:"Lista link"
+link_list:"Lista link",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

@@ -12,8 +12,53 @@ not_set:"-- Ei m\u00E4\u00E4ritetty --",
 clipboard_msg:"Kopioi/Leikkaa/Liit\u00E4 ei ole k\u00E4ytett\u00E4viss\u00E4 Mozilla ja Firefox -selaimilla.\nHaluatko lis\u00E4tietoa t\u00E4st\u00E4 ongelmasta?",
 clipboard_no_support:"Selaimesi ei ole tuettu, k\u00E4yt\u00E4 sen sijaan n\u00E4pp\u00E4inoikoteit\u00E4.",
 popup_blocked:"Sinulla on k\u00E4yt\u00F6ss\u00E4si ohjelma, joka est\u00E4\u00E4 ponnahdusikkunoiden n\u00E4yt\u00F6n. Sinun t\u00E4ytyy kytke\u00E4 ponnahdusikkunoiden esto pois p\u00E4\u00E4lt\u00E4 voidaksesi hy\u00F6dynt\u00E4\u00E4 t\u00E4ysin t\u00E4t\u00E4 ty\u00F6kalua.",
-invalid_data:"Virhe: Sy\u00F6tit virheellisi\u00E4 arvoja, ne n\u00E4kyv\u00E4t punaisina.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Enemm\u00E4n v\u00E4rej\u00E4"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Tasaus",
@@ -152,7 +197,8 @@ langs:"Kielet",
 wait:"Odota ole hyv\u00E4...",
 sug:"Ehdotukset",
 no_sug:"Ei ehdotuksia",
-no_mpell:"Virheit\u00E4 ei l\u00F6ytynyt."
+no_mpell:"Virheit\u00E4 ei l\u00F6ytynyt.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Lis\u00E4\u00E4 sivunvaihto."
@@ -177,4 +223,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

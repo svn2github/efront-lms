@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ar.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Insert/edit link",
 url:"Link URL",
 target:"Target",

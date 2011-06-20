@@ -3731,7 +3731,7 @@ define("_SEARCHFORUSER", "Αναζήτηση χρήστη [Κριτήρια πρ
 define("_SEARCHCRITERIA","Κριτήρια αναζήτησης");
 define("_SUBMITFEEDBACK","Αποστολή ανάδρασης");
 define("_FEEDBACKRESULTS","Αποτελέσματα ανάδρασης");
-define("_PASSWORDREMINDER", "Υπενθύμιση κωδικού");
+define("_PASSWORDREMINDER", "Σύνδεσμος ανάκτησης κωδικού");
 define("_MUSTCOMPLETEALLTESTS", "Πρέπει να ολοκληρώσει όλες τις αξιολογήσεις");
 define("_FEEDBACKSTATISTICS","Στατιστικά αναδράσεων");
 define("_CHOOSEFEEDBACK","Επιλογή ανάδρασης");
@@ -4097,4 +4097,11 @@ define("_PREVIOUSLESSON", "Προηγούμενο μάθημα");
 define("_CONSTRAINAPIIP", "IPs που επιτρέπεται να συνδεθούν στο API");
 define("_LOGOUTUSERIFINACTIVEFORMINUTES", "Αποσύνδεση χρήστη μετά από αδράνεια (λεπτά)");
 define("_COMPLETEAFTERSECONDS", "Ολοκλήρωση μετά από (δευτερόλεπτα)");
+define("_APPLYFUNCTIONTOALLUNITS", "Εφαρμογή λειτουργίας σε όλες τις ενότητες");
+define("_SCORMSPECIFICPROPERTIES", "Οι παρακάτω ιδιότητες θα επηρεάσουν μόνο περιεχόμενο SCORM 1.2");
+define("_ALLUNITSPROPERTIES", "Ιδιότητες όλων των ενοτήτων");
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "Μπορεί να θέλετε να απενεργοποιήσετε και την &quot;ανάκτηση κωδικού&quot;, στις γενικές ρυθμίσεις");
+define("_FORTHISLESSON","Για το τρέχον μάθημα");
+define("_FORANYLESSON","Για κάθε μάθημα");
+define("_SHAREDGLOSSARY","Διαμοιραζόμενο γλωσσάρι");
 ?>

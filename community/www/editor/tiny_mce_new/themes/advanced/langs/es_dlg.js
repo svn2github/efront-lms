@@ -47,5 +47,8 @@ link_target_blank:"Abrir v\u00EDnculo en una ventana nueva",
 link_titlefield:"T\u00EDtulo",
 link_is_email:"La URL que introdujo parece ser una direcci\u00F3n de email,  \u00BFdesea agregar el prefijo mailto: necesario?",
 link_is_external:"La URL que introdujo parece ser un v\u00EDnculo externo,  \u00BFdesea agregar el prefijo http:// necesario?",
-link_list:"Lista de hiperv\u00EDnculos"
+link_list:"Lista de hiperv\u00EDnculos",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

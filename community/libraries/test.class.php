@@ -5685,10 +5685,10 @@ class RawTextQuestion extends Question implements iQuestion
     foreach ($value['words'] as $word) {
      $word = preg_quote($word);//pr(htmlentities($this->userAnswer));
      $found = preg_match("/^$word$/mu", $strippedAnswer) ||
-        preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $strippedAnswer) ||
-        preg_match("/(\p{Z}|\p{P}|\n|\r)$word$/mu", $strippedAnswer) ||
-        preg_match("/(\p{Z}|\p{P}|\n|\r)$word(\p{Z}|\p{P}|\n|\r)/mu", $strippedAnswer);
-     preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mu", $strippedAnswer, $matches);
+        preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mui", $strippedAnswer) ||
+        preg_match("/(\p{Z}|\p{P}|\n|\r)$word$/mui", $strippedAnswer) ||
+        preg_match("/(\p{Z}|\p{P}|\n|\r)$word(\p{Z}|\p{P}|\n|\r)/mui", $strippedAnswer);
+     preg_match("/^$word(\p{Z}|\p{P}|\n|\r)/mui", $strippedAnswer, $matches);
      if ($found) {
       if ($value['contains']) {
        $addScore = true;

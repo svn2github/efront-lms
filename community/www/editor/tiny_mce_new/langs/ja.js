@@ -12,8 +12,53 @@ not_set:"-- \u672A\u8A2D\u5B9A --",
 clipboard_msg:"\u30B3\u30D4\u30FC/\u5207\u308A\u53D6\u308A/\u8CBC\u308A\u4ED8\u3051\u306FMozilla\u53CA\u3073Firefox\u3067\u306F\u4F7F\u7528\u3067\u304D\u307E\u305B\u3093\u3002\n\u8A73\u7D30\u306F\u3053\u3061\u3089",
 clipboard_no_support:"\u30AF\u30EA\u30C3\u30D7\u30DC\u30FC\u30C9\u64CD\u4F5C\u306F\u304A\u4F7F\u3044\u306E\u30D6\u30E9\u30A6\u30B6\u306B\u306F\u5BFE\u5FDC\u3057\u3066\u304A\u308A\u307E\u305B\u3093\u3002\u4EE3\u308F\u308A\u306B\u30AD\u30FC\u30DC\u30FC\u30C9\u306E\u30B7\u30E7\u30FC\u30C8\u30AB\u30C3\u30C8\u30AD\u30FC\u3092\u304A\u4F7F\u3044\u4E0B\u3055\u3044\u3002",
 popup_blocked:"\u30DD\u30C3\u30D7\u30A2\u30C3\u30D7\u304C\u30D6\u30ED\u30C3\u30AF\u3055\u308C\u307E\u3057\u305F\u3002\u3059\u3079\u3066\u306E\u6A5F\u80FD\u3092\u3054\u5229\u7528\u306B\u306A\u308B\u306B\u306F\u30DD\u30C3\u30D7\u30A2\u30C3\u30D7\u3092\u8A31\u53EF\u3057\u3066\u4E0B\u3055\u3044\u3002",
-invalid_data:"\u30A8\u30E9\u30FC: \u5165\u529B\u306B\u8AA4\u308A\u304C\u3042\u308A\u307E\u3059\u3002\uFF08\u8D64\u5B57\u306E\u9805\u76EE\uFF09",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u305D\u306E\u4ED6\u306E\u8272"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u914D\u7F6E",
@@ -151,7 +196,8 @@ langs:"\u8A00\u8A9E",
 wait:"\u3057\u3070\u3089\u304F\u304A\u5F85\u3061\u304F\u3060\u3055\u3044...",
 sug:"\u5019\u88DC",
 no_sug:"\u5019\u88DC\u306F\u6709\u308A\u307E\u305B\u3093\u3002",
-no_mpell:"\u30B9\u30DA\u30EB\u30DF\u30B9\u306F\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002"
+no_mpell:"\u30B9\u30DA\u30EB\u30DF\u30B9\u306F\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"\u6539\u30DA\u30FC\u30B8\u633F\u5165"
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

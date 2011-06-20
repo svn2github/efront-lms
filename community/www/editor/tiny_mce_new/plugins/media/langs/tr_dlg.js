@@ -99,5 +99,12 @@ flv_autostart:"Otomatik ba\u015Flat",
 flv_loop:"D\u00F6nd\u00FCr",
 flv_showscalemodes:"\u00D6l\u00E7ek modunu g\u00F6ster",
 flv_smoothvideo:"D\u00FCzg\u00FCn video",
-flv_jscallback:"JS \u00C7e\u011F\u0131r"
+flv_jscallback:"JS \u00C7e\u011F\u0131r",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

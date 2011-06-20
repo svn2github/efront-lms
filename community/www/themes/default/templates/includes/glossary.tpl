@@ -29,8 +29,8 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
           <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
          </span>
          <span>
-          <img src = "images/16x16/order.png" onclick = "javascript:toggleEditor('editor_content_data','mceEditor');" class = "ajaxHandle" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-          <a href = "javascript:toggleEditor('info','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+          <img src = "images/16x16/order.png" onclick = "toggledInstanceEditor = 'info';javascript:toggleEditor('editor_content_data','mceEditor');" class = "ajaxHandle" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+          <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'info';javascript:toggleEditor('info','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
          </span>
         </div>
         </td></tr>
@@ -39,6 +39,13 @@ var tabberLoadingConst = "{$smarty.const._LOADINGDATA}";
            <tr><td class = "labelCell">{$T_ENTITY_FORM.info.label}:&nbsp;</td>
                <td class = "elementCell">{$T_ENTITY_FORM.info.html}</td></tr>
            {if $T_ENTITY_FORM.info.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.info.error}</td></tr>{/if}
+
+           {if $T_CONFIGURATION.disable_shared_glossary != 1}
+            <tr><td class = "labelCell">{$T_ENTITY_FORM.lessons_ID.label}:&nbsp;</td>
+                <td class = "elementCell">{$T_ENTITY_FORM.lessons_ID.html}</td></tr>
+            {if $T_ENTITY_FORM.lessons_ID.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.lessons_ID.error}</td></tr>{/if}
+           {/if}
+
            <tr><td></td>
             <td class = "submitCell">{$T_ENTITY_FORM.submit.html} {if $smarty.get.add}{$T_ENTITY_FORM.submit_term_add_another.html}{/if}</td></tr>
        </table>

@@ -47,5 +47,8 @@ link_target_blank:"Buka link pada window baru",
 link_titlefield:"Judul",
 link_is_email:"URL yang Anda sisipkan tampaknya e-mail, Anda ingin menambahkan awalan 'mailto:'?",
 link_is_external:"URL yang Anda sisipkan tampaknya link eksternal, Anda ingin menambahkan awalan 'http://'?",
-link_list:"Daftar Link"
+link_list:"Daftar Link",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

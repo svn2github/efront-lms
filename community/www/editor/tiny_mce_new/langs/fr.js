@@ -12,8 +12,53 @@ not_set:"-- non d\u00E9fini --",
 clipboard_msg:"Les fonctions Copier/Couper/Coller ne sont pas valables sur Mozilla et Firefox.\nSouhaitez-vous avoir plus d'informations sur ce sujet ?",
 clipboard_no_support:"Actuellement non support\u00E9 par votre navigateur.\n Veuillez utiliser les raccourcis clavier \u00E0 la place.",
 popup_blocked:"D\u00E9sol\u00E9, nous avons d\u00E9tect\u00E9 que votre bloqueur de popup a bloqu\u00E9 une fen\u00EAtre dont l'application a besoin. Vous devez d\u00E9sactiver votre bloqueur de popup pour pouvoir utiliser cet outil.",
-invalid_data:"Erreur : saisie de valeurs incorrectes. Elles sont mises en \u00E9vidence en rouge.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Plus de couleurs"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Alignement",
@@ -151,7 +196,8 @@ langs:"Langues",
 wait:"Veuillez patienter\u2026",
 sug:"Suggestions",
 no_sug:"Aucune suggestion",
-no_mpell:"Aucune erreur trouv\u00E9e."
+no_mpell:"Aucune erreur trouv\u00E9e.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Ins\u00E9rer un saut de page."
@@ -176,4 +222,25 @@ upper_roman:"Romain majuscule",
 circle:"Cercle",
 disc:"Disque",
 square:"Carr\u00E9"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

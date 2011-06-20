@@ -286,7 +286,7 @@ if ($_GET['op'] == 'reset_lesson') {
     //pr($lessonModules);
     $smarty -> assign("T_LESSON_MODULES", $lessonModules);
     $smarty -> assign("T_LESSON_ID", $currentLesson -> lesson['id']);
-
+//pr($currentLesson -> options);
     $invalidOptions = array();
     !$currentLesson -> options['content_tree'] ? $invalidOptions['moduleContentTree'] = 1 : null;
     !$currentLesson -> options['projects'] ? $invalidOptions['moduleProjectsList'] = 1 : null;
@@ -294,10 +294,11 @@ if ($_GET['op'] == 'reset_lesson') {
     !$currentLesson -> options['comments'] ? $invalidOptions['moduleComments'] = 1 : null;
     !$currentLesson -> options['calendar'] ? $invalidOptions['moduleCalendar'] = 1 : null;
     !$currentLesson -> options['digital_library'] ? $invalidOptions['moduleDigitalLibrary'] = 1 : null;
+    !$currentLesson -> options['news'] ? $invalidOptions['moduleNewsList'] = 1 : null;
 
     $smarty -> assign("T_INVALID_OPTIONS", $invalidOptions);
 
-
+//pr($defaultPositions);
     $smarty -> assign("T_DEFAULT_POSITIONS", $defaultPositions);
 } else {
     $lessonSettings['theory'] = array('text' => _THEORY, 'image' => "32x32/theory.png", 'onClick' => 'activate(this, \'theory\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['theory']) && $currentLesson -> options['theory'] ? null : 'inactiveImage');

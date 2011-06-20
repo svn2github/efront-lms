@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ja.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"\u30EA\u30F3\u30AF\u306E\u633F\u5165/\u7DE8\u96C6",
 url:"\u30EA\u30F3\u30AFURL",
 target:"\u30BF\u30FC\u30B2\u30C3\u30C8",

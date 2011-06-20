@@ -12,8 +12,53 @@ not_set:"-- No definit --",
 clipboard_msg:"Copia/Retalla/Enganxa no es troba disponible al Mozilla ni al Firefox.\nVoleu m\u00E9s informaci\u00F3 sobre aquesta q\u00FCesti\u00F3?",
 clipboard_no_support:"El vostre navegador actualment no ho admet, utilitzeu les dreceres de teclat.",
 popup_blocked:"El bloqueig de finestres emergents ha inhabilitat una finestra que proporciona funcionalitat a l\'aplicaci\u00F3. Cal que desactiveu el bloqueig de finestres emergents en aquest lloc per tal de poder utilitzar de forma completa aquesta eina.",
-invalid_data:"Error: heu introdu\u00EFt valors no v\u00E0lids, els marcats en vermell.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"M\u00E9s colors"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Alineaci\u00F3",
@@ -151,7 +196,8 @@ langs:"Idiomes",
 wait:"Espereu...",
 sug:"Suggeriments",
 no_sug:"Cap suggeriment",
-no_mpell:"No s\'ha trobat cap falta d\'ortografia."
+no_mpell:"No s\'ha trobat cap falta d\'ortografia.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Insereix un salt de p\u00E0gina."
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

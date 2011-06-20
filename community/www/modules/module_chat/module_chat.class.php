@@ -31,21 +31,21 @@ class module_chat extends eFrontModule{
        sent DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
        isLesson INTEGER UNSIGNED NOT NULL DEFAULT 0,
        PRIMARY KEY (id)
-       )"
+       ) ENGINE=MyISAM DEFAULT CHARSET=utf8"
        );
 
   eF_executeNew("drop table if exists module_chat_users");
   $res2 = eF_executeNew("CREATE TABLE module_chat_users (username VARCHAR(100) NOT NULL,
        timestamp_ TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
        UNIQUE (username)
-       )"
+       ) ENGINE=MyISAM DEFAULT CHARSET=utf8"
        );
 
   eF_executeNew("drop table if exists module_chat_config");
   $res3 = eF_executeNew("CREATE TABLE module_chat_config (status INT NOT NULL DEFAULT  '1',
        chatHeartbeatTime INT NOT NULL DEFAULT '1500',
        refresh_rate INT NOT NULL DEFAULT '60000'
-       )"
+       ) ENGINE=MyISAM DEFAULT CHARSET=utf8"
        );
   $res4 = eF_executeNew("INSERT INTO  module_chat_config
        (status, chatHeartbeatTime, refresh_rate) VALUES

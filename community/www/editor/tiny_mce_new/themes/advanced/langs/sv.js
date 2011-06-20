@@ -56,5 +56,11 @@ blockquote_desc:"Blockcitat",
 clipboard_msg:"Kopiera/klipp ut/klistra in \u00E4r inte tillg\u00E4ngligt i din webbl\u00E4sare.\nVill du veta mer om detta?",
 path:"Element",
 newdocument:"\u00C4r du s\u00E4ker p\u00E5 att du vill radera allt inneh\u00E5ll?",
-toolbar_focus:"Hoppa till verktygsf\u00E4ltet - Alt+Q, Hoppa till redigeraren - Alt-Z, Hoppa till elementlistan - Alt-X"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

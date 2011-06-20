@@ -59,5 +59,12 @@ visibility:"Nh\u00ECn th\u1EA5y",
 zindex:"Ch\u1EC9 m\u1EE5c Z",
 overflow:"Tr\u00E0n",
 placement:"S\u1EAFp \u0111\u1EB7t",
-clip:"Ghim"
+clip:"Ghim",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

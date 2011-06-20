@@ -99,5 +99,12 @@ flv_autostart:"Auto grojimas",
 flv_loop:"Kartoti",
 flv_showscalemodes:"Rodyti mastelio re\u017Eimus",
 flv_smoothvideo:"Tolygus vaizdas",
-flv_jscallback:"JS atgalinis atsakas"
+flv_jscallback:"JS atgalinis atsakas",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

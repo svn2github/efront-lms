@@ -1,4 +1,6 @@
 tinyMCE.addI18n('de.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Link einf\u00FCgen/bearbeiten",
 url:"Adresse",
 target:"Fenster",

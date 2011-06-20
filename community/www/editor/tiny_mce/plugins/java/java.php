@@ -16,25 +16,25 @@ if ($_SESSION['s_lessons_ID']) {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="whitebg">
 <head>
     <title>{#java_dlg.title}</title>
-	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
-	<script type="text/javascript" src="../../utils/mctabs.js"></script>
-	<script type="text/javascript" src="../../utils/form_utils.js"></script>
-	<script type="text/javascript" src="../../utils/validate.js"></script>
-	<script type="text/javascript" src="../../utils/editable_selects.js"></script>
-	<script type="text/javascript" src="js/java.js"></script>
-	<link href="css/java.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
+ <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+ <script type="text/javascript" src="../../utils/mctabs.js"></script>
+ <script type="text/javascript" src="../../utils/form_utils.js"></script>
+ <script type="text/javascript" src="../../utils/validate.js"></script>
+ <script type="text/javascript" src="../../utils/editable_selects.js"></script>
+ <script type="text/javascript" src="js/java.js"></script>
+ <link href="css/java.css" rel="stylesheet" type="text/css" />
     <base target="_self" />
 </head>
 <body style="display: none">
+<table><tr><td valign="top">
+<?php echo _SELECT ?> :<br>
+<iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 450px; height:235px; z-index:1"></iframe>
 
-<div class="title">{#java_dlg.insert_java}</div>
-{#advanced_dlg.select_file} :<br>
-<iframe name="IMGPICK" src="<?php echo $iframeUrl?>" style="border: solid black 1px;  width: 500px; height:240px; z-index:1"></iframe>
-
-<br/><br/>
+</td><td valign="top">
     <form onsubmit="JavaDialog.insert();return false;" action="#">
         <div class="tabs">
             <ul>
@@ -70,7 +70,7 @@ if ($_SESSION['s_lessons_ID']) {
                                     </table>
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <td nowrap="nowrap"><label>{#java_dlg.size}</label></td>
                                 <td nowrap="nowrap">
@@ -78,7 +78,7 @@ if ($_SESSION['s_lessons_ID']) {
                                     <select name="width2" id="width2" style="width: 50px">
                                         <option value="">px</option>
                                         <option value="%">%</option>
-                                    </select>&nbsp;x&nbsp;<input size="10px" id="height" name="height" type="text"  value="" onfocus="this.select();" />
+                                    </select>&nbsp;x&nbsp;<input size="10px" id="height" name="height" type="text" value="" onfocus="this.select();" />
                                     <select name="height2" id="height2" style="width: 50px">
                                         <option value="">px</option>
                                         <option value="%">%</option>
@@ -100,5 +100,6 @@ if ($_SESSION['s_lessons_ID']) {
             </div>
         </div>
     </form>
+</td></tr></table>
 </body>
 </html>

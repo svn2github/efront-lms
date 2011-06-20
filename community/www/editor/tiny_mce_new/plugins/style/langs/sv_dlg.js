@@ -59,5 +59,12 @@ visibility:"Synlighet",
 zindex:"Z-index",
 overflow:"\u00D6\u0096verfl\u00F6de",
 placement:"Placering",
-clip:"Besk\u00E4rning"
+clip:"Besk\u00E4rning",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

@@ -18,7 +18,11 @@ if ($GLOBALS['configuration']['disable_glossary'] == 1 || (isset($currentUser ->
 !isset($currentUser -> coreAccess['glossary']) || $currentUser -> coreAccess['glossary'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $load_editor = true;
 $entityName = 'glossary';
-$glossary = eF_getTableData("glossary", "id,name,info", "lessons_ID=".$currentLesson -> lesson['id']);
+if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
+ $glossary = eF_getTableData("glossary", "id,name,info", "lessons_ID=".$currentLesson -> lesson['id']." OR lessons_ID=0");
+} else {
+ $glossary = eF_getTableData("glossary", "id,name,info", "lessons_ID=".$currentLesson -> lesson['id']);
+}
 foreach ($glossary as $value) {
     $legalValues[] = $value['id'];
 }

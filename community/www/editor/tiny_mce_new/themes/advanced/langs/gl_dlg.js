@@ -47,5 +47,8 @@ link_target_blank:"Abrir v\u00EDnculo nunha vent\u00E1 nova",
 link_titlefield:"T\u00EDtulo",
 link_is_email:"A URL introducida semella ser un enderezo de e-mail, \u00BFDesexa engadi-lo prefixo necesario mailto:?",
 link_is_external:"A URL introducida semella ser un v\u00EDnculo externo, \u00BFDesexa engadi-lo prefixo necesario http://?",
-link_list:"Lista de hiperv\u00EDnculos"
+link_list:"Lista de hiperv\u00EDnculos",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

@@ -12,8 +12,53 @@ not_set:"-- Ninguno --",
 clipboard_msg:"Copiar/Cortar/Pegar no se encuentra disponible en Mozilla y Firefox.\n \u00BFDesea obtener m\u00E1s informaci\u00F3n acerca de este tema?",
 clipboard_no_support:"Su navegador no soporta las funciones de cortapapeles, use los accesos por teclado.",
 popup_blocked:"Lo sentimos, su bloqueo de ventanas emergentes ha deshabilitado una ventana que provee funcionalidades a la aplicaci\u00F3n. Necesita deshabilitar este bloqueo en este sitio para poder utilizar todas las funciones.",
-invalid_data:"Error: Introdujo un valor no v\u00E1lido, est\u00E1n marcados en rojo.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"M\u00E1s colores"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Alineaci\u00F3n",
@@ -153,7 +198,8 @@ langs:"Idiomas",
 wait:"Espere...",
 sug:"Sugerencias",
 no_sug:"Sin sugerencias",
-no_mpell:"No se encontraron errores."
+no_mpell:"No se encontraron errores.",
+learn_word:"Learn word" 
 },
 pagebreak:{
 desc:"Insertar fin de p\u00E1gina"
@@ -178,4 +224,25 @@ upper_roman:"M\u00E1s roman",
 circle:"Circulo",
 disc:"Disc",
 square:"Cuadro"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

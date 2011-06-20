@@ -58,5 +58,11 @@ clipboard_msg:"Kopja/Prerja/Ngjitja nuk suportohen n\u00EB Mozilla dhe Firefox.\
 path:"Rruga",
 newdocument:"Jeni t\u00EB sigurt q\u00EB doni t'a fshini p\u00EBrmbajtjen?",
 toolbar_focus:"Shko tek butonat - Alt+Q, Shko tek editori - Alt+Z, Shko tek rruga e elementit - Alt+X",
-more_colors:"M\u00EB shum\u00EB ngjyra"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

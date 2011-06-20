@@ -58,5 +58,11 @@ clipboard_msg:"Iesp\u0113ja Kop\u0113t/Izgriezt/Iekop\u0113t nav pieejama p\u010
 path:"Atra\u0161an\u0101s vieta",
 newdocument:"Vai J\u016Bs esat p\u0101rliecin\u0101ti, ka v\u0113laties izdz\u0113st visu saturu?",
 toolbar_focus:"Iet uz r\u012Bkpog\u0101m - Alt+Q, Iet uz redaktoru - Alt-Z, Iet uz elementa atra\u0161an\u0101s vietu - Alt-X",
-more_colors:"Vair\u0101k kr\u0101su"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

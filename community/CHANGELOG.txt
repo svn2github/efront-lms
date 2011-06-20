@@ -4,6 +4,10 @@
 - Added sorting terms in each tab in glossary page
 - Fixed issue about inserting & in question feedback
 - Added option to constrain XML API usage to a specific IP
+- Added html_entity_decode when url encrypted because of #1429 [amp;view_unit]...
+- Fixed issue about loading default lesson layout when moving blocks is disabled
+- Fixed issue about importing lesson by admin uncompressing files in temp folder (#1492)
+- Converted "date" custom fields to human-readable format while exporting/importing from csv
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

@@ -314,6 +314,45 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $message_type = 'failure';
  }
 
+} else if (isset($_GET['apply_all'])) {
+ $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=content".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit']), "", null, true);
+ $form -> addElement('select', 'ctg_type', _CONTENTTYPE, array('theory' => _THEORY, 'examples'=> _EXAMPLES), 'class = "inputSelect"'); //A select drop down for content type.... Exercises went away in version 3 (2007/07/10) makriria
+ $form -> addElement('advcheckbox', 'auto_complete', _AUTOCOMPLETE, null, 'id = "auto_complete" onclick = "setCompletion(this);" class = "inputCheckbox"', array(0, 1));
+
+
+
+
+
+ $form -> addElement('advcheckbox', 'hide_complete_unit', _HIDECOMPLETEUNITICON, null, 'class = "inputCheckbox"', array(0, 1));
+ $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
+
+ $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
+ $form -> addElement('advcheckbox', 'maximize_viewport', _MAXIMIZEVIEWABLEAREA, null, 'class = "inputCheckbox"', array(0, 1));
+
+ $form -> addElement('static', null, _SCORMSPECIFICPROPERTIES);
+ $form -> addElement('advcheckbox', 'no_before_unload', _NOBEFOREUPLOAD, null, 'class = "inputCheckbox"', array(0, 1));
+ $form -> addElement('advcheckbox', 'scorm_asynchronous', _SCORMASYNCHROUNOUS, null, 'class = "inputCheckbox"', array(0, 1));
+ $form -> addElement('text', 'scorm_size', _EXPLICITIFRAMESIZE, 'class = "inputText" style = "width:50px"'); //Set an explicit size for the SCORM content
+ $form -> addElement('select', 'reentry_action', _ACTIONONRENTRYCOMPLETED, array(0 => _LETCONTENTDECIDE, 1 => _DONTCHANGE), 'class = "inputText"'); //Set what action should be performed when a user re-enters a visited content
+ $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
+ $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
+ $form -> addElement('submit', 'submit_insert_content', _SAVECHANGES, 'class = "flatButton"');
+
+ $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+
+ $form -> addRule('scorm_size', _INVALIDFIELDDATA, 'checkParameter', 'id');
+
+ if ($form -> isSubmitted() && $form -> validate()) {
+  try {
+   $values = $form -> exportValues();
+  } catch (Exception $e) {
+   handleNormalFlowExceptions($e);
+  }
+ }
+ $smarty -> assign("T_ALL_UNITS_PROPERTIES_FORM", $form -> toArray());
+
+
+
 } else if (!$currentUnit && $_student_ && !isset($_GET['package_ID'])) {
     $basicIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
     if (isset($_GET['type']) && $_GET['type'] == 'tests') {

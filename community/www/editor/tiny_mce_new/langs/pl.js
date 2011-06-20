@@ -12,8 +12,53 @@ not_set:"-- Brak --",
 clipboard_msg:"Akcje Kopiuj/Wytnij/Wklej nie s\u0105 dost\u0119pne w Mozilli i Firefox.\nCzy chcesz wi\u0119cej informacji o tym problemie?",
 clipboard_no_support:"Aktualnie nie jest wspomagany przez Twoj\u0105 przegl\u0105dark\u0119, u\u017Cyj skr\u00F3t\u00F3w klawiaturowych w zamian.",
 popup_blocked:"Zauwa\u017Cyli\u015Bmy, \u017Ce Twoje blokowanie wyskakuj\u0105cych okienek wy\u0142\u0105czy\u0142o okno, kt\u00F3re dostarcza funkcjonalno\u015B\u0107 aplikacji. B\u0119dziesz potrzebowa\u0142 wy\u0142\u0105czy\u0107 blokowanie wyskakuj\u0105cych okienek na tej stronie aby w pe\u0142ni wykorzysta\u0107 to narz\u0119dzie.",
-invalid_data:"B\u0142\u0105d: Zosta\u0142y wprowadzone b\u0142\u0119dne dane, s\u0105 zaznaczone na czerwono.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Wi\u0119cej kolor\u00F3w"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Wyr\u00F3wnanie",
@@ -151,7 +196,8 @@ langs:"J\u0119zyki",
 wait:"Prosz\u0119 poczeka\u0107...",
 sug:"Sugestie",
 no_sug:"Brak sugestii",
-no_mpell:"\u017Badnych brakuj\u0105cych nie znaleziono."
+no_mpell:"\u017Badnych brakuj\u0105cych nie znaleziono.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Wstaw lini\u0119."
@@ -176,4 +222,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

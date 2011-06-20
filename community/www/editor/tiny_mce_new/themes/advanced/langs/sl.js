@@ -58,5 +58,11 @@ clipboard_msg:"Delo z odlo\u017Ei\u0161\u010Dem ni mogo\u010De v tem brskalniku.
 path:"Pot",
 newdocument:"Ste prepri\u010Dani, da \u017Eelite odstraniti vsebino?",
 toolbar_focus:"Preskok na orodjarno - Alt+Q, Preskok v urejevalnik - Alt-Z, Preskok na pot elementa - Alt-X",
-more_colors:"Ve\u010D barv"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

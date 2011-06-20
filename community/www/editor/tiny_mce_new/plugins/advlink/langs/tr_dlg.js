@@ -1,4 +1,6 @@
 tinyMCE.addI18n('tr.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Ba\u011Flant\u0131 ekle/d\u00FCzenle",
 url:"Ba\u011Flant\u0131 URL'si",
 target:"Hedef",

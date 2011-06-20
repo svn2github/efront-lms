@@ -47,5 +47,8 @@ link_target_blank:"Atverti naujame lange",
 link_titlefield:"Pavadinimas",
 link_is_email:"URL adresas, kur\u012F \u012Fved\u0117te yra el. pa\u0161to adresas, ar norite prid\u0117ti reikaling\u0105 mailto: prefiks\u0105?",
 link_is_external:"URL adresas, kur\u012F \u012Fved\u0117te yra i\u0161orin\u0117 nuoroda, ar norite prid\u0117ti reikaling\u0105 http:// prefiks\u0105?",
-link_list:"Nuorod\u0173 s\u0105ra\u0161as"
+link_list:"Nuorod\u0173 s\u0105ra\u0161as",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

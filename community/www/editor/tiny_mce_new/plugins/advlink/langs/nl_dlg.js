@@ -1,4 +1,6 @@
 tinyMCE.addI18n('nl.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Link invoegen/bewerken",
 url:"URL",
 target:"Doel",

@@ -99,5 +99,12 @@ flv_autostart:"Automaattinen aloitus",
 flv_loop:"Silmukka",
 flv_showscalemodes:"N\u00E4yt\u00E4 skaalausmoodit",
 flv_smoothvideo:"Smoothi video",
-flv_jscallback:"JS takaisinkutsu"
+flv_jscallback:"JS takaisinkutsu",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

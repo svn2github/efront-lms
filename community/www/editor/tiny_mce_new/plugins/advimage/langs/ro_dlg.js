@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ro.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"General",
 tab_appearance:"Afi\u015Fare",
 tab_advanced:"Avansat",

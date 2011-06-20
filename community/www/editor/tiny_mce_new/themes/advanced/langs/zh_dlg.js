@@ -47,5 +47,8 @@ link_target_blank:"\u5728\u65B0\u7A97\u53E3\u6253\u958B",
 link_titlefield:"\u6A19\u984C",
 link_is_email:"\u60A8\u8F38\u5165\u7684\u662F\u96FB\u5B50\u90F5\u4EF6\u5730\u5740\uFF0C\u662F\u5426\u9700\u8981\u52A0mailto: \u524D\u7DB4\uFF1F ",
 link_is_external:"\u60A8\u8F38\u5165\u7684\u7DB2\u5740\u662F\u4E00\u500B\u5916\u90E8\u93C8\u63A5\uFF0C\u4F46\u683C\u5F0F\u4E0D\u592A\u6B63\u78BA",
-link_list:"\u93C8\u63A5\u5217\u8868"
+link_list:"\u93C8\u63A5\u5217\u8868",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

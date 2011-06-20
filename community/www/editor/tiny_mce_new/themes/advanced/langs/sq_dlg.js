@@ -47,5 +47,8 @@ link_target_blank:"Hape lidhjen n\u00EB dritare t\u00EB re",
 link_titlefield:"Titulli",
 link_is_email:"Lidhja q\u00EB keni futur duket si adres\u00EB emaili. Doni t\u00EB shtoni prefiksin mailto:?",
 link_is_external:"Lidhja q\u00EB keni futur duket si lidhje e jasht\u00EBme. Doni t\u00EB shtoni prefiksin http://?",
-link_list:"Lista e lidhjeve"
+link_list:"Lista e lidhjeve",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

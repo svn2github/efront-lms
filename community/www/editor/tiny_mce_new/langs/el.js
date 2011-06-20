@@ -12,8 +12,53 @@ not_set:"-- \u039C\u03B7 \u03BF\u03C1\u03B9\u03C3\u03BC\u03AD\u03BD\u03BF --",
 clipboard_msg:"\u039F\u03B9 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2 \u0391\u03BD\u03C4\u03B9\u03B3\u03C1\u03B1\u03C6\u03AE/\u0391\u03C0\u03BF\u03BA\u03BF\u03C0\u03AE/\u0395\u03C0\u03B9\u03BA\u03CC\u03BB\u03BB\u03B7\u03C3\u03B7 \u03B4\u03B5\u03BD \u03B5\u03AF\u03BD\u03B1\u03B9 \u03B4\u03B9\u03B1\u03B8\u03AD\u03C3\u03B9\u03BC\u03B5\u03C2 \u03C3\u03B5 Mozilla \u03BA\u03B1\u03B9 Firefox.\n\u0398\u03AD\u03BB\u03B5\u03C4\u03B5 \u03C0\u03B5\u03C1\u03B9\u03C3\u03C3\u03CC\u03C4\u03B5\u03C1\u03B5\u03C2 \u03C0\u03BB\u03B7\u03C1\u03BF\u03C6\u03BF\u03C1\u03AF\u03B5\u03C2 ;",
 clipboard_no_support:"\u0394\u03B5\u03BD \u03C5\u03C0\u03BF\u03C3\u03C4\u03B7\u03C1\u03AF\u03B6\u03B5\u03C4\u03B1\u03B9 \u03B1\u03C0\u03CC \u03C4\u03BF\u03BD \u03C6\u03C5\u03BB\u03BB\u03BF\u03BC\u03B5\u03C4\u03C1\u03B7\u03C4\u03AE \u03C3\u03B1\u03C2, \u03C7\u03C1\u03B7\u03C3\u03B9\u03BC\u03BF\u03C0\u03BF\u03B9\u03AE\u03C3\u03C4\u03B5 \u03C4\u03B9\u03C2 \u03C3\u03C5\u03BD\u03C4\u03BF\u03BC\u03B5\u03CD\u03C3\u03B5\u03B9\u03C2 \u03C0\u03BB\u03B7\u03BA\u03C4\u03C1\u03BF\u03BB\u03BF\u03B3\u03AF\u03BF\u03C5.",
 popup_blocked:"\u0388\u03BD\u03B1 popup-blocker \u03C0\u03C1\u03CC\u03B3\u03C1\u03B1\u03BC\u03BC\u03B1 \u03AD\u03C7\u03B5\u03B9 \u03B1\u03C0\u03B5\u03BD\u03B5\u03C1\u03B3\u03BF\u03C0\u03BF\u03B9\u03AE\u03C3\u03B5\u03B9 \u03AD\u03BD\u03B1 \u03C0\u03B1\u03C1\u03AC\u03B8\u03C5\u03C1\u03BF \u03B1\u03C0\u03B1\u03C1\u03B1\u03AF\u03C4\u03B7\u03C4\u03BF \u03B3\u03B9\u03B1 \u03C4\u03B7\u03BD \u03B5\u03C6\u03B1\u03C1\u03BC\u03BF\u03B3\u03AE. \u03A0\u03C1\u03AD\u03C0\u03B5\u03B9 \u03BD\u03B1 \u03C4\u03BF \u03B1\u03C0\u03B5\u03BD\u03B5\u03C1\u03B3\u03BF\u03C0\u03BF\u03B9\u03AE\u03C3\u03B5\u03C4\u03B5 \u03B3\u03B9\u03B1 \u03C4\u03B7\u03BD \u03B9\u03C3\u03C4\u03BF\u03C3\u03B5\u03BB\u03AF\u03B4\u03B1 \u03B1\u03C5\u03C4\u03AE \u03B3\u03B9\u03B1 \u03BD\u03B1 \u03C7\u03C1\u03B7\u03C3\u03B9\u03BC\u03BF\u03C0\u03BF\u03B9\u03AE\u03C3\u03B5\u03C4\u03B5 \u03C0\u03BB\u03AE\u03C1\u03C9\u03C2 \u03C4\u03B7\u03BD \u03B5\u03C6\u03B1\u03C1\u03BC\u03BF\u03B3\u03AE.",
-invalid_data:"Error: Invalid values entered, these are marked in red.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"\u03A0\u03B5\u03C1\u03B9\u03C3\u03C3\u03CC\u03C4\u03B5\u03C1\u03B1 \u03C7\u03C1\u03CE\u03BC\u03B1\u03C4\u03B1"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"\u03A3\u03C4\u03BF\u03AF\u03C7\u03B9\u03C3\u03B7",
@@ -155,23 +200,41 @@ langs:"\u0393\u03BB\u03CE\u03C3\u03C3\u03B5\u03C2",
 wait:"\u03A0\u03B1\u03C1\u03B1\u03BA\u03B1\u03BB\u03CE \u03C0\u03B5\u03C1\u03B9\u03BC\u03AD\u03BD\u03B5\u03C4\u03B5...",
 sug:"\u03A0\u03C1\u03BF\u03C4\u03AC\u03C3\u03B5\u03B9\u03C2",
 no_sug:"\u03A7\u03C9\u03C1\u03AF\u03C2 \u03C0\u03C1\u03BF\u03C4\u03AC\u03C3\u03B5\u03B9\u03C2",
-no_mpell:"\u03A3\u03C9\u03C3\u03C4\u03AE \u03BF\u03C1\u03B8\u03BF\u03B3\u03C1\u03C6\u03AF\u03B1."
+no_mpell:"\u03A3\u03C9\u03C3\u03C4\u03AE \u03BF\u03C1\u03B8\u03BF\u03B3\u03C1\u03C6\u03AF\u03B1.",
+learn_word:"Learn word" 
 },
 pagebreak:{
 desc:"\u0395\u03B9\u03C3\u03B1\u03B3\u03C9\u03B3\u03AE \u03B1\u03BB\u03BB\u03B1\u03B3\u03AE\u03C2 \u03C3\u03B5\u03BB\u03AF\u03B4\u03B1\u03C2."
 },
+save_template:{
+save_template_title : 'Αποθήκευση προτύπου'
+},
 save_template_dlg:{
-save_template_title : 'Save as template',
-save_template_name : 'File name',
-save : 'Save',
-save_template_desc : 'Save editor\'s content as template file',
-fileexists : 'This filename already exists',
-filesaved : 'Template was saved successfully',
-problem : 'Problem in saving template'
+save_template_title : 'Αποθήκευση προτύπου',
+save_template_name : 'Όνομα αρχείου',
+save : 'Αποθήκευση',
+save_template_desc : 'Αποθήκευση περιεχομένου ως πρότυπο',
+fileexists : 'Το όνομα αρχείου υπάρχει ήδη',
+filesaved : 'Το πρότυπο αποθηκεύτηκε επιτυχώς',
+problem : 'Πρόβλημα κατά την αποθήκευση του προτύπου'
 },
 java:{
 title : 'Εισαγωγή Java',
 image_desc : 'Εισαγωγή Java'
+},
+iframe_dlg:{
+file: "Αρχείο",
+name:"Όνομα",
+width:"Πλάτος",
+height:"Ύψος",
+scroll:"Scroll",
+auto:"Auto",
+yes:"Πάντα",
+no:"Ποτέ",
+border:"Περίγραμμα"
+},
+iframe:{
+iframe_desc:"Εισαγωγή πλαισίου"
 },
 advlist:{
 types:"Types",
@@ -184,4 +247,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

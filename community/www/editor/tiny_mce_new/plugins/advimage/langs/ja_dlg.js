@@ -1,4 +1,6 @@
 tinyMCE.addI18n('ja.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"\u4E00\u822C",
 tab_appearance:"\u8868\u793A",
 tab_advanced:"\u4E0A\u7D1A\u8005\u5411\u3051",

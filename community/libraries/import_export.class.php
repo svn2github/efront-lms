@@ -664,7 +664,7 @@ class EfrontImportCsv extends EfrontImport
   $lineContents = $this -> explodeBySeparator($line);
   $data = $this -> getEmptyData();
   foreach ($this -> mappings as $dbAttribute => $fileInfo) {
-   if (strpos($dbAttribute, "timestamp") === false && $dbAttribute != "hired_on" && $dbAttribute != "left_on") {
+   if (strpos($dbAttribute, "timestamp") === false && $dbAttribute != "hired_on" && $dbAttribute != "left_on" && !in_array($dbAttribute, $this->dateFields)) {
     $data[$dbAttribute] = trim($lineContents[$fileInfo], "\r\n\"");
    } else {
     $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\r\n\""));
@@ -687,6 +687,12 @@ class EfrontImportCsv extends EfrontImport
    $this -> types = EfrontImport::getTypes($type);
    // Pairs of values <eFront DB field> => <import file column>
    $this -> mappings = $this -> parseHeaderLine(&$headerLine);
+   $result = eF_getTableDataFlat("user_profile", "name", "active=1 AND type ='date'"); //Get admin-defined form fields for user registration
+   if (!empty($result)) {
+    $this->dateFields = $result['name'];
+   } else {
+    $this->dateFields = array();
+   }
    if ($this -> mappings) {
     if ($this -> checkImportEssentialField($type)) {
      if ($type == 'users_to_groups' || $type == 'users' || $type == 'users_to_jobs') {
@@ -941,10 +947,15 @@ class EfrontExportCsv extends EfrontExport
 	 * @param type: the data of this line, formatted to be put directly into the eFront db
 	 */
  private function exportData($data) {
+  $result = eF_getTableDataFlat("user_profile", "name", "active=1 AND type ='date'"); //Get admin-defined form fields for user registration
+  $dateFields = array();
+  if (!empty($result)) {
+   $dateFields = $result['name'];
+  }
   foreach ($data as $info) {
          unset($info['password']);
          foreach ($info as $field => $value) {
-          if (!(strpos($field, "timestamp") === false) || $field=="hired_on" || $field=="left_on") {
+          if (!(strpos($field, "timestamp") === false) || $field=="hired_on" || $field=="left_on" || in_array($field, $dateFields)) {
            $info[$field] = $this -> createDatesFromTimestamp($value);
           }
          }

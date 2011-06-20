@@ -1,4 +1,6 @@
 tinyMCE.addI18n('pl.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Wstaw/edytuj link",
 url:"Link URL",
 target:"Cel",

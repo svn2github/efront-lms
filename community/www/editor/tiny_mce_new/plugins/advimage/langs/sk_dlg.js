@@ -1,4 +1,6 @@
 tinyMCE.addI18n('sk.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"Obecn\u00E9",
 tab_appearance:"Vzh\u013Ead",
 tab_advanced:"Roz\u0161\u00EDren\u00E9",

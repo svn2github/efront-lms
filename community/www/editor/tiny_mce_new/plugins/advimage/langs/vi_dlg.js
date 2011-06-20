@@ -1,4 +1,6 @@
 tinyMCE.addI18n('vi.advimage_dlg',{
+width:"Width",
+height:"Height",
 tab_general:"Chung",
 tab_appearance:"Xu\u1EA5t hi\u1EC7n",
 tab_advanced:"N\u00E2ng cao",

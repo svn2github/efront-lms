@@ -47,5 +47,8 @@ link_target_blank:"\u65B0\u3057\u3044\u30A6\u30A4\u30F3\u30C9\u30A6\u3067\u958B\
 link_titlefield:"\u30BF\u30A4\u30C8\u30EB",
 link_is_email:"\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u304C\u5165\u529B\u3055\u308C\u307E\u3057\u305F\u3002\u30EA\u30F3\u30AF\u306Bmailto:\u3092\u4ED8\u52A0\u3057\u307E\u3059\u304B\uFF1F",
 link_is_external:"\u30EA\u30F3\u30AF\u306Bhttp://\u3092\u4ED8\u52A0\u3057\u307E\u3059\u304B\uFF1F",
-link_list:"\u4E00\u89A7\u304B\u3089\u9078\u3076"
+link_list:"\u4E00\u89A7\u304B\u3089\u9078\u3076",
+anchor_invalid:"Please specify a valid anchor name.",
+accessibility_help:"Accessibility Help",
+accessibility_usage_title:"General Usage"
 });

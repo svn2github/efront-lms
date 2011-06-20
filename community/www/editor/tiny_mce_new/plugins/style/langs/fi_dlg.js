@@ -59,5 +59,12 @@ visibility:"N\u00E4kyvyys",
 zindex:"Z-indeksi",
 overflow:"Ylivuoto",
 placement:"Sijoittelu",
-clip:"Leike"
+clip:"Leike",
+text:"Text",
+background:"Background",
+block:"Block",
+box:"Box",
+border:"Border",
+list:"List",
+position:"Position"
 });

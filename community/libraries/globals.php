@@ -12,6 +12,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
+
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
@@ -266,7 +267,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 11029;
+    $build = 11156;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -322,8 +323,8 @@ function setDefines() {
     define("G_QUOTA_KB", 102400);
     /** @deprecated*/
     define("G_DEFAULT_TABLE_SIZE", "20"); //Default table size for sorted table
-    define("G_TINYMCE","Tinymce 3.2.1.1");
-    define("G_NEWTINYMCE", "Tinymce 3.3.9.2");
+    define("G_TINYMCE","Tinymce 3.3.9.2");
+    define("G_NEWTINYMCE", "Tinymce 3.4.2");
 }
 /**
  * Setup themes

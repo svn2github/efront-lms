@@ -1,4 +1,6 @@
 tinyMCE.addI18n('et.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Sisesta muuda linki",
 url:" URL\u2019i link",
 target:"Sihtm\u00E4rk",

@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Tindakan ini akan menghapus kustomisasi 
 define("_SYSTEMENTITIES","Entitas sistem");//System entities
 define("_ALLEVENTS","Semua even");//All events
 define("_COLLAPSECATALOG","Tutup katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Periode ditambahkan berhasil");//Period was added successfully (New)
+define("_PERIODWASADDEDSUCCESSFULLY ","Periode ditambahkan berhasil");//Period was added successfully
 define("_THEMES","Tema");//Themes
 define("_CUSTOMIZATION","Kustomisasi");//Customization
 define("_EXTERNALPAGES","Halaman eksternal");//External pages
@@ -4074,10 +4074,10 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Berkas ini sepert
 define("_PROGRAMMEDCERTIFICATEEXPIRY","Penjadwalan masa berlaku sertifikat");//Certificate scheduled expiration
 define("_TESTPASSWORD","Kata sandi tes");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Maaf, anda tidak memiliki akses ke cabang ini");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","Tampilkan seluruh struktur organisasi kepada pengguna");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","Anda tidak dapat menyalin dari pelajaran yang sama");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","Pesan dari siswa");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","Hapus token api yang lebih dari satu bulan lamanya");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","Tambahkan kondisi baru");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Hapus tampilan laporan lanjutan");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","Tampilkan seluruh struktur organisasi kepada pengguna");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Anda tidak dapat menyalin dari pelajaran yang sama");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","Pesan dari siswa");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","Hapus token api yang lebih dari satu bulan lamanya");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","Tambahkan kondisi baru");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Hapus tampilan laporan lanjutan");//Delete advanced report views
 ?>

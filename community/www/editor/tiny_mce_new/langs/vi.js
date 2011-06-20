@@ -12,8 +12,53 @@ not_set:"-- Ch\u01B0a \u0111\u1EB7t --",
 clipboard_msg:"Copy/Cut/Paste kh\u00F4ng \u0111\u01B0\u1EE3c h\u1ED7 tr\u1EE3 trong tr\u00ECnh duy\u1EC7t web n\u00E0y.\nB\u1EA1n c\u00F3 mu\u1ED1n bi\u1EBFt th\u00EAm th\u00F4ng tin v\u1EC1 v\u1EA5n \u0111\u1EC1 n\u00E0y kh\u00F4ng??",
 clipboard_no_support:"S\u1EED d\u1EE5ng ph\u00EDm t\u1EAFt kh\u00F4ng \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng trong tr\u00ECnh duy\u1EC7t hi\u1EC7n t\u1EA1i.",
 popup_blocked:"Xin l\u1ED7i, Nh\u01B0ng ch\u1EBF \u0111\u1ED9 c\u1EEDa s\u1ED5 popup \u0111\u00E3 b\u1ECB v\u00F4 hi\u1EC7u ho\u00E1. B\u1EA1n s\u1EBD c\u1EA7n ph\u1EA3i t\u1EAFt ch\u1EE9c n\u0103ng ch\u1EB7n popup tr\u00EAn trang web n\u00E0y \u0111\u1EC3 s\u1EED d\u1EE5ng c\u00F4ng c\u1EE5 n\u00E0y ho\u00E0n to\u00E0n.",
-invalid_data:"L\u1ED7i: Gi\u00E1 tr\u1ECB nh\u1EADp v\u00E0o kh\u00F4ng h\u1EE3p l\u1EC7. (\u0110\u01B0\u1EE3c \u0111\u00E1nh d\u1EA5u \u0111\u1ECF)",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"M\u00E0u kh\u00E1c"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Canh l\u1EC1",
@@ -151,7 +196,8 @@ langs:"Ng\u00F4n ng\u1EEF",
 wait:"Vui l\u00F2ng ch\u1EDD...",
 sug:"G\u1EE3i \u00FD",
 no_sug:"Kh\u00F4ng c\u00F3 g\u1EE3i \u00FD",
-no_mpell:"Kh\u00F4ng c\u00F3 l\u1ED7i ch\u00EDnh t\u1EA3 \u0111\u01B0\u1EE3c t\u00ECm th\u1EA5y."
+no_mpell:"Kh\u00F4ng c\u00F3 l\u1ED7i ch\u00EDnh t\u1EA3 \u0111\u01B0\u1EE3c t\u00ECm th\u1EA5y.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Ch\u00E8n ng\u1EAFt trang."
@@ -176,4 +222,25 @@ upper_roman:"K\u00FD hi\u1EC7u La m\u00E3 hoa",
 circle:"Tr\u00F2ng",
 disc:"\u0110\u0129a",
 square:"Vu\u00F4ng"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

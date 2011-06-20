@@ -99,5 +99,12 @@ flv_autostart:"Automatick\u00E9 spu\u0161t\u011Bn\u00ED",
 flv_loop:"Opakov\u00E1n\u00ED",
 flv_showscalemodes:"Zobrazit volby zm\u011Bny velikosti",
 flv_smoothvideo:"Vyhlazen\u00E9 video",
-flv_jscallback:"Zp\u011Btn\u00E9 vol\u00E1n\u00ED Javascriptu"
+flv_jscallback:"Zp\u011Btn\u00E9 vol\u00E1n\u00ED Javascriptu",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

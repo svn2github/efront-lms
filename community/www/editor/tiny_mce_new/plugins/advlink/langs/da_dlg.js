@@ -1,4 +1,6 @@
 tinyMCE.addI18n('da.advlink_dlg',{
+width:"Width",
+height:"Height",
 title:"Inds\u00E6t/rediger link",
 url:"Link URL",
 target:"M\u00E5l",

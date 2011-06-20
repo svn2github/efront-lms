@@ -58,5 +58,11 @@ clipboard_msg:"Klipp ut / Kopier /Lim inn fungerer ikke i Mozilla og Firefox. \r
 path:"Sti",
 newdocument:"Er du sikker p\u00E5 at du vil slette alt innhold?",
 toolbar_focus:"Skift til verkt\u00F8yknapper - Alt+Q, Skift til editor - Alt-Z, Skift til elementsti - Alt-",
-more_colors:"Flere farger"
+more_colors:"More colors",
+
+// Accessibility Strings
+shortcuts_desc:'Accessibility Help',
+help_shortcut:'. Press ALT F10 for toolbar. Press ALT 0 for help.',
+rich_text_area:"Rich Text Area",
+toolbar:"Toolbar"
 });

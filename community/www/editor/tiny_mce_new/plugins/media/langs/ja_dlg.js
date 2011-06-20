@@ -99,5 +99,12 @@ flv_autostart:"\u81EA\u52D5\u518D\u751F",
 flv_loop:"\u7E70\u308A\u8FD4\u3057\u518D\u751F",
 flv_showscalemodes:"\u4F38\u7E2E\u5207\u66FF\u30DC\u30BF\u30F3\u8868\u793A",
 flv_smoothvideo:"\u30B9\u30E0\u30FC\u30B8\u30F3\u30B0",
-flv_jscallback:"JS\u30B3\u30FC\u30EB\u30D0\u30C3\u30AF"
+flv_jscallback:"JS\u30B3\u30FC\u30EB\u30D0\u30C3\u30AF",
+html5_video_options:"HTML5 Video Options",
+altsource1:"Alternative source 1",
+altsource2:"Alternative source 2",
+preload:"Preload",
+poster:"Poster",
+
+source:"Source"
 });

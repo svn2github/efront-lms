@@ -12,8 +12,53 @@ not_set:"-- ni nastavljeno --",
 clipboard_msg:"Delo z odlo\u017Ei\u0161\u010Dem ni mogo\u010De v tem brskalniku. Lahko uporabljate kombinacije tipk Ctrl+X, Ctrl+C, Ctrl+V.\n\u017Delite ve\u010D informacij o tem?",
 clipboard_no_support:"Trenutno ni podporto v va\u0161em brskalniku. Uporabite bli\u017Enjice tipkovnice.",
 popup_blocked:"\u017Dal va\u0161e orodje za prepre\u010Devanje odpiranja neza\u017Eelenih oken (popup-blocker) ne omogo\u010Da prikaza pomo\u017Enega okna izbranega orodja. Prepre\u010Devanje odpiranja oken morate onemogo\u010Diti.",
-invalid_data:"Napaka: vne\u0161ene so bile nepravilne vrednosti, ozna\u010Dene so z rde\u010Do.",
+invalid_data:"{#field} is invalid",
+invalid_data_number:"{#field} must be a number",
+invalid_data_min:"{#field} must be a number greater than {#min}",
+invalid_data_size:"{#field} must be a number or percentage",
 more_colors:"Ve\u010D barv"
+},
+colors:{
+'000000':'Black',
+'993300':'Burnt orange',
+'333300':'Dark olive',
+'003300':'Dark green',
+'003366':'Dark azure',
+'000080':'Navy Blue',
+'333399':'Indigo',
+'333333':'Very dark gray',
+'800000':'Maroon',
+'FF6600':'Orange',
+'808000':'Olive',
+'008000':'Green',
+'008080':'Teal',
+'0000FF':'Blue',
+'666699':'Grayish blue',
+'808080':'Gray',
+'FF0000':'Red',
+'FF9900':'Amber',
+'99CC00':'Yellow green',
+'339966':'Sea green',
+'33CCCC':'Turquoise',
+'3366FF':'Royal blue',
+'800080':'Purple',
+'999999':'Medium gray',
+'FF00FF':'Magenta',
+'FFCC00':'Gold',
+'FFFF00':'Yellow',
+'00FF00':'Lime',
+'00FFFF':'Aqua',
+'00CCFF':'Sky blue',
+'993366':'Brown',
+'C0C0C0':'Silver',
+'FF99CC':'Pink',
+'FFCC99':'Peach',
+'FFFF99':'Light yellow',
+'CCFFCC':'Pale green',
+'CCFFFF':'Pale cyan',
+'99CCFF':'Light sky blue',
+'CC99FF':'Plum',
+'FFFFFF':'White'
 },
 contextmenu:{
 align:"Poravnava",
@@ -152,7 +197,8 @@ langs:"Jeziki",
 wait:"Prosim po\u010Dakaj...",
 sug:"Predlogi",
 no_sug:"Ni predlogov",
-no_mpell:"Napa\u010Dnega \u010Drkovanja nisem na\u0161el."
+no_mpell:"Napa\u010Dnega \u010Drkovanja nisem na\u0161el.",
+learn_word:"Learn word"
 },
 pagebreak:{
 desc:"Vstavi lom strani."
@@ -177,4 +223,25 @@ upper_roman:"Upper roman",
 circle:"Circle",
 disc:"Disc",
 square:"Square"
-}}});
+},
+aria:{
+rich_text_area:"Rich Text Area"
+},
+wordcount:{
+words: 'Words: '
+},
+iframe_dlg:{
+file: "File",
+name:"Name",
+width:"Width",
+height:"Height",
+scroll:"Scrolling",
+auto:"Auto",
+yes:"Always",
+no:"Never",
+border:"Border"
+},
+iframe:{
+iframe_desc:"Insert iframe"
+}
+}});

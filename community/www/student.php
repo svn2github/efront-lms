@@ -114,8 +114,7 @@ if (isset($_GET['new_lessons_ID']) && eF_checkParameter($_GET['new_lessons_ID'],
 
 /*This is the first time the professor enters this lesson, so register the lesson id to the session*/
 if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
- if (!isset($_SESSION['s_lessons_ID']) || $_GET['lessons_ID'] != $_SESSION['s_lessons_ID'] || $_GET['from_course'] != $_SESSION['s_courses_ID']) {
-  unset($_SESSION['s_courses_ID']);
+ if (!isset($_SESSION['s_lessons_ID']) || $_GET['lessons_ID'] != $_SESSION['s_lessons_ID'] || (isset($_GET['from_course']) && $_GET['from_course'] != $_SESSION['s_courses_ID'])) {
      if (isset($_GET['course']) || isset($_GET['from_course'])) {
             if ($_GET['course']) {
           $course = new EfrontCourse($_GET['course']);
@@ -130,6 +129,8 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
                 eF_redirect("student.php?ctg=lessons&message=".urlencode($message)."&message_type=failure");
             }
             $_SESSION['s_courses_ID'] = $course -> course['id'];
+        } else {
+         unset($_SESSION['s_courses_ID']);
         }
 
         if (in_array($_GET['lessons_ID'], array_keys($userLessons))) {
@@ -160,6 +161,7 @@ if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) 
         $smarty -> assign("T_SHOW_LOADED_LESSON_OPTIONS", 1);
     }
 }
+
 
 if ($_SESSION['s_lessons_ID'] && $roles[$userLessons[$_SESSION['s_lessons_ID']]].'.php' != basename($_SERVER['PHP_SELF'])) {
     if ($_GET['ctg'] != 'lessons') {

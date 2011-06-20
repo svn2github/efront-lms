@@ -98,7 +98,7 @@ if (isset($_GET['new_lessons_ID']) && eF_checkParameter($_GET['new_lessons_ID'],
 
 /*This is the first time the professor enters this lesson, so register the lesson id to the session*/
 if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
-    if (!isset($_SESSION['s_lessons_ID']) || $_GET['lessons_ID'] != $_SESSION['s_lessons_ID'] || $_GET['from_course'] != $_SESSION['s_courses_ID']) {
+ if (!isset($_SESSION['s_lessons_ID']) || $_GET['lessons_ID'] != $_SESSION['s_lessons_ID'] || (isset($_GET['from_course']) && $_GET['from_course'] != $_SESSION['s_courses_ID'])) {
      unset($_SESSION['s_courses_ID']);
         $userLessons = $currentUser -> getLessons();
      if (isset($_GET['course']) || isset($_GET['from_course'])) {

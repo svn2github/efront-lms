@@ -159,7 +159,8 @@ abstract class EfrontImport
            "users_surname" => "surname",
            "active" => "active",
            "user_type" => "user_type",
-           "registration_date" => "timestamp");
+           "registration_date" => "timestamp",
+         "timezone" =>"timezone");
     return $users_info;
    case "users_to_courses":
     return array("users_login" => "users_login",
@@ -390,6 +391,13 @@ class EfrontImportCsv extends EfrontImport
       } catch (Exception $e) {
        if ($this -> options['replace_existing']) {
         if ($this -> isAlreadyExistsException($e->getCode(), $type)) {
+         if (!in_array($value['login'], $existingUsers['login'])) { //For case-insensitive matches
+          foreach ($existingUsers['login'] as $login) {
+           if (mb_strtolower($value['login']) == mb_strtolower($login)) {
+            $value['login'] = $login;
+           }
+          }
+         }
          $this -> updateExistingData($key+2, $type, $value);
         } else {
          $this -> log["failure"][] = _LINE . " ".($key+2).": " . $e -> getMessage();// ." ". str_replace("\n", "<BR>", $e->getTraceAsString());

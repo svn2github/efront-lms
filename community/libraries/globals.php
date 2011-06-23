@@ -123,8 +123,10 @@ if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
     }
 }
 //Set locale settings
-setlocale(LC_CTYPE, _HEADERLANGUAGETAG);
-setlocale(LC_TIME, _HEADERLANGUAGETAG);
+//Replaced setlocale(LC_x) with LC_ALL so that international filenames work correctly (since basename() depends on current locale)
+//setlocale(LC_CTYPE, _HEADERLANGUAGETAG);
+//setlocale(LC_TIME, _HEADERLANGUAGETAG);
+setlocale(LC_ALL, _HEADERLANGUAGETAG);
 //Define theme-related constants and setup the default theme
 setupThemes();
 /**The smarty libraries -- must be below themes!*/
@@ -266,7 +268,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 11163;
+    $build = 11172;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

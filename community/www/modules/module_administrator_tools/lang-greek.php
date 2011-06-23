@@ -55,4 +55,7 @@ define("_MODULE_ADMINISTRATOR_TOOLS_SELECTTARGETUSERTYPE", "Επιλέξτε τ�
 define("_MODULE_ADMINISTRATOR_TOOLS_CHANGEUSERTYPES", "Αλλαγή τύπου χρηστών");
 define("_MODULE_ADMINISTRATOR_TOOLS_CHANGETYPEINCOURSESASWELL", "Αλλαγή του τύπου και σε μαθήματα/δέσμες");
 define("_MODULE_ADMINISTRATOR_TOOLS_BASICTYPESMUSTMATCH", "Οι βασικοί τύποι πρέπει να ταιριάζουν");
+define("_MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE", "Σύνδεση ως χρήστης");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN", "Δεν μπορείτε να συνδεθείτε ως διαχειριστής");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Ο χρήστης αυτός δεν είναι ενεργός");
 ?>

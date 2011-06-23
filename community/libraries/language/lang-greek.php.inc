@@ -7,7 +7,7 @@ define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Είσοδος στο eFront");
 define("_HEADERLANGUAGEHTMLTAG","el-GR");
 define("_CURRENTLANGUAGESYMBOL","el");
-define("_HEADERLANGUAGETAG", "greek");//el_GR.utf8
+define("_HEADERLANGUAGETAG", "el_GR.utf8");
 define("_CHARSET","ISO-8859-7");
 define("_LANGUAGE","Γλώσσα");
 define("_PASSWORD","Κωδικός");

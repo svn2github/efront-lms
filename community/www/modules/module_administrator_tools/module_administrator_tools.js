@@ -6,6 +6,14 @@ if ($('module_administrator_tools_autocomplete_users_div')) {
 			afterUpdateElement : function (t, li) {$('module_administrator_tools_users_LOGIN').value = li.id;},
 			indicator : "module_administrator_tools_busy"});
 }
+if ($('module_administrator_tools_autocomplete_impersonate')) {
+	autocompleter = 
+		new Ajax.Autocompleter("autocomplete_impersonate",
+				"module_administrator_tools_autocomplete_impersonate",
+				"ask.php?ask_type=users", {paramName: "preffix",
+			afterUpdateElement : function (t, li) {$('autocomplete_impersonate_user').value = li.id;},
+			indicator : "module_administrator_tools_busy"});
+}
 function activate(el, action) {
 	Element.extend(el);
 	parameters = {ajax:1, method: 'get'};	

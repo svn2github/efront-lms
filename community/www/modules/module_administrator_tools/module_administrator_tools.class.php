@@ -174,6 +174,23 @@ class module_administrator_tools extends EfrontModule {
    //$GLOBALS['load_editor'] = true;
    $smarty = $this -> getSmartyVar();
    $currentUser = $this -> getCurrentUser();
+   ///////////IMPERSONATE///////////////////
+   if (isset($_POST['submit_impersonate'])) {
+    try {
+     $user = EfrontUserFactory::factory($_POST['autocomplete_impersonate_user']);
+     if ($user->user['user_type'] == 'administrator') {
+      throw new Exception(_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN);
+     } elseif (!$user->user['active'] || $user->user['archive']) {
+      throw new Exception(_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER);
+     } else {
+      $user->login($user->user['password'], true);
+      eF_redirect("userpage.php");
+     }
+    } catch (Exception $e) {
+     handleNormalFlowExceptions($e);
+    }
+   }
+   ///////////END OF IMPERSONATE///////////////////
    ///////////CHANGE USER LOGINS///////////////////
    $form = new HTML_QuickForm("change_login_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools", "", null, true);
    $form -> addElement('static', 'sidenote', '<img id = "module_administrator_tools_busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');

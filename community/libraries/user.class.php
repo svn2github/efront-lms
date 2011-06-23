@@ -248,6 +248,9 @@ abstract class EfrontUser
   if (empty($users)) {
    $users = eF_getTableDataFlat("users", "login, active, archive");
   }
+  foreach ($users['login'] as $key=>$value) {
+   $users['login'][$key] = mb_strtolower($value); //make it lower, so when, later on, we're comparing the user with existing, we can do a case-insensitive match
+  }
 
   $archived = array_combine($users['login'], $users['archive']);
   foreach ($archived as $key => $value) {
@@ -264,10 +267,10 @@ abstract class EfrontUser
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);
   }
-  if (in_array($userProperties['login'], array_keys($archived))) {
+  if (in_array(mb_strtolower($userProperties['login']), array_keys($archived))) {
    throw new EfrontUserException(_USERALREADYEXISTSARCHIVED.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);
   }
-  if (in_array($userProperties['login'], array_keys($users)) > 0) {
+  if (in_array(mb_strtolower($userProperties['login']), array_keys($users)) > 0) {
    throw new EfrontUserException(_USERALREADYEXISTS.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);
   }
   if ($userProperties['email'] && !eF_checkParameter($userProperties['email'], 'email')) {

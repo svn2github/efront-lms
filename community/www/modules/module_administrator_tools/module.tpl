@@ -1,4 +1,23 @@
 {*Smarty template*}
+{capture name = 't_impersonate_code'}
+  <form name = "impersonate_user_form" action = "{$smarty.server.PHP_SELF}?ctg=module&op=module_administrator_tools" method = "post">
+      <table class = "statisticsTools statisticsSelectList">
+                <tr><td class = "labelCell">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE}:</td>
+                    <td class = "elementCell" colspan = "4">
+                        <input type = "text" id = "autocomplete_impersonate" class = "autoCompleteTextBox"/>
+                        <input type = "hidden" id = "autocomplete_impersonate_user" name = "autocomplete_impersonate_user"/>
+                        <img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "{$smarty.const._LOADING}" title = "{$smarty.const._LOADING}"/>
+                        <div id = "module_administrator_tools_autocomplete_impersonate" class = "autocomplete"></div>&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr><td></td>
+                <td class = "infoCell" colspan = "4">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
+                <tr><td></td>
+                 <td class = "submitCell"><input type = "submit" name = "submit_impersonate" class = "flatButton"/></td></tr>
+        </table>
+  </form>
+{/capture}
+
 
 {capture name = 't_change_login_code'}
  {eF_template_printForm form = $T_TOOLS_FORM}
@@ -248,6 +267,7 @@
 {capture name = 't_administrator_tools_code'}
  <div class = "tabber">
   {eF_template_printBlock tabber = "change_login" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGELOGIN data = $smarty.capture.t_change_login_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
+  {eF_template_printBlock tabber = "impersonate" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE data = $smarty.capture.t_impersonate_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "global_settings" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS data = $smarty.capture.t_global_settings_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}

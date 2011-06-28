@@ -327,7 +327,7 @@ class EfrontStats
                                         'active' => $test['active'],
                                         'content_ID' => $test['content_ID'],
                                         'done_tests_ID' => $done_tests_ID,
-                                        'tests_ID' => $test['id'],
+                                        'tests_ID' => $test['tests_ID'],
                                         'score' => $test['score'],
                                'active_score' => $testData['active_score'],
                                'active_test_id' => $testData['active_test_id'],

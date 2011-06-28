@@ -68,8 +68,14 @@ if (isset($_GET['sel_user'])) {
 
   $status = EfrontStats :: getUsersLessonStatus($_GET['lesson'], $infoUser -> user['login']);
   $doneTests = EfrontStats :: getStudentsDoneTests($_GET['lesson'], $infoUser -> user['login']);
-  foreach ($doneTests[$infoUser -> user['login']] as $test) {
+  $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and c.ctg_type='tests'");
+  $testNames = array_combine($testNames['id'], $testNames['name']);
+  foreach ($doneTests[$infoUser -> user['login']] as $key => $test) {
    unset($pendingTests[$test['tests_ID']]); //remove done tests
+   if (!in_array($test['tests_ID'], array_keys($testNames))) {
+    unset($doneTests[$infoUser -> user['login']][$key]); //remove done tests
+   }
+
   }
 
   $smarty -> assign("T_USER_PENDING_TESTS", $pendingTests);

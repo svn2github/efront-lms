@@ -9,6 +9,7 @@
 - Fixed issue about importing lesson by admin uncompressing files in temp folder (#1492)
 - Converted "date" custom fields to human-readable format while exporting/importing from csv
 - Enabled the "payments" tab on users' profile page (Community++ and above editions)
+- Fixed preserving lesson properties when importing directly
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

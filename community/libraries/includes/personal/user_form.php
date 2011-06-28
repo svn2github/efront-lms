@@ -61,6 +61,7 @@ if ($editedUser -> user['user_type'] != 'administrator') {
  }
 
  $smarty -> assign("T_USER_TESTS", $userDoneTests);
+
  foreach ($userLessons as $key => $lesson) {
   if ($lesson -> lesson['course_only']) {
    foreach($courseLessons as $courseId => $foo) {
@@ -204,8 +205,13 @@ if (isset($_GET['pdf'])) {
   $pdf->printDataSection(_TRAINING.': '._LESSONS, $data, $formatting, $subSections);
 
 
-  $info = array(array(_COURSESAVERAGE, $averages['courses'].'%'),
-       array(_LESSONSAVERAGE, $averages['lessons'].'%'));
+  $info = array();
+  if (isset($averages['courses'])) {
+   $info[] = array(_COURSESAVERAGE, $averages['courses'].'%');
+  }
+  if (isset($averages['lessons'])) {
+   $info[] = array(_LESSONSAVERAGE, $averages['lessons'].'%');
+  }
   $pdf -> printInformationSection(_OVERALL, $info);
  }
 

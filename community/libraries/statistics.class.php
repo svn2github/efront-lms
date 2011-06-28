@@ -320,7 +320,7 @@ class EfrontStats
             foreach ($value as $testId => $testData) {
              if (is_array($testData)) {
               foreach ($testData as $done_tests_ID => $test) {
-      if (is_numeric($done_tests_ID)) {
+      if (is_numeric($done_tests_ID) && $done_tests_ID == $testData['active_test_id']) {
                          //$unit = $test -> getUnit();
                          $stats = array('lessons_ID' => $test['lessons_ID'],
                                         'name' => $test['name'],

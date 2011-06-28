@@ -3743,11 +3743,10 @@ class EfrontLesson
      unset($data['lessons']['created']);
      $this -> lesson = array_merge($this -> lesson, $data['lessons']);
      $this -> persist();
-    } else {
+    }
      eF_updateTableData("lessons", array('info' => $data['lessons']['info'],
                                                      'metadata' => $data['lessons']['metadata'],
                                                      'options' => $data['lessons']['options']), "id=".$this -> lesson['id']);
-    }
     if ($keepName) {
      eF_updateTableData("lessons", array("name" => $data['lessons']['name']), "id=".$this -> lesson['id']);
      eF_updateTableData("f_forums", array("title" => $data['lessons']['name']), "lessons_ID=".$this -> lesson['id']);

@@ -3583,7 +3583,7 @@ define("_AUTOLOGIN","Auto login");
 define("_ACCESSLINK","Access link");
 define("_AUTOLOGINITHLINK","User can login automatically by link");
 define("_DEFAULTUSERTYPE","Default user type");
-define("_FORCEUSERANSERALLQUESTIONS","Force student answer all questions");
+define("_FORCEUSERANSERALLQUESTIONS","Force student to answer all questions");
 define("_YOUHAVETOANSWERALLQUESTIONS","You have to answer all questions");
 define("_ALLOWINDEPENDENTLESSONS", "Allow independent lessons");
 define("_NOPRESELECTEDDATE","No preselected date");

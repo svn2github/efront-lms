@@ -56,10 +56,9 @@ if ($editedUser -> user['user_type'] != 'administrator') {
  }
 
  $result = EfrontStats :: getStudentsDoneTests($userLessons, $editedUser -> user['login']);
-    $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and c.ctg_type='tests'");
-    $testNames = array_combine($testNames['id'], $testNames['name']);
- foreach ($result[$editedUser -> user['login']] as $key => $value) {
-  if (in_array($key, array_keys($testNames))) {
+    $feedbacks = eF_getTableDataFlat("tests t, content c", "t.id, t.content_ID", "c.id=t.content_ID and c.ctg_type='feedback'");
+ foreach ($result[$editedUser -> user['login']] as $contentId => $value) {
+  if (!in_array($contentId, $feedbacks['content_ID'])) {
    $userDoneTests[$value['lessons_ID']][] = $value;
   }
  }

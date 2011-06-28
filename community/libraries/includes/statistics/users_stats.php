@@ -68,12 +68,11 @@ if (isset($_GET['sel_user'])) {
 
   $status = EfrontStats :: getUsersLessonStatus($_GET['lesson'], $infoUser -> user['login']);
   $doneTests = EfrontStats :: getStudentsDoneTests($_GET['lesson'], $infoUser -> user['login']);
-  $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and c.ctg_type='tests'");
-  $testNames = array_combine($testNames['id'], $testNames['name']);
-  foreach ($doneTests[$infoUser -> user['login']] as $key => $test) {
+  $feedbacks = eF_getTableDataFlat("tests t, content c", "t.id, t.content_ID", "c.id=t.content_ID and c.ctg_type='feedback'");
+  foreach ($doneTests[$infoUser -> user['login']] as $contentId => $test) {
    unset($pendingTests[$test['tests_ID']]); //remove done tests
-   if (!in_array($test['tests_ID'], array_keys($testNames))) {
-    unset($doneTests[$infoUser -> user['login']][$key]); //remove done tests
+   if (in_array($contentId, $feedbacks['content_ID'])) {
+    unset($doneTests[$infoUser -> user['login']][$contentId]); //remove done tests
    }
 
   }

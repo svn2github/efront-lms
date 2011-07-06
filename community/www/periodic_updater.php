@@ -38,7 +38,6 @@ try {
           and entity = '".current($entity)."' and entity_id = '".key($entity)."'");
    }
   } else {
-
    //Update times for this entity
    $result = eF_executeNew("update user_times set time=time+(".time()."-timestamp_now),timestamp_now=".time()."
          where session_expired = 0 and session_id = '".session_id()."' and users_LOGIN = '".$_SESSION['s_login']."'

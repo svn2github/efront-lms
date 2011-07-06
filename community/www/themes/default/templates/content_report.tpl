@@ -30,8 +30,5 @@
  {eF_template_printBlock title = $smarty.const._CONTENTREPORT data = $smarty.capture.t_report_code image = '32x32/warning.png'}
 {/if}
 
-{if $T_MESSAGE_TYPE == 'success'}
-    <script>parent.location = parent.location;</script>
-{/if}
 
 {include file = "includes/closing.tpl"}

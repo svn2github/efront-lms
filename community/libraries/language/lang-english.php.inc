@@ -2708,7 +2708,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE", "Logo dimensions must be positive");
 define("_SOCIAL","Social");
 define("_OPTIONSFORSOCIALMODULE", "Options for social");
 define("_ENTIRESOCIALMODULE","Entire social module");
-define("_EVENTSLOGGING","Event&#039;s logging");
+define("_EVENTSLOGGING","Event logging");
 define("_SYSTEMTIMELINES","System timelines");
 define("_LESSONTIMELINES","Lessons timelines");
 define("_USERSTATUS","User status");

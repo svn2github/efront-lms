@@ -1078,6 +1078,10 @@ padding:4px 2px;
 width:80%;
 margin:2px 0 5px 10px;
 }
+table.pageLayout form.indexForm .inputCheckbox{
+padding:4px 2px;
+margin:2px 0 5px 10px;
+}
 table.pageLayout form.indexForm .inputSelect{
 padding:4px 2px;
 width:80%;

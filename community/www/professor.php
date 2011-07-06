@@ -186,8 +186,12 @@ if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
    throw new Exception(_INVALIDDATA.': '.$_GET['group_key']);
   }
   $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
-  $group = new EfrontGroup($result[0]);
-  $group -> useKeyForUser($currentUser);
+  if (sizeof($result) > 0) {
+   $group = new EfrontGroup($result[0]);
+   $group -> useKeyForUser($currentUser);
+  } else {
+   throw new Exception(_INVALIDKEY.': '.$_GET['group_key']);
+  }
  } catch (Exception $e) {
   handleAjaxExceptions($e);
  }

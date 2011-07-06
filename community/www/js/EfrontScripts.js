@@ -566,6 +566,7 @@ var targetWin = window.open (pageURL, title, 'scrollbars=yes, width='+w+', heigh
 
 
 function periodicUpdater() {
+	
 	if ($('user_current_time_in_unit')) {
 		var parameters = {method:'post', user_current_time_in_unit:$('user_current_time_in_unit').innerHTML};
 	} else {
@@ -601,6 +602,58 @@ function onPeriodicUpdater(el, response) {
 				$('header_connected_users').update('');
 			}
 		}	
+		if (parent.sideframe) {
+			try {
+				var sideframe = parent.sideframe;
+				if (messages > 0) {
+					if (sideframe.$('unread_img')) {
+						sideframe.$('unread_img').update('<img class = "sprite16 sprite16-mail" src = "themes/default/images/others/transparent.gif" style = "vertical-align:middle" onLoad="javascript:if (document.getElementById(\'hasLoaded\') && !usingHorizontalInterface){fixUpperMenu();fixCurtains();}"/>');
+					}
+					if (sideframe.$('recent_unread_left')) {
+						sideframe.$('recent_unread_left').down().update(messages);
+					}
+				}
+
+				var str = '';
+				onlineUsers.each(function (s) {
+					if (s.time.hours !=0 && s.time.minutes != 0) {
+						var time = translations['userisonline'] + ': ' + s.time.hours + ' ' + translations['hours'] + ' ' + translations['and'] + ' ' + s.time.minutes + ' ' + translations['minutes'];
+					} else if (s.time.hours !=0 && s.time.minutes == 0) {
+						var time = translations['userisonline'] + ': ' + s.time.hours + ' ' + translations['hours'];
+					} else if (s.time.hours ==0 && s.time.minutes != 0) {
+						var time = translations['userisonline'] + ': ' + s.time.minutes + ' ' + translations['minutes'];
+					} else {
+						var time = translations['userjustloggedin'];
+					}
+					
+					//str += '<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\'\', 0, \'user_table\');';
+					//str += 'show_user_box(\'' + translations['user'] + ' '+s.login+'\', \''+s.login+'\', \'' + translations['sendmessage'] + '\', \'' + translations['web'] + '\', \''+s.user_type+'\', \''+time+'\', \''+translations['user_stats']+'\',\''+translations['user_settings']+'\',\''+translations['logout_user']+'\');">';
+					//Changed because of this http://forum.efrontlearning.net/viewtopic.php?f=1&p=13756#p13756
+					str += "<a href = 'javascript:void(0)' onclick = 'eF_js_showDivPopup(\"\", 0, \"user_table\");";
+					str += "show_user_box(\"" + translations["user"] + " "+s.login+"\", \""+s.login+"\", \"" + translations["sendmessage"] + "\", \"" + translations["web"] + "\", \""+s.user_type+"\", \""+time+"\", \""+translations["user_stats"]+"\",\""+translations["user_settings"]+"\",\""+translations["logout_user"]+"\");'>";
+					
+					if (s.user_type == 'administrator') {				
+						str += '<span style = "color:magenta">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
+					} else if (s.user_type == 'professor') {
+						str += '<span style = "color:green">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
+					} else {
+						str += '<span style = "color:blue">'+(s.formattedLogin.replace('_'+s.user_type.toUpperCase(), translations['_'+s.user_type.toUpperCase()]))+'</span>';
+					}
+					str += '</a>, ';
+				});
+				sideframe.$('users_online').update(str.substr(0, str.length-2));
+	
+				var tabmenu = sideframe.$('online_users_text').className;
+				var text    = sideframe.$('online_users_text').value;
+	
+				sideframe.$(tabmenu).innerHTML= text + '(' + onlineUsers.length + ')';
+				
+			} catch (e) {
+				//alert(e);
+			}
+			
+		} 
+	
 	}
 //{"messages":"0","online":[{"login":"admin","formattedLogin":"Administrator S. (admin)","user_type":"administrator","timestamp_now":"1292775277","session_timestamp":"1292775277","time":{"seconds":14,"minutes":2,"hours":0,"total_seconds":134,"time_string":"2_MINUTESSHORTHAND 14_SECONDSSHORTHAND"}}]}	
 }

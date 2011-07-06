@@ -97,10 +97,14 @@ function chatHeartbeat() {
 
  while ($chat = mysql_fetch_array($query)) {
 
-  if (in_array($chat['to_user'],$_SESSION['lesson_rooms']))
+  if (in_array($chat['to_user'],$_SESSION['lesson_rooms'])) {
    $title = $chat['to_user'];
-  else
+   $chatboxname = $_SESSION["room_".$title];
+  }
+  else {
    $title = $chat['from_user'];
+   $chatboxname = $title;
+  }
 
   $_SESSION['last_msg'] = $chat['sent'];
   $_SESSION['last_lesson_msg'] = $chat['sent'];
@@ -117,7 +121,8 @@ function chatHeartbeat() {
    "s": "0",
    "t": "{$title}",
    "f": "{$chat['from_user']}",
-   "m": "{$chat['message']}"
+   "m": "{$chat['message']}",
+   "n": "{$chatboxname}"
     },
 EOD;
 
@@ -133,7 +138,8 @@ EOD;
    "s": "0",
    "t": "{$title}",
    "f": "{$chat['from_user']}",
-   "m": "{$chat['message']}"
+   "m": "{$chat['message']}",
+   "n": "{$chatboxname}"
     },
 EOD;
  //}
@@ -263,6 +269,7 @@ function sendChat() {
  $from = $_SESSION['chatter'];
  $to = $_POST['to'];
  $message = $_POST['message'];
+ $chatboxname = $_POST['chatboxname'];
  if ( !isset($_SESSION['openChatBoxes'][$_POST['to']])){
   $_SESSION['openChatBoxes'][$_POST['to']] = $_SESSION['chatboxesnum'];
   $_SESSION['chatboxesnum'] = $_SESSION['chatboxesnum'] + 10;
@@ -276,11 +283,12 @@ function sendChat() {
    "s": "1",
    "t": "{$to}",
    "f": "{$to}",
-   "m": "{$messagesan}"
+   "m": "{$messagesan}",
+   "n": "{$chatboxname}"
     },
 EOD;
  //unset($_SESSION['tsChatBoxes'][$_POST['to']]);
- if ($to != $_SESSION['lessonname']){
+ if ($to != $_SESSION['lessonid']){
   $sql = "insert into module_chat (module_chat.from_user,module_chat.to_user,message,sent,module_chat.isLesson) values ('".mysql_real_escape_string($from)."', '".mysql_real_escape_string($to)."','".mysql_real_escape_string($message)."','".date("Y-m-d H:i:s", time()-date("Z"))."', '0')";
  }
  else{
@@ -292,7 +300,7 @@ EOD;
 }
 function closeChat() {
  unset($_SESSION['openChatBoxes'][$_POST['chatbox']]);
- if (str_replace(' ','_',$_POST['chatbox']) != $_SESSION["lessonname"] && in_array(str_replace(' ','_',$_POST['chatbox']),$_SESSION['lesson_rooms']))
+ if (str_replace(' ','_',$_POST['chatbox']) != $_SESSION["lessonid"] && in_array(str_replace(' ','_',$_POST['chatbox']),$_SESSION['lesson_rooms']))
   $_SESSION['lesson_rooms'] = remove_item_by_value($_SESSION['lesson_rooms'], str_replace(' ','_',$_POST['chatbox']));
  echo $_POST['chatbox'];
  exit(0);

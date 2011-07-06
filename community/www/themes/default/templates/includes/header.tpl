@@ -94,6 +94,7 @@ var translations = new Array(); //used for passing language tags to js
 
 </script>
 {/if}
+{*<script type="text/javascript" src="js/jwplayer/jwplayer.js"></script>*}
 
 <script>var translations = new Array(); /*used for passing language tags to js*/</script>
 

@@ -17,7 +17,33 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
  $loadScripts[] = 'includes/social';
+ $loadScripts[] = 'includes/lessons_list';
  $loadScripts[] = 'scriptaculous/dragdrop';
+  if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['insert_group_key']) {
+   $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
+  }
+  if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['lessons_directory']) {
+   $myCoursesOptions[] = array('text' => _COURSECATALOG, 'image' => "32x32/catalog.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
+  }
+
+
+
+
+  if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
+   $myCoursesOptions[] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
+  }
+  if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {
+   $myCoursesOptions[] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
+  }
+  if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
+   $myCoursesOptions[] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum");
+  }
+  if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
+         $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
+  }
+
+  $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
+
  if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
   $smarty -> assign("T_SOCIAL_INTERFACE", 1);
  }
@@ -30,10 +56,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     handleAjaxExceptions($e);
    }
   }
+
   $smarty -> assign("T_USER_STATUS", $editedUser -> user['status']);
+
   if ($currentUser -> coreAccess['dashboard'] == 'hidden') {
    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal");
   }
+
   //Calculate element positions, so they can be rearreanged accordingly to the user selection
   //$elementPositions = eF_getTableData("users_to_lessons", "positions", "lessons_ID=".$currentLesson -> lesson['id']." AND users_LOGIN='".$currentUser -> user['login']."'");
   $elementPositions = $currentUser -> user['dashboard_positions'];
@@ -48,6 +77,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   } else {
    $smarty -> assign("T_POSITIONS", array());
   }
+
   // Get *eligible* lessons of interest to this user if he is not administrator
   if ($currentUser -> getType() != "administrator" ) {
    $eligibleLessons = $currentUser -> getEligibleLessons();

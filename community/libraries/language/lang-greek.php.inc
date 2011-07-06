@@ -4104,4 +4104,7 @@ define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "Μπορεί να θέλε
 define("_FORTHISLESSON","Για το τρέχον μάθημα");
 define("_FORANYLESSON","Για κάθε μάθημα");
 define("_SHAREDGLOSSARY","Διαμοιραζόμενο γλωσσάρι");
+define("_MANDATORYFORUSERS", "Μόνο για τους χρήστες");
+define("_CHECKBOX", "Checkbox");
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS", "Παρακαλούμε συμπληρώστε τις υποχρεωτικές πληροφορίες");
 ?>

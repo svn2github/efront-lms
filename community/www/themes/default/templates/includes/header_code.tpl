@@ -4,10 +4,6 @@
   </a>
  </div>
  {if $smarty.session.s_login}
- <script>
-  var startUpdater = true;
-  var updaterPeriod = '{$T_CONFIGURATION.updater_period}';
- </script>
  <div id = "logout_link" >
   {if $T_THEME_SETTINGS->options.sidebar_interface}
    {if $T_ONLINE_USERS_LIST && !$T_CONFIGURATION.disable_online_users}

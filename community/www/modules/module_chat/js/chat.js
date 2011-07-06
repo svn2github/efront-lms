@@ -1,6 +1,4 @@
 
-
-
 var windowFocus = true;
 var username;
 var chatHeartbeatCount = 0;
@@ -347,18 +345,18 @@ function toggle_users(forced) {
 }*/
 
 function chatWith(chatuser) {
-	createChatBox(chatuser,0,1);
+	createChatBox(chatuser, chatuser, 0, 1);
 	$J("#chatbox_"+chatuser+" .chatboxtextarea").focus();
 }
 
 /*Different from the chatWith(chatuser) method, stuff may need to be added when starting a conversation in a chat room*/
-function chatWithLesson(chatroom) {
-	createChatBox(chatroom,0,1);
+function chatWithLesson(chatroom, lessonname) {
+	createChatBox(chatroom, lessonname, 0, 1);
 	$J("#chatbox_"+chatroom+" .chatboxtextarea").focus();
 }
 
 
-function createChatBox(chatboxtitle, minimizeChatBox, minimizeOthers) {
+function createChatBox(chatboxtitle, chatboxname, minimizeChatBox, minimizeOthers) {
 	var chatBoxeslength = 0;
 	
 	if ($J("#chatbox_"+chatboxtitle).length > 0) { //if chatbox was already opened before
@@ -404,10 +402,10 @@ function createChatBox(chatboxtitle, minimizeChatBox, minimizeOthers) {
 		//$J("#chatbox_"+chatboxtitle).css('margin-top','7px');
 		return;
 	}// END if chatbox was already open before
-	
+	//alert(chatboxname);
 	$J(" <div />" ).attr("id","chatbox_"+chatboxtitle)
 	.addClass("chatbox")
-	.html('<div class="chatboxhead" onclick="javascript:toggleChatBoxGrowth(\''+chatboxtitle+'\')"><div class="chatboxtitle">'+chatboxtitle.substring(0,30)+'</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+chatboxtitle+'\')"><img src="'+ modulechatbaselink +'img/x.png" /></a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onKeyUp="javascript: return checkChatBoxInputKey(event,this,\''+chatboxtitle+'\');"></textarea></div>')
+	.html('<div class="chatboxhead" onclick="javascript:toggleChatBoxGrowth(\''+chatboxtitle+'\')"><div class="chatboxtitle">'+chatboxname.substring(0,30)+'</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+chatboxtitle+'\')"><img src="'+ modulechatbaselink +'img/x.png" /></a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onKeyUp="javascript: return checkChatBoxInputKey(event,this,\''+chatboxtitle+'\',\''+chatboxname.substring(0,30)+'\');"></textarea></div>')
 	.prependTo($J( "#windows" ));
 	 
 	$J("#chatbox_"+chatboxtitle).css('bottom', '0px');
@@ -550,10 +548,11 @@ function chatHeartbeat(){
 				
 				
 					chatboxtitle = item.t;
+					chatboxname = item.n;
 					//alert(chatboxtitle);
 	
 					if ($J("#chatbox_"+chatboxtitle).length <= 0) {
-						createChatBox(chatboxtitle,1,0);
+						createChatBox(chatboxtitle, chatboxname, 1, 0);
 					}
 					else if ($J("#chatbox_"+chatboxtitle).is(":hidden")){
 						//var width = ($J('#windows').width())+227;
@@ -714,7 +713,7 @@ function toggleChatBoxGrowth(chatboxtitle) {
 
 }
 
-function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
+function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle,chatboxname) {
 	$J(chatboxtextarea).focus();
 	
 	if(event.keyCode == 13 && event.shiftKey == 0)  {
@@ -738,7 +737,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
 				$J("#chatbox_"+chatboxtitle+" .chatboxcontent").scrollTop($J("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
 			
 
-			$J.post(modulechatbaselink+"chat.php?action=sendchat", {to: chatboxtitle, message: message}, function (data){});
+			$J.post(modulechatbaselink+"chat.php?action=sendchat", {to: chatboxtitle, message: message, chatboxname: chatboxname}, function (data){});
 			
 		}
 		chatHeartbeatTime = minChatHeartbeat;
@@ -773,11 +772,13 @@ function startChatSession(){
 			$J.each(data.items, function(i,item){
 
 				if (item)	{ // fix strange ie bug
-
+					//alert("s:"+item.s+" t:"+item.t+" f:"+item.f+" m:"+item.m+" n:"+item.n);
 					chatboxtitle = item.t;
+					chatboxname = item.n;
+					//alert("das: "+chatboxname);
 
 					if ($J("#chatbox_"+chatboxtitle).length <= 0) {
-						createChatBox(chatboxtitle,1,1);
+						createChatBox(chatboxtitle, chatboxname, 1, 1);
 					}
 				
 					if (item.s == 1) {

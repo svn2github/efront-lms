@@ -1,4 +1,36 @@
 {if !$smarty.get.popup && !$T_POPUP_MODE}
+ {if $smarty.session.s_login}
+ <script>
+     // Translations used in the updater script
+     var translations = new Array();
+     translations['lessons'] = '{$smarty.const._LESSONS}';
+     translations['servername'] = '{$smarty.const.G_SERVERNAME}';
+     translations['onlineusers'] = '{$smarty.const._ONLINEUSERS}';
+     translations['nousersinroom'] = '{$smarty.const._THEREARENOOTHERUSERSRIGHTNOWINTHISROOM}';
+     translations['redirectedtomain']= '{$smarty.const._REDIRECTEDTOEFRONTMAIN}';
+     translations['chatroomdeleted'] = '{$smarty.const._CHATROOMDELETEDBYOWNER}';
+     translations['s_type'] = '{$smarty.session.s_type}';
+     translations['s_login'] = '{$smarty.session.s_login}';
+     translations['clicktochange'] = '{$smarty.const._CLICKTOCHANGESTATUS}';
+     translations['userisonline'] = '{$smarty.const._USERISONLINE}';
+     translations['and'] = '{$smarty.const._AND}';
+     translations['hours'] = '{$smarty.const._HOURS}';
+     translations['minutes'] = '{$smarty.const._MINUTES}';
+     translations['userjustloggedin']= '{$smarty.const._USERJUSTLOGGEDIN}';
+     translations['user'] = '{$smarty.const._USER}';
+     translations['sendmessage'] = '{$smarty.const._SENDMESSAGE}';
+     translations['web'] = '{$smarty.const._WEB}';
+  translations['user_stats'] = '{$smarty.const._USERSTATISTICS}';
+  translations['user_settings'] = '{$smarty.const._USERPROFILE}';
+  translations['logout_user'] = '{$smarty.const._LOGOUTUSER}';
+  translations['_ADMINISTRATOR'] = '{$smarty.const._ADMINISTRATOR}';
+  translations['_PROFESSOR'] = '{$smarty.const._PROFESSOR}';
+  translations['_STUDENT'] = '{$smarty.const._STUDENT}';
+
+  var startUpdater = true;
+  var updaterPeriod = '{$T_CONFIGURATION.updater_period}';
+ </script>
+ {/if}
  <table class = "pageLayout {if isset($T_MAXIMIZE_VIEWPORT)}centerFull hideBoth{else}{$layoutClass}{/if}" id = "pageLayout">
   <tr><td style = "vertical-align:top">
    <table style = "width:100%;">

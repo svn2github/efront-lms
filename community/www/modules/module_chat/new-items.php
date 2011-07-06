@@ -20,14 +20,16 @@ if ($_SESSION['s_lessons_ID']){
   $lsn = eF_getTableData("lessons", "name", "id='".$_SESSION['s_lessons_ID']."'");
   foreach ($lsn as $lesson){
    $link = $lesson['name'];
-   $room = str_replace(' ','_',$lesson['name']);
-   $room = str_replace('"','',$room);
-   $room = str_replace('\'','',$room);
-   echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWithLesson(\''.$room.'\')">'.substr($link,0,24).' (Room)</a></p>';
+   //$room = str_replace(' ','_',$lesson['name']);
+   //$room = str_replace('"','',$room);
+   //$room = str_replace('\'','',$room);
    $_SESSION["lessonid"] = $_SESSION['s_lessons_ID'];
    $_SESSION["lessonname"] = str_replace(' ','_',$lesson['name']);
-   if (!in_array($_SESSION["lessonname"], $_SESSION['lesson_rooms']))
-    $_SESSION['lesson_rooms'][] = str_replace(' ','_',$_SESSION["lessonname"]);
+   $_SESSION["room_".$_SESSION["lessonid"]] = $_SESSION["lessonname"];
+
+  echo '<p><a href="javascript:void(0)" title="'.$lesson['name'].'" onClick="javascript:chatWithLesson(\''.$_SESSION["lessonid"].'\', \''.$_SESSION["lessonname"].'\')">'.mb_substr($link,0,24).' (Room)</a></p>';
+   if (!in_array($_SESSION["lessonid"], $_SESSION['lesson_rooms']))
+    $_SESSION['lesson_rooms'][] = str_replace(' ','_',$_SESSION["lessonid"]);
    //$my_t=getdate();
    //$_SESSION["last_lesson_msg"] = $my_t[year].'-'.$my_t[mon].'-'.$my_t[mday].' '.$my_t[hours].':'.$my_t[minutes].':'.$my_t[seconds];
    $_SESSION['last_lesson_msg'] = date("Y-m-d H:i:s", time()-date("Z")); //Fix for timezone differences
@@ -35,10 +37,10 @@ if ($_SESSION['s_lessons_ID']){
  }
  else{
  $link = str_replace('_',' ',$_SESSION["lessonname"]);
- $room = str_replace(' ','_',$_SESSION["lessonname"]);
- $room = str_replace('"','',$room);
- $room = str_replace('\'','',$room);
-  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWithLesson(\''.$room.'\')">'.substr($link,0,24).' (Room)</a></p>';
+ //$room = str_replace(' ','_',$_SESSION["lessonname"]);
+ //$room = str_replace('"','',$room);
+ //$room = str_replace('\'','',$room);
+  echo '<p><a href="javascript:void(0)" title="'.$_SESSION["lessonname"].'" onClick="javascript:chatWithLesson(\''.$_SESSION["lessonid"].'\', \''.$_SESSION["lessonname"].'\')">'.mb_substr($link,0,24).' (Room)</a></p>';
  }
 }
 
@@ -49,14 +51,14 @@ $onlineUsers = getConnectedUsers();
 if ($_SESSION['utype'] == 'administrator') {
  foreach ($onlineUsers as $user){
   if ($user['login'] != $_SESSION['chatter'])
-   echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.substr($user['formattedLogin'],0,30).'</a></p>';
+   echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.mb_substr($user['formattedLogin'],0,30).'</a></p>';
  }
 }
 else{
  foreach ($onlineUsers as $user){
   if ($user['login'] != $_SESSION['chatter'])
    if ($_SESSION['commonality'][$user['login']] > 0)
-    echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.substr($user['formattedLogin'],0,30).'</a></p>';
+    echo '<p><a href="javascript:void(0)" onClick="javascript:chatWith(\''.$user['login'].'\')">'.mb_substr($user['formattedLogin'],0,30).'</a></p>';
  }
 }
 

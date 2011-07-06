@@ -1,7 +1,35 @@
 
 {**************** DASHBOARD PAGE ********************}
 {if $T_OP == 'dashboard'}
-<script>translations['clicktochange'] = '{$smarty.const._CLICKTOCHANGESTATUS}';</script>
+<script>
+translations['clicktochange'] = '{$smarty.const._CLICKTOCHANGESTATUS}';
+translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP}';
+</script>
+       {if 1}
+        {capture name = "moduleTools"}
+                                  <tr><td class = "moduleCell">
+                                        {eF_template_printBlock title=$smarty.const._TOOLS columns=3 links=$T_COURSES_LIST_OPTIONS image='32x32/options.png'}
+           {capture name = "t_group_key_code"}
+            <table>
+                   <tr><td colspan = "2">&nbsp;</td></tr>
+                   <tr><td class = "labelCell">{$smarty.const._UNIQUEGROUPKEY}:&nbsp;</td>
+                       <td class = "elementCell"><input class = "inputText" type = "text" id = "group_key" /></td></tr>
+                   <tr><td colspan = "2">&nbsp;</td></tr>
+                   <tr><td></td>
+                    <td class = "submitCell"><input class = "flatButton" type = "button" onclick = "addGroupKey(this)" value="{$smarty.const._SUBMIT}" /></td></tr>
+                   <tr><td colspan = "2"><span id = "resultReport"></span><img id = "progressImg" src = "images/others/progress_big.gif" style = "display:none"/></td></tr>
+                   <tr><td colspan = "2">&nbsp;</td></tr>
+                   <tr><td colspan = "2" class = "horizontalSeparatorAbove">{$smarty.const._ENTERGROUPKEYINFO}</td></tr>
+               </table>
+           {/capture}
+           <div id = 'group_key_enter' style = "display:none;">
+             {eF_template_printBlock title = $smarty.const._ENTERGROUPKEY data = $smarty.capture.t_group_key_code image = '32x32/key.png'}
+           </div>
+                                  </td></tr>
+                                {/capture}
+                            {/if}
+
+
        {if $T_CURRENT_USER->coreAccess.calendar != 'hidden' && $T_CONFIGURATION.disable_calendar != 1}
         {capture name = "moduleCalendar"}
                                    <tr><td class = "moduleCell">
@@ -261,6 +289,13 @@
                         </li>
     {/foreach}
 
+ {if !in_array('moduleTools', $T_POSITIONS) && $smarty.capture.moduleTools}
+                     <li id="secondlist_moduleTools">
+                         <table class = "singleColumnData">
+                          {$smarty.capture.moduleTools}
+                      </table>
+                     </li>
+ {/if}
  {if !in_array('moduleWall', $T_POSITIONS) && $smarty.capture.moduleWall}
                      <li id="secondlist_moduleWall">
                          <table class = "singleColumnData">

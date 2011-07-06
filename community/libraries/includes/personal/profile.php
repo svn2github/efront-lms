@@ -223,6 +223,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::AVATAR_CHANGE, "users_LOGIN" => $editedUser -> user['login'], "users_name" => $editedUser->user['name'], "users_surname" => $editedUser->user['surname'], "lessons_ID" => 0, "lessons_name" => "", "entity_ID" => $editedUser -> user['avatar']));
   }
   $editedUser -> persist();
+  unset($_SESSION['missing_fields']);
   if ($editedUser->user['user_type'] == 'administrator' || !isset($_GET['add_user'])) {
    eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=profile&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
   } else {

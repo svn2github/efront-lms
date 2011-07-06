@@ -724,7 +724,12 @@ class EfrontEvent
      $subst_array["triggering_users_email"] = $triggeringUser -> user['email'];
         $userProfile = eF_getTableData("user_profile", "*", "active=1 AND type <> 'branchinfo' AND type <> 'groupinfo'");
   foreach ($userProfile as $value) {
-   $subst_array["triggering_users_".$value['name']] = $triggeringUser -> user[$value['name']];
+   if ($value['type'] == 'select') {
+    $possibleValues = unserialize($value['options']);
+    $subst_array["triggering_users_".$value['name']] = $possibleValues[$triggeringUser -> user[$value['name']]];
+   } else{
+    $subst_array["triggering_users_".$value['name']] = $triggeringUser -> user[$value['name']];
+   }
   }
      // Special case - new password
      if ($this -> event['type'] == EfrontEvent::SYSTEM_NEW_PASSWORD_REQUEST) {

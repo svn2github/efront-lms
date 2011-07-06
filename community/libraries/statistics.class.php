@@ -1225,6 +1225,7 @@ class EfrontStats
                     switch($value -> offsetGet('ctg_type')) {
                      case 'theory':
                      case 'scorm':
+                     case 'feedback':
                       $visitableContentIds[$key] = $key; //Get the not-test unit ids for this content
                       break;
                      case 'examples':

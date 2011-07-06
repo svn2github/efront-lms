@@ -950,7 +950,10 @@ abstract class EfrontUser
              'session_timestamp' => $value['session_timestamp'],
              'time' => EfrontTimes::formatTimeForReporting(time() - $value['session_timestamp']));
     } else {
+     //pr($result);
+     //pr("interval: $interval, time: ".time().", timestamp_now:".$value['timestamp_now']);
      EfrontUserFactory :: factory($value['login']) -> logout($value['session_id']);
+     //exit;
     }
     $parsedUsers[$value['login']] = true;
    }

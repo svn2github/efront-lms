@@ -257,6 +257,13 @@ if ($form -> isSubmitted() && $form -> validate()) {
    exit;
   }
   $user -> login($form -> exportValue('password'));
+  //Check whether there are any fields that must be filled in by the user
+  $result = eF_getTableData("user_profile", "name", "active=1 and mandatory = 2");
+  foreach ($result as $value) {
+   if ($user -> user[$value['name']] == '' || is_null($user -> user[$value['name']])) {
+    $_SESSION['missing_fields'] = 1;
+   }
+  }
   if ($form -> exportValue('remember')) { //The user asked to remeber login (it is implemented with cookies)
    $expire = time() + 30 * 86400; //1 month
    setcookie("cookie_login", $_SESSION['s_login'], $expire);

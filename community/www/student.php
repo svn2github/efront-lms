@@ -49,6 +49,9 @@ try {
 if (isset($_SESSION['s_index_comply'])) {
  eF_redirect("index.php?ctg=".$_SESSION['s_index_comply']);
  exit;
+} else if (isset($_SESSION['missing_fields']) && ($_GET['ctg'] != 'personal' || $_GET['user'] != $currentUser->user['login'] || $_GET['op'] != 'profile')) {
+ eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=profile&message=".urlencode(_PLEASEFILLINMISSINGMANDATORYFIELDS)."&message_type=success");
+ exit;
 }
 
 if (!isset($_GET['ajax']) && !isset($_GET['postAjaxRequest']) && !isset($popup) && !isset($_GET['tabberajax'])) {
@@ -265,8 +268,12 @@ if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
    throw new Exception(_INVALIDDATA.': '.$_GET['group_key']);
   }
   $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
-  $group = new EfrontGroup($result[0]);
-  $group -> useKeyForUser($currentUser);
+  if (sizeof($result) > 0) {
+   $group = new EfrontGroup($result[0]);
+   $group -> useKeyForUser($currentUser);
+  } else {
+   throw new Exception(_INVALIDKEY.': '.$_GET['group_key']);
+  }
  } catch (Exception $e) {
   handleAjaxExceptions($e);
  }

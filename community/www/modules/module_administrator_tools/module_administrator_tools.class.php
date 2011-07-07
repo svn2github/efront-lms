@@ -224,7 +224,7 @@ class module_administrator_tools extends EfrontModule {
      foreach ($existingTables as $table) {
       try {
        if (!in_array($table, $views)) {
-        $this -> changeLogin($table, $oldLogin, $newLogin);
+        $this -> changeLogin($table, $values['users_LOGIN'], $values['new_login']);
        }
       } catch (Exception $e) {
        $errors[] = $e -> getMessage();

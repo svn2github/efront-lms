@@ -4104,4 +4104,7 @@ define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "You may want to disable &q
 define("_FORTHISLESSON","For current lesson");
 define("_FORANYLESSON","For any lesson");
 define("_SHAREDGLOSSARY","Shared glossary");
+define("_SUBMITACTION","Submit action");
+define("_SHOWSCORE","Show score");
+define("_SHOWONLYTEST","Show only test");
 ?>

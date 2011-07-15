@@ -853,8 +853,16 @@ function toggleAdvancedParameters() {
 
 	$('onebyone').toggle();
 	$('only_forward').toggle();
+	
+	if ($('action_on_submit')) {
+		$('action_on_submit').toggle();
+	}
+/*	
 	if ($('given_answers')) {
 		$('given_answers').toggle();
+	}
+	if ($('show_score')) {
+		$('show_score').toggle();
 	}
 	if ($('show_answers_if_pass')) {
 		$('show_answers_if_pass').toggle();
@@ -865,6 +873,7 @@ function toggleAdvancedParameters() {
 	if ($('redirect')) {
 		$('redirect').toggle();
 	}
+*/	
 	$('shuffle_answers').toggle();
 	$('shuffle_questions').toggle();
 	if ($('pause_test')) {

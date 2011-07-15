@@ -149,9 +149,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <td class = "elementCell">{$T_TEST_FORM.only_forward.html} <span class = "infoCell">{$smarty.const._APPLICABLETOONEBYONE}</span></td></tr>
      {if $T_TEST_FORM.only_forward.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.only_forward.error}</td></tr>{/if}
     {if !$T_SKILLGAP_TEST}
-     <tr style="display:none;" id = "given_answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWGIVENANSWERS}:&nbsp;</td>
+<!-- <tr style="display:none;" id = "given_answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWGIVENANSWERS}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.given_answers.html}</td></tr>
      {if $T_TEST_FORM.given_answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.given_answers.error}</td></tr>{/if}
+     <tr style="display:none;" id = "show_score"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWSCORE}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.show_score.html}</td></tr>
+     {if $T_TEST_FORM.show_score.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.show_score.error}</td></tr>{/if}
      <tr style="display:none;" id = "answers"><td class = "labelCell" style = "white-space:normal">{$smarty.const._SHOWRIGHTANSWERS}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.answers.html}</td></tr>
      {if $T_TEST_FORM.answers.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.answers.error}</td></tr>{/if}
@@ -161,6 +164,10 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <tr style="display:none;" id = "redirect"><td class = "labelCell" style = "white-space:normal">{$smarty.const._DONOTSHOWTESTAFTERSUBMITTING}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.redirect.html}</td></tr>
      {if $T_TEST_FORM.redirect.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redirect.error}</td></tr>{/if}
+-->
+<tr style="display:none;" id = "action_on_submit"><td class = "labelCell" style = "white-space:normal">{$T_TEST_FORM.action_on_submit.label}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.action_on_submit.html}</td></tr>
+     {if $T_TEST_FORM.action_on_submit.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.action_on_submit.error}</td></tr>{/if}
     {/if}
      <tr style="display:none;" id = "shuffle_answers"><td class = "labelCell">{$smarty.const._SHUFFLEANSWERS}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.shuffle_answers.html}</td></tr>

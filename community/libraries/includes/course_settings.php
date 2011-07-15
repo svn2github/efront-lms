@@ -134,16 +134,22 @@ if ($_GET['op'] == 'course_info') {
   $form -> setDefaults(array("completed" => $user -> user['completed'],
             "score" => $user -> user['completed'] ? $user -> user['score'] : round($totalScore),
             "comments" => $user -> user['comments']));
+  if ($user -> user['to_timestamp']) {
+      $smarty -> assign("T_TO_TIMESTAMP", $user -> user['to_timestamp']);
+  } else {
+      $smarty -> assign("T_TO_TIMESTAMP", mktime(date("H"), date("i"), date("s"), date("m")+1, date("d"), date("Y"))); //One month after
+  }
 
   if ($form -> isSubmitted() && $form -> validate()) {
+   $toTimestamp = mktime($_POST['to_Hour'], $_POST['to_Minute'], 0, $_POST['to_Month'], $_POST['to_Day'], $_POST['to_Year']);
    if ($form -> exportValue('completed')) {
     $courseUser = EfrontUserFactory :: factory($_GET['edit_user']);
-    $courseUser -> completeCourse($currentCourse -> course['id'], $form -> exportValue('score'), $form -> exportValue('comments'));
+    $courseUser -> completeCourse($currentCourse -> course['id'], $form -> exportValue('score'), $form -> exportValue('comments'), $toTimestamp);
    } else {
     $fields = array("completed" => 0,
          "score" => 0,
          "issued_certificate" => '',
-         "to_timestamp" => null,
+         "to_timestamp" => $toTimestamp,
          "comments" => '');
 
     $where = "users_LOGIN = '".$_GET['edit_user']."' and courses_ID=".$currentCourse -> course['id'];

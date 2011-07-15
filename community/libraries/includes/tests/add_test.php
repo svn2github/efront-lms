@@ -78,10 +78,22 @@ $form -> addElement('text', 'mastery_score', _MASTERYSCORE, 'size = "5"');
 $form -> addElement('text', 'test_password', _TESTPASSWORD, "class = 'inputText'");
 $form -> addElement('advcheckbox', 'onebyone', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'given_answers', null, null, null, array(0, 1));
-$form -> addElement('advcheckbox', 'answers', null, null, 'id = "answers_checkbox" onclick = "if (this.checked && $(\'show_answers_if_pass_checkbox\').checked) {$(\'show_answers_if_pass_checkbox\').checked = false}"', array(0, 1));
-$form -> addElement('advcheckbox', 'show_answers_if_pass', null, null, 'id = "show_answers_if_pass_checkbox" onclick = "if (this.checked && $(\'answers_checkbox\').checked) {$(\'answers_checkbox\').checked = false}"', array(0, 1));
-$form -> addElement('advcheckbox', 'redirect', null, null, null, array(0, 1));
+
+//$form -> addElement('advcheckbox', 'given_answers',     null, null, null, array(0, 1));
+//$form -> addElement('advcheckbox', 'show_score',    	null, null, null, array(0, 1));
+//$form -> addElement('advcheckbox', 'answers',           null, null, 'id = "answers_checkbox" onclick = "if (this.checked && $(\'show_answers_if_pass_checkbox\').checked) {$(\'show_answers_if_pass_checkbox\').checked = false}"', array(0, 1));
+//$form -> addElement('advcheckbox', 'show_answers_if_pass', null, null, 'id = "show_answers_if_pass_checkbox" onclick = "if (this.checked && $(\'answers_checkbox\').checked) {$(\'answers_checkbox\').checked = false}"', array(0, 1));
+//$form -> addElement('advcheckbox', 'redirect',          null, null, null, array(0, 1));
+
+$possible_actions = array( 0 => _DONOTSHOWTESTAFTERSUBMITTING,
+       1 => _SHOWONLYTEST,
+       2 => _SHOWGIVENANSWERS,
+       3 => _SHOWSCORE,
+       4 => _SHOWRIGHTANSWERS,
+       5 => _SHOWANSWERSIFSTUDENTPASSED
+      );
+$form -> addElement('select', 'action_on_submit', _SUBMITACTION, $possible_actions);
+
 $form -> addElement('advcheckbox', 'shuffle_answers', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_questions', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'pause_test', null, null, null, array(0, 1));
@@ -169,9 +181,26 @@ $smarty -> assign("T_QUESTION_TYPES_ICONS", Question::$questionTypesIcons);
 
 if (isset($_GET['add_test'])) {
     $form -> addElement('submit', 'submit_test', _SAVETESTANDADDQUESTIONS, 'class = "flatButton"');
-    $form -> setDefaults(array('given_answers' => 1,
-                               'answers' => 0,
-             'show_answers_if_pass' => 1,
+  /*  $form -> setDefaults(array('given_answers'    => 1,
+
+                               'answers'          => 0,
+
+    						   'show_answers_if_pass' => 1,
+
+    						   'show_score'		  => 1,
+
+                               'maintain_history' => 5,
+
+                               'publish'          => 1,
+
+    						   'keep_best'        => 0,
+
+                               'mastery_score'    => $_GET['ctg'] != 'feedback' ? 50 : 0,
+
+            				   'redoable'	      => 1));
+
+    */
+        $form -> setDefaults(array('action_on_submit' => 5,
                                'maintain_history' => 5,
                                'publish' => 1,
              'keep_best' => 0,
@@ -181,7 +210,6 @@ if (isset($_GET['add_test'])) {
         $form -> setDefaults(array('parent_content' => $_GET['from_unit']));
     }
 } else if (isset($_GET['edit_test'])) {
-
     if (!$skillgap_tests) {
         $testUnit = new EfrontUnit($currentTest -> test['content_ID']);
     }
@@ -193,38 +221,73 @@ if (isset($_GET['add_test'])) {
  }
     $form -> freeze('parent_content');
     $form -> setDefaults($currentTest -> options);
+  if ($currentTest -> options['redirect']) {
+   $submitaction = 0;
+  } elseif ($currentTest -> options['show_answers_if_pass']) {
+   $submitaction = 5;
+  } elseif ($currentTest -> options['answers']) {
+   $submitaction = 4;
+  } elseif ($currentTest -> options['show_score']) {
+   $submitaction = 3;
+  } elseif ($currentTest -> options['given_answers']) {
+   $submitaction = 2;
+  } else {
+   $submitaction = 1;
+  }
     $form -> setDefaults(array('name' => $currentTest -> test['name'],
                                'duration' => $currentTest -> options['duration'] ? round($currentTest -> options['duration'] / 60) : '', //Duration is displayed in minutes, but is stored in seconds
                                'redoable' => $currentTest -> options['redoable'] ? $currentTest -> options['redoable'] : '',
                                'publish' => $currentTest -> test['publish'],
                                'keep_best' => $currentTest -> test['keep_best'],
              'description' => $currentTest -> test['description'],
+             'action_on_submit' => $submitaction,
                                'mastery_score' => $currentTest -> test['mastery_score']));
-
     if (!$skillgap_tests) {
         $form -> setDefaults(array('parent_content' => $testUnit['parent_content_ID']));
     }
-
     $smarty -> assign("T_CURRENT_TEST", $currentTest);
-
     $testQuestions = $currentTest -> getQuestions();
     $stats = $currentTest -> questionsInfo();
     $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
     $stats['random_pool'] = $currentTest -> options['random_pool'];
     $stats['user_configurable'] = $currentTest -> options['user_configurable'];
     $stats['show_incomplete'] = $currentTest -> options['show_incomplete'];
-
     $smarty -> assign("T_TEST_QUESTIONS_STATISTICS", $stats);
 }
-
 if ($form -> isSubmitted() && $form -> validate()) {
     $values = $form -> exportValues();
+    switch ($values['action_on_submit']) {
+            case 0 :
+             $values['redirect'] = 1;
+             $values['given_answers'] = $values['show_score'] = $values['answers']= $values['show_answers_if_pass'] = 0;
+            break;
+            case 1 :
+             $values['redirect'] = $values['given_answers'] = $values['show_score'] = $values['answers']= $values['show_answers_if_pass'] = 0;
+            break;
+            case 2 :
+             $values['given_answers'] = 1;
+             $values['redirect'] = $values['show_score'] = $values['answers'] = $values['show_answers_if_pass'] = 0;
+            break;
+            case 3 :
+             $values['given_answers'] = $values['show_score'] = 1;
+             $values['redirect'] = $values['answers'] = $values['show_answers_if_pass'] = 0;
+            break;
+            case 4 :
+             $values['given_answers'] = $values['show_score'] = $values['answers'] = 1;
+             $values['redirect'] = $values['show_answers_if_pass'] = 0;
+            break;
+            case 5 :
+             $values['show_answers_if_pass'] = 1;
+             $values['given_answers'] = $values['show_score'] = $values['answers'] = $values['redirect'] = 0;
+            break;
+    }
     if ($_GET['ctg'] != 'feedback') {
   $testOptions = array('duration' => $values['duration'] * 60, //Duration is displayed in minutes, but is stored in seconds
                                 'redoable' => $values['redoable'] ? $values['redoable'] : 0,
                                 'onebyone' => $values['onebyone'],
                           'only_forward' => $values['only_forward'],
                                 'given_answers' => $values['given_answers'],
+         'show_score' => $values['show_score'],
         'show_answers_if_pass' => $values['show_answers_if_pass'],
                                 'maintain_history' => $values['maintain_history'],
                                 'answers' => $values['answers'],
@@ -246,6 +309,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
                                 'onebyone' => 0,
                           'only_forward' => 0,
                                 'given_answers' => 0,
+        'show_score' => 0,
         'show_answers_if_pass' => 0,
                                 'maintain_history' => 1,
                                 'answers' => 0,

@@ -128,6 +128,7 @@ class EfrontTest
                             'shuffle_answers' => 0,
                             'given_answers' => 1,
           'show_answers_if_pass' => 1,
+          'show_score' => 1,
                             'random_pool' => 0,
                             'user_configurable' => 0,
           'show_incomplete' => 0,
@@ -1892,7 +1893,7 @@ class EfrontTest
                         <table style = "width:100%" >
                             <tr><td>
                                 <span style = "font-weight:bold;" id = "question_'.$id.'_score_span">
-                                    '._SCORE.': <span style = "vertical-align:middle" id = "question_'.$id.'_score">'.$question -> score.'%</span>
+                                    '.($this -> options['show_score'] || $_SESSION['s_type'] != 'student' ? _SCORE.': <span style = "vertical-align:middle" id = "question_'.$id.'_score">'.$question -> score.'%</span>' : '').'
                                     '.($editHandles ? '<a href = "javascript:void(0)" onclick = "$(\'question_'.$id.'_score_span\').hide();$(\'edit_question_'.$id.'_score_span\').show();"><img src = "images/16x16/edit.png" title = "'._CHANGESCORE.'" alt = "'._CHANGESCORE.'" style = "vertical-align:middle" border = "0"/></a>' : '').'
                                     <span id = "question_'.$id.'_pending">'.($question -> pending ? '&nbsp;('._THISQUESTIONCORRECTEDPROFESSOR.')' : '').'</span>
                                 </span>
@@ -1904,9 +1905,10 @@ class EfrontTest
                                     <a href = "javascript:void(0)" onclick = "$(\'question_'.$id.'_score_span\').show();$(\'edit_question_'.$id.'_score_span\').hide();">
                                         <img src = "images/16x16/error_delete.png" alt = "'._CANCEL.'" title = "'._CANCEL.'" border = "0" style = "vertical-align:middle"/>
                                     </a>
-                                </span>
-                                <span style = "border-left:1px solid black;margin-left:5px;padding-left:5px">'._SCOREINTEST.': <span id = "question_'.$id.'_score_coefficient">'.$question -> score.'</span>% &#215; '.$weight.' = <span id = "question_'.$id.'_scoreInTest">'.$question -> scoreInTest.'</span>%</span>
-                            ';
+                                </span>';
+                          if ($this -> options['show_score'] || $_SESSION['s_type'] != 'student') {
+                           $testString .= '<span style = "border-left:1px solid black;margin-left:5px;padding-left:5px">'._SCOREINTEST.': <span id = "question_'.$id.'_score_coefficient">'.$question -> score.'</span>% &#215; '.$weight.' = <span id = "question_'.$id.'_scoreInTest">'.$question -> scoreInTest.'</span>%</span>';
+                          }
                     if ($editHandles) {
                         $testString .= '
                             <span style = "border-left:1px solid black;margin-left:5px;padding-left:5px">';
@@ -2119,7 +2121,7 @@ class EfrontTest
         $str .= '
                 </script>
                 <table class = "formElements" style = "width:100%">
-                    <tr><td colspan = "2">'.$testString.'</td></tr>
+                    <tr><td colspan = "2">'.glossary :: applyGlossary($testString, $this -> test['lessons_ID']).'</td></tr>
                 </table>';
         return $str;
     }

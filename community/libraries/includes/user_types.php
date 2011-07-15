@@ -77,6 +77,7 @@ try {
                                       //"surveys"           => _SURVEYS,
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
+                 "move_block" => _MOVEBLOCK,
            "dashboard" => _DASHBOARD);
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $studentOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $studentOptions["surveys"] = _SURVEYS : null;
@@ -97,6 +98,7 @@ try {
                                       "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
            "dashboard" => _DASHBOARD,
+                 "move_block" => _MOVEBLOCK,
            "course_settings" => _COURSEOPTIONS);
 
 

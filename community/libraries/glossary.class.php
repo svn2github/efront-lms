@@ -299,10 +299,21 @@ class glossary extends EfrontEntity
      */
     public static function applyGlossary($text, $lessonId) {
      if ($GLOBALS['configuration']['disable_shared_glossary'] != 1) {
-         $glossary_words = eF_getTableData("glossary", "name,info", "lessons_ID=".$lessonId." OR lessons_ID=0"); //Get all the glossary words of this lesson
+         $glossary_words = eF_getTableData("glossary", "name,info,lessons_ID", "lessons_ID=".$lessonId." OR lessons_ID=0"); //Get all the glossary words of this lesson
      } else {
-      $glossary_words = eF_getTableData("glossary", "name,info", "lessons_ID=".$lessonId); //Get all the glossary words of this lesson
+      $glossary_words = eF_getTableData("glossary", "name,info,lessons_ID", "lessons_ID=".$lessonId); //Get all the glossary words of this lesson
      }
+     //if a term is defined both for current lesson and all lessons, current lesson definition must be displayed
+      foreach ($glossary_words as $key => $value) {
+   if ($value['lessons_ID'] == 0) {
+    $globalTerms[$key] = $value['name'];
+   }
+   }
+     foreach ($glossary_words as $key => $value) {
+      if ($value['lessons_ID'] && $k = array_search($value['name'], $globalTerms)) {
+          unset($glossary_words[$k]);
+      }
+  }
         $searchdata = array();
         $searchdatanext = array();
         $replacedata = array();

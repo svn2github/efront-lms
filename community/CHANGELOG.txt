@@ -15,6 +15,8 @@
 - Fixed issue about taking feedbacks into account in lesson completion rules
 - Fixed issue about 'select type' custom user field in notifications (#1553)
 - Fixed "content report" reloading page
+- Fixed issue in administrator tools about changing user's login
+- Option to deactivate block moving in control panel for specific user types (#809)
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

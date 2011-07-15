@@ -4107,4 +4107,7 @@ define("_SHAREDGLOSSARY","Διαμοιραζόμενο γλωσσάρι");
 define("_MANDATORYFORUSERS", "Μόνο για τους χρήστες");
 define("_CHECKBOX", "Checkbox");
 define("_PLEASEFILLINMISSINGMANDATORYFIELDS", "Παρακαλούμε συμπληρώστε τις υποχρεωτικές πληροφορίες");
+define("_SUBMITACTION","Ενέργεια υποβολής");
+define("_SHOWSCORE","Εμφάνιση βαθμολογίας");
+define("_SHOWONLYTEST","Εμφάνιση μόνο της αξιολόγησης");
 ?>

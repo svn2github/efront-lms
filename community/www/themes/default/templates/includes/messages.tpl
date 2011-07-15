@@ -230,7 +230,9 @@
 <!--ajax:messagesTable-->
             <table class = "sortedTable" width = "100%" sortBy = "0" useAjax = "1" id = "messagesTable" url="{$smarty.server.PHP_SELF}?ctg=messages&folder={$T_FOLDER}&">
                 <tr class = "defaultRowHeight">
+                {if !isset($smarty.get.minimal_view)}
                     <td class = "topTitle centerAlign" name = "priority" style = "width:10%">{$smarty.const._PRIORITY}</td>
+                {/if}
                     <td class = "topTitle" name = "title" style = "width:40%">{$smarty.const._SUBJECT}</td>
                 {if $T_SENT_FOLDER == $smarty.get.folder}
                  <td class = "topTitle" name="recipient" style = "width:20%">{$smarty.const._TOFORUM}</td>
@@ -238,18 +240,22 @@
                     <td class = "topTitle" name = "sender" style = "width:20%">{$smarty.const._FROM}</td>
                 {/if}
                     <td class = "topTitle" name="timestamp" style = "width:20%">{$smarty.const._DATE}</td>
+                {if !isset($smarty.get.minimal_view)}
                     <td class = "topTitle centerAlign noSort" style = "width:10%">{$smarty.const._OPERATIONS}</td>
+                {/if}
                  </tr>
    {foreach name = "messages_list" item = "message" key = "key" from = $T_MESSAGES}
                  <tr class = "{cycle values = "oddRowColor, evenRowColor"} {if !$message.viewed}unreadMessage{/if}" id="row_of_message_{$message.id}">
                     {* Set email priority *}
-                    <td class = "centerAlign"><span style = "display:none">{$message.priority}</span> {*For sorting purposes*}
-                {if !$message.priority}
-                            <img class = "ajaxHandle" src = "images/16x16/flag_green.png" alt = "{$smarty.const._NORMAL}" title = "{$smarty.const._SETHIGHPRIORITY}" onclick = "flag_unflag(this, '{$message.id}')"/>
-                {else}
-                            <img class = "ajaxHandle" src = "images/16x16/flag_red.png" alt = "{$smarty.const._HIGH}" title = "{$smarty.const._SETNORMALPRIORITY}" onclick = "flag_unflag(this, '{$message.id}')"/>
-                {/if}
+                {if !isset($smarty.get.minimal_view)}
+                     <td class = "centerAlign"><span style = "display:none">{$message.priority}</span> {*For sorting purposes*}
+                 {if !$message.priority}
+                             <img class = "ajaxHandle" src = "images/16x16/flag_green.png" alt = "{$smarty.const._NORMAL}" title = "{$smarty.const._SETHIGHPRIORITY}" onclick = "flag_unflag(this, '{$message.id}')"/>
+                 {else}
+                             <img class = "ajaxHandle" src = "images/16x16/flag_red.png" alt = "{$smarty.const._HIGH}" title = "{$smarty.const._SETNORMALPRIORITY}" onclick = "flag_unflag(this, '{$message.id}')"/>
+                 {/if}
                     </td>
+                {/if}
                     <td>
                 {if $message.attachments}
       <img class = "ajaxHandle" src = "images/16x16/attachment.png" alt = "{$smarty.const._ATTACHMENT}" title = "{$smarty.const._ATTACHMENT}" onclick = "downloadAttachment(this, '{$message.id}')"/>
@@ -262,15 +268,17 @@
                     <td>#filter:login-{$message.sender}#</td>
                 {/if}
                     <td><span style = "display:none">{$message.timestamp}</span>#filter:timestamp_time_nosec-{$message.timestamp}#</td>
-                    <td class = "centerAlign" >
-{*
                 {if !isset($smarty.get.minimal_view)}
-                     <img class = "ajaxHandle" id="{$message.id}" src = "images/16x16/file_explorer.png" alt="{$smarty.const._DRAGTOMOVEMAILTOFOLDER}" title="{$smarty.const._DRAGTOMOVEMAILTOFOLDER}"/>
-                {/if}
+                  <td class = "centerAlign" >
+{*
+                 {if !isset($smarty.get.minimal_view)}
+                      <img class = "ajaxHandle" id="{$message.id}" src = "images/16x16/file_explorer.png" alt="{$smarty.const._DRAGTOMOVEMAILTOFOLDER}" title="{$smarty.const._DRAGTOMOVEMAILTOFOLDER}"/>
+                 {/if}
 *}
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" onclick = "if (confirm('{$smarty.const._AREYOUSURETODELETEMESSAGE}')) deleteMessage(this, '{$message.id}');" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}"/>
       <input style = "vertical-align:middle" class = "inputCheckbox" type = "checkbox" id = "check_{$message.id}" value = "{$message.id}"/>
                     </td>
+                {/if}
                 </tr>
 {*
                 {if $smarty.const.MSIE_BROWSER == 1}

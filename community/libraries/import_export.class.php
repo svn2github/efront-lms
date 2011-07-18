@@ -670,6 +670,7 @@ class EfrontImportCsv extends EfrontImport
 	 */
  private function parseDataLine($line) {
   $lineContents = $this -> explodeBySeparator($line);
+  array_walk($lineContents, create_function('&$val', '$val = trim($val);'));
   $data = $this -> getEmptyData();
   foreach ($this -> mappings as $dbAttribute => $fileInfo) {
    if (strpos($dbAttribute, "timestamp") === false && $dbAttribute != "hired_on" && $dbAttribute != "left_on" && !in_array($dbAttribute, $this->dateFields)) {

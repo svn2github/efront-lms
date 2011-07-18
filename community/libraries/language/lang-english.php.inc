@@ -4107,4 +4107,5 @@ define("_SHAREDGLOSSARY","Shared glossary");
 define("_SUBMITACTION","Submit action");
 define("_SHOWSCORE","Show score");
 define("_SHOWONLYTEST","Show only test");
+define("_CHARACTERSMAX50ONLYNOSPACES", "Letters only, maximum 50 characters length, without spaces");
 ?>

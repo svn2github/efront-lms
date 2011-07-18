@@ -277,8 +277,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
              $values['redirect'] = $values['show_answers_if_pass'] = 0;
             break;
             case 5 :
-             $values['show_answers_if_pass'] = 1;
-             $values['given_answers'] = $values['show_score'] = $values['answers'] = $values['redirect'] = 0;
+             $values['show_answers_if_pass'] = $values['given_answers'] = $values['show_score'] = 1;
+             $values['answers'] = $values['redirect'] = 0;
             break;
     }
     if ($_GET['ctg'] != 'feedback') {

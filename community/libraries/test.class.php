@@ -1867,7 +1867,7 @@ class EfrontTest
                         <tr><td class = "questionWeight" style = "vertical-align:middle;">
         <span style = "float:right">'.$timeSpentString.'</span>';
    if(!$isFeedback) {
-    $testString .= '<img src = "images/32x32/'.($done ? $image : 'unit.png').'" style = "vertical-align:middle" alt = "'.($done ? $alt : _QUESTION).'" title = "'.($done ? $title : _QUESTION).'"/>&nbsp;';
+    $testString .= '<img src = "images/32x32/'.($done && ($this -> options['show_score'] || $_SESSION['s_type'] != 'student' ) ? $image : 'unit.png').'" style = "vertical-align:middle" alt = "'.($done ? $alt : _QUESTION).'" title = "'.($done ? $title : _QUESTION).'"/>&nbsp;';
             }
    $testString .= '<span style = "vertical-align:middle;font-weight:bold">'._QUESTION.'&nbsp;'. ($count++).'</span>
                                 '.($this -> options['display_weights'] || $done && !$isFeedback ? '<span style = "vertical-align:middle;margin-left:10px">('._WEIGHT.'&nbsp;'.$weight.'%)</span>' : '').'

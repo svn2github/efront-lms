@@ -4110,4 +4110,5 @@ define("_PLEASEFILLINMISSINGMANDATORYFIELDS", "Παρακαλούμε συμπλ
 define("_SUBMITACTION","Ενέργεια υποβολής");
 define("_SHOWSCORE","Εμφάνιση βαθμολογίας");
 define("_SHOWONLYTEST","Εμφάνιση μόνο της αξιολόγησης");
+define("_CHARACTERSMAX50ONLYNOSPACES", "Μόνο γράμματα, 50 χαρακτήρες μέγιστο μήκος, χωρίς κενά");
 ?>

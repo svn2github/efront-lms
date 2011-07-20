@@ -158,22 +158,6 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
        {/foreach}
 
         {capture name = "t_directions_tree_code"}
-     {if $T_SUPERVISOR_APPROVALS}
-               <div id = "supervisor_approvals_list" style = "display:none">
-                {capture name = "t_supervisor_approvals_code"}
-                <table style = "width:100%">
-               {foreach name = 'supervisor_approval_list' item = 'item' key = 'key' from = $T_SUPERVISOR_APPROVALS}
-                 <tr><td>{$item.name}</td>
-                  <td>#filter:login-{$item.users_LOGIN}#</td>
-                  <td><img src = "images/16x16/success.png" class = "ajaxHandle" alt = "{$smarty.const._APPROVE}" title = "{$smarty.const._APPROVE}" onclick = "approveCourseAssignment(this, '{$item.id}', '{$item.users_LOGIN}')" /></td>
-                  <td><img src = "images/16x16/forbidden.png" class = "ajaxHandle" alt = "{$smarty.const._CANCEL}" title = "{$smarty.const._CANCEL}" onclick = "cancelCourseAssignment(this, '{$item.id}', '{$item.users_LOGIN}')" /></td></tr>
-               {/foreach}
-                </table>
-                {/capture}
-                {eF_template_printBlock title = $smarty.const._SUPERVISORAPPROVAL data = $smarty.capture.t_supervisor_approvals_code image = '32x32/success.png'}
-               </div>
-     {/if}
-
         {$T_DIRECTIONS_TREE}
     {/capture}
     {*///MODULES INNERTABLES APPEARING*}
@@ -228,6 +212,22 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
        {/capture}
        {eF_template_printBlock title = $smarty.const._MYCOURSES data = $smarty.capture.t_empty_lessons_list_code image = '32x32/catalog.png'}
    {/if}
+     {if $T_SUPERVISOR_APPROVALS}
+               <div id = "supervisor_approvals_list" style = "display:none">
+                {capture name = "t_supervisor_approvals_code"}
+                <table style = "width:100%">
+               {foreach name = 'supervisor_approval_list' item = 'item' key = 'key' from = $T_SUPERVISOR_APPROVALS}
+                 <tr><td>{$item.name}</td>
+                  <td>#filter:login-{$item.users_LOGIN}#</td>
+                  <td><img src = "images/16x16/success.png" class = "ajaxHandle" alt = "{$smarty.const._APPROVE}" title = "{$smarty.const._APPROVE}" onclick = "approveCourseAssignment(this, '{$item.id}', '{$item.users_LOGIN}')" /></td>
+                  <td><img src = "images/16x16/forbidden.png" class = "ajaxHandle" alt = "{$smarty.const._CANCEL}" title = "{$smarty.const._CANCEL}" onclick = "cancelCourseAssignment(this, '{$item.id}', '{$item.users_LOGIN}')" /></td></tr>
+               {/foreach}
+                </table>
+                {/capture}
+                {eF_template_printBlock title = $smarty.const._SUPERVISORAPPROVAL data = $smarty.capture.t_supervisor_approvals_code image = '32x32/success.png'}
+               </div>
+     {/if}
+
   {/if}
  </td></tr>
  {/capture}

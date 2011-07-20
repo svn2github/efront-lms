@@ -107,7 +107,8 @@ if (isset($_GET['fct'])) {
     $cart = cart :: prepareCart(false);
     $smarty -> assign("T_CART", $cart);
     if ($currentUser -> user['balance'] && $GLOBALS['configuration']['enable_balance']) {
-        $smarty -> assign("T_BALANCE", formatPrice($currentUser -> user['balance']));
+        $smarty->assign("T_BALANCE", formatPrice($currentUser -> user['balance']));
+        //$currentUser->getUserBalance();
     }
 
     $totalPrice = $cart['total_price'];

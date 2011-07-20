@@ -525,7 +525,7 @@ class module_demo extends EfrontModule {
 
      */
     public function getCenterLinkInfo() {
-     return array('title' => $this -> getName(),
+     return array('title' => $this -> getName().' (getCenterLinkInfo())',
                      'image' => $this -> moduleBaseLink . 'img/logo.png',
                      'link' => $this -> moduleBaseUrl);
     }
@@ -538,6 +538,18 @@ class module_demo extends EfrontModule {
      */
     public function getLessonCenterLinkInfo() {
      return array('title' => $this -> getName().' (getLessonCenterLinkInfo())',
+                     'image' => $this -> moduleBaseLink . 'img/logo.png',
+                     'link' => $this -> moduleBaseUrl);
+    }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#getToolsLinkInfo()
+
+     */
+    public function getToolsLinkInfo() {
+     return array('title' => $this -> getName().' (getToolsLinkInfo())',
                      'image' => $this -> moduleBaseLink . 'img/logo.png',
                      'link' => $this -> moduleBaseUrl);
     }
@@ -816,6 +828,17 @@ class module_demo extends EfrontModule {
      return $this -> moduleBaseDir.'module_demo_page_finish.tpl';
      //Return false if you don't want any code to display
      //return false;
+    }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#onIndexPageLoad()
+
+     */
+    public static function onIndexPageLoad() {
+     //Return false if you don't want any code to display
+     return false;
     }
     /**
 

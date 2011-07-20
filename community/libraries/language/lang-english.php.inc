@@ -4104,8 +4104,15 @@ define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "You may want to disable &q
 define("_FORTHISLESSON","For current lesson");
 define("_FORANYLESSON","For any lesson");
 define("_SHAREDGLOSSARY","Shared glossary");
-define("_SUBMITACTION","Submit action");
-define("_SHOWSCORE","Show score");
-define("_SHOWONLYTEST","Show only test");
 define("_CHARACTERSMAX50ONLYNOSPACES", "Letters only, maximum 50 characters length, without spaces");
+define("_MANDATORYFORUSERS", "Mandatory for users");
+define("_CHECKBOX", "Checkbox");
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS", "Please fill in missing mandatory fields");
+define("_SUBMITACTION","Submit action");
+define("_SHOWONLYTEST","Show only test");
+define("_SHOWSCORE","Show test + given answers + score");
+define("_SHOWATHANKYOUMESSAGE","Show a thank-you message");
+define("_SHOWGIVENANSWERSNEW","Show test + given answers");
+define("_SHOWRIGHTANSWERSNEW","Show test + given answers + score + correct answers");
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Show test + given answers + score + corrent answers only if student passed the test");
 ?>

@@ -4104,11 +4104,15 @@ define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "Μπορεί να θέλε
 define("_FORTHISLESSON","Για το τρέχον μάθημα");
 define("_FORANYLESSON","Για κάθε μάθημα");
 define("_SHAREDGLOSSARY","Διαμοιραζόμενο γλωσσάρι");
+define("_CHARACTERSMAX50ONLYNOSPACES", "Μόνο γράμματα, 50 χαρακτήρες μέγιστο μήκος, χωρίς κενά");
 define("_MANDATORYFORUSERS", "Μόνο για τους χρήστες");
 define("_CHECKBOX", "Checkbox");
 define("_PLEASEFILLINMISSINGMANDATORYFIELDS", "Παρακαλούμε συμπληρώστε τις υποχρεωτικές πληροφορίες");
 define("_SUBMITACTION","Ενέργεια υποβολής");
-define("_SHOWSCORE","Εμφάνιση βαθμολογίας");
 define("_SHOWONLYTEST","Εμφάνιση μόνο της αξιολόγησης");
-define("_CHARACTERSMAX50ONLYNOSPACES", "Μόνο γράμματα, 50 χαρακτήρες μέγιστο μήκος, χωρίς κενά");
+define("_SHOWSCORE","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας");
+define("_SHOWATHANKYOUMESSAGE","Εμφάνιση ευχαριστήριου μηνύματος");
+define("_SHOWGIVENANSWERSNEW","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων");
+define("_SHOWRIGHTANSWERSNEW","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας + σωστών απαντήσεων");
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας + σωστών απαντήσεων μόνο αν ο μαθητής πέρασε την αξιολόγηση");
 ?>

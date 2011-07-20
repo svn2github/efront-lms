@@ -1268,6 +1268,44 @@ abstract class EfrontModule
     }
     /****
 
+     * Tools Module Link
+
+     * Get information in an array with fields:
+
+     * 'title': the title to appear on the link
+
+     * 'image': the image to appear (if image inside module folder then use ($this -> moduleBaseDir) . 'imageFileName'
+
+     * 'target': POPUP or innerTable (default Innertable) - TODO
+
+     *
+
+     *  Example implementation:
+
+	 *
+
+     *   public function getCenterLinkInfo() {
+
+     *       return array ('title' => 'My Module',
+
+     *                     'image' => $this -> moduleBaseDir . 'images/my_module.jpg');
+
+     *   }
+
+     *
+
+     * @return array The array of the tools info
+
+     * @since 3.6.10
+
+     * @access public
+
+     */
+    public function getToolsLinkInfo() {
+        return false;
+    }
+    /****
+
      * Left Sidebar Module Links
 
      * Get information in an array of arrays with fields:
@@ -1864,6 +1902,22 @@ abstract class EfrontModule
 
      */
     public function onBeforeShowContent(&$unit) {
+     return false;
+    }
+    /**
+
+     * Code that gets executed after the index page has run. Static for better performance 
+
+     * @return mixed
+
+     * @since 3.6.10
+
+     * @access public
+
+     * @static
+
+     */
+    public static function onIndexPageLoad() {
      return false;
     }
 }

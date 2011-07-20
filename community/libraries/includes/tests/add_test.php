@@ -85,12 +85,12 @@ $form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1)
 //$form -> addElement('advcheckbox', 'show_answers_if_pass', null, null, 'id = "show_answers_if_pass_checkbox" onclick = "if (this.checked && $(\'answers_checkbox\').checked) {$(\'answers_checkbox\').checked = false}"', array(0, 1));
 //$form -> addElement('advcheckbox', 'redirect',          null, null, null, array(0, 1));
 
-$possible_actions = array( 0 => _DONOTSHOWTESTAFTERSUBMITTING,
+$possible_actions = array( 0 => _SHOWATHANKYOUMESSAGE,
        1 => _SHOWONLYTEST,
        2 => _SHOWGIVENANSWERS,
        3 => _SHOWSCORE,
-       4 => _SHOWRIGHTANSWERS,
-       5 => _SHOWANSWERSIFSTUDENTPASSED
+       4 => _SHOWRIGHTANSWERSNEW,
+       5 => _SHOWANSWERSIFSTUDENTPASSEDNEW
       );
 $form -> addElement('select', 'action_on_submit', _SUBMITACTION, $possible_actions);
 

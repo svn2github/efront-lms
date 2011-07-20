@@ -486,6 +486,28 @@ class module_fuze_meetings extends EfrontModule {
   return $template;
  }
 
+ public function onDeleteUser($login) {
+  $res = eF_getTableData("`users`","`id`","`login` = ('{$login}')");
+  if ($res && is_array($res) && count($res)) {
+   $user_id = $res[0]['id'];
+   // We're deleting the user off the fuze DB tables.
+   $tablename = "`_mod_fm_meeting_attendee`";
+   $where = "`sys_id` = ('{$user_id}')";
+   eF_deleteTableData($tablename, $where);
+   // Get the user's fuze realm id
+   $from = "`_mod_fm_user`";
+   $what = "`id`";
+   $where = "`sys_id` = ('{$user_id}')";
+   if ($res = eF_getTableData($from, $what, $where)) {
+    $user_fuze_id = $res[0]['id'];
+    // Delete all meetings for this user id 
+    eF_deleteTableData("`_mod_fm_meeting`", "`user_id` = ('{$user_fuze_id}')");
+    // Finally, we delete the user entry 
+    eF_deleteTableData("`_mod_fm_user`", "`id` = ('{$user_fuze_id}')");
+   }
+  }
+ }
+
  ///////////////////////////////////////////////////////////////////////////
  // ADMIN PROCEDURES BELOW
  ///////////////////////////////////////////////////////////////////////////

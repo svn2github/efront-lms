@@ -848,6 +848,13 @@ if (isset($search_message)) {
  $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
 }
 if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
+ $result = eF_getTableData("modules","*","active=1");
+ foreach ($result as $module) {
+     if (is_file(G_MODULESPATH.$module['position']."/".$module['className'].".class.php")) {
+      require_once G_MODULESPATH.$module['position']."/".$module['className'].".class.php";
+      call_user_func(array($module['name'], 'onIndexPageLoad'));
+     }
+ }
  //Main scripts, such as prototype
  $mainScripts = getMainScripts();
  $smarty -> assign("T_HEADER_MAIN_SCRIPTS", implode(",", $mainScripts));

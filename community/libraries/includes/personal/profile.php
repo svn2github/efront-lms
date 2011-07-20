@@ -69,7 +69,7 @@ if (!isset($_GET['add_user'])) {
 }
 
 $form = new HTML_QuickForm("user_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$editedUser -> user['login']."&op=profile".(isset($_GET['add_user']) ? '&add_user=1' : ''), "", null, true);
-$form -> addElement('static', '', '<img src = "view_file.php?file='.$avatar['path'].'" alt = "'.$editedUser -> user['login'].'" title = "'.$editedUser -> user['login'].'"/>');
+$form -> addElement('static', '', '<img src = "view_file.php?file='.urlencode($avatar['path']).'" alt = "'.$editedUser -> user['login'].'" title = "'.$editedUser -> user['login'].'"/>');
 if (!in_array('file_upload', $constrainAccess) && $constrainAccess != 'all') {
  $form -> addElement('file', 'file_upload', _IMAGEFILE, 'class = "inputText"');
  $form -> addElement("static", "file_upload_text", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);

@@ -131,6 +131,11 @@ try {
   if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
          $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
   }
+  foreach ($loadedModules as $module) {
+   if ($linkInfo = $module->getToolsLinkInfo()) {
+    $myCoursesOptions[] = array('text' => $linkInfo['title'], 'image' => eF_getRelativeModuleImagePath($linkInfo['image']), 'href' => $linkInfo['link'], );
+   }
+  }
   $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
   $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
  }

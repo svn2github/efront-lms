@@ -1753,6 +1753,19 @@ class EfrontContentTree extends EfrontTree
              $resultTests[$key] == 'failed' ? $value['failed'] = 1 : $value['failed'] = 0;
             }
         }
+         //Empty top level unit should be marked as complete if all sub units are marked as complete
+            foreach ($iterator as $key => $value) {
+             if (!$value['has_data'] && $value['ctg_type'] == 'theory') {
+    $childIterator = new EfrontVisitableFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($value), RecursiveIteratorIterator :: SELF_FIRST));
+    $seenChildNodes = true;
+    foreach ($childIterator as $key2 => $value2) {
+     if (!$value2['seen'] && $value2['has_data']) {
+      $seenChildNodes = false;
+     }
+    }
+    $seenChildNodes ? $value['seen'] = 1: $value['seen'] = 0;
+   }
+        }
     }
     /**
 

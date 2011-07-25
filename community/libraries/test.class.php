@@ -4115,7 +4115,7 @@ class MultipleManyQuestion extends Question implements iQuestion
      if (!$hideAnswerStatus) {
       $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
      } else { //means it is feeback temporary fix
-      $innerQuestionString .= "   (". (100 - $questionStats[$this -> question['id']]['percent_per_option'][$index]) . "%)";
+      $innerQuestionString .= "   (". formatScore(($questionStats[$this -> question['id']]['answers_per_option'][$index] / $questionStats[$this -> question['id']]['times_done'])) . "%)";
      }
                 } elseif ($questionStats !== false) {
      if (!$hideAnswerStatus) {
@@ -4134,7 +4134,7 @@ class MultipleManyQuestion extends Question implements iQuestion
                  if (!$hideAnswerStatus) {
       $innerQuestionString .= "   (". $questionStats[$this -> question['id']]['percent_per_option'][$index] . "%)";
      } else {
-      $innerQuestionString .= "   (". (100 - $questionStats[$this -> question['id']]['percent_per_option'][$index]) . "%)";
+      $innerQuestionString .= "   (". (formatScore($questionStats[$this -> question['id']]['answers_per_option'][$index] / $questionStats[$this -> question['id']]['times_done'])) . "%)";
      }
                 } elseif ($questionStats !== false) {
      if (!$hideAnswerStatus) {
@@ -6849,7 +6849,19 @@ class QuestionFactory
             case 'match' : $factory = new MatchQuestion($question); break;
             case 'true_false' : $factory = new TrueFalseQuestion($question); break;
             case 'drag_drop' : $factory = new DragDropQuestion($question); break;
-            default: throw new EfrontTestException(_INVALIDQUESTIONTYPE.': "'.$question['type'].'"', EfrontTestException :: INVALID_TYPE); break;
+            default: {
+             try {
+              $t = $question['type'];
+              if (class_exists($t)) {
+               $factory = new $t($question);
+              } else {
+               throw(new Exception (1));
+              }
+             } catch (Exception $e) {
+              throw new EfrontTestException(_INVALIDQUESTIONTYPE.': "'.$question['type'].'"', EfrontTestException :: INVALID_TYPE);
+             }
+             break;
+            }
         }
         return $factory;
     }

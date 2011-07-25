@@ -328,9 +328,7 @@ if ($_GET['op'] == 'reset_lesson') {
     if ($GLOBALS['configuration']['disable_news'] != 1) {
         $lessonSettings['news'] = array('text' => _ANNOUNCEMENTS, 'image' => "32x32/announcements.png", 'onClick' => 'activate(this, \'news\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['news']) && $currentLesson -> options['news'] ? null : 'inactiveImage');
     }
-    if ($GLOBALS['configuration']['disable_online_users'] != 1) {
-        $lessonSettings['online'] = array('text' => _USERSONLINE, 'image' => "32x32/users.png", 'onClick' => 'activate(this, \'online\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['online']) && $currentLesson -> options['online'] ? null : 'inactiveImage');
-    }
+
     if ($GLOBALS['configuration']['chat_enabled']) {
         $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['chat']) && $currentLesson -> options['chat'] ? null : 'inactiveImage');
     }

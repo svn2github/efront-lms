@@ -4,31 +4,29 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-
-/**
-
- * @todo for pending:
-
- * - Update completed tests list inside tests, so it's ajax and contains only pending
-
- * - Remove unserializations of completed tests where unnecessary
-
- */
 if (($GLOBALS['configuration']['disable_tests'] == 1 && $_GET['ctg'] == 'tests') || ($GLOBALS['configuration']['disable_feedback'] == 1 && $_GET['ctg'] == 'feedback')|| (isset($currentUser -> coreAccess['tests']) && $currentUser -> coreAccess['tests'] == 'hidden')) {
     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
 //Create shorthands for user access rights, to avoid long variable names
 !isset($currentUser -> coreAccess['tests']) || $currentUser -> coreAccess['tests'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
+
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'scriptaculous/dragdrop';
 $loadScripts[] = 'includes/tests';
+
 if ($configuration['math_content'] && $configuration['math_images']) {
  $loadScripts[] = 'ASCIIMath2Tex';
 } elseif ($configuration['math_content']) {
  $loadScripts[] = 'ASCIIMathML';
 }
+
 try {
+ $smarty -> assign("T_QUESTION_TYPES", Question::$questionTypes);
+ $smarty -> assign("T_QUESTION_TYPE_ICONS", Question::$questionTypesIcons);
+ $smarty -> assign("T_QUESTION_DIFFICULTIES", Question::$questionDifficulties);
+ $smarty -> assign("T_QUESTION_DIFFICULTY_ICONS", Question::$questionDifficultiesIcons);
+
  $_admin_ ? $skillgap_tests = 1 : $skillgap_tests = 0;
 
  //An array of legal ids for editing entries
@@ -464,7 +462,7 @@ try {
 
 
 
-if (true) {
+
 
 
 try {
@@ -1077,5 +1075,4 @@ try {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
-}
 }

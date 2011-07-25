@@ -59,5 +59,7 @@
              {eF_template_printBlock title = $smarty.const._SURVEY data = $smarty.capture.t_survey_code_3 image = '32x32/survey.png'}
           {/if}
         {/if}
+
+    {include file = "includes/closing.tpl"}
     </body>
  </html>

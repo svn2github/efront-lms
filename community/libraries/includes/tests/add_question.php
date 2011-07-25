@@ -410,7 +410,11 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
         }
         break;
 
-    default: break;
+    default:
+     if (class_exists($_GET['question_type'])) {
+      list($form, $question_values) = call_user_func(array($_GET['question_type'], 'getForm'), $form, $currentQuestion); //for module-based questions    		
+     }
+     break;
 }
 
 //Common fields and actions for all question types

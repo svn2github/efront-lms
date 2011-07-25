@@ -2276,7 +2276,6 @@ class EfrontStats
 
               // Single answer MultChoiceQ, True/false
               $selected_option = $question -> userAnswer;
-
               if ($selected_option !== false) {
                if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {
                 $questionStats[$id]['answers_per_option'][$selected_option] = 100;
@@ -2286,7 +2285,7 @@ class EfrontStats
               }
              } else {
               // Emtpy spaces
-              foreach ($question -> results as $selected_option => $result) {
+              foreach ($question -> userAnswer as $selected_option => $result) {
                if (!isset($questionStats[$id]['answers_per_option'][$selected_option])) {
                 $questionStats[$id]['answers_per_option'][$selected_option] = ($result)?100:0;
                } else {
@@ -2297,7 +2296,6 @@ class EfrontStats
              }
          }
      }
-
      foreach ($questionStats as $id => $question) {
          $questionStats[$id]['times_done'] = sizeof($question['score']);
          $questionStats[$id]['avg_score'] = array_sum($question['score']) / sizeof($question['score']);
@@ -2307,10 +2305,8 @@ class EfrontStats
          foreach ($questionStats[$id]['answers_per_option'] as $key => $optionAnswers) {
           $questionStats[$id]['percent_per_option'][$key] = round($optionAnswers / sizeof($question['score']),2);
          }
-
          $questionStats[$id]['correct_percent'] = round(array_sum($question['correct']) / sizeof($question['score']),2);
      }
-
 
      return $questionStats;
  }

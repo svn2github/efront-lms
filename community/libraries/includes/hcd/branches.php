@@ -166,7 +166,6 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
      // Filter all employee according to the filter
      isset($_GET['filter']) ? $employees = eF_filterData($employees,$_GET['filter']) : null;
      $jobs = $currentBranch -> getJobDescriptions();
-
      foreach ($employees as $employee) {
       if ($employee['job_description_ID'] == "") {
        $editedUser = EfrontUserFactory :: factory($employee['login']);

@@ -10,7 +10,6 @@
              <div class = "field">{$T_LOGIN_FORM.login.html}</div>
           {if $T_LOGIN_FORM.login.error}<div class = "error">{$T_LOGIN_FORM.login.error}</div>{/if}
          </div>
-
      </div>
   <div class = "formRow">
       <div class = "formLabel">
@@ -22,6 +21,17 @@
           {if $T_LOGIN_FORM.password.error}<div class = "error">{$T_LOGIN_FORM.password.error}</div>{/if}
          </div>
      </div>
+{*
+  <div class = "formRow">
+      <div class = "formLabel">
+                <div class = "header">{$T_LOGIN_FORM.remember.label}</div>
+         </div>
+      <div class = "formElement">
+             <div class = "field">{$T_LOGIN_FORM.remember.html}</div>
+          {if $T_LOGIN_FORM.remember.error}<div class = "error">{$T_LOGIN_FORM.remember.error}</div>{/if}
+         </div>
+     </div>
+*}
   <div class = "formRow">
          <div class = "formLabel">
                 <div class = "header">&nbsp;</div>

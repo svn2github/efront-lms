@@ -384,6 +384,7 @@
                  {/if}
                  {if $T_FORUM_POLLS}
                                      {*Polls list*}
+
                                      <table class = "forumTable">
                                          <tr>
                                              <td class = "topTitle firstColumn">{$smarty.const._POLLS}</td>
@@ -424,16 +425,19 @@
                                      <br/>
                  {/if}
                  {if $T_FORUM_TOPICS || (!$T_HAS_SUBFORUMS && !$T_FORUM_POLLS)} {*Do not display topics block, unless nothing else exists*}
-                                     <table class = "forumTable">
+<!--ajax:topicsTable-->
+
+                                    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "topicsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=forum&forum={$smarty.get.forum}&">
+
                                          <tr>
-                                             <td class = "topTitle firstColumn">{$smarty.const._TOPICS}</td>
-                                             <td class = "topTitle secondColumn">{$smarty.const._MESSAGES}</td>
-                                             <td class = "topTitle thirdColumn">{$smarty.const._LASTPOST}</td>
-                                             <td class = "topTitle toolsColumn">{$smarty.const._STATUS}</td>
-                                             <td class = "topTitle toolsColumn noSort">{if $_change_ && !$_student_}{$smarty.const._OPERATIONS}{/if}</td>
+                                             <td name = "title" class = "topTitle firstColumn">{$smarty.const._TOPICS}</td>
+                                             <td name = "messages" class = "topTitle secondColumn">{$smarty.const._MESSAGES}</td>
+                                             <td name = "last_post_timestamp" class = "topTitle thirdColumn">{$smarty.const._LASTPOST}</td>
+                                             <td name = "stetus" class = "centerAlign topTitle toolsColumn">{$smarty.const._STATUS}</td>
+                                             <td class = "topTitle centerAlign  toolsColumn noSort">{if $_change_ && !$_student_}{$smarty.const._OPERATIONS}{/if}</td>
                                          </tr>
       {assign var = "novisible" value = 0}
-                     {foreach name = "topics_list" item = "topic" key = "key2" from = $T_FORUM_TOPICS}
+                     {foreach name = "topics_list" item = "topic" key = "key2" from = $T_DATA_SOURCE}
                          {if $smarty.session.s_type == 'administrator' || $topic.status != '3' || $topic.users_LOGIN == $smarty.session.s_login}
                                          <tr class = "{cycle name = "topics" values = "oddRowColor,evenRowColor"}">
                                              <td>
@@ -479,20 +483,22 @@
 
        {/if}
                              </table>
+<!--/ajax:topicsTable-->
                  {/if}
 
              {else}
-                 <table class = "forumTable">
+<!--ajax:forumsTable-->
+                 <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "forumsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=forum&">
                      <tr>
-                         <td class = "topTitle firstColumn">{$smarty.const._FORUMS}</td>
-                         <td class = "topTitle secondColumn">{$smarty.const._ACTIVITY}</td>
-                         <td class = "topTitle thirdColumn">{$smarty.const._LASTPOST}</td>
-       <td class = "topTitle toolsColumn">{$smarty.const._STATUS}</td>
+                         <td name = "title" class = "topTitle firstColumn">{$smarty.const._FORUMS}</td>
+                         <td name = "activity" class = "topTitle secondColumn">{$smarty.const._ACTIVITY}</td>
+                         <td name = "last_post_timestamp" class = "topTitle thirdColumn">{$smarty.const._LASTPOST}</td>
+       <td name = "status" class = "centerAlign topTitle toolsColumn">{$smarty.const._STATUS}</td>
        {if $_change_ && $_admin_}
-        <td class = "topTitle toolsColumn noSort">{$smarty.const._OPERATIONS}</td>
+        <td class = "centerAlign topTitle toolsColumn noSort">{$smarty.const._OPERATIONS}</td>
        {/if}
                      </tr>
-                    {foreach name = "subforums_list" item = "subforum" key = "key2" from = $T_FORUMS}
+                    {foreach name = "subforums_list" item = "subforum" key = "key2" from = $T_DATA_SOURCE}
                         {if $subforum.parent_id == 0 && ($subforum.status != '3' || $smarty.session.s_type == 'administrator')}
                         <tr class = "{cycle name = $key values = "oddRowColor,evenRowColor"}">
                             <td>
@@ -535,6 +541,7 @@
                      <tr class = "oddRowColor defaultRowHeight"><td colspan = "5" class = "emptyCategory">{$smarty.const._NOSUBFORUMSFOUND}</td></tr>
                  {/foreach}
                  </table>
+<!--/ajax:forumsTable-->
              {/if}
          {/capture}
 

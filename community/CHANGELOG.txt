@@ -17,6 +17,7 @@
 - Fixed "content report" reloading page
 - Fixed issue in administrator tools about changing user's login
 - Option to deactivate block moving in control panel for specific user types (#809)
+- Added supervisor balance transferring to employees
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

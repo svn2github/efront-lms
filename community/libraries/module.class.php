@@ -1606,6 +1606,24 @@ abstract class EfrontModule
     }
     /**
 
+     * Code to execute when one or more users are added to a course
+
+     * 
+
+     * @param int $courseId The id of the course
+
+     * @param array $users The users added to the course
+
+     * @since 3.6.10
+
+     * @access public
+
+     */
+    public function onAddUsersToCourse($courseId, $users) {
+     return false;
+    }
+    /**
+
      * Code to execute when a course is reset for a user
 
      *

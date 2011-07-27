@@ -327,7 +327,9 @@ try {
                 $forums[$key]['polls'] = $stats['polls'];
                 $forums[$key]['messages'] = $stats['messages'];
                 $forums[$key]['last_post'] = $stats['last_post'];
+                $forums[$key]['last_post_timestamp'] = $stats['last_post']['timestamp'];
                 $forums[$key]['subforums'] = sizeof($forumTree[$key]);
+                $forums[$key]['activity'] = sizeof($forumTree[$key]).$stats['topics'].$stats['messages'];
             }
 
             unset($forums[0]); //Unset node with id 0, since this refers to the root node (which does not exist)
@@ -343,6 +345,10 @@ try {
       }
 
             //pr($forums);
+        $dataSource = $forums;
+     $tableName = 'forumsTable';
+     /**Handle sorted table's sorting and filtering*/
+     include("sorted_table.php");
             $smarty -> assign("T_FORUMS", $forums);
 
             isset($_GET['forum']) && eF_checkParameter($_GET['forum'], 'id') ? $parent_forum = $_GET['forum'] : $parent_forum = 0;
@@ -358,6 +364,7 @@ try {
                     arsort($result['timestamp']);
                     $key = key($result['timestamp']);
                     $topic['last_post'] = array('id' => $result['id'][$key], 'users_LOGIN' => $result['users_LOGIN'][$key], 'timestamp' => $result['timestamp'][$key]);
+                    $topic['last_post_timestamp'] = $result['timestamp'][$key];
                     $topic['first_message'] = strip_tags($result['body'][0]);
                 }
                 $last_posts[] = $topic['last_post']['timestamp']; //This array will be used for sorting according to last post
@@ -368,7 +375,11 @@ try {
                 $result = eF_getTableDataFlat("f_users_to_polls", "count(*)", "vote != 0 and f_poll_ID=".$poll['id']);
                 $poll['votes'] = $result['count(*)'][0];
             }
-            $smarty -> assign("T_FORUM_TOPICS", $topics);
+
+            $dataSource = $topics;
+      $tableName = 'topicsTable';
+            include("sorted_table.php");
+      $smarty -> assign("T_FORUM_TOPICS", $topics);
             $smarty -> assign("T_FORUM_POLLS", $polls);
 
             if ((!$currentUser -> coreAccess['forum'] || $currentUser -> coreAccess['forum'] == 'change') && ($currentUser -> user['user_type'] != 'student' || (isset($forum_config) && $forum_config['students_add_forums'])) && (!isset($_GET['forum']) || $forums[$_GET['forum']]['status'] != 2)) {

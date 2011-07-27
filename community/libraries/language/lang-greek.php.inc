@@ -4115,4 +4115,6 @@ define("_SHOWATHANKYOUMESSAGE","Εμφάνιση ευχαριστήριου μη
 define("_SHOWGIVENANSWERSNEW","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων");
 define("_SHOWRIGHTANSWERSNEW","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας + σωστών απαντήσεων");
 define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας + σωστών απαντήσεων μόνο αν ο μαθητής πέρασε την αξιολόγηση");
+define("_ADDBALANCE", "Προσθήκη υπολοίπου");
+define("_CURRENTBALANCEINYOURACCOUNT", "Τρέχον υπόλοιπο στο λογαριασμό σας");
 ?>

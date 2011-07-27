@@ -4115,4 +4115,6 @@ define("_SHOWATHANKYOUMESSAGE","Show a thank-you message");
 define("_SHOWGIVENANSWERSNEW","Show test + given answers");
 define("_SHOWRIGHTANSWERSNEW","Show test + given answers + score + correct answers");
 define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Show test + given answers + score + corrent answers only if student passed the test");
+define("_ADDBALANCE", "Add balance");
+define("_CURRENTBALANCEINYOURACCOUNT", "Current balance in your account");
 ?>

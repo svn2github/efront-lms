@@ -1378,6 +1378,10 @@ class EfrontCourse
     }
    }
   }
+  $modules = eF_loadAllModules();
+  foreach ($modules as $module) {
+   $module -> onAddUsersToCourse($this -> course['id'], $eventArray, $newLessonUsers);
+  }
   $this -> users = false; //Reset users cache
  }
  /**

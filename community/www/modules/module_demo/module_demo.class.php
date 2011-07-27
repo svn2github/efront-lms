@@ -851,6 +851,16 @@ class module_demo extends EfrontModule {
      $unit['data'] = 'This unit data has changed from the Demo module<br>'.$unit['data'];
      return true;
     }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#onAddUsersToCourse($courseId, $users)
+
+     */
+    public function onAddUsersToCourse($courseId, $users, $lessonAssignments) {
+     return true;
+    }
     private function fooBar() {
      //Do nothing!
      return true;

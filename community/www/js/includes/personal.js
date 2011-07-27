@@ -1,3 +1,18 @@
+function addBalance(el, balance) {
+	var parameters = {method:'get', ajax:1, balance:balance};
+	ajaxRequest(el, location.toString(), parameters, onAddBalance);	
+}
+function onAddBalance(el, response) {
+	response = response.evalJSON(true);
+	if (response.status) {
+		$('user_balance').update(response.user_balance);
+		if (response.supervisor_balance) {
+			$('supervisor_balance').update(response.supervisor_balance);
+		}
+	} else {
+		alert('Some error occured, please try again');
+	}
+}
 function updateBranchJobs(el) {
 	var branch = el.options[el.options.selectedIndex].value;
 	var parameters = {method:'get', ajax:1, jobs_for_branch:branch};

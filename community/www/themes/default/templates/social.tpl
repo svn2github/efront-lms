@@ -364,12 +364,13 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
                    </td>
                    {/if}
 
-        {if isset($T_CURRENT_CHATROOM)}
+<!-- {if isset($T_CURRENT_CHATROOM)}
                    <td valign="top">
                     <a class = "inviteLink" href = "{$smarty.server.PHP_SELF}?ctg=messages&add=1&chat_invite={$T_CURRENT_CHATROOM}&recipient={$T_PROFILE_TO_SHOW.login}" >
                      <img height="14" src= "images/16x16/chat.png" alt = "{$smarty.const._INVITETOCHATINCURRENTROOM}" title = "{$smarty.const._INVITETOCHATINCURRENTROOM}" border="0"/></a>
                    </td>
                    {/if}
+-->
                   </tr>
                   <tr>
                    <td colspan="2">{$T_PROFILE_TO_SHOW.short_description}</td>

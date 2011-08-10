@@ -186,7 +186,7 @@
     {*********************************}
     {* NEXT MENU : CHAT TAB *}
     {*********************************}
-    {if $T_CHATENABLED == 1}
+<!-- {if $T_CHATENABLED == 1}
         {if $T_BROWSER == 'IE6' || $T_BROWSER == 'IE7'}
             {math assign='T_SB_WIDTH_MINUS_5' equation="x-1" x=$T_SIDEBARWIDTH}
         {else}
@@ -215,7 +215,7 @@
                                             <a href = "javascript:void(0);" onclick= "ajaxGetRoomUsers(this,event)">
                                                 <img id = "room_users_image" src = "images/16x16/users.png" alt = "{$smarty.const._SHOWUSERSINROOM}" title = "{$smarty.const._SHOWUSERSINROOM}" border="0" style = "vertical-align:middle"/></a>
                                             {math assign='T_SB_WIDTH_MINUS_32' equation="x-32" x=$T_SIDEBARWIDTH}
-                                            <div id = 'room_users' onclick = "eF_js_showHideDiv(this, 'room_users', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:{$T_SB_WIDTH_MINUS_32}px;position:absolute;left:0px;top:0px;display:none"></div><!-width:143px;-->
+                                            <div id = 'room_users' onclick = "eF_js_showHideDiv(this, 'room_users', event)" class = "popUpInfoDiv" style = "padding:1em 1em 1em 1em;width:{$T_SB_WIDTH_MINUS_32}px;position:absolute;left:0px;top:0px;display:none"></div>
                                         </td>
                                         <td {if $T_ONLY_VIEW_CHAT == 1 || $T_INVITE_DISABLED == 1}style="display:none"{/if}>
                                          <a href = "javascript:void(0)" target = "POPUP_FRAME" onclick = "this.href = '{$smarty.session.s_type}.php?ctg=messages&add=1&popup=1&chat_invite='+$('current_chatroom_id').value;eF_js_showDivPopup('{$smarty.const._INVITEUSERS}', 3)">
@@ -274,6 +274,7 @@
         </div>
         {math assign='T_MENUCOUNT' equation="x+1" x=$T_MENUCOUNT}
     {/if}
+-->
     {*********************************}
     {* NEXT MENU : ONLINE USERS MENU *}
     {*********************************}

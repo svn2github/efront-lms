@@ -341,7 +341,7 @@ class EfrontScorm
                 $ref = array_search($value['IDENTIFIERREF'], $resources);
                 if ($ref !== false && !is_null($ref)) {
                     $data = file_get_contents($scormPath."/".$tagArray[$ref]['attributes']['HREF']);
-                    $primitive_hrefs[$ref] = $tagArray[$ref]['attributes']['HREF'];
+                    $primitive_hrefs[$ref] = str_replace("\\", "/", $tagArray[$ref]['attributes']['HREF']);
                     $path_part[$ref] = dirname($primitive_hrefs[$ref]);
                     foreach($tagArray[$ref]['children'] as $value2) {
                         if ($tagArray[$value2]['tag'] == 'DEPENDENCY') {

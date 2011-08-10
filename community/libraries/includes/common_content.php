@@ -458,7 +458,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                 include("tests/show_unsolved_test.php");
             }
    if (isset($_GET['print'])) {
-    $currentUnit['data'] = preg_replace("#<script.*?>.*?</script>#", "", $currentUnit['data']);
+    $currentUnit['data'] = preg_replace("#<script.*?>.*?</script>#", "&lt;script removed&gt;", $currentUnit['data']);
     $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li>');
    }
    //in case unit is simply an iframe,do not load the print it button

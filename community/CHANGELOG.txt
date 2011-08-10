@@ -18,6 +18,9 @@
 - Fixed issue in administrator tools about changing user's login
 - Option to deactivate block moving in control panel for specific user types (#809)
 - Added supervisor balance transferring to employees
+- Fixed issue in participation reports in course type
+- Updated SCORM import to handle backslashes in imsmanifest hrefs
+- Fixed recursion of "course not completed" and "lesson not completed" events
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

@@ -970,7 +970,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      $header = array ('From' => $GLOBALS['configuration']['system_email'],
                          'To' => $recipient['email'],
                          'Subject' => eF_formulateTemplateMessage($this -> notification['subject'], $template_formulations),
-                         'Content-Transfer-Encoding' => '7bit');
+                         'Content-Transfer-Encoding' => '7bit',
+          'Date' => date("r"));
      if ($this -> notification['html_message'] == 1) {
       $header['Content-type'] = 'text/html;charset="UTF-8"'; // if content-type is text/html, the message cannot be received by mail clients for Registration content
      } else {

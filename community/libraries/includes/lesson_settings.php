@@ -329,13 +329,13 @@ if ($_GET['op'] == 'reset_lesson') {
         $lessonSettings['news'] = array('text' => _ANNOUNCEMENTS, 'image' => "32x32/announcements.png", 'onClick' => 'activate(this, \'news\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['news']) && $currentLesson -> options['news'] ? null : 'inactiveImage');
     }
 
-    if ($GLOBALS['configuration']['chat_enabled']) {
-        $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['chat']) && $currentLesson -> options['chat'] ? null : 'inactiveImage');
+/*    if ($GLOBALS['configuration']['chat_enabled']) {
+
+        $lessonSettings['chat']            = array('text' => _CHAT,              	'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')',            'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['chat']) && $currentLesson -> options['chat'] ? null : 'inactiveImage');
+
     }
 
-
-
-
+*/
 
 
 
@@ -425,9 +425,13 @@ if ($_GET['op'] == 'reset_lesson') {
         if (isset($_GET['ajax']) && isset($_GET['activate']) && in_array($_GET['activate'], array_keys($lessonSettings))) {
             try {
                 $currentLesson -> options[$_GET['activate']] = 1;
-                if ($_GET['activate'] == 'chat') {
+/*              if ($_GET['activate'] == 'chat') {
+
                     $currentLesson -> enableChatroom();
+
                 }
+
+*/
                 $currentLesson -> persist();
                 //echo "Option activated";
             } catch (Exception $e) {
@@ -438,9 +442,13 @@ if ($_GET['op'] == 'reset_lesson') {
         } elseif (isset($_GET['ajax']) && isset($_GET['deactivate']) && in_array($_GET['deactivate'], array_keys($lessonSettings))) {
             try {
                 $currentLesson -> options[$_GET['deactivate']] = 0;
-                if ($_GET['deactivate'] == 'chat') {
+/*              if ($_GET['deactivate'] == 'chat') {
+
                     $currentLesson -> disableChatroom();
+
                 }
+
+*/
                 $currentLesson -> persist();
                 //echo "Option deactivated";
             } catch (Exception $e) {

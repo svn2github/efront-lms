@@ -20,7 +20,7 @@ $smarty -> assign("T_TABLE_OPTIONS", $options);
 
     try {
         $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
-        $maxUploads = 100;
+        $maxUploads = 5;
 
         $form = new HTML_QuickForm("upload_ims_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=ims&ims_import=1', "", null, true);
         $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter

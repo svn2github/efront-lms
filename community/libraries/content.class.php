@@ -896,7 +896,7 @@ class EfrontContentTree extends EfrontTree
         $node = 0;
         $count = 0;
         $nodes = array(); //$count is used to prevent infinite loops
-        while (sizeof($previousNodes) > 0 && isset($previousNodes[$node]) && $count++ < 1000) { //Order the nodes array according to previous_content_ID information. if $previousNodes[$node] is not set, it means that there are illegal previous content id entries in the array (for example, a unit reports as previous a non-existent unit). In this case, all the remaining units in the $previousNodes array are rejected
+        while (sizeof($previousNodes) > 0 && isset($previousNodes[$node]) && $count++ < 10000) { //Order the nodes array according to previous_content_ID information. if $previousNodes[$node] is not set, it means that there are illegal previous content id entries in the array (for example, a unit reports as previous a non-existent unit). In this case, all the remaining units in the $previousNodes array are rejected
             $nodes[$previousNodes[$node]['id']] = $previousNodes[$node]; //Assign the previous node to be the array key
             $newNode = $previousNodes[$node]['id'];
             unset($previousNodes[$node]);

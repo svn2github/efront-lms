@@ -70,6 +70,7 @@ class EfrontConfiguration
      'insert_group_key' => '1', // 0 means 'no', 1 means 'yes'
         'lesson_enroll' => '1',
   'default_type' => 'student',
+     'pm_space' => '',
         //System settings - 3rd party tools
         'license_server' => 'http://keys.efrontlearning.net/list.php',
         'api' => '0',
@@ -122,7 +123,7 @@ class EfrontConfiguration
         'smtp_pass' => '',
         'smtp_port' => '25',
         'smtp_auth' => '0',
-        'smtp_timeout' => '3',
+        'smtp_timeout' => '',
         //Locale
         'decimal_point' => '.',
         'thousands_sep' => ',',

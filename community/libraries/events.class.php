@@ -861,6 +861,9 @@ class EfrontEvent
          $event_notification['event_type'] = (-1) * $event_notification['event_type'];
          // in that case delete the corresponding record in the table (if such exists)
          eF_deleteTableData("notifications", "id_type_entity= '".$event_notification['id_type_entity'] . "' AND recipient = '". $this -> event['users_LOGIN'] ."'");
+         if ($event_notification['event_type'] == EfrontEvent::COURSE_COMPLETION || $event_notification['event_type'] == EfrontEvent::LESSON_COMPLETION) { //for these 2 notifications, we don't want them to be re-scheduled
+          return true;
+         }
         }
         if ($delete_negative) {
          eF_deleteTableData("notifications", "id_type_entity like '%".$negativeTypeEntity."' AND recipient = '". $this -> event['users_LOGIN'] ."'");

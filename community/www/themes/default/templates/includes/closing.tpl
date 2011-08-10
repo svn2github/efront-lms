@@ -53,7 +53,7 @@ $$('div.block').ancestors().each(function (s) {
     </td></tr>
     <tr><td colspan = "2" id = "popup_data" style = ""></td></tr>
     <tr><td colspan = "2" id = "frame_data" style = "display:none;">
-   <iframe name = "POPUP_FRAME" id = "popup_frame" src = "about:blank" >Sorry, but your browser needs to support iframes to see this</iframe>
+   <iframe name = "POPUP_FRAME" id = "popup_frame" src = "javascript:''" >Sorry, but your browser needs to support iframes to see this</iframe>
     </td></tr>
 </table>
 <div id = "error_details" style = "display:none">{eF_template_printBlock title=$smarty.const._ERRORDETAILS data="<pre>`$T_EXCEPTION_TRACE`</pre>" image='32x32/error_delete.png'}</div>

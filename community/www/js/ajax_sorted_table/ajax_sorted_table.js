@@ -205,7 +205,7 @@
 
     		if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
     			//url = url + '&filter='+currentFilter[tableIndex]+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
-    			url = url + '&filter='+encodeURI(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
+    		 url = url + '&filter='+encodeURIComponent(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])? encodeURIComponent(currentBranchFilter[tableIndex]):'')+'||||'+((currentJobFilter[tableIndex])?encodeURIComponent(currentJobFilter[tableIndex]):'');
     		}
 
     		var loadingDiv = $('loading_'+sortedTables[tableIndex].id);

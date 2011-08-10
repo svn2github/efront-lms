@@ -4115,6 +4115,11 @@ define("_SHOWATHANKYOUMESSAGE","Εμφάνιση ευχαριστήριου μη
 define("_SHOWGIVENANSWERSNEW","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων");
 define("_SHOWRIGHTANSWERSNEW","Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας + σωστών απαντήσεων");
 define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Εμφάνιση αξιολόγησης + δοθέντων απαντήσεων + βαθμολογίας + σωστών απαντήσεων μόνο αν ο μαθητής πέρασε την αξιολόγηση");
+define("_MAXIMUMPMUSAGESPACE","Όριο χρήσης στα προσωπικά μηνύματα");
+define("_MAXIMUMPMUSAGESPACEINFO","Ορίστε το μέγιστο επιτρετό όριο σε MB");
+define("_YOUHAVETODELETEFILESFROMYOURSPACE", "Πρέπει να σβήσετε μερικά μεγάλα μηνύματα (με σννημένα αρχεία) από το χώρο σας.");
 define("_ADDBALANCE", "Προσθήκη υπολοίπου");
 define("_CURRENTBALANCEINYOURACCOUNT", "Τρέχον υπόλοιπο στο λογαριασμό σας");
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA", "Το μήνυμα περιείχε συννημένο αρχείο το οποίο απομακρύνθηκε επειδή έχετε υπερβεί το μέγιστο επιτρεπτό όριο στο χώρο σας. Παρακαλώ σβήστε κάποια μηνύματα με συννημένα αρχεία και επικοινωνήστε με τον αποστολέα του μηνύματος");
+define("_CONNECTEDUSERS", "Συνδεδεμένοι χρήστες");
 ?>

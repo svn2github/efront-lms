@@ -134,10 +134,13 @@ class module_wiki extends EfrontModule {
   $FarmConfig = "<?php if (!defined('PmWiki')) exit();\r\n \$EnableLocalConfig = 0;\r\n\$FarmPubDirUrl ='".G_SERVERNAME."modules/module_wiki/pub/';";
   file_put_contents(G_ROOTPATH.'www/modules/module_wiki/local/farmconfig.php', $FarmConfig);
 
-  $result = eF_getTableDataFlat("lessons","id");
+  $result = eF_getTableDataFlat("lessons","id, share_folder");
   $lesson_ids = $result['id'];
   $config = '<?php include(\''.$this -> moduleBaseDir.'pmwiki.php\');';
   foreach ($lesson_ids as $value) {
+   if ($result['share_folder'][$key]) {
+    $value = $result['share_folder'][$key];
+   }
    if (!file_exists(G_LESSONSPATH.$value.'/wiki/')) {
     EfrontDirectory :: createDirectory(G_LESSONSPATH.$value.'/wiki/');
    }

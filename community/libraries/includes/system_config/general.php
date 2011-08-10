@@ -123,7 +123,8 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
          'To' => $user_mail[0]['email'],
          'Subject' => 'Test email',
          'Content-type' => 'text/plain;charset="UTF-8"', // if content-type is text/html, the message cannot be received by mail clients for Registration content
-         'Content-Transfer-Encoding' => '7bit');
+         'Content-Transfer-Encoding' => '7bit',
+             'Date' => date("r"));
    $smtp = Mail::factory('smtp', array('auth' => $values['smtp_auth'] ? true : false,
              'host' => $values['smtp_host'],
              'password' => $values['smtp_pass'],

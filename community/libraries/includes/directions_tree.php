@@ -73,15 +73,16 @@ try {
           unset($courses[$key]);
       }
   }
+  if ($_GET['ajax']) {
+   $options['collapse'] = false;
+   $options['search'] = false;
+   $options['tree_tools'] = false;
 
-  $options['collapse'] = false;
-  $options['search'] = false;
-  $options['tree_tools'] = false;
-
-  $treeString = $directionsTree -> toHTML(false, $lessons, $courses, false, $options);
-  $smarty -> assign("T_DISPLAYCODE", $treeString);
-  $smarty -> display('display_code.tpl');
-  exit;
+   $treeString = $directionsTree -> toHTML(false, $lessons, $courses, false, $options);
+   $smarty -> assign("T_DISPLAYCODE", $treeString);
+   $smarty -> display('display_code.tpl');
+   exit;
+  }
  }
 
  $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $lessons, $courses, false, $options));

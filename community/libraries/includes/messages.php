@@ -48,6 +48,12 @@ try {
     $legalFolderValues = array_keys($folders);
  $smarty -> assign("T_TOTAL_MESSAGES", $totalMessages);
  $smarty -> assign("T_TOTAL_SIZE", $totalSize);
+ if ($totalSize > $GLOBALS['configuration']['pm_space']*1024 && $GLOBALS['configuration']['pm_space'] != '') {
+  $message .= _YOUHAVETODELETEFILESFROMYOURSPACE.'<br />';
+        $message_type = 'failure';
+        $_change_ = 0;
+        $smarty -> assign("_change_", $_change_);
+ }
 
 //---------------------------------------End of Folders-------------------------------------------
 
@@ -113,7 +119,8 @@ try {
         exit;
     } elseif (isset($_GET['add'])) {
   if (!$_change_ || ($GLOBALS['configuration']['disable_messages_student'] == 1 && $_SESSION['s_type'] == "student")) {
-   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=messages&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
+   $message = _UNAUTHORIZEDACCESS;
+   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=messages&message=".urlencode($message)."&message_type=failure");
    exit;
   }
 
@@ -235,17 +242,31 @@ try {
         $form -> addElement('textarea', 'body', _BODY, 'class = "simpleEditor" style = "width:100%;height:200px"');
         $form -> addElement('submit', 'submit_send_message', _SENDMESSAGE, 'class = "flatButton"');
         $form -> addElement('submit', 'submit_preview_message', _PREVIEWMESSAGE, 'class = "flatButton"');
-        if (isset($_GET['chat_invite']) && (eF_checkParameter($_GET['chat_invite'], id) || $_GET['chat_invite'] == 0) ) {
+/*        if (isset($_GET['chat_invite']) && (eF_checkParameter($_GET['chat_invite'], id) || $_GET['chat_invite'] == 0) ) {
+
             $subject_str = _CHATINVITATION;
+
             if ($_GET['chat_invite'] == 0) {
+
                 $room_name = _EFRONTMAIN;
+
             } else {
+
                 $result = eF_getTableData("chatrooms", "name", "id = '".$_GET['chat_invite']."'");
+
                 $room_name = $result[0]['name'];
+
             }
+
+
+
             $body_str = _THEUSER." <i>".$_SESSION["s_login"]."</i> "._INVITESYOUTOJOINTHE." <b>" . $room_name . "</b>";
+
             $form -> setDefaults(array('subject' => $subject_str, 'body' => $body_str));
+
         }
+
+*/
         if (isset($_GET['recipient'])) {
          // Multiple recipients can be pre-defined by having their logins separated with ;
          $predefined_recipients_array = explode(";",$_GET['recipient']);

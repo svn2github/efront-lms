@@ -1,15 +1,16 @@
 {capture name = 'moduleLogoutUser'}
     <tr><td class = "moduleCell">
   {capture name = 't_logout_user_code'}
-    <table class = "sortedTable" style = "width:100%">
+<!--ajax:usersTable-->
+    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=logout_user&">
      <tr class = "topTitle">
-      <td class = "topTitle">{$smarty.const._USER}</td>
-      <td class = "topTitle">{$smarty.const._USERTYPE}</td>
-      <td class = "topTitle">{$smarty.const._ONLINETIME}</td>
-      <td class = "topTitle">{$smarty.const._ONLINESINCE}</td>
-      <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
+      <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
+      <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>
+      <td class = "topTitle" name = "total_seconds">{$smarty.const._ONLINETIME}</td>
+      <td class = "topTitle" name = "session_timestamp">{$smarty.const._ONLINESINCE}</td>
+      <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
      </tr>
-   {foreach name = "online_users_list" item = "item" key = "key" from = $T_ONLINE_USERS}
+   {foreach name = "online_users_list" item = "item" key = "key" from = $T_DATA_SOURCE}
      <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
       <td><a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.login}" class = "editLink">#filter:login-{$item.login}#</a></td>
       <td>{$T_ROLES[$item.user_type]}</td>
@@ -24,8 +25,9 @@
 
    {/foreach}
     </table>
+<!--/ajax:usersTable-->
   {/capture}
 
-  {eF_template_printBlock title = $smarty.const._LOGOUTUSER data = $smarty.capture.t_logout_user_code image = '32x32/logout.png'}
+  {eF_template_printBlock title = $smarty.const._CONNECTEDUSERS data = $smarty.capture.t_logout_user_code image = '32x32/logout.png'}
     </td></tr>
 {/capture}

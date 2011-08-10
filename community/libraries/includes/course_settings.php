@@ -429,10 +429,6 @@ if ($_GET['op'] == 'course_info') {
     //				$pdf->Output($fileNamePdf, 'D');
 
     $fileNamePdf = "certificate_".$_GET['user'].".pdf";
-    header("Content-type: application/pdf");
-    header("Content-disposition: attachment; filename=".$fileNamePdf);
-    echo $pdf->Output('', 'S');
-    exit(0);
    }
    else{
     $tmp = explode('-', $_GET['certificate_tpl']);
@@ -474,11 +470,14 @@ if ($_GET['op'] == 'course_info') {
     //				$pdf->Output($fileNamePdf, 'D');
 
     $fileNamePdf = "certificate_preview.pdf";
-    header("Content-type: application/pdf");
-    header("Content-disposition: attachment; filename=".$fileNamePdf);
-    echo $pdf->Output('', 'S');
-    exit(0);
+
    }
+   $output = $pdf->Output('', 'S');
+
+   file_put_contents($currentUser->getDirectory().$fileNamePdf, $output);
+   $file = new EfrontFile($currentUser->getDirectory().$fileNamePdf, $output);
+   $file -> sendFile();
+
   }
  }
 

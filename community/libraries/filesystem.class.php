@@ -721,12 +721,10 @@ class EfrontFile extends ArrayObject
     public function uncompress($addDB = true) {
         if ($this['extension'] == 'zip') {
             if ($GLOBALS['configuration']['zip_method'] == 'system') {
-                if ($GLOBALS['configuration']['file_black_list']) {
-                    $blackList = '-x "*.'.implode('" "*.', explode(",", $GLOBALS['configuration']['file_black_list'])).'"';
-                } else {
-                    $blackList = '';
-                }
-                if ($GLOBALS['configuration']['file_white_list']) {
+             $blackList = explode(",", $GLOBALS['configuration']['file_black_list']);
+             $blackList[] = 'php';
+             $blackList = '-x "*.'.implode('" "*.', $blackList).'"';
+             if ($GLOBALS['configuration']['file_white_list']) {
                     $whiteList = '"*.'.implode('" "*.', explode(",", $GLOBALS['configuration']['file_white_list'])).'"';
                 } else {
                     $whiteList = '';
@@ -3123,6 +3121,7 @@ class FileSystemTree extends EfrontTree
     } else {
       $blackList = array();
     }
+    $blackList[] = 'php';
         $extension = pathinfo($name, PATHINFO_EXTENSION);
         foreach ($blackList as $value) {
             if ($extension == trim(mb_strtolower($value))) {

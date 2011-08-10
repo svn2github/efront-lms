@@ -222,11 +222,12 @@
  {/if}
  {include file = "includes/messages.tpl"}
 {/if}
+<!--
 {if (isset($T_CTG) && $T_CTG == 'chat')}
  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=chat'>`$smarty.const._CHAT`</a>"}
  {include file = "includes/chat.tpl"}
 {/if}
-
+-->
 {if $T_CTG == 'personal'}
  {capture name = "modulePersonal"}
   {if $smarty.get.user != $smarty.session.s_login}
@@ -569,7 +570,7 @@ function changeItemColor(item, color) {
   {$smarty.capture.moduleForum}
   {$smarty.capture.moduleProgress}
   {$smarty.capture.moduleLandingPage}
-  {$smarty.capture.chatRoomOptions}
+<!-- {$smarty.capture.chatRoomOptions} -->
  </table>
 {/capture}
 {if !$T_LAYOUT_CLASS}{assign var = "layoutClass" value = "centerFull"}{else}{assign var = "layoutClass" value = $T_LAYOUT_CLASS}{/if}

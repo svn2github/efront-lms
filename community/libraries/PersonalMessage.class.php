@@ -262,8 +262,7 @@ class eF_PersonalMessage
             }
   }
         foreach ($this -> recipients as $recipient) {
-            if ($this -> checkUserQuota($recipient)) {
-                $fields_insert = array("users_LOGIN" => $recipient, //This message belongs to $recipient
+         $fields_insert = array("users_LOGIN" => $recipient, //This message belongs to $recipient
                                         "recipient" => implode(", ", $this -> recipients), //It was sent to $recipients
                                         "sender" => $this -> sender, //It was sent by $sender
                                         "timestamp" => $timestamp,
@@ -272,21 +271,23 @@ class eF_PersonalMessage
                                         "bcc" => $this -> bcc ? 1 : 0,
                                         "f_folders_ID"=> $this -> userData[$recipient]['folders']['Incoming'], //Deliver it to the incoming folder
                                         "viewed" => 0); //It is not viewed yet
-                if (!empty($this->attachments) && $this->attachments[0]) {
-                    $attachment = new EfrontFile($this -> sender_attachment_fileId);
-                    $recipient_dir = G_UPLOADPATH.$recipient.'/message_attachments/Incoming/'.$timestamp.'/';
-                    mkdir($recipient_dir,0755);
-                    $newFile = $attachment -> copy($recipient_dir, false, true);
-                    $fields_insert["attachments"] = $newFile['id'];
+         if (!empty($this->attachments) && $this->attachments[0]) {
+             if ($this -> checkUserQuota($recipient)) {
+              $attachment = new EfrontFile($this -> sender_attachment_fileId);
+                 $recipient_dir = G_UPLOADPATH.$recipient.'/message_attachments/Incoming/'.$timestamp.'/';
+                 mkdir($recipient_dir,0755);
+                 $newFile = $attachment -> copy($recipient_dir, false, true);
+                 $fields_insert["attachments"] = $newFile['id'];
+                } else {
+                 $fields_insert["body"] .='<br /><span class="failure">'._THEREWASATTACHMENTCUTBECAUSEOFQUOTA.'</span>';
                 }
-                $id = eF_insertTableData("f_personal_messages", $fields_insert);
-                EfrontSearch :: insertText($fields_insert['body'], $id, "f_personal_messages", "data");
-                EfrontSearch :: insertText($fields_insert['title'], $id, "f_personal_messages", "title");
-            } else {
-                $this -> errorMessage .= _YOURMESSAGETO.' '.$recipient.' '._COULDNOTBEDELIVERED.' '._BECAUSEHISMESSAGEBOXISFULL.'<br/>';
             }
+            $id = eF_insertTableData("f_personal_messages", $fields_insert);
+            EfrontSearch :: insertText($fields_insert['body'], $id, "f_personal_messages", "data");
+            EfrontSearch :: insertText($fields_insert['title'], $id, "f_personal_messages", "title");
         }
-        if ($this -> checkUserQuota($this -> sender)) {
+  //it should not come here if sender has reached maximum space limit
+        //if ($this -> checkUserQuota($this -> sender)) {
             $fields_insert = array("users_LOGIN" => $this -> sender, //Create the message for the sender, and put it in his Sent messages folder
                                     "recipient" => implode(", ", $this -> recipients),
                                     "sender" => $this -> sender,
@@ -303,9 +304,9 @@ class eF_PersonalMessage
             $id = eF_insertTableData("f_personal_messages", $fields_insert);
             EfrontSearch :: insertText($fields_insert['body'], $id, "f_personal_messages", "data");
             EfrontSearch :: insertText($fields_insert['title'], $id, "f_personal_messages", "title");
-        } else {
-            $this -> errorMessage .= _COULDNOTBECOPIEDTOYOURSENTBOX.' '._BECAUSEYOURMESSAGEBOXISFULL.'<br />';
-        }
+        //} else {
+        //    $this -> errorMessage .= _COULDNOTBECOPIEDTOYOURSENTBOX.' '._BECAUSEYOURMESSAGEBOXISFULL.'<br />';
+        //}
         if ($this -> errorMessage) {
             return false;
         } else {
@@ -428,7 +429,7 @@ class eF_PersonalMessage
 
     * This function returns true if a user doesn't exceed his messages
 
-    * quotas (which apply only to students)
+    * quotas
 
     *
 
@@ -443,20 +444,18 @@ class eF_PersonalMessage
     * @access private
 
     */
-    private function checkUserQuota($login, $check_attachment = false) {
+    private function checkUserQuota($login, $check_attachment = true) {
         if ($check_attachment) {
-            $total_files = 0;//@todo: was: eF_diveIntoDir(G_UPLOADPATH.$login.'/message_attachments/');
-            if ($this -> config['pm_attach_quota'] && $total_files[2] > $this -> config['pm_attach_quota'] * 1024) {
+            $totalSize = 0;
+            $folders = eF_PersonalMessage :: getUserFolders($login);
+            foreach ($folders as $folder) {
+          $totalSize += $folder['filesize'];
+      }
+            if ($GLOBALS['configuration']['pm_space'] != '' && $totalSize > $GLOBALS['configuration']['pm_space'] * 1024) {
                 return false;
             }
         }
-        if ($this -> userData[$login]['user_type'] != 'student') {
-            return true;
-        } elseif (!empty($this->config) && $this -> config['pm_quota'] && $this -> userData[$login]['messages'] > $this -> config['pm_quota']) {
-            return false;
-        } else {
-            return true;
-        }
+  return true;
     }
     /**
 
@@ -530,8 +529,8 @@ class eF_PersonalMessage
      $folders = $incoming + $sent + $drafts + $folders;
      //Get files statistics
      foreach ($folders as $key => $folder) {
-   foreach (new DirectoryIterator(G_UPLOADPATH.$user.'/message_attachments/'.$folder['pathname']) as $file) {
-       $folders[$key]['size'] = 0;
+   foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(G_UPLOADPATH.$user.'/message_attachments/'.$folder['pathname'])) as $file) {
+    $folders[$key]['size'] = 0;
        if ($file -> isFile()) {
            $folders[$key]['filesize'] += $file -> getSize();
        }

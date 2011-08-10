@@ -62,7 +62,7 @@
       {else}
        {assign var = 'buttonValue' value = $smarty.const._PROCEEDTOFEEDBACK}
       {/if}
-                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$buttonValue}&nbsp;&raquo;" onclick = "javascript:location=location+'&confirm=1'+($('test_password') ? '&test_password='+encodeURIComponent($('test_password').value) : '')+($('user_configurable') && parseInt($('user_configurable').value) ? '&user_configurable='+$('user_configurable').value : '')" />
+                        <input class = "flatButton" type = "button" name = "submit_sure" value = "{$buttonValue}&nbsp;&raquo;" onclick = "window.location=window.location.toString()+'&confirm=1'+($('test_password') ? '&test_password='+encodeURIComponent($('test_password').value) : '')+($('user_configurable') && parseInt($('user_configurable').value) ? '&user_configurable='+$('user_configurable').value : '')" />
                     {/if}
                     </td></tr>
                 </table>

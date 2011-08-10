@@ -2543,7 +2543,7 @@ abstract class EfrontLessonUser extends EfrontUser
    $course -> confirm($this);
   }
   $this -> courses = false; //Reset courses information
-  return $this -> getserUCourses();
+  return $this -> getUserCourses();
  }
  /**
 	 * Remove courses from user.
@@ -3103,9 +3103,7 @@ class EfrontStudent extends EfrontLessonUser
        "users_LOGIN" => $this -> user['login'],
        "lessons_ID" => $course -> course['id'],
        "lessons_name" => $course -> course['name'],
-       "replace" => true,
-       "create_negative" => false,
-       "delete_negative" => true);
+       "replace" => true);
    EfrontEvent::triggerEvent($event);
    // Assign the related course skills to the employee
    return true;

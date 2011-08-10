@@ -91,7 +91,7 @@
     {include file = "includes/languages.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'logout_user')}
- {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=logout_user">'|cat:$smarty.const._LOGOUTUSER|cat:'</a>'}
+ {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=logout_user">'|cat:$smarty.const._CONNECTEDUSERS|cat:'</a>'}
     {include file = "includes/logout_user.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'forum')}
@@ -115,10 +115,12 @@
  {/if}
  {include file = "includes/messages.tpl"}
 {/if}
+<!--
 {if (isset($T_CTG) && $T_CTG == 'chat')}
  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=chat'>`$smarty.const._CHAT`</a>"}
  {include file = "includes/chat.tpl"}
 {/if}
+-->
 {if isset($T_CTG) && $T_CTG == 'personal'}
  {capture name = "modulePersonal"}
   {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=users'>`$smarty.const._USERS`</a>"}
@@ -600,8 +602,8 @@
   {$smarty.capture.moduleMessagesPage}
   {$smarty.capture.moduleShowRoom}
   {$smarty.capture.moduleRoomsList}
-  {$smarty.capture.chatRoomOptions}
-  {$smarty.capture.modulePersonal}
+<!-- {$smarty.capture.chatRoomOptions} -->
+    {$smarty.capture.modulePersonal}
  </table>
 {/capture}
 {capture name = "left_code"}

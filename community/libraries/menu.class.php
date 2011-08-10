@@ -291,9 +291,7 @@ class EfrontMenu
 
         $systemMenu[2] = array("id" => "cms_a", "image" => "document_text", "link" => "administrator.php?ctg=cms", "title" => _CMS);
 
-        $systemMenu[3] = array("id" => "chat_a", "image" => "user1_message", "link" => $_SESSION['s_type'].".php?ctg=chat", "title" => _CHAT);
-
-
+        
 
         if (!$GLOBALS['currentUser'] -> coreAccess['statistics'] || $GLOBALS['currentUser'] -> coreAccess['statistics'] != 'hidden') {
 

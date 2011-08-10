@@ -591,33 +591,46 @@ class EfrontImportCsv extends EfrontImport
      $this -> log["success"][] = _LINE . " $line: " . _IMPORTEDUSER . " " . $newUser -> login;
      break;
     case "users_to_courses":
-     $courses_name = trim($data['course_name']);
-     $courses_ID = $this -> getCourseByName($courses_name);
-     unset($data['course_name']);
-     if ($courses_ID) {
-//debug();
-      foreach($courses_ID as $course_ID) {
-       $data['courses_ID'] = $course_ID;
-       $course = new EfrontCourse($course_ID);
-       $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
-       $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID'];
-       $data['completed'] ? $data['completed'] = 1 : $data['completed'] = 0;
-//pr($data);pr(date("Y/m/d", $data['from_timestamp']) ."-". date("Y/m/d", $data['to_timestamp']));
-       EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
-//exit;
-       $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
+     //Check if a user exists and whether it has the same case
+     $userFound = false;
+     if (!in_array($data['users_login'], $this->allUserLogins)) { //For case-insensitive matches
+      foreach ($this->allUserLogins as $login) {
+       if (mb_strtolower($data['users_login']) == mb_strtolower($login)) {
+        $data['users_login'] = $login;
+        $userFound = true;
+       }
       }
-     } else if ($courses_name != "") {
-      $course = EfrontCourse::createCourse(array("name" => $courses_name));
-      $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSE . " " . $courses_name;
-      $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
-      $courses_ID = $course -> course['id'];
-      $this -> courseNamesToIds[$courses_name] = array($courses_ID);
-      $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $courses_ID;
-      EfrontCourse::persistCourseUsers($data, $where, $courses_ID, $data['users_login']);
-      $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
      } else {
-      $this -> log["failure"][] = _LINE . " $line: " . _COULDNOTFINDCOURSE . " " . $courses_name;
+      $userFound = true;
+     }
+     if ($userFound) {
+      $courses_name = trim($data['course_name']);
+      $courses_ID = $this -> getCourseByName($courses_name);
+      unset($data['course_name']);
+      if ($courses_ID) {
+       foreach($courses_ID as $course_ID) {
+        $data['courses_ID'] = $course_ID;
+        $course = new EfrontCourse($course_ID);
+        $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
+        $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID'];
+        $data['completed'] ? $data['completed'] = 1 : $data['completed'] = 0;
+        EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
+        $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
+       }
+      } else if ($courses_name != "") {
+       $course = EfrontCourse::createCourse(array("name" => $courses_name));
+       $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSE . " " . $courses_name;
+       $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
+       $courses_ID = $course -> course['id'];
+       $this -> courseNamesToIds[$courses_name] = array($courses_ID);
+       $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $courses_ID;
+       EfrontCourse::persistCourseUsers($data, $where, $courses_ID, $data['users_login']);
+       $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
+      } else {
+       $this -> log["failure"][] = _LINE . " $line: " . _COULDNOTFINDCOURSE . " " . $courses_name;
+      }
+     } else {
+      $this -> log["failure"][] = _LINE . " $line: " . _USERDOESNOTEXIST. ": " . $data['users_login'];
      }
      break;
     case "users_to_groups":
@@ -711,6 +724,8 @@ class EfrontImportCsv extends EfrontImport
       }
       $this -> importDataMultiple($type, $data);
      } else {
+      $result = eF_getTableDataFlat("users", "login");
+      $this->allUserLogins = $result['login'];
       for ($line = $headerLine+1; $line < $this -> lines; ++$line) {
        $data = $this -> parseDataLine($line);
        $this -> importData($line+1, $type, $data);

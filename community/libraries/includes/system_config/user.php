@@ -25,6 +25,10 @@ $userMainForm -> addElement("select", "insert_group_key", _VIEWINSERTGROUPKEY, a
 $userMainForm -> addElement("select", "mapped_accounts", _MAPPEDACCOUNTS, array(_ENABLED, _DISABLEDFORSTUDENTS, _DISABLEDFORPROFESSORSANDSTUDENTS, _DISABLEDFORALL), 'class = "inputSelect"');
 $userMainForm -> addElement("text", "username_format", _USERNAMEFORMAT, 'class = "inputText"');
 $userMainForm -> addElement("static", "", _USERNAMEFORMATINFO);
+$userMainForm -> addElement("text", "pm_space", _MAXIMUMPMUSAGESPACE, 'size = "5"');
+$userMainForm -> addElement("static", "",_MAXIMUMPMUSAGESPACEINFO);
+$userMainForm -> addRule('pm_space', _INVALIDFIELDDATA, 'checkParameter', 'id');
+
 $userMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userMainForm -> freeze();

@@ -18,7 +18,8 @@
   {/foreach}
   <tr><td colspan = "2">&nbsp;</td></tr>
   <tr><td colspan = "2">
-   {$smarty.const._TOTAL}: {$T_TOTAL_MESSAGES} {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGE}{else}{$smarty.const._MESSAGES}{/if}, {$T_TOTAL_SIZE} {$smarty.const._KB}
+   {$smarty.const._TOTAL}: {$T_TOTAL_MESSAGES} {if $T_TOTAL_MESSAGES == 1}{$smarty.const._MESSAGE}{else}{$smarty.const._MESSAGES}{/if}, {if $T_TOTAL_SIZE > $T_CONFIGURATION.pm_space*1024 && $T_CONFIGURATION.pm_space != ''}<span class="failure">{$T_TOTAL_SIZE}</span>{else}{$T_TOTAL_SIZE}{/if} {$smarty.const._KB}<br />
+   {if $T_CONFIGURATION.pm_space != ''}{if $T_TOTAL_SIZE > $T_CONFIGURATION.pm_space*1024 && $T_CONFIGURATION.pm_space != ''}<span class="failure">{else}<span class="success">{/if}{$smarty.const._MAXIMUMPMUSAGESPACE} : {math equation="x*y" x=1024 y=$T_CONFIGURATION.pm_space} KB</span>{/if}
   </td></tr>
  </table>
 {/capture}

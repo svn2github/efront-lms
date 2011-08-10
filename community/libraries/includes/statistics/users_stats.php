@@ -165,14 +165,15 @@ if (isset($_GET['sel_user'])) {
    $userInfo['general'] = $infoUser -> getInformation();
    $userInfo['communication'] = EfrontStats :: getUserCommunicationInfo($infoUser);
 
-   if ($GLOBALS['configuration']['chat_enabled']) {
-    if (sizeof($userInfo['communication']['chat_messages'])) {
-     $last = current($userInfo['communication']['chat_messages']);
-     $userInfo['communication']['chat_last_message'] = formatTimestamp($last['timestamp'], 'time');
-    } else {
-     $userInfo['communication']['chat_last_message'] = "";
-    }
-   }
+/*			if ($GLOBALS['configuration']['chat_enabled']) {
+				if (sizeof($userInfo['communication']['chat_messages'])) {
+					$last = current($userInfo['communication']['chat_messages']);
+					$userInfo['communication']['chat_last_message'] = formatTimestamp($last['timestamp'], 'time');
+				} else {
+					$userInfo['communication']['chat_last_message'] = "";
+				}
+			}
+*/
    if (sizeof($userInfo['communication']['forum_messages'])) {
     $last = current($userInfo['communication']['forum_messages']);
     $userInfo['communication']['forum_last_message'] = formatTimestamp($last['timestamp'], 'time');
@@ -401,12 +402,13 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $workSheet -> write($row++, 2, sizeof($userInfo['communication']['personal_folders']), $fieldRightFormat);
  $workSheet -> write($row, 1, _TOTALSIZE, $fieldLeftFormat);
  $workSheet -> write($row++, 2, sizeof($userInfo['communication']['total_size'])._KB, $fieldRightFormat);
- if ($GLOBALS['configuration']['chat_enabled']) {
-  $workSheet -> write($row, 1, _CHATMESSAGES, $fieldLeftFormat);
-  $workSheet -> write($row++, 2, sizeof($userInfo['communication']['chat_messages']), $fieldRightFormat);
-  $workSheet -> write($row, 1, _CHATLASTMESSAGE, $fieldLeftFormat);
-  $workSheet -> write($row++, 2, $userInfo['communication']['chat_last_message'], $fieldRightFormat);
- }
+/*	if ($GLOBALS['configuration']['chat_enabled']) {
+		$workSheet -> write($row, 1, _CHATMESSAGES, $fieldLeftFormat);
+		$workSheet -> write($row++, 2, sizeof($userInfo['communication']['chat_messages']), $fieldRightFormat);
+		$workSheet -> write($row, 1, _CHATLASTMESSAGE, $fieldLeftFormat);
+		$workSheet -> write($row++, 2, $userInfo['communication']['chat_last_message'], $fieldRightFormat);
+	}
+*/
  if ($GLOBALS['configuration']['disable_comments'] != 1) {
   $workSheet -> write($row, 1, _COMMENTS, $fieldLeftFormat);
   $workSheet -> write($row++, 2, sizeof($userInfo['communication']['comments']), $fieldRightFormat);
@@ -710,8 +712,8 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
       array(_FILES, sizeof($userInfo['communication']['files'])),
       array(_FOLDERS, sizeof($userInfo['communication']['folders'])),
       array(_TOTALSIZE, $userInfo['communication']['total_size']._KB),
-      array(_CHATMESSAGES, sizeof($userInfo['communication']['chat_messages'])),
-      array(_CHATLASTMESSAGE, formatTimestamp($userInfo['communication']['last_chat']['timestamp'])),
+      //array(_CHATMESSAGES, sizeof($userInfo['communication']['chat_messages'])),
+      //array(_CHATLASTMESSAGE, formatTimestamp($userInfo['communication']['last_chat']['timestamp'])),
       array(_COMMENTS, sizeof($userInfo['communication']['comments'])));
  if ($GLOBALS['configuration']['disable_forum']) {
   unset($info[_FORUMPOSTS]);
@@ -721,10 +723,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
   unset($info[_PERSONALMESSAGES]);
   unset($info[_MESSAGESFOLDERS]);
  }
- if (@$GLOBALS['configuration']['chat_enabled']) {
-  unset($info[_CHATMESSAGES]);
-  unset($info[_CHATLASTMESSAGE]);
- }
+/*	if (@$GLOBALS['configuration']['chat_enabled']) {
+		unset($info[_CHATMESSAGES]);
+		unset($info[_CHATLASTMESSAGE]);
+	}
+*/
  if ($GLOBALS['configuration']['disable_messages']) {
   unset($info[_COMMENTS]);
  }

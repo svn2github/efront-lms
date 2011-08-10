@@ -306,6 +306,14 @@ class module_crossword extends EfrontModule {
       }
       $_SESSION['WORDLEN']=$wordlen;
       $smarty -> assign("T_CROSSWORD_LENGTH", $_SESSION['WORDLEN']);
+      //vd($words);	
+      //because of #1599		
+      foreach ($words as $key => $word) {
+       $words[$key]['question'] = str_replace(array("\r\n", "\n"), '<br/>', $word['question']);
+
+      }
+      //vd($words);					
+
       $smarty -> assign("T_CROSSWORD_ANSWERS", $words);
      }
 

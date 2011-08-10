@@ -1702,6 +1702,15 @@ class EfrontLesson
          "lessons_ID" => $this -> lesson['id'],
          "lessons_name" => $this -> lesson['name']);
     EfrontEvent::triggerEvent($event);
+    if (EfrontUser::isStudentRole($value['role'])) {
+     $event = array("type" => (-1) * EfrontEvent::LESSON_COMPLETION,
+          "users_LOGIN" => $value['login'],
+          "lessons_ID" => $this -> lesson['id'],
+          "lessons_name" => $this -> lesson['name'],
+        "replace" => true,
+        "create_negative" => false);
+     EfrontEvent::triggerEvent($event);
+    }
    }
   }
  }
@@ -2834,10 +2843,7 @@ class EfrontLesson
      }
      break;
     case 'events':
-     $events = $this -> getEvents();
-     if (!empty($events)) {
-      eF_deleteTableData("events", "id in (".implode(",", array_keys($events)).")");
-     }
+     eF_deleteTableData("events", "lessons_ID=".$this -> lesson['id']);
      break;
     case 'modules':
      $modules = eF_loadAllModules();
@@ -5938,7 +5944,7 @@ class EfrontLesson
    // only current lesson users
    $users = $this -> getUsers();
    $users_logins = array_keys($users); // don't mix with course events - with courses_ID = $this->lesson['id']
-   $related_events = eF_getTableData("events", "*", "type = '".EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC. "' AND entity_ID = '".$topic_ID."' AND lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."') AND (type < 50 OR type >74)", "timestamp desc");
+   $related_events = eF_getTableData("events", "*", "type = '".EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC. "' AND entity_ID = '".$topic_ID."' AND lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."') AND (type < 50 OR type >74)", "timestamp desc", "", $limit ? $limit*5 : null);
   } else {
    // only current lesson users
    $users = $this -> getUsers();
@@ -5947,7 +5953,7 @@ class EfrontLesson
    //    			$related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')", "timestamp desc LIMIT " . $limit);
    //
    //    		} else {
-   $related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc");
+   $related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc", "", $limit ? $limit*5 : null);
    //    		}
   }
   if (!isset($avatarSize) || $avatarSize <= 0) {
@@ -5965,16 +5971,17 @@ class EfrontLesson
      unset($filtered_related_events[$prev_event['key']]);
      $count--;
     }
-   }
-   $filtered_related_events[$key] = $event;
-   try {
-    $file = new EfrontFile($user['avatar']);
-    $filtered_related_events[$key]['avatar'] = $user['avatar'];
-    list($filtered_related_events[$key]['avatar_width'], $filtered_related_events[$key]['avatar_height']) = eF_getNormalizedDims($file['path'],$avatarSize, $avatarSize);
-   } catch (EfrontfileException $e) {
-    $filtered_related_events[$key]['avatar'] = G_SYSTEMAVATARSPATH."unknown_small.png";
-    $filtered_related_events[$key]['avatar_width'] = $avatarSize;
-    $filtered_related_events[$key]['avatar_height'] = $avatarSize;
+   } else {
+    $filtered_related_events[$key] = $event;
+    try {
+     $file = new EfrontFile($user['avatar']);
+     $filtered_related_events[$key]['avatar'] = $user['avatar'];
+     list($filtered_related_events[$key]['avatar_width'], $filtered_related_events[$key]['avatar_height']) = eF_getNormalizedDims($file['path'],$avatarSize, $avatarSize);
+    } catch (EfrontfileException $e) {
+     $filtered_related_events[$key]['avatar'] = G_SYSTEMAVATARSPATH."unknown_small.png";
+     $filtered_related_events[$key]['avatar_width'] = $avatarSize;
+     $filtered_related_events[$key]['avatar_height'] = $avatarSize;
+    }
    }
    $prev_event = array("key"=>$key, "event"=>$event);
    if ($limit && ++$count == $limit) {

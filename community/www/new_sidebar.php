@@ -137,11 +137,15 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
 
 	    }
 */
-     if ($GLOBALS['configuration']['chat_enabled']) {
-      if (!isset($GLOBALS['currentUser'] -> coreAccess['chat']) || $GLOBALS['currentUser'] -> coreAccess['chat'] != 'hidden') {
-          $systemMenu[3] = array("id" => "chat_a", "image" => "chat", "link" => $_SESSION['s_type'].".php?ctg=chat", "title" => _CHAT);
-      }
-  }
+/*	    if ($GLOBALS['configuration']['chat_enabled']) {
+
+		    if (!isset($GLOBALS['currentUser'] -> coreAccess['chat']) || $GLOBALS['currentUser'] -> coreAccess['chat'] != 'hidden') {
+
+		        $systemMenu[3] = array("id" => "chat_a", "image" => "chat", "link" => $_SESSION['s_type'].".php?ctg=chat", "title" => _CHAT);
+
+		    }
+		}
+*/
      if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {
          $systemMenu[4] = array("id" => "statistics_system_a", "image" => "reports", "link" => "administrator.php?ctg=statistics&option=system", "title" => _SYSTEMSTATISTICS);
      }
@@ -181,10 +185,15 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
          $newMenu -> insertMenuOptionAsRawHtml("<a href=\"javascript:void(0);\" onclick=\"top.mainframe.location='".$userType[0]['user_type'].".php?ctg=lessons';hideAllLessonSpecific();\">"._CHANGELESSON."</a>", $lessonMenuId);
      }
      //$newMenu -> insertMenuOption(array("id" => "change_lesson_a", "image" => "back_lessons", "link" => "professor.php?ctg=lessons", "title" => _CHANGELESSON, "target" => "mainframe"), $lessonMenuId);
-     if ($GLOBALS['configuration']['chat_enabled'] && $currentLesson ->options['chat'] == 1 && $currentUser -> coreAccess['chat'] != 'hidden') {
-         // Add the user to this chatroom - if somehow he is already in then the database will not allow a second copy
-         $currentLesson -> addChatroomUser($currentUser);
-     }
+/*	    if ($GLOBALS['configuration']['chat_enabled'] && $currentLesson ->options['chat'] == 1 && $currentUser -> coreAccess['chat'] != 'hidden') {
+
+	        // Add the user to this chatroom - if somehow he is already in then the database will not allow a second copy
+
+	        $currentLesson -> addChatroomUser($currentUser);
+
+	    }
+
+*/
      $smarty -> assign("T_ACTIVE_ID","lesson_main");
      $smarty -> assign("T_SPECIFIC_LESSON",1);
      // For the second hidden div
@@ -234,12 +243,19 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
          $smarty -> assign("T_ACTIVE_ID","control_panel");
      } else {
          // Remove users from previous lesson chat rooms - Any other previous lesson cleanup actions can take place here
-         if ($GLOBALS['configuration']['chat_enabled'] && (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden')) {
-             if (isset($_GET['last_lessons_id']) && $_GET['last_lessons_id'] > 0) {
-                $previousLesson = new EfrontLesson($_GET['last_lessons_id']);
-                $previousLesson -> removeChatroomUser($currentUser -> user ['login']);
-             }
-         }
+/*	        if ($GLOBALS['configuration']['chat_enabled'] && (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden')) {
+
+	            if (isset($_GET['last_lessons_id']) && $_GET['last_lessons_id'] > 0) {
+
+	               $previousLesson = new EfrontLesson($_GET['last_lessons_id']);
+
+	               $previousLesson -> removeChatroomUser($currentUser -> user ['login']);
+
+	            }
+
+	        }
+
+*/
          $newMenu -> insertMenuOption(array("id" => "lessons_a", "image" => "lessons", "link" => $_SESSION['s_type'].".php?ctg=lessons", "title" => _MYCOURSES), $lessonMenuId);
          // Get lessons menu modules
          $moduleMenus = eF_getModuleMenu($modules, "lessons");
@@ -404,33 +420,62 @@ if (isset($GLOBALS['currentTheme'] -> options['sidebar_interface']) && $GLOBALS[
  $smarty -> assign ("T_ACTIVE_MENU", $active_menu);
  // CHAT MENU
  $_SESSION['last_id'] = 0; // Each time the sidebar reloads you need to get the five last minuites
- if ($GLOBALS['configuration']['chat_enabled'] && (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden')) {
-     $rooms = eF_getTableData("chatrooms c LEFT OUTER JOIN users_to_chatrooms uc ON uc.chatrooms_ID = c.id", "c.id, c.name, count(uc.users_LOGIN) as users", "c.active=1 group by id");
-     $smarty -> assign("T_CHATROOMS", $rooms);
-     // Set here the default chat - general if no lesson is selected, or the lesson's chat room instead
-     if (isset($_GET['new_lesson_id']) && $_GET['new_lesson_id']) {
-         $smarty -> assign("T_CHATROOMS_ID", $currentLesson -> getChatroom());
-     } else {
-         $current_room = eF_getTableData("users_to_chatrooms uc JOIN chatrooms c ON chatrooms_ID = id", "chatrooms_ID, c.users_LOGIN", "uc.users_LOGIN = '".$currentUser -> user['login']."'");
-         if (empty($current_room)) {
-             $smarty -> assign("T_CHATROOMS_ID",0);
-         } else {
-             $smarty -> assign("T_CHATROOMS_ID",$current_room[0]['chatrooms_ID']);
-             if ($current_room[0]['users_LOGIN'] == $currentUser -> user['login']) {
-                 $smarty -> assign("T_CHATROOM_OWNED",1);
-             }
-         }
-     }
-     $smarty -> assign("T_CHATENABLED", 1);
-     if (isset($currentUser -> coreAccess['chat']) && $currentUser -> coreAccess['chat'] == 'view') {
-         $smarty -> assign("T_ONLY_VIEW_CHAT", 1);
-     }
-     if ($GLOBALS['configuration']['disable_messages'] == 1) {
-      $smarty -> assign ("T_INVITE_DISABLED", 1);
-     }
- } else {
-     $smarty -> assign("T_CHATENABLED", 0);
- }
+/*	if ($GLOBALS['configuration']['chat_enabled'] && (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden')) {
+
+	    $rooms  = eF_getTableData("chatrooms c LEFT OUTER JOIN users_to_chatrooms uc ON uc.chatrooms_ID = c.id", "c.id, c.name, count(uc.users_LOGIN) as users", "c.active=1 group by id");
+
+
+
+	    $smarty -> assign("T_CHATROOMS", $rooms);
+
+	    // Set here the default chat - general if no lesson is selected, or the lesson's chat room instead
+
+	    if (isset($_GET['new_lesson_id']) && $_GET['new_lesson_id']) {
+
+	        $smarty -> assign("T_CHATROOMS_ID", $currentLesson -> getChatroom());
+
+	    } else {
+
+	        $current_room = eF_getTableData("users_to_chatrooms uc JOIN chatrooms c ON chatrooms_ID = id", "chatrooms_ID, c.users_LOGIN", "uc.users_LOGIN = '".$currentUser -> user['login']."'");
+
+	        if (empty($current_room)) {
+
+	            $smarty -> assign("T_CHATROOMS_ID",0);
+
+	        } else {
+
+	            $smarty -> assign("T_CHATROOMS_ID",$current_room[0]['chatrooms_ID']);
+
+	            if ($current_room[0]['users_LOGIN'] == $currentUser -> user['login']) {
+
+	                $smarty -> assign("T_CHATROOM_OWNED",1);
+
+	            }
+
+	        }
+
+	    }
+
+	    $smarty -> assign("T_CHATENABLED", 1);
+
+	    if (isset($currentUser -> coreAccess['chat']) && $currentUser -> coreAccess['chat'] == 'view') {
+
+	        $smarty -> assign("T_ONLY_VIEW_CHAT", 1);
+
+	    }
+
+	    if ($GLOBALS['configuration']['disable_messages'] == 1) {
+	    	$smarty -> assign ("T_INVITE_DISABLED", 1);
+	    }
+
+
+	} else {
+
+	    $smarty -> assign("T_CHATENABLED", 0);
+
+	}
+
+*/
  //pr($newMenu);
  $smarty -> assign("T_MENU",$newMenu -> menu);
  // HACK to include the chat box... @todo: bring it here

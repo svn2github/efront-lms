@@ -1322,7 +1322,7 @@ function eF_getMenu()
                $menu['general']['messages'] = array('title' => _MESSAGES, 'link' => $_SESSION['s_type'].".php?ctg=messages", 'image' => 'mail');
             }
             $menu['general']['emails'] = array('title' => _EMAILS, 'link' => 'administrator.php?ctg=emails', 'image' => 'mail');
-            $menu['general']['chat'] = array('title' => _CHAT, 'link' => $_SESSION['s_type'].".php?ctg=chat", 'image' => 'chat');
+//            $menu['general']['chat']          = array('title' => _CHAT,          'link' => $_SESSION['s_type'].".php?ctg=chat",                 'image' => 'chat');
             foreach ($user_module['administrator'] as $value) {
                 if ($value['position'] == 'left') {
                     $menu['general'][$value['name']] = array('title' => $value['title'], 'link' => 'administrator.php?ctg='.$value['name'], 'image' => 'addons');
@@ -2598,14 +2598,21 @@ function eF_printMessage($str, $print = true, $message_type = '')
 
 */
 function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $onlyText = false, $bcc = false) {
-    if ($bcc) {
+ //because of http://rawphp.com/php_generator/page.php?show=PHP_Sending_Email_to_Bcc_with_SMTP_Authentication_pear_mail_factory.php
+/*   if ($bcc) {
+
         $toField = 'Bcc';
+
     } else {
+
         $toField = 'To';
+
     }
+
+*/
     $hdrs = array('From' => $sender,
                   'Subject' => $subject,
-                  $toField => $recipient,
+                  'To' => $recipient,
                   'Date' => date("r"));
     if ($bcc) {
      if (substr($_SERVER["HTTP_HOST"], 0, 4) == "www.") {

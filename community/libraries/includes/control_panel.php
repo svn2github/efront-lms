@@ -348,7 +348,7 @@ try {
                 $controlPanelOptions[] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
             }
             if (!isset($currentUser -> coreAccess['logout_user']) || $currentUser -> coreAccess['logout_user'] == 'view') {
-                $controlPanelOptions[] = array('text' => _ONLINEUSERS, 'image' => "32x32/logout.png", 'href' => "administrator.php?ctg=logout_user");
+                $controlPanelOptions[] = array('text' => _CONNECTEDUSERS, 'image' => "32x32/logout.png", 'href' => "administrator.php?ctg=logout_user");
             }
             if (!isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] != 'hidden') {
                 $controlPanelOptions[] = array('text' => _EXPORTIMPORTDATA, 'image' => "32x32/import_export.png", 'href' => "administrator.php?ctg=import_export");
@@ -368,11 +368,17 @@ try {
             if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
                 $controlPanelOptions[] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum");
             }
-            if ($GLOBALS['configuration']['chat_enabled']) {
-             if (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden') {
-                 $controlPanelOptions[] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=chat");
-             }
+/*            if ($GLOBALS['configuration']['chat_enabled']) {
+
+	            if (!isset($currentUser -> coreAccess['chat']) || $currentUser -> coreAccess['chat'] != 'hidden') {
+
+	                $controlPanelOptions[] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=chat");
+
+	            }
+
             }
+
+*/
             if (!isset($currentUser -> coreAccess['modules']) || $currentUser -> coreAccess['modules'] != 'hidden') {
                 $controlPanelOptions[] = array('text' => _MODULES, 'image' => "32x32/addons.png", 'href' => "administrator.php?ctg=modules", 'group' => 1);
             }

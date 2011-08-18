@@ -2883,6 +2883,9 @@ class FileSystemTree extends EfrontTree
         if (isset($_GET['delete_file']) && (eF_checkParameter($_GET['delete_file'], 'id') || strpos(urldecode($_GET['delete_file']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['delete_file']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $file -> delete();
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2891,6 +2894,9 @@ class FileSystemTree extends EfrontTree
         } else if (isset($_GET['share']) && (eF_checkParameter($_GET['share'], 'id') || strpos(urldecode($_GET['share']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['share']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $file -> share();
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2899,6 +2905,9 @@ class FileSystemTree extends EfrontTree
         } else if (isset($_GET['unshare']) && (eF_checkParameter($_GET['unshare'], 'id') || strpos(urldecode($_GET['unshare']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['unshare']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $file -> unshare();
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2907,6 +2916,9 @@ class FileSystemTree extends EfrontTree
         } else if (isset($_GET['uncompress']) && (eF_checkParameter($_GET['uncompress'], 'id') || strpos(urldecode($_GET['uncompress']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['uncompress']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $file -> uncompress();
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2915,6 +2927,9 @@ class FileSystemTree extends EfrontTree
         } elseif (isset($_GET['delete_folder']) && (eF_checkParameter($_GET['delete_folder'], 'id') || strpos(urldecode($_GET['delete_folder']), $this -> dir['path']) !== false)) {
             try {
                 $directory = new EfrontDirectory(urldecode($_GET['delete_folder']));
+                if (strpos($directory['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $directory -> delete();
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2923,6 +2938,9 @@ class FileSystemTree extends EfrontTree
         } elseif (isset($_GET['download']) && (eF_checkParameter($_GET['download'], 'id') || strpos(urldecode($_GET['download']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['download']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $file -> sendFile(true);
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2931,6 +2949,9 @@ class FileSystemTree extends EfrontTree
         } elseif (isset($_GET['view']) && (eF_checkParameter($_GET['view'], 'id') || strpos(urldecode($_GET['view']), $this -> dir['path']) !== false)) {
             try {
                 $file = new EfrontFile(urldecode($_GET['view']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $file -> sendFile(false);
             } catch (Exception $e) {
              handleAjaxExceptions($e);
@@ -2939,6 +2960,9 @@ class FileSystemTree extends EfrontTree
         } elseif (isset($_GET['update']) && (eF_checkParameter($_GET['update'], 'id') || strpos(urldecode($_GET['update']), $this -> dir['path']) !== false)) {
             try {
                 $_GET['type'] == 'file' ? $file = new EfrontFile(urldecode($_GET['update'])) : $file = new EfrontDirectory(urldecode($_GET['update']));
+                if (strpos($file['path'], $this->dir['path']) === false) {
+                 throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+                }
                 $previousName = $file['name'];
                 if ($file['name'] != $_GET['name']) {
                     $file -> rename(dirname($file['path']).'/'.EfrontFile :: encode(urldecode($_GET['name'])));

@@ -31,13 +31,9 @@ $_TIME_REPORTS_INSTALL_QUERIES[] = '
         PRIMARY KEY(`reports_ID`, `courses_ID`, `position`)
     ) DEFAULT CHARSET=utf8;
 ';
-
-
 /* Uninstall queries */
 $_TIME_REPORTS_UNINSTALL_QUERIES = array();
-
 $_TIME_REPORTS_UNINSTALL_QUERIES[] = 'DROP TABLE IF EXISTS `module_time_reports`';
 $_TIME_REPORTS_UNINSTALL_QUERIES[] = 'DROP TABLE IF EXISTS `module_time_reports_fields`';
 $_TIME_REPORTS_UNINSTALL_QUERIES[] = 'DROP TABLE IF EXISTS `module_time_reports_courses`';
-
 ?>

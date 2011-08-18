@@ -2202,8 +2202,9 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   return $courses;
  }
- public function getUserStatusInIndependentLessons() {
-  $userLessons = $this -> getUserStatusInLessons();
+ public function getUserStatusInIndependentLessons($onlyContent = false) {
+  $result = eF_getTableDataFlat("users_to_lessons ul, lessons l", "lessons_ID", "l.archive=0 and ul.archive=0 and ul.lessons_ID=l.id and ul.users_LOGIN='".$this->user['login']."'");
+  $userLessons = $this -> getUserStatusInLessons($result['lessons_ID'], $onlyContent);
   foreach ($userLessons as $key => $lesson) {
    if ($lesson -> lesson['course_only']) {
     unset($userLessons[$key]);
@@ -2213,8 +2214,8 @@ abstract class EfrontLessonUser extends EfrontUser
  }
  public function getUserStatusInCourseLessons($course) {
   $lessons = array();
-  $userLessons = $this -> getUserStatusInLessons();
   $courseLessons = $course -> getCourseLessons();
+  $userLessons = $this -> getUserStatusInLessons(array_keys($courseLessons));
   foreach ($courseLessons as $key => $lesson) {
    if (isset($userLessons[$key])) {
     $lessons[$key] = $userLessons[$key];

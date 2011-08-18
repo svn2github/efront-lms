@@ -491,6 +491,8 @@ class module_administrator_tools extends EfrontModule {
    }
    $smarty -> assign("T_CHANGE_USER_TYPE_FORM", $changeUserTypeForm -> toArray());
    ///////////END OF CHANGE USER TYPE///////////////////
+   ///////////IDLE USERS///////////////////
+   ///////////END OF IDLE USERS///////////////////
    ///////////UNENROLL USERS///////////////////
   } catch (Exception $e) {
    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());

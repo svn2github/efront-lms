@@ -93,8 +93,6 @@ try {
          handleAjaxExceptions($e);
         }
 
-
-
         /*
 
          *  Lesson's tests
@@ -102,7 +100,7 @@ try {
          */
         try {
          $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
-         $statsFiltersUsers = $infoLesson -> getLessonStatusForUsers($constraints);
+         $statsFiltersUsers = $infoLesson -> getLessonStatusForUsers($constraints, true);
          $lessonTests = $infoLesson -> getTests(true);
          $scormTests = $infoLesson -> getScormTests();
             if (sizeof($lessonTests) > 0 || sizeof($scormTests) > 0) {
@@ -111,14 +109,15 @@ try {
                 } else {
                     $testsInfo = array();
                 }
-
                 if (sizeof($scormTestsInfo = EfrontStats :: getScormTestInfo($scormTests)) > 0) {
                     $testsInfo = $testsInfo + $scormTestsInfo;
                 }
 
+
+    $statsFiltersUsersKeys = array_keys($statsFiltersUsers);
           foreach ($testsInfo as $id => $test) {
            foreach ($test['done'] as $key => $value) {
-            if (!in_array($value['users_LOGIN'], array_keys($statsFiltersUsers))) {
+            if (!in_array($value['users_LOGIN'], $statsFiltersUsersKeys)) {
              unset($testsInfo[$id]['done'][$key]);
             }
            }

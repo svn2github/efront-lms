@@ -59,7 +59,6 @@
                 </tr>
             </table>
         </fieldset>
-
         <fieldset class="fieldsetSeparator">
             <legend>{$smarty.const._TRAININGREPORTS_DATES}</legend>
             <table>
@@ -94,9 +93,4 @@
         {html_options options=$T_TRAININGREPORTS_COURSES}
     </select>
 {/capture}
-
-{eF_template_printBlock
-    title=$smarty.const._TRAININGREPORTS
-    data=$smarty.capture.t_reports_edit
-    absoluteImagePath=1
-    image=$T_REPORTS_BASELINK|cat:'assets/images/logo32.png'}
+{eF_template_printBlock title=$smarty.const._TRAININGREPORTS data=$smarty.capture.t_reports_edit absoluteImagePath=1 image=$T_MODULE_BASELINK|cat:'assets/images/logo32.png'}

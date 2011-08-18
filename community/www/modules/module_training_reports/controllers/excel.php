@@ -11,8 +11,8 @@ if (TrainingReports_Report::isValid($id) == false) {
 
 $report = new TrainingReports_Report($id);
 $workBook = new TrainingReports_ExcelWriter();
-$workBook->send($report->getName().'.xls');
 $workBook->write($report);
+$workBook->send($report->getName().'.xls');
 $workBook->close();
 exit;
 ?>

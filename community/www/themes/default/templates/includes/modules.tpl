@@ -6,7 +6,7 @@
                                 <div class = "headerTools">
                                     <span>
                                         <img src = "images/16x16/add.png" title = "{$smarty.const._INSTALLMODULE}" alt = "{$smarty.const._INSTALLMODULE}">
-                                        <a href = "javascript:void(0)" onclick = "document.getElementById('upload_file_form').action = '{$smarty.server.PHP_SELF}?ctg=modules'; eF_js_showDivPopup('{$smarty.const._INSTALLMODULE}', 0, 'upload_file_table')" title = "{$smarty.const._INSTALLMODULE}">{$smarty.const._INSTALLMODULE}</a>
+                                        <a href = "javascript:void(0)" onclick = "document.getElementById('upload_file_form').action = '{$smarty.server.PHP_SELF}?ctg=modules'; eF_js_showDivPopup('{$smarty.const._INSTALLMODULE}', 0, 'upload_file_table');$('overwrite_checkbox').show()" title = "{$smarty.const._INSTALLMODULE}">{$smarty.const._INSTALLMODULE}</a>
                                     </span>
                                 </div>
 
@@ -45,7 +45,7 @@
                                 {if !$T_MODULES[modules_list].not_installed}
                                         <img class = "ajaxHandle" src = "images/16x16/information.png" alt = "{$smarty.const._DESCRIPTION}" title = "{$smarty.const._DESCRIPTION}" onclick = "eF_js_showDivPopup('{$smarty.const._MODULEINFORMATION}', 1, 'module_info_table_{$smarty.section.modules_list.iteration}')"/>
                                     {if $change_modules}
-                                        <img class = "ajaxHandle" src = "images/16x16/generic.png" title="{$smarty.const._UPGRADEMODULE}" alt="{$smarty.const._UPGRADEMODULE}" onclick = "document.getElementById('upload_file_form').action = '{$smarty.server.PHP_SELF}?ctg=modules&upgrade={$T_MODULES[modules_list].className}'; eF_js_showDivPopup('{$smarty.const._UPGRADEMODULE} {$T_MODULES[modules_list].className}', 0, 'upload_file_table')"/>
+                                        <img class = "ajaxHandle" src = "images/16x16/generic.png" title="{$smarty.const._UPGRADEMODULE}" alt="{$smarty.const._UPGRADEMODULE}" onclick = "document.getElementById('upload_file_form').action = '{$smarty.server.PHP_SELF}?ctg=modules&upgrade={$T_MODULES[modules_list].className}'; eF_js_showDivPopup('{$smarty.const._UPGRADEMODULE} {$T_MODULES[modules_list].className}', 0, 'upload_file_table');$('overwrite_checkbox').hide()"/>
                                         <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteModule(this, '{$T_MODULES[modules_list].className}')"/>
                                     {/if}
                                         <div id = "module_info_table_{$smarty.section.modules_list.iteration}" style = "display:none">
@@ -84,7 +84,7 @@
                                             <td class = "elementCell">{$T_UPLOAD_FILE_FORM.file_upload.0.html}</td></tr>
                                         <tr><td></td><td class = "infoCell">{$smarty.const._EACHFILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILE_SIZE}</b> {$smarty.const._KB}</td></tr>
                                         {if $T_UPLOAD_FILE_FORM.file_upload.0.error}<tr><td></td><td class = "formError">{$T_UPLOAD_FILE_FORM.file_upload.0.error}</td></tr>{assign var = 'div_error' value = 'upload_file_table'}{/if}
-                                        <tr><td class = "labelCell">{$T_UPLOAD_FILE_FORM.overwrite.label}:&nbsp;</td>
+                                        <tr id = "overwrite_checkbox"><td class = "labelCell">{$T_UPLOAD_FILE_FORM.overwrite.label}:&nbsp;</td>
                                             <td class = "elementCell">{$T_UPLOAD_FILE_FORM.overwrite.html}</td></tr>
                                         <tr><td></td><td >&nbsp;</td></tr>
                                         <tr><td></td><td class = "submitCell">{$T_UPLOAD_FILE_FORM.submit_upload_file.html}</td></tr>

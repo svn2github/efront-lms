@@ -119,9 +119,9 @@ try {
      }
     }
 
-    $lessons = $editedUser -> getUserStatusInIndependentLessons() + $nonLessons;
+    $lessons = $editedUser -> getUserStatusInIndependentLessons(true) + $nonLessons;
    } else {
-    $lessons = $editedUser -> getUserStatusInIndependentLessons();
+    $lessons = $editedUser -> getUserStatusInIndependentLessons(true);
    }
 
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($lessons);

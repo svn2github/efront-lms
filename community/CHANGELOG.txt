@@ -21,6 +21,11 @@
 - Fixed issue in participation reports in course type
 - Updated SCORM import to handle backslashes in imsmanifest hrefs
 - Fixed recursion of "course not completed" and "lesson not completed" events
+- Fixed editing a placement from the user's page not displaying the job's branch as pre-selected (Enterprise edition)
+- Fixed branch filter error when a branch includes quotes in its name (Enterprise edition)
+- Organization chart is now cached when large (Enterprise edition)
+- Updated file access security
+- Updated random generator for password reminders
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

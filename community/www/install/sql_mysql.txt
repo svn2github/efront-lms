@@ -976,6 +976,7 @@ CREATE TABLE tests (
   options text,
   publish tinyint(1) default '1',
   keep_best tinyint(1) default '0',
+  key lessons_ID (lessons_ID),
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
@@ -1257,8 +1258,10 @@ CREATE TABLE user_times (
   entity varchar(100) NOT NULL,
   entity_id mediumint(8) default 0,
   PRIMARY KEY (id),
-  index(users_LOGIN),
-  index(session_expired)
+  key(users_LOGIN),
+  key(session_expired),
+  key(entity),
+  key(lessons_ID)
 ) DEFAULT CHARSET=utf8;
 
 

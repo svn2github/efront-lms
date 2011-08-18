@@ -15,6 +15,7 @@ define('_TRAININGREPORTS_DATES', 'Dates');
 define('_TRAININGREPORTS_REGISTERED', 'Registration Date');
 define('_TRAININGREPORTS_ALLCOMPLETED', 'All completed?');
 
+define('_TRAININGREPORTS_ADDBRANCH', 'Add branch');
 define('_TRAININGREPORTS_ADDCOURSE', 'Add course');
 define('_TRAININGREPORTS_ADDFIELD', 'Add field');
 

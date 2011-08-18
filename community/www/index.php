@@ -468,7 +468,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
   } else {
    $user = eF_getTableData("users", "email, name", "login='".$login."'");
    if (strcmp($_GET['id'], EfrontUser::createPassword($login)) == 0 && sizeof($user) > 0) {
-    $password = mb_substr(md5($login.time()), 0, 8);
+    $password = implode("", array_map(create_function('$v', 'return chr($v);'), array_rand(array_flip(range(33, 126)), 10)));
     $password_encrypted = EfrontUser::createPassword($password);
     eF_updateTableData("users", array('password' => $password_encrypted), "login='$login'");
                 EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_NEW_PASSWORD_REQUEST, "users_LOGIN" => $login, "entity_name" => $password));

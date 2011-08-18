@@ -38,6 +38,13 @@ class TrainingReports_Report {
             if (sizeof($results) > 0) {
                 $this->courses = $results['courses_ID'];
             }
+
+
+
+
+
+
+
         }
     }
 
@@ -91,6 +98,15 @@ class TrainingReports_Report {
      */
     public function getCourses() {
         return $this->courses;
+    }
+
+    /**
+     * Returns the branches of the report
+     * 
+     * @return array The branches of the report
+     */
+    public function getBranches() {
+        return $this->branches;
     }
 
     /**
@@ -163,7 +179,11 @@ class TrainingReports_Report {
             'completed' => _TRAININGREPORTS_ALLCOMPLETED,
             'last_login' => _LASTLOGIN);
 
-        $results = eF_getTableDataFlat('user_profile', 'name, description');
+
+
+
+
+        $results = eF_getTableDataFlat('user_profile', 'name, description', 'type !="branchinfo" and type != "groupinfo"');
 
         if (sizeof($results) > 0) {
             $extendedOptions = array_combine($results['name'], $results['description']);
@@ -188,6 +208,19 @@ class TrainingReports_Report {
         return $courseOptions;
     }
 
+
+    /**
+     * Returns an array of branches Ids from which to select from.
+     * 
+     * @return array
+     */
+    public static function getBranchesOptions() {
+        $branchesTree = new EfrontBranchesTree();
+        $branchOptions = $branchesTree->toPathString();
+
+        return $branchOptions;
+    }
+
     /**
      * Returns an array of the availabe period separators.
      * 
@@ -210,7 +243,9 @@ class TrainingReports_Report {
         $fields = eF_getTableData('user_profile');
 
         foreach ($fields as $field) {
-            $definitions[$field['name']] = $field;
+         if ($field['type'] != 'groupinfo' && $field['type'] != 'branchinfo') {
+          $definitions[$field['name']] = $field;
+         }
         }
         return $definitions;
     }
@@ -228,7 +263,7 @@ class TrainingReports_Report {
                 break;
             case 'textarea':
             case 'text':
-            default:
+            default: break;
         }
 
         return $sanitized;
@@ -249,6 +284,10 @@ class TrainingReports_Report {
 
         $fieldDefinitions = $this->getExtendedFieldDefinitions();
         $users = $this->getUsers();
+
+
+
+
 
         foreach ($users as $user) {
             $login = $user['login'];
@@ -277,6 +316,10 @@ class TrainingReports_Report {
             $user['last_login'] = $this->getUserLastLogin($login);
             $user['completed'] = ($countCompleted == sizeof(array_unique($this->courses)));
             $user['courses'] = $coursesData;
+
+
+
+
             $usersData[] = $user;
         }
 
@@ -284,71 +327,67 @@ class TrainingReports_Report {
     }
 
     private function getUsers() {
-
         $users = array();
-
         if (sizeof($this->courses) == 0) {
             return $users;
         }
-
         $usersTableFields = eF_getTableFields('users');
         $usersFields = array_intersect($this->fields, $usersTableFields);
-
         if (in_array('login', $usersFields) == false) {
             $usersFields[] = 'login';
         }
-
         $fields = implode(',', $usersFields);
-        $tables = 'users AS u INNER JOIN users_to_courses AS utc ON u.login = utc.users_LOGIN';
-        $where = ' u.active = 1 AND
-            utc.courses_ID IN (' . implode(',', $this->courses) . ')
-            AND
-            utc.user_type = "student"
-            AND
-            (
-                ( utc.completed = 1 AND utc.to_timestamp <= ' . $this->to . ' )
-                OR
-                ( utc.from_timestamp <= ' . $this->to . ' )
-            )';
-
+        if ($this->branches) {
+         $tables = 'users u, users_to_courses utc,module_hcd_employee_works_at_branch wb  ';
+         $where = 'u.login = utc.users_LOGIN and u.active = 1 AND
+             utc.courses_ID IN (' . implode(',', $this->courses) . ')
+             AND
+          wb.branch_ID IN (' . implode(',', $branches) . ') and wb.users_login=u.login
+          AND
+             utc.user_type = "student"
+             AND
+             (
+                 ( utc.completed = 1 AND utc.to_timestamp <= ' . $this->to . ' )
+                 OR
+                 ( utc.from_timestamp <= ' . $this->to . ' )
+             )';
+        } else {
+         $tables = 'users AS u INNER JOIN users_to_courses AS utc ON u.login = utc.users_LOGIN';
+         $where = ' u.active = 1 AND
+             utc.courses_ID IN (' . implode(',', $this->courses) . ')
+             AND
+             utc.user_type = "student"
+             AND
+             (
+                 ( utc.completed = 1 AND utc.to_timestamp <= ' . $this->to . ' )
+                 OR
+                 ( utc.from_timestamp <= ' . $this->to . ' )
+             )';
+        }
         $group = 'u.login';
-
         $users = eF_getTableData($tables, $fields, $where, '', $group);
-
         return $users;
     }
-
     private function getUserCourseFirstAccess($login, $courseID) {
         $fields = 'MIN(session_timestamp) AS first_access';
         $where = 'users_LOGIN =\'' . $login . '\' AND courses_ID = ' . $courseID;
         $results = eF_getTableData('user_times', $fields, $where);
-
         return isset($results[0]) ? $results[0]['first_access'] : null;
     }
-
     private function getUserCourses($login) {
-
         $fields = 'courses_ID, from_timestamp, to_timestamp, completed';
         $where = 'users_LOGIN =\'' . $login . '\' AND courses_ID IN (' . implode(',', $this->courses) . ')';
         $results = eF_getTableData('users_to_courses', $fields, $where);
-
         return $results;
     }
-
     private function getUserLastLogin($login) {
-
         $where = 'users_LOGIN = "' . $login . '"';
         $fields = 'MAX(session_timestamp) AS last_login';
-
         $users = eF_getTableData('user_times', $fields, $where);
-
         return $users[0]['last_login'];
     }
-
     public function getPeriods() {
-
         $periods;
-
         switch ($this->separatedBy) {
             case 'week':
                 $periods = $this->getPeriodsInWeeks();
@@ -360,123 +399,89 @@ class TrainingReports_Report {
                 $periods = $this->getPeriodsInMonths();
                 break;
         }
-
         return $periods;
     }
-
     private function getPeriodsInWeeks() {
-
         $periods = array();
-
         $start = strtotime('00:00', $this->from);
         $end = strtotime('23:59', $this->to);
-
         $periodStart = null;
         $periodEnd = null;
-
         while ($periodEnd < $end) {
-
             if ($periodStart == null) {
                 $periodStart = $start;
             } else {
                 $periodStart = strtotime('tomorrow', $periodEnd);
             }
-
             $periodEnd = strtotime('next Sunday 23:59', $periodStart);
-
             if ($periodEnd > $end) {
                 $periodEnd = $end;
             }
-
             $periods[] = array(
                 'title' => formatTimestamp($periodStart) . ' - ' . formatTimestamp($periodEnd),
                 'start' => $periodStart,
                 'end' => $periodEnd
             );
         }
-
         return $periods;
     }
-
     private function getPeriodsInFortnights() {
         $periods = array();
-
         $start = strtotime('00:00', $this->from);
         $end = strtotime('23:59', $this->to);
-
         $periodStart = null;
         $periodEnd = null;
-
         while ($periodEnd < $end) {
-
             if ($periodStart == null) {
                 $periodStart = $start;
             } else {
                 $periodStart = strtotime('tomorrow', $periodEnd);
             }
-
             $periodEnd = strtotime('next Sunday 23:59', $periodStart);
             $periodEnd = strtotime('next Sunday 23:59', $periodEnd);
-
             if ($periodEnd > $end) {
                 $periodEnd = $end;
             }
-
             $periods[] = array(
                 'title' => formatTimestamp($periodStart) . ' - ' . formatTimestamp($periodEnd),
                 'start' => $periodStart,
                 'end' => $periodEnd
             );
         }
-
         return $periods;
     }
-
     private function getPeriodsInMonths() {
         $periods = array();
-
         $start = strtotime('00:00', $this->from);
         $end = strtotime('23:59', $this->to);
-
         $periodStart = null;
         $periodEnd = null;
-
         while ($periodEnd < $end) {
-
             if ($periodStart == null) {
                 $periodStart = $start;
             } else {
                 $periodStart = strtotime('tomorrow', $periodEnd);
             }
-
             $periodEnd = strtotime('next month', $periodStart);
             $periodEnd = strtotime(date('Y-M-01', $periodEnd));
             $periodEnd = strtotime('yesterday 23:59', $periodEnd);
-
             if ($periodEnd > $end) {
                 $periodEnd = $end;
             }
-
             $title = date('F', $periodStart);
-
             if (date('d', $periodStart) > 1) {
                 $title .= ' ' . _FROM . ' ' . date('d', $periodStart);
             }
-
             if (date('d', strtotime('tomorrow', $periodEnd)) > 1) {
                 $title .= ' ' . _TO . ' ' . date('d', $periodEnd);
             }
-
             $periods[] = array(
                 'title' => $title,
                 'start' => $periodStart,
                 'end' => $periodEnd
             );
         }
-
         return $periods;
     }
-
 }
-
 ?>

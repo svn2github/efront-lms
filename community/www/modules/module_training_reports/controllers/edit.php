@@ -41,31 +41,23 @@ if ($form->isSubmitted()) {
 
     eF_deleteTableData('module_time_reports_courses', 'reports_ID=' . $this->id);
     eF_insertTableDataMultiple('module_time_reports_courses', $courses);
-
     $trainingReport = new TrainingReports_Report($this->id);
-
     if ($form->validate()) {
-
         $report['name'] = $form->exportValue('name');
         $report['from_date'] = mtr_toTimestamp($form->exportValue('start_date'), 0, 0);
         $report['to_date'] = mtr_toTimestamp($form->exportValue('end_date'), 23, 59);
         $report['separated_by'] = $form->exportValue('separate_by');
-
         eF_updateTableData('module_time_reports', $report, 'id=' . $this->id);
         eF_redirect($this->moduleBaseUrl . '&cat=view&id=' . $this->id . '&message_type=success&message=' . rawurlencode(_TRAININGREPORTS_SUCCESSFULLYSAVED));
     }
 }
-
-
 $renderer = mtr_getFormRenderer($form, $this->smarty);
-
 $this->smarty->assign('T_TRAININGREPORTS_REPORT', $trainingReport->getReport());
 $this->smarty->assign('T_TRAININGREPORTS_FIELDS', $trainingReport->getFieldsOptions());
 $this->smarty->assign('T_TRAININGREPORTS_SELECTEDFIELDS', $trainingReport->getFields());
 $this->smarty->assign('T_TRAININGREPORTS_COURSES', $trainingReport->getCoursesOptions());
 $this->smarty->assign('T_TRAININGREPORTS_SELECTEDCOURSES', $trainingReport->getCourses());
 $this->smarty->assign('T_TRAININGREPORTS_FORM', $renderer->toArray());
-
 /**
  *
  * @param string $url
@@ -73,20 +65,16 @@ $this->smarty->assign('T_TRAININGREPORTS_FORM', $renderer->toArray());
  * @return HTML_QuickForm
  */
 function mtr_getReportsForm($url, $trainingReport) {
-
     $period_options = $trainingReport->getPeriodsOptions();
-
     $defaults = array(
         'name' => $trainingReport->getName(),
         'start_date' => $trainingReport->getFromTimestamp(),
         'end_date' => $trainingReport->getToTimestamp(),
         'separate_by' => $trainingReport->getSeparatedBy());
-
     $form = new HTML_QuickForm('mtr_form', 'post', $url, '', null, true);
     $form->registerRule('isValidDate', 'callback', 'mtr_isValidDate');
     $form->addFormRule('mtr_isStartDateBeforeEndDate');
     $form->addFormRule('mtr_exceedsMaxColumns');
-
     $form->addElement('text', 'name', _NAME);
     $form->addRule('name', _THEFIELD . ' "' . _NAME . '" ' . _ISMANDATORY, 'required');
     $form->addElement(EfrontEntity::createDateElement($form, 'start_date', _STARTDATE, array('format' => getDateFormat())));
@@ -95,10 +83,7 @@ function mtr_getReportsForm($url, $trainingReport) {
     $form->addRule('end_date', _TRAININGREPORTS_INVALIDDATE, 'isValidDate');
     $form->addElement('select', 'separate_by', _TRAININGREPORTS_SEPARATEDBY, $period_options);
     $form->addElement('submit', 'submit', _SAVE, 'class="flatButton"');
-
     $form->setDefaults($defaults);
-
     return $form;
 }
-
 ?>

@@ -16,11 +16,14 @@ if (!isset($_COOKIE['orgChartMode']) && stripos($_SERVER['HTTP_USER_AGENT'], 'ms
  $_COOKIE['orgChartMode'] = 1;
 }
 
+$branchesTree = new EfrontBranchesTree();
 /* The chart will be created by the eF_createBranchesTree with arguments the data gathered */
 if ($_COOKIE['orgChartMode']) {
- $branchesTreePrintable = EfrontBranch :: createBranchesTree(true);
+ $branchesTreePrintable = $branchesTree -> toHtml(false, true);
+ //	$branchesTreePrintable = EfrontBranch :: createBranchesTree(true);
 } else {
- $branchesTreePrintable = EfrontBranch :: createBranchesTree();
+ $branchesTreePrintable = $branchesTree -> toHtml();
+ //	$branchesTreePrintable = EfrontBranch :: createBranchesTree();
 }
 
 if (isset($_GET['print'])) {

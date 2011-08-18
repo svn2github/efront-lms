@@ -124,8 +124,11 @@ class EfrontStats
          $doneTests = array();
          //debug_print_backtrace();
          if (!isset($options['notests']) || !$options['notests']) {
-          $result = eF_getTableData("completed_tests ct, tests t", "ct.archive, ct.status, ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID, t.keep_best", "ct.status != 'deleted' and ct.status != 'incomplete' and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).")");
-
+          if (sizeof($users) <= 100) {
+           $result = eF_getTableData("completed_tests ct, tests t", "ct.archive, ct.status, ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID, t.keep_best", "ct.status != 'deleted' and ct.status != 'incomplete' and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).") and users_LOGIN in ('".implode("','", $users)."')");
+          } else {
+           $result = eF_getTableData("completed_tests ct, tests t", "ct.archive, ct.status, ct.score, ct.users_LOGIN, t.lessons_ID, t.content_ID, t.keep_best", "ct.status != 'deleted' and ct.status != 'incomplete' and t.id=ct.tests_ID and t.lessons_ID in (".implode(",", $lessons).")");
+          }
           foreach ($result as $value) {
            if ($value['keep_best'] && $value['status'] == 'passed') {
                $doneTests[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
@@ -133,7 +136,7 @@ class EfrontStats
                $doneTests[$value['lessons_ID']][$value['users_LOGIN']][$value['content_ID']] = $value['score'];
            }
           }
-//pr($doneTests);exit;		        
+//		        
          }
          $temp = eF_getTableData("user_types", "*");
    if (sizeof($temp) == 0) {
@@ -1143,9 +1146,14 @@ class EfrontStats
      } else {
       $lessonId = $lesson;
      }
-     foreach ($times->getUsersSessionTimeInLessonContent($lessonId) as $value) {
-      $usersTimesInLessonContent[$value['users_LOGIN']] = $value['time'];
-     }
+
+/*
+    	foreach ($times->getUsersSessionTimeInLessonContent($lessonId) as $value) {
+    		$usersTimesInLessonContent[$value['users_LOGIN']] = $value['time'];
+    	}    	
+*/
+     $usersTimesInLessonContent[$user] = $times->getUserSessionTimeInLessonContent($user, $lessonId);
+
      $usersDoneContent = EfrontStats :: getStudentsSeenContent($lesson, $user, $options); //Calculate the done content for users in this lesson
      $usersAssignedProjects = array();
      if (!isset($options['noprojects']) || !$options['noprojects']) {

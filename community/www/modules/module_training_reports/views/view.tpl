@@ -14,11 +14,7 @@
 {eF_template_printForm form=$T_TRAININGREPORT_FORM}
 {/capture}
 
-{eF_template_printBlock
-title=$smarty.const._CREATE
-data=$smarty.capture.t_training_reports
-image=$T_RSS_MODULE_BASELINK|cat:'assets/images/logo32.png'
-absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._CREATE data=$smarty.capture.t_training_reports image=$T_MODULE_BASELINK|cat:'assets/images/logo32.png' absoluteImagePath = 1}
 
 {elseif $smarty.get.cmd == 'clone'}
 
@@ -26,11 +22,7 @@ absoluteImagePath = 1}
 {eF_template_printForm form=$T_TRAININGREPORT_FORM}
 {/capture}
 
-{eF_template_printBlock
-title=$smarty.const._CLONE
-data=$smarty.capture.t_training_reports
-image=$T_RSS_MODULE_BASELINK|cat:'assets/images/logo32.png'
-absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._CLONE data=$smarty.capture.t_training_reports image=$T_MODULE_BASELINK|cat:'assets/images/logo32.png' absoluteImagePath = 1}
 {else}
 
 {capture name="t_training_reports"}
@@ -96,7 +88,6 @@ absoluteImagePath = 1}
             {/foreach}
         </table>
     </fieldset>
-
     <fieldset class="fieldsetSeparator">
         <legend>{$smarty.const._TRAININGREPORTS_DATES}</legend>
         <table>
@@ -129,7 +120,6 @@ absoluteImagePath = 1}
         </table>
     </fieldset>
 </form>
-
 <form id="kalimera" action="{$T_MODULE_BASEURL}&amp;cat=excel&amp;id={$T_TRAININGREPORT_REPORT.id}" method="post">
     <table>
         <tr>
@@ -142,11 +132,5 @@ absoluteImagePath = 1}
 </form>
 {/if}
 {/capture}
-
-{eF_template_printBlock
-title=$smarty.const._TRAININGREPORTS
-data=$smarty.capture.t_training_reports
-absoluteImagePath=1
-image=$T_REPORTS_BASELINK|cat:'assets/images/logo32.png'}
-
+{eF_template_printBlock title=$smarty.const._TRAININGREPORTS data=$smarty.capture.t_training_reports absoluteImagePath=1 image=$T_MODULE_BASELINK|cat:'assets/images/logo32.png'}
 {/if}

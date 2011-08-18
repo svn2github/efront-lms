@@ -233,11 +233,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
    $smarty -> assign("T_MY_INFO_OPTIONS", $my_info_options );
   }
-  // Generally needed for the next social modules
-  $all_related_users = $currentUser ->getRelatedUsers();
 
   /* My six people */
   if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_PEOPLE) {
+   // Generally needed for the next social modules
+   $all_related_users = $currentUser ->getRelatedUsers();
 
    $related_users_count = sizeof($all_related_users);
 
@@ -278,6 +278,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
   /* Timeline for the 10 most recent system events */
   if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_SYSTEM_TIMELINES) {
+   // Generally needed for the next social modules
+   $all_related_users = $currentUser ->getRelatedUsers();
    $events = array();
    $myEvents = EfrontEvent::getEvents($all_related_users, true, 5);
    $allModules = eF_loadAllModules();

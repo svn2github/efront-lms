@@ -447,9 +447,8 @@ try {
                 $pm = new eF_PersonalMessage($currentUser -> user['login'], $recipients, $values['subject'], $values['body'], $values['bcc']);
                 if ($_FILES['attachment']['name'][0] != "") {
                  $maxFileSize = FileSystemTree :: getUploadMaxSize();
-                    //if ($_FILES['attachment']['size'][0] == 0 || $_FILES['attachment']['size'][0] > G_MAXFILESIZE ) {
-                    if ($_FILES['attachment']['size'][0] == 0 || $_FILES['attachment']['size'][0] > $maxFileSize ) { //	G_MAXFILESIZE is deprecated                                                          //If the directory could not be created, display an erro message
-                        $message = _EACHFILESIZEMUSTBESMALLERTHAN." ".$maxFileSize." Bytes";
+                    if ($_FILES['attachment']['size'][0] == 0 || $_FILES['attachment']['size'][0] > $maxFileSize*1024 ) { //	G_MAXFILESIZE is deprecated                                                          //If the directory could not be created, display an erro message
+                        $message = _EACHFILESIZEMUSTBESMALLERTHAN." ".$maxFileSize._KB;
                         $message_type = 'failure';
                     }
                     //Upload user avatar file

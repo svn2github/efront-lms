@@ -77,3 +77,4 @@ var ModuleReportsTableRows = Class.create({
 
 new ModuleReportsTableRows('module-reports-fields', 'module-reports-fields-select','module-reports-add-field');
 new ModuleReportsTableRows('module-reports-courses', 'module-reports-courses-select','module-reports-add-course');
+new ModuleReportsTableRows('module-reports-branches', 'module-reports-branches-select','module-reports-add-branch');

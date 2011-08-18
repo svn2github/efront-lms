@@ -148,7 +148,7 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
                 }
 
                 $this->workSheet->write($userIndex + 4, $fieldIndex, $string, $this->formats['user']);
-                $this->setFieldWidth($fieldIndex, mb_strlen($string));
+                $this->setFieldWidth($fieldIndex, mb_strlen($string) < 30 ? mb_strlen($string) : 30);
             }
 
             /* Write periods for the user */

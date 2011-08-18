@@ -4122,4 +4122,5 @@ define("_ADDBALANCE", "Add balance");
 define("_CURRENTBALANCEINYOURACCOUNT", "Current balance in your account");
 define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA", "There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender");
 define("_CONNECTEDUSERS", "Connected users");
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR", "Please note that any files you upload here are shared with your supervisor(s)");
 ?>

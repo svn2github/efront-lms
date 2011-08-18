@@ -4,37 +4,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 
-
-if ($currentUser -> user['user_type'] == 'administrator') {
- $validUsers = EfrontUser :: getUsers(true);
-} else if ($_SESSION['s_lessons_ID']) {
- $statisticsLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
- $lessonUsers = $statisticsLesson -> getUsers();
- if ($lessonRoles[$lessonUsers[$currentUser -> user['login']]['role']] == 'professor') {
-  $validUsers = $lessonUsers;
- } else if ($lessonRoles[$lessonUsers[$currentUser -> user['login']]['role']] == 'student') {
-  $validUsers[$currentUser -> user['login']] = $currentUser;
-
-  if (!$isSupervisor) {
-   $smarty -> assign("T_SINGLE_USER", true); //assign this variable, so that select user panel is not available
-   $_GET['sel_user'] = $currentUser -> user['login'];
-  }
- } else {
-  throw new EfrontUserException(_USERDOESNOTHAVETHISLESSON.": ".$statisticsLesson -> lesson['name'], EfrontUserException :: USER_NOT_HAVE_LESSON);
- }
-} else { //if the system user is a simple student
- if ($_student_ && !$isSupervisor) {
-  $smarty -> assign("T_SINGLE_USER", true);
-  $_GET['sel_user'] = $currentUser -> user['login'];
-  $validUsers = array($currentUser -> user['login'] => $currentUser -> user['login']);
- } else {
-  $userLessons = $currentUser -> getLessons(true);
-  $users = array();
-  foreach ($userLessons as $lesson) {
-   $users = $users + $lesson -> getUsers();
-  }
-  $validUsers = $users;
- }
+if (!eF_local_shouldDisplaySelectBox()) {
+ $smarty -> assign("T_SINGLE_USER", true); //assign this variable, so that select user panel is not available
+ $_GET['sel_user'] = $currentUser -> user['login'];
 }
 
 if (isset($_GET['sel_user'])) {
@@ -45,12 +17,11 @@ if (isset($_GET['sel_user'])) {
   }
  }
 
- if (in_array($_GET['sel_user'], array_keys($validUsers))) {
+ if (eF_local_canAccessUser()) {
   $infoUser = EfrontUserFactory :: factory($_GET['sel_user']);
  } else {
   eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=statistics&option=user&message='.urlencode(_USERISNOTVALIDORYOUCANNOTSEEUSER.": ".$_GET['sel_user']));
   exit;
-  //throw new EfrontUserException(_USERISNOTVALIDORYOUCANNOTSEEUSER.": ".$_GET['sel_user'], EfrontUserException :: INVALID_LOGIN);
  }
 
  if ($isSupervisor || $currentUser -> user['user_type'] == 'administrator') {
@@ -868,3 +839,66 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
  $pdf -> OutputPdf('user_form_'.$infoUser -> user['login'].'.pdf');
  exit;
 }
+function eF_local_shouldDisplaySelectBox() {
+ global $currentUser;
+ global $isSupervisor;
+ if ($currentUser -> user['user_type'] == 'administrator' || $isSupervisor) {
+  return true;
+ } else if (sizeof($currentUser -> getLessons(false, 'professor')) > 0) {
+  return true;
+ } else {
+  return false;
+ }
+}
+function eF_local_canAccessUser() {
+ global $currentUser;
+ global $isSupervisor;
+ $editedUser = EfrontUserFactory::factory($_GET['sel_user']);
+ if ($currentUser -> user['user_type'] == 'administrator') { //can view any user
+  return true;
+ }
+ if ($editedUser->user['login'] == $currentUser->user['login']) { //can view himself
+  return true;
+ }
+ if ($isSupervisor) { //can view any user he/she supervises
+  if ($currentUser->aspects['hcd']-> supervisesEmployee($editedUser->user['login'])) {
+   return true;
+  }
+ }
+ $userLessons = $currentUser -> getLessons(false, 'professor');
+ $result = eF_getTableData("users_to_lessons", "users_LOGIN", "archive=0 and users_LOGIN='".$editedUser->user['login']."' and lessons_ID in (".implode(",", array_keys($userLessons)).")");
+ if (!empty($result)) {
+  return true;
+ }
+ return false;
+}
+/*		
+	} else if ($_SESSION['s_lessons_ID']) {
+		$statisticsLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
+		$lessonUsers	  = $statisticsLesson -> getUsers();
+		if ($lessonRoles[$lessonUsers[$currentUser -> user['login']]['role']] == 'professor') {
+			$validUsers = $lessonUsers;
+		} else if ($lessonRoles[$lessonUsers[$currentUser -> user['login']]['role']] == 'student') {
+			$validUsers[$currentUser -> user['login']] = $currentUser;
+
+			if (!$isSupervisor) {
+				$smarty -> assign("T_SINGLE_USER", true);							//assign this variable, so that select user panel is not available
+				$_GET['sel_user'] = $currentUser -> user['login'];
+			}
+		} else {
+			throw new EfrontUserException(_USERDOESNOTHAVETHISLESSON.": ".$statisticsLesson -> lesson['name'], EfrontUserException :: USER_NOT_HAVE_LESSON);
+		}
+	} else {											   //if the system user is a simple student
+		if ($_student_ && !$isSupervisor) {
+			$smarty -> assign("T_SINGLE_USER", true);
+			$_GET['sel_user'] = $currentUser -> user['login'];
+			$validUsers 	  = array($currentUser -> user['login'] => $currentUser -> user['login']);
+		} else {
+			$userLessons = $currentUser -> getLessons(true);
+			$users	     = array();
+			$result = eF_getTableDataFlat("users_to_lessons ul, lessons l, users u", "distinct u.login", "u.archive=0 and l.archive=0 and ul.lessons_ID=l.id and ul.users_LOGIN=u.login and ul.archive=0 and ul.lessons_ID in (".implode(",", array_keys($userLessons)).")");
+			$validUsers = $result['login'];
+			pr(array_keys($validUsers));
+		}
+	}
+*/

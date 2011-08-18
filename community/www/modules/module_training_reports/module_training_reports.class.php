@@ -147,21 +147,17 @@ class module_training_reports extends EFrontModule {
         return $result;
     }
 
+    public function onUpgrade() {
+    }
     public function onUninstall() {
-
         global $_TIME_REPORTS_UNINSTALL_QUERIES;
         require_once('lib/schema.php');
-
         $result = true;
-
         // Drop all database tables for reports module
         foreach ($_TIME_REPORTS_UNINSTALL_QUERIES as $index => $query) {
             $result = $result && eF_executeNew($query);
         }
-
         return $result;
     }
-
 }
-
 ?>

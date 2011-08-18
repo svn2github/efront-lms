@@ -48,29 +48,21 @@ if ($this->command == 'create') {
             $courses[$index]['reports_ID'] = $newId;
         }
         eF_insertTableDataMultiple('module_time_reports_courses', $courses);
-
         $this->smarty->assign('T_TRAININGREPORT_NEWID', $newId);
         $this->smarty->assign('T_TRAININGREPORT_CLONEMESSAGE', _TRAININGREPORTS_SUCCESSFULLYCLONED);
     }
-
     $this->smarty->assign('T_TRAININGREPORT_FORM', $form->toArray());
-
     /* Select and view report */
 } else {
-
     if (TrainingReports_Report::isValid($this->id)) {
-
         if ($this->command == 'delete') {
             eF_deleteTableData('module_time_reports_fields', 'reports_ID=' . $this->id);
             eF_deleteTableData('module_time_reports_courses', 'reports_ID=' . $this->id);
             eF_deleteTableData('module_time_reports', 'id=' . $this->id);
-
             eF_redirect($this->moduleBaseUrl . '&cat=view&message_type=success&message=' . rawurlencode(_TRAININGREPORTS_SUCCESSFULLYDELETED));
         }
-
         $trainingReport = new TrainingReports_Report($this->id);
         $periodOptions = $trainingReport->getPeriodsOptions();
-
         $this->smarty->assign('T_TRAININGREPORT_FIELDS', $trainingReport->getFieldsOptions());
         $this->smarty->assign('T_TRAININGREPORT_SELECTEDFIELDS', $trainingReport->getFields());
         $this->smarty->assign('T_TRAININGREPORT_COURSES', $trainingReport->getCoursesOptions());
@@ -78,31 +70,25 @@ if ($this->command == 'create') {
         $this->smarty->assign('T_TRAININGREPORT_SEPARATEDBY', $periodOptions[$trainingReport->getSeparatedBy()]);
         $this->smarty->assign('T_TRAININGREPORT_REPORT', $trainingReport->getReport());
     }
-
     $form = mtr_getReportsForm($this->moduleBaseUrl . '&cat=view', $this->id);
     $renderer = mtr_getFormRenderer($form, $this->smarty);
     $this->smarty->assign('T_TRAININGREPORT_FORM', $renderer->toArray());
 }
-
 /**
  *
  * @param <type> $url
  * @return HTML_QuickForm 
  */
 function mtr_getReportsForm($url, $id) {
-
     $reports = eF_getTableDataFlat('module_time_reports', '*', '1', 'name ASC');
     $reports_options = array_combine($reports['id'], $reports['name']);
     $reports_options[0] = _TRAININGREPORTS_SELECTREPORT;
     ksort($reports_options);
-
     $form = new HTML_QuickForm('mtr_form', 'post', $url, '', null, true);
     $form->addElement('select', 'report', _REPORT, $reports_options, array('id' => 'module-reports-select'));
     $form->setDefaults(array('report' => $id));
-
     return $form;
 }
-
 /**
  * Returns a form for creating a new training report.
  *
@@ -110,16 +96,12 @@ function mtr_getReportsForm($url, $id) {
  * @return HTML_QuickForm 
  */
 function mtr_getCreateReportForm($url) {
-
     $form = new HTML_QuickForm("time_reports_form", "post", $url, "", null, true);
-
     $form->addElement('text', 'name', _NAME);
     $form->addRule('name', _THEFIELD . ' "' . _NAME . '" ' . _ISMANDATORY, 'required');
     $form->addElement('submit', 'submit', _CREATE, 'class = "flatButton"');
-
     return $form;
 }
-
 /**
  * Returns a form for cloning a report.
  *
@@ -128,17 +110,12 @@ function mtr_getCreateReportForm($url) {
  * @return HTML_QuickForm 
  */
 function mtr_getCloneReportForm($url, $trainingReport) {
-
     $defaults = array('name' => $trainingReport->getName(). ' ' . _COPY);
-
     $form = new HTML_QuickForm("time_reports_form", "post", $url, "", null, true);
-
     $form->addElement('text', 'name', _NAME);
     $form->addRule('name', _THEFIELD . ' "' . _NAME . '" ' . _ISMANDATORY, 'required');
     $form->addElement('submit', 'submit', _CLONE, 'class = "flatButton"');
     $form->setDefaults($defaults);
-
     return $form;
 }
-
 ?>

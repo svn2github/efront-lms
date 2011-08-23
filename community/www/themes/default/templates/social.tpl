@@ -487,35 +487,6 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
 <!--/ajax:peopleTable-->
    {/if}
 
-<!--
-<BR><BR><BR><BR><BR><BR><BR><Br><Br>
-<table border=1 width="100%"><tr>
- <td width="20%">&nbsp;</td>
- <td>
-    <div class="bubbleInfo" id = 'bubbler1'>
-
-        <div class="trigger" id = 'trigger1'>
-         <img src="http://localhost/branches/360/www/themes/default/images/others/logo.jpg" id="download" />
-        </div>
-
-        <div id="dpop1" class="bubblePopup" ajax="ask_information.php?lessons_ID=1"></div>
-    </div>
- </td>
- <td width="40%">&nbsp;</td>
- <td>
-    <div class="bubbleInfo" id = 'bubbler2'>
-
-        <div class="trigger" id = 'trigger2'>
-         <img src="http://localhost/branches/360/www/themes/default/images/others/logo.jpg" id="download" />
-        </div>
-
-        <div id="dpop2" class="bubblePopup" ajax="ask_information.php?lessons_ID=2"></div>
-    </div>
- </td>
-</tr>
-</table>
-    <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
-   -->
     {/capture}
              {if $smarty.session.s_type == "administrator"}
      {eF_template_printBlock title = $smarty.const._USERSWITHCOMMONLESSONS data = $smarty.capture.t_people image = "32x32/users.png" main_options=$T_TABLE_OPTIONS help = 'Social_extensions'}

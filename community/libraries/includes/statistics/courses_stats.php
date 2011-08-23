@@ -47,6 +47,7 @@ try {
       $smarty -> assign("T_COURSE_INSTANCES", $courseInstances);
       $smarty -> assign("T_COURSE_HAS_INSTANCES", sizeof($courseInstances) > 1);
 
+
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
       if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
        $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations', 'to_timestamp', 'enrolled_on'));
@@ -222,7 +223,6 @@ if (isset($_GET['excel'])) {
     $constraints = array('table_filters' => $stats_filters);
     $constraints['return_objects'] = false;
     $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
-
     foreach ($users as $info) {
         $workSheet -> write($row, 4, $info['login'], $fieldLeftFormat);
         $workSheet -> write($row, 5, $info['name'], $fieldLeftFormat);
@@ -238,7 +238,6 @@ if (isset($_GET['excel'])) {
    $completedString = _NO;
   }
         $workSheet -> write($row, 9, $completedString, $fieldLeftFormat);
-
         $row++;
     }
     $row += 2;
@@ -284,11 +283,19 @@ if (isset($_GET['excel'])) {
     $workBook -> close();
     exit(0);
 } else if (isset($_GET['pdf'])) {
+
  $groupname = $branchName = false;
  try {
   $group = new EfrontGroup($_GET['group_filter']);
   $groupname = $group -> group['name'];
  } catch (Exception $e) {/*Do nothing if group filters are not specified*/}
+
+
+
+
+
+
+
  $reportTitle = _REPORT.": ".$infoCourse -> course['name'];
  if ($groupname) {
   $reportTitle .= " "._FORGROUP.": ".$groupname;
@@ -296,14 +303,18 @@ if (isset($_GET['excel'])) {
  } elseif ($branchName) {
   $reportTitle .= " "._FORBRANCH.": ".$branchName;
  }
+
 //	$directionName = eF_getTableData("directions", "name", "id=".$infoLesson -> lesson['directions_ID']);
  $languages = EfrontSystem :: getLanguages(true);
+
  $pdf = new EfrontPdf($reportTitle);
+
  $info = array(array(_COURSE, $infoCourse -> course['name']),
       array(_CATEGORY, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $directionsPaths[$infoCourse -> course['directions_ID']])),
       array(_LESSONS, $infoCourse -> course['num_lessons']),
       array(_LANGUAGE, $languages[$infoCourse -> course['languages_NAME']]));
  $pdf -> printInformationSection(_BASICINFO, $info);
+
  $roles = EfrontLessonUser :: getLessonsRoles(true);
  $formatting = array(_USER => array('width' => '25%', 'fill' => false),
       _COURSEROLE => array('width' => '25%', 'fill' => false),
@@ -321,11 +332,11 @@ if (isset($_GET['excel'])) {
   } else {
    $completedString = _NO;
   }
-  $data[] = array(_USER => formatLogin( $info['login']),
-      _COURSEROLE=> $roles[$info['role']],
-      _COMPLETED => $completedString,
-      _SCORE => formatScore($info['score'])."%");
-    }
+   $data[] = array(_USER => formatLogin( $info['login']),
+       _COURSEROLE=> $roles[$info['role']],
+       _COMPLETED => $completedString,
+       _SCORE => formatScore($info['score'])."%");
+ }
  $pdf->printDataSection(_USERSINFO, $data, $formatting);
  $pdf -> OutputPdf('course_form_'.$infoCourse -> course['name'].'.pdf');
  exit;

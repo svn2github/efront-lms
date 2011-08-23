@@ -1884,7 +1884,7 @@ class EfrontStats
         if ($lesson) {
          $sql = ' and lessons_ID='.$lesson;
         }
-        $completedTests = EfrontCompletedTest::retrieveCompletedTest("tests, completed_tests", "*", "tests.id=completed_tests.tests_ID and status != 'deleted' $sql");
+        $completedTests = EfrontCompletedTest::retrieveCompletedTest("tests, completed_tests", "*", "tests.id=completed_tests.tests_ID and (status = 'completed' or status='passed' or status='failed') $sql");
         foreach ($completedTests as $test) {
             $test['test'] = unserialize($test['test']);
             $testQuestions = $test['test'] -> questions;

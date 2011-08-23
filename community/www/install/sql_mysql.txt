@@ -702,7 +702,9 @@ CREATE TABLE users_to_lessons (
   to_timestamp int(10) unsigned default NULL,
   primary key (users_LOGIN, lessons_ID),
   index(users_LOGIN),
-  index(lessons_ID)
+  index(lessons_ID),
+  index(from_timestamp),
+  index(archive)
 ) DEFAULT CHARSET=utf8;
 
 --

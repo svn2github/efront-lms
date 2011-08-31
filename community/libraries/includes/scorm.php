@@ -107,9 +107,9 @@ if ($_GET['scorm_review']) {
                     FileSystemTree :: checkFile($urlUpload);
                     $urlArray = explode("/", $urlUpload);
                     $urlFile = urldecode($urlArray[sizeof($urlArray) - 1]);
-
                     if (!copy($urlUpload, $currentLesson -> getDirectory().$urlFile)) {
-                        throw new Exception(_PROBLEMUPLOADINGFILE);
+                     $error = error_get_last();
+                        throw new Exception(_PROBLEMUPLOADINGFILE.': '.$error['message']);
                     } else {
                         $scormFiles[] = new EfrontFile($currentLesson -> getDirectory().$urlFile);
                     }

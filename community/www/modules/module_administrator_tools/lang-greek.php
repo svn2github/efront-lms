@@ -58,4 +58,6 @@ define("_MODULE_ADMINISTRATOR_TOOLS_BASICTYPESMUSTMATCH", "Οι βασικοί �
 define("_MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE", "Σύνδεση ως χρήστης");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN", "Δεν μπορείτε να συνδεθείτε ως διαχειριστής");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Ο χρήστης αυτός δεν είναι ενεργός");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "Δεν μπορείτε να προσπελάσετε αυτόν τον τομέα αν δεν είστε πλήρης διαχειριστής");
+define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Πολλαπλές τοποθετήσεις");
 ?>

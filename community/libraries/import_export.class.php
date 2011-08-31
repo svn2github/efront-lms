@@ -459,6 +459,13 @@ class EfrontImportCsv extends EfrontImport
        }
        $user = EfrontUserFactory::factory($value["users_login"]);
        $value['users_login'] = $user -> user['login'];
+       if (isset($userJobs[$value['users_login']]) && $this -> options['replace_assignments']) {
+        foreach ($userJobs[$value['users_login']] as $key => $v) {
+         $user->aspects['hcd']->removeJob($v);
+         unset($userJobs[$value['users_login']][$v]);
+        }
+        unset($userBranchesAssigned[$value['users_login']]);
+       }
        if (isset($userJobs[$value['users_login']][$jobId]) && $this -> options['replace_existing']) {
         eF_deleteTableData("module_hcd_employee_has_job_description", "users_login='".$value['users_login']."' AND job_description_ID ='".$jobId."'");
         unset($userJobs[$value['users_login']][$jobId]);

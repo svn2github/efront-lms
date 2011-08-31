@@ -772,8 +772,6 @@ abstract class EfrontUser
            'comments' => 0,
            'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
    eF_insertTableData("logs", $fields_insert);
-   eF_deleteTableData("users_to_chatrooms", "users_LOGIN='".$this -> user['login']."'"); //Log out user from the chat
-   eF_deleteTableData("chatrooms", "users_LOGIN='".$this -> user['login']."' and type='one_to_one'"); //Delete any one-to-one conversations
   }
   if ((!$_SESSION['s_login'] || $this -> user['login'] == $_SESSION['s_login']) && ($sessionId == session_id() || !$sessionId)) {
    if (isset($_COOKIE['c_request'])) {
@@ -1023,8 +1021,6 @@ abstract class EfrontUser
   eF_updateTableData("f_messages", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("f_topics", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("f_poll", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
-  eF_updateTableData("chatrooms", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
-  eF_updateTableData("chatmessages", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("news", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_updateTableData("files", array("users_LOGIN" => ''), "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("f_folders", "users_LOGIN='".$this -> user['login']."'");
@@ -2750,6 +2746,33 @@ abstract class EfrontLessonUser extends EfrontUser
   }
  }
  /**
+	 * Get professor roles
+	 *
+	 * This function returns an array with professor roles, like EfrontLessonUser::getLessonsRoles
+	 *
+	 * @param boolean $getNames Whether to return id/basic user type pairs or id/name pairs
+	 * @return array The lesson-oriented roles
+	 * @since 3.6.7
+	 * @access public
+	 * @static
+	 * @see EfrontLessonUser::getLessonsRoles
+	 */
+ public static function getProfessorRoles($getNames = false) {
+  $roles = self::getLessonsRoles();
+  $roleNames = self::getLessonsRoles(true);
+  foreach ($roles as $key => $value) {
+   if ($value != 'professor') {
+    unset($roles[$key]);
+    unset($roleNames[$key]);
+   }
+  }
+  if ($getNames) {
+   return $roleNames;
+  } else {
+   return $roles;
+  }
+ }
+ /**
 	 * Get lesson users
 	 *
 	 * This function returns a list with the students of all the lessons in which the current user has a professor role
@@ -2763,17 +2786,14 @@ abstract class EfrontLessonUser extends EfrontUser
 	 * @since 3.5.0
 	 * @access public
 	 */
- public function getProfessorStudents(){
-  $lessons = $this -> getLessons(true, 'professor');
-  $students = array();
-  foreach ($lessons as $lesson){
-   $lesson_students = array();
-   $lesson_students = $lesson -> getUsers('student');
-   foreach ($lesson_students as $student){
-    $students[] = $student['login'];
-   }
+ public function getProfessorStudents() {
+  $users = array();
+  $result = eF_getTableDataFlat("users_to_lessons", "lessons_ID", "archive=0 and users_LOGIN='".$this->user['login']."' and user_type in ('".implode("','", array_keys(EfrontLessonUser::getProfessorRoles()))."')");
+  if (!empty($result['lessons_ID'])) {
+   $result = eF_getTableDataFlat("users_to_lessons", "distinct users_LOGIN", "archive=0 and user_type in ('".implode("','", array_keys(EfrontLessonUser::getStudentRoles()))."') and lessons_ID in (".implode(",", $result['lessons_ID']).")");
+   $users = array_unique($result['users_LOGIN']);
   }
-  return array_unique($students);
+  return $users;
  }
  /**
 	 * Get user information

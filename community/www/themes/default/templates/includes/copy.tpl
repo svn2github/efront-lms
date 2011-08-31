@@ -24,7 +24,8 @@
                         <div id = "autocomplete_lessons_copy" class = "autocomplete"></div>&nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
-
+             <tr><td></td>
+                  <td class = "infoCell">{$smarty.const._STARTTYPINGFORRELEVENTMATCHES}</td></tr>
 
 
 

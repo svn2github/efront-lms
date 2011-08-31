@@ -1471,12 +1471,6 @@ class EfrontStats
             $size += filesize($file['file']);
         }
 
-        $chat_messages_info = eF_getTableData("chatmessages", "*", "users_LOGIN='".$user -> login."'", "timestamp desc");
-        $chat_messages = array();
-        foreach ($chat_messages_info as $message) {
-            $chat_messages[$message['id']] = $message;
-        }
-
         $comments_info = eF_getTableData("comments", "*", "users_LOGIN='".$user -> login."'", "timestamp desc");
         $comments = array();
         foreach ($comments_info as $comment) {
@@ -1491,13 +1485,6 @@ class EfrontStats
         $info['personal_folders'] = $personal_folders;
         $info['files'] = $files;
         $info['total_size'] = $size;
-
-        if ($GLOBALS['configuration']['chat_enabled']) {
-         $info['chat_messages'] = $chat_messages;
-         if (sizeof($info['chat_messages']) > 0) {
-             $info['last_chat'] = current($info['chat_messages']);
-         }
-        }
         $info['comments'] = $comments;
 
         return $info;

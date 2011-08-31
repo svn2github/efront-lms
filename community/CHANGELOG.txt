@@ -26,6 +26,11 @@
 - Organization chart is now cached when large (Enterprise edition)
 - Updated file access security
 - Updated random generator for password reminders
+- Fixed issue with single quotes in glossary (#1661)
+- Fixed issue in Question::clearDuplicates about primary key constraint
+- Fixed drag'n'drop questions not working in IE9
+- Updated import/export so that job assignments can optionally be replaced (Enterprise edition)
+- Dashboard now contains my courses' tools icon
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

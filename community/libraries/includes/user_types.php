@@ -75,7 +75,6 @@ try {
                                       //"forum"             => _FORUM,
                                       "personal_messages" => _PERSONALMESSAGES,
                                       //"surveys"           => _SURVEYS,
-                                      "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
                  "move_block" => _MOVEBLOCK,
            "dashboard" => _DASHBOARD);
@@ -95,7 +94,6 @@ try {
                                       //"forum"             => _FORUM,
                                       "personal_messages" => _PERSONALMESSAGES,
                                       //"surveys"           => _SURVEYS,
-                                      "chat" => _CHAT,
                                       "control_panel" => _CONTROLPANEL,
            "dashboard" => _DASHBOARD,
                  "move_block" => _MOVEBLOCK,
@@ -126,7 +124,6 @@ try {
                                       //"news"              => _ANNOUNCEMENTS,
                                       //"forum"             => _FORUM,
                                       "personal_messages" => _PERSONALMESSAGES,
-                                      "chat" => _CHAT,
                                       "notifications" => _EMAILDIGESTS,
                                       "control_panel" => _CONTROLPANEL,
            "dashboard" => _DASHBOARD);

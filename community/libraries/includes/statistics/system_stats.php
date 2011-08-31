@@ -217,7 +217,47 @@ try {
      handleAjaxExceptions($e);
     }
 } catch (Exception $e) {
-    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-    $message_type = 'failure';
+ handleNormalFlowExceptions($e);
+}
+if (isset($_GET['excel'])) {
+    require_once 'Spreadsheet/Excel/Writer.php';
+    $workBook = new Spreadsheet_Excel_Writer();
+    $workBook -> setTempDir(G_UPLOADPATH);
+    $workBook -> setVersion(8);
+    $formatExcelHeaders = & $workBook -> addFormat(array('Size' => 14, 'Bold' => 1, 'HAlign' => 'left'));
+    $headerFormat = & $workBook -> addFormat(array('border' => 0, 'bold' => '1', 'size' => '11', 'color' => 'black', 'fgcolor' => 22, 'align' => 'center'));
+    $formatContent = & $workBook -> addFormat(array('HAlign' => 'left', 'Valign' => 'top', 'TextWrap' => 1));
+    $headerBigFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'FgColor' => 22, 'Size' => 16, 'Bold' => 1));
+    $titleCenterFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 11, 'Bold' => 1));
+    $titleLeftFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 11, 'Bold' => 1));
+    $fieldLeftFormat = & $workBook -> addFormat(array('HAlign' => 'left', 'Size' => 10));
+    $fieldRightFormat = & $workBook -> addFormat(array('HAlign' => 'right', 'Size' => 10));
+    $fieldCenterFormat = & $workBook -> addFormat(array('HAlign' => 'center', 'Size' => 10));
+    //first tab
+    $workSheet = & $workBook -> addWorksheet("System info");
+    $workSheet -> setInputEncoding('utf-8');
+    $workSheet -> setColumn(0, 0, 5);
+    $workSheet -> write(1, 1, _BASICINFO." (".formatTimestamp($from)." - ".formatTimestamp($to).")", $headerFormat);
+    $workSheet -> mergeCells(1, 1, 1, 2);
+    $workSheet -> setColumn(1, 3, 30);
+    $workSheet -> write(2, 1, _ACCESSNUMBER, $fieldLeftFormat);
+    $workSheet -> write(2, 2, $totalUserAccesses, $fieldRightFormat);
+    $workSheet -> write(3, 1, _TOTALACCESSTIME, $fieldLeftFormat);
+    $time = EfrontTimes::formatTimeForReporting($totalUserTime);
+    $workSheet -> write(3, 2, $time['time_string'], $fieldRightFormat);
+    $workSheet -> write(5, 1, _USERSINFO." (".formatTimestamp($from)." - ".formatTimestamp($to).")", $headerFormat);
+    $workSheet -> mergeCells(5, 1, 5, 3);
+    $workSheet -> write(6, 1, _LOGIN, $titleLeftFormat);
+    $workSheet -> write(6, 2, _ACCESSNUMBER, $titleLeftFormat);
+    $workSheet -> write(6, 3, _TOTALTIME, $titleLeftFormat);
+    $row=7;
+    foreach ($users as $login => $value) {
+     $workSheet -> write($row, 1, formatLogin($login), $fieldLeftFormat);
+     $workSheet -> write($row, 2, $value['accesses'], $fieldCenterFormat);
+     $time = EfrontTimes::formatTimeForReporting($value['seconds']);
+     $workSheet -> write($row++, 3, $time['time_string'], $fieldCenterFormat);
+    }
+    $workBook -> send('system_reports.xls');
+    $workBook -> close();
+    exit(0);
 }

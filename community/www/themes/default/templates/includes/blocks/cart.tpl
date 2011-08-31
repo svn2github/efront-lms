@@ -66,7 +66,7 @@
     <div class = "cartElement">
      <div class = "cartTitle">{$smarty.const._CREDIT}</div>
         <div class = "cartDelete">
-            <span>{$T_CART.credit}</span>
+            <span>{$T_CART.credit|formatPrice}</span>
             <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEFROMCART}" title = "{$smarty.const._REMOVEFROMCART}" onclick = "removeFromCart(this, '{$cartlist.id}', 'credit');" id = "{$cartlist.id}">
         </div>
     &nbsp;</div>
@@ -78,7 +78,7 @@
          <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVEALLFROMCART}" title = "{$smarty.const._REMOVEALLFROMCART}" onclick = "removeAllFromCart(this);">
         </div>
     &nbsp;</div>
-    {if $smarty.get.checkout}
+    {if $smarty.get.checkout && !$T_CART.credit}
     <div class = "cartElement">
      <div class = "cartDelete">
      {if $T_CART.total_price != "" && $T_CART.total_price != 0}
@@ -100,7 +100,7 @@
      </div>
     &nbsp;</div>
     {/if}
-    {if $T_BALANCE}
+    {if $T_BALANCE && !$T_CART.credit}
     <div class = "cartElement">
      <div class = "cartDelete">{$smarty.const._BALANCE}: {$T_BALANCE}</div>
     &nbsp;</div>

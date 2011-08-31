@@ -242,31 +242,6 @@ try {
         $form -> addElement('textarea', 'body', _BODY, 'class = "simpleEditor" style = "width:100%;height:200px"');
         $form -> addElement('submit', 'submit_send_message', _SENDMESSAGE, 'class = "flatButton"');
         $form -> addElement('submit', 'submit_preview_message', _PREVIEWMESSAGE, 'class = "flatButton"');
-/*        if (isset($_GET['chat_invite']) && (eF_checkParameter($_GET['chat_invite'], id) || $_GET['chat_invite'] == 0) ) {
-
-            $subject_str = _CHATINVITATION;
-
-            if ($_GET['chat_invite'] == 0) {
-
-                $room_name = _EFRONTMAIN;
-
-            } else {
-
-                $result = eF_getTableData("chatrooms", "name", "id = '".$_GET['chat_invite']."'");
-
-                $room_name = $result[0]['name'];
-
-            }
-
-
-
-            $body_str = _THEUSER." <i>".$_SESSION["s_login"]."</i> "._INVITESYOUTOJOINTHE." <b>" . $room_name . "</b>";
-
-            $form -> setDefaults(array('subject' => $subject_str, 'body' => $body_str));
-
-        }
-
-*/
         if (isset($_GET['recipient'])) {
          // Multiple recipients can be pre-defined by having their logins separated with ;
          $predefined_recipients_array = explode(";",$_GET['recipient']);

@@ -19,6 +19,7 @@ $importForm -> addRule('import_file', _YOUMUSTUPLOADFILE, 'uploadedfile', null, 
 
 $importForm -> addElement('select', 'import_type', _DATATYPE, $import_export_types, 'id ="import_type" class = "inputCheckbox" onchange="changeCategory(this.value)"', array(0, 1));
 $importForm -> addElement('advcheckbox', 'import_keep', _KEEPEXISTINGUSERS, null, 'class = "inputCheckbox"', array(0, 1));
+$importForm -> addElement('advcheckbox', 'replace_assignments', _REPLACEASSIGNMENTS, null, 'class = "inputCheckbox"', array(0, 1));
 $importForm -> addElement("select", "date_format", _DATEFORMAT, array("DD/MM/YYYY" => "DD/MM/YYYY", "MM/DD/YYYY" => "MM/DD/YYYY", "YYYY/MM/DD" => "YYYY/MM/DD"));
 $importForm -> setDefaults(array('import_keep' => 0));
 $importForm -> addElement('submit', 'submit_import', _IMPORTDATA, 'class = "flatButton"');
@@ -53,10 +54,10 @@ if ($importForm -> isSubmitted()) {
         $uploadedFile = $filesystem -> uploadFile('import_file');
 
         $options = array("replace_existing" => $replaceUsers,
-             "date_format" => $importForm -> exportValue('date_format'));
+             "date_format" => $importForm -> exportValue('date_format'),
+             "replace_assignments" => $importForm->exportValue('replace_assignments'));
+
         $importer = EfrontImportFactory::factory("csv", $uploadedFile, $options);
-        //pr($importForm -> exportValues());
-        //echo $importForm -> exportValue('import_type')."<BR>";
         $importType = $importForm -> exportValue('import_type');
 
         if ($importType == "anything") {

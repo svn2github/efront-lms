@@ -6772,8 +6772,12 @@ abstract class Question
      $duplicates = array_diff_key($checksums, $uniques);
      foreach ($duplicates as $key => $value) {
       $original = array_search($value, $uniques);
-      eF_updateTableData("tests_to_questions", array("questions_ID" => $original), "questions_ID=".$key);
-      eF_deleteTableData("questions", "id=".$key);
+      try {
+       eF_updateTableData("tests_to_questions", array("questions_ID" => $original), "questions_ID=".$key);
+       eF_deleteTableData("questions", "id=".$key);
+      } catch (Exception $e) {
+       //in case a test contain both questions, do nothing but do not delete question
+      }
      }
     }
 }

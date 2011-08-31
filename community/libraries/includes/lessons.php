@@ -307,19 +307,10 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
     }
     try {
      $editLesson -> persist();
-     $lesson_forum = eF_getTableData("f_forums", "id", "lessons_ID=".$_GET['edit_lesson']); //update lesson's forum and chat names as well
+     $lesson_forum = eF_getTableData("f_forums", "id", "lessons_ID=".$_GET['edit_lesson']); //update lesson's forum names as well
      if (sizeof($lesson_forum) > 0) {
       eF_updateTableData("f_forums", array('title' => $values['name']), "id=".$lesson_forum[0]['id']);
      }
-/*					$lesson_chat = eF_getTableData("chatrooms", "id", "lessons_ID=".$_GET['edit_lesson']);
-
-					if (sizeof($lesson_chat) > 0) {
-
-						eF_updateTableData("chatrooms", array('name' => $values['name']), "id=".$lesson_chat[0]['id']);
-
-					}
-
-*/
      eF_redirect(basename(basename($_SERVER['PHP_SELF'])).'?ctg=lessons&message='.urlencode(_LESSONUPDATED).'&message_type=success');
     } catch (Exception $e) {
      $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());

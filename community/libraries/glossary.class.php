@@ -328,7 +328,8 @@ class glossary extends EfrontEntity
      $searchdata[] = "/(\P{L})(".$value['name'].")(\P{L})/usi";
     }
     $searchdatanext[] = "/(yty656hgh".$value['name'].")/usi";
-                $replacedata[] = str_replace(array("\r\n", "\n"), '<br/>', htmlentities(strip_tags($value['info']), ENT_QUOTES));
+    //Added 'UTF-8' because of #1661 and &rsquo;
+                $replacedata[] = str_replace(array("\r\n", "\n"), '<br/>', htmlentities(strip_tags($value['info']), ENT_QUOTES, "UTF-8"));
             }
         }
         $text = self :: highlightWords($text, $searchdata, $replacedata);

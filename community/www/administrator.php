@@ -167,13 +167,6 @@ try {
      /***/
      require_once("includes/messages.php");
  }
-/*	elseif ($ctg == 'chat') {
-
-	    require_once("includes/chat.php");
-
-	}
-
-*/
  elseif ($ctg == 'backup') {
      /***/
      require_once ("backup.php");
@@ -248,6 +241,7 @@ try {
         //Default url for the file manager
         $url = basename($_SERVER['PHP_SELF']).'?ctg=file_manager';
         $extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
+
         include "file_manager.php";
  }
  elseif ($ctg == 'logout_user') {
@@ -275,6 +269,8 @@ try {
      require_once "search_courses.php";
  }
  elseif ($ctg == 'search_users') {
+
+
 
  }
  elseif ($ctg == 'digests') {

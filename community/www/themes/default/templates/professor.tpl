@@ -261,12 +261,6 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {/if}
  {include file = "includes/messages.tpl"}
 {/if}
-<!--
-{if (isset($T_CTG) && $T_CTG == 'chat')}
- {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=chat'>`$smarty.const._CHAT`</a>"}
- {include file = "includes/chat.tpl"}
-{/if}
--->
 {if (isset($T_CTG) && $T_CTG == 'comments')}
  {include file = "includes/comments.tpl"}
 {/if}
@@ -833,7 +827,6 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {$smarty.capture.moduleTopics}
   {$smarty.capture.modulePoll}
   {$smarty.capture.moduleLandingPage}
-<!-- {$smarty.capture.chatRoomOptions} -->
  </table>
 {/capture}
 {capture name = "left_code"}

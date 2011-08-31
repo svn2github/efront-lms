@@ -131,6 +131,6 @@ if ($('module_administrator_tools_autocomplete_lessons_blockorder')) {
 	new Ajax.Autocompleter("autocomplete_blockorder", 
 						   "module_administrator_tools_autocomplete_lessons_blockorder", 
 						   "ask.php?ask_type=lessons", {paramName: "preffix", 
-											   afterUpdateElement : function (t, li) {document.location = document.location.toString().replace(/&tab=\w*/g, '').replace(/&lessons_ID=\d*/g, '')+"&tab=global_settings"+"&lessons_ID="+li.id;},
+											   afterUpdateElement : function (t, li) {document.location = document.location.toString().replace(/&tab=\w*/g, '').replace(/&lessons_ID=\d*/g, '')+"&tab=global_settings&do=learning&copy_block_order=1"+"&lessons_ID="+li.id;},
 											   indicator : "busy"}); 
 }

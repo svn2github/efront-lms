@@ -1,6 +1,15 @@
         {capture name='display_system_statistics'}
              <div class = "tabber">
                 <div class = "statisticsDiv tabbertab {if (isset($smarty.get.tab) &&  $smarty.get.tab == 'system_traffic')} tabbertabdefault{/if}" title = "{$smarty.const._TRAFFIC}">
+         <table class = "statisticsTools statisticsSelectList">
+    <tr>
+                 <td id = "right">
+                        {$smarty.const._EXPORTSTATS}
+                        <a href = "{$smarty.server.PHP_SELF}?{$smarty.server.QUERY_STRING}&excel=1">
+                            <img src = "images/file_types/xls.png" title = "{$smarty.const._XLSFORMAT}" alt = "{$smarty.const._XLSFORMAT}" />
+                        </a>
+                    </td></tr>
+   </table>
                     <form name = "systemperiod">
                     <table class = "statisticsSelectDate">
                         <tr><td class = "labelCell">{$smarty.const._FROM}:&nbsp;</td>

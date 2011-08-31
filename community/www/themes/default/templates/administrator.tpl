@@ -115,12 +115,7 @@
  {/if}
  {include file = "includes/messages.tpl"}
 {/if}
-<!--
-{if (isset($T_CTG) && $T_CTG == 'chat')}
- {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=chat'>`$smarty.const._CHAT`</a>"}
- {include file = "includes/chat.tpl"}
-{/if}
--->
+
 {if isset($T_CTG) && $T_CTG == 'personal'}
  {capture name = "modulePersonal"}
   {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=users'>`$smarty.const._USERS`</a>"}
@@ -602,7 +597,6 @@
   {$smarty.capture.moduleMessagesPage}
   {$smarty.capture.moduleShowRoom}
   {$smarty.capture.moduleRoomsList}
-<!-- {$smarty.capture.chatRoomOptions} -->
     {$smarty.capture.modulePersonal}
  </table>
 {/capture}

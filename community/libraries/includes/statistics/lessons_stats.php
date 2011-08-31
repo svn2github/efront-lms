@@ -435,8 +435,6 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workSheet -> write(10, 2, $lessonInfo['comments'], $fieldRightFormat);
     $workSheet -> write(11, 1, _MESSAGES, $fieldLeftFormat);
     $workSheet -> write(11, 2, $lessonInfo['messages'], $fieldRightFormat);
-    $workSheet -> write(12, 1, _CHATMESSAGES, $fieldLeftFormat);
-    $workSheet -> write(12, 2, $lessonInfo['chatmessages'], $fieldRightFormat);
 
     //lesson content info
     $workSheet -> write(14, 1, _LESSONCONTENTINFO, $headerFormat);
@@ -816,10 +814,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
       array(_LANGUAGE, $languages[$infoLesson -> lesson['languages_NAME']]),
       array(_ACTIVENEUTRAL, $infoLesson -> lesson['active'] ? _YES : _NO));
  $pdf -> printInformationSection(_BASICINFO, $info);
- if ($lessonInfo['comments'] || $lessonInfo['messages'] || $lessonInfo['chatmessages']) {
+ if ($lessonInfo['comments'] || $lessonInfo['messages']) {
   $info = array(array(_COMMENTS, ($lessonInfo['comments'])),
-       array(_MESSAGES, $lessonInfo['messages']),
-       array(_CHATMESSAGES, $lessonInfo['chatmessages']));
+       array(_MESSAGES, $lessonInfo['messages']));
   $pdf -> printInformationSection(_LESSONPARTICIPATIONINFO, $info);
  }
  $info = array(array(_THEORY, $lessonInfo['theory']),

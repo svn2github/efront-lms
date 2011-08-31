@@ -326,10 +326,6 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
         <td class = "elementCell">{$T_LESSON_INFO.messages}</td>
        </tr>
       {/if}
-                        <tr class = "defaultRowHeight {cycle name = 'participation_lesson_info' values = 'oddRowColor, evenRowColor'}">
-                            <td class = "labelCell">{$smarty.const._CHATMESSAGES}:</td>
-                            <td class = "elementCell">{$T_LESSON_INFO.chatmessages}</td>
-                        </tr>
                         <tr>
                             <td class = "topTitle leftAlign" colspan = "3">{$smarty.const._LESSONCONTENTINFO}</td>
                         </tr>

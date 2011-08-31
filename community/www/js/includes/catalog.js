@@ -37,7 +37,7 @@ function removeFromCart(el, id, type) {
 	parameters = {fct:'removeFromCart', ajax:'cart', id:id, type:type, method: 'get'};
 	ajaxRequest(el, url, parameters, onCartOperation);				
 }		
-
+//if ($('buy_credit_value').value) ajaxRequest(this, '{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&fct=addToCart&type=credit&id='+$('buy_credit_value').value, {ldelim}ajax:1{rdelim})
 function removeAllFromCart(el) {
 	var url    = location.toString();
 	parameters = {fct:'removeAllFromCart', ajax:'cart', method: 'get'};

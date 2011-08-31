@@ -19,30 +19,30 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  $loadScripts[] = 'includes/social';
  $loadScripts[] = 'includes/lessons_list';
  $loadScripts[] = 'scriptaculous/dragdrop';
-  if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['insert_group_key']) {
-   $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
-  }
-  if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['lessons_directory']) {
-   $myCoursesOptions[] = array('text' => _COURSECATALOG, 'image' => "32x32/catalog.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
-  }
+ if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['insert_group_key']) {
+  $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
+ }
+ if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['lessons_directory']) {
+  $myCoursesOptions[] = array('text' => _COURSECATALOG, 'image' => "32x32/catalog.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons&catalog=1");
+ }
 
 
 
 
-  if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
-   $myCoursesOptions[] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
-  }
-  if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {
-   $myCoursesOptions[] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
-  }
-  if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
-   $myCoursesOptions[] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum");
-  }
-  if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
-         $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
-  }
+ if ((!isset($currentUser -> coreAccess['personal_messages']) || $currentUser -> coreAccess['personal_messages'] != 'hidden') && $GLOBALS['configuration']['disable_messages'] != 1) {
+  $myCoursesOptions[] = array('text' => _MESSAGES, 'image' => "32x32/mail.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages");
+ }
+ if (!isset($currentUser -> coreAccess['statistics']) || $currentUser -> coreAccess['statistics'] != 'hidden') {
+  $myCoursesOptions[] = array('text' => _STATISTICS, 'image' => "32x32/reports.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=statistics");
+ }
+ if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
+  $myCoursesOptions[] = array('text' => _FORUM, 'image' => "32x32/forum.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=forum");
+ }
+ if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
+  $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
+ }
 
-  $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
+ $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
 
  if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
   $smarty -> assign("T_SOCIAL_INTERFACE", 1);
@@ -312,37 +312,20 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  } else if ($_GET['op'] == "show_profile") {
   if (isset($_GET['user'])) {
    $shownUser = EfrontUserFactory::factory($_GET['user']);
-
-   // If chat is enabled
-/*			if ($GLOBALS['configuration']['chat_enabled']) {
-
-				$current_room = eF_getTableData("users_to_chatrooms" ,"chatrooms_ID","users_LOGIN = '".$shownUser -> user['login']."'");
-
-				if (!empty($current_room)) {
-
-					$smarty -> assign("T_CURRENT_CHATROOM", $current_room[0]['chatrooms_ID']);
-
-				} else {
-
-					// else the user is in the main room
-
-					$smarty -> assign("T_CURRENT_CHATROOM", 0);
-
-				}
-
-			}
-
-*/
    try {
     $avatarfile = new EfrontFile($shownUser -> user['avatar']);
    } catch (EfrontFileException $ex) {
     $shownUser -> user['avatar'] = G_SYSTEMAVATARSPATH."unknown_small.png";
    }
+
    $smarty -> assign("T_PROFILE_TO_SHOW", $shownUser -> user);
+
    if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_COMMENTS) {
     $smarty -> assign("T_COMMENTS_ENABLED",1);
    }
+
    $comments = $shownUser -> getProfileComments();
+
    if (sizeof($comments) > 0) {
     foreach ($comments as $id => $comment) {
      try {
@@ -357,11 +340,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     }
     $smarty -> assign("T_COMMENTS", $comments);
    } else {
+
     $smarty -> assign("T_COMMENTS", array());
    }
   }
  /********************* PROFILE COMMENTS POPUP ******************/
  } else if ($_GET['op'] == "comments") {
+
     if (isset($_GET['action']) && $_GET['action'] == "delete") {
    // Only allowed to delete comments referring to you
    if (sizeof(eF_getTableData("profile_comments", "*", "id=".$_GET['id']." and users_LOGIN='".$_SESSION['s_login']."'")) > 0) {
@@ -369,10 +354,13 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     //eF_deleteTableData("search_keywords", "foreign_ID=".$id." AND table_name='comments'");
     $message = _COMMENTDELETED;
     $message_type = 'success';
+
     // Timelines add event
     EfrontEvent::triggerEvent(array("type" => EfrontEvent::DELETE_PROFILE_COMMENT_FOR_SELF, "users_LOGIN" => $_SESSION['s_login'], "users_name" => $currentUser -> user['name'], "users_surname" => $currentUser -> user['surname']));
+
     eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=dashboard&message=".urlencode($message)."&message_type=".$message_type);
     exit;
+
    }
   } elseif(isset($_GET['action']) && ($_GET['action'] == 'insert' || $_GET['action'] == 'change') && isset($_GET['user'])) {
    $load_editor = true;

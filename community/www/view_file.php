@@ -66,6 +66,8 @@ try {
     throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
    }
   }
+ } else if (mb_strpos($file['path'], G_AVATARSPATH) === false) {
+    //proceed
  } else if (mb_strpos($file['path'], G_UPLOADPATH.$currentUser->user['login']) === false) {
   throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
  }

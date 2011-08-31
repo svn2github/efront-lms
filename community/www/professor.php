@@ -497,13 +497,6 @@ try {
      /***/
      require_once("messages.php");
  }
-/*	elseif ($ctg == 'chat') {
-
-	    require_once("includes/chat.php");
-
-	}
-
-*/
  elseif ($ctg == 'import') {
   $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/

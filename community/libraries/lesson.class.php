@@ -155,7 +155,7 @@ class EfrontLesson
                             'comments' => 1,
                             'news' => 1,
                             'online' => 1,
-                            'chat' => 1,
+                            'chat' => 0,
                             'scorm' => 1,
                             'dynamic_periods' => 0,
                             'digital_library' => 1,
@@ -624,7 +624,7 @@ class EfrontLesson
 
 	 * the database instance, creating the corresponding filesystem
 
-	 * folder (read below) and finally creating corresponding forum and chat entries
+	 * folder (read below) and finally creating corresponding forum entries
 
 	 * as well as any other information needed.
 
@@ -685,7 +685,6 @@ class EfrontLesson
   EfrontSearch :: insertText($fields['name'], $lessonId, "lessons", "title");
   self::addNewLessonSkills($newLesson);
   self::createLessonForum($newLesson);
-  self::createLessonChat($newLesson);
   self::notifyModuleListenersForLessonCreation($newLesson);
   return $newLesson;
  }
@@ -749,21 +748,6 @@ class EfrontLesson
                              'comments' => '');
   $forumId = eF_insertTableData("f_forums", $forumFields);
   EfrontSearch :: insertText($lesson -> lesson['name'], $forumId, "f_forums", "title");
- }
- private static function createLessonChat($lesson) {
-  if ($lesson -> lesson['originating_course']) {
-   $originatingCourse = new EfrontCourse($lesson -> lesson['originating_course']);
-   $titleString = $originatingCourse -> course['name'].'&nbsp;&raquo;&nbsp;'.$lesson -> lesson['name'];
-  } else {
-   $titleString = $lesson -> lesson['name'];
-  }
-  $chatFields = array('name' => $titleString,
-                            'create_timestamp' => time(),
-                            'type' => 'public',
-                            'users_LOGIN' => isset($_SESSION['s_login']) ? $_SESSION['s_login'] : '',
-                            'lessons_ID' => $lesson -> lesson['id'],
-                            'active' => 1);
-  eF_insertTableData("chatrooms", $chatFields);
  }
  private static function addNewLessonSkills($lesson) {
  }
@@ -894,7 +878,6 @@ class EfrontLesson
   if ($removeFromCourse) {
    $this -> removeLessonFromCourses();
   }
-  $this -> removeLessonChat();
   $this -> removeLessonForums();
   $this -> removeLessonSkills();
   calendar::deleteLessonCalendarEvents($this -> lesson['id']);
@@ -916,13 +899,6 @@ class EfrontLesson
   foreach($lessonsForums as $value) {
    $forum = new f_forums($value);
    $forum -> delete();
-  }
- }
- private function removeLessonChat() {
-  $lessonChatrooms = eF_getTableData("chatrooms", "id", "lessons_ID=".$this -> lesson['id']); //Get the lesson chat room
-  foreach($lessonChatrooms as $value) {
-   eF_deleteTableData("chatmessages", "chatrooms_ID=".$value['id']);
-   eF_deleteTableData("chatrooms", "id=".$value['id']);
   }
  }
  /**
@@ -2538,16 +2514,12 @@ class EfrontLesson
                                               "comments.content_ID = content.id and content.lessons_ID=".$this->lesson['id']);
    $lessonMessages = eF_getTableData("f_messages, f_topics, f_forums", "f_messages.*",
                                               "f_messages.f_topics_ID = f_topics.id and f_topics.f_forums_ID = f_forums.id and f_forums.lessons_ID=".$this->lesson['id']);
-   $lessonChat = eF_getTableData("chatmessages, chatrooms", "chatmessages.*",
-                                              "chatmessages.chatrooms_ID = chatrooms.id and chatrooms.lessons_ID = ".$this->lesson['id']);
   } else {
    $projects = $this -> getProjects(false, $user, false);
    $lessonComments = eF_getTableData("comments, content", "comments.*",
                                               "comments.users_LOGIN='".$user."' and comments.content_ID = content.id and content.lessons_ID=".$this->lesson['id']);
    $lessonMessages = eF_getTableData("f_messages, f_topics, f_forums", "f_messages.*",
                                               "f_messages.users_LOGIN='".$user."' and f_messages.f_topics_ID = f_topics.id and f_topics.f_forums_ID = f_forums.id and f_forums.lessons_ID=".$this->lesson['id']);
-   $lessonChat = eF_getTableData("chatmessages, chatrooms", "chatmessages.*",
-                                              "chatmessages.users_LOGIN='".$user."' and chatmessages.chatrooms_ID = chatrooms.id and chatrooms.lessons_ID = ".$this->lesson['id']);
   }
   $direction = $this -> getDirection();
   $languages = EfrontSystem :: getLanguages(true);
@@ -2560,7 +2532,6 @@ class EfrontLesson
   $info['projects'] = sizeof($projects);
   $info['comments'] = sizeof($lessonComments);
   $info['messages'] = sizeof($lessonMessages);
-  $info['chatmessages'] = sizeof($lessonChat);
   $info['direction'] = $direction['name'];
   $info['active'] = $this -> lesson['active'];
   $info['active_string'] = $this -> lesson['active'] == 1 ? _YES : _NO;
@@ -2976,192 +2947,6 @@ class EfrontLesson
 
 
 		 */
- }
- /**
-
-	 * Get this lesson's chat room
-
-	 *
-
-	 * This function is used to get the chat room belonging to the specific lesson
-
-	 * We assume that chatrooms are correctly inserted to the database during lesson creation
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * try {
-
-	 *   $lesson = new EfrontLesson(32);     //32 is the lesson id
-
-	 *   $id = $lesson -> getChatroom();           //Get the id of the chat room of this lesson
-
-	 * </code><br/>
-
-	 *
-
-	 * @return the id of the lesson's chatroom, stored in the ($this -> chatroom['id'])
-
-	 * @since 3.5.2
-
-	 * @access public
-
-	 */
- public function getChatroom() {
-  if (!isset($this -> chatroom['id'])) {
-   $chatroom_info = eF_getTableData("chatrooms", "id", "lessons_ID = '".$this -> lesson['id']."'");
-   $this -> chatroom = array();
-   if ($chatroom_info[0]['id'] != '') {
-    $this -> chatroom['id'] = $chatroom_info[0]['id'];
-   } else {
-    //create chatroom if for any reason it does not exist
-    $fields_insert = array ('name' => $this -> lesson['name'], //***Check here
-                      'type' => 'public',
-                      'lessons_ID' => $this -> lesson['id'],
-                                     'create_timestamp' => time());
-    $chatroomID = eF_insertTableData("chatrooms", $fields_insert);
-    return $chatroomID;
-   }
-  }
-  return $this -> chatroom['id'];
- }
- /*
-
-	 * Disable chatroom
-
-	 */
- public function disableChatroom() {
-  eF_updateTableData("chatrooms", array("active" => 0), "lessons_ID = '".$this -> lesson['id']."'");
-  eF_deleteTableData("users_to_chatrooms", "chatrooms_ID = " . $this->getChatroom());
-  $this -> setOptions(array("chat" => 0));
- }
- /*
-
-	 * Enable chatroom
-
-	 */
- public function enableChatroom() {
-  eF_updateTableData("chatrooms", array("active" => 1), "lessons_ID = '".$this -> lesson['id']."'");
-  $this -> setOptions(array("chat" => 1));
- }
- /*
-
-	 * Get this lesson's chat room currently online users
-
-	 *
-
-	 * This function is used to get all users currently existing in the chat room
-
-	 * These are either the ones having this lesson as $currentLesson or entering the lesson's chat room
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * try {
-
-	 *   $lesson = new EfrontLesson(32);     //32 is the lesson id
-
-	 *   $userList = $lesson -> getChatroomUsers();           //Get the id of the chat room of this lesson
-
-	 * </code><br/>
-
-	 *
-
-	 * The result is stored under the $this -> chatroom['users'] array
-
-	 * @return the array of users where each record has the form [users_login] => [users_login, user_type, timestamp (of entrance)]
-
-	 * @since 3.5.2
-
-	 * @access public
-
-	 */
- public function getChatroomUsers() {
-  $result = eF_getTableData("users_to_chatrooms", "*", "chatrooms_ID = '".$this-> getChatroom()."'");
-  $this -> chatroom['users'] = array();
-  foreach ($result as $user) {
-   $this -> chatroom['users'][$user['users_LOGIN']] = array($user['users_LOGIN'], $user['users_USER_TYPE'], $user['timestamp']);
-  }
-  return $this -> chatroom['users'];
- }
- /**
-
-	 * Add a user to this lesson's chat room
-
-	 *
-
-	 * This function is used to add a user to this lesson's chat room
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * try {
-
-	 *   $lesson = new EfrontLesson(32);     //32 is the lesson id
-
-	 *   $editedUser = EfrontUserFactory :: factory('joe');
-
-	 *   $lesson -> addChatroomUser($editedUser);           //Get the id of the chat room of this lesson
-
-	 * </code><br/>
-
-	 *
-
-	 * @param any eFront user object
-
-	 * @return the result of the database insertion operation
-
-	 * @since 3.5.2
-
-	 * @access public
-
-	 */
- public function addChatroomUser($user) {
-  eF_deleteTableData("users_to_chatrooms", "users_LOGIN = '".$user -> user['login']."'");
-  $userRecord = array("users_LOGIN" => $user -> user['login'],
-                            "chatrooms_ID" => $this -> getChatroom(),
-                            "users_USER_TYPE" => $user -> user['user_type'],
-                            "timestamp" => time());
-  return eF_insertTableData("users_to_chatrooms", $userRecord);
- }
- /**
-
-	 * Removes a user from this lesson's chat room
-
-	 *
-
-	 * This function is used to remove a user from the chat room belonging to this lesson
-
-	 * according to his or her login
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * try {
-
-	 *   $lesson = new EfrontLesson(32);     //32 is the lesson id
-
-	 *   $lesson -> removeChatroomUser('joe');           //Get the id of the chat room of this lesson
-
-	 * </code><br/>
-
-	 *
-
-	 * @param the login of the user to be removed
-
-	 * @return the result of the database insertion operation
-
-	 * @since 3.5.2
-
-	 * @access public
-
-	 */
- public function removeChatroomUser($login) {
-  return eF_deleteTableData("users_to_chatrooms", "users_LOGIN = '".$login."' AND chatrooms_ID = '".$this->getChatroom()."'");
  }
  public function toXML($flgContent){
   $str = "";
@@ -3756,7 +3541,6 @@ class EfrontLesson
     if ($keepName) {
      eF_updateTableData("lessons", array("name" => $data['lessons']['name']), "id=".$this -> lesson['id']);
      eF_updateTableData("f_forums", array("title" => $data['lessons']['name']), "lessons_ID=".$this -> lesson['id']);
-     eF_updateTableData("chatrooms", array("name" => $data['lessons']['name']), "lessons_ID=".$this -> lesson['id']);
     }
    } else {
     if ($table == "questions") {

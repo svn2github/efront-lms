@@ -885,63 +885,6 @@ function eF_checkIP($api = false)
 }
 /**
 
-* Converts string to smilies
-
-*
-
-* This function parses a string and replaces text smilies occurences with the
-
-* equivalent icons
-
-*
-
-* @param string $str The string to parse
-
-* @return string The string returned
-
-* @version 0.8
-
-*/
-function eF_convertTextToSmilies($str) {
-    $img_str = ' <image src = "'.G_CURRENTTHEMEURL.'images/smilies/icon_';
-    $text_array = array(':)', ':-)',
-                           ':(', ':-(',
-                           ';)', ';-)',
-                           ':oops:',
-                           ':D', ':-D',
-                           ':o', ':-o',
-                           '8O', '8-O',
-                           ':?', ':-?',
-                           '8)', '8-)',
-                           ':lol:',
-                           ':x', ':-x',
-                           ':P', ':-P',
-                           ':cry:',
-                           ':evil:',
-                           ':twisted:',
-                           ':roll:');
-    $smilies_array = array($img_str.'smile.gif" /> ', $img_str.'smile.gif" /> ',
-                           $img_str.'sad.gif" /> ', $img_str.'sad.gif" /> ',
-                           $img_str.'wink.gif" /> ', $img_str.'wink.gif" /> ',
-                           $img_str.'redface.gif" /> ',
-                           $img_str.'biggrin.gif" /> ', $img_str.'biggrin.gif" /> ',
-                           $img_str.'surprised.gif" /> ', $img_str.'surprised.gif" /> ',
-                           $img_str.'eek.gif" /> ', $img_str.'eek.gif" /> ',
-                           $img_str.'confused.gif" /> ', $img_str.'confused.gif" /> ',
-                           $img_str.'cool.gif" /> ', $img_str.'cool.gif" /> ',
-                           $img_str.'lol.gif" /> ',
-                           $img_str.'mad.gif" /> ', $img_str.'mad.gif" /> ',
-                           $img_str.'razz.gif" /> ', $img_str.'razz.gif" /> ',
-                           $img_str.'cry.gif" /> ',
-                           $img_str.'evil.gif" /> ',
-                           $img_str.'twisted.gif" /> ',
-                           $img_str.'rolleyes.gif" /> ');
-    $smilied_text = str_replace($text_array, $smilies_array, $str);
-    //$smilied_text .= " "; //spaces required for chat
-    return $smilied_text;
-}
-/**
-
 * Checks if the designated user is ldap registered
 
 *
@@ -1322,7 +1265,6 @@ function eF_getMenu()
                $menu['general']['messages'] = array('title' => _MESSAGES, 'link' => $_SESSION['s_type'].".php?ctg=messages", 'image' => 'mail');
             }
             $menu['general']['emails'] = array('title' => _EMAILS, 'link' => 'administrator.php?ctg=emails', 'image' => 'mail');
-//            $menu['general']['chat']          = array('title' => _CHAT,          'link' => $_SESSION['s_type'].".php?ctg=chat",                 'image' => 'chat');
             foreach ($user_module['administrator'] as $value) {
                 if ($value['position'] == 'left') {
                     $menu['general'][$value['name']] = array('title' => $value['title'], 'link' => 'administrator.php?ctg='.$value['name'], 'image' => 'addons');

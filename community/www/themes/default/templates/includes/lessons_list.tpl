@@ -137,9 +137,21 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
       *}
       {eF_template_printBlock title = $smarty.const._COURSECATALOG data = $T_DIRECTIONS_TREE image = '32x32/catalog.png'}
      {/if}
+
+     {capture name = "t_buy_balance_code"}
+      <table class = "formElements">
+       <tr><td class = "labelCell">Amount:</td>
+        <td class = "elementCell"><input type = "text" id = "buy_credit_value"/></td></tr>
+       <tr><td class = "labelCell"></td>
+        <td class = "submitCell"><input class = "flatButton" type = "submit" value = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, $('buy_credit_value').value, 'credit')"></td></tr>
+      </table>
+     {/capture}
      {capture name = "moduleSideOperations"}
+      <tr><td>
       {include file = "includes/blocks/cart.tpl" assign = "cart"}
          {eF_template_printBlock title = $smarty.const._SELECTEDLESSONS content = $cart image = "32x32/shopping_basket.png"}
+         {eF_template_printBlock title = $smarty.const._BUYBALANCE content = $smarty.capture.t_buy_balance_code image = "32x32/shopping_basket.png"}
+         </td></tr>
      {/capture}
     {/if}
        {elseif $T_DIRECTIONS_TREE}

@@ -472,6 +472,19 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     }
    }
    $smarty -> assign("T_UNIT", $currentUnit);
+   $info = array('student_name' => $currentUser->user['name'],
+        'student_surname' => $currentUser->user['surname'],
+       'student_login' => $currentUser->user['login'],
+       'student_email' => $currentUser->user['email']."'",
+       'student_formatted_login' => formatLogin($currentUser->user['login']),
+       'lesson_name' => $currentLesson->lesson['name'],
+       'lesson_id' => $currentLesson->lesson['id'],
+       'course_name' => $currentCourse->course['name'],
+       'course_id' => $currentCourse->course['id'],
+       'timestamp' => time(),
+       'date' => formatTimestamp(time()));
+   array_walk($info, create_function('&$v', '$v=htmlentities($v, ENT_QUOTES);'));
+   $smarty -> assign("T_INFORMATION_JSON", json_encode($info));
    $times = new EfrontTimes();
    $userTimeInUnit = EfrontTimes::formatTimeForReporting($times->getUserSessionTimeInUnit($currentUser->user['login'], $currentUnit['id']));
    $smarty -> assign("T_USER_TIME_IN_UNIT", $userTimeInUnit);

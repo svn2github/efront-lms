@@ -410,13 +410,6 @@ try {
      /***/
      require_once("includes/messages.php");
  }
-/*	elseif ($ctg == 'chat') {
-
-	    require_once("includes/chat.php");
-
-	}
-
-*/
  elseif ($ctg == 'module') {
      /***/
      require_once("module.php");

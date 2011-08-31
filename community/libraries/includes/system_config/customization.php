@@ -22,7 +22,6 @@ $customizationDisableForm -> addElement("advcheckbox", "disable_messages", _MESS
 $customizationDisableForm -> addElement("advcheckbox", "disable_messages_student", _MESSAGESSTUDENTS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_forum", _FORUMS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_tests", _TESTS, null, 'class = "inputCheckBox"', array(1, 0));
-$customizationDisableForm -> addElement("advcheckbox", "chat_enabled", _CHAT, null, 'class = "inputCheckBox"', array(0, 1));
 $customizationDisableForm -> addElement("advcheckbox", "disable_tooltip", _TOOLTIP, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(1, 0));

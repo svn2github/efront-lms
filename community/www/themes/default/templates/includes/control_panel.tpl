@@ -20,12 +20,15 @@
   {capture name = "moduleNewUsersApplications"}
       <tr><td class = "moduleCell">
           {capture name = 't_inactive_users_code'}
-              {section name = 'inactive_users_list' loop = "$T_INACTIVE_USERS"}
-         <span class = "counter">{$smarty.section.inactive_users_list.iteration}.</span>
-         <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_INACTIVE_USERS[inactive_users_list].login}&op=profile">#filter:login-{$T_INACTIVE_USERS[inactive_users_list].login}#</a><br/>
+              {section name = 'inactive_users_list' loop = $T_INACTIVE_USERS}
+         <div {if $smarty.section.inactive_users_list.iteration>10}class = "hidden_user_registrations" style="display:none"{/if}>{counter name = "users"}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_INACTIVE_USERS[inactive_users_list].login}&op=profile">#filter:login-{$T_INACTIVE_USERS[inactive_users_list].login}#</a></div>
               {sectionelse}
          <span class = "emptyCategory">{$smarty.const._NONEWAPPLICATIONS}</span>
               {/section}
+                 {if sizeof($T_INACTIVE_USERS) > 10}
+                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_user_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_INACTIVE_USERS|@sizeof}{$total-10} {$smarty.const._MORE}</a></div>
+                  <div class = "hidden_user_registrations" style = "display:none"><a href = "javascript:void(0)" onclick = "$$('div.hidden_user_registrations').each(function (s) {ldelim}s.hide(){rdelim});Element.extend(this).up().previous().show();">{$T_INACTIVE_USERS|@sizeof} {$smarty.const._LESS}</a></div>
+     {/if}
           {/capture}
 
           {eF_template_printBlock title = $smarty.const._NEWUSERS data = $smarty.capture.t_inactive_users_code image = '32x32/users.png' array = $T_INACTIVE_USERS link=$T_INACTIVE_USERS_LINK}
@@ -71,15 +74,25 @@
        {capture name = "moduleNewLessonsApplications"}
          <tr><td class = "moduleCell">
              {capture name = 't_new_lessons_code'}
-                 {section name = 'new_lessons_list' loop = "$T_NEW_LESSONS"}
-                             {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&op=user_courses">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a><br/>
+              {if $T_NEW_COURSES && $T_NEW_LESSONS}{$smarty.const._LESSONSREGISTRATIONS}:{/if}
+                 {section name = 'new_lessons_list' loop = $T_NEW_LESSONS}
+                     <div {if $smarty.section.new_lessons_list.iteration>10}class = "hidden_lesson_registrations" style="display:none"{/if}>{counter name = "lessons"}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&op=user_courses">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a></div>
                  {/section}
-                 {foreach name = 'new_courses_list' item = "item" key = "key" from = $T_NEW_COURSES}
-                  {counter}. <a href = "{$smarty.server.PHP_SELF}?ctg=courses&edit_course={$item.id}&tab=users">#filter:login-{$item.users_LOGIN}# ({$item.name}{if $item.supervisor_LOGIN} - {$smarty.const._SUPERVISORAPPROVAL}{/if})</a> <br/>
-                 {/foreach}
+                 {if sizeof($T_NEW_LESSONS) > 10}
+                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_lesson_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_NEW_LESSONS|@sizeof}{$total-10} {$smarty.const._MORE}</a></div>
+                  <div class = "hidden_lesson_registrations" style = "display:none"><a href = "javascript:void(0)" onclick = "$$('div.hidden_lesson_registrations').each(function (s) {ldelim}s.hide(){rdelim});Element.extend(this).up().previous().show();">{$T_NEW_LESSONS|@sizeof} {$smarty.const._LESS}</a></div>
+     {/if}
+     {if $T_NEW_COURSES && $T_NEW_LESSONS}<br/>{$smarty.const._COURSESREGISTRATIONS}:{/if}
+                 {section name = 'new_courses_list' loop = $T_NEW_COURSES}
+                  <div {if $smarty.section.new_courses_list.iteration>10}class = "hidden_course_registrations" style="display:none"{/if}>{counter name = "courses"}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_NEW_COURSES[new_courses_list].users_LOGIN}&op=user_courses">#filter:login-{$T_NEW_COURSES[new_courses_list].users_LOGIN}# ({$T_NEW_COURSES[new_courses_list].name}{if $T_NEW_COURSES[new_courses_list].supervisor_LOGIN} - {$smarty.const._SUPERVISORAPPROVAL}{/if})</a></div>
+                 {/section}
+                 {if sizeof($T_NEW_COURSES) > 10}
+                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_course_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_NEW_COURSES|@sizeof}{$total-10} {$smarty.const._MORE}</a></div>
+                  <div class = "hidden_course_registrations" style = "display:none"><a href = "javascript:void(0)" onclick = "$$('div.hidden_course_registrations').each(function (s) {ldelim}s.hide(){rdelim});Element.extend(this).up().previous().show();">{$T_NEW_COURSES|@sizeof} {$smarty.const._LESS}</a></div>
+     {/if}
              {/capture}
 
-             {eF_template_printBlock title = $smarty.const._LESSONSREGISTRATIONS data = $smarty.capture.t_new_lessons_code image = '32x32/lessons.png' array = $T_NEW_LESSONS link = 'administrator.php?ctg=lessons' }
+             {eF_template_printBlock title = $smarty.const._INACTIVEREGISTRATIONS data = $smarty.capture.t_new_lessons_code image = '32x32/lessons.png' array = $T_NEW_LESSONS link = 'administrator.php?ctg=lessons' }
          </td></tr>
         {/capture}
     {/if}

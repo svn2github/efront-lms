@@ -20,7 +20,13 @@ function changeCategory(select_type) {
 			$('users_to_jobs_help').hide();
 			$('users_to_skills_help').hide();
 		}
-	} 
+	}
+	
+	if (select_type == 'users_to_jobs') {
+		$('replace_assignments_row').show();
+	} else {
+		$('replace_assignments_row').hide();
+	}
 	
 	if (select_type != "anything") {
 		$(select_type + '_help').show();

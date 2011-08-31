@@ -56,4 +56,6 @@ define("_MODULE_ADMINISTRATOR_TOOLS_BASICTYPESMUSTMATCH", "Basic types must matc
 define("_MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE", "Connect as user");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN", "You can't connect as admin");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Selected user is not active");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "You cannot access this section; only full administrators can");
+define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Multiple placements");
 ?>

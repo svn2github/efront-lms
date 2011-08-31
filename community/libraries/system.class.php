@@ -454,47 +454,6 @@ class EfrontSystem
  }
  /**
 
-	 * Export chat conversation
-
-	 *
-
-	 * This function is used to produce a txt file with a selected
-
-	 * conversation.
-
-	 * <br/>Example:
-
-	 * <code>
-
-	 * EfrontSystem :: exportChat($messages);		Create a semicolon-delimited CSV file with system users
-
-	 * </code>
-
-	 *
-
-	 * @param array $messages with fields 'timestamp', 'content', 'users_LOGIN' for each chat message record
-
-	 * @return EfrontFile The exported txt file
-
-	 * @since 3.5.2
-
-	 * @access public
-
-	 */
- public static function exportChat($messages) {
-  $lines = array();
-  foreach ($messages as $msg) {
-   $lines[] = date("j M Y, G:i:s",$msg['timestamp']) . ", ". $msg['users_LOGIN'] . ": " . $msg['content'];
-  }
-  if (!is_dir($GLOBALS['currentUser'] -> user['directory']."/temp")) {
-   mkdir($GLOBALS['currentUser'] -> user['directory']."/temp", 0755);
-  }
-  file_put_contents($GLOBALS['currentUser'] -> user['directory']."/temp/chat_conversation.txt", implode("\r\n", $lines));
-  $file = new EfrontFile($GLOBALS['currentUser'] -> user['directory']."/temp/chat_conversation.txt");
-  return $file;
- }
- /**
-
 	 * Get system languages
 
 	 *

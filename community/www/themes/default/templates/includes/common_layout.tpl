@@ -8,7 +8,6 @@
      translations['onlineusers'] = '{$smarty.const._ONLINEUSERS}';
      translations['nousersinroom'] = '{$smarty.const._THEREARENOOTHERUSERSRIGHTNOWINTHISROOM}';
      translations['redirectedtomain']= '{$smarty.const._REDIRECTEDTOEFRONTMAIN}';
-     translations['chatroomdeleted'] = '{$smarty.const._CHATROOMDELETEDBYOWNER}';
      translations['s_type'] = '{$smarty.session.s_type}';
      translations['s_login'] = '{$smarty.session.s_login}';
      translations['clicktochange'] = '{$smarty.const._CLICKTOCHANGESTATUS}';

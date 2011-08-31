@@ -128,7 +128,7 @@ class payments extends EfrontEntity
          $eventType = false;
         }
         $newId = eF_insertTableData("payments", $fields);
-        $result = eF_getTableData("payments", "*", "id=".$newId); //We perform an extra step/query for retrieving data, sinve this way we make sure that the array fields will be in correct order (forst id, then name, etc)
+        $result = eF_getTableData("payments", "*", "id=".$newId); //We perform an extra step/query for retrieving data, since this way we make sure that the array fields will be in correct order (first id, then name, etc)
         $payment = new payments($result[0]['id']);
         if ($eventType) {
          $event = array("type" => $eventType,
@@ -141,6 +141,9 @@ class payments extends EfrontEntity
          }
          if (isset($courseNames) && !empty($courseNames)) {
           $event['lessons_name'] .= _COURSES.': '.implode(",", $courseNames['name']);
+         }
+         if ($fields['credit']) {
+          $event['lessons_name'] .= _BALANCE.': '.$fields['credit'];
          }
    EfrontEvent::triggerEvent($event);
         }

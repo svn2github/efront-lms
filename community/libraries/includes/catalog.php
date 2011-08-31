@@ -6,7 +6,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 
 //Add items to cart.
-//@todo: Check each item to see if it's a subscription or not
 if (isset($_GET['fct'])) {
     $lessons = array();
     $courses = array();
@@ -27,6 +26,7 @@ if (isset($_GET['fct'])) {
 
     if ($_GET['fct'] == 'addToCart') {
         if ($_GET['type'] == 'lesson' && isset($_GET['id']) && in_array($_GET['id'], $legalLessonValues)) {
+         unset($cart['credit']);
             $lesson = new EfrontLesson($lessons[$_GET['id']]);
             //Recurring items cannot coexist with anything else in the cart!
             if ($lesson -> options['recurring']) {
@@ -34,6 +34,7 @@ if (isset($_GET['fct'])) {
             }
             $cart['lesson'][$_GET['id']] = $_GET['id'];
         } elseif ($_GET['type'] == 'course' && isset($_GET['id']) && in_array($_GET['id'], $legalCourseValues)) {
+         unset($cart['credit']);
             $course = new EfrontCourse($courses[$_GET['id']]);
             //Recurring items cannot coexist with anything else in the cart!
             if ($course -> options['recurring']) {
@@ -41,6 +42,7 @@ if (isset($_GET['fct'])) {
             }
             $cart['course'][$_GET['id']] = $_GET['id'];
         } elseif ($_GET['type'] == 'credit' && isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0) {
+         unset($cart);
             $cart['credit'] += $_GET['id'];
         }
     } else if ($_GET['fct'] == 'removeFromCart' && in_array($_GET['type'], $legalBuyTypes)) {

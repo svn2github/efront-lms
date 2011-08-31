@@ -94,57 +94,13 @@ CREATE TABLE calendar (
 ) DEFAULT CHARSET=utf8;
 
 --
--- Table 'chatmessages'
---
--- This table represent a message posted in the chat
--- Fields:
--- id (primary key): A numerical identifier
--- users_LOGIN: The user that posted this event, matching the 'login' field at the 'users' table
--- users_USER_TYPE: The user's that posted this event type, matching the 'user_type' field at the 'users' table
--- content: The message body
--- timestamp: A 10-digit number representing the time that message was posted
--- chatrooms_ID: The id of the chatroom that the message was posted in, matching the 'id' field of the 'chatrooms' table
-CREATE TABLE chatmessages (
-  id int(11) unsigned NOT NULL auto_increment,
-  users_LOGIN varchar(100) NOT NULL,
-  users_USER_TYPE varchar(50) NOT NULL,
-  content text,
-  timestamp int(10) unsigned NOT NULL,
-  chatrooms_ID mediumint(8) unsigned NOT NULL default '0',
-  PRIMARY KEY (id)
-) DEFAULT CHARSET=utf8;
-
---
--- Table 'chatrooms'
---
--- This table represent a chat room
--- Fields:
--- id (primary key): A numerical identifier
--- name: The name of the chat room
--- create_timestamp: A 10-digit number representing the time that room was created
--- users_LOGIN: The user that created this chat room
--- type: The chat room type, can be either 'private' or 'public'
--- active: Whether this room is active. Valid values are 0 (not active) and 1 (active)
--- lessons_ID: The id of the lesson that this room is associated to, corresponding to the 'id' field of the 'lessons' table. If it's null, then it not associated with any lesson
-CREATE TABLE chatrooms (
-  id mediumint(8) unsigned NOT NULL auto_increment,
-  name varchar(150) NOT NULL,
-  create_timestamp int(10) unsigned NOT NULL,
-  users_LOGIN varchar(100) NOT NULL,
-  type varchar(255) NOT NULL,
-  active tinyint(1) NOT NULL default '1',
-  lessons_ID mediumint(8) unsigned default NULL,
-  PRIMARY KEY (id)
-) DEFAULT CHARSET=utf8;
-
---
 -- Table 'comments'
 --
 -- This table represent a comment attached to a content unit
 -- Fields:
 -- id (primary key): A numerical identifier
 -- data: The comment body
--- users_LOGIN: The user that created this chat room
+-- users_LOGIN: The user that created the comment
 -- content_ID: The id of the unit this comment was appended to, corresponding to the 'id' field of the 'content' table.
 -- timestamp: A 10-digit number representing the time that the comment was posted
 -- active: Whether this comment should appear.
@@ -1088,17 +1044,6 @@ CREATE TABLE users (
   KEY (id),
   index(active)
 ) DEFAULT CHARSET=utf8;
-
-CREATE TABLE users_to_chatrooms (
-  users_LOGIN varchar(100) NOT NULL,
-  chatrooms_ID mediumint(8) unsigned NOT NULL default '0',
-  users_USER_TYPE varchar(50) NOT NULL,
-  timestamp int(10) unsigned NOT NULL,
-  primary key (users_LOGIN, chatrooms_ID)
-) DEFAULT CHARSET=utf8;
-
-
-
 
 
 CREATE TABLE users_to_projects (

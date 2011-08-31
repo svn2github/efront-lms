@@ -600,9 +600,8 @@ function setCompletion(el) {
 		}
 	}
 }
-/*
-function testme(e) {
-	$('updateme').update(Math.random());
+
+function retrieveInformation() {
+	return _information_json;
 }
-document.observe('mousemove', testme);
-*/
+

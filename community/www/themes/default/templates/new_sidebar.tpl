@@ -9,7 +9,6 @@
     translations['onlineusers'] = '{$smarty.const._ONLINEUSERS}';
     translations['nousersinroom'] = '{$smarty.const._THEREARENOOTHERUSERSRIGHTNOWINTHISROOM}';
     translations['redirectedtomain']= '{$smarty.const._REDIRECTEDTOEFRONTMAIN}';
-    translations['chatroomdeleted'] = '{$smarty.const._CHATROOMDELETEDBYOWNER}';
     translations['s_type'] = '{$smarty.session.s_type}';
     translations['s_login'] = '{$smarty.session.s_login}';
     translations['clicktochange'] = '{$smarty.const._CLICKTOCHANGESTATUS}';
@@ -37,14 +36,6 @@
     var activeMenu = '{$T_ACTIVE_MENU}'; // What is the active menu? (active_id exists within that menu)
     var setActiveMenu = 0; // Has the active menu been explicitly set by the mainFrame - behave differently in fixUpperMenu
 
-    // Chat related
-    var chatroomIntervalId = 0; // This id relates to the periodical functionality of updating the active chat room, if the chat tab is open
-    var chatactivityIntervalId = 0; // This id relates to the periodical functionality of checking for any chat activity, if the chat tab is closed
-    var chatOptionIsEnabled = '{$T_CHATENABLED}'; // Is the chat feature enabled in the system in general?
-    var chatEnabled = 0; // This global variable is used to denote whether the chat menu is currently open or not
-    var onlyViewChat = '{$T_ONLY_VIEW_CHAT}'; // User is only allowed to view chat window, not write on it
-    var chat_listmenu = -1; // Global variable to denote the listmenu element of the chat tab - used to hide/show that menu
-
     // Facebook related
     {if $T_OPEN_FACEBOOK_SESSION}
     var facebook_api_key = "{$T_FACEBOOK_API_KEY}";
@@ -68,10 +59,6 @@
      var table_style_size = "100%";
     {/if}
 
-    var chatRoomDoesNotExistError = "{$smarty.const._CHATROOMDOESNOTEXIST_ERROR}";
-    var chatRoomIsNotEnabled = "{$smarty.const._CHATROOMISNOTENABLED_ERROR}";
-    var redicrectedToEfrontMain = "{$smarty.const._REDIRECTEDTOEFRONTMAIN}";
-    var chatRoomHasBeenDeactivated = "{$smarty.const._CHATROOMHASBEENDEACTIVATED}";
 </script>
 
 <body class = "sidebar" >

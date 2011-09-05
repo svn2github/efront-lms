@@ -762,7 +762,6 @@ try {
             }
 
             if (isset($_GET['from_skills'])) {
-                //11111111111
                 $skills = eF_getTableData("module_hcd_skills", "skill_ID, description", "");
                 $smarty -> assign('T_QUESTION_SKILLS', $skills);
             }
@@ -777,21 +776,11 @@ try {
             $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 
             $form -> addElement('text', 'name', null, 'class = "inputText" id= "testName"');
-            //        $form -> addRule('name', _THEFIELD.' "'._NAME.'" '._ISMANDATORY, 'required', null, 'client');
-            //        $form -> addRule('name', _INVALIDFIELDDATAFORFIELD.' "'._NAME.'"', 'checkParameter', 'text');
-
-            //$form -> addElement('text', 'total_questions', null, 'class = "inputText"');
-
-            //$form->registerRule('onlydigits','regex','/^\d*/');
-            //$form->addRule('total_questions',_INVALIDFIELDDATAFORFIELD.' "'._TOTALQUESTIONS,'onlydigits');
-            //$form -> addRule('total_questions', _INVALIDFIELDDATAFORFIELD.' "'._TOTALQUESTIONS, 'callback', create_function('$a', 'return ($a > 0);'));
-
 
             // Creating select for directions-courses-lessons
             $directionsTree = new EfrontDirectionsTree();
             $selectArray = $directionsTree ->toSelect(true,true, true); //return in HTML coloured format with SKILLGAPTESTS option and including questions number
             $smarty -> assign("T_QUICKFORM_LESSON_COURSES_SELECT" , $selectArray);
-//echo "A";exit;
             //$form -> addElement('select', 'lesson_courses_row' , null, $selectArray ,'id="lesson_courses_row"');
             //$form -> addElement('select', 'system_avatar' , _ORSELECTONEFROMLIST, $systemAvatars, "id = 'select_avatar'");
             //$start = strpos($selectArray,"(") + 1;

@@ -227,62 +227,6 @@ function getWindowSize() {
 	} catch (e) {sidebarExceptionHandler(e, 'getWindowSize');}
 }
 
-//Chat functions that are globally used
-function stopAjaxChat() {
-	try {
-		if (chatroomIntervalId > 0) {
-			disableChat();
-			clearInterval(chatroomIntervalId);
-			// Start a new interval to check for room movement every 60 seconds
-			// This periodic call is used to check for activity during the last 60 seconds.
-			// We note here that the restart_session flag is sent to denote that we want all messages of the last 5 minutes
-			// If none are found then the image of messages will dissapear - if it had appeared before
-			if (chatactivityIntervalId > 0) {
-				clearInterval(chatactivityIntervalId);
-			}
-			chatactivityIntervalId = setInterval("makeAjaxRequest('ask_chat.php?chatrooms_ID='+$('current_chatroom_id').value+'&any_activity=1','special_get_request','chat')", 60000);
-		}
-	} catch (e) {sidebarExceptionHandler(e, 'stopAjaxChat');}
-}
-
-//Function to get the room's messages. During the first time the room is loaded ($('first_time_messages').value =1) and
-//all messages from the last five minutes should be brought.
-function ajaxGetMessages() {
-	try {
-		// The check here is used for synchronization. If $('current_chatroom_id').value==-1 then value have not been set correctly yet.
-		if ($('current_chatroom_id').value != -1) {
-			if ($('first_time_messages').value == 1) {
-				makeAjaxRequest('ask_chat.php?chatrooms_ID='+$('current_chatroom_id').value+'&restart_session=1','special_get_request','chat')
-				$('first_time_messages').value = 0;
-			} else {
-				makeAjaxRequest('ask_chat.php?chatrooms_ID='+$('current_chatroom_id').value,'special_get_request','chat')
-			}
-		}
-	} catch (e) {sidebarExceptionHandler(e, 'ajaxGetMessages');}
-}
-
-function startAjaxChat() {
-	try {
-		// Stop the previous Ajax Chat if the chatting is enabled for this user
-		// otherwise the chatroomIntervalid will remain 0;
-		if (chatOptionIsEnabled) {
-			if (chatactivityIntervalId > 0) {
-				clearInterval(chatactivityIntervalId);
-				Effect.Fade($('new_chat_messages'));
-			}
-
-			// No idea, why this initialization was put here. Maybe should leave
-			if (chatroomIntervalId > 0) {
-				disableChat();
-				clearInterval(chatroomIntervalId);
-			}
-
-			enableChat();
-			chatroomIntervalId = setInterval("ajaxGetMessages()",2500);
-		}
-	} catch (e) {sidebarExceptionHandler(e, 'startAjaxChat');}
-}
-
 //Function to resize the Chat iframe
 function resize_iframe()
 {
@@ -332,12 +276,6 @@ function resize_iframe()
 }
 
 //The following functions are used to highlight the correct menu on page load or refresh
-function enableChat() {
-	chatEnabled = 1;
-}
-function disableChat() {
-	chatEnabled = 0;
-}
 
 //Function to make a certain menu item appear as activated 
 function changeTDcolor(id) {
@@ -360,15 +298,15 @@ function changeTDcolor(id) {
 			}
 			active_id = id;
 
-			// If the chat menu is enabled then do not automatically move the menus
+			
 			if(document.getElementById(id)) {
 				$(id).className = "selectedTopTitle";// rightAlign";
 
-				if ( $(id).up() && $(id).up().up() && chatEnabled == 0) {
+				if ( $(id).up() && $(id).up().up()) {
 					document.move($(id).up().up());
 				}
 			}
-			if(document.getElementById(id+"_a") && chatEnabled == 0)
+			if(document.getElementById(id+"_a"))
 			{
 
 				$(active_id+"_a").className = "selectedTopTitle";
@@ -630,18 +568,6 @@ document.move = function(element) {
 	try {
 		if (!lock) {
 			lock = 1;
-			// Check whether you are moving the chatmenu so that you start or stop the ajax requests for the chat
-			var elementName = $('tab'+element.id).getAttribute("name");
-			if (elementName && elementName == "chatmenu") {
-				startAjaxChat();
-				//$('list'+element.id).style.display = "block";
-			} else {
-				stopAjaxChat();
-				if (chat_listmenu != -1) {
-					$(chat_listmenu).style.display = "none";  
-				}
-			}
-
 			setActiveMenu = element.id.substr(4);   //get the # of the menu
 
 			// Move element down        
@@ -861,213 +787,6 @@ document.myhide = function() {
 		fixCurtains();
 	} catch (e) {sidebarExceptionHandler(e, 'document.myhide');}
 };
-
-
-function ajaxBringRooms() {
-	try {
-		var url = translations['servername']+"ask_chat.php?bring_chatrooms=1";
-
-		//$('chat_message
-		new Ajax.Request(url, {
-			method:'get',
-			asynchronous:true,
-			onSuccess: function (transport) {
-			var select_item = document.getElementById('chat_rooms');
-			// Delete all exept from the default room
-			while(select_item.length > 1) {
-				select_item.remove(1);
-			}
-
-			var temp = transport.responseText.split('||||');
-			var elOptNew;
-			var i;
-			var j = 1;
-			var selIndex = 0;
-			current_room = $('current_chatroom_id').value;
-			for (i = 0; i < temp.length-2; i = i + 3,j++) {
-				elOptNew = document.createElement('option');
-				// The "_" is appended to the id of the room to denote that
-				// this room's administration belongs to this user
-				isOwned = temp[i].lastIndexOf("_");
-				if (isOwned > 0) {
-					elOptNew.value = temp[i].substr(0,isOwned);
-					// This attribute denotes that the room belongs to this user
-					// and so can be deleted by him. Create the delete link and display it
-					elOptNew.setAttribute("isOwned", "1");
-				} else {
-					elOptNew.value = temp[i];
-
-				}
-
-				if (elOptNew.value == current_room) {
-					elOptNew.selected = true;
-					selIndex = j;
-
-				}
-
-				// Keep the 40 characters of the room's name
-				if(temp[i+1].length > 25) {
-					temp[i+1] = temp[i+1].substr(0,24) + "...";
-				}
-				elOptNew.text = temp[i+1]; // + ' (' + temp[i+2] + ')';//parenthesis
-
-				try {
-					select_item.add(elOptNew,null);
-				} catch(ex) {
-					select_item.add(elOptNew); // IE only
-				}
-
-			}
-
-			if (selIndex) {
-				select_item.selIndex = selIndex;
-				select_item.selectedIndex = selIndex; //always exists - 'No specific job description' in the branch
-			}
-		}
-		});
-	} catch (e) {sidebarExceptionHandler(e, 'ajaxBringRooms');}
-}
-
-//Only JS: get name from the chat_room select list
-function getChatRoomName() {
-	try {
-		var allText = $('chat_rooms').options[$('chat_rooms').selectedIndex].text;
-		name = allText.lastIndexOf("(");
-
-		if (name > 0) {
-			return allText.substr(0,name - 1); // the minus one for the space before the bracket
-		} else {
-			return allText;
-		}
-	} catch (e) {sidebarExceptionHandler(e, 'getChatRoomName');}
-
-}
-
-function ajaxEnterRoom(el) {
-	try {
-		var room = $('chat_rooms').value;
-		var url = translations['servername']+"ask_chat.php?chatrooms_ID="+room+"&add_user="+translations['s_login']+"&add_user_type="+translations['s_type'];
-		//alert(url);
-		new Ajax.Request(url, {
-			method:'get',
-			asynchronous:false,
-			onSuccess: function (transport) {
-			$('current_chatroom_id').value = -1;    // used for sync
-			$('last_spoken_login').value = "";
-			$('first_time_messages').value = 1;
-			test.document.getElementById("chat_content").innerHTML="";
-			$('current_chatroom_id').value = $('chat_rooms').value;  // sync over all values correct
-
-			isOwned = $('chat_rooms').options[$('chat_rooms').selectedIndex].getAttribute("isOwned");
-
-			if (isOwned == 1) {
-				$('delete_room').setStyle({display:'block'});
-				$('delete_room_image').setStyle({display:'block'});
-			} else {
-				$('delete_room').setStyle({display:'none'});
-			}
-
-			//alert($('current_chatroom_id').value);
-		}
-		});
-	} catch (e) {sidebarExceptionHandler(e, 'ajaxEnterRoom');}
-}
-
-function ajaxGetRoomUsers(el, event) {
-	try {
-		parameters = {chatrooms_ID:$('chat_rooms').value, get_users:1, method: 'get'};
-		var url    = 'ask_chat.php';
-		ajaxRequest(el, url, parameters, onAjaxGetRoomUsers);	
-	} catch (e) {sidebarExceptionHandler(e, 'ajaxGetRoomUsers');}
-}
-function onAjaxGetRoomUsers(el, response) {
-	try {
-		name = getChatRoomName();
-		$('room_users').innerHTML = '<b>' + name + "&nbsp;" + translations['onlineusers']+ ' </b><br>';
-		if (response == "") {
-			$('room_users').innerHTML += translations['nousersinroom'];
-		} else {
-			$('room_users').innerHTML += response;
-		}
-		
-		
-		$('room_users').show();
-		//eF_js_showHideDiv(el, 'room_users', null);
-		//$('room_users_image').writeAttribute({src:'themes/default/images/16x16/users3.gif'}).show();
-		$('room_users').setStyle({top:'20px',left:'1px'});	
-	} catch (e) {sidebarExceptionHandler(e, 'onAjaxGetRoomUsers');}
-}
-
-function exportChatRoomHistory(el) {
-	try {
-		el.href = translations['s_type']+".php?ctg=chat&chat_room_options=1&past_messages=1&chat_room=" + $('current_chatroom_id').value;	
-	} catch (e) {sidebarExceptionHandler(e, 'exportChatRoomHistory');}
-}
-
-function returnToMainRoom() {
-	try {
-		$('current_chatroom_id').value = -1;    // used for sync - lock acquired
-		$('last_spoken_login').value = "";
-		$('first_time_messages').value = 1;
-		$('chat_rooms').value = 0;
-		$('delete_room').setStyle({display:'none'});
-		test.document.getElementById("chat_content").innerHTML += '<span style="font-size:10px;color:red;">' + translations['redirectedtomain'] + '</span>';
-		$('current_chatroom_id').value = 0;     // sync complete - lock released
-	} catch (e) {sidebarExceptionHandler(e, 'returnToMainRoom');}
-}
-
-function ajaxDeleteRoom() {
-	try {
-		url = 'ask_chat.php?chatrooms_ID='+$('chat_rooms').value+'&delete_room=1';
-		$('delete_room_image').writeAttribute({src:'themes/default/images/others/progress1.gif'}).show();
-
-		new Ajax.Request(url, {
-			method:'get',
-			asynchronous:true,
-			onSuccess: function (transport) {
-
-			$('delete_room_image').hide().setAttribute('src', 'themes/default/images/others/transparent.gif').addClassName('sprite16').addClassName('sprite16-success');
-			new Effect.Appear($('delete_room_image'));
-			window.setTimeout('Effect.Fade("delete_room_image")', 2000);
-			window.setTimeout("$('delete_room').setStyle({display:'none'})", 3000);
-			window.setTimeout("$('delete_room_image').writeAttribute({src:'themes/default/images/others/transparent.gif'}).addClassName('sprite16').addClassName('sprite16-error_delete')", 3200);
-
-			//$('delete_room').setStyle({display:'none'});
-			name = getChatRoomName();
-			test.document.getElementById("chat_content").innerHTML =  '<span style="font-size:10px;color:red;">' + name + ': ' + translations['chatroomdeleted'] + '<br></span>';
-
-			returnToMainRoom();
-
-		}
-		});
-	} catch (e) {sidebarExceptionHandler(e, 'ajaxDeleteRoom');}
-}
-
-
-//Change the font size from 10->11->12->10...
-//for element with id
-function increaseChatboxFontSize() {
-	try {
-		font_size = parseInt($('current_font_size').value);
-
-		if (++font_size > 12) {
-			font_size = 10;
-		}
-		$('current_font_size').value = font_size;
-		var all_cells = test.document.getElementById("chat_content").getElementsByTagName('td');
-		for (var i =0 ; i< all_cells.length; i++) {
-			all_cells[i].style.fontSize = $('current_font_size').value + 'px';
-
-		}
-
-		$('chat_rooms').style.fontSize = $('current_font_size').value + 'px';
-
-		// Get sidebar to the end
-		test.document.getElementById('chat_content').scrollTop=test.document.getElementById('chat_content').scrollHeight + 100;
-	} catch (e) {sidebarExceptionHandler(e, 'increaseChatboxFontSize');}
-}
-
-
 
 function checkSidebarMode(s_login) {
 	try {

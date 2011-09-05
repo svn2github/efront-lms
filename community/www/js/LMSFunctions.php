@@ -7,6 +7,9 @@ $path = "../../libraries/"; //Define default path
 /** The configuration file.*/
 require_once $path."configuration.php";
 
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
 /*These lines read SCO data for this student and pass them to the javascript code through the LMSToSCOValues variable*/
 $result = eF_getTableData("scorm_data", "*", "users_LOGIN = '".$_SESSION['s_login']."' AND content_ID = '".$_GET['view_unit']."'");
 sizeof($result) ? $LMSToSCOValues = $result[0] : $LMSToSCOValues = array();
@@ -29,45 +32,29 @@ foreach ($LMSToSCOValues as $key => $value)
     }
     $SCOState .= "SCOState['$key'] = '".str_replace("'", "\'", $value)."';";//echo "alert('LMS Set: SCOState[$key] = $value');";
 }
-//pr($LMSToSCOValues);exit;
 
 error_reporting(E_ERROR);
 
-/*
-
-//Caching causes some problems with data interchange
-
-ob_start ("ob_gzhandler");
-
-header("Content-type: text/javascript; charset: UTF-8");
-
-header("Cache-Control: must-revalidate");
-
-$offset = 60 * 60 ;
-
-$ExpStr = "Expires: " .
-
-gmdate("D, d M Y H:i:s",
-
-time() + $offset) . " GMT";
-
-header($ExpStr);
-
-*/
 echo $SCOState;
+
 ?>
+
 //for (x in SCOState) {
 //  alert('x: '+x+' SCOState: '+SCOState[x]);
 //}
+
 /*LMS Initializations. Among many operations, we attach LMS functions to the API adapter and initialize data model (cmi).*/
 var _DEBUG = 0;
 var _TEMP = '';
 var _TEMP2 = '';
+
 myInitError();
 myCurrentState = -1;
 commitArray = new Array();
 window.API = API;
 cmi = new myCmi();
+
+
 API.LMSInitialize = LMSInitialize;
 API.LMSFinish = LMSFinish;
 API.LMSGetValue = LMSGetValue;
@@ -76,6 +63,7 @@ API.LMSCommit = LMSCommit;
 API.LMSGetLastError = LMSGetLastError;
 API.LMSGetErrorString = LMSGetErrorString;
 API.LMSGetDiagnostic = LMSGetDiagnostic;
+
 /**
 
 * This function is the API adapter. To this are attached all LMS functions, which are defined below,
@@ -433,10 +421,12 @@ function handleCommit(transport) {
   }
  }
  w.updateProgress(transport.responseText.evalJSON(true));
+
  if (transport.responseText.evalJSON(true)[4]) {
   w.location = transport.responseText.evalJSON(true)[4];
  }
 }
+
 
 /**
 

@@ -9,6 +9,7 @@
  var modulechatbasedir = '{$T_CHAT_MODULE_BASEDIR}';
  var modulechatbaseurl = '{$T_CHAT_MODULE_BASEURL}';
  var ie = 0;
+ var flashreload = true;
 </script>
 
 <link href="{$T_CHAT_MODULE_BASELINK}css/screen.css" rel="stylesheet" type="text/css">
@@ -16,8 +17,6 @@
 <!--[if IE ]>
 <link type="text/css" rel="stylesheet" media="all" href="{$T_CHAT_MODULE_BASELINK}css/screen_ie.css" />
 <![endif]-->
-
-
 
 <div id="chat_module">
  <div id="windowspace">
@@ -54,5 +53,19 @@
 <script type="text/javascript">
  var must_disable_selection = true;
 </script>
+{literal}
+<script type="text/javascript">
+try {
+ document.observe("dom:loaded", fix_flash);
+ if ($('scormFrameID')) {
+  Event.observe($('scormFrameID').contentWindow, 'load', applyFlashFrameFix);
+ }
+} catch (e) {
+ alert(e);
+}
+
+</script>
+
+{/literal}
 
 {/if}

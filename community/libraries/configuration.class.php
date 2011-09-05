@@ -193,7 +193,7 @@ class EfrontConfiguration
 
         //Invisible
      'lock_down' => '0',
-        'chat_enabled' => '0',
+       //'chat_enabled'			 => '0',
         'zip_method' => 'php',
      'theme' => '1', //Default theme id, in a clean install this is 1
         'database_version' => G_VERSION_NUM,

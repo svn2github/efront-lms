@@ -31,8 +31,9 @@ if ($editedUser -> user['user_type'] != 'administrator') {
   $matches[2] == 'desc' ? $constraints['order'] = 'asc' : $constraints['order'] = 'desc';
  }
  $userCourses = $editedUser -> getUserCourses($constraints);
+
  foreach ($userCourses as $key => $value) {
-  if (!in_array($value -> course['user_type'], $studentRoles)) {
+  if (!in_array($value -> course['user_type'], array_keys($studentRoles))) {
    unset($userCourses[$key]);
   }
  }
@@ -50,7 +51,7 @@ if ($editedUser -> user['user_type'] != 'administrator') {
 
  $userLessons = $editedUser -> getUserStatusInLessons();
  foreach ($userLessons as $key => $value) {
-  if (!in_array($value -> lesson['user_type'], $studentRoles)) {
+  if (!in_array($value -> lesson['user_type'], array_keys($studentRoles))) {
    unset($userLessons[$key]);
   }
  }

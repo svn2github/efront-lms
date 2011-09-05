@@ -361,7 +361,7 @@ function updateProgress(obj) {
 }
 
 if (top.sideframe && !usingHorizontalInterface) {
-    if (top.sideframe.chatEnabled || typeof(show_left_bar) == 'undefined' || parseInt(show_left_bar)) {
+    if (typeof(show_left_bar) == 'undefined' || parseInt(show_left_bar)) {
     	showLeftSidebar();        
     } else {
     	hideLeftSidebar();

@@ -907,13 +907,6 @@ class module_administrator_tools extends EfrontModule {
    $options = unserialize($value['options']);
    $enable ? $options[$setting] = 1 : $options[$setting] = 0;
    eF_updateTableData("lessons", array("options" => serialize($options)), "id=".$value['id']);
-   if ($setting == 'chat') {
-    if ($enable) {
-     eF_updateTableData("chatrooms", array("active" => 1), "lessons_ID = '".$value['id']."'");
-    } else {
-     eF_updateTableData("chatrooms", array("active" => 0), "lessons_ID = '".$value['id']."'");
-    }
-   }
   }
  }
 
@@ -944,9 +937,6 @@ class module_administrator_tools extends EfrontModule {
   }
   if ($GLOBALS['configuration']['disable_news'] != 1) {
    $lessonSettings['news'] = array('text' => _ANNOUNCEMENTS, 'image' => "32x32/announcements.png", 'onClick' => 'activate(this, \'news\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
-  }
-  if ($GLOBALS['configuration']['chat_enabled']) {
-   $lessonSettings['chat'] = array('text' => _CHAT, 'image' => "32x32/chat.png", 'onClick' => 'activate(this, \'chat\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
   }
 
 

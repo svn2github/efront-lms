@@ -789,5 +789,9 @@ public function getLessonModule() {
             return false;
         }
     }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/bbb32.png';
+    }
 }
 ?>

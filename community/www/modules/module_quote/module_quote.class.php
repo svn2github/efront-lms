@@ -23,7 +23,7 @@ class module_quote extends EfrontModule {
                           id int(11) NOT NULL auto_increment,
                           lessons_ID int(11) not null,
                           quote text,
-                          PRIMARY KEY  (id)
+                          PRIMARY KEY (id)
                         ) DEFAULT CHARSET=utf8;");
         return true;
     }
@@ -59,9 +59,9 @@ class module_quote extends EfrontModule {
     public function getLessonCenterLinkInfo() {
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getType() == "professor") {
-            return array('title' => _QUOTE_QUOTEDAY,    
+            return array('title' => _QUOTE_QUOTEDAY,
                      'image' => $this -> moduleBaseDir . 'images/quote32.png',
-                     'link'  => $this -> moduleBaseUrl);
+                     'link' => $this -> moduleBaseUrl);
         }
     }
 
@@ -74,14 +74,14 @@ class module_quote extends EfrontModule {
                                                   'title' => _QUOTE_QUOTEDAY,
                                                   'image' => $this -> moduleBaseDir . 'images/quote16',
                                                   'eFrontExtensions' => '1',
-                                                  'link'  => $this -> moduleBaseUrl));
+                                                  'link' => $this -> moduleBaseUrl));
 
             return array ( "current_lesson" => $link_of_menu_clesson);
         } else if ($currentUser -> getType() == "student"){
             $link_of_menu_clesson = array (array ('title' => _QUOTE_QUOTEDAY,
                                                  'image' => $this -> moduleBaseDir . 'images/quote16',
                                                  'eFrontExtensions' => '1',
-                                                 'link'  => $this -> moduleBaseUrl));
+                                                 'link' => $this -> moduleBaseUrl));
 
             return array ( "current_lesson" => $link_of_menu_clesson);
         }
@@ -89,10 +89,10 @@ class module_quote extends EfrontModule {
 
     public function getNavigationLinks() {
         $currentUser = $this -> getCurrentUser();
-		$currentLesson = $this -> getCurrentLesson();
-        return array (	array ('title' => _MYLESSONS, 'onclick'  => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-						array ('title' => $currentLesson -> lesson['name'], 'link'  => $currentUser -> getRole($currentLesson) . ".php?ctg=control_panel"),
-						array ('title' => _QUOTE_QUOTEDAY, 'link'  => $this -> moduleBaseUrl));
+  $currentLesson = $this -> getCurrentLesson();
+        return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+      array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($currentLesson) . ".php?ctg=control_panel"),
+      array ('title' => _QUOTE_QUOTEDAY, 'link' => $this -> moduleBaseUrl));
     }
 
     /* MAIN-INDEPENDENT MODULE PAGES */
@@ -107,37 +107,37 @@ class module_quote extends EfrontModule {
             eF_redirect("". $this -> moduleBaseUrl ."&message=$message&message_type=$message_type");
         } else if (isset($_GET['add_quote']) || (isset($_GET['edit_quote']) && eF_checkParameter($_GET['edit_quote'], 'id'))) {
             $form = new HTML_QuickForm("quote_entry_form", "POST", $_SERVER['REQUEST_URI'], "");
-            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter');                   //Register this rule for checking user input with our function, eF_checkParameter
+            $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
             $form -> addElement('textarea', 'quote', null);
             $form -> addElement('submit', 'submit_quote', _SUBMIT, 'class = "flatButton"');
             $element = & $form->getElement('quote');
             $element->setCols(100);
-        
+
             if (isset($_GET['edit_quote'])) {
                 $quote_entry = eF_getTableData("module_quote", "*", "id=".$_GET['edit_quote']);
                 $form -> setDefaults(array('quote' => $quote_entry[0]['quote']));
             }
-        
+
             if ($form -> isSubmitted() && $form -> validate()) {
-                $fields = array('lessons_ID'	=> $_SESSION['s_lessons_ID'],
-                                'quote'   		=> $form -> exportValue('quote'));
+                $fields = array('lessons_ID' => $_SESSION['s_lessons_ID'],
+                                'quote' => $form -> exportValue('quote'));
                 if (isset($_GET['edit_quote'])) {
                     if (eF_updateTableData("module_quote", $fields, "id=".$_GET['edit_quote'])) {
-                        $message      = _QUOTE_SUCCESFULLYUPDATEDQUOTEENTRY;
+                        $message = _QUOTE_SUCCESFULLYUPDATEDQUOTEENTRY;
                         $message_type = 'success';
                         eF_redirect("".$_SERVER['PHP_SELF']."?ctg=module&op=module_quote&message=$message&message_type=$message_type");
                     } else {
-                        $message      = _QUOTE_PROBLEMUPDATINGQUOTEENTRY;
+                        $message = _QUOTE_PROBLEMUPDATINGQUOTEENTRY;
                         $message_type = 'failure';
                         eF_redirect("".$_SERVER['PHP_SELF']."?ctg=module&op=module_quote&message=$message&message_type=$message_type");
                     }
                 } else {
                     if (eF_insertTableData("module_quote", $fields)) {
-                        $message      = _QUOTE_SUCCESFULLYINSERTEDQUOTEENTRY;
+                        $message = _QUOTE_SUCCESFULLYINSERTEDQUOTEENTRY;
                         $message_type = 'success';
                         eF_redirect("".$_SERVER['PHP_SELF']."?ctg=module&op=module_quote&message=$message&message_type=$message_type");
                     } else {
-                        $message      = _QUOTE_PROBLEMINSERTINGQUOTEENTRY;
+                        $message = _QUOTE_PROBLEMINSERTINGQUOTEENTRY;
                         $message_type = 'failure';
                         eF_redirect("".$_SERVER['PHP_SELF']."?ctg=module&op=module_quote&message=$message&message_type=$message_type");
                     }
@@ -175,7 +175,7 @@ class module_quote extends EfrontModule {
 
         $quotes = eF_getTableData("module_quote", "*", "lessons_ID=".$currentLesson -> lesson['id']);
         $id = rand(0, sizeof($quotes) - 1);
-        $inner_table_options = array(array('text' => _QUOTE_GOTOQUOTEPAGE,  
+        $inner_table_options = array(array('text' => _QUOTE_GOTOQUOTEPAGE,
          'image' => $this -> moduleBaseLink."images/go_into.png", 'href' => $this -> moduleBaseUrl));
         $smarty -> assign("T_QUOTE_INNERTABLE_OPTIONS", $inner_table_options);
         $smarty -> assign("T_QUOTE_INNERTABLE", $quotes[$id]['quote']);
@@ -187,8 +187,12 @@ class module_quote extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_QUOTE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_QUOTE_BASEURL" , $this -> moduleBaseUrl);
-		$smarty -> assign("T_QUOTE_BASELINK" , $this -> moduleBaseLink);
+  $smarty -> assign("T_QUOTE_BASELINK" , $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
+    }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/quote32.png';
     }
 }
 ?>

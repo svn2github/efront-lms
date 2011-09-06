@@ -306,5 +306,8 @@ class module_shared_files extends EfrontModule {
   array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
   array ('title' => $this->getName(), 'link' => $this -> moduleBaseUrl));
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'folders.png';
+    }
 }
 ?>

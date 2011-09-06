@@ -645,4 +645,7 @@ class module_rss extends EfrontModule
   echo $rss;
   exit;
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/rss32.png';
+    }
 }

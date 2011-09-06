@@ -54,12 +54,12 @@ try {
  if (!isset($_GET['option'])) {
   $reportGroups = array(0 => 0);
   $smarty -> assign("T_REPORTS_GROUPS", $reportGroups);
+  $options = array();
   if ($currentUser -> user['user_type'] == 'administrator') {
    $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
    $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
             $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
             $options[] = array('text' => _SYSTEMSTATISTICS, 'image' => "32x32/reports.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=system");
-            $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         } else if ($isProfessor) {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
             $options[] = array('text' => _LESSONSTATISTICS, 'image' => "32x32/lessons.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=lesson");
@@ -71,7 +71,6 @@ try {
               $options[] = array('text' => _SKILLSSTATISTICS, 'image' => "32x32/skills.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=skill");
     }
    }
-   $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         } else if ($isSupervisor) {
             $options[] = array('text' => _USERSTATISTICS, 'image' => "32x32/user.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=user");
             $options[] = array('text' => _COURSESTATISTICS, 'image' => "32x32/courses.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=course");
@@ -80,8 +79,13 @@ try {
              $options[] = array('text' => _SKILLSSTATISTICS, 'image' => "32x32/skills.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=skill");
             }
    $options[] = array('group' => 1, 'text' => _ADVANCEDUSERREPORTS, 'image' => "32x32/users.png", 'href' => $_SERVER['PHP_SELF']."?ctg=statistics&option=advanced_user_reports");
-            $smarty -> assign("T_STATISTICS_OPTIONS", $options);
         }
+        foreach ($loadedModules as $module) {
+   if ($linkInfo = $module->getReportsLinkInfo()) {
+    $options[] = array('group' => 1, 'text' => $linkInfo['title'], 'image' => eF_getRelativeModuleImagePath($linkInfo['image']), 'href' => $linkInfo['link']);
+   }
+  }
+  $smarty -> assign("T_STATISTICS_OPTIONS", $options);
     } else if ($_GET['option'] == 'user') {
         require_once("statistics/users_stats.php");
     } else if ($_GET['option'] == 'lesson') {

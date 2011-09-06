@@ -142,5 +142,6 @@ class module_branchthemes extends EfrontModule
  {
   eF_deleteTableData('module_branchthemes_branch','themes_ID='.intval($theme));
  }
+
 }
 ?>

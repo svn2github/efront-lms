@@ -1339,5 +1339,8 @@ class module_jobs_manager extends EfrontModule {
   }
   return $tmp_data;
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/logo_32.png';
+    }
 }
 ?>

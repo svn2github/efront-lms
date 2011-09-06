@@ -919,5 +919,8 @@ if (in_array($i, $faulty_lines)) {
         $smarty -> assign("T_XLS_HISTORY_MODULE_BASELINK", $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module.tpl";
     }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/excel32.png';
+    }
 }
 ?>

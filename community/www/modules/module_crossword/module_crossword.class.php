@@ -492,5 +492,9 @@ class module_crossword extends EfrontModule {
  public function isLessonModule() {
   return true;
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/crossword32.png';
+    }
 }
 ?>

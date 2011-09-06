@@ -395,7 +395,7 @@ if ($_GET['op'] == 'reset_lesson') {
                     require_once $mod_lang_file;
                 }
             }
-            $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => ($currentLesson -> options[$module -> className] == 1) ? null : 'inactiveImage');
+            $lessonSettings[$module -> className] = array('text' => $module -> getName(), 'image' => $module->getModuleIcon() ? $module->getModuleIcon() : "32x32/addons.png", 'onClick' => 'activate(this, \''.$module -> className.'\')', 'title' => _CLICKTOTOGGLE, 'group' => 3, 'class' => ($currentLesson -> options[$module -> className] == 1) ? null : 'inactiveImage');
         }
     }
 

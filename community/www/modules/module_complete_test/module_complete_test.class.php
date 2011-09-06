@@ -611,5 +611,8 @@ class module_complete_test extends EfrontModule
  }
  private function parseCSVContents() {
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/tests.png';
+    }
 }
 ?>

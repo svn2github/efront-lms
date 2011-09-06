@@ -1268,7 +1268,7 @@ abstract class EfrontModule
     }
     /****
 
-     * Tools Module Link
+     * Tools Module Link (in my courses list)
 
      * Get information in an array with fields:
 
@@ -1276,15 +1276,13 @@ abstract class EfrontModule
 
      * 'image': the image to appear (if image inside module folder then use ($this -> moduleBaseDir) . 'imageFileName'
 
-     * 'target': POPUP or innerTable (default Innertable) - TODO
-
      *
 
      *  Example implementation:
 
 	 *
 
-     *   public function getCenterLinkInfo() {
+     *   public function getToolsLinkInfo() {
 
      *       return array ('title' => 'My Module',
 
@@ -1302,6 +1300,56 @@ abstract class EfrontModule
 
      */
     public function getToolsLinkInfo() {
+        return false;
+    }
+    /****
+
+     * Reports Module Link
+
+     * Get information in an array with fields:
+
+     * 'title': the title to appear on the link
+
+     * 'image': the image to appear (if image inside module folder then use ($this -> moduleBaseDir) . 'imageFileName'
+
+     *
+
+     *  Example implementation:
+
+	 *
+
+     *   public function getReportsLinkInfo() {
+
+     *       return array ('title' => 'My Module',
+
+     *                     'image' => $this -> moduleBaseDir . 'images/my_module.jpg');
+
+     *   }
+
+     *
+
+     * @return array The array of the tools info
+
+     * @since 3.6.10
+
+     * @access public
+
+     */
+    public function getReportsLinkInfo() {
+        return false;
+    }
+    /**
+
+     * Get an icon url for the module
+
+     * @return string the url of the module icon
+
+     * @since 3.6.10
+
+     * @access public
+
+     */
+    public function getModuleIcon() {
         return false;
     }
     /****

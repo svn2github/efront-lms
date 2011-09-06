@@ -72,7 +72,7 @@ class EfrontConfiguration
   'default_type' => 'student',
      'pm_space' => '',
         //System settings - 3rd party tools
-        'license_server' => 'http://keys.efrontlearning.net/list.php',
+        'license_server' => 'http://keys.efrontlearning.net/list.php?version=10',
         'api' => '0',
      'api_ip' => '127.0.0.1', //Set an IP to constrain the XML API
      'virtual_keyboard' => '1',

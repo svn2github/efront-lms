@@ -308,5 +308,9 @@ class module_youtube extends EfrontModule {
             return false;
         }
     }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/youtube32.png';
+    }
 }
 ?>

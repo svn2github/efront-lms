@@ -667,5 +667,8 @@ class module_gift_aiken extends EfrontModule {
         return $this -> moduleBaseDir . "module.tpl";
     }
 
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/transform32.png';
+    }
 }
 ?>

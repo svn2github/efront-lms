@@ -451,5 +451,9 @@ class module_certificates extends EfrontModule {
     public function getLessonSmartyTpl() {
         return false;
     }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/certificate32.png';
+    }
 }
 ?>

@@ -16,14 +16,14 @@ class module_lessonstats extends EfrontModule {
         if ($currentUser -> getType() == "professor") {
             return array('title' => _LESSONSTATS,
                      'image' => $this -> moduleBaseDir . 'images/stats30.png',
-                     'link'  => $this -> moduleBaseUrl);
+                     'link' => $this -> moduleBaseUrl);
         }
     }
 
     public function isLessonModule() {
       return true;
     }
-    
+
     public function getSidebarLinkInfo() {
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getType() == "professor") {
@@ -32,14 +32,14 @@ class module_lessonstats extends EfrontModule {
                                                   'title' => _LESSONSTATS,
                                                   'image' => $this -> moduleBaseDir . 'images/stats16',
                                                   'eFrontExtensions' => '1',
-                                                  'link'  => $this -> moduleBaseUrl));
+                                                  'link' => $this -> moduleBaseUrl));
 
             return array ( "current_lesson" => $link_of_menu_clesson);
         } else if ($currentUser -> getType() == "student"){
             $link_of_menu_clesson = array (array ('title' => _LESSONSTATS,
                                                  'image' => $this -> moduleBaseDir . 'images/stats16',
                                                  'eFrontExtensions' => '1',
-                                                 'link'  => $this -> moduleBaseUrl));
+                                                 'link' => $this -> moduleBaseUrl));
 
             return array ( "current_lesson" => $link_of_menu_clesson);
         }
@@ -47,18 +47,18 @@ class module_lessonstats extends EfrontModule {
 
     public function getNavigationLinks() {
         $currentUser = $this -> getCurrentUser();
-		$currentLesson = $this -> getCurrentLesson();
-		
-        return array (	array ('title' => _MYLESSONS, 'onclick'  => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-						array ('title' => $currentLesson -> lesson['name'], 'link'  => $currentUser -> getType() . ".php?ctg=control_panel"),
-						array ('title' => _LESSONSTATS, 'link'  => $this -> moduleBaseUrl));
+  $currentLesson = $this -> getCurrentLesson();
+
+        return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+      array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
+      array ('title' => _LESSONSTATS, 'link' => $this -> moduleBaseUrl));
     }
 
     /* MAIN-INDEPENDENT MODULE PAGES */
     public function getModule() {
         $smarty = $this -> getSmartyVar();
         $currentLesson = $this -> getCurrentLesson();
-        $inner_table_options = array(array('text' => _LESSONSTATS,  
+        $inner_table_options = array(array('text' => _LESSONSTATS,
          'image' => $this -> moduleBaseDir . 'images/stats16', 'href' => $this -> moduleBaseUrl));
                 $currentLesson = $this -> getCurrentLesson();
         $data = ef_getTableData("logs", "*", "action in ('login', 'logout', 'lesson')", "id desc");
@@ -78,7 +78,7 @@ class module_lessonstats extends EfrontModule {
                 $cnt++;
             }
         }
-        
+
         for ($i = 0; $i < sizeof($logins); $i++){
             //find the total login time for each login
             $time_diff = 0;
@@ -88,7 +88,7 @@ class module_lessonstats extends EfrontModule {
                     $time_diff = $data[$j]['timestamp'] - $logins[$i]['timestamp'];
                     if ($time_diff > 3600){
                         $time_diff = 3600;
-                    }                    
+                    }
                     $logins[$i]['time'] = eF_convertIntervalToTime($time_diff);
                     break;
                 }
@@ -102,7 +102,7 @@ class module_lessonstats extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_LESSONSTATS_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_LESSONSTATS_BASEURL", $this -> moduleBaseUrl);
-		$smarty -> assign("T_LESSONSTATS_BASELINK", $this -> moduleBaseLink);
+  $smarty -> assign("T_LESSONSTATS_BASELINK", $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module.tpl";
     }
 
@@ -110,7 +110,7 @@ class module_lessonstats extends EfrontModule {
     public function getLessonModule() {
         $smarty = $this -> getSmartyVar();
         $currentLesson = $this -> getCurrentLesson();
-        $inner_table_options = array(array('text' => _LESSONSTATS_GOTOLESSONSTATSPAGE,   
+        $inner_table_options = array(array('text' => _LESSONSTATS_GOTOLESSONSTATSPAGE,
         'image' => $this -> moduleBaseLink."images/redo.png", 'href' => $this -> moduleBaseUrl));
         $currentLesson = $this -> getCurrentLesson();
         $data = ef_getTableData("logs", "*", "action in ('login', 'logout', 'lesson')", "id desc");
@@ -130,7 +130,7 @@ class module_lessonstats extends EfrontModule {
                 $cnt++;
             }
         }
-        
+
         for ($i = 0; $i < sizeof($logins); $i++){
             //find the total login time for each login
             $time_diff = 0;
@@ -140,7 +140,7 @@ class module_lessonstats extends EfrontModule {
                     $time_diff = $data[$j]['timestamp'] - $logins[$i]['timestamp'];
                     if ($time_diff > 3600){
                         $time_diff = 3600;
-                    }                    
+                    }
                     $logins[$i]['time'] = eF_convertIntervalToTime($time_diff);
                     break;
                 }
@@ -156,8 +156,12 @@ class module_lessonstats extends EfrontModule {
         $smarty = $this -> getSmartyVar();
         $smarty -> assign("T_LESSONSTATS_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_LESSONSTATS_BASEURL" , $this -> moduleBaseUrl);
-		$smarty -> assign("T_LESSONSTATS_BASELINK" , $this -> moduleBaseLink);
+  $smarty -> assign("T_LESSONSTATS_BASELINK" , $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
+    }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/column-reports.png';
     }
 }
 ?>

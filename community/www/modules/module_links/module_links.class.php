@@ -197,5 +197,9 @@ class module_links extends EfrontModule {
   $smarty -> assign("T_LINKS_BASELINK" , $this -> moduleBaseLink);
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
     }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/link.png';
+    }
 }
 ?>

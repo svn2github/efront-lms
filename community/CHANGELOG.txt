@@ -31,6 +31,7 @@
 - Fixed drag'n'drop questions not working in IE9
 - Updated import/export so that job assignments can optionally be replaced (Enterprise edition)
 - Dashboard now contains my courses' tools icon
+- Fixed training record not showing course/lesson progress for custom user roles based on student
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

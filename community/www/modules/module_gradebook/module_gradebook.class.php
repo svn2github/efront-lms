@@ -946,6 +946,10 @@ class module_gradebook extends EfrontModule{
 
   eF_updateTableData("module_gradebook_users", array("score" => $overallScore, "grade" => $overallGrade), "uid=".$uid);
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/gradebook_logo32.png';
+    }
 }
 
 ?>

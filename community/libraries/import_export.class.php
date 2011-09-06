@@ -160,7 +160,8 @@ abstract class EfrontImport
            "active" => "active",
            "user_type" => "user_type",
            "registration_date" => "timestamp",
-         "timezone" =>"timezone");
+           "timezone" => "timezone",
+           "archive" => "archive");
     return $users_info;
    case "users_to_courses":
     return array("users_login" => "users_login",
@@ -385,7 +386,7 @@ class EfrontImportCsv extends EfrontImport
        $newUser = EfrontUser::createUser($value, $existingUsers, false);
        $existingUsers['login'][] = $newUser -> user['login'];
        $existingUsers['active'][] = $newUser -> user['active'];
-       $existingUsers['archive'][] = 0;
+       $existingUsers['archive'][] = $newUser -> user['archive'];
        $addedUsers[] = $newUser -> user['login'];
        $this -> log["success"][] = _IMPORTEDUSER . " " . $newUser -> user['login'];
       } catch (Exception $e) {

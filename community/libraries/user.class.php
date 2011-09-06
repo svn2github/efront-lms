@@ -297,6 +297,10 @@ abstract class EfrontUser
   !isset($userProperties['pending']) ? $userProperties['pending'] = 0 : null; // 0 means not pending, 1 means pending
   !isset($userProperties['timestamp']) || $userProperties['timestamp'] == "" ? $userProperties['timestamp'] = time() : null;
   !isset($userProperties['user_types_ID']) ? $userProperties['user_types_ID'] = 0 : null;
+  if ($userProperties['archive']) {
+   $userProperties['archive'] = time();
+   $userProperties['active'] = 0;
+  }
   eF_insertTableData("users", $userProperties);
   // Assign to the new user all skillgap tests that should be automatically assigned to every new student
   $newUser = EfrontUserFactory :: factory($userProperties['login']);

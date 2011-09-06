@@ -244,5 +244,8 @@ class module_faq extends EfrontModule {
         return $this -> moduleBaseDir . "module_InnerTable.tpl";
     }
 
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/unknown32.png';
+    }
 }
 ?>

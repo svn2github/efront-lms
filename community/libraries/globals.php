@@ -15,6 +15,10 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
+/*** specify extensions that may be loaded ***/
+spl_autoload_extensions('.php, .class.php, .lib.php');
+/*** register the loader functions ***/
+spl_autoload_register('Efront_Autoload');
 
 /**
  * Set debugging level:
@@ -269,7 +273,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 11374;
+    $build = 11478;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -504,7 +508,7 @@ function handleSEO() {
  * @param string $className the name of the class requested
  * @since 3.5.4
  */
-function __autoload($className) {
+function Efront_Autoload($className) {
     $className = strtolower($className);
     if (strpos($className, "efrontmodule") !== false) {
         require_once("module.class.php");

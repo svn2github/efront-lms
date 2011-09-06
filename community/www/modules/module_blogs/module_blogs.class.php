@@ -642,5 +642,9 @@ class module_blogs extends EfrontModule {
  public function isLessonModule() {
   return true;
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/eFrontBlog32.png';
+    }
 }
 ?>

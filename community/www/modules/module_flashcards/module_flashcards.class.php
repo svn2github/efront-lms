@@ -406,5 +406,9 @@ class module_flashcards extends EfrontModule {
  public function isLessonModule() {
   return true;
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/flashcard32.png';
+    }
 }
 ?>

@@ -10,7 +10,7 @@
 var Flotr = {
   version: "0.2.0-alpha",
   revision: parseInt('$Revision: 163 $'.match(/(\d+)/)[1], 10),
-  author: ['Bas Wenneker', 'Fabien Ménager'],
+  author: ['Bas Wenneker', 'Fabien Mï¿½nager'],
   website: 'http://www.solutoire.com',
   isIphone: /iphone/i.test(navigator.userAgent),
 
@@ -153,7 +153,7 @@ var Flotr = {
    */
   engineeringNotation: function(value, precision, base){
     var sizes = ['Y','Z','E','P','T','G','M','k',''],
-        fractionSizes = ['y','z','a','f','p','n','µ','m',''],
+        fractionSizes = ['y','z','a','f','p','n','ï¿½','m',''],
         total = sizes.length;
 
     base = base || 1000;

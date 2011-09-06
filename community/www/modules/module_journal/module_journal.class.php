@@ -886,6 +886,10 @@ class module_journal extends EfrontModule{
 
   return $entries;
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/journal_logo.png';
+    }
 }
 
 ?>

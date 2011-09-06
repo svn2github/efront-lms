@@ -555,6 +555,28 @@ class module_demo extends EfrontModule {
     }
     /**
 
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#getReportsLinkInfo()
+
+     */
+    public function getReportsLinkInfo() {
+     return array('title' => $this -> getName().' (getReportsLinkInfo())',
+                     'image' => $this -> moduleBaseLink . 'img/logo.png',
+                     'link' => $this -> moduleBaseUrl);
+    }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#getModuleIcon()
+
+     */
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink . 'img/logo.png';
+    }
+    /**
+
 	 * (non-PHPdoc)
 
 	 * @see libraries/EfrontModule#getSidebarLinkInfo()

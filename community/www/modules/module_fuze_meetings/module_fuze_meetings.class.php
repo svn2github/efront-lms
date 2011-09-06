@@ -1773,5 +1773,8 @@ class module_fuze_meetings extends EfrontModule {
   eF_executeNew('DROP TABLE IF EXISTS `_mod_fm_meeting`');
   return true;
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/logo_32.png';
+    }
 }
 ?>

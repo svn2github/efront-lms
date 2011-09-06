@@ -170,5 +170,9 @@ class module_wiki extends EfrontModule {
  public function isLessonModule() {
   return true;
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/eFrontWiki32.png';
+    }
 }
 ?>

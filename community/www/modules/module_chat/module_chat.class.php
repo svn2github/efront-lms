@@ -531,5 +531,8 @@ class module_chat extends eFrontModule{
      //choice a date format here
      return date("d-M-Y", $subtract);
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'img/chat.png';
+    }
 }
 ?>

@@ -133,7 +133,7 @@ try {
   }
   foreach ($loadedModules as $module) {
    if ($linkInfo = $module->getToolsLinkInfo()) {
-    $myCoursesOptions[] = array('text' => $linkInfo['title'], 'image' => eF_getRelativeModuleImagePath($linkInfo['image']), 'href' => $linkInfo['link'], );
+    $myCoursesOptions[] = array('text' => $linkInfo['title'], 'image' => eF_getRelativeModuleImagePath($linkInfo['image']), 'href' => $linkInfo['link']);
    }
   }
   $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right

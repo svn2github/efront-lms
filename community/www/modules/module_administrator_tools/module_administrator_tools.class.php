@@ -201,6 +201,9 @@ class module_administrator_tools extends EfrontModule {
    $this -> setMessageVar($message, $message_type);
   }
  }
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink . 'images/tools.png';
+    }
  private function doChangeLogin() {
   $smarty = $this -> getSmartyVar();
   $currentUser = $this -> getCurrentUser();
@@ -399,6 +402,7 @@ class module_administrator_tools extends EfrontModule {
  private function doCourseLessonUsers() {
   $smarty = $this -> getSmartyVar();
   $currentUser = $this -> getCurrentUser();
+
   if (isset($_GET['lessons_ID'])) {
    $currentLesson = new EfrontLesson($_GET['lessons_ID']);
    $smarty -> assign("T_CURRENT_LESSON", $currentLesson);

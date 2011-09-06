@@ -1456,6 +1456,10 @@ class module_workbook extends EfrontModule{
 
   return $message;
  }
+
+    public function getModuleIcon() {
+        return $this -> moduleBaseLink.'images/workbook_logo.png';
+    }
 }
 
 ?>

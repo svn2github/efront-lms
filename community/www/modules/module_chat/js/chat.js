@@ -1071,6 +1071,19 @@ function applyFlashFrameFix() {
 	}
 }
 
+function fix_pdf() { 
+	var ifr = document.getElementsByTagName('iframe');
+	for(i=0; i<ifr.length; i++) {
+		pageframe = ifr[i];
+	    if (pageframe.style.display == 'none') {
+	    	pageframe.style.display = '';
+	    } else {
+	    	pageframe.style.display = 'none';
+	    }
+		
+	}
+}
+
 if (typeof(must_disable_selection) != 'undefined') {
     disableSelection(document.getElementById("chat_bar"));
 }

@@ -31,4 +31,4 @@ var errortranslating= '{$smarty.const._TRANSLATE_ERRORTRANSLATING}';
 {/capture}
 
 
-{eF_template_printBlock title=$smarty.const._TRANSLATE_TRANSLATE data=$smarty.capture.t_module_translate_code image=$T_MODULE_BASELINK|cat:'images/planet32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._TRANSLATE_TRANSLATE data=$smarty.capture.t_module_translate_code image=$T_MODULE_BASELINK|cat:'images/planet32.png' absoluteImagePath=1 help = 'Translate'}

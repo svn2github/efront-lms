@@ -402,6 +402,21 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       }
      }
     }
+    if (version_compare($dbVersion, '3.6.10') == -1) {
+     $result = eF_getTableData("users_to_projects", "*");
+     foreach ($result as $value) {
+      if (isset($value['filename'])) {
+       $file = new EfrontFile($value['filename']);
+       if ($file['directory'] == G_UPLOADPATH.$value['users_LOGIN'].'/projects') {
+         $projectDirectory = G_UPLOADPATH.$value['users_LOGIN'].'/projects/'.$value['projects_ID'].'/';
+                     if (!is_dir($projectDirectory)) {
+                         EfrontDirectory :: createDirectory($projectDirectory);
+                     }
+        $file -> rename($projectDirectory.$file['physical_name']);
+       }
+      }
+     }
+    }
     $options = EfrontConfiguration :: getValues();
     //This means that the version upgrading from is 3.5
     if ($dbVersion == '3.5') {
@@ -457,7 +472,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     }
     //the following lines remove some old editor files that prevent editor from loading in version 3.6
     $removedDir = array();
-    $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';
+    //$removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';
     $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/zoom';
     $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/flash';
     $removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/plugins/devkit';
@@ -473,15 +488,17 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     }
     $fileSystemTree = new FileSystemTree(G_ROOTPATH.'www/editor/tiny_mce/plugins', true);
     foreach (new EfrontDirectoryOnlyFilterIterator($fileSystemTree -> tree) as $key => $value) {
-     if (is_dir($key.'/langs')) {
-      try {
-       $directory = new EfrontDirectory($key.'/langs');
-       $directory -> delete();
-      } catch (EfrontFileException $e) {} //Don't stop on filesystem errors
-     }
+    //alternatively we can delete only lang files without _dlg
+    /*	if (is_dir($key.'/langs')) {
+						try {
+							$directory = new EfrontDirectory($key.'/langs');
+							$directory -> delete();
+						} catch (EfrontFileException $e) {}                                    //Don't stop on filesystem errors
+					}
+				*/
      if (is_dir($key.'/jscripts')) {
       try {
-       if ($value['name'] != 'preview') {
+       if ($value['name'] != 'preview' && $value['name'] != 'Jsvk') {
         $directory = new EfrontDirectory($key.'/jscripts');
         $directory -> delete();
        }

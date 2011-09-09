@@ -60,7 +60,7 @@
 </table>
 </div>
 {/capture}
-{eF_template_printBlock title=$smarty.const._FUZE_MEETINGS data=$smarty.capture.mod_fm_admin_cpanel_content image= $T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._FUZE_MEETINGS data=$smarty.capture.mod_fm_admin_cpanel_content image= $T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1 help = 'Fuze_Meeting'}
 
 <script>
 {literal}

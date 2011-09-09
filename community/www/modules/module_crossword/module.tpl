@@ -128,7 +128,7 @@
    </div>
   </div>
 {/capture}
-{eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1 help = 'Crossword'}
 {else}
 
 {capture name = "t_module_crossword_words_list_code"}
@@ -153,7 +153,7 @@
  {/foreach}
 </table>
 {/capture}
-{eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_list_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_list_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1 help = 'Crossword'}
 {/if}
 {elseif $smarty.session.s_type == "student"}
 <script>
@@ -294,7 +294,7 @@ var translationgameinprogress = '{$smarty.const._CROSSWORD_GAMEINPROGRESS}';
  <script type="text/javascript" src="{$T_MODULE_CROSSWORD_BASELINK}js/oyEpilogue.js"></script>
 
       {/capture}
-  {eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_puzzle image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1}
+  {eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_puzzle image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1 help = 'Crossword'}
 
 
  {else}
@@ -331,6 +331,6 @@ var translationgameinprogress = '{$smarty.const._CROSSWORD_GAMEINPROGRESS}';
    {/foreach}
   </table>
   {/capture}
-  {eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_list_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1}
+  {eF_template_printBlock title=$smarty.const._CROSSWORD_WORDS data=$smarty.capture.t_module_crossword_words_list_code image=$T_MODULE_CROSSWORD_BASELINK|cat:'images/crossword32.png' absoluteImagePath=1 help = 'Crossword'}
  {/if}
 {/if}

@@ -100,4 +100,4 @@
 </div>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._CHAT_CHAT data=$smarty.capture.t_chat_tab_code help = 'chat'}
+{eF_template_printBlock title=$smarty.const._CHAT_CHAT data=$smarty.capture.t_chat_tab_code help = 'Chat'}

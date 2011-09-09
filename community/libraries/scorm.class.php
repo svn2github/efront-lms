@@ -375,7 +375,7 @@ class EfrontScorm
                     if (!isset($total_fields[$key]['parent_content_ID'])) {
                         $total_fields[$key]['parent_content_ID'] = 0;
                     }
-                    $total_fields[$key]['options'] = serialize(array('hide_complete_unit' => 1));
+                    $total_fields[$key]['options'] = serialize(array('complete_unit_setting' => EfrontUnit::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON));
                     $this_id = eF_insertTableData("content", $total_fields[$key]);
                     $tagArray[$key]['this_id'] = $this_id;
                     foreach($tagArray[$key]['children'] as $key2 => $value2) {

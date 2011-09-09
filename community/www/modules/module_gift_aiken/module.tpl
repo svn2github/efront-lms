@@ -47,18 +47,16 @@
 
 {/capture}
 
-{eF_template_printBlock title=$smarty.const._GIFTAIKENIMPORTQUESTIONS data=$smarty.capture.t_insert_faq_code absoluteImagePath=1 image=$T_GIFTAIKENQUESTIONS_MODULE_BASELINK|cat:'images/transform32.png'}
+{eF_template_printBlock title=$smarty.const._GIFTAIKENIMPORTQUESTIONS data=$smarty.capture.t_insert_faq_code absoluteImagePath=1 image=$T_GIFTAIKENQUESTIONS_MODULE_BASELINK|cat:'images/transform32.png' help = 'Gift/Gift//Aiken'}
 
 {if isset($smarty.post.questions_format)}
-	{literal}
-	<script>
-	var modulegiftquestiontype = '{/literal}{$smarty.post.questions_format}{literal}';
-	{/literal}
-	</script>
+ {literal}
+ <script>
+ var modulegiftquestiontype = '{/literal}{$smarty.post.questions_format}{literal}';
+ {/literal}
+ </script>
 {else}
-	<script>
-	var modulegiftquestiontype = 'gift';
-	</script>
+ <script>
+ var modulegiftquestiontype = 'gift';
+ </script>
 {/if}
-
-

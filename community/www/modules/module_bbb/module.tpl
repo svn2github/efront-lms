@@ -20,7 +20,7 @@
                 </form>
     {/capture}
 
-    {eF_template_printBlock title=$smarty.const._BBB_BBBSERVER data=$smarty.capture.t_BBB_server absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png'}
+    {eF_template_printBlock title=$smarty.const._BBB_BBBSERVER data=$smarty.capture.t_BBB_server absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' help = 'BigBlueButton'}
 
 {else}
     {if $smarty.get.add_BBB || $smarty.get.edit_BBB}
@@ -208,7 +208,7 @@
                 {/if}
             </div>
         {/capture}
-        {eF_template_printBlock title=$smarty.const._BBB_BBBMEETINGDATA data=$smarty.capture.t_BBB_tabber absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png'}
+        {eF_template_printBlock title=$smarty.const._BBB_BBBMEETINGDATA data=$smarty.capture.t_BBB_tabber absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' help = 'BigBlueButton'}
     {else}
         {capture name = 't_BBB_list_code'}
             {if $T_BBB_CURRENTLESSONTYPE == "professor"}
@@ -270,6 +270,6 @@
         {/capture}
 
 
-        {eF_template_printBlock title=$smarty.const._BBB_BBBLIST data=$smarty.capture.t_BBB_list_code absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png'}
+        {eF_template_printBlock title=$smarty.const._BBB_BBBLIST data=$smarty.capture.t_BBB_list_code absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' help = 'BigBlueButton'}
     {/if}
 {/if}

@@ -64,20 +64,14 @@
        <tr><td class = "labelCell">{$T_ENTITY_FORM.hide_navigation.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.hide_navigation.html}</td></tr>
      {if !$T_SCORM}
-       <tr><td class = "labelCell">{$T_ENTITY_FORM.hide_complete_unit.label}:&nbsp;</td>
-        <td class = "elementCell">{$T_ENTITY_FORM.hide_complete_unit.html}</td></tr>
-       <tr><td class = "labelCell">{$T_ENTITY_FORM.auto_complete.label}:&nbsp;</td>
-        <td class = "elementCell">{$T_ENTITY_FORM.auto_complete.html}</td></tr>
-      {if $T_ENTITY_FORM.complete_time}
-       <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_time.label}:&nbsp;</td>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_unit_setting.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.complete_unit_setting.html}</td></tr>
+       <tr {if $T_EDITED_UNIT.options.complete_unit_setting!=3}style = "display:none"{/if} id = "complete_time_row"><td class = "labelCell">{$T_ENTITY_FORM.complete_time.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.complete_time.html}</td></tr>
-      {/if}
-      {if $T_ENTITY_FORM.complete_question}
-       <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_question.label}:&nbsp;</td>
-        <td class = "elementCell">{$T_ENTITY_FORM.complete_question.html}&nbsp;{$T_ENTITY_FORM.questions.html}</td></tr>
-      {/if}
-        <tr><td class = "labelCell">{$T_ENTITY_FORM.pdf_check.label}:&nbsp;</td>
-         <td class = "elementCell">{$T_ENTITY_FORM.pdf_check.html}</td></tr>
+       <tr {if $T_EDITED_UNIT.options.complete_unit_setting!=2}style = "display:none"{/if} id = "complete_question_row"><td class = "labelCell">{$T_ENTITY_FORM.complete_question.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.complete_question.html}</td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.pdf_check.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.pdf_check.html}</td></tr>
      {/if}
        <tr style="display:none;" id="pdf_content"><td class = "labelCell">{$T_ENTITY_FORM.pdf_content.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.pdf_content.html}</td></tr>
@@ -147,10 +141,52 @@
   {/capture}
  {elseif $smarty.get.apply_all}
   {capture name = 't_all_units_properties_code'}
-   {eF_template_printForm form = $T_ALL_UNITS_PROPERTIES_FORM}
+     {$T_ENTITY_FORM.javascript}
+     <form {$T_ENTITY_FORM.attributes}>
+      {$T_ENTITY_FORM.hidden}
+      <fieldset class = "fieldsetSeparator">
+      <legend>{$smarty.const._UNITPROPERTIES}</legend>
+      <table class = "formElements" width="100%">
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.ctg_type.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.ctg_type.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.hide_navigation.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.hide_navigation.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.complete_unit_setting.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.complete_unit_setting.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
+       <tr {if $T_EDITED_UNIT.options.complete_unit_setting!=3}style = "display:none"{/if} id = "complete_time_row"><td class = "labelCell">{$T_ENTITY_FORM.complete_time.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.complete_time.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.maximize_viewport.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.object_ids.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.object_ids.html}&nbsp;</td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.no_before_unload.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.indexed.html}&nbsp;</td></tr>
+      </table>
+      </fieldset>
+      <fieldset class = "fieldsetSeparator">
+      <legend>{$smarty.const._SCORMSPECIFICPROPERTIES}</legend>
+      <table class = "formElements" width="100%">
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.scorm_asynchronous.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.scorm_asynchronous.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this, true)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.scorm_size.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.scorm_size.html} px <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this, true)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.reentry_action.label}:&nbsp;</td>
+        <td class = "elementCell">{$T_ENTITY_FORM.reentry_action.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this, true)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.embed_type.label}:
+        <td class = "elementCell">{$T_ENTITY_FORM.embed_type.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this, true)"/></td></tr>
+       <tr><td class = "labelCell">{$T_ENTITY_FORM.popup_parameters.label}:
+        <td class = "elementCell">{$T_ENTITY_FORM.popup_parameters.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this, true)"/></td></tr>
+      </table>
+      </fieldset>
+     </form>
+
   {/capture}
   {capture name = "moduleInsertContent"}
+   <tr><td class = "moduleCell">
    {eF_template_printBlock title=$smarty.const._ALLUNITSPROPERTIES data=$smarty.capture.t_all_units_properties_code image='32x32/edit.png'}
+   </td></tr>
   {/capture}
  {elseif !$T_UNIT && $_student_}
   {if $smarty.get.type == 'theory'}
@@ -177,7 +213,7 @@
   {/capture}
  {elseif $smarty.get.bare}
   <span style = "display:none" id = "user_total_time_in_unit">{$T_USER_TIME_IN_UNIT.total_seconds}</span>
-  <span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>
+  {*<span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>*}
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
   <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
   <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
@@ -187,7 +223,7 @@
   {$T_UNIT.data}
  {else}
   <span style = "display:none" id = "user_total_time_in_unit">{$T_USER_TIME_IN_UNIT.total_seconds}</span>
-  <span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>
+  {*<span tyle = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>*}
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
   <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
   <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
@@ -215,10 +251,10 @@
     {/if}
          </td>
          <td class = "completeUnitHandle">
-     {if !$T_UNIT.options.hide_complete_unit && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}{assign var = "hideStyle" value = ''}{assign var = "show_content_footer" value = 1}{else}{assign var = "hideStyle" value = 'style = "visibility:hidden"'}{/if}
+     {if $T_UNIT.options.complete_unit_setting == 0 && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}{assign var = "hideStyle" value = ''}{assign var = "show_content_footer" value = 1}{else}{assign var = "hideStyle" value = 'style = "visibility:hidden"'}{/if}
      {if $T_QUESTION}
       {assign var = "show_content_footer" value = 1}
-          <div class = "unitQuestionArea" {$hideStyle}>
+          <div class = "unitQuestionArea">
            <form id = "question_form" method = "post" action = "{$smarty.server.PHP_SELF}?view_unit={$smarty.get.view_unit}">{$T_QUESTION}</form>
            <span id = "contentQuestionAnswer">
             <input class = "flatButton" type = "button" value = "{$smarty.const._SUBMIT}" onclick = "answerQuestion(this)">
@@ -348,8 +384,8 @@
      <div><script>var nocredit = false</script>{$smarty.const._YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT}</div>
     {/if}
 
-    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display">{$T_USER_TIME_IN_UNIT.hours}:{$T_USER_TIME_IN_UNIT.minutes}:{$T_USER_TIME_IN_UNIT.seconds}</span></div>
-    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display">{$T_USER_TIME_IN_LESSON.hours}:{$T_USER_TIME_IN_LESSON.minutes}:{$T_USER_TIME_IN_LESSON.seconds}</span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display">{$T_USER_TIME_IN_UNIT.time_string_colon}</span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display">{$T_USER_TIME_IN_LESSON.time_string_colon}</span></div>
     <script>
     var seconds = {$T_USER_TIME_IN_UNIT.seconds};
     var minutes = {$T_USER_TIME_IN_UNIT.minutes};

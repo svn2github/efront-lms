@@ -180,30 +180,6 @@ function show_user_box(user_str,user,send_msg,view_page,user_type,user_time, use
 	} catch (e) {sidebarExceptionHandler(e, 'show_user_box');}
 }
 
-function getPeriodicData() {
-	if (typeof(_disable_updater) != 'undefined' && _disable_updater) {
-		return 0;
-	}
-	try {
-		new Ajax.Request('periodic_updater.php', {
-			method:'get',
-			asynchronous:true,
-			onSuccess: function (transport) {
-			if (transport.responseText.evalJSON().messages > 0) {
-				if ($('unread_img')) {
-					$('unread_img').update('<img class = "sprite16 sprite16-mail" src = "themes/default/images/others/transparent.gif" style = "vertical-align:middle" onLoad="javascript:if (document.getElementById(\'hasLoaded\') && !usingHorizontalInterface){fixUpperMenu();fixCurtains();}"/>');
-				}
-				if ($('recent_unread_left')) {
-					$('recent_unread_left').update('(<a href = "'+translations['s_type']+'.php?ctg=messages" target="mainframe" >'+transport.responseText.evalJSON().messages+'</a>)');
-				}
-			}
-
-
-		}});
-	} catch (e) {sidebarExceptionHandler(e, 'getPeriodicData');}
-}
-
-
 function getWindowSize() {
 	try {	
 		var myWidth = 0, myHeight = 0;

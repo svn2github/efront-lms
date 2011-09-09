@@ -2774,6 +2774,7 @@ function addTime(&$a, $b) {
 
  */
 function getUserTimeTarget($url) {
+ return $_SESSION['s_time_target'];
  if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID']) {
   $entity = array($_SESSION['s_lessons_ID'] => 'lesson');
  } else {
@@ -2799,9 +2800,9 @@ function getUserTimeTarget($url) {
 
  */
 function getUserLastTimeInTarget($entity) {
- $result = eF_getTableData("user_times", "time", "session_expired=0 and session_id = '".session_id()."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
+ $result = eF_getTableData("user_times", "time, timestamp_now", "session_expired=0 and session_custom_identifier = '".$_SESSION['s_custom_identifier']."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
  if (sizeof($result) > 0) {
-  return $result[0]['time'];
+  return $result[0];
  } else {
   return false;
  }
@@ -2815,12 +2816,21 @@ function getUserLastTimeInTarget($entity) {
  */
 function refreshLogin() {
  if ($_SESSION['s_login']) {
-  $entity = getUserTimeTarget($_SERVER['REQUEST_URI']); //Something like 'system', 'lesson' or 'unit'
-  $totalTimeSoFar = getUserLastTimeInTarget($entity); //The time the user has spent during this session, on this entity
+  //$entity   = getUserTimeTarget($_SERVER['REQUEST_URI']);		//Something like 'system', 'lesson' or 'unit'
+  $entity = $_SESSION['s_time_target'];
+  $result = eF_getTableData("user_times", "time, timestamp_now", "session_expired=0 and session_custom_identifier = '".$_SESSION['s_custom_identifier']."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
+  $totalTimeSoFar = false;
+  if (!empty($result) && $result[0]['timestamp_now'] >= time() - 5*$GLOBALS['configuration']['updater_period']/1000) { //5 failed updates: reset
+   $totalTimeSoFar = true;
+  }
   if ($totalTimeSoFar === false) {
+   //Nullify current entry for the same entity
+   eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and session_custom_identifier = '".$_SESSION['s_custom_identifier']."' and users_LOGIN = '".$_SESSION['s_login']."'
+           and entity = '".current($entity)."' and entity_id = '".key($entity)."'");
    //Insert a new entry for this entity, to start counting time for
    $fields = array("session_timestamp" => time(),
        "session_id" => session_id(),
+       "session_custom_identifier" => $_SESSION['s_custom_identifier'],
        "session_expired" => 0,
        "users_LOGIN" => $_SESSION['s_login'],
        "timestamp_now" => time(),
@@ -2833,10 +2843,10 @@ function refreshLogin() {
   } else {
    //Update times for this entity
    $result = eF_executeNew("update user_times set time=time+(".time()."-timestamp_now),timestamp_now=".time()."
-         where session_expired = 0 and session_id = '".session_id()."' and users_LOGIN = '".$_SESSION['s_login']."'
+         where session_expired = 0 and session_custom_identifier = '".$_SESSION['s_custom_identifier']."' and users_LOGIN = '".$_SESSION['s_login']."'
           and entity = '".current($entity)."' and entity_id = '".key($entity)."'");
   }
-  eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and session_id = '".session_id()."' and users_LOGIN = '".$_SESSION['s_login']."'
+  eF_updateTableData("user_times", array("session_expired" => 1), "session_expired = 0 and session_custom_identifier = '".$_SESSION['s_custom_identifier']."' and users_LOGIN = '".$_SESSION['s_login']."'
           and (entity != '".current($entity)."' or entity_id != '".key($entity)."')");
  }
 }

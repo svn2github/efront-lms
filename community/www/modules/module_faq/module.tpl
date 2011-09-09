@@ -7,7 +7,7 @@
                     {$T_FAQ_FORM.hidden}
                     <table class = "formElements" style = "width:100%">
                         <tr><td class = "labelCell">{$smarty.const._FAQ_REGARDING}:&nbsp;</td>
-                            <td class = "elementCell">{$T_FAQ_FORM.related_content.html}</td></tr>                    	
+                            <td class = "elementCell">{$T_FAQ_FORM.related_content.html}</td></tr>
                         <tr><td class = "labelCell">{$smarty.const._FAQ_QUESTION}:&nbsp;</td>
                             <td class = "elementCell">{$T_FAQ_FORM.question.html}</td></tr>
                         <tr><td colspan = "2">&nbsp;</td></tr>
@@ -21,7 +21,7 @@
 
     {/capture}
 
-    {eF_template_printBlock title=$smarty.const._FAQ_INSERTFAQ data=$smarty.capture.t_insert_faq_code image = $T_FAQ_MODULE_BASELINK|cat:'images/unknown32.png' absoluteImagePath = 1}
+    {eF_template_printBlock title=$smarty.const._FAQ_INSERTFAQ data=$smarty.capture.t_insert_faq_code image = $T_FAQ_MODULE_BASELINK|cat:'images/unknown32.png' absoluteImagePath = 1 help = 'FAQ_Module'}
 {else}
     {capture name = 't_faq_list_code'}
         {if $T_FAQUSERLESSONROLE != 'student'}
@@ -59,7 +59,5 @@
         {/if}
     {/capture}
 
-    {eF_template_printBlock title=$smarty.const._FAQ_FAQLIST data=$smarty.capture.t_faq_list_code image = $T_FAQ_MODULE_BASELINK|cat:'images/unknown32.png' absoluteImagePath = 1}
+    {eF_template_printBlock title=$smarty.const._FAQ_FAQLIST data=$smarty.capture.t_faq_list_code image = $T_FAQ_MODULE_BASELINK|cat:'images/unknown32.png' absoluteImagePath = 1 help = 'FAQ_Module'}
 {/if}
-
-

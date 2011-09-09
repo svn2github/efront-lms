@@ -4098,7 +4098,7 @@ define("_CONSTRAINAPIIP", "IPs που επιτρέπεται να συνδεθο
 define("_LOGOUTUSERIFINACTIVEFORMINUTES", "Αποσύνδεση χρήστη μετά από αδράνεια (λεπτά)");
 define("_COMPLETEAFTERSECONDS", "Ολοκλήρωση μετά από (δευτερόλεπτα)");
 define("_APPLYFUNCTIONTOALLUNITS", "Εφαρμογή λειτουργίας σε όλες τις ενότητες");
-define("_SCORMSPECIFICPROPERTIES", "Οι παρακάτω ιδιότητες θα επηρεάσουν μόνο περιεχόμενο SCORM 1.2");
+define("_SCORMSPECIFICPROPERTIES", "Ιδιότητες SCORM 1.2");
 define("_ALLUNITSPROPERTIES", "Ιδιότητες όλων των ενοτήτων");
 define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "Μπορεί να θέλετε να απενεργοποιήσετε και την &quot;ανάκτηση κωδικού&quot;, στις γενικές ρυθμίσεις");
 define("_FORTHISLESSON","Για το τρέχον μάθημα");
@@ -4129,4 +4129,6 @@ define("_LESS", "λιγότερα");
 define("_COURSESREGISTRATIONS", "Δηλώσεις δεσμών");
 define("_INACTIVEREGISTRATIONS", "Ανενεργές δηλώσεις");
 define("_BUYBALANCE", "Αγορά πίστωσης");
+define("_COMPLETEUNITOPTIONS", "Επιλογές ολοκλήρωσης της ενότητας");
+define("_COMPLETEAFTERTIMEELAPSED", "Ολοκλήρωση μετά από χρόνο");
 ?>

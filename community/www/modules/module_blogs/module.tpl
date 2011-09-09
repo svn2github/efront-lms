@@ -105,7 +105,7 @@
  {/if}
 </div>
 {/capture}
-{eF_template_printBlock title = $smarty.const._BLOGS_BLOG data = $smarty.capture.t_module_blogs_code image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1}
+{eF_template_printBlock title = $smarty.const._BLOGS_BLOG data = $smarty.capture.t_module_blogs_code image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1 help = 'Blog'}
 
 {elseif isset($smarty.get.add_article) || isset($smarty.get.edit_article)}
 {capture name = 't_module_blogs_addArticle}
@@ -129,7 +129,7 @@
     </form>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._BLOGS_ARTICLESFORM data=$smarty.capture.t_module_blogs_addArticle image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._BLOGS_ARTICLESFORM data=$smarty.capture.t_module_blogs_addArticle image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1 help = 'Blog'}
 
 {elseif isset($smarty.get.add_comment) || isset($smarty.get.edit_comment)}
 {capture name = 't_module_blogs_addComment}
@@ -180,7 +180,7 @@
      {/foreach}
  </table>
 {/capture}
-{eF_template_printBlock title=$smarty.const._BLOGS_COMMENTS_FORM data=$smarty.capture.t_module_blogs_addComment image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._BLOGS_COMMENTS_FORM data=$smarty.capture.t_module_blogs_addComment image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1 help = 'Blog'}
 {elseif (isset($smarty.get.view_blog))}
 {capture name = 't_module_blogs_viewBlog}
  <table width="100%" border="0" cellpadding="3px">
@@ -274,7 +274,7 @@
   </td></tr>
  </table>
 {/capture}
-{eF_template_printBlock title=$T_BLOGS_BLOG.name data=$smarty.capture.t_module_blogs_viewBlog image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$T_BLOGS_BLOG.name data=$smarty.capture.t_module_blogs_viewBlog image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1 help = 'Blog'}
 {elseif (isset($smarty.get.view_article))}
 {capture name = 't_module_blogs_viewArticle}
  <table width="100%" border="0" cellpadding="3px">
@@ -315,7 +315,7 @@
  </table>
 
 {/capture}
-{eF_template_printBlock title=$T_BLOGS_BLOG.name|cat:" ("|cat:$T_BLOGS_ARTICLE.title|cat:")" data=$smarty.capture.t_module_blogs_viewArticle image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$T_BLOGS_BLOG.name|cat:" ("|cat:$T_BLOGS_ARTICLE.title|cat:")" data=$smarty.capture.t_module_blogs_viewArticle image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1 help = 'Blog'}
 {else}
 {capture name = 't_module_blogs_lessonBlogs}
 {if $smarty.session.s_type == "professor"}
@@ -362,5 +362,5 @@
 </table>
 {/capture}
 
-{eF_template_printBlock title=$smarty.const._BLOGS_BLOG data=$smarty.capture.t_module_blogs_lessonBlogs image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._BLOGS_BLOG data=$smarty.capture.t_module_blogs_lessonBlogs image=$T_MODULE_BASELINK|cat:'images/eFrontBlog32.png' absoluteImagePath=1 help = 'Blog'}
 {/if}

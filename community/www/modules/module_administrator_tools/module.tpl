@@ -324,4 +324,4 @@
  {/if}
  </div>
 {/capture}
-{eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 columns = 4 main_options = $T_TABLE_OPTIONS image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
+{eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS data = $smarty.capture.t_administrator_tools_code absoluteImagePath=1 columns = 4 main_options = $T_TABLE_OPTIONS image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png' help='Administrator_tools'}

@@ -1184,6 +1184,7 @@ CREATE TABLE users_to_groups (
 -- id (primary key): A numerical identifier
 -- session_timestamp: The time when this session started
 -- session_id: The id of the session
+-- session_custom_identifier: A custom identifier for the user's session, which is reset everytime he/she logs in
 -- session_expired: Whether this session has expired
 -- users_LOGIN: The login of the user
 -- timestamp_now: The timestamp of the latest action of the user. It is compared to autologout_time limit, and if it's less, the user is automatically logged out
@@ -1196,6 +1197,7 @@ CREATE TABLE user_times (
   id mediumint(8) unsigned NOT NULL auto_increment,
   session_timestamp int(10) unsigned NOT NULL,
   session_id varchar(255) NOT NULL,
+  session_custom_identifier char(40) NOT NULL default '',
   session_expired tinyint(1) NOT NULL default 0,
   users_LOGIN varchar(100) NOT NULL,
   timestamp_now int(10) unsigned NOT NULL,
@@ -1334,17 +1336,19 @@ CREATE TABLE users_to_content (
   id mediumint(8) unsigned NOT NULL auto_increment,
   users_LOGIN varchar(100) NOT NULL,
   content_ID mediumint(8) unsigned NOT NULL,
+  lessons_ID mediumint(8) unsigned NOT NULL,
   success_status varchar(15) DEFAULT 'unknown',
-  timestamp int(10) unsigned NOT NULL,
+  timestamp int(10) unsigned,
   score float default '0',
   entry varchar(15) DEFAULT '',
-  total_time int(10) unsigned NOT NULL,
+  total_time int(10) unsigned NOT NULL default 0,
   suspend_data longtext,
   archive tinyint(1) NOT NULL default 0,
   time_start int(10) unsigned,
   time_end int(10) unsigned,
   pending tinyint(1) NOT NULL default 0,
-  primary key (id)
+  primary key (id),
+  unique(users_LOGIN, content_ID)
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE lessons_timeline_topics (

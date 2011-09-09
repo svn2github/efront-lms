@@ -567,8 +567,8 @@ var targetWin = window.open (pageURL, title, 'scrollbars=yes, width='+w+', heigh
 
 function periodicUpdater() {
 	
-	if ($('user_current_time_in_unit')) {
-		var parameters = {method:'post', user_current_time_in_unit:$('user_current_time_in_unit').innerHTML};
+	if ($('user_total_time_in_unit')) {
+		var parameters = {method:'post', user_total_time_in_unit:$('user_total_time_in_unit').innerHTML};
 	} else {
 		var parameters = {method:'get'};
 	}

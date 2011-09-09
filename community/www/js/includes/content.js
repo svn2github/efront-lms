@@ -464,23 +464,35 @@ function onCheckLessonConditions(el, response) {
 }
 
 function startContentTimer() {
+    this.formatTime = function (v) {
+    	if (v == 0) {
+    		v = '00';
+    	} else if (v.length == 1) {
+    		v = "0" + v;
+    	}
+    	return v;
+    }
 	
-    if (seconds <= 59) {seconds++;}
+    if (seconds < 59) {seconds++;}
     else {
-        if (seconds == 60 ) {seconds = 0;}
-        if (minutes <= 59)  {minutes++;}
+        if (seconds == 59 ) {seconds = 0;}
+        if (minutes < 59)  {minutes++;}
         else {
-            if (minutes == 60) {minutes = 0;}
+            if (minutes == 59) {minutes = 0;}
             hours++;
         }
     }
-    min = minutes.toString();
-    sec = seconds.toString()
-    if (min.length == 1) {min = "0" + min;}
-    if (sec.length == 1) {sec = "0" + sec;}
+    min = this.formatTime(minutes.toString());
+    sec = this.formatTime(seconds.toString());
+    hours = this.formatTime(hours);
+        
+    
+    //if (hours.length == 1) {hours = "0" + hours;}
+    //if (min.length == 1) {min = "0" + min;}
+    //if (sec.length == 1) {sec = "0" + sec;}
 
     $("user_time_in_unit_display").update(hours + ":" + min + ":" + sec);    
-    $("user_current_time_in_unit").update(parseInt($("user_current_time_in_unit").innerHTML)+1);
+    //$("user_current_time_in_unit").update(parseInt($("user_current_time_in_unit").innerHTML)+1);
     
     var newUserTotalTimeInUnit = parseInt($("user_total_time_in_unit").innerHTML)+1;
     $('user_total_time_in_unit').update(newUserTotalTimeInUnit);
@@ -488,20 +500,19 @@ function startContentTimer() {
     	setSeenUnit(true);
     }    
 
-    if (lesson_seconds <= 59) {lesson_seconds++;}
+    if (lesson_seconds < 59) {lesson_seconds++;}
     else {
-        if (lesson_seconds == 60 ) {lesson_seconds = 0;}
-        if (lesson_minutes <= 59)  {lesson_minutes++;}
+        if (lesson_seconds == 59 ) {lesson_seconds = 0;}
+        if (lesson_minutes < 59)  {lesson_minutes++;}
         else {
-            if (lesson_minutes == 60) {lesson_minutes = 0;}
+            if (lesson_minutes == 59) {lesson_minutes = 0;}
             lesson_hours++;
         }
     }
-    lesson_min = lesson_minutes.toString();
-    lesson_sec = lesson_seconds.toString()
-    if (lesson_min.length == 1) {lesson_min = "0" + lesson_min;}
-    if (lesson_sec.length == 1) {lesson_sec = "0" + lesson_sec;}
-
+    lesson_min = this.formatTime(lesson_minutes.toString());
+    lesson_sec = this.formatTime(lesson_seconds.toString());
+    lesson_hours = this.formatTime(lesson_hours);
+    		
     $("user_time_in_lesson_display").update(lesson_hours + ":" + lesson_min + ":" + lesson_sec);    
     var newUserTimeInLesson = parseInt($("user_time_in_lesson").innerHTML)+1;
     $("user_time_in_lesson").update(newUserTimeInLesson);
@@ -509,41 +520,35 @@ function startContentTimer() {
     	checkLessonConditions();
     }
 
+    
 	//contentTimer = setTimeout("startContentTimer()", 1000);	
 }
 if (typeof(start_timer) != 'undefined' && start_timer) {
 	pe = false;
-	//startContentTimer();
 	var isIE = (navigator.appName == "Microsoft Internet Explorer");
 	if (isIE) {
 		document.onfocusout = function () {
 			if (pe) {
 				pe.stop();
 			}
-	    	//clearTimeout(contentTimer);
 	    };    
 	    document.onfocusin = function() {
 			if (pe) {
 				pe.stop();
 			}
 	    	pe = new PeriodicalExecuter(startContentTimer, 1);
-	    	//clearTimeout(contentTimer);
-	    	//startContentTimer();
 	    };
 	} else {
 	    window.onblur  = function () {
 			if (pe) {
 				pe.stop();
 			}
-	    	//clearTimeout(contentTimer);
 	    };    
 	    window.onfocus = function() {
 			if (pe) {
 				pe.stop();
 			}
 	    	pe = new PeriodicalExecuter(startContentTimer, 1);
-	    	//clearTimeout(contentTimer);
-	    	//startContentTimer();
 	    };
 	}
 	if (!pe) {
@@ -575,33 +580,39 @@ if (typeof(dragDropQuestions) != 'undefined') {
 	dragDropQuestions.each(function (s) {initDragDrop(s, dragDropQuestionKeys[s]);})
 }
 
-function setCompletion(el) {
-	Element.extend(el);
-	if (el.identify() == 'complete_question') {
-		if ($('auto_complete')) {
-			$('auto_complete').checked = '';
-		}
-		if ($('complete_time')) {
-			$('complete_time').value = '';
-		}
-	} else if (el.identify() == 'auto_complete') {
-		if ($('complete_question')) {
-			$('complete_question').checked = "";
-		}
-		if ($('complete_time')) {
-			$('complete_time').value = '';
-		}
-	} if (el.identify() == 'complete_time') {
-		if ($('auto_complete')) {
-			$('auto_complete').checked = '';
-		}
-		if ($('complete_question')) {
-			$('complete_question').checked = '';
-		}
-	}
-}
-
 function retrieveInformation() {
 	return _information_json;
 }
 
+function setUnitCompletionOptions(el) {
+	Element.extend(el);
+	if (el.options[el.options.selectedIndex].value == 2) {
+		if ($('complete_question_row')) {
+			$('complete_question_row').show();
+		}
+		if ($('complete_time_row')) {
+			$('complete_time_row').hide();
+		}
+	} else if (el.options[el.options.selectedIndex].value == 3) {
+		if ($('complete_question_row')) {
+			$('complete_question_row').hide();
+		}
+		if ($('complete_time_row')) {
+			$('complete_time_row').show();
+		}		
+	} else {
+		if ($('complete_question_row')) {
+			$('complete_question_row').hide();
+		}
+		if ($('complete_time_row')) {
+			$('complete_time_row').hide();
+		}
+	}
+	
+			
+}
+
+function setAllUnitsProperties(el, scorm) {
+	Element.extend(el);
+	ajaxRequest(el, location.toString(), {ajax:1, method:'get', option:el.previous().name, value:el.previous().value, scorm:scorm});
+}

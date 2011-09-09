@@ -76,8 +76,10 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                 $message .= $e -> getMessage().' ('.$e -> getCode().')';
             }
         }
+
         $zipFileName = $currentUser -> user['directory'].'/projects/'.EfrontFile :: encode($currentProject -> project['title']).'.zip';
         $zipFile = $projectDirectory -> compress($zipFileName, false, true);
+
         $projectDirectory -> delete();
         eF_redirect("view_file.php?file=".urlencode($zipFile['path'])."&action=download");
     } catch (Exception $e) {
@@ -403,13 +405,18 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         $smarty -> assign("T_MAX_FILE_SIZE", $maxFileSize);
         if ($form -> isSubmitted() && $form -> validate() && !$currentProject -> expired) {
             try {
+
                 $projectDirectory = G_UPLOADPATH.$currentUser -> user['login'].'/projects';
+                if (!is_dir($projectDirectory)) {
+                    EfrontDirectory :: createDirectory($projectDirectory);
+                }
+                $projectDirectory = G_UPLOADPATH.$currentUser -> user['login'].'/projects/'.$currentProject -> project['id'];
                 if (!is_dir($projectDirectory)) {
                     EfrontDirectory :: createDirectory($projectDirectory);
                 }
                 $filesystem = new FileSystemTree($projectDirectory);
                 $uploadedFile = $filesystem -> uploadFile('filename', $projectDirectory);
-                $uploadedFile -> rename($uploadedFile['directory'].'/project_'.$currentProject -> project['id'].'.'.$uploadedFile['extension']);
+                //$uploadedFile -> rename($uploadedFile['directory'].'/project_'.$currentProject -> project['id'].'.'.$uploadedFile['extension']);
                 $fields_update = array("filename" => $uploadedFile['id'],
                                            "upload_timestamp" => time());
                 eF_updateTableData("users_to_projects", $fields_update, "users_LOGIN='".$currentUser -> user['login']."' AND projects_ID=".$_GET['view_project']);

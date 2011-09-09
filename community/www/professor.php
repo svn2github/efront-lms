@@ -74,6 +74,7 @@ try {
   }
   $currentLesson = new EfrontLesson($unit['lessons_ID']);
   $_SESSION['s_lessons_ID'] = $currentLesson -> lesson['id'];
+  $_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
  }
 } catch (Exception $e) {
  unset($_GET['view_unit']);
@@ -138,6 +139,7 @@ if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] && $_GET['ctg'
     try {
         $currentUser -> applyRoleOptions($userLessons[$_SESSION['s_lessons_ID']]); //Initialize user's role options for this lesson
         $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']); //Initialize lesson
+        $_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
   $_SESSION['s_lesson_user_type'] = $roles[$userLessons[$_SESSION['s_lessons_ID']]]; //needed for outputfilter.eF_template_setInnerLinks
         $smarty -> assign("T_TITLE_BAR", $currentLesson -> lesson['name']);
     } catch (Exception $e) {
@@ -166,6 +168,7 @@ try {
         $currentUnit = $currentContent -> seekNode($_GET['view_unit']); //Initialize current unit
         //The content tree does not hold data, so assign this unit its data
         $unitData = new EfrontUnit($_GET['view_unit']);
+        $_SESSION['s_time_target'] = array($_GET['view_unit'] => 'unit');
         $currentUnit['data'] = $unitData['data'];
         if (!$_GET['ctg']) {
             $_GET['ctg'] = 'content';

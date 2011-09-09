@@ -26,7 +26,7 @@
 </table>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_print_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_print_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 help = 'Journal'}
 
 {elseif isset($smarty.get.rules)}
 
@@ -48,7 +48,7 @@
 </table>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_rules_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_rules_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 help = 'Journal'}
 
 {elseif isset($smarty.get.popup_info)}
 
@@ -135,7 +135,7 @@
 </script>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_popup_info image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_popup_info image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 help = 'Journal'}
 
 {elseif isset($smarty.get.check_students_journals)}
 
@@ -159,7 +159,7 @@
 </table>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_check_students_journals_info image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_check_students_journals_info image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 help = 'Journal'}
 
 {elseif isset($smarty.get.preview_journal)}
 
@@ -182,7 +182,7 @@
 </table>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_preview_journal_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_preview_journal_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 help = 'Journal'}
 
 {else}
 {capture name = 't_journal_student_code'}
@@ -268,9 +268,9 @@
 {/capture}
 
 {if $smarty.session.s_type == "professor"}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_student_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 options=$T_JOURNAL_POPUP_INFO}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_student_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 options=$T_JOURNAL_POPUP_INFO help = 'Journal'}
 {else}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_student_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_student_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath = 1 help = 'Journal'}
 {/if}
 
 <script>

@@ -36,7 +36,7 @@
  </div>
 </div>
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_tab_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_tab_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath=1 help = 'Journal'}
 
 {else}
 {capture name = 't_journal_code'}
@@ -89,7 +89,7 @@
 </table>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath=1}
+{eF_template_printBlock title=$smarty.const._JOURNAL_NAME data=$smarty.capture.t_journal_code image=$T_JOURNAL_BASELINK|cat:'images/journal_logo.png' absoluteImagePath=1 help = 'Journal'}
 
 <script>
 {literal}

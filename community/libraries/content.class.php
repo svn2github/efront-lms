@@ -131,6 +131,11 @@ class EfrontUnit extends ArrayObject
 
      */
     const MAXIMUM_NAME_LENGTH = 40;
+ const COMPLETION_OPTIONS_DEFAULT = 0;
+ const COMPLETION_OPTIONS_AUTOCOMPLETE = 1;
+ const COMPLETION_OPTIONS_COMPLETEWITHQUESTION = 2;
+ const COMPLETION_OPTIONS_COMPLETEAFTERSECONDS = 3;
+ const COMPLETION_OPTIONS_HIDECOMPLETEUNITICON = 4;
     /**
 
      * Class constructor
@@ -189,7 +194,31 @@ class EfrontUnit extends ArrayObject
         } else {
             $array['options'] = false;
   }
+  $persist = false;
+        if (isset($array['options']['hide_complete_unit']) || isset($array['options']['auto_complete']) || isset($array['options']['questions'])) { //ugprade from 3.6.9        	
+   $array['options'] = $this->upgradeUnitOptions($array['options']);
+   $persist = true;
+  }
         parent :: __construct($array);
+        if ($persist) {
+         $this->persist();
+        }
+    }
+    private function upgradeUnitOptions($options) {
+     if ($options['hide_complete_unit']) {
+      $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON;
+     } else if ($options['auto_complete']) {
+   $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_AUTOCOMPLETE;
+     } else if ($options['complete_question'] && $options['questions']) {
+       $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_COMPLETEWITHQUESTION;
+       $options['complete_question'] = $options['questions'];
+     } else {
+      $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_DEFAULT;
+     }
+     unset($options['hide_complete_unit']);
+     unset($options['auto_complete']);
+     unset($options['questions']);
+     return $options;
     }
     /**
 
@@ -401,6 +430,7 @@ class EfrontUnit extends ArrayObject
         eF_deleteTableData("content", "id=".$this['id']); //Delete Unit from database
         eF_deleteTableData("scorm_data", "content_ID=".$this['id']); //Delete Unit from scorm_data
   eF_deleteTableData("comments", "content_ID=".$this['id']); //Delete comments of this unit
+  eF_deleteTableData("users_to_content", "content_ID=".$this['id']); //Delete time data for the unit
   eF_deleteTableData("rules", "content_ID=".$this['id']." OR rule_content_ID=".$this['id']); //Delete rules associated with this unit
   eF_updateTableData("questions", array("content_ID" => 0), "content_ID=".$this['id']); //Remove association of questions with this unit but not delete them
   EfrontSearch :: removeText('content', $this['id'], ''); //Delete keywords
@@ -2783,7 +2813,7 @@ class EfrontNoTestsFilterIterator extends FilterIterator
 
      */
     function accept() {
-        if ($this -> current() -> offsetGet('ctg_type') != 'tests') {
+        if ($this -> current() -> offsetGet('ctg_type') != 'tests' && $this -> current() -> offsetGet('ctg_type') != 'scorm_test') {
             return true;
         }
     }

@@ -75,7 +75,7 @@
  </table>
  {/capture}
 
- {eF_template_printBlock title=$smarty.const._JOBS_MANAGER data=$smarty.capture.mod_jobs_manager_app image=$MOD_JOBS_MANAGER_BASELINK|cat:'images/logo_32.png' absoluteImagePath = 1}
+ {eF_template_printBlock title=$smarty.const._JOBS_MANAGER data=$smarty.capture.mod_jobs_manager_app image=$MOD_JOBS_MANAGER_BASELINK|cat:'images/logo_32.png' absoluteImagePath = 1 help = 'Jobs_manager'}
 
 {else}
  <div style="width:100%;">

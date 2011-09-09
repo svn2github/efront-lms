@@ -4098,7 +4098,7 @@ define("_CONSTRAINAPIIP", "IPs allowed to connect to the API");
 define("_LOGOUTUSERIFINACTIVEFORMINUTES", "Log out user if inactive for (minutes)");
 define("_COMPLETEAFTERSECONDS", "Complete after (seconds)");
 define("_APPLYFUNCTIONTOALLUNITS", "Apply a function to all units");
-define("_SCORMSPECIFICPROPERTIES", "The options below will only affect SCORM 1.2 content");
+define("_SCORMSPECIFICPROPERTIES", "SCORM 1.2 properties");
 define("_ALLUNITSPROPERTIES", "Properties for all units");
 define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO", "You may want to disable &quot;reset password&quot; link as well, in general settings");
 define("_FORTHISLESSON","For current lesson");
@@ -4129,4 +4129,6 @@ define("_LESS", "less");
 define("_COURSESREGISTRATIONS", "Course registrations");
 define("_INACTIVEREGISTRATIONS", "Inactive registrations");
 define("_BUYBALANCE", "Buy balance");
+define("_COMPLETEUNITOPTIONS", "Unit completion options");
+define("_COMPLETEAFTERTIMEELAPSED", "Complete after time elapsed");
 ?>

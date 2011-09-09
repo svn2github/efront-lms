@@ -46,11 +46,6 @@
     {/if}
     var __shouldTriggerNextNotifications = false;
 
-    // Get unread messages
-
- {*{if !$T_NO_MESSAGES}var startUpdater = true;{else}var startUpdater = false;{/if}*}
- {if $T_CONFIGURATION.updater_period}var updaterPeriod = '{$T_CONFIGURATION.updater_period}';{else}var updaterPeriod = 100000;{/if}
-
     var arrow_status = "down"; // Initialize toggle arrows
 
     {if $T_BROWSER == 'IE6' || $T_BROWSER == 'IE7'}

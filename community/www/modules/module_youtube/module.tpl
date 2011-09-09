@@ -23,7 +23,7 @@
 
         {/capture}
 
-        {eF_template_printBlock title=$smarty.const._YOUTUBE_YOUTUBEVIDEODATA data=$smarty.capture.t_insert_youtube_code absoluteImagePath=1  image=$T_YOUTUBE_MODULE_BASELINK|cat:'images/youtube32.png'}
+        {eF_template_printBlock title=$smarty.const._YOUTUBE_YOUTUBEVIDEODATA data=$smarty.capture.t_insert_youtube_code absoluteImagePath=1 image=$T_YOUTUBE_MODULE_BASELINK|cat:'images/youtube32.png' help = 'Youtube'}
 
     {else}
         {capture name = 't_youtube_list_code'}
@@ -52,7 +52,7 @@
                     <td><a href = "http://www.youtube.com/watch?v={$youtube.link}" target ="_blank" class = "editLink"><img src = "http://img.youtube.com/vi/{$youtube.link}/default.jpg" /></a></td>
                     <td>{$youtube.title}</td>
                     <td><a href = "http://www.youtube.com/watch?v={$youtube.link}" target ="_blank" class = "editLink">http://www.youtube.com/watch?v={$youtube.link}</a></td>
-					{if $T_USERLESSONTYPE == "professor"}
+     {if $T_USERLESSONTYPE == "professor"}
 
                     <td align = "center">
                         <table>
@@ -75,6 +75,5 @@
         {/capture}
 
 
-        {eF_template_printBlock title=$smarty.const._YOUTUBE_YOUTUBELIST data=$smarty.capture.t_youtube_list_code absoluteImagePath=1  image=$T_YOUTUBE_MODULE_BASELINK|cat:'images/youtube32.png'}
+        {eF_template_printBlock title=$smarty.const._YOUTUBE_YOUTUBELIST data=$smarty.capture.t_youtube_list_code absoluteImagePath=1 image=$T_YOUTUBE_MODULE_BASELINK|cat:'images/youtube32.png' help = 'Youtube'}
     {/if}
-

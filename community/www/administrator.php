@@ -120,8 +120,8 @@ if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
  }
 
 }
-
 refreshLogin();//Important: It must be called AFTER EfrontUser :: getUsersOnline
+
 
 
 !isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];

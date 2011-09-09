@@ -5683,6 +5683,26 @@ class EfrontLesson
   }
   return true;
  }
+ public static function getUserActiveTimeInUnit($login, $contentId) {
+  if (eF_checkParameter($login, 'login') && eF_checkParameter($contentId, 'id')) {
+   $result = eF_getTableData("users_to_content", "total_time", "users_LOGIN = '".$login."' and content_ID=".$contentId);
+  }
+  $totalTime = 0;
+  if (!empty($result)) {
+   $totalTime = $result[0]['total_time'];
+  }
+  return $totalTime;
+ }
+ public static function getUserActiveTimeInLesson($login, $lessonId) {
+  if (eF_checkParameter($login, 'login') && eF_checkParameter($lessonId, 'id')) {
+   $result = eF_getTableData("users_to_content", "sum(total_time) as total_time", "users_LOGIN = '".$login."' and lessons_ID=".$lessonId);
+  }
+  $totalTime = 0;
+  if (!empty($result)) {
+   $totalTime = $result[0]['total_time'];
+  }
+  return $totalTime;
+ }
  /**
 
 	 * Get all events related with this lesson

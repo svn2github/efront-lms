@@ -865,6 +865,8 @@ abstract class EfrontUser
   $_SESSION['s_password'] = $this -> user['password'];
   $_SESSION['s_type'] = $this -> user['user_type'];
   $_SESSION['s_language'] = $loginLanguage;
+  $_SESSION['s_custom_identifier'] = sha1(microtime().$this -> user['login']);
+  $_SESSION['s_time_target'] = array(0 => 'system'); //'s_time_target' is used to signify which of the system's area the user is currently accessing. It is a id => entity pair 
   //$_SESSION['last_action_timestamp'] = time();	//Initialize first action
   //Insert log entry
   $fields_insert = array('users_LOGIN' => $this -> user['login'],
@@ -876,6 +878,7 @@ abstract class EfrontUser
   //Insert user times entry
   $fields = array("session_timestamp" => time(),
       "session_id" => session_id(),
+      "session_custom_identifier" => $_SESSION['s_custom_identifier'],
       "session_expired" => 0,
       "users_LOGIN" => $_SESSION['s_login'],
       "timestamp_now" => time(),

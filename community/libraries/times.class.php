@@ -95,7 +95,6 @@ class EfrontTimes
   foreach ($result as $value) {
    $contentIdsPerLesson[$value['lessons_ID']] = $value['id'];
   }
-  pr($contentIdsPerLesson);
   $result = eF_getTableData("user_times", "users_LOGIN, sum(time) as time", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)", "", "users_LOGIN");
  }
 
@@ -248,18 +247,23 @@ class EfrontTimes
    $totalTime['seconds'] = $seconds;
   }
   if ($totalTime['minutes'] >= 60) {
-   $totalTime['hours'] = floor($totalTime['minutes']/60);;
+   $totalTime['hours'] = floor($totalTime['minutes']/60);
    $totalTime['minutes'] = $totalTime['minutes'] % 60;;
   }
   $totalTime['total_seconds'] = $totalTime['hours'] * 3600 + $totalTime['minutes'] * 60 + $totalTime['seconds'];
 
   $totalTime['time_string'] = array();
   if ($totalTime['total_seconds']) {
-   !$totalTime['hours'] OR $totalTime['time_string'][] = $totalTime['hours']._HOURSSHORTHAND;
-   !$totalTime['minutes'] OR $totalTime['time_string'][] = $totalTime['minutes']._MINUTESSHORTHAND;
-   !$totalTime['seconds'] OR $totalTime['time_string'][] = $totalTime['seconds']._SECONDSSHORTHAND;
+   !$totalTime['hours'] OR $totalTime['time_string'][] = sprintf("%02d", $totalTime['hours'])._HOURSSHORTHAND;
+   !$totalTime['minutes'] OR $totalTime['time_string'][] = sprintf("%02d", $totalTime['minutes'])._MINUTESSHORTHAND;
+   !$totalTime['seconds'] OR $totalTime['time_string'][] = sprintf("%02d", $totalTime['seconds'])._SECONDSSHORTHAND;
+
+   $totalTime['time_string_colon'][] = sprintf("%02d", $totalTime['hours']);
+   $totalTime['time_string_colon'][] = sprintf("%02d", $totalTime['minutes']);
+   $totalTime['time_string_colon'][] = sprintf("%02d", $totalTime['seconds']);
   }
   $totalTime['time_string'] = implode(" ", $totalTime['time_string']);
+  $totalTime['time_string_colon'] = implode(":", $totalTime['time_string_colon']);
 
   return $totalTime;
  }

@@ -78,7 +78,7 @@
  </div>
 </div>
 {/capture}
-{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_workbook_tab_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath=1}
+{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_workbook_tab_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath=1 help = 'Workbook'}
 
 {elseif isset($smarty.get.edit_settings)}
 
@@ -117,7 +117,7 @@
  </table>
 </form>
 {/capture}
-{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_edit_settings_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_edit_settings_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 help = 'Workbook'}
 
 {elseif isset($smarty.get.reuse_item)}
 
@@ -140,7 +140,7 @@
  </table>
 </form>
 {/capture}
-{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_reuse_item_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_reuse_item_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 help = 'Workbook'}
 
 {elseif isset($smarty.get.move_item)}
 
@@ -167,7 +167,7 @@
 </form>
 {/if}
 {/capture}
-{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_move_item_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_move_item_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 help = 'Workbook'}
 
 {elseif isset($smarty.get.popup_info)}
 
@@ -254,7 +254,7 @@
 </script>
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_popup_info image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_popup_info image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 help = 'Workbook'}
 
 {elseif isset($smarty.get.check_workbook_progress)}
 
@@ -280,7 +280,7 @@
 </table>
 
 {/capture}
-{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_check_workbook_progress_info image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_check_workbook_progress_info image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 help = 'Workbook'}
 
 {elseif isset($smarty.get.preview_workbook)}
 
@@ -328,7 +328,7 @@
 {/foreach}
 
 {/capture}
-{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_preview_workbook_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1}
+{eF_template_printBlock title=$smarty.const._WORKBOOK_NAME data=$smarty.capture.t_preview_workbook_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 help = 'Workbook'}
 
 {else}
 {capture name = 't_workbook_professor_code'}
@@ -406,7 +406,7 @@
 {/foreach}
 
 {/capture}
-{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_workbook_professor_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 options=$T_WORKBOOK_OPTIONS}
+{eF_template_printBlock title=$T_WORKBOOK_LESSON_NAME data=$smarty.capture.t_workbook_professor_code image=$T_WORKBOOK_BASELINK|cat:'images/workbook_logo.png' absoluteImagePath = 1 options=$T_WORKBOOK_OPTIONS help = 'Workbook'}
 {/if}
 
 <script>

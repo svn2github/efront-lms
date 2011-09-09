@@ -14,7 +14,7 @@
                 </form>
 
     {/capture}
-    {eF_template_printBlock title=$smarty.const._QUOTE_ADDQUOTE data=$smarty.capture.t_insert_quote_code image='32x32/quote.png'}
+    {eF_template_printBlock title=$smarty.const._QUOTE_ADDQUOTE data=$smarty.capture.t_insert_quote_code image='32x32/quote.png' help = 'Quote_of_the_day'}
 {else}
     {capture name = 't_quote_list_code'}
         {if $smarty.session.s_type != 'student'}
@@ -43,9 +43,7 @@
                 </tr>
             </table>
         {/if}
-                    
+
     {/capture}
-    {eF_template_printBlock title=$smarty.const._QUOTE_QUOTEDAY data=$smarty.capture.t_quote_list_code image= '32x32/quote.png'}
+    {eF_template_printBlock title=$smarty.const._QUOTE_QUOTEDAY data=$smarty.capture.t_quote_list_code image= '32x32/quote.png' help = 'Quote_of_the_day'}
 {/if}
-
-

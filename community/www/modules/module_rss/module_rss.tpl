@@ -10,12 +10,12 @@
  {capture name = "t_add_feed_code"}
   {eF_template_printForm form=$T_RSS_ADD_RSS_FORM}
  {/capture}
- {eF_template_printBlock title=$smarty.const._RSS_ADDRSS data=$smarty.capture.t_add_feed_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
+ {eF_template_printBlock title=$smarty.const._RSS_ADDRSS data=$smarty.capture.t_add_feed_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1 help = 'RSS'}
 {elseif ($smarty.get.add_feed_provider) || $smarty.get.edit_feed_provider}
  {capture name = "t_add_feed_code"}
   {eF_template_printForm form=$T_RSS_PROVIDE_RSS_FORM}
  {/capture}
- {eF_template_printBlock title=$smarty.const._RSS_ADDRSS data=$smarty.capture.t_add_feed_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
+ {eF_template_printBlock title=$smarty.const._RSS_ADDRSS data=$smarty.capture.t_add_feed_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1 help = 'RSS'}
 
 {else}
 
@@ -118,6 +118,6 @@
      {eF_template_printBlock tabber = "rss_provider" title=$smarty.const._RSS_RSSPROVIDER data=$smarty.capture.t_rss_provider_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
  </div>
  {/capture}
- {eF_template_printBlock title=$smarty.const._RSS_RSS data=$smarty.capture.t_rss_tabs_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1}
+ {eF_template_printBlock title=$smarty.const._RSS_RSS data=$smarty.capture.t_rss_tabs_code image=$T_RSS_MODULE_BASELINK|cat:'images/rss32.png' absoluteImagePath = 1 help = 'RSS'}
 
 {/if}

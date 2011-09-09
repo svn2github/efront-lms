@@ -28,4 +28,4 @@
         </table>
     </form>
 {/capture}
-{eF_template_printBlock title=$smarty.const._BILLBOARD data=$smarty.capture.t_billboard_list_code absoluteImagePath=1 image=$T_BILLBOARD_MODULE_BASELINK|cat:'images/note_pinned32.png'}
+{eF_template_printBlock title=$smarty.const._BILLBOARD data=$smarty.capture.t_billboard_list_code absoluteImagePath=1 image=$T_BILLBOARD_MODULE_BASELINK|cat:'images/note_pinned32.png' help = 'Billboard'}

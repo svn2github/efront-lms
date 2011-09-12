@@ -525,31 +525,34 @@ function startContentTimer() {
 }
 if (typeof(start_timer) != 'undefined' && start_timer) {
 	pe = false;
-	var isIE = (navigator.appName == "Microsoft Internet Explorer");
-	if (isIE) {
-		document.onfocusout = function () {
-			if (pe) {
-				pe.stop();
-			}
-	    };    
-	    document.onfocusin = function() {
-			if (pe) {
-				pe.stop();
-			}
-	    	pe = new PeriodicalExecuter(startContentTimer, 1);
-	    };
-	} else {
-	    window.onblur  = function () {
-			if (pe) {
-				pe.stop();
-			}
-	    };    
-	    window.onfocus = function() {
-			if (pe) {
-				pe.stop();
-			}
-	    	pe = new PeriodicalExecuter(startContentTimer, 1);
-	    };
+
+	if (start_timer != 'flash') {
+		var isIE = (navigator.appName == "Microsoft Internet Explorer");
+		if (isIE) {
+			document.onfocusout = function () {
+				if (pe) {
+					pe.stop();
+				}
+		    };    
+		    document.onfocusin = function() {
+				if (pe) {
+					pe.stop();
+				}
+		    	pe = new PeriodicalExecuter(startContentTimer, 1);
+		    };
+		} else {
+		    window.onblur  = function () {
+				if (pe) {
+					pe.stop();
+				}
+		    };    
+		    window.onfocus = function() {
+				if (pe) {
+					pe.stop();
+				}
+		    	pe = new PeriodicalExecuter(startContentTimer, 1);
+		    };
+		}
 	}
 	if (!pe) {
 		pe = new PeriodicalExecuter(startContentTimer, 1);

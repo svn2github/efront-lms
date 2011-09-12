@@ -396,7 +396,11 @@
     var lesson_seconds = {$T_USER_TIME_IN_LESSON.seconds};
     var lesson_minutes = {$T_USER_TIME_IN_LESSON.minutes};
     var lesson_hours = {$T_USER_TIME_IN_LESSON.hours};
+    {if $T_CONTAINS_FLASH}
+    var start_timer = 'flash';
+    {else}
     var start_timer = true;
+    {/if}
     </script>
    {/if}
   {/capture}

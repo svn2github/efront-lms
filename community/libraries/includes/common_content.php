@@ -478,7 +478,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             $smarty -> assign("T_USER_PROGRESS", $userProgress);
         }
         if ($_student_) {
-         if (preg_match("#</object>#", $currentUnit['data'])) {
+         if (preg_match("#</object>#", $currentUnit['data']) || preg_match("#</applet>#", $currentUnit['data'])) {
           $smarty -> assign("T_CONTAINS_FLASH", true);
          }
    //$smarty -> assign("T_NEXT_LESSON", $currentLesson -> getNextLesson());

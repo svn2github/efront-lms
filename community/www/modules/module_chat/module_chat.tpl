@@ -61,7 +61,7 @@ try {
   Event.observe($('scormFrameID').contentWindow, 'load', applyFlashFrameFix);
  }
 } catch (e) {
- alert(e);
+ //alert(e);
 }
 
 </script>

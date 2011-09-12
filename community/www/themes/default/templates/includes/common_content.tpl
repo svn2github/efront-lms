@@ -158,11 +158,11 @@
        <tr><td class = "labelCell">{$T_ENTITY_FORM.maximize_viewport.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.maximize_viewport.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
        <tr><td class = "labelCell">{$T_ENTITY_FORM.object_ids.label}:&nbsp;</td>
-        <td class = "elementCell">{$T_ENTITY_FORM.object_ids.html}&nbsp;</td></tr>
+        <td class = "elementCell">{$T_ENTITY_FORM.object_ids.html}&nbsp;<img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
        <tr><td class = "labelCell">{$T_ENTITY_FORM.no_before_unload.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.no_before_unload.html} <img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
        <tr><td class = "labelCell">{$T_ENTITY_FORM.indexed.label}:&nbsp;</td>
-        <td class = "elementCell">{$T_ENTITY_FORM.indexed.html}&nbsp;</td></tr>
+        <td class = "elementCell">{$T_ENTITY_FORM.indexed.html}&nbsp;<img src = "images/16x16/success.png" alt = "{$smarty.const._SUBMIT}" title = "{$smarty.const._SUBMIT}" class = "ajaxHandle" onclick = "setAllUnitsProperties(this)"/></td></tr>
       </table>
       </fieldset>
       <fieldset class = "fieldsetSeparator">
@@ -212,21 +212,25 @@
    </td></tr>
   {/capture}
  {elseif $smarty.get.bare}
+  {if !$T_SCORM}
   <span style = "display:none" id = "user_total_time_in_unit">{$T_USER_TIME_IN_UNIT.total_seconds}</span>
   {*<span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>*}
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
   <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
   <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
+  {/if}
   {if $T_SCORM}
    {$smarty.capture.t_scorm_form_code}
   {/if}
   {$T_UNIT.data}
  {else}
+  {if !$T_SCORM}
   <span style = "display:none" id = "user_total_time_in_unit">{$T_USER_TIME_IN_UNIT.total_seconds}</span>
   {*<span tyle = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>*}
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
   <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
   <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
+  {/if}
   {capture name = 't_content_footer_code'}
        <table class = "navigationTable">
         <tr>
@@ -383,9 +387,8 @@
     {if $T_SCORM && $T_NOCREDIT}
      <div><script>var nocredit = false</script>{$smarty.const._YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT}</div>
     {/if}
-
-    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display">{$T_USER_TIME_IN_UNIT.time_string_colon}</span></div>
-    <div {if !$T_CURRENT_LESSON->options.timers}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display">{$T_USER_TIME_IN_LESSON.time_string_colon}</span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers || $T_SCORM}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display">{$T_USER_TIME_IN_UNIT.time_string_colon}</span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers || $T_SCORM}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display">{$T_USER_TIME_IN_LESSON.time_string_colon}</span></div>
     <script>
     var seconds = {$T_USER_TIME_IN_UNIT.seconds};
     var minutes = {$T_USER_TIME_IN_UNIT.minutes};

@@ -256,6 +256,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
        //'duration'	   	 => $form -> exportValue('duration') ? $form -> exportValue('duration') : null,
        'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
        'price' => $form -> exportValue('price'),
+       'ceu' => $form -> exportValue('ceu'),
        'supervisor_LOGIN' => $values['supervisor_LOGIN'] ? $values['supervisor_LOGIN'] : null);
    try {
     if (isset($_GET['edit_course'])) {

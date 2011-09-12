@@ -19,7 +19,6 @@ $generalSecurityForm -> addElement("static", "", _RECOMMENDEDVALUEMORETHAN2000LE
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "constrain_access", _CONTRAINACCESSTOCONTENT, null, 'class = "inputCheckBox"', array(0, 1));
-//$generalSecurityForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"'); // Moved to appearance tab
 $generalSecurityForm -> setDefaults($GLOBALS['configuration']);
 //$generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('autologout_time', _THEFIELD.' '._LOGOUTUSERAFTER.' '._ISMANDATORY, 'required', null, 'client');

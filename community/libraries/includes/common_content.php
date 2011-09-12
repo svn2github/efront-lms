@@ -377,6 +377,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         } else if (isset($value['options'][$_GET['option']])) {
          $value['options'][$_GET['option']] = $_GET['value'];
         }
+
         $value->persist();
        }
       }
@@ -477,6 +478,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             $smarty -> assign("T_USER_PROGRESS", $userProgress);
         }
         if ($_student_) {
+         if (preg_match("#</object>#", $currentUnit['data'])) {
+          $smarty -> assign("T_CONTAINS_FLASH", true);
+         }
    //$smarty -> assign("T_NEXT_LESSON", $currentLesson -> getNextLesson());
    //$userTimeInUnit = EfrontTimes::formatTimeForReporting($times->getUserSessionTimeInUnit($currentUser->user['login'], $currentUnit['id']));
    $userTimeInUnit = EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInUnit($currentUser->user['login'], $currentUnit['id']));

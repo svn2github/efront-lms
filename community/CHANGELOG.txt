@@ -32,6 +32,14 @@
 - Updated import/export so that job assignments can optionally be replaced (Enterprise edition)
 - Dashboard now contains my courses' tools icon
 - Fixed training record not showing course/lesson progress for custom user roles based on student
+- Fixed issue in course settings and custom user types about applyRoleOptions
+- Added page to apply settings to all units
+- Added "remember me" option
+- Added CEUs parameter in courses (Enterprise/Educational edition)
+- Added active time tracking capabilities
+- Added time-based completion rules (Enterprise/Educational edition)
+- Added time-based unit completion option
+- Branch calendar events may appear to members of the branch's children as well (Enterprise edition) 
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

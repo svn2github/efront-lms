@@ -64,7 +64,8 @@ if (isset($_GET['ajax'])) {
    }
    exit;
   } else if ($_GET['set_default_branch']) {
-   if (sizeof($branches = explode(",", $_SESSION['supervises_branches'])) > 0) {
+   $branches = explode(",", $_SESSION['supervises_branches']);
+   if ($_SESSION['supervises_branches'] && sizeof($branches) > 0) {
     $branch = new EfrontBranch($branches[0]);
     echo json_encode(array('status' => true, 'foreign_ID' => $branch -> branch['branch_ID'], 'name' => $branch -> branch['name']));
    }
@@ -74,23 +75,16 @@ if (isset($_GET['ajax'])) {
   handleAjaxExceptions($e);
  }
 }
-
-
 $entityName = 'calendar';
 if ($currentUser -> user['user_type'] == 'administrator') { //admins can edit all events
  $legalValues = array_keys($events);
 } else {
  $legalValues = array_keys(calendar :: getUserCalendarEvents($currentUser));
 }
-
 include("entity.php");
-
 $events = calendar :: sortCalendarEventsByTimestamp($events);
 $smarty -> assign("T_SORTED_CALENDAR_EVENTS", $events);
-
-
 $smarty -> assign("T_VIEW_CALENDAR", $viewCalendar);
-
 $options = array(array('image' => '16x16/calendar_selection_day.png', 'title' => _SHOWDAYEVENTS, 'link' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&view_calendar=$viewCalendar&show_interval=day", 'selected' => ($showInterval == 'day' ? true : false)),
      array('image' => '16x16/calendar_selection_week.png', 'title' => _SHOWWEEKEVENTS, 'link' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&view_calendar=$viewCalendar&show_interval=week", 'selected' => ($showInterval == 'week' ? true : false)),
      array('image' => '16x16/calendar_selection_month.png', 'title' => _SHOWMONTHEVENTS, 'link' => basename($_SERVER['PHP_SELF'])."?ctg=calendar&view_calendar=$viewCalendar&show_interval=month", 'selected' => ($showInterval == 'month' ? true : false)),

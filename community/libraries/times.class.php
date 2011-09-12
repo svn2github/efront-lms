@@ -77,11 +77,14 @@ class EfrontTimes
 
  public function getUserSessionTimeInLessonContent($user, $lesson) {
   $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)");
-  if ($result[0]['sum(time)']) {
-   return $result[0]['sum(time)'];
-  } else {
-   return 0;
+  $seconds = $result[0]['sum(time)'] ? $result[0]['sum(time)'] : 0;
+  //Calculate SCORM times, as these are not counted by the system
+  $scormResult = eF_getTableData("scorm_data", "total_time", "timestamp < ".$this -> toTimestamp." and timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and content_ID in (select id from content where lessons_ID=$lesson and active=1 and (ctg_type='scorm' or ctg_type='scorm_test'))");
+  $scormSeconds = 0;
+  foreach($scormResult as $value) {
+   $scormSeconds += convertTimeToSeconds($value['total_time']);
   }
+  return $scormSeconds + $seconds;
  }
 
  public function getUsersSessionTimeInLessonContent($lesson) {

@@ -39,7 +39,8 @@ class calendar extends EfrontEntity
               'course' => _COURSE,
                                          'lesson' => _LESSON,
                                          'group' => _GROUP,
-                                         'branch' => _BRANCH);
+                                         'branch' => _BRANCH,
+           'sub_branch' => _BRANCHWITHSUBBRANCHES);
 
  /**
 	 * Create calendar
@@ -92,7 +93,8 @@ class calendar extends EfrontEntity
      case 'lesson': $selection = eF_getTableData("lessons", "name", "id=".$this -> calendar['foreign_ID']); break;
      case 'course': $selection = eF_getTableData("courses", "name", "id=".$this -> calendar['foreign_ID']); break;
      case 'group' : $selection = eF_getTableData("groups", "name", "id=".$this -> calendar['foreign_ID']); break;
-     case 'branch': $selection = eF_getTableData("module_hcd_branch", "name", "branch_ID=".$this -> calendar['foreign_ID']); break;
+     case 'branch': case 'sub_branch': $selection = eF_getTableData("module_hcd_branch", "name", "branch_ID=".$this -> calendar['foreign_ID']); break;
+     default:break;
     }
    }
   } else {
@@ -177,7 +179,7 @@ class calendar extends EfrontEntity
    case 'course': new EfrontCourse($values['foreign_ID']); break;
    case 'lesson': new EfrontLesson($values['foreign_ID']); break;
    case 'group': new EfrontGroup($values['foreign_ID']); break;
-   case 'branch': new EfrontBranch($values['foreign_ID']); break;
+   case 'branch': case 'sub_branch': new EfrontBranch($values['foreign_ID']); break;
    default: break;
   }
   } catch (Exception $e) {
@@ -194,10 +196,12 @@ class calendar extends EfrontEntity
 
 
    unset($calendarTypes['branch']);
+   unset($calendarTypes['sub_branch']);
 
 
   if (!$supervisor) {
    unset($calendarTypes['branch']);
+   unset($calendarTypes['sub_branch']);
   }
   if (!$supervisor && ((isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_lesson_user_type'] == 'student') || (!isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_type'] == 'student'))) {
    unset($calendarTypes['course']);
@@ -273,7 +277,7 @@ class calendar extends EfrontEntity
     case 'lesson': $value['name'] = self::$calendarTypes[$value['type']].': '.$value['lesson_name']; break;
     case 'course': $value['name'] = self::$calendarTypes[$value['type']].': '.$value['course_name']; break;
     case 'group' : $value['name'] = self::$calendarTypes[$value['type']].': '.$value['group_name']; break;
-    case 'branch': $value['name'] = self::$calendarTypes[$value['type']].': '.$value['branch_name']; break;
+    case 'branch': case 'sub_branch': $value['name'] = self::$calendarTypes[$value['type']].': '.$value['branch_name']; break;
     default: break;
    }
    $userCalendarEvents[$value['id']] = $value;
@@ -396,7 +400,7 @@ class calendar extends EfrontEntity
 	 * @static
 	 */
  public static function getBranchCalendarEvents($branch) {
-  $result = eF_getTableData("left outer join module_hcd_branch b on ca.foreign_ID=b.branch_ID", "ca.*, b.name as branch_name", "type = 'branch' and foreign_ID=".$branch);
+  $result = eF_getTableData("left outer join module_hcd_branch b on ca.foreign_ID=b.branch_ID", "ca.*, b.name as branch_name", "(type = 'branch' or type = 'sub_branch') and foreign_ID=".$branch);
   $branchCalendarEvents = self::functionCalculateEventTypeName($result);
   return $branchCalendarEvents;
  }
@@ -410,7 +414,7 @@ class calendar extends EfrontEntity
 	 */
  public static function deleteBranchCalendarEvents($branch) {
   if (eF_checkParameter($branch, 'id')) {
-   eF_deleteTableData("calendar", "type = 'branch' and foreign_ID=".$branch);
+   eF_deleteTableData("calendar", "(type = 'branch' or type = 'sub_branch') and foreign_ID=".$branch);
   }
  }
  /**
@@ -467,7 +471,7 @@ class calendar extends EfrontEntity
 	 */
  public static function getCalendarEventsForNonAdmnistrator($user) {
   $user = EfrontUser::convertArgumentToUserLogin($user);
-  $personalEvents = $globalEvents = $lessonEvents = $courseEvents = $groupEvents = $branchEvents = array();
+  $personalEvents = $globalEvents = $lessonEvents = $courseEvents = $groupEvents = $branchEvents = $subbranchEvents = array();
   $result = eF_getTableData("calendar c", "c.*", "type = 'global' and foreign_ID=0");
   foreach ($result as $value) {
    $globalEvents[$value['id']] = $value;
@@ -485,7 +489,7 @@ class calendar extends EfrontEntity
    $groupEvents[$value['id']] = $value;
   }
   $personalEvents = self :: getUserCalendarEvents($user);
-  $userEvents = $personalEvents + $globalEvents + $lessonEvents + $courseEvents + $groupEvents + $branchEvents;
+  $userEvents = $personalEvents + $globalEvents + $lessonEvents + $courseEvents + $groupEvents + $branchEvents + $subbranchEvents;
   return $userEvents;
  }
  /**

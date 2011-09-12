@@ -1045,6 +1045,7 @@ abstract class EfrontUser
   eF_deleteTableData("lessons_timeline_topics_data", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("events", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("profile_comments", "users_LOGIN='".$this -> user['login']."'");
+  eF_deleteTableData("users_to_content", "users_LOGIN='".$this -> user['login']."'");
   //This line was in EfrontProfessor and EfrontStudent without an obvious reason. Admins may also be members of groups
   eF_deleteTableData("users_to_groups", "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("users", "login='".$this -> user['login']."'");

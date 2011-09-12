@@ -19,10 +19,11 @@ try {
  } elseif (isset($_GET['course'])) {
   $currentCourse = new EfrontCourse($_GET['course']);
   $result = eF_getTableData("users_to_courses", "user_type", "users_LOGIN='".$currentUser -> user['login']."' and courses_ID=".$currentCourse -> course['id']);
+
   if (empty($result) || $roles[$result[0]['user_type']] != 'professor') {
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
-
+  $currentUser -> applyRoleOptions($result[0]['user_type']);
   $baseUrl = 'ctg=lessons&course='.$currentCourse -> course['id'];
   $smarty -> assign("T_BASE_URL", $baseUrl);
   $smarty -> assign("T_CURRENT_COURSE", $currentCourse);

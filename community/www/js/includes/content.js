@@ -614,5 +614,11 @@ function setUnitCompletionOptions(el) {
 
 function setAllUnitsProperties(el, scorm) {
 	Element.extend(el);
-	ajaxRequest(el, location.toString(), {ajax:1, method:'get', option:el.previous().name, value:el.previous().value, scorm:scorm});
+	if (el.previous().type == 'checkbox') {
+		value = el.previous().checked ? 1 : 0;
+	} else {
+		value = el.previous().value;
+	}
+
+	ajaxRequest(el, location.toString(), {ajax:1, method:'get', option:el.previous().name, value:value, scorm:scorm});
 }

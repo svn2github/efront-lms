@@ -39,11 +39,15 @@ if ($editedUser -> user['user_type'] != 'administrator') {
  }
 
  $constraints = array('archive' => false, 'active' => true, 'return_objects' => false);
+ $coursesScores = $coursesCEUS = array();
  foreach ($userCourses as $key => $course) {
   $courseLessons[$key] = $course -> getCourseLessons($constraints);
   $userCourses[$key] = $course -> course; //strip object, we don't need it
   if ($course -> course['completed']) {
    $coursesScores[] = $course -> course['score'];
+   $coursesCEUS[] = $course -> course['ceu'];
+  } else {
+   unset($userCourses[$key]['ceu']);
   }
  }
 
@@ -90,6 +94,7 @@ if ($editedUser -> user['user_type'] != 'administrator') {
 
  if (sizeof($userCourses) > 0) {
   $averages['courses'] = formatScore(round(array_sum($coursesScores) / sizeof($coursesScores), 2));
+  $averages['ceus'] = array_sum($coursesCEUS);
  }
  if (sizeof($userLessons) > 0) {
   $averages['lessons'] = formatScore(round(array_sum($lessonsScores) / sizeof($lessonsScores), 2));
@@ -138,11 +143,13 @@ if (isset($_GET['pdf'])) {
 
 
  if ($editedUser -> user['user_type'] != 'administrator' && (!empty($userCourses) || !empty($userLessons))) {
-  $formatting = array(_NAME => array('width' => '40%', 'fill' => false),
+  $formatting = array(_NAME => array('width' => '37%', 'fill' => false),
        _CATEGORY => array('width' => '25%','fill' => false),
-       _REGISTRATIONDATE => array('width' => '13%','fill' => false),
-       _COMPLETED => array('width' => '13%','fill' => false, 'align' => 'C'),
-       _SCORE => array('width' => '9%','fill' => false, 'align' => 'R'));
+       _REGISTRATIONDATE => array('width' => '12%','fill' => false),
+       _COMPLETED => array('width' => '12%','fill' => false, 'align' => 'C'),
+       _SCORE => array('width' => '8%','fill' => false, 'align' => 'R'),
+       _CEUS => array('width' => '8%','fill' => false, 'align' => 'R'),
+       );
 
   $data = array();
   foreach ($userCourses as $courseId => $value) {

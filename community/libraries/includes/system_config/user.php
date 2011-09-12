@@ -8,6 +8,7 @@ $userMainForm = new HTML_QuickForm("user_main_form", "post", basename($_SERVER['
 $userMainForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $userMainForm -> addElement("advcheckbox", "signup", _EXTERNALLYSIGNUP, null, 'class = "inputCheckBox"', array(0, 1));
 $userMainForm -> addElement('select', 'default_type', _DEFAULTUSERTYPE, EfrontUser :: getRoles(true), 'class = "inputCheckBox"');
+$userMainForm -> addElement("advcheckbox", "remember_login", _REMEMBERLOGIN, null, null, 'class = "inputCheckBox"', array(0, 1));
 
 
 

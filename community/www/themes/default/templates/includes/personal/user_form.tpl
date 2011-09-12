@@ -50,11 +50,12 @@
      <table class = "sortedTable" id = "formCoursesTable" noFooter = "true" style = "width:100%">
      {*<table class = "sortedTable" style = "width:100%" size = "{$T_TABLE_SIZE}" sortBy = "0" order = "desc" useAjax = "1" id = "formCoursesTable" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=users&edit_user={$smarty.get.edit_user}&op=status&">*}
       <tr style = "font-weight:bold;white-space:nowrap">
-       <td name = "name" style = "padding:0px 3px 0px 0px;width:40%" onclick = "resetFormRows(this)">{$smarty.const._NAME}</td>
-       <td name = "directions_ID" style = "padding:0px 3px 0px 3px;width:25%" onclick = "resetFormRows(this)">{$smarty.const._CATEGORY}</td>
-       <td name = "active_in_course" style = "padding:0px 3px 0px 3px;text-align:center;width:13%" onclick = "resetFormRows(this)">{$smarty.const._REGISTRATIONDATE}</td>
-       <td name = "completed" style = "padding:0px 3px 0px 3px;text-align:center;width:13%" onclick = "resetFormRows(this)">{$smarty.const._COMPLETED}</td>
-       <td name = "score" style = "padding:0px 0px 0px 3px;text-align:center;width:9%" onclick = "resetFormRows(this)">{$smarty.const._SCORE}</td>
+       <td name = "name" style = "padding:0px 3px 0px 0px;width:37%" onclick = "resetFormRows(this)">{$smarty.const._NAME}</td>
+       <td name = "directions_ID" style = "padding:0px 3px 0px 3px;width:23%" onclick = "resetFormRows(this)">{$smarty.const._CATEGORY}</td>
+       <td name = "active_in_course" style = "padding:0px 3px 0px 3px;text-align:center;width:12%" onclick = "resetFormRows(this)">{$smarty.const._REGISTRATIONDATE}</td>
+       <td name = "completed" style = "padding:0px 3px 0px 3px;text-align:center;width:12%" onclick = "resetFormRows(this)">{$smarty.const._COMPLETED}</td>
+       <td name = "score" style = "padding:0px 0px 0px 3px;text-align:center;width:8%" onclick = "resetFormRows(this)">{$smarty.const._SCORE}</td>
+       <td name = "ceu" style = "padding:0px 0px 0px 3px;text-align:center;width:8%" onclick = "resetFormRows(this)">{$smarty.const._CEUS}</td>
       </tr>
     {foreach name = 'courses_list' key = 'key' item = 'course' from = $T_USER_COURSES}
       <tr id = "form_tr_{$course.id}_previous">
@@ -71,6 +72,7 @@
        <td style = "padding:0px 3px 0px 3px;text-align:center"><span style = "display:none">{$course.active_in_course}</span>#filter:timestamp-{$course.active_in_course}#</td>
        <td style = "padding:0px 3px 0px 3px;white-space:nowrap;text-align:center"><span style = "display:none">{$course.to_timestamp}</span>{if $course.completed}#filter:timestamp-{$course.to_timestamp}#{else}-{/if}</td>
        <td style = "padding:0px 0px 0px 3px;white-space:nowrap;text-align:center"><span style = "display:none">{$course.score}</span>{if $course.score}#filter:score-{$course.score}#%{else}-{/if}</td>
+       <td style = "padding:0px 0px 0px 3px;white-space:nowrap;text-align:center"><span style = "display:none">{$course.ceu}</span>{if $course.ceu}{$course.ceu}{else}-{/if}</td>
       </tr>
      {if $T_COURSE_LESSONS[$course.id]}
       <tr id = "form_tr_{$course.id}" class = "form_additional_info" >
@@ -183,6 +185,10 @@
       <tr>
        <td >{$smarty.const._COURSESAVERAGE}:&nbsp;<td>
        <td >#filter:score-{$T_AVERAGES.courses}#%</td>
+      </tr>
+      <tr>
+       <td >{$smarty.const._TOTALCEUS}:&nbsp;<td>
+       <td >{$T_AVERAGES.ceus}</td>
       </tr>
       {/if}
       {if $T_AVERAGES.lessons}

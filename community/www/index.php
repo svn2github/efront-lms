@@ -264,7 +264,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
     $_SESSION['missing_fields'] = 1;
    }
   }
-  if ($form -> exportValue('remember')) { //The user asked to remeber login (it is implemented with cookies)
+  if ($form -> exportValue('remember')) { //The user asked to remember login (it is implemented with cookies)
    $expire = time() + 30 * 86400; //1 month
    setcookie("cookie_login", $_SESSION['s_login'], $expire);
    setcookie("cookie_password", $_SESSION['s_password'], $expire);

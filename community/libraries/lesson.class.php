@@ -5696,12 +5696,15 @@ class EfrontLesson
  public static function getUserActiveTimeInLesson($login, $lessonId) {
   if (eF_checkParameter($login, 'login') && eF_checkParameter($lessonId, 'id')) {
    $result = eF_getTableData("users_to_content", "sum(total_time) as total_time", "users_LOGIN = '".$login."' and lessons_ID=".$lessonId);
+   $seconds = $result[0]['total_time'] ? $result[0]['total_time'] : 0;
+   //Calculate SCORM times, as these are not counted by the system
+   $scormResult = eF_getTableData("scorm_data", "total_time", "users_LOGIN = '".$login."' and content_ID in (select id from content where lessons_ID=$lessonId and active=1 and (ctg_type='scorm' or ctg_type='scorm_test'))");
+   $scormSeconds = 0;
+   foreach($scormResult as $value) {
+    $scormSeconds += convertTimeToSeconds($value['total_time']);
+   }
+   return $scormSeconds + $seconds;
   }
-  $totalTime = 0;
-  if (!empty($result)) {
-   $totalTime = $result[0]['total_time'];
-  }
-  return $totalTime;
  }
  /**
 

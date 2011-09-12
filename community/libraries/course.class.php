@@ -1662,7 +1662,8 @@ class EfrontCourse
                         'reset' => self :: validateAndSanitize($courseFields['reset'], 'boolean'),
                         'certificate_expiration' => self :: validateAndSanitize($courseFields['certificate_expiration'], 'integer'),
                         'max_users' => self :: validateAndSanitize($courseFields['max_users'], 'integer'),
-                        'rules' => self :: validateAndSanitize($courseFields['rules'], 'serialized'),
+                        'ceu' => self :: validateAndSanitize($courseFields['ceu'], 'integer'),
+      'rules' => self :: validateAndSanitize($courseFields['rules'], 'serialized'),
                         'supervisor_LOGIN' => self :: validateAndSanitize($courseFields['supervisor_LOGIN'], 'text'),
       'instance_source' => self :: validateAndSanitize($courseFields['instance_source'], 'courses_foreign_key'),
       'depends_on' => self :: validateAndSanitize($courseFields['depends_on'], 'courses_foreign_key'));

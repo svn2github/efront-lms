@@ -57,6 +57,7 @@ class EfrontConfiguration
         'encrypt_url' => '0', //0: don't encrypt. 1: encrypt
         'eliminate_post_xss' => '1',
      'constrain_access' => '1',
+     'remember_login' => '',
         //System settings - language
         'onelanguage' => '0',
         'default_language' => 'english',

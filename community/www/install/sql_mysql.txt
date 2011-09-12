@@ -216,6 +216,7 @@ CREATE TABLE courses (
   instance_source mediumint(8) unsigned default '0',
   supervisor_LOGIN varchar(100) default NULL,
   depends_on mediumint(8) unsigned default '0',
+  ceu int(10) unsigned default NULL,
 -- FOREIGN KEY (directions_ID) REFERENCES directions (id),
 -- FOREIGN KEY (languages_ID) REFERENCES languages (id),
   PRIMARY KEY (id),

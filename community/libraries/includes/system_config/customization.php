@@ -27,7 +27,7 @@ $customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, nu
 $customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_payments", _PAYMENTS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("static", "", _WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO);
-//$customizationDisableForm -> addElement("advcheckbox", "disable_move_blocks",  _MOVEBLOCK, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_move_blocks", _MOVEBLOCK, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_change_info", _USERSCANCHANGEINFO, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_change_pass", _USERSCANCHANGEPASS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("static", "", _YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO);

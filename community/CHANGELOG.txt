@@ -40,6 +40,26 @@
 - Added time-based completion rules (Enterprise/Educational edition)
 - Added time-based unit completion option
 - Branch calendar events may appear to members of the branch's children as well (Enterprise edition) 
+- Fixed issue about displaying announcements block icon in layout even when it was inactive
+- Fixed issue in notifications language part
+- Added a minimal_view parameter for displaying less columns for messages in dashboard
+- Added a trim in exploded fields from csv file
+- Allowing creating mandatory field without default value in user profile
+- Added urlencode when loading avatar
+- Loaded prototype in external survey to avoid js error
+- Empty top level unit should be marked as complete if all sub units are marked as complete
+- Removed the option to "deactivate online users on lessons" from the lesson administration page
+- Added forums and topics pagination
+- Added limits for space usage in messages
+- Added index page parameter to filter courses/lessons (index.php?filter=maya)
+- Fixed Bcc issue in sending mail because of http://rawphp.com/php_generator/page.php?show=PHP_Sending_Email_to_Bcc_with_SMTP_Authentication_pear_mail_factory.php
+- Added header for date in Mail::factory because of this http://pear.php.net/manual/en/package.mail.mail.send.php
+- Removed old chat functionality
+- Added encodeURIComponent in filters http://www.sencha.com/forum/archive/index.php/t-96295.html
+- Ability to import list of users to be archived
+- Fixed rtf certificate exporting for IE8
+- Added help links to modules towards the wiki page
+- Moved uploaded projects from students to an internal folder named <project_id> inside projects folder and do not rename them
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

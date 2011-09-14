@@ -374,7 +374,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
        if (!$_GET['scorm']) {
         if ($_GET['option'] == 'ctg_type') {
          $value['ctg_type'] = $_GET['value'];
-        } else if (isset($value['options'][$_GET['option']])) {
+        } else {
          $value['options'][$_GET['option']] = $_GET['value'];
         }
 
@@ -741,8 +741,12 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                         $content_side_modules[$module->className]['title'] = $module -> getName();
                     }
                 }
+                if ($link = $module->getContentToolsLink()) {
+                 $moduleToolsContent[] = $link;
+                }
             }
         }
+        $smarty -> assign("T_MODULE_TOOLS_LINKS", $moduleToolsContent);
         $smarty -> assign("T_CONTENT_SIDE_MODULES", $content_side_modules);
     } catch (Exception $e) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());

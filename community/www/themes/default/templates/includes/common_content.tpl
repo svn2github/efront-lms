@@ -432,6 +432,9 @@
    <div>{counter name = "content_tools"}. <a title = "{$smarty.const._CONTENTMETADATA}" href = "{$smarty.server.PHP_SELF}?ctg=metadata&unit={$T_UNIT.id}">{$smarty.const._CONTENTMETADATA|eF_truncate:40}</a></div>
    {/if}
    <div>{counter name = "content_tools"}. <a title = "{$smarty.const._APPLYFUNCTIONTOALLUNITS}" href = "{$smarty.server.PHP_SELF}?ctg=content&apply_all=1">{$smarty.const._APPLYFUNCTIONTOALLUNITS|eF_truncate:40}</a></div>
+   {foreach name = "t_modules_tools_links" item = "item" key = "key" from = $T_MODULE_TOOLS_LINKS}
+   <div>{counter name = "content_tools"}. {$item}</div>
+   {/foreach}
   {/capture}
 
   {capture name = "t_end_of_lesson_code"}

@@ -42,6 +42,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
  }
 
+ foreach ($loadedModules as $module) {
+  if ($linkInfo = $module->getToolsLinkInfo()) {
+   $myCoursesOptions[] = array('text' => $linkInfo['title'], 'image' => eF_getRelativeModuleImagePath($linkInfo['image']), 'href' => $linkInfo['link']);
+  }
+ }
+
  $smarty -> assign("T_COURSES_LIST_OPTIONS", $myCoursesOptions);
 
  if ($GLOBALS['configuration']['social_modules_activated'] > 0) {

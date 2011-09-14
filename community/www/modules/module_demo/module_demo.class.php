@@ -329,6 +329,16 @@ class module_demo extends EfrontModule {
     }
     /**
 
+     * (non-PHPdoc)
+
+     * @see libraries/EfrontModule#getContentToolsLink()
+
+     */
+    public function getContentToolsLink() {
+        return '<a href = "'.$_SERVER['PHP_SELF'].'?ctg=module&op=module_demo" title = "'._MODULE_DEMO_CALLEDINCONTENTTOOLS.'">'._MODULE_DEMO_CALLEDINCONTENTTOOLS.'</a>';
+    }
+    /**
+
 	 * (non-PHPdoc)
 
 	 * @see libraries/EfrontModule#getContentSmartyTpl()

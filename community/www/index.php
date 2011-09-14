@@ -191,7 +191,7 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
     //check for valid lesson
      setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 300);
     }
-    LoginRedirect($user -> user['user_type']);
+    loginRedirect($user -> user['user_type']);
     exit;
    }
   }
@@ -213,7 +213,7 @@ if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
    // Check if the mobile version of eFront is required - if so set a session variable accordingly
    //eF_setMobile();
             EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
-   LoginRedirect($user -> user['user_type']);
+   loginRedirect($user -> user['user_type']);
   }
   exit;
  } catch (EfrontUserException $e) {}
@@ -282,7 +282,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
       eF_redirect("index.php?ctg=checkout&checkout=1");
   } else {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
-   LoginRedirect($user -> user['user_type']);
+   loginRedirect($user -> user['user_type']);
   }
   exit;
  } catch (EfrontUserException $e) {
@@ -341,7 +341,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     if ($_SESSION['login_mode']) {
      eF_redirect("index.php?ctg=checkout&checkout=1");
     }
-    LoginRedirect($user -> user['user_type']);
+    loginRedirect($user -> user['user_type']);
    } else {
     $user -> logout(session_id());
     eF_redirect("index.php");
@@ -383,7 +383,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     if ($GLOBALS['configuration']['show_license_note'] && $user -> user['viewed_license'] == 0) {
      eF_redirect("index.php?ctg=agreement");
     } else {
-     LoginRedirect($user -> user['user_type']);
+     loginRedirect($user -> user['user_type']);
     }
    }
   }
@@ -570,48 +570,50 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
  }
  if ($form -> isSubmitted()) {
   if ($form -> validate()) {
-   if (isset($_SESSION['s_login'])) { //A logged-in user wants to signup: Log him out first
-    $user = EfrontUserFactory :: factory($_SESSION['s_login']);
-    $user -> logout(session_id());
-   }
-   $values = $form -> exportValues(); //Get the form values
-   //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field
-   $defaultUserType = $GLOBALS['configuration']['default_type'];
-   if (is_numeric($defaultUserType)) {
-                $result = eF_getTableData("user_types", "id, basic_user_type", "id=".$defaultUserType);
-                if (sizeof($result) > 0) {
-                    $values['user_type'] = $result[0]['basic_user_type'];
-                    $values['user_types_ID'] = $result[0]['id'];
-                } else {
-                    $values['user_type'] = 'student';
-                }
-            } else {
-    $values['user_type'] = $defaultUserType;
-                $values['user_types_ID'] = 0;
-            }
-   $user_data = array("login" => $values['login'],
-                               "password" => isset($_GET['ldap']) ? 'ldap' : $values['password'],
-                               "name" => $values['firstName'],
-                               "surname" => $values['lastName'],
-                               "email" => $values['email'],
-                               "comments" => $values['comments'],
-                               "pending" => ($configuration['activation']) ? 0 : 1,
-                               "active" => $configuration['activation'],
-                               "languages_NAME" => $values['languages_NAME'],
-          "user_type" => $values['user_type'],
-          "user_types_ID" => $values['user_types_ID']);
-            foreach ($user_profile as $field) { //Get the custom fields values
-             if ($field['type'] == 'date') {
-              $user_data[$field['name']] = mktime($values[$field['name']]['H'], $values[$field['name']]['i'], $values[$field['name']]['s'], $values[$field['name']]['M'], $values[$field['name']]['d'], $values[$field['name']]['Y']);
-             } else if ($field['type'] == 'branchinfo') {
-              $self_registered_jobs[] = array("branch_ID" => $values[$field['name']. "_branches"], "job_description" => $_POST[$field['name']. "_jobs"], "supervisor" => $_POST[$field['name']. "_supervisors"], "mandatory" => $field['mandatory']);
-             } else if ($field['type'] == 'groupinfo') {
-              $groupToAdd = new EfrontGroup($values[$field['name']."_groups"]);
-             } else {
-              $user_data[$field['name']] = $values[$field['name']];
-             }
-            }
             try {
+    if (isset($_SESSION['s_login'])) { //A logged-in user wants to signup: Log him out first
+     $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+     $user -> logout(session_id());
+    }
+    $values = $form -> exportValues(); //Get the form values
+    //Check the user_type. If it's an id, it means that it's not one of the basic user types; so derive the basic user type and populate the user_types_ID field
+    $defaultUserType = $GLOBALS['configuration']['default_type'];
+    if (is_numeric($defaultUserType)) {
+                 $result = eF_getTableData("user_types", "id, basic_user_type", "id=".$defaultUserType);
+                 if (sizeof($result) > 0) {
+                     $values['user_type'] = $result[0]['basic_user_type'];
+                     $values['user_types_ID'] = $result[0]['id'];
+                 } else {
+                     $values['user_type'] = 'student';
+                 }
+             } else {
+     $values['user_type'] = $defaultUserType;
+                 $values['user_types_ID'] = 0;
+             }
+    $user_data = array("login" => $values['login'],
+                                "password" => isset($_GET['ldap']) ? 'ldap' : $values['password'],
+                                "name" => $values['firstName'],
+                                "surname" => $values['lastName'],
+                                "email" => $values['email'],
+                                "comments" => $values['comments'],
+                                "pending" => ($configuration['activation']) ? 0 : 1,
+                                "active" => $configuration['activation'],
+                                "languages_NAME" => $values['languages_NAME'],
+           "user_type" => $values['user_type'],
+           "user_types_ID" => $values['user_types_ID']);
+             foreach ($user_profile as $field) { //Get the custom fields values
+              if ($field['type'] == 'date') {
+               $user_data[$field['name']] = mktime($values[$field['name']]['H'], $values[$field['name']]['i'], $values[$field['name']]['s'], $values[$field['name']]['M'], $values[$field['name']]['d'], $values[$field['name']]['Y']);
+              } else if ($field['type'] == 'branchinfo') {
+               $self_registered_jobs[] = array("branch_ID" => $values[$field['name']. "_branches"], "job_description" => $_POST[$field['name']. "_jobs"], "supervisor" => $_POST[$field['name']. "_supervisors"], "mandatory" => $field['mandatory']);
+              } else if ($field['type'] == 'groupinfo') {
+               if ($values[$field['name']."_groups"]) {
+                $groupToAdd = new EfrontGroup($values[$field['name']."_groups"]);
+               }
+              } else {
+               $user_data[$field['name']] = $values[$field['name']];
+              }
+             }
           $newUser = EfrontUser :: createUser($user_data);
           $encrypted = true; //needed for autologin
           EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REGISTER, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
@@ -873,15 +875,5 @@ $benchmark -> stop();
 $output = $benchmark -> display();
 if (G_DEBUG) {
  echo $output;
-}
-function LoginRedirect($user_type) {
- $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
- if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
-  eF_redirect("userpage.php?ctg=personal");
- } elseif (strpos($redirectPage, "module") !== false) {
-  eF_redirect("userpage.php?ctg=landing_page");
- } else {
-  eF_redirect("userpage.php");
- }
 }
 ?>

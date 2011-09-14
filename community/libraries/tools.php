@@ -2877,6 +2877,17 @@ function clearTemplatesCache() {
   }
  } catch (Exception $e) {}
 }
+function loginRedirect($user_type, $message = '', $message_type = '') {
+ $redirectPage = $GLOBALS['configuration']['login_redirect_page'];
+ if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
+  $location = "userpage.php?ctg=personal".($message ? "&message=$message&message_type=$message_type" : '');;
+ } elseif (strpos($redirectPage, "module") !== false) {
+  $location = "userpage.php?ctg=landing_page".($message ? "&message=$message&message_type=$message_type" : '');;
+ } else {
+  $location = "userpage.php".($message ? "?message=$message&message_type=$message_type" : '');
+ }
+ eF_redirect($location);
+}
 class AjaxResultObject
 {
  public $message = '';

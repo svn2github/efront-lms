@@ -21,6 +21,8 @@
                                                          <td class = "elementCell">{$T_USERTYPES_FORM.core_access.$option.html}</td></tr>
                                                      {if $T_USERTYPES_FORM.core_access.$option.error}<tr><td></td><td class = "formError">{$T_USERTYPES_FORM.core_access.$option.error}</td></tr>{/if}
                                          {/foreach}
+
+                                         {if $T_CURRENT_USER->coreAccess.user_types != 'view'}
                                                      <tr><td colspan = "2">&nbsp;</td></tr>
                                                      <tr><td class = "labelCell">{$smarty.const._SETALLTO}:&nbsp;</td>
                                                          <td class = "elementCell">
@@ -30,6 +32,7 @@
                                                            <option>{$smarty.const._HIDE}</option>
                                                           </select>
                                                          </td></tr>
+                                         {/if}
                                                      <tr><td></td>
                                                          <td class = "submitCell">{$T_USERTYPES_FORM.submit_type.html}</td></tr>
                                                  </table>

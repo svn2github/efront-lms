@@ -886,6 +886,20 @@ abstract class EfrontModule
     }
     /**
 
+     * This is a link appearning on the content tools block
+
+     *
+
+     * @since 3.6.10
+
+     * @access public
+
+     */
+    public function getContentToolsLink() {
+        return false;
+    }
+    /**
+
      * This is the template code returned inside the content (unit) page of a lesson
 
      *

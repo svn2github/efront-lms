@@ -156,12 +156,13 @@ function askUsers() {
   }
   //$str = $str.'<li id='.$users[$k]['login'].'>'.$formattedLogin.'</li>';
  }
+ //changed for case that two users (without common appearance) returned  but one of them have common appearance with a third user (#1741)
  if ($GLOBALS['configuration']['username_format_resolve']) {
-  $common = array_diff_assoc($formattedLogins, array_unique($formattedLogins));
-  foreach ($common as $key => $value) {
-   $originalKey = array_search($value, $formattedLogins);
-   $formattedLogins[$originalKey] = $value.' ('.$originalKey.')';
-   $formattedLogins[$key] = $value.' ('.$key.')';
+  formatLogin($_SESSION['s_login']);
+  foreach ($formattedLogins as $key => $value) {
+   if (isset($GLOBALS['_usernames'][$key])) {
+    $formattedLogins[$key] = $GLOBALS['_usernames'][$key];
+   }
   }
  }
  for ($k = 0; $k < sizeof($users); $k++){

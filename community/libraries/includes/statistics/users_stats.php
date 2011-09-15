@@ -58,7 +58,7 @@ if (isset($_GET['sel_user'])) {
 
 
   try {
-   $roles = EfrontLessonUser :: getLessonsRoles(true);
+   $roles = EfrontUser :: getRoles(true);
    $smarty -> assign("T_ROLES_ARRAY", $roles);
 
    $rolesBasic = EfrontLessonUser :: getLessonsRoles();

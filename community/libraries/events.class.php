@@ -589,9 +589,13 @@ class EfrontEvent
         //These are the mandatory fields. In case one of these is absent, fill it in with a default value
         // If no user is defined the currentuser will be used as user triggering the event
         if (!isset($fields['users_LOGIN'])) {
-            $fields['users_LOGIN'] = $GLOBALS['currentUser'] -> user['login'];
-            $fields['users_name'] = $GLOBALS['currentUser'] -> user['name'];
-            $fields['users_surname'] = $GLOBALS['currentUser'] -> user['surname'];
+         if (isset($GLOBALS['currentUser'])) {
+             $fields['users_LOGIN'] = $GLOBALS['currentUser'] -> user['login'];
+              $fields['users_name'] = $GLOBALS['currentUser'] -> user['name'];
+              $fields['users_surname'] = $GLOBALS['currentUser'] -> user['surname'];
+          } else {
+           $fields['users_LOGIN'] = $_SESSION['s_login'];
+          }
         }
         // If a users login is defined, but without any name/surname fields, then get them from the DB
         if (!isset($fields['users_name']) || !isset($fields['users_surname'])) {

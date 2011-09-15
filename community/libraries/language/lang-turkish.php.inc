@@ -7,7 +7,7 @@ define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","eFront'ta Giriş");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","tr");//en
 define("_CURRENTLANGUAGESYMBOL","tr");//en
-define("_HEADERLANGUAGETAG","turkish");//en_US.utf8
+define("_HEADERLANGUAGETAG","english");//en_US.utf8
 define("_CHARSET","ISO-8859-9");//ISO-8859-1
 define("_LANGUAGE","Dil");//Language
 define("_PASSWORD","Şifre");//Password

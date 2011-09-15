@@ -66,7 +66,7 @@ try {
     throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
    }
   }
- } else if ((mb_strpos($file['path'], G_AVATARSPATH) !== false || mb_strpos($file['path'], G_SYSTEMAVATARSPATH) !== false)) {
+ } else if (preg_match("#".G_UPLOADPATH."(.*)/avatars/#", $file['path'], $matches) || mb_strpos($file['path'], G_SYSTEMAVATARSPATH) !== false ) {
     //proceed
  } else if (mb_strpos($file['path'], G_UPLOADPATH.$currentUser->user['login']) === false) {
   throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);

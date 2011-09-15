@@ -256,14 +256,8 @@
       </tr>
       <tr class = "{cycle name = 'common_user_info' values = 'oddRowColor, evenRowColor'}">
        <td class = "labelCell">{$smarty.const._USERTYPE}:</td>
-       <td class = "elementCell">{if $T_USER_INFO.general.user_type == 'administrator'}{$smarty.const._ADMINISTRATOR}{elseif $T_USER_INFO.general.user_type == 'professor'}{$smarty.const._PROFESSOR}{else}{$smarty.const._STUDENT}{/if}</td>
+       <td class = "elementCell">{if $T_USER_INFO.general.user_types_ID}{$T_ROLES_ARRAY[$T_USER_INFO.general.user_types_ID]}{else}{$T_ROLES_ARRAY[$T_USER_INFO.general.user_type]}{/if}</td>
       </tr>
-     {if $T_USER_INFO.general.user_types_ID}
-      <tr class = "{cycle name = 'common_user_info' values = 'oddRowColor, evenRowColor'}">
-       <td class = "labelCell">{$smarty.const._USERROLE}:</td>
-       <td class = "elementCell">{$T_ROLES[$T_USER_INFO.general.user_types_ID]}</td>
-      </tr>
-     {/if}
       <tr class = "{cycle name = 'common_user_info' values = 'oddRowColor, evenRowColor'}">
        <td class = "labelCell">{$smarty.const._TOTALLOGINTIME}:</td>
        <td class = "elementCell">

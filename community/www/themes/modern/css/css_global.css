@@ -409,7 +409,7 @@ color: #000;
 background:#DDD;/* url('../images/css_images/gradient.gif') repeat-x bottom;*/
 border-top: 0px solid #2a4562;
 border-bottom: 1px solid #AAA;
-padding:5px;
+padding:5px 5px 5px 0px;
 }
 td#path{height:25px;}
 

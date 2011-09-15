@@ -247,7 +247,7 @@ class module_textme extends EfrontModule {
     public function onNewLesson($lessonId) {
 
         $settings = array(
-            'lessons_ID' => $ef_lesson->lesson['id'],
+            'lessons_ID' => $lessonId,
             'alias' => 'EFRONT',
             'credits' => null,
             'credits_spent' => 0

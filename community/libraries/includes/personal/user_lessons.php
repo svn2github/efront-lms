@@ -118,8 +118,11 @@ try {
       $nonLessons[$key] = $lesson;
      }
     }
-
-    $lessons = $editedUser -> getUserStatusInIndependentLessons(true) + $nonLessons;
+    if ($independentLessons = $editedUser -> getUserStatusInIndependentLessons(true)) {
+     $lessons = $independentLessons + $nonLessons;
+    } else {
+     $lessons = $nonLessons;
+    }
    } else {
     $lessons = $editedUser -> getUserStatusInIndependentLessons(true);
    }

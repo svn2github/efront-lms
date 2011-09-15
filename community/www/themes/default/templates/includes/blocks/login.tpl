@@ -23,11 +23,8 @@
      </div>
 {if $T_CONFIGURATION.remember_login}
   <div class = "formRow">
-      <div class = "formLabel">
-                <div class = "header">{$T_LOGIN_FORM.remember.label}</div>
-         </div>
       <div class = "formElement">
-             <div class = "field">{$T_LOGIN_FORM.remember.html}</div>
+             <div class = "field">{$T_LOGIN_FORM.remember.html} {$T_LOGIN_FORM.remember.label}</div>
           {if $T_LOGIN_FORM.remember.error}<div class = "error">{$T_LOGIN_FORM.remember.error}</div>{/if}
          </div>
      </div>

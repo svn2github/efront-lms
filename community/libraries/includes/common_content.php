@@ -695,7 +695,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          }
         }
         $smarty -> assign("T_UNIT_OPTIONS", $options);
-        $smarty -> assign("T_UNIT_SETTINGS", array('nohandle' => 1));
+        //$smarty -> assign("T_UNIT_SETTINGS", array('nohandle' => 1));
         if ((!$currentLesson -> options['show_right_bar'] && $_student_) || $_COOKIE['rightSideBar'] == 'hidden') {
             $smarty -> assign("T_LAYOUT_CLASS", "centerFull hideLeft");
         } else {

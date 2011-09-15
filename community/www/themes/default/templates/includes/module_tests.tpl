@@ -445,23 +445,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <td>{$item.name}</td>
     {/if}
      <td class = "centerAlign">
-      {if $item.type == 'match'} <img src = "images/16x16/question_type_match.png" title = "{$smarty.const._MATCH}" alt = "{$smarty.const._MATCH}" />
-      {elseif $item.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._RAWTEXT}" alt = "{$smarty.const._RAWTEXT}" />
-      {elseif $item.type == 'multiple_one'} <img src = "images/16x16/question_type_one_correct.png" title = "{$smarty.const._MULTIPLEONE}" alt = "{$smarty.const._MULTIPLEONE}" />
-      {elseif $item.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
-      {elseif $item.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />
-      {elseif $item.type == 'empty_spaces'} <img src = "images/16x16/question_type_empty_spaces.png" title = "{$smarty.const._EMPTYSPACES}" alt = "{$smarty.const._EMPTYSPACES}" />
-      {elseif $item.type == 'drag_drop'} <img src = "images/16x16/question_type_drag_drop.png" title = "{$smarty.const._DRAGNDROP}" alt = "{$smarty.const._DRAGNDROP}" />
-      {/if}
+      <img src = "{$T_QUESTION_TYPE_ICONS[$item.type]}" title = "{$T_QUESTION_TYPES[$item.type]}" alt = "{$T_QUESTION_TYPES[$item.type]}" />
       <span style = "display:none">{$item.type}</span>{*We put this here in order to be able to sort by type*}
      </td>
     {if $T_CTG != 'feedback'}
      <td class = "centerAlign">
-      {if $item.difficulty == 'low'} <img src = "images/16x16/flag_green.png" title = "{$smarty.const._LOW}" alt = "{$smarty.const._LOW}" />
-      {elseif $item.difficulty == 'medium'} <img src = "images/16x16/flag_blue.png" title = "{$smarty.const._MEDIUM}" alt = "{$smarty.const._MEDIUM}" />
-      {elseif $item.difficulty == 'high'} <img src = "images/16x16/flag_yellow.png" title = "{$smarty.const._HIGH}" alt = "{$smarty.const._HIGH}" />
-      {elseif $item.difficulty == 'very_high'}<img src = "images/16x16/flag_red.png" title = "{$smarty.const._VERYHIGH}" alt = "{$smarty.const._VERYHIGH}" />
-      {/if}
+      <img src = "{$T_QUESTION_DIFFICULTY_ICONS[$item.difficulty]}" title = "{$T_QUESTION_DIFFICULTIES[$item.difficulty]}" alt = "{$T_QUESTION_DIFFICULTIES[$item.difficulty]}" />
       <span style = "display:none">{$item.difficulty}</span>{*We put this here in order to be able to sort by type*}
      </td>
     {/if}

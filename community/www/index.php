@@ -247,7 +247,7 @@ $form -> addRule('login', _THEFIELD.' "'._LOGIN.'" '._ISMANDATORY, 'required', n
 $form -> addRule('login', _INVALIDLOGIN, 'checkParameter', 'login');
 $form -> addElement('password', 'password', _PASSWORD, 'class = "inputText" tabindex = "0"');
 $form -> addRule('password', _THEFIELD.' "'._PASSWORD.'" '._ISMANDATORY, 'required', null, 'client');
-$form -> addElement('checkbox', 'remember', _REMEMBERME, null, 'class = "inputCheckbox"');
+$form -> addElement('checkbox', 'remember', _KEEPMELOGGEDIN, null, 'class = "inputCheckbox" style = "vertical-align:middle"');
 $form -> addElement('submit', 'submit_login', _ENTER, 'class = "flatButton"');
 if ($form -> isSubmitted() && $form -> validate()) {
  try {

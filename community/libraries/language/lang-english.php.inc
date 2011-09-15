@@ -4131,9 +4131,10 @@ define("_INACTIVEREGISTRATIONS", "Inactive registrations");
 define("_BUYBALANCE", "Buy balance");
 define("_COMPLETEUNITOPTIONS", "Unit completion options");
 define("_COMPLETEAFTERTIMEELAPSED", "Complete after time elapsed");
-define("_REMEMBERLOGIN", "Option to store credentials");
+define("_REMEMBERLOGIN", "&quot;Keep me logged in&quot; option");
 define("_PASSWORDSALT", "Password salt");
 define("_CEUS", "CEUs");
 define("_TOTALCEUS", "Total CEUs");
 define("_BRANCHWITHSUBBRANCHES", "Branch and sub-branches");
+define("_KEEPMELOGGEDIN", "Keep me logged in");
 ?>

@@ -4131,9 +4131,10 @@ define("_INACTIVEREGISTRATIONS", "Ανενεργές δηλώσεις");
 define("_BUYBALANCE", "Αγορά πίστωσης");
 define("_COMPLETEUNITOPTIONS", "Επιλογές ολοκλήρωσης της ενότητας");
 define("_COMPLETEAFTERTIMEELAPSED", "Ολοκλήρωση μετά από χρόνο");
-define("_REMEMBERLOGIN", "Επιλογή απομνημόνευσης χρήστη");
+define("_REMEMBERLOGIN", "Επιλογή &quot;Διατήρηση σύνδεσης&quot;");
 define("_PASSWORDSALT", "Password salt");
 define("_CEUS", "CEUs");
 define("_TOTALCEUS", "Συνολικά CEUs");
 define("_BRANCHWITHSUBBRANCHES", "Τμήμα και υποτμήματα");
+define("_KEEPMELOGGEDIN", "Διατήρηση σύνδεσης");
 ?>

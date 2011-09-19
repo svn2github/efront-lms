@@ -150,7 +150,9 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
       <tr><td>
       {include file = "includes/blocks/cart.tpl" assign = "cart"}
          {eF_template_printBlock title = $smarty.const._SELECTEDLESSONS content = $cart image = "32x32/shopping_basket.png"}
+        {if $T_CONFIGURATION.paypalbusiness && $T_CONFIGURATION.enable_balance}
          {eF_template_printBlock title = $smarty.const._BUYBALANCE content = $smarty.capture.t_buy_balance_code image = "32x32/shopping_basket.png"}
+        {/if}
          </td></tr>
      {/capture}
     {/if}

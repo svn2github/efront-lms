@@ -4114,7 +4114,7 @@ define("_SHOWSCORE","Show test + given answers + score");
 define("_SHOWATHANKYOUMESSAGE","Show a thank-you message");
 define("_SHOWGIVENANSWERSNEW","Show test + given answers");
 define("_SHOWRIGHTANSWERSNEW","Show test + given answers + score + correct answers");
-define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Show test + given answers + score + corrent answers only if student passed the test");
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW", "Show test + given answers + score + correct answers only if student passed the test");
 define("_MAXIMUMPMUSAGESPACE","Maximum usage space in private messages");
 define("_MAXIMUMPMUSAGESPACEINFO","Define user allowed usage space size in MB");
 define("_YOUHAVETODELETEFILESFROMYOURSPACE", "You have to delete some big-sized messages (with attachments) from your space");
@@ -4137,4 +4137,6 @@ define("_CEUS", "CEUs");
 define("_TOTALCEUS", "Total CEUs");
 define("_BRANCHWITHSUBBRANCHES", "Branch and sub-branches");
 define("_KEEPMELOGGEDIN", "Keep me logged in");
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT", "You are not allowed to access this unit");
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE", "Start with pipe | if you want an empty choice");
 ?>

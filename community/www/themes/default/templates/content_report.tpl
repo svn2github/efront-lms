@@ -4,7 +4,14 @@
 {include file = "includes/header.tpl"} {*The inclusion is put here instead of the beginning in order to speed up reloading, in case of success*}
 
 {if $T_MESSAGE}
+    {if $T_MESSAGE_TYPE == 'success'}
+        <script>
+            re = /\?/;
+            !re.test(parent.location) ? parent.location = parent.location+'?message={$T_MESSAGE}&message_type={$T_MESSAGE_TYPE}' : parent.location = parent.location+'&message={$T_MESSAGE}&message_type={$T_MESSAGE_TYPE}';
+        </script>
+    {else}
         {eF_template_printMessage message = $T_MESSAGE type = $T_MESSAGE_TYPE}
+    {/if}
 {/if}
 
 {if !$T_MESSAGE_TYPE == 'success'}

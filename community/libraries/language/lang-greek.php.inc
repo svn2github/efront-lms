@@ -4137,4 +4137,6 @@ define("_CEUS", "CEUs");
 define("_TOTALCEUS", "Συνολικά CEUs");
 define("_BRANCHWITHSUBBRANCHES", "Τμήμα και υποτμήματα");
 define("_KEEPMELOGGEDIN", "Διατήρηση σύνδεσης");
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT", "Δεν επιτρέπεται να προσπελάσετε αυτήν την ενότητα");
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE", "Ξεκινήστε με | αν επιθυμείτε μια κενή επιλογή");
 ?>

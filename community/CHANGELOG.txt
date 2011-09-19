@@ -63,6 +63,8 @@
 - Fixed issue about scheduled lessons in courses and go to Next lesson button
 - Added balance payments through paypal
 - Fixed SQL injection security vulnerability
+- Fixed content traversing rules not working for individual users
+- Fixed "not seen" rule not working when source unit is a test
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

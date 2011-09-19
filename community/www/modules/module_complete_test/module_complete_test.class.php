@@ -17,7 +17,7 @@ class module_complete_test extends EfrontModule
   return "Correct test";
  }
  public function getPermittedRoles() {
-  return array("professor");
+  return array("professor", "student");
  }
  public function onInstall() {
   return true;
@@ -46,6 +46,13 @@ class module_complete_test extends EfrontModule
   if ($currentLesson = $this -> getCurrentLesson()) {
    $currentContent = new EfrontContentTree($currentLesson);
    if (isset($_GET['test']) && isset($_GET['login'])) {
+    if ($currentUser->aspects['hcd'] && $currentUser->aspects['hcd']->isSupervisor()) {
+     $supervisedUsers = $currentUser->aspects['hcd']->getSupervisedEmployees();
+     if (!in_array($_GET['login'], $supervisedUsers, true)) {
+      throw new Exception(_YOUDONTHAVEPERMISSION);
+     }
+    }
+
     $currentUnit = new EfrontUnit($_GET['test']);
     $user = EfrontUserFactory::factory($_GET['login']);
 
@@ -222,6 +229,14 @@ class module_complete_test extends EfrontModule
 
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
      $lessonUsers = $currentLesson -> getUsers('student'); //Get all users that have this lesson
+     if ($currentUser->aspects['hcd'] && $currentUser->aspects['hcd']->isSupervisor()) {
+      $supervisedUsers = $currentUser->aspects['hcd']->getSupervisedEmployees();
+     }
+     foreach ($lessonUsers as $key => $value) {
+      if (!in_array($key, $supervisedUsers, true)) {
+       unset($lessonUsers[$key]);
+      }
+     }
 
      $testsIterator = new EfrontTestsFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST))));
      foreach ($testsIterator as $key => $value) {
@@ -272,8 +287,12 @@ class module_complete_test extends EfrontModule
  }
 
  public function getLessonCenterLinkInfo() {
-
-  if ($_SESSION['s_lesson_user_type'] == 'professor') {
+  global $currentUser;
+  $isSupervisor = false;
+  if ($currentUser -> aspects['hcd']) {
+   $isSupervisor = $currentUser -> aspects['hcd']->isSupervisor();
+  }
+  if ($_SESSION['s_lesson_user_type'] == 'professor' || $isSupervisor) {
    return $this -> getCenterLinkInfo();
   }
  }

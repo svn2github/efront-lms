@@ -1538,31 +1538,47 @@ class EfrontContentTree extends EfrontTree
         foreach ($rules as $id => $rule) {
             switch ($rule['rule_type']) {
                 case 'always':
-                 if ($rule['users_LOGIN'] == $_SESSION['s_login']) {
-                     return _YOUHAVEBEENEXCLUDEDBYPROFESSOR;
+                 if ($rule['users_LOGIN'] == $_SESSION['s_login'] || $rule['users_LOGIN'] == '*') {
+                     return _YOAURENOTALLOWEDTOACCESSTHISUNIT;
                  }
                  break;
                 case 'hasnot_seen':
-                    if (!in_array($rule['rule_content_ID'], array_keys($seenContent))) {
-                        try {
-                            $ruleUnit = $this -> seekNode($rule['rule_content_ID']);
-                            $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
-                            if ($ruleUnit['active'] && ($ruleUnit['data'] || $current['ctg_type'] == 'tests' || $scorm2004)) {
-                                return _MUSTFIRSTREADUNIT.' <a href = "student.php?ctg=content&view_unit='.$ruleUnit['id'].'">'.$ruleUnit['name'].'</a><br/>';
-                            }
-                        } catch (EfrontContentException $e) {}
+                 if ($rule['users_LOGIN'] == $_SESSION['s_login'] || $rule['users_LOGIN'] == '*') {
+                  if (!in_array($rule['rule_content_ID'], array_keys($seenContent))) {
+                   try {
+                    $ruleUnit = $this -> seekNode($rule['rule_content_ID']);
+                    $ruleUnit = new EfrontUnit($ruleUnit['id']); //Instantiation because it may be empty in the tree
+                    $scorm2004 = in_array($current['scorm_version'], EfrontContentTree::$scorm2004Versions);
+                    if ($ruleUnit['active'] && ($ruleUnit['data'] || $ruleUnit['ctg_type'] == 'tests' || $scorm2004)) {
+                     return _MUSTFIRSTREADUNIT.' <a href = "student.php?ctg=content&view_unit='.$ruleUnit['id'].'">'.$ruleUnit['name'].'</a><br/>';
                     }
-                    break;
+                   } catch (EfrontContentException $e) {}
+                  }
+                 }
+                 break;
+/*                    
+
                 case 'hasnot_passed':
+
                     if (!in_array($rule['rule_content_ID'], array_keys($seenContent)) || $seenContent[$rule['rule_content_ID']] / 100 < $rule['rule_option']) {
+
                         try {
+
                             $ruleUnit = $this -> seekNode($rule['rule_content_ID']);
+
                             if ($ruleUnit['active']) {
+
                                 return _MUSTFIRSTTAKEATLEAST.' '.($rule['rule_option'] * 100).' % '._ATTEST.' <a href="student.php?ctg=tests&view_unit='.$ruleUnit['id'].'">'.$ruleUnit['name'].'</a><br/>';
+
                             }
+
                         } catch (EfrontContentException $e) {}
+
                     }
+
                     break;
+
+*/
                 case 'serial':
                     //Get the visitable units
                     foreach ($iterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($this -> tree), RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {

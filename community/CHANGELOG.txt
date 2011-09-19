@@ -60,6 +60,9 @@
 - Fixed rtf certificate exporting for IE8
 - Added help links to modules towards the wiki page
 - Moved uploaded projects from students to an internal folder named <project_id> inside projects folder and do not rename them
+- Fixed issue about scheduled lessons in courses and go to Next lesson button
+- Added balance payments through paypal
+- Fixed SQL injection security vulnerability
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

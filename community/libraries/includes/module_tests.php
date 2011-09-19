@@ -82,7 +82,7 @@ try {
          $_GET['edit_test'] = $test -> test['id'];
      }
  }
-    if (isset($_GET['delete_test']) && in_array($_GET['delete_test'], $legalValues)) {
+    if (isset($_GET['delete_test']) && in_array($_GET['delete_test'], $legalValues) && eF_checkParameter($_GET['delete_test'], 'id')) {
         try {
             if (!$_change_) {
                 throw new EfrontUserException(_UNAUTHORIZEDACCESS, EfrontUserException::RESTRICTED_USER_TYPE);
@@ -94,7 +94,7 @@ try {
             echo $e -> getMessage().' ('.$e -> getCode().')';
         }
         exit;
-    } elseif (isset($_GET['publish_test']) && in_array($_GET['publish_test'], $legalValues)) {
+    } elseif (isset($_GET['publish_test']) && in_array($_GET['publish_test'], $legalValues) && eF_checkParameter($_GET['publish_test'], 'id')) {
         try {
             if (!$_change_) {
                 throw new EfrontUserException(_UNAUTHORIZEDACCESS, EfrontUserException::RESTRICTED_USER_TYPE);
@@ -120,7 +120,7 @@ try {
             echo $e -> getMessage().' ('.$e -> getCode().')';
         }
         exit;
-    } elseif ((isset($_GET['show_test']) && in_array($_GET['show_test'], $legalValues)) || (isset($_GET['view_unit']) && in_array($_GET['view_unit'], $legalUnits))) {
+    } elseif ((isset($_GET['show_test']) && in_array($_GET['show_test'], $legalValues) && eF_checkParameter($_GET['show_test'], 'id')) || (isset($_GET['view_unit']) && in_array($_GET['view_unit'], $legalUnits)) && eF_checkParameter($_GET['view_unit'], 'id')) {
         if (isset($_GET['view_unit'])) {
             $showTest = new EfrontTest($_GET['view_unit'], true);
             $smarty -> assign("T_UNIT", $currentUnit);
@@ -156,7 +156,7 @@ try {
                 $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator, 'dhtmlContentTree', array('truncateNames' => 20, 'edit' => true, 'selectedNode' => $currentUnit['id'])));
             }
         }
-    } elseif (isset($_GET['questions_order']) && in_array($_GET['questions_order'], $legalValues)) {
+    } elseif (isset($_GET['questions_order']) && in_array($_GET['questions_order'], $legalValues) && eF_checkParameter($_GET['questions_order'], 'id')) {
         if (!$_change_) {
             throw new EfrontUserException(_UNAUTHORIZEDACCESS, EfrontUserException::RESTRICTED_USER_TYPE);
         }
@@ -190,7 +190,7 @@ try {
         $showQuestion = QuestionFactory :: factory($_GET['show_question']);
         $smarty -> assign("T_QUESTION", $showQuestion -> question);
         $smarty -> assign ("T_QUESTION_PREVIEW", $showQuestion -> toHTML(new HTML_Quickform()));
-    } elseif (isset($_GET['test_results']) && in_array($_GET['test_results'], $legalValues)) {
+    } elseif (isset($_GET['test_results']) && in_array($_GET['test_results'], $legalValues) && eF_checkParameter($_GET['test_results'], 'id')) {
         $currentTest = new EfrontTest($_GET['test_results']);
         $doneTests = EfrontStats :: getDoneTestsPerTest(false, $currentTest -> test['id']);
         unset($doneTests[$currentTest -> test['id']]['average_score']);
@@ -237,7 +237,7 @@ try {
     } elseif (isset($_GET['show_solved_test']) && in_array($_GET['show_solved_test'], $legalSolvedValues)) {
      /***/
         require_once("tests/show_solved_test.php");
-    } elseif ((isset($_GET['add_test']) && !isset($_GET['create_quick_test'])) || (isset($_GET['edit_test']) && in_array($_GET['edit_test'], $legalValues))) {
+    } elseif ((isset($_GET['add_test']) && !isset($_GET['create_quick_test'])) || (isset($_GET['edit_test']) && in_array($_GET['edit_test'], $legalValues) && eF_checkParameter($_GET['edit_test'], 'id'))) {
         /***/
         require_once("tests/add_test.php");
     } elseif (isset($_GET['add_question']) || (isset($_GET['edit_question']) && in_array($_GET['edit_question'], $legalQuestions))) {

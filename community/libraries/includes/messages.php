@@ -32,7 +32,8 @@ try {
 
     $folders = eF_PersonalMessage :: getUserFolders($currentUser -> user['login']);
     reset($folders);
-    isset($_GET['folder']) && in_array($_GET['folder'], array_keys($folders)) ? $currentFolder = $_GET['folder'] : $currentFolder = key($folders); //key($folders) is the id of the first folder, which is always the Incoming
+    isset($_GET['folder']) && in_array($_GET['folder'], array_keys($folders)) && eF_checkParameter($_GET['folder'], 'id') ? $currentFolder = $_GET['folder'] : $currentFolder = key($folders); //key($folders) is the id of the first folder, which is always the Incoming
+
     $smarty -> assign("T_FOLDER", $currentFolder);
 
     $smarty -> assign("T_FOLDERS_OPTIONS", array(array('text' => _NEWFOLDER, 'image' => "16x16/folder_add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=messages&folders=true&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._CREATEFOLDER."', 0)", 'target' => 'POPUP_FRAME')));
@@ -66,7 +67,7 @@ try {
      //Handle creation, deletion etc uniquely
   include("entity.php");
 
- } elseif (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues)) {
+ } elseif (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && eF_checkParameter($_GET['delete'], 'id')) {
      try {
          $result = eF_getTableData("f_personal_messages", "users_LOGIN, attachments, f_folders_ID", "id=".$_GET['delete']);
 
@@ -97,7 +98,7 @@ try {
            handleAjaxExceptions($e);
      }
         exit;
- } elseif (isset($_GET['move']) && in_array($_GET['move'], $legalValues) && isset($_GET['folder']) && in_array($_GET['folder'], $legalFolderValues)) {
+ } elseif (isset($_GET['move']) && in_array($_GET['move'], $legalValues) && eF_checkParameter($_GET['move'], 'id') && isset($_GET['folder']) && in_array($_GET['folder'], $legalFolderValues) && eF_checkParameter($_GET['folder'], 'id')) {
      try {
       $message = $messages[$_GET['move']];
       eF_updateTableData("f_personal_messages", array("f_folders_ID" => $_GET['folder']), "id=".$_GET['move']);
@@ -106,7 +107,7 @@ try {
             echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';
      }
         exit;
- } elseif (isset($_GET['flag']) && in_array($_GET['flag'], $legalValues)) {
+ } elseif (isset($_GET['flag']) && in_array($_GET['flag'], $legalValues) && eF_checkParameter($_GET['flag'], 'id')) {
      try {
       $message = $messages[$_GET['flag']];
       $message['priority'] ? $priority = 0 : $priority = 1;
@@ -255,14 +256,14 @@ try {
          }
             $form -> setDefaults(array('recipient' => $predefined_recipients));
         }
-        if (isset($_GET['reply']) && in_array($_GET['reply'], $legalValues)) {
+        if (isset($_GET['reply']) && in_array($_GET['reply'], $legalValues) && eF_checkParameter($_GET['reply'], 'id')) {
             $recipient = eF_getTableData("f_personal_messages", "sender, title, body", "id=".$_GET['reply']);
             $form -> setDefaults(array('recipient' => $GLOBALS['_usernames'][$recipient[0]['sender']]));
             $form -> setDefaults(array('subject' => "Re: " . $recipient[0]['title']));
             $previous_text = "\n\n\n------------------ " . _ORIGINALMESSAGE. " ------------------\n" . $recipient[0]['body'];
             $form -> setDefaults(array('body' => $previous_text));
         }
-        if (isset($_GET['forward']) && in_array($_GET['forward'], $legalValues)) {
+        if (isset($_GET['forward']) && in_array($_GET['forward'], $legalValues) && eF_checkParameter($_GET['forward'], 'id')) {
             $recipient = eF_getTableData("f_personal_messages", "sender, title, body", "id=".$_GET['forward']);
             //$form -> setDefaults(array('recipient' => $recipient[0]['sender']));
             $form -> setDefaults(array('subject' => "Fwd: " . $recipient[0]['title']));
@@ -466,7 +467,7 @@ try {
         $form -> setRequiredNote(_REQUIREDNOTE);
         $form -> accept($renderer); //Assign this form to the renderer, so that corresponding template code is created
         $smarty -> assign('T_ADD_MESSAGE_FORM', $renderer -> toArray()); //Assign the form to the template
-    } else if (isset($_GET['view']) && in_array($_GET['view'], $legalValues)) {
+    } else if (isset($_GET['view']) && in_array($_GET['view'], $legalValues) && eF_checkParameter($_GET['view'], 'id')) {
      $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
         $currentMessage = $messages[$_GET['view']];
         //With this iterator, we find the previous and next messages in the same folder

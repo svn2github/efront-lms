@@ -2223,6 +2223,8 @@ abstract class EfrontLessonUser extends EfrontUser
   foreach ($courseLessons as $key => $lesson) {
    if (isset($userLessons[$key])) {
     $lessons[$key] = $userLessons[$key];
+    $lessons[$key]-> lesson['start_date'] = $lesson -> lesson['start_date'];
+    $lessons[$key]-> lesson['end_date'] = $lesson -> lesson['end_date'];
    }
   }
   return $lessons;

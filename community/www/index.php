@@ -648,7 +648,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      } else if ($_SESSION['login_mode']) {
          eF_redirect("index.php?ctg=checkout&checkout=1&message=".urlencode($message)."&message_type=".$message_type);
      } else {
-      eF_redirect("userpage.php?message=".urlencode($message)."&message_type=".$message_type);
+      loginRedirect($newUser -> user['user_type'], urlencode($message), $message_type);
      }
     }
    } catch (Exception $e) {

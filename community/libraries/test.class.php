@@ -120,7 +120,7 @@ class EfrontTest
      */
     public $doneInfo = false;
     public $options = array('duration' => 0,
-                            'master_score' => 50,
+                            'mastery_score' => 50,
                             'redoable' => 0,
                             'onebyone' => 0,
                             'answers' => 0,

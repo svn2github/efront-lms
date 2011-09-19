@@ -266,11 +266,12 @@ class themes extends EfrontEntity
      */
     public function export() {
         if (!$this -> remote) {
+         global $currentUser;
             $directory = new EfrontDirectory(G_THEMESPATH.$this -> {$this -> entity}['path']);
             $file = $directory -> compress();
-            //pr($file);
+            $file = $file -> copy($currentUser->getDirectory().$file['name']);
+            return $file;
         }
-        return $file;
     }
     /**
 

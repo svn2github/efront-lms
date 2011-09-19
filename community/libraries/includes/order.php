@@ -31,7 +31,7 @@ try {
             $_POST['delete_nodes'] = array_reverse($_POST['delete_nodes']);
             foreach ($_POST['delete_nodes'] as $value) {
                 try {
-                    if (in_array($value, $legalValues)) {
+                    if (in_array($value, $legalValues) && eF_checkParameter($value, 'id')) {
                         $currentContent -> removeNode($value);
                         if (($pos = array_search($value, $legalValues)) !== false) {
                             unset($legalValues[$pos]);
@@ -46,7 +46,7 @@ try {
         if (isset($_POST['activate_nodes']) && $_POST['activate_nodes']) {
 
             foreach ($_POST['activate_nodes'] as $value) {
-                if (in_array($value, $legalValues)) {
+                if (in_array($value, $legalValues) && eF_checkParameter($value, 'id')) {
                     try {
                         $currentContent -> seekNode($value) -> activate();
                     } catch (Exception $e) {
@@ -57,7 +57,7 @@ try {
         }
         if (isset($_POST['deactivate_nodes']) && $_POST['deactivate_nodes']) {
             foreach ($_POST['deactivate_nodes'] as $value) {
-                if (in_array($value, $legalValues)) {
+                if (in_array($value, $legalValues) && eF_checkParameter($value, 'id')) {
                     try {
                         $currentContent -> seekNode($value) -> deactivate();
                     } catch (Exception $e) {
@@ -73,7 +73,7 @@ try {
                 list($id, $parentContentId) = explode("-", $value);
                 $contentUnits[] = 0; //Add 0 to possible content units, since both parent and previous units may be 0      
     $legalValues[] = 0;
-    if ($id && in_array($id, $legalValues) && in_array($parentContentId, $legalValues)) {
+    if ($id && in_array($id, $legalValues) && in_array($parentContentId, $legalValues) && eF_checkParameter($id, 'id') && eF_checkParameter($parentContentId, 'id')) {
      try { //Putting the try/catch block here, makes the process to continue even if it fails for some units
       $unit = $currentContent -> seekNode($id);
                         $unit -> offsetSet('previous_content_ID', $previousContentId);

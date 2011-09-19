@@ -441,8 +441,10 @@
    <div>
     <p class = "smallHeader">{$smarty.const._FINISHLESSONMESSAGE}</p>
     <p class = "smallHeader">
-     <input type = "button" class = "flatButton" value = "{$smarty.const._NEXTLESSON}" onclick = "nextLesson(this)">
-             {if !isset($T_CURRENT_LESSON->options.show_dashboard) || $T_CURRENT_LESSON->options.show_dashboard}
+     {if $T_NEXTLESSON != false}
+      <input type = "button" class = "flatButton" value = "{$smarty.const._NEXTLESSON}" onclick = "nextLesson(this)">
+              {/if}
+    {if !isset($T_CURRENT_LESSON->options.show_dashboard) || $T_CURRENT_LESSON->options.show_dashboard}
      <input type = "button" class = "flatButton" value = "{$smarty.const._CONTROLPANEL}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=control_panel'">
     {/if}
      <input type = "button" class = "flatButton" value = "{$smarty.const._MYCOURSES}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=lessons'">

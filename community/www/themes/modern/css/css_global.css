@@ -850,7 +850,7 @@ padding-bottom:10px;
 table.testHeader td#testProceed{padding-top:15px;}
 table.testInfo{
 background-color:#f8f8f8;
-border:1px dotted #808080;
+/*border:1px dotted #808080;*/
 width:80%;
 margin-left:auto;
 margin-right:auto;

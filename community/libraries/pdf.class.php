@@ -80,6 +80,10 @@ class EfrontPdf
   }
  }
 
+ public function printRow($rowData) {
+  $this->printSimpleContent($rowData, false);
+ }
+
  /**
 	 * Prints a section in the pdf file that displays rows of data, in the form:
 	 * Title

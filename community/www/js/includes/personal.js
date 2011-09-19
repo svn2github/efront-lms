@@ -212,6 +212,8 @@ function onToggleUserAccess(el, response) {
 			setImageSrc(el, 16, 'warning');
 		    el.writeAttribute({title:translationsToJS['_APPLICATIONPENDING'], alt:translationsToJS['_APPLICATIONPENDING']});	
 		}
+	} else if (response.evalJSON(true).message) {
+		alert(response.evalJSON(true).message);
 	} else {
 		alert('Some problem emerged');
 	}

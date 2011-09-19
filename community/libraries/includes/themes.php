@@ -118,7 +118,7 @@ try {
 
 
     /*Layout part from here over*/
-    if (isset($_GET['theme_layout']) && in_array($_GET['theme_layout'], $legalValues)) {
+    if (isset($_GET['theme_layout']) && in_array($_GET['theme_layout'], $legalValues) && eF_checkParameter($_GET['theme_layout'], 'id')) {
         $layoutTheme = new themes($_GET['theme_layout']);
     } else {
         $layoutTheme = $currentSetTheme;
@@ -350,7 +350,7 @@ try {
     $entityName = 'themes';
     require("entity.php");
 
-    if (isset($_GET['set_browser']) && in_array($_GET['set_browser'], $legalValues) && isset($_GET['browser']) && in_array($_GET['browser'], array_keys(themes :: $browsers))) {
+    if (isset($_GET['set_browser']) && in_array($_GET['set_browser'], $legalValues) && eF_checkParameter($_GET['set_browser'], 'id') && isset($_GET['browser']) && in_array($_GET['browser'], array_keys(themes :: $browsers))) {
         try {
          unset($_SESSION['s_theme']);
             $theme = new themes($_GET['set_browser']);
@@ -376,7 +376,7 @@ try {
         }
         exit;
     }
-    if (isset($_GET['set_theme']) && in_array($_GET['set_theme'], $legalValues)) {
+    if (isset($_GET['set_theme']) && in_array($_GET['set_theme'], $legalValues) && eF_checkParameter($_GET['set_theme'], 'id')) {
         try {
          unset($_SESSION['s_theme']);
             $cacheTree = new FileSystemTree(G_THEMECACHE, true);
@@ -413,7 +413,7 @@ try {
         }
         exit;
     }
-    if (isset($_GET['export_theme']) && in_array($_GET['export_theme'], $legalValues)) {
+    if (isset($_GET['export_theme']) && in_array($_GET['export_theme'], $legalValues) && eF_checkParameter($_GET['export_theme'], 'id')) {
         try {
             $theme = new themes($_GET['export_theme']);
             if ($theme -> options['locked']) {

@@ -16,7 +16,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $smarty -> assign("T_ENTITY_NAME", $entityName);
 $smarty -> assign("_change_", $_change_);
 $loadScripts[] = 'includes/entity';
-if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_change_) {
+if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && eF_checkParameter($_GET['delete']) && $_change_) {
     try {
         $entity = new $entityName($_GET['delete']);
         $entity -> delete();
@@ -24,7 +24,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         handleAjaxExceptions($e);
     }
     exit;
-} else if (isset($_GET['activate']) && in_array($_GET['activate'], $legalValues) && $_change_) {
+} else if (isset($_GET['activate']) && in_array($_GET['activate'], $legalValues) && eF_checkParameter($_GET['activate']) && $_change_) {
     try {
         $entity = new $entityName($_GET['activate']);
         $entity -> activate();
@@ -33,7 +33,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         handleAjaxExceptions($e);
     }
     exit;
-} else if (isset($_GET['deactivate']) && in_array($_GET['deactivate'], $legalValues) && $_change_) {
+} else if (isset($_GET['deactivate']) && in_array($_GET['deactivate'], $legalValues) && eF_checkParameter($_GET['deactivate']) && $_change_) {
     try {
         $entity = new $entityName($_GET['deactivate']);
         $entity -> deactivate();
@@ -42,7 +42,7 @@ if (isset($_GET['delete']) && in_array($_GET['delete'], $legalValues) && $_chang
         handleAjaxExceptions($e);
     }
     exit;
-} else if ((isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalValues))) && $_change_) {
+} else if ((isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $legalValues)) && eF_checkParameter($_GET['edit'])) && $_change_) {
     try {
         //Create the form, unless it already exists
         if (!isset($entityForm) || !($entityForm instanceof HTML_QuickForm)) {

@@ -2994,6 +2994,27 @@ class EfrontContentFilterIterator extends FilterIterator
         }
     }
 }
+class EfrontContentFeedbackFilterIterator extends FilterIterator
+{
+    /**
+
+     * Accepts content that is not tests
+
+     *
+
+     * @return boolean
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
+    function accept() {
+        if ($this -> current() -> offsetGet('ctg_type') != 'tests' && $this -> current() -> offsetGet('ctg_type') != 'scorm_test') {
+            return true;
+        }
+    }
+}
 /**
 
  * Iterator for removing data from nodes

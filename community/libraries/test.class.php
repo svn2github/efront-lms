@@ -2056,7 +2056,7 @@ class EfrontTest
                         <table class = "doneTestInfo">
                             <tr><td id = "testName">'.$this -> test['name'].'</td></tr>
                             <tr><td>'._NUMOFQUESTIONS.': '.($this -> options['random_pool'] ? min(sizeof($this -> getQuestions()), $this -> options['random_pool']) : sizeof($this -> getQuestions())).'</td></tr>
-                            <tr><td>'.$this -> test['description'].'</td></tr>
+                            <tr><td>'.glossary :: applyGlossary($this -> test['description'], $this -> test['lessons_ID']).'</td></tr>
                         </table>
                     </td></tr>
             </table>';
@@ -2121,7 +2121,7 @@ class EfrontTest
         $str .= '
                 </script>
                 <table class = "formElements" style = "width:100%">
-                    <tr><td colspan = "2">'.glossary :: applyGlossary($testString, $this -> test['lessons_ID']).'</td></tr>
+                    <tr><td colspan = "2">'.$testString.'</td></tr>
                 </table>';
         return $str;
     }
@@ -3431,7 +3431,7 @@ class MultipleOneQuestion extends Question implements iQuestion
 */
         $questionString = '
                     <table class = "unsolvedQuestion multipleOneQuestion">
-                        <tr><td>'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>
+                        <tr><td>'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>
                         <tr><td>';
         foreach ($formArray['question'][$this -> question['id']] as $key => $value) {
             $questionString .= "<br><span class = 'orderedList'>[".($key+1)."]&nbsp;</span>".$value['html'];
@@ -3830,7 +3830,7 @@ class MultipleManyQuestion extends Question implements iQuestion
 */
         $questionString = '
                     <table class = "unsolvedQuestion multipleManyQuestion">
-                        <tr><td>'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>
+                        <tr><td>'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>
                         <tr><td>';
         foreach ($formArray['question'][$this -> question['id']] as $key => $value) {
             $questionString .= "<br><span class = 'orderedList'>[".($key+1)."]&nbsp;</span>".$value['html'];
@@ -4271,7 +4271,7 @@ class TrueFalseQuestion extends Question implements iQuestion
 */
         $questionString = '
                     <table class = "unsolvedQuestion trueFalseQuestion">
-                        <tr><td>'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>
+                        <tr><td>'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>
                         <tr><td>
                                 '.$formArray['question'][$this -> question['id']][1]['html'].'<br/>
                                 '.$formArray['question'][$this -> question['id']][0]['html'].'
@@ -4649,7 +4649,7 @@ class EmptySpacesQuestion extends Question implements iQuestion
                      <tr><td>'.$this -> getCounter().'</td></tr>
                         <tr><td>';
         foreach ($formArray['question'][$this -> question['id']] as $key => $value) {
-            $questionString .= $value['label'][$key].' '.$value['html'];
+            $questionString .= glossary :: applyGlossary($value['label'][$key], $this -> question['lessons_ID']).' '.$value['html'];
         }
         $questionString .= $value['label'][$key + 1].'
                             </td></tr>
@@ -5062,7 +5062,7 @@ class MatchQuestion extends Question implements iQuestion
 */
         $questionString = '
                     <table class = "unsolvedQuestion matchQuestion">
-                        <tr><td>'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>
+                        <tr><td>'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>
                         <tr><td>';
         foreach ($formArray['question'][$this -> question['id']] as $key => $value) {
             $questionString .= "<span class = 'orderedList'>[".($key + 1)."]&nbsp;</span>".$value['label'][$key].'&nbsp;&rarr;&nbsp;'.$value['html']."<br>";
@@ -5453,7 +5453,7 @@ class RawTextQuestion extends Question implements iQuestion
         }
         $questionString = '
                     <table class = "unsolvedQuestion rawTextQuestion">
-                        <tr><td>'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>
+                        <tr><td>'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>
                         <tr><td>
                                 '.$formArray['question'][$this -> question['id']]['html'].'<div></div>&nbsp;<img id = "add_another_'.$this -> question['id'].'" src = "images/16x16/add.png" alt = "'._ADDANOTHERFILE.'" title = "'._ADDANOTHERFILE.'" style = "display:none" onclick = "addAnotherFile'.$this -> question['id'].'(this)">
                         </td></tr>
@@ -5877,7 +5877,7 @@ class DragDropQuestion extends Question implements iQuestion
         </script>";
         $questionString .= '
                     <table class = "unsolvedQuestion dragDropQuestion" style = "width:auto">
-                        <tr><td colspan = "3">'.$this -> question['text'].' '.$this -> getCounter().'</td></tr>';
+                        <tr><td colspan = "3">'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>';
         foreach ($formArray['question'][$this -> question['id']] as $key => $value) {
          $questionString .= "
             <tr><td style = 'width:30%;' class = 'droppable' id = 'secondlist_".$this -> question['id']."_$key'>

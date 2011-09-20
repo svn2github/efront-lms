@@ -225,7 +225,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'auto_complete') {
     $testsIterator = new EfrontTestsFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));
     $testUnits = $currentContent -> toHTMLSelectOptions($testsIterator);
 
-    $contentIterator = new EfrontContentFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))); //Get active units that are anything but tests (false negates both rules)
+    $contentIterator = new EfrontContentFeedbackFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))); //Get active units that are anything but tests (false negates both rules)
     $noTestUnits = $currentContent -> toHTMLSelectOptions($contentIterator);
 
     if (!empty($noTestUnits)) {

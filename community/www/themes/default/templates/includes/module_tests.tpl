@@ -665,7 +665,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                 <div class="tabber" >
                     <div class="tabbertab">
                         <h3>{$smarty.const._SKILLSCORES}</h3>
-                        <table id="skillScoresTable" width="100%" border = "0" width = "100%" class = "sortedTable" sortBy = "0">
+                        <table id="skillScoresTable" border = "0" width = "100%" class = "sortedTable" sortBy = "0">
                             <tr class = "topTitle">
                                 <td class = "topTitle">{$smarty.const._SKILL}</td>
                                 <td class = "topTitle">{$smarty.const._SCORE}</td>
@@ -679,13 +679,19 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                     <span class = "progressNumber">#filter:score-{$skill.score}#%</span>
                                     <span id="{$skill.id}_bar" class = "progressBar" style = "background-color:{if $skill.score >= $T_TEST_DATA->options.general_threshold}#00FF00{else}#FF0000{/if};width:{$skill.score}px;">&nbsp;</span>&nbsp;
                                 </td>
-                                <td><input type="text" id="{$skill.id}_threshold" value="{$T_TEST_DATA->options.general_threshold}" onChange="eF_thresholdChange('{$skill.id}', '{$skill.score}',true)" />&nbsp;%<input type="hidden" id="{$skill.id}_previous_threshold" value = "{$T_TEST_DATA->options.general_threshold}" /></td>
+                                <td>
+                                {if $_change_}
+                                 <input type="text" id="{$skill.id}_threshold" value="{$T_TEST_DATA->options.general_threshold}" onChange="eF_thresholdChange('{$skill.id}', '{$skill.score}',true)" />&nbsp;%<input type="hidden" id="{$skill.id}_previous_threshold" value = "{$T_TEST_DATA->options.general_threshold}" />
+                                {else}
+                                 {$T_TEST_DATA->options.general_threshold}
+                                {/if}
+                                </td>
                             </tr>
                             {foreachelse}
                             <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS}</td></tr>
                             {/foreach}
                         </table>
-                        {if $T_SKILLSGAP}
+                        {if $T_SKILLSGAP && $_change_}
                         <br />
                         <table>
                             <tr>
@@ -698,11 +704,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                     <div class="tabbertab">
                         <h3>{$smarty.const._PROPOSEDASSIGNMENTS}</h3>
                          <div class="tabber" >
+                        {if $T_CONFIGURATION.lesson_enroll} {*stand-alone lessons*}
                                 <div class="tabbertab">
                        <h3>{$smarty.const._LESSONS}</h3>
-                        {* Proposed assignments (rrrrrrrrrrrrr')*}
 <!--ajax:proposedLessonsTable-->
-                        <table style = "width:100%" class = "sortedTable" size = "{$T_PROPOSED_LESSONS_SIZE}" sortBy = "0" id = "proposedLessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}{$T_MISSING_SKILLS_URL}&">
+                        <table style = "width:100%" class = "sortedTable" size = "{$T_PROPOSED_LESSONS_SIZE}" sortBy = "0" id = "proposedLessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}{$T_MISSING_SKILLS_URL}&">
                                         <tr class = "topTitle">
                                             <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
                                             <td class = "topTitle" name = "direction_name">{$smarty.const._CATEGORY}</td>
@@ -720,8 +726,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                             <td align="center">{if $proposed_lesson.price == 0}{$smarty.const._FREE}{else}{$proposed_lesson.price} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}{/if}</td>
                                         {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change')}
                                             <td class = "centerAlign">
+                                                {if $smarty.session.s_type == 'administrator'}
+                                                 <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" id = "lesson_{$proposed_lesson.id}" name = "lesson_{$proposed_lesson.id}" onclick ="ajaxPost('{$proposed_lesson.id}', this,'proposedLessonsTable');">
+                                                {elseif $proposed_course.show_catalog}
+                                                    <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&info_lesson={$proposed_lesson.id}"><img src = "images/16x16/view.png" alt = "{$smarty.const._MOREINFO}" title = "{$smarty.const._MOREINFO}"/></a>
+                                                {/if}
                                                 {*<input class = "inputCheckBox" type = "checkbox" id = "lesson_{$proposed_lesson.id}" name = "lesson_{$proposed_lesson.id}" onclick ="ajaxPost('{$proposed_lesson.id}', this,'proposedLessonsTable');">*}
-                                                <img class = "ajaxHandle" src = "images/16x16/arrow_right.png" id = "lesson_{$proposed_lesson.id}" name = "lesson_{$proposed_lesson.id}" onclick ="ajaxPost('{$proposed_lesson.id}', this,'proposedLessonsTable');">
                                             </td>
                                         {/if}
                                         </tr>
@@ -731,17 +741,18 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                     </table>
 <!--/ajax:proposedLessonsTable-->
                             </div>
+                            {/if}
                             <div class="tabbertab">
                                <h3>{$smarty.const._COURSES}</h3>
 <!--ajax:proposedCoursesTable-->
-                                <table style = "width:100%" class = "sortedTable" size = "{$T_PROPOSED_COURSES_SIZE}" sortBy = "0" id = "proposedCoursesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}{$T_MISSING_SKILLS_URL}&">
+                                <table style = "width:100%" class = "sortedTable" size = "{$T_PROPOSED_COURSES_SIZE}" sortBy = "0" id = "proposedCoursesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}{$T_MISSING_SKILLS_URL}&">
                                                 <tr class = "topTitle">
                                                     <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
                                                     <td class = "topTitle" name = "direction_name">{$smarty.const._CATEGORY}</td>
                                                     <td class = "topTitle" name = "languages_NAME">{$smarty.const._LANGUAGE}</td>
                                                 {* MODULE HCD: Prices are replaced by the number of skills offered *}
                                                     <td class = "topTitle centerAlign" name = "price">{$smarty.const._PRICE}</td>
-                                                    <td class = "topTitle centerAlign">{$smarty.const._CHECK}</td>
+                                                    <td class = "topTitle centerAlign">{$smarty.const._OPTIONS}</td>
                                                 </tr>
                                 {foreach name = 'courses_list2' key = 'key' item = 'proposed_course' from = $T_PROPOSED_COURSES_DATA}
                                                 <tr id="row_{$proposed_course.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$proposed_course.active}deactivatedTableElement{/if}">
@@ -752,7 +763,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                                                     <td align="center">{if $proposed_course.price == 0}{$smarty.const._FREE}{else}{$proposed_course.price} {$T_CURRENCYSYMBOLS[$T_CONFIGURATION.currency]}{/if}</td>
                                                 {if $T_SKILLGAP_TEST && (!isset($T_CURRENT_USER->coreAccess.users) || $T_CURRENT_USER->coreAccess.users == 'change')}
                                                     <td class = "centerAlign">
+                                                    {if $smarty.session.s_type == 'administrator'}
                                                         <input class = "inputCheckBox" type = "checkbox" id = "course_{$proposed_course.id}" name = "course_{$proposed_course.id}" onclick ="ajaxPost('{$proposed_course.id}', this,'proposedCoursesTable');">
+                                                    {elseif $proposed_course.show_catalog}
+                                                     <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&info_course={$proposed_course.id}"><img src = "images/16x16/view.png" alt = "{$smarty.const._MOREINFO}" title = "{$smarty.const._MOREINFO}"/></a>
+                                                    {/if}
                                                     </td>
                                                 {/if}
                                                 </tr>
@@ -764,13 +779,15 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                             </div>
                         </div>
                     </div>
+{if $smarty.session.s_type == 'administrator'}
                     <div class="tabbertab">
                         <h3>{$smarty.const._ATTENDING}</h3>
                         <div class="tabber">
+                        {if $T_CONFIGURATION.lesson_enroll} {*stand-alone lessons*}
                             <div class="tabbertab">
                             <h3>{$smarty.const._LESSONS}</h3>
 <!--ajax:assignedLessonsTable-->
-                                <table style = "width:100%" class = "sortedTable" size = "{$T_ASSIGNED_LESSONS_SIZE}" sortBy = "0" id = "assignedLessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}&">
+                                <table style = "width:100%" class = "sortedTable" size = "{$T_ASSIGNED_LESSONS_SIZE}" sortBy = "0" id = "assignedLessonsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}&">
                                                 <tr class = "topTitle">
                                                     <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
                                                     <td class = "topTitle" name = "direction_name">{$smarty.const._CATEGORY}</td>
@@ -792,10 +809,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                             </table>
 <!--/ajax:assignedLessonsTable-->
                            </div>
+      {/if}
                             <div class="tabbertab">
                             <h3>{$smarty.const._COURSES}</h3>
 <!--ajax:assignedCoursesTable-->
-                                <table style = "width:100%" class = "sortedTable" size = "{$T_ASSIGNED_COURSES_SIZE}" sortBy = "0" id = "assignedCoursesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "administrator.php?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}&">
+                                <table style = "width:100%" class = "sortedTable" size = "{$T_ASSIGNED_COURSES_SIZE}" sortBy = "0" id = "assignedCoursesTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$smarty.get.show_solved_test}&test_analysis={$smarty.get.test_analysis}&user={$smarty.get.user}&">
                                                 <tr class = "topTitle">
                                                     <td class = "topTitle" name = "name">{$smarty.const._NAME} </td>
                                                     <td class = "topTitle" name = "direction_name">{$smarty.const._CATEGORY}</td>
@@ -819,6 +837,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                             </div>
                         </div>
                     </div>
+{/if}
                 </div>
             {/capture}
             {eF_template_printBlock title = $smarty.const._SKILLGAPANALYSISFORUSER|cat:'&nbsp;<i>'|cat:$T_USER_INFO.name|cat:'&nbsp;'|cat:$T_USER_INFO.surname|cat:'</i>&nbsp;'|cat:$smarty.const._ACCORDINGTOTEST|cat:'&nbsp;<i>'|cat:$T_TEST_DATA->test.name|cat:'</i>' data = $smarty.capture.t_user_code image = '32x32/profile.png' options=$T_USER_LINK}

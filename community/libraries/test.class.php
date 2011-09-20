@@ -1437,11 +1437,15 @@ class EfrontTest
               } catch (EfrontFileException $e) {}
           }
    }
-         //Set the unit as "not seen"
-         if (!($user instanceof EfrontUser)) {
-             $user = EfrontUserFactory :: factory($login, false, 'student');
-         }
-         $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
+   if ($this -> test['content_ID']) {
+    //Set the unit as "not seen"
+    if (!($user instanceof EfrontUser)) {
+     $user = EfrontUserFactory :: factory($login, false, 'student');
+    }
+    $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
+   } else {
+    eF_updateTableData("users_to_skillgap_tests" , array("solved" => 0), "tests_id = " . $this -> test['id']. " AND users_login = '".$login."'");
+   }
          eF_deleteTableData("completed_tests", "users_LOGIN='".$login."' and tests_ID=".$this -> test['id']);
         } else {
          if (!eF_checkParameter($instance, 'id')) {
@@ -1468,7 +1472,9 @@ class EfrontTest
            $user = EfrontUserFactory :: factory($login, false, 'student');
           }
           $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
-         }
+         } else if (!$this -> test['content_ID']) {
+    eF_updateTableData("users_to_skillgap_tests" , array("solved" => 0), "tests_id = " . $this -> test['id']. " AND users_login = '".$login."'");
+   }
          eF_deleteTableData("completed_tests", "id=".$instance);
         }
     }

@@ -2900,6 +2900,10 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  public function getSkillgapTests() {
   $skillgap_tests = array();
+  $result = eF_getTableData("users_to_skillgap_tests JOIN tests ON tests_ID = id", "*", "users_LOGIN = '".$this -> user['login']."' AND publish = 1");
+  foreach ($result as $res) {
+   $skillgap_tests[$res['id']] = array('id' => $res['id'], 'name' => $res['name'], 'solved' => $res['solved']);
+  }
   return $skillgap_tests;
  }
  public function getUserStatusInCourses() {

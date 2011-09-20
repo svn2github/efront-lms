@@ -394,7 +394,7 @@ try {
      }
  }
  elseif ($ctg == 'tests') {
-  $_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
+  //$_SESSION['s_lessons_ID'] OR eF_redirect(basename($_SERVER['PHP_SELF']));
      /***/
      require_once("module_tests.php");
  }

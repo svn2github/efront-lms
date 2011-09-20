@@ -119,7 +119,8 @@
 {if isset($T_CTG) && $T_CTG == 'personal'}
  {capture name = "modulePersonal"}
   {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=users'>`$smarty.const._USERS`</a>"}
-  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=personal&user=`$T_EDITEDUSER->user.login`'>#filter:login-`$T_EDITEDUSER->user.login`#</a>"}
+  {assign var = "formatted_login" value = $T_EDITEDUSER->user.login|formatLogin}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=personal&user=`$T_EDITEDUSER->user.login`'>`$formatted_login`</a>"}
   {if $T_OP == 'dashboard'}
    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=dashboard'>`$smarty.const._DASHBOARD`</a>"}
   {elseif $T_OP == 'profile' && $smarty.get.add_user}
@@ -292,7 +293,8 @@
             {elseif $smarty.get.show_solved_test}
                 {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&test_results=`$T_TEST_DATA->completedTest.testsId`'>`$smarty.const._SKILLGAPTESTRESULTS`</a>"}
                 {if !$smarty.get.test_analysis}
-                    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&show_solved_test=`$T_TEST_DATA->completedTest.id`'>`$smarty.const._VIEWSOLVEDTEST`: &quot;`$T_TEST_DATA->test.name`&quot; `$smarty.const._BYUSER`: #filter:login-`$T_TEST_DATA->completedTest.login`#</a>"}
+                {assign var = "formatted_login" value = $T_TEST_DATA->completedTest.login|formatLogin}
+                    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=tests&show_solved_test=`$T_TEST_DATA->completedTest.id`'>`$smarty.const._VIEWSOLVEDTEST`: &quot;`$T_TEST_DATA->test.name`&quot; `$smarty.const._BYUSER`: `$formatted_login`</a>"}
                 {else}
                     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=tests&show_solved_test='|cat:$smarty.get.show_solved_test|cat:'&test_analysis='|cat:$smarty.get.test_analysis|cat:'&user='|cat:$smarty.get.user|cat:'">'|cat:$smarty.const._USERRESULTS|cat:'</a>'}
                 {/if}
@@ -378,7 +380,8 @@
     {if $smarty.get.option == 'user'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=user">'|cat:$smarty.const._USERSTATISTICS|cat:'</a>'}
         {if $smarty.get.sel_user}
-            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=user&sel_user='|cat:$smarty.get.sel_user|cat:'">#filter:login-'|cat:$smarty.get.sel_user|cat:'#</a>'}
+   {assign var = "formatted_login" value = $smarty.get.sel_user|formatLogin}
+            {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=user&sel_user='|cat:$smarty.get.sel_user|cat:'">'|cat:$formatted_login|cat:'</a>'}
         {/if}
     {elseif $smarty.get.option == 'lesson'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=lesson">'|cat:$smarty.const._LESSONSTATISTICS|cat:'</a>'}

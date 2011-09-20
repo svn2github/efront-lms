@@ -52,7 +52,8 @@
 {if (isset($T_CTG) && $T_CTG == 'progress')}
  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=progress">'|cat:$smarty.const._PROGRESS|cat:'</a>'}
  {if $T_USER_LESSONS_INFO}
-  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=progress&edit_user=`$smarty.get.edit_user`'>`$smarty.const._PROGRESSFORUSER`1: #filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#</a>"}
+  {assign var = "formatted_login" value = $T_USER_LESSONS_INFO.users_LOGIN|formatLogin}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=progress&edit_user=`$smarty.get.edit_user`'>`$smarty.const._PROGRESSFORUSER`: `$formatted_login`</a>"}
  {/if}
     {include file = "includes/progress.tpl"}
 {/if}
@@ -94,8 +95,13 @@
     {include file = "includes/projects.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'tests')}
+        {*moduleTests: Print the Tests page*}
+        {capture name = "moduleTests"}
+            <tr><td class = "moduleTests" style = "vertical-align:top">
+                {include file = "includes/module_tests.tpl"}
 
-    {include file = "includes/tests.tpl"}
+            </td></tr>
+        {/capture}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'feedback')}
     {include file = "includes/tests.tpl"}
@@ -192,7 +198,8 @@
     {capture name = "moduleStatistics"}
      <tr><td class = "moduleCell">
      {if $T_TEST_SOLVED}
-         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=statistics&show_solved_test=`$T_SOLVED_TEST_DATA.id`&lesson=`$smarty.get.lesson`'>`$smarty.const._VIEWSOLVEDTEST`: &quot;`$T_CURRENT_TEST.name`&quot; `$smarty.const._BYUSER`: #filter:login-`$T_SOLVED_TEST_DATA.users_LOGIN`#</a>"}
+   {assign var = "formatted_login" value = $T_SOLVED_TEST_DATA.users_LOGIN|formatLogin}
+         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=statistics&show_solved_test=`$T_SOLVED_TEST_DATA.id`&lesson=`$smarty.get.lesson`'>`$smarty.const._VIEWSOLVEDTEST`: &quot;`$T_CURRENT_TEST.name`&quot; `$smarty.const._BYUSER`: `$formatted_login`</a>"}
          {$T_TEST_SOLVED}
      {else}
          {include file="includes/statistics.tpl"}
@@ -228,7 +235,8 @@
   {if $smarty.get.user != $smarty.session.s_login}
    {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=users'>`$smarty.const._USERS`</a>"}
   {/if}
-  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=personal&user=`$T_EDITEDUSER->user.login`'>#filter:login-`$T_EDITEDUSER->user.login`#</a>"}
+  {assign var = "formatted_login" value = $T_EDITEDUSER->user.login|formatLogin}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=personal&user=`$T_EDITEDUSER->user.login`'>`$formatted_login`</a>"}
   {if $T_OP == 'dashboard'}
    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=dashboard'>`$smarty.const._DASHBOARD`</a>"}
   {elseif $T_OP == 'profile' && $smarty.get.add_user}

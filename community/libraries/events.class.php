@@ -731,7 +731,9 @@ class EfrontEvent
    if ($value['type'] == 'select') {
     $possibleValues = unserialize($value['options']);
     $subst_array["triggering_users_".$value['name']] = $possibleValues[$triggeringUser -> user[$value['name']]];
-   } else{
+   } elseif ($value['type'] == 'date') {
+    $subst_array["triggering_users_".$value['name']] = formatTimestamp($triggeringUser -> user[$value['name']], 'time');
+   } else {
     $subst_array["triggering_users_".$value['name']] = $triggeringUser -> user[$value['name']];
    }
   }

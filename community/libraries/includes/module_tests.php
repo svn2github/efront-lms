@@ -31,28 +31,41 @@ try {
 
  //An array of legal ids for editing entries
  if (!$_admin_) {
-     if (!isset($currentContent)) {
-      if ($currentLesson) {
-          $currentContent = new EfrontContentTree($currentLesson);
-      } else {
-       eF_redirect(basename($_SERVER['PHP_SELF']));
-      }
-     }
-     $lessonTests = $legalValues = $currentLesson -> getTestsAndFeedbacks(); //Lesson's tests
-  $legalQuestions = eF_getTableDataFlat('questions', "id", 'lessons_ID='.$currentLesson -> lesson['id']);
-  $legalUnits = array(); //Lesson's units
-  foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
-      $legalUnits[] = $key;
+  if (!isset($currentContent)) {
+   if ($currentLesson) {
+    $currentContent = new EfrontContentTree($currentLesson);
+   } else if ((isset($_GET['show_solved_test']) && isset($_GET['test_analysis']))) { //user viewing own skillgap analysis
+    $skillgap_tests = 1;
+    $_change_ = 0;
+    $smarty -> assign("_change_", $_change_);
+
+    $result = eF_getTableDataFlat("tests", "id", "lessons_ID=0");
+    $legalValues = $result['id'];
+    if (!empty($legalValues)) {
+     $legalSolvedValues = eF_getTableDataFlat("completed_tests JOIN users_to_skillgap_tests ON completed_tests.tests_ID = users_to_skillgap_tests.tests_ID AND users_to_skillgap_tests.solved = 1", "completed_tests.id", "users_to_skillgap_tests.users_LOGIN='".$currentUser->user['login']."' and users_to_skillgap_tests.tests_ID in (".implode(",", $legalValues).")");
+     $legalSolvedValues = $legalSolvedValues['id'];
+    }
+    $legalQuestions = eF_getTableDataFlat('questions', "id");
+   } else {
+    eF_redirect(basename($_SERVER['PHP_SELF']));
+   }
   }
-  if (!empty($legalValues)) {
-   $legalSolvedValues = eF_getTableDataFlat("completed_tests", "id", "tests_ID in (".implode(",", $legalValues).")");
-   $legalSolvedValues = $legalSolvedValues['id'];
+  if ($currentContent) {
+   $lessonTests = $legalValues = $currentLesson -> getTestsAndFeedbacks(); //Lesson's tests
+   $legalQuestions = eF_getTableDataFlat('questions', "id", 'lessons_ID='.$currentLesson -> lesson['id']);
+   $legalUnits = array(); //Lesson's units
+   foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
+    $legalUnits[] = $key;
+   }
+   if (!empty($legalValues)) {
+    $legalSolvedValues = eF_getTableDataFlat("completed_tests", "id", "tests_ID in (".implode(",", $legalValues).")");
+    $legalSolvedValues = $legalSolvedValues['id'];
+   }
   }
  } else {
      $result = eF_getTableDataFlat("tests", "id", "lessons_ID=0");
      $legalValues = $result['id'];
      if (!empty($legalValues)) {
-
       $legalSolvedValues = eF_getTableDataFlat("completed_tests JOIN users_to_skillgap_tests ON completed_tests.tests_ID = users_to_skillgap_tests.tests_ID AND users_to_skillgap_tests.solved = 1", "completed_tests.id", "users_to_skillgap_tests.tests_ID in (".implode(",", $legalValues).")");
       $legalSolvedValues = $legalSolvedValues['id'];
      }
@@ -466,7 +479,7 @@ try {
 
 
 try {
-    if ($_student_) {
+    if ($_student_ && !$skillgap_tests) {
         $seenContent = EfrontStats :: getStudentsSeenContent($currentLesson -> lesson['id'], $currentUser -> user['login']);
         $seenContent = $seenContent[$currentLesson -> lesson['id']][$currentUser -> user['login']];
         if ($currentLesson -> options['rules']) {

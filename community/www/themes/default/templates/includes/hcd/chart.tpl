@@ -5,7 +5,7 @@
  {if !$T_POPUP_MODE && !$smarty.get.popup}
   {if !$smarty.cookies.orgChartMode}
    <span>
-    <a href = "javascript:void(0)" onClick = "expandCollapse('dhtmlgoodies_branches_tree');">{$smarty.const._EXPANDCOLLAPSE}</a>
+    <a href = "javascript:void(0)" onClick = "expandCollapse('dhtml_tree_chart');">{$smarty.const._EXPANDCOLLAPSE}</a>
    </span>
    <span>
     <img src = "images/16x16/go_into.png" alt = "{$smarty.const._SWITCHTOSIMPLEVIEW}" title = "{$smarty.const._SWITCHTOSIMPLEVIEW}"/>

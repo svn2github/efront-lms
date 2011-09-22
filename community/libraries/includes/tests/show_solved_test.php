@@ -46,7 +46,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
         } else {
 
-            if ($skillgap_tests) {
+            if ($skillgap_tests && isset($_GET['user']) && eF_checkParameter($_GET['user'], 'login')) {
                 // Per-user analysis of the tests => skill gap analysis
 
                 // AJAX CODE TO RELOAD SKILL-GAP ANALYSIS PROPOSED LESSONS
@@ -77,7 +77,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     // check what you GET and keep only the skills
                     $skills_missing = implode("','", $skills_missing);
 
-                    $user = EfrontUserFactory :: factory($_GET['user']);
+                    if ($_SESSION['s_type'] == 'administrator') {
+                     $user = EfrontUserFactory :: factory($_GET['user']);
+                    } else {
+                     $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+                    }
                     $alredy_attending = implode("','", array_keys($user -> getLessons()));
 
                     $lessons_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_lesson_offers_skill ON module_hcd_skills.skill_ID = module_hcd_lesson_offers_skill.skill_ID JOIN lessons ON lessons.id = module_hcd_lesson_offers_skill.lesson_ID","module_hcd_lesson_offers_skill.lesson_ID, lessons.*, count(module_hcd_lesson_offers_skill.skill_ID) as skills_offered", "module_hcd_lesson_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_lesson_offers_skill.lesson_ID NOT IN ('".$alredy_attending."')","","module_hcd_lesson_offers_skill.lesson_ID ORDER BY skills_offered DESC");
@@ -135,7 +139,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     // check what you GET and keep only the skills
                     $skills_missing = implode("','", $skills_missing);
 
-                    $user = EfrontUserFactory :: factory($_GET['user']);
+                    if ($_SESSION['s_type'] == 'administrator') {
+                     $user = EfrontUserFactory :: factory($_GET['user']);
+                    } else {
+                     $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+                    }
 
                     $alredy_attending = implode("','", array_keys($user -> getUserCourses()));
                     $courses_proposed = eF_getTableData("module_hcd_skills LEFT OUTER JOIN module_hcd_course_offers_skill ON module_hcd_skills.skill_ID = module_hcd_course_offers_skill.skill_ID JOIN courses ON courses.id = module_hcd_course_offers_skill.courses_ID","module_hcd_course_offers_skill.courses_ID, courses.*, count(module_hcd_course_offers_skill.skill_ID) as skills_offered", "module_hcd_course_offers_skill.skill_ID IN ('".$skills_missing."') AND module_hcd_course_offers_skill.courses_ID NOT IN ('".$alredy_attending."') and courses.archive=0 and courses.active=1","","module_hcd_course_offers_skill.courses_ID ORDER BY skills_offered DESC");
@@ -170,7 +178,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
                 try {
                  if (isset($_GET['postAjaxRequest'])) {
-                  $user = EfrontUserFactory :: factory($_GET['user']);
+                     if ($_SESSION['s_type'] == 'administrator') {
+                      $user = EfrontUserFactory :: factory($_GET['user']);
+                     } else {
+                      $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+                     }
+
                   if (isset($_GET['add_lesson'])) {
                    $user -> addLessons($_GET['add_lesson'], $_GET['user_type'], 1);
                   } else if (isset($_GET['add_course'])) {
@@ -189,7 +202,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $directionPaths = $directionsTree -> toPathString();
                     $lessons = EfrontLesson :: getLessons();
 
-                    $editedUser = EfrontUserFactory :: factory($_GET['user']);
+                    if ($_SESSION['s_type'] == 'administrator') {
+                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
+                    } else {
+                     $editedUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+                    }
+
                     $userLessons = $editedUser -> getLessons(true);
                     foreach ($lessons as $key => $lesson) {
                         $lessons[$key]['directions_name'] = $directionPaths[$lesson['directions_ID']];
@@ -249,7 +267,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 if (isset($_GET['ajax']) && $_GET['ajax'] == 'assignedCoursesTable') {
                     $directionsTree = new EfrontDirectionsTree();
                     $directionPaths = $directionsTree -> toPathString();
-                    $editedUser = EfrontUserFactory :: factory($_GET['user']);
+                    if ($_SESSION['s_type'] == 'administrator') {
+                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
+                    } else {
+                     $editedUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+                    }
+
                     $userCourses = $editedUser -> getUserCourses();
                     $courses = array();
                     foreach ($userCourses as $userCourse) {
@@ -288,7 +311,12 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                     $directionPaths = $directionsTree -> toPathString();
                     $courses = EfrontCourse :: getCourses();
 
-                    $editedUser = EfrontUserFactory :: factory($_GET['user']);
+                    if ($_SESSION['s_type'] == 'administrator') {
+                     $editedUser = EfrontUserFactory :: factory($_GET['user']);
+                    } else {
+                     $editedUser = EfrontUserFactory :: factory($_SESSION['s_login']);
+                    }
+
                     $userCourses = $editedUser -> getUserCourses();
                     foreach ($courses as $key => $course) {
                         $courses[$key]['partof'] = 0;
@@ -345,7 +373,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
                 $smarty -> assign("T_TEST_DATA",$completedTest);
 
-                $user = eF_getTableData("users", "*", "login = '".$_GET['user']."'");
+                if ($_SESSION['s_type'] == 'administrator') {
+                 $user = eF_getTableData("users", "*", "login = '".$_GET['user']."'");
+                } else {
+                 $user = eF_getTableData("users", "*", "login = '".$_SESSION['s_login']."'");
+                }
                 $smarty -> assign("T_USER_INFO", $user[0]);
                 $analysisResults = $completedTest -> analyseSkillGapTest();
 

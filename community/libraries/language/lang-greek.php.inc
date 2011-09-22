@@ -4140,4 +4140,5 @@ define("_KEEPMELOGGEDIN", "Διατήρηση σύνδεσης");
 define("_YOAURENOTALLOWEDTOACCESSTHISUNIT", "Δεν επιτρέπεται να προσπελάσετε αυτήν την ενότητα");
 define("_STARTWITHPIPEIFWANTEMPTYCHOICE", "Ξεκινήστε με | αν επιθυμείτε μια κενή επιλογή");
 define("_YOUCANTADDTHISBALANCE", "Δεν μπορείτε να δώσετε αυτήν την πίστωση");
+define("_DISPLAYRESULTSTOSTUDENTS", "Εμφάνιση αποτελεσμάτων στους μαθητές");
 ?>

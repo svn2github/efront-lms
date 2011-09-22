@@ -95,11 +95,14 @@
     {include file = "includes/projects.tpl"}
 {/if}
 {if (isset($T_CTG) && $T_CTG == 'tests')}
-        {*moduleTests: Print the Tests page*}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=lessons&op=tests">'|cat:$smarty.const._SKILLGAPTESTS|cat:'</a>'}
+        {if $smarty.get.test_analysis}
+         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=tests&show_solved_test='|cat:$smarty.get.show_solved_test|cat:'&test_analysis='|cat:$smarty.get.test_analysis|cat:'&user='|cat:$smarty.get.user|cat:'">'|cat:$smarty.const._USERRESULTS|cat:'</a>'}
+        {/if}
+
         {capture name = "moduleTests"}
             <tr><td class = "moduleTests" style = "vertical-align:top">
                 {include file = "includes/module_tests.tpl"}
-
             </td></tr>
         {/capture}
 {/if}

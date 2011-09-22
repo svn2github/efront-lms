@@ -2845,7 +2845,7 @@ class EfrontCompletedTest extends EfrontTest
             }
             function editFeedback(el) {
                 Element.extend(el);
-                url = "'.$url.'&ajax=1&test_feedback=" + $("edit_test_feedback").value;
+                url = "'.$url.'&ajax=1&test_feedback=" + encodeURIComponent($("edit_test_feedback").value);
                 if ($("progress_img")) {
                     $("progress_img").writeAttribute("src", "images/others/progress1.gif").show();
                 } else {
@@ -2977,6 +2977,9 @@ class EfrontCompletedTest extends EfrontTest
     public function handleAjaxActions() {
      try {
       if (isset($_GET['test_score'])) {
+       if (mb_strpos($_GET['test_score'], ",") !== false) {
+        $_GET['test_score'] = str_replace(",", ".", $_GET['test_score']);
+       }
        if (is_numeric($_GET['test_score']) && $_GET['test_score'] <= 100 && $_GET['test_score'] >= 0) {
         $this -> completedTest['score'] = $_GET['test_score'];
         foreach ($this -> questions as $id => $question) {
@@ -3031,6 +3034,9 @@ class EfrontCompletedTest extends EfrontTest
        }
        exit;
       } else if (isset($_GET['question_score'])) {
+          if (mb_strpos($_GET['question_score'], ",") !== false) {
+        $_GET['question_score'] = str_replace(",", ".", $_GET['question_score']);
+       }
        if (in_array($_GET['question'], array_keys($this -> questions))) {
         if (is_numeric($_GET['question_score']) && $_GET['question_score'] <= 100 && $_GET['question_score'] >= 0) {
          $this -> questions[$_GET['question']] -> score = $_GET['question_score'];

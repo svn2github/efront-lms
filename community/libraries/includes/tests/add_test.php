@@ -144,6 +144,7 @@ if (!$skillgap_tests) {
 
     $form -> addElement('advcheckbox', 'assign_to_new', null, null, null, array(0, 1));
     $form -> addElement('advcheckbox', 'automatic_assignment', null, null, null, array(0, 1));
+    $form -> addElement('advcheckbox', 'student_results', null, null, null, array(0, 1));
     $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON  lessons_ID=lessons.id", "questions.*, lessons.name" , "type <> 'raw_text' and (lessons_ID=0 or lessons.archive=0)");
 
 }
@@ -302,8 +303,9 @@ if ($form -> isSubmitted() && $form -> validate()) {
         'redo_wrong' => $values['redo_wrong'],
                           'general_threshold' => $values['general_threshold'], //skill-gap option
                               'assign_to_new' => $values['assign_to_new'], //skill-gap option
-                          'automatic_assignment' => $values['automatic_assignment']); //skill-gap option
- } else {
+                          'automatic_assignment' => $values['automatic_assignment'], //skill-gap option
+                          'student_results' => $values['student_results']); //skill-gap option
+    } else {
   $testOptions = array('duration' => 0, //Duration is displayed in minutes, but is stored in seconds
                                 'redoable' => 1,
                                 'onebyone' => 0,
@@ -324,7 +326,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
         'redo_wrong' => 0,
                           'general_threshold' => 0, //skill-gap option
                               'assign_to_new' => 0, //skill-gap option
-                          'automatic_assignment' => 0); //skill-gap option
+                          'automatic_assignment' => 0,
+        'student_results' => 0); //skill-gap option
  }
     if (isset($_GET['edit_test']) && !isset($values['submit_test_new'])) {
         $currentTest -> test['publish'] = $values['publish'];

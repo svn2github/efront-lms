@@ -132,6 +132,8 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <td class = "elementCell">{$T_TEST_FORM.assign_to_new.html}</td></tr>
      <tr><td class = "labelCell">{$smarty.const._AUTOMATICALLYASSIGNLESSONS}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.automatic_assignment.html}<img src = "images/16x16/help.png" alt = "help" title = "help" onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)"><div id = 'automatic_assignment_info' onclick = "eF_js_showHideDiv(this, 'automatic_assignment_info', event)" class = "popUpInfoDiv" style = "display:none">{$smarty.const._AUTOMATICASSIGNMENTINFO}</div></td>
+     <tr><td class = "labelCell">{$smarty.const._DISPLAYRESULTSTOSTUDENTS}:&nbsp;</td>
+      <td class = "elementCell">{$T_TEST_FORM.student_results.html}</td>
     {/if}
      <tr><td></td><td class = "elementCell">
       <span>

@@ -4140,4 +4140,5 @@ define("_KEEPMELOGGEDIN", "Keep me logged in");
 define("_YOAURENOTALLOWEDTOACCESSTHISUNIT", "You are not allowed to access this unit");
 define("_STARTWITHPIPEIFWANTEMPTYCHOICE", "Start with pipe | if you want an empty choice");
 define("_YOUCANTADDTHISBALANCE", "You cannot add this balance");
+define("_DISPLAYRESULTSTOSTUDENTS", "Display results to students");
 ?>

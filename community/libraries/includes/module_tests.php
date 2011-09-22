@@ -809,6 +809,7 @@ try {
             $form -> addElement('select', 'educational_questions_count_row', null, $lesson_questions,'class = "inputText" id="educational_questions_row"');
             $form -> addElement('advcheckbox', 'assign_to_new', null, null, null, array(0, 1));
             $form -> addElement('advcheckbox', 'automatic_assignment', null, null, null, array(0, 1));
+            $form -> addElement('advcheckbox', 'student_results', null, null, null, array(0, 1));
             $form -> addElement('textarea', 'description', null, 'class = "inputTestTextarea" style = "width:100%;height:6em;"');
             $form -> addElement('submit', 'submit_test', _CREATETEST, 'class = "flatButton"');
             if ($form -> isSubmitted()) {
@@ -1017,7 +1018,8 @@ try {
                                          'display_weights' => 0,
                           'general_threshold' => "50.00",
                                          'assign_to_new' => 0,
-                             'automatic_assignment' => 0);
+                             'automatic_assignment' => 0,
+                       'student_results' => 0);
                 $testFields = array('active' => 1,
                                         'lessons_ID' => 0,
                                         'content_ID' => $test_content_ID,

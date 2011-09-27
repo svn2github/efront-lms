@@ -175,7 +175,9 @@ class TrainingReports_Report {
             'surname' => _SURNAME,
             'email' => _EMAIL,
             'login' => _LOGIN,
-            'timestamp' => _TRAININGREPORTS_REGISTERED,
+            'office' => _OFFICE,
+            'city' => _CITY,
+         'timestamp' => _TRAININGREPORTS_REGISTERED,
             'completed' => _TRAININGREPORTS_ALLCOMPLETED,
             'last_login' => _LASTLOGIN);
 
@@ -316,6 +318,8 @@ class TrainingReports_Report {
             $user['last_login'] = $this->getUserLastLogin($login);
             $user['completed'] = ($countCompleted == sizeof(array_unique($this->courses)));
             $user['courses'] = $coursesData;
+
+
 
 
 

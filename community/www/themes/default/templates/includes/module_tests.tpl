@@ -137,8 +137,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {/if}
      <tr><td></td><td class = "elementCell">
       <span>
-       <img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;
-       <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();">{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
+       <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();"><img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
       </span>
      </td></tr>
      <tr style="display:none;" id = "publish"><td class = "labelCell">{$smarty.const._PUBLISH}:&nbsp;</td>

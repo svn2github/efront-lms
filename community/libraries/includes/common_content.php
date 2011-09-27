@@ -252,7 +252,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     if (isset($_GET['edit'])) {
               //You can't edit data in scorm units
               if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
-                  $currentUnit['data'] = $values['data'];
+                  $currentUnit['data'] = applyEditorOffset($values['data']);
               } else {
       if ($values['embed_type'] == 'iframe' && strpos($currentUnit['data'], 'window.open') !== false) {
        preg_match("/window.open\(.*,/U", $currentUnit['data'], $matches);
@@ -280,7 +280,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
               $currentUnit -> setSearchKeywords();
           } else {
               $fields = array('name' => $values['name'],
-                              'data' => $values['data'],
+                              'data' => applyEditorOffset($values['data']),
                               'parent_content_ID' => $values['parent_content_ID'],
                               'lessons_ID' => $_SESSION['s_lessons_ID'],
                               'ctg_type' => $values['ctg_type'],
@@ -544,10 +544,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             }
    if (isset($_GET['print'])) {
     $currentUnit['data'] = preg_replace("#<script.*?>.*?</script>#", "&lt;script removed&gt;", $currentUnit['data']);
-    $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><t><th><td><font><em><i><strong><u>');
+    $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><t><th><td><font><em><i><strong><u><b><blockquote><big><center><code>');
    }
    //in case unit is simply an iframe,do not load the print it button
-     $contentStripped = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><t><th><td><font><em><i><strong><u>');
+     $contentStripped = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><t><th><td><font><em><i><strong><u><b><blockquote><big><center><code>');
          if ($contentStripped == "<p></p>" || $contentStripped == "" ) {
     $smarty -> assign("T_DISABLEPRINTUNIT", true);
    }

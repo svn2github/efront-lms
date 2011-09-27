@@ -299,10 +299,10 @@
     <tr class = "topTitle">
      <td class = "noSort">{$smarty.const._COLUMNTYPE}</td>
      <td class = "noSort">{$smarty.const._GRIDNAME}</td>
-     <td class = "centerAlign noSort">{$smarty.const._WIDTH}</td>
-     <td class = "noSort">{$smarty.const._ALIGNED}</td>
-     <td class = "centerAlign noSort">{$smarty.const._DEFAULTSORT}</td>
-     <td class = "centerAlign noSort">{$smarty.const._STATUS}</td>
+     <td class = "centerAlign">{$smarty.const._WIDTH}</td>
+     <td class = "">{$smarty.const._ALIGNED}</td>
+     <td class = "centerAlign">{$smarty.const._DEFAULTSORT}</td>
+     <td class = "centerAlign">{$smarty.const._STATUS}</td>
      <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
     </tr>
     {foreach name = 'columns_list' item = "item" key = "key" from = $T_REPORT.rules.columns}

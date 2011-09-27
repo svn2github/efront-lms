@@ -120,8 +120,8 @@
                     {if $T_ADD_MESSAGE_FORM.email.error}<tr><td></td><td class = "formError">{$T_ADD_MESSAGE_FORM.email.error}</td></tr>{/if}
                 <tr><td></td><td>
       <span>
-       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-       <a href = "javascript:toggleEditor('body','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+       <img onclick = "toggledInstanceEditor = 'body';javascript:toggleEditor('body','simpleEditor');" class = "handle" style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+       <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'body';javascript:toggleEditor('body','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
       </span></td></tr>
     <tr><td class = "labelCell">{$smarty.const._BODY}:&nbsp;</td>
                     <td class = "elementCell">{$T_ADD_MESSAGE_FORM.body.html}</td></tr>

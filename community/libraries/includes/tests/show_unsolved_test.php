@@ -195,8 +195,10 @@ if (!$_student_) {
     if (!$status['status'] || ($status['status'] == 'incomplete' && $testInstance -> time['pause'])) { //If the user hasn't confirmed he wants to do the test, display confirmation buttons
   $smarty -> assign("T_SHOW_CONFIRMATION", true);
     } else { //The user confirmed he wants to do the test, so display it
-
-        $form -> addElement('hidden', 'time_start', $timeStart); //This element holds the time the test started, so we know the remaining time even if the user left the system
+        $form -> addElement('hidden', 'time_start', $timeStart); //This element holds the time the test started, so we know the remaining time even if the user left the system   
+     if ( $currentUser -> coreAccess['content'] == 'view') {
+     $form -> freeze();
+     } else {
         if ($currentUnit['ctg_type'] !== 'feedback') {
    $form -> addElement('submit', 'submit_test', _SUBMITTEST, 'class = "flatButton" id = "submit_test" onclick = "return checkQuestions()"');
   } else {
@@ -233,7 +235,7 @@ if (!$_student_) {
           handleNormalFlowExceptions($e);
          }
         }
-
+     }
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
         $form -> accept($renderer);
         $smarty -> assign('T_TEST_FORM', $renderer -> toArray());

@@ -332,7 +332,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
     if (isset($_GET['edit_test']) && !isset($values['submit_test_new'])) {
         $currentTest -> test['publish'] = $values['publish'];
         $currentTest -> test['keep_best'] = $values['keep_best'];
-        $currentTest -> test['description'] = $values['description'];
+        $currentTest -> test['description'] = applyEditorOffset( $values['description']);
         $currentTest -> test['mastery_score'] = $values['mastery_score'] ? $values['mastery_score'] : 0;
         $currentTest -> test['name'] = $values['name'];
 
@@ -362,7 +362,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
         $testFields = array('active' => 1,
                               'lessons_ID' => (isset($currentLesson -> lesson['id']))?$currentLesson -> lesson['id']:0,
                               'content_ID' => $test_content_ID,
-                              'description' => $values['description'],
+                              'description' => applyEditorOffset($values['description']),
                               'options' => serialize($testOptions),
                               'name' => $values['name'],
                               'publish' => $values['publish'],

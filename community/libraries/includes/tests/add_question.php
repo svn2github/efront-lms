@@ -421,7 +421,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
 if ($form -> isSubmitted() && $form -> validate()) {
     $form_values = $form -> exportValues();
     //$question_values['code']        = $form_values['code'];
-    $question_values['text'] = $form_values['question_text'];
+    $question_values['text'] = applyEditorOffset($form_values['question_text']);
     $question_values['content_ID'] = $form_values['content_ID'] ? $form_values['content_ID'] : 0;
     $question_values['difficulty'] = $form_values['difficulty'];
     $question_values['explanation'] = $form_values['explanation'];

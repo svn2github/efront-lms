@@ -601,6 +601,7 @@ if (isset($currentLesson)) {
 $smarty -> load_filter('output', 'eF_template_formatTimestamp');
 $smarty -> load_filter('output', 'eF_template_formatLogins');
 $smarty -> load_filter('output', 'eF_template_setInnerLinks');
+$smarty -> load_filter('output', 'eF_template_setEditorOffset');
 $benchmark -> set('script');
 $smarty -> display('student.tpl');
 $benchmark -> set('smarty');

@@ -67,6 +67,7 @@
 - Fixed "not seen" rule not working when source unit is a test
 - Fixed issue about date type custom user field in notifications
 - Skill-gap test results are now available to students as well (Enterprise edition)
+- Fixed issue about displaying custom profile fields in user reports generator
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

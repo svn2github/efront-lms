@@ -81,8 +81,7 @@
 
        <tr><td></td><td class = "elementCell">
         <span>
-         <img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;
-         <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();">{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
+         <a href = "javascript:void(0)" onclick = "toggleAdvancedParameters();"><img class = "handle" id = "advenced_parameter_image" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}" title = "{$smarty.const._TOGGLEADVENCEDPARAMETERS}"/>&nbsp;{$smarty.const._TOGGLEADVENCEDPARAMETERS}</a>
         </span>
        </td></tr>
 

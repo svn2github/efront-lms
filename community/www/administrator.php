@@ -385,7 +385,9 @@ $smarty -> assign("T_MESSAGE_TYPE", $message_type);
 $smarty -> assign("T_SEARCH_MESSAGE", $search_message);
 
 $smarty -> assign("T_TEST_MESSAGE", 'Test Message');
-
+if (!isset($_GET['edit_block'])) { // when updating a unit we must preserve the innerlink
+ $smarty -> load_filter('output', 'eF_template_setEditorOffset');
+}
 
 $benchmark -> set('script');
 $smarty -> display('administrator.tpl');

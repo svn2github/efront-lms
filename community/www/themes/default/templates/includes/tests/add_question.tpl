@@ -23,11 +23,11 @@
    <tr><td></td><td id = "toggleeditor_cell1">
     <div class = "headerTools">
      <span>
-      <img class = "handle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
+      <img onclick = "toggleFileManager(Element.extend(this).next());" class = "handle" id = "arrow_down" src = "images/16x16/navigate_down.png" alt = "{$smarty.const._OPENCLOSEFILEMANAGER}" title = "{$smarty.const._OPENCLOSEFILEMANAGER}"/>&nbsp;
       <a href = "javascript:void(0)" onclick = "toggleFileManager(this);">{$smarty.const._TOGGLEFILEMANAGER}</a>
      </span>
      <span>
-      <img src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+      <img onclick = "toggledInstanceEditor = 'editor_content_data';javascript:toggleEditor('editor_content_data','mceEditor');" class = "handle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
       <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'editor_content_data';javascript:toggleEditor('editor_content_data','mceEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
      </span>
     </div>
@@ -246,7 +246,7 @@
    </td></tr>
          <tr id = "explanation" {if !$T_HAS_EXPLANATION}style = "display:none"{/if}>
           <td class = "labelCell">{$T_QUESTION_FORM.explanation.label}:</td>
-             <td class = "elementCell"><img src = "images/16x16/order.png" title = {$smarty.const._TOGGLEHTMLEDITORMODE} alt = {$smarty.const._TOGGLEHTMLEDITORMODE} />&nbsp;<a href = "javascript:toggleEditor('question_explanation_data','mceEditor');">{$smarty.const._TOGGLEHTMLEDITORMODE}</a><br/>{$T_QUESTION_FORM.explanation.html}</td></tr>
+             <td class = "elementCell"><img onclick = "toggledInstanceEditor = 'question_explanation_data';javascript:toggleEditor('question_explanation_data','mceEditor');" class = "handle" src = "images/16x16/order.png" title = {$smarty.const._TOGGLEHTMLEDITORMODE} alt = {$smarty.const._TOGGLEHTMLEDITORMODE} />&nbsp;<a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'question_explanation_data';javascript:toggleEditor('question_explanation_data','mceEditor');">{$smarty.const._TOGGLEHTMLEDITORMODE}</a><br/>{$T_QUESTION_FORM.explanation.html}</td></tr>
   {if $T_QUESTION_FORM.explanation.error}<tr><td></td><td class = "formError">{$T_QUESTION_FORM.explanation.error}</td></tr>{/if}
          <tr><td></td>
           <td class = "elementCell">

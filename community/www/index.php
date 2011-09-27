@@ -866,8 +866,10 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  $smarty -> assign("T_NEWS", news :: getNews(0, true));
  $smarty -> assign("T_ONLINE_USERS_LIST", EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60));
  $smarty -> assign("T_CURRENT_USER", $currentUser);
+ $smarty -> load_filter('output', 'eF_template_setEditorOffset');
  $smarty -> display('index.tpl');
 } else {
+ $smarty -> load_filter('output', 'eF_template_setEditorOffset');
  $smarty -> display('index.tpl');
 }
 $benchmark -> set('smarty');

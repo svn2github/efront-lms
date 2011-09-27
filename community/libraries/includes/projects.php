@@ -152,7 +152,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                 try {
                     if (isset($_GET['add_project'])) {
                         $fields = array('title' => $values['title'],
-          'data' => $values['data'],
+          'data' => applyEditorOffset($values['data']),
           'deadline' => $deadline,
           'creator_LOGIN' => $currentUser -> user['login'],
           'lessons_ID' => $currentLesson -> lesson['id'],
@@ -167,7 +167,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                         eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=projects&edit_project=".$newProject -> project['id']."&tab=project_users&message=".urlencode($message)."&message_type=$message_type");
                     } else {
                         $currentProject -> project['title'] = $values['title'];
-                        $currentProject -> project['data'] = $values['data'];
+                        $currentProject -> project['data'] = applyEditorOffset($values['data']);
                         $currentProject -> project['deadline'] = $deadline;
                         $currentProject -> project['auto_assign'] = $values['auto_assign'] ? 1 : 0;
                         $currentProject -> persist();

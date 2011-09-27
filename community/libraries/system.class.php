@@ -830,6 +830,19 @@ class EfrontSystem
    $workBook -> send('export.xls');
   }
  }
+ public static function exportToCsv($data, $file = false) {
+  $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
+  $fp = fopen($currentUser->getDirectory().'file.csv', 'w');
+  fputcsv($fp, current($data));
+  foreach ($list as $fields) {
+   fputcsv($fp, $fields);
+  }
+  fclose($fp);
+  $file = new EfrontFile($currentUser->getDirectory().'file.csv');
+  if (!$file) {
+   $file -> sendFile(true);
+  }
+ }
  /**
 
 	 * Return system logo

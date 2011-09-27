@@ -417,6 +417,14 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       }
      }
     }
+    //change flv path with offset because of the tinymce 3.4.2
+    $result = eF_getTableData("content", "*");
+    foreach ($result as $value) {
+     if (mb_strpos($value['data'], "flvToPlay=../../../../../") !== false) {
+      $value['data'] = str_replace("flvToPlay=../../../../../", "flvToPlay=##EFRONTEDITOROFFSET##", $value['data']);
+      eF_updateTableData("content", array('data' => $value['data']), "id=".$value['id']);
+     }
+    }
     $options = EfrontConfiguration :: getValues();
     //This means that the version upgrading from is 3.5
     if ($dbVersion == '3.5') {

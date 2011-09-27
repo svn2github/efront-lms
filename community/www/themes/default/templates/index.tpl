@@ -32,6 +32,10 @@
 {elseif $smarty.get.ctg == 'login'}
  {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=login'>`$smarty.const._LOGINENTRANCE`</a>"}
 
+{elseif $smarty.get.ctg == 'checker'}
+{capture name='t_checker_code'}
+ {include file = "includes/blocks/checker.tpl"}
+{/capture}
 {/if}
 
 {*Block for displaying the system anouncements*}
@@ -108,7 +112,10 @@
     {elseif $smarty.get.ctg == 'signup' && $T_CONFIGURATION.signup}
         {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=signup'>`$smarty.const._SIGNUP`</a>"}
   {eF_template_printBlock title = $smarty.const._REGISTERANEWACCOUNT content = $smarty.capture.t_signup_code image = "32x32/user.png"}
-    {elseif $smarty.get.ctg == 'reset_pwd'}
+     {elseif $smarty.get.ctg == 'checker'}
+        {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=checker'>`$smarty.const._OPTIONSCHECKER`</a>"}
+  {eF_template_printBlock title = $smarty.const._OPTIONSCHECKER content = $smarty.capture.t_checker_code image = "32x32/success.png"}
+ {elseif $smarty.get.ctg == 'reset_pwd'}
      {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=reset_pwd'>`$smarty.const._RESETPASSWORD`</a>"}
         {eF_template_printBlock title = $smarty.const._RESETPASSWORD content = $smarty.capture.t_reset_pwd_code image = "32x32/exclamation.png"}
     {elseif $smarty.get.ctg == 'expired'}

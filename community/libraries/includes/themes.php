@@ -193,7 +193,7 @@ try {
             }
             $block = array('name' => $values['name'],
                      'title' => $values['title']);
-            file_put_contents($basedir.$values['name'].'.tpl', $values['content']);
+            file_put_contents($basedir.$values['name'].'.tpl', applyEditorOffset($values['content']));
 
             if (isset($_GET['edit_block'])) {
                 $customBlocks[$_GET['edit_block']] = $block;

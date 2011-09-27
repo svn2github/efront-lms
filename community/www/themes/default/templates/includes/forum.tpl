@@ -27,8 +27,8 @@
      {/if}
     <tr><td></td><td>
     <span>
-     <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-     <a href = "javascript:toggleEditor('comments','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+     <img onclick = "toggledInstanceEditor = 'comments';javascript:toggleEditor('comments','simpleEditor');" class = "handle" style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+     <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'comments';javascript:toggleEditor('comments','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
     </span>
     </td></tr>
              <tr><td class = "labelCell">{$smarty.const._COMMENTS}:&nbsp;</td>
@@ -60,8 +60,8 @@
  {if !$smarty.get.edit}
     <tr><td></td><td>
     <span>
-     <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-     <a href = "javascript:toggleEditor('message','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+     <img onclick = "toggledInstanceEditor = 'message';javascript:toggleEditor('message','simpleEditor');" class = "handle" style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+     <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'message';javascript:toggleEditor('message','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
     </span>
     </td></tr>
              <tr><td class = "labelCell">{$smarty.const._MESSAGE}:&nbsp;</td>
@@ -88,8 +88,8 @@
                  {if $T_ENTITY_FORM.poll_subject.error}<tr><td></td><td class = "formError">{$T_ENTITY_FORM.poll_subject.error}</td></tr>{/if}
              <tr><td></td><td>
     <span>
-     <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-     <a href = "javascript:toggleEditor('poll_text','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+     <img style="vertical-align:middle" onclick = "toggledInstanceEditor = 'poll_text';javascript:toggleEditor('poll_text','simpleEditor');" class = "handle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+     <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'poll_text';javascript:toggleEditor('poll_text','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
     </span>
     </td></tr>
 
@@ -142,8 +142,8 @@
 
      <tr><td></td><td>
       <span>
-       <img style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-       <a href = "javascript:toggleEditor('editor_message_data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
+       <img onclick = "toggledInstanceEditor = 'editor_message_data';javascript:toggleEditor('editor_message_data','simpleEditor');" class = "handle" style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
+       <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'editor_message_data';javascript:toggleEditor('editor_message_data','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
       </span>
      </td></tr>
 

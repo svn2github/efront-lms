@@ -599,6 +599,7 @@ if (isset($currentLesson)) {
 }
 if ((!isset($_GET['edit']) && $_GET['ctg'] == 'content') && !isset($_GET['edit_project']) && !isset($_GET['edit_question']) && !isset($_GET['edit_test'])) { // when updating a unit we must preserve the innerlink
  $smarty -> load_filter('output', 'eF_template_setInnerLinks');
+ $smarty -> load_filter('output', 'eF_template_setEditorOffset');
 }
 $benchmark -> set('script');
 $smarty -> display('professor.tpl');

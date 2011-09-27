@@ -2888,6 +2888,12 @@ function loginRedirect($user_type, $message = '', $message_type = '') {
  }
  eF_redirect($location);
 }
+function applyEditorOffset($data) {
+ $offset = "/".mb_substr( G_SERVERNAME , mb_strpos(G_SERVERNAME, $_SERVER["HTTP_HOST"]) + mb_strlen($_SERVER["HTTP_HOST"]) + 1);
+ $data = str_replace('poster='.$offset, 'poster=##EFRONTEDITOROFFSET##', $data);
+ $data = str_replace('value="url='.$offset, 'value="url=##EFRONTEDITOROFFSET##', $data);
+ return $data;
+}
 class AjaxResultObject
 {
  public $message = '';

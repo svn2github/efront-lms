@@ -532,7 +532,7 @@ class EfrontSystem
 
 	 */
  public static function getAdministrator() {
-  $admins = eF_getTableData("users", "*", "user_type = 'administrator' and user_types_ID = 0", "timestamp");
+  $admins = eF_getTableData("users", "*", "user_type = 'administrator' and user_types_ID = 0 and active=1 and archive=0", "timestamp");
   $admin = EfrontUserFactory :: factory($admins[0]);
   return $admin;
  }

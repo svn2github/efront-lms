@@ -1006,12 +1006,10 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
      if ($GLOBALS['configuration']['notifications_send_mode'] == 0) { //email only    		
       $result = $smtp -> send($recipient['email'], $header, $message);
      } else if ($GLOBALS['configuration']['notifications_send_mode'] == 1) { //pm only
-      $admin = EfrontSystem :: getAdministrator();
-      $pm = new eF_PersonalMessage($admin->user['login'], $recipient['login'], $header['Subject'], $message);
+      $pm = new eF_PersonalMessage($recipient['login'], $recipient['login'], $header['Subject'], $message);
       $result = $pm->send();
      } else if ($GLOBALS['configuration']['notifications_send_mode'] == 2) { //email and pm
-      $admin = EfrontSystem :: getAdministrator();
-      $pm = new eF_PersonalMessage($admin->user['login'], $recipient['login'], $header['Subject'], $message);
+      $pm = new eF_PersonalMessage($recipient['login'], $recipient['login'], $header['Subject'], $message);
       $pm->send();
       $result = $smtp -> send($recipient['email'], $header, $message);
      }

@@ -227,6 +227,16 @@ try {
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
+if (isset($_GET['ajax']) && $_GET['ajax'] == 'set_time_target') {
+ if ($currentUnit) {
+  echo json_encode(array('active_time_in_unit' => EfrontLesson::getUserActiveTimeInUnit($currentUser->user['login'], $currentUnit['id']),
+          'active_time_un_lesson' => EfrontLesson::getUserActiveTimeInLesson($currentUser->user['login'], $currentLesson->lesson['id']),
+          'status' => true));
+ } else {
+  echo json_encode(array('status' => true));
+ }
+ exit; //this way we ensure that the session-registered time target is correct 
+}
 ///MODULE1: Import
 try {
  $loadedModules = $currentUser -> getModules();

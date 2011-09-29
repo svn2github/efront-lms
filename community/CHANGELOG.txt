@@ -68,6 +68,9 @@
 - Fixed issue about date type custom user field in notifications
 - Skill-gap test results are now available to students as well (Enterprise edition)
 - Fixed issue about displaying custom profile fields in user reports generator
+- Notifications can now be optionally sent as pms as well
+- Fixed imported lessons not displaying skill names correctly (Educational edition)
+- Fixed error in calculation for total_time in SCORM content when revisiting SCO
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

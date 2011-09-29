@@ -229,6 +229,8 @@
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
   <span style = "display:none" id = "user_time_in_lesson">{$T_USER_CURRENT_TIME_IN_LESSON}</span>
   <span style = "display:none" id = "required_time_in_lesson">{$T_REQUIRED_TIME_IN_LESSON}</span>
+  {*Target: {foreach name = 'aaa' key = "key" item = "item" from = $smarty.session.s_time_target}{$item}-{$key}{/foreach}*}
+
   {/if}
   {capture name = 't_content_footer_code'}
        <table class = "navigationTable">

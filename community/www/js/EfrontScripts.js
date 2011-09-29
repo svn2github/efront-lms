@@ -658,10 +658,18 @@ function onPeriodicUpdater(el, response) {
 //{"messages":"0","online":[{"login":"admin","formattedLogin":"Administrator S. (admin)","user_type":"administrator","timestamp_now":"1292775277","session_timestamp":"1292775277","time":{"seconds":14,"minutes":2,"hours":0,"total_seconds":134,"time_string":"2_MINUTESSHORTHAND 14_SECONDSSHORTHAND"}}]}	
 }
 function startUpdaterFunction() {
-    setTimeout("periodicUpdater()", 2500);
-    if (typeof(updaterPeriod) != 'undefined') {
-    	setInterval("periodicUpdater()", updaterPeriod);
-    }
+	ajaxRequest(document.body, location.toString(), {method:"get",ajax:"set_time_target",random:new Date().getTime()}, function (el, response) {
+		setTimeout("periodicUpdater()", 2500);
+		if (typeof(updaterPeriod) != 'undefined') {
+			setInterval("periodicUpdater()", updaterPeriod);
+		}
+		if ($('user_total_time_in_unit') && response.evalJSON(true).status && response.evalJSON(true).active_time_in_unit) {
+			$('user_total_time_in_unit').update(response.evalJSON(true).active_time_in_unit);
+		}
+		if ($('user_time_in_lesson') && response.evalJSON(true).status && response.evalJSON(true).active_time_in_lesson) {
+			$('user_time_in_lesson').update(response.evalJSON(true).active_time_in_lesson);
+		}
+	});
 }
 
 if (typeof(startUpdater) != 'undefined' && startUpdater) { startUpdaterFunction();}

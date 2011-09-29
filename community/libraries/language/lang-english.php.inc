@@ -4147,4 +4147,6 @@ define("_DISPLAYRESULTSTOSTUDENTS", "Display results to students");
 define("_CHECKJAVA", "Checking Java plugin");
 define("_CHECKJAVAFAILED", "Java plugin is not installed");
 define("_LOADVIDEOJS", "Load videojs");
+define("_SENDMODE", "Send mode");
+define("_EMAILANDPM", "Email and personal message");
 ?>

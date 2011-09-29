@@ -38,7 +38,9 @@ try {
   if ($_SESSION['s_lesson_user_type'] == 'student' && isset($_POST['user_total_time_in_unit']) && current($entity) == 'unit' && eF_checkParameter(key($entity), 'id')) {
    $newTime = $_POST['user_total_time_in_unit'];
    if ($newTime && is_numeric($newTime)) {
+    debug();
     $result = eF_executeNew("insert into users_to_content (users_LOGIN, content_ID, lessons_ID) values('".$_SESSION['s_login']."', ".key($entity).", ".$_SESSION['s_lessons_ID'].") on duplicate key update total_time=$newTime");
+    debug(false);
 /*				
 
 				$result = eF_executeNew("update user_times set time=$newTime,timestamp_now=".time()."

@@ -2851,13 +2851,13 @@ function refreshLogin() {
  }
 }
 function getMainScripts() {
- $mainScripts = array('EfrontScripts',
-       'scriptaculous/prototype',
+ $mainScripts = array('scriptaculous/prototype',
        'scriptaculous/scriptaculous',
        'scriptaculous/effects',
        'prototip/prototip',
        'efront_ajax',
-                      'includes/events');
+                      'EfrontScripts',
+       'includes/events');
  return $mainScripts;
 }
 /**

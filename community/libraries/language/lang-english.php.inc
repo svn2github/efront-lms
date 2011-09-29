@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."language/custom-english.php.inc")) {
     include($GLOBALS['path']."language/custom-english.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+    include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL", "http://www.efrontlearning.net");
 define("_EFRONTNAME", "eFront");
 define("_EFRONTLOGIN", "Login to eFront");
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","Settings checker");
 define("_CHECKBROWSER","Checking browser");
 define("_CHECKRESOLUTION","Checking screen resolution");
 define("_CHECKPOPUPBLOCKER","Checking for Popup blocker");
-define("_CHECKCOOKIES","Checking Cookie state...");
+define("_CHECKCOOKIES","Checking Cookie state");
 define("_CHECKFLASH","Checking for Flash");
 define("_CHECKACROBAT","Checking for Adobe Reader");
 define("_CHECKBROWSERIE6","Internet Explorer 6 detected. This browser is obsolete and functionality may be affected");
@@ -4141,4 +4144,7 @@ define("_YOAURENOTALLOWEDTOACCESSTHISUNIT", "You are not allowed to access this 
 define("_STARTWITHPIPEIFWANTEMPTYCHOICE", "Start with pipe | if you want an empty choice");
 define("_YOUCANTADDTHISBALANCE", "You cannot add this balance");
 define("_DISPLAYRESULTSTOSTUDENTS", "Display results to students");
+define("_CHECKJAVA", "Checking Java plugin");
+define("_CHECKJAVAFAILED", "Java plugin is not installed");
+define("_LOADVIDEOJS", "Load videojs");
 ?>

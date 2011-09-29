@@ -94,7 +94,10 @@ var translations = new Array(); //used for passing language tags to js
 
 </script>
 {/if}
-{*<script type="text/javascript" src="js/jwplayer/jwplayer.js"></script>*}
+{if $T_CONFIGURATION.load_videojs == 1}
+ <script src="js/videojs/video.js" type="text/javascript" charset="utf-8"></script>
+ <link rel="stylesheet" href="js/videojs/video-js.css" type="text/css" media="screen" title="Video JS" charset="utf-8">
+{/if}
 
 <script>var translations = new Array(); /*used for passing language tags to js*/</script>
 

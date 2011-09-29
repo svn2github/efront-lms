@@ -2,7 +2,7 @@
  {if $smarty.session.s_login}
  <script>
      // Translations used in the updater script
-     var translations = new Array();
+
      translations['lessons'] = '{$smarty.const._LESSONS}';
      translations['servername'] = '{$smarty.const.G_SERVERNAME}';
      translations['onlineusers'] = '{$smarty.const._ONLINEUSERS}';

@@ -387,10 +387,12 @@ function myCommit(parameter)
             /*commitArray holds the variables that need to be commited. These become a series of GET parameters, which are communicated to the LMSCommitPage.php page*/
             for (mykey in commitArray)
             {
-                if (mykey != 'total_time' || parameter == 'finish') {
+                if (mykey != 'session_time' || parameter == 'finish') {
                     if (document.getElementById(mykey)) {
                         document.getElementById(mykey).value = commitArray[mykey];
                     }
+                } else if (mykey == 'session_time') {
+                    document.getElementById(mykey).value = ''; //we only commit session times upon finish 
                 }
             }
             <?php

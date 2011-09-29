@@ -138,7 +138,7 @@
                         </a>
             {/if}
                </td><td style = "padding-left:30px">
-                          <img onclick = "Element.extend(this).next().toggle()" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[$key].html}
+                          <img class = "handle" onclick = "Element.extend(this).next().toggle()" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[$key].html}
                         </td></tr>
    {if $item.error}<tr><td></td><td class = "formError">{$item.error}</td></tr>{/if}
   {/foreach}
@@ -166,7 +166,7 @@
                                 <img src = "images/16x16/error_delete.png" alt = "{$smarty.const._REMOVECHOICE}" title = "{$smarty.const._REMOVECHOICE}" /></a>
             {/if}
                         </td><td style = "padding-left:30px">
-                 <img onclick = "Element.extend(this).next().toggle()" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[$key].html}
+                 <img onclick = "Element.extend(this).next().toggle()" class = "handle" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[$key].html}
                         </td></tr>
    {if $item.error}<tr><td></td><td class = "formError">{$item.error}</td></tr>{/if}
         {/foreach}
@@ -194,7 +194,7 @@
                                 <img src = "images/16x16/error_delete.png" border = "no" alt = "{$smarty.const._REMOVECHOICE}" title = "{$smarty.const._REMOVECHOICE}" /></a>
             {/if}
                         </td><td style = "padding-left:30px">
-                              <img onclick = "Element.extend(this).next().toggle()" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[match_list].html}
+                              <img onclick = "Element.extend(this).next().toggle()" class = "handle" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[match_list].html}
                         </td></tr>
    {if $T_QUESTION_FORM.match[match_list].error || $T_QUESTION_FORM.correct_match[match_list].error }<tr><td class = "formError">{$T_QUESTION_FORM.match[match_list].error}</td><td>{$T_QUESTION_FORM.correct_match[match_list].error}</td></tr>{/if}
   {/section}
@@ -219,7 +219,7 @@
                                 <img src = "images/16x16/error_delete.png" border = "no" alt = "{$smarty.const._REMOVECHOICE}" title = "{$smarty.const._REMOVECHOICE}" /></a>
             {/if}
                         </td><td style = "padding-left:30px;white-space:nowrap">
-                              <img onclick = "Element.extend(this).next().toggle()" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[drag_drop_list].html}
+                              <img onclick = "Element.extend(this).next().toggle()" class = "handle" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}" style = "margin-right:5px;vertical-align:middle">{$T_QUESTION_FORM.answers_explanation[drag_drop_list].html}
                         </td></tr>
    {if $T_QUESTION_FORM.drag_drop[drag_drop_list].error || $T_QUESTION_FORM.correct_drag_drop[drag_drop_list].error }<tr><td class = "formError">{$T_QUESTION_FORM.drag_drop[drag_drop_list].error}</td><td>{$T_QUESTION_FORM.correct_drag_drop[drag_drop_list].error}</td></tr>{/if}
   {/section}
@@ -239,7 +239,7 @@
          <tr><td></td><td class = "elementCell">
          <div class = "headerTools">
           <span>
-           <img src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}">
+           <img onclick = "eF_js_showHide('explanation');" class = "handle" src = "images/16x16/add.png" alt = "{$smarty.const._INSERTEXPLANATION}" title = "{$smarty.const._INSERTEXPLANATION}">
            <a href = "javascript:void(0)" onclick = "eF_js_showHide('explanation');">{$smarty.const._INSERTEXPLANATION}</a>
           </span>
    </div>

@@ -32,6 +32,8 @@ $appearanceMainForm -> addElement("advcheckbox", "display_empty_blocks", _SHOWEM
 $appearanceMainForm -> addElement("select", "lessons_directory", _VIEWDIRECTORY, array(_NO, _YES, _YESAFTERLOGIN), 'class = "inputSelect"');
 $appearanceMainForm -> addElement("select", "login_redirect_page", _LOGINREDIRECTPAGE, $loginRedirectArray, 'class = "inputCheckBox"');
 $appearanceMainForm -> addElement("text", "logout_redirect", _LOGOUTREDIRECT, 'class = "inputText"');
+$appearanceMainForm -> addElement("advcheckbox", "load_videojs", _LOADVIDEOJS, null, 'class = "inputCheckBox"', array(0,1));
+
 $appearanceMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $appearanceMainForm -> freeze();

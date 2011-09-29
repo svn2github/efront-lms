@@ -12,6 +12,8 @@ var translationcheckPopupBlockerFailed = "{$smarty.const._CHECKPOPUPBLOCKERFAILE
 var translationcheckCookiesFailed = "{$smarty.const._CHECKCOOKIESFAILED}";
 var translationcheckFlashFailed = "{$smarty.const._CHECKFLASHFAILED}";
 var translationcheckAcrobatFailed = "{$smarty.const._CHECKACROBATFAILED}";
+var translationcheckJava = "{$smarty.const._CHECKJAVA}";
+var translationcheckJavaFailed = "{$smarty.const._CHECKJAVAFAILED}";
 </script>
 <script type="text/javascript" src="js/optionsChecker.js"></script>
 <noscript><table width="100%"><tr><td>{$smarty.const._CHECKJAVASCRIPT}</td><td><img src='images/16x16/error_delete.png' title='{$smarty.const._CHECKJAVASCRIPTFAILED}' /></td></tr></table></noscript>

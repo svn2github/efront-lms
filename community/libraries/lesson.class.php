@@ -3540,6 +3540,7 @@ class EfrontLesson
                                                      'options' => $data['lessons']['options']), "id=".$this -> lesson['id']);
     if ($keepName) {
      eF_updateTableData("lessons", array("name" => $data['lessons']['name']), "id=".$this -> lesson['id']);
+     $this->lesson['name'] = $data['lessons']['name'];
      eF_updateTableData("f_forums", array("title" => $data['lessons']['name']), "lessons_ID=".$this -> lesson['id']);
     }
    } else {

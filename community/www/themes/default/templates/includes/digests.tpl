@@ -295,6 +295,9 @@ var customFieldsKeys = new Array();
                     <tr><td class = "labelCell">{$T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.label}:&nbsp;</td>
                         <td class = "elementCell">{$T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.html}</td></tr>
                     {if $T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.error}<tr><td></td><td class = "formError">{$T_NOTIFICATION_VARIABLES_FORM.notifications_max_sent_messages.error}</td></tr>{/if}
+                    <tr><td class = "labelCell">{$T_NOTIFICATION_VARIABLES_FORM.notifications_send_mode.label}:&nbsp;</td>
+                        <td class = "elementCell">{$T_NOTIFICATION_VARIABLES_FORM.notifications_send_mode.html}</td></tr>
+                    {if $T_NOTIFICATION_VARIABLES_FORM.notifications_send_mode.error}<tr><td></td><td class = "formError">{$T_NOTIFICATION_VARIABLES_FORM.notifications_send_mode.error}</td></tr>{/if}
                     <tr><td></td><td class = "submitCell">{$T_NOTIFICATION_VARIABLES_FORM.submit_variables.html}</td></tr>
                 </table>
             </form>

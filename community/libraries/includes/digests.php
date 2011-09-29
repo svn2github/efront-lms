@@ -1075,12 +1075,20 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
   $config_form -> addRule('notifications_max_sent_messages', _THEFIELD.' "'._MAXIMUMSENTMESSAGESSTORED.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
   $config_form -> addRule('notifications_max_sent_messages', _THEFIELD.' "'._MAXIMUMSENTMESSAGESSTORED.'" '._ISMANDATORY, 'required', null, 'client');
 
+  $config_form -> addElement('select', 'notifications_send_mode', _SENDMODE, array(_EMAIL, _PERSONALMESSAGE, _EMAILANDPM));
+  $config_form -> addRule('notifications_max_sent_messages', _THEFIELD.' "'._MAXIMUMSENTMESSAGESSTORED.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+
   $config_form -> addElement('submit', 'submit_variables', _SUBMIT, 'class = "flatButton"');
 
-  $notification_configurations = array('notifications_use_cron', 'notifications_pageloads', 'notifications_maximum_inter_time', 'notifications_messages_per_time', 'notifications_max_sent_messages');
+  $notification_configurations = array('notifications_use_cron',
+            'notifications_pageloads',
+            'notifications_maximum_inter_time',
+            'notifications_messages_per_time',
+            'notifications_max_sent_messages',
+            'notifications_send_mode');
 
   foreach ($notification_configurations as $conf_option) {
-   $config_form ->setDefaults(array($conf_option => $GLOBALS['configuration'][$conf_option]));
+   $config_form->setDefaults(array($conf_option => $GLOBALS['configuration'][$conf_option]));
   }
 
   if ($config_form -> isSubmitted()) {

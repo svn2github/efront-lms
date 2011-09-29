@@ -1003,8 +1003,20 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
   }
         $message = eF_formulateTemplateMessage($message, $template_formulations);
      $message = eF_replaceMD5($message);
+     if ($GLOBALS['configuration']['notifications_send_mode'] == 0) { //email only    		
+      $result = $smtp -> send($recipient['email'], $header, $message);
+     } else if ($GLOBALS['configuration']['notifications_send_mode'] == 1) { //pm only
+      $admin = EfrontSystem :: getAdministrator();
+      $pm = new eF_PersonalMessage($admin->user['login'], $recipient['login'], $header['Subject'], $message);
+      $result = $pm->send();
+     } else if ($GLOBALS['configuration']['notifications_send_mode'] == 2) { //email and pm
+      $admin = EfrontSystem :: getAdministrator();
+      $pm = new eF_PersonalMessage($admin->user['login'], $recipient['login'], $header['Subject'], $message);
+      $pm->send();
+      $result = $smtp -> send($recipient['email'], $header, $message);
+     }
      //ssssssssssssssssssssss
-     if ($smtp -> send($recipient['email'], $header, $message)) {
+     if ($result) {
      //if (true) {  echo $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ") " . $message ."<BR>";  // for debugging
      // put into sent_notifications table
          eF_insertTableData("sent_notifications", array("timestamp" => time(),

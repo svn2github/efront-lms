@@ -170,3 +170,8 @@ if (!usingHorizontalInterface) {
      top.sideframe.document.getElementById('loading_sidebar').style.display = 'none'; //no prototype here please
 
 </script>
+{if $T_CONFIGURATION.load_videojs == 1}
+<script type="text/javascript" charset="utf-8">
+ VideoJS.setupAllWhenReady();
+</script>
+{/if}

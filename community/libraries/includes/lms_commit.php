@@ -58,8 +58,8 @@ try {
  $scoLesson = new EfrontLesson($_SESSION['s_lessons_ID']);
  $scoUnit = new EfrontUnit($fields['content_ID']);
  if (sizeof($result) > 0) { //This means that the students re-enters the unit
-  if (isset($fields['total_time'])&&isset($fields['session_time']) && $fields['total_time'] && $fields['session_time']) { //Make sure that time is properly converted, for example 35+35 minutes become 1 hour 10 minutes, instead if 70 minutes
-   $time_parts1 = explode(":", $fields['total_time']);
+  if (isset($fields['session_time']) && $fields['session_time']) { //Make sure that time is properly converted, for example 35+35 minutes become 1 hour 10 minutes, instead if 70 minutes
+   $time_parts1 = explode(":", $result[0]['total_time']);
    $time_parts2 = explode(":", $fields['session_time']);
    $time_parts[0] = $time_parts1[0] + $time_parts2[0];
    $time_parts[1] = $time_parts1[1] + $time_parts2[1];
@@ -85,10 +85,6 @@ try {
    eF_updateTableData("scorm_data", $fields, "id=".$result[0]['id']); //Update old values with new ones
   }
  } else {
-  if (isset($fields['total_time']) && $fields['total_time']) {
-   $time_parts = explode(":", $fields['total_time']);
-   $fields['total_time'] = sprintf("%04d",$time_parts[0]).":".sprintf("%02d",$time_parts[1]).":".sprintf("%05.2f",$time_parts[2]);
-  }
   $fields['total_time'] = $fields['session_time'];
   unset($fields['session_time']);
   if ($_GET['scorm_version'] == '2004') {

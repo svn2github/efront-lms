@@ -10,7 +10,7 @@
     <input type = "hidden" name = "masteryscore" id = "masteryscore" />
     <input type = "hidden" name = "datafromlms" id = "datafromlms" />
     <input type = "hidden" name = "entry" id = "entry" />
-    <input type = "hidden" name = "total_time" id = "total_time" />
+    {*<input type = "hidden" name = "total_time" id = "total_time" />*}
     <input type = "hidden" name = "comments" id = "comments" />
     <input type = "hidden" name = "comments_from_lms" id = "comments_from_lms" />
     <input type = "hidden" name = "completion_status" id = "completion_status" />

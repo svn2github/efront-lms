@@ -433,7 +433,7 @@
                                              <td name = "title" class = "topTitle firstColumn">{$smarty.const._TOPICS}</td>
                                              <td name = "messages" class = "topTitle secondColumn">{$smarty.const._MESSAGES}</td>
                                              <td name = "last_post_timestamp" class = "topTitle thirdColumn">{$smarty.const._LASTPOST}</td>
-                                             <td name = "stetus" class = "centerAlign topTitle toolsColumn">{$smarty.const._STATUS}</td>
+                                             <td name = "status" class = "centerAlign topTitle toolsColumn">{$smarty.const._STATUS}</td>
                                              <td class = "topTitle centerAlign  toolsColumn noSort">{if $_change_ && !$_student_}{$smarty.const._OPERATIONS}{/if}</td>
                                          </tr>
       {assign var = "novisible" value = 0}

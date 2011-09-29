@@ -4141,4 +4141,7 @@ define("_YOAURENOTALLOWEDTOACCESSTHISUNIT", "Δεν επιτρέπεται να 
 define("_STARTWITHPIPEIFWANTEMPTYCHOICE", "Ξεκινήστε με | αν επιθυμείτε μια κενή επιλογή");
 define("_YOUCANTADDTHISBALANCE", "Δεν μπορείτε να δώσετε αυτήν την πίστωση");
 define("_DISPLAYRESULTSTOSTUDENTS", "Εμφάνιση αποτελεσμάτων στους μαθητές");
+define("_CHECKJAVA","Έλεγχος Java");
+define("_CHECKJAVAFAILED", "Δεν υπάρχει ενεργοποιημένο το Java plugin");
+define("_LOADVIDEOJS", "Φόρτωση videojs");
 ?>

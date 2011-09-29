@@ -152,7 +152,7 @@
    <div class = "messagesTable" >
     <div class = "messageInfo">
      <div><span>{$smarty.const._SENT}:</span> #filter:timestamp_time-{$T_PERSONALMESSAGE.timestamp}#</div>
-     <div><span>{$smarty.const._SENDER}:</span> {$T_PERSONALMESSAGE.sender}</div>
+     <div><span>{$smarty.const._SENDER}:</span> #filter:login-{$T_PERSONALMESSAGE.sender}#</div>
      <div>
       <span>{$smarty.const._RECIPIENT}:</span>
       {if $T_PERSONALMESSAGE.bcc}

@@ -102,6 +102,7 @@ class EfrontConfiguration
   'login_redirect_page' => 'lesson_catalog', // possilbe values 'lesson_catalog', 'user_dashboard'
   'editor_type' => 'tinymce', // possible values 'tinymce', 'tinymce_new'
   'show_footer' => '1',
+     'load_videojs' => '0',
         //LDAP
         'activate_ldap' => '0',
         'only_ldap' => '0',
@@ -208,6 +209,7 @@ class EfrontConfiguration
      'notifications_maximum_inter_time' => '0',
         'notifications_messages_per_time' => '5',
         'notifications_max_sent_messages' => '100',
+        'notifications_send_mode' => '0',
 
         //Unclassified - deprecated
         'cms_page' => '',

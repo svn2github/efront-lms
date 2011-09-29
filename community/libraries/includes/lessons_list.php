@@ -60,9 +60,9 @@ try {
   foreach ($userCourses as $key => $course) {
    //this must be here (before $userCourses assignment) in order to revoke a certificate if it is expired and/or re-assign a course to a student if needed
    if ($course -> course['start_date'] && $course -> course['start_date'] > time()) {
-    $value['remaining'] = null;
+    $course -> course['remaining'] = null;
    } elseif ($course -> course['end_date'] && $course -> course['end_date'] < time()) {
-    $value['remaining'] = 0;
+    $course -> course['remaining'] = 0;
    } else if ($course -> options['duration'] && $course -> course['active_in_course']) {
     if ($course -> course['active_in_course'] < $course -> course['start_date']) {
      $course -> course['active_in_course'] = $course -> course['start_date'];

@@ -9,15 +9,14 @@
    {if $T_ONLINE_USERS_LIST && !$T_CONFIGURATION.disable_online_users}
     <span class = "headerText" >
     {strip}
-     {$smarty.const._ONLINEUSERS}:&nbsp;
-     (<a href = "javascript:void(0)" class = "info">
-      <span id = "header_connected_users">{$T_ONLINE_USERS_LIST|@sizeof}</span>
+     <a href = "javascript:void(0)" class = "info">{$smarty.const._ONLINEUSERS}:&nbsp;
+      <span id = "header_connected_users">({$T_ONLINE_USERS_LIST|@sizeof}</span>
       <span class = "tooltipSpan">
        {foreach name = 'online_users_list' item = "item" key = "key" from = $T_ONLINE_USERS_LIST }
         #filter:login-{$item.login}#{if !$smarty.foreach.online_users_list.last},&nbsp;{/if}
        {/foreach}
       </span>
-     </a>)
+     )</a>
     {/strip}
     </span>
       {/if}

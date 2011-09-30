@@ -229,8 +229,8 @@ try {
 }
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'set_time_target') {
  if ($currentUnit) {
-  echo json_encode(array('active_time_in_unit' => EfrontLesson::getUserActiveTimeInUnit($currentUser->user['login'], $currentUnit['id']),
-          'active_time_un_lesson' => EfrontLesson::getUserActiveTimeInLesson($currentUser->user['login'], $currentLesson->lesson['id']),
+  echo json_encode(array('active_time_in_unit' => EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInUnit($currentUser->user['login'], $currentUnit['id'])),
+          'active_time_un_lesson' => EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInLesson($currentUser->user['login'], $currentLesson->lesson['id'])),
           'status' => true));
  } else {
   echo json_encode(array('status' => true));

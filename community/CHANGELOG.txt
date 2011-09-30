@@ -72,6 +72,7 @@
 - Fixed imported lessons not displaying skill names correctly (Educational edition)
 - Fixed error in calculation for total_time in SCORM content when revisiting SCO
 - Branch statistics now optionally display sub-branch information as well (Enterprise edition)
+- Fixed issue about assigning administrator roles to lessons from professor's lesson administration page
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

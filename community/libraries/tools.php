@@ -2774,7 +2774,7 @@ function addTime(&$a, $b) {
 
  */
 function getUserTimeTarget($url) {
- return $_SESSION['s_time_target'];
+ //return $_SESSION['s_time_target'];
  if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID']) {
   $entity = array($_SESSION['s_lessons_ID'] => 'lesson');
  } else {
@@ -2816,8 +2816,8 @@ function getUserLastTimeInTarget($entity) {
  */
 function refreshLogin() {
  if ($_SESSION['s_login']) {
-  //$entity   = getUserTimeTarget($_SERVER['REQUEST_URI']);		//Something like 'system', 'lesson' or 'unit'
-  $entity = $_SESSION['s_time_target'];
+  $entity = getUserTimeTarget($_SERVER['REQUEST_URI']); //Something like 'system', 'lesson' or 'unit'
+  //$entity = $_SESSION['s_time_target'];
   $result = eF_getTableData("user_times", "time, timestamp_now", "session_expired=0 and session_custom_identifier = '".$_SESSION['s_custom_identifier']."' and users_LOGIN='".$_SESSION['s_login']."' and entity='".current($entity)."' and entity_id='".key($entity)."'");
   $totalTimeSoFar = false;
   if (!empty($result) && $result[0]['timestamp_now'] >= time() - 5*$GLOBALS['configuration']['updater_period']/1000) { //5 failed updates: reset

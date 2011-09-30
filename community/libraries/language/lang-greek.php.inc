@@ -3988,7 +3988,7 @@ define("_STATISTICSFORSKILL", "Στατιστικά για το προσόν");
 define("_CHOOSESKILL", "Επιλέξτε προσόν");
 define("_SKILLGRAPH", "Γράφημα προσόντος");
 define("_TOTALSKILLS", "Συνολικά προσόντα");
-define("_SCORMASYNCHROUNOUS", "Ασύγχρονης επικοινωνία με SCORM");
+define("_SCORMASYNCHROUNOUS", "Ασύγχρονη επικοινωνία με SCORM");
 define("_SCORMASYNCHRONOUSEXPLANATION", "Εναλλάξτε σε ασύγχρονη επικοινωνία εάν αντιμετωπίζεται προβλήματα ολοκλήρωσης του περιεχομένου SCORM (ειδικά αν το περιεχόμενο έχει δημιουργηθεί με το Adobe Captivate)");
 define("_WARNINGDISABLINGPAYMENTSWILLSETALLPRICESTOZERO", "Προσοχή: Αν απενεργοποιήσετε τις πληρωμές, όλες οι τιμές θα τεθούν στο 0");
 define("_MULTIPLEOPTIONS", "Πολλαπλές επιλογές");

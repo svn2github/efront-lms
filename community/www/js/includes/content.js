@@ -473,53 +473,55 @@ function startContentTimer() {
     	return v;
     }
 	
-    if (seconds < 59) {seconds++;}
-    else {
-        if (seconds == 59 ) {seconds = 0;}
-        if (minutes < 59)  {minutes++;}
-        else {
-            if (minutes == 59) {minutes = 0;}
-            hours++;
-        }
-    }
-    min = this.formatTime(minutes.toString());
-    sec = this.formatTime(seconds.toString());
-    hours = this.formatTime(hours);
-        
+    if (typeof(seconds) != 'undefined') {
     
-    //if (hours.length == 1) {hours = "0" + hours;}
-    //if (min.length == 1) {min = "0" + min;}
-    //if (sec.length == 1) {sec = "0" + sec;}
-
-    $("user_time_in_unit_display").update(hours + ":" + min + ":" + sec);    
-    //$("user_current_time_in_unit").update(parseInt($("user_current_time_in_unit").innerHTML)+1);
-    
-    var newUserTotalTimeInUnit = parseInt($("user_total_time_in_unit").innerHTML)+1;
-    $('user_total_time_in_unit').update(newUserTotalTimeInUnit);
-    if (newUserTotalTimeInUnit == parseInt($('required_time_in_unit').innerHTML)) {
-    	setSeenUnit(true);
-    }    
-
-    if (lesson_seconds < 59) {lesson_seconds++;}
-    else {
-        if (lesson_seconds == 59 ) {lesson_seconds = 0;}
-        if (lesson_minutes < 59)  {lesson_minutes++;}
-        else {
-            if (lesson_minutes == 59) {lesson_minutes = 0;}
-            lesson_hours++;
-        }
+	    if (seconds < 59) {seconds++;}
+	    else {
+	        if (seconds == 59 ) {seconds = 0;}
+	        if (minutes < 59)  {minutes++;}
+	        else {
+	            if (minutes == 59) {minutes = 0;}
+	            hours++;
+	        }
+	    }
+	    min = this.formatTime(minutes.toString());
+	    sec = this.formatTime(seconds.toString());
+	    hours = this.formatTime(hours);
+	        
+	    
+	    //if (hours.length == 1) {hours = "0" + hours;}
+	    //if (min.length == 1) {min = "0" + min;}
+	    //if (sec.length == 1) {sec = "0" + sec;}
+	
+	    $("user_time_in_unit_display").update(hours + ":" + min + ":" + sec);    
+	    //$("user_current_time_in_unit").update(parseInt($("user_current_time_in_unit").innerHTML)+1);
+	    
+	    var newUserTotalTimeInUnit = parseInt($("user_total_time_in_unit").innerHTML)+1;
+	    $('user_total_time_in_unit').update(newUserTotalTimeInUnit);
+	    if (newUserTotalTimeInUnit == parseInt($('required_time_in_unit').innerHTML)) {
+	    	setSeenUnit(true);
+	    }    
+	
+	    if (lesson_seconds < 59) {lesson_seconds++;}
+	    else {
+	        if (lesson_seconds == 59 ) {lesson_seconds = 0;}
+	        if (lesson_minutes < 59)  {lesson_minutes++;}
+	        else {
+	            if (lesson_minutes == 59) {lesson_minutes = 0;}
+	            lesson_hours++;
+	        }
+	    }
+	    lesson_min = this.formatTime(lesson_minutes.toString());
+	    lesson_sec = this.formatTime(lesson_seconds.toString());
+	    lesson_hours = this.formatTime(lesson_hours);
+	    		
+	    $("user_time_in_lesson_display").update(lesson_hours + ":" + lesson_min + ":" + lesson_sec);    
+	    var newUserTimeInLesson = parseInt($("user_time_in_lesson").innerHTML)+1;
+	    $("user_time_in_lesson").update(newUserTimeInLesson);
+	    if (newUserTimeInLesson == parseInt($('required_time_in_lesson').innerHTML)) {
+	    	checkLessonConditions();
+	    }
     }
-    lesson_min = this.formatTime(lesson_minutes.toString());
-    lesson_sec = this.formatTime(lesson_seconds.toString());
-    lesson_hours = this.formatTime(lesson_hours);
-    		
-    $("user_time_in_lesson_display").update(lesson_hours + ":" + lesson_min + ":" + lesson_sec);    
-    var newUserTimeInLesson = parseInt($("user_time_in_lesson").innerHTML)+1;
-    $("user_time_in_lesson").update(newUserTimeInLesson);
-    if (newUserTimeInLesson == parseInt($('required_time_in_lesson').innerHTML)) {
-    	checkLessonConditions();
-    }
-
     
 	//contentTimer = setTimeout("startContentTimer()", 1000);	
 }

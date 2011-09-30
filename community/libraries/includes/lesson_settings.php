@@ -206,7 +206,7 @@ if ($_GET['op'] == 'reset_lesson') {
             in_array($key, array_keys($nonLessonUsers)) ? $users[$key]['in_lesson'] = false : $users[$key]['in_lesson'] = true;
         }
 
-  $roles = EfrontUser::getRoles(true);
+  $roles = EfrontLessonUser :: getLessonsRoles(true);
 
         if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;

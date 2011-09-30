@@ -8,6 +8,7 @@
 
 </script>
 
+<script>translationsToJS['_ACTIVATE'] = '{$smarty.const._ACTIVATE}'; translationsToJS['_DEACTIVATE'] = '{$smarty.const._DEACTIVATE}';</script>
 {if isset($smarty.get.add_notification) || isset($smarty.get.edit_notification)}
  <script>
  var noRecipientsHaveBeenSelected = "{$smarty.const._NORECIPIENTSHAVEBEENSELECTED}";

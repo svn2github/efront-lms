@@ -191,7 +191,7 @@
    {/foreach}
    </select>
    {*<input type = "image" src = "images/16x16/arrow_right.png" alt = "{$smarty.const._SHOW}" title = "{$smarty.const._SHOW}" nclick = "Element.extend(this);location = location.toString().replace(/&report=\d*/, '').replace(/&tab=\w*/, '')+'&report='+this.previous().options[this.previous().options.selectedIndex].value" style = "border:0px;background-color:inherit"/>*}
-   <input type = "submit" value = "{$smarty.const._SHOW}" class = "flatButton"/>
+   <input type = "submit" value = "{$smarty.const._SUBMIT}" class = "flatButton"/>
    <img id = "delete_report" {if !$smarty.get.report}style = "display:none"{/if} class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteReport(this, $('reports_list_edit').options[$('reports_list_edit').options.selectedIndex].value)"/>
   </span>
    </form>

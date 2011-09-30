@@ -62,6 +62,14 @@ try {
     $jsonValues['old_time_in_lesson'] = EfrontTimes::formatTimeForReporting((EfrontLesson::getUserActiveTimeInLesson($_SESSION['s_login'], $_SESSION['s_lessons_ID'])));
    }
   }
+  try {
+   $currentUser = EfrontUser :: checkUserAccess();
+  } catch (Exception $e) {
+   if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
+    echo json_encode(array('status' => 0, 'code' => -1));
+    exit;
+   }
+  }
  }
  $jsonValues['online'] = EfrontUser :: getUsersOnline($GLOBALS['configuration']['autologout_time'] * 60);
  $messages = eF_getTableData("f_personal_messages pm, f_folders ff", "count(*)", "pm.users_LOGIN='".$_SESSION['s_login']."' and viewed='no' and f_folders_ID=ff.id and ff.name='Incoming'");

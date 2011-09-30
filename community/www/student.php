@@ -81,7 +81,7 @@ try {
   }
   $currentLesson = new EfrontLesson($unit['lessons_ID']);
   $_SESSION['s_lessons_ID'] = $currentLesson -> lesson['id'];
-  $_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
+  //$_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
  }
 } catch (Exception $e) {
  unset($_GET['view_unit']);
@@ -95,7 +95,7 @@ $userLessons = $currentUser -> getLessons();
 if ($_SESSION['s_lessons_ID'] && $_GET['ctg'] != 'lessons') {
  try {
   $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']); //Initialize lesson
-        $_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
+        //$_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
  } catch (Exception $e) {
   unset($_SESSION['s_lessons_ID']);
   $smarty -> assign("T_REFRESH_SIDE", "true");
@@ -185,7 +185,7 @@ if (isset($_SESSION['s_lessons_ID']) && $_SESSION['s_lessons_ID'] && $_GET['ctg'
         $currentUser -> applyRoleOptions($userLessons[$_SESSION['s_lessons_ID']]); //Initialize user's role options for this lesson
         $currentLesson = new EfrontLesson($_SESSION['s_lessons_ID']); //Initialize lesson
         $smarty -> assign("T_TITLE_BAR", $currentLesson -> lesson['name']);
-        $_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
+        //$_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
         $_SESSION['s_lesson_user_type'] = $roles[$userLessons[$_SESSION['s_lessons_ID']]]; //needed for outputfilter.eF_template_setInnerLinks
         $currentUser -> coreAccess['content'] != 'change' ? $currentLesson -> mode = 'browse' : $currentLesson -> mode = 'normal'; //If the user type's setting is other than 'change' from content, then set lesson mode to 'browse', which means that no unit completion or ' or whatever progress is recorded
     } catch (Exception $e) {
@@ -213,7 +213,7 @@ try {
         $currentUnit = $currentContent -> seekNode($_GET['view_unit']); //Initialize current unit
         //The content tree does not hold data, so assign this unit its data
         $unitData = new EfrontUnit($_GET['view_unit']);
-        $_SESSION['s_time_target'] = array($_GET['view_unit'] => 'unit');
+        //$_SESSION['s_time_target'] = array($_GET['view_unit'] => 'unit');        
         $currentUnit['data'] = $unitData['data'];
         if (!$_GET['ctg']) {
             $_GET['ctg'] = 'content';
@@ -226,16 +226,6 @@ try {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
-}
-if (isset($_GET['ajax']) && $_GET['ajax'] == 'set_time_target') {
- if ($currentUnit) {
-  echo json_encode(array('active_time_in_unit' => EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInUnit($currentUser->user['login'], $currentUnit['id'])),
-          'active_time_un_lesson' => EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInLesson($currentUser->user['login'], $currentLesson->lesson['id'])),
-          'status' => true));
- } else {
-  echo json_encode(array('status' => true));
- }
- exit; //this way we ensure that the session-registered time target is correct 
 }
 ///MODULE1: Import
 try {

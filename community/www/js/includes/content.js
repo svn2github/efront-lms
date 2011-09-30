@@ -534,11 +534,13 @@ if (typeof(start_timer) != 'undefined' && start_timer) {
 			document.onfocusout = function () {
 				if (pe) {
 					pe.stop();
+					dimPage(true);
 				}
 		    };    
 		    document.onfocusin = function() {
 				if (pe) {
 					pe.stop();
+					dimPage(false);
 				}
 		    	pe = new PeriodicalExecuter(startContentTimer, 1);
 		    };
@@ -546,11 +548,13 @@ if (typeof(start_timer) != 'undefined' && start_timer) {
 		    window.onblur  = function () {
 				if (pe) {
 					pe.stop();
+					dimPage(true);
 				}
 		    };    
 		    window.onfocus = function() {
 				if (pe) {
 					pe.stop();
+					dimPage(false);
 				}
 		    	pe = new PeriodicalExecuter(startContentTimer, 1);
 		    };
@@ -561,6 +565,15 @@ if (typeof(start_timer) != 'undefined' && start_timer) {
 	}
 }
 
+function dimPage(mode) {
+	if (typeof(timers) != 'undefined' && timers) {
+		if (mode) {
+			document.body.appendChild(new Element('div').addClassName('dimmerDiv').addClassName('dimmerDivTemp').setOpacity(0.9).setStyle({height:getDocHeight()+'px'}));	
+		} else {
+			$$('.dimmerDivTemp').each(function (s) {s.remove();});
+		}
+	}
+}
 function handleDrop(s,d, e) {	        
 	s.setStyle({left:'auto', top:'auto'});
 	d.next().insert(s.remove());

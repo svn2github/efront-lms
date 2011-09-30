@@ -550,11 +550,13 @@ function activateNotification(el, notification_id, is_event) {
 function onActivateSuccess(el, responseText) {
 
 	if (willBecomeActive) {
-		el.removeClassName('sprite16-trafficlight_red').addClassName('sprite16-trafficlight_green');	
-		imageText = deactivateConst;
+		el.removeClassName('sprite16-trafficlight_red').addClassName('sprite16-trafficlight_green');
+		//imageText = deactivateConst;
+		el.writeAttribute({alt:translationsToJS['_DEACTIVATE'], title:translationsToJS['_DEACTIVATE']});
     } else {
         el.removeClassName('sprite16-trafficlight_green').addClassName('sprite16-trafficlight_red');
-		imageText = activateConst;
+        el.writeAttribute({alt:translationsToJS['_ACTIVATE'], title:translationsToJS['_ACTIVATE']});
+		//imageText = activateConst;
 	}
 	 		
     tables = sortedTables.size();
@@ -569,15 +571,14 @@ function onActivateSuccess(el, responseText) {
     // Change from activated to deactivated row
     if (isEvent) {	
     	 row_element = $('notification_row_'+ thisNotificationId + '_1');
-    	 status_element = $('notification_status_' + thisNotificationId + '_1');
+    	 status_element = $('notification_status_' + thisNotificationId + '_1');	 
     } else {
          row_element = $('notification_row_'+ thisNotificationId + '_0');
-         status_element = $('notification_status_' + thisNotificationId + '_0');
+         status_element = $('notification_status_' + thisNotificationId + '_0');        
     }
     
     
     row_class = row_element.className.split(" ");
-    
 	if (row_class.length > 1) {
     	row_element.className = row_class[0];	// remove the "deactivatedTableElement"
     	status_element.innerHTML = "1";

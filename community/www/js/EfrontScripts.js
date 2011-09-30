@@ -675,6 +675,8 @@ function onPeriodicUpdater(el, response) {
 			
 		} 
 	
+	} else if (response.evalJSON(true) && response.evalJSON(true).status == 0 && response.evalJSON(true).code == -1) {
+		location='index.php?ctg=expired';
 	}
 //{"messages":"0","online":[{"login":"admin","formattedLogin":"Administrator S. (admin)","user_type":"administrator","timestamp_now":"1292775277","session_timestamp":"1292775277","time":{"seconds":14,"minutes":2,"hours":0,"total_seconds":134,"time_string":"2_MINUTESSHORTHAND 14_SECONDSSHORTHAND"}}]}	
 }

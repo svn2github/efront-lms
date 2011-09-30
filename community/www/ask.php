@@ -438,6 +438,7 @@ function askProjects() {
  echo $str;
 }
 function askLessons() {
+ eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
  $sql = '';
  if ($_GET['course_only']) {
   $sql .= "and course_only=1";

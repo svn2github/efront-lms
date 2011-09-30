@@ -568,7 +568,7 @@ if (typeof(start_timer) != 'undefined' && start_timer) {
 function dimPage(mode) {
 	if (typeof(timers) != 'undefined' && timers) {
 		if (mode) {
-			document.body.appendChild(new Element('div').addClassName('dimmerDiv').addClassName('dimmerDivTemp').setOpacity(0.9).setStyle({height:getDocHeight()+'px'}));	
+			document.body.appendChild(new Element('div').addClassName('dimmerDiv').addClassName('dimmerDivTemp').setOpacity(0.5).setStyle({height:getDocHeight()+'px'}));	
 		} else {
 			$$('.dimmerDivTemp').each(function (s) {s.remove();});
 		}

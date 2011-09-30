@@ -573,7 +573,7 @@ function periodicUpdater() {
 		var parameters = {method:'get'};
 	}
 	//alert(parameters.time);
-	ajaxRequest(document.body, 'periodic_updater.php?HTTP_REFERER='+encodeURIComponent(location.toString()), parameters, onPeriodicUpdater, function() {}, false);
+	ajaxRequest(document.body, 'periodic_updater.php?HTTP_REFERER='+encodeURIComponent(location.toString()), parameters, onPeriodicUpdater);
 }
 
 function onPeriodicUpdater(el, response) {

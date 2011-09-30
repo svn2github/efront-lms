@@ -1152,7 +1152,8 @@ class EfrontStats
     		$usersTimesInLessonContent[$value['users_LOGIN']] = $value['time'];
     	}    	
 */
-     $usersTimesInLessonContent[$user] = $times->getUserSessionTimeInLessonContent($user, $lessonId);
+     //$usersTimesInLessonContent[$user] = $times->getUserSessionTimeInLessonContent($user, $lessonId);
+     $usersTimesInLessonContent[$user] = EfrontLesson::getUserActiveTimeInLesson($user, $lessonId);
 
      $usersDoneContent = EfrontStats :: getStudentsSeenContent($lesson, $user, $options); //Calculate the done content for users in this lesson
      $usersAssignedProjects = array();

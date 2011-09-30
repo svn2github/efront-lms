@@ -32,7 +32,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     }
 
     $times = new EfrontTimes();
-    list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$editedUser -> user['login']], $conditions, $visitableContentIds, $testsIds, $times->getUserSessionTimeInLessonContent($editedUser -> user['login'], $currentLesson -> lesson['id']));
+    list($conditionsStatus, $lessonPassed) = EfrontStats :: checkConditions($seenContent[$currentLesson -> lesson['id']][$editedUser -> user['login']], $conditions, $visitableContentIds, $testsIds, $usersTimesInLessonContent[$user] = EfrontLesson::getUserActiveTimeInLesson($editedUser -> user['login'], $currentLesson -> lesson['id']));
     $smarty -> assign("T_CONDITIONS", $conditions);
     $smarty -> assign("T_CONDITIONS_STATUS", $conditionsStatus);
     foreach ($iterator = new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree)), array('id', 'name')) as $key => $value) {

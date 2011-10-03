@@ -25,6 +25,7 @@
   translations['_ADMINISTRATOR'] = '{$smarty.const._ADMINISTRATOR}';
   translations['_PROFESSOR'] = '{$smarty.const._PROFESSOR}';
   translations['_STUDENT'] = '{$smarty.const._STUDENT}';
+  translations['_IRREVERSIBLEACTIONAREYOUSURE'] = '{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}';
 
   var startUpdater = true;
   var updaterPeriod = '{$T_CONFIGURATION.updater_period}';

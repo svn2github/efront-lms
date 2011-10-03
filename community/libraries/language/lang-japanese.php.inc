@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."language/custom-japanese.php.inc")) {
 include($GLOBALS['path']."language/custom-japanese.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","にログインしてefront");//Login to eFront
@@ -2708,7 +2711,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE","ロゴのサイズは正でなければ�
 define("_SOCIAL","社会");//Social
 define("_OPTIONSFORSOCIALMODULE","するためのオプションの社会");//Options for social
 define("_ENTIRESOCIALMODULE","全体の社会的なモジュール");//Entire social module
-define("_EVENTSLOGGING","イベントのロギング");//Event&#039;s logging
+define("_EVENTSLOGGING","イベントのロギング");//Event logging
 define("_SYSTEMTIMELINES","システムのタイムライン");//System timelines
 define("_LESSONTIMELINES","レッスンタイム");//Lessons timelines
 define("_USERSTATUS","ユーザステータス");//User status
@@ -3583,7 +3586,7 @@ define("_AUTOLOGIN","オートログイン");//Auto login
 define("_ACCESSLINK","Accessのリンク");//Access link
 define("_AUTOLOGINITHLINK","ユーザーは自動的にリンクによってログインすることができます");//User can login automatically by link
 define("_DEFAULTUSERTYPE","デフォルトのユーザーのタイプ");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","強制的に学生の質問に答える");//Force student to answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","すべての質問に回答する必要があります");//You have to answer all questions
 define("_ALLOWINDEPENDENTLESSONS","独立レッスンを許可する");//Allow independent lessons
 define("_NOPRESELECTEDDATE","いいえあらかじめ日");//No preselected date
@@ -3731,7 +3734,7 @@ define("_SEARCHFORUSER","検索ユーザーは[表示の基準は]");//Find user
 define("_SEARCHCRITERIA","検索条件");//Search criteria
 define("_SUBMITFEEDBACK","送信フィードバック");//Submit feedback
 define("_FEEDBACKRESULTS","フィードバックの結果");//Feedback results
-define("_PASSWORDREMINDER","パスワードリマインダ");//Password reminder
+define("_PASSWORDREMINDER","パスワードリマインダ");//Reset password link
 define("_MUSTCOMPLETEALLTESTS","必要なすべてのテストを完了");//Must complete all tests
 define("_FEEDBACKSTATISTICS","フィードバックレポート");//Feedback reports
 define("_CHOOSEFEEDBACK","を選択してからのフィードバック");//Choose feedback
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","設定チェッカー");//Settings checker
 define("_CHECKBROWSER","チェックブラウザ");//Checking browser
 define("_CHECKRESOLUTION","画面の解像度を確認する");//Checking screen resolution
 define("_CHECKPOPUPBLOCKER","ポップアップブロッカーのチェック");//Checking for Popup blocker
-define("_CHECKCOOKIES","チェッククッキーの状態...");//Checking Cookie state...
+define("_CHECKCOOKIES","チェッククッキーの状態...");//Checking Cookie state
 define("_CHECKFLASH","フラッシュのチェック");//Checking for Flash
 define("_CHECKACROBAT","Adobe Readerの確認");//Checking for Adobe Reader
 define("_CHECKBROWSERIE6","Internet Explorer 6が検出されました。このブラウザは廃止され、機能が影響を受けることがあります");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
@@ -4074,10 +4077,76 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ファイルが�
 define("_PROGRAMMEDCERTIFICATEEXPIRY","証明書は有効期限をスケジュール");//Certificate scheduled expiration
 define("_TESTPASSWORD","テストパスワード");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","申し訳ありませんが、このブランチへのアクセスを持っていない");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","地図を完全な組織図のユーザーに");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","あなたは同じレッスンからコピーすることはできません。");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","学生からのメッセージ");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","削除APIは、一ヶ月以上古いトークン");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","新しい条件を追加する");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","削除は、レポートビューを高度な");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","地図を完全な組織図のユーザーに");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","あなたは同じレッスンからコピーすることはできません。");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","学生からのメッセージ");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","削除APIは、一ヶ月以上古いトークン");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","新しい条件を追加する");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","削除は、レポートビューを高度な");//Delete advanced report views
+define("_STANDALONELESSONSAVERAGE","");//Average score in all standalone lessons (New)
+define("_SCORECALCULATIONMODE","");//Score calculation mode (New)
+define("_TRIGGERINGUSERS","");//Triggering user&#039;s (New)
+define("_MODIFIED","");//Modified (New)
+define("_USERSSELFENROLL","");//Users can add themselves (New)
+define("_SPENTTIMEINLESSON","");//Time in lesson (New)
+define("_TOTALTIMESPENTONTHISUNIT","");//Time in unit (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","");//Must spend %x minutes studying content (New)
+define("_TOTALTIMESPENTONTHISLESSON","");//Time in lesson (New)
+define("_TIMERS","");//Timers (New)
+define("_PREVIOUSUNIT","");//Previous unit (New)
+define("_NEXTUNIT","");//Next unit (New)
+define("_PREVIOUSLESSON","");//Previous lesson (New)
+define("_CONSTRAINAPIIP","");//IPs allowed to connect to the API (New)
+define("_LOGOUTUSERIFINACTIVEFORMINUTES","");//Log out user if inactive for (minutes) (New)
+define("_COMPLETEAFTERSECONDS","");//Complete after (seconds) (New)
+define("_APPLYFUNCTIONTOALLUNITS","");//Apply a function to all units (New)
+define("_SCORMSPECIFICPROPERTIES","");//SCORM 1.2 properties (New)
+define("_ALLUNITSPROPERTIES","");//Properties for all units (New)
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
+define("_FORTHISLESSON","");//For current lesson (New)
+define("_FORANYLESSON","");//For any lesson (New)
+define("_SHAREDGLOSSARY","");//Shared glossary (New)
+define("_CHARACTERSMAX50ONLYNOSPACES","");//Letters only, maximum 50 characters length, without spaces (New)
+define("_MANDATORYFORUSERS","");//Mandatory for users (New)
+define("_CHECKBOX","");//Checkbox (New)
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS","");//Please fill in missing mandatory fields (New)
+define("_SUBMITACTION","");//Submit action (New)
+define("_SHOWONLYTEST","");//Show only test (New)
+define("_SHOWSCORE","");//Show test + given answers + score (New)
+define("_SHOWATHANKYOUMESSAGE","");//Show a thank-you message (New)
+define("_SHOWGIVENANSWERSNEW","");//Show test + given answers (New)
+define("_SHOWRIGHTANSWERSNEW","");//Show test + given answers + score + correct answers (New)
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW","");//Show test + given answers + score + correct answers only if student passed the test (New)
+define("_MAXIMUMPMUSAGESPACE","");//Maximum usage space in private messages (New)
+define("_MAXIMUMPMUSAGESPACEINFO","");//Define user allowed usage space size in MB (New)
+define("_YOUHAVETODELETEFILESFROMYOURSPACE","");//You have to delete some big-sized messages (with attachments) from your space (New)
+define("_ADDBALANCE","");//Add balance (New)
+define("_CURRENTBALANCEINYOURACCOUNT","");//Current balance in your account (New)
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA","");//There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender (New)
+define("_CONNECTEDUSERS","");//Connected users (New)
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR","");//Please note that any files you upload here are shared with your supervisor(s) (New)
+define("_REPLACEASSIGNMENTS","");//Replace assignments (New)
+define("_REPLACEASSIGNMENTSEXPLANATION","");//Checking this will replace all users' current assignments with those from the csv file (New)
+define("_LESS","");//less (New)
+define("_COURSESREGISTRATIONS","");//Course registrations (New)
+define("_INACTIVEREGISTRATIONS","");//Inactive registrations (New)
+define("_BUYBALANCE","");//Buy balance (New)
+define("_COMPLETEUNITOPTIONS","");//Unit completion options (New)
+define("_COMPLETEAFTERTIMEELAPSED","");//Complete after time elapsed (New)
+define("_REMEMBERLOGIN","");//&quot;Keep me logged in&quot; option (New)
+define("_PASSWORDSALT","");//Password salt (New)
+define("_CEUS","");//CEUs (New)
+define("_TOTALCEUS","");//Total CEUs (New)
+define("_BRANCHWITHSUBBRANCHES","");//Branch and sub-branches (New)
+define("_KEEPMELOGGEDIN","");//Keep me logged in (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","");//You are not allowed to access this unit (New)
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE","");//Start with pipe | if you want an empty choice (New)
+define("_YOUCANTADDTHISBALANCE","");//You cannot add this balance (New)
+define("_DISPLAYRESULTSTOSTUDENTS","");//Display results to students (New)
+define("_CHECKJAVA","");//Checking Java plugin (New)
+define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
+define("_LOADVIDEOJS","");//Load videojs (New)
+define("_SENDMODE","");//Send mode (New)
+define("_EMAILANDPM","");//Email and personal message (New)
 ?>

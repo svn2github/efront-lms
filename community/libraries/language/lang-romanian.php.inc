@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."	language/custom-romanian.php.inc")) {
 include($GLOBALS['path']."language/custom-romanian.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Conectare la eFront");//Login to eFront
@@ -2708,7 +2711,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE","Dimensiunile logo-ului trebuie să fie p
 define("_SOCIAL","Social");//Social
 define("_OPTIONSFORSOCIALMODULE","Opţiuni pentru modulul social");//Options for social
 define("_ENTIRESOCIALMODULE","Întregul modul social");//Entire social module
-define("_EVENTSLOGGING","Logarea evenimentului");//Event&#039;s logging
+define("_EVENTSLOGGING","Logarea evenimentului");//Event logging
 define("_SYSTEMTIMELINES","Cronologii sistem");//System timelines
 define("_LESSONTIMELINES","Cronologii lecţii");//Lessons timelines
 define("_USERSTATUS","Stare utilizator");//User status
@@ -3583,7 +3586,7 @@ define("_AUTOLOGIN","Auto autentificare");//Auto login
 define("_ACCESSLINK","Link-ul de acces");//Access link
 define("_AUTOLOGINITHLINK","Utilizatorul se poate autentifica automat prin link-ul");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Tipul de utilizator implicit");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","Forţează studentul să răspundă la toate întrebările");//Force student answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","Forţează studentul să răspundă la toate întrebările");//Force student to answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Trebuie să răspundeţi la toate întrebările");//You have to answer all questions
 define("_ALLOWINDEPENDENTLESSONS","Permite lecţii independente");//Allow independent lessons
 define("_NOPRESELECTEDDATE","Nici o dată preselectată");//No preselected date
@@ -3731,7 +3734,7 @@ define("_SEARCHFORUSER","Caută utilizatori [criterii profil]");//Find users [Pr
 define("_SEARCHCRITERIA","Criterii de căutare");//Search criteria
 define("_SUBMITFEEDBACK","Trimiteţi o reacţie ");//Submit feedback
 define("_FEEDBACKRESULTS","Rezultate reacţie");//Feedback results
-define("_PASSWORDREMINDER","Reamintire parolă");//Password reminder
+define("_PASSWORDREMINDER","Reamintire parolă");//Reset password link
 define("_MUSTCOMPLETEALLTESTS","Taote testele trebuie finalizate");//Must complete all tests
 define("_FEEDBACKSTATISTICS","Rapoarte reacţii");//Feedback reports
 define("_CHOOSEFEEDBACK","Alege o reacţie");//Choose feedback
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","Setări Checker");//Settings checker
 define("_CHECKBROWSER","Verificarea browser");//Checking browser
 define("_CHECKRESOLUTION","Verificarea rezoluţia ecranului");//Checking screen resolution
 define("_CHECKPOPUPBLOCKER","Verificarea pentru popup blocker");//Checking for Popup blocker
-define("_CHECKCOOKIES","Verificarea Cookie de stat ...");//Checking Cookie state...
+define("_CHECKCOOKIES","Verificarea Cookie de stat ...");//Checking Cookie state
 define("_CHECKFLASH","Verificarea pentru Flash");//Checking for Flash
 define("_CHECKACROBAT","Verificarea pentru Adobe Reader");//Checking for Adobe Reader
 define("_CHECKBROWSERIE6","Internet Explorer 6 detectate. Acest browser este învechit şi funcţionalităţi pot fi afectate");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
@@ -4074,10 +4077,76 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Fişierul pare a 
 define("_PROGRAMMEDCERTIFICATEEXPIRY","Certificat programate expirare");//Certificate scheduled expiration
 define("_TESTPASSWORD","Test parola");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ne pare rău, nu aveţi acces la această ramură");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","Arată organigrama completă a utilizatorilor");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nu puteti copia de la aceeasi lectie");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","Mesaje de la studenţi");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","api Ştergeţi jetoanele mai mult de o lună");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","Adauga stare nouă");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Ştergeţi avansat vizualizari raport");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","Arată organigrama completă a utilizatorilor");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nu puteti copia de la aceeasi lectie");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","Mesaje de la studenţi");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","api Ştergeţi jetoanele mai mult de o lună");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","Adauga stare nouă");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Ştergeţi avansat vizualizari raport");//Delete advanced report views
+define("_STANDALONELESSONSAVERAGE","");//Average score in all standalone lessons (New)
+define("_SCORECALCULATIONMODE","");//Score calculation mode (New)
+define("_TRIGGERINGUSERS","");//Triggering user&#039;s (New)
+define("_MODIFIED","");//Modified (New)
+define("_USERSSELFENROLL","");//Users can add themselves (New)
+define("_SPENTTIMEINLESSON","");//Time in lesson (New)
+define("_TOTALTIMESPENTONTHISUNIT","");//Time in unit (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","");//Must spend %x minutes studying content (New)
+define("_TOTALTIMESPENTONTHISLESSON","");//Time in lesson (New)
+define("_TIMERS","");//Timers (New)
+define("_PREVIOUSUNIT","");//Previous unit (New)
+define("_NEXTUNIT","");//Next unit (New)
+define("_PREVIOUSLESSON","");//Previous lesson (New)
+define("_CONSTRAINAPIIP","");//IPs allowed to connect to the API (New)
+define("_LOGOUTUSERIFINACTIVEFORMINUTES","");//Log out user if inactive for (minutes) (New)
+define("_COMPLETEAFTERSECONDS","");//Complete after (seconds) (New)
+define("_APPLYFUNCTIONTOALLUNITS","");//Apply a function to all units (New)
+define("_SCORMSPECIFICPROPERTIES","");//SCORM 1.2 properties (New)
+define("_ALLUNITSPROPERTIES","");//Properties for all units (New)
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
+define("_FORTHISLESSON","");//For current lesson (New)
+define("_FORANYLESSON","");//For any lesson (New)
+define("_SHAREDGLOSSARY","");//Shared glossary (New)
+define("_CHARACTERSMAX50ONLYNOSPACES","");//Letters only, maximum 50 characters length, without spaces (New)
+define("_MANDATORYFORUSERS","");//Mandatory for users (New)
+define("_CHECKBOX","");//Checkbox (New)
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS","");//Please fill in missing mandatory fields (New)
+define("_SUBMITACTION","");//Submit action (New)
+define("_SHOWONLYTEST","");//Show only test (New)
+define("_SHOWSCORE","");//Show test + given answers + score (New)
+define("_SHOWATHANKYOUMESSAGE","");//Show a thank-you message (New)
+define("_SHOWGIVENANSWERSNEW","");//Show test + given answers (New)
+define("_SHOWRIGHTANSWERSNEW","");//Show test + given answers + score + correct answers (New)
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW","");//Show test + given answers + score + correct answers only if student passed the test (New)
+define("_MAXIMUMPMUSAGESPACE","");//Maximum usage space in private messages (New)
+define("_MAXIMUMPMUSAGESPACEINFO","");//Define user allowed usage space size in MB (New)
+define("_YOUHAVETODELETEFILESFROMYOURSPACE","");//You have to delete some big-sized messages (with attachments) from your space (New)
+define("_ADDBALANCE","");//Add balance (New)
+define("_CURRENTBALANCEINYOURACCOUNT","");//Current balance in your account (New)
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA","");//There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender (New)
+define("_CONNECTEDUSERS","");//Connected users (New)
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR","");//Please note that any files you upload here are shared with your supervisor(s) (New)
+define("_REPLACEASSIGNMENTS","");//Replace assignments (New)
+define("_REPLACEASSIGNMENTSEXPLANATION","");//Checking this will replace all users' current assignments with those from the csv file (New)
+define("_LESS","");//less (New)
+define("_COURSESREGISTRATIONS","");//Course registrations (New)
+define("_INACTIVEREGISTRATIONS","");//Inactive registrations (New)
+define("_BUYBALANCE","");//Buy balance (New)
+define("_COMPLETEUNITOPTIONS","");//Unit completion options (New)
+define("_COMPLETEAFTERTIMEELAPSED","");//Complete after time elapsed (New)
+define("_REMEMBERLOGIN","");//&quot;Keep me logged in&quot; option (New)
+define("_PASSWORDSALT","");//Password salt (New)
+define("_CEUS","");//CEUs (New)
+define("_TOTALCEUS","");//Total CEUs (New)
+define("_BRANCHWITHSUBBRANCHES","");//Branch and sub-branches (New)
+define("_KEEPMELOGGEDIN","");//Keep me logged in (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","");//You are not allowed to access this unit (New)
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE","");//Start with pipe | if you want an empty choice (New)
+define("_YOUCANTADDTHISBALANCE","");//You cannot add this balance (New)
+define("_DISPLAYRESULTSTOSTUDENTS","");//Display results to students (New)
+define("_CHECKJAVA","");//Checking Java plugin (New)
+define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
+define("_LOADVIDEOJS","");//Load videojs (New)
+define("_SENDMODE","");//Send mode (New)
+define("_EMAILANDPM","");//Email and personal message (New)
 ?>

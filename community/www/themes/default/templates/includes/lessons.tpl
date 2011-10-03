@@ -75,7 +75,7 @@
      <td class = "centerAlign">{if $user.partof}{if $user.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._COMPLETEDON} #filter:timestamp-{$user.timestamp_completed}#" title = "{$smarty.const._COMPLETEDON} #filter:timestamp-{$user.timestamp_completed}#"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NOTCOMPLETED}" title = "{$smarty.const._NOTCOMPLETED}"/>{/if}{/if}</td>
      <td class = "centerAlign">
     {if $user.basic_user_type == 'student' && in_array($user.login, $T_LESSON_USERS)}
-       <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "resetProgress(this, '{$user.login}');">
+       <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "if (confirm(translations['_IRREVERSIBLEACTIONAREYOUSURE'])) resetProgress(this, '{$user.login}');">
     {/if}
      </td>
      <td class = "centerAlign">

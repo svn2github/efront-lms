@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."language/custom-finnish.php.inc")) {
 include($GLOBALS['path']."language/custom-finnish.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Kirjaudu");//Login to eFront
@@ -2708,7 +2711,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE","Logon mitat oltava positiivisia");//Logo
 define("_SOCIAL","Sosiaalisuus");//Social
 define("_OPTIONSFORSOCIALMODULE","Sosiaalisuuasetukset");//Options for social
 define("_ENTIRESOCIALMODULE","Koko sosiaali-moduuli");//Entire social module
-define("_EVENTSLOGGING","Tapahtuman loki");//Event&#039;s logging
+define("_EVENTSLOGGING","Tapahtuman loki");//Event logging
 define("_SYSTEMTIMELINES","Yleisaikajanat");//System timelines
 define("_LESSONTIMELINES","Oppituntien aikajanat");//Lessons timelines
 define("_USERSTATUS","Käyttäjän tila");//User status
@@ -3583,7 +3586,7 @@ define("_AUTOLOGIN","Automaattinen kirjautuminen");//Auto login
 define("_ACCESSLINK","Linkki");//Access link
 define("_AUTOLOGINITHLINK","Käyttäjä voi kirjautua automaattisesti linkin kautta");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Oletuskäyttäjätyyppi");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","Pakota opiskelija vastaamaan kaikkiin kysymyksiin");//Force student answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","Pakota opiskelija vastaamaan kaikkiin kysymyksiin");//Force student to answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Sinun pitää vastata kaikkiin kysymyksiin");//You have to answer all questions
 define("_ALLOWINDEPENDENTLESSONS","Salli itsenäiset oppitunnit");//Allow independent lessons
 define("_NOPRESELECTEDDATE","Ei esivalittua päivämäärää");//No preselected date
@@ -3731,7 +3734,7 @@ define("_SEARCHFORUSER","Etsi käyttäjiä [Profiilin perusteella]");//Find user
 define("_SEARCHCRITERIA","Hakuehdot");//Search criteria
 define("_SUBMITFEEDBACK","Lähetä palautetta");//Submit feedback
 define("_FEEDBACKRESULTS","Palautetulokset");//Feedback results
-define("_PASSWORDREMINDER","Salasanamuistutus");//Password reminder
+define("_PASSWORDREMINDER","Salasanamuistutus");//Reset password link
 define("_MUSTCOMPLETEALLTESTS","Täytyy suorittaa kaikki testit");//Must complete all tests
 define("_FEEDBACKSTATISTICS","Palauteraportit");//Feedback reports
 define("_CHOOSEFEEDBACK","Valitse palaute");//Choose feedback
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","Asetukset tarkistin");//Settings checker
 define("_CHECKBROWSER","Tarkistaminen selain");//Checking browser
 define("_CHECKRESOLUTION","Tarkistaminen näytön resoluutio");//Checking screen resolution
 define("_CHECKPOPUPBLOCKER","Tarkistaminen ponnahdusikkunoiden esto");//Checking for Popup blocker
-define("_CHECKCOOKIES","Tarkistetaan Cookie tila ...");//Checking Cookie state...
+define("_CHECKCOOKIES","Tarkistetaan Cookie tila ...");//Checking Cookie state
 define("_CHECKFLASH","Tarkistetaan Flash");//Checking for Flash
 define("_CHECKACROBAT","Tarkistaminen Adobe Reader");//Checking for Adobe Reader
 define("_CHECKBROWSERIE6","Internet Explorer 6 havaitaan. Tämä selain on vanhentunut ja toiminnot voivat vaikuttaa");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
@@ -4074,10 +4077,76 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Tiedosto saattaa 
 define("_PROGRAMMEDCERTIFICATEEXPIRY","Todistus aikataulun päättyminen");//Certificate scheduled expiration
 define("_TESTPASSWORD","Testaa salasana");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Sinulla ei ole pääsyä tälle alalle");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","Näytä koko organisaatiokaavion käyttäjille");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","Et voi kopioida saman opetuksen");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","Viestit opiskelijoiden");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","Poista api rahakkeiden yli kuukauden vanha");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","Lisää uusi ehto");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Poista kehittynyt raportin tarkastelua");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","Näytä koko organisaatiokaavion käyttäjille");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Et voi kopioida saman opetuksen");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","Viestit opiskelijoiden");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","Poista api rahakkeiden yli kuukauden vanha");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","Lisää uusi ehto");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Poista kehittynyt raportin tarkastelua");//Delete advanced report views
+define("_STANDALONELESSONSAVERAGE","");//Average score in all standalone lessons (New)
+define("_SCORECALCULATIONMODE","");//Score calculation mode (New)
+define("_TRIGGERINGUSERS","");//Triggering user&#039;s (New)
+define("_MODIFIED","");//Modified (New)
+define("_USERSSELFENROLL","");//Users can add themselves (New)
+define("_SPENTTIMEINLESSON","");//Time in lesson (New)
+define("_TOTALTIMESPENTONTHISUNIT","");//Time in unit (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","");//Must spend %x minutes studying content (New)
+define("_TOTALTIMESPENTONTHISLESSON","");//Time in lesson (New)
+define("_TIMERS","");//Timers (New)
+define("_PREVIOUSUNIT","");//Previous unit (New)
+define("_NEXTUNIT","");//Next unit (New)
+define("_PREVIOUSLESSON","");//Previous lesson (New)
+define("_CONSTRAINAPIIP","");//IPs allowed to connect to the API (New)
+define("_LOGOUTUSERIFINACTIVEFORMINUTES","");//Log out user if inactive for (minutes) (New)
+define("_COMPLETEAFTERSECONDS","");//Complete after (seconds) (New)
+define("_APPLYFUNCTIONTOALLUNITS","");//Apply a function to all units (New)
+define("_SCORMSPECIFICPROPERTIES","");//SCORM 1.2 properties (New)
+define("_ALLUNITSPROPERTIES","");//Properties for all units (New)
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
+define("_FORTHISLESSON","");//For current lesson (New)
+define("_FORANYLESSON","");//For any lesson (New)
+define("_SHAREDGLOSSARY","");//Shared glossary (New)
+define("_CHARACTERSMAX50ONLYNOSPACES","");//Letters only, maximum 50 characters length, without spaces (New)
+define("_MANDATORYFORUSERS","");//Mandatory for users (New)
+define("_CHECKBOX","");//Checkbox (New)
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS","");//Please fill in missing mandatory fields (New)
+define("_SUBMITACTION","");//Submit action (New)
+define("_SHOWONLYTEST","");//Show only test (New)
+define("_SHOWSCORE","");//Show test + given answers + score (New)
+define("_SHOWATHANKYOUMESSAGE","");//Show a thank-you message (New)
+define("_SHOWGIVENANSWERSNEW","");//Show test + given answers (New)
+define("_SHOWRIGHTANSWERSNEW","");//Show test + given answers + score + correct answers (New)
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW","");//Show test + given answers + score + correct answers only if student passed the test (New)
+define("_MAXIMUMPMUSAGESPACE","");//Maximum usage space in private messages (New)
+define("_MAXIMUMPMUSAGESPACEINFO","");//Define user allowed usage space size in MB (New)
+define("_YOUHAVETODELETEFILESFROMYOURSPACE","");//You have to delete some big-sized messages (with attachments) from your space (New)
+define("_ADDBALANCE","");//Add balance (New)
+define("_CURRENTBALANCEINYOURACCOUNT","");//Current balance in your account (New)
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA","");//There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender (New)
+define("_CONNECTEDUSERS","");//Connected users (New)
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR","");//Please note that any files you upload here are shared with your supervisor(s) (New)
+define("_REPLACEASSIGNMENTS","");//Replace assignments (New)
+define("_REPLACEASSIGNMENTSEXPLANATION","");//Checking this will replace all users' current assignments with those from the csv file (New)
+define("_LESS","");//less (New)
+define("_COURSESREGISTRATIONS","");//Course registrations (New)
+define("_INACTIVEREGISTRATIONS","");//Inactive registrations (New)
+define("_BUYBALANCE","");//Buy balance (New)
+define("_COMPLETEUNITOPTIONS","");//Unit completion options (New)
+define("_COMPLETEAFTERTIMEELAPSED","");//Complete after time elapsed (New)
+define("_REMEMBERLOGIN","");//&quot;Keep me logged in&quot; option (New)
+define("_PASSWORDSALT","");//Password salt (New)
+define("_CEUS","");//CEUs (New)
+define("_TOTALCEUS","");//Total CEUs (New)
+define("_BRANCHWITHSUBBRANCHES","");//Branch and sub-branches (New)
+define("_KEEPMELOGGEDIN","");//Keep me logged in (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","");//You are not allowed to access this unit (New)
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE","");//Start with pipe | if you want an empty choice (New)
+define("_YOUCANTADDTHISBALANCE","");//You cannot add this balance (New)
+define("_DISPLAYRESULTSTOSTUDENTS","");//Display results to students (New)
+define("_CHECKJAVA","");//Checking Java plugin (New)
+define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
+define("_LOADVIDEOJS","");//Load videojs (New)
+define("_SENDMODE","");//Send mode (New)
+define("_EMAILANDPM","");//Email and personal message (New)
 ?>

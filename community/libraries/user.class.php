@@ -1746,6 +1746,7 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_updateTableData("users_to_lessons", $tracking_info, "users_LOGIN='".$this -> user['login']."' and lessons_ID = ".$lesson -> lesson['id']);
   eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."' and tests_ID in (select id from tests where lessons_ID='".$lesson -> lesson['id']."')");
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
+  eF_deleteTableData("users_to_content", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
  }
  public function resetProgressInAllLessons() {
   $tracking_info = array("done_content" => "",
@@ -1759,6 +1760,7 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_updateTableData("users_to_lessons", $tracking_info, "users_LOGIN='".$this -> user['login']."'");
   eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."'");
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."'");
+  eF_deleteTableData("users_to_content", "users_LOGIN = '".$this -> user['login']."'");
  }
  /**
 	 * Reset the user's progress in the specified course

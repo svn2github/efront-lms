@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."language/custom-slovak.php.inc")) {
 include($GLOBALS['path']."language/custom-slovak.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Prihlásenie do eFront");//Login to eFront
@@ -1141,7 +1144,7 @@ define("_YOUCANNOTACCESSTHISLESSONORITDOESNOTEXIST","Buď nemáte prístup k tej
 define("_SHOWSIDEBAR","Zobraziť bočný panel");//Show sidebar
 define("_HIDESIDEBAR","Skryť bočný panel");//Hide sidebar
 define("_YOURPROJECTSCOREIS","Vaše skóre");//Your score
-define("_USERSEXPORTUSINGCSVFORMATCOMMA","Export užívateľov dát pomocou formátu CSV (oddelený s ",")");//Export users data using csv format (separated with &quot;,&quot;) (New)
+define("_USERSEXPORTUSINGCSVFORMATCOMMA","");//Export users data using csv format (separated with &quot;,&quot;) (New)
 define("_USERSEXPORTUSINGCSVFORMATQM","Export užívateľov dát pomocou formátu CSV (oddelených &quot;;&quot;)");//Export users data using csv format (separated with &quot;;&quot;)
 define("_SHOWGIVENANSWERS","Zobraziť uvedené odpovede");//Show given answers
 define("_SHOWRIGHTANSWERS","Zobraziť správne odpovede");//Show correct answers
@@ -2589,7 +2592,7 @@ define("_THEFOLLOWINGSKILLSCOULDNOTBEIMPORTED","Nasledujúce zručnosti nnemohli
 define("_BRANCHDESIGNATEDFORTHISJOBDESCRIPTIONDOESNOTEXIST","Odbor určený pre túto pracovnú pozíciu neexistuje");//Branch designated for this job position does not exist
 define("_EXPORTFROM","Export z");//Export from
 define("_EXPORTUSINGCSVFORMATQM","Export dát pomocou formátu CSV (oddelených &quot;;&quot;)");//Export data using csv format (separated with &quot;;&quot;)
-define("_EXPORTUSINGCSVFORMATCOMMA","Export dát pomocou formátu CSV (oddelený s ",")");//Export data using csv format (separated with &quot;,&quot;) (New)
+define("_EXPORTUSINGCSVFORMATCOMMA","");//Export data using csv format (separated with &quot;,&quot;) (New)
 define("_EXPORTDATA","Export dát");//Export data
 define("_SUCCEEDEDINASKILLGAPTESTLCWITHASCORE","Uspel v skillgap teste so skóre");//Succeeded in a skillgap test with a score
 define("_FAILEDINASKILLGAPTESTLCWITHASCORE","Neuspel v skillgap teste so skóre");//Failed in a skillgap test with a score
@@ -2708,7 +2711,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE","Logo rozmery musí byť kladný");//Logo
 define("_SOCIAL","Sociálna");//Social
 define("_OPTIONSFORSOCIALMODULE","Možnosti pre sociálne");//Options for social
 define("_ENTIRESOCIALMODULE","Celá sociálne modul");//Entire social module
-define("_EVENTSLOGGING","Udalosti prihlásení");//Event&#039;s logging
+define("_EVENTSLOGGING","Udalosti prihlásení");//Event logging
 define("_SYSTEMTIMELINES","Systém časovej osi");//System timelines
 define("_LESSONTIMELINES","Poučenie časovej osi");//Lessons timelines
 define("_USERSTATUS","Užívateľ stav");//User status
@@ -3583,7 +3586,7 @@ define("_AUTOLOGIN","Automatické prihlásenie");//Auto login
 define("_ACCESSLINK","Prípojku");//Access link
 define("_AUTOLOGINITHLINK","Užívateľ môže prihlásiť automaticky odkaz");//User can login automatically by link
 define("_DEFAULTUSERTYPE","Predvolený typ užívateľa");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","Force študent odpovedať na všetky otázky");//Force student answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","Force študent odpovedať na všetky otázky");//Force student to answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","Musíte odpovedať na všetky otázky");//You have to answer all questions
 define("_ALLOWINDEPENDENTLESSONS","Povoliť nezávislé lekcie");//Allow independent lessons
 define("_NOPRESELECTEDDATE","Č predvolené dátum");//No preselected date
@@ -3731,7 +3734,7 @@ define("_SEARCHFORUSER","Nájsť užívateľov [Profil kritériá]");//Find user
 define("_SEARCHCRITERIA","Kritériá vyhľadávania");//Search criteria
 define("_SUBMITFEEDBACK","Odoslať spätnú väzbu");//Submit feedback
 define("_FEEDBACKRESULTS","Spätná väzba výsledky");//Feedback results
-define("_PASSWORDREMINDER","Pripomenutie hesla");//Password reminder
+define("_PASSWORDREMINDER","Pripomenutie hesla");//Reset password link
 define("_MUSTCOMPLETEALLTESTS","Musí dokončiť všetky skúšky");//Must complete all tests
 define("_FEEDBACKSTATISTICS","Spätná väzba správy");//Feedback reports
 define("_CHOOSEFEEDBACK","Vyberte si spätnú väzbu");//Choose feedback
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","Kontrola nastavenia");//Settings checker
 define("_CHECKBROWSER","Kontrola prehliadača");//Checking browser
 define("_CHECKRESOLUTION","Kontrola rozlíšenie obrazovky");//Checking screen resolution
 define("_CHECKPOPUPBLOCKER","Kontrola blokovanie automaticky otváraných");//Checking for Popup blocker
-define("_CHECKCOOKIES","Kontrola stavu Cookie ...");//Checking Cookie state...
+define("_CHECKCOOKIES","Kontrola stavu Cookie ...");//Checking Cookie state
 define("_CHECKFLASH","Kontrola Flash");//Checking for Flash
 define("_CHECKACROBAT","Kontrola Adobe Reader");//Checking for Adobe Reader
 define("_CHECKBROWSERIE6","Internet Explorer 6 zistené. Tento prehliadač je zastaraný a funkčnosť môže byť ovplyvnený");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
@@ -4074,10 +4077,76 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","Súbor sa zdá by
 define("_PROGRAMMEDCERTIFICATEEXPIRY","Certifikát plánovanej konca");//Certificate scheduled expiration
 define("_TESTPASSWORD","Test heslo");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","Ospravedlňujeme sa, ale nemáte prístup k tomuto odboru");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","Zobraziť celú organizačnú schému pre užívateľov");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nie je možné kopírovať z jednej lekcii");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","Správy od študentov");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","Odstrániť api žetóny viac ako jeden mesiac staré");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","Pridať nový stav");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Vymazať pokročilé zobrazenie prehľadov");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","Zobraziť celú organizačnú schému pre užívateľov");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","Nie je možné kopírovať z jednej lekcii");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","Správy od študentov");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","Odstrániť api žetóny viac ako jeden mesiac staré");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","Pridať nový stav");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Vymazať pokročilé zobrazenie prehľadov");//Delete advanced report views
+define("_STANDALONELESSONSAVERAGE","");//Average score in all standalone lessons (New)
+define("_SCORECALCULATIONMODE","");//Score calculation mode (New)
+define("_TRIGGERINGUSERS","");//Triggering user&#039;s (New)
+define("_MODIFIED","");//Modified (New)
+define("_USERSSELFENROLL","");//Users can add themselves (New)
+define("_SPENTTIMEINLESSON","");//Time in lesson (New)
+define("_TOTALTIMESPENTONTHISUNIT","");//Time in unit (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","");//Must spend %x minutes studying content (New)
+define("_TOTALTIMESPENTONTHISLESSON","");//Time in lesson (New)
+define("_TIMERS","");//Timers (New)
+define("_PREVIOUSUNIT","");//Previous unit (New)
+define("_NEXTUNIT","");//Next unit (New)
+define("_PREVIOUSLESSON","");//Previous lesson (New)
+define("_CONSTRAINAPIIP","");//IPs allowed to connect to the API (New)
+define("_LOGOUTUSERIFINACTIVEFORMINUTES","");//Log out user if inactive for (minutes) (New)
+define("_COMPLETEAFTERSECONDS","");//Complete after (seconds) (New)
+define("_APPLYFUNCTIONTOALLUNITS","");//Apply a function to all units (New)
+define("_SCORMSPECIFICPROPERTIES","");//SCORM 1.2 properties (New)
+define("_ALLUNITSPROPERTIES","");//Properties for all units (New)
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
+define("_FORTHISLESSON","");//For current lesson (New)
+define("_FORANYLESSON","");//For any lesson (New)
+define("_SHAREDGLOSSARY","");//Shared glossary (New)
+define("_CHARACTERSMAX50ONLYNOSPACES","");//Letters only, maximum 50 characters length, without spaces (New)
+define("_MANDATORYFORUSERS","");//Mandatory for users (New)
+define("_CHECKBOX","");//Checkbox (New)
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS","");//Please fill in missing mandatory fields (New)
+define("_SUBMITACTION","");//Submit action (New)
+define("_SHOWONLYTEST","");//Show only test (New)
+define("_SHOWSCORE","");//Show test + given answers + score (New)
+define("_SHOWATHANKYOUMESSAGE","");//Show a thank-you message (New)
+define("_SHOWGIVENANSWERSNEW","");//Show test + given answers (New)
+define("_SHOWRIGHTANSWERSNEW","");//Show test + given answers + score + correct answers (New)
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW","");//Show test + given answers + score + correct answers only if student passed the test (New)
+define("_MAXIMUMPMUSAGESPACE","");//Maximum usage space in private messages (New)
+define("_MAXIMUMPMUSAGESPACEINFO","");//Define user allowed usage space size in MB (New)
+define("_YOUHAVETODELETEFILESFROMYOURSPACE","");//You have to delete some big-sized messages (with attachments) from your space (New)
+define("_ADDBALANCE","");//Add balance (New)
+define("_CURRENTBALANCEINYOURACCOUNT","");//Current balance in your account (New)
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA","");//There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender (New)
+define("_CONNECTEDUSERS","");//Connected users (New)
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR","");//Please note that any files you upload here are shared with your supervisor(s) (New)
+define("_REPLACEASSIGNMENTS","");//Replace assignments (New)
+define("_REPLACEASSIGNMENTSEXPLANATION","");//Checking this will replace all users' current assignments with those from the csv file (New)
+define("_LESS","");//less (New)
+define("_COURSESREGISTRATIONS","");//Course registrations (New)
+define("_INACTIVEREGISTRATIONS","");//Inactive registrations (New)
+define("_BUYBALANCE","");//Buy balance (New)
+define("_COMPLETEUNITOPTIONS","");//Unit completion options (New)
+define("_COMPLETEAFTERTIMEELAPSED","");//Complete after time elapsed (New)
+define("_REMEMBERLOGIN","");//&quot;Keep me logged in&quot; option (New)
+define("_PASSWORDSALT","");//Password salt (New)
+define("_CEUS","");//CEUs (New)
+define("_TOTALCEUS","");//Total CEUs (New)
+define("_BRANCHWITHSUBBRANCHES","");//Branch and sub-branches (New)
+define("_KEEPMELOGGEDIN","");//Keep me logged in (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","");//You are not allowed to access this unit (New)
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE","");//Start with pipe | if you want an empty choice (New)
+define("_YOUCANTADDTHISBALANCE","");//You cannot add this balance (New)
+define("_DISPLAYRESULTSTOSTUDENTS","");//Display results to students (New)
+define("_CHECKJAVA","");//Checking Java plugin (New)
+define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
+define("_LOADVIDEOJS","");//Load videojs (New)
+define("_SENDMODE","");//Send mode (New)
+define("_EMAILANDPM","");//Email and personal message (New)
 ?>

@@ -180,7 +180,7 @@
                          </td>
                          <td class = "centerAlign">{if $item.score}#filter:score-{$item.score}#%{/if}</td>
                          <td class = "centerAlign">
-                          <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "resetProgressInLesson(this, '{$item.login}');">
+                          <img class = "ajaxHandle" src="images/16x16/refresh.png" title="{$smarty.const._RESETPROGRESSDATA}" alt="{$smarty.const._RESETPROGRESSDATA}" onclick = "if (confirm(translations['_IRREVERSIBLEACTIONAREYOUSURE'])) resetProgressInLesson(this, '{$item.login}');">
                              <a href = "{$smarty.server.PHP_SELF}?ctg=progress&edit_user={$item.login}" title = "{$smarty.const._VIEWUSERLESSONPROGRESS}">
                                  <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWUSERLESSONPROGRESS}" alt = "{$smarty.const._VIEWUSERLESSONPROGRESS}" border = "0"/>
                              </a>

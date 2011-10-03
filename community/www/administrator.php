@@ -36,7 +36,7 @@ try {
  $currentUser = EfrontUser :: checkUserAccess('administrator');
  $smarty -> assign("T_CURRENT_USER", $currentUser);
 } catch (Exception $e) {
- if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN) {
+ if ($e -> getCode() == EfrontUserException :: USER_NOT_LOGGED_IN && !isset($_GET['ajax'])) {
   setcookie('c_request', htmlspecialchars_decode(basename($_SERVER['REQUEST_URI'])), time() + 300);
  }
  eF_redirect("index.php?ctg=expired");

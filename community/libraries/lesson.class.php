@@ -5704,7 +5704,9 @@ class EfrontLesson
    foreach($scormResult as $value) {
     $scormSeconds += convertTimeToSeconds($value['total_time']);
    }
-   return $scormSeconds + $seconds;
+   $result = eF_getTableData("completed_tests ct, tests t", "sum(ct.time_spent) as total_time_spent", "ct.users_LOGIN='".$login."' and ct.status!='deleted' and ct.tests_ID=t.id and t.lessons_ID=$lessonId");
+   $result[0]['total_time_spent'] ? $testSeconds = $result[0]['total_time_spent'] : $testSeconds = 0;
+   return $scormSeconds + $seconds + $testSeconds;
   }
  }
  /**

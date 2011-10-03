@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."language/custom-thai.php.inc")) {
 include($GLOBALS['path']."language/custom-thai.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL","http://www.prachid.com");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront : Refreshing eLearning:Thai Edition : อีฟร้อนท์ รีเฟรสชิ่ง อีเลิร์นนิ่ง:ฉบับภาษาไทย prachid.com");//eFront
 define("_EFRONTLOGIN","เข้าสู่ระบบ eFront");//Login to eFront
@@ -2708,7 +2711,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE","ขนาดของสัญลัก�
 define("_SOCIAL","ทางสังคม");//Social
 define("_OPTIONSFORSOCIALMODULE","ตัวเลือกสำหรับสังคม");//Options for social
 define("_ENTIRESOCIALMODULE","ทั้งโมดูลสังคม");//Entire social module
-define("_EVENTSLOGGING","กรณีของการเข้า");//Event&#039;s logging
+define("_EVENTSLOGGING","กรณีของการเข้า");//Event logging
 define("_SYSTEMTIMELINES","Timelines System");//System timelines
 define("_LESSONTIMELINES","Timelines บทเรียน");//Lessons timelines
 define("_USERSTATUS","สถานะของผู้ใช้");//User status
@@ -3583,7 +3586,7 @@ define("_AUTOLOGIN","เข้า สู่ ระบบ อัตโนมั�
 define("_ACCESSLINK","ลิงค์ เข้า");//Access link
 define("_AUTOLOGINITHLINK","ผู้ ใช้ สามารถ เข้า สู่ ระบบ โดย อัตโนมัติ จาก ลิงค์");//User can login automatically by link
 define("_DEFAULTUSERTYPE","ประเภท ผู้ ใช้ Default");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","นักเรียน Force ตอบ คำถาม ทุก ข้อ");//Force student to answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","คุณ ต้อง ตอบ คำถาม ทุก ข้อ");//You have to answer all questions
 define("_ALLOWINDEPENDENTLESSONS","ให้บทเรียนอิสระ");//Allow independent lessons
 define("_NOPRESELECTEDDATE","ไม่มีวันที่ไว้ล่วงหน้า");//No preselected date
@@ -3731,7 +3734,7 @@ define("_SEARCHFORUSER","ค้นหาผู้ใช้หลักเกณ�
 define("_SEARCHCRITERIA","เกณฑ์การค้นหา");//Search criteria
 define("_SUBMITFEEDBACK","ส่งความคิดเห็น");//Submit feedback
 define("_FEEDBACKRESULTS","ผลตอบ");//Feedback results
-define("_PASSWORDREMINDER","เตือนความจำรหัสผ่าน");//Password reminder
+define("_PASSWORDREMINDER","เตือนความจำรหัสผ่าน");//Reset password link
 define("_MUSTCOMPLETEALLTESTS","จะต้องสำเร็จการทดสอบทั้งหมด");//Must complete all tests
 define("_FEEDBACKSTATISTICS","รายงานความคิดเห็น");//Feedback reports
 define("_CHOOSEFEEDBACK","ความคิดเห็นเลือก");//Choose feedback
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","ตัวตรวจสอบการตั้งค
 define("_CHECKBROWSER","การตรวจสอบเบราว์เซอร์");//Checking browser
 define("_CHECKRESOLUTION","การตรวจสอบความละเอียดหน้าจอ");//Checking screen resolution
 define("_CHECKPOPUPBLOCKER","สำหรับการตรวจสอบตัวป้องกันป๊อปอัพ");//Checking for Popup blocker
-define("_CHECKCOOKIES","ตรวจสอบสถานะ Cookie ...");//Checking Cookie state...
+define("_CHECKCOOKIES","ตรวจสอบสถานะ Cookie ...");//Checking Cookie state
 define("_CHECKFLASH","การตรวจสอบสำหรับ Flash");//Checking for Flash
 define("_CHECKACROBAT","การตรวจสอบสำหรับ Adob​​e Reader");//Checking for Adobe Reader
 define("_CHECKBROWSERIE6","Internet Explorer 6 ที่ตรวจพบ เบราว์เซอร์นี้จึงเลิกใช้และการทำงานที่อาจได้รับผลกระทบ");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
@@ -4074,10 +4077,76 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","ไฟล์ท�
 define("_PROGRAMMEDCERTIFICATEEXPIRY","กำหนดหนังสือรับรองหมดอายุ");//Certificate scheduled expiration
 define("_TESTPASSWORD","รหัสผ่านการทดสอบ");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","ขออภัยคุณไม่ได้เข้าสู่สาขานี้");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","แผนผังองค์กรแสดงเต็มให้กับผู้ใช้");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","คุณไม่สามารถคัดลอกจากบทเดียวกัน");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","ข้อความจากนักเรียน");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","API ลบสัญญาณมากกว่าหนึ่งเดือนเก่า");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","เพิ่มเงื่อนไขใหม่");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","ลบมุมมองรายงานขั้นสูง");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","แผนผังองค์กรแสดงเต็มให้กับผู้ใช้");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","คุณไม่สามารถคัดลอกจากบทเดียวกัน");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","ข้อความจากนักเรียน");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","API ลบสัญญาณมากกว่าหนึ่งเดือนเก่า");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","เพิ่มเงื่อนไขใหม่");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","ลบมุมมองรายงานขั้นสูง");//Delete advanced report views
+define("_STANDALONELESSONSAVERAGE","");//Average score in all standalone lessons (New)
+define("_SCORECALCULATIONMODE","");//Score calculation mode (New)
+define("_TRIGGERINGUSERS","");//Triggering user&#039;s (New)
+define("_MODIFIED","");//Modified (New)
+define("_USERSSELFENROLL","");//Users can add themselves (New)
+define("_SPENTTIMEINLESSON","");//Time in lesson (New)
+define("_TOTALTIMESPENTONTHISUNIT","");//Time in unit (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","");//Must spend %x minutes studying content (New)
+define("_TOTALTIMESPENTONTHISLESSON","");//Time in lesson (New)
+define("_TIMERS","");//Timers (New)
+define("_PREVIOUSUNIT","");//Previous unit (New)
+define("_NEXTUNIT","");//Next unit (New)
+define("_PREVIOUSLESSON","");//Previous lesson (New)
+define("_CONSTRAINAPIIP","");//IPs allowed to connect to the API (New)
+define("_LOGOUTUSERIFINACTIVEFORMINUTES","");//Log out user if inactive for (minutes) (New)
+define("_COMPLETEAFTERSECONDS","");//Complete after (seconds) (New)
+define("_APPLYFUNCTIONTOALLUNITS","");//Apply a function to all units (New)
+define("_SCORMSPECIFICPROPERTIES","");//SCORM 1.2 properties (New)
+define("_ALLUNITSPROPERTIES","");//Properties for all units (New)
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
+define("_FORTHISLESSON","");//For current lesson (New)
+define("_FORANYLESSON","");//For any lesson (New)
+define("_SHAREDGLOSSARY","");//Shared glossary (New)
+define("_CHARACTERSMAX50ONLYNOSPACES","");//Letters only, maximum 50 characters length, without spaces (New)
+define("_MANDATORYFORUSERS","");//Mandatory for users (New)
+define("_CHECKBOX","");//Checkbox (New)
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS","");//Please fill in missing mandatory fields (New)
+define("_SUBMITACTION","");//Submit action (New)
+define("_SHOWONLYTEST","");//Show only test (New)
+define("_SHOWSCORE","");//Show test + given answers + score (New)
+define("_SHOWATHANKYOUMESSAGE","");//Show a thank-you message (New)
+define("_SHOWGIVENANSWERSNEW","");//Show test + given answers (New)
+define("_SHOWRIGHTANSWERSNEW","");//Show test + given answers + score + correct answers (New)
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW","");//Show test + given answers + score + correct answers only if student passed the test (New)
+define("_MAXIMUMPMUSAGESPACE","");//Maximum usage space in private messages (New)
+define("_MAXIMUMPMUSAGESPACEINFO","");//Define user allowed usage space size in MB (New)
+define("_YOUHAVETODELETEFILESFROMYOURSPACE","");//You have to delete some big-sized messages (with attachments) from your space (New)
+define("_ADDBALANCE","");//Add balance (New)
+define("_CURRENTBALANCEINYOURACCOUNT","");//Current balance in your account (New)
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA","");//There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender (New)
+define("_CONNECTEDUSERS","");//Connected users (New)
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR","");//Please note that any files you upload here are shared with your supervisor(s) (New)
+define("_REPLACEASSIGNMENTS","");//Replace assignments (New)
+define("_REPLACEASSIGNMENTSEXPLANATION","");//Checking this will replace all users' current assignments with those from the csv file (New)
+define("_LESS","");//less (New)
+define("_COURSESREGISTRATIONS","");//Course registrations (New)
+define("_INACTIVEREGISTRATIONS","");//Inactive registrations (New)
+define("_BUYBALANCE","");//Buy balance (New)
+define("_COMPLETEUNITOPTIONS","");//Unit completion options (New)
+define("_COMPLETEAFTERTIMEELAPSED","");//Complete after time elapsed (New)
+define("_REMEMBERLOGIN","");//&quot;Keep me logged in&quot; option (New)
+define("_PASSWORDSALT","");//Password salt (New)
+define("_CEUS","");//CEUs (New)
+define("_TOTALCEUS","");//Total CEUs (New)
+define("_BRANCHWITHSUBBRANCHES","");//Branch and sub-branches (New)
+define("_KEEPMELOGGEDIN","");//Keep me logged in (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","");//You are not allowed to access this unit (New)
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE","");//Start with pipe | if you want an empty choice (New)
+define("_YOUCANTADDTHISBALANCE","");//You cannot add this balance (New)
+define("_DISPLAYRESULTSTOSTUDENTS","");//Display results to students (New)
+define("_CHECKJAVA","");//Checking Java plugin (New)
+define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
+define("_LOADVIDEOJS","");//Load videojs (New)
+define("_SENDMODE","");//Send mode (New)
+define("_EMAILANDPM","");//Email and personal message (New)
 ?>

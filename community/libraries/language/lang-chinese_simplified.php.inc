@@ -2,6 +2,9 @@
 if (is_file($GLOBALS['path']."language/custom-chinese_simplified.php.inc")) {
 include($GLOBALS['path']."language/custom-chinese_simplified.php.inc");
 }
+if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
+include($GLOBALS['path']."language/enterprise-english.php.inc");
+}
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","登录到eFront");//Login to eFront
@@ -2708,7 +2711,7 @@ define("_LOGODIMENSIONSMUSTBEPOSITIVE","标志尺寸必须是积极的");//Logo 
 define("_SOCIAL","社会");//Social
 define("_OPTIONSFORSOCIALMODULE","社会的选择");//Options for social
 define("_ENTIRESOCIALMODULE","整个社会插件");//Entire social module
-define("_EVENTSLOGGING","事件的记录");//Event&#039;s logging
+define("_EVENTSLOGGING","事件的记录");//Event logging
 define("_SYSTEMTIMELINES","系统的时间表");//System timelines
 define("_LESSONTIMELINES","课程时间表");//Lessons timelines
 define("_USERSTATUS","用户状态");//User status
@@ -3583,7 +3586,7 @@ define("_AUTOLOGIN","自动登录");//Auto login
 define("_ACCESSLINK","访问链接");//Access link
 define("_AUTOLOGINITHLINK","用户可以登录自动链接");//User can login automatically by link
 define("_DEFAULTUSERTYPE","默认的用户类型");//Default user type
-define("_FORCEUSERANSERALLQUESTIONS","必须对所有题目作答");//Force student answer all questions
+define("_FORCEUSERANSERALLQUESTIONS","必须对所有题目作答");//Force student to answer all questions
 define("_YOUHAVETOANSWERALLQUESTIONS","你必须回答所有问题");//You have to answer all questions
 define("_ALLOWINDEPENDENTLESSONS","允许独立的教训");//Allow independent lessons
 define("_NOPRESELECTEDDATE","没有预选日期");//No preselected date
@@ -3731,7 +3734,7 @@ define("_SEARCHFORUSER","查找用户[简介标准]");//Find users [Profile crit
 define("_SEARCHCRITERIA","搜索标准");//Search criteria
 define("_SUBMITFEEDBACK","提交反馈");//Submit feedback
 define("_FEEDBACKRESULTS","反馈结果");//Feedback results
-define("_PASSWORDREMINDER","忘记密码");//Password reminder
+define("_PASSWORDREMINDER","忘记密码");//Reset password link
 define("_MUSTCOMPLETEALLTESTS","必须完成所有测试");//Must complete all tests
 define("_FEEDBACKSTATISTICS","反馈报告");//Feedback reports
 define("_CHOOSEFEEDBACK","选择反馈");//Choose feedback
@@ -4040,7 +4043,7 @@ define("_OPTIONSCHECKER","设置检查");//Settings checker
 define("_CHECKBROWSER","检查浏览器");//Checking browser
 define("_CHECKRESOLUTION","检查屏幕分辨率");//Checking screen resolution
 define("_CHECKPOPUPBLOCKER","检查弹出窗口拦截器");//Checking for Popup blocker
-define("_CHECKCOOKIES","检查Cookie的状态...");//Checking Cookie state...
+define("_CHECKCOOKIES","检查Cookie的状态...");//Checking Cookie state
 define("_CHECKFLASH","检查闪光");//Checking for Flash
 define("_CHECKACROBAT","检查为Adobe Reader");//Checking for Adobe Reader
 define("_CHECKBROWSERIE6","Internet Explorer 6的检测。此浏览器是过时的和功能可能受到影响");//Internet Explorer 6 detected. This browser is obsolete and functionality may be affected
@@ -4074,10 +4077,76 @@ define("_THEFILEAPPEARSEMPTYPERHAPSITISNOTFORMATTEDCORRECTLY","该文件显示�
 define("_PROGRAMMEDCERTIFICATEEXPIRY","证书期满");//Certificate scheduled expiration
 define("_TESTPASSWORD","测试密码");//Test password
 define("_SORRYYOUDONOTHAVEACCESSTOTHISBRANCH","对不起，您没有访问此分支");//Sorry, you do not have access to this branch
-define("_SHOWCOMPLETEORGCHART","显示完整的组织结构图用户");//Show full organization chart to users (New)
-define("_YOUCANNOTCOPYFROMTHESAMELESSON","您不能复制了同样的问题");//You can not copy from the same lesson (New)
-define("_MESSAGESSTUDENTS","从学生的邮件");//Messages from students (New)
-define("_CLICKHERETOREDELETEOLDTOKENS","删除API标记一个月以上的老");//Delete api tokens more than one month old (New)
-define("_ADDNEWCONDITION","添加新条件");//Add new condition (New)
-define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","删除高级报告的意见");//Delete advanced report views (New)
+define("_SHOWCOMPLETEORGCHART","显示完整的组织结构图用户");//Show full organization chart to users
+define("_YOUCANNOTCOPYFROMTHESAMELESSON","您不能复制了同样的问题");//You can not copy from the same lesson
+define("_MESSAGESSTUDENTS","从学生的邮件");//Messages from students
+define("_CLICKHERETOREDELETEOLDTOKENS","删除API标记一个月以上的老");//Delete api tokens more than one month old
+define("_ADDNEWCONDITION","添加新条件");//Add new condition
+define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","删除高级报告的意见");//Delete advanced report views
+define("_STANDALONELESSONSAVERAGE","");//Average score in all standalone lessons (New)
+define("_SCORECALCULATIONMODE","");//Score calculation mode (New)
+define("_TRIGGERINGUSERS","");//Triggering user&#039;s (New)
+define("_MODIFIED","");//Modified (New)
+define("_USERSSELFENROLL","");//Users can add themselves (New)
+define("_SPENTTIMEINLESSON","");//Time in lesson (New)
+define("_TOTALTIMESPENTONTHISUNIT","");//Time in unit (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","");//Must spend %x minutes studying content (New)
+define("_TOTALTIMESPENTONTHISLESSON","");//Time in lesson (New)
+define("_TIMERS","");//Timers (New)
+define("_PREVIOUSUNIT","");//Previous unit (New)
+define("_NEXTUNIT","");//Next unit (New)
+define("_PREVIOUSLESSON","");//Previous lesson (New)
+define("_CONSTRAINAPIIP","");//IPs allowed to connect to the API (New)
+define("_LOGOUTUSERIFINACTIVEFORMINUTES","");//Log out user if inactive for (minutes) (New)
+define("_COMPLETEAFTERSECONDS","");//Complete after (seconds) (New)
+define("_APPLYFUNCTIONTOALLUNITS","");//Apply a function to all units (New)
+define("_SCORMSPECIFICPROPERTIES","");//SCORM 1.2 properties (New)
+define("_ALLUNITSPROPERTIES","");//Properties for all units (New)
+define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
+define("_FORTHISLESSON","");//For current lesson (New)
+define("_FORANYLESSON","");//For any lesson (New)
+define("_SHAREDGLOSSARY","");//Shared glossary (New)
+define("_CHARACTERSMAX50ONLYNOSPACES","");//Letters only, maximum 50 characters length, without spaces (New)
+define("_MANDATORYFORUSERS","");//Mandatory for users (New)
+define("_CHECKBOX","");//Checkbox (New)
+define("_PLEASEFILLINMISSINGMANDATORYFIELDS","");//Please fill in missing mandatory fields (New)
+define("_SUBMITACTION","");//Submit action (New)
+define("_SHOWONLYTEST","");//Show only test (New)
+define("_SHOWSCORE","");//Show test + given answers + score (New)
+define("_SHOWATHANKYOUMESSAGE","");//Show a thank-you message (New)
+define("_SHOWGIVENANSWERSNEW","");//Show test + given answers (New)
+define("_SHOWRIGHTANSWERSNEW","");//Show test + given answers + score + correct answers (New)
+define("_SHOWANSWERSIFSTUDENTPASSEDNEW","");//Show test + given answers + score + correct answers only if student passed the test (New)
+define("_MAXIMUMPMUSAGESPACE","");//Maximum usage space in private messages (New)
+define("_MAXIMUMPMUSAGESPACEINFO","");//Define user allowed usage space size in MB (New)
+define("_YOUHAVETODELETEFILESFROMYOURSPACE","");//You have to delete some big-sized messages (with attachments) from your space (New)
+define("_ADDBALANCE","");//Add balance (New)
+define("_CURRENTBALANCEINYOURACCOUNT","");//Current balance in your account (New)
+define("_THEREWASATTACHMENTCUTBECAUSEOFQUOTA","");//There was an attachment in this message.It was cut because you have exceeded maximum usage space allowed. Please delete some messages with attachments and contact message sender (New)
+define("_CONNECTEDUSERS","");//Connected users (New)
+define("_PLEASENOTEFILESARESHAREDWITHSUPERVISOR","");//Please note that any files you upload here are shared with your supervisor(s) (New)
+define("_REPLACEASSIGNMENTS","");//Replace assignments (New)
+define("_REPLACEASSIGNMENTSEXPLANATION","");//Checking this will replace all users' current assignments with those from the csv file (New)
+define("_LESS","");//less (New)
+define("_COURSESREGISTRATIONS","");//Course registrations (New)
+define("_INACTIVEREGISTRATIONS","");//Inactive registrations (New)
+define("_BUYBALANCE","");//Buy balance (New)
+define("_COMPLETEUNITOPTIONS","");//Unit completion options (New)
+define("_COMPLETEAFTERTIMEELAPSED","");//Complete after time elapsed (New)
+define("_REMEMBERLOGIN","");//&quot;Keep me logged in&quot; option (New)
+define("_PASSWORDSALT","");//Password salt (New)
+define("_CEUS","");//CEUs (New)
+define("_TOTALCEUS","");//Total CEUs (New)
+define("_BRANCHWITHSUBBRANCHES","");//Branch and sub-branches (New)
+define("_KEEPMELOGGEDIN","");//Keep me logged in (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","");//You are not allowed to access this unit (New)
+define("_STARTWITHPIPEIFWANTEMPTYCHOICE","");//Start with pipe | if you want an empty choice (New)
+define("_YOUCANTADDTHISBALANCE","");//You cannot add this balance (New)
+define("_DISPLAYRESULTSTOSTUDENTS","");//Display results to students (New)
+define("_CHECKJAVA","");//Checking Java plugin (New)
+define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
+define("_LOADVIDEOJS","");//Load videojs (New)
+define("_SENDMODE","");//Send mode (New)
+define("_EMAILANDPM","");//Email and personal message (New)
 ?>

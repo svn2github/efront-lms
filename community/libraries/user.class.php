@@ -2242,6 +2242,7 @@ abstract class EfrontLessonUser extends EfrontUser
    }
    $userLessons = $temp;
   }
+  $activeTimes = $this->getLessonsActiveTimeForUser();
   foreach ($userLessons as $key => $lesson) {
    $lesson = $this -> checkUserAccessToLessonBasedOnDuration($lesson);
    if ((!$this -> user['user_types_ID'] && $lesson -> lesson['user_type'] != $this -> user['user_type']) || ($this -> user['user_types_ID'] && $lesson -> lesson['user_type'] != $this -> user['user_types_ID'])) {
@@ -2252,6 +2253,7 @@ abstract class EfrontLessonUser extends EfrontUser
     $userLessons[$key] -> lesson['project_status'] = $this -> getUserProjectsStatusInLesson($lesson);
     $userLessons[$key] -> lesson['test_status'] = $this -> getUserTestsStatusInLesson($lesson);
     $userLessons[$key] -> lesson['time_in_lesson'] = $this -> getUserTimeInLesson($lesson);
+    $userLessons[$key] -> lesson['active_time_in_lesson'] = EfrontTimes::formatTimeForReporting($activeTimes[$key]);
    }
   }
   return $userLessons;
@@ -2349,6 +2351,38 @@ abstract class EfrontLessonUser extends EfrontUser
   $userTimes = $timeReport -> getUserSessionTimeInLesson($this -> user['login'], $lesson -> lesson['id']);
   $userTimes = $timeReport -> formatTimeForReporting($userTimes);
   return $userTimes;
+ }
+ private function getActiveUserTimeInLesson($lesson) {
+  //$timeReport = new EfrontTimes();
+  $userTimes = EfrontLesson::getUserActiveTimeInLesson($this -> user['login'], $lesson -> lesson['id']);
+  $userTimes = EfrontTimes::formatTimeForReporting($userTimes);
+  return $userTimes;
+ }
+ public function getLessonsActiveTimeForUser() {
+  $userLessons = array();
+  foreach ($this->getUserLessons(array('return_objects' => false)) as $key=>$value) {
+   $userLessons[$key] = 0;
+  }
+  $result = eF_getTableData("users_to_content", "lessons_ID, sum(total_time) as total_time", "users_LOGIN='".$this->user['login']."'", "", "lessons_ID");
+  foreach ($result as $value) {
+   if (isset($userLessons[$value['lessons_ID']])) {
+    $userLessons[$value['lessons_ID']] = $value['total_time'];
+   }
+  }
+  //Calculate SCORM times, as these are not counted by the system
+  $result = eF_getTableData("scorm_data sd, content c", "c.lessons_ID, sum(total_time) as total_time", "c.id=sd.content_ID and users_LOGIN='".$this->user['login']."'", "", "lessons_ID");
+  foreach($result as $value) {
+   if (isset($userLessons[$value['lessons_ID']])) {
+    $userLessons[$value['lessons_ID']] += $value['total_time'];
+   }
+  }
+  $result = eF_getTableData("completed_tests ct, tests t", "t.lessons_ID, sum(ct.time_spent) as total_time", "t.id=ct.tests_ID and ct.status!='deleted' and ct.users_LOGIN='".$this->user['login']."'", "", "lessons_ID");
+  foreach ($result as $value) {
+   if (isset($userLessons[$value['lessons_ID']])) {
+    $userLessons[$value['lessons_ID']] += $value['total_time'];
+   }
+  }
+  return $userLessons;
  }
  private function getUserOverallProgressInLesson($lesson) {
   $totalUnits = $completedUnits = 0;

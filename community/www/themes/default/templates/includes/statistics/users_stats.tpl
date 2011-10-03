@@ -108,6 +108,7 @@
 {/capture}
  {if $T_BASIC_TYPE == 'administrator' || $T_BASIC_TYPE == 'professor' || isset($T_USER_INFO.general.supervised_by_user)}
 {capture name = t_traffic_code}
+{*
   <form name = "period">
   <table class = "statisticsSelectDate">
   <!-- <tr><td class = "labelCell">{$smarty.const._SETPERIOD}:&nbsp;</td>
@@ -132,7 +133,7 @@
    </tr>
   </table>
   </form>
-
+*}
   <table class = "statisticsTools">
    <tr><td id = "right">
      <a href = "javascript:void(0)" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_access');">{$smarty.const._ACCESSSTATISTICS}:</a>
@@ -157,7 +158,7 @@
     <td class = "topTitle">{$smarty.const._LESSON}</td>
     <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
     <td class = "topTitle centerAlign">{$smarty.const._COMPLETED}</td>
-    <td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>
+    {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
    </tr>
    {foreach name = 'lesson_traffic_list' key = "id" item = "lesson" from = $T_USER_TRAFFIC.lessons}
     <tr class = "{cycle name = 'lessontraffic' values = 'oddRowColor, evenRowColor'} {if !$lesson.active}deactivatedTableElement{/if}">
@@ -176,9 +177,11 @@
       <span style="display:none">{$lesson.completed}</span>
       {if $lesson.completed}<img src = "images/16x16/success.png" alt = "{$smart.const._YES}" title = "{$smarty.const._COMPLETEDON} #filter:timestamp_time-{$lesson.to_timestamp}#">{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}">{/if}
      </td>
+{*
      <td class = "centerAlign">
       <img class = "handle" src = "images/16x16/reports.png" alt = "{$smarty.const._ACCESSSTATISTICS}" title = "{$smarty.const._ACCESSSTATISTICS}" onclick = "eF_js_showDivPopup('{$smarty.const._ACCESSSTATISTICS}', 2, 'graph_table');showGraph($('proto_chart'), 'graph_lesson_access', '{$id}');"/>
      </td>
+*}
     </tr>
    {foreachelse}
     <tr class = "oddRowColor defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>

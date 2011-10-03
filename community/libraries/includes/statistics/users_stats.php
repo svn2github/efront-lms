@@ -267,9 +267,7 @@ if (isset($_GET['sel_user'])) {
    //pr($infoUser -> getUserStatusInLessons());
    $timesReport = new EfrontTimes(array($from, $to));
    $result = $timesReport -> getUserSessionTimeInLessons($infoUser -> user['login']);
-   foreach ($result as $value) {
-    $userTraffic[$value['lessons_ID']] = $value['time'];
-   }
+   $userTraffic = $infoUser->getLessonsActiveTimeForUser();
    foreach ($userLessons as $id => $lesson) {
     $traffic['lessons'][$id] = $timesReport -> formatTimeForReporting($userTraffic[$id]);
     $traffic['lessons'][$id]['name'] = $lesson -> lesson['name'];
@@ -440,7 +438,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $lesson = $lesson -> lesson;
     if ($lesson['active'] && !$lesson['course_only']) {
      $workSheet -> write($row, 4, str_replace("&nbsp;&rarr;&nbsp;", " -> ", $lesson['name']), $fieldLeftFormat);
-     $workSheet -> write($row, 5, $lesson['time_in_lesson']['time_string'], $fieldCenterFormat);
+     $workSheet -> write($row, 5, $lesson['active_time_in_lesson']['time_string'], $fieldCenterFormat);
      $workSheet -> write($row, 6, formatScore($lesson['overall_progress']['percentage'])."%", $fieldCenterFormat);
      if($GLOBALS['configuration']['disable_tests'] != 1) {
       $workSheet -> write($row, 7, formatScore($lesson['test_status']['mean_score'])."%", $fieldCenterFormat);
@@ -604,7 +602,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $row = 3;
    $workSheet -> write($row, 0, _TIMEINLESSON, $headerFormat);
    $workSheet -> mergeCells($row, 0, $row++, 1);
-   $workSheet -> write($row, 0, $lesson['time_in_lesson']['time_string'], $fieldCenterFormat);
+   $workSheet -> write($row, 0, $lesson['active_time_in_lesson']['time_string'], $fieldCenterFormat);
    $workSheet -> mergeCells($row, 0, $row++, 1);
    $workSheet -> write($row, 0, _STATUS, $headerFormat);
    $workSheet -> mergeCells($row, 0, $row++, 1);
@@ -698,7 +696,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
        _REGISTRATIONDATE => array('width' => '13%','fill' => false),
        _COMPLETED => array('width' => '13%','fill' => false, 'align' => 'C'),
        _SCORE => array('width' => '9%','fill' => false, 'align' => 'R'),
-       _TIME => array('width' => '10%','fill' => false, 'align' => 'R'));
+       _ACTIVETIME => array('width' => '10%','fill' => false, 'align' => 'R'));
   $data = array();
   $coursesAvgScore = $lessonsAvgScore = $projectsAvgScore = $testsAvgScore = 0;
   $data = array();
@@ -724,7 +722,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $subsectionFormatting = array(_NAME => array('width' => '68%', 'fill' => true),
              _COMPLETED => array('width' => '13%', 'fill' => true, 'align' => 'C'),
              _SCORE => array('width' => '9%', 'fill' => true, 'align' => 'R'),
-             _TIME => array('width' => '10%', 'fill' => true, 'align' => 'R'));
+             _ACTIVETIMEINLESSON => array('width' => '10%', 'fill' => true, 'align' => 'R'));
     $result = EfrontStats :: getStudentsDoneTests($courseLessons, $infoUser -> user['login']);
     $userDoneTests = array();
     foreach ($result[$infoUser -> user['login']] as $value) {
@@ -733,11 +731,11 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
     $subSectionData = array();
     foreach ($courseLessons as $lessonId => $courseLesson) {
      $courseLesson = $courseLesson->lesson;
-     $coursesTotalSec += $courseLesson['time_in_lesson']['total_seconds'];
+     $coursesTotalSec += $courseLesson['active_time_in_lesson']['total_seconds'];
      $subSectionData[$lessonId] = array(_NAME => $courseLesson['name'],
                 _COMPLETED => $courseLesson['completed'] ? _YES.($courseLesson['timestamp_completed'] ? ', '._ON.' '.formatTimestamp($courseLesson['timestamp_completed']): '') : '-',
                 _SCORE => formatScore($courseLesson['score']).'%',
-                _TIME => $courseLesson['time_in_lesson']['time_string']);
+                _ACTIVETIMEINLESSON => $courseLesson['active_time_in_lesson']['time_string']);
 /*
 					if (isset($userDoneTests[$value['id']])) {
 						$testSubsectionFormatting = array(_TESTNAME	=> array('width' => '78%', 'fill' => true),
@@ -781,7 +779,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
           _REGISTRATIONDATE => formatTimestamp($value['active_in_lesson']),
           _COMPLETED => $value['completed'] ? _YES.($value['timestamp_completed'] ? ', '._ON.' '.formatTimestamp($value['timestamp_completed']): '') : '-',
           _SCORE => formatScore($value['score']).'%',
-          _TIME => $value['time_in_lesson']['time_string']);
+          _ACTIVETIMEINLESSON => $value['active_time_in_lesson']['time_string']);
    if (isset($userDoneTests[$value['id']])) {
     $subsectionFormatting = array(_TESTNAME => array('width' => '78%', 'fill' => true),
              _STATUS => array('width' => '13%', 'fill' => true, 'align' => 'C'),

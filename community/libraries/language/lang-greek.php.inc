@@ -4144,4 +4144,7 @@ define("_DISPLAYRESULTSTOSTUDENTS", "Εμφάνιση αποτελεσμάτων
 define("_CHECKJAVA","Έλεγχος Java");
 define("_CHECKJAVAFAILED", "Δεν υπάρχει ενεργοποιημένο το Java plugin");
 define("_LOADVIDEOJS", "Φόρτωση videojs");
+define("_ACTIVETIMEINLESSON", "Ενεργός χρόνος στο μάθημα");
+define("_TOTALACTIVELESSONTIME", "Συνολικός ενεργός χρόνος στο μάθημα");
+define("_ACTIVELESSONTIMES", "Ενεργοί χρόνοι μαθήματος");
 ?>

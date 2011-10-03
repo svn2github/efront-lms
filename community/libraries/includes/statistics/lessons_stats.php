@@ -218,13 +218,10 @@ try {
             foreach ($filteredUsers as $user) {
              $users[$user['login']] = $user['active'];
             }
-            $traffic['users'] = $infoLesson -> getLessonTimesForUsers(array($from, $to));
-            foreach ($traffic['users'] as $key => $user) {
-                if (isset($statsFiltersUsers) && !in_array($key, array_keys($statsFiltersUsers))) {
-                    unset($traffic['users'][$key]);
-                } else {
-                    $traffic['users'][$key]['active'] = $users[$key];
-                }
+            //$traffic['users'] = $infoLesson -> getLessonTimesForUsers(array($from, $to));
+            $traffic['users'] = $infoLesson->getUsersActiveTimeInLesson();
+            foreach ($traffic['users'] as $key => $value) {
+             $traffic['users'][$key] = EfrontTimes::formatTimeForReporting($value);
             }
 
             foreach ($traffic['users'] as $value) {
@@ -463,7 +460,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
     $workSheet -> write(2, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write(2, 5, _LESSONROLE, $titleLeftFormat);
     $workSheet -> write(2, 6, _REGISTRATIONDATE, $titleCenterFormat);
-    $workSheet -> write(2, 7, _TIME, $titleCenterFormat);
+    $workSheet -> write(2, 7, _ACTIVETIMEINLESSON, $titleCenterFormat);
     $workSheet -> write(2, 8, _CONTENT, $titleCenterFormat);
     if ($GLOBALS['configuration']['disable_tests'] != 1) {
         $workSheet -> write(2, 9, _TESTS, $titleCenterFormat);
@@ -480,7 +477,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> write($row, 4, formatLogin($user['login']), $fieldLeftFormat);
         $workSheet -> write($row, 5, $roles[$user['role']], $fieldLeftFormat);
         $workSheet -> write($row, 6, formatTimestamp($user['timestamp']), $fieldCenterFormat);
-        $workSheet -> write($row, 7, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
+        $workSheet -> write($row, 7, $user['active_time_in_lesson']['time_string'], $fieldCenterFormat);
         $workSheet -> write($row, 8, formatScore($user['overall_progress']['percentage'])."%", $fieldCenterFormat);
         if ($GLOBALS['configuration']['disable_tests'] != 1) {
             $workSheet -> write($row, 9, formatScore($user['test_status']['mean_score'])."%", $fieldCenterFormat);
@@ -496,17 +493,17 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
 
     //lesson professors info
     $workSheet -> write($row, 4, _PROFESSORSINFO, $headerFormat);
-    $workSheet -> mergeCells($row, 4, $row++, 11);
+    $workSheet -> mergeCells($row, 4, $row++, 6);
     $workSheet -> write($row, 4, _LOGIN, $titleLeftFormat);
     $workSheet -> write($row, 5, _LESSONROLE, $titleLeftFormat);
-    $workSheet -> write($row, 6, _TIME, $titleCenterFormat);
- $workSheet -> write($row++, 7, _REGISTRATIONDATE, $titleCenterFormat);
+    //$workSheet -> write($row, 6, _ACTIVETIMEINLESSON, $titleCenterFormat);
+ $workSheet -> write($row++, 6, _REGISTRATIONDATE, $titleCenterFormat);
 
     foreach ($professors as $user) {
         $workSheet -> write($row, 4, formatLogin($user['login']), $fieldLeftFormat);
         $workSheet -> write($row, 5, $roles[$user['role']], $fieldLeftFormat);
-        $workSheet -> write($row, 6, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
-  $workSheet -> write($row, 7, formatTimestamp($user['timestamp']), $fieldCenterFormat);
+        //$workSheet -> write($row, 6, $user['active_time_in_lesson']['time_string'], $fieldCenterFormat);
+  $workSheet -> write($row, 6, formatTimestamp($user['timestamp']), $fieldCenterFormat);
         $row++;
     }
 
@@ -696,9 +693,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         $workSheet -> mergeCells($row, 0, $row, 1);
         $workSheet -> write(++$row, 0, $roles[$user['role']], $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
-        $workSheet -> write(++$row, 0, _TIMEINLESSON, $headerFormat);
+        $workSheet -> write(++$row, 0, _ACTIVETIMEINLESSON, $headerFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
-        $workSheet -> write(++$row, 0, $user['time_in_lesson']['time_string'], $fieldCenterFormat);
+        $workSheet -> write(++$row, 0, $user['active_time_in_lesson']['time_string'], $fieldCenterFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
         $workSheet -> write(++$row, 0, _STATUS, $headerFormat);
         $workSheet -> mergeCells($row, 0, $row, 1);
@@ -839,7 +836,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
  $data = array();
  foreach ($students as $user) {
   $data[] = array(_USER => formatLogin($user['login']),
-      _TIMEINLESSON => $user['time_in_lesson']['time_string'],
+      _ACTIVETIMEINLESSON => $user['active_time_in_lesson']['time_string'],
       _REGISTRATIONDATE => formatTimestamp($user['timestamp']),
       _CONTENT => formatScore($user['overall_progress']['percentage'])."%",
       _TESTS => formatScore($user['test_status']['mean_score'])."%",
@@ -851,7 +848,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
  $data = array();
  foreach ($professors as $user) {
   $data[] = array(_USER => formatLogin($user['login']),
-      _TIMEINLESSON => $user['time_in_lesson']['time_string'],
+      //_TIMEINLESSON => $user['active_time_in_lesson']['time_string'],
       _REGISTRATIONDATE => formatTimestamp($user['timestamp']));
     }
  $pdf->printDataSection(_PROFESSORSINFO, $data, $formatting);

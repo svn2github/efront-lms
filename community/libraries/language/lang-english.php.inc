@@ -4149,4 +4149,7 @@ define("_CHECKJAVAFAILED", "Java plugin is not installed");
 define("_LOADVIDEOJS", "Load videojs");
 define("_SENDMODE", "Send mode");
 define("_EMAILANDPM", "Email and personal message");
+define("_ACTIVETIMEINLESSON", "Active time in lesson");
+define("_TOTALACTIVELESSONTIME", "Total active lesson time");
+define("_ACTIVELESSONTIMES", "Active lesson times");
 ?>

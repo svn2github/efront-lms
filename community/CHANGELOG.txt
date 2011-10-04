@@ -64,6 +64,7 @@
 - Added balance payments through paypal
 - Fixed SQL injection security vulnerability reported by IHTeam, http://www.ihteam.net/
 - Default student/professor accounts won't use the default insecure credentials any more, but rather the administrator's ones. Reported by IHTeam, http://www.ihteam.net/
+- Fixed SQL injection security vulnerability reported by Vulnerability Research Laboratory, http://www.vulnerability-lab.com
 - Fixed content traversing rules not working for individual users
 - Fixed "not seen" rule not working when source unit is a test
 - Fixed issue about date type custom user field in notifications

@@ -140,7 +140,7 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
 
      {capture name = "t_buy_balance_code"}
       <table class = "formElements">
-       <tr><td class = "labelCell">Amount:</td>
+       <tr><td class = "labelCell">{$smarty.const._BALANCE}:</td>
         <td class = "elementCell"><input type = "text" id = "buy_credit_value"/></td></tr>
        <tr><td class = "labelCell"></td>
         <td class = "submitCell"><input class = "flatButton" type = "submit" value = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, $('buy_credit_value').value, 'credit')"></td></tr>
@@ -149,10 +149,10 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
      {capture name = "moduleSideOperations"}
       <tr><td>
       {include file = "includes/blocks/cart.tpl" assign = "cart"}
-         {eF_template_printBlock title = $smarty.const._SELECTEDLESSONS content = $cart image = "32x32/shopping_basket.png"}
         {if $T_CONFIGURATION.paypalbusiness && $T_CONFIGURATION.enable_balance}
          {eF_template_printBlock title = $smarty.const._BUYBALANCE content = $smarty.capture.t_buy_balance_code image = "32x32/shopping_basket.png"}
         {/if}
+         {eF_template_printBlock title = $smarty.const._SELECTEDLESSONS content = $cart image = "32x32/shopping_basket.png"}
          </td></tr>
      {/capture}
     {/if}

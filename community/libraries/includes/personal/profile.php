@@ -52,6 +52,7 @@ if (!isset($_GET['add_user'])) {
   if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
    $constrainAccess[] = 'user_type';
    $constrainAccess[] = 'active';
+   $constrainAccess[] = 'ldap';
    $roles = EfrontUser :: getRoles(true); //so that the selected user type appears correctly
    if ($currentUser->user['user_type'] != 'administrator') {
     if ($GLOBALS['configuration']['disable_change_info'] && $GLOBALS['configuration']['disable_change_pass']) {
@@ -101,7 +102,6 @@ if ($GLOBALS['configuration']['social_modules_activated'] > 0) {
  $form -> addElement('textarea', 'short_description', _SHORTDESCRIPTIONCV, 'class = "inputContentTextarea simpleEditor" style = "width:100%;height:14em;"');
 }
 $form -> addElement('textarea', 'comments', _COMMENTS, 'class = "inputContentTextarea" style = "width:100%;height:5em;"');
-
 $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
 $form -> registerRule('checkNotExist', 'callback', 'eF_checkNotExist');
 $form -> addRule('password_', str_replace("%x", $GLOBALS['configuration']['password_length'], _PASSWORDMUSTBE6CHARACTERS), 'minlength', $GLOBALS['configuration']['password_length'], 'client');
@@ -116,7 +116,6 @@ if (isset($_GET['add_user'])) {
  $form -> addRule('password_', _THEFIELD.' '._PASSWORD.' '._ISMANDATORY, 'required', null, 'client');
  $form -> addRule('passrepeat', _THEFIELD.' '._REPEATPASSWORD.' '._ISMANDATORY, 'required', null, 'client');
 }
-
 $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
 if (isset($_GET['add_user'])) {
  $constrainAccess = array();
@@ -138,7 +137,7 @@ if (isset($_GET['add_user'])) {
  if ($editedUser -> user['user_types_ID']) {
   $form -> setDefaults(array('user_type' => $editedUser -> user['user_types_ID']));
  }
- $form -> setDefaults(array("system_avatar" => $avatar['name']));
+ $form -> setDefaults(array("system_avatar" => $avatar['name'], 'ldap_user' => $editedUser -> isLdapUser));
 }
 if ($contrainAllButPassword) {
  $allFields = $form -> _elementIndex;
@@ -183,8 +182,15 @@ if ($form -> isSubmitted() && $form -> validate()) {
    foreach ($constrainAccess as $value) {
     unset($userProperties[$value]);
    }
-   if (!$values['password_']) {//If a password is not set, don't set it
-    unset($userProperties['password']);
+   if ($values['ldap_user'] && !$editedUser -> isLdapUser) {
+    $userProperties['password'] = 'ldap';
+   } else if (!$values['password_']) {//If a password is not set, don't set it
+    if (!$values['ldap_user'] && $editedUser -> isLdapUser) {
+     $userProperties['password'] = '';
+     $ldapMessage = ' '._PLEASEREMEMBERTOSETUPAPASSWORD;
+    } else {
+     unset($userProperties['password']);
+    }
    } else {
     $userProperties['password'] = EfrontUser::createPassword($userProperties['password']); //encode the password
    }
@@ -225,11 +231,11 @@ if ($form -> isSubmitted() && $form -> validate()) {
   $editedUser -> persist();
   if (isset($_SESSION['missing_fields'])) {
    unset($_SESSION['missing_fields']);
-   loginRedirect($editedUser->user['user_type'], urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY), 'success');
+   loginRedirect($editedUser->user['user_type'], urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY.$ldapMessage), 'success');
   } else if ($editedUser->user['user_type'] == 'administrator' || !isset($_GET['add_user'])) {
-   eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=profile&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
+   eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=profile&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY.$ldapMessage)."&message_type=success");
   } else {
-   eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=user_courses&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY)."&message_type=success");
+   eF_redirect($_SERVER['PHP_SELF']."?ctg=personal&user=".$editedUser->user['login']."&op=user_courses&message=".urlencode(_OPERATIONCOMPLETEDSUCCESSFULLY.$ldapMessage)."&message_type=success");
   }
  } catch (Exception $e) {
   handleNormalFlowExceptions($e);

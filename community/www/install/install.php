@@ -821,7 +821,7 @@ class Installation
   EfrontConfiguration :: setValue('system_email', $values['admin_email']);
   if (!$adminOnly) {
    $professorData = array('login' => 'professor',
-                             'password' => 'professor',
+                             'password' => $values['admin_password'],
                              'email' => $values['admin_email'],
                              'name' => 'Default',
                              'surname' => 'Professor',
@@ -831,7 +831,7 @@ class Installation
                              'additional_accounts' => serialize(array($values['admin_name'], 'student')));
    $professor = EfrontUser :: createUser($professorData);
    $studentData = array('login' => 'student',
-                           'password' => 'student',
+                           'password' => $values['admin_password'],
                            'email' => $values['admin_email'],
                            'name' => 'Default',
                            'surname' => 'Student',

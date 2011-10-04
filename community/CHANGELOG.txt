@@ -62,7 +62,8 @@
 - Moved uploaded projects from students to an internal folder named <project_id> inside projects folder and do not rename them
 - Fixed issue about scheduled lessons in courses and go to Next lesson button
 - Added balance payments through paypal
-- Fixed SQL injection security vulnerability
+- Fixed SQL injection security vulnerability reported by IHTeam, http://www.ihteam.net/
+- Default student/professor accounts won't use the default insecure credentials any more, but rather the administrator's ones. Reported by IHTeam, http://www.ihteam.net/
 - Fixed content traversing rules not working for individual users
 - Fixed "not seen" rule not working when source unit is a test
 - Fixed issue about date type custom user field in notifications
@@ -73,6 +74,7 @@
 - Fixed error in calculation for total_time in SCORM content when revisiting SCO
 - Branch statistics now optionally display sub-branch information as well (Enterprise edition)
 - Fixed issue about assigning administrator roles to lessons from professor's lesson administration page
+- Added toggle checkbox for LDAP users in user's profile page (Edu/Ent editions)
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

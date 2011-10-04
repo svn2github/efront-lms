@@ -4152,4 +4152,6 @@ define("_EMAILANDPM", "Email and personal message");
 define("_ACTIVETIMEINLESSON", "Active time in lesson");
 define("_TOTALACTIVELESSONTIME", "Total active lesson time");
 define("_ACTIVELESSONTIMES", "Active lesson times");
+define("_PLEASEREMEMBERTOSETUPAPASSWORD", "Please remember to set up a password");
+define("_ISLDAPUSER", "Ldap user");
 ?>

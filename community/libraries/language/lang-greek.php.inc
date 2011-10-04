@@ -4147,4 +4147,6 @@ define("_LOADVIDEOJS", "Φόρτωση videojs");
 define("_ACTIVETIMEINLESSON", "Ενεργός χρόνος στο μάθημα");
 define("_TOTALACTIVELESSONTIME", "Συνολικός ενεργός χρόνος στο μάθημα");
 define("_ACTIVELESSONTIMES", "Ενεργοί χρόνοι μαθήματος");
+define("_PLEASEREMEMBERTOSETUPAPASSWORD", "Μην ξεχάσετε να ορίσετε έναν κωδικό");
+define("_ISLDAPUSER", "Χρήστης LDAP");
 ?>

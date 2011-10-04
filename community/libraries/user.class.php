@@ -282,9 +282,8 @@ abstract class EfrontUser
   if (!isset($userProperties['surname'])) {
    throw new EfrontUserException(_INVALIDSURNAME.': '.$userProperties['login'], EfrontUserException :: INVALID_PARAMETER);
   }
-  !isset($userProperties['user_type']) ? $userProperties['user_type'] = 'student' : null; //If a user type is not specified, by default make the new user student
+  !isset($userProperties['user_type']) || !in_array($userProperties['user_type'], EfrontUser::getRoles()) ? $userProperties['user_type'] = 'student' : null; //If a user type is not specified, by default make the new user student
   isset($userProperties['password']) ? $passwordNonTransformed = $userProperties['password'] : $passwordNonTransformed = $userProperties['login'];
-   //pr($userProperties);
   if ($userProperties['password'] != 'ldap') {
    !isset($userProperties['password']) ? $userProperties['password'] = EfrontUser::createPassword($userProperties['login']) : $userProperties['password'] = self :: createPassword($userProperties['password']);
    if ($GLOBALS['configuration']['force_change_password']) {

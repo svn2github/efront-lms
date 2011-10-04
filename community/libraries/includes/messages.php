@@ -240,7 +240,11 @@ try {
   $form -> addElement('text', 'subject', _SUBJECT, 'id = "msg_subject" class = "inputText" style = "width:400px"');
         $form -> addElement('file', 'attachment[0]', _ATTACHMENT, null, 'class = "inputText"');
         $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
-        $form -> addElement('textarea', 'body', _BODY, 'class = "simpleEditor" style = "width:100%;height:200px"');
+        if ($_SESSION['s_type'] != 'student') {
+         $form -> addElement('textarea', 'body', _BODY, 'class = "simpleEditor" style = "width:100%;height:200px"');
+        } else {
+         $form -> addElement('textarea', 'body', _BODY, 'style = "width:100%;height:200px"');
+        }
         $form -> addElement('submit', 'submit_send_message', _SENDMESSAGE, 'class = "flatButton"');
         $form -> addElement('submit', 'submit_preview_message', _PREVIEWMESSAGE, 'class = "flatButton"');
         if (isset($_GET['recipient'])) {
@@ -272,6 +276,9 @@ try {
         }
         if ($form -> isSubmitted() && $form -> validate()) {
             $values = $form -> exportValues();
+            if ($_SESSION['s_type'] == 'student') {
+             $values['body'] = strip_tags($values['body']);
+            }
             // The field with the recipients is no longer mandatory: we should check if it is empty
             //pr($values['recipient']);
    if ($values['recipient']) {

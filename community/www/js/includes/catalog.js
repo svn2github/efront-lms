@@ -30,7 +30,11 @@ function onUpdateCoupon(el, response) {
 function addToCart(el, id, type) {
 	var url    = location.toString();
 	parameters = {fct:'addToCart', id:id, ajax:'cart', type:type, method: 'get'};
-	ajaxRequest(el, url, parameters, onCartOperation, false, false);				
+	if (type == 'credit') {
+		ajaxRequest(el, url, parameters, function () {location=redirectLocation;}, false, false);		
+	} else {
+		ajaxRequest(el, url, parameters, onCartOperation, false, false);
+	}
 }		
 function removeFromCart(el, id, type) {
 	var url    = location.toString();

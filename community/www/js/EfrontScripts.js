@@ -565,7 +565,7 @@ var targetWin = window.open (pageURL, title, 'scrollbars=yes, width='+w+', heigh
 }
 
 
-function periodicUpdater() {
+function periodicUpdater(asynchronous) {
 	
 	if ($('user_total_time_in_unit')) {
 		var parameters = {method:'post', user_total_time_in_unit:$('user_total_time_in_unit').innerHTML};
@@ -573,7 +573,7 @@ function periodicUpdater() {
 		var parameters = {method:'get'};
 	}
 	//alert(parameters.time);
-	ajaxRequest(document.body, 'periodic_updater.php?HTTP_REFERER='+encodeURIComponent(location.toString()), parameters, onPeriodicUpdater);
+	ajaxRequest(document.body, 'periodic_updater.php?HTTP_REFERER='+encodeURIComponent(location.toString()), parameters, onPeriodicUpdater, onPeriodicUpdater, asynchronous);
 }
 
 function onPeriodicUpdater(el, response) {
@@ -677,32 +677,11 @@ function onPeriodicUpdater(el, response) {
 	
 	} else if (response.evalJSON(true) && response.evalJSON(true).status == 0 && response.evalJSON(true).code == -1) {
 		location='index.php?ctg=expired';
+	} else {
+		alert(response);
 	}
-//{"messages":"0","online":[{"login":"admin","formattedLogin":"Administrator S. (admin)","user_type":"administrator","timestamp_now":"1292775277","session_timestamp":"1292775277","time":{"seconds":14,"minutes":2,"hours":0,"total_seconds":134,"time_string":"2_MINUTESSHORTHAND 14_SECONDSSHORTHAND"}}]}	
 }
-/*
-function startUpdaterFunction() {
-	ajaxRequest(document.body, location.toString(), {method:"get",ajax:"set_time_target",random:new Date().getTime()}, function (el, response) {
-		setTimeout("periodicUpdater()", 2500);
-		if (typeof(updaterPeriod) != 'undefined') {
-			setInterval("periodicUpdater()", updaterPeriod);
-		}
-		if ($('user_total_time_in_unit') && response.evalJSON(true).status && response.evalJSON(true).active_time_in_unit) {
-			$('user_total_time_in_unit').update(response.evalJSON(true).active_time_in_unit.total_seconds);
-			if ($('user_time_in_unit_display')) {
-				$('user_time_in_unit_display').update(response.evalJSON(true).active_time_in_unit.time_string_colon);
-			}
-			alert(response.evalJSON(true).active_time_in_unit.time_string_colon);
-		}
-		if ($('user_time_in_lesson') && response.evalJSON(true).status && response.evalJSON(true).active_time_in_lesson) {
-			$('user_time_in_lesson').update(response.evalJSON(true).active_time_in_lesson.total_seconds);
-			if ($('user_time_in_lesson_display')) {
-				$('user_time_in_lesson_display').update(response.evalJSON(true).active_time_in_lesson.time_string_colon);
-			}
-		}
-	});
-}
-*/
+
 function startUpdaterFunction() {
 	periodicUpdater();
 	setTimeout("periodicUpdater()", 2500);

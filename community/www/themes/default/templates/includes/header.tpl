@@ -104,5 +104,5 @@ var translations = new Array(); //used for passing language tags to js
 </head>
 {* Using that to avoid creating a body for the sidebar*}
 {if $smarty.server.PHP_SELF|@basename != 'new_sidebar.php'}
-<body {if isset($T_CURRENT_CTG)}id = "body_{$T_CURRENT_CTG}"{/if} onkeypress = "if (window.eF_js_keypress) eF_js_keypress(event);" onbeforeunload = "if (window.periodicUpdater) periodicUpdater();">
+<body {if isset($T_CURRENT_CTG)}id = "body_{$T_CURRENT_CTG}"{/if} onkeypress = "if (window.eF_js_keypress) eF_js_keypress(event);" onbeforeunload = "if (window.periodicUpdater) periodicUpdater(false);">
 {/if}

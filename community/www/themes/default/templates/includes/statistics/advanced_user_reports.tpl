@@ -209,7 +209,7 @@
    <div class = "headerTools">
     <span>
      <img src = "images/16x16/add.png" alt = "{$smarty.const._ADDNEWCONDITION}" title = "{$smarty.const._ADDNEWCONDITION}" />
-     <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add_condition=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">{$smarty.const._ADDNEWCONDITION}</a>
+     <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&add_condition=1&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDNEWCONDITION}', 3)">{$smarty.const._ADDNEWCONDITION}</a>
      {*<a href = "javascript:void(0)" onclick = "addCondition()">{$smarty.const._ADDCONDITION}</a>*}
     </span>
     <span>
@@ -222,8 +222,8 @@
  <table id = "conditionsTable" style = "width:100%" size = "{$T_TABLE_SIZE}" class = "sortedTable" useAjax = "1" url = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&">
     <tr class = "topTitle">
      {*<td class = "noSort" name = "index" class = "centerAlign">{$smarty.const._INDEX}</td>*}
-     <td class = "noSort" name = "condition">{$smarty.const._CONDITIONTYPE}</td>
-     <td class = "noSort" name = "option">{$smarty.const._CONDITIONSPECIFICATION}</td>
+     <td class = "noSort" name = "condition">{$smarty.const._TYPE}</td>
+     <td class = "noSort" name = "option">{$smarty.const._SPECIFICATION}</td>
      <td class = "centerAlign noSort" name = "relation">{$smarty.const._RELATIONWITHTHEFOLLOWINGCONDITION}</td>
      <td class = "centerAlign noSort" name = "status" class = "centerAlign">{$smarty.const._STATUS}</td>
      <td class = "centerAlign noSort">{$smarty.const._TOOLS}</td>
@@ -270,7 +270,7 @@
      <td class = "centerAlign">{$item.relation}</td>
      <td class = "centerAlign"><span style = "display:none">{$item.status}</span><img class = "ajaxHandle" src = "images/16x16/{if $item.status}trafficlight_green{else}trafficlight_red{/if}.png" alt = "{$smarty.const._STATUS}" title = "{$smarty.const._STATUS}" onclick = "setConditionStatus(this, '{$key}')"/></td>
      <td class = "centerAlign">
-      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_condition={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCONDITION}', 3)">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&edit_condition={$key}&report={$smarty.get.report}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._REPORTSCONDITION}', 3)">
        <img class = "ajaxHandle" src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}" onclick = "eF_js_showDivPopup();"/></a>
       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "deleteCondition(this, '{$key}')"/>
      </td>
@@ -379,6 +379,7 @@
       {/if}
       {if $item.type == 'text'}
        <input type = "text" name = "option_{$key}" value = "{$T_EDITED_CONDITION.option}" class = "inputText"/>
+       <span class = "infoCell">{$smarty.const._USEMYSQLWILDCARDS}</span>
       {elseif $item.type == 'select'}
        <select name = "option_{$key}">
        {foreach name = 'options_list' item = "option" key = "value" from = $item.values}
@@ -419,7 +420,7 @@
    </form>
 
   {/capture}
-  {eF_template_printBlock title = $smarty.const._ADDCONDITION data = $smarty.capture.t_add_condition_code image = '32x32/add.png'}
+  {eF_template_printBlock title = $smarty.const._REPORTSCONDITION data = $smarty.capture.t_add_condition_code image = '32x32/add.png'}
 
   {if $T_MESSAGE_TYPE == 'success' && !$smarty.get.post_another}
      {*<script>parent.location = '{$smarty.server.PHP_SELF}?ctg=statistics&option=advanced_user_reports&report={$smarty.get.report}&tab=builder';</script>*}

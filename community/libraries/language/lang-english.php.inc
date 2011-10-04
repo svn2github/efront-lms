@@ -4154,4 +4154,6 @@ define("_TOTALACTIVELESSONTIME", "Total active lesson time");
 define("_ACTIVELESSONTIMES", "Active lesson times");
 define("_PLEASEREMEMBERTOSETUPAPASSWORD", "Please remember to set up a password");
 define("_ISLDAPUSER", "Ldap user");
+define("_REPORTSCONDITION", "Condition");
+define("_USEMYSQLWILDCARDS", "You can use mysql's wildcard characters, % and _");
 ?>

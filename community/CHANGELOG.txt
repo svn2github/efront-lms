@@ -75,6 +75,7 @@
 - Branch statistics now optionally display sub-branch information as well (Enterprise edition)
 - Fixed issue about assigning administrator roles to lessons from professor's lesson administration page
 - Added toggle checkbox for LDAP users in user's profile page (Edu/Ent editions)
+- Correct handling of imported users without a user_type defined
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

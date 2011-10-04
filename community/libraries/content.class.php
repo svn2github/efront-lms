@@ -1804,12 +1804,14 @@ class EfrontContentTree extends EfrontTree
              if (!$value['has_data'] && $value['ctg_type'] == 'theory') {
     $childIterator = new EfrontVisitableFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($value), RecursiveIteratorIterator :: SELF_FIRST));
     $seenChildNodes = true;
+    $has_child = false;
     foreach ($childIterator as $key2 => $value2) {
+     $has_child = true;
      if (!$value2['seen'] && $value2['has_data']) {
       $seenChildNodes = false;
      }
     }
-    $seenChildNodes ? $value['seen'] = 1: $value['seen'] = 0;
+    $seenChildNodes && $has_child ? $value['seen'] = 1: $value['seen'] = 0;
    }
         }
     }

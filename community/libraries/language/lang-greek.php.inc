@@ -4149,4 +4149,6 @@ define("_TOTALACTIVELESSONTIME", "Συνολικός ενεργός χρόνος
 define("_ACTIVELESSONTIMES", "Ενεργοί χρόνοι μαθήματος");
 define("_PLEASEREMEMBERTOSETUPAPASSWORD", "Μην ξεχάσετε να ορίσετε έναν κωδικό");
 define("_ISLDAPUSER", "Χρήστης LDAP");
+define("_REPORTSCONDITION", "Συνθήκη");
+define("_USEMYSQLWILDCARDS", "Μπορείτε να χρησιμοποιήσετε τους μπαλαντέρ της mysql, % και _");
 ?>

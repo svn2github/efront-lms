@@ -151,12 +151,12 @@
   {if $T_REPORTS_USER->user.user_type != 'administrator'}
   <br/>
   <table class = "statisticsTools">
-   <tr><td>{$smarty.const._LESSONTIMES}</td></tr>
+   <tr><td>{$smarty.const._ACTIVELESSONTIMES}</td></tr>
   </table>
   <table class = "sortedTable" style = "width:100%">
    <tr>
     <td class = "topTitle">{$smarty.const._LESSON}</td>
-    <td class = "topTitle centerAlign">{$smarty.const._TOTALACCESSTIME}</td>
+    <td class = "topTitle centerAlign">{$smarty.const._ACTIVETIMEINLESSON}</td>
     <td class = "topTitle centerAlign">{$smarty.const._COMPLETED}</td>
     {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
    </tr>
@@ -165,13 +165,7 @@
      <td>{$lesson.name}</td>
      <td class = "centerAlign">
       <span style="display:none">{$lesson.total_seconds}</span>
-      {if $lesson.total_seconds}
-       {if $lesson.hours}{$lesson.hours}{$smarty.const._HOURSSHORTHAND} {/if}
-       {if $lesson.minutes}{$lesson.minutes}{$smarty.const._MINUTESSHORTHAND} {/if}
-       {if $lesson.seconds}{$lesson.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}
-      {else}
-       {$smarty.const._NOACCESSDATA}
-      {/if}
+      {$lesson.time_string}
      </td>
      <td class = "centerAlign">
       <span style="display:none">{$lesson.completed}</span>

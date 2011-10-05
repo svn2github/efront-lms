@@ -423,7 +423,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $workSheet -> setColumn(4, 10, 15);
    $row++;
    $workSheet -> write($row, 4, _LESSON, $titleLeftFormat);
-   $workSheet -> write($row, 5, _TIME, $titleCenterFormat);
+   $workSheet -> write($row, 5, _ACTIVETIMEINLESSON, $titleCenterFormat);
    $workSheet -> write($row, 6, _OVERALL, $titleCenterFormat);
    if ($GLOBALS['configuration']['disable_tests'] != 1) {
     $workSheet -> write($row, 7, _TESTS, $titleCenterFormat);
@@ -600,7 +600,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'user') {
    $workSheet -> setColumn(0, 0, 20);
    $workSheet -> setColumn(1, 1, 20);
    $row = 3;
-   $workSheet -> write($row, 0, _TIMEINLESSON, $headerFormat);
+   $workSheet -> write($row, 0, _ACTIVETIMEINLESSON, $headerFormat);
    $workSheet -> mergeCells($row, 0, $row++, 1);
    $workSheet -> write($row, 0, $lesson['active_time_in_lesson']['time_string'], $fieldCenterFormat);
    $workSheet -> mergeCells($row, 0, $row++, 1);

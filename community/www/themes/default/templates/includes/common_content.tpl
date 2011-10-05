@@ -211,7 +211,7 @@
    </td></tr>
   {/capture}
  {elseif $smarty.get.bare}
-  {if !$T_SCORM && $T_UNIT.ctg_type != 'tests'}
+  {if !$T_SCORM && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}
   <span style = "display:none" id = "user_total_time_in_unit">{*{$T_USER_TIME_IN_UNIT.total_seconds}*}</span>
   {*<span style = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>*}
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
@@ -223,7 +223,7 @@
   {/if}
   {$T_UNIT.data}
  {else}
-  {if !$T_SCORM && $T_UNIT.ctg_type != 'tests'}
+  {if !$T_SCORM && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}
   <span style = "display:none" id = "user_total_time_in_unit"></span>
   {*<span tyle = "display:none" id = "user_current_time_in_unit">{$T_USER_CURRENT_TIME_IN_UNIT}</span>*}
   <span style = "display:none" id = "required_time_in_unit">{$T_REQUIRED_TIME_IN_UNIT}</span>
@@ -388,10 +388,10 @@
     {if $T_SCORM && $T_NOCREDIT}
      <div><script>var nocredit = false</script>{$smarty.const._YOUAREREVISITINGCHANGESNOTTAKENINTOACCOUNT}</div>
     {/if}
-    <div {if !$T_CURRENT_LESSON->options.timers || $T_SCORM || $T_UNIT.ctg_type == 'tests'}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display"></span></div>
-    <div {if !$T_CURRENT_LESSON->options.timers || $T_SCORM || $T_UNIT.ctg_type == 'tests'}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display"></span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers || $T_SCORM || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISUNIT}:&nbsp;<span id = "user_time_in_unit_display"></span></div>
+    <div {if !$T_CURRENT_LESSON->options.timers || $T_SCORM || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}style = "display:none"{/if}>{$smarty.const._TOTALTIMESPENTONTHISLESSON}:&nbsp;<span id = "user_time_in_lesson_display"></span></div>
     <script>
-    {if !$T_CURRENT_LESSON->options.timers || $T_SCORM || $T_UNIT.ctg_type == 'tests'}var timers = false{else}var timers=true{/if}
+    {if !$T_CURRENT_LESSON->options.timers || $T_SCORM || $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}var timers = false{else}var timers=true{/if}
     //var seconds = {$T_USER_TIME_IN_UNIT.seconds};
     //var minutes = {$T_USER_TIME_IN_UNIT.minutes};
     //var hours   = {$T_USER_TIME_IN_UNIT.hours};

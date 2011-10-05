@@ -416,6 +416,41 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
        }
       }
      }
+     $totals = array();
+     $result = eF_getTableData("user_times", "users_LOGIN, entity_ID, lessons_ID, time", "entity = 'unit'");
+     foreach ($result as $value) {
+      if (isset($totals[$value['users_LOGIN']][$value['entity_ID']])) {
+       $totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']] += $value['time'];
+      } else {
+       $totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']] = $value['time'];
+      }
+     }
+     $data = array();
+     foreach ($totals as $user=>$lesson) {
+      foreach ($lesson as $lessonId => $content) {
+       foreach ($content as $contentId=>$seconds) {
+        $data[] = array("users_LOGIN" => $user, "content_ID" => $contentId, "lessons_ID" => $lessonId, "total_time" => $seconds);
+       }
+      }
+     }
+     eF_insertTableDataMultiple("users_to_content", $data);
+     $totals = array();
+     $result = eF_getTableData("user_times", "users_LOGIN, entity_ID, time", "entity = 'lesson'");
+     foreach ($result as $value) {
+      if (isset($totals[$value['users_LOGIN']][$value['entity_ID']])) {
+       $totals[$value['users_LOGIN']][$value['entity_ID']] += $value['time'];
+      } else {
+       $totals[$value['users_LOGIN']][$value['entity_ID']] = $value['time'];
+      }
+     }
+     //pr($totals);
+     $data = array();
+     foreach ($totals as $user=>$lesson) {
+      foreach ($lesson as $lessonId => $seconds) {
+       $data[] = array("users_LOGIN" => $user, "content_ID" => null, "lessons_ID" => $lessonId, "total_time" => $seconds);
+      }
+     }
+     eF_insertTableDataMultiple("users_to_content", $data);
     }
     //change flv path with offset because of the tinymce 3.4.2
     $result = eF_getTableData("content", "*");
@@ -808,12 +843,14 @@ class Installation
 	 * @return unknown_type
 	 */
  public static function createDefaultUsers($values, $adminOnly = false) {
+   $language = 'english';
+  }
   $adminData = array('login' => $values['admin_name'],
                         'password' => $values['admin_password'],
                         'email' => $values['admin_email'],
                         'name' => 'System',
                         'surname' => 'Administrator',
-                        'languages_NAME' => $values['language'],
+                        'languages_NAME' => $language,
                         'active' => '1',
                         'user_type'=> 'administrator',
                         'additional_accounts' => $adminOnly ? '' : serialize(array('student', 'professor')));
@@ -825,7 +862,7 @@ class Installation
                              'email' => $values['admin_email'],
                              'name' => 'Default',
                              'surname' => 'Professor',
-                             'languages_NAME' => $values['language'],
+                             'languages_NAME' => $language,
                              'active' => '1',
                              'user_type'=> 'professor',
                              'additional_accounts' => serialize(array($values['admin_name'], 'student')));
@@ -835,7 +872,7 @@ class Installation
                            'email' => $values['admin_email'],
                            'name' => 'Default',
                            'surname' => 'Student',
-                           'languages_NAME' => $values['language'],
+                           'languages_NAME' => $language,
                            'active' => '1',
                            'user_type'=> 'student',
                            'additional_accounts' => serialize(array($values['admin_name'], 'professor')));

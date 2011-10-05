@@ -56,14 +56,13 @@
 {literal}
 <script type="text/javascript">
 try {
- document.observe("dom:loaded", fix_flash);
+ //document.observe("dom:loaded", fix_flash);
  if ($('scormFrameID')) {
   Event.observe($('scormFrameID').contentWindow, 'load', applyFlashFrameFix);
  }
 } catch (e) {
  //alert(e);
 }
-
 </script>
 
 {/literal}

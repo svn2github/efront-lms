@@ -1006,9 +1006,8 @@ function fix_flashScorm() {
 	}
 }
 function fix_flash() {
-
 	var embeds = document.getElementsByTagName('embed');
-	for(i=0; i<embeds.length; i++)  {
+	for(i=0; i<embeds.length; i++)  {	
 		embed = embeds[i];
 		var new_embed;
 		// everything but Firefox & Konqueror
@@ -1033,11 +1032,12 @@ function fix_flash() {
 	}
 	// loop through every object tag on the site
 	var objects = document.getElementsByTagName('object');
-	for(i=0; i<objects.length; i++) {
+	for(i=0; i<objects.length; i++) {			
 		object = objects[i];
 		var new_object;
 		// object is an IE specific tag so we can use outerHTML here
 		if(object.outerHTML) {
+			//alert(object.outerHTML);			
 			var html = object.outerHTML;
 			// replace an existing wmode parameter
 			if(html.match(/<param\s+name\s*=\s*('|")wmode('|")\s+value\s*=\s*('|")[a-zA-Z]+('|")\s*\/?\>/i)) {
@@ -1046,17 +1046,22 @@ function fix_flash() {
 			// add a new wmode parameter
 			else {
 				new_object = html.replace(/<\/object\>/i,"<param name='wmode' value='transparent' />\n</object>");
-			}
+			}		
 			// loop through each of the param tags
 			var children = object.childNodes;
-			for(j=0; j<children.length; j++) {
+			for(j=0; j<children.length; j++) {	
 				if(children[j].getAttribute('name').match(/flashvars/i)) {
+				
 					new_object = new_object.replace(/<param\s+name\s*=\s*('|")flashvars('|")\s+value\s*=\s*('|")[^'"]*('|")\s*\/?\>/i,"<param name='flashvars' value='"+children[j].getAttribute('value')+"' />");
 				}
 			}
-			// replace the old embed object with the fixed versiony                
+			
+			// replace the old embed object with the fixed versiony   
+			//alert(object.parentNode.outerHTML);		
 			object.insertAdjacentHTML('beforeBegin',new_object);
 			object.parentNode.removeChild(object);
+			
+			
 		}
 	}
 }
@@ -1083,6 +1088,56 @@ function fix_pdf() {
 		
 	}
 }
+
+window.fix_wmode2transparent_swf = function  () {
+	if(typeof (jQuery) == "undefined") {
+		window.setTimeout('window.fix_wmode2transparent_swf()', 200);
+		return;
+	}
+	if(window.noConflict)jQuery.noConflict();
+	// For embed
+	jQuery("embed").each(function(i) {
+		var elClone = this.cloneNode(true);
+		elClone.setAttribute("WMode", "Transparent");
+		jQuery(this).before(elClone);
+		jQuery(this).remove();
+	});	
+	// For object and/or embed into objects
+	jQuery("object").each(function (i, v) {
+	var elEmbed = jQuery(this).children("embed");
+	if(typeof (elEmbed.get(0)) != "undefined") {
+		if(typeof (elEmbed.get(0).outerHTML) != "undefined") {
+			elEmbed.attr("wmode", "transparent");
+			jQuery(this.outerHTML).insertAfter(this);
+			jQuery(this).remove();
+		}
+		return true;
+	}
+	var algo = this.attributes;
+	var str_tag = '<OBJECT ';
+	for (var i=0; i < algo.length; i++) str_tag += algo[i].name + '="' + algo[i].value + '" ';	
+	str_tag += '>';
+	var flag = false;
+	jQuery(this).children().each(function (elem) {
+		if(this.nodeName == "PARAM") {
+			if (this.name == "wmode") {
+				flag=true;
+				str_tag += '<PARAM NAME="' + this.name + '" VALUE="transparent">';		
+			}
+			else  str_tag += '<PARAM NAME="' + this.name + '" VALUE="' + this.value + '">';
+		}
+	});
+	if(!flag)
+		str_tag += '<PARAM NAME="wmode" VALUE="transparent">';		
+	str_tag += '</OBJECT>';
+	jQuery(str_tag).insertAfter(this);
+	jQuery(this).remove();	
+	});
+}
+
+window.noConflict = false;
+window.setTimeout('window.fix_wmode2transparent_swf()', 200);
+
 
 if (typeof(must_disable_selection) != 'undefined') {
     disableSelection(document.getElementById("chat_bar"));

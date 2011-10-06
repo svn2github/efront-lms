@@ -178,13 +178,6 @@ try {
 
          */
         try {
-            if (isset($_GET['from_year'])) { //the admin has chosen a period
-                $from = mktime($_GET['from_hour'], $_GET['from_min'], 0, $_GET['from_month'], $_GET['from_day'], $_GET['from_year']);
-                $to = mktime($_GET['to_hour'], $_GET['to_min'], 0, $_GET['to_month'], $_GET['to_day'], $_GET['to_year']);
-            } else {
-                $from = mktime(date("H"), date("i"), 0, date("m"), date("d") - 7, date("Y"));
-                $to = mktime(date("H"), date("i"), 0, date("m"), date("d"), date("Y"));
-            }
             $actions = array('login' => _LOGIN,
                                      'logout' => _LOGOUT,
                                      'lesson' => _ACCESSEDLESSON,
@@ -193,22 +186,7 @@ try {
                                      'test_begin' => _BEGUNTEST,
                                      'lastmove' => _NAVIGATEDSYSTEM);
             $smarty -> assign("T_ACTIONS", $actions);
-            if (isset($_GET['showlog']) && $_GET['showlog'] == "true") {
-                $contentNames = eF_getTableDataFlat("content", "id, name");
-                $contentNames = array_combine($contentNames['id'], $contentNames['name']);
-                $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID");
-                $testNames = array_combine($testNames['id'], $testNames['name']);
-                $result = eF_getTableData("logs", "*", "timestamp between $from and $to and lessons_ID='".$infoLesson -> lesson['id']."' order by timestamp desc");
 
-                foreach ($result as $key => $value) {
-                    if ($value['action'] == 'content') {
-                        $result[$key]['content_name'] = $contentNames[$value['comments']];
-                    } else if ($value['action'] == 'tests' || $value['action'] == 'test_begin') {
-                        $result[$key]['content_name'] = $testNames[$value['comments']];
-                    }
-                }
-                $smarty -> assign("T_LESSON_LOG", $result);
-            }
 
             $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
 
@@ -225,7 +203,7 @@ try {
               $traffic['users'][$key] = EfrontTimes::formatTimeForReporting($value);
              }
             } else {
-             $traffic['users'] = $infoLesson -> getLessonTimesForUsers(array($from, $to));
+             $traffic['users'] = $infoLesson -> getLessonTimesForUsers();
             }
 
             foreach ($traffic['users'] as $key => $user) {
@@ -277,7 +255,7 @@ try {
 */
              if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_user_access') {
               $user = EfrontUserFactory :: factory($_GET['entity']);
-     $timesReport = new EfrontTimes(array($from, $to));
+     $timesReport = new EfrontTimes();
      $cnt=0;
      $result = $timesReport -> getUserSessionTimeInSingleLessonPerDay($user -> user['login'], $infoLesson -> lesson['id']);
      foreach ($result as $key => $value) {
@@ -315,8 +293,6 @@ try {
              handleAjaxExceptions($e);
             }
             $smarty -> assign("T_LESSON_TRAFFIC", $traffic);
-            $smarty -> assign('T_FROM_TIMESTAMP', $from);
-            $smarty -> assign('T_TO_TIMESTAMP', $to);
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }

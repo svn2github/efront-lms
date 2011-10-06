@@ -1228,8 +1228,12 @@ php_value register_globals Off
     $changed = true;
    }
   }
+  $oldTableIndexes = $GLOBALS['db'] -> GetAll("show indexes from $table");
+  $newTableIndexes = $GLOBALS['db'] -> GetAll("show indexes from install_$table");
+  if (sizeof($newTableIndexes) != sizeof($oldTableIndexes)) {
+   $changed = true;
+  }
   if ($changed) {
-   //echo "UPDATING $table<br>";
    Installation :: updateDBTable($table, "install_".$table);
   }
   return $changed;

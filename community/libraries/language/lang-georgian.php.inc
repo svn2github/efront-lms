@@ -2,9 +2,6 @@
 if (is_file($GLOBALS['path']."language/custom-georgian.php.inc")) {
 include($GLOBALS['path']."language/custom-georgian.php.inc");
 }
-if (is_file($GLOBALS['path']."language/enterprise-english.php.inc")) {
-include($GLOBALS['path']."language/enterprise-english.php.inc");
-}
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
 define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","შესვლა სისტემაში");//Login to eFront
@@ -4149,4 +4146,14 @@ define("_CHECKJAVAFAILED","");//Java plugin is not installed (New)
 define("_LOADVIDEOJS","");//Load videojs (New)
 define("_SENDMODE","");//Send mode (New)
 define("_EMAILANDPM","");//Email and personal message (New)
+define("_ACTIVETIMEINLESSON","");//Active time in lesson (New)
+define("_TOTALACTIVELESSONTIME","");//Total active lesson time (New)
+define("_ACTIVELESSONTIMES","");//Active lesson times (New)
+define("_PLEASEREMEMBERTOSETUPAPASSWORD","");//Please remember to set up a password (New)
+define("_ISLDAPUSER","");//Ldap user (New)
+define("_REPORTSCONDITION","");//Condition (New)
+define("_USEMYSQLWILDCARDS","");//You can use mysql's wildcard characters, % and _ (New)
+define("_LESSONTIMEREPORTS","");//Lesson time reports (New)
+define("_ACTIVETIMEINCONTENT","");//Active time in content (New)
+define("_TIMEREPORTSEXPLANATION","");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
 ?>

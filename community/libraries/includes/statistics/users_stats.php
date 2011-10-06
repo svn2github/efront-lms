@@ -170,13 +170,6 @@ if (isset($_GET['sel_user'])) {
         'test_begin' => _BEGUNTEST,
         'lastmove' => _NAVIGATEDSYSTEM);
    $smarty -> assign("T_ACTIONS", $actions);
-   if (isset($_GET['from_year'])) { //the admin has chosen a period
-    $from = mktime($_GET['from_hour'], $_GET['from_min'], 0, $_GET['from_month'], $_GET['from_day'], $_GET['from_year']);
-    $to = mktime($_GET['to_hour'], $_GET['to_min'], 0, $_GET['to_month'], $_GET['to_day'], $_GET['to_year']);
-   } else {
-    $from = mktime(date("H"), date("i"), 0, date("m"), date("d") - 7, date("Y"));
-    $to = mktime(date("H"), date("i"), 0, date("m"), date("d"), date("Y"));
-   }
    // Predefined periods
    $periods = array();
    $today = time();
@@ -198,11 +191,12 @@ if (isset($_GET['sel_user'])) {
    $smarty -> assign('T_PREDEFINED_PERIODS', $periods);
    try {
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'graph_access') {
-     $result = eF_getTableData("logs", "timestamp", "timestamp between ".$from." and ".$to." and action = 'login' and users_LOGIN = '".$infoUser -> user['login']."' order by timestamp");
+     $result = eF_getTableData("logs", "timestamp", "action = 'login' and users_LOGIN = '".$infoUser -> user['login']."' order by timestamp");
+     $firstDate = eF_getTableData("logs", "timestamp", "", "", "", 1);
      //Assign the number of accesses to each week day
      foreach ($result as $value) {
       $cnt = 0;
-      for ($i = $from; $i <= $to; $i += 86400) {
+      for ($i = $firstDate[0]['timestamp']; $i <= time(); $i += 86400) {
        $labels[$cnt] = $i;
        isset($count[$cnt]) OR $count[$cnt] = 0;
        if ($i <= $value['timestamp'] && $value['timestamp'] < $i + 86400) {
@@ -246,26 +240,8 @@ if (isset($_GET['sel_user'])) {
    } catch (Exception $e) {
     handleAjaxExceptions($e);
    }
-   if (isset($_GET['showlog']) && $_GET['showlog'] == "true") {
-    $lessonNames = eF_getTableDataFlat("lessons", "id, name");
-    $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']);
-    $contentNames = eF_getTableDataFlat("content", "id, name");
-    $contentNames = array_combine($contentNames['id'], $contentNames['name']);
-    $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID");
-    $testNames = array_combine($testNames['id'], $testNames['name']);
-    $result = eF_getTableData("logs", "*", "timestamp between $from and $to and users_LOGIN='".$infoUser -> user['login']."' order by timestamp desc");
-    foreach ($result as $key => $value) {
-     $value['lessons_ID'] ? $result[$key]['lesson_name'] = $lessonNames[$value['lessons_ID']] : null;
-     if ($value['action'] == 'content') {
-      $result[$key]['content_name'] = $contentNames[$value['comments']];
-     } else if ($value['action'] == 'tests' || $value['action'] == 'test_begin') {
-      $result[$key]['content_name'] = $testNames[$value['comments']];
-     }
-    }
-    $smarty -> assign("T_USER_LOG", $result);
-   }
    //pr($infoUser -> getUserStatusInLessons());
-   $timesReport = new EfrontTimes(array($from, $to));
+   $timesReport = new EfrontTimes();
    if ($GLOBALS['configuration']['time_reports']) {
     $userTraffic = $infoUser->getLessonsActiveTimeForUser();
    } else {
@@ -279,7 +255,7 @@ if (isset($_GET['sel_user'])) {
     $traffic['lessons'][$id]['name'] = $lesson -> lesson['name'];
     $traffic['lessons'][$id]['active'] = $lesson -> lesson['active'];
    }
-   $result = eF_getTableData("logs", "count(*)", "action = 'login' and timestamp between $from and $to and users_LOGIN='".$infoUser -> user['login']."' order by timestamp");
+   $result = eF_getTableData("logs", "count(*)", "action = 'login' and users_LOGIN='".$infoUser -> user['login']."' order by timestamp");
    $traffic['total_logins'] = $result[0]['count(*)'];
    $result = eF_getTableData("users_to_lessons", "lessons_ID, completed, to_timestamp", "archive=0 and users_LOGIN='".$infoUser -> user['login']."'");
    $completionData = array();
@@ -293,8 +269,6 @@ if (isset($_GET['sel_user'])) {
    }
    //pr($infoUser -> getUserLessons());pr($traffic);exit;
    $smarty -> assign("T_USER_TRAFFIC", $traffic);
-   $smarty -> assign('T_FROM_TIMESTAMP', $from);
-   $smarty -> assign('T_TO_TIMESTAMP', $to);
   } catch (Exception $e) {
    handleNormalFlowExceptions($e);
   }

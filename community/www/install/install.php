@@ -809,7 +809,6 @@ class Installation
 	 */
  public static function createDefaultUsers($values, $adminOnly = false) {
    $language = 'english';
-  }
   $adminData = array('login' => $values['admin_name'],
                         'password' => $values['admin_password'],
                         'email' => $values['admin_email'],

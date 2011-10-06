@@ -65,7 +65,11 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     <td class = "topTitle login" name = "login">{$smarty.const._USER}</td>
     <td class = "topTitle user_type" name = "role">{$smarty.const._USERTYPE}</td>
     <td class = "topTitle" name = "timestamp">{$smarty.const._REGISTRATIONDATE}</td>
+    {if $T_CONFIGURATION.time_reports==1}
     <td class = "topTitle time_in_lesson noSort" name = "time_in_lesson">{$smarty.const._ACTIVETIMEINLESSON}</td>
+    {else}
+    <td class = "topTitle time_in_lesson noSort" name = "time_in_lesson">{$smarty.const._TIMEINLESSON}</td>
+    {/if}
     <td class = "topTitle overall_progress noSort" name = "overall_progress">{$smarty.const._OVERALLPROGRESS}</td>
    {if !$T_CONFIGURATION.disable_tests}
     <td class = "topTitle test_status noSort" name = "test_status">{$smarty.const._TESTSSCORE}</td>
@@ -81,7 +85,11 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     <td class = "name">#filter:login-{$user.login}#{* ({$T_ROLES[$user.user_type]})*}</td>
     <td class = "user_type">{$T_ROLES_ARRAY[$user.role]}</td>
     <td>#filter:timestamp-{$user.timestamp}#</td>
+    {if $T_CONFIGURATION.time_reports==1}
     <td class = "time_in_lesson"><span style = "display:none">{$user.active_time_in_lesson.total_seconds}&nbsp;</span>{$user.active_time_in_lesson.time_string}</td>
+    {else}
+    <td class = "time_in_lesson"><span style = "display:none">{$user.time_in_lesson.total_seconds}&nbsp;</span>{$user.time_in_lesson.time_string}</td>
+    {/if}
     <td class = "progressCell overall_progress">
      {if $user.basic_user_type != 'professor'}
      <span style = "display:none">{$user.overall_progress.completed+1000}</span>
@@ -397,9 +405,17 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                     </table>
 *}
                     <table class = "statisticsGeneralInfo">
+                     {if $T_CONFIGURATION.time_reports==1}
                         <tr><td class = "topTitle" colspan = "2">{$smarty.const._TOTALACTIVELESSONTIME}</td></tr>
+                        {else}
+                        <tr><td class = "topTitle" colspan = "2">{$smarty.const._TIMEINLESSON}</td></tr>
+                        {/if}
                         <tr class = "evenRowColor">
-                            <td class = "labelCell">{$smarty.const._TOTALACTIVELESSONTIME}: </td>
+                      {if $T_CONFIGURATION.time_reports==1}
+                            <td class = "labelCell">{$smarty.const._ACTIVETIMEINLESSON}: </td>
+                            {else}
+                            <td class = "labelCell">{$smarty.const._TOTALTIME}: </td>
+       {/if}
                             <td class = "elementCell">
                                 {if $T_LESSON_TRAFFIC.total_seconds}
                                  {if $T_LESSON_TRAFFIC.total_time.hours}{$T_LESSON_TRAFFIC.total_time.hours}{$smarty.const._HOURSSHORTHAND} {/if}
@@ -414,14 +430,20 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
 
      <br/>
                     <table class = "statisticsTools">
-                        <tr><td>{$smarty.const._ACTIVELESSONTIMES}</td>
-
-                     </tr>
+                     {if $T_CONFIGURATION.time_reports==1}
+                        <tr><td>{$smarty.const._ACTIVELESSONTIMES}</td></tr>
+      {else}
+      <tr><td>{$smarty.const._LESSONTIMES}</td></tr>
+      {/if}
                     </table>
                     <table class = "sortedTable">
                         <tr>
                             <td class = "topTitle">{$smarty.const._LOGIN}</td>
+                            {if $T_CONFIGURATION.time_reports==1}
                             <td class = "topTitle centerAlign">{$smarty.const._ACTIVETIMEINLESSON}</td>
+                            {else}
+                            <td class = "topTitle centerAlign">{$smarty.const._TIMEINLESSON}</td>
+                            {/if}
                             {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
                         </tr>
                         {foreach name = 'user_traffic_list' key = "login" item = "info" from = $T_LESSON_TRAFFIC.users}

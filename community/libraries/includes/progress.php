@@ -115,10 +115,13 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
     $notDoneTests = array_diff(array_keys($testNames), array_keys($doneTests[$_GET['edit_user']]));
     $smarty -> assign("T_PENDING_TESTS", $notDoneTests);
 
-    //$timeReport = new EfrontTimes();
-    //$userTime = $timeReport -> getUserSessionTimeInLesson($editedUser -> user['login'], $currentLesson -> lesson['id']);
-    //$userTime = $timeReport -> formatTimeForReporting($userTime);
-    $userTime = EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInLesson($editedUser->user['login'], $currentLesson->lesson['id']));
+    if ($GLOBALS['configuration']['time_reports']) {
+     $userTime = EfrontTimes::formatTimeForReporting(EfrontLesson::getUserActiveTimeInLesson($editedUser->user['login'], $currentLesson->lesson['id']));
+    } else {
+     $timeReport = new EfrontTimes();
+     $userTime = $timeReport -> getUserSessionTimeInLesson($editedUser -> user['login'], $currentLesson -> lesson['id']);
+     $userTime = $timeReport -> formatTimeForReporting($userTime);
+    }
     $smarty -> assign("T_USER_TIME", $userTime);
 
     $userProjects = EfrontStats :: getStudentsAssignedProjects($currentLesson -> lesson['id'], $editedUser -> user['login']);

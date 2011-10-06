@@ -873,4 +873,56 @@ class EfrontSystem
   }
   return $logoFile;
  }
+ public static function switchLessonReportingMode($mode) {
+  if ($GLOBALS['configuration']['time_reports'] != $mode && $mode == 1) {
+   //step one: Read all times from the user_times table, per user,lesson and unit
+   $totals = array();
+   $result = eF_getTableData("user_times", "users_LOGIN, entity_ID, lessons_ID, time", "entity = 'unit'");
+   foreach ($result as $value) {
+    if (isset($totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']])) {
+     $totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']] += $value['time'];
+    } else {
+     $totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']] = $value['time'];
+    }
+   }
+   //step 2: read all current time entries in the users_to_content table
+   $result = eF_getTableData("users_to_content", "users_LOGIN, content_ID, lessons_ID, total_time");
+   foreach ($result as $value) {
+    $existing[$value['users_LOGIN']][$value['lessons_ID']][$value['content_ID']] = $value['total_time'];
+   }
+   //step 3: Populate the users_to_content table with the data from the user_times table, or update if a value already exist (overwriting it).
+   $data = array();
+   foreach ($totals as $user=>$lesson) {
+    foreach ($lesson as $lessonId => $content) {
+     foreach ($content as $contentId=>$seconds) {
+      if (isset($existing[$user][$lessonId][$contentId])) {
+       eF_updateTableData("users_to_content", array("total_time" => $seconds), "users_LOGIN='$user' and content_ID=$contentId and lessons_ID=$lessonId");
+      } else {
+       $data[] = array("users_LOGIN" => $user, "content_ID" => $contentId, "lessons_ID" => $lessonId, "total_time" => $seconds);
+      }
+     }
+    }
+   }
+   eF_insertTableDataMultiple("users_to_content", $data);
+   //step 4: Read the lesson (but not unit) times from the user_times table
+   $totals = array();
+   $result = eF_getTableData("user_times", "users_LOGIN, entity_ID, time", "entity = 'lesson'");
+   foreach ($result as $value) {
+    if (isset($totals[$value['users_LOGIN']][$value['entity_ID']])) {
+     $totals[$value['users_LOGIN']][$value['entity_ID']] += $value['time'];
+    } else {
+     $totals[$value['users_LOGIN']][$value['entity_ID']] = $value['time'];
+    }
+   }
+   //step 5: Populate the users_to_content table with the plain lesson times, using null as a contentId
+   $data = array();
+   foreach ($totals as $user=>$lesson) {
+    foreach ($lesson as $lessonId => $seconds) {
+     $data[] = array("users_LOGIN" => $user, "content_ID" => null, "lessons_ID" => $lessonId, "total_time" => $seconds);
+    }
+   }
+   eF_deleteTableData("users_to_content", "content_ID is null or content_ID=0"); //empty previous entries
+   eF_insertTableDataMultiple("users_to_content", $data);
+  }
+ }
 }

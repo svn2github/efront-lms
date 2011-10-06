@@ -103,6 +103,7 @@ class EfrontConfiguration
   'editor_type' => 'tinymce', // possible values 'tinymce', 'tinymce_new'
   'show_footer' => '1',
      'load_videojs' => '0',
+     'time_reports' => '0', //0 means 'count total time', 1 means 'count active time'
         //LDAP
         'activate_ldap' => '0',
         'only_ldap' => '0',

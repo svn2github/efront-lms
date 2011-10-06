@@ -416,41 +416,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
        }
       }
      }
-     $totals = array();
-     $result = eF_getTableData("user_times", "users_LOGIN, entity_ID, lessons_ID, time", "entity = 'unit'");
-     foreach ($result as $value) {
-      if (isset($totals[$value['users_LOGIN']][$value['entity_ID']])) {
-       $totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']] += $value['time'];
-      } else {
-       $totals[$value['users_LOGIN']][$value['lessons_ID']][$value['entity_ID']] = $value['time'];
-      }
-     }
-     $data = array();
-     foreach ($totals as $user=>$lesson) {
-      foreach ($lesson as $lessonId => $content) {
-       foreach ($content as $contentId=>$seconds) {
-        $data[] = array("users_LOGIN" => $user, "content_ID" => $contentId, "lessons_ID" => $lessonId, "total_time" => $seconds);
-       }
-      }
-     }
-     eF_insertTableDataMultiple("users_to_content", $data);
-     $totals = array();
-     $result = eF_getTableData("user_times", "users_LOGIN, entity_ID, time", "entity = 'lesson'");
-     foreach ($result as $value) {
-      if (isset($totals[$value['users_LOGIN']][$value['entity_ID']])) {
-       $totals[$value['users_LOGIN']][$value['entity_ID']] += $value['time'];
-      } else {
-       $totals[$value['users_LOGIN']][$value['entity_ID']] = $value['time'];
-      }
-     }
-     //pr($totals);
-     $data = array();
-     foreach ($totals as $user=>$lesson) {
-      foreach ($lesson as $lessonId => $seconds) {
-       $data[] = array("users_LOGIN" => $user, "content_ID" => null, "lessons_ID" => $lessonId, "total_time" => $seconds);
-      }
-     }
-     eF_insertTableDataMultiple("users_to_content", $data);
     }
     //change flv path with offset because of the tinymce 3.4.2
     $result = eF_getTableData("content", "*");

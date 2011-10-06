@@ -4153,4 +4153,7 @@ define("_PLEASEREMEMBERTOSETUPAPASSWORD", "Please remember to set up a password"
 define("_ISLDAPUSER", "Ldap user");
 define("_REPORTSCONDITION", "Condition");
 define("_USEMYSQLWILDCARDS", "You can use mysql's wildcard characters, % and _");
+define("_LESSONTIMEREPORTS", "Lesson time reports");
+define("_ACTIVETIMEINCONTENT", "Active time in content");
+define("_TIMEREPORTSEXPLANATION", "Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times.");
 ?>

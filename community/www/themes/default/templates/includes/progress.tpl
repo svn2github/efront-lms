@@ -31,8 +31,11 @@
          <fieldset class = "fieldsetSeparator">
              <legend>{$smarty.const._LESSONPROGRESS}</legend>
              <table>
-              <tr><td colspan = "3">{$smarty.const._ACTIVETIMEINLESSON}: {$T_USER_TIME.time_string}</td>
-              </tr>
+              {if $T_CONFIGURATION.time_reports==1}
+              <tr><td colspan = "3">{$smarty.const._ACTIVETIMEINLESSON}: {$T_USER_TIME.time_string}</td></tr>
+              {else}
+              <tr><td colspan = "3">{$smarty.const._TIMEINLESSON}: {$T_USER_TIME.time_string}</td></tr>
+              {/if}
               <tr><td>{$smarty.const._OVERALLPROGRESS}:&nbsp;</td>
                   <td class = "progressCell">
                       <span class = "progressNumber">#filter:score-{$T_USER_LESSONS_INFO.overall_progress.percentage}#%</span>

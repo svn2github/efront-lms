@@ -151,12 +151,20 @@
   {if $T_REPORTS_USER->user.user_type != 'administrator'}
   <br/>
   <table class = "statisticsTools">
+   {if $T_CONFIGURATION.time_reports==1}
    <tr><td>{$smarty.const._ACTIVELESSONTIMES}</td></tr>
+   {else}
+   <tr><td>{$smarty.const._LESSONTIMES}</td></tr>
+   {/if}
   </table>
   <table class = "sortedTable" style = "width:100%">
    <tr>
     <td class = "topTitle">{$smarty.const._LESSON}</td>
+    {if $T_CONFIGURATION.time_reports==1}
     <td class = "topTitle centerAlign">{$smarty.const._ACTIVETIMEINLESSON}</td>
+    {else}
+    <td class = "topTitle centerAlign">{$smarty.const._TIMEINLESSON}</td>
+    {/if}
     <td class = "topTitle centerAlign">{$smarty.const._COMPLETED}</td>
     {*<td class = "topTitle noSort centerAlign">{$smarty.const._OPTIONS}</td>*}
    </tr>

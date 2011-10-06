@@ -4144,6 +4144,8 @@ define("_DISPLAYRESULTSTOSTUDENTS", "Εμφάνιση αποτελεσμάτων
 define("_CHECKJAVA","Έλεγχος Java");
 define("_CHECKJAVAFAILED", "Δεν υπάρχει ενεργοποιημένο το Java plugin");
 define("_LOADVIDEOJS", "Φόρτωση videojs");
+define("_SENDMODE", "Τρόπος αποστολής");
+define("_EMAILANDPM", "Email και προσωπικό μήνυμα");
 define("_ACTIVETIMEINLESSON", "Ενεργός χρόνος στο μάθημα");
 define("_TOTALACTIVELESSONTIME", "Συνολικός ενεργός χρόνος στο μάθημα");
 define("_ACTIVELESSONTIMES", "Ενεργοί χρόνοι μαθήματος");
@@ -4151,4 +4153,7 @@ define("_PLEASEREMEMBERTOSETUPAPASSWORD", "Μην ξεχάσετε να ορίσ
 define("_ISLDAPUSER", "Χρήστης LDAP");
 define("_REPORTSCONDITION", "Συνθήκη");
 define("_USEMYSQLWILDCARDS", "Μπορείτε να χρησιμοποιήσετε τους μπαλαντέρ της mysql, % και _");
+define("_LESSONTIMEREPORTS", "Στατιστικά χρόνου μαθημάτων");
+define("_ACTIVETIMEINCONTENT", "Ενεργός χρόνος στο περιεχόμενο");
+define("_TIMEREPORTSEXPLANATION", "Μεταβείτε σε ενεργό χρόνο, εάν θέλετε το σύστημα να παρακολουθεί και να αναφέρει αποκλειστικά το χρόνο που ένας χρήστης αφιερώνει σε περιεχόμενο. Μεταβείτε σε συνολικό χρόνο, εάν θέλετε το σύστημα να αναφέρει το συνολικό χρόνο που ξοδεύουν οι χρήστες στο μάθημα, ασχέτως σε ποια σελίδα βρίσκονται. <br/><b>Προσοχή</b>: Μεταβαίνοντας σε ενεργό χρόνο, οι συνολικοί χρόνοι θα αντικαταστήσουν τυχόν ενεργούς χρόνους που έχουν καταγραφεί μέχρι τώρα.");
 ?>

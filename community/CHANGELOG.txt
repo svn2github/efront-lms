@@ -1,4 +1,5 @@
 === Version 3.6.10 build ===
+- Times are now calculated based on true active time (Educational/Enterprise)
 - Added self-enrollment option to groups (Enterprise version)
 - Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
 - Added sorting terms in each tab in glossary page
@@ -77,6 +78,7 @@
 - Fixed issue about assigning administrator roles to lessons from professor's lesson administration page
 - Added toggle checkbox for LDAP users in user's profile page (Edu/Ent editions)
 - Correct handling of imported users without a user_type defined
+
 
 === Version 3.6.9 build 11018 ===
 - Added course lessons schedule display in course info page

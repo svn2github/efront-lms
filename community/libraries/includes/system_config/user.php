@@ -30,6 +30,10 @@ $userMainForm -> addElement("text", "pm_space", _MAXIMUMPMUSAGESPACE, 'size = "5
 $userMainForm -> addElement("static", "",_MAXIMUMPMUSAGESPACEINFO);
 $userMainForm -> addRule('pm_space', _INVALIDFIELDDATA, 'checkParameter', 'id');
 
+
+
+
+
 $userMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userMainForm -> freeze();
@@ -44,6 +48,9 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
    if (function_exists('apc_delete')) {
     apc_delete(G_DBNAME.':_usernames');
    }
+  }
+  if ($values['time_reports'] != $GLOBALS['configuration']['time_reports']) {
+   EfrontSystem::switchLessonReportingMode($values['time_reports']);
   }
   unset($values['reset_license_note']); //Unset it, since we don't need to store this value to the database
   unset($values['submit']);

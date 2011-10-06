@@ -1136,7 +1136,7 @@ window.fix_wmode2transparent_swf = function  () {
 }
 
 window.noConflict = false;
-window.setTimeout('window.fix_wmode2transparent_swf()', 200);
+//window.setTimeout('window.fix_wmode2transparent_swf()', 200);
 
 
 if (typeof(must_disable_selection) != 'undefined') {

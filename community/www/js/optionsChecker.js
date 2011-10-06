@@ -211,11 +211,11 @@
 		{
 			for (x = 0; x < navigator.plugins.length; x++) {
 		        if (navigator.plugins[x].name.indexOf('Java(TM)') != -1) {
-		        	return true;
+	//	        	return true;
 		        }
 		    }
 			if (navigator.javaEnabled()) {
-					return true;
+	//				return true;
 			}
 			return false;
 		}
@@ -272,7 +272,7 @@
 			if (flashCheck) {
 				document.write("<td><img src='themes/default/images/16x16/success.png' /></td></tr>");
 			} else {
-				document.write("<td><img src='themes/default/images/16x16/error_delete.png' title='"+translationcheckFlashFailed+"' /></span></td></tr>");
+				document.write("<td><img src='themes/default/images/16x16/error_delete.png' title='"+translationcheckFlashFailed+"' /></span><a href = \"http://get.adobe.com/flashplayer\" target = \"_blank\"><img src='themes/default/images/16x16/help.png' title='"+translationshelp+"' /></a></td></tr>");
 			}
 		}
 		
@@ -282,7 +282,7 @@
 			if (acrobatCheck == "installed") {
 				document.write("<td><img src='themes/default/images/16x16/success.png' /></td></tr>");
 			} else {
-				document.write("<td><img src='themes/default/images/16x16/error_delete.png' title='"+translationcheckAcrobatFailed+"' /></td></tr>");
+				document.write("<td><img src='themes/default/images/16x16/error_delete.png' title='"+translationcheckAcrobatFailed+"' /><a href = \"http://get.adobe.com/reader\" target = \"_blank\"><img src='themes/default/images/16x16/help.png' title='"+translationshelp+"' /></a></td></tr>");
 			}
 		}
 		
@@ -292,7 +292,7 @@
 			if (javaCheck == true) {
 				document.write("<td><img src='themes/default/images/16x16/success.png' /></td></tr>");
 			} else {
-				document.write("<td><img src='themes/default/images/16x16/error_delete.png' title='"+translationcheckJavaFailed+"' /></td></tr>");
+				document.write("<td><img src='themes/default/images/16x16/error_delete.png' title='"+translationcheckJavaFailed+"' /><a href = \"http://www.java.com/en/download/index.jsp\" target = \"_blank\"><img src='themes/default/images/16x16/help.png' title='"+translationshelp+"' /></a></td></tr>");
 			}
 		}
 		

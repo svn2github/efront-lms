@@ -1129,6 +1129,7 @@ class EfrontFile extends ArrayObject
 
      */
     public function sendFile($attachment = false) {
+  session_write_close(); //to allow the browser proceeding to other pages as well
      if ($attachment) {
    $browser = detectBrowser();
    //because of #834

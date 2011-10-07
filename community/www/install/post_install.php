@@ -21,6 +21,11 @@ function runPostInstallationFunctions() {
 //	replaceProfessorUser();
 //	removeRssEntry();
 //	setDefaultThemeAsDefault();
+//	deleteModernTheme();
+}
+function deleteModernTheme() {
+ $theme = new themes('modern');
+ $theme->delete();
 }
 function setDefaultThemeAsDefault() {
  EfrontConfiguration :: setValue('theme', 1);

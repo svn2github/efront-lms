@@ -1,83 +1,86 @@
+=== Version 3.6.10 build 11958 ===
+- Fixed error introduced in personal page (Community++/Educational editions)
+- Updated Indonesian language file
+
 === Version 3.6.10 build 11944 ===
-- Times are now calculated based on true active time (Educational/Enterprise)
-- Added self-enrollment option to groups (Enterprise version)
-- Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
+- Added a "remember me" checkbox in login form (toggled from admin settings)
+- Added a page that allows for applying the same settings across all lesson units
+- Added an option to send notifications as personal messages
+- Added forums and topics pagination
+- Added limits for space usage in messages
 - Added sorting terms in each tab in glossary page
-- Fixed issue about inserting & in question feedback
+- Added help links to modules towards the wiki page
 - Added option to constrain XML API usage to a specific IP
-- Added html_entity_decode when url encrypted because of #1429 [amp;view_unit]...
+- Added a minimal_view parameter for displaying less columns for messages in dashboard
+- Added a trim in exploded fields from csv file
+- Added urlencode when loading avatar
+- Added index page parameter to filter courses/lessons (index.php?filter=maya)
+- Added header for date in Mail::factory because of http://pear.php.net/manual/en/package.mail.mail.send.php
+- Added encodeURIComponent in filters http://www.sencha.com/forum/archive/index.php/t-96295.html
+- Added option to deactivate block moving in control panel for specific user types (#809)
+- Added ability to import list of users to be archived
+- Added "my courses" tools icon to user dashboard
+- Added optional active time tracking (Educational/Enterprise editions)
+- Added toggle checkbox for LDAP users in user's profile page (Educational/Enterprise editions)
+- Added CEUs parameter in courses (Enterprise/Educational edition)
+- Added time-based lesson completion rules (Enterprise/Educational edition)
+- Added time-based unit completion option (Enterprise/Educational edition)
+- Added html_entity_decode when url is encrypted because of #1429 [amp;view_unit]... (Enterprise/Educational edition)
+- Added supervisor balance transferring to employees (Enterprise edition)
+- Added self-enrollment option to groups (Enterprise edition)
+- Added skill-gap test results page to students as well (Enterprise edition)
+- Added ability for branch calendar events to appear to members of the branch's children as well (Enterprise edition) 
+- Added option for displaying sub-branch information in branch statistics (Enterprise edition)
+- Added balance payments through paypal (Community++ and above)
+- Added a "payments" tab on users' profile page (Community++ and above editions)
+- Added ability to create mandatory fields without a default value in extended user profile (Community++ and above editions)
+- Updated SCORM import to handle backslashes in imsmanifest hrefs
+- Updated file access security
+- Updated random generator for password reminders
+- Updated top level units to be marked as complete if all sub units are marked as complete
+- Updated uploaded projects from students so that they are placed to an internal folder named <project_id> inside projects folder and do not rename them
+- Updated organization chart to be cached when large (Enterprise edition)
+- Updated import/export so that job assignments can optionally be replaced (Enterprise edition)
+- Removed old chat functionality
+- Removed the option to "deactivate online users on lessons" from the lesson administration page
+- Removed icon links for reports for community version
+- Fixed SQL injection security vulnerability reported by IHTeam, http://www.ihteam.net/
+- Fixed SQL injection security vulnerability reported by Vulnerability Research Laboratory, http://www.vulnerability-lab.com
+- Fixed security issue: student/professor accounts won't use the default insecure credentials anymore, but rather the administrator's ones. Reported by IHTeam, http://www.ihteam.net/
+- Fixed "date" custom fields so that are converted to human-readable format while exporting/importing from csv
+- Fixed loading prototype in external survey to avoid js error
+- Fixed inproper handling of imported users without a user_type defined
+- Fixed setting file encodings to UTF-IMAP even when UTF-8 is selected
+- Fixed issue about inserting & in question feedback
 - Fixed issue about loading default lesson layout when moving blocks is disabled
 - Fixed issue about importing lesson by admin uncompressing files in temp folder (#1492)
-- Converted "date" custom fields to human-readable format while exporting/importing from csv
-- Enabled the "payments" tab on users' profile page (Community++ and above editions)
 - Fixed preserving lesson properties when importing directly
-- Removed icon links for reports for community version
 - Fixed issue about upload more than one files in tests that contain more than one raw text questions
 - Fixed issue about taking feedbacks into account in lesson completion rules
 - Fixed issue about 'select type' custom user field in notifications (#1553)
 - Fixed "content report" reloading page
 - Fixed issue in administrator tools about changing user's login
-- Option to deactivate block moving in control panel for specific user types (#809)
-- Added supervisor balance transferring to employees
 - Fixed issue in participation reports in course type
-- Updated SCORM import to handle backslashes in imsmanifest hrefs
 - Fixed recursion of "course not completed" and "lesson not completed" events
 - Fixed editing a placement from the user's page not displaying the job's branch as pre-selected (Enterprise edition)
 - Fixed branch filter error when a branch includes quotes in its name (Enterprise edition)
-- Organization chart is now cached when large (Enterprise edition)
-- Updated file access security
-- Updated random generator for password reminders
 - Fixed issue with single quotes in glossary (#1661)
 - Fixed issue in Question::clearDuplicates about primary key constraint
 - Fixed drag'n'drop questions not working in IE9
-- Updated import/export so that job assignments can optionally be replaced (Enterprise edition)
-- Dashboard now contains my courses' tools icon
 - Fixed training record not showing course/lesson progress for custom user roles based on student
 - Fixed issue in course settings and custom user types about applyRoleOptions
-- Added page to apply settings to all units
-- Added "remember me" option
-- Added CEUs parameter in courses (Enterprise/Educational edition)
-- Added active time tracking capabilities
-- Added time-based completion rules (Enterprise/Educational edition)
-- Added time-based unit completion option
-- Branch calendar events may appear to members of the branch's children as well (Enterprise edition) 
 - Fixed issue about displaying announcements block icon in layout even when it was inactive
 - Fixed issue in notifications language part
-- Added a minimal_view parameter for displaying less columns for messages in dashboard
-- Added a trim in exploded fields from csv file
-- Allowing creating mandatory field without default value in user profile
-- Added urlencode when loading avatar
-- Loaded prototype in external survey to avoid js error
-- Empty top level unit should be marked as complete if all sub units are marked as complete
-- Removed the option to "deactivate online users on lessons" from the lesson administration page
-- Added forums and topics pagination
-- Added limits for space usage in messages
-- Added index page parameter to filter courses/lessons (index.php?filter=maya)
 - Fixed Bcc issue in sending mail because of http://rawphp.com/php_generator/page.php?show=PHP_Sending_Email_to_Bcc_with_SMTP_Authentication_pear_mail_factory.php
-- Added header for date in Mail::factory because of this http://pear.php.net/manual/en/package.mail.mail.send.php
-- Removed old chat functionality
-- Added encodeURIComponent in filters http://www.sencha.com/forum/archive/index.php/t-96295.html
-- Ability to import list of users to be archived
 - Fixed rtf certificate exporting for IE8
-- Added help links to modules towards the wiki page
-- Moved uploaded projects from students to an internal folder named <project_id> inside projects folder and do not rename them
 - Fixed issue about scheduled lessons in courses and go to Next lesson button
-- Added balance payments through paypal
-- Fixed SQL injection security vulnerability reported by IHTeam, http://www.ihteam.net/
-- Default student/professor accounts won't use the default insecure credentials any more, but rather the administrator's ones. Reported by IHTeam, http://www.ihteam.net/
-- Fixed SQL injection security vulnerability reported by Vulnerability Research Laboratory, http://www.vulnerability-lab.com
 - Fixed content traversing rules not working for individual users
 - Fixed "not seen" rule not working when source unit is a test
 - Fixed issue about date type custom user field in notifications
-- Skill-gap test results are now available to students as well (Enterprise edition)
 - Fixed issue about displaying custom profile fields in user reports generator
-- Notifications can now be optionally sent as pms as well
 - Fixed imported lessons not displaying skill names correctly (Educational edition)
 - Fixed error in calculation for total_time in SCORM content when revisiting SCO
-- Branch statistics now optionally display sub-branch information as well (Enterprise edition)
 - Fixed issue about assigning administrator roles to lessons from professor's lesson administration page
-- Added toggle checkbox for LDAP users in user's profile page (Edu/Ent editions)
-- Correct handling of imported users without a user_type defined
 
 
 === Version 3.6.9 build 11018 ===

@@ -1,5 +1,6 @@
-=== Version 3.6.10 build 11963 ===
+=== Version 3.6.10 build 11968 ===
 - Fixed error introduced in personal page (Community++/Educational editions)
+- Fixed upgrade error for 3.6.10
 - Updated Indonesian language file
 
 === Version 3.6.10 build 11944 ===

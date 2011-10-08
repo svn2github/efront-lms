@@ -729,6 +729,9 @@ class EfrontFile extends ArrayObject
                 } else {
                     $whiteList = '';
                 }
+                if (NO_CHECK_FILE_INTEGRITY) {
+                 $blackList = $whiteList = '';
+                }
                 $response = exec('unzip "'.$this['path'].'" '.$whiteList.' '.$blackList.' -d "'.$this['directory'].'" 2>&1', $output, $code);
                 if (stripos($response, 'caution') === false && $code != 0) {
                     throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response.". "._PERHAPSDONTSUPPORTZIP, EfrontFileException :: ERROR_ZIP_PROCESSING);
@@ -3141,34 +3144,37 @@ class FileSystemTree extends EfrontTree
 
      */
     public static function checkFile($name) {
-    if ($GLOBALS['configuration']['file_black_list'] != '') {
-         $blackList = explode(",", $GLOBALS['configuration']['file_black_list']);
-    } else {
+     if ($GLOBALS['configuration']['file_white_list'] != '') {
+      $whiteList = explode(",", $GLOBALS['configuration']['file_white_list']);
+     } else {
+      $whiteList = array();
+     }
+     if ($GLOBALS['configuration']['file_black_list'] != '') {
+      $blackList = explode(",", $GLOBALS['configuration']['file_black_list']);
+     } else {
       $blackList = array();
-    }
-    $blackList[] = 'php';
-        $extension = pathinfo($name, PATHINFO_EXTENSION);
-        foreach ($blackList as $value) {
-            if ($extension == trim(mb_strtolower($value))) {
-                throw new EfrontFileException(_YOUCANNOTUPLOADFILESWITHTHISEXTENSION.': '.$extension, EfrontFileException::FILE_IN_BLACK_LIST);
-            }
-        }
-      if ($GLOBALS['configuration']['file_white_list'] != '') {
-         $whiteList = explode(",", $GLOBALS['configuration']['file_white_list']);
-      } else {
-       $whiteList = array();
+     }
+     $blackList[] = 'php';
+     if (NO_CHECK_FILE_INTEGRITY) {
+      $blackList = $whiteList = array();
+     }
+     $extension = pathinfo($name, PATHINFO_EXTENSION);
+     foreach ($blackList as $value) {
+      if ($extension == trim(mb_strtolower($value))) {
+       throw new EfrontFileException(_YOUCANNOTUPLOADFILESWITHTHISEXTENSION.': '.$extension, EfrontFileException::FILE_IN_BLACK_LIST);
       }
-        foreach ($whiteList as $key => $value) {
-            $value = trim(mb_strtolower($value));
-            if ($value) {
-                $whiteList[$key] = $value;
-            } else {
-                unset($whiteList[$key]);
-            }
-        }
-        if (sizeof($whiteList) > 0 && !in_array($extension, $whiteList)) {
-            throw new EfrontFileException(_YOUMAYONLYUPLOADFILESWITHEXTENSION.': '.$GLOBALS['configuration']['file_white_list'], EfrontFileException::FILE_NOT_IN_WHITE_LIST);
-        }
+     }
+     foreach ($whiteList as $key => $value) {
+      $value = trim(mb_strtolower($value));
+      if ($value) {
+       $whiteList[$key] = $value;
+      } else {
+       unset($whiteList[$key]);
+      }
+     }
+     if (sizeof($whiteList) > 0 && !in_array($extension, $whiteList)) {
+      throw new EfrontFileException(_YOUMAYONLYUPLOADFILESWITHEXTENSION.': '.$GLOBALS['configuration']['file_white_list'], EfrontFileException::FILE_NOT_IN_WHITE_LIST);
+     }
     }
     /**
 

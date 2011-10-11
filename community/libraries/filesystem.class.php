@@ -729,7 +729,7 @@ class EfrontFile extends ArrayObject
                 } else {
                     $whiteList = '';
                 }
-                if (NO_CHECK_FILE_INTEGRITY) {
+                if (defined("NO_CHECK_FILE_INTEGRITY") && NO_CHECK_FILE_INTEGRITY) {
                  $blackList = $whiteList = '';
                 }
                 $response = exec('unzip "'.$this['path'].'" '.$whiteList.' '.$blackList.' -d "'.$this['directory'].'" 2>&1', $output, $code);
@@ -3155,7 +3155,7 @@ class FileSystemTree extends EfrontTree
       $blackList = array();
      }
      $blackList[] = 'php';
-     if (NO_CHECK_FILE_INTEGRITY) {
+     if (defined("NO_CHECK_FILE_INTEGRITY") && NO_CHECK_FILE_INTEGRITY) {
       $blackList = $whiteList = array();
      }
      $extension = pathinfo($name, PATHINFO_EXTENSION);

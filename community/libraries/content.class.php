@@ -190,13 +190,13 @@ class EfrontUnit extends ArrayObject
   }
   //pr($array['options']);exit;
         if (unserialize($array['options'])) {
-            $array['options'] = unserialize($array['options']);
+         $array['options'] = unserialize($array['options']);
         } else {
             $array['options'] = false;
   }
   $persist = false;
-        if (isset($array['options']['hide_complete_unit']) || isset($array['options']['auto_complete']) || isset($array['options']['questions'])) { //ugprade from 3.6.9        	
-   $array['options'] = $this->upgradeUnitOptions($array['options']);
+        if (is_array($array['options']) && (isset($array['options']['hide_complete_unit']) || isset($array['options']['auto_complete']) || isset($array['options']['questions']))) { //ugprade from 3.6.9
+         $array['options'] = $this->upgradeUnitOptions($array['options']);
    $persist = true;
   }
         parent :: __construct($array);
@@ -205,20 +205,27 @@ class EfrontUnit extends ArrayObject
         }
     }
     private function upgradeUnitOptions($options) {
-     if ($options['hide_complete_unit']) {
-      $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON;
-     } else if ($options['auto_complete']) {
-   $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_AUTOCOMPLETE;
-     } else if ($options['complete_question'] && $options['questions']) {
-       $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_COMPLETEWITHQUESTION;
-       $options['complete_question'] = $options['questions'];
+     $newOptions = $options;
+     if ($newOptions['hide_complete_unit']) {
+      $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON;
+     } else if ($newOptions['auto_complete']) {
+   $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_AUTOCOMPLETE;
+     } else if ($newOptions['complete_question'] && $newOptions['questions']) {
+       $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_COMPLETEWITHQUESTION;
+       $newOptions['complete_question'] = $newOptions['questions'];
      } else {
-      $options['complete_unit_setting'] = self::COMPLETION_OPTIONS_DEFAULT;
+      $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_DEFAULT;
      }
-     unset($options['hide_complete_unit']);
-     unset($options['auto_complete']);
-     unset($options['questions']);
-     return $options;
+     if (isset($newOptions['hide_complete_unit'])) {
+      unset($newOptions['hide_complete_unit']);
+     }
+     if (isset($newOptions['auto_complete'])) {
+      unset($newOptions['auto_complete']);
+     }
+     if (isset($newOptions['questions'])) {
+      unset($newOptions['questions']);
+     }
+     return $newOptions;
     }
     /**
 

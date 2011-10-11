@@ -2784,10 +2784,12 @@ function getUserTimeTarget($url) {
  $queryParts = explode('&', $urlParts['query']);
  foreach($queryParts as $part) {
   $result = explode("=", $part);
-  switch ($result[0]) {
-   case 'view_unit':
-   case 'package_ID': $entity = array($result[1] => 'unit'); break;
-   default: break;
+  if (eF_checkParameter($result[1], 'id')) {
+   switch ($result[0]) {
+    case 'view_unit':
+    case 'package_ID': $entity = array($result[1] => 'unit'); break;
+    default: break;
+   }
   }
  }
  return $entity;

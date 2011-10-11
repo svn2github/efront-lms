@@ -31,11 +31,12 @@ $debug_InitTime = microtime(true) - $debug_TimeStart; //Debugging timer - time s
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 //debug();
+session_write_close();
 $lowest_possible_time = time() - 21600; // last acceptable time - pending 6 hours in the queue to be sent
 //eF_deleteTableData("notifications", "timestamp != 0 AND timestamp <" . $lowest_possible_time);
 
 //echo G_SERVERNAME;
-if (isset($_GET['notification_id'])) {
+if (isset($_GET['notification_id']) && eF_checkParameter($_GET['notification_id'], 'id')) {
  try {
   $notification = new EfrontNotification($_GET['notification_id']);
 
@@ -66,7 +67,7 @@ if (isset($_GET['notification_id'])) {
      $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
      $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
  }
-} else if (isset($_GET['sent_notification_id'])) {
+} else if (isset($_GET['sent_notification_id']) && eF_checkParameter($_GET['sent_notification_id'], 'id')) {
  $sent_notification = eF_getTableData("sent_notifications", "*", "id = " . $_GET['sent_notification_id']);
  if (!empty ($sent_notification)) {
   $notification = $sent_notification[0];

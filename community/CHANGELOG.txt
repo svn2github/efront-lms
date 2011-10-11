@@ -1,5 +1,8 @@
 === Version 3.6.10 build ===
 - Fixed "branchinfo" and "groupinfo" fields not appearing in user profile fields (Enterprise/Educational editions)
+- Security update: Fixed editor's "save template" not checking validity of inputted parameter
+
+
 
 === Version 3.6.10 build 11973 ===
 - Fixed error introduced in personal page (Community++/Educational editions)

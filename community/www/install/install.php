@@ -401,28 +401,31 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
         eF_updateTableData('courses',array('options' => serialize($options)),'id='.$value['id']);
       }
      }
+     EfrontTimes :: upgradeFromUsersOnline();
     }
     if (version_compare($dbVersion, '3.6.10') == -1) {
      $result = eF_getTableData("users_to_projects", "*");
      foreach ($result as $value) {
-      if (isset($value['filename'])) {
-       $file = new EfrontFile($value['filename']);
-       if ($file['directory'] == G_UPLOADPATH.$value['users_LOGIN'].'/projects') {
-         $projectDirectory = G_UPLOADPATH.$value['users_LOGIN'].'/projects/'.$value['projects_ID'].'/';
-                     if (!is_dir($projectDirectory)) {
-                         EfrontDirectory :: createDirectory($projectDirectory);
-                     }
-        $file -> rename($projectDirectory.$file['physical_name']);
-       }
+      if (isset($value['filename']) && $value['filename'] != '') {
+       try {
+        $file = new EfrontFile($value['filename']);
+        if ($file['directory'] == G_UPLOADPATH.$value['users_LOGIN'].'/projects') {
+          $projectDirectory = G_UPLOADPATH.$value['users_LOGIN'].'/projects/'.$value['projects_ID'].'/';
+                      if (!is_dir($projectDirectory)) {
+                          EfrontDirectory :: createDirectory($projectDirectory);
+                      }
+         $file -> rename($projectDirectory.$file['physical_name']);
+        }
+       } catch (Exception $e) {}
       }
      }
-    }
-    //change flv path with offset because of the tinymce 3.4.2
-    $result = eF_getTableData("content", "*");
-    foreach ($result as $value) {
-     if (mb_strpos($value['data'], "flvToPlay=../../../../../") !== false) {
-      $value['data'] = str_replace("flvToPlay=../../../../../", "flvToPlay=##EFRONTEDITOROFFSET##", $value['data']);
-      eF_updateTableData("content", array('data' => $value['data']), "id=".$value['id']);
+     //change flv path with offset because of the tinymce 3.4.2
+     $result = eF_getTableData("content", "*", "data like '%flvToPlay%'");
+     foreach ($result as $value) {
+      if (mb_strpos($value['data'], "flvToPlay=../../../../../") !== false) {
+       $value['data'] = str_replace("flvToPlay=../../../../../", "flvToPlay=##EFRONTEDITOROFFSET##", $value['data']);
+       eF_updateTableData("content", array('data' => $value['data']), "id=".$value['id']);
+      }
      }
     }
     $options = EfrontConfiguration :: getValues();
@@ -555,7 +558,6 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
       }
      }
     } catch (Exception $e) {}
-    EfrontTimes :: upgradeFromUsersOnline();
     Installation :: addModules(true);
     Installation :: createViews();
     if (!isset($_GET['unattended'])) {

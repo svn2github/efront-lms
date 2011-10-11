@@ -11,11 +11,19 @@ header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
 /*These lines read SCO data for this student and pass them to the javascript code through the LMSToSCOValues variable*/
-$result = eF_getTableData("scorm_data", "*", "users_LOGIN = '".$_SESSION['s_login']."' AND content_ID = '".$_GET['view_unit']."'");
+if (eF_checkParameter($_GET['view_unit'], 'id')) {
+ $result = eF_getTableData("scorm_data", "*", "users_LOGIN = '".$_SESSION['s_login']."' AND content_ID = '".$_GET['view_unit']."'");
+} else {
+ $result = array();
+}
 sizeof($result) ? $LMSToSCOValues = $result[0] : $LMSToSCOValues = array();
 
 /*These lines read global SCO data and pass them to the javascript through the $SCOValues variable.*/
-$result = eF_getTableData("scorm_data", "*", "users_LOGIN is null AND content_ID = '".$_GET['view_unit']."'");
+if (eF_checkParameter($_GET['view_unit'], 'id')) {
+ $result = eF_getTableData("scorm_data", "*", "users_LOGIN is null AND content_ID = '".$_GET['view_unit']."'");
+} else {
+ $result = array();
+}
 sizeof($result) ? $SCOValues = $result[0] : $SCOValues = array();
 
 $SCOState = 'var SCOState = new Array();';

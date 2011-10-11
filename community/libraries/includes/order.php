@@ -67,13 +67,12 @@ try {
             }
         }
         if (isset($_POST['node_orders']) && $_POST['node_orders']) {
-            //$nodeOrders        = explode(",", $_GET['node_orders']);
+            //$nodeOrders        = explode(",", $_POST['node_orders']);
             $previousContentId = 0;
+            $legalValues[] = 0; //Add 0 to possible content units, since both parent and previous units may be 0          
             foreach ($_POST['node_orders'] as $value) {
                 list($id, $parentContentId) = explode("-", $value);
-                $contentUnits[] = 0; //Add 0 to possible content units, since both parent and previous units may be 0      
-    $legalValues[] = 0;
-    if ($id && in_array($id, $legalValues) && in_array($parentContentId, $legalValues) && eF_checkParameter($id, 'id') && eF_checkParameter($parentContentId, 'id')) {
+                if ($id && in_array($id, $legalValues) && in_array($parentContentId, $legalValues) && eF_checkParameter($id, 'id') && eF_checkParameter($parentContentId, 'id') !== false ) {
      try { //Putting the try/catch block here, makes the process to continue even if it fails for some units
       $unit = $currentContent -> seekNode($id);
                         $unit -> offsetSet('previous_content_ID', $previousContentId);

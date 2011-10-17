@@ -126,10 +126,10 @@
      {eF_template_printBlock title = $smarty.const._COURSES content = $smarty.capture.t_lessons_code image = $T_BLOCKS.lessons.image}
     {elseif $smarty.get.ctg == 'lesson_info' && $T_CONFIGURATION.lessons_directory == 1}
      {if $T_LESSON_INFO}
-   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&lessons_ID=`$smarty.get.lessons_ID`&course=`$smarty.get.course`'>`$smarty.const._INFOFORLESSON`: &quot;`$T_LESSON->lesson.name`&quot;</a>"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&lessons_ID=`$T_LESSON->lesson.id`&course=`$T_COURSE->course.id`'>`$smarty.const._INFOFORLESSON`: &quot;`$T_LESSON->lesson.name`&quot;</a>"}
    {assign var = "lesson_title" value = "`$smarty.const._INFORMATIONFORLESSON` <span class = 'innerTableName'>&quot;`$T_LESSON->lesson.name`&quot;</span>"}
   {elseif $T_COURSE_INFO}
-   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&courses_ID=`$smarty.get.courses_ID`'>`$smarty.const._INFOFORCOURSE`: &quot;`$T_COURSE->course.name`&quot;</a>"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lessons'>`$smarty.const._COURSES`</a><span>&nbsp;&raquo;&nbsp;</span><a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=lesson_info&courses_ID=`$T_COURSE->course.id`'>`$smarty.const._INFOFORCOURSE`: &quot;`$T_COURSE->course.name`&quot;</a>"}
    {assign var = "lesson_title" value = "`$smarty.const._INFORMATIONFORCOURSE` <span class = 'innerTableName'>&quot;`$T_COURSE->course.name`&quot;</span>"}
   {/if}
         {eF_template_printBlock title = $lesson_title content = $smarty.capture.t_lesson_info_code image = "32x32/information.png"}
@@ -254,7 +254,6 @@
 
 {capture name = "header_language_code"}
   {if !$T_CONFIGURATION.onelanguage}
-   {if $smarty.get.bypass_language}{assign var = "selected_language" value = $smarty.get.bypass_language}{else}{assign var = "selected_language" value = $T_CONFIGURATION.default_language}{/if}
    <select onchange = "var new_location = location.toString().replace(/(\?|&)bypass_language=.*/, '');location = new_location+(new_location.toString().match(/\?/) ? '&' : '?')+'bypass_language='+this.options[this.selectedIndex].value">
     {foreach name = 'languages_list' item = "item" key = "key" from = $T_LANGUAGES}
      <option value = "{$key}" {if $key == $T_LANGUAGE}selected{/if}>{$item}</option>

@@ -1,7 +1,7 @@
 {capture name = calendar_list}
  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'calendarTable'}
 <!--ajax:calendarTable-->
-  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" order="desc" id = "calendarTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=calendar&view_calendar={$smarty.get.view_calendar}&show_interval={$smarty.get.show_interval}&">
+  <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" order="desc" id = "calendarTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=calendar&view_calendar={$T_VIEW_CALENDAR}&show_interval={$T_SHOW_INTERVAL}&">
    <tr class = "topTitle">
     <td name = "timestamp" class = "topTitle">{$smarty.const._DATE}</td>
     <td name = "data" class = "topTitle">{$smarty.const._EVENT}</td>
@@ -51,7 +51,7 @@
    <div class = "headerTools">
     <span>
      <img src = "images/16x16/add.png" title="{$smarty.const._ADDEVENT}" alt="{$smarty.const._ADDEVENT}"/>
-     <a href = "{$smarty.server.PHP_SELF}?ctg=calendar&view_calendar={$smarty.get.view_calendar}{if $smarty.get.show_interval}&show_interval={$smarty.get.show_interval}{/if}&add=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDEVENT}', 2)" target = "POPUP_FRAME">{$smarty.const._ADDEVENT}</a>
+     <a href = "{$smarty.server.PHP_SELF}?ctg=calendar&view_calendar={$T_VIEW_CALENDAR}{if $T_SHOW_INTERVAL}&show_interval={$T_SHOW_INTERVAL}{/if}&add=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDEVENT}', 2)" target = "POPUP_FRAME">{$smarty.const._ADDEVENT}</a>
     </span>
    </div>
    {/if}

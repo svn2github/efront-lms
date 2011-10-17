@@ -298,7 +298,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   }
  /********************* PROFILE COMMENTS POPUP ******************/
  } else if ($_GET['op'] == "comments") {
-    if (isset($_GET['action']) && $_GET['action'] == "delete") {
+    if (isset($_GET['action']) && $_GET['action'] == "delete" && eF_checkParameter($_GET['id'], 'id')) {
    // Only allowed to delete comments referring to you
    if (sizeof(eF_getTableData("profile_comments", "*", "id=".$_GET['id']." and users_LOGIN='".$_SESSION['s_login']."'")) > 0) {
     eF_deleteTableData("profile_comments", "id=".$_GET['id']);
@@ -310,7 +310,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=dashboard&message=".urlencode($message)."&message_type=".$message_type);
     exit;
    }
-  } elseif(isset($_GET['action']) && ($_GET['action'] == 'insert' || $_GET['action'] == 'change') && isset($_GET['user'])) {
+  } elseif(isset($_GET['action']) && ($_GET['action'] == 'insert' || $_GET['action'] == 'change') && isset($_GET['user']) && eF_checkParameter($_GET['user'], 'login')) {
    $load_editor = true;
    if (isset($_GET['action']) && $_GET['action'] == 'change' && isset($id)) {
     $form = new HTML_QuickForm("change_comments_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=social&op=comments&action=change&id=$id", "", null, true);
@@ -518,7 +518,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    if (isset($_GET['post_topic'])) {
     /* Check permissions: everyone is allowed to post topic */
     //$form = new HTML_QuickForm("topic_form", "post", $_SESSION['s_type'].".php?ctg=social&op=timeline&lessons_ID=".$_SESSION['s_lessons_ID']."&post_topic=1", "",null, true);
-      if (isset($_GET['action']) && $_GET['action'] == "delete") {
+      if (isset($_GET['action']) && $_GET['action'] == "delete" && eF_checkParameter($_GET['id'], 'id')) {
      // Only allowed to delete comments referring to you
      $result = eF_getTableData("lessons_timeline_topics_data", "*", "id=".$_GET['id']." and users_LOGIN='".$_SESSION['s_login']."'");
      if (sizeof($result) > 0) {
@@ -538,7 +538,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       eF_redirect("". $currentUser -> getType() . ".php?ctg=social&op=timeline&lessons_ID=".$_GET['lessons_ID']."&all=1&message=$message&message_type=$message_type");
       exit;
      }
-    } elseif(isset($_GET['action']) && ($_GET['action'] == 'insert' || $_GET['action'] == 'change')) {
+    } elseif(isset($_GET['action']) && ($_GET['action'] == 'insert' || $_GET['action'] == 'change') && eF_checkParameter($_GET['post_topic'], 'id') && eF_checkParameter($_GET['lessons_ID'], 'id')) {
      $load_editor = true;
      $result = eF_getTableData("lessons_timeline_topics", "title" , "id = " . $_GET['post_topic']);
      if ($result[0]['title'] == "") {
@@ -608,7 +608,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
      exit;
     }
     // ON DELETING A LESSONTIMELINE TOPIC
-    if (isset($_GET['del_topic'])) { //The administrator asked to delete a skill
+    if (isset($_GET['del_topic']) && eF_checkParameter($_GET['del_topic'], 'id')) { //The administrator asked to delete a skill
      //@todo: delete events too?
      //eF_deleteTableData("lessons_timeline_topics", "type = " . . "  AND lessons_ID = ". ." AND entity_ID = '".$_GET['del_topic']."'");
      eF_deleteTableData("lessons_timeline_topics_data", "topics_ID = '".$_GET['del_topic']."'");
@@ -621,7 +621,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     } else if (isset($_GET['add_topic']) || isset($_GET['edit_topic'])) {
      if (isset($_GET['add_topic'])) {
       $form = new HTML_QuickForm("topic_form", "post", $_SESSION['s_type'].".php?ctg=social&op=timeline&lessons_ID=".$_SESSION['s_lessons_ID']."&add_topic=1", "",null, true);
-     } else {
+     } elseif (eF_checkParameter($_GET['edit_topic'], 'id')) {
       $form = new HTML_QuickForm("topic_form", "post", $_SESSION['s_type'].".php?ctg=social&op=timeline&lessons_ID=".$_SESSION['s_lessons_ID']."&edit_topic=" . $_GET['edit_topic'] , "", null, true);
       $topic = eF_getTableData("lessons_timeline_topics","title", "id ='".$_GET['edit_topic']."'");
      }
@@ -671,7 +671,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
       }
      }
    // The main lesson timeline page contains also the form for inserting new topical timelines
-   if (isset($_GET['all'])) {
+   if (isset($_GET['all']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
     $form = new HTML_QuickForm("timeline_form", "post", $_SESSION['s_type'].".php?ctg=social&op=timeline&lessons_ID=".$_GET['lessons_ID'] . "&all=1", "", null, true);
     $result = eF_getTableData("lessons_timeline_topics", "id, title", "lessons_ID = " . $editedLesson -> lesson['id']);
     $topics = array("0" => _ANYTOPIC);
@@ -680,7 +680,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
      $topics[$id]= $topic['title'];
     }
     $form -> addElement('select', 'topic' , _SELECTTIMELINETOPIC, $topics , 'class = "inputText"  id="timeline_topic" onchange="javascript:change_topic(\'timeline_topic\')"');
-    if (isset($_GET['topics_ID'])) {
+    if (isset($_GET['topics_ID']) && eF_checkParameter($_GET['topics_ID'], 'id')) {
      $form -> setDefaults(array('topic' => $_GET['topics_ID']));
      $smarty -> assign("T_TOPIC_TITLE", $topics[$_GET['topics_ID']]);
     }

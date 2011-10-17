@@ -1626,7 +1626,8 @@ class EfrontCourse
  public function persist() {
   $this -> rules ? $this -> course['rules'] = serialize($this -> rules) : $this -> course['rules'] = null;
   $this -> options ? $this -> course['options'] = serialize($this -> options) : $this -> course['options'] = null;
-  $this -> course['price'] = str_replace(array($GLOBALS['configuration']['decimal_point'], $GLOBALS['configuration']['thousands_sep']), array('.', ''), $this -> course['price']); //This way, you handle the case where the price is in the form 1,000.00
+  $localeSettings = localeconv();
+  $this -> course['price'] = str_replace(array($localeSettings['decimal_point'], $localeSettings['thousands_sep']), array('.', ''), $this -> course['price']); //This way, you handle the case where the price is in the form 1,000.00
   $fields = $this -> validateAndSanitizeCourseFields($this -> course);
   eF_updateTableData("courses", $fields, "id=".$this -> course['id']);
   if (!defined(_DISABLE_SEARCH) || _DISABLE_SEARCH !== true) {
@@ -3636,13 +3637,15 @@ class EfrontCourse
    }
   }
   foreach ($this -> rules as $lessonId => $lessonRules) {
-   $evalString = '';
-   for ($i = 1; $i < sizeof($lessonRules['lesson']); $i++) {
-    $evalString .= $completedLessons[$lessonRules['lesson'][$i]].' '.($lessonRules['condition'][$i+1] == 'and' ? '&' : '|');
-   }
-   $evalString = $evalString.' '.$completedLessons[$lessonRules['lesson'][$i]];
-   if (!empty($completedLessons)) {
-    eval("\$allowed[$lessonId] = $evalString;");
+   if (eF_checkParameter($lessonId, 'id')) {
+    $evalString = '';
+    for ($i = 1; $i < sizeof($lessonRules['lesson']); $i++) {
+     $evalString .= $completedLessons[$lessonRules['lesson'][$i]].' '.($lessonRules['condition'][$i+1] == 'and' ? '&' : '|');
+    }
+    $evalString = $evalString.' '.$completedLessons[$lessonRules['lesson'][$i]];
+    if (!empty($completedLessons)) {
+     eval("\$allowed[$lessonId] = $evalString;");
+    }
    }
   }
   foreach ($allowed as $id => $allow) {

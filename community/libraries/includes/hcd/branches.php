@@ -372,7 +372,11 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
     $employees = $currentBranch -> getBranchUsersIncludingUnassigned($constraints);
     $totalEntries = $currentBranch -> countBranchUsersIncludingUnassigned($constraints);
          }
-   $dataSource = $currentBranch -> createEmployeeJobsHtml($employees);
+    if (!empty($employees)) {
+    $dataSource = $currentBranch -> createEmployeeJobsHtml($employees);
+    } else {
+     $dataSource = array();
+    }
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);

@@ -997,7 +997,7 @@ define("_SCROLLTOBOTTOMOFPAGE","Μετακινηθείτε στο κάτω μέ�
 define("_NOUSERHAVEDONETHISSURVEYYET","Κανείς δεν έχει κάνει ακόμα το συγκεκριμένο ερωτηματολόγιο");
 define("_SYSTEM","Σύστημα");
 define("_EMAILCONFIGURATIONS","Ρυθμίσεις Ηλεκτρονικού Ταχυδρομείου");
-define("_SAWUNIT", "Θέσε την ενότητητα σαν ολοκληρωμένη");
+define("_SAWUNIT", "Θέσε την ενότητα σαν ολοκληρωμένη");
 define("_NOTSAWUNIT", "Θέσε την ενότητητα σαν μη ολοκληρωμένη");
 define("_CONDITIONSCOMPLETED", "Συνθήκες που έχουν ολοκληρωθεί");
 define("_OUTOF", "από");

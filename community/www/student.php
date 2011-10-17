@@ -323,7 +323,7 @@ if ($GLOBALS['currentTheme'] -> options['sidebar_interface']) {
     $smarty -> assign("T_NO_HORIZONTAL_MENU", 1);
 }
 refreshLogin();//Important: It must be called AFTER EfrontUser :: getUsersOnline
-!isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
+!isset($_GET['ctg']) || !eF_checkParameter($_GET['ctg'], 'alnum_general') ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
 if (!$_SESSION['s_lessons_ID'] && $ctg != 'personal' && $ctg != 'statistics' && ($ctg == 'control_panel' && (!isset($_GET['op']) || $_GET['op'] != "search"))) { //If there is not a lesson in the session, then the user just logged into the system. Redirect him to lessons page, except for the case he is viewing his personal information 2007/07/27 added search control. It was a problem when user had not choose a lesson.
     $ctg = 'lessons';
 }

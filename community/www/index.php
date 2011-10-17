@@ -203,7 +203,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
   $currentUser -> logout(session_id());
  }
 }
-if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password'])) {
+if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password']) && eF_checkParameter($_COOKIE['cookie_login'], 'login')) {
  try {
   $user = EfrontUserFactory :: factory($_COOKIE['cookie_login']);
   $user -> login($_COOKIE['cookie_password'], true);
@@ -686,7 +686,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
   if ($form -> validate()) {
    $to = $form -> exportValue("email");
    $subject = $form -> exportValue("message_subject");
-   $body = $form -> exportValue("message_body");
+   $body = $form -> exportValue("message_body")."\r\n\r\n(".$subject." ["._FROM.": ".$to."])";
    if (eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$to."]", $body, false, true)) {
     $message = _SENDSUCCESS;
     $message_type = 'success';

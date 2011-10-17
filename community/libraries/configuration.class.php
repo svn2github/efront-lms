@@ -45,7 +45,7 @@ class EfrontConfiguration
      'debug_mode' => '',
      'updater_period' => 100000,
         //System settings - security
-     'file_black_list' => 'php,php3,jsp,asp,cgi,pl,exe,com,bat',
+     'file_black_list' => 'php,php3,jsp,asp,cgi,pl,exe,com,bat,sh,ph3,php4,ph4,php5,ph5,phtm,phtml',
         'file_white_list' => '',
         'ip_black_list' => '',
         'ip_white_list' => '*.*.*.*',
@@ -128,8 +128,8 @@ class EfrontConfiguration
         'smtp_auth' => '0',
         'smtp_timeout' => '',
         //Locale
-        'decimal_point' => '.',
-        'thousands_sep' => ',',
+        //'decimal_point'          => '.',					//deprecated
+        //'thousands_sep'          => ',',					//deprecated
         'date_format' => 'DD/MM/YYYY',
         'location' => 'Greece',
         'time_zone' => '',

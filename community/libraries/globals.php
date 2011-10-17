@@ -94,6 +94,7 @@ foreach ($_GET as $key => $value) {
         $_GET[$key] = strip_tags($value);
     }
 }
+$_SERVER['PHP_SELF'] = strip_tags($_SERVER['PHP_SELF']);
 if ($GLOBALS['configuration']['eliminate_post_xss']) {
  foreach ($_POST as $key => $value) {
      if (is_string($value)) {
@@ -130,9 +131,11 @@ if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
 }
 //Set locale settings
 //Replaced setlocale(LC_x) with LC_ALL so that international filenames work correctly (since basename() depends on current locale)
+//setlocale(LC_COLLATE, _HEADERLANGUAGETAG);
 //setlocale(LC_CTYPE, _HEADERLANGUAGETAG);
+//setlocale(LC_MONETARY, _HEADERLANGUAGETAG);
 //setlocale(LC_TIME, _HEADERLANGUAGETAG);
-setlocale(LC_ALL, _HEADERLANGUAGETAG);
+setlocale(LC_ALL, _HEADERLANGUAGETAG); //Don't set LC_ALL, as this will set the LC_NUMERIC as well, which will automatically convert dots to commas if in greek
 //Define theme-related constants and setup the default theme
 setupThemes();
 /**The smarty libraries -- must be below themes!*/
@@ -274,7 +277,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 11978;
+    $build = 12072;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

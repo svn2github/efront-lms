@@ -70,8 +70,8 @@ $generalLocaleForm -> addElement("select", "date_format", _DATEFORMAT, array("DD
 $generalLocaleForm -> addElement("select", "time_zone", _TIMEZONE, eF_getTimezones(), 'class = "inputText" style="width:40em"');
 $generalLocaleForm -> addElement("select", "currency", _CURRENCY, $CURRENCYNAMES);
 $generalLocaleForm -> addElement("select", "currency_order", _SHOWCURRENCYSYMBOL, array(1 => _BEFOREPRICE, 0 => _AFTERPRICE));
-$generalLocaleForm -> addElement("text", "decimal_point", _DECIMALPOINT, 'class = "inputText" style = "width:50px"');
-$generalLocaleForm -> addElement("text", "thousands_sep", _THOUSANDSSEPARATOR, 'class = "inputText" style = "width:50px"');
+//$generalLocaleForm -> addElement("text", "decimal_point", _DECIMALPOINT,	   'class = "inputText" style = "width:50px"');
+//$generalLocaleForm -> addElement("text", "thousands_sep", _THOUSANDSSEPARATOR, 'class = "inputText" style = "width:50px"');
 $generalLocaleForm -> addElement("select", "file_encoding", _TRANSLATEFILESYSTEM, $encodings, 'class = "inputSelect"');
 $generalLocaleForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {

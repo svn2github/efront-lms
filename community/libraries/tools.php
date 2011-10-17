@@ -380,7 +380,8 @@ function formatLogin($login, $fields = array(), $duplicate = true) {
 
  */
 function formatScore($score) {
-    $scoreString = number_format($score, 2, $GLOBALS['configuration']['decimal_point'], '');
+ $localeSettings = localeconv();
+    $scoreString = number_format(str_replace(",", ".", $score), 2, $localeSettings['decimal_point'], '');
     return $scoreString;
 }
 /**
@@ -429,7 +430,8 @@ function formatPrice($price, $recurring = false, $showDiscount = false) {
         $discountPrice = formatPrice($price - $price * $GLOBALS['configuration']['total_discount']/100, false, false);
         //$discountPrice = number_format($discountPrice, 2, $GLOBALS['configuration']['decimal_point'], $GLOBALS['configuration']['thousands_sep']);
     }
-    $price = number_format($price, 2, $GLOBALS['configuration']['decimal_point'], $GLOBALS['configuration']['thousands_sep']);
+    $localeSettings = localeconv();
+    $price = number_format($price, 2, $localeSettings['decimal_point'], $localeSettings['thousands_sep']);
     $currency = $GLOBALS['CURRENCYSYMBOLS'][$GLOBALS['configuration']['currency']];
     $GLOBALS['configuration']['currency_order'] ? $price = $currency.$price : $price = $price.$currency;
     //pr($GLOBALS['configuration']);

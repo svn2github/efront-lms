@@ -840,7 +840,7 @@ abstract class EfrontUser
    if (!eF_checkUserLdap($this -> user['login'], $password)) {
     throw new EfrontUserException(_INVALIDPASSWORD, EfrontUserException :: INVALID_PASSWORD);
    }
-  } else { //Authenticate normal user
+  } else {
    if (!$encrypted) {
     $password = EfrontUser::createPassword($password);
    }

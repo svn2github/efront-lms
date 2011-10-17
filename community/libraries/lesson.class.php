@@ -5065,10 +5065,11 @@ class EfrontLesson
 
 	 */
  public function persist() {
+  $localeSettings = localeconv();
   $fields = array('name' => $this -> lesson['name'],
                         'directions_ID' => $this -> lesson['directions_ID'],
                         'info' => $this -> lesson['info'],
-                        'price' => str_replace(array($GLOBALS['configuration']['decimal_point'], $GLOBALS['configuration']['thousands_sep']), array('.', ''), $this -> lesson['price']),
+                        'price' => str_replace(array($localeSettings['decimal_point'], $localeSettings['thousands_sep']), array('.', ''), $this -> lesson['price']),
                         'active' => $this -> lesson['active'],
                         'duration' => $this -> lesson['duration'] ? $this -> lesson['duration'] : 0,
                   'share_folder' => $this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : 0,

@@ -299,6 +299,7 @@ class EfrontProject {
         if (!in_array($login, array_keys($this -> getUsers()))) {
             throw new EfrontContentException(_USERDOESNOTHAVETHISPROJECT, EfrontContentException :: INVALID_LOGIN);
         }
+        $grade = str_replace(",", ".", $grade);
         if (!is_numeric($grade)) {
          $gradeParts = explode("/", $grade);
          if (sizeof($gradeParts) == 2) {

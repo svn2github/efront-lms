@@ -124,7 +124,7 @@ refreshLogin();//Important: It must be called AFTER EfrontUser :: getUsersOnline
 
 
 
-!isset($_GET['ctg']) ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
+!isset($_GET['ctg']) || !eF_checkParameter($_GET['ctg'], 'alnum_general') ? $ctg = "control_panel" : $ctg = $_GET['ctg'];
 
 $smarty -> assign("T_CTG", $ctg); //As soon as we derive the current ctg, assign it to smarty.
 $smarty -> assign("T_OP", isset($_GET['op']) ? $_GET['op'] : false);

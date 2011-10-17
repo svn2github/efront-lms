@@ -31,7 +31,7 @@ try {
   //    }
 
   try {
-   if ($_GET['from_course']) {
+   if ($_GET['from_course'] && eF_checkParameter($_GET['from_course'], 'id')) {
     $course = new EfrontCourse($_GET['from_course']);
     $schedule = $course -> getLessonScheduleInCourse($lesson);
     $lessonInformation['from_timestamp'] = $schedule['start_date'];
@@ -130,7 +130,7 @@ try {
  }
 
  // For eFront social
- if (isset($_GET['common_lessons']) && isset($_GET['user1']) && isset($_GET['user2'])) {
+ if (isset($_GET['common_lessons']) && isset($_GET['user1']) && isset($_GET['user2']) && eF_checkParameter($_GET['user1'], 'login') && eF_checkParameter($_GET['user2'], 'login')) {
   $user1 = EfrontUserFactory::factory($_GET['user1']);
   if ($user1->getType() != "administrator") {
    $common_lessons = $user1 -> getCommonLessons($_GET['user2']);

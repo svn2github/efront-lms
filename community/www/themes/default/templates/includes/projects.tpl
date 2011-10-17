@@ -132,7 +132,7 @@
 
           <td><span id = "comments_{$user.users_LOGIN}">{$user.comments|@strip_tags|eF_truncate:30}</span>&nbsp;<a href = "{$smarty.server.PHP_SELF}?ctg=projects&project_results={$smarty.get.project_results}&login={$user.users_LOGIN}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITCOMMENT}', 1)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a></td>
 
-                                        <td><input type = "text" id = "grade_{$user.users_LOGIN}" value = "{$user.grade}" size = "5" maxlength = "5" /></td>
+                                        <td><input type = "text" id = "grade_{$user.users_LOGIN}" value = "{$user.grade|formatScore}" size = "5" maxlength = "5" /></td>
                                         <td class = "centerAlign">
                                             <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._SAVE}" alt = "{$smarty.const._SAVE}" onclick = "resultsAjaxPost('{$user.users_LOGIN}', this)"/>
            <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "resetUser('{$user.users_LOGIN}', this)"/>

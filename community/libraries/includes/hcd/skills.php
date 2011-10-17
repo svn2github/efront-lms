@@ -29,10 +29,10 @@ try {
       handleAjaxExceptions($e);
      }
      exit;
-    } else if (isset($_GET['remove_user_skill'])) {
+    } else if (isset($_GET['remove_user_skill']) && eF_checkParameter($_GET['remove_user_skill'], 'id')) {
      try {
       $currentSkill = new EfrontSkill($_GET['remove_user_skill']);
-      if (in_array($_GET['user'], array_keys($currentSkill -> getEmployees()))) {
+      if (in_array($_GET['user'], array_keys($currentSkill -> getEmployees())) && eF_checkParameter($_GET['user'], 'login')) {
        $currentSkill -> removeFromEmployee($_GET['user']);
       }
      } catch (Exception $e) {

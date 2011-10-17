@@ -1728,7 +1728,7 @@ class EfrontTest
                 $lastTest = $value['id'];
             }
             $testIds[] = $value['id'];
-            $timestamps[] = $value['timestamp'];
+            $timestamps[] = $value['time_end'];
    $testObject = unserialize($value['test']);
    $correctPrevious[] = $testObject -> correctPrevious;
         }
@@ -1899,12 +1899,12 @@ class EfrontTest
                         <table style = "width:100%" >
                             <tr><td>
                                 <span style = "font-weight:bold;" id = "question_'.$id.'_score_span">
-                                    '.($this -> options['show_score'] || $_SESSION['s_type'] != 'student' ? _SCORE.': <span style = "vertical-align:middle" id = "question_'.$id.'_score">'.$question -> score.'%</span>' : '').'
+                                    '.($this -> options['show_score'] || $_SESSION['s_type'] != 'student' ? _SCORE.': <span style = "vertical-align:middle" id = "question_'.$id.'_score">'.formatScore($question -> score).'%</span>' : '').'
                                     '.($editHandles ? '<a href = "javascript:void(0)" onclick = "$(\'question_'.$id.'_score_span\').hide();$(\'edit_question_'.$id.'_score_span\').show();"><img src = "images/16x16/edit.png" title = "'._CHANGESCORE.'" alt = "'._CHANGESCORE.'" style = "vertical-align:middle" border = "0"/></a>' : '').'
                                     <span id = "question_'.$id.'_pending">'.($question -> pending ? '&nbsp;('._THISQUESTIONCORRECTEDPROFESSOR.')' : '').'</span>
                                 </span>
                                 <span id = "edit_question_'.$id.'_score_span" style = "display:none;">
-                                    <input type = "text" name = "edit_question_'.$id.'_score" id = "edit_question_'.$id.'_score" value = "'.$question -> score.'" style = "vertical-align:middle"/>
+                                    <input type = "text" name = "edit_question_'.$id.'_score" id = "edit_question_'.$id.'_score" value = "'.formatScore($question -> score).'" style = "vertical-align:middle"/>
                                     <a href = "javascript:void(0)" onclick = "editQuestionScore(this, '.$id.')">
                                         <img src = "images/16x16/success.png" alt = "'._SUBMIT.'" title = "'._SUBMIT.'" border = "0" style = "vertical-align:middle"/>
                                     </a>
@@ -1913,7 +1913,7 @@ class EfrontTest
                                     </a>
                                 </span>';
                           if ($this -> options['show_score'] || $_SESSION['s_type'] != 'student') {
-                           $testString .= '<span style = "border-left:1px solid black;margin-left:5px;padding-left:5px">'._SCOREINTEST.': <span id = "question_'.$id.'_score_coefficient">'.$question -> score.'</span>% &#215; '.$weight.' = <span id = "question_'.$id.'_scoreInTest">'.$question -> scoreInTest.'</span>%</span>';
+                           $testString .= '<span style = "border-left:1px solid black;margin-left:5px;padding-left:5px">'._SCOREINTEST.': <span id = "question_'.$id.'_score_coefficient">'.formatScore($question -> score).'</span>% &#215; '.$weight.' = <span id = "question_'.$id.'_scoreInTest">'.formatScore($question -> scoreInTest).'</span>%</span>';
                           }
                     if ($editHandles) {
                         $testString .= '
@@ -2680,13 +2680,13 @@ class EfrontCompletedTest extends EfrontTest
    if ($editHandles) {
     $str .= '
          <span style = "font-weight:bold" id = "test_score_span">
-          <span id = "test_score" style = "vertical-align:middle">'.$this -> completedTest['score'].'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle" id = "potential_score">- '.$potentialScore.'%</span>' : null).'
+          <span id = "test_score" style = "vertical-align:middle">'.formatScore($this -> completedTest['score']).'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle" id = "potential_score">- '.$potentialScore.'%</span>' : null).'
           <a href = "javascript:void(0)" onclick = "$(\'test_score_span\').hide();$(\'edit_test_score_span\').show();">
            <img src = "images/16x16/edit.png" alt = "'._CHANGESCORE.'" title = "'._CHANGESCORE.'" border = "0" style = "vertical-align:middle"/>
           </a>
          </span>
          <span id = "edit_test_score_span" style = "display:none">
-          <input type = "text" name = "edit_test_score" id = "edit_test_score" value = "'.$this -> completedTest['score'].'" style = "vertical-align:middle"/>
+          <input type = "text" name = "edit_test_score" id = "edit_test_score" value = "'.formatScore($this -> completedTest['score']).'" style = "vertical-align:middle"/>
           <a href = "javascript:void(0)" onclick = "editScore(this)">
            <img src = "images/16x16/success.png" alt = "'._SUBMIT.'" title = "'._SUBMIT.'" border = "0" style = "vertical-align:middle"/>
           </a>
@@ -2696,7 +2696,7 @@ class EfrontCompletedTest extends EfrontTest
          </span>';
    } else {
     $str .= '
-         <span id = "test_score" style = "vertical-align:middle">'.$this -> completedTest['score'].'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle">- '.$potentialScore.'%</span>' : null);
+         <span id = "test_score" style = "vertical-align:middle">'.formatScore($this -> completedTest['score']).'%&nbsp;</span>'.($potentialScore != $this -> completedTest['score'] ? '<span style = "vertical-align:middle">- '.$potentialScore.'%</span>' : null);
    }
    $str .= '
         &nbsp;'.$completeMessage.'</td></tr>
@@ -3297,6 +3297,9 @@ class EfrontCompletedTest extends EfrontTest
      return $id;
     }
     public static function updateCompletedTest($table, $fields, $where) {
+     if (isset($fields['score']) && $fields['score']) {
+      $fields['score'] = str_replace(",", ".", $fields['score']);
+     }
      if ($GLOBALS['configuration']['compress_tests'] && function_exists('gzdeflate') && isset($fields['test'])) {
    $fields['test'] = gzdeflate($fields['test']);
      }

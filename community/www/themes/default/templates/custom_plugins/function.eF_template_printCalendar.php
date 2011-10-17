@@ -41,7 +41,7 @@ function smarty_function_eF_template_printCalendar($params, &$smarty) {
  $today = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);
 
  isset($_GET['view_calendar']) && eF_checkParameter($_GET['view_calendar'], 'timestamp') ? $view_calendar = $_GET['view_calendar'] : $view_calendar = $today;
- isset($_GET['show_interval']) ? $show_interval_link = '&show_interval='.$_GET['show_interval'] : $show_interval_link = '';
+ isset($_GET['show_interval']) && eF_checkParameter($_GET['view_calendar'], 'string') ? $show_interval_link = '&show_interval='.$_GET['show_interval'] : $show_interval_link = '';
 
  $str = '
     <table>

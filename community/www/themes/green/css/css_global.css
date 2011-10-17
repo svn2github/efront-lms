@@ -853,7 +853,7 @@ width:100%;
 .unsolvedQuestion{width:100%;}
 .unsolvedQuestion * {vertical-align:middle;}
 .draggable, .droppable{/*Draggable/droppable questions*/
-background:#FAFAFA url('../images/css_images/gradient.jpg') repeat-x bottom;
+background:#DCF5E2 url('../images/css_images/gradient.jpg') repeat-x top;
 z-index:10; 
 height:100%;
 }

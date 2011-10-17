@@ -24,15 +24,15 @@ try {
  exit;
 }
 try {
-    if (isset($_GET['test_id'])) {
+    if (isset($_GET['test_id']) && eF_checkParameter($_GET['test_id'], 'id') && eF_checkParameter($_GET['user'], 'login')) {
         $test = new EfrontTest($_GET['test_id']);
         $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
 //        $test -> setDone($_GET['user']);
-    } else if (isset($_GET['content_id'])) {
+    } else if (isset($_GET['content_id']) && eF_checkParameter($_GET['content_id'], 'id') && eF_checkParameter($_GET['user'], 'login')) {
         $test = new EfrontTest($_GET['content_id'], true);
         $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
 //        $test -> setDone($_GET['user']);
-    } else if (isset($_GET['done_test_id'])) {
+    } else if (isset($_GET['done_test_id']) && eF_checkParameter($_GET['done_test_id'], 'id')) {
         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and id=".$_GET['done_test_id']);
         $test = new EfrontTest($result[0]['tests_ID']);
         $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$result[0]['users_LOGIN']."' and tests_ID=".$test -> test['id']);
@@ -51,17 +51,18 @@ try {
     }
     $doneTests = $temp;
 
-    if (isset($_GET['show_solved_test']) && in_array($_GET['show_solved_test'], array_keys($doneTests))) {
+    if (isset($_GET['show_solved_test']) && in_array($_GET['show_solved_test'], array_keys($doneTests)) && eF_checkParameter($_GET['show_solved_test'], 'id')) {
         $showTest = unserialize($doneTests[$_GET['show_solved_test']]['test']);
-    } else if (isset($_GET['done_test_id']) && in_array($_GET['done_test_id'], array_keys($doneTests))) {
+    } else if (isset($_GET['done_test_id']) && in_array($_GET['done_test_id'], array_keys($doneTests)) && eF_checkParameter($_GET['done_test_id'], 'id')) {
         $showTest = unserialize($doneTests[$_GET['done_test_id']]['test']);
     } else {
         $showTest = unserialize($doneTests[key($doneTests)]['test']); //Take the first in the row
     }
- $result = eF_getTableData("content", "ctg_type","id=".$showTest -> test['content_ID']);
- $testType = $result[0]['ctg_type'];
-    $smarty -> assign("T_TEST_TYPE", $testType);
-
+    if ($showTest -> test['content_ID']) {
+  $result = eF_getTableData("content", "ctg_type","id=".$showTest -> test['content_ID']);
+  $testType = $result[0]['ctg_type'];
+     $smarty -> assign("T_TEST_TYPE", $testType);
+    }
     //Check if current user is eligible to see this test
     if ($_SESSION['s_type'] != 'administrator') {
         //$currentUser = EfrontUserFactory :: factory($_SESSION['s_login'], false);

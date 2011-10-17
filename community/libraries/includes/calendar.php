@@ -32,7 +32,10 @@ if (eF_checkParameter($_GET['view_calendar'], 'timestamp')) { //If a specific ca
  $today = getdate(time()); //Get current time in an array
  $viewCalendar = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']); //Create a timestamp that is today, 00:00. this will be used in calendar for displaying today
 }
-isset($_GET['show_interval']) ? $showInterval = $_GET['show_interval'] : $showInterval = 'day';
+isset($_GET['show_interval']) && eF_checkParameter($_GET['show_interval'], 'string') ? $showInterval = $_GET['show_interval'] : $showInterval = 'day';
+
+$smarty->assign("T_VIEW_CALENDAR", $viewCalendar);
+$smarty->assign("T_SHOW_INTERVAL", $showInterval);
 
 $events = calendar :: getCalendarEventsForUser($currentUser);
 $smarty -> assign("T_CALENDAR_TYPES", calendar :: $calendarTypes);

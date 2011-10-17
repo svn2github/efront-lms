@@ -3160,7 +3160,7 @@ class FileSystemTree extends EfrontTree
      }
      $extension = pathinfo($name, PATHINFO_EXTENSION);
      foreach ($blackList as $value) {
-      if ($extension == trim(mb_strtolower($value))) {
+      if (!strcasecmp(mb_strtolower($extension), trim(mb_strtolower($value)))) {
        throw new EfrontFileException(_YOUCANNOTUPLOADFILESWITHTHISEXTENSION.': '.$extension, EfrontFileException::FILE_IN_BLACK_LIST);
       }
      }

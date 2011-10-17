@@ -771,6 +771,9 @@ class EfrontEvent
          if ($type['category'] == "tests") {
        $subst_array['tests_name'] = $this -> event['entity_name'];
       }
+         if ($type['category'] == "forum") {
+       $subst_array['forum_name'] = $this -> event['entity_name'];
+      }
       if ($type['category'] == "news") {
        $subst_array['announcement_title'] = $this -> event['entity_name'];
        $news = eF_getTableData("news", "data", "id = '". $this -> event['entity_ID'] ."'");
@@ -999,10 +1002,13 @@ class EfrontEvent
             throw new EfrontEventException(_NOEVENTCODEDEFINED, EfrontEventException::NOEVENTCODE_DEFINED);
         }
         //These are the mandatory fields. In case one of these is absent, fill it in with a default value
-        if (!isset($fields['users_LOGIN'])) {
+        if (!isset($fields['users_LOGIN']) || !$fields['users_LOGIN']) {
             $fields['users_LOGIN'] = $GLOBALS['currentUser'] -> user['login'];
             $fields['users_name'] = $GLOBALS['currentUser'] -> user['name'];
             $fields['users_surname'] = $GLOBALS['currentUser'] -> user['surname'];
+        }
+        if (!$fields['users_LOGIN']) {
+         return; //A user does not exist; do nothing
         }
         if (!isset($fields['users_name']) || !isset($fields['users_surname'])) {
             $users_id = eF_getTableData("users", "name, surname", "login = '".$fields['users_LOGIN']."'");

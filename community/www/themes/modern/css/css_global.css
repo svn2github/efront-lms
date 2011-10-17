@@ -915,7 +915,7 @@ padding:4px;
 .unsolvedQuestion{width:100%;}
 .unsolvedQuestion * {vertical-align:middle;}
 .draggable, .droppable{/*Draggable/droppable questions*/
-background:#FAFAFA url('../images/css_images/gradient.gif') repeat-x bottom;
+background:#4493BD url('../images/css_images/gradient.gif') repeat-x top;
 z-index:10; 
 height:100%;
 }

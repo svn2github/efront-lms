@@ -168,9 +168,8 @@ class module_certificates extends EfrontModule {
             $role = $currentUser -> getRole($this -> getCurrentLesson());
         }
 
-        if (isset($_GET['export']) && $_GET['export'] == 'rtf') {
-            $result = eF_getTableData("module_certificates_users", "*",
-            "users_LOGIN = '".$_GET['user']."' and lessons_ID = '".$currentLesson -> lesson['id']."' limit 1");
+        if (isset($_GET['export']) && $_GET['export'] == 'rtf' && eF_checkParameter($_GET['user'], 'login')) {
+            $result = eF_getTableData("module_certificates_users", "*", "users_LOGIN = '".$_GET['user']."' and lessons_ID = '".$currentLesson -> lesson['id']."' limit 1");
             if (sizeof($result) == 1 || isset($_GET['preview'])) {
                 if (!isset($_GET['preview'])){
                     $certificate_id = 0;

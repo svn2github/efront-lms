@@ -68,7 +68,7 @@ try {
                  unset($result[$key]['id']);
              }
              eF_insertTableDataMultiple("questions", $result);
-             glossary :: clearDuplicates($currentLesson);
+             Question :: clearDuplicates($currentLesson);
             } catch (Exception $e) {
                 header("HTTP/1.0 500 ");
                 echo $e -> getMessage().' ('.$e -> getCode().')';

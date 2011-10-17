@@ -550,7 +550,12 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
               } else if ($event_category == "content") {
                $condition = $send_conditions["unit_ID"];
               } else if ($event_category == "forum") {
-               $condition = $send_conditions["forums_ID"];
+               if (isset($send_conditions["forums_ID"])) {
+                $condition = $send_conditions["forums_ID"];
+               } elseif (isset($send_conditions["lessons_ID"])) { // edit notification with specific lesson did not load default lesson value correctly
+                $condition = $send_conditions["lessons_ID"];
+                $event_category = "lessons";
+               }
               } else if ($event_category == "courses") {
                $condition = $send_conditions["courses_ID"];
               } else {

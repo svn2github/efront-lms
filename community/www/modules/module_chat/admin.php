@@ -41,10 +41,11 @@ function clearAllLogs(){
 //////////////////////////////////////////////////////////////////////////////
 function getLessonFromId(){
 
- $id = $_GET["loglessonid"];
- $sql = "SELECT name FROM lessons WHERE id='".$id."'";
- $result = mysql_query($sql);
-
+ if (eF_checkParameter($_GET['loglessonid'], 'id')) {
+  $id = $_GET["loglessonid"];
+  $sql = "SELECT name FROM lessons WHERE id='".$id."'";
+  $result = mysql_query($sql);
+ }
  while ($lesson = mysql_fetch_array($result)){
   echo $lesson["name"];
  }

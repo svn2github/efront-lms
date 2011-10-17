@@ -281,7 +281,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
         $message_type = 'failure';
     }
-} else if (isset($_GET['project_results']) && in_array($_GET['project_results'], array_keys($projects)) && $_professor_) {
+} else if (isset($_GET['project_results']) && in_array($_GET['project_results'], array_keys($projects)) && $_professor_ && eF_checkParameter($_GET['project_results'], 'id')) {
     $currentProject = $projects[$_GET['project_results']];
     $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
  if (isset($_GET['login'])) {
@@ -362,7 +362,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         }
         exit;
     }
-} else if (isset($_GET['view_project']) && in_array($_GET['view_project'], array_keys($projects))) {
+} else if (isset($_GET['view_project']) && in_array($_GET['view_project'], array_keys($projects)) && eF_checkParameter($_GET['view_project'], 'id')) {
     try {
         $currentProject = $projects[$_GET['view_project']];
 

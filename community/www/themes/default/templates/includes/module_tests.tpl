@@ -1208,7 +1208,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
                  <td>#filter:login-{$item.users_LOGIN}#</td>
      {if $T_CTG != "feedback"}
                  <td>{if $item.pending}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>
-                 <td class = "centerAlign">{if $item.score}{$item.score}%{else}0.00%{/if}</td>
+                 <td class = "centerAlign">{if $item.score}{$item.score|formatScore}%{else}0.00%{/if}</td>
      {/if}
                   <td class = "centerAlign">
        <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&show_solved_test={$item.id}">

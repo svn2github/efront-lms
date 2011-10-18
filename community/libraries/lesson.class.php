@@ -2796,9 +2796,9 @@ class EfrontLesson
 					 }
 
 					 */
-     if (!isset($lessonTests)) {
-      $lessonTests = $this -> getTests(true);
-     }
+     //if (!isset($lessonTests)) { //comented in order to take also feedbacks 
+      $lessonTests = $this -> getTestsAndFeedbacks(true);
+     //}
      foreach ($lessonTests as $id => $test) {
       eF_deleteTableData("completed_tests", "tests_ID=$id");
      }
@@ -5811,23 +5811,22 @@ class EfrontLesson
   $filtered_related_events = array();
   foreach($related_events as $key => $event) {
    $user = $users[$event['users_LOGIN']];
+   $filtered_related_events[$key] = $event;
+   try {
+    $file = new EfrontFile($user['avatar']);
+    $filtered_related_events[$key]['avatar'] = $user['avatar'];
+    list($filtered_related_events[$key]['avatar_width'], $filtered_related_events[$key]['avatar_height']) = eF_getNormalizedDims($file['path'],$avatarSize, $avatarSize);
+   } catch (EfrontfileException $e) {
+    $filtered_related_events[$key]['avatar'] = G_SYSTEMAVATARSPATH."unknown_small.png";
+    $filtered_related_events[$key]['avatar_width'] = $avatarSize;
+    $filtered_related_events[$key]['avatar_height'] = $avatarSize;
+   }
    // Logical combination of events
    if ($prev_event) {
     // since we have decreasing chronological order we now that $event['timestamp'] < $prev_event['timestamp']
     if ($event['users_LOGIN'] == $prev_event['event']['users_LOGIN'] && $event['type'] == $prev_event['event']['type'] && $prev_event['event']['timestamp'] - $event['timestamp'] < EfrontEvent::SAME_USER_INTERVAL) {
      unset($filtered_related_events[$prev_event['key']]);
      $count--;
-    }
-   } else {
-    $filtered_related_events[$key] = $event;
-    try {
-     $file = new EfrontFile($user['avatar']);
-     $filtered_related_events[$key]['avatar'] = $user['avatar'];
-     list($filtered_related_events[$key]['avatar_width'], $filtered_related_events[$key]['avatar_height']) = eF_getNormalizedDims($file['path'],$avatarSize, $avatarSize);
-    } catch (EfrontfileException $e) {
-     $filtered_related_events[$key]['avatar'] = G_SYSTEMAVATARSPATH."unknown_small.png";
-     $filtered_related_events[$key]['avatar_width'] = $avatarSize;
-     $filtered_related_events[$key]['avatar_height'] = $avatarSize;
     }
    }
    $prev_event = array("key"=>$key, "event"=>$event);

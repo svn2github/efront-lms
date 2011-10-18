@@ -691,8 +691,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
      $smarty -> assign("T_STUDENT", 1);
     }
    }
-   /// Ajax getting lesson timeline events
-   $loadScripts = array_merge($loadScripts, array('scriptaculous/prototype'));
    if (isset($_GET['ajax'])) {
     isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = 10;
     // No sorting needed: getEvents returns sorted results according to time

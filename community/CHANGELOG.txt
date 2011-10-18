@@ -14,6 +14,8 @@
 - Security update: Fixed possible sql injection attacks in multiple files
 - Security update: Fixed potential privilege escalation using cookies
 - Security update: Fixed arbitrary file download issue
+- Fixed tracking initialization about feedbacks
+- Fixed preview of feedbacks
 
 === Version 3.6.10 build 11973 ===
 - Fixed error introduced in personal page (Community++/Educational editions)

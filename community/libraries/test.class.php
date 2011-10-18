@@ -1882,7 +1882,9 @@ class EfrontTest
        </td></tr>
                     </table>';
    if ($done) {
-    if ($this -> options['answers']) {
+    if ($isFeedback) {
+     $showCorrectAnswers = false;
+    } else if ($this -> options['answers']) {
      $showCorrectAnswers = true;
     } else if ($this -> options['show_answers_if_pass'] && ($this->completedTest['status'] == 'passed' || $this->completedTest['status'] == 'completed')) {
      $showCorrectAnswers = true;

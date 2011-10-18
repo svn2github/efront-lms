@@ -6,7 +6,7 @@ $path = "../../../../../libraries/";
 /** The configuration file.*/
 include_once $path."configuration.php";
 if ($_POST['templateName']) {
- if (eF_checkParameter($_POST['templateName'], 'string')) {
+ if (eF_checkParameter($_POST['templateName'], 'alnum')) {
   $dir = '../../../../content/editor_templates/'.$_SESSION['s_login'];
   if (!is_dir($dir) && !mkdir($dir, 0755)) {
    throw new Exception(_COULDNOTCREATEDIRECTORY);

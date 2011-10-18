@@ -599,10 +599,10 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
        {elseif $smarty.get.view_unit}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?view_unit='|cat:$smarty.get.view_unit|cat:'">'|cat:$smarty.const._PREVIEW|cat:'</a>'}
        {elseif $smarty.get.show_solved_test}
-        {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&test_results=`$T_TEST_DATA->completedTest.testsId`'>`$smarty.const._TESTRESULTS`</a>"}
+        {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&test_results=`$T_TEST_DATA->completedTest.testsId`'>`$smarty.const._FEEDBACKRESULTS`</a>"}
         {if !$smarty.get.test_analysis}
          {assign var = "formatted_login" value = $T_TEST_DATA->completedTest.login|formatLogin}
-         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&show_solved_test=`$T_TEST_DATA->completedTest.id`'>`$smarty.const._VIEWSOLVEDTEST`: &quot;`$T_TEST_DATA->test.name`&quot; `$smarty.const._BYUSER`: `$formatted_login`</a>"}
+         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&show_solved_test=`$T_TEST_DATA->completedTest.id`'>`$smarty.const._VIEWFEEDBACK`: &quot;`$T_TEST_DATA->test.name`&quot; `$smarty.const._BYUSER`: `$formatted_login`</a>"}
         {else}
          {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=feedback&show_solved_test='|cat:$smarty.get.show_solved_test|cat:'&test_analysis='|cat:$smarty.get.test_analysis|cat:'&user='|cat:$smarty.get.user|cat:'">'|cat:$smarty.const._USERRESULTS|cat:'</a>'}
         {/if}

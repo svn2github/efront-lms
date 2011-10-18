@@ -220,6 +220,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
   $form -> addElement('submit', 'submit_lesson', _SUBMIT, 'class = "flatButton"');
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
    $values = $form -> exportValues();
+   $localeSettings = localeconv();
    if (!$values['share_folder'] || !is_numeric($values['share_folder']) || !is_dir(G_LESSONSPATH.$values['share_folder']) || $_POST['autocomplete_share'] == '') {
     unset($values['share_folder']);
    }
@@ -235,7 +236,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                         'show_catalog' => $values['show_catalog'],
                                        'course_only' => $values['course_only'] == '' ? 0 : $values['course_only'],
                         'created' => time(),
-                        'price' => $values['price']);
+                        'price' => str_replace($localeSettings['decimal_point'], '.', $values['price']));
     try {
      //If we asked to copy properties for another lesson, initialize it and get its properties (except for recurring options, which are already defined in the same page)
      if ($values['copy_properties']) {
@@ -289,7 +290,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                        'max_users' => $values['max_users'] ? $values['max_users'] : null,
             'show_catalog' => $values['show_catalog'],
                                        'course_only' => $values['course_only'],
-                                       'price' => $values['price']);
+                        'price' => str_replace($localeSettings['decimal_point'], '.', $values['price']));
     if ($values['copy_properties']) {
      $copyPropertiesLesson = new EfrontLesson($values['copy_properties']);
      unset($copyPropertiesLesson -> options['recurring']);

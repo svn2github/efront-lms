@@ -423,7 +423,6 @@
     {assign var = "category" value = 'company'}
 {*moduleHCD: The resuls of control panel*}
     {if $smarty.get.op != 'reports'}
-        {assign var = "title" value = '<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class="titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=module_hcd">'|cat:$smarty.const._ORGANIZATION|cat:'</a>'}
     {/if}
     {if $smarty.get.op == "branches"}

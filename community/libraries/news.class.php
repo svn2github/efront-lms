@@ -194,7 +194,7 @@ class news extends EfrontEntity
         if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($GLOBALS['currentUser'] -> coreAccess['calendar']) || $GLOBALS['currentUser'] -> coreAccess['calendar'] != 'hidden')) {
       $form -> addElement('checkbox', 'calendar', _CREATECALENDAREVENT, null, 'class = "inputCheckBox"');
         }
-        $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
+        $form -> addElement('checkbox', 'email', _SENDNOTIFICATION, null, 'class = "inputCheckBox"');
         $form -> addElement('submit', 'submit', _ANNOUNCEMENTADD, 'class = "flatButton"');
      $form -> setDefaults(array('title' => $this -> news['title'],
               'data' => $this -> news['data'],

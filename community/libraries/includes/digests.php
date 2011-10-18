@@ -355,12 +355,13 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
 
 
             $smarty -> assign("T_BASIC_EVENT_RECIPIENTS" , sizeof($basic_event_recipients));
-
             if ($_GET['edit_notification'] && $_GET['event'] == "1") {
              // $mode variable set before
              if ($mode == "courses") {
               $basic_event_recipients[EfrontNotification::COURSEPROFESSORS] = _COURSEPROFESSORS;
               $basic_event_recipients[EfrontNotification::ALLCOURSEUSERS] = _ALLCOURSEUSERS;
+             } else if ($event_notification[0]['event_type'] == EfrontEvent::NEW_SYSTEM_ANNOUNCEMENT) {
+              //continue
              } else if ($mode != "system") {
               if ($mode == "survey" || $mode == "projects" || $mode == "job") {
                $basic_event_recipients[EfrontNotification::EXPLICITLYSEL] = _EXPLICITLYSELECTED;
@@ -717,6 +718,9 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                if ($event_category == "lessons") {
                 $condition = $form -> exportValue('available_' . $event_category);
                 $condition = array("lessons_ID" => $condition);
+               } else if ($event_category == "news") {//pr($form -> exportValues());exit;
+                $condition = $form -> exportValue('available_lessons');
+                $condition = array("lessons_ID" => $condition);
                } else if ($event_category == "courses") {//pr($form -> exportValues());exit;
                 $condition = $form -> exportValue('available_' . $event_category);
                 $condition = array("courses_ID" => $condition);
@@ -747,7 +751,6 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
              }
             }
             $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty); //Create a smarty renderer
-
             $renderer -> setRequiredTemplate (
            '{$html}{if $required}
                 &nbsp;<span class = "formRequired">*</span>

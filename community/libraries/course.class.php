@@ -1627,7 +1627,7 @@ class EfrontCourse
   $this -> rules ? $this -> course['rules'] = serialize($this -> rules) : $this -> course['rules'] = null;
   $this -> options ? $this -> course['options'] = serialize($this -> options) : $this -> course['options'] = null;
   $localeSettings = localeconv();
-  $this -> course['price'] = str_replace(array($localeSettings['decimal_point'], $localeSettings['thousands_sep']), array('.', ''), $this -> course['price']); //This way, you handle the case where the price is in the form 1,000.00
+  $this -> course['price'] = str_replace($localeSettings['decimal_point'], '.', $this -> course['price']); //This way, you handle the case where the price is in the form 1,000.00
   $fields = $this -> validateAndSanitizeCourseFields($this -> course);
   eF_updateTableData("courses", $fields, "id=".$this -> course['id']);
   if (!defined(_DISABLE_SEARCH) || _DISABLE_SEARCH !== true) {

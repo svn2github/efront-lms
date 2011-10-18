@@ -176,7 +176,7 @@
                                     </td></tr>
                         {/if}
                         {if ($T_PROJECT_USER_INFO.grade != '')}
-                                <tr><td style = "color:red;">{$smarty.const._YOURPROJECTSCOREIS}:&nbsp;{$T_PROJECT_USER_INFO.grade}</td></tr>
+                                <tr><td style = "color:red;">{$smarty.const._YOURPROJECTSCOREIS}:&nbsp;{$T_PROJECT_USER_INFO.grade|formatScore}</td></tr>
                             {if ($T_PROJECT_USER_INFO.comments)}
                                 <tr><td>{$smarty.const._PROFESSORCOMMENTS}: &nbsp;{$T_PROJECT_USER_INFO.comments}</td></tr>
                             {/if}

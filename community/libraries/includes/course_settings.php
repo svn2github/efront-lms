@@ -292,8 +292,12 @@ if ($_GET['op'] == 'course_info') {
   include("sorted_table.php");
  }
 
- if (isset($_GET['export']) && $_GET['export'] == 'rtf' && eF_checkParameter($_GET['user'], 'login') && eF_checkParameter($_GET['course'], 'id') ) {
-  $result = eF_getTableData("users_to_courses", "*", "users_LOGIN = '".$_GET['user']."' and courses_ID = '".$_GET['course']."' limit 1");
+ if (isset($_GET['export']) && $_GET['export'] == 'rtf' && eF_checkParameter($_GET['course'], 'id') ) {
+  if (eF_checkParameter($_GET['user'], 'login')) {
+   $result = eF_getTableData("users_to_courses", "*", "users_LOGIN = '".$_GET['user']."' and courses_ID = '".$_GET['course']."' limit 1");
+  } else {
+   $result = array();
+  }
   if (sizeof($result) == 1 || isset($_GET['preview'])) {
    $course = new EfrontCourse($_GET['course']);
    if (!isset($_GET['preview'])){
@@ -357,9 +361,12 @@ if ($_GET['op'] == 'course_info') {
    }
   }
  }
- if(isset($_GET['export']) && $_GET['export'] == 'xml' && eF_checkParameter($_GET['user'], 'login') && eF_checkParameter($_GET['course'], 'id') ) {
-
-  $result = eF_getTableData("users_to_courses", "*", "users_LOGIN='".$_GET['user']."' and courses_ID='".$_GET['course']."' limit 1");
+ if (isset($_GET['export']) && $_GET['export'] == 'xml' && eF_checkParameter($_GET['course'], 'id') ) {
+  if (eF_checkParameter($_GET['user'], 'login')) {
+   $result = eF_getTableData("users_to_courses", "*", "users_LOGIN = '".$_GET['user']."' and courses_ID = '".$_GET['course']."' limit 1");
+  } else {
+   $result = array();
+  }
 
   if(sizeof($result) == 1 || isset($_GET['preview'])){
 

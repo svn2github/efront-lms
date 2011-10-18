@@ -41,9 +41,13 @@ if (isset($_GET['fct'])) {
                 unset($cart);
             }
             $cart['course'][$_GET['id']] = $_GET['id'];
-        } elseif ($_GET['type'] == 'credit' && isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0) {
-         unset($cart);
-            $cart['credit'] += $_GET['id'];
+        } elseif ($_GET['type'] == 'credit' && isset($_GET['id'])) {
+         $localeSettings = localeconv();
+         $_GET['id'] = str_replace($localeSettings['decimal_point'], '.', $_GET['id']);
+         if (is_numeric($_GET['id']) && $_GET['id'] > 0) {
+          unset($cart);
+             $cart['credit'] += $_GET['id'];
+         }
         }
     } else if ($_GET['fct'] == 'removeFromCart' && in_array($_GET['type'], $legalBuyTypes)) {
         if ($_GET['type'] == 'lesson' && isset($_GET['id']) && in_array($_GET['id'], $legalLessonValues)) {

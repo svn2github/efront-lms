@@ -356,7 +356,7 @@
     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_types">'|cat:$smarty.const._USERTYPES|cat:'</a>'}
     {if $smarty.get.edit_user_type}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_types&edit_user_type='|cat:$smarty.get.edit_user_type|cat:'">'|cat:$smarty.const._EDITUSERTYPE|cat:' <span class = "innerTableName">&quot;'|cat:$T_USER_TYPE_NAME|cat:'&quot;</span></a>'}
-    {else}
+    {elseif $smarty.get.add_user_type}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=user_types&add_user_type=1">'|cat:$smarty.const._NEWUSERTYPE|cat:'</a>'}
     {/if}
 

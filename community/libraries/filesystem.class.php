@@ -309,6 +309,7 @@ class EfrontFile extends ArrayObject
             if (eF_checkParameter($file, 'id')) { //Instantiate object based on id
                 $result = eF_getTableData("files", "*", "id=".$file);
             } elseif (eF_checkParameter($file, 'path')) { //id-based instantiation failed; Check if the full path is specified
+             $file = EfrontDirectory :: normalize($file);
                 $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, '', eF_addSlashes(EfrontDirectory :: normalize($file)))."'"); //eF_addSlashes for files containing '
             } else {
                 throw new EfrontFileException(_ILLEGALPATH.': '.$file, EfrontFileException :: ILLEGAL_PATH);

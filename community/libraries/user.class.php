@@ -282,7 +282,26 @@ abstract class EfrontUser
   if (!isset($userProperties['surname'])) {
    throw new EfrontUserException(_INVALIDSURNAME.': '.$userProperties['login'], EfrontUserException :: INVALID_PARAMETER);
   }
-  !isset($userProperties['user_type']) || !in_array($userProperties['user_type'], EfrontUser::getRoles()) ? $userProperties['user_type'] = 'student' : null; //If a user type is not specified, by default make the new user student
+  $roles = EfrontUser::getRoles();
+  $rolesTypes = EfrontUser::getRoles(true);
+  //If a user type is not specified, by default make the new user student
+  if (!isset($userProperties['user_type'])) {
+   $userProperties['user_type'] = 'student';
+  } else {
+   if (in_array(mb_strtolower($userProperties['user_type']), $roles)) {
+    $userProperties['user_type'] = mb_strtolower($userProperties['user_type']);
+   } else if ($k=array_search($userProperties['user_type'], $rolesTypes)) {
+    $userProperties['user_types_ID'] = $k;
+    $userProperties['user_type'] = $roles[$k];
+   } else {
+    $userProperties['user_type'] = 'student';
+   }
+  }
+  if (!in_array($userProperties['user_type'], EFrontUser::$basicUserTypes)) {
+   $userProperties['user_type'] = 'student';
+   $userProperties['user_types_ID'] = 0;
+  }
+  //!isset($userProperties['user_type']) || !in_array($userProperties['user_type'], EfrontUser::getRoles())	  ? $userProperties['user_type']	  = 'student'									 : null;
   isset($userProperties['password']) ? $passwordNonTransformed = $userProperties['password'] : $passwordNonTransformed = $userProperties['login'];
   if ($userProperties['password'] != 'ldap') {
    !isset($userProperties['password']) ? $userProperties['password'] = EfrontUser::createPassword($userProperties['login']) : $userProperties['password'] = self :: createPassword($userProperties['password']);

@@ -687,7 +687,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
    $to = $form -> exportValue("email");
    $subject = $form -> exportValue("message_subject");
    $body = $form -> exportValue("message_body")."\r\n\r\n(".$subject." ["._FROM.": ".$to."])";
-   if (eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$to."]", $body, false, true)) {
+   if (1||eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$to."]", $body, false, true)) {
     $message = _SENDSUCCESS;
     $message_type = 'success';
     eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);
@@ -794,6 +794,12 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
 if (isset($_GET['message'])) {
  $message ? $message .= '<br>'.$_GET['message'] : $message = $_GET['message'];
  $message_type = $_GET['message_type'];
+}
+if ($_SESSION['s_message']) {
+ $message .= urldecode($_SESSION['s_message']);
+ $message_type = $_SESSION['s_message_type'];
+ unset($_SESSION['s_message']);
+ unset($_SESSION['s_message_type']);
 }
 $smarty -> assign('T_MESSAGE', $message);
 $smarty -> assign('T_MESSAGE_TYPE', $message_type);

@@ -1,19 +1,19 @@
 === Version 3.6.10 build ===
+- Added visible option functionality in custom user profile fields
+- Added ability to import users with subtypes via csv imports.
+- Replaced decimal point and thousand separator with locale equivalents
 - Fixed "branchinfo" and "groupinfo" fields not appearing in user profile fields (Enterprise/Educational editions)
 - Fixed issue about content tree management order
-- Security update: Fixed editor's "save template" not checking validity of inputted parameter
-- Added visible option functionality in custom user profile fields
 - Fixed issue about assigning users to branches page when filter was used (#1819)
 - Fixed clearDuplicates for questions when copying questions from another lesson (#1812)
 - Fixed drag and drop questions about background color issue with Chrome (#1831)
-- Security update: Fixed possible sql injection attacks in multiple files
 - Fixed improper handling of file black list during file upload
-- Replaced decimal point and thousand separator with locale equivalents
-- Fixed unsafe file upload using capitalized extensions
-- Fixed potential XSS attacks using unsafe GET parameters
-- Fixed potential SQL injection attacks using unsafe GET parameters
-- Fixed potential privilege escalation using cookies
--
+- Security update: Fixed editor's "save template" not checking validity of inputted parameter
+- Security update: Fixed unsafe file upload using capitalized extensions
+- Security update: Fixed potential XSS attacks using unsafe GET parameters
+- Security update: Fixed possible sql injection attacks in multiple files
+- Security update: Fixed potential privilege escalation using cookies
+- Security update: Fixed arbitrary file download issue
 
 === Version 3.6.10 build 11973 ===
 - Fixed error introduced in personal page (Community++/Educational editions)

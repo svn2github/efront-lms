@@ -247,6 +247,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  } else {
   $form -> addElement('submit', 'submit_course', _SUBMIT, 'class = "flatButton"');
   if ($form -> isSubmitted() && $form -> validate()) {
+   $localeSettings = localeconv();
    $values = $form -> exportValues();
    $fields = array('languages_NAME' => $GLOBALS['configuration']['onelanguage'] ? $GLOBALS['configuration']['default_language'] : $form -> exportValue('languages_NAME'),
        'show_catalog' => $form -> exportValue('show_catalog'),
@@ -255,7 +256,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
        'active' => $form -> exportValue('active'),
        //'duration'	   	 => $form -> exportValue('duration') ? $form -> exportValue('duration') : null,
        'max_users' => $form -> exportValue('max_users') ? $form -> exportValue('max_users') : null,
-       'price' => $form -> exportValue('price'),
+       'price' => str_replace($localeSettings['decimal_point'], '.', $form -> exportValue('price')),
        'ceu' => $form -> exportValue('ceu'),
        'supervisor_LOGIN' => $values['supervisor_LOGIN'] ? $values['supervisor_LOGIN'] : null);
    try {

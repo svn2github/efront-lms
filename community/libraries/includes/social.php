@@ -19,6 +19,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  $loadScripts[] = 'includes/social';
  $loadScripts[] = 'includes/lessons_list';
  $loadScripts[] = 'scriptaculous/dragdrop';
+ if ($currentUser->user['user_type'] != 'administrator') {
+  $myCoursesOptions[] = array('text' => _MYCOURSES, 'image' => "32x32/courses.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons");
+ }
  if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['insert_group_key']) {
   $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
  }

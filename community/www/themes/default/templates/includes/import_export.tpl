@@ -24,8 +24,7 @@
                             <tr><td class = "labelCell">{$smarty.const._KEEPEXISTINGUSERS}:</td>
                              <td class = "elementCell">{$T_IMPORT_FORM.import_keep.html}</td></tr>
                             <tr {if $smarty.post.import_type!='users_to_jobs'}style = "display:none"{/if} id = "replace_assignments_row" ><td class = "labelCell">{$smarty.const._REPLACEASSIGNMENTS}:</td>
-                             <td class = "elementCell">{$T_IMPORT_FORM.replace_assignments.html}</td></tr>
-                            <tr><td></td><td class = "infoCell">{$smarty.const._REPLACEASSIGNMENTSEXPLANATION}</td></tr>
+                             <td class = "elementCell">{$T_IMPORT_FORM.replace_assignments.html} <span class = "infoCell">{$smarty.const._REPLACEASSIGNMENTSEXPLANATION}</span></td></tr>
        <tr><td class = "labelCell">{$smarty.const._DATEFORMAT}:</td>
                              <td class = "elementCell">{$T_IMPORT_FORM.date_format.html}</td></tr>
                             <tr><td></td>

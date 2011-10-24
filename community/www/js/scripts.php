@@ -39,8 +39,8 @@ ob_start ("ob_gzhandler");
 
 foreach (explode(",", $_GET['load']) as $value) {
  if (is_file("$value.js")) {
-  $real_path = realpath("$value.js");
-  if (strpos($real_path, dirname(__FILE__)) !== false || strpos($real_path, dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR) !== false) {
+  $real_path = mb_strtolower(realpath("$value.js"));
+  if (strpos($real_path, mb_strtolower(dirname(__FILE__))) !== false || strpos($real_path, mb_strtolower(dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR)) !== false) {
    lastModificationTime(filemtime("$value.js"));
    include("$value.js");echo "\n";
   }

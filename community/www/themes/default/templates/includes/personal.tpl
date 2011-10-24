@@ -4,12 +4,7 @@
    {capture name = "t_status_change_interface"}
     <table class = "horizontalBlock">
      <tr><td>
-    {if $smarty.session.s_type != "administrator"}
-       <span class = "rightOption smallHeader">
-        <img class = "ajaxHandle" src = "images/32x32/catalog.png" title = "{$smarty.const._MYCOURSES}" alt = "{$smarty.const._MYCOURSES}">
-        <a class = "titleLink" href = "{$smarty.server.PHP_SELF}?ctg=lessons" title = "{$smarty.const._MYCOURSES}">{$smarty.const._MYCOURSES}</a>
-       </span>
-    {else}
+    {if $smarty.session.s_type == "administrator"}
        <span class = "rightOption smallHeader">
         <img class = "ajaxHandle" src = "images/32x32/home.png" title = "{$smarty.const._HOME}" alt = "{$smarty.const._HOME}">
         <a class = "titleLink" href = "{$smarty.server.PHP_SELF}?ctg=control_panel" title = "{$smarty.const._HOME}">{$smarty.const._HOME}</a>

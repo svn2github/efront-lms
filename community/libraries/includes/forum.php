@@ -376,9 +376,7 @@ try {
                 $poll['votes'] = $result['count(*)'][0];
             }
 
-            $dataSource = $topics;
-      $tableName = 'topicsTable';
-            include("sorted_table.php");
+
       $smarty -> assign("T_FORUM_TOPICS", $topics);
             $smarty -> assign("T_FORUM_POLLS", $polls);
 
@@ -401,6 +399,10 @@ try {
         $smarty -> assign("T_FIRSTNODE", $firstNode);
         //pr($parents);
         $smarty -> assign("T_FORUM_PARENTS", array_reverse($parents, true));
+
+        $dataSource = $topics;
+     $tableName = 'topicsTable';
+        include("sorted_table.php");
 
     }
 

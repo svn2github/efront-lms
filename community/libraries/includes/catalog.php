@@ -120,16 +120,16 @@ if (isset($_GET['fct'])) {
     $totalPrice = $cart['total_price'];
     if (isset($_GET['coupon'])) {
      try {
-         if ($_GET['coupon']) {
-      $coupon = new coupons($_GET['coupon'], true);
-      if (!$coupon -> checkEligibility()) {
-       throw new Exception(_INVALIDCOUPON);
-      }
-      $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
-      echo json_encode(array('id' => $coupon -> {$coupon -> entity}['id'],
-              'price' => $totalPrice,
-              'price_string' => formatPrice($totalPrice)));
-         } else {
+      if ($_GET['coupon']) {
+       $coupon = new coupons($_GET['coupon'], true);
+       if (!$coupon -> checkEligibility()) {
+        throw new Exception(_INVALIDCOUPON);
+       }
+       $totalPrice = round($totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100), 2);
+       echo json_encode(array('id' => $coupon -> {$coupon -> entity}['id'],
+               'price' => $totalPrice,
+               'price_string' => formatPrice($totalPrice)));
+      } else {
        echo json_encode(array('id' => '',
                'price' => $totalPrice,
                'price_string' => formatPrice($totalPrice)));

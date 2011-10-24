@@ -53,7 +53,7 @@ try {
 		 $userLessons        = array_intersect_key($userLessons, $userLessonProgress); //Needed because EfrontStats :: getUsersLessonStatus might remove automatically lessons, based on time constraints
 		 */
   if ($currentUser -> coreAccess['dashboard'] != 'hidden') {
-   $myCoursesOptions[] = array('text' => _MYACCOUNT, 'image' => "32x32/user.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=personal");
+   $myCoursesOptions[] = array('text' => _DASHBOARD, 'image' => "32x32/user.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=personal");
   }
   $constraints = array('archive' => false, 'active' => true, 'sort' => 'name');
   $userCourses = $currentUser -> getUserCourses($constraints);

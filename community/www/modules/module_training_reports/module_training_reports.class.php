@@ -21,7 +21,11 @@ class module_training_reports extends EFrontModule {
     }
 
     public function getPermittedRoles() {
-        return array('administrator');
+        return array('administrator', 'professor', 'student');
+    }
+
+    public function isLessonModule() {
+        return true;
     }
 
     public function getModuleJS() {
@@ -55,11 +59,6 @@ class module_training_reports extends EFrontModule {
 
         $this->smarty = $this->getSmartyVar();
         $role = $this->getCurrentUser()->getType();
-
-        /* Only admins can access this module */
-        if ($role != 'administrator') {
-            return false;
-        }
 
         switch ($this->category) {
             case 'excel':
@@ -98,10 +97,6 @@ class module_training_reports extends EFrontModule {
             'title' => _HOME,
             'link' => $role . '.php?ctg=control_panel');
 
-        if ($role != 'administrator') {
-            return $breadcrumbs;
-        }
-
         $breadcrumbs[] = array(
             'title' => _TRAININGREPORTS,
             'link' => $this->moduleBaseUrl);
@@ -125,6 +120,19 @@ class module_training_reports extends EFrontModule {
             'link' => $this->moduleBaseUrl);
 
         return $link;
+    }
+
+    public function getLessonCenterLinkInfo() {
+        $link = array(
+            'title' => _TRAININGREPORTS,
+            'image' => $this->moduleBaseDir . 'assets/images/logo32.png',
+            'link' => $this->moduleBaseUrl);
+
+        if ($this->getCurrentUser()->aspects['hcd']->isSupervisor() || $_SESSION['s_lesson_user_type'] == 'professor') {
+         return $link;
+        } else {
+         return false;
+        }
     }
 
     public function onDeleteCourse($courseId) {

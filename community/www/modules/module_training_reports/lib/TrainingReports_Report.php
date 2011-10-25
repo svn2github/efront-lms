@@ -219,7 +219,17 @@ class TrainingReports_Report {
     public static function getBranchesOptions() {
         $branchesTree = new EfrontBranchesTree();
         $branchOptions = $branchesTree->toPathString();
-
+/*        
+        if ($_SESSION['s_type'] != 'administrator') {
+        	$supervisorBranches = explode(",", $_SESSION['supervises_branches']);
+        	is_array($supervisorBranches) OR $supervisorBranches = array();
+	        foreach ($branchOptions as $id => $name) {
+	        	if (!in_array($id, $supervisorBranches)) {
+	        		unset($branchOptions[id]);
+	        	} 
+	        }
+        }
+*/
         return $branchOptions;
     }
 
@@ -370,6 +380,22 @@ class TrainingReports_Report {
         }
         $group = 'u.login';
         $users = eF_getTableData($tables, $fields, $where, '', $group);
+        $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
+        $lessonUsers = $supervisedUsers = array();
+        if ($currentUser->aspects['hcd']->isSupervisor()) {
+         $supervisedUsers = $currentUser->aspects['hcd']->getSupervisedEmployees();
+        }
+        $userLessons = $currentUser -> getLessons(false, 'professor');
+        if (!empty($userLessons)) {
+         $result = eF_getTableDataFlat("users_to_lessons", "users_LOGIN", "archive=0 and lessons_ID in (".implode(",", array_keys($userLessons)).")");
+         $lessonUsers = $result['users_LOGIN'];
+        }
+        //pr($userLessons);exit;
+        foreach ($users as $key=>$value) {
+         if (!in_array($value['login'], $supervisedUsers) && !in_array($value['login'], $lessonUsers)) {
+          unset($users[$key]);
+         }
+        }
         return $users;
     }
     private function getUserCourseFirstAccess($login, $courseID) {

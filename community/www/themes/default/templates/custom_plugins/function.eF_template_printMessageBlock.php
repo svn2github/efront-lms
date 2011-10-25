@@ -8,6 +8,7 @@
 */
 function smarty_function_eF_template_printMessageBlock($params, &$smarty) {
     !isset($params['type']) || !$params['type'] ? $params['type'] = 'failure' : null;
+    in_array($params['type'], array('success', 'failure')) OR $params['type'] = 'failure';
     if ($params['type'] == 'success') {
         $messageImage = '<img src = "images/32x32/success.png" alt = "'._SUCCESS.'" title = "'._SUCCESS.'">';
     } else {
@@ -19,7 +20,6 @@ function smarty_function_eF_template_printMessageBlock($params, &$smarty) {
      $infix = mb_substr($params['content'], 1001, mb_strlen($params['content']) - mb_strlen($prefix) - mb_strlen($suffix));
      $params['content'] = $prefix.'<a href = "javascript:void(0)" onclick = "this.style.display = \'none\';Element.extend(this).next().show()"><br>[...]<br></a><span style = "display:none">'.$infix.'</span>'.$suffix;
     }
-    eF_checkParameter($params['type'], 'string') OR $params['type'] = 'failure';
     $str .= '
         <div class = "block" id = "messageBlock">
         <div class = "blockContents messageContents">

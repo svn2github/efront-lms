@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Security Module</title>
+	<author>Periklis Venakis</author>
+	<date>2011 10 20</date>
+	<version>1.0</version>
+	<description>Security module</description>
+	<className>module_security</className>
+	<requires>3.6.8</requires>
+</module>

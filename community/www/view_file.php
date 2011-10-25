@@ -54,6 +54,8 @@ try {
   if ($currentUser->user['user_type'] != 'administrator' && $matches[1] && !in_array($matches[1], $legalFolders)) {
    throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
   }
+ } else if (preg_match("#content/lessons/scorm_uploaded_files/#", $file['path'], $matches)) { //the file is a temporary scorm exported file
+  //proceed
  } else if (preg_match("#".G_UPLOADPATH."(.*)/projects/#", $file['path'], $matches) || preg_match("#".G_UPLOADPATH."(.*)/tests/#", $file['path'], $matches)) { //this is a project or test file. Check whether the current user has access to it
   if ($_SESSION['s_lesson_user_type'] != 'professor' || !$_SESSION['s_lessons_ID']) {
    throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);

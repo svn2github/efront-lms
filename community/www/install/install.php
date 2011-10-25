@@ -38,7 +38,7 @@ define("NO_OUTPUT_BUFFERING", true);
 ini_set("display_errors", true);
 ini_set('include_path', $path.'../PEAR/');
 //ini_set("memory_limit", "-1");
-//ini_get("max_execution_time") < 600 ? ini_set("max_execution_time", "600") : null;
+ini_get("max_execution_time") < 120 ? ini_set("max_execution_time", "120") : null;
 //It is imperative that the smarty directory is writable in order to continue
 if (!is_writable($path.'smarty/themes_cache')) {
  echo Installation :: printErrorMessage("Directory <b>".realpath($path.'smarty/themes_cache')."</b> must be writable by the server in order to continue");
@@ -89,7 +89,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) 
  }
  $exclude_normal = true;
  require_once $path."includes/check_status.php";
-Installation :: fix($settings_mandatory, 'local');
+ Installation :: fix($settings_mandatory, 'local');
  if ($_GET['mode'] != 'none' && sizeof($settings_mandatory) > 0) {
   if (!$_GET['mode']) {
    Installation :: fix($settings_mandatory, 'local');
@@ -141,13 +141,13 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
  //$form -> addRule('db_host', 'Invalid database host', 'checkParameter', 'alnum_general');         //The database host can only be string and is mandatory
  $form -> addElement('text', 'db_user', null, 'class = "inputText"');
  $form -> addRule('db_user', 'The field "Database user" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
- $form -> addRule('db_user', 'Invalid database user', 'checkParameter', 'alnum_general'); //The database user can only be string
+ $form -> addRule('db_user', 'Invalid database user', 'checkParameter', 'alnum'); //The database user can only be string
  $form -> addElement('password', 'db_password', null, 'class = "inputText"');
  $form -> addElement('text', 'db_name', null, 'class = "inputText"');
  $form -> addRule('db_name', 'The field "Database name" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory
- $form -> addRule('db_name', 'Invalid database name', 'checkParameter', 'alnum_general'); //The database name can only be string
+ $form -> addRule('db_name', 'Invalid database name', 'checkParameter', 'alnum'); //The database name can only be string
  $form -> addElement('text', 'db_prefix', null, 'class = "inputText"');
- $form -> addRule('db_prefix', 'Invalid database prefix', 'checkParameter', 'alnum_general'); //The database name can only be string
+ $form -> addRule('db_prefix', 'Invalid database prefix', 'checkParameter', 'alnum'); //The database name can only be string
  if ($_GET['upgrade']) {
   $form -> addElement('text', 'old_db_name', null, 'class = "inputText"');
   $form -> addRule('old_db_name', 'The field "Upgrade from database" is mandatory', 'required', null, 'client'); //The database type can only be string and is mandatory

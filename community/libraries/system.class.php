@@ -862,12 +862,13 @@ class EfrontSystem
 	 */
  public static function getSystemLogo() {
   try {
-   $currentTheme = new themes(G_CURRENTTHEME);
-   try {
-    $logoFile = new EfrontFile($GLOBALS['configuration']['logo']);
-   } catch (EfrontFileException $e) {
-    $logoFile = new EfrontFile($currentTheme -> options['logo']);
-   }
+      if ($GLOBALS['configuration']['use_logo'] == 2 && is_file(G_CURRENTTHEMEURL.'images/logo/logo.png')) {
+       $logoFile = new EfrontFile(G_CURRENTTHEMEPATH.'images/logo/logo.png');
+      } else if ($GLOBALS['configuration']['use_logo'] > 0) { //meaning that either we have 'use site logo' (1) or 'use theme logo' (2) but that does not exist
+       $logoFile = new EfrontFile($GLOBALS['configuration']['logo']);
+      } else {
+       $logoFile = new EfrontFile(G_DEFAULTIMAGESPATH."logo.png");
+      }
   } catch (EfrontFileException $e) {
    $logoFile = new EfrontFile(G_DEFAULTIMAGESPATH."logo.png");
   }

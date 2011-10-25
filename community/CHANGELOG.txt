@@ -18,6 +18,9 @@
 - Fixed feedback preview
 - Fixed lesson timelines not listing events
 - Fixed issue in forum page about pagination and subforums
+- Fixed getSystemLogo function and an issue with site logo loading
+- Fixed rounding error when submitting paypal price and using coupon
+- Added "security module"
 
 === Version 3.6.10 build 11973 ===
 - Fixed error introduced in personal page (Community++/Educational editions)

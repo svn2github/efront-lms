@@ -153,7 +153,7 @@ try {
      $smarty -> assign("T_LOGO", G_CURRENTTHEMEURL.'images/logo/logo.png');
     } else if ($configuration['use_logo'] > 0) { //meaning that either we have 'use site logo' (1) or 'use theme logo' (2) but that does not exist
      $logoFile = new EfrontFile($configuration['logo']);
-     $smarty -> assign("T_LOGO", 'images/logo/'.$logoFile['physical_name']);
+     $smarty -> assign("T_LOGO", 'themes/default/images/logo/'.$logoFile['physical_name']);
     } else {
      $smarty -> assign("T_LOGO", 'images/logo.png');
     }
@@ -276,7 +276,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 12106;
+    $build = 12138;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

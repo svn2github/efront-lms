@@ -14,6 +14,7 @@ define('_TRAININGREPORTS_DATES', 'Ημερομηνίες');
 define('_TRAININGREPORTS_REGISTERED', 'Ημερομηνία εγγραφής');
 define('_TRAININGREPORTS_ALLCOMPLETED', 'Όλα ολοκληρωμένα;');
 
+define('_TRAININGREPORTS_ADDBRANCH', 'Προσθήκη τμήματος');
 define('_TRAININGREPORTS_ADDCOURSE', 'Προσθήκη δέσμης');
 define('_TRAININGREPORTS_ADDFIELD', 'Προσθήκη πεδίου');
 

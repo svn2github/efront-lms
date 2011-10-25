@@ -651,6 +651,9 @@ if (isset($_GET['finish']) || isset($_GET['unattended'])) {
   } else {
    header("location:".G_SERVERNAME."index.php?delete_install=1");
   }
+ } else {
+  session_destroy();
+  unset($_SESSION);
  }
  //$message = "Upgrade is completed, but the contents of the templates folder, ".G_THEMECACHE." could not be deleted. Please delete them manually";
 }
@@ -865,6 +868,7 @@ class Installation
              "quick_mails",
              "quote",
              "rss",
+          "security",
              "youtube",
              "gradebook",
              "journal",
@@ -920,8 +924,8 @@ class Installation
         }
        } else {
         if ($module -> onInstall()) {
-         if ($className == 'module_rss') {
-          $fields['active'] = 1; //Since 3.6.3, RSS module starts as activated
+         if ($className == 'module_security') {
+          $fields['active'] = 1; //Since 3.6.10, security module starts as activated (instead of rss)
          }
          eF_insertTableData("modules", $fields);
         } else {

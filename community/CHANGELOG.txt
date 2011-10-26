@@ -1,14 +1,15 @@
-=== Version 3.6.10 build 12144 ===
+=== Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields
 - Added ability to import users with subtypes via csv imports.
 - Added "security module"
 - Replaced decimal point and thousand separator with locale equivalents
-- Security update: Fixed editor's "save template" not checking validity of inputted parameter
-- Security update: Fixed unsafe file upload using capitalized extensions
-- Security update: Fixed potential XSS attacks using unsafe GET parameters
-- Security update: Fixed possible sql injection attacks in multiple files
-- Security update: Fixed potential privilege escalation using cookies
-- Security update: Fixed arbitrary file download issue
+- Security update: Fixed editor's "save template" not checking validity of inputted parameter (Reported by EgiX)
+- Security update: Fixed unsafe file upload using capitalized extensions (Reported by EgiX)
+- Security update: Fixed potential XSS attacks using unsafe GET parameters (Reported by Canberk Bolat of Mavituna Security and High-Tech Bridge SA Security Research Lab)
+- Security update: Fixed possible sql injection attacks in multiple files (Reported by EgiX, Vulnerability Research Laboratory and High-Tech Bridge SA Security Research Lab)
+- Security update: Fixed potential privilege escalation using cookies (Reported by EgiX)
+- Security update: Fixed cookie information leaking using XSS (Reported by Semyon Perepelitsa)
+- Security update: Fixed arbitrary file download issue (Reported by EgiX)
 - Fixed "branchinfo" and "groupinfo" fields not appearing in user profile fields (Enterprise/Educational editions)
 - Fixed issue about content tree management order
 - Fixed issue about assigning users to branches page when filter was used (#1819)
@@ -20,6 +21,7 @@
 - Fixed lesson timelines not listing events
 - Fixed issue in forum page about pagination and subforums
 - Fixed getSystemLogo function and an issue with site logo loading
+- Fixed issue in reports generator about enrolling to lesson/course/group
 - Fixed rounding error when submitting paypal price and using coupon
 
 === Version 3.6.10 build 11973 ===

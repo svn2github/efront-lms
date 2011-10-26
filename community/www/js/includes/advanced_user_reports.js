@@ -125,18 +125,18 @@ function applyOperation(el, operation) {
 			var options = $(operation+'_options').options[$(operation+'_options').options.selectedIndex].value;
 		} else {
 			var options = '';
-		}
-		if ($(operation+'selected')) {
+		}	
+		if ($(operation+'_selected')) {
 			var selected = $(operation+'_selected').options[$(operation+'_selected').options.selectedIndex].value;
 		} else {
 			var selected = '';
-		}
+		}				
 		additional_parameters = {'options':options, 'selected':selected};
 		Object.extend(parameters, additional_parameters);
 		if (operation == 'group') {
 			Object.extend(parameters, {'new_group':$('new_group').value});
 		}
-	}
+	}	
 	ajaxRequest(el, location.toString(), parameters, onApplyOperation);			
 }
 function onApplyOperation(el, response) {

@@ -546,6 +546,9 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
               $send_conditions = unserialize($event['send_conditions']);
               if ($event_category == "lessons") {
                $condition = $send_conditions["lessons_ID"];
+              } else if ($event_category == "news") {
+               $condition = $send_conditions["lessons_ID"];
+               $form -> setDefaults(array('available_lessons' => $condition));
               } else if ($event_category == "tests") {
                $condition = $send_conditions["tests_ID"];
               } else if ($event_category == "content") {

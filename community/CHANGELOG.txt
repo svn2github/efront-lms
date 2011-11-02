@@ -1,4 +1,5 @@
 === Version 3.6.10 build ===
+- Updated notifications process to lock while it's executing
 - Changed scheme for encoding mail headers from 'Q' to 'B'
 - Added a warning in case a file is uploaded with the same name as an existing one that has not write permissions
 - Fixed showing a success message in "contact us", even if the email was not sent

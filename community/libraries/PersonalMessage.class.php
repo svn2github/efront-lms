@@ -375,10 +375,12 @@ class eF_PersonalMessage
 
     */
     private function getUsersData() {
-        $result_folders = eF_getTableData("f_folders", "*"); //Get all user message folders
+        $result_folders = eF_getTableData("f_folders", "id,name,users_LOGIN"); //Get all user message folders
         $result_users = eF_getTableData("users", "login, email, user_type"); //Get all user user information
-        $result_messages = eF_getTableDataFlat("f_personal_messages", "users_LOGIN");
-        $messages = array_count_values($result_messages['users_LOGIN']); //Count the number of messages for each user. Nice alternative to looping queries
+        //$result_messages = eF_getTableDataFlat("f_personal_messages", "users_LOGIN");
+        //$messages        = array_count_values($result_messages['users_LOGIN']);                              //Count the number of messages for each user. Nice alternative to looping queries
+        $result = eF_getTableDataFlat("f_personal_messages", "users_LOGIN, count(users_LOGIN) as count", "", "", "users_LOGIN");
+        $messages = array_combine($result['users_LOGIN'], $result['count']);
         foreach ($result_folders as $folder) {
             $folders[$folder['users_LOGIN']][$folder['name']] = $folder['id'];
         }

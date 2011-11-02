@@ -90,7 +90,15 @@ if (isset($_GET['notification_id']) && eF_checkParameter($_GET['notification_id'
 
 } else {
  //debug();
- $sent_messages = EfrontNotification::sendNextNotifications($GLOBALS['configuration']['notifications_messages_per_time']);
+ if (!$GLOBALS['configuration']['notifications_lock'] || time() - $GLOBALS['configuration']['notifications_lock'] > 600) { //10 minutes maximum lock time
+  EFrontConfiguration::setValue('notifications_lock', time());
+  $sent_messages = EfrontNotification::sendNextNotifications($GLOBALS['configuration']['notifications_messages_per_time']);
+  EFrontConfiguration::setValue('notifications_lock', 0);
+ } else {
+  chdir($dir);
+  echo "locked";
+  exit;
+ }
 }
 //pr($sent_messages);
 //debug(false);

@@ -211,6 +211,7 @@ class EfrontConfiguration
         'notifications_messages_per_time' => '5',
         'notifications_max_sent_messages' => '100',
         'notifications_send_mode' => '0',
+     'notifications_lock' => '0', //Lock the notifications so that multiple proccesses for send_notifications.php don't start at the same time. This is either 0 or a timestamp
 
         //Unclassified - deprecated
         'cms_page' => '',

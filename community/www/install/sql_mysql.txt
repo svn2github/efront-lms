@@ -899,12 +899,17 @@ CREATE TABLE search_keywords (
   keyword mediumint(8) unsigned default NULL,
   foreign_ID mediumint(8) unsigned NOT NULL default '0',
   table_name tinyint(1) NOT NULL,
-  position tinyint(1) NOT NULL default '1'
+  position tinyint(1) NOT NULL default '1',
+  key keyword (keyword),
+  key foreign_ID (keyword),
+  key table_name (table_name),
+  key position (position)
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE search_invertedindex (
   id mediumint(8) unsigned NOT NULL auto_increment,
   keyword varchar(150) NOT NULL,
+  key keyword (keyword),
   PRIMARY KEY(id)
 ) DEFAULT CHARSET=utf8;
 

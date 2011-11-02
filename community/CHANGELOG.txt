@@ -1,3 +1,13 @@
+=== Version 3.6.10 build ===
+- Changed scheme for encoding mail headers from 'Q' to 'B'
+- Added a warning in case a file is uploaded with the same name as an existing one that has not write permissions
+- Fixed showing a success message in "contact us", even if the email was not sent
+- Fixed "more info" link not displaying as link
+- Fixed scorm export for packets with non-english files
+- Fixed issue about downloading language files
+- Fixed issue about access forum page in lesson with instance_source
+- Fixed issue about uploading avatar with same name more than one times
+
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields
 - Added ability to import users with subtypes via csv imports.

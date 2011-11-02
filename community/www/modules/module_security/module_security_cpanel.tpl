@@ -14,5 +14,5 @@
          </table>
     {/capture}
 
-    {eF_template_printBlock title=$smarty.const._MODULE_SECURITY_MODULESECURITY data=$smarty.capture.t_code image= $T_MODULE_BASEURL|cat:'images/generic.png' absoluteImagePath = 1}
+    {eF_template_printBlock title=$smarty.const._MODULE_SECURITY_MODULESECURITY data=$smarty.capture.t_code image= $T_MODULE_BASELINK|cat:'img/security_agent.png' absoluteImagePath = 1}
 {/if}

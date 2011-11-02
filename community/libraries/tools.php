@@ -2567,7 +2567,8 @@ function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $on
     }
     $params = array("text_charset" => "UTF-8",
                     "html_charset" => "UTF-8",
-                    "head_charset" => "UTF-8");
+                    "head_charset" => "UTF-8",
+        "head_encoding" => "base64");
     $mime = new Mail_mime("\n");
     if (!$onlyText) {
         $mime -> setHTMLBody($body);

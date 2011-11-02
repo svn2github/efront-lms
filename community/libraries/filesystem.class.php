@@ -307,10 +307,10 @@ class EfrontFile extends ArrayObject
             $fileArray = $file;
         } else {
             if (eF_checkParameter($file, 'id')) { //Instantiate object based on id
-                $result = eF_getTableData("files", "*", "id=".$file);
+                $result = eF_getTableData("files", "*", "id=".$file, "id");
             } elseif (eF_checkParameter($file, 'path')) { //id-based instantiation failed; Check if the full path is specified
              $file = EfrontDirectory :: normalize($file);
-                $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, '', eF_addSlashes(EfrontDirectory :: normalize($file)))."'"); //eF_addSlashes for files containing '
+                $result = eF_getTableData("files", "*", "path='".str_replace(G_ROOTPATH, '', eF_addSlashes(EfrontDirectory :: normalize($file)))."'", "id"); //eF_addSlashes for files containing '
             } else {
                 throw new EfrontFileException(_ILLEGALPATH.': '.$file, EfrontFileException :: ILLEGAL_PATH);
             }
@@ -3097,25 +3097,34 @@ class FileSystemTree extends EfrontTree
 
                  */
                 $newName = EfrontFile :: encode($name);
-                move_uploaded_file($tmp_name, $destinationDirectory['path'].'/'.$newName);
-                chmod($destinationDirectory['path'].'/'.$newName, 0644); //because of this http://bugs.php.net/bug.php?id=42291
-                $fileMetadata = array('title' => $name,
-                                      'creator' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
-                                      'publisher' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
-                                      'contributor' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
-                                      'date' => date("Y/m/d", time()),
-                                      'type' => 'file');
-                $fields = array('path' => str_replace(G_ROOTPATH, '', $destinationDirectory['path'].'/'.$newName),
-                    'users_LOGIN' => $_SESSION['s_login'],
-                                'timestamp' => time(),
-                                'metadata' => serialize($fileMetadata));
-                $id = eF_insertTableData("files", $fields);
-                if ($id) {
-                    foreach ($fileMetadata as $key => $value) {
-                        EfrontSearch :: insertText($value, $id, "files", "data");
-                    }
+                $ok = move_uploaded_file($tmp_name, $destinationDirectory['path'].'/'.$newName);
+                if ($ok !== false) {
+                 chmod($destinationDirectory['path'].'/'.$newName, 0644); //because of this http://bugs.php.net/bug.php?id=42291
+                 $fileMetadata = array('title' => $name,
+                                       'creator' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
+                                       'publisher' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
+                                       'contributor' => $GLOBALS['currentUser'] -> user['name'].' '.$GLOBALS['currentUser'] -> user['surname'],
+                                       'date' => date("Y/m/d", time()),
+                                       'type' => 'file');
+                 $fields = array('path' => str_replace(G_ROOTPATH, '', $destinationDirectory['path'].'/'.$newName),
+                     'users_LOGIN' => $_SESSION['s_login'],
+                                 'timestamp' => time(),
+                                 'metadata' => serialize($fileMetadata));
+                 $id = eF_insertTableData("files", $fields);
+                 if ($id) {
+                     foreach ($fileMetadata as $key => $value) {
+                         EfrontSearch :: insertText($value, $id, "files", "data");
+                     }
+                 }
+                 return new EfrontFile($id);
+                } else {
+                 if (function_exists('error_get_last')) {
+      $error = error_get_last();
+      throw new EfrontFileException($error['message'], EfrontFileException :: NOT_WRITABLE_ERROR);
+                 } else {
+                  throw new EfrontFileException(_UPLOADCANTWRITE, EfrontFileException :: NOT_WRITABLE_ERROR);
+                 }
                 }
-                return new EfrontFile($id);
             }
         }
     }

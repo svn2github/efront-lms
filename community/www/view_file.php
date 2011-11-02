@@ -70,11 +70,11 @@ try {
   }
  } else if (preg_match("#".G_UPLOADPATH."(.*)/avatars/#", $file['path'], $matches) || mb_strpos($file['path'], G_SYSTEMAVATARSPATH) !== false ) {
     //proceed
- } else if (mb_strpos($file['path'], G_UPLOADPATH.$currentUser->user['login']) === false) {
+ } else if ( mb_strpos($file['path'], G_UPLOADPATH) !== false && mb_strpos($file['path'], G_UPLOADPATH.$currentUser->user['login']) === false) {
   throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
  }
 
- if (strpos($file['path'], G_ROOTPATH.'libraries') !== false && strpos($file['path'], G_ROOTPATH.'libraries/language') === false && $file['mime_type'] != "application/inc") {
+  if (strpos($file['path'], G_ROOTPATH.'libraries') !== false && strpos($file['path'], G_ROOTPATH.'libraries/language') === false && $file['mime_type'] != "application/inc") {
   throw new EfrontFileException(_ILLEGALPATH.': '.$file['path'], EfrontFileException :: ILLEGAL_PATH);
  }
 

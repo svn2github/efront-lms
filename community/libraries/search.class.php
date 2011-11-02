@@ -92,8 +92,8 @@ class EfrontSearch
   ($position == "title") ? $fields['position'] = 0 : $fields['position'] = 1; //from 3.6  1 means 'data' and 0 means 'title'
   //todo : remove also some special chars like [ ] & * etc
   if($text == "") {return true;}
-  $replace = array("(", "{", "}", ")","]", "[","@", "#", "$", "%", "^", "&","*", ".", ",");
-  $querywords = mb_strtolower(strip_tags(str_replace("&nbsp;"," ", str_replace($replace, " ", $text))));
+  $replace = array("&nbsp;", "(", "{", "}", ")","]", "[","@", "#", "$", "%", "^", "&","*", ".", ",", "'", "\"", "/", "\\");
+  $querywords = mb_strtolower(strip_tags(str_replace($replace, " ", $text)));
   $eachword = explode(" ", $querywords);
   $eachword = array_unique($eachword); //Remove duplicate values from search table
   $terms = array();

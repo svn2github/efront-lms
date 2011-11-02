@@ -19,7 +19,7 @@ function runPostInstallationFunctions() {
 //	addRestrictedAdministrator();
 //	customizeSite();
 //	replaceProfessorUser();
-//	removeRssEntry();
+//	removeModules();
 //	setDefaultThemeAsDefault();
 //	deleteModernTheme();
 }
@@ -67,9 +67,9 @@ function replaceProfessorUser() {
   $oldUser -> delete();
  } catch (Exception $e) {/*Do nothing*/}
 }
-function removeRssEntry() {
- eF_executeNew("drop table if exists module_rss_feeds");
- eF_executeNew("CREATE TABLE module_rss_feeds(id int(11) not null auto_increment primary key, title varchar(255), url text not null, active int(11) not null default 1, only_summary int(11) default 0, lessons_ID int(11) default -1)");
- eF_updateTableData("modules", array("active" => 0), "className='module_rss'");
+function removeModules() {
+ //eF_executeNew("drop table if exists module_rss_feeds");
+ //eF_executeNew("CREATE TABLE module_rss_feeds(id int(11) not null auto_increment primary key, title varchar(255), url text not null, active int(11) not null default 1, only_summary int(11) default 0, lessons_ID int(11) default -1)");
+ eF_updateTableData("modules", array("active" => 0), "className='module_security'");
 }
 ?>

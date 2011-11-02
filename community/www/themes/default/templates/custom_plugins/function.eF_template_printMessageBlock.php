@@ -14,7 +14,9 @@ function smarty_function_eF_template_printMessageBlock($params, &$smarty) {
     } else {
         $messageImage = '<img src = "images/32x32/warning.png" alt = "'._FAILURE.'" title = "'._FAILURE.'">';
     }
-    $params['content'] = strip_tags($params['content']);
+ $link = mb_substr($params['content'], mb_strpos($params['content'], ' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>'));
+    $message = mb_substr($params['content'], 0, mb_strpos($params['content'], ' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>'));
+    $params['content'] = strip_tags($message).$link;
     if (mb_strlen($params['content']) > 1000) {
      $prefix = mb_substr($params['content'], 0, 1000);
      $suffix = mb_substr($params['content'], mb_strlen($params['content']) - 300, mb_strlen($params['content']));

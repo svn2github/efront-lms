@@ -87,7 +87,7 @@
                                 <table style = "margin-top:15px;">
                                     <tr>
                                         <td><span style = "vertical-align:middle">{$smarty.const._DOWNLOADSCORMEXPORTEDFILE}:&nbsp;</span>
-                                            <a href = "view_file.php?file={$T_SCORM_EXPORT_FILE.path}&action=download" target = "POPUP_FRAME" style = "vertical-align:middle">{$T_SCORM_EXPORT_FILE.name}</a>
+                                            <a href = "view_file.php?file={$T_SCORM_EXPORT_FILE.path|urlencode}&action=download" target = "POPUP_FRAME" style = "vertical-align:middle">{$T_SCORM_EXPORT_FILE.name}</a>
                                             <img src = "images/16x16/import.png" alt = "{$smarty.const._DOWNLOADFILE}" title = "{$smarty.const._DOWNLOADFILE}" border = "0" style = "vertical-align:middle">
                                         </td>
                                     </tr>

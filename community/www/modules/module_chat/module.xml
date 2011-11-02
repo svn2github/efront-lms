@@ -2,8 +2,8 @@
 <module> 
  <title>Chat Module </title> 
  <author>Christos Xanthos</author> 
- <date>December 6 2010</date> 
- <version>1.0</version> 
+ <date>2011 10 26</date> 
+ <version>1.1</version> 
  <description>eFront integrated Chat Bar</description> 
  <className>module_chat</className> 
 </module>

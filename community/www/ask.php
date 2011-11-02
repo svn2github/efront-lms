@@ -95,39 +95,36 @@ function askUsers() {
     $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
     $grant_full_access = false;
     if (!$grant_full_access) { // Used for correct handling in Enterprise and non-Enterprise editions
-     $logins = array();
      $myGroupsIds = array_keys($currentUser -> getGroups());
-//					echo "Groups<BR><BR><BR>";pr($myGroupsIds);
+     //echo "Groups<BR><BR><BR>";pr($myGroupsIds);
      if (!empty($myGroupsIds)) {
       $result = eF_getTableDataFlat("users JOIN users_to_groups", "distinct users_LOGIN", "users.login = users_to_groups.users_LOGIN AND groups_ID IN ('" . implode("','", $myGroupsIds) ."')");
       $logins = $result['users_LOGIN'];
      }
      $myLessonsIds = array_keys($currentUser -> getLessons());
-//					pr($result);echo "Lessons<BR><BR><BR>";pr($myLessonsIds);
+     //pr($result);echo "Lessons<BR><BR><BR>";pr($myLessonsIds);
      if (!empty($myLessonsIds)) {
       $result = eF_getTableDataFlat("users JOIN users_to_lessons", "distinct users_LOGIN", "users.archive=0 and users_to_lessons.archive=0 and users.login = users_to_lessons.users_LOGIN AND lessons_ID IN ('" . implode("','", $myLessonsIds) ."')");
-//						pr($result);
+      $logins = array();
       foreach($result['users_LOGIN'] as $login) {
        if (!in_array($login, $logins)){
         $logins[] = $login;
        }
       }
      }
-     $myCoursesIds = eF_getTableDataFlat("users_to_courses", "courses_ID", "users_LOGIN = '". $currentUser -> user['login']."'");
+     $myCoursesIds = eF_getTableDataFlat("users_to_courses", "courses_ID", "archive = 0 and users_LOGIN = '". $currentUser -> user['login']."'");
      $myCoursesIds = $myCoursesIds['courses_ID'];
-//					echo "Courses<BR><BR><BR>";pr($myCoursesIds);
+     //echo "Courses<BR><BR><BR>";pr($myCoursesIds);
      if (!empty($myCoursesIds)) {
-      $result = eF_getTableDataFlat("users JOIN users_to_courses", "distinct users_LOGIN", "users.login = users_to_courses.users_LOGIN AND courses_ID IN ('" . implode("','", $myCoursesIds) ."')");
-//						pr($result);
+      $result = eF_getTableDataFlat("users JOIN users_to_courses", "distinct users_LOGIN", "users.login = users_to_courses.users_LOGIN AND  users.archive=0 and users_to_courses.archive=0 AND courses_ID IN ('" . implode("','", $myCoursesIds) ."')");
       foreach($result['users_LOGIN'] as $login) {
        if (!in_array($login, $logins)){
         $logins[] = $login;
        }
       }
      }
-//					pr($logins);
      $related_users_list = "'".implode("','", $logins)."'";
-     $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "(login IN (". $related_users_list . ") OR user_type <> 'student') AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");
+     $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "login IN (". $related_users_list . ") AND (login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%')", "login");
     } else {
      $users = eF_getTableData("users", "distinct login,name,surname,user_type,user_types_ID", "login like '$preffix%' OR name like '$preffix%' OR surname like '$preffix%'", "login");
     }

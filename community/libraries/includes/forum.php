@@ -18,12 +18,12 @@ try {
  $smarty -> assign("T_USERROLES",$roles);
 
  $forums = f_forums :: getAll("f_forums");
- $lessons = EFrontLesson :: getLessons();
+  $lessons = EFrontLesson :: getLessons(false,true);
     if (!$_admin_) {
         $userLessons = $currentUser -> getEligibleLessons();
         foreach ($forums as $key => $value) {
             //This takes the forum that belongs to this lesson, as well as general forums
-            if ($value['lessons_ID'] && (!in_array($value['lessons_ID'], array_keys($userLessons)) || $lessons[$value['lessons_ID']]['active'] == 0 || $lessons[$value['lessons_ID']]['archive'] == 1)) { //if forum of lesson deactivated by professor not display it in list
+            if ($value['lessons_ID'] && (!in_array($value['lessons_ID'], array_keys($userLessons)) || $lessons[$value['lessons_ID']]['active'] == 0 || $lessons[$value['lessons_ID']]['archive'] > 0)) { //if forum of lesson deactivated by professor not display it in list
              unset($forums[$key]);
             }
         }

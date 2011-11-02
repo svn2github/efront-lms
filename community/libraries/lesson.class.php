@@ -4061,16 +4061,17 @@ class EfrontLesson
    $units[] = $unit;
    $data = $unit['data'];
    foreach ($unitFiles as $file) {
-    $filePath = str_replace($this->getDirectory(), "/", $file['path']);
+    $filePath = str_replace($this->getDirectory(), "/", EfrontFile :: encode($file['path']));
     $data = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']).$filePath, "files".$filePath, $data);
     $data = str_replace("view_file.php?file=".$file['id'], "files".$filePath, $data);
    }
-         $unitContent = $this -> createSCORMHtmlFiles($data);
+   $unitContent = $this -> createSCORMHtmlFiles($data);
          $unitFilename = $htmlExportFolder.$unit['name'].".html";
-         file_put_contents($unitFilename, $unitContent);
+         file_put_contents(EfrontFile :: encode($unitFilename), $unitContent);
          $metadata = $this->getSCORMAssetMetadata($unit);
          $metadataFilename = $htmlExportFolder.$unit['name'].".xml";
-         file_put_contents($metadataFilename, $metadata);
+         //file_put_contents($metadataFilename, $metadata);
+         file_put_contents(EfrontFile :: encode($metadataFilename), $metadata);
          $filelist = array_merge($filelist, $unitFiles);
   }
   foreach ($filelist as $file) {
@@ -4080,7 +4081,7 @@ class EfrontLesson
    }
       $file -> copy($filesExportFolder.$filePath);
       $metadata = $this->getSCORMAssetMetadata($file);
-      $metadataFilename = $filesExportFolder.$filePath.".xml";
+      $metadataFilename = EfrontFile :: encode($filesExportFolder.$filePath.".xml");
       file_put_contents($metadataFilename, $metadata);
   }
   /*Create manifest*/
@@ -4100,7 +4101,7 @@ class EfrontLesson
   } else {
    $filename = 'SCO.zip';
   }
-  $compressedFile = $scormDirectory -> compress($filename, false, true);
+  $compressedFile = $scormDirectory -> compress($filename, false);
   $scormDirectory -> delete();
   return $compressedFile;
  }
@@ -4467,7 +4468,7 @@ class EfrontLesson
  }
  private function buildSCORMManifestMain($str)
  {
-  $manifest = '<?xml version="1.0" encoding="ISO-8859-7"?>
+  $manifest = '<?xml version="1.0" encoding="UTF-8"?>
       <manifest identifier="SingleCourseManifest" version="1.1"
                 xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
                 xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
@@ -4504,17 +4505,17 @@ class EfrontLesson
   $resource_str = '';
   $dependency_str = '';
   for ($i = 0 ; $i < sizeof($units) ; $i++) {
-   $resource_str .= '<resource identifier="' . $units[$i]['id'] . '" type="webcontent" adlcp:scormtype="sco" href="html/' . $units[$i]['name'] . '.html">';
+   $resource_str .= '<resource identifier="' . $units[$i]['id'] . '" type="webcontent" adlcp:scormtype="sco" href="html/' . rawurlencode(EfrontFile :: encode($units[$i]['name'])) . '.html">';
    $resource_str .= '<metadata></metadata>';
-   $resource_str .= '<file href="html/' . $units[$i]['name'] . '.html"/>';
+   $resource_str .= '<file href="html/' .rawurlencode(EfrontFile :: encode($units[$i]['name'])) . '.html"/>';
    $resource_str .= '<dependency identifierref="dep_SPECIAL"/>';
    $unitFiles = $units[$i]->getFiles(true);
    for ($j = 0 ; $j < sizeof($unitFiles) ; $j++) {
     $file = str_replace($this->getDirectory(), "", $unitFiles[$j]['path']);
     $resource_str .= '<dependency identifierref="dep_' . $i . '_' . $j . '"/>';
-    $dependency_str .= '<resource identifier="dep_' . $i . '_' . $j . '" type="webcontent" adlcp:scormtype="asset" href="'.$file.'">';
+    $dependency_str .= '<resource identifier="dep_' . $i . '_' . $j . '" type="webcontent" adlcp:scormtype="asset" href="'.rawurlencode(EfrontFile :: encode($file)).'">';
     $dependency_str .= '<metadata></metadata>';
-    $dependency_str .= '<file href="'.$file.'"/>';
+    $dependency_str .= '<file href="'.rawurlencode(EfrontFile :: encode($file)).'"/>';
     $dependency_str .= '</resource>';
    }
    $resource_str .= '</resource>';

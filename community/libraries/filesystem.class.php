@@ -724,6 +724,7 @@ class EfrontFile extends ArrayObject
             if ($GLOBALS['configuration']['zip_method'] == 'system') {
              $blackList = explode(",", $GLOBALS['configuration']['file_black_list']);
              $blackList[] = 'php';
+             $blackList[] = 'htaccess';
              $blackList = '-x "*.'.implode('" "*.', $blackList).'"';
              if ($GLOBALS['configuration']['file_white_list']) {
                     $whiteList = '"*.'.implode('" "*.', explode(",", $GLOBALS['configuration']['file_white_list'])).'"';
@@ -3165,6 +3166,7 @@ class FileSystemTree extends EfrontTree
       $blackList = array();
      }
      $blackList[] = 'php';
+     $blackList[] = 'htaccess';
      if (defined("NO_CHECK_FILE_INTEGRITY") && NO_CHECK_FILE_INTEGRITY) {
       $blackList = $whiteList = array();
      }

@@ -150,10 +150,10 @@ $languages = EfrontSystem :: getLanguages();
 try {
     $currentTheme = new themes(G_CURRENTTHEME);
     $smarty -> assign("T_THEME_SETTINGS", $currentTheme);
-    if ($configuration['use_logo'] == 2 && is_file(G_CURRENTTHEMEURL.'images/logo/logo.png')) {
-     $smarty -> assign("T_LOGO", G_CURRENTTHEMEURL.'images/logo/logo.png');
+    if ($configuration['use_logo'] == 2 && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
+     $smarty -> assign("T_LOGO", 'images/logo/logo.png');
     } else if ($configuration['use_logo'] > 0) { //meaning that either we have 'use site logo' (1) or 'use theme logo' (2) but that does not exist
-     $logoFile = new EfrontFile($configuration['logo']);
+     $logoFile = new EfrontFile($configuration['site_logo']);
      $smarty -> assign("T_LOGO", 'themes/default/images/logo/'.$logoFile['physical_name']);
     } else {
      $smarty -> assign("T_LOGO", 'images/logo.png');
@@ -277,7 +277,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 12205;
+    $build = 12241;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

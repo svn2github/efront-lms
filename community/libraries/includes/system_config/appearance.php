@@ -54,7 +54,7 @@ $appearanceLogoForm = new Html_QuickForm("appearance_logo_form", "post", basenam
 $appearanceLogoForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 try {
  $file = new EfrontFile($configuration['site_logo']);
- $appearanceLogoForm -> addElement("static", "formelement", '<img src = "images/logo/'.$file['name'].'" alt = "'._SITELOGO.'" title = "'._SITELOGO.'"/>');
+ $appearanceLogoForm -> addElement("static", "formelement", '<img src = "'.G_DEFAULTTHEMEURL.'images/logo/'.$file['name'].'" alt = "'._SITELOGO.'" title = "'._SITELOGO.'"/>');
 } catch (Exception $e) {}
 $appearanceLogoForm -> addElement('file', 'site_logo', _UPLOADSITELOGO);
 $appearanceLogoForm -> addElement("static", "", _EACHFILESIZEMUSTBESMALLERTHAN.' <b>'.FileSystemTree::getUploadMaxSize().'</b> '._KB);

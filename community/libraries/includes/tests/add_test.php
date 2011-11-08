@@ -132,8 +132,21 @@ if (!$skillgap_tests) {
     }
     $unitNames = array_combine($ids, $names);
     $unitNames[0] = _NONEUNIT;
-    $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+    if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
+     $result = eF_getTableData("questions", "*", "", "content_ID ASC");
+    } else {
+     $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+    }
 
+    if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
+  $directionsTree = new EfrontDirectionsTree();
+  $directionsPaths = $directionsTree -> toPathString();
+  $lessons = EFrontLesson :: getLessons();
+  foreach ($lessons as $key => $value) {
+   $lessons[$key]['lesson_path'] = $directionsPaths[$value['directions_ID']]." --> ".$value['name'];
+  }
+  $smarty -> assign("T_LESSONS", $lessons);
+    }
 } else {
 
     $form -> addElement('text', 'general_threshold', null, 'class = "inputText"');

@@ -1247,7 +1247,8 @@ CREATE TABLE events (
   entity_ID varchar(255) default NULL,
   entity_name varchar(255) default NULL,
   PRIMARY KEY (id),
-  index(users_LOGIN)
+  index(users_LOGIN),
+  index(timestamp)
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE profile_comments (

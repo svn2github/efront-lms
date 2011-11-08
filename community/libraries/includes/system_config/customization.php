@@ -17,11 +17,13 @@ $customizationDisableForm -> addElement("advcheckbox", "disable_calendar", _CALE
 
 
 
+
 $customizationDisableForm -> addElement("advcheckbox", "disable_news", _ANNOUNCEMENTS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_messages", _MESSAGES, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_messages_student", _MESSAGESSTUDENTS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_forum", _FORUMS, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_tests", _TESTS, null, 'class = "inputCheckBox"', array(1, 0));
+$customizationDisableForm -> addElement("advcheckbox", "disable_questions_pool", _QUESTIONSPOOL, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_tooltip", _TOOLTIP, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_help", _HELP, null, 'class = "inputCheckBox"', array(1, 0));
 $customizationDisableForm -> addElement("advcheckbox", "disable_feedback", _FEEDBACK, null, 'class = "inputCheckBox"', array(1, 0));

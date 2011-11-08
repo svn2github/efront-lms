@@ -256,6 +256,10 @@ $loadScripts[] = 'includes/groups';
             }
         }
     } else {
-        $result = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "","g.name");
-        $smarty -> assign("T_USERGROUPS", $result);
+        if (isset($_GET['ajax']) && $_GET['ajax'] == "groupsTable") {
+         $dataSource = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "","g.name");
+         $tableName = $_GET['ajax'];
+         include("sorted_table.php");
+        }
+        //$smarty -> assign("T_USERGROUPS", $result);
     }

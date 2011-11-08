@@ -8,6 +8,7 @@
 - Fixed issue about downloading language files
 - Fixed issue about access forum page in lesson with instance_source
 - Fixed issue about uploading avatar with same name more than one times
+- Fixed issues about logo loading
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

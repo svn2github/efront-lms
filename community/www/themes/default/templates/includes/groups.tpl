@@ -131,17 +131,19 @@
 
    {assign var = "change_groups" value = 1}
   {/if}
-   <table width = "100%" class = "sortedTable" sortBy = "0">
+  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'groupsTable'}
+<!--ajax:groupsTable-->
+   <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" order="desc" id = "groupsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=user_groups&">
     <tr class = "topTitle">
-     <td class = "topTitle">{$smarty.const._NAME}</td>
-     <td class = "topTitle">{$smarty.const._DESCRIPTION}</td>
-     <td class = "topTitle centerAlign">{$smarty.const._USERS}</td>
-     <td class = "topTitle centerAlign">{$smarty.const._ACTIVE2}</td>
+     <td class = "topTitle" name = "name">{$smarty.const._NAME}</td>
+     <td class = "topTitle" description = "description">{$smarty.const._DESCRIPTION}</td>
+     <td class = "topTitle centerAlign" name = "num_users">{$smarty.const._USERS}</td>
+     <td class = "topTitle centerAlign" name = "active">{$smarty.const._ACTIVE2}</td>
     {if $change_groups}
      <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
     {/if}
     </tr>
-  {foreach name = 'group_list' key = 'key' item = 'group' from = $T_USERGROUPS}
+  {foreach name = 'group_list' key = 'key' item = 'group' from = $T_DATA_SOURCE}
     <tr id="row_{$group.id}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$group.active}deactivatedTableElement{/if}">
      <td><a href = "administrator.php?ctg=user_groups&edit_user_group={$group.id}" class = "editLink">
       <span id="column_{$group.id}" {if !$group.active}style="color:red"{/if}>
@@ -171,6 +173,8 @@
     <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
   {/foreach}
    </table>
+<!--/ajax:groupsTable-->
+  {/if}
   {/capture}
   {eF_template_printBlock title = $smarty.const._UPDATEGROUPS data = $smarty.capture.t_groups_code image = '32x32/users.png' help = 'User_groups'}
  {/if}

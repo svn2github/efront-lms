@@ -161,6 +161,7 @@ class EfrontConfiguration
      'disable_move_blocks' => '0',
      'disable_change_info' => '0',
      'disable_change_pass' => '0',
+     'disable_questions_pool' => '1',
 
         //Social - Facebook settings
         'facebook_api_key' => '',

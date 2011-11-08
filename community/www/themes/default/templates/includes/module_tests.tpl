@@ -415,10 +415,80 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    <span {if !$T_TEST_QUESTIONS_STATISTICS.random_pool}style = "display:none"{/if}>{$smarty.const._WHEREARANDOMPOOLOF} <span id = "questions_random_pool">{$T_TEST_QUESTIONS_STATISTICS.random_pool}</span> {$smarty.const._QUESTIONSISUSEDEACHTIME}</span>
   </div>
 {*This is the ajax table for the questions inside the edit test*}
+ {if !$T_SKILLGAP_TEST && !$T_CONFIGURATION.disable_questions_pool}
+   <span>
+        <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&showall={if !$smarty.get.showall}1{else}0{/if}&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._TOGGLEQUESTIONSPOOL}" title = "{$smarty.const._TOGGLEQUESTIONSPOOL}"/>&nbsp;{$smarty.const._TOGGLEQUESTIONSPOOL}</a>
+       </span>
+ {/if}
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'questionsTable'}
+{*This is the ajax table for the common questions pool *}
+  {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
 <!--ajax:questionsTable-->
-        <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&">
+        <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">
             <tr><td class = "topTitle" name = "text">{$smarty.const._QUESTIONTEXT}</td>
+            {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
+          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
+         {/if}
+                <td class = "topTitle centerAlign" name = "type">{$smarty.const._QUESTIONTYPE}</td>
+   {if $T_CTG != 'feedback'}
+                <td class = "topTitle centerAlign" name = "difficulty">{$smarty.const._DIFFICULTY}</td>
+   {/if}
+            {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+                <td class = "topTitle centerAlign" name = "weight">{$smarty.const._QUESTIONWEIGHT}</td>
+            {/if}
+   {if $T_CTG != 'feedback'}
+             <td class = "topTitle centerAlign" name = "estimate">{$smarty.const._TIME}</td>
+   {/if}
+                <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
+                <td class = "topTitle centerAlign" name = "partof">{$smarty.const._USEQUESTION}</td></tr>
+   {foreach name = "questions_list" key = "key" item = "item" from = $T_UNIT_QUESTIONS}
+            {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $item.type != 'true_false')}
+    <tr class = "{cycle name = "main_cycle" values="oddRowColor, evenRowColor"}">
+    {if $item.lessons_ID == $smarty.session.s_lessons_ID}
+     <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}" title="{$item.text}"> {$item.text|eF_truncate:50}</a></td>
+    {else}
+     <td> {$item.text|eF_truncate:50}</td>
+    {/if}
+    {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
+           <td><span title = "{$T_LESSONS[$item.lessons_ID].lesson_path}">{$T_LESSONS[$item.lessons_ID].name}</span></td>
+          {/if}
+     <td class = "centerAlign">
+      <img src = "{$T_QUESTION_TYPE_ICONS[$item.type]}" title = "{$T_QUESTION_TYPES[$item.type]}" alt = "{$T_QUESTION_TYPES[$item.type]}" />
+      <span style = "display:none">{$item.type}</span>{*We put this here in order to be able to sort by type*}
+     </td>
+    {if $T_CTG != 'feedback'}
+     <td class = "centerAlign">
+      <img src = "{$T_QUESTION_DIFFICULTY_ICONS[$item.difficulty]}" title = "{$T_QUESTION_DIFFICULTIES[$item.difficulty]}" alt = "{$T_QUESTION_DIFFICULTIES[$item.difficulty]}" />
+      <span style = "display:none">{$item.difficulty}</span>{*We put this here in order to be able to sort by type*}
+     </td>
+    {/if}
+    {if !$T_SKILLGAP_TEST && $T_CTG != 'feedback'}
+     <td class = "centerAlign">{$T_TEST_FORM.question_weight[$key].html}</td>
+    {/if}
+    {if $T_CTG != 'feedback'}
+     <td class = "centerAlign">{if !$item.estimate}-{else}{if $item.estimate_interval.minutes}{$item.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $item.estimate_interval.seconds}{$item.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}{/if}</td>
+    {/if}
+     <td class = "centerAlign">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 2)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
+    {if $T_CTG != 'feedback' && $item.lessons_ID == $smarty.session.s_lessons_ID}
+     <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
+    {/if}
+     </td>
+     <td class = "centerAlign">{$T_TEST_FORM.questions[$key].html}<span style = "display:none">{$T_TEST_FORM.questions[$key].value}</span></td> {*span is used for sorting*}
+    </tr>
+   {/if}
+            {foreachelse}
+            <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
+            {/foreach}
+        </table>
+<!--/ajax:questionsTable-->
+  {else}
+<!--ajax:questionsTable-->
+        <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">
+            <tr><td class = "topTitle" name = "text">{$smarty.const._QUESTIONTEXT}</td>
+            {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
+          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
+         {/if}
             {if !$T_SKILLGAP_TEST}
                 <td class = "topTitle" name = "parent_name">{$smarty.const._UNITNAME}</td>
             {else}
@@ -440,6 +510,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $item.type != 'true_false')}
     <tr class = "{cycle name = "main_cycle" values="oddRowColor, evenRowColor"}">
      <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}" title="{$item.text}"> {$item.text|eF_truncate:50}</a></td>
+    {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
+           <td><span title = "{$T_LESSONS[$item.lessons_ID].lesson_path}">{$T_LESSONS[$item.lessons_ID].name}</span></td>
+          {/if}
     {if !$T_SKILLGAP_TEST}
      <td>{if $item.parent_name}{$item.parent_name}{else}{$smarty.const._NONE}{/if}</td>
     {else}
@@ -459,7 +532,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <td class = "centerAlign">{$T_TEST_FORM.question_weight[$key].html}</td>
     {/if}
     {if $T_CTG != 'feedback'}
-     <td class = "centerAlign">{if !$question.estimate}-{else}{if $item.estimate_interval.minutes}{$item.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $item.estimate_interval.seconds}{$item.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}{/if}</td>
+     <td class = "centerAlign">{if !$item.estimate}-{else}{if $item.estimate_interval.minutes}{$item.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $item.estimate_interval.seconds}{$item.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}{/if}</td>
     {/if}
      <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 2)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
@@ -478,6 +551,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
             {/foreach}
         </table>
 <!--/ajax:questionsTable-->
+  {/if}
 {/if}
  {/capture}
  {capture name = 't_edit_test_code'}
@@ -1107,10 +1181,72 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    </span>
   </div>
   {/if}
+  {if !$T_SKILLGAP_TEST && !$T_CONFIGURATION.disable_questions_pool}
+   <span>
+        <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&showall={if !$smarty.get.showall}1{else}0{/if}&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._TOGGLEQUESTIONSPOOL}" title = "{$smarty.const._TOGGLEQUESTIONSPOOL}"/>&nbsp;{$smarty.const._TOGGLEQUESTIONSPOOL}</a>
+       </span>
+      {/if}
+{if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
 <!--ajax:questionsTable-->
-  <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "0" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&from_unit={$smarty.get.from_unit}&">
+  <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "0" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&from_unit={$smarty.get.from_unit}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">
          <tr class = "defaultRowHeight">
              <td name = "text" class = "topTitle">{$smarty.const._QUESTION}</td>
+         {if $smarty.get.showall}
+          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
+         {/if}
+             <td name = "type" class = "topTitle centerAlign">{$smarty.const._QUESTIONTYPE}</td>
+   {if $T_CTG != 'feedback'}
+             <td name = "difficulty" class = "topTitle centerAlign">{$smarty.const._DIFFICULTY}</td>
+             <td class = "topTitle centerAlign" name = "estimate">{$smarty.const._TIME}</td>
+   {/if}
+             <td class = "topTitle centerAlign noSort">{$smarty.const._FUNCTIONS}</td>
+         </tr>
+   {foreach name = 'questions_list' key = 'key' item = 'question' from = $T_QUESTIONS}
+   {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $question.type != 'true_false')}
+    <tr class = "{cycle name = "main_cycle" values="oddRowColor,evenRowColor"} defaultRowHeight">
+     <td>
+    {if $_change_ && $question.lessons_ID == $smarty.session.s_lessons_ID}
+      <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}" title= "{$question.text}">{$question.text|eF_truncate:70}</a>
+    {else}{$question.text|eF_truncate:70}{/if}
+     </td>
+    {if $smarty.get.showall}
+           <td><span title = "{$T_LESSONS[$question.lessons_ID].lesson_path}">{$T_LESSONS[$question.lessons_ID].name}</span></td>
+          {/if}
+     <td class = "centerAlign">
+      <img src = "{$T_QUESTION_TYPE_ICONS[$question.type]}" title = "{$T_QUESTION_TYPES[$question.type]}" alt = "{$T_QUESTION_TYPES[$question.type]}" />
+      <span style = "display:none">{$question.type}</span>
+     </td>
+    {if $T_CTG != 'feedback'}
+     <td class = "centerAlign">
+      <img src = "{$T_QUESTION_DIFFICULTY_ICONS[$question.difficulty]}" title = "{$T_QUESTION_DIFFICULTIES[$question.difficulty]}" alt = "{$T_QUESTION_DIFFICULTIES[$question.difficulty]}" />
+      <span style = "display:none">{$question.difficulty}</span>
+     </td>
+     <td class = "centerAlign">{if !$question.estimate}-{else}{if $question.estimate_interval.minutes}{$question.estimate_interval.minutes}{$smarty.const._MINUTESSHORTHAND}{/if} {if $question.estimate_interval.seconds}{$question.estimate_interval.seconds}{$smarty.const._SECONDSSHORTHAND}{/if}{/if}</td>
+    {/if}
+       <td class = "centerAlign noWrap">
+      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$question.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 1)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
+     {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
+      {if $T_CTG != 'feedback' && $question.lessons_ID == $smarty.session.s_lessons_ID }
+       <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._CORRECTION}" title = "{$smarty.const._CORRECTION}"/></a>
+       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteQuestion(this, '{$question.id}')"/>
+      {/if}
+     {/if}
+     </td>
+    </tr>
+   {/if}
+   {foreachelse}
+         <tr class = "oddRowColor defaultRowHeight"><td class = "emptyCategory" colspan = "6">{$smarty.const._NOQUESTIONSSETFORTHISUNIT}</td></tr>
+         {/foreach}
+     </table>
+<!--/ajax:questionsTable-->
+{else}
+<!--ajax:questionsTable-->
+  <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "0" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&from_unit={$smarty.get.from_unit}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">
+         <tr class = "defaultRowHeight">
+             <td name = "text" class = "topTitle">{$smarty.const._QUESTION}</td>
+         {if $smarty.get.showall}
+          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
+         {/if}
          {if !$T_SKILLGAP_TEST}
              <td name = "parent_unit" class = "topTitle">{$smarty.const._UNIT}</td>
          {else}
@@ -1131,6 +1267,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
       <a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$question.id}&question_type={$question.type}&lessonId={$question.lessons_ID}" title= "{$question.text}">{$question.text|eF_truncate:70}</a>
     {else}{$question.text|eF_truncate:70}{/if}
      </td>
+    {if $smarty.get.showall}
+           <td><span title = "{$T_LESSONS[$question.lessons_ID].lesson_path}">{$T_LESSONS[$question.lessons_ID].name}</span></td>
+          {/if}
     {if !$T_SKILLGAP_TEST}
      <td>{$question.parent_unit}</td>
     {else}
@@ -1166,6 +1305,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          {/foreach}
      </table>
 <!--/ajax:questionsTable-->
+{/if}
  {/capture}
  {capture name = "t_tests_and_questions_code"}
      {if !$T_SKILLGAP_TEST && $T_CTG != "feedback"}

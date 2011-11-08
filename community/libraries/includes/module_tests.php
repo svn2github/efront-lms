@@ -3,7 +3,6 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-
 if (($GLOBALS['configuration']['disable_tests'] == 1 && $_GET['ctg'] == 'tests') || ($GLOBALS['configuration']['disable_feedback'] == 1 && $_GET['ctg'] == 'feedback')|| (isset($currentUser -> coreAccess['tests']) && $currentUser -> coreAccess['tests'] == 'hidden')) {
     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
@@ -52,7 +51,11 @@ try {
   }
   if ($currentContent) {
    $lessonTests = $legalValues = $currentLesson -> getTestsAndFeedbacks(); //Lesson's tests
-   $legalQuestions = eF_getTableDataFlat('questions', "id", 'lessons_ID='.$currentLesson -> lesson['id']);
+   if (!$GLOBALS['configuration']['disable_questions_pool']) {
+    $legalQuestions = eF_getTableDataFlat('questions', "id");
+   } else {
+    $legalQuestions = eF_getTableDataFlat('questions', "id", 'lessons_ID='.$currentLesson -> lesson['id']);
+   }
    $legalUnits = array(); //Lesson's units
    foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)) as $key => $value) {
     $legalUnits[] = $key;
@@ -307,14 +310,31 @@ try {
                     $children[] = $key;
                 }
                 if (sizeof($children) > 0) {
-                    $questions = eF_getTableData("questions", "*", "content_ID in (".implode(",", $children).") and lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+                 if ($_GET['showall'] == "1") {
+                     $questions = eF_getTableData("questions", "*", "content_ID in (".implode(",", $children).")", "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+                 } else {
+                  $questions = eF_getTableData("questions", "*", "content_ID in (".implode(",", $children).") and lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+                 }
                 } else {
                     throw new Exception();//This jumps to the catch block right below
                 }
             } catch (Exception $e) {
-                $questions = eF_getTableData("questions", "*", "lessons_ID = ".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this lesson
+             if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
+              $questions = eF_getTableData("questions", "*", "", "lessons_ID ASC"); //Retrieve all questions that belong to this lesson
+             } else {
+                 $questions = eF_getTableData("questions", "*", "lessons_ID = ".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this lesson
+             }
             }
-            //Assign the content units so that we can build the units select box for the "from_unit" option
+            if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
+    $directionsTree = new EfrontDirectionsTree();
+    $directionsPaths = $directionsTree -> toPathString();
+    $lessons = EFrontLesson :: getLessons();
+    foreach ($lessons as $key => $value) {
+     $lessons[$key]['lesson_path'] = $directionsPaths[$value['directions_ID']]." --> ".$value['name'];
+    }
+    $smarty -> assign("T_LESSONS", $lessons);
+            }
+   //Assign the content units so that we can build the units select box for the "from_unit" option
             $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)); //Default iterator excludes non-active units
             $contentUnits = $currentContent -> toHTMLSelectOptions($iterator);
             $smarty -> assign("T_UNITS", $contentUnits);

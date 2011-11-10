@@ -457,6 +457,7 @@ class EfrontImportCsv extends EfrontImport
        }
        if (!$jobId) {
         $jobId = eF_insertTableData("module_hcd_job_description", array('description' => $value['description'], 'branch_ID' => $branchId));
+        $jobDescriptions[$jobId] = array('job_description_ID' => $jobId, 'description' => $value['description'], 'branch_ID' => $branchId);
        }
        $user = EfrontUserFactory::factory($value["users_login"]);
        $value['users_login'] = $user -> user['login'];

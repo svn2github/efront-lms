@@ -515,6 +515,9 @@ class EfrontFile extends ArrayObject
 
      */
     public function rename($destinationPath, $overwrite = false) {
+     if (eF_checkParameter($destinationPath, 'path') === false) {
+       throw new EfrontFileException(_ILLEGALFILENAME, EfrontFileException :: ILLEGAL_FILE_NAME);
+     }
         $destinationPath = EfrontDirectory :: normalize($destinationPath);
         $parentDirectory = new EfrontDirectory(dirname($destinationPath)); //This way we check integrity of destination
         FileSystemTree::checkFile($destinationPath);
@@ -1477,6 +1480,9 @@ class EfrontDirectory extends ArrayObject
 
      */
     public function rename($destinationPath, $overwrite = false) {
+        if (eF_checkParameter($destinationPath, 'path') === false) {
+       throw new EfrontFileException(_ILLEGALFILENAME, EfrontFileException :: ILLEGAL_FILE_NAME);
+     }
         $destinationPath = EfrontDirectory :: normalize($destinationPath);
         $parentDirectory = new EfrontDirectory(dirname($destinationPath)); //This way we check integrity of destination
         if (!is_dir($destinationPath)) {

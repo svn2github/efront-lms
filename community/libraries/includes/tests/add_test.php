@@ -133,15 +133,20 @@ if (!$skillgap_tests) {
     $unitNames = array_combine($ids, $names);
     $unitNames[0] = _NONEUNIT;
     if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
-     $result = eF_getTableData("questions", "*", "", "content_ID ASC");
+     $result = eF_getTableData("questions,lessons", "questions.*", "lessons_ID !=0 and lessons.id=questions.lessons_ID and lessons.active=1", "content_ID ASC");
     } else {
      $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+     if (isset($_GET['edit_test'])) {
+      //for questions already added to test from another lesson
+      $testQuestions = $currentTest -> getQuestions();
+   $result = array_merge(array_values($result),array_values($testQuestions));
+     }
     }
 
     if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
   $directionsTree = new EfrontDirectionsTree();
   $directionsPaths = $directionsTree -> toPathString();
-  $lessons = EFrontLesson :: getLessons();
+  $lessons = EFrontLesson :: getLessons(false, true);
   foreach ($lessons as $key => $value) {
    $lessons[$key]['lesson_path'] = $directionsPaths[$value['directions_ID']]." --> ".$value['name'];
   }
@@ -482,10 +487,15 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
             $questions[$qid]['name'] = _SKILLGAPTESTS;
         } else {
             $questions[$qid]['name'] = _LESSON . ': "' . $question['name'] . '"';
+            $questions[$qid]['lesson_name'] = $lessons[$question['lessons_ID']]['name'];
         }
 
         if ($skillgap_tests && $question['type'] == 'raw_text') {
             unset($questions[$qid]);
+        }
+
+        if ($_GET['ctg'] == 'feedback' && $question['type'] == 'true_false') {
+         unset($questions[$qid]);
         }
     }
 

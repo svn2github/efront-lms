@@ -3168,7 +3168,9 @@ class EfrontCompletedTest extends EfrontTest
             }
         }
         foreach ($parentScores as $id => $value) {
-            $parentScores[$id]['percentage'] = round($value['score']/$value['total'], 2);
+         if ($value['total']) {
+             $parentScores[$id]['percentage'] = round($value['score']/$value['total'], 2);
+         }
             if ($value['this_total']) {
                 $parentScores[$id]['this_percentage'] = round($value['this_score']/$value['this_total'], 2);
             }

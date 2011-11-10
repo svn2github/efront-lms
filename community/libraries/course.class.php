@@ -1236,7 +1236,7 @@ class EfrontCourse
   if (empty($users)) {
    return false;
   }
-  $result = eF_getTableData("users_to_courses uc, users u", "uc.users_LOGIN, uc.archive, uc.user_type, uc.to_timestamp, u.archive as user_archive", "u.login=uc.users_LOGIN and uc.courses_ID=".$this->course['id']);
+  $result = eF_getTableData("users_to_courses uc, users u", "uc.users_LOGIN, uc.archive, uc.user_type, uc.to_timestamp, u.archive as user_archive, uc.completed", "u.login=uc.users_LOGIN and uc.courses_ID=".$this->course['id']);
   $courseUsers = array();
   $courseRoles = $this -> getPossibleCourseRoles();
   $courseStudents = 0;
@@ -1258,7 +1258,7 @@ class EfrontCourse
 		So that it contains all the course's lessons and NULL for any lesson that does not have a user assigned
 		*/
   $result = eF_getTableData("lessons_to_courses lc left outer join users_to_lessons ul on lc.lessons_ID=ul.lessons_ID",
-          "lc.lessons_ID, ul.users_LOGIN, ul.user_type, ul.from_timestamp, ul.archive, ul.to_timestamp",
+          "lc.lessons_ID, ul.users_LOGIN, ul.user_type, ul.from_timestamp, ul.archive, ul.to_timestamp, ul.completed",
           "courses_ID = ".$this -> course['id']);
   $courseLessonsToUsers = array();
   foreach ($result as $value) {
@@ -1299,8 +1299,15 @@ class EfrontCourse
          'comments' => '',
          'to_timestamp' => 0);
    } elseif ($roleInCourse != $courseUsers[$user]['user_type'] || $courseUsers[$user]['archive']) {
-    $fields = array('archive' => 0,
-        'user_type' => $roleInCourse);
+    //update from_timestamp value when user reassigned to a course (only if it is not completed)
+    if ($courseUsers[$user]['completed']) {
+     $fields = array('archive' => 0,
+         'user_type' => $roleInCourse);
+    } else {
+     $fields = array('archive' => 0,
+         'user_type' => $roleInCourse,
+         'from_timestamp' => time());
+    }
     //!$courseUsers[$user]['archive'] OR $fields['to_timestamp'] = 0;
     $confirmed OR $fields['from_timestamp'] = 0;
     $where = "users_LOGIN='".$user."' and courses_ID=".$this -> course['id'];
@@ -1332,8 +1339,15 @@ class EfrontCourse
       }
      }
     } elseif ($roleInCourse != $courseLessonsToUsers[$id][$user]['user_type'] || $courseLessonsToUsers[$id][$user]['archive']) {
-     $fields = array('archive' => 0,
-         'user_type' => $roleInCourse);
+     //update also lesson from_timestamp value when user reassigned to a course (only if it is not completed)
+     if ($courseLessonsToUsers[$id][$user]['completed']) {
+      $fields = array('archive' => 0,
+          'user_type' => $roleInCourse);
+     } else {
+      $fields = array('archive' => 0,
+          'user_type' => $roleInCourse,
+          'from_timestamp' => time());
+     }
      //!$courseLessonsToUsers[$id][$user]['archive'] OR $fields['to_timestamp'] = 0;
      $confirmed OR $fields['from_timestamp'] = 0;
      eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$user."' and lessons_ID=".$id);

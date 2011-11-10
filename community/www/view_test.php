@@ -26,7 +26,7 @@ try {
 try {
     if (isset($_GET['test_id']) && eF_checkParameter($_GET['test_id'], 'id') && eF_checkParameter($_GET['user'], 'login')) {
         $test = new EfrontTest($_GET['test_id']);
-        $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
+        $doneTests = EfrontCompletedTest::retrieveCompletedTest( "completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
 //        $test -> setDone($_GET['user']);
     } else if (isset($_GET['content_id']) && eF_checkParameter($_GET['content_id'], 'id') && eF_checkParameter($_GET['user'], 'login')) {
         $test = new EfrontTest($_GET['content_id'], true);
@@ -106,7 +106,7 @@ try {
      $smarty -> assign("T_CONTENT_ANALYSIS", $analysisCode);
      $smarty -> assign("T_TEST_DATA", $showTest);
 
-     $status = $showTest -> getStatus($result[0]['users_LOGIN']);
+     $status = $showTest -> getStatus($_GET['user']);
      $smarty -> assign("T_TEST_STATUS", $status);
 
      try {

@@ -10,7 +10,7 @@
         <div class = "headerTools">
          <span>
                 <img src = "images/16x16/arrow_left.png" alt = "{$smarty.const._VIEWSOLVEDTEST}" title = "{$smarty.const._VIEWSOLVEDTEST}">
-                <a href = "{$smarty.server.PHP_SELF}?test_id={$T_TEST_DATA->test.id}&user={$T_TEST_DATA->completedTest.login}&show_solved_test={$smarty.get.show_solved_test}">{$smarty.const._VIEWSOLVEDTEST}</a>
+                <a href = "{$smarty.server.PHP_SELF}?test_id={$T_TEST_DATA->test.id}&user={$T_TEST_DATA->completedTest.login}&show_solved_test={if $smarty.get.show_solved_test}{$smarty.get.show_solved_test}{else}{$smarty.get.done_test_id}{/if}">{$smarty.const._VIEWSOLVEDTEST}</a>
             </span>
    {if $T_TEST_STATUS.testIds|@sizeof > 1}
             <span>

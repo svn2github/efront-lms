@@ -310,8 +310,8 @@ try {
                     $children[] = $key;
                 }
                 if (sizeof($children) > 0) {
-                 if ($_GET['showall'] == "1") {
-                     $questions = eF_getTableData("questions", "*", "content_ID in (".implode(",", $children).")", "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
+                 if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
+                     $questions = eF_getTableData("questions,lessons", "questions.*", "content_ID in (".implode(",", $children).") and lessons_ID!=0 and lessons.id=questions.lessons_ID and lessons.active=1", "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
                  } else {
                   $questions = eF_getTableData("questions", "*", "content_ID in (".implode(",", $children).") and lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
                  }
@@ -320,7 +320,7 @@ try {
                 }
             } catch (Exception $e) {
              if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
-              $questions = eF_getTableData("questions", "*", "", "lessons_ID ASC"); //Retrieve all questions that belong to this lesson
+              $questions = eF_getTableData("questions,lessons", "questions.*", "lessons_ID !=0 and lessons.id=questions.lessons_ID and lessons.active=1", "lessons_ID ASC"); //Retrieve all questions that belong to this lesson
              } else {
                  $questions = eF_getTableData("questions", "*", "lessons_ID = ".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this lesson
              }
@@ -328,7 +328,7 @@ try {
             if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
     $directionsTree = new EfrontDirectionsTree();
     $directionsPaths = $directionsTree -> toPathString();
-    $lessons = EFrontLesson :: getLessons();
+    $lessons = EFrontLesson :: getLessons(false, true);
     foreach ($lessons as $key => $value) {
      $lessons[$key]['lesson_path'] = $directionsPaths[$value['directions_ID']]." --> ".$value['name'];
     }
@@ -425,6 +425,10 @@ try {
                 }
                 $questions[$key]['text'] = strip_tags($question['text']); //Strip tags from the question text, so they do not display in the list
                 $questions[$key]['estimate_interval'] = eF_convertIntervalToTime($questions[$key]['estimate']);
+                $questions[$key]['lesson_name'] = $lessons[$question['lessons_ID']]['name'];
+                if ($_GET['ctg'] == 'feedback' && $question['type'] == 'true_false') {
+                 unset($questions[$key]);
+                }
             }
    //remove questions from inactive and archived lessons
    if ($skillgap_tests) {
@@ -461,6 +465,7 @@ try {
                     $recentTests = eF_getTableData("completed_tests JOIN tests ON tests_id = tests.id JOIN users ON completed_tests.users_LOGIN = users.login JOIN users_to_skillgap_tests ON completed_tests.users_LOGIN = users_to_skillgap_tests.users_LOGIN AND users_to_skillgap_tests.tests_ID = tests.id AND users_to_skillgap_tests.solved = 1", "completed_tests.id, completed_tests.test, completed_tests.score, users.name as username, users.surname, completed_tests.tests_ID, tests.name, completed_tests.timestamp, completed_tests.users_LOGIN", "completed_tests.status != 'deleted' and completed_tests.tests_id IN ('". implode("','", $testIds) ."')", "timestamp DESC");
                 }
             }
+
             isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
             if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {

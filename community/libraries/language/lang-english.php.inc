@@ -4158,4 +4158,6 @@ define("_ACTIVETIMEINCONTENT", "Active time in content");
 define("_TIMEREPORTSEXPLANATION", "Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times.");
 define("_TOGGLEQUESTIONSPOOL", "Toggle common question pool");
 define("_YOUHAVENOTSELECTEDAVALUE", "You have not selected a value");
+define("_QUESTIONSPOOL", "Common question pool");
+define("_ADDFEEDBACSFEEDBACK", "Add feedback");
 ?>

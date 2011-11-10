@@ -952,11 +952,11 @@ class EfrontStats
     public static function getUsersLessonStatus($lessons = false, $users = false, $options = array()) {
 
         if ($lessons === false) {
-            $lessons = eF_getTableData("lessons", "*");
+            $result = eF_getTableDataFlat("lessons", "id");
+   $lessons = $result['id'];
         } else if (!is_array($lessons)) {
             $lessons = array($lessons);
         }
-
         if ($users != false) {
             !is_array($users) ? $users = array($users) : null; //Convert single login to array
         } else {
@@ -974,7 +974,6 @@ class EfrontStats
              $lessonStatus[$lessonId][$user] = self :: getUserLessonStatus($lesson, $user, $options);
             }
         }
-
         return $lessonStatus;
     }
 

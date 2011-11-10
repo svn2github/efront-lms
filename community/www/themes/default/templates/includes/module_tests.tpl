@@ -427,7 +427,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
         <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">
             <tr><td class = "topTitle" name = "text">{$smarty.const._QUESTIONTEXT}</td>
             {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
-          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
+          <td name = "lesson_name" class = "topTitle">{$smarty.const._LESSON}</td>
          {/if}
                 <td class = "topTitle centerAlign" name = "type">{$smarty.const._QUESTIONTYPE}</td>
    {if $T_CTG != 'feedback'}
@@ -450,7 +450,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <td> {$item.text|eF_truncate:50}</td>
     {/if}
     {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
-           <td><span title = "{$T_LESSONS[$item.lessons_ID].lesson_path}">{$T_LESSONS[$item.lessons_ID].name}</span></td>
+           <td><span title = "{$T_LESSONS[$item.lessons_ID].lesson_path}">{$item.lesson_name}</span></td>
           {/if}
      <td class = "centerAlign">
       <img src = "{$T_QUESTION_TYPE_ICONS[$item.type]}" title = "{$T_QUESTION_TYPES[$item.type]}" alt = "{$T_QUESTION_TYPES[$item.type]}" />
@@ -486,9 +486,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
 <!--ajax:questionsTable-->
         <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "7" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">
             <tr><td class = "topTitle" name = "text">{$smarty.const._QUESTIONTEXT}</td>
-            {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
-          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
-         {/if}
             {if !$T_SKILLGAP_TEST}
                 <td class = "topTitle" name = "parent_name">{$smarty.const._UNITNAME}</td>
             {else}
@@ -509,10 +506,11 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    {foreach name = "questions_list" key = "key" item = "item" from = $T_UNIT_QUESTIONS}
             {if $T_CTG == 'tests' || ($T_CTG == 'feedback' && $item.type != 'true_false')}
     <tr class = "{cycle name = "main_cycle" values="oddRowColor, evenRowColor"}">
+    {if $item.lessons_ID == $smarty.session.s_lessons_ID}
      <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}" title="{$item.text}"> {$item.text|eF_truncate:50}</a></td>
-    {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
-           <td><span title = "{$T_LESSONS[$item.lessons_ID].lesson_path}">{$T_LESSONS[$item.lessons_ID].name}</span></td>
-          {/if}
+    {else}
+     <td>{$item.text|eF_truncate:50}</td>
+    {/if}
     {if !$T_SKILLGAP_TEST}
      <td>{if $item.parent_name}{$item.parent_name}{else}{$smarty.const._NONE}{/if}</td>
     {else}
@@ -539,7 +537,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {if $T_SKILLGAP_TEST}
       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
     {/if}
-    {if $T_CTG != 'feedback'}
+    {if $T_CTG != 'feedback' && $item.lessons_ID == $smarty.session.s_lessons_ID}
      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
     {/if}
      </td>
@@ -621,7 +619,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {elseif $T_CTG != "feedback"}
          {eF_template_printBlock title = $smarty.const._ADDTEST data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
   {else}
-   {eF_template_printBlock title = $smarty.const._ADDFEEDBACK data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
+   {eF_template_printBlock title = $smarty.const._ADDFEEDBACSFEEDBACK data = $smarty.capture.t_edit_test_code image = '32x32/tests.png'}
      {/if}
  {/if}
 {elseif $smarty.get.add_question || $smarty.get.edit_question}
@@ -1106,8 +1104,8 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
            <a href = "{$smarty.server.PHP_SELF}?ctg=tests&add_test=1{if $smarty.get.from_unit}&from_unit={$smarty.get.from_unit}{/if}">{if $T_SKILLGAP_TEST}{$smarty.const._ADDSKILLGAPTEST}{else}{$smarty.const._ADDTEST}{/if}</a>
           {else}
   {* {if $T_TESTS|@sizeof < 1} *}
-      <img src = "images/16x16/add.png" title = "{$smarty.const._ADDFEEDBACK}" alt = "{$smarty.const._ADDFEEDBACK}"/>
-      <a href = "{$smarty.server.PHP_SELF}?ctg=feedback&add_test=1{if $smarty.get.from_unit}&from_unit={$smarty.get.from_unit}{/if}">{$smarty.const._ADDFEEDBACK}</a>
+      <img src = "images/16x16/add.png" title = "{$smarty.const._ADDFEEDBACSFEEDBACK}" alt = "{$smarty.const._ADDFEEDBACSFEEDBACK}"/>
+      <a href = "{$smarty.server.PHP_SELF}?ctg=feedback&add_test=1{if $smarty.get.from_unit}&from_unit={$smarty.get.from_unit}{/if}">{$smarty.const._ADDFEEDBACSFEEDBACK}</a>
    {* {/if} *}
     {/if}
     </span>
@@ -1192,7 +1190,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          <tr class = "defaultRowHeight">
              <td name = "text" class = "topTitle">{$smarty.const._QUESTION}</td>
          {if $smarty.get.showall}
-          <td name = "lesson" class = "topTitle">{$smarty.const._LESSON}</td>
+          <td name = "lesson_name" class = "topTitle">{$smarty.const._LESSON}</td>
          {/if}
              <td name = "type" class = "topTitle centerAlign">{$smarty.const._QUESTIONTYPE}</td>
    {if $T_CTG != 'feedback'}
@@ -1210,7 +1208,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {else}{$question.text|eF_truncate:70}{/if}
      </td>
     {if $smarty.get.showall}
-           <td><span title = "{$T_LESSONS[$question.lessons_ID].lesson_path}">{$T_LESSONS[$question.lessons_ID].name}</span></td>
+           <td><span title = "{$T_LESSONS[$question.lessons_ID].lesson_path}">{$question.lesson_name}</span></td>
           {/if}
      <td class = "centerAlign">
       <img src = "{$T_QUESTION_TYPE_ICONS[$question.type]}" title = "{$T_QUESTION_TYPES[$question.type]}" alt = "{$T_QUESTION_TYPES[$question.type]}" />

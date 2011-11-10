@@ -589,7 +589,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
        {if $smarty.get.edit_test}
         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_test=`$smarty.get.edit_test`'>`$smarty.const._EDITFEEDBACK` <span class='innerTableName'>&quot;`$T_CURRENT_TEST->test.name`&quot;</span></a>"}
        {elseif $smarty.get.add_test}
-        {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&add_test=1'>`$smarty.const._ADDFEEDBACK`</a>"}
+        {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&add_test=1'>`$smarty.const._ADDFEEDBACSFEEDBACK`</a>"}
        {elseif $smarty.get.edit_question}
         {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=feedback&edit_question=`$smarty.get.edit_question`&question_type=`$smarty.get.question_type`'>`$smarty.const._EDITQUESTION`</a>"}
        {elseif $smarty.get.add_question}

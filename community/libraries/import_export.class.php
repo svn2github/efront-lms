@@ -463,8 +463,10 @@ class EfrontImportCsv extends EfrontImport
        $value['users_login'] = $user -> user['login'];
        if (isset($userJobs[$value['users_login']]) && $this -> options['replace_assignments']) {
         foreach ($userJobs[$value['users_login']] as $key => $v) {
-         $user->aspects['hcd']->removeJob($v);
-         unset($userJobs[$value['users_login']][$v]);
+         if (!isset($addedJobs[$v][$value['users_login']])) {
+          $user->aspects['hcd']->removeJob($v);
+          unset($userJobs[$value['users_login']][$v]);
+         }
         }
         unset($userBranchesAssigned[$value['users_login']]);
        }

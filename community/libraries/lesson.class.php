@@ -4469,16 +4469,16 @@ class EfrontLesson
  private function buildSCORMManifestMain($str)
  {
   $manifest = '<?xml version="1.0" encoding="UTF-8"?>
-      <manifest identifier="SingleCourseManifest" version="1.1"
-                xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
-                xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
-                                    http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
-                                    http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
-          ';
-  $manifest .= $str;
-  $manifest .= '</manifest>';
+<manifest identifier="SingleCourseManifest" version="1.1"
+    xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+    xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+         http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+         http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">';
+ $manifest .= $str;
+ $manifest .= '
+</manifest>';
   return $manifest;
  }
  private function buildSCORMManifestMetadata($metadata)
@@ -4505,27 +4505,33 @@ class EfrontLesson
   $resource_str = '';
   $dependency_str = '';
   for ($i = 0 ; $i < sizeof($units) ; $i++) {
-   $resource_str .= '<resource identifier="' . $units[$i]['id'] . '" type="webcontent" adlcp:scormtype="sco" href="html/' . rawurlencode(EfrontFile :: encode($units[$i]['name'])) . '.html">';
-   $resource_str .= '<metadata></metadata>';
-   $resource_str .= '<file href="html/' .rawurlencode(EfrontFile :: encode($units[$i]['name'])) . '.html"/>';
-   $resource_str .= '<dependency identifierref="dep_SPECIAL"/>';
+   $resource_str .= '
+   <resource identifier="' . $units[$i]['id'] . '" type="webcontent" adlcp:scormtype="sco" href="html/' . rawurlencode(EfrontFile :: encode($units[$i]['name'])) . '.html">
+    <metadata></metadata>
+    <file href="html/' .rawurlencode(EfrontFile :: encode($units[$i]['name'])) . '.html"/>
+    <dependency identifierref="dep_SPECIAL"/>';
    $unitFiles = $units[$i]->getFiles(true);
    for ($j = 0 ; $j < sizeof($unitFiles) ; $j++) {
     $file = str_replace($this->getDirectory(), "", $unitFiles[$j]['path']);
-    $resource_str .= '<dependency identifierref="dep_' . $i . '_' . $j . '"/>';
-    $dependency_str .= '<resource identifier="dep_' . $i . '_' . $j . '" type="webcontent" adlcp:scormtype="asset" href="'.rawurlencode(EfrontFile :: encode($file)).'">';
-    $dependency_str .= '<metadata></metadata>';
-    $dependency_str .= '<file href="'.rawurlencode(EfrontFile :: encode($file)).'"/>';
-    $dependency_str .= '</resource>';
+    $resource_str .= '
+    <dependency identifierref="dep_' . $i . '_' . $j . '"/>';
+    $dependency_str .= '
+     <resource identifier="dep_' . $i . '_' . $j . '" type="webcontent" adlcp:scormtype="asset" href="'.rawurlencode(EfrontFile :: encode($file)).'">
+      <metadata></metadata>
+      <file href="'.rawurlencode(EfrontFile :: encode($file)).'"/>
+     </resource>';
    }
-   $resource_str .= '</resource>';
+   $resource_str .= '
+   </resource>';
   }
-  $SPECIAL_str = '<resource identifier="dep_SPECIAL" adlcp:scormtype="asset"
-                    type="webcontent">
-             <file href="SCOFunctions.js"/>
-             <file href="APIWrapper.js"/>
-          </resource>';
-  $final_str = '<resources>' . $resource_str . $dependency_str . $SPECIAL_str. '</resources>';
+  $SPECIAL_str = '
+   <resource identifier="dep_SPECIAL" adlcp:scormtype="asset" type="webcontent">
+    <file href="SCOFunctions.js"/>
+    <file href="APIWrapper.js"/>
+   </resource>';
+  $final_str = '
+  <resources>' . $resource_str . $dependency_str . $SPECIAL_str. '
+  </resources>';
   return $final_str;
  }
  private function buildSCORMManifestOrganizations($prerequisites)
@@ -4538,18 +4544,22 @@ class EfrontLesson
   for ($i = max($levels) ; $i>= 0 ; $i--) {
    for ($j = 0 ; $j < sizeof($tree) ; $j++) {
     if ($tree[$j]["level"] == $i && $tree[$j]["ctg_type"] != "tests" && $tree[$j]["ctg_type"] != "scorm" && $tree[$j]["ctg_type"] != "scorm_test" && $tree[$j]["ctg_type"] != "feedback") {
-     $tree[$j]["string"] = "\n<item identifier=\"item" . $tree[$j]["id"] . "\" identifierref=\"" . $tree[$j]["id"] . "\">\n\t<title>" . ($tree[$j]["name"]) . "</title>\n";
+     $tree[$j]["string"] = "
+     <item identifier=\"item" . $tree[$j]["id"] . "\" identifierref=\"" . $tree[$j]["id"] . "\">
+      <title>" . ($tree[$j]["name"]) . "</title>";
      /*An to antikeimeno exei prerequisites, pros8ese tis katallhles grammes*/
      if ($prerequisites[$tree[$j]["id"]]) {
       //echo "<br> A".$tree[$j]["id"];
-      $tree[$j]["string"] .= "\n<adlcp:prerequisites type=\"aicc_script\">item" . $prerequisites[$tree[$j]["id"]] . "</adlcp:prerequisites>";
+      $tree[$j]["string"] .= "
+      <adlcp:prerequisites type=\"aicc_script\">item" . $prerequisites[$tree[$j]["id"]] . "</adlcp:prerequisites>";
      }
      if (isset($tree[$j]["children"])) {
       for ($k = 1 ; $k <= sizeof($tree[$j]["children"]) ; $k++) {
        $tree[$j]["string"] .= $tree[$j]["children"][$k];
       }
      }
-     $tree[$j]["string"] .= "\n</item>";
+     $tree[$j]["string"] .= "
+     </item>";
      if ($tree[$j]["parent_id"] == 0) {
       $final_str .= $tree[$j]["string"];
      } else {
@@ -4562,9 +4572,12 @@ class EfrontLesson
     }
    }
   }
-  $content .= "\t" . '<organizations default="org1">' . "\n";
-  $content .= "\t<organization identifier=\"Org\" structure=\"hierarchical\"><title>default</title>" . "\n";
-  $content .= $final_str . "\t" . '</organization></organizations>' . "\n";
+  $content = "
+ <organizations default=\"Org\">
+  <organization identifier=\"Org\" structure=\"hierarchical\">
+   <title>default</title>$final_str
+  </organization>
+ </organizations>";
   return $content;
  }
  private function getSCORMPrerequisites()

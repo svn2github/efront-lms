@@ -901,7 +901,7 @@ CREATE TABLE search_keywords (
   table_name tinyint(1) NOT NULL,
   position tinyint(1) NOT NULL default '1',
   key keyword (keyword),
-  key foreign_ID (keyword),
+  key foreign_ID (foreign_ID),
   key table_name (table_name),
   key position (position)
 ) DEFAULT CHARSET=utf8;

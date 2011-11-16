@@ -1125,8 +1125,9 @@ function eF_checkParameter($parameter, $type, $correct = false)
             }
             break;
         case 'date':
-            if (!preg_match("/^[0-3]?[0-9]\-[0-1]?[0-9]\-[0-9]{4}$/", $parameter)) {
-                return false;
+            //if (!preg_match("/^[0-3]?[0-9]\-[0-1]?[0-9]\-[0-9]{4}$/", $parameter) && !preg_match("/^[0-3]?[0-9]\/[0-1]?[0-9]\/[0-9]{4}$/", $parameter)) {
+            if (!preg_match("/^[0-3]?[0-9][\-\/][0-1]?[0-9][\-\/][0-9]{4}$/", $parameter)) {
+          return false;
             }
             break;
         case 'alnum':

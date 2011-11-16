@@ -411,7 +411,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
 
              $branches_list = array();
 
-             include ("../libraries/module_hcd_tools.php");
+             require_once ("../libraries/module_hcd_tools.php");
 
              $branches_list = eF_createBranchesTreeSelect($branches,1);
 

@@ -42,6 +42,19 @@ if ($configuration['math_content'] && $configuration['math_images']) {
 
 if (isset($_GET['edit_test'])) {
     $currentTest = new EfrontTest($_GET['edit_test']);
+    $testQuestions = $currentTest -> getQuestions();
+    //if test contains a question from another lesson, display all lessons questions
+    if (!$GLOBALS['configuration']['disable_questions_pool'] && !isset($_GET['showall'])) {
+     $showAllFlag = false;
+     foreach ($testQuestions as $key => $value) {
+      if ($value['lessons_ID'] != $_SESSION['s_lessons_ID']) {
+       $showAllFlag = true;
+      }
+     }
+     if ($showAllFlag) {
+      $_GET['showall'] = 1;
+     }
+    }
 }
 
 //These will be needed throughout the page
@@ -138,7 +151,7 @@ if (!$skillgap_tests) {
      $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
      if (isset($_GET['edit_test'])) {
       //for questions already added to test from another lesson
-      $testQuestions = $currentTest -> getQuestions();
+      //$testQuestions 	= $currentTest -> getQuestions();  		
    $result = array_merge(array_values($result),array_values($testQuestions));
      }
     }

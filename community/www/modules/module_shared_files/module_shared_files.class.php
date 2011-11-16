@@ -193,7 +193,11 @@ class module_shared_files extends EfrontModule {
    }
    return true;
   } else if ($currentLesson) {
-   $smarty -> assign("T_SHARED_FILES_ENABLED", true);
+   $currentLesson->options['digital_library'] = 0;
+   $currentLesson->persist();
+   eF_redirect($this->moduleBaseUrl.'&message='.urlencode(_MODULE_SHARED_FILES_SHAREDFILESENABLED));
+   //$this->setMessageVar(_MODULE_SHARED_FILES_SHAREDFILESENABLED);
+   //$smarty -> assign("T_SHARED_FILES_ENABLED", true);
   }
  }
  /**

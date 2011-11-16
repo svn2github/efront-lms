@@ -1,7 +1,4 @@
 {capture name = "t_shared_files_code"}
-{if $T_SHARED_FILES_ENABLED}
- {$smarty.const._MODULE_SHARED_FILES_SHAREDFILESENABLED}
-{else}
 <!--ajax:sharedFilesTable-->
  <table class = "sortedTable" sortBy = "0" style = "width:100%" size = "{$T_TABLE_SIZE}" id = "sharedFilesTable" useAjax = "1" rowsPerPage = "20" other = "{$T_CURRENT_DIRECTORY}" url = "{$T_MODULE_BASEURL}&" nomass = "1" currentDir = "{$T_DIR_PATH}">
   <tr>
@@ -39,6 +36,5 @@
   {/foreach}
  </table>
 <!--/ajax:sharedFilesTable-->
-{/if}
 {/capture}
 {eF_template_printBlock title = $smarty.const._MODULE_SHARED_FILES_SHAREDFILES data = $smarty.capture.t_shared_files_code}

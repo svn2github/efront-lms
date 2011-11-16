@@ -87,7 +87,7 @@ class module_security extends EfrontModule {
      return $localIssues;
     }
     private function getRssFeeds($refresh = false, $limit = 10) {
-     session_write_close();
+     //session_write_close();
      $feedTitle = '';
      $feed = 'http://security.efrontlearning.net/feeds/posts/default';
      $str = '';
@@ -105,7 +105,8 @@ class module_security extends EfrontModule {
      return $rssString;
     }
     public function parseFeed($feed) {
-        $xmlString = file_get_contents($feed);
+     $context = stream_context_create(array('http' => array('timeout' => 3)));
+     $xmlString = file_get_contents($feed, 0, $context);
         try {
             $iterator = new SimpleXMLIterator($xmlString);
             foreach (new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator :: SELF_FIRST) as $key => $value) {

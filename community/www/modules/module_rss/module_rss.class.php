@@ -294,7 +294,7 @@ class module_rss extends EfrontModule
     }
 
     private function getRssFeeds($refresh = false) {
-     session_write_close();
+     //session_write_close();
      $feedTitle = '';
      $feeds = $this -> getFeeds(true);
      foreach ($feeds as $key => $feed) {
@@ -392,7 +392,8 @@ class module_rss extends EfrontModule
 
 
     public function parseFeed($feed) {
-        $xmlString = file_get_contents($feed['url']);
+     $context = stream_context_create(array('http' => array('timeout' => 3)));
+     $xmlString = file_get_contents($feed['url'], 0, $context);
         try {
             $iterator = new SimpleXMLIterator($xmlString);
             foreach (new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator :: SELF_FIRST) as $key => $value) {

@@ -4160,4 +4160,6 @@ define("_TOGGLEQUESTIONSPOOL", "Εναλλαγή εμφάνισης κοινής
 define("_YOUHAVENOTSELECTEDAVALUE", "Δεν έχετε επιλέξει μια τιμή");
 define("_QUESTIONSPOOL", "Κοινή δεξαμενή ερωτήσεων");
 define("_ADDFEEDBACSFEEDBACK", "Προσθήκη ανάδρασης");
+define("_SHOWQUESTIONSPOOL", "Εμφάνιση κοινής δεξαμενής ερωτήσεων");
+define("_SHOWLESSONQUESTIONS", "Εμφάνιση ερωτήσεων μαθήματος");
 ?>

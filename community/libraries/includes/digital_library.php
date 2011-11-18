@@ -35,7 +35,8 @@ if ($currentUser -> coreAccess['content'] == 'hidden') {
 
 $basedir = $currentLesson -> getDirectory();
 try {
- $result = eF_getTableData("files", "*", "shared=".$currentLesson -> lesson['id']);
+ $folderId = $currentLesson -> lesson['share_folder'] ? $currentLesson -> lesson['share_folder'] : $currentLesson -> lesson['id'];
+ $result = eF_getTableData("files", "*", "shared=".$folderId);
  foreach ($result as $value) {
   $sharedFiles[G_ROOTPATH.$value['path']] = new EfrontFile($value['id']);
  }
@@ -43,7 +44,7 @@ try {
   $filesystem = new FileSystemTree($basedir, true);
   //changed to take account subfolders in efficient way
   //$filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator($filesystem -> tree, RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $currentLesson -> lesson['id'])));
-  $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sharedFiles), RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $currentLesson -> lesson['id'])));
+  $filesystemIterator = new EfrontFileOnlyFilterIterator(new EfrontNodeFilterIterator(new EfrontDBOnlyFilterIterator(new EfrontFileOnlyFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sharedFiles), RecursiveIteratorIterator :: SELF_FIRST))), array('shared' => $folderId)));
 
   $url = basename($_SERVER['PHP_SELF']).'?ctg=digital_library';
   $options = array('share' => false, 'zip' => false, 'folders' => false, 'delete' => false, 'edit' => false, 'create_folder' => false, 'upload' => false);

@@ -4160,4 +4160,6 @@ define("_TOGGLEQUESTIONSPOOL", "Toggle common question pool");
 define("_YOUHAVENOTSELECTEDAVALUE", "You have not selected a value");
 define("_QUESTIONSPOOL", "Common question pool");
 define("_ADDFEEDBACSFEEDBACK", "Add feedback");
+define("_SHOWQUESTIONSPOOL", "Show common questions pool");
+define("_SHOWLESSONQUESTIONS", "Show lesson questions");
 ?>

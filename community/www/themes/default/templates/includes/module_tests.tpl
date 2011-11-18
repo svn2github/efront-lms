@@ -401,6 +401,15 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     </select>
          </span>
    {/if}
+   {if !$T_SKILLGAP_TEST && !$T_CONFIGURATION.disable_questions_pool}
+    <span style = "float:right;border-width:0px">
+    {if !$smarty.get.showall}
+         <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&showall=1&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._SHOWQUESTIONSPOOL}" title = "{$smarty.const._SHOWQUESTIONSPOOL}"/>&nbsp;{$smarty.const._SHOWQUESTIONSPOOL}</a>
+        {else}
+         <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&showall={if !$smarty.get.showall}1{else}0{/if}&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._SHOWLESSONQUESTIONS}" title = "{$smarty.const._SHOWLESSONQUESTIONS}"/>&nbsp;{$smarty.const._SHOWLESSONQUESTIONS}</a>
+        {/if}
+        </span>
+   {/if}
   </div>
   {$smarty.capture.t_random_test_wizard}
   <div id = "test_settings">
@@ -415,11 +424,6 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
    <span {if !$T_TEST_QUESTIONS_STATISTICS.random_pool}style = "display:none"{/if}>{$smarty.const._WHEREARANDOMPOOLOF} <span id = "questions_random_pool">{$T_TEST_QUESTIONS_STATISTICS.random_pool}</span> {$smarty.const._QUESTIONSISUSEDEACHTIME}</span>
   </div>
 {*This is the ajax table for the questions inside the edit test*}
- {if !$T_SKILLGAP_TEST && !$T_CONFIGURATION.disable_questions_pool}
-   <span>
-        <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$smarty.get.edit_test}&showall={if !$smarty.get.showall}1{else}0{/if}&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._TOGGLEQUESTIONSPOOL}" title = "{$smarty.const._TOGGLEQUESTIONSPOOL}"/>&nbsp;{$smarty.const._TOGGLEQUESTIONSPOOL}</a>
-       </span>
- {/if}
 {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'questionsTable'}
 {*This is the ajax table for the common questions pool *}
   {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
@@ -1177,13 +1181,17 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {/foreach}
     </select>
    </span>
+   {if !$T_SKILLGAP_TEST && !$T_CONFIGURATION.disable_questions_pool}
+    <span style = "float:right;border-width:0px">
+    {if !$smarty.get.showall}
+         <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&showall=1&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._SHOWQUESTIONSPOOL}" title = "{$smarty.const._SHOWQUESTIONSPOOL}"/>&nbsp;{$smarty.const._SHOWQUESTIONSPOOL}</a>
+        {else}
+         <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&showall=0&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._SHOWLESSONQUESTIONS}" title = "{$smarty.const._SHOWLESSONQUESTIONS}"/>&nbsp;{$smarty.const._SHOWLESSONQUESTIONS}</a>
+          {/if}
+        </span>
+       {/if}
   </div>
   {/if}
-  {if !$T_SKILLGAP_TEST && !$T_CONFIGURATION.disable_questions_pool}
-   <span>
-        <a href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&showall={if !$smarty.get.showall}1{else}0{/if}&tab=questions" ><img src = "images/16x16/order.png" alt = "{$smarty.const._TOGGLEQUESTIONSPOOL}" title = "{$smarty.const._TOGGLEQUESTIONSPOOL}"/>&nbsp;{$smarty.const._TOGGLEQUESTIONSPOOL}</a>
-       </span>
-      {/if}
 {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
 <!--ajax:questionsTable-->
   <table class = "QuestionsListTable sortedTable" id = "questionsTable" size = "{$T_QUESTIONS_SIZE}" sortBy = "0" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&from_unit={$smarty.get.from_unit}&tab={$smarty.get.tab}&showall={$smarty.get.showall}&">

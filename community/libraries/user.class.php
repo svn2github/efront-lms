@@ -3107,7 +3107,7 @@ class EfrontStudent extends EfrontLessonUser
   if (in_array($lesson -> lesson['id'], array_keys($this -> getLessons()))) {
    $fields = array('completed' => 1,
        'to_timestamp' => time(),
-       'score' => $score,
+       'score' => str_replace(',','.', $score),
        'comments' => $comments);
    eF_updateTableData("users_to_lessons", $fields, "users_LOGIN = '".$this -> user['login']."' and lessons_ID=".$lesson -> lesson['id']);
    //$cacheKey = "user_lesson_status:lesson:".$lesson -> lesson['id']."user:".$this -> user['login'];
@@ -3180,7 +3180,7 @@ class EfrontStudent extends EfrontLessonUser
    $checkCompleted = $userCourses[$course -> course['id']]['to_timestamp'];
    $fields = array('completed' => 1,
        'to_timestamp' => $checkCompleted ? $checkCompleted :time(),
-       'score' => $score,
+       'score' => str_replace(',','.', $score),
        'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
    EfrontCourse::persistCourseUsers($fields, $where, $course -> course['id'], $this -> user['login']);

@@ -392,7 +392,7 @@ class TrainingReports_Report {
         }
         //pr($userLessons);exit;
         foreach ($users as $key=>$value) {
-         if (!in_array($value['login'], $supervisedUsers) && !in_array($value['login'], $lessonUsers)) {
+         if ($_SESSION['s_type'] != 'administrator' && !in_array($value['login'], $supervisedUsers) && !in_array($value['login'], $lessonUsers)) {
           unset($users[$key]);
          }
         }

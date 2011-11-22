@@ -69,7 +69,7 @@ if ($_GET['op'] == 'dashboard') {
 $smarty -> assign("T_OP", $_GET['op']);
 $options = array();
 //Only own access to dashboard
-if ($editedUser -> user['login'] == $currentUser->user['login'] && (!isset($editedUser -> coreAccess['dashboard']) || $editedUser -> coreAccess['dashboard'] != 'hidden')) {
+if ($editedUser -> user['login'] == $currentUser->user['login'] && (!isset($currentUser -> coreAccess['dashboard']) || $currentUser -> coreAccess['dashboard'] != 'hidden')) {
  $options['dashboard'] = array('image' => '16x16/social.png', 'title' => _DASHBOARD, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=personal&user='.$editedUser->user['login']."&op=dashboard", 'selected' => isset($_GET['op']) && $_GET['op'] == 'dashboard' ? true : false);
 }
 $options['account'] = array('image' => '16x16/user.png', 'title' => _ACCOUNT, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=personal&user='.$editedUser->user['login']."&op=profile", 'selected' => isset($_GET['op']) && in_array($_GET['op'], $accountOperations) ? true : false);

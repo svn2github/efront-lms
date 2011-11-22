@@ -1099,7 +1099,7 @@ function eF_checkParameter($parameter, $type, $correct = false)
             }
             break;
         case 'email':
-            if (!preg_match("/^([a-zA-Z0-9_\.\-'])+\@(([a-zA-Z0-9_\-])+\.)+([a-zA-Z0-9]{2,4})+$/", $parameter)) { //This means: begins with 0 or more '_' or '-', followed by at least 1 word character, followed by any combination of '_', '-', '.' and word characters, then '@', then the same as before, then the '.' and then 1 ore more characters.
+            if (!preg_match("/^([a-zA-Z0-9+_\.\-'])+\@(([a-zA-Z0-9_\-])+\.)+([a-zA-Z0-9]{2,4})+$/", $parameter)) { //This means: begins with 0 or more '_' or '-', followed by at least 1 word character, followed by any combination of '_', '-', '.' and word characters, then '@', then the same as before, then the '.' and then 1 ore more characters.
                 return false;
             }
             break;

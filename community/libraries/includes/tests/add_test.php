@@ -44,23 +44,10 @@ if (isset($_GET['edit_test'])) {
     $currentTest = new EfrontTest($_GET['edit_test']);
     $testQuestions = $currentTest -> getQuestions();
     //if test contains a question from another lesson, display all lessons questions
-    if (!$GLOBALS['configuration']['disable_questions_pool'] && !isset($_GET['showall'])) {
-     $showAllFlag = false;
-     foreach ($testQuestions as $key => $value) {
-      if ($value['lessons_ID'] != $_SESSION['s_lessons_ID']) {
-       $showAllFlag = true;
-      }
-     }
-     if ($showAllFlag) {
-      $_GET['showall'] = 1;
-     }
-    }
 }
-
 //These will be needed throughout the page
 $smarty -> assign("T_QUESTIONTYPESTRANSLATIONS", Question :: $questionTypes);//pr($question_types_translations);
 $smarty -> assign("T_QUESTIONDIFFICULTYTRANSLATIONS", Question::$questionDifficulties);//pr($question_types_translations);
-
 //This page has a file manager, so bring it on with the correct options
 $skillgap_tests ? $basedir = G_ADMINPATH : $basedir = $currentLesson -> getDirectory();
 //Default options for the file manager
@@ -77,12 +64,9 @@ if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['f
                  'lessons_ID' => !$skillgap_tests ? $currentLesson -> lesson['id'] : false,
                  'metadata' => 0);
 }
-
 $loadScripts[] = 'scriptaculous/slider';
 $load_editor = true;
-
 $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=".$_GET['ctg'].(isset($_GET['from_unit']) && in_array($_GET['from_unit'], $legalUnits) ? '&from_unit='.$_GET['from_unit'] : '').(isset($_GET['add_test']) ? '&add_test=1' : '&edit_test='.$_GET['edit_test']), "", null, true);
-
 $form -> addElement('text', 'name', null, 'class = "inputText"');
 $form -> addElement('text', 'duration', null, 'id = "test_duration" size = "5"');
 $form -> addElement('text', 'redoable', null, 'size = "5"');
@@ -91,13 +75,11 @@ $form -> addElement('text', 'mastery_score', _MASTERYSCORE, 'size = "5"');
 $form -> addElement('text', 'test_password', _TESTPASSWORD, "class = 'inputText'");
 $form -> addElement('advcheckbox', 'onebyone', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'only_forward', null, null, null, array(0, 1));
-
 //$form -> addElement('advcheckbox', 'given_answers',     null, null, null, array(0, 1));
 //$form -> addElement('advcheckbox', 'show_score',    	null, null, null, array(0, 1));
 //$form -> addElement('advcheckbox', 'answers',           null, null, 'id = "answers_checkbox" onclick = "if (this.checked && $(\'show_answers_if_pass_checkbox\').checked) {$(\'show_answers_if_pass_checkbox\').checked = false}"', array(0, 1));
 //$form -> addElement('advcheckbox', 'show_answers_if_pass', null, null, 'id = "show_answers_if_pass_checkbox" onclick = "if (this.checked && $(\'answers_checkbox\').checked) {$(\'answers_checkbox\').checked = false}"', array(0, 1));
 //$form -> addElement('advcheckbox', 'redirect',          null, null, null, array(0, 1));
-
 $possible_actions = array( 0 => _SHOWATHANKYOUMESSAGE,
        1 => _SHOWONLYTEST,
        2 => _SHOWGIVENANSWERS,
@@ -106,7 +88,6 @@ $possible_actions = array( 0 => _SHOWATHANKYOUMESSAGE,
        5 => _SHOWANSWERSIFSTUDENTPASSEDNEW
       );
 $form -> addElement('select', 'action_on_submit', _SUBMITACTION, $possible_actions);
-
 $form -> addElement('advcheckbox', 'shuffle_answers', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'shuffle_questions', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'pause_test', null, null, null, array(0, 1));
@@ -117,7 +98,6 @@ $form -> addElement('advcheckbox', 'answer_all', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'keep_best', null, null, null, array(0, 1));
 $form -> addElement('advcheckbox', 'redo_wrong', null, null, null, array(0, 1));
 $form -> addElement('textarea', 'description', null, 'id="editor_content_data" class = "inputTestTextarea mceEditor" style = "width:100%;height:16em;"');
-
 if ($_GET['ctg'] != 'feedback') {
  $form -> addRule('mastery_score', _RATEMUSTBEBETWEEN0100, 'callback', create_function('$a', 'return ($a >= 0 && $a <= 100);')); //The score must be between 0 and 100
  $form -> addRule('mastery_score', _THEFIELD.' "'._MASTERYSCORE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
@@ -125,8 +105,6 @@ if ($_GET['ctg'] != 'feedback') {
  $form -> addRule('redoable', _THEFIELD.' "'._REDOABLE.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
 }
 $form -> addRule('name', _THEFIELD.' "'._NAME.'" '._ISMANDATORY, 'required', null, 'client');
-
-
 if (!$skillgap_tests) {
     $optionsArray = $currentContent -> toHTMLSelectOptions(); //Get the units as an array of formated strings, that can be used to form an HTML select list
     $select_units = & HTML_QuickForm :: createElement('select', 'parent_content', _UNITPARENT, null, 'class = "inputSelect"');
@@ -137,7 +115,6 @@ if (!$skillgap_tests) {
   $form -> addRule('parent_content', _THEFIELD.' '._UNITPARENT.' '._ISMANDATORY, 'required', null, 'client');
   $form -> addRule('parent_content', _INVALIDID, 'numeric');
 //	}
-
     isset($_GET['from_unit']) && eF_checkParameter($_GET['from_unit'], 'id') ? $selectedUnit = $_GET['from_unit'] : $selectedUnit = 0;
     $selectedUnit ? $units = $currentContent -> getNodeChildren($selectedUnit) : $units = $currentContent -> tree;
     foreach ($iterator = new EfrontAttributeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($units)), array('id', 'name')) as $key => $value) {
@@ -146,7 +123,6 @@ if (!$skillgap_tests) {
     $unitNames = array_combine($ids, $names);
     $unitNames[0] = _NONEUNIT;
     if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
-     $result = eF_getTableData("questions,lessons", "questions.*", "lessons_ID !=0 and lessons.id=questions.lessons_ID and lessons.active=1", "content_ID ASC");
     } else {
      $result = eF_getTableData("questions", "*", "lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
      if (isset($_GET['edit_test'])) {
@@ -155,7 +131,6 @@ if (!$skillgap_tests) {
    $result = array_merge(array_values($result),array_values($testQuestions));
      }
     }
-
     if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
   $directionsTree = new EfrontDirectionsTree();
   $directionsPaths = $directionsTree -> toPathString();
@@ -166,20 +141,16 @@ if (!$skillgap_tests) {
   $smarty -> assign("T_LESSONS", $lessons);
     }
 } else {
-
     $form -> addElement('text', 'general_threshold', null, 'class = "inputText"');
     $form->registerRule('decimal2digits','regex','/^\d{1,2}(\.\d{1,2})?$/');
     $form->addRule('general_threshold',_INVALIDFIELDDATAFORFIELD.' "'._GENERALTHRESHOLD.'": '. _NUMBERFROM000TO9999REQUIRED,'decimal2digits');
     // Set default value and if it is defined it will be overwritten - @hardcoded value 50 - could be set by admin in general
     $form -> setDefaults(array('general_threshold' => "50.00"));
-
     $form -> addElement('advcheckbox', 'assign_to_new', null, null, null, array(0, 1));
     $form -> addElement('advcheckbox', 'automatic_assignment', null, null, null, array(0, 1));
     $form -> addElement('advcheckbox', 'student_results', null, null, null, array(0, 1));
     $result = eF_getTableData("questions LEFT OUTER JOIN lessons ON  lessons_ID=lessons.id", "questions.*, lessons.name" , "type <> 'raw_text' and (lessons_ID=0 or lessons.archive=0)");
-
 }
-
 $unitsToQuestionsDifficulties = array();
 foreach ($result as $value) {
     $questions[$value['id']] = $value;
@@ -190,7 +161,6 @@ foreach ($result as $value) {
         $unitsToQuestionsDifficulties[$value['content_ID']][$value['difficulty']] = 0;
     }
     $unitsToQuestionsDifficulties[$value['content_ID']][$value['difficulty']]++;
-
     if (!isset($unitsToQuestionsTypes[$value['content_ID']])) {
         $unitsToQuestionsTypes[$value['content_ID']] = array();
     }
@@ -199,7 +169,6 @@ foreach ($result as $value) {
     }
     $unitsToQuestionsTypes[$value['content_ID']][$value['type']]++;
 }
-
 $smarty -> assign("T_UNITS_TO_QUESTIONS_DIFFICULTIES", $unitsToQuestionsDifficulties);
 $smarty -> assign("T_UNITS_TO_QUESTIONS_TYPES", $unitsToQuestionsTypes);
 //pr($unitsToQuestions);
@@ -210,7 +179,6 @@ $smarty -> assign("T_QUESTION_DIFFICULTIES", Question::$questionDifficulties);
 $smarty -> assign("T_QUESTION_DIFFICULTIES_ICONS", Question::$questionDifficultiesIcons);
 $smarty -> assign("T_QUESTION_TYPES", Question::$questionTypes);
 $smarty -> assign("T_QUESTION_TYPES_ICONS", Question::$questionTypesIcons);
-
 if (isset($_GET['add_test'])) {
     $form -> addElement('submit', 'submit_test', _SAVETESTANDADDQUESTIONS, 'class = "flatButton"');
   /*  $form -> setDefaults(array('given_answers'    => 1,
@@ -366,10 +334,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
         $currentTest -> test['description'] = applyEditorOffset( $values['description']);
         $currentTest -> test['mastery_score'] = $values['mastery_score'] ? $values['mastery_score'] : 0;
         $currentTest -> test['name'] = $values['name'];
-
         $currentTest -> options = array_merge($currentTest -> options, $testOptions);
         $currentTest -> persist();
-
         if (!$skillgap_tests) {
             $testUnit['name'] = $values['name'];
             $testUnit['parent_content_ID'] = $values['parent_content'];
@@ -399,7 +365,6 @@ if ($form -> isSubmitted() && $form -> validate()) {
                               'publish' => $values['publish'],
                'keep_best' => $values['keep_best'],
                               'mastery_score' => $values['mastery_score'] ? $values['mastery_score'] : 0);
-
         if (!$skillgap_tests) {
             $newUnit = $currentContent -> insertNode($contentFields);
             $newTest = EfrontTest :: createTest($newUnit, $testFields);
@@ -433,47 +398,36 @@ if ($form -> isSubmitted() && $form -> validate()) {
     }
 }
 $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
-
 $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
 $form -> setRequiredNote(_REQUIREDNOTE);
 $form -> accept($renderer);
-
 $smarty -> assign('T_TEST_FORM', $renderer -> toArray());
-
-
 // Code to find users to who a skillgap tests has been assigned
 if ($skillgap_tests) {
     // AJAX CODE TO RELOAD SKILL-GAP TEST USERS
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'testUsersTable') {
         isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-
         if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
             $sort = $_GET['sort'];
             isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
         } else {
             $sort = 'login';
         }
-
         $testUsers = eF_getTableData("users LEFT OUTER JOIN users_to_skillgap_tests ON login = users_login AND tests_ID = '".$_GET['edit_test']."'", "distinct login, name,surname,tests_ID as partof, solved", "users.user_type = 'student' and users.archive=0 and users.active=1");
         $test_info = eF_getTableData("completed_tests", "id, users_LOGIN", "status != 'deleted' and tests_ID = " . $_GET['edit_test']);
-
         if (isset($_GET['sort'])) {
             isset($_GET['order']) ? $order = $_GET['order'] : $order = 'asc';
             $testUsers = eF_multiSort($testUsers, $_GET['sort'], $order);
         }
-
         if (isset($_GET['filter'])) {
             $testUsers = eF_filterData($testUsers, $_GET['filter']);
         }
-
         $smarty -> assign('T_USERS_SIZE', sizeof($testUsers));
-
         $smarty -> assign("T_PROPOSED_LESSONS_SIZE", sizeof($testUsers));
         if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
             isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
             $testUsers = array_slice($testUsers, $offset, $limit);
         }
-
         // Find the completed test for each user
         foreach ($testUsers as $uid => $user) {
             foreach($test_info as $info) {
@@ -482,7 +436,6 @@ if ($skillgap_tests) {
                 }
             }
         }
-
         $smarty -> assign('T_ALL_USERS', $testUsers);
         $smarty -> display($_SESSION['s_type'].'.tpl');
         exit;
@@ -502,24 +455,19 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
             $questions[$qid]['name'] = _LESSON . ': "' . $question['name'] . '"';
             $questions[$qid]['lesson_name'] = $lessons[$question['lessons_ID']]['name'];
         }
-
         if ($skillgap_tests && $question['type'] == 'raw_text') {
             unset($questions[$qid]);
         }
-
         if ($_GET['ctg'] == 'feedback' && $question['type'] == 'true_false') {
          unset($questions[$qid]);
         }
     }
-
     foreach ($testQuestions as $testQuestion) { //Set to selected the questions that the test includes, along with their weights
         $form -> setDefaults(array('questions['.$testQuestion['id'].']' => 1,
                                                'question_weight['.$testQuestion['id'].']' => $testQuestion['weight']));
         $questions[$testQuestion['id']]['partof'] = 1;
     }
-
     isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
-
     if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
         $sort = $_GET['sort'];
         isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
@@ -527,22 +475,18 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
         $sort = 'text';
     }
     $questions = eF_multiSort($questions, $sort, $order);
-
     if (isset($_GET['filter'])) {
         $questions = eF_filterData($questions, $_GET['filter']);
     }
-
     $smarty -> assign("T_QUESTIONS_SIZE", sizeof($questions));
     if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
         isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
         $questions = array_slice($questions, $offset, $limit, true);
     }
-
     foreach ($questions as $id => $question) {
         $form -> addElement("checkbox", "questions[".$id."]", null, null, 'id = "checked_'.$id.'" onclick = "ajaxPost(\''.$id.'\', this, \'questionsTable\');"');
         $form -> addElement('select', 'question_weight['.$id.']', null, array_combine(range(1,10), range(1,10)), 'id = "weight_'.$id.'" onchange = "$(\'checked_'.$id.'\').checked=true;ajaxPost(\''.$id.'\', this);"');
     }
-
     $smarty -> assign('T_UNIT_QUESTIONS', $questions);
 //pr($questions);exit;
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
@@ -551,7 +495,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
     $smarty -> display($_SESSION['s_type'].'.tpl');
     exit;
 }
-
 if (isset($_GET['postAjaxRequest'])) {
     // Ajax assignment of a skill gap test to a user
     if (isset($_GET['login'])) {
@@ -559,9 +502,7 @@ if (isset($_GET['postAjaxRequest'])) {
             eF_insertTableData("users_to_skillgap_tests", array( "users_LOGIN" => $_GET['login'], "tests_ID" => $_GET['edit_test']));
         } else if ($_GET['checked'] == "false") {
             eF_deleteTableData("users_to_skillgap_tests", "users_LOGIN = '". $_GET['login'] ."' AND tests_ID = '" .$_GET['edit_test'] . "'");
-
         } else if (isset($_GET['addAll'])) {
-
             // Different management if a users' filter is set or not
             if ($_GET['filter']) {
                 $existing_test_users_r = eF_getTableData("users_to_skillgap_tests", "*", "tests_ID = '".$_GET['edit_test']."'");
@@ -576,23 +517,19 @@ if (isset($_GET['postAjaxRequest'])) {
                 }
                 $all_users_r = eF_getTableData("users", "*", "user_type = 'student'");
                 $all_users_r = eF_filterData($all_users_r,$_GET['filter']);
-
                 $all_users['login'] = array();
                 foreach ($all_users_r as $test_user) {
                     $all_users['login'][] = $test_user['login'];
                 }
-
             } else {
                 $existing_test_users = eF_getTableDataFlat("users_to_skillgap_tests", "users_LOGIN", "tests_ID = '".$_GET['edit_test']."'");
                 $all_users = eF_getTableDataFlat("users", "login", "user_type = 'student'");
             }
-
             if (empty($existing_test_users)) {
                 $non_existing_users = $all_users['login'];
             } else {
                 $non_existing_users = array_diff($all_users['login'], $existing_test_users['users_LOGIN']);
             }
-
             foreach ($non_existing_users as $user_to_add) {
                 if (!$all_users_to_add) {
                     $all_users_to_add = "('".$_GET['edit_test'] . "','". $user_to_add . "' , '0')";
@@ -600,7 +537,6 @@ if (isset($_GET['postAjaxRequest'])) {
                     $all_users_to_add .= ",('".$_GET['edit_test'] . "','". $user_to_add. "' , '0')";
                 }
             }
-
             if (isset($all_users_to_add)) {
                 eF_execute("INSERT INTO users_to_skillgap_tests (tests_ID, users_LOGIN, solved) VALUES " . $all_users_to_add);
             }
@@ -609,7 +545,6 @@ if (isset($_GET['postAjaxRequest'])) {
             if ($_GET['filter']) {
                 $all_current_users = eF_getTableData("users_to_skillgap_tests JOIN users ON users_LOGIN = login", "login, name, surname", "");
                 isset($_GET['filter']) ? $all_current_users = eF_filterData($all_current_users,$_GET['filter']) : null;
-
                 foreach ($all_current_users as $test_user) {
                     eF_deleteTableData("users_to_skillgap_tests", "tests_ID = '".$_GET['edit_test'] . "' AND users_LOGIN = '". $test_user['login']."' ");
                 }
@@ -617,7 +552,6 @@ if (isset($_GET['postAjaxRequest'])) {
                 eF_deleteTableData("users_to_skillgap_tests", "tests_ID = '".$_GET['edit_test'] . "'");
             }
         }
-
     } else {
         try {
             if (isset($_GET['question']) && eF_checkParameter($_GET['question'], 'id')) {
@@ -627,9 +561,7 @@ if (isset($_GET['postAjaxRequest'])) {
                     $currentTest -> addQuestions(array($_GET['question'] => $_GET['weight']));
                 }
             } else if (isset($_GET['addAll'])) {
-
                 $nonTestQuestions = $currentTest -> getNonQuestions();
-
                 // Do not add development questions to skill gap tests
                 if ($skillgap_tests) {
                     foreach($nonTestQuestions as $qid => $nonTestQuestion) {
@@ -659,7 +591,6 @@ if (isset($_GET['postAjaxRequest'])) {
                 $currentTest -> addQuestions(array_combine(array_keys($nonTestQuestions), array_fill(0, sizeof($nonTestQuestions), 1)));
             } else if (isset($_GET['removeAll'])) {
                 $testQuestions = $currentTest -> getQuestions();
-
                 if ($skillgap_tests) {
                     // Create a field to simulate the values appearing under the Associated with column of skillgap tests
                     foreach ($testQuestions as $qid => $testQuestion) {
@@ -671,11 +602,9 @@ if (isset($_GET['postAjaxRequest'])) {
                         }
                     }
                 }
-
                 isset($_GET['filter']) ? $testQuestions = eF_filterData($testQuestions,$_GET['filter']) : null;
                 $currentTest -> removeQuestions(array_keys($testQuestions));
             }
-
             //ArrayObject is required in order for json to work well with prototype
             $stats = new ArrayObject($currentTest -> questionsInfo());
             $stats['difficulties'] = new ArrayObject($stats['difficulties']);
@@ -684,10 +613,8 @@ if (isset($_GET['postAjaxRequest'])) {
             $stats['duration'] = eF_convertIntervalToTime($stats['total_duration']);
             $stats['random_pool'] = $currentTest -> options['random_pool'];
             $stats['test_duration'] = $currentTest -> options['duration'];
-
             header("content-type:application/json");
             echo json_encode($stats);
-
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo $e -> getMessage().' ('.$e -> getCode().')';
@@ -702,7 +629,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
                   'mean_difficulty' => is_numeric($_GET['mean_difficulty']) ? $_GET['mean_difficulty'] : '',
                  'balance' => is_numeric($_GET['balance']) ? $_GET['balance'] : 50);
         $params['duration'] = $params['duration']*60;
-
         //Remove units and difficulties that are set to 'Off'
         if (isset($_GET['unit_to_difficulty'])) {
             foreach ($_GET['unit_to_difficulty'] as $key => $value) {
@@ -747,7 +673,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
             }
             $reqs = array('percentage' => $_GET['unit_to_percentage']);
         }
-
         $questions = $currentTest -> randomize($params, $reqs);
         //ArrayObject is required in order for json to work well with prototype
         $stats = new ArrayObject($currentTest -> questionsInfo($questions));
@@ -761,7 +686,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
         }
         $stats['random_pool'] = $currentTest -> options['random_pool'] ? $currentTest -> options['random_pool'] : '';
         $stats['test_duration'] = $currentTest -> options['duration'];
-
         header("content-type:application/json");
         echo json_encode($stats);
     } catch (Exception $e) {
@@ -770,7 +694,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'randomize') {
     }
     exit;
 }
-
 if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['random_pool'])) {
     try {
         //Set the random pool option
@@ -782,13 +705,10 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['rando
             $randomPool = sizeof($currentTest -> getQuestions());
         }
         $currentTest -> options['random_pool'] = $randomPool;
-
         //Set the user configurable option
         isset($_GET['user_configurable']) && $_GET['user_configurable'] ? $currentTest -> options['user_configurable'] = 1 : $currentTest -> options['user_configurable'] = 0;
         isset($_GET['show_incomplete']) && $_GET['show_incomplete'] ? $currentTest -> options['show_incomplete'] = 1 : $currentTest -> options['show_incomplete'] = 0;
-
         $currentTest -> persist();
-
         //ArrayObject is required in order for json to work well with prototype
         $stats = new ArrayObject($currentTest -> questionsInfo());
         $stats['difficulties'] = new ArrayObject($stats['difficulties']);
@@ -802,13 +722,11 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'random_pool' && isset($_GET['rando
             $currentTest -> persist();
         }
         $stats['test_duration'] = $currentTest -> options['duration'];
-
         header("content-type:application/json");
         echo json_encode($stats);
     } catch (Exception $e) {
         header("HTTP/1.0 500 ");
         echo $e -> getMessage().' ('.$e -> getCode().')';
     }
-
     exit;
 }

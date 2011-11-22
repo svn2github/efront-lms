@@ -71,6 +71,10 @@ Below are the available action arguments an the corresponding arguments needed (
 
 /api2.php?token=<token>&action=catalog													returns the list with all courses and lessons of the system
 
+/api2.php?token=<token>&action=lesson_completed&from=<date1>&to=<date2>					returns users that completed a lesson between date1 and date2
+
+/api2.php?token=<token>&action=test_submitted&from=<date1>&to=<date2>&archive=1			returns users that submitted a test between date1 and date2. If archive is not set, it returns only last execution for each test per user  
+
 /api2.php?token=<token>&action=logout													logs out from eFront API
 
 /api2.php?token=<token>&action=curriculum_to_user&login=<login>&curriculum=<curriculum_id>  assigns curriculum with <curriculum_id> to user <login>
@@ -87,6 +91,7 @@ In case of error it returns also a message entity with description of the error 
  $path = "../libraries/";
  require_once $path."configuration.php";
  header("content-type:application/xml");
+//error_reporting(E_ALL);	
     if ($GLOBALS['configuration']['api'] && eF_checkIP('api')) {
         if (isset($_GET['action'])) {
             switch($_GET['action']) {
@@ -1752,6 +1757,129 @@ In case of error it returns also a message entity with description of the error 
                     }
                     break;
     }
+                case 'lesson_completed':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                    try {
+                        if (isset($_GET['from'])) {
+                         if (eF_checkParameter($_GET['from'], 'timestamp') != false) {
+                          $start = $_GET['from'];
+                         } elseif (eF_checkParameter($_GET['from'], 'date') != false) {
+                          $start = createTimestampFromDate($_GET['from']);
+                         } else {
+                          echo "<xml>";
+                          echo "<status>error</status>";
+                          echo "<message>Invalid date</message>";
+                          echo "</xml>";
+                          exit;
+                        }
+                        } else {
+                         $start = 0;
+                        }
+                        if (isset($_GET['to'])) {
+                         if (eF_checkParameter($_GET['to'], 'timestamp') != false) {
+                          $stop = $_GET['to'];
+                         } elseif (eF_checkParameter($_GET['to'], 'date') != false) {
+                          $stop = createTimestampFromDate($_GET['to']);
+                         } else {
+                          echo "<xml>";
+                          echo "<status>error</status>";
+                          echo "<message>Invalid date</message>";
+                          echo "</xml>";
+                          exit;
+                        }
+                        } else {
+                         $stop = time();
+                        }
+                        $result = eF_getTableData("users_to_lessons as ul,users as u", "ul.*,u.name,u.surname", "ul.users_LOGIN=u.login and completed=1 and to_timestamp >=".$start." and to_timestamp<=".$stop);
+                        echo "<xml>";
+                        foreach ($result as $value) {
+                         echo "<completed>";
+                         echo "<login>".$value['users_LOGIN']."</login>";
+                         echo "<name>".$value['name']."</name>";
+                         echo "<surname>".$value['surname']."</surname>";
+                         echo "<lesson>".$value['lessons_ID']."</lesson>";
+                         echo "<start_timestamp>".$value['from_timestamp']."</start_timestamp>";
+                         echo "<start_date>".formatTimestamp($value['from_timestamp'])."</start_date>";
+                         echo "<complete_timestamp>".$value['to_timestamp']."</complete_timestamp>";
+                         echo "<complete_date>".formatTimestamp($value['to_timestamp'])."</complete_date>";
+                         echo "<score>".$value['score']."</score>";
+                         echo "</completed>";
+                        }
+                         echo "</xml>";
+                    } catch (Exception $e) {pr($e);}
+                         break;
+                    } else {
+                        echo "<xml>";
+                        echo "<status>error</status>";
+                        echo "<message>Invalid token</message>";
+                        echo "</xml>";
+                    }
+                    break;
+                } case 'test_submitted':{
+                    if (isset($_GET['token']) && checkToken($_GET['token'])) {
+                    try {
+                        if (isset($_GET['from'])) {
+                         if (eF_checkParameter($_GET['from'], 'timestamp') != false) {
+                          $start = $_GET['from'];
+                         } elseif (eF_checkParameter($_GET['from'], 'date') != false) {
+                          $start = createTimestampFromDate($_GET['from']);
+                         } else {
+                          echo "<xml>";
+                          echo "<status>error</status>";
+                          echo "<message>Invalid date</message>";
+                          echo "</xml>";
+                          exit;
+                        }
+                        } else {
+                         $start = 0;
+                        }
+                        if (isset($_GET['to'])) {
+                         if (eF_checkParameter($_GET['to'], 'timestamp') != false) {
+                          $stop = $_GET['to'];
+                         } elseif (eF_checkParameter($_GET['to'], 'date') != false) {
+                          $stop = createTimestampFromDate($_GET['to']);
+                         } else {
+                          echo "<xml>";
+                          echo "<status>error</status>";
+                          echo "<message>Invalid date</message>";
+                          echo "</xml>";
+                          exit;
+                        }
+                        } else {
+                         $stop = time();
+                        }
+                        if (isset($_GET['archive']) && $_GET['archive'] && eF_checkParameter($_GET['archive'], 'id') != false) {
+                         $result = eF_getTableData("completed_tests as ct,tests as t,content as c", "t.name,t.lessons_ID,ct.users_LOGIN,ct.tests_ID,ct.status,ct.time_start,ct.time_end,ct.time_spent,ct.score", "t.content_ID=c.id and c.ctg_type!='feedback' and ct.tests_ID=t.id and t.lessons_ID!=0  and time_end >=".$start." and time_end<=".$stop);
+                        } else {
+                         $result = eF_getTableData("completed_tests as ct,tests as t,content as c", "t.name,t.lessons_ID,ct.users_LOGIN,ct.tests_ID,ct.status,ct.time_start,ct.time_end,ct.time_spent,ct.score", "t.content_ID=c.id and c.ctg_type!='feedback' and ct.tests_ID=t.id and t.lessons_ID!=0 and ct.archive=0 and time_end >=".$start." and time_end<=".$stop);
+                        }
+                        echo "<xml>";
+                        foreach ($result as $value) {
+                         echo "<submitted>";
+                         echo "<login>".$value['users_LOGIN']."</login>";
+                         echo "<test_id>".$value['tests_ID']."</test_id>";
+                         echo "<test_name>".$value['name']."</test_name>";
+                         echo "<lesson>".$value['lessons_ID']."</lesson>";
+                         echo "<start_timestamp>".$value['time_start']."</start_timestamp>";
+                         echo "<start_date>".formatTimestamp($value['time_start'])."</start_date>";
+                         echo "<complete_timestamp>".$value['time_end']."</complete_timestamp>";
+                         echo "<complete_date>".formatTimestamp($value['time_end'])."</complete_date>";
+                         echo "<score>".$value['score']."</score>";
+                         echo "<time_spent>".$value['time_spent']."</time_spent>";
+                         echo "<status>".$value['status']."</status>";
+                         echo "</submitted>";
+                        }
+                         echo "</xml>";
+                    } catch (Exception $e) {pr($e);}
+                         break;
+                    } else {
+                        echo "<xml>";
+                        echo "<status>error</status>";
+                        echo "<message>Invalid token</message>";
+                        echo "</xml>";
+                    }
+                    break;
+                }
                 case 'logout':{
                     if (isset($_GET['token']) && checkToken($_GET['token'])) {
                         eF_deleteTableData("tokens","token='".$_GET['token']."'");
@@ -1823,6 +1951,7 @@ In case of error it returns also a message entity with description of the error 
   }
         return $token;
     }
+
     function checkToken($token) {
      if (eF_checkParameter($token, 'alnum')) {
       $tmp = eF_getTableData("tokens","status","token='$token'");
@@ -1832,5 +1961,30 @@ In case of error it returns also a message entity with description of the error 
       }
      }
      return false;
+
+    }
+
+    function createTimestampFromDate($date_field) {
+        // date of event if existing, else current time
+        if ($date_field != "") {
+         $date_field = trim($date_field);
+         // Assuming dd/mm/yy or dd-mm-yy
+            $dateParts = explode("/", $date_field);
+            if (sizeof($dateParts) == 1) {
+             $dateParts = explode("-", $date_field);
+            }
+
+            if ($GLOBALS['configuration']['date_format'] == "MM/DD/YYYY") {
+             $timestamp = mktime(0,0,0,$dateParts[0],$dateParts[1],$dateParts[2]);
+            } else if ($GLOBALS['configuration']['date_format'] == "YYYY/MM/DD") {
+             $timestamp = mktime(0,0,0,$dateParts[2],$dateParts[0],$dateParts[1]);
+            } else {
+             $timestamp = mktime(0,0,0,$dateParts[1],$dateParts[0],$dateParts[2]);
+            }
+
+            return $timestamp;
+        } else {
+         return "";
+        }
     }
 ?>

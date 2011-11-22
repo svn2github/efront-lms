@@ -370,7 +370,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
    $newPassword = $changePasswordForm -> exportValue('password');
    $newPassword = EfrontUser :: createPassword($newPassword);
    if ($user -> user['password'] != EfrontUser :: createPassword($changePasswordForm -> exportValue('old_password'))) {
-    $message = _WRONGPASSWORD;
+    $message = _OLDPASSWORDWRONG;
     $message_type = 'failure';
    }else if ($user -> user['password'] == $newPassword) {
     $message = _PASSWORDISTHESAME;
@@ -388,6 +388,8 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
    }
   }
   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+  $changePasswordForm -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+  $changePasswordForm -> setRequiredNote(_REQUIREDNOTE);
   $changePasswordForm -> accept($renderer);
   $smarty -> assign('T_CHANGE_PASSWORD_FORM', $changePasswordForm -> toArray());
  } catch (Exception $e) {

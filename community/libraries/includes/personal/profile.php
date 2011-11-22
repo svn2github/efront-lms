@@ -24,7 +24,7 @@ $roles = EfrontUser :: getRoles(true);
 if ($currentUser->user['user_type'] != 'administrator' || $currentUser->user['user_types_ID']) {
  $rolesPlain = EfrontUser :: getRoles();
  foreach ($roles as $key => $value) {
-  if ($rolesPlain[$key] == 'administrator') {
+  if ($rolesPlain[$key] == 'administrator' && $key != $editedUser -> user['user_types_ID']) {
    unset($roles[$key]);
   }
  }

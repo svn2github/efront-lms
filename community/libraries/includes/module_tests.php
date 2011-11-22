@@ -311,8 +311,7 @@ try {
                 }
                 if (sizeof($children) > 0) {
                  if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
-                     $questions = eF_getTableData("questions,lessons", "questions.*", "content_ID in (".implode(",", $children).") and lessons_ID!=0 and lessons.id=questions.lessons_ID and lessons.active=1", "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
-                 } else {
+     } else {
                   $questions = eF_getTableData("questions", "*", "content_ID in (".implode(",", $children).") and lessons_ID=".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this unit or its subunits
                  }
                 } else {
@@ -320,8 +319,7 @@ try {
                 }
             } catch (Exception $e) {
              if ($_GET['showall'] && !$GLOBALS['configuration']['disable_questions_pool']) {
-              $questions = eF_getTableData("questions,lessons", "questions.*", "lessons_ID !=0 and lessons.id=questions.lessons_ID and lessons.active=1", "lessons_ID ASC"); //Retrieve all questions that belong to this lesson
-             } else {
+    } else {
                  $questions = eF_getTableData("questions", "*", "lessons_ID = ".$currentLesson -> lesson['id'], "content_ID ASC"); //Retrieve all questions that belong to this lesson
              }
             }
@@ -403,14 +401,18 @@ try {
         }
         $smarty -> assign("T_QUESTIONTYPESTRANSLATIONS", Question :: $questionTypes);
         $smarty -> assign("T_TESTS", $tests);
+
+
         if (isset($_GET['ajax']) && $_GET['ajax'] == 'questionsTable') {
          isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
+
             if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {
                 $sort = $_GET['sort'];
                 isset($_GET['order']) && $_GET['order'] == 'desc' ? $order = 'desc' : $order = 'asc';
             } else {
                 $sort = 'text';
             }
+
             foreach ($questions as $key => $question) {
                 $names = array();
                 if ($question['content_ID'] && isset($currentContent)) {
@@ -425,11 +427,13 @@ try {
                 }
                 $questions[$key]['text'] = strip_tags($question['text']); //Strip tags from the question text, so they do not display in the list
                 $questions[$key]['estimate_interval'] = eF_convertIntervalToTime($questions[$key]['estimate']);
+
                 $questions[$key]['lesson_name'] = $lessons[$question['lessons_ID']]['name'];
                 if ($_GET['ctg'] == 'feedback' && $question['type'] == 'true_false') {
                  unset($questions[$key]);
                 }
             }
+
    //remove questions from inactive and archived lessons
    if ($skillgap_tests) {
      $questionsTemp = array();
@@ -443,16 +447,20 @@ try {
          }
          $questions = $questionsTemp;
         }
+
    }
             $questions = eF_multiSort($questions, $sort, $order);
+
             if (isset($_GET['filter'])) {
                 $questions = eF_filterData($questions, $_GET['filter']);
             }
+
             $smarty -> assign("T_QUESTIONS_SIZE", sizeof($questions));
             if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
                 isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
                 $questions = array_slice($questions, $offset, $limit, true);
             }
+
             $smarty -> assign('T_QUESTIONS', $questions);
             !$skillgap_tests ? $smarty -> display('professor.tpl') : $smarty -> display('administrator.tpl');
             exit;

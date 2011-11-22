@@ -4162,4 +4162,5 @@ define("_QUESTIONSPOOL", "Κοινή δεξαμενή ερωτήσεων");
 define("_ADDFEEDBACSFEEDBACK", "Προσθήκη ανάδρασης");
 define("_SHOWQUESTIONSPOOL", "Εμφάνιση κοινής δεξαμενής ερωτήσεων");
 define("_SHOWLESSONQUESTIONS", "Εμφάνιση ερωτήσεων μαθήματος");
+define("_OLDPASSWORDWRONG","Ο παλιός κωδικός είναι λανθασμένος");
 ?>

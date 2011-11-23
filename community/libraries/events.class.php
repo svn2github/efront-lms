@@ -614,7 +614,7 @@ class EfrontEvent
         }
         // Get the events array and get the information for this event type
         $event_types = EfrontEvent::getEventTypes();
-  $type = $event_types[$fields['type']];
+  $type = $event_types[abs($fields['type'])];
         // the $fields['lessons_ID'] may refer to either courses or lessons according to the type of the event
         if ($type['category'] == "courses") {
          // Allow multiple course ids for each event
@@ -696,7 +696,7 @@ class EfrontEvent
      //}
      // By default all notifications will be sent
      if ($send_notification) {
-      $event = new EfrontEvent($fields); // this should create an event instance for our class
+      $event = new EfrontEvent($fields); // this should create an event instance for our class  	
       $event -> appendNewNotification($event_types, $replace, $create_negative, $delete_negative); // append this notification to the email queue
      }
     }
@@ -870,7 +870,7 @@ class EfrontEvent
          $event_notification['event_type'] = (-1) * $event_notification['event_type'];
          // in that case delete the corresponding record in the table (if such exists)
          eF_deleteTableData("notifications", "id_type_entity= '".$event_notification['id_type_entity'] . "' AND recipient = '". $this -> event['users_LOGIN'] ."'");
-         if ($event_notification['event_type'] == EfrontEvent::COURSE_COMPLETION || $event_notification['event_type'] == EfrontEvent::LESSON_COMPLETION) { //for these 2 notifications, we don't want them to be re-scheduled
+         if ($this -> event['type'] == EfrontEvent::COURSE_COMPLETION || $this -> event['type'] == EfrontEvent::LESSON_COMPLETION) { //for these 2 notifications, we don't want them to be re-scheduled		
           return true;
          }
         }

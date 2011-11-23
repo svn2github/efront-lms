@@ -77,6 +77,8 @@ try {
   //If the user has passed this unit and we have selected that the reentry action will leave status unchanged, then switch to no-credit mode
   if (isset($doneContent[$scoUnit['id']]) && $scoUnit['options']['reentry_action'] && !$seenUnit) {
    $credit=false;
+   $trackActivityInfo[$fields['content_ID']]['completion_status'] = 'completed';
+   $trackActivityInfo[$fields['content_ID']]['success_status'] = 'passed';
   }
   unset($fields['session_time']);
   if ($_GET['scorm_version'] == '2004') {

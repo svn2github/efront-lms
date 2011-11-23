@@ -201,7 +201,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
     $userCustomFields["triggering_users_".$value['name']] = _TRIGGERINGUSERS." ".$value['name'];
    }
             $smarty -> assign("T_USERCUSTOMFIELDS", $userCustomFields);
-            if ($_GET['edit_notification'] && $_GET['event'] == 1) {
+            if ($_GET['edit_notification'] && $_GET['event'] == 1 && eF_checkParameter($_GET['edit_notification'], 'id')) {
 
              $basic_templates_array["triggering_users_name"] = _TRIGGERINGUSERSNAME;
              $basic_templates_array["triggering_users_surname"] = _TRIGGERINGUSERSSURNAME;
@@ -330,7 +330,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
             $form -> addElement('radio', 'recipients', null, null, 'active_users', 'id = "active_users" onclick = "eF_js_selectRecipients(\'active_users\')"');
             $form -> addElement('radio', 'recipients', null, null, 'specific_course', 'onclick = "eF_js_selectRecipients(\'specific_course\')"');
             $form -> addElement('select', 'specific_course', null, $courses, 'id = "course_recipients" class = "inputSelectMed" disabled = "disabled"');
-            $form -> addElement('advcheckbox', 'specific_course_completed', _COMPLETED, null, 'class = "inputCheckbox" id="specific_course_completed_check" style="visibility:hidden" checked=""');
+            $form -> addElement('select', 'specific_course_completed', null, array(_ALLUSERS, _COMPLETED, _NOTCOMPLETED), 'class = "inputCheckbox" id="specific_course_completed_check" style="visibility:hidden"');
 
             $form -> addElement('radio', 'recipients', null, null, 'specific_lesson', 'onclick = "eF_js_selectRecipients(\'specific_lesson\')"');
             $form -> addElement('select', 'lesson', null, $lessons, 'id = "lesson_recipients" class = "inputSelectMed" disabled = "disabled"');
@@ -499,7 +499,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
             // These values should be there either by default or if the user decides to change categories
             $form -> setDefaults(array('recipients' => 'active_users'));
             $form -> setDefaults(array('timestamp' => time()+3600));
-            if (isset($_GET['edit_notification'])) {
+            if (isset($_GET['edit_notification']) && eF_checkParameter($_GET['edit_notification'], 'id')) {
              if ($_GET['event'] == 1) {
               $event = $event_notification;
              } else {
@@ -651,9 +651,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                                            "user_type" => "professor");
                } else if ($condition_category == "specific_course") {
                 $condition = array("courses_ID" => $form -> exportValue('specific_course'));
-                if ($form -> exportValue('specific_course_completed')) {
-                 $condition['completed'] = 1;
-                }
+                $condition['completed'] = $form -> exportValue('specific_course_completed');
                } else if ($condition_category == "specific_type") {
                 $condition = array("user_type" => $form -> exportValue('user_type'));
                } else if ($condition_category == "specific_group") {
@@ -851,7 +849,11 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
         } else {
          $sending_queue_msgs[$key]['recipients'] = _COURSE . ": " . $course -> course['name'];
          if (isset($sending_queue_msg['send_conditions']['completed'])) {
-          $sending_queue_msgs[$key]['recipients'] .= " " . _COMPLETED;
+          if ($sending_queue_msg['send_conditions']['completed'] == 1) {
+           $sending_queue_msgs[$key]['recipients'] .= " - " . _COMPLETED;
+          } else if ($sending_queue_msg['send_conditions']['completed'] == 2) {
+           $sending_queue_msgs[$key]['recipients'] .= " - " . _NOTCOMPLETED;
+          }
          }
         }
        } else {

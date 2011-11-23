@@ -353,7 +353,7 @@ class TrainingReports_Report {
         $fields = implode(',', $usersFields);
         if ($this->branches) {
          $tables = 'users u, users_to_courses utc,module_hcd_employee_works_at_branch wb  ';
-         $where = 'u.login = utc.users_LOGIN and u.active = 1 AND
+         $where = 'u.login = utc.users_LOGIN and u.active = 1 AND u.archive=0 and
              utc.courses_ID IN (' . implode(',', $this->courses) . ')
              AND
           wb.branch_ID IN (' . implode(',', $branches) . ') and wb.users_login=u.login
@@ -367,7 +367,7 @@ class TrainingReports_Report {
              )';
         } else {
          $tables = 'users AS u INNER JOIN users_to_courses AS utc ON u.login = utc.users_LOGIN';
-         $where = ' u.active = 1 AND
+         $where = ' u.active = 1 AND u.archive=0 and
              utc.courses_ID IN (' . implode(',', $this->courses) . ')
              AND
              utc.user_type = "student"

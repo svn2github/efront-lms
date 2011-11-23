@@ -842,6 +842,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
        $completed_condition = " AND uc.user_type = 'professor'";
          } else if ($this -> recipients['completed'] == "1") {
           $completed_condition = " AND completed = '1'";
+         } else if ($this -> recipients['completed'] == "2") {
+          $completed_condition = " AND completed = '0' and uc.user_type in ('".implode("','", array_keys(EfrontLessonUser::getStudentRoles()))."')";
          } else {
           $completed_condition = "";
          }

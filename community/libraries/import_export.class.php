@@ -462,13 +462,17 @@ class EfrontImportCsv extends EfrontImport
        $user = EfrontUserFactory::factory($value["users_login"]);
        $value['users_login'] = $user -> user['login'];
        if (isset($userJobs[$value['users_login']]) && $this -> options['replace_assignments']) {
+        $unset = false;
         foreach ($userJobs[$value['users_login']] as $key => $v) {
          if (!isset($addedJobs[$v][$value['users_login']])) {
           $user->aspects['hcd']->removeJob($v);
           unset($userJobs[$value['users_login']][$v]);
+          $unset = true;
          }
         }
-        unset($userBranchesAssigned[$value['users_login']]);
+        if ($unset) {
+         unset($userBranchesAssigned[$value['users_login']]);
+        }
        }
        if (isset($userJobs[$value['users_login']][$jobId]) && $this -> options['replace_existing']) {
         eF_deleteTableData("module_hcd_employee_has_job_description", "users_login='".$value['users_login']."' AND job_description_ID ='".$jobId."'");
@@ -698,9 +702,9 @@ class EfrontImportCsv extends EfrontImport
   $data = $this -> getEmptyData();
   foreach ($this -> mappings as $dbAttribute => $fileInfo) {
    if (strpos($dbAttribute, "timestamp") === false && $dbAttribute != "hired_on" && $dbAttribute != "left_on" && !in_array($dbAttribute, $this->dateFields)) {
-    $data[$dbAttribute] = trim($lineContents[$fileInfo], "\r\n\"");
+    $data[$dbAttribute] = trim($lineContents[$fileInfo], "\r\n");
    } else {
-    $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\r\n\""));
+    $data[$dbAttribute] = $this -> createTimestampFromDate(trim($lineContents[$fileInfo], "\r\n"));
    }
   }
   //pr($data);pr(date("Y/m/d", $data['to_timestamp']));exit;

@@ -125,7 +125,7 @@ if (isset($_GET['pdf'])) {
 
  $info = array();
  foreach ($jobs as $value) {
-  $info[] = array($value['name'], strip_tags($value['description']).(!$value['supervisor'] OR _SUPERVISOR));
+  $info[] = array($value['name'], strip_tags($value['description']).($value['supervisor'] ? _SUPERVISOR : ''));
  }
  $pdf -> printInformationSection(_PLACEMENTS, $info);
 

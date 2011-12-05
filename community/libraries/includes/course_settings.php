@@ -143,7 +143,7 @@ if ($_GET['op'] == 'course_info') {
   if ($form -> isSubmitted() && $form -> validate()) {
    $toTimestamp = mktime($_POST['to_Hour'], $_POST['to_Minute'], 0, $_POST['to_Month'], $_POST['to_Day'], $_POST['to_Year']);
    if ($form -> exportValue('completed')) {
-    $courseUser = EfrontUserFactory :: factory($_GET['edit_user']);
+    $courseUser = EfrontUserFactory :: factory($_GET['edit_user'], false, 'student');
     $courseUser -> completeCourse($currentCourse -> course['id'], $form -> exportValue('score'), $form -> exportValue('comments'), $toTimestamp);
    } else {
     $fields = array("completed" => 0,

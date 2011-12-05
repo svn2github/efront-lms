@@ -130,8 +130,14 @@ function applyOperation(el, operation) {
 			var selected = $(operation+'_selected').options[$(operation+'_selected').options.selectedIndex].value;
 		} else {
 			var selected = '';
-		}				
-		additional_parameters = {'options':options, 'selected':selected};
+		}	
+		if ($(operation+'_user_role')) {
+			var user_role = $(operation+'_user_role').options[$(operation+'_user_role').options.selectedIndex].value;
+		} else {
+			var user_role = 0;
+		}
+		
+		additional_parameters = {'options':options, 'selected':selected, 'user_role': user_role};
 		Object.extend(parameters, additional_parameters);
 		if (operation == 'group') {
 			Object.extend(parameters, {'new_group':$('new_group').value});

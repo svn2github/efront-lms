@@ -330,11 +330,11 @@ abstract class EfrontUser
   EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname'], "entity_name" => $passwordNonTransformed));
   ///MODULES1 - Module user add events
   // Get all modules (NOT only the ones that have to do with the user type)
-  if (!$cached_modules) {
-   $cached_modules = eF_loadAllModules();
+  if (!self::$cached_modules) {
+   self::$cached_modules = eF_loadAllModules();
   }
   // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
-  foreach ($cached_modules as $module) {
+  foreach (self::$cached_modules as $module) {
    $module -> onNewUser($userProperties['login']);
   }
   if (function_exists('apc_delete')) {
@@ -1139,6 +1139,15 @@ abstract class EfrontUser
   eF_updateTableData("users", $fields, "login='".$this -> user['login']."'");
   if (function_exists('apc_delete')) {
    apc_delete(G_DBNAME.':_usernames');
+  }
+  ///MODULES1 - Module user add events
+  // Get all modules (NOT only the ones that have to do with the user type)
+  if (!self::$cached_modules) {
+   self::$cached_modules = eF_loadAllModules();
+  }
+  // Trigger all necessary events. If the function has not been re-defined in the derived module class, nothing will happen
+  foreach (self::$cached_modules as $module) {
+   $module -> onUpdateUser($this->user['login']);
   }
   return true;
  }

@@ -427,7 +427,7 @@
                  {if $T_FORUM_TOPICS || (!$T_HAS_SUBFORUMS && !$T_FORUM_POLLS)} {*Do not display topics block, unless nothing else exists*}
 <!--ajax:topicsTable-->
 
-                                    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "topicsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=forum&forum={$smarty.get.forum}&">
+                                    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" id = "topicsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=forum&forum={$smarty.get.forum}&">
 
                                          <tr>
                                              <td name = "title" class = "topTitle firstColumn">{$smarty.const._TOPICS}</td>
@@ -488,7 +488,7 @@
 
              {else}
 <!--ajax:forumsTable-->
-                 <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "forumsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=forum&">
+                 <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "2" id = "forumsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=forum&">
                      <tr>
                          <td name = "title" class = "topTitle firstColumn">{$smarty.const._FORUMS}</td>
                          <td name = "activity" class = "topTitle secondColumn">{$smarty.const._ACTIVITY}</td>

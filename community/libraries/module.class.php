@@ -1496,6 +1496,22 @@ abstract class EfrontModule
     }
     /**
 
+     * Code to execute when a user is updated. The new fields can be retrieved by the user object
+
+     * 
+
+     * @param string $login The login of the user
+
+     * @since 3.6.11
+
+     * @access public
+
+     */
+    public function onUpdateUser($login) {
+     return false;
+    }
+    /**
+
      * Code to execute when a new lesson is created
 
      *

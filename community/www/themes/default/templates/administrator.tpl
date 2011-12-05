@@ -385,7 +385,7 @@
         {/if}
     {elseif $smarty.get.option == 'lesson'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=lesson">'|cat:$smarty.const._LESSONSTATISTICS|cat:'</a>'}
-        {if isset($smarty.get.sel_lesson)}
+        {if isset($T_INFO_LESSON.name)}
             {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=lesson&sel_lesson='|cat:$smarty.get.sel_lesson|cat:'">'|cat:$T_INFO_LESSON.name|cat:'</a>'}
         {/if}
     {elseif $smarty.get.option == 'test'}

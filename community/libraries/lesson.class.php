@@ -4546,7 +4546,7 @@ class EfrontLesson
     if ($tree[$j]["level"] == $i && $tree[$j]["ctg_type"] != "tests" && $tree[$j]["ctg_type"] != "scorm" && $tree[$j]["ctg_type"] != "scorm_test" && $tree[$j]["ctg_type"] != "feedback") {
      $tree[$j]["string"] = "
      <item identifier=\"item" . $tree[$j]["id"] . "\" identifierref=\"" . $tree[$j]["id"] . "\">
-      <title>" . ($tree[$j]["name"]) . "</title>";
+      <title>" . htmlspecialchars($tree[$j]["name"]) . "</title>";
      /*An to antikeimeno exei prerequisites, pros8ese tis katallhles grammes*/
      if ($prerequisites[$tree[$j]["id"]]) {
       //echo "<br> A".$tree[$j]["id"];

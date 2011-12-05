@@ -1094,12 +1094,12 @@ function eF_checkParameter($parameter, $type, $correct = false)
             break;
         case 'login':
             //if (!preg_match("/^[^0-9]_*\w+(\w*[._@-]*\w*)*$/", $parameter)) {              //This means: begins with 0 or more '_', never a number, followed by at least 1 word character, followed by any combination of .,_,-,@ and word characters.
-            if (!preg_match("/^_*\w+(\w*[._@-]*\w*)*$/", $parameter) || mb_strlen($parameter) > 100) { //This means: begins with 0 or more '_',                 followed by at least 1 word character, followed by any combination of .,_,-,@ and word characters.
+            if (!preg_match("/^_*\w+(\w*[._@-]*\w*)*$/", $parameter) || mb_strlen($parameter) > 100) { //This means: begins with 0 or more '_', followed by at least 1 word character, followed by any combination of .,_,-,@ and word characters.
                 return false;
             }
             break;
         case 'email':
-            if (!preg_match("/^([a-zA-Z0-9+_\.\-'])+\@(([a-zA-Z0-9_\-])+\.)+([a-zA-Z0-9]{2,4})+$/", $parameter)) { //This means: begins with 0 or more '_' or '-', followed by at least 1 word character, followed by any combination of '_', '-', '.' and word characters, then '@', then the same as before, then the '.' and then 1 ore more characters.
+            if (!preg_match("/^([a-zA-Z0-9+_\.\-'])+\@(([a-zA-Z0-9_\-])+\.)+([a-zA-Z0-9]{2,4})+$/", $parameter)) { //This means: begins with 0 or more '_' or '-', followed by at least 1 word character, followed by any combination of '_', '-', '.', '+' and word characters, then '@', then the same as before, then the '.' and then 1 ore more characters.
                 return false;
             }
             break;
@@ -1718,7 +1718,7 @@ function eF_getModuleMenu($modules, $menu_category) {
 * Used for checking for events to be executed
 
 */
-function eF_loadAllModules($onlyActive = false, $disregardUser = false) {
+function eF_loadAllModules($onlyActive = true, $disregardUser = false) {
     if ($onlyActive) {
      $modulesDB = eF_getTableData("modules","*","active=1");
     } else {

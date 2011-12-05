@@ -46,9 +46,12 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 
      //This page has a file manager, so bring it on with the correct options
      $basedir = $currentLesson -> getDirectory();
-     //Default options for the file manager
+     //Default options for the file manager  
         if (!isset($currentUser -> coreAccess['files']) || $currentUser -> coreAccess['files'] == 'change') {
             $options = array('lessons_ID' => $currentLesson -> lesson['id'], 'metadata' => 0);
+            if(!$currentLesson -> options['digital_library']){
+             $options['share'] = false;
+            }
         } else {
       $options = array('delete' => false,
                  'edit' => false,
@@ -179,7 +182,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      //$currentUnit['options']['complete_unit_setting'] == COMPLETION_OPTIONS_COMPLETEAFTERSECONDS ? $form -> updateElementAttr(array('complete_time'), array('style' => 'display:""')) : null;
 
      //Check whether it is a pdf content and handle accordingly
-     if (mb_strpos($currentUnit['data'], "<iframe") !== false && mb_strpos($currentUnit['data'], "pdfaccept") !== false) {
+     if (mb_strpos($currentUnit['data'], "<iframe") !== false && mb_strpos($currentUnit['data'], "pdfaccept") !== false && mb_strpos($currentUnit['data'], "google.com/viewer") === false) {
 
       $fileEnd = mb_strpos($currentUnit['data'], ".pdf");
    if ($fileEnd != "") {

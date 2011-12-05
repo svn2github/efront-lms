@@ -134,7 +134,9 @@
    <table>
     <tr><td class = "labelCell">{$T_COURSE_FORM.options.html}
       {$smarty.const._COURSE}:&nbsp;</td>
-     <td class = "elementCell">{$T_COURSE_FORM.course.html}</td></tr>
+     <td class = "elementCell">{$T_COURSE_FORM.course.html}{$smarty.const._USERROLE}:&nbsp;</td>
+     <td class = "elementCell">{$T_COURSE_FORM.user_role.html}</td>
+    </tr>
     <tr><td></td>
      <td class = "submitCell">{$T_COURSE_FORM.submit.html}</td></tr>
    </table>
@@ -146,7 +148,9 @@
    <table>
     <tr><td class = "labelCell">{$T_LESSON_FORM.options.html}
       {$smarty.const._LESSON}:&nbsp;</td>
-     <td class = "elementCell">{$T_LESSON_FORM.lesson.html}</td></tr>
+     <td class = "elementCell">{$T_LESSON_FORM.lesson.html}{$smarty.const._USERROLE}:&nbsp;</td>
+     <td class = "elementCell">{$T_LESSON_FORM.user_role.html}</td>
+    </tr>
     <tr><td></td>
      <td class = "submitCell">{$T_LESSON_FORM.submit.html}</td></tr>
    </table>

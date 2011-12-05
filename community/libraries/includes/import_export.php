@@ -17,7 +17,7 @@ $importForm -> addElement('file', 'import_file', _DATAFILE, 'class = "inputText"
 $importForm -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
 $importForm -> addRule('import_file', _YOUMUSTUPLOADFILE, 'uploadedfile', null, 'client');
 
-$importForm -> addElement('select', 'import_type', _DATATYPE, $import_export_types, 'id ="import_type" class = "inputCheckbox" onchange="changeCategory(this.value)"', array(0, 1));
+$importForm -> addElement('select', 'import_type', _DATATYPE, $import_export_types, 'id ="import_type" class = "inputCheckbox" onchange="changeCategory(this.value)"');
 $importForm -> addElement('advcheckbox', 'import_keep', _KEEPEXISTINGUSERS, null, 'class = "inputCheckbox"', array(0, 1));
 $importForm -> addElement('advcheckbox', 'replace_assignments', _REPLACEASSIGNMENTS, null, 'class = "inputCheckbox"', array(0, 1));
 $importForm -> addElement("select", "date_format", _DATEFORMAT, array("DD/MM/YYYY" => "DD/MM/YYYY", "MM/DD/YYYY" => "MM/DD/YYYY", "YYYY/MM/DD" => "YYYY/MM/DD"));

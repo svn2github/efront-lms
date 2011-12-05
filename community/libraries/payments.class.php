@@ -1,7 +1,7 @@
 <?php
 /**
 
-* EfrontNews Class file
+* EfrontPayments Class file
 
 *
 
@@ -111,6 +111,7 @@ class payments extends EfrontEntity
      if (isset($fields['courses']) && sizeof($fields['courses']) > 0) {
       $courseNames = eF_getTableDataFlat("courses", "name", "id in (".implode(",", $fields['courses']).")");
      }
+     !isset($fields['charset']) OR $fields['comments'] = iconv($fields['charset'], "UTF-8", $fields['comments']);
      $fields = array('timestamp' => isset($fields['timestamp']) && eF_checkParameter($fields['timestamp'], 'timestamp') ? $fields['timestamp'] : time(),
                         'users_LOGIN' => isset($fields['users_LOGIN']) && eF_checkParameter($fields['users_LOGIN'], 'login') ? $fields['users_LOGIN'] : $_SESSION['s_login'],
                         'amount' => isset($fields['amount']) && is_numeric($fields['amount']) && $fields['amount'] > 0 ? $fields['amount'] : 0,

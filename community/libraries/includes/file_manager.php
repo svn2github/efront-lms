@@ -81,7 +81,7 @@ try {
                 }
             } elseif (strpos($file_insert['mime_type'] , "flv") !== false) {
                 $flv_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
-                echo '<iframe src="editor/tiny_mce/plugins/media/img/flv_player.swf?flvToPlay=../../../../../'.$flv_return.'" frameborder="0" height="300" width="300"></iframe>';
+                echo '<iframe src="editor/tiny_mce/plugins/media/img/flv_player.swf?flvToPlay=##EFRONTEDITOROFFSET##'.$flv_return.'" frameborder="0" height="300" width="300"></iframe>';
             } elseif (strpos($file_insert['mime_type'] , "wmv") !== false) {
                 $wmv_return = mb_substr($file_insert['path'], mb_strlen(G_ROOTPATH."www/"));
                 if ($_GET['editor_mode'] == "true") {

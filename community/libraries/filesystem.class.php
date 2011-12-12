@@ -1892,9 +1892,9 @@ class FileSystemTree extends EfrontTree
     public function reset() {
         //Get all files that are within the designated directory
         if ($this -> shallow) {
-         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."/%' and path not like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."/%/%'"); //not files inside subfolders
+         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", eF_addSlashes($this -> dir['path']))."/%' and path not like '".str_replace(G_ROOTPATH, "", eF_addSlashes($this -> dir['path']))."/%/%'"); //not files inside subfolders  
         } else {
-         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", $this -> dir['path'])."%'");
+         $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, "", eF_addSlashes($this -> dir['path']))."%'");
         }
         foreach ($result as $key => $file) {
             $file['path'] = G_ROOTPATH.$file['path'];

@@ -304,6 +304,7 @@ class glossary extends EfrontEntity
       $glossary_words = eF_getTableData("glossary", "name,info,lessons_ID", "lessons_ID=".$lessonId); //Get all the glossary words of this lesson
      }
      //if a term is defined both for current lesson and all lessons, current lesson definition must be displayed
+  $globalTerms = array();
       foreach ($glossary_words as $key => $value) {
    if ($value['lessons_ID'] == 0) {
     $globalTerms[$key] = $value['name'];

@@ -111,10 +111,10 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      <tr><td class = "labelCell">{$smarty.const._NAME}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.name.html}</td></tr>
      {if $T_TEST_FORM.name.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.name.error}</td></tr>{/if}
-    {if !$T_SKILLGAP_TEST}
      <tr><td class = "labelCell">{$smarty.const._DURATIONINMINUTES}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.duration.html}&nbsp;<span class = "infoCell">{$smarty.const._BLANKFORNOLIMIT}</span></td></tr>
      {if $T_TEST_FORM.duration.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.duration.error}</td></tr>{/if}
+    {if !$T_SKILLGAP_TEST}
      <tr><td class = "labelCell">{$smarty.const._REDOABLE}:&nbsp;</td>
       <td class = "elementCell">{$T_TEST_FORM.redoable.html} <span class = "infoCell">{$smarty.const._BLANKFORUNLIMITED}</span></td></tr>
      {if $T_TEST_FORM.redoable.error}<tr><td></td><td class = "formError">{$T_TEST_FORM.redoable.error}</td></tr>{/if}
@@ -474,9 +474,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {/if}
      <td class = "centerAlign">
       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_question={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._PREVIEW}', 2)"><img src = "images/16x16/search.png" alt = "{$smarty.const._PREVIEW}" title = "{$smarty.const._PREVIEW}" /></a>
-    {if $T_CTG != 'feedback' && $item.lessons_ID == $smarty.session.s_lessons_ID}
-     <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
-    {/if}
+      {if $T_SKILLGAP_TEST}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
+      {/if}
+      {if ($T_CTG != 'feedback' && $item.lessons_ID == $smarty.session.s_lessons_ID) || $T_SKILLGAP_TEST}
+       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
+      {/if}
      </td>
      <td class = "centerAlign">{$T_TEST_FORM.questions[$key].html}<span style = "display:none">{$T_TEST_FORM.questions[$key].value}</span></td> {*span is used for sorting*}
     </tr>

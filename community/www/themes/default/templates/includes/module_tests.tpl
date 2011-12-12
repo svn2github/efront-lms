@@ -453,7 +453,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {else}
      <td> {$item.text|eF_truncate:50}</td>
     {/if}
-    {if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
+    {if $T_SKILLGAP_TEST}
+     <td>{$item.name}</td>
+    {else if $smarty.get.showall && !$T_CONFIGURATION.disable_questions_pool}
            <td><span title = "{$T_LESSONS[$item.lessons_ID].lesson_path}">{$item.lesson_name}</span></td>
           {/if}
      <td class = "centerAlign">
@@ -544,7 +546,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
     {if $T_SKILLGAP_TEST}
       <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&lessonId={$item.lessons_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._CORRELATESKILLSTOQUESTION}', 2)"><img src = "images/16x16/tools.png" alt = "{$smarty.const._CORRELATESKILLSTOQUESTION}" title = "{$smarty.const._CORRELATESKILLSTOQUESTION}" /></a>
     {/if}
-    {if $T_CTG != 'feedback' && $item.lessons_ID == $smarty.session.s_lessons_ID}
+    {if $T_CTG != 'feedback' && $item.lessons_ID == $smarty.session.s_lessons_ID || $T_SKILLGAP_TEST}
      <a href = "{$smarty.server.PHP_SELF}?ctg=tests&edit_question={$item.id}&question_type={$item.type}&lessonId={$item.lessons_ID}"><img src = "images/16x16/edit.png" alt = "{$smarty.const._EDIT}" title = "{$smarty.const._EDIT}"/></a>
     {/if}
      </td>

@@ -206,13 +206,16 @@ class EfrontUnit extends ArrayObject
     }
     private function upgradeUnitOptions($options) {
      $newOptions = $options;
-     if ($newOptions['hide_complete_unit']) {
-      $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON;
-     } else if ($newOptions['auto_complete']) {
-   $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_AUTOCOMPLETE;
-     } else if ($newOptions['complete_question'] && $newOptions['questions']) {
+  if ($newOptions['complete_question'] && $newOptions['questions']) {
        $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_COMPLETEWITHQUESTION;
        $newOptions['complete_question'] = $newOptions['questions'];
+     } else if ($newOptions['complete_question'] && $newOptions['complete_question']) {
+       $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_COMPLETEWITHQUESTION;
+       $newOptions['complete_question'] = $newOptions['complete_question'];
+     } else if ($newOptions['auto_complete']) {
+      $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_AUTOCOMPLETE;
+     } else if ($newOptions['hide_complete_unit']) {
+      $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON;
      } else {
       $newOptions['complete_unit_setting'] = self::COMPLETION_OPTIONS_DEFAULT;
      }

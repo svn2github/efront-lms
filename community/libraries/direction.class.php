@@ -1079,7 +1079,13 @@ class EfrontDirectionsTree extends EfrontTree
     }
 //				if ($_COOKIE['display_all_courses'] == '1' || $roleBasicType != 'student' || (!$treeCourse -> course['completed'] && (is_null($treeCourse -> course['remaining']) || $treeCourse -> course['remaining'] > 0))) {
      if ($options['course_lessons']) {
-      $coursesTreeString .= $treeCourse -> toHTML($lessons, $options, $checkLessons);
+      $meets_depends_on_criteria = true;
+      if ($treeCourse->course['depends_on']) {
+       if (!isset($courses[$treeCourse->course['depends_on']])) {
+        $meets_depends_on_criteria = false;
+       }
+      }
+      $coursesTreeString .= $treeCourse -> toHTML($lessons, $options, $checkLessons, $meets_depends_on_criteria);
      } else {
       $coursesTreeString .= '
       <table width = "100%">

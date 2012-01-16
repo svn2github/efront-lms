@@ -315,6 +315,10 @@ abstract class EfrontUser
   !isset($userProperties['pending']) ? $userProperties['pending'] = 0 : null; // 0 means not pending, 1 means pending
   !isset($userProperties['timestamp']) || $userProperties['timestamp'] == "" ? $userProperties['timestamp'] = time() : null;
   !isset($userProperties['user_types_ID']) ? $userProperties['user_types_ID'] = 0 : null;
+  $languages = EfrontSystem :: getLanguages();
+  if (in_array($userProperties['languages_NAME'], array_keys($languages)) === false) {
+   $userProperties['languages_NAME'] = $GLOBALS['configuration']['default_language'];
+  }
   if ($userProperties['archive']) {
    $userProperties['archive'] = time();
    $userProperties['active'] = 0;
@@ -893,6 +897,9 @@ abstract class EfrontUser
           'comments' => session_id(),
           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
+  if ($GLOBALS['configuration']['ban_failed_logins']) {
+   eF_deleteTableData("logs","users_LOGIN='".$this -> user['login']."' and action='failed_login'");
+  }
   //Insert user times entry
   $fields = array("session_timestamp" => time(),
       "session_id" => session_id(),

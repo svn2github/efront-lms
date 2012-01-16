@@ -38,15 +38,15 @@ if ($_GET['op'] == 'reset_lesson') {
     /*Reset lesson part*/
     $form = new HTML_QuickForm("reset_lesson_form", "post", basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=reset_lesson', "", null, true);
 
-    $form -> addElement('checkbox', 'options[content]', _CONTENT, null, 'class = "inputCheckBox" id = "content" onclick = "$$(\'input.contentDerivative\').each(function (s) {s.checked = $(\'content\').checked})"');
+    $form -> addElement('checkbox', 'options[content]', _CONTENT, null, 'class = "inputCheckBox" id = "initialize_content" onclick = "$$(\'input.contentDerivative\').each(function (s) {s.checked = $(\'initialize_content\').checked})"');
     if ($GLOBALS['configuration']['disable_tests'] != 1) {
-        $form -> addElement('checkbox', 'options[tests]', _TESTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
+        $form -> addElement('checkbox', 'options[tests]', _TESTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'initialize_content\').checked) this.checked = 1"');
     }
-    $form -> addElement('checkbox', 'options[questions]', _QUESTIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
-    $form -> addElement('checkbox', 'options[rules]', _ACCESSRULES, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
-    $form -> addElement('checkbox', 'options[conditions]', _LESSONCONDITIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
+    $form -> addElement('checkbox', 'options[questions]', _QUESTIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'initialize_content\').checked) this.checked = 1"');
+    $form -> addElement('checkbox', 'options[rules]', _ACCESSRULES, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'initialize_content\').checked) this.checked = 1"');
+    $form -> addElement('checkbox', 'options[conditions]', _LESSONCONDITIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'initialize_content\').checked) this.checked = 1"');
     if ($GLOBALS['configuration']['disable_comments'] != 1) {
-        $form -> addElement('checkbox', 'options[comments]', _COMMENTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
+        $form -> addElement('checkbox', 'options[comments]', _COMMENTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'initialize_content\').checked) this.checked = 1"');
     }
     $form -> addElement('checkbox', 'options[users]', _USERS, null, 'class = "inputCheckBox"');
     if ($GLOBALS['configuration']['disable_news'] != 1) {
@@ -92,15 +92,15 @@ if ($_GET['op'] == 'reset_lesson') {
     /* Import part */
     $form = new HTML_QuickForm("import_lesson_form", "post", basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=import_lesson', "", null, true);
 
-    $form -> addElement('checkbox', 'options[content]', _CONTENT, null, 'class = "inputCheckBox" id = "content" onclick = "$$(\'input.contentDerivative\').each(function (s) {s.checked = $(\'content\').checked})"');
+    $form -> addElement('checkbox', 'options[content]', _CONTENT, null, 'class = "inputCheckBox" id = "import_content" onclick = "$$(\'input.contentDerivative\').each(function (s) {s.checked = $(\'import_content\').checked})"');
     if ($GLOBALS['configuration']['disable_tests'] != 1) {
-        $form -> addElement('checkbox', 'options[tests]', _TESTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
+        $form -> addElement('checkbox', 'options[tests]', _TESTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'import_content\').checked) this.checked = 1"');
     }
-    $form -> addElement('checkbox', 'options[questions]', _QUESTIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
-    $form -> addElement('checkbox', 'options[rules]', _ACCESSRULES, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
-    $form -> addElement('checkbox', 'options[conditions]', _LESSONCONDITIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
+    $form -> addElement('checkbox', 'options[questions]', _QUESTIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'import_content\').checked) this.checked = 1"');
+    $form -> addElement('checkbox', 'options[rules]', _ACCESSRULES, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'import_content\').checked) this.checked = 1"');
+    $form -> addElement('checkbox', 'options[conditions]', _LESSONCONDITIONS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'import_content\').checked) this.checked = 1"');
     if ($GLOBALS['configuration']['disable_comments'] != 1) {
-        $form -> addElement('checkbox', 'options[comments]', _COMMENTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'content\').checked) this.checked = 1"');
+        $form -> addElement('checkbox', 'options[comments]', _COMMENTS, '<span class = "infoCell">('._DEPENDSONCONTENT.')</span>', 'class = "inputCheckBox contentDerivative" style = "vertical-align:middle" onclick = "if ($(\'import_content\').checked) this.checked = 1"');
     }
     $form -> addElement('checkbox', 'options[users]', _USERS, null, 'class = "inputCheckBox"');
     if ($GLOBALS['configuration']['disable_news'] != 1) {

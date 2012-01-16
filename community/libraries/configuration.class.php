@@ -58,6 +58,7 @@ class EfrontConfiguration
         'eliminate_post_xss' => '1',
      'constrain_access' => '1',
      'remember_login' => '',
+        'ban_failed_logins' => '0',
         //System settings - language
         'onelanguage' => '0',
         'default_language' => 'english',

@@ -94,6 +94,7 @@ foreach ($_GET as $key => $value) {
     }
 }
 $_SERVER['PHP_SELF'] = strip_tags($_SERVER['PHP_SELF']);
+if (!is_file(basename($_SERVER['PHP_SELF']))) {exit;} // for something like this index.php/"onmouseover=prompt(1234)>
 if ($GLOBALS['configuration']['eliminate_post_xss']) {
  foreach ($_POST as $key => $value) {
      if (is_string($value)) {
@@ -276,7 +277,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 12454;
+    $build = 12618;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

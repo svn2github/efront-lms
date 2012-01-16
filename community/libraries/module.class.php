@@ -1512,6 +1512,28 @@ abstract class EfrontModule
     }
     /**
 
+     * Code to execute when a placement is assigned to a user
+
+     * 
+
+     * @param string $login The login of the user
+
+     * @param int $jobId The id of the job assigned
+
+     * @param int $branchId The id of the branch assigned
+
+     * @param boolean $position 0 for employees, 1 for supervisors
+
+     * @since 3.6.11
+
+     * @access public
+
+     */
+    public function onAddUserPlacement($login, $jobId, $branchId, $position) {
+     return false;
+    }
+    /**
+
      * Code to execute when a new lesson is created
 
      *

@@ -2271,7 +2271,7 @@ class EfrontCourse
 	 * @access public
 	 * @todo convert to smarty template
 	 */
- public function toHTML($lessons = false, $options = array(), $checkLessons = array()) {
+ public function toHTML($lessons = false, $options = array(), $checkLessons = array(), $meets_depends_on_criteria = true) {
   !isset($options['courses_link']) ? $options['courses_link'] = false : null;
   !isset($options['lessons_link']) ? $options['lessons_link'] = false : null;
  /*	if (isset($options['collapse']) && $options['collapse'] == 2) {
@@ -2382,6 +2382,11 @@ class EfrontCourse
     foreach ($eligible as $lessonId => $value) {
      $eligible[$lessonId] -> eligible = false;
     }
+   }
+  }
+  if (!$meets_depends_on_criteria && $this->course['depends_on']) {
+   foreach ($eligible as $lessonId => $value) {
+    $eligible[$lessonId] -> eligible = false;
    }
   }
   $courseOptions = array();
@@ -2890,7 +2895,7 @@ class EfrontCourse
       case 'general_description': $tooltipInfo[] = '<strong>'._DESCRIPTION."</strong>: $value<br/>"; break;
       case 'assessment' : $tooltipInfo[] = '<strong>'._ASSESSMENT."</strong>: $value<br/>"; break;
       case 'objectives' : $tooltipInfo[] = '<strong>'._OBJECTIVES."</strong>: $value<br/>"; break;
-      case 'lesson_topics' : $tooltipInfo[] = '<strong>'._LESSONTOPICS."</strong>: $value<br/>"; break;
+      case 'lesson_topics' : $tooltipInfo[] = '<strong>'._COURSETOPICS."</strong>: $value<br/>"; break;
       case 'resources' : $tooltipInfo[] = '<strong>'._RESOURCES."</strong>: $value<br/>"; break;
       case 'other_info' : $tooltipInfo[] = '<strong>'._OTHERINFO."</strong>: $value<br/>"; break;
       default: break;

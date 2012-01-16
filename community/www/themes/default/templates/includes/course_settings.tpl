@@ -125,7 +125,7 @@
        </tr>
     {/foreach}
        <tr><td>&nbsp;</td></tr>
-       <tr><td></td><td class = "submitCell">{$T_COURSE_RULES_FORM.submit_rule.html}</td></tr>
+       <tr><td></td><td class = "submitCell">{if $T_COURSE_LESSONS|@sizeof > 1}{$T_COURSE_RULES_FORM.submit_rule.html}{/if}</td></tr>
       </table>
       </form>
       {*Auxilliary select element, used below in building conditions*}

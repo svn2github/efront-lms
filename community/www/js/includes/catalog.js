@@ -1,5 +1,6 @@
 function updateCoupon(el) {
 	var url    = location.toString();
+	url = url.split("#")[0];
 	parameters = {coupon:$('coupon_bogus').value, ajax:'coupon', method: 'get'};
 	ajaxRequest(el, url, parameters, onUpdateCoupon);					
 }
@@ -29,6 +30,7 @@ function onUpdateCoupon(el, response) {
 
 function addToCart(el, id, type) {
 	var url    = location.toString();
+	url = url.split("#")[0];
 	parameters = {fct:'addToCart', id:id, ajax:'cart', type:type, method: 'get'};
 	if (type == 'credit') {
 		ajaxRequest(el, url, parameters, function () {location=redirectLocation;}, false, false);		
@@ -38,12 +40,14 @@ function addToCart(el, id, type) {
 }		
 function removeFromCart(el, id, type) {
 	var url    = location.toString();
+	url = url.split("#")[0];
 	parameters = {fct:'removeFromCart', ajax:'cart', id:id, type:type, method: 'get'};
 	ajaxRequest(el, url, parameters, onCartOperation);				
 }		
 //if ($('buy_credit_value').value) ajaxRequest(this, '{$smarty.server.PHP_SELF}?ctg=lessons&catalog=1&fct=addToCart&type=credit&id='+$('buy_credit_value').value, {ldelim}ajax:1{rdelim})
 function removeAllFromCart(el) {
 	var url    = location.toString();
+	url = url.split("#")[0];
 	parameters = {fct:'removeAllFromCart', ajax:'cart', method: 'get'};
 	ajaxRequest(el, url, parameters, onCartOperation);				
 }

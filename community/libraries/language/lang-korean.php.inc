@@ -4131,7 +4131,7 @@ define("_INACTIVEREGISTRATIONS","비활성 등록");//Inactive registrations (Ne
 define("_BUYBALANCE","균형을 구입");//Buy balance (New)
 define("_COMPLETEUNITOPTIONS","단위 완료 옵션");//Unit completion options (New)
 define("_COMPLETEAFTERTIMEELAPSED","경과 시간 이후 완료");//Complete after time elapsed (New)
-define("_REMEMBERLOGIN",&quot;옵션 &quot;나를 로그인 유지"");//&quot;Keep me logged in&quot; option (New)
+define("_REMEMBERLOGIN","&quot;옵션 &quot;나를 로그인 유지");//&quot;Keep me logged in&quot; option (New)
 define("_PASSWORDSALT","비밀 번호 소금");//Password salt (New)
 define("_CEUS","CEUs");//CEUs (New)
 define("_TOTALCEUS","총 CEUs");//Total CEUs (New)

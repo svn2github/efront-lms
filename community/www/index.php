@@ -308,6 +308,17 @@ if ($form -> isSubmitted() && $form -> validate()) {
    $message_type = 'failure';
   }
   else {
+   if ($GLOBALS['configuration']['ban_failed_logins'] && $user -> user['login'] != '') {
+    $fields_insert = array('users_LOGIN' => $user -> user['login'],
+       'timestamp' => time(),
+        'action' => 'failed_login',
+        'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+    eF_insertTableData("logs", $fields_insert);
+    $res_ban = eF_getTableData("logs", "count(*) as ct", "users_LOGIN='".$user -> user['login']."' and action='failed_login'");
+    if ($res_ban[0]['ct'] == 5 && $user -> user['user_type'] != 'admin') {
+     $user -> deactivate();
+    }
+   }
    $message = _LOGINERRORPLEASEMAKESURECAPSLOCKISOFF;
    $message_type = 'failure';
   }
@@ -423,6 +434,11 @@ if (isset($_GET['account']) && isset($_GET['key']) && eF_checkParameter($_GET['a
 }
 /* ---------------------------------------------------------Reset Password part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuration']['password_reminder'] && !$GLOBALS['configuration']['only_ldap']) { //The user asked to display the contact form
+ if (eF_checkSpam() == true) {
+  $message = _SPAMDETECTION;
+  $message_type = 'failure';
+  eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);
+ }
  $smarty -> assign('T_CTG', 'reset_pwd');
  $form = new HTML_QuickForm("reset_password_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=reset_pwd", "", "class = 'indexForm'", true);
  $form -> removeAttribute('name');
@@ -433,6 +449,12 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
  $form -> addElement('submit', 'submit_reset_password', _SUBMIT, 'class="flatButton"');
  if ($form -> isSubmitted() && $form -> validate()) {
   $input = $form -> exportValue("login_or_pwd");
+  $fields_insert = array('users_LOGIN' => 'visitor',
+        'timestamp' => time(),
+        'action' => 'forms',
+        'comments' => 'reset_password',
+        'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+  eF_insertTableData("logs", $fields_insert);
   try {
    if (eF_checkParameter($input, 'email')) { //The user entered an email address
     $result = eF_getTableData("users", "login", "email='".$input."'"); //Get the user stored login
@@ -495,6 +517,11 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'reset_pwd' && $GLOBALS['configuratio
 /* -------------------------------------------------------End of Reset Password part--------------------------------------------------------- */
 /* -----------------------------------------------------Sign up part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup']) {
+ if (eF_checkSpam() == true) {
+  $message = _SPAMDETECTION;
+  $message_type = 'failure';
+  eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);
+ }
  $users = eF_countTableData("users", "login", "active=1 and archive=0");
  $smarty -> assign("T_CTG", "signup");
  $form = new HTML_QuickForm("signup_register_personal_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=signup".(isset($_GET['ldap']) ? '&ldap=1' : ''), "", "class = 'indexForm'", true);
@@ -571,6 +598,12 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
   eF_redirect(basename($_SERVER['PHP_SELF'])."?message=".urlencode($message)."&message_type=$message_type");
  }
  if ($form -> isSubmitted()) {
+  $fields_insert = array('users_LOGIN' => 'visitor',
+        'timestamp' => time(),
+        'action' => 'forms',
+        'comments' => 'signup',
+        'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+  eF_insertTableData("logs", $fields_insert);
   if ($form -> validate()) {
             try {
     if (isset($_SESSION['s_login'])) { //A logged-in user wants to signup: Log him out first
@@ -674,6 +707,11 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
 /* --------------------------------------------------- End of Sign up part--------------------------------------------------- */
 /* -------------------------------------------------------Contact part--------------------------------------------------------- */
 if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to display the contact form
+ if (eF_checkSpam() == true) {
+  $message = _SPAMDETECTION;
+  $message_type = 'failure';
+  eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);
+ }
  $smarty -> assign('T_CTG', 'contact');
  $form = new HTML_QuickForm("contact_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=contact", "", "class = 'indexForm'", true);
  $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
@@ -685,6 +723,12 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
  $form -> addElement('textarea', 'message_body', _TEXT, 'class = "inputText" id = "contact"');
  $form -> addElement('submit', 'submit_contact', _SUBMIT, 'class = "flatButton"');
  if ($form -> isSubmitted()) {
+  $fields_insert = array('users_LOGIN' => 'visitor',
+        'timestamp' => time(),
+        'action' => 'forms',
+        'comments' => 'contact',
+        'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+  eF_insertTableData("logs", $fields_insert);
   if ($form -> validate()) {
    $to = $form -> exportValue("email");
    $subject = $form -> exportValue("message_subject");

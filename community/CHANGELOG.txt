@@ -11,6 +11,57 @@
 - Fixed issue about access forum page in lesson with instance_source
 - Fixed issue about uploading avatar with same name more than one times
 - Fixed issues about logo loading
+- Extended characters converting to space when adding in EfrontSearch :: insertText
+- Fixed issues in getting possible recipients for messages
+- Display invisible custom profile fields when creating user from admin page
+- Fixed errors displayed in time constraint reports when page submitted without selecting a course/lesson/project/test value
+- Fixes for test analysis page
+- Fixed issue about not allowing file name to contain quotes when renaming file from interface
+- Updating from_timestamp value when re-assigning user to course if course is not completed (#1908)
+- Implementing a common question pool (between lessons) for enterprise/educational editions
+- Fixed issue with counting questions in feedback page
+- Fixed changing of registration date when editing user
+- Fixed issue about shared files with share folder lessons
+- Fixed issue about complete lesson and decimal point db error
+- Fixed issue about displaying inactive users in recipients list
+- Small api extension
+- Fixed issue about editing account as sub-admin where user was sub-admin too (#1952)
+- Fixed language issues about first login change password
+- Fixed issue about course not completed notification
+- Fixed issue about assigning proper user type when assigning users to group via reports generator
+- Fixed issue about course completing by admin for a professor with student role to the course
+- Exclude google view pdf links from being transformed to view_file.php?file format
+- Added user role selection field when assigning lessons/courses in reports generator
+- Display lessons/courses sorted in reports generator when assigning to users
+- Removed share files column from filemanager when adding unit if digital library option for lesson is inactive
+- Default sorting by last post in forum page
+- Changed link for doing the survey to be active in notifications
+- Fixed issue about folders with quote in name (') when navigating into folder from file manager
+- Extended smart content functionality to create units with other file types
+- Added time option in skill gap tests
+- Added more buttons in tinyMCE editor
+- Fixed issue about insert to editor flv files
+- Filter php_self for xss attacks
+- Fixed issue about students showing skill gap tests after entering a lesson
+- Fixed issue about last projects block in control panel of professor
+- Fixed issue about title path (Breadcrumb) with / and () characters and &rarr; in title of anchors (#2042)
+- Fixed issue about sub-subforums and last post
+- Fixed visual issue in Chrome about lesson initialization and import page(id conflict with chat) (#2060)
+- Fixed issue about custom user type and view value in progress
+- Fixed chat issues about word wrap and chatbox titles with @
+- Removed submit button in course rules if course has only one lesson
+- Fixed js issues in file manager and IE about files with '
+- Added checkSpam functionality for denying access to IPs that use outside forms (contact,sign up, reset password) very often
+- Added check for mysql reserved words in custom user field creation
+- Fixed add to cart issue with hash in url (#2075)
+- Added option to deactivate users after five contiguous unsuccessful login atempts
+- Fixed issue about trying to directly access topics from forums that did not be enrolled to users
+- Fixed paypal not accepting comma in prices
+- Converted org chart to perform ajax-based loading
+- Added onAddUserPlacement() module function
+- Fixed lesson statistics not displaying test score when "active score" is not set
+- Fixed redirection when resuming test for certain IE clients
+- Prevented accessing a lesson when in a course that depends on another course, which is not part of the student's curriculum
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

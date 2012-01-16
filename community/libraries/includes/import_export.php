@@ -15,7 +15,6 @@ $importForm = new HTML_QuickForm("import_form", "post", basename($_SERVER['PHP_S
 
 $importForm -> addElement('file', 'import_file', _DATAFILE, 'class = "inputText"');
 $importForm -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
-$importForm -> addRule('import_file', _YOUMUSTUPLOADFILE, 'uploadedfile', null, 'client');
 
 $importForm -> addElement('select', 'import_type', _DATATYPE, $import_export_types, 'id ="import_type" class = "inputCheckbox" onchange="changeCategory(this.value)"');
 $importForm -> addElement('advcheckbox', 'import_keep', _KEEPEXISTINGUSERS, null, 'class = "inputCheckbox"', array(0, 1));

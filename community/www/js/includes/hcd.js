@@ -1,3 +1,21 @@
+if ($(chart_holder)) {
+	document.observe("dom:loaded", function() {
+		el = document.body;
+		parameters = {load_chart:1, method: 'get'};
+		ajaxRequest(el, location.toString(), parameters, onLoadChart);
+	});
+}
+function onLoadChart(el, response) {
+	var re2         = new RegExp("<!--ajax:chart-->((.*[\n])*)<!--\/ajax:chart-->");	//Does not work with smarty {strip} tags!
+	var tableText   = re2.exec(response);
+	if (!tableText) {
+		var re      = new RegExp("<!--ajax:chart-->((.*[\r\n\u2028\u2029])*)<!--\/ajax:chart-->");	//Does not work with smarty {strip} tags!
+		tableText   = re.exec(response);
+	}
+	$('loading_div').hide();
+	$('chart_holder').update(tableText);
+}
+
 function toggleOrgChartMode(el) {
 	Element.extend(el);
 	var orgChartMode = parseInt(readCookie("orgChartMode"));

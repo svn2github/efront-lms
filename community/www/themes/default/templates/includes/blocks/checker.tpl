@@ -16,5 +16,6 @@ var translationcheckJava = "{$smarty.const._CHECKJAVA}";
 var translationcheckJavaFailed = "{$smarty.const._CHECKJAVAFAILED}";
 var translationshelp = "{$smarty.const._HELP}";
 </script>
+<script type="text/javascript" src="js/deployJava.js"></script>
 <script type="text/javascript" src="js/optionsChecker.js"></script>
 <noscript><table width="100%"><tr><td>{$smarty.const._CHECKJAVASCRIPT}</td><td><img src='images/16x16/error_delete.png' title='{$smarty.const._CHECKJAVASCRIPTFAILED}' /></td></tr></table></noscript>

@@ -9,7 +9,10 @@
     <td class = "elementCell">{$T_ENTITY_FORM.folders_to_hierarchy.html}</td></tr>
    <tr><td class = "labelCell">{$T_ENTITY_FORM.uncompress_recursive.label}:&nbsp;</td>
     <td class = "elementCell">{$T_ENTITY_FORM.uncompress_recursive.html}</td></tr>
-
+   <tr><td class = "labelCell">{$T_ENTITY_FORM.prompt_download.label}:&nbsp;</td>
+    <td class = "elementCell">{$T_ENTITY_FORM.prompt_download.html}</td></tr>
+   <tr><td class = "labelCell"></td>
+    <td class = "infoCell">{$T_ENTITY_FORM.note.label}</td></tr>
 {* <tr><td class = "labelCell">{$T_ENTITY_FORM.import_type.label}:&nbsp;</td>
     <td class = "elementCell">{$T_ENTITY_FORM.import_type.html}</td></tr>
    <tr><td class = "labelCell">{$T_ENTITY_FORM.import_method.label}:&nbsp;</td>

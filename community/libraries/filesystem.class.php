@@ -737,8 +737,8 @@ class EfrontFile extends ArrayObject
                 if (defined("NO_CHECK_FILE_INTEGRITY") && NO_CHECK_FILE_INTEGRITY) {
                  $blackList = $whiteList = '';
                 }
-                $response = exec('unzip "'.$this['path'].'" '.$whiteList.' '.$blackList.' -d "'.$this['directory'].'" 2>&1', $output, $code);
-                if (stripos($response, 'caution') === false && $code != 0) {
+                $response = exec('unzip -qq "'.$this['path'].'" '.$whiteList.' '.$blackList.' -d "'.$this['directory'].'" 2>&1', $output, $code);
+                if (stripos($response, 'caution') === false && stripos($response, 'warning') === false && $code != 0) {
                     throw new EfrontFileException(_COMMANDFAILEDWITHOUTPUT.': '.$response.". "._PERHAPSDONTSUPPORTZIP, EfrontFileException :: ERROR_ZIP_PROCESSING);
                 }
             } else {
@@ -2758,7 +2758,7 @@ class FileSystemTree extends EfrontTree
                 } else {
                     $filesCode .= '<a class="editLink" href = "javascript:void(0)" onclick = "eF_js_rebuildTable($(\'filename_'.$tableId.'\').down().getAttribute(\'tableIndex\'), 0, \'\', \'desc\', \''.urlencode($identifier).'\');">'.$value['name'].'</a>';
                 }
-                $filesCode .= '<span id = "edit_'.urlencode($identifier).'" style = "display:none"><input type = "text" value = "'.$value['name'].'" onkeypress = "if (event.which == 13 || event.keyCode == 13) {Element.extend(this).next().down().onclick(); return false;}"/>&nbsp;<a href = "javascript:void(0)"><img id = "editImage_'.urlencode($identifier).'"src = "images/16x16/success.png" style = "vertical-align:middle" onclick = "editFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML, Element.extend(this).up().previous().value, \''.$value['type'].'\',\''.$value['name'].'\')" border = "0"></a></span></td>';
+                $filesCode .= '<span id = "edit_'.urlencode($identifier).'" style = "display:none"><input type = "text" value = "'.$value['name'].'" onkeypress = "if (event.which == 13 || event.keyCode == 13) {Element.extend(this).next().down().onclick(); return false;}"/>&nbsp;<a href = "javascript:void(0)"><img id = "editImage_'.urlencode($identifier).'"src = "images/16x16/success.png" style = "vertical-align:middle" onclick = "editFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML, Element.extend(this).up().previous().value, \''.$value['type'].'\',\''.eF_addslashes($value['name']).'\')" border = "0"></a></span></td>';
             }
             $extraColumnsString = '';
             foreach ($extraColumns as $column) {
@@ -3284,7 +3284,7 @@ class FileSystemTree extends EfrontTree
                     }
                     break;
                 case 'media':
-                    if (strpos($filetype, 'audio/') === 0 || strpos($filetype, 'video/') === 0 || $key == 'swf' || $key == 'flv' || strpos($filetype, 'media') !== false) {
+                    if (strpos($filetype, 'audio/') === 0 || strpos($filetype, 'video/') === 0 || $key == 'swf' || $key == 'flv' || $key == 'ogg' || strpos($filetype, 'media') !== false) {
                         $fileTypes[$key] = $filetype;
                     }
                     break;

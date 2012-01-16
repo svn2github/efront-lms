@@ -3694,7 +3694,7 @@ define("_BEFORE","Før");//Before
 define("_PARTICIPATIONINTHECOURSESOFTHEGROUP","Deltakelse av alle brukere i emnene i gruppen");//Participation of all users in the courses of the group
 define("_PARTICIPATIONOFGROUPUSERSINCOURSES","Deltakelse i gruppe brukere i emnene av systemet");//Participation of group users in the courses of the system
 define("_PURGELOGS","Rydd logger");//Purge logs
-define("_LOGSSIZE","");//Logs size
+define("_LOGSSIZE","Loggenes størrelse");//Logs size
 define("_OLDESTLOG","Eldste loggoppføringen");//Oldest log entry
 define("_PURGELOGSOLDERTHAN","Purge logger eldre enn");//Purge logs older than
 define("_SUCCESSFULLYPURGEDLOGS","Successfully utrensket logger");//Successfully purged logs
@@ -3745,7 +3745,7 @@ define("_CACHEENTRYEXPIRED","Cache oppføring utløpt");//Cache entry expired
 define("_CACHEENTRYINVALID","Cache oppføring er ugyldig");//Cache entry is invalid
 define("_PURGENOTIFICATIONS","Rydd varsler");//Purge notifications
 define("_NOTIFICATIONSSIZE","Varsler størrelse");//Notifications size
-define("_OLDESTNOTIFICATION","");//Oldest notification
+define("_OLDESTNOTIFICATION","Eldste varsel");//Oldest notification
 define("_PURGENOTIFICATIONSOLDERTHAN","Purge varsler eldre enn");//Purge notifications older than
 define("_CURRENTUSERS","Gjeldende");//Current
 define("_SELECTEDCOURSES","Utvalgte emner");//Selected courses
@@ -3816,7 +3816,7 @@ define("_RESETLEARNINGPROGRESS","Tilbakestill læring framgang");//Reset learnin
 define("_BUILDER","Builder");//Builder
 define("_ADDREPORT","Legg til ny rapport");//Add new report
 define("_CONDITIONTYPE","Tilstand type");//Condition type
-define("_CONDITIONSPECIFICATION","");//Condition specification
+define("_CONDITIONSPECIFICATION","Tilstandsspesifikasjon");//Condition specification
 define("_ADDCOLUMN","Legg kolonne");//Add column
 define("_RELATIONWITHTHEFOLLOWINGCONDITION","Relasjon med neste");//Relation with next
 define("_COLUMNTYPE","Kolonnetype");//Column type

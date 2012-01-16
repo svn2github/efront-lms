@@ -619,6 +619,26 @@ class module_demo extends EfrontModule {
 
 	 * (non-PHPdoc)
 
+	 * @see libraries/EfrontModule#onDeleteUser()
+
+     */
+    public function onUpdateUser($login) {
+  eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace('%login%', formatLogin($login), _MODULE_DEMO_UPDATEDUSER)));
+    }
+    /**
+
+	 * (non-PHPdoc)
+
+	 * @see libraries/EfrontModule#onDeleteUser()
+
+     */
+    public function onAddUserPlacement($login, $jobId, $branchId, $position) {
+  eF_insertTableData("module_demo_data", array("timestamp" => time(), "data" => str_replace(array('%login%', '%jobId%', '%branchId%', '%position%'), array(formatLogin($login), $jobId, $branchId, $position), _MODULE_DEMO_CHANGEDUSERPLACEMENT)));
+    }
+    /**
+
+	 * (non-PHPdoc)
+
 	 * @see libraries/EfrontModule#onNewLesson()
 
      */

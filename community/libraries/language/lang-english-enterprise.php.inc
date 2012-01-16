@@ -1186,7 +1186,7 @@ define("_THEFOLLOWINGLESSONFOLDERSCOULDNOTBECREATED", "The folders for the follo
 define("_EDITCONTENT", "Edit content");
 define("_NORMALSTATUS", "Normal status");
 define("_APPLICATIONPENDING", "Application pending");
-define("_SUCCESS", " imported IMS fileSuccess");
+define("_SUCCESS", "Success");
 define("_WARNING", "Warning");
 define("_DEFINITIONCOULDNOTBEINSERTED", "Definition could not be inserted");
 define("_SUCCESFULLYUPDATEDDEFINITION", "Successfully updated definition");

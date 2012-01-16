@@ -17,6 +17,8 @@ define("_MODULE_DEMO_DEMODATADASHBOARD", "Demo module data (dashboad)");
 define("_MODULE_DEMO_DEMODATACATALOG", "Demo module data (catalog)");
 define("_MODULE_DEMO_CREATEDUSER", "Called demo module's onNewUser() when user %login% was created");
 define("_MODULE_DEMO_DELETEDUSER", "Called demo module's onDeleteUser() when user %login% was deleted");
+define("_MODULE_DEMO_UPDATEDUSER", "Called demo module's onUpdateUser() when user %login% was updated");
+define("_MODULE_DEMO_CHANGEDUSERPLACEMENT", "Called demo module's onAddUserPlacement() when user %login% was assigned a the job with id %job% in branch %branch% and position %position%");
 define("_MODULE_DEMO_CREATEDLESSON", "Called demo module's onNewLesson() when lesson %lesson% was created");
 define("_MODULE_DEMO_DELETEDLESSON", "Called demo module's onDeleteLesson() when lesson %lesson% was deleted");
 define("_MODULE_DEMO_DELETEDCOURSE", "Called demo module's onDeleteCourse() when course %course% was deleted");

@@ -96,28 +96,18 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('advcheckbox', 'pdf_check', _UPLOADPDFFORCONTENT, null, 'class = "inputCheckbox" onclick="checkToggle=true;togglePdf()"', array(0, 1));
      $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
      $form -> addElement('select', 'ctg_type', _CONTENTTYPE, array('theory' => _THEORY, 'examples'=> _EXAMPLES), 'class = "inputSelect"'); //A select drop down for content type.... Exercises went away in version 3 (2007/07/10) makriria
-
-
-
-
-
-
-
      //in order to display inactive parent units (#903)
      $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)); //Default iterator excludes non-active units
      $form -> addElement('select', 'parent_content_ID', _UNITPARENT, array(0 => _NOPARENT)+$currentContent -> toHTMLSelectOptions($iterator));
      $form -> addElement('file', 'pdf_upload', _PDFFILE, null);
      $form -> addElement('submit', 'submit_insert_content', _SAVECHANGES, 'class = "flatButton"');
      $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize()*1024);
-
-
      if (strpos($currentUnit['ctg_type'], 'scorm') !== false) {
          $form -> addElement('text', 'scorm_size', _EXPLICITIFRAMESIZE, 'class = "inputText" style = "width:50px"'); //Set an explicit size for the SCORM content
          $form -> addElement('select', 'reentry_action', _ACTIONONRENTRYCOMPLETED, array(0 => _LETCONTENTDECIDE, 1 => _DONTCHANGE), 'class = "inputText"'); //Set what action should be performed when a user re-enters a visited content
          if ($currentUnit['scorm_version'] == '1.2') {
           $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
           $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
-
            if (strpos($currentUnit['data'], 'window.open') !== false) {
      preg_match("/\"scormFrameName\".*\"\)'/U", $currentUnit['data'], $matches);
      $popupParameter = mb_substr($matches[0], mb_strpos($matches[0], '"scormFrameName", "') + mb_strlen('"scormFrameName", "'), mb_strpos($matches[0], ")'"));
@@ -126,13 +116,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
            $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
     }
          }
-
    if (strpos($currentUnit['data'], 'iframe') !== false) {
     $form -> setDefaults(array('embed_type' => 'iframe'));
    } else {
     $form -> setDefaults(array('embed_type' => 'popup'));
    }
-
    $form -> addRule('scorm_size', _INVALIDFIELDDATA, 'checkParameter', 'id');
          $smarty -> assign("T_SCORM", true);
      }
@@ -160,11 +148,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
        $completeUnitSelect[EfrontUnit::COMPLETION_OPTIONS_COMPLETEWITHQUESTION] = _COMPLETEWITHQUESTION;
       }
      }
-
   ksort($completeUnitSelect);
-
      $form -> addElement('select', 'complete_unit_setting', _COMPLETEUNITOPTIONS, $completeUnitSelect, 'onchange = "setUnitCompletionOptions(this)"');
-
      //Set elements default values
      $form -> setDefaults($currentUnit['options']);
      preg_match("/eF_js_setCorrectIframeSize\((.*)\)/", $currentUnit['data'], $matches);
@@ -180,10 +165,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      //If the "complete with question" option is set, show the selected question
      //$currentUnit['options']['complete_unit_setting'] == COMPLETION_OPTIONS_COMPLETEWITHQUESTION ? $form -> updateElementAttr(array('complete_question'), array('style' => 'display:""')) : null;
      //$currentUnit['options']['complete_unit_setting'] == COMPLETION_OPTIONS_COMPLETEAFTERSECONDS ? $form -> updateElementAttr(array('complete_time'), array('style' => 'display:""')) : null;
-
      //Check whether it is a pdf content and handle accordingly
      if (mb_strpos($currentUnit['data'], "<iframe") !== false && mb_strpos($currentUnit['data'], "pdfaccept") !== false && mb_strpos($currentUnit['data'], "google.com/viewer") === false) {
-
       $fileEnd = mb_strpos($currentUnit['data'], ".pdf");
    if ($fileEnd != "") {
           $contentParts = explode("/", mb_substr($currentUnit['data'], 0, $fileEnd));
@@ -192,7 +175,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      if ($pdfFile['id']) {
       $form -> setDefaults(array('data' => '<iframe src="view_file.php?file='.$pdfFile['id'].'"  name="pdfaccept" width="100%" height="600"></iframe>'));
      }
-
             } catch (Exception $e) {
             //in case file is not found in database, don't do anything
             }
@@ -208,24 +190,19 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         $message_type = 'failure';
     }
     $form -> setDefaults(array('pdf_content' => $pdfFile['physical_name']));
-
    }
          $form -> setDefaults(array('pdf_check' => 1));
-
          $smarty -> assign("T_EDITPDFCONTENT", true);
      }
-
      //You can't change a unit's parent from this form. You must use the content tree management page
      if ($_GET['edit']) {
          $form -> setDefaults(array('parent_content_ID' => $currentUnit['parent_content_ID']));
          $form -> freeze(array('parent_content_ID'));
      }
-
      //If the form was submitted with pdf content, take special care
      if ($form -> isSubmitted() && $form -> validate()) {
       try {
           $values = $form -> exportValues();
-
           if ($_FILES['pdf_upload']['name'] != "") {
               if (strpos($_FILES['pdf_upload']['name'], ".pdf") !== false) {
                   $destinationDir = new EfrontDirectory(G_LESSONSPATH.$_SESSION['s_lessons_ID']);
@@ -237,7 +214,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                throw new Exception(_YOUMUSTUPLOADAPDFFILE);
               }
           }
-
           $options = serialize(array(//'hide_complete_unit' => $values['hide_complete_unit'],
                                      //'auto_complete'      => $values['auto_complete'],
                                      'complete_unit_setting' => $values['complete_unit_setting'],
@@ -250,8 +226,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                                'reentry_action' => isset($values['reentry_action']) ? $values['reentry_action'] : false,
                       'complete_question' => $values['complete_question'] ? $values['complete_question'] : 0,
                    'complete_time' => $values['complete_time'] ? $values['complete_time'] : ''));
-
-
     if (isset($_GET['edit'])) {
               //You can't edit data in scorm units
               if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
@@ -278,7 +252,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
               $values['ctg_type'] ? $currentUnit['ctg_type'] = $values['ctg_type'] : null;
               $values['name'] ? $currentUnit['name'] = $values['name'] : null;
               $currentUnit['options'] = $options;
-
               $currentUnit -> persist();
               $currentUnit -> setSearchKeywords();
           } else {
@@ -291,58 +264,41 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                               'options' => $options);
               $currentUnit = $currentContent -> insertNode($fields);
           }
-
           $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
           $message_type = 'success';
-
           eF_redirect(basename($_SERVER['PHP_SELF']).'?ctg=content&view_unit='.$currentUnit['id'].'&message='.urlencode($message).'&message_type=success');
       } catch (Exception $e) {
        handleNormalFlowExceptions($e);
       }
      }
-
      $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
      $form -> setRequiredNote(_REQUIREDNOTE);
-
      $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
      $renderer->setRequiredTemplate(
          '{$html}{if $required}
               &nbsp;<span class = "formRequired">*</span>
           {/if}'
           );
-
           $renderer->setErrorTemplate(
          '{$html}{if $error}
               <span class = "formError">{$error}</span>
           {/if}'
           );
      $form -> accept($renderer);
-
      $smarty -> assign('T_ENTITY_FORM', $renderer -> toArray());
-
      $smarty -> assign("T_EDITED_UNIT", $currentUnit);
  } catch (Exception $e) {
      $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
      $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
      $message_type = 'failure';
  }
-
 } else if (isset($_GET['apply_all'])) {
-
     $completeUnitSelect = array(EfrontUnit::COMPLETION_OPTIONS_DEFAULT => _DEFAULT,
            EfrontUnit::COMPLETION_OPTIONS_AUTOCOMPLETE => _AUTOCOMPLETE,
            EfrontUnit::COMPLETION_OPTIONS_HIDECOMPLETEUNITICON => _HIDECOMPLETEUNITICON);
-
  $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=content".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit']), "", null, true);
-
  $form -> addElement('select', 'ctg_type', _CONTENTTYPE, array('theory' => _THEORY, 'examples'=> _EXAMPLES), 'class = "inputSelect"'); //A select drop down for content type.... Exercises went away in version 3 (2007/07/10) makriria
  $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
-
-
-
-
-
-
  ksort($completeUnitSelect);
  $form -> addElement('select', 'complete_unit_setting', _COMPLETEUNITOPTIONS, $completeUnitSelect, 'onchange = "setUnitCompletionOptions(this)"');
  $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
@@ -355,10 +311,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
  $form -> addElement('select', 'reentry_action', _ACTIONONRENTRYCOMPLETED, array(0 => _LETCONTENTDECIDE, 1 => _DONTCHANGE), 'class = "inputText"'); //Set what action should be performed when a user re-enters a visited content
  $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
  $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
-
     $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
     $form -> setRequiredNote(_REQUIREDNOTE);
-
     $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
     $renderer->setErrorTemplate(
         '{$html}{if $error}
@@ -366,10 +320,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          {/if}'
          );
     $form -> accept($renderer);
-
     $smarty -> assign('T_ENTITY_FORM', $renderer -> toArray());
-
-
     if (isset($_GET['ajax'])) {
      try {
       $basicIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
@@ -380,7 +331,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         } else {
          $value['options'][$_GET['option']] = $_GET['value'];
         }
-
         $value->persist();
        }
       }
@@ -424,7 +374,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      //$currentUnit['options'][$_GET['option']] = eF_addSlashes($_GET['value']);
      //$currentUnit->persist();
     }
-
 } else if (!$currentUnit && $_student_ && !isset($_GET['package_ID'])) {
     $basicIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
     if (isset($_GET['type']) && $_GET['type'] == 'tests') {
@@ -437,7 +386,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     } else {
         $iterator = new EfrontVisitableAndEmptyFilterIterator($basicIterator);
     }
-
     //Find the parents of each of these units, so that we can keep them in the tree
     foreach ($iterator as $key => $value) {
         foreach ($currentContent -> getNodeAncestors($key) as $parent) {
@@ -446,7 +394,6 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     }
     //This iterator keeps the special units (for example, tests or examples) plus their parents
     $iterator = new EfrontInArrayFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST))), $parents);
-
     $smarty -> assign("T_THEORY_TREE", $currentContent -> toHTML($iterator, 'dhtmlContentTree'));
 } else {
  if ($configuration['math_content'] && $configuration['math_images']) {
@@ -620,7 +567,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                         try {
                             $question -> setDone($_POST['question'][$question -> question['id']]);
                             $results = $question -> correct();
-                            if ($results['score'] > 0.5) { //50% is considered success
+                            if ($results['score'] > 0.99999) {
                                 $currentUser -> setSeenUnit($currentUnit, $currentLesson, true);
                                 echo 'correct';
                             }

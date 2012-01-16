@@ -222,24 +222,26 @@ class f_forums extends EfrontEntity
      * @return unknown_type
 
      */
-    public static function calculateForumStats($tree, $node, $topics, $polls, $messages, $last_post) {
+    public static function calculateForumStats($tree, $node, $topics, $polls, $messages, &$last_post) {
         $total = array();
         $total['topics'] += $topics[$node];
         $total['polls'] += $polls[$node];
         $total['messages'] += $messages[$node];
-        $last_post[$node] >= $total['last_post'] ? $total['last_post'] = $last_post[$node] : '';
+        $total['last_post'] = $last_post[$node];
         foreach ($tree[$node] as $id) {
             if (in_array($id, array_keys($tree))) {
                 $temp = self :: calculateForumStats($tree, $id, $topics, $polls, $messages, $last_post);
                 $total['topics'] += $temp['topics'];
                 $total['polls'] += $temp['polls'];
                 $total['messages'] += $temp['messages'];
-                $last_post[$id] > $total['last_post'] ? $total['last_post'] = $last_post[$id] : '';
+    $last_post[$node]['timestamp'] < $temp['last_post']['timestamp'] ? $last_post[$node] = $temp['last_post'] :'';
+    $total['last_post'] = $last_post[$node];
             } else {
                 $total['topics'] += $topics[$id];
                 $total['polls'] += $polls[$id];
                 $total['messages'] += $messages[$id];
-                $last_post[$id] > $total['last_post'] ? $total['last_post'] = $last_post[$id] : '';
+                $last_post[$node]['timestamp'] < $temp['last_post']['timestamp'] ? $last_post[$node] = $temp['last_post'] :'';
+    $total['last_post'] = $last_post[$node];
             }
         }
         return $total;

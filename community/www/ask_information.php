@@ -105,7 +105,7 @@ try {
      case 'general_description': $tooltipInfo[] = '<div class = "infoEntry"><span>'._DESCRIPTION."</span><span>: $value</span></div>"; break;
      case 'assessment' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._ASSESSMENT."</span><span>: $value</span></div>"; break;
      case 'objectives' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OBJECTIVES."</span><span>: $value</span></div>"; break;
-     case 'lesson_topics' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._LESSONTOPICS."</span><span>: $value</span></div>"; break;
+     case 'lesson_topics' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._COURSETOPICS."</span><span>: $value</span></div>"; break;
      case 'resources' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>"; break;
      case 'other_info' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>"; break;
      case 'price_string' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>"; break;

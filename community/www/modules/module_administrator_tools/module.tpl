@@ -182,7 +182,7 @@
     {*<td>{$item.login}!!</td>*}
     <td class = "centerAlign">#filter:timestamp-{$item.to_timestamp}#</td>
     <td class = "centerAlign">{if !$item.historic}#filter:score-{$item.score}#%{/if}</td>
-    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.login}&op=profile">#filter:login-{$item.supervisor}#</a></td>
+    <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$item.supervisor}&op=profile">#filter:login-{$item.supervisor}#</a></td>
     <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=branches&edit_branch={$item.branch_ID}">{$item.branch}</a></td>
     <td class = "centerAlign">{if $item.historic}{$smarty.const._YES}{else}{$smarty.const._NO}{/if}</td>
    </tr>

@@ -31,15 +31,24 @@ try {
  //An array of legal ids for editing entries
  if (!$_admin_) {
   if (!isset($currentContent)) {
-   if ($currentLesson) {
+   $result = eF_getTableDataFlat("tests", "id", "lessons_ID=0");
+   $legalValues = $result['id'];
+   if(isset($_GET['show_solved_test'])) {
+    $tests_ID = eF_getTableData("completed_tests", "tests_ID", "id=".$_GET['show_solved_test']);
+    if (!empty($legalValues)) {
+     if (in_array($tests_ID[0]['tests_ID'],$legalValues)) {
+      $set_skill_gap = 1;
+     }
+    }
+   }
+
+   if ($currentLesson && !$set_skill_gap) {
     $currentContent = new EfrontContentTree($currentLesson);
-   } else if ((isset($_GET['show_solved_test']) && isset($_GET['test_analysis']))) { //user viewing own skillgap analysis
+   } else if ((isset($_GET['show_solved_test']) && isset($_GET['test_analysis'])) || $set_skill_gap) { //user viewing own skillgap analysis
     $skillgap_tests = 1;
     $_change_ = 0;
     $smarty -> assign("_change_", $_change_);
 
-    $result = eF_getTableDataFlat("tests", "id", "lessons_ID=0");
-    $legalValues = $result['id'];
     if (!empty($legalValues)) {
      $legalSolvedValues = eF_getTableDataFlat("completed_tests JOIN users_to_skillgap_tests ON completed_tests.tests_ID = users_to_skillgap_tests.tests_ID AND users_to_skillgap_tests.solved = 1", "completed_tests.id", "users_to_skillgap_tests.users_LOGIN='".$currentUser->user['login']."' and users_to_skillgap_tests.tests_ID in (".implode(",", $legalValues).")");
      $legalSolvedValues = $legalSolvedValues['id'];
@@ -518,8 +527,10 @@ try {
         if ($currentLesson -> options['rules']) {
             $ruleCheck = $currentContent -> checkRules($currentUnit['id'], $seenContent);
         }
+
+
         if (isset($_GET['view_unit']) && eF_checkParameter($_GET['view_unit'], 'id') && (!($GLOBALS['currentLesson'] -> options['rules']) || $ruleCheck === true)) {
-            $visitableIterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
+         $visitableIterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
             $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML(false, 'dhtmlContentTree', array('truncateNames' => 25, 'selectedNode' => $currentUnit['id'])));
             $smarty -> assign("T_UNIT", $currentUnit);
             $smarty -> assign("T_NEXT_UNIT", $currentContent -> getNextNode($currentUnit, $visitableIterator));

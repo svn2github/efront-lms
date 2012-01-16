@@ -519,9 +519,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $row++;
             foreach ($info['done'] as $results) {
                 $workSheet -> write($row, 1, formatLogin($results['users_LOGIN']), $fieldLeftFormat);
-                $workSheet -> write($row, 2, formatScore(round($results['active_score'], 2))."%", $fieldCenterFormat);
+                $workSheet -> write($row, 2, formatScore(round($results['active_score'] ? $results['active_score'] : $results['score'], 2))."%", $fieldCenterFormat);
                 $workSheet -> write($row++, 3, formatTimestamp($results['timestamp'], 'time'), $fieldLeftFormat);
-                $avgScore[] = $results['active_score'];
+                $avgScore[] = $results['active_score'] ? $results['active_score'] : $results['score'];
             }
             if (sizeof($avgScore) > 0) {
                 $workSheet -> write($row, 1, _AVERAGESCORE, $fieldLeftBoldFormat);
@@ -599,7 +599,7 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
             $workSheet -> write($row, $column, $info['general']['name'], $fieldCenterFormat);
             foreach ($info['done'] as $results) {
              if (isset($rows[$results['users_LOGIN']])) {
-                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['active_score'], 2))."% (". formatTimestamp($results['timestamp'], 'time').")", $fieldCenterFormat);
+                 $workSheet -> write($rows[$results['users_LOGIN']], $column, formatScore(round($results['active_score'] ? $results['active_score'] : $results['score'], 2))."% (". formatTimestamp($results['timestamp'], 'time').")", $fieldCenterFormat);
              }
             }
             $column++;
@@ -865,9 +865,9 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
   foreach ($testsInfo as $id => $info) {
    $data = array();
    foreach ($info['done'] as $results) {
-    $avgScore[] = $results['active_score'];
+    $avgScore[] = $results['active_score'] ? $results['active_score'] : $results['score'];
     $data[] = array(_USER => formatLogin($results['users_LOGIN']),
-        _SCORE => formatScore(round($results['active_score'], 2))."%");
+        _SCORE => formatScore(round($results['active_score'] ? $results['active_score'] : $results['score'], 2))."%");
    }
    if (!empty($data)) {
     $data[] = array(_USER => _AVERAGESCORE,

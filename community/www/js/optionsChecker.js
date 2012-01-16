@@ -209,13 +209,9 @@
 		
 		optionsChecker.perform_java_detection = function()
 		{
-			for (x = 0; x < navigator.plugins.length; x++) {
-		        if (navigator.plugins[x].name.indexOf('Java(TM)') != -1) {
-	//	        	return true;
-		        }
-		    }
-			if (navigator.javaEnabled()) {
-	//				return true;
+			//alert(deployJava.versionCheck("1.6.0+"));
+			if( deployJava.versionCheck("1.6.0+") == true) {
+					return true;
 			}
 			return false;
 		}

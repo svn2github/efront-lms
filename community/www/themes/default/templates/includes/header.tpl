@@ -21,7 +21,8 @@
         var ajaxObjects = new Array();
         {assign var='sitename' value=$T_CONFIGURATION.site_name|replace:'"':'\"'}
   {assign var='sitemotto' value=$T_CONFIGURATION.site_motto|replace:'"':'\"'}
-        top.document.title = "{if $T_CONFIGURATION.site_name}{$sitename}{else}{$smarty.const._EFRONTNAME}{/if} | {if $T_TITLE_BAR}{$T_TITLE_BAR}{else}{if $T_CONFIGURATION.site_motto}{$sitemotto|strip_tags}{else}{$smarty.const._THENEWFORMOFADDITIVELEARNING}{/if}{/if}";
+
+        top.document.title = "{if $T_CONFIGURATION.site_name}{$sitename}{else}{$smarty.const._EFRONTNAME}{/if} | {if $T_TITLE_BAR}{$T_TITLE_BAR|replace:'"':'\"'}{else}{if $T_CONFIGURATION.site_motto}{$sitemotto|strip_tags}{else}{$smarty.const._THENEWFORMOFADDITIVELEARNING}{/if}{/if}";
         if (window.name == 'POPUP_FRAME') var popup=1;
         {if $T_BROWSER == 'IE6'}var globalImageExtension = 'gif';{else}var globalImageExtension = 'png';{/if}
 

@@ -887,6 +887,32 @@ function eF_checkIP($api = false)
 }
 /**
 
+* Checks if a client is considered as spammer 
+
+*
+
+* This function checks if this IP has tried to access contact forms (contact,signup,password reset) 
+
+* many times in a small time interval. In this case it denies access to the page
+
+*
+
+* @return bool true if the client may not access the system
+
+* @version 1.0
+
+*/
+function eF_checkSpam($interval = 300) {
+ $res = eF_getTableData("logs", "*", "users_LOGIN='visitor' AND action='forms' AND session_ip='".eF_encodeIP($_SERVER['REMOTE_ADDR'])."' order by timestamp desc limit 10");
+ $timeInterval = $res[0]['timestamp'] - $res[sizeof($res)-1]['timestamp'];
+ if (!empty($res) > 1 && $timeInterval < $interval) {
+  return true;
+ } else {
+  return false;
+ }
+}
+/**
+
 * Checks if the designated user is ldap registered
 
 *
@@ -1169,6 +1195,25 @@ function eF_checkParameter($parameter, $type, $correct = false)
             break;
     }
     return $parameter;
+}
+/**
+
+* Check a parameter against Mysql Reserved Words
+
+* If parameter is in reserved words list, function returns false.
+
+**/
+function eF_checkMysqlReservedWords ($parameter) {
+ $res_words = array("ACCESSIBLE","ADD","ALL","ALTER","ANALYZE","AND","AS","ASC","ASENSITIVE","BEFORE","BETWEEN","BIGINT","BINARY","BLOB","BOTH","BY","CALL","CASCADE","CASE","CHANGE","CHAR","CHARACTER","CHECK","COLLATE","COLUMN","CONDITION","CONSTRAINT","CONTINUE","CONVERT","CREATE","CROSS","CURRENT_DATE","CURRENT_TIME","CURRENT_TIMESTAMP","CURRENT_USER","CURSOR","DATABASE","DATABASES","DAY_HOUR","DAY_MICROSECOND","DAY_MINUTE","DAY_SECOND","DEC","DECIMAL","DECLARE","DEFAULT","DELAYED","DELETE","DESC","DESCRIBE","DETERMINISTIC","DISTINCT","DISTINCTROW","DIV",
+      "DOUBLE","DROP","DUAL","EACH","ELSE","ELSEIF","ENCLOSED","ESCAPED","EXISTS","EXIT","EXPLAIN","FALSE","FETCH","FLOAT","FLOAT4","FLOAT8","FOR","FORCE","FOREIGN","FROM","FULLTEXT","GENERAL","GRANT","GROUP","HAVING","HIGH_PRIORITY","HOUR_MICROSECOND","HOUR_MINUTE","HOUR_SECOND","IF","IGNORE","IGNORE_SERVER_IDS","IN","INDEX","INFILE","INNER","INOUT","INSENSITIVE","INSERT","INT","INT1","INT2","INT3","INT4","INT8","INTEGER","INTERVAL","INTO",
+      "IS","ITERATE","JOIN","KEY","KEYS","KILL","LEADING","LEAVE","LEFT","LIKE","LIMIT","LINEAR","LINES","LOAD","LOCALTIME","LOCALTIMESTAMP","LOCK","LONG","LONGBLOB","LONGTEXT","LOOP","LOW_PRIORITY","MASTER_HEARTBEAT_PERIOD","MASTER_SSL_VERIFY_SERVER_CERT","MATCH","MAXVALUE","MEDIUMBLOB","MEDIUMINT","MEDIUMTEXT","MIDDLEINT","MINUTE_MICROSECOND","MINUTE_SECOND","MOD","MODIFIES","NATURAL","NOT","NO_WRITE_TO_BINLOG","NULL","NUMERIC","ON","OPTIMIZE","OPTION",
+      "OPTIONALLY","OR","ORDER","OUT","OUTER","OUTFILE","PRECISION","PRIMARY","PROCEDURE","PURGE","RANGE","READ","READS","READ_WRITE","REAL","REFERENCES","REGEXP","RELEASE","RENAME","REPEAT","REPLACE","REQUIRE","RESIGNAL","RESTRICT","RETURN","REVOKE","RIGHT","RLIKE","SCHEMA","SCHEMAS","SECOND_MICROSECOND","SELECT","SENSITIVE","SEPARATOR","SET","SHOW","SIGNAL","SLOW","SMALLINT","SPATIAL","SPECIFIC","SQL","SQLEXCEPTION","SQLSTATE","SQLWARNING",
+      "SQL_BIG_RESULT","SQL_CALC_FOUND_ROWS","SQL_SMALL_RESULT","SSL","STARTING","STRAIGHT_JOIN","TABLE","TERMINATED","THEN","TINYBLOB","TINYINT","TINYTEXT","TO","TRAILING","TRIGGER","TRUE","UNDO","UNION","UNIQUE","UNLOCK","UNSIGNED","UPDATE","USAGE","USE","USING","UTC_DATE","UTC_TIME","UTC_TIMESTAMP","VALUES","VARBINARY","VARCHAR","VARCHARACTER","VARYING","WHEN","WHERE","WHILE","WITH","WRITE","XOR","YEAR_MONTH","ZEROFILL");
+ if (in_array(strtoupper($parameter), $res_words) !== false) {
+  return false;
+ } else {
+  return true;
+ }
 }
 function strip_script_tags($str) {
     $str = preg_replace("/<script>(.*)<\/script>/i", "$1", $str);

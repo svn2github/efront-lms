@@ -19,6 +19,8 @@ $generalSecurityForm -> addElement("static", "", _RECOMMENDEDVALUEMORETHAN2000LE
 $generalSecurityForm -> addElement("advcheckbox", "eliminate_post_xss", _ELIMINATEPOSTXSS, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "password_reminder", _PASSWORDREMINDER, null, 'class = "inputCheckBox"', array(0, 1));
 $generalSecurityForm -> addElement("advcheckbox", "constrain_access", _CONTRAINACCESSTOCONTENT, null, 'class = "inputCheckBox"', array(0, 1));
+$generalSecurityForm -> addElement("advcheckbox", "ban_failed_logins", _BANUSERFAILEDLOGINS, null, 'class = "inputCheckBox"', array(0, 1));
+$generalSecurityForm -> addElement("static", "", _BANUSERFAILEDLOGINSINFO);
 $generalSecurityForm -> setDefaults($GLOBALS['configuration']);
 //$generalSecurityForm -> addRule('autologout_time', _INVALIDFIELDDATA, 'checkParameter', 'uint');
 $generalSecurityForm -> addRule('autologout_time', _THEFIELD.' '._LOGOUTUSERAFTER.' '._ISMANDATORY, 'required', null, 'client');

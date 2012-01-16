@@ -124,7 +124,7 @@ try {
                 if ($_professor_) {
                     $result = eF_getTableData("users_to_projects as up,projects as p", "p.title,p.id,up.users_LOGIN,up.upload_timestamp", "p.lessons_ID=".$_SESSION['s_lessons_ID']." and p.id=up.projects_ID and filename!=''","up.upload_timestamp desc");
                     foreach ($result as $value) {
-                        $projects[$value['id']] = $value;
+                        $projects[] = $value;
                     }
                 } else {
                     $projects = $currentLesson -> getProjects(false, $currentUser -> user['login']);

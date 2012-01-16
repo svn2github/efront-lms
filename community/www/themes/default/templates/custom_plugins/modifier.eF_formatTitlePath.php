@@ -22,12 +22,12 @@
  */
 function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 6, $etc = '...')
 {
+ //vd($string);
  $piecesStart = explode("&raquo;&nbsp;", $string); // with tags
  $stripped = strip_tags($string); //remove tags to count characters
  $piecesStripped = explode("&raquo;&nbsp;", $stripped);
 
  array_walk($piecesStripped, create_function('&$v, $k', '$v = str_replace("&nbsp;", "", $v);'));
-
  if (mb_strlen($stripped) <= $length) {
   $finalString = implode("<span>&raquo;&nbsp;</span>", $piecesStart); // with tags
   $finalString = str_replace(" </a>", "</a>", $finalString);
@@ -51,6 +51,7 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
    }
   }
  }
+ //pr($piecesLength);	
  $piecesFinal = array();
  foreach ($piecesStart as $key => $value) {
   //$piecesFinal[$key] = str_replace($piecesStripped[$key], mb_substr($piecesStripped[$key], 0, $piecesLength[$key]), $value);
@@ -63,7 +64,7 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
 
   $temp = $value;
   // added because preg_replace returns null when value contains /
-  $piecesFinal[$key] = preg_replace('/'.$piecesStripped[$key].'<\/a>/', $replacement.'</a>', $value);
+  $piecesFinal[$key] = preg_replace('/'.preg_quote($piecesStripped[$key],'/').'<\/a>/', $replacement.'</a>', $value);
   if (is_null($piecesFinal[$key])) {
    $piecesFinal[$key] = $temp;
 

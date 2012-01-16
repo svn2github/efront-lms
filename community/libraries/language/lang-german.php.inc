@@ -3,7 +3,7 @@ if (is_file($GLOBALS['path']."language/custom-german.php.inc")) {
 include($GLOBALS['path']."language/custom-german.php.inc");
 }
 define("_EFRONTURL","http://www.efrontlearning.net");//http://www.efrontlearning.net
-define("_EFRONTNAME","myLearnPlace");//eFront
+define("_EFRONTNAME","eFront");//eFront
 define("_EFRONTLOGIN","Login eFront");//Login to eFront
 define("_HEADERLANGUAGEHTMLTAG","de_DE");//en
 define("_CURRENTLANGUAGESYMBOL","de");//en

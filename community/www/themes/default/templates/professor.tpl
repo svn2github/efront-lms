@@ -4,11 +4,12 @@
  {if $T_NO_HORIZONTAL_MENU}{assign var = "title_onclick" value = "top.sideframe.hideAllLessonSpecific();"}{/if}
   {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a>"}
   {if isset($T_CURRENT_COURSE_NAME)}
-   {assign var = "titleCourse" value = "`$T_CURRENT_COURSE_NAME`&nbsp;&rarr;&nbsp;"}
-   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$T_CURRENT_COURSE_NAME`' href ='`$smarty.server.PHP_SELF`?ctg=lessons&course=`$T_CURRENT_COURSE_ID`&op=course_info'>`$T_CURRENT_COURSE_NAME`</a>"}
+  {*We use &nbsp;&raquo;&nbsp; for text in title path but &nbsp;&rarr;&nbsp; for onmouseover info in order to preserve eF_formatTitlePath*}
+   {assign var = "titleCourse" value = $T_CURRENT_COURSE_NAME|replace:"&nbsp;&raquo;&nbsp;":"&nbsp;&rarr;&nbsp;"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$titleCourse`' href ='`$smarty.server.PHP_SELF`?ctg=lessons&course=`$T_CURRENT_COURSE_ID`&op=course_info'>`$T_CURRENT_COURSE_NAME`</a>"}
   {/if}
   {if $T_CURRENT_LESSON}
-   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse``$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
+   {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse`&nbsp;&rarr;&nbsp;`$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
   {/if}
 {else}
  {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}

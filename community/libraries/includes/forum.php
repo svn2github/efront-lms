@@ -29,6 +29,7 @@ try {
         }
     }
     $legalForumValues = array_keys($forums);
+
     if (sizeof($legalForumValues) > 0) {
         $legalTopicValues = eF_getTableDataFlat("f_topics", "id", "f_forums_ID in (".implode(",", $legalForumValues).")");
         $legalTopicValues = $legalTopicValues['id'];
@@ -44,8 +45,15 @@ try {
     $forumTree = f_forums :: getForumTree($forums);
 
     if (isset($_GET['forum']) && !in_array($_GET['forum'], $legalForumValues)) {
-        unset($_GET['forum']);
+        eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=forum&message=".urlencode(_UNPRIVILEGEDATTEMPT)."&message_type=failure");
     }
+    if (isset($_GET['topic']) && !in_array($_GET['topic'], $legalTopicValues)) {
+      eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=forum&message=".urlencode(_UNPRIVILEGEDATTEMPT)."&message_type=failure");
+    }
+    if (isset($_GET['topic_id']) && !in_array($_GET['topic_id'], $legalTopicValues)) {
+      eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=forum&message=".urlencode(_UNPRIVILEGEDATTEMPT)."&message_type=failure");
+    }
+
 
     //Get forum configuration values
     $forum_config = eF_getTableDataFlat("f_configuration", "*");

@@ -197,8 +197,8 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
                          <td><a href = "{$smarty.server.PHP_SELF}?ctg=statistics&option=user&sel_user={$done_test.users_LOGIN}">#filter:login-{$done_test.users_LOGIN}#</a></td>
                          <td class = "progressCell">
                                 <span style = "display:none">{$done_test.score}</span>
-                                <span class = "progressNumber">#filter:score-{$done_test.active_score}#%</span>
-                                <span class = "progressBar" style = "width:{$done_test.active_score}px;">&nbsp;</span>&nbsp;
+                                <span class = "progressNumber">#filter:score-{$done_test.score}#%</span>
+                                <span class = "progressBar" style = "width:{$done_test.score}px;">&nbsp;</span>&nbsp;
                          </td>
                          <td class = "centerAlign">#filter:score-{$done_test.mastery_score}#%</td>
                          <td class = "centerAlign">{if $done_test.status == 'failed'}<img src = "images/16x16/close.png" alt = "{$smarty.const._FAILED}" title = "{$smarty.const._FAILED}" style = "vertical-align:middle">{else}<img src = "images/16x16/success.png" alt = "{$smarty.const._PASSED}" title = "{$smarty.const._PASSED}" style = "vertical-align:middle">{/if}</td>

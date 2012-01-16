@@ -734,7 +734,7 @@ class module_administrator_tools extends EfrontModule {
     foreach ($course -> getCourseUsers($constraints) as $value) {
      $userBranches = $value -> aspects['hcd'] -> getBranches();
      $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();
-     $userSupervisor = current($userSupervisors);
+     $userSupervisor = end($userSupervisors);
      $value -> user['course_active']= $course->course['active'];
      $value -> user['course_id']= $course->course['id'];
      $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
@@ -754,26 +754,28 @@ class module_administrator_tools extends EfrontModule {
     foreach ($result as $entry) {
      try {
       $value = EfrontUserFactory::factory($entry['users_LOGIN']);
-      $userBranches = $value -> aspects['hcd'] -> getBranches();
-      $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();//pr($entry['users_LOGIN']);pr($userSupervisors);pr(current($userSupervisors));
-      $userSupervisor = current($userSupervisors);
-      $value -> user['course_active']= $course->course['active'];
-      $value -> user['course_id']= $course->course['id'];
-      $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
-      $value -> user['course'] = $course->course['name'];
-      $value -> user['directions_ID'] = $course->course['directions_ID'];
-      $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
-      $value -> user['branch_ID'] = current($userBranches['employee']);
-      $value -> user['supervisor'] = $userSupervisor;
+      if (!$value->user['archive']) {
+       $userBranches = $value -> aspects['hcd'] -> getBranches();
+       $userSupervisors = $value -> aspects['hcd'] -> getSupervisors();//pr($entry['users_LOGIN']);pr($userSupervisors);pr(current($userSupervisors));
+       $userSupervisor = current($userSupervisors);
+       $value -> user['course_active']= $course->course['active'];
+       $value -> user['course_id']= $course->course['id'];
+       $value -> user['category'] = $directionPaths[$course->course['directions_ID']];
+       $value -> user['course'] = $course->course['name'];
+       $value -> user['directions_ID'] = $course->course['directions_ID'];
+       $value -> user['branch'] = $branchesPaths[current($userBranches['employee'])];
+       $value -> user['branch_ID'] = current($userBranches['employee']);
+       $value -> user['supervisor'] = $userSupervisor;
 
-      $value -> user['to_timestamp'] = $entry['timestamp'];
-      $value -> user['completed'] = 1;
-      $value -> user['score'] = '';
-      $value -> user['historic'] = true;
+       $value -> user['to_timestamp'] = $entry['timestamp'];
+       $value -> user['completed'] = 1;
+       $value -> user['score'] = '';
+       $value -> user['historic'] = true;
 
-      $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
-      if (!isset($courseUsers[$unique])) {
-       $courseUsers[$unique] = $value -> user;
+       $unique = md5($value -> user['to_timestamp'].$value->user['course_id'].$value->user['login']);
+       if (!isset($courseUsers[$unique])) {
+        $courseUsers[$unique] = $value -> user;
+      }
       }
      } catch (Exception $e) {/*Bypass non-existing users*/}
     }

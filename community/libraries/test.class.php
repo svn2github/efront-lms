@@ -2636,7 +2636,13 @@ class EfrontCompletedTest extends EfrontTest
                             <a href = "'.$url.'&test_analysis=1" id="testAnalysisLinkHref" style = "vertical-align:middle">'._TESTANALYSIS.'</a></span>';
    }
         if ($editHandles) {
-            if ($this -> completedTest['feedback']) {
+         if ($status['lastTest'] && $status['timesLeft'] <= 0) {
+    $editHandlesString .= '
+                        <span id = "redoLink">
+                            <img src = "images/16x16/undo.png" alt = "'._ALLOWUSERREDOTEST.'" title = "'._ALLOWUSERREDOTEST.'" border = "0" style = "vertical-align:middle">
+                            <a href = "javascript:void(0)" id="redoLinkHref" onclick = "redoTest(this)" style = "vertical-align:middle">'._ALLOWUSERREDOTEST.'</a></span>';
+         }
+         if ($this -> completedTest['feedback']) {
                 $editHandlesString .= '
                             <span>
                                 <img src = "images/16x16/edit.png" alt = "'._EDITFEEDBACK.'" title = "'._EDITFEEDBACK.'" border = "0" style = "vertical-align:middle">

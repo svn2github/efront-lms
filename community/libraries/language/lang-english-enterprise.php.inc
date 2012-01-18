@@ -4156,4 +4156,19 @@ define("_USEMYSQLWILDCARDS", "You can use mysql's wildcard characters, % and _")
 define("_LESSONTIMEREPORTS", "Lesson time reports");
 define("_ACTIVETIMEINCONTENT", "Active time in content");
 define("_TIMEREPORTSEXPLANATION", "Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times.");
+define("_TOGGLEQUESTIONSPOOL", "Toggle common question pool");
+define("_YOUHAVENOTSELECTEDAVALUE", "You have not selected a value");
+define("_QUESTIONSPOOL", "Common question pool");
+define("_ADDFEEDBACSFEEDBACK", "Add feedback");
+define("_SHOWQUESTIONSPOOL", "Show common questions pool");
+define("_SHOWLESSONQUESTIONS", "Show lesson questions");
+define("_OLDPASSWORDWRONG","Old password is wrong");
+define("_COURSETOPICS", "Course topics");
+define("_FORCEDOWNLOADFILE","Force downloading file automatically");
+define("_FORCEDOWNLOADFILEINFO","By checking this only a window to download file will be displayed for files can not be embedded. Otherwrise a link for the file is inserted");
+define("_SPAMDETECTION","Unfortunately you cannot access this page so soon. Please try again in a while");
+define("_YOUCANNOTUSETHISNAME","You can not use this name. Please choose another one");
+define("_BANUSERFAILEDLOGINS","Ban users after 5 unsuccessful login atempts");
+define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous failed logins atempts");
+define("_ALLOWUSERREDOTEST", "Allow user to repeat test");
 ?>

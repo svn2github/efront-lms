@@ -788,6 +788,12 @@ try {
 
 
         }
+        if (isset($_GET['ajax']) && isset($_GET['redo_test']) && eF_checkParameter($_GET['redo_test'], 'id')) {
+      $result = eF_getTableData("completed_tests", "tests_ID, users_LOGIN", "id=".$_GET['redo_test']);
+      $test = new EfrontTest($result[0]['tests_ID']);
+      $test -> redo($result[0]['users_LOGIN']);
+         //$testInstance -> handleAjaxActions();
+        }
 
         //Get the list of valid tests for the current lesson.
         if (isset($currentContent)) {

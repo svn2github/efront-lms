@@ -61,7 +61,9 @@
 - Added onAddUserPlacement() module function
 - Fixed lesson statistics not displaying test score when "active score" is not set
 - Fixed redirection when resuming test for certain IE clients
+- Allow user to change his own profile when Users option in user types is set to View
 - Prevented accessing a lesson when in a course that depends on another course, which is not part of the student's curriculum
+- Added option for professor to allow users to repeat test
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

@@ -4170,4 +4170,5 @@ define("_SPAMDETECTION","Έχετε χαρακτηριστεί spammer και δ
 define("_YOUCANNOTUSETHISNAME","Δεν μπορείτε να χρησιμοποιήσετε αυτό το όνομα. Παρακαλώ επιλέξετε ένα άλλο.");
 define("_BANUSERFAILEDLOGINS","Αποκλεισμός χρηστών μετά από 5 ανεπιτυχείς προσπάθειες για είσοδο");
 define("_BANUSERFAILEDLOGINSINFO","Ο χρήστης θα απενεργοποιείται μετά από 5 συνεχόμενες ανεπιτυχείς προσπάθειες");
+define("_ALLOWUSERREDOTEST", "Επέτρεψε επανάληψη");
 ?>

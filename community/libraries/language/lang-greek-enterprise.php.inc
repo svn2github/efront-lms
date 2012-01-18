@@ -4156,4 +4156,19 @@ define("_USEMYSQLWILDCARDS", "Μπορείτε να χρησιμοποιήσετ
 define("_LESSONTIMEREPORTS", "Στατιστικά χρόνου μαθημάτων");
 define("_ACTIVETIMEINCONTENT", "Ενεργός χρόνος στο περιεχόμενο");
 define("_TIMEREPORTSEXPLANATION", "Μεταβείτε σε ενεργό χρόνο, εάν θέλετε το σύστημα να παρακολουθεί και να αναφέρει αποκλειστικά το χρόνο που ένας χρήστης αφιερώνει σε περιεχόμενο. Μεταβείτε σε συνολικό χρόνο, εάν θέλετε το σύστημα να αναφέρει το συνολικό χρόνο που ξοδεύουν οι χρήστες στο μάθημα, ασχέτως σε ποια σελίδα βρίσκονται. <br/><b>Προσοχή</b>: Μεταβαίνοντας σε ενεργό χρόνο, οι συνολικοί χρόνοι θα αντικαταστήσουν τυχόν ενεργούς χρόνους που έχουν καταγραφεί μέχρι τώρα.");
+define("_TOGGLEQUESTIONSPOOL", "Toggle common question pool");
+define("_YOUHAVENOTSELECTEDAVALUE", "You have not selected a value");
+define("_QUESTIONSPOOL", "Common question pool");
+define("_ADDFEEDBACSFEEDBACK", "Add feedback");
+define("_SHOWQUESTIONSPOOL", "Show common questions pool");
+define("_SHOWLESSONQUESTIONS", "Show lesson questions");
+define("_OLDPASSWORDWRONG","Old password is wrong");
+define("_COURSETOPICS", "Course topics");
+define("_FORCEDOWNLOADFILE","Force downloading file automatically");
+define("_FORCEDOWNLOADFILEINFO","By checking this only a window to download file will be displayed for files can not be embedded. Otherwrise a link for the file is inserted");
+define("_SPAMDETECTION","Unfortunately you cannot access this page so soon. Please try again in a while");
+define("_YOUCANNOTUSETHISNAME","You can not use this name. Please choose another one");
+define("_BANUSERFAILEDLOGINS","Ban users after 5 unsuccessful login atempts");
+define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous failed logins atempts");
+define("_ALLOWUSERREDOTEST", "Allow user to repeat test");
 ?>

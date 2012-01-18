@@ -46,7 +46,7 @@
          <tr><td>{$smarty.const._DONETIMESSOFAR}:&nbsp;</td>
           <td>{if $T_TEST_STATUS.timesDone}{$T_TEST_STATUS.timesDone}{else}0{/if}&nbsp;{$smarty.const._TIMES}</td></tr>
          <tr><td>{if $T_TEST_STATUS.timesLeft !== false }{$smarty.const._YOUCANDOTHETEST}:&nbsp;</td>
-          <td>{$T_TEST_STATUS.timesLeft}&nbsp;{$smarty.const._TIMESMORE}{/if}</td></tr>
+          <td>{if $T_TEST_STATUS.timesLeft > 0} {$T_TEST_STATUS.timesLeft}{elseif $T_TEST_STATUS.timesLeft < 0}1{else}0{/if}&nbsp;{$smarty.const._TIMESMORE}{/if}</td></tr>
          <tr><td>{if $T_TEST_DATA->options.test_password}{$smarty.const._TESTPASSWORD}:&nbsp;</td>
           <td><input type = "text" id = "test_password" name = "test_password"/>{/if}</td></tr>
         {/if}

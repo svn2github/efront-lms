@@ -33,7 +33,9 @@ if ($currentUser->user['user_type'] != 'administrator' || $currentUser->user['us
 $constrainAccess = array();
 if (!isset($_GET['add_user'])) {
  if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change')) {
-  $constrainAccess = 'all';
+  if ($editedUser->user['login'] != $currentUser->user['login']) {
+   $constrainAccess = 'all';
+  }
  } else {
   $constrainAccess = array();
   $constrainAccess[] = 'login';

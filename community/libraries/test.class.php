@@ -2636,7 +2636,7 @@ class EfrontCompletedTest extends EfrontTest
                             <a href = "'.$url.'&test_analysis=1" id="testAnalysisLinkHref" style = "vertical-align:middle">'._TESTANALYSIS.'</a></span>';
    }
         if ($editHandles) {
-         if ($status['lastTest'] && $status['timesLeft'] <= 0) {
+         if ($status['lastTest']) {
     $editHandlesString .= '
                         <span id = "redoLink">
                             <img src = "images/16x16/undo.png" alt = "'._ALLOWUSERREDOTEST.'" title = "'._ALLOWUSERREDOTEST.'" border = "0" style = "vertical-align:middle">

@@ -4170,5 +4170,5 @@ define("_SPAMDETECTION","Unfortunately you cannot access this page so soon. Plea
 define("_YOUCANNOTUSETHISNAME","You can not use this name. Please choose another one");
 define("_BANUSERFAILEDLOGINS","Ban users after 5 unsuccessful login atempts");
 define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous failed logins atempts");
-define("_ALLOWUSERREDOTEST", "Allow user to repeat test");
+define("_ALLOWUSERREDOTEST", "Have user repeat the test");
 ?>

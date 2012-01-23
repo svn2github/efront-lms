@@ -554,10 +554,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             $smarty -> assign("T_UNIT", array());
         }
         if ($_student_ && $_change_ && $currentLesson -> options['tracking']) {
-         if ( $userProgress['lesson_passed'] && $userProgress['completed']) {
+         //if ( $userProgress['lesson_passed'] && $userProgress['completed']) {	
           $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
           $smarty -> assign("T_NEXTLESSON", $nextLesson);
-         }
+         //}
             if ($currentUnit['options']['complete_unit_setting'] == EfrontUnit::COMPLETION_OPTIONS_COMPLETEWITHQUESTION && $currentUnit['options']['complete_question'] && (!in_array($currentUnit['id'], array_keys($seenContent)) || sizeof($_POST) > 0) ) {
                 $lessonQuestions = $currentLesson -> getQuestions();
                 if (in_array($currentUnit['options']['complete_question'], array_keys($lessonQuestions))) {

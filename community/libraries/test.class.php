@@ -4898,10 +4898,10 @@ class EmptySpacesQuestion extends Question implements iQuestion
         $factor = 1 / sizeof($this -> userAnswer); //If the question has 4 options, then the factor is 1/4.
         //pr($this -> userAnswer);exit;
         for ($i = 0; $i < sizeof($this -> userAnswer); $i++) {
-         $userAnswer = mb_strtolower(trim($this -> userAnswer[$i]));
+         $userAnswer = mb_strtolower(trim(preg_replace("/\s+/", " ", $this -> userAnswer[$i])));
             //$this -> answer[$i] = explode("|", $this -> answer[$i]);
             $answers = explode("|", $this -> answer[$i]); //Create a copy so that mb_strtolower does not alter the original version
-            array_walk($answers, create_function('&$v, $k', '$v = mb_strtolower(trim($v));'));
+   array_walk($answers, create_function('&$v, $k', '$v = mb_strtolower(trim(preg_replace("/\s+/", " ", $v)));'));
             if ($this -> settings['select_list']) {
              $answers = array_slice($answers, 0, 1);
             }
@@ -6962,4 +6962,7 @@ class analyseTestFilterIterator extends FilterIterator
             return true;
         }
     }
+}
+function testme($v) {
+    return mb_strtolower(trim($v));
 }

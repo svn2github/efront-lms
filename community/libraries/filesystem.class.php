@@ -894,8 +894,9 @@ class EfrontFile extends ArrayObject
      */
     public function share($lessonId = false) {
         if (!$lessonId) {
-            $lessonId = $_SESSION['s_lessons_ID'];
-        }
+         $result = eF_getTableData("lessons", "share_folder", "id=".$_SESSION['s_lessons_ID']);
+         $lessonId = !$result[0]['share_folder'] ? $_SESSION['s_lessons_ID'] : $result[0]['share_folder'];
+  }
         if ($lessonId) {
             if ($this['id'] == -1) { //If the file does not have a database representation, create one for it
                 $newList = FileSystemTree :: importFiles($this['path']);

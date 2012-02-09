@@ -150,6 +150,7 @@
      {eF_template_printBlock title = "`$smarty.const._PROGRESSFORUSER`: <span class = 'innerTableName'>&quot;#filter:login-`$T_USER_LESSONS_INFO.users_LOGIN`#&quot;</span>" data = $smarty.capture.t_edit_progress_code image = '32x32/users.png' help = 'Users_status'}
  {else}
          {capture name = 't_progress_code'}
+         <link rel = "stylesheet" type = "text/css" href = "js/includes/datepicker/datepicker.css" />
  {if !$T_SORTED_TABLE || $T_SORTED_TABLE == 'usersTable'}
 <!--ajax:usersTable-->
                  <table style = "width:100%" activeFilter = "1" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=progress&">
@@ -157,8 +158,12 @@
                          <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
                          {*<td class = "topTitle centerAlign" name = "conditions_passed" >{$smarty.const._CONDITIONSCOMPLETED}</td>*}
                          <td class = "topTitle centerAlign" name = "completed" >{$smarty.const._LESSONSTATUS}</td>
+                         <td class = "topTitle centerAlign" name = "timestamp_completed" >{$smarty.const._COMPLETED}</td>
                          <td class = "topTitle centerAlign" name = "score" >{$smarty.const._LESSONSCORE}</td>
                          <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
+                         {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
+                           <td class = "topTitle centerAlign">{$smarty.const._SELECT}</td>
+                         {/if}
                      </tr>
          {foreach name = 'users_progress_list' item = 'item' key = 'login' from = $T_DATA_SOURCE}
                      <tr class = "defaultRowHeight {cycle values = "oddRowColor, evenRowColor"} {if !$item.active}deactivatedTableElement{/if}">
@@ -170,12 +175,31 @@
 *}
                          <td class = "centerAlign">
                              {if $item.completed}
-                                 <img src = "images/16x16/success.png" title = "{$smarty.const._COMPLETED}" alt = "{$smarty.const._COMPLETED}" />
-                             {elseif $item.lesson_passed}
-                                 <img src = "images/16x16/lessons.png" title = "{$smarty.const._CONDITIONSMET}" alt = "{$smarty.const._CONDITIONSMET}" />
-                             {else}
-                                 <img src = "images/16x16/forbidden.png" title = "{$smarty.const._NOTCOMPLETED}" alt = "{$smarty.const._NOTCOMPLETED}" />
-                             {/if}
+                              {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
+                                  <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._COMPLETED}" alt = "{$smarty.const._COMPLETED}" onclick = "if (confirm(translations['_IRREVERSIBLEACTIONAREYOUSURE'])) changeProgressInLesson(this, '{$item.login}');" />
+         {else}
+                                <img src = "images/16x16/success.png" title = "{$smarty.const._COMPLETED}" alt = "{$smarty.const._COMPLETED}" />
+                              {/if}
+        {else}
+         {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
+                               <img class = "ajaxHandle" src = "images/16x16/forbidden.png" title = "{$smarty.const._NOTCOMPLETED}" alt = "{$smarty.const._NOTCOMPLETED}" onclick = "$('{$item.login}_status_id').show();" />
+                               <input type="text" style="display:none" id="{$item.login}_status_id" class="datepicker" name="{$item.login}_status_name" value="" maxlength="10" size="7" />
+         {else}
+                               <img src = "images/16x16/forbidden.png" title = "{$smarty.const._NOTCOMPLETED}" alt = "{$smarty.const._NOTCOMPLETED}" />
+                              {/if}
+        {/if}
+                         </td>
+                         <td class = "centerAlign">
+                          {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
+         {if $item.completed}
+                            <span style="cursor:pointer;" onclick = "$('{$item.login}_status_id').show();">#filter:timestamp-{$item.timestamp_completed}#</span>
+                            <input type="text" style="display:none;" id="{$item.login}_status_id" class="datepicker" name="{$item.login}_status_name" value="" maxlength="10" size="7" />
+         {/if}
+        {else}
+         {if $item.completed}
+                            #filter:timestamp-{$item.timestamp_completed}#
+                           {/if}
+        {/if}
                          </td>
                          <td class = "centerAlign">{if $item.score}#filter:score-{$item.score}#%{/if}</td>
                          <td class = "centerAlign">
@@ -186,12 +210,37 @@
                                  <img src = "images/16x16/search.png" title = "{$smarty.const._VIEWUSERLESSONPROGRESS}" alt = "{$smarty.const._VIEWUSERLESSONPROGRESS}" border = "0"/>
                              </a>
                          </td>
+                         {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
+                            <td class = "centerAlign"><input class = "inputCheckbox" type = "checkbox" id = "check_{$item.login}" value = "{$item.login}"/></td>
+                         {/if}
                      </tr>
          {foreachelse}
                  <tr class = "{cycle values = "oddRowColor, evenRowColor"} defaultRowHeight"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NOUSERDATAFOUND}</td></tr>
          {/foreach}
              </table>
 <!--/ajax:usersTable-->
+            {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
+             <div class = "horizontalSeparatorAbove">
+              <span style = "vertical-align:middle">{$smarty.const._WITHSELECTED}:</span>
+              <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._SETALLTOCOMPLETED}" alt = "{$smarty.const._SETALLTOCOMPLETED}" onclick = "completeSelected(this, 'usersTable');">
+              <img class = "ajaxHandle" src = "images/16x16/forbidden.png" title = "{$smarty.const._SETALLTOUNCOMPLETED}" alt = "{$smarty.const._SETALLTOUNCOMPLETED}" onclick = "uncompleteSelected(this, 'usersTable');">
+             </div>
+         {/if}
+   <script type="text/javascript">
+   {literal}
+   function init_date_picker(login) {
+   new DatePicker({
+        relative:login,
+        dateFormat: [["dd","mm","yyyy"], "-" ],
+        cellCallback : callbackfunction
+   });
+   }
+   function callbackfunction(cell, id) {
+    var login = id.replace("_status_id", "");
+    changeProgressInLesson($(id), login, $(id).value)
+   }
+   {/literal}
+   </script>
 {/if}
          {/capture}
          {eF_template_printBlock title = $smarty.const._USERSPROGRESS data = $smarty.capture.t_progress_code image = '32x32/users.png' help = 'Users_status'}

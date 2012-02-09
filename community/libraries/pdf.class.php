@@ -75,6 +75,9 @@ class EfrontPdf
      !$imageFile ? $this->printSimpleContent($row[0].': '.$row[1]) : $this->printSimpleContent($row[0].': '.$row[1], false);
     } elseif ($imageFile) {
      $this->printSimpleContent('', false);
+    } else if (isset($row['category'])) {
+     $this->pdf->SetFont('', 'B', $this->defaultSettings['content_font_size']);
+     $this->printSimpleContent($row['category'], true, false);
     }
    }
   }
@@ -291,8 +294,10 @@ class EfrontPdf
   $this->pdf->SetFillColor(240, 240, 240);
  }
 
- private function printSimpleContent($text, $multi = true) {
-  $this->pdf->SetFont('', '', $this->defaultSettings['content_font_size']);
+ private function printSimpleContent($text, $multi = true, $setFont = true) {
+  if ($setFont) {
+   $this->pdf->SetFont('', '', $this->defaultSettings['content_font_size']);
+  }
   if ($multi) {
    $this->pdf->MultiCell(0, 0, $text, 0, 'L', 0, 1);
   } else {

@@ -64,6 +64,8 @@
 - Allow user to change his own profile when Users option in user types is set to View
 - Prevented accessing a lesson when in a course that depends on another course, which is not part of the student's curriculum
 - Added option for professor to allow users to repeat test
+- Fixed users losing their ldap status when updating their profile
+- Updated user profile to include skill categories, along with skill names (Enterprise edition)
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

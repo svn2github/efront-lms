@@ -3002,6 +3002,7 @@ class EfrontCompletedTest extends EfrontTest
          $this -> completedTest['status'] = 'passed';
         }
         $this -> completedTest['pending'] = 0;
+     $this -> save();
      $result = eF_getTableData("completed_tests", "archive", "id=".$this->completedTest['id']);
      if (!$result[0]['archive']) {
       $testUser = EfrontUserFactory::factory($this->completedTest['login']);
@@ -3011,7 +3012,6 @@ class EfrontCompletedTest extends EfrontTest
        $testUser -> setSeenUnit($this->test['content_ID'], $this->test['lessons_ID'], 1);
       }
      }
-        $this -> save();
         echo $this -> completedTest['status'];
        } else {
         throw new EfrontTestException(_INVALIDSCORE.': '.$_GET['test_score'], EfrontTestException :: INVALID_SCORE);
@@ -3060,11 +3060,13 @@ class EfrontCompletedTest extends EfrontTest
          if ($this -> test['mastery_score'] && $this -> test['mastery_score'] > $this -> completedTest['score']) {
           if ($this -> getPotentialScore() < $this -> test['mastery_score']) {
            $this -> completedTest['status'] = 'failed';
-           $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 0);
+           $flag = 0;
+           //$testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 0);
           }
          } else if ($this -> test['mastery_score'] && $this -> test['mastery_score'] <= $this -> completedTest['score']) {
           $this -> completedTest['status'] = 'passed';
-          $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 1);
+          $flag = 1;
+          //$testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], 1);
          }
          $this -> completedTest['pending'] = 0;
          foreach ($this -> getQuestions(true) as $question) {
@@ -3073,6 +3075,7 @@ class EfrontCompletedTest extends EfrontTest
           }
          }
          $this -> save();
+         $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], $flag);
          echo json_encode($this -> completedTest);
         } else {
          throw new EfrontTestException(_INVALIDSCORE.': '.$_GET['test_score'], EfrontTestException :: INVALID_SCORE);

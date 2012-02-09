@@ -4062,6 +4062,8 @@ class EfrontLesson
    $data = $unit['data'];
    foreach ($unitFiles as $file) {
     $filePath = str_replace($this->getDirectory(), "/", EfrontFile :: encode($file['path']));
+    //Added this line in case of a space in path(urlencode makes it + and rawurlencode convers also slashes ) (#2143)
+    $data = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']).str_replace(' ','%20', $filePath), "files".str_replace(' ','%20', $filePath), $data);
     $data = str_replace("content/lessons/".($this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : $this -> lesson['id']).$filePath, "files".$filePath, $data);
     $data = str_replace("view_file.php?file=".$file['id'], "files".$filePath, $data);
    }

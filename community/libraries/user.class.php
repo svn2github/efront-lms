@@ -1782,6 +1782,26 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
   eF_deleteTableData("users_to_content", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
  }
+ public function changeProgressInLesson($lesson, $timestamp = false) {
+  if (!($lesson instanceOf EfrontLesson)) {
+   $lesson = new EfrontLesson($lesson);
+  }
+  $info = eF_getTableData("users_to_lessons", "completed,score,to_timestamp,comments", "users_LOGIN='".$this -> user['login']."' and lessons_ID = ".$lesson -> lesson['id']);
+  if ($info[0]['completed'] == 0) {
+   $new_info = array( "to_timestamp" => $timestamp,
+           "completed" => 1,
+        "score" => 100);
+  } elseif ($timestamp !== false) {
+   $new_info = array("to_timestamp" => $timestamp);
+  } elseif ($timestamp === false){
+   $new_info = array("issued_certificate" => "",
+          "to_timestamp" => null,
+          "comments" => "",
+          "score" => 0,
+          "completed" => 0);
+  }
+  eF_updateTableData("users_to_lessons", $new_info, "users_LOGIN='".$this -> user['login']."' and lessons_ID = ".$lesson -> lesson['id']);
+ }
  public function resetProgressInAllLessons() {
   $tracking_info = array("done_content" => "",
           "issued_certificate" => "",
@@ -3116,13 +3136,13 @@ class EfrontStudent extends EfrontLessonUser
 	 * @since 3.5.0
 	 * @access public
 	 */
- public function completeLesson($lesson, $score = 100, $comments = '') {
+ public function completeLesson($lesson, $score = 100, $comments = '', $timestamp = '') {
   if (!($lesson instanceof EfrontLesson)) {
    $lesson = new EfrontLesson($lesson);
   }
   if (in_array($lesson -> lesson['id'], array_keys($this -> getLessons()))) {
    $fields = array('completed' => 1,
-       'to_timestamp' => time(),
+       'to_timestamp' => $timestamp ? $timestamp : time(),
        'score' => str_replace(',','.', $score),
        'comments' => $comments);
    eF_updateTableData("users_to_lessons", $fields, "users_LOGIN = '".$this -> user['login']."' and lessons_ID=".$lesson -> lesson['id']);
@@ -3185,7 +3205,8 @@ class EfrontStudent extends EfrontLessonUser
 	 * @param string $comments Comments for the course completion
 	 * @return boolean True if everything is ok
 	 */
- public function completeCourse($course, $score, $comments) {
+ public function completeCourse($course, $score, $comments, $time = '') {
+  $time ? $timestamp = $time : $timestamp = time();
   if (!($course instanceof EfrontCourse)) {
    $course = new EfrontCourse($course);
   }
@@ -3195,7 +3216,7 @@ class EfrontStudent extends EfrontLessonUser
    //keep completed date when it is set (when only score changed for example)
    $checkCompleted = $userCourses[$course -> course['id']]['to_timestamp'];
    $fields = array('completed' => 1,
-       'to_timestamp' => $checkCompleted ? $checkCompleted :time(),
+       'to_timestamp' => $checkCompleted && !$time ? $checkCompleted : $timestamp,
        'score' => str_replace(',','.', $score),
        'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];

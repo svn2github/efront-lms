@@ -1,4 +1,4 @@
-if ($(chart_holder)) {
+if ($('chart_holder')) {
 	document.observe("dom:loaded", function() {
 		el = document.body;
 		parameters = {load_chart:1, method: 'get'};
@@ -148,8 +148,8 @@ function createEmployeeSearchUrl() {
 		size = criteria.length;
 		for (i = 0; i < size; i++) {
 			if (criteria[i] != "") {
-				if (document.getElementById(criteria[i]).value) {
-					customCriteria += "&" + criteria[i] + "=" + document.getElementById(criteria[i]).value;
+				if ($(criteria[i]) && $(criteria[i]).value) {
+					customCriteria += "&" + criteria[i] + "=" + $(criteria[i]).value;
 					customCriteriaFound = true;
 				}
 			}

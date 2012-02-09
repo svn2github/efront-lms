@@ -60,4 +60,5 @@ define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN", "Δεν μπορε
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Ο χρήστης αυτός δεν είναι ενεργός");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "Δεν μπορείτε να προσπελάσετε αυτόν τον τομέα αν δεν είστε πλήρης διαχειριστής");
 define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Πολλαπλές τοποθετήσεις");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUMUSTDEFINEUSER", "Πρέπει να ορίσετε ένα νέο αναγνωριστικό");
 ?>

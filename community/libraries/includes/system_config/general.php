@@ -131,7 +131,8 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
              'password' => $values['smtp_pass'],
              'port' => $values['smtp_port'],
              'username' => $values['smtp_user'],
-             'timeout' => $values['smtp_timeout']));
+             'timeout' => $values['smtp_timeout'],
+             'localhost' => $_SERVER["HTTP_HOST"]));
    $result = $smtp -> send($user_mail[0]['email'], $header, 'This is a test email sent from '.G_SERVERNAME.' to verify SMTP settings');
    if ($result === true) {
     $message = _EMAILSENDTOYOURADDRESS;

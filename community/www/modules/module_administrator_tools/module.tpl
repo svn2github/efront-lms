@@ -265,7 +265,7 @@
  {/capture}
 
  {capture name = 't_impersonate_code'}
-   <form name = "impersonate_user_form" action = "{$smarty.server.PHP_SELF}?ctg=module&op=module_administrator_tools" method = "post">
+   <form name = "impersonate_user_form" action = "{$smarty.server.PHP_SELF}?ctg=module&op=module_administrator_tools&tab=impersonate" method = "post">
        <table class = "statisticsTools statisticsSelectList">
                  <tr><td class = "labelCell">{$smarty.const._MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE}:</td>
                      <td class = "elementCell" colspan = "4">

@@ -1175,10 +1175,16 @@ class EfrontStats
         $usersAssignedProjects = $temp;
 
         //transpose tests array, from (login => array(test id => test)) to array(lesson id => array(login => array(test id => test)))
+  $temp0 = eF_getTableData("content", "id,ctg_type"); //filter feedbacks
+  foreach ($temp0 as $value) {
+   $checkctg[$value['id']] = $value['ctg_type'];
+  }
         $temp = array();
         foreach ($usersDoneTests as $login => $userTests) {
             foreach ($userTests as $contentID => $test) {
-                $temp[$test['lessons_ID']][$login][$contentID] = $test;
+             if ($checkctg[$contentID] != 'feedback') {
+                 $temp[$test['lessons_ID']][$login][$contentID] = $test;
+             }
             }
         }
         $usersDoneTests = $temp;
@@ -1282,8 +1288,8 @@ class EfrontStats
                     $numCompletedTests = 0;
                     $testsAvgScore = array();
                     if (sizeof($testIds) > 0 && isset($doneTests[$login]) && sizeof($doneTests[$login]) > 0) {
-                        foreach ($doneTests[$login] as $doneTest) {
-                            $testsAvgScore[] = $doneTest['score'];
+                     foreach ($doneTests[$login] as $doneTest) {
+                            $testsAvgScore[] = $doneTest['active_score'];
                         }
 
                         $testsAvgScore = array_sum($testsAvgScore) / sizeof($testsAvgScore);
@@ -1296,7 +1302,6 @@ class EfrontStats
                     } else {
                         $testsAvgScore = 0;
                     }
-
                     //Calculate projects average score and build done projects list, since we don't have this automatically
                     $doneProjects = array();
                     $projectsAvgScore = array();

@@ -231,20 +231,53 @@ $loadScripts[] = 'includes/groups';
                } else {
                 $userRoles = $currentGroup -> group['user_types_ID'];
                }
+               $result2 = eF_getTableData("users_to_courses", "users_LOGIN,courses_ID,user_type");
+                  $usersTocourses = array();
+               foreach ($result2 as $value) {
+                $usersTocourses[$value['courses_ID']][$value['users_LOGIN']] = $value['user_type'];
+               }
                foreach ($currentGroup -> getGroupCourses() as $key => $course) {
-                $course -> addUsers($groupUsers, $userRoles, true);
+                $coursetypes = $userRoles;
+                foreach ($groupUsers as $login => $user) {
+                 $index = array_search($login, array_keys($usersTocourses[$key]));
+                 if ($index !== false) {
+                  unset($groupUsers[$login]);
+                  unset($coursetypes[$login]);
+                 }
+                }
+            if (!empty($groupUsers)) {
+                 $course -> addUsers($groupUsers, $coursetypes, true);
+            }
                }
               } else if (isset($_GET['assign_to_all_users']) && $_GET['assign_to_all_users'] == "lessons") {
                $groupUsers = $currentGroup -> getUsers();
                $groupUsers = array_merge($groupUsers['professor'], $groupUsers['student']);
                $groupLessons = $currentGroup -> getLessons();
                $lessonIds = array_keys($groupLessons);
+                     $result = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,user_type");
+               $usersTolessons = array();
+               foreach ($result as $value) {
+                $usersTolessons[$value['users_LOGIN']][$value['lessons_ID']] = $value['user_type'];
+               }
                foreach ($groupUsers as $user) {
+        $lessons = $lessonIds;
                 $user = EfrontUserFactory :: factory($user);
                 if ($user -> getType() != 'administrator') {
                  if ($_GET['assign_to_all_users'] == "lessons") {
-                  $user -> user['user_types_ID'] ? $userType = $user -> user['user_types_ID'] : $userType = $user -> user['user_type'];
-                  $user -> addLessons($lessonIds, $userType, 1); //active lessons
+                  if ($currentGroup -> group['user_types_ID'] == '0') {
+                   $user -> user['user_types_ID'] ? $userType = $user -> user['user_types_ID'] : $userType = $user -> user['user_type'];
+                  } else {
+                   $userType = $currentGroup -> group['user_types_ID'];
+                  }
+                  foreach ($lessons as $key => $lesson) {
+                   $index = array_search($lesson, array_keys($usersTolessons[$user]));
+                   if ($index !== false) {
+                    unset($lessons[$index]);
+                   }
+                  }
+                  if (!empty($lessons)) {
+                   $user -> addLessons($lessons, $userType, 1); //active lessons
+                  }
                  }
                 }
                }

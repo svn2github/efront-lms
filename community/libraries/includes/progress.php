@@ -8,6 +8,7 @@ if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess[
 }
 
 $loadScripts[] = 'includes/progress';
+$loadScripts[] = 'includes/datepicker/datepicker';
 
 if ($_student_) {
     $currentUser -> coreAccess['progress'] = 'view';
@@ -152,6 +153,56 @@ try {
   $user -> resetProgressInLesson($currentLesson);
   exit;
  }
+ if (isset($_GET['ajax']) && isset($_GET['change_user'])) {
+  if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess['progress'] != 'change') {
+      exit;
+  }
+  if (empty($_GET['date'])){
+   $timestamp = false; // it is for changing only completion date
+  } else if (eF_checkParameter($_GET['date'], 'date')) {
+   $date = explode ('-', $_GET['date']);
+   $timestamp = mktime(0, 0, 0, $date[1], $date[0], $date[2]);
+  } else {
+   $timestamp = time();
+  }
+  $user = EfrontUserFactory :: factory($_GET['change_user']);
+  $user -> changeProgressInLesson($currentLesson, $timestamp);
+  exit;
+ }
+
+ if (isset($_GET['complete']) && isset($_GET['ajax'])) {
+  if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess['progress'] != 'change') {
+      exit;
+  }
+     $completeEntities = json_decode($_GET['complete']);
+     if (!empty($completeEntities)) {
+      $list = '"'.implode('","', $completeEntities).'"';
+      $info = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,completed,score,to_timestamp,comments", "users_LOGIN IN (".$list.") and lessons_ID = ".$currentLesson -> lesson['id']);
+   foreach ($info as $value) {
+    if ($value['completed'] == 0) {
+     eF_updateTableData("users_to_lessons", array("score" => 100, "completed" => 1, "to_timestamp" => time()), "users_LOGIN='".$value['users_LOGIN']."' and lessons_ID = ".$value['lessons_ID']);
+    }
+   }
+     }
+     exit;
+ }
+ if (isset($_GET['uncomplete']) && isset($_GET['ajax'])) {
+  if (isset($currentUser -> coreAccess['progress']) && $currentUser -> coreAccess['progress'] != 'change') {
+      exit;
+  }
+  $uncompleteEntities = json_decode($_GET['uncomplete']);
+     if (!empty($uncompleteEntities)) {
+      $list = '"'.implode('","', $uncompleteEntities).'"';
+      $info = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,completed,score,to_timestamp,comments", "users_LOGIN IN (".$list.") and lessons_ID = ".$currentLesson -> lesson['id']);
+   foreach ($info as $value) {
+    if ($value['completed'] == 1) {
+     eF_updateTableData("users_to_lessons", array("completed" => 0, "to_timestamp" => null,"score" => 0,"comments" => "", "issued_certificate" => ""), "users_LOGIN='".$value['users_LOGIN']."' and lessons_ID = ".$value['lessons_ID']);
+    }
+   }
+     }
+     exit;
+ }
+
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
   $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false);
   foreach (EfrontLessonUser :: getLessonsRoles() as $key => $value) {
@@ -161,6 +212,7 @@ try {
   $users = $currentLesson -> getLessonStatusForUsers($constraints);
   $totalEntries = $currentLesson -> countLessonUsers($constraints);
   $dataSource = $users;
+//pr($dataSource);		
   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
  }
  $tableName = $_GET['ajax'];

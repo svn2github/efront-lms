@@ -58,4 +58,5 @@ define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN", "You can't connect
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Selected user is not active");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "You cannot access this section; only full administrators can");
 define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Multiple placements");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUMUSTDEFINEUSER", "You must define a new login name");
 ?>

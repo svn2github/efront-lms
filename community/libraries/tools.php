@@ -2632,7 +2632,8 @@ function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $on
                                          'password' => $GLOBALS['configuration']['smtp_pass'],
                                          'port' => $GLOBALS['configuration']['smtp_port'],
                                          'username' => $GLOBALS['configuration']['smtp_user'],
-                                         'timeout' => $GLOBALS['configuration']['smtp_timeout']));
+                                         'timeout' => $GLOBALS['configuration']['smtp_timeout'],
+              'localhost' => $_SERVER["HTTP_HOST"]));
     $result = $smtp -> send($recipient, $hdrs, $body);
     return $result;
 }

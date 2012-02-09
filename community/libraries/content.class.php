@@ -698,7 +698,7 @@ class EfrontUnit extends ArrayObject
             $returnObjects ? $files[] = new EfrontFile($file) : $files[] = $file;
         }
         foreach ($filesPath as $file) {
-            $returnObjects ? $files[] = new EfrontFile(G_LESSONSPATH.html_entity_decode($file)) : $files[] = G_LESSONSPATH.html_entity_decode($file);
+            $returnObjects ? $files[] = new EfrontFile(G_LESSONSPATH.html_entity_decode(urldecode($file))) : $files[] = G_LESSONSPATH.html_entity_decode(urldecode($file));
         }
         return $files;
     }

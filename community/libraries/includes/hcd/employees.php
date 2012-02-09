@@ -86,78 +86,18 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
     $constraints = array('archive' => false, 'supervisor' => true) + createConstraintsFromSortedTable();
     $employees = EfrontEmployee::getUsers($constraints);
     $totalEntries = EfrontEmployee::countUsers($constraints);
-/*				
 
-				$employees = eF_getTableData("
-
-				users u
-
-				LEFT OUTER JOIN module_hcd_employee_has_job_description ehj ON u.login = ehj.users_LOGIN
-
-				LEFT OUTER JOIN module_hcd_employee_works_at_branch ewb ON u.login = ewb.users_login",
-
-				"u.*, count(ehj.job_description_ID) as jobs_num, ewb.branch_ID",
-
-				"u.user_type != 'administrator' and u.archive = 0 and u.active=1 and u.login in (select users_login from module_hcd_employee_works_at_branch where assigned=1 and branch_ID in (".implode(",", $currentEmployee -> supervisesBranches)."))", "", "login");
-
-*/
    } else if ($_SESSION['s_type'] == 'administrator') {
     $constraints = array('archive' => false) + createConstraintsFromSortedTable();
     $employees = EfrontEmployee::getUsers($constraints);
     $totalEntries = EfrontEmployee::countUsers($constraints);
-/*				
-
-				$employees = eF_getTableData("
-
-				users
-
-				LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN",
-
-				"users.*,
-
-				count(module_hcd_employee_has_job_description.job_description_ID) as jobs_num",
-
-				"users.archive = 0","","login");
-
-*/
    }
-/*			
 
-			$result 	= eF_getTableDataFlat("logs", "users_LOGIN, max(timestamp) as timestamp", "action = 'login'", "timestamp", "users_LOGIN");
-
-			$lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
-
-
-
-			foreach ($employees as $key => $value) {
-
-				if (isset($value['login']) && isset($lastLogins[$value['login']])) {
-
-					$employees[$key]['last_login'] = $lastLogins[$value['login']];
-
-				} else {
-
-					$employees[$key]['last_login'] = null;
-
-				}
-
-				if (isset($_COOKIE['toggle_active'])) {
-
-					if (($_COOKIE['toggle_active'] == 1 && !$value['active']) || ($_COOKIE['toggle_active'] == -1 && $value['active'])) {
-
-						unset($employees[$key]);
-
-					}
-
-				}
-
-			}
-
-*/
    $tableName = $_GET['ajax'];
    $alreadySorted = 1;
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);
    $dataSource = $employees;
+
    include ("sorted_table.php");
   }
   exit;

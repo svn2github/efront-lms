@@ -202,21 +202,71 @@ try {
                  case 'course':
                   $result = eF_getTableDataFlat("module_hcd_course_to_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
                   $jobcourses = $result['courses_ID'];
-                  $resultUsers = eF_getTableDataFlat("module_hcd_employee_has_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
+                  $resultUsers = eF_getTableDataFlat("module_hcd_employee_has_job_description as jb,users", "jb.*, users.user_type, users.user_types_ID", "users.login=jb.users_login and jb.job_description_ID=".$_GET['edit_job_description']);
                   $jobusers = $resultUsers['users_login'];
-                  foreach ($jobcourses as $value) {
-                   $course = new EfrontCourse($value);
-                   $course -> addUsers($jobusers);
+                  //Take the default types for users
+                  $jobtypes = array ();
+                  foreach ($resultUsers['user_types_ID'] as $key => $value) {
+                   $resultUsers['user_types_ID'][$key] == 0 ? $jobtypes[$key] = $resultUsers['user_type'][$key] : $jobtypes[$key] = $resultUsers['user_types_ID'][$key];
                   }
+
+                  $result2 = eF_getTableData("users_to_courses", "users_LOGIN,courses_ID,user_type");
+                  $usersTocourses = array();
+                  foreach ($result2 as $value) {
+                   $usersTocourses[$value['courses_ID']][$value['users_LOGIN']] = $value['user_type'];
+                  }
+
+                  foreach ($jobcourses as $value) {
+          $coursetypes = $jobtypes;
+          $course = new EfrontCourse($value);
+          foreach ($jobusers as $user) {
+           $flag = in_array($user, array_keys($usersTocourses[$value]));
+           if ($flag !== false) {
+            $index = array_search($user,$jobusers);
+            if ($index !== false) {
+             unset($jobusers[$index]);
+             unset($coursetypes[$index]);
+            }
+           }
+          }
+          if (!empty($jobusers)) {
+           $course -> addUsers($jobusers, $coursetypes);
+          }
+         }
                   break;
                  case 'lesson':
                   $result = eF_getTableDataFlat("module_hcd_lesson_to_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
                   $joblessons = $result['lessons_ID'];
-                  $resultUsers = eF_getTableDataFlat("module_hcd_employee_has_job_description", "*", "job_description_ID=".$_GET['edit_job_description']);
+         $resultUsers = eF_getTableDataFlat("module_hcd_employee_has_job_description as jb,users", "jb.*, users.user_type, users.user_types_ID", "users.login=jb.users_login and jb.job_description_ID=".$_GET['edit_job_description']);
                   $jobusers = $resultUsers['users_login'];
+                  //Take the default types for users
+                  $jobtypes = array ();
+                  foreach ($resultUsers['user_types_ID'] as $key => $value) {
+                   $resultUsers['user_types_ID'][$key] == 0 ? $jobtypes[$key] = $resultUsers['user_type'][$key] : $jobtypes[$key] = $resultUsers['user_types_ID'][$key];
+                  }
+
+                  $result2 = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,user_type");
+                  $usersTolessons = array();
+                  foreach ($result2 as $value) {
+                   $usersTolessons[$value['lessons_ID']][$value['users_LOGIN']] = $value['user_type'];
+                  }
+
                   foreach ($joblessons as $value) {
+                   $lessontypes = $jobtypes;
                    $lesson = new EfrontLesson($value);
-                   $lesson -> addUsers($jobusers);
+                   foreach ($jobusers as $user) {
+                    $flag = in_array($user, array_keys($usersTolessons[$value]));
+                    if ($flag !== false) {
+                     $index = array_search($user,$jobusers);
+                     if ($index !== false) {
+                      unset($jobusers[$index]);
+                      unset($lessontypes[$index]);
+                     }
+                    }
+                   }
+                   if (!empty($jobusers)) {
+                    $lesson -> addUsers($jobusers, $lessontypes);
+                   }
                   }
                   break;
                 }

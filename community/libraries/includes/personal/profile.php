@@ -188,7 +188,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
    if ($values['ldap_user'] && !$editedUser -> isLdapUser) {
     $userProperties['password'] = 'ldap';
    } else if (!$values['password_']) {//If a password is not set, don't set it
-    if (!$values['ldap_user'] && $editedUser -> isLdapUser) {
+    if (!$values['ldap_user'] && $editedUser -> isLdapUser && $currentUser->user['login'] != $editedUser->user['login']) {
      $userProperties['password'] = '';
      $ldapMessage = ' '._PLEASEREMEMBERTOSETUPAPASSWORD;
     } else {

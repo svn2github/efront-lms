@@ -219,6 +219,9 @@ class module_administrator_tools extends EfrontModule {
   if ($form -> isSubmitted() && $form -> validate()) {
    try {
     $values = $form -> exportValues();
+    if (!$values['new_login']) {
+     throw new Exception(_MODULE_ADMINISTRATOR_TOOLS_YOUMUSTDEFINEUSER);
+    }
     $user = EfrontUserFactory::factory($values['users_LOGIN']);
     try {
      $existingUser = true;

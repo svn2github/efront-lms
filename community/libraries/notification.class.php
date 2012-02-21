@@ -82,6 +82,7 @@ class EfrontNotification
  const COURSEPROFESSORS = 8; // all course professors
  const USERSUPERVISORS = 9; // all users that supervise the branches of the user
  const ALLCOURSEUSERS = 10; // all course professors
+ const ALLSUPERVISORS = 11; // all users that supervise branches 
     /**
 
      * The notification variable
@@ -802,12 +803,33 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
        foreach ($recipients as $recipient) {
         $recipients_list[$recipient['login']] = $recipient;
        }
-   } else {
+      }/* elseif ($this -> notification['send_conditions'] == "supervisors") { 
+
+#ifdef ENTERPRISE
+
+	    			$recipients = eF_getTableData("module_hcd_employee_works_at_branch as meb, users as u", "u.*", "meb.users_login=u.login and u.active=1 and u.archive=0 and meb.supervisor=1");
+
+					
+
+		    		foreach ($recipients as $recipient) {
+
+		    			$recipients_list[$recipient['login']] = $recipient;
+
+		    		}
+
+	    		  	
+
+	    		  	
+
+#endif
+
+			}*/ else {
     // the send_conditions field contains the information which identify the recipients
     // it is defined in ....
     //digests.php during the definition of the event notification
     $this -> notification['send_conditions'] = unserialize($this -> notification['send_conditions']);
-       if (is_array($this -> notification['send_conditions'])) {
+    if ($this -> notification['send_conditions'] == "supervisors") {
+    } elseif (is_array($this -> notification['send_conditions'])) {
               $this -> recipients = $this -> notification['send_conditions'];
         // The recipients array definitely exists, due to constructor checks
         if (isset($this -> recipients["lessons_ID"]) && $this -> recipients["lessons_ID"]) {
@@ -1246,7 +1268,9 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
     $event_notification_recipients = _ALLCOURSEUSERS;
    } else if ($notification['send_recipients'] == EfrontNotification::USERSUPERVISORS) {
     $event_notification_recipients = _USERSUPERVISORS;
-      } else {
+      } else if ($notification['send_recipients'] == EfrontNotification::ALLSUPERVISORS) {
+    $event_notification_recipients = _ALLSUPERVISORS;
+      }else {
     $event_notification_recipients = "";
       }
       $allNotifications[] = array("id" => $notification['id'], "active" => $notification['active'], "event_notification_recipients" => $event_notification_recipients, "event_type"=> $notification['event_type'], "event" => $event_types_text, "send_interval" => $notification['after_time'], "send_conditions" => $notification['send_conditions'], "subject" => $notification['subject']);

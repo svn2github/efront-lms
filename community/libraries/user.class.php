@@ -3318,15 +3318,24 @@ class EfrontStudent extends EfrontLessonUser
 	 *
 	 * @param EfrontLesson $lesson The lesson to account
 	 * @param mixed $course The course to regard, or false
+	 * @param boolean $assumeCurrentLessonCompleted When calculating the next lesson, we may want to find which one will be the next after we finish the current lesson. Setting this to true will bring that one 
 	 * @return int The id of the next lesson in row
 	 * @since 3.6.3
 	 * @access public
 	 */
- public function getNextLesson($lesson, $course = false) {
+ public function getNextLesson($lesson, $course = false, $assumeCurrentLessonCompleted = false) {
   $nextLesson = false;
   if ($course) {
    ($course instanceOf EfrontCourse) OR $course = new EfrontCourse($course);
-   $eligibility = new ArrayIterator($course -> checkRules($_SESSION['s_login']));
+   $courseLessons = $this -> getUserStatusInCourseLessons($course);
+   if ($assumeCurrentLessonCompleted) {
+    foreach ($courseLessons as $key => $value) {
+     if ($key == $lesson->lesson['id']) {
+      $courseLessons[$key]->lesson['completed'] = true;
+     }
+    }
+   }
+   $eligibility = new ArrayIterator($course -> checkRules($_SESSION['s_login'], $courseLessons));
    while ($eligibility -> valid() && ($key = $eligibility -> key()) != $lesson -> lesson['id']) {
     $eligibility -> next();
    }

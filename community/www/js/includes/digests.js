@@ -108,6 +108,7 @@ function show_hide_additional_recipients() {
             new Effect.toggle( $('additional_recipients_categories'),'BLIND',{queue:{scope:'myscope', position:'end', limit: 2}, duration:1.0});
             //$('only_specific_users').checked = "true";
             eF_js_selectRecipients('active_users');
+            eF_js_selectRecipients('supervisors');
         }
     }
     setTimeout(function(){ additional_recipients_lock = 1;}, 1001);

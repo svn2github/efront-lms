@@ -1124,6 +1124,9 @@ function repositionFileManager(table) {
 			heightValue = 0;
 		}
 		$('filemanager_cell').setStyle({width:table.getDimensions().width+'px', height:heightValue+'px', verticalAlign:'top'});
+		if (typeof(ready_to_set_position) != 'undefined') {
+			$('filemanager_div').absolutize().clonePosition($('filemanager_cell'));
+		}
 	}	
 }
 

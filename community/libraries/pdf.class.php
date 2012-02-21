@@ -115,6 +115,7 @@ class EfrontPdf
     $rowHeight = $this->calculateRowHeight($row, $formatting);
     foreach ($row as $columnTitle => $column) {
      $idx++ == sizeof($row) ? $newLine = 1 : $newLine = 0;
+     is_array($formatting[$columnTitle]) OR $formatting[$columnTitle] = array();
      $this->printMultiContent($column, array('height' => $rowHeight) + $formatting[$columnTitle], $newLine);
     }
     if (isset($subSections[$rowIndex])) {

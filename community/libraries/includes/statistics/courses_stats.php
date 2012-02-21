@@ -50,20 +50,32 @@ try {
 
       $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
       if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-       $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'location', 'user_type', 'completed', 'score', 'operations', 'to_timestamp', 'enrolled_on'));
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'user_type', 'lesson_percentage','completed', 'score', 'operations', 'to_timestamp', 'enrolled_on'));
        $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
        $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
        $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
        $totalEntries = $infoCourse -> countCourseUsersAggregatingResults($constraints);
+
+       $status = EfrontStats :: getUsersCourseStatus($infoCourse, array_keys($users));
+       foreach($users as $key => $value){
+        $lesson_status = $status[$course_id][$key]['lesson_status'];
+        $num_comp = 0;
+        foreach ($lesson_status as $id => $lesson) {
+         $num_comp += $lesson['completed'];
+        }
+        $users[$key]['lesson_percentage'] = round(100 * ($num_comp/sizeof($lesson_status)), 2);
+       }
+
        $dataSource = $users;
+
        $smarty -> assign("T_TABLE_SIZE", $totalEntries);
       }
       if (isset($_GET['ajax']) && $_GET['ajax'] == 'instanceUsersTable' && eF_checkParameter($_GET['instanceUsersTable_source'], 'login')) {
-       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'location', 'active_in_course', 'completed', 'score', 'operations', 'to_timestamp', 'active_in_course'));
+       $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'user_type', 'active_in_course', 'completed', 'score', 'operations', 'to_timestamp', 'active_in_course'));
        $smarty -> assign("T_DATASOURCE_OPERATIONS", array('statistics'));
        $smarty -> assign("T_SHOW_COURSE_LESSONS", true);
        $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $infoCourse -> course['id']);
-       $constraints['required_fields'] = array('num_lessons', 'location');
+       $constraints['required_fields'] = array('num_lessons');
        $constraints['return_objects'] = false;
        //$constraints['table_filters']   = $stats_filters;		//This is not needed here, since this list is for a specific user
        $infoUser = EfrontUserFactory :: factory($_GET['instanceUsersTable_source']);

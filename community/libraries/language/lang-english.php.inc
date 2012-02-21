@@ -2268,7 +2268,7 @@ define("_SEARCHTEXTWASINSCRIPT","Search text was found inside a script");
 define("_NUMBERFROM000TO9999REQUIRED","Number from 0.00 to 99.99 required");
 define("_COMPLETETHESKILLGAPTESTSBELOWSOTHATWECANASSIGNLESSONS","Complete the skill gap tests below so that we can assign courses most suitable to your neeeds.");
 define("_YOUHAVECOMPLETEDALLSKILLGAPSTESTSASSIGNEDTOYOUWAITTOBEASSIGNEDLESSONS","You have completed all skill gap tests assigned to you. <br>Please wait until your professors assign to you the most suitable courses according to your needs.");
-define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Your results have been sent to your professors who will soon assign courses to your according to your needs as identified from this test");
+define("_YOURRESULTSHAVEBEENSENTTOYOURPROFESSORSWHOWILLASSIGNLESSONSACCORDINGTOYOURNEEDS","Your results have been sent to your professors who will soon assign courses to you according to your needs as identified from this test");
 define("_JOBPLACEMENTS","Job placements");
 define("_NEWJOBPLACEMENT","New job placement");
 define("_UPGRADEMODULE", "Upgrade module");
@@ -4171,4 +4171,5 @@ define("_YOUCANNOTUSETHISNAME","You can not use this name. Please choose another
 define("_BANUSERFAILEDLOGINS","Ban users after 5 unsuccessful login atempts");
 define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous failed logins atempts");
 define("_ALLOWUSERREDOTEST", "Have user repeat the test");
+define("_ALLSUPERVISORS","All supervisors");
 ?>

@@ -148,8 +148,8 @@ class EfrontIMS
     } else {
      $total_fields[$key]['data'] = '
       <div style = "text-align:center;height:300px">
-       <span>'._CLICKTOSTARTUNIT.'</span><br/>
-       <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
+       <span>##CLICKTOSTARTUNIT##</span><br/>
+       <input type = "button" value = "##STARTUNIT##" class = "flatButton" onclick = \'window.open("'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS'].'", "scormFrameName", "'.$parameters['popup_parameters'].'")\' >
       </div>';
     }
    }

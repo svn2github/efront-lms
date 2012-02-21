@@ -330,7 +330,7 @@ class glossary extends EfrontEntity
     }
     $searchdatanext[] = "/(yty656hgh".$value['name'].")/usi";
     //Added 'UTF-8' because of #1661 and &rsquo;
-                $replacedata[] = str_replace(array("\r\n", "\n"), '<br/>', htmlentities(strip_tags($value['info']), ENT_QUOTES, "UTF-8"));
+                $replacedata[] = str_replace(array("\r\n", "\n"), '<br/>', rawurlencode(htmlentities(strip_tags($value['info']), ENT_QUOTES, "UTF-8")));
             }
         }
         $text = self :: highlightWords($text, $searchdata, $replacedata);
@@ -385,7 +385,7 @@ class glossary extends EfrontEntity
             $words[$key] = 'encode*()!768atyj'.$word;
         }
         $new_text = implode(' ',$words);
-        return $matches[1]."<a class = 'glossary' href = 'javascript:void(0)' onmouseover = 'new Tip(this, \"yty656hgh".self::encodeWordsInner($matching_text)."\")'>".$new_text."</a>".$matches[3];
+        return $matches[1]."<a class = 'glossary' href = 'javascript:void(0)' onmouseover = 'new Tip(this, decodeURIComponent(\"yty656hgh".self::encodeWordsInner($matching_text)."\"))'>".$new_text."</a>".$matches[3];
     }
     /**
 

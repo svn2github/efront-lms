@@ -26,6 +26,7 @@ if (typeof(currentUserLogin) == 'undefined') var currentUserLogin ='';
 {if in_array('location', $T_DATASOURCE_COLUMNS)} <td class = "topTitle location" name = "location">{$smarty.const._LOCATION}</td>{/if}
 {if in_array('user_type', $T_DATASOURCE_COLUMNS)} <td class = "topTitle user_type" name = "user_type">{$smarty.const._USERTYPE}</td>{/if}
 {if in_array('active_in_course', $T_DATASOURCE_COLUMNS)}<td class = "topTitle active_in_course" name = "active_in_course">{$smarty.const._STATUS}</td>{/if}
+{if in_array('lesson_percentage',$T_DATASOURCE_COLUMNS)}<td class = "topTitle lesson_percentage" name = "lesson_percentage">{$smarty.const._PERCENTAGE}</td>{/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)} <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>{/if}
 {if in_array('enrolled_on', $T_DATASOURCE_COLUMNS)} <td class = "topTitle enrolled_on" name = "enrolled_on">{$smarty.const._ENROLLEDON}</td>{/if}
 {if in_array('to_timestamp', $T_DATASOURCE_COLUMNS)} <td class = "topTitle to_timestamp" name = "to_timestamp">{$smarty.const._COMPLETEDON}</td>{/if}
@@ -83,6 +84,13 @@ if (typeof(currentUserLogin) == 'undefined') var currentUserLogin ='';
      <img src = "images/16x16/success.png" title = "{$smarty.const._USERHASTHECOURSE}" alt = "{$smarty.const._USERHASTHECOURSE}" {if $_change_handles_}class = "ajaxHandle" onclick = "toggleUserAccess(this, '{$user.login}', 'user')"{/if}/>
     {/if}
    {/if}
+   </td>
+{/if}
+{if in_array('lesson_percentage', $T_DATASOURCE_COLUMNS)}
+   <td class = "lesson_percentage">
+     <span style = "display:none">{$user.lesson_percentage+1000}</span>
+     <span class = "progressNumber">#filter:score-{$user.lesson_percentage}#%</span>
+     <span class = "progressBar" style = "width:{$user.lesson_percentage}px;">&nbsp;</span>&nbsp;&nbsp;
    </td>
 {/if}
 {if in_array('completed', $T_DATASOURCE_COLUMNS)}

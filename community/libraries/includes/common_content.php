@@ -240,8 +240,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
        $scormValue = str_replace(array('src = "', '" onload'),"",$matches[0]);
        $currentUnit['data'] = '
                                <div style = "text-align:center;height:300px">
-                                <span>'._CLICKTOSTARTUNIT.'</span><br/>
-                             <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "'.$values['popup_parameters'].'")\' >
+                                <span>##CLICKTOSTARTUNIT##</span><br/>
+                             <input type = "button" value = "##STARTUNIT##" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "'.$values['popup_parameters'].'")\' >
                             </div>';
       } elseif ($values['embed_type'] == 'popup' && strpos($currentUnit['data'], 'window.open') !== false) { //in case changing only popup parameters field
        preg_match("/\"scormFrameName\".*\"\)'/U", $currentUnit['data'], $matches);
@@ -351,8 +351,8 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
        $scormValue = str_replace(array('src = "', '" onload'),"",$matches[0]);
        $currentUnit['data'] = '
                                <div style = "text-align:center;height:300px">
-                                <span>'._CLICKTOSTARTUNIT.'</span><br/>
-                             <input type = "button" value = "'._STARTUNIT.'" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"")\' >
+                                <span>##CLICKTOSTARTUNIT##</span><br/>
+                             <input type = "button" value = "##STARTUNIT##" class = "flatButton" onclick = \'window.open("'.$scormValue.'", "scormFrameName", "width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"")\' >
                             </div>';
       }
          $currentUnit->persist();
@@ -555,7 +555,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
         }
         if ($_student_ && $_change_ && $currentLesson -> options['tracking']) {
          //if ( $userProgress['lesson_passed'] && $userProgress['completed']) {	
-          $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
+          $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID'], true);
           $smarty -> assign("T_NEXTLESSON", $nextLesson);
          //}
             if ($currentUnit['options']['complete_unit_setting'] == EfrontUnit::COMPLETION_OPTIONS_COMPLETEWITHQUESTION && $currentUnit['options']['complete_question'] && (!in_array($currentUnit['id'], array_keys($seenContent)) || sizeof($_POST) > 0) ) {
@@ -711,4 +711,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
 // Used for toggle horizontal sidebar
 if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
  $smarty -> assign("T_HORIZONTAL_BAR", 1);
+}
+if (!isset($_GET['edit'])) {
+ $smarty -> load_filter('output', 'eF_template_setStartUnit');
 }

@@ -157,7 +157,8 @@ function toggleFileManager(el) {
     	//el.previous().src = "themes/default/images/16x16/navigate_up.png";
         $('filemanager_div').show();
     	$('filemanager_cell').setStyle({width:$('filemanager_div').getDimensions().width+'px', height:$('filemanager_div').getDimensions().height+'px', verticalAlign:'top'});                                        	    	
-    	$('filemanager_div').absolutize().clonePosition($('filemanager_cell'));    	
+    	$('filemanager_div').absolutize().clonePosition($('filemanager_cell'));
+    	ready_to_set_position = true;
     } else {
     	//el.previous().src = "themes/default/images/16x16/navigate_down.png";
     	setImageSrc(el.previous(), 16, "navigate_down");

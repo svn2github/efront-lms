@@ -157,6 +157,7 @@ class EfrontLesson
                             'online' => 1,
                           //'chat'            => 0,
                             'scorm' => 1,
+       'ims' => 1,
                             'dynamic_periods' => 0,
                             'digital_library' => 1,
                             'calendar' => 1,

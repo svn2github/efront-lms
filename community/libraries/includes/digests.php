@@ -328,6 +328,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
             // Main categories
             //$form -> addElement('radio', 'recipients', null, null, 'only_specific_users', 'id = "only_specific_users" onclick = "eF_js_selectRecipients(\'only_specific_users\')"');
             $form -> addElement('radio', 'recipients', null, null, 'active_users', 'id = "active_users" onclick = "eF_js_selectRecipients(\'active_users\')"');
+            $form -> addElement('radio', 'recipients', null, null, 'supervisors', 'id = "supervisors" onclick = "eF_js_selectRecipients(\'supervisors\')"');
             $form -> addElement('radio', 'recipients', null, null, 'specific_course', 'onclick = "eF_js_selectRecipients(\'specific_course\')"');
             $form -> addElement('select', 'specific_course', null, $courses, 'id = "course_recipients" class = "inputSelectMed" disabled = "disabled"');
             $form -> addElement('select', 'specific_course_completed', null, array(_ALLUSERS, _COMPLETED, _NOTCOMPLETED), 'class = "inputCheckbox" id="specific_course_completed_check" style="visibility:hidden"');
@@ -348,6 +349,7 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
             $basic_event_recipients = array(EfrontNotification::TRIGGERINGUSER => _USERTRIGGERINGTHEEVENT,
             EfrontNotification::ALLSYSTEMUSERS => _ALLSYSTEMUSERS,
             EfrontNotification::SYSTEMADMINISTRATOR => _SYSTEMADMINISTRATOR);
+
 
 
 
@@ -583,24 +585,28 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                $send_interval = 0;
               }
               if ($event['send_conditions']) {
-               $condition_category = unserialize($event['send_conditions']);
-               if (isset($condition_category['lessons_ID'])) {
-                if (isset($condition_category['user_type'])) {
-                 $form -> setDefaults(array('professor' => $condition_category['lessons_ID'],
-                                                       'recipients' => 'specific_lesson_professor'));
-                } else {
-                 $form -> setDefaults(array('lesson' => $condition_category['lessons_ID'],
-                                                       'recipients' => 'specific_lesson'));
+               if ($event['send_conditions'] == 'supervisors') {
+                $form -> setDefaults(array('recipients' => 'supervisors'));
+               } else {
+                $condition_category = unserialize($event['send_conditions']);
+                if (isset($condition_category['lessons_ID'])) {
+                 if (isset($condition_category['user_type'])) {
+                  $form -> setDefaults(array('professor' => $condition_category['lessons_ID'],
+                                                        'recipients' => 'specific_lesson_professor'));
+                 } else {
+                  $form -> setDefaults(array('lesson' => $condition_category['lessons_ID'],
+                                                        'recipients' => 'specific_lesson'));
+                 }
+                } else if (isset($condition_category['courses_ID'])) {
+                 $form -> setDefaults(array('specific_course_completed' => $condition_category['completed'],
+                                                    'recipients' => 'specific_course'));
+                } else if (isset($condition_category['user_type'])) {
+                 $form -> setDefaults(array('user_type' => $condition_category['user_type'],
+                                                    'recipients' => 'specific_type'));
+                } else if (isset($condition_category['groups_ID'])) {
+                 $form -> setDefaults(array('group_recipients' => $condition_category['groups_ID'],
+                                                    'recipients' => 'specific_group'));
                 }
-               } else if (isset($condition_category['courses_ID'])) {
-                $form -> setDefaults(array('specific_course_completed' => $condition_category['completed'],
-                                                   'recipients' => 'specific_course'));
-               } else if (isset($condition_category['user_type'])) {
-                $form -> setDefaults(array('user_type' => $condition_category['user_type'],
-                                                   'recipients' => 'specific_type'));
-               } else if (isset($condition_category['groups_ID'])) {
-                $form -> setDefaults(array('group_recipients' => $condition_category['groups_ID'],
-                                                   'recipients' => 'specific_group'));
                }
               }
               $form -> setDefaults(array('when' => $frequency,
@@ -656,6 +662,8 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
                 $condition = array("user_type" => $form -> exportValue('user_type'));
                } else if ($condition_category == "specific_group") {
                 $condition = array("groups_ID" => $form -> exportValue('group_recipients'));
+               } elseif($condition_category == "supervisors") {
+                $condition = "supervisors";
                } else {
                 $condition = NULL;
                }

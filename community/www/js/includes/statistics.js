@@ -367,6 +367,16 @@ $(type+'_row').show();
 
 }
 
+function appendBranchesSelection (ob) {
+	selected = new Array(); 
+	for (var i = 0; i < ob.options.length; i++) {
+		if (ob.options[ i ].selected) {
+			selected.push(ob.options[ i ].value);
+		}
+	}
+	return selected.toString();
+}
+
 if ($('autocomplete_users')) { 
 	new Ajax.Autocompleter("autocomplete", 
 						   "autocomplete_users", 

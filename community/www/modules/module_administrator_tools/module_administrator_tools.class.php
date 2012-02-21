@@ -955,6 +955,8 @@ class module_administrator_tools extends EfrontModule {
 
 
   $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+  $lessonSettings['ims'] = array('text' => _IMS, 'image' => "32x32/autocomplete.png", 'onClick' => 'activate(this, \'ims\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
+
 
   $lessonSettings['digital_library'] = array('text' => _SHAREDFILES, 'image' => "32x32/file_explorer.png", 'onClick' => 'activate(this, \'digital_library\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => 'inactiveImage');
   if ($GLOBALS['configuration']['disable_calendar'] != 1) {

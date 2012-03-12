@@ -4172,4 +4172,5 @@ define("_BANUSERFAILEDLOGINS","Αποκλεισμός χρηστών μετά α
 define("_BANUSERFAILEDLOGINSINFO","Ο χρήστης θα απενεργοποιείται μετά από 5 συνεχόμενες ανεπιτυχείς προσπάθειες");
 define("_ALLOWUSERREDOTEST", "Επέτρεψε επανάληψη");
 define("_ALLSUPERVISORS","Όλοι οι προιστάμενοι");
+define("_REVOKECERTIFICATEFOREXPIRED","Ακύρωση πιστοποιητικών που έχουν λήξει");
 ?>

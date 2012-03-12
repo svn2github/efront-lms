@@ -3,11 +3,11 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-if (($GLOBALS['configuration']['disable_tests'] == 1 && $_GET['ctg'] == 'tests') || ($GLOBALS['configuration']['disable_feedback'] == 1 && $_GET['ctg'] == 'feedback')|| (isset($currentUser -> coreAccess['tests']) && $currentUser -> coreAccess['tests'] == 'hidden')) {
+if (($GLOBALS['configuration']['disable_tests'] == 1 && $_GET['ctg'] == 'tests') || ($GLOBALS['configuration']['disable_feedback'] == 1 && $_GET['ctg'] == 'feedback')|| (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] == 'hidden')) {
     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
 //Create shorthands for user access rights, to avoid long variable names
-!isset($currentUser -> coreAccess['tests']) || $currentUser -> coreAccess['tests'] == 'change' ? $_change_ = 1 : $_change_ = 0;
+!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
 
 $loadScripts[] = 'scriptaculous/controls';

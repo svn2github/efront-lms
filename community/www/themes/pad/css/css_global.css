@@ -764,8 +764,8 @@ border:1px solid #ccc;
 vertical-align:middle;
 font-size:13px;
 height: 25px;
-z-index:2
-
+z-index:2;
+height:18px;
 }
 span.progressBar{
 background-color:#A0BDEF;

@@ -20,9 +20,9 @@
   <tr>
    {include file = "includes/statistics/stats_filters.tpl"}
    <td id="right">{$smarty.const._EXPORTSTATS}
-    <a href="{$smarty.server.PHP_SELF}?ctg=statistics&option=skill&sel_skill={$smarty.get.sel_skill}&group_filter={$smarty.get.group_filter}&excel=skill&branch_filter={$smarty.get.branch_filter}&subbranches={$smarty.get.subbranches}">
+    <a href="{$smarty.server.PHP_SELF}?ctg=statistics&option=skill&sel_skill={$smarty.get.sel_skill}&group_filter={$smarty.get.group_filter}&excel=skill&branch_filter={$smarty.get.branch_filter}&job_filter={$smarty.get.job_filter}&subbranches={$smarty.get.subbranches}">
      <img src="images/file_types/xls.png" title="{$smarty.const._XLSFORMAT}" alt="{$smarty.const._XLSFORMAT}" /> </a>
-    <a href="{$smarty.server.PHP_SELF}?ctg=statistics&option=skill&sel_skill={$smarty.get.sel_skill}&group_filter={$smarty.get.group_filter}&pdf=skill&branch_filter={$smarty.get.branch_filter}&subbranches={$smarty.get.subbranches}">
+    <a href="{$smarty.server.PHP_SELF}?ctg=statistics&option=skill&sel_skill={$smarty.get.sel_skill}&group_filter={$smarty.get.group_filter}&pdf=skill&branch_filter={$smarty.get.branch_filter}&job_filter={$smarty.get.job_filter}&subbranches={$smarty.get.subbranches}">
      <img src="images/file_types/pdf.png" title="{$smarty.const._PDFFORMAT}" alt="{$smarty.const._PDFFORMAT}" />
     </a></td>
   </tr>

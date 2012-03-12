@@ -35,7 +35,7 @@
                                                 <td class = "centerAlign">{if isset($item.minscore)} #filter:score-{$item.minscore}#%{/if}</td>
                                                 <td class = "centerAlign">#filter:score-{$item.maxscore}#%</td>
                                                 <td class = "centerAlign">{if $item.masteryscore} #filter:score-{$item.masteryscore}#%{/if}</td>
-                                                <td class = "centerAlign">{$item.score|formatScore}</td>
+                                                <td class = "centerAlign">#filter:score-{$item.score}#%</td>
                                             {if !isset($T_CURRENT_USER->coreAccess.content) || $T_CURRENT_USER->coreAccess.content == 'change'}
                                                 <td class = "centerAlign"><img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETEDATA}" title = "{$smarty.const._DELETEDATA}" onclick = "deleteData(this, {$item.id})"></td>
                                             {/if}

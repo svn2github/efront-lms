@@ -2622,8 +2622,10 @@ function eF_mail($sender, $recipient, $subject, $body, $attachments = false, $on
         $mime -> setTXTBody($body);
     }
     if ($attachments) {
-        $file = new EfrontFile($attachments[0]);
-        $mime -> addAttachment($file['path'], $file['mime_type'], $file['physical_name']);
+     foreach ($attachments as $key => $value) {
+         $file = new EfrontFile($value);
+         $mime -> addAttachment($file['path'], $file['mime_type'], $file['physical_name']);
+     }
     }
     $body = $mime -> get($params);
     $hdrs = $mime -> headers($hdrs);

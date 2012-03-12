@@ -1788,9 +1788,8 @@ abstract class EfrontLessonUser extends EfrontUser
   }
   $info = eF_getTableData("users_to_lessons", "completed,score,to_timestamp,comments", "users_LOGIN='".$this -> user['login']."' and lessons_ID = ".$lesson -> lesson['id']);
   if ($info[0]['completed'] == 0) {
-   $new_info = array( "to_timestamp" => $timestamp,
-           "completed" => 1,
-        "score" => 100);
+   $this -> completeLesson($lesson -> lesson['id'], 100, '', $timestamp);
+   exit;
   } elseif ($timestamp !== false) {
    $new_info = array("to_timestamp" => $timestamp);
   } elseif ($timestamp === false){

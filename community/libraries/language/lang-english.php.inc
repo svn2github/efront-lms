@@ -4172,4 +4172,5 @@ define("_BANUSERFAILEDLOGINS","Ban users after 5 unsuccessful login atempts");
 define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous failed logins atempts");
 define("_ALLOWUSERREDOTEST", "Have user repeat the test");
 define("_ALLSUPERVISORS","All supervisors");
+define("_REVOKECERTIFICATEFOREXPIRED","Revoke expired certificates");
 ?>

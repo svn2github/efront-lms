@@ -367,7 +367,7 @@ $(type+'_row').show();
 
 }
 
-function appendBranchesSelection (ob) {
+function appendSelection (ob) {
 	selected = new Array(); 
 	for (var i = 0; i < ob.options.length; i++) {
 		if (ob.options[ i ].selected) {

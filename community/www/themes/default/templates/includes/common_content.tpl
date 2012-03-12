@@ -378,7 +378,7 @@
     <div id = "progress_bar">
     {$smarty.const._PROGRESS}:&nbsp;
      <span class = "progressNumber">{$T_USER_PROGRESS.overall_progress}%</span>
-     <span class = "progressBar" style = "width:{$T_USER_PROGRESS.overall_progress}px;">&nbsp;</span>&nbsp;
+     <span class = "progressBar" style = "width:{","|str_replace:".":$T_USER_PROGRESS.overall_progress}px;">&nbsp;</span>&nbsp;
     {if $T_USER_PROGRESS.total_conditions > 0 && $T_CURRENT_LESSON->options.lesson_info}
      <a id = "lesson_passed" href = "{$smarty.server.PHP_SELF}?ctg=lesson_information&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._LESSONINFORMATION}', 2)" target = "POPUP_FRAME">
       <span class = "{if $T_USER_PROGRESS.lesson_passed}success{else}failure{/if}">{$smarty.const._CONDITIONSCOMPLETED}: <span id = "passed_conditions">{$T_USER_PROGRESS.conditions_passed}</span> {$smarty.const._OUTOF} {$T_USER_PROGRESS.total_conditions}</span>

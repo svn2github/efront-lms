@@ -5,7 +5,7 @@ if ($('chart_holder')) {
 		ajaxRequest(el, location.toString(), parameters, onLoadChart);
 	});
 }
-function onLoadChart(el, response) {
+function onLoadChart(el, response) {	
 	var re2         = new RegExp("<!--ajax:chart-->((.*[\n])*)<!--\/ajax:chart-->");	//Does not work with smarty {strip} tags!
 	var tableText   = re2.exec(response);
 	if (!tableText) {
@@ -13,7 +13,7 @@ function onLoadChart(el, response) {
 		tableText   = re.exec(response);
 	}
 	$('loading_div').hide();
-	$('chart_holder').update(tableText);
+	$('chart_holder').update(tableText[1]);	
 }
 
 function toggleOrgChartMode(el) {

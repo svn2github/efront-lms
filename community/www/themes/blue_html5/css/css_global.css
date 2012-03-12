@@ -755,8 +755,8 @@ text-align:center;
 width:100px;
 border:1px solid #d3d3d3;
 vertical-align:middle;
-z-index:2
-
+z-index:2;
+height:18px;
 }
 span.progressBar{
 background-color:#A0BDEF;

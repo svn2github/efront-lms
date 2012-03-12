@@ -6043,10 +6043,11 @@ class DragDropQuestion extends Question implements iQuestion
         $results = $this -> correct(); //Correct question
         for ($k = 0; $k < sizeof($this -> options); $k++) { //Display properly each option. The group can't be used, since we will display each option differently, depending on whether it is correct or not
             if ($showGivenAnswers) { //If the user's given answers should be shown, assign them as defaults in the form
-                $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => is_numeric($this -> userAnswer[$k]) ? $this -> answer[$this -> userAnswer[$k]] : ''));
+                $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => is_numeric($this -> userAnswer[$k]) ? $this -> options[$this -> userAnswer[$k]] : ''));
             } else {
                 $form -> setDefaults(array("question[".$this -> question['id']."][$k]" => ''));
             }
+            $correctMap[$this->options[$k]] = $this->answer[$k];
         }
         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($foo); //Get a smarty renderer, only because it reforms the form in a very convenient way for printing html
         $form -> freeze(); //Freeze the form elements
@@ -6060,15 +6061,16 @@ class DragDropQuestion extends Question implements iQuestion
     $wrongAnswerClass = 'class = "wrongAnswer"';
    }
    $index = $this -> order[$k]; //$index is used to recreate the answers order, for a done test, or to apply the answers shuffle, for an unsolved test
+   $label = $formArray['question'][$this -> question['id']][$index]['html'];
             if ($results['correct'][$index]) {
-                $innerQuestionString .= '<span '.$correctAnswerClass.' >'.$this -> options[$index].'&nbsp;<b>'.$formArray['question'][$this -> question['id']][$index]['html'].'</b>';
+                $innerQuestionString .= '<span '.$correctAnswerClass.' >'.$label.'&nbsp;<b>'.$this -> answer[$index].'</b>';
              if ($showCorrectAnswers) {
                  $innerQuestionString .= (!$showGivenAnswers ? ' (<span class = "emptyCategory">'._ANSWERNOTVISIBLE.'</span>) ' : '').'&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._CORRECTANSWER;
              }
             } else {
-                $innerQuestionString .= '<span '.$wrongAnswerClass.' >'.$this -> options[$index].'&nbsp;<b>'.$formArray['question'][$this -> question['id']][$index]['html'].'</b>';
+                $innerQuestionString .= '<span '.$wrongAnswerClass.' >'.$label.'&nbsp;<b>'.$this -> answer[$index].'</b>';
              if ($showCorrectAnswers) {
-                 $innerQuestionString .= (!$showGivenAnswers ? ' (<span class = "emptyCategory">'._ANSWERNOTVISIBLE.'</span>) ' : '').'&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._WRONGANSWER.'. '._RIGHTANSWER.": ".$this -> answer[$index];
+                 $innerQuestionString .= (!$showGivenAnswers ? ' (<span class = "emptyCategory">'._ANSWERNOTVISIBLE.'</span>) ' : '').'&nbsp;&nbsp;&nbsp;&larr;&nbsp;'._WRONGANSWER.'. '._RIGHTANSWER.": ".$correctMap[strip_tags($label)];
              }
             }
             $innerQuestionString .= '</span>'.($this -> answers_explanation[$index] ? '<span class = "questionExplanation">'.$this -> answers_explanation[$index].'</span>' : '').'<br>';

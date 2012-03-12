@@ -180,7 +180,8 @@ try {
       $info = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,completed,score,to_timestamp,comments", "users_LOGIN IN (".$list.") and lessons_ID = ".$currentLesson -> lesson['id']);
    foreach ($info as $value) {
     if ($value['completed'] == 0) {
-     eF_updateTableData("users_to_lessons", array("score" => 100, "completed" => 1, "to_timestamp" => time()), "users_LOGIN='".$value['users_LOGIN']."' and lessons_ID = ".$value['lessons_ID']);
+     $user = EfrontUserFactory :: factory($value['users_LOGIN']);
+     $user -> completeLesson($currentLesson -> lesson['id'], 100, '', time());
     }
    }
      }

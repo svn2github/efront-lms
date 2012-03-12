@@ -229,6 +229,7 @@ if ($_GET['op'] == 'course_info') {
    handleAjaxExceptions($e);
   }
   exit;
+ } else if (isset($_GET['revoke_all_expired'])) {
  } else if (isset($_GET['set_all_completed'])) {
   try {
    $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
@@ -245,10 +246,8 @@ if ($_GET['op'] == 'course_info') {
   }
   exit;
  }
-
  $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
-
   //pr($studentRoles);
   $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
   $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
@@ -257,41 +256,33 @@ if ($_GET['op'] == 'course_info') {
   $users = $currentCourse -> getCourseUsers($constraints);
   $totalEntries = $currentCourse -> countCourseUsers($constraints);
   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
-
-
   foreach ($users as $key => $value) {
    $users[$key] -> user['issued_certificate'] = $value -> user['issued_certificate'];
    $expire_certificateTimestamp = "";
-
    if ($value -> user['issued_certificate']) {
     $issuedData = unserialize($value -> user['issued_certificate']);
     $users[$key] -> user['serial_number'] = $issuedData['serial_number'];
-
     //$dateFormat = eF_dateFormat();
     if (eF_checkParameter($issuedData['date'], 'timestamp')) {
      //$expire_certificateTimestamp = $currentCourse -> course['certificate_expiration'] + $issuedData['date'];
      //$dateExpire = date($dateFormat, $expire_certificateTimestamp);
      $expirationArray = convertTimeToDays($currentCourse -> course['certificate_expiration']);
      $expire_certificateTimestamp = getCertificateExpirationTimestamp($issuedData['date'], $expirationArray);
-
     } else {
      $expire_certificateTimestamp = $currentCourse -> course['certificate_expiration'] + strtotime($issuedData['date']);
      //$dateExpire = date($dateFormat, $expire_certificateTimestamp);
     }
-
     if (isset($currentCourse -> course['certificate_expiration']) && $currentCourse -> course['certificate_expiration'] != 0) {
      $users[$key] -> user['expire_certificate'] = $expire_certificateTimestamp;
     }
    }
   }
-
   $users = EfrontCourse :: convertUserObjectsToArrays($users);
   $dataSource = $users;
   $tableName = $_GET['ajax'];
   $alreadySorted = true;
   include("sorted_table.php");
  }
-
  if (isset($_GET['export']) && $_GET['export'] == 'rtf' && eF_checkParameter($_GET['course'], 'id') ) {
   if (eF_checkParameter($_GET['user'], 'login')) {
    $result = eF_getTableData("users_to_courses", "*", "users_LOGIN = '".$_GET['user']."' and courses_ID = '".$_GET['course']."' limit 1");
@@ -320,7 +311,6 @@ if ($_GET['op'] == 'course_info') {
       $issued_data['date'] = formatTimestamp($issued_data['date']);
      }
      $certificate = str_replace("#date#", utf8ToUnicode($issued_data['date']), $certificate);
-
      $certificate = str_replace("#serial_number#", utf8ToUnicode($issued_data['serial_number']), $certificate);
     }
     $filename = "certificate_".$_GET['user'].".rtf";
@@ -332,12 +322,9 @@ if ($_GET['op'] == 'course_info') {
    }
    $webserver = explode(' ',$_SERVER['SERVER_SOFTWARE']); //GET Server information from $_SERVER
    $webserver_type = explode('/', $webserver[0]);
-
    $filenameRtf = "certificate_".$_GET['user'].".rtf";
-
    $filenamePdf = G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".pdf";
    file_put_contents(G_ROOTPATH."www/phplivedocx/samples/mail-merge/convert/certificate_".$_GET['user'].".rtf", $certificate);
-
    if (mb_stripos($webserver_type[0], "IIS") === false) { //because of note here http://php.net/manual/en/function.file.php
     $retValues = file(G_SERVERNAME."phplivedocx/samples/mail-merge/convert/convert-document.php?filename=certificate_".$_GET['user']);
    } else {
@@ -367,22 +354,15 @@ if ($_GET['op'] == 'course_info') {
   } else {
    $result = array();
   }
-
   if(sizeof($result) == 1 || isset($_GET['preview'])){
-
    $course = new EfrontCourse($_GET['course']);
-
    if(!isset($_GET['preview'])){
-
     $certificate_tpl_id = $course->options['certificate_tpl_id'];
-
     if($certificate_tpl_id <= 0){
-
      $mainTemplate = eF_getTableData("certificate_templates", "id",
           "certificate_name='".CERTIFICATES_MAIN_TEMPLATE_NAME."'"); // XXX
      $certificate_tpl_id = $mainTemplate[0]['id'];
     }
-
     $issued_data = unserialize($result[0]['issued_certificate']);
     $templateData = eF_getTableData("certificate_templates", "certificate_xml", "id=".$certificate_tpl_id);
     $userName = $issued_data['user_name'];
@@ -390,35 +370,27 @@ if ($_GET['op'] == 'course_info') {
     $courseName = $issued_data['course_name'];
     $courseGrade = $issued_data['grade'];
     $serialNumber = $issued_data['serial_number'];
-
     if(eF_checkParameter($issued_data['date'], 'timestamp'))
     $issued_data['date'] = formatTimestamp($issued_data['date']);
-
     $certificateDate = $issued_data['date'];
-
     $xmlExport = new XMLExport($templateData[0]['certificate_xml']);
     $creator = $xmlExport->getCreator();
     $author = $xmlExport->getAuthor();
     $subjct = $xmlExport->getSubject($userName.' '.$userSurName);
     $keywrd = $xmlExport->getKeywords();
     $orientation = $xmlExport->getOrientation();
-
     $pdf = new TCPDF($orientation, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator($creator);
     $pdf->SetAuthor($author);
     $pdf->SetTitle($subjct);
     $pdf->SetSubject($subjct);
     $pdf->SetKeywords($keywrd);
-
     $xmlExport->setBackground($pdf);
-
     $pdf->SetAutoPageBreak(false);
     $pdf->setFontSubsetting(false);
     $pdf->AddPage();
-
     //				$pdf->AddFont('Garamond','', K_PATH_FONTS.'gara.php');
     //				$pdf->AddFont('Garamond','B', K_PATH_FONTS.'garabd.php');
-
     $xmlExport->drawLines($pdf);
     $xmlExport->showLabels($pdf);
     if (extension_loaded('gd')) {
@@ -431,37 +403,30 @@ if ($_GET['op'] == 'course_info') {
     $xmlExport->showStudentName($pdf, $userName.' '.$userSurName);
     $xmlExport->showCourseName($pdf, $courseName);
     $xmlExport->showGrade($pdf, $courseGrade);
-
     //				$fileNamePdf = "certificate_".$_GET['user'].".pdf";
     //				$pdf->Output($fileNamePdf, 'D');
-
     $fileNamePdf = "certificate_".$_GET['user'].".pdf";
    }
    else{
     $tmp = explode('-', $_GET['certificate_tpl']);
     $certificate_tpl_id = $tmp[0];
     $templateData = eF_getTableData("certificate_templates", "certificate_xml", "id=".$certificate_tpl_id);
-
     $xmlExport = new XMLExport($templateData[0]['certificate_xml']);
     $creator = $xmlExport->getCreator();
     $author = $xmlExport->getAuthor();
     $subjct = $xmlExport->getSubject();
     $keywrd = $xmlExport->getKeywords();
     $orientation = $xmlExport->getOrientation();
-
     $pdf = new TCPDF($orientation, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator($creator);
     $pdf->SetAuthor($author);
     $pdf->SetTitle($subjct);
     $pdf->SetSubject($subjct);
     $pdf->SetKeywords($keywrd);
-
     $xmlExport->setBackground($pdf);
-
     $pdf->SetAutoPageBreak(false);
     $pdf->setFontSubsetting(false);
     $pdf->AddPage();
-
     $xmlExport->drawLines($pdf);
     $xmlExport->showLabels($pdf);
     $xmlExport->showImages($pdf);
@@ -472,24 +437,17 @@ if ($_GET['op'] == 'course_info') {
     $xmlExport->showStudentName($pdf, 'Student Name');
     $xmlExport->showCourseName($pdf, 'Course Name');
     $xmlExport->showGrade($pdf, 'Grade');
-
     //				$fileNamePdf = "certificate_preview.pdf";
     //				$pdf->Output($fileNamePdf, 'D');
-
     $fileNamePdf = "certificate_preview.pdf";
-
    }
    $output = $pdf->Output('', 'S');
-
    file_put_contents($currentUser->getDirectory().$fileNamePdf, $output);
    $file = new EfrontFile($currentUser->getDirectory().$fileNamePdf, $output);
    $file -> sendFile();
-
   }
  }
-
 } else if ($_GET['op'] == 'format_certificate'){
-
  if($currentCourse->options['certificate_export_method'] == 'rtf' && !isset($_GET['switch']))
  eF_redirect(basename($_SERVER['PHP_SELF'])."?".$baseUrl."&op=format_certificate_docx");
 } else if ($_GET['op'] == 'format_certificate_docx') {

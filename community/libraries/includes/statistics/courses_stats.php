@@ -56,14 +56,17 @@ try {
        $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
        $totalEntries = $infoCourse -> countCourseUsersAggregatingResults($constraints);
 
-       $status = EfrontStats :: getUsersCourseStatus($infoCourse, array_keys($users));
+    if (!empty($users)) {
+        $status = EfrontStats :: getUsersCourseStatus($infoCourse, array_keys($users));
+    }
+
        foreach($users as $key => $value){
         $lesson_status = $status[$course_id][$key]['lesson_status'];
         $num_comp = 0;
         foreach ($lesson_status as $id => $lesson) {
          $num_comp += $lesson['completed'];
         }
-        $users[$key]['lesson_percentage'] = round(100 * ($num_comp/sizeof($lesson_status)), 2);
+        $users[$key]['lesson_percentage'] = formatScore(round(100 * ($num_comp/sizeof($lesson_status)), 2));
        }
 
        $dataSource = $users;
@@ -227,7 +230,8 @@ if (isset($_GET['excel'])) {
     $workSheet -> write(2, 7, _COURSEROLE, $titleLeftFormat);
     //$workSheet -> write(2, 7, _TOTALTIME, $titleCenterFormat);
     $workSheet -> write(2, 8, _SCORE, $titleCenterFormat);
-    $workSheet -> write(2, 9, _COMPLETED, $titleCenterFormat);
+    $workSheet -> write(2, 9, _PERCENTAGE, $titleCenterFormat);
+    $workSheet -> write(2, 10, _COMPLETED, $titleCenterFormat);
 
     $roles = EfrontLessonUser :: getLessonsRoles(true);
     $row = 3;
@@ -235,6 +239,17 @@ if (isset($_GET['excel'])) {
     $constraints = array('table_filters' => $stats_filters);
     $constraints['return_objects'] = false;
     $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
+    if (!empty($users)) {
+     $status = EfrontStats :: getUsersCourseStatus($infoCourse, array_keys($users));
+    }
+    foreach($users as $key => $value){
+     $lesson_status = $status[$course_id][$key]['lesson_status'];
+     $num_comp = 0;
+     foreach ($lesson_status as $id => $lesson) {
+      $num_comp += $lesson['completed'];
+     }
+     $users[$key]['lesson_percentage'] = formatScore(round(100 * ($num_comp/sizeof($lesson_status)), 2));
+    }
     foreach ($users as $info) {
         $workSheet -> write($row, 4, $info['login'], $fieldLeftFormat);
         $workSheet -> write($row, 5, $info['name'], $fieldLeftFormat);
@@ -242,6 +257,9 @@ if (isset($_GET['excel'])) {
         $workSheet -> write($row, 7, $roles[$info['user_type']], $fieldLeftFormat);
         //$workSheet -> write($row, 7, $info['time']['hours']."h ".$info['time']['minutes']."' ".$$info['time']['seconds']."''", $fieldCenterFormat);
         $workSheet -> write($row, 8, formatScore($info['score'])."%", $fieldCenterFormat);
+        if ($rolesBasic[$info['user_type']] == 'student') {
+         $workSheet -> write($row, 9, $info['lesson_percentage']."%", $fieldCenterFormat);
+        }
   if ($info['completed'] && $info['to_timestamp']) {
    $completedString = _YES.', '._ON.' '.formatTimestamp($info['to_timestamp']);
   } elseif ($info['completed']) {
@@ -249,7 +267,7 @@ if (isset($_GET['excel'])) {
   } else {
    $completedString = _NO;
   }
-        $workSheet -> write($row, 9, $completedString, $fieldLeftFormat);
+        $workSheet -> write($row, 10, $completedString, $fieldLeftFormat);
         $row++;
     }
     $row += 2;
@@ -328,14 +346,26 @@ if (isset($_GET['excel'])) {
  $pdf -> printInformationSection(_BASICINFO, $info);
 
  $roles = EfrontLessonUser :: getLessonsRoles(true);
- $formatting = array(_USER => array('width' => '25%', 'fill' => false),
-      _COURSEROLE => array('width' => '25%', 'fill' => false),
-      _COMPLETED => array('width' => '25%', 'fill' => false),
-      _SCORE => array('width' => '25%', 'fill' => false, 'align' => 'R'));
+ $formatting = array(_USER => array('width' => '20%', 'fill' => false),
+      _COURSEROLE => array('width' => '20%', 'fill' => false),
+      _PERCENTAGE => array('width' => '20%', 'fill' => false),
+      _COMPLETED => array('width' => '20%', 'fill' => false),
+      _SCORE => array('width' => '20%', 'fill' => false, 'align' => 'R'));
  $data = array();
     $constraints = array('table_filters' => $stats_filters);
     $constraints['return_objects'] = false;
     $users = $infoCourse -> getCourseUsersAggregatingResults($constraints);
+    if (!empty($users)) {
+     $status = EfrontStats :: getUsersCourseStatus($infoCourse, array_keys($users));
+    }
+    foreach($users as $key => $value){
+     $lesson_status = $status[$course_id][$key]['lesson_status'];
+     $num_comp = 0;
+     foreach ($lesson_status as $id => $lesson) {
+      $num_comp += $lesson['completed'];
+     }
+     $users[$key]['lesson_percentage'] = round(100 * ($num_comp/sizeof($lesson_status)), 2);
+    }
  foreach ($users as $login => $info) {
   if ($info['completed'] && $info['to_timestamp']) {
    $completedString = _YES.', '._ON.' '.formatTimestamp($info['to_timestamp']);
@@ -346,6 +376,7 @@ if (isset($_GET['excel'])) {
   }
    $data[] = array(_USER => formatLogin( $info['login']),
        _COURSEROLE=> $roles[$info['role']],
+       _PERCENTAGE => $rolesBasic[$info['user_type']] == 'student' ? $info['lesson_percentage']."%" : "",
        _COMPLETED => $completedString,
        _SCORE => formatScore($info['score'])."%");
  }

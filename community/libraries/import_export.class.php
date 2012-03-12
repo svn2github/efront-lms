@@ -70,7 +70,7 @@ abstract class EfrontImport
  }
 
 
- private static $datatypes = false;
+ protected static $datatypes = false;
  public static function getImportTypes() {
   if (!self::$datatypes) {
    self::$datatypes = array("anything" => _IMPORTANYTHING,
@@ -215,23 +215,23 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Array containing metadata about the imported data type (db attribute names, db tables, import-file accepted column names)
 	 */
- private $types = false;
+ protected $types = false;
  /*
 	 * Number of lines of the imported file
 	 */
- private $lines = false;
+ protected $lines = false;
  /*
 	 * Array with the mappings between db fields and columns
 	 */
- private $mappings = array();
+ protected $mappings = array();
  /*
 	 * Used for initialization of data (to contain all fields)
 	 */
- private $empty_data = false;
+ protected $empty_data = false;
  /*
 	 * Find the separator - either "," or ";"
 	 */
- private function getSeparator() {
+ protected function getSeparator() {
   if (!$this -> separator) {
    $this -> separator = ",";
    $test_line = explode($this -> separator, $this -> fileContents[0]);
@@ -250,7 +250,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Get empty data - used for caching of initialization array
 	 */
- private function getEmptyData() {
+ protected function getEmptyData() {
   if (!$this -> empty_data) {
    $this -> empty_data = array();
    foreach ($this -> types as $key) {
@@ -264,7 +264,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Split a line to its different strings as they are determined by the separator
 	 */
- private function explodeBySeparator($line) {
+ protected function explodeBySeparator($line) {
   if ($this -> separator) {
    return str_getcsv($this -> fileContents[$line], $this -> separator);
   } else {
@@ -275,7 +275,7 @@ class EfrontImportCsv extends EfrontImport
 	 * Find the header line - the first non zero line of the csv that contains at least one of the import $type's column headers
 	 * @param: the line of the header
 	 */
- private function parseHeaderLine(&$headerLine) {
+ protected function parseHeaderLine(&$headerLine) {
   $this -> mappings = array();
   $this -> separator = $this -> getSeparator();
   $legitimate_column_names = array_keys($this -> types);
@@ -301,12 +301,12 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Utility function to initialize the $log array
 	 */
- private function clearLog() {
+ protected function clearLog() {
   $this -> log = array();
   $this -> log["success"] = array();
   $this -> log["failure"] = array();
  }
- private function clear() {
+ protected function clear() {
   $this -> clearLog();
   $this -> mappings = array();
   $this -> empty_data = false;
@@ -315,7 +315,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Get existence exception and compare it against the "already exists" exception of for each different import type
 	 */
- private function isAlreadyExistsException($exception_code, $type) {
+ protected function isAlreadyExistsException($exception_code, $type) {
   switch ($type) {
    case "users":
     if ($exception_code == EfrontUserException::USER_EXISTS) { return true; }
@@ -325,7 +325,7 @@ class EfrontImportCsv extends EfrontImport
   }
   return false;
  }
- private function cleanUpEmptyValues(&$data) {
+ protected function cleanUpEmptyValues(&$data) {
   foreach ($data as $key => $info) {
    if ($info == "") {
     unset($data[$key]);
@@ -335,7 +335,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Update the data of an existing record
 	 */
- private function updateExistingData($line, $type, $data) {
+ protected function updateExistingData($line, $type, $data) {
   $this -> cleanUpEmptyValues(&$data);
   try {
    switch($type) {
@@ -360,7 +360,7 @@ class EfrontImportCsv extends EfrontImport
    $this -> log["failure"][] = _LINE . " $line: " . $e -> getMessage();
   }
  }
- private function importDataMultiple($type, $data) {
+ protected function importDataMultiple($type, $data) {
   try {
    switch($type) {
     case "users_to_groups":
@@ -620,7 +620,8 @@ class EfrontImportCsv extends EfrontImport
 	 * @param type: the data of this line, formatted to be put directly into the eFront db
 	 */
  //TODO: this should be moved to the EfrontImport base class - and be used by all - the $line should probably leave though
- private function importData($line, $type, $data) {
+ protected function importData($line, $type, $data) {
+//pr($line);exit;		
   try {
    switch($type) {
     case "users":
@@ -652,6 +653,11 @@ class EfrontImportCsv extends EfrontImport
         $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID'];
         $data['completed'] ? $data['completed'] = 1 : $data['completed'] = 0;
         EfrontCourse::persistCourseUsers($data, $where, $data['courses_ID'], $data['users_login']);
+        if ($data['active']) {
+         $course -> confirm($data['users_login']);
+        } else {
+         $course -> unconfirm($data['users_login']);
+        }
         $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
        }
       } else if ($courses_name != "") {
@@ -662,6 +668,11 @@ class EfrontImportCsv extends EfrontImport
        $this -> courseNamesToIds[$courses_name] = array($courses_ID);
        $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $courses_ID;
        EfrontCourse::persistCourseUsers($data, $where, $courses_ID, $data['users_login']);
+       if ($data['active']) {
+        $course -> confirm($data['users_login']);
+       } else {
+        $course -> unconfirm($data['users_login']);
+       }
        $this -> log["success"][] = _LINE . " $line: " . _NEWCOURSEASSIGNMENT . " " . $courses_name . " - " . $data['users_login'];
       } else {
        $this -> log["failure"][] = _LINE . " $line: " . _COULDNOTFINDCOURSE . " " . $courses_name;
@@ -699,7 +710,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Check whether the file contains the columns that are necessary for this import type
 	 */
- private function checkImportEssentialField($type) {
+ protected function checkImportEssentialField($type) {
   $mandatoryFields = EfrontImport::getMandatoryFields($type);
   $not_found = false;
   foreach ($mandatoryFields as $dbField => $columnName) {
@@ -718,7 +729,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Parse line data
 	 */
- private function parseDataLine($line) {
+ protected function parseDataLine($line) {
   $lineContents = $this -> explodeBySeparator($line);
   array_walk($lineContents, create_function('&$val', '$val = trim($val);'));
   $data = $this -> getEmptyData();
@@ -778,7 +789,7 @@ class EfrontImportCsv extends EfrontImport
  /*
 	 * Set the memory and time limits for an import according to the number of lines to be imported
 	 */
- private function setLimits($factor = false) {
+ protected function setLimits($factor = false) {
   if (!$factor) {
    $factor = $this->lines / 500;
   }
@@ -982,23 +993,23 @@ class EfrontExportCsv extends EfrontExport
  /*
 	 * The separator between the file's fields
 	 */
- private $separator = false;
+ protected $separator = false;
  /*
 	 * Array containing metadata about the exported data type (db attribute names, db tables, export-file accepted column names)
 	 */
- private $types = false;
+ protected $types = false;
  /*
 	 * Find the header line - the first non zero line of the csv that contains at least one of the export $type's column headers
 	 * @param: the line of the header
 	 */
- private function setHeaderLine($type) {
+ protected function setHeaderLine($type) {
   $this -> types = EfrontExport::getTypes($type);
   if ($type == "users") {
    unset($this -> types['password']);
   }
   $this -> lines[] = implode($this -> separator, array_keys($this -> types));
  }
- private function clear() {
+ protected function clear() {
   $this -> lines = array();
  }
  /*
@@ -1007,7 +1018,7 @@ class EfrontExportCsv extends EfrontExport
 	 * @param type: the export type
 	 * @param type: the data of this line, formatted to be put directly into the eFront db
 	 */
- private function exportData($data) {
+ protected function exportData($data) {
   $result = eF_getTableDataFlat("user_profile", "name", "active=1 AND type ='date'"); //Get admin-defined form fields for user registration
   $dateFields = array();
   if (!empty($result)) {
@@ -1026,7 +1037,7 @@ class EfrontExportCsv extends EfrontExport
  /*
 	 * Get data to be exported
 	 */
- private function getData($type) {
+ protected function getData($type) {
   switch($type) {
    case "users":
      return eF_getTableData($type, implode(",", $this -> types), "archive = 0");
@@ -1040,7 +1051,7 @@ class EfrontExportCsv extends EfrontExport
  /*
 	 * Write the exported file
 	 */
- private function writeFile($type) {
+ protected function writeFile($type) {
      if (!is_dir($GLOBALS['currentUser'] -> user['directory']."/temp")) {
          mkdir($GLOBALS['currentUser'] -> user['directory']."/temp", 0755);
      }

@@ -1143,8 +1143,12 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
          </tr>
    {foreach name = 'tests_list' key = "key" item = "test" from = $T_TESTS}
          <tr class = "{cycle name = "main_cycle" values="oddRowColor,evenRowColor"} defaultRowHeight">
+         {if $_change_}
              <td><a class = "editLink" href = "{$smarty.server.PHP_SELF}?ctg={$T_CTG}&edit_test={$test.id}">{$test.name|eF_truncate:40}</a></td>
-         {if !$T_SKILLGAP_TEST && $T_CTG != "feedback"}
+         {else}
+           <td>{$test.name|eF_truncate:40}</td>
+         {/if}
+   {if !$T_SKILLGAP_TEST && $T_CTG != "feedback"}
              <td>{$test.parent_unit}</td>
          {elseif $T_CTG != "feedback"}
              <td class = "centerAlign">{$test.options.general_threshold}%</td>
@@ -1368,7 +1372,9 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
        <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_solved_test={$item.id}&test_analysis=1&user={$item.users_LOGIN}">
                    <img src = "images/16x16/analysis.png" alt = "{$smarty.const._TESTANALYSIS}" title = "{$smarty.const._TESTANALYSIS}"/></a>
      {/if}
+     {if $_change_}
       <img class = "ajaxHandle" src="images/16x16/error_delete.png" alt="{$smarty.const._RESETTESTSTATUS}" title="{$smarty.const._RESETTESTSTATUS}" onclick = "ajaxRemoveSolvedTest(this, '{$item.users_LOGIN}', '{$item.id}','{$item.tests_ID}')"> </a>
+              {/if}
                </td>
      </tr>
   {foreachelse}

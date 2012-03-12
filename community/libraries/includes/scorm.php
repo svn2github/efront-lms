@@ -24,7 +24,13 @@ if ($_GET['scorm_review']) {
     }
     if (sizeof($scormContentIds)) {
         $result = eF_getTableData("scorm_data, content, users", "scorm_data.*, content.name as content_name, users.name, users.surname", "scorm_data.users_LOGIN != '' and scorm_data.content_ID IN (".implode(",", $scormContentIds).") and content_ID=content.id and users.login=scorm_data.users_LOGIN");
-        $scormData = $result;
+        $result2004 = array();
+
+
+
+
+
+        $scormData = array_merge($result, $result2004);
     } else {
         $scormData = array();
     }

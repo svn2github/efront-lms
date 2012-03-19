@@ -7,10 +7,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $loadScripts[] = 'includes/courses';
 
-if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] == 'hidden') {
+if ($GLOBALS['configuration']['disable_professor_courses']) {
  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
-} else if (isset($currentUser -> coreAccess['lessons']) && $currentUser -> coreAccess['lessons'] != 'change') {
- $_change_ = false;
 } else {
  $_change_ = true;
 }
@@ -72,11 +70,17 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
   $smarty -> assign('T_EDIT_COURSE', $editCourse);
 
   //Perform ajax operations
-  if ($_GET['ajax'] == 'lessonsTable') {
+  if ($_GET['ajax'] == 'skillsTable') {
+      $skills = $editCourse -> getSkills();
+   $dataSource = $skills;
+   $tableName = 'skillsTable';
+   include("sorted_table.php");
+  } else if ($_GET['ajax'] == 'lessonsTable') {
    $courseUsers = $editCourse -> countCourseUsers(array('archive' => false));
    $smarty -> assign("T_COURSE_HAS_USERS", $courseUsers['count']);
 
       $constraints = array('archive' => false) + createConstraintsFromSortedTable();
+      $constraints['condition']= 'l.creator_LOGIN="'.$_SESSION['s_login'].'"';
       $lessons = $editCourse -> getCourseLessonsIncludingUnassigned($constraints);
       $totalEntries = $editCourse -> countCourseLessonsIncludingUnassigned($constraints);
    $dataSource = EfrontLesson :: convertLessonObjectsToArrays($lessons);
@@ -267,6 +271,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
      //$redirect = basename($_SERVER['PHP_SELF']).'?ctg=courses&message='.urlencode(_COURSEUPDATED).'&message_type=success';
     } else {
      $editCourse = EfrontCourse :: createCourse($fields);
+     $editCourse->addUsers($_SESSION['s_login'], $_SESSION['s_type']);
      $message = _SUCCESFULLYCREATEDCOURSE;
      $redirect = basename($_SERVER['PHP_SELF'])."?ctg=courses&edit_course=".$editCourse -> course['id']."&tab=lessons&message=".urlencode(_SUCCESFULLYCREATEDCOURSE)."&message_type=success";
     }
@@ -338,6 +343,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $filesystem = new FileSystemTree($userTempDir, true);
    $file = $filesystem -> uploadFile('import_content', $userTempDir);
    $newCourse = EfrontCourse :: createCourse();
+   $newCourse->addUsers($_SESSION['s_login'], $_SESSION['s_type']);
    $exportedFile = $file;
    $newCourse -> import($exportedFile, false, true);
   }
@@ -362,6 +368,8 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
     $constraints = createConstraintsFromSortedTable() + array('archive' => false, 'instance' => $_GET['instancesTable_source']);
    }
    $constraints['required_fields'] = array('has_instances', 'location', 'num_students', 'num_lessons', 'num_skills');
+   $constraints['condition']= 'c.creator_LOGIN="'.$_SESSION['s_login'].'"';
+   //pr($constraints);
    $courses = EfrontCourse :: getAllCourses($constraints);
    $totalEntries = EfrontCourse :: countAllCourses($constraints);
    $dataSource = EfrontCourse :: convertCourseObjectsToArrays($courses);

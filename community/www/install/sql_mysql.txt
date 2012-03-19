@@ -192,6 +192,8 @@ CREATE TABLE content (
 -- instance_source: If set, this course is an instance, and the field points to the original course id
 -- supervisor_LOGIN: A user that is responsible for authorizing course assignements
 -- depends_on: A course that this course depends on, in order to be accessed.
+-- ceu: A simple integer representing Continuing Educational Units associated with this course
+-- creator_LOGIN: The creator of the course
 CREATE TABLE courses (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
@@ -217,6 +219,7 @@ CREATE TABLE courses (
   supervisor_LOGIN varchar(100) default NULL,
   depends_on mediumint(8) unsigned default '0',
   ceu int(10) unsigned default NULL,
+  creator_LOGIN varchar(100) default NULL,
 -- FOREIGN KEY (directions_ID) REFERENCES directions (id),
 -- FOREIGN KEY (languages_ID) REFERENCES languages (id),
   PRIMARY KEY (id),
@@ -599,6 +602,7 @@ CREATE TABLE languages (
 -- created: Lesson creation timestamp
 -- max_users: The maximum number of users a lesson is allowed to have
 -- archive: A timestamp indicating when this entity was archived. If 0, then the entity is not archived. Archived entities MUST have active = 0 also
+-- creator_LOGIN: The creator of the lesson
 CREATE TABLE lessons (
   id mediumint(8) unsigned NOT NULL auto_increment,
   name varchar(150) NOT NULL,
@@ -623,6 +627,7 @@ CREATE TABLE lessons (
   archive int(10) unsigned default 0,
   instance_source mediumint(8) unsigned default '0',
   originating_course mediumint(8) unsigned default '0',
+  creator_LOGIN varchar(100) default NULL,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 

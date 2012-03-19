@@ -465,6 +465,14 @@ try {
      $smarty -> assign("T_BASE_URL", $baseUrl);
      require_once "lesson_settings.php";
  }
+ elseif ($ctg == 'courses') {
+     /**This part is used to display the user's personal information*/
+     include "includes/professor_courses.php";
+ }
+ elseif ($ctg == 'professor_lessons') {
+     /**This part is used to display the user's personal information*/
+     include "includes/professor_lessons.php";
+ }
  /*
 
 	The personal page is used to display the professor's personal information

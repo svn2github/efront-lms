@@ -4175,4 +4175,5 @@ define("_ALLSUPERVISORS","Όλοι οι προιστάμενοι");
 define("_REVOKECERTIFICATEFOREXPIRED","Ακύρωση πιστοποιητικών που έχουν λήξει");
 define("_MODULEITSELF", "Αρθρώματα (καθεαυτά)");
 define("_MODULESPANEL", "Αρθρώματα (προσθήκη/αφαίρεση)");
+define("_PROFESSORSCANCREATECOURSES", "Οι καθηγητές μπορούν να φτιάχνουν μαθήματα");
 ?>

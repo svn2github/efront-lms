@@ -637,6 +637,47 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  </td></tr>
  {/capture}
 {/if}
+{if (isset($T_CTG) && $T_CTG == 'courses')}
+ {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href = '`$smarty.server.PHP_SELF`?ctg=courses'>`$smarty.const._COURSES`</a>"}
+ {if $smarty.get.edit_course}
+     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=courses&edit_course='|cat:$smarty.get.edit_course|cat:'">'|cat:$smarty.const._EDITCOURSE|cat:'&nbsp;<span class="innerTableName">&quot;'|cat:$T_COURSE_FORM.name.value|cat:'&quot;</span></a>'}
+ {elseif $smarty.get.add_course}
+     {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=courses&add_course=1">'|cat:$smarty.const._NEWCOURSE|cat:'</a>'}
+ {/if}
+ <tr><td class = "moduleCell">
+ {include file = "includes/professor_courses.tpl"}
+ </td></tr>
+{/if}
+{if (isset($T_CTG) && $T_CTG == 'professor_lessons')}
+    {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=professor_lessons">'|cat:$smarty.const._LESSONS|cat:'</a>'}
+    {if $smarty.get.edit_lesson}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=professor_lessons&edit_lesson='|cat:$smarty.get.edit_lesson|cat:'">'|cat:$smarty.const._EDITLESSON|cat:' <span class = "innerTableName">&quot;'|cat:$T_LESSON_FORM.name.value|cat:'&quot;</span></a>'}
+    {elseif $smarty.get.lesson_info}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=professor_lessons&lesson_info='|cat:$smarty.get.lesson_info|cat:'">'|cat:$smarty.const._INFORMATIONFORLESSON|cat:' &quot;'|cat:$T_CURRENT_LESSON->lesson.name|cat:'&quot;</a>'}
+  {if $smarty.get.edit_info}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=professor_lessons&lesson_info=`$smarty.get.lesson_info`&edit_info=1'>`$smarty.const._EDITLESSONINFORMATION`</a>"}
+  {/if}
+    {elseif $smarty.get.add_lesson}
+        {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=professor_lessons&add_lesson=1">'|cat:$smarty.const._NEWLESSON|cat:'</a>'}
+    {elseif $smarty.get.lesson_settings}
+            {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`'>`$smarty.const._OPTIONSFORLESSON` &quot;`$T_CURRENT_LESSON->lesson.name`&quot;</a>"}
+            {if isset($T_OP) && $T_OP == reset_lesson}
+                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=reset_lesson'>`$smarty.const._RESTARTLESSON`</a>"}
+            {elseif isset($T_OP) && $T_OP == import_lesson}
+                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=import_lesson'>`$smarty.const._IMPORTLESSON`</a>"}
+            {elseif isset($T_OP) && $T_OP == export_lesson}
+                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=export_lesson'>`$smarty.const._EXPORTLESSON`</a>"}
+            {elseif isset($T_OP) && $T_OP == lesson_users}
+                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=lesson_users'>`$smarty.const._LESSONUSERS`</a>"}
+            {elseif isset($T_OP) && $T_OP == lesson_layout}
+                {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=lesson_layout'>`$smarty.const._LAYOUT`</a>"}
+            {/if}
+    {/if}
+
+ <tr><td class = "moduleCell">
+ {include file = "includes/professor_lessons.tpl"}
+ </td></tr>
+{/if}
 {if $T_CTG == 'personal'}
 {*modulePersonal: Print the Personal page*}
  {capture name = "modulePersonal"}
@@ -833,6 +874,9 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {$smarty.capture.moduleTopics}
   {$smarty.capture.modulePoll}
   {$smarty.capture.moduleLandingPage}
+  {$smarty.capture.moduleCourses}
+  {$smarty.capture.moduleLessons}
+  {$smarty.capture.moduleNewLessonDirection}
  </table>
 {/capture}
 {capture name = "left_code"}

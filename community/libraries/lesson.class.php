@@ -681,6 +681,7 @@ class EfrontLesson
   $fields['created'] = time();
   $fields['id'] = self::computeNewLessonId();
   $fields = self::validateAndSanitizeLessonFields($fields);
+  isset($fields['creator_LOGIN']) OR $fields['creator_LOGIN'] = $_SESSION['s_login'];
   $lessonId = eF_insertTableData("lessons", $fields);
   $newLesson = new EfrontLesson($lessonId);
   EfrontSearch :: insertText($fields['name'], $lessonId, "lessons", "title");

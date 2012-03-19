@@ -69,6 +69,8 @@
 - Fixed cart contents not being retained when server time is unsynchronized with client time
 - Fixed drag and drop question results displaying out of order for wrong answers
 - Module installation fail now calls module's uninstall() method
+- Added CEUs in custom reports results
+- Added ability for professor to create courses/lessons
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

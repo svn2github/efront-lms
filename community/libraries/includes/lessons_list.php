@@ -132,6 +132,10 @@ try {
   if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
          $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
   }
+  if ($GLOBALS['configuration']['disable_professor_courses'] != 1) {
+   $myCoursesOptions[] = array('text' => _COURSES, 'image' => "32x32/courses.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses");
+   $myCoursesOptions[] = array('text' => _LESSONS, 'image' => "32x32/lessons.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=professor_lessons");
+  }
   foreach ($loadedModules as $module) {
    if ($linkInfo = $module->getToolsLinkInfo()) {
     $myCoursesOptions[] = array('text' => $linkInfo['title'], 'image' => eF_getRelativeModuleImagePath($linkInfo['image']), 'href' => $linkInfo['link']);

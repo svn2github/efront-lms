@@ -2939,6 +2939,7 @@ class EfrontCourse
  public static function createCourse($fields) {
   $fields['metadata'] = self::createCourseMetadata($fields);
   $fields = self::validateAndSanitizeCourseFields($fields);
+  isset($fields['creator_LOGIN']) OR $fields['creator_LOGIN'] = $_SESSION['s_login'];
   $newId = eF_insertTableData("courses", $fields);
   // Insert the corresponding lesson skill to the skill and lesson_offers_skill tables. Automatic skill generation only for the educational version
   EfrontSearch :: insertText($fields['name'], $newId, "courses", "title");

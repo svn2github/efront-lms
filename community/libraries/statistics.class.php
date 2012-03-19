@@ -2492,4 +2492,9 @@ class EfrontStats
   return $userQuestions;
  }
 
+
+ public static function createViews() {
+  try {
+  } catch (Exception $e) {}
+ }
 }

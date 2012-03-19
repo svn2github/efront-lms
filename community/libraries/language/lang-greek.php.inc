@@ -4173,4 +4173,6 @@ define("_BANUSERFAILEDLOGINSINFO","Ο χρήστης θα απενεργοποι
 define("_ALLOWUSERREDOTEST", "Επέτρεψε επανάληψη");
 define("_ALLSUPERVISORS","Όλοι οι προιστάμενοι");
 define("_REVOKECERTIFICATEFOREXPIRED","Ακύρωση πιστοποιητικών που έχουν λήξει");
+define("_MODULEITSELF", "Αρθρώματα (καθεαυτά)");
+define("_MODULESPANEL", "Αρθρώματα (προσθήκη/αφαίρεση)");
 ?>

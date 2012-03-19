@@ -66,6 +66,9 @@
 - Added option for professor to allow users to repeat test
 - Fixed users losing their ldap status when updating their profile
 - Updated user profile to include skill categories, along with skill names (Enterprise edition)
+- Fixed cart contents not being retained when server time is unsynchronized with client time
+- Fixed drag and drop question results displaying out of order for wrong answers
+- Module installation fail now calls module's uninstall() method
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

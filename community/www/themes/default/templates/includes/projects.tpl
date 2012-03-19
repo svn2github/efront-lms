@@ -102,6 +102,23 @@
        <td class = "elementCell">{$T_PROJECT_COMMENT_FORM.comments.html}</td></tr>
       <tr><td></td><td class = "submitCell">{$T_PROJECT_COMMENT_FORM.submit.html}</td></tr>
      </table>
+     <hr>
+     <table style = "width:100%" >
+      {foreach name = 'comments_list' key = 'index' item = 'entry' from = $T_COMMENTS}
+       {foreach name = 'commentlist' key = 'login' item = 'comment' from = $entry}
+        <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+       <td>
+        <div style = "float:right">
+        {if $login == $T_CURRENT_USER->user.login}
+         <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteComment(this, '{$index}', '{$login}')"/>
+        {/if}
+        </div>
+        {if !$login|@is_numeric} #filter:login-{$login}#:{/if} {$comment}
+      </td></tr>
+
+                      {/foreach}
+      {/foreach}
+      </table>
      {if $T_MESSAGE_TYPE == 'success'}
       <script>parent.location = parent.location;</script>
      {/if}
@@ -130,7 +147,7 @@
                                         <td>{if $user.upload_timestamp != 'empty'}#filter:timestamp_time-{$user.upload_timestamp}#{/if}</td> {*'empty' is set inside the php file, so that the sorting can be done correctly*}
                                     {if $_change_}
 
-          <td><span id = "comments_{$user.users_LOGIN}">{$user.comments|@strip_tags|eF_truncate:30}</span>&nbsp;<a href = "{$smarty.server.PHP_SELF}?ctg=projects&project_results={$smarty.get.project_results}&login={$user.users_LOGIN}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITCOMMENT}', 1)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a></td>
+          <td><span id = "comments_{$user.users_LOGIN}">{$user.comments|@strip_tags|eF_truncate:30}</span>&nbsp;<a href = "{$smarty.server.PHP_SELF}?ctg=projects&project_results={$smarty.get.project_results}&login={$user.users_LOGIN}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITCOMMENT}', 3)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a></td>
 
                                         <td><input type = "text" id = "grade_{$user.users_LOGIN}" value = "{$user.grade|formatScore}" size = "5" maxlength = "5" /></td>
                                         <td class = "centerAlign">
@@ -154,6 +171,37 @@
 
             {elseif $smarty.get.view_project}
                 {capture name = "t_view_project_code"}
+                 {if isset($smarty.get.add_comment)}
+
+      {$T_PROJECT_COMMENT_FORM.javascript}
+      <form {$T_PROJECT_COMMENT_FORM.attributes}>
+      {$T_PROJECT_COMMENT_FORM.hidden}
+      <table class = "formElements">
+       <tr><td class = "labelCell">{$smarty.const._COMMENT}:&nbsp;</td>
+        <td class = "elementCell">{$T_PROJECT_COMMENT_FORM.comments.html}</td></tr>
+       <tr><td></td><td class = "submitCell">{$T_PROJECT_COMMENT_FORM.submit.html}</td></tr>
+      </table>
+      <hr>
+      <table style = "width:100%" >
+       {foreach name = 'comments_list' key = 'index' item = 'entry' from = $T_PROJECT_USER_INFO.comments}
+        {foreach name = 'commentlist' key = 'login' item = 'comment' from = $entry}
+         <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
+        <td>
+         <div style = "float:right">
+         {if $login == $T_CURRENT_USER->user.login}
+          <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteComment(this, '{$index}', '{$login}')"/>
+         {/if}
+         </div>
+         {if !$login|@is_numeric} #filter:login-{$login}#:{/if} {$comment}
+       </td></tr>
+
+                       {/foreach}
+       {/foreach}
+       </table>
+      {if $T_MESSAGE_TYPE == 'success'}
+       <script>parent.location = parent.location;</script>
+      {/if}
+     {else}
                                 <table>
                                     <tr><td>{$smarty.const._TITLE}:</td>
                                         <td>&nbsp;{$T_CURRENT_PROJECT->project.title}</td></tr>
@@ -165,8 +213,7 @@
                                     <tr><td colspan = "2" style = "font-style:italic">{$T_CURRENT_PROJECT->project.data}</td></tr>
                                 </table><br/>
 
-
-                                <table class = "formElements">
+                                <table width = "100%" class = "formElements">
                         {if $T_PROJECT_FILE}
                                     <tr><td>{$smarty.const._YOUHAVEALREADYUPLOADEDAFILE}:&nbsp;<a target = "_blank" href="view_file.php?file={$T_PROJECT_FILE.id}&action=download">{$T_PROJECT_FILE.name}</a>
                             {if !$T_CURRENT_PROJECT->expired && $T_PROJECT_USER_INFO.grade == ''}
@@ -175,13 +222,35 @@
                             {/if}
                                     </td></tr>
                         {/if}
+
                         {if ($T_PROJECT_USER_INFO.grade != '')}
                                 <tr><td style = "color:red;">{$smarty.const._YOURPROJECTSCOREIS}:&nbsp;{$T_PROJECT_USER_INFO.grade|formatScore}</td></tr>
                             {if ($T_PROJECT_USER_INFO.comments)}
-                                <tr><td>{$smarty.const._PROFESSORCOMMENTS}: &nbsp;{$T_PROJECT_USER_INFO.comments}</td></tr>
+                             <tr><td><fieldset class = "fieldsetSeparator"><legend>{$smarty.const._COMMENTS}</legend></fieldset></td></tr>
+       {foreach name = 'comments_list' key = 'index' item = 'entry' from = $T_PROJECT_USER_INFO.comments}
+          {foreach name = 'commentlist' key = 'login' item = 'comment' from = $entry}
+           <tr width = "100%" class = "{cycle values = "oddRowColor, evenRowColor"}">
+          <td>
+
+
+           <div style = "float:right">
+           {if $login === $T_CURRENT_USER->user.login}
+            <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteComment(this, '{$index}', '{$login}')"/>
+           {/if}
+           </div>
+           {if !$login|@is_numeric} #filter:login-{$login}#:{/if} {$comment}
+
+         </td></tr>
+                         {/foreach}
+         {/foreach}
+
                             {/if}
+
                         {/if}
-                                </table>
+                         <tr><td>
+                         <a href = "{$smarty.server.PHP_SELF}?ctg=projects&view_project={$smarty.get.view_project}&add_comment=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOMMENT}', 3)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._REPLY}" alt = "{$smarty.const._REPLY}" />&nbsp;{$smarty.const._REPLY}</a>
+                          </td></tr>
+                        </table>
 
                         {if $T_PROJECT_USER_INFO.grade == '' && !$T_PROJECT_FILE}
                             {if !$T_CURRENT_PROJECT->expired}
@@ -205,7 +274,7 @@
                             {/if}
                         {/if}
 
-
+     {/if}
                 {/capture}
                 {eF_template_printBlock title="`$smarty.const._VIEWPROJECT`: `$T_CURRENT_PROJECT->project.title`" data=$smarty.capture.t_view_project_code image='32x32/projects.png'}
 

@@ -189,7 +189,7 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
     $user -> login($user -> user['password'], true);
     if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
     //check for valid lesson
-     setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 300);
+     setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 86400);
     }
     loginRedirect($user -> user['user_type']);
     exit;
@@ -719,7 +719,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
  $form -> addRule('email', _THEFIELD.' "'._EMAIL.'" '._ISMANDATORY, 'required');
  $form -> addRule('email', _INVALIDFIELDDATA, 'checkParameter', 'email');
  $form -> addElement('text', 'message_subject', _MESSAGESUBJECT, 'class = "inputText"');
- $form -> addRule('message_subject', _INVALIDFIELDDATA, 'checkParameter', 'text');
+ //$form -> addRule('message_subject', _INVALIDFIELDDATA, 'checkParameter', 'text');
  $form -> addElement('textarea', 'message_body', _TEXT, 'class = "inputText" id = "contact"');
  $form -> addElement('submit', 'submit_contact', _SUBMIT, 'class = "flatButton"');
  if ($form -> isSubmitted()) {

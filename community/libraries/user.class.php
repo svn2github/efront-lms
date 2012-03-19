@@ -1258,38 +1258,41 @@ abstract class EfrontUser
 	 * @access public
 	 */
  public function getModules() {
-  $modulesDB = eF_getTableData("modules","*","active = 1");
-  $modules = array();
-  isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_lesson_user_type'] ? $user_type = $_SESSION['s_lesson_user_type'] : $user_type = $this -> getType();
-  // Get all modules enabled for this user type
-  foreach ($modulesDB as $module) {
-   $folder = $module['position'];
-   $className = $module['className'];
-   // If a module is to be updated then its class should not be loaded now
-   if (!($this -> getType() == "administrator" && isset($_GET['ctg']) && $_GET['ctg'] == "control_panel" && isset($_GET['op']) && $_GET['op'] == "modules" && $_GET['upgrade'] == $className)) {
-    if(is_dir(G_MODULESPATH.$folder) && is_file(G_MODULESPATH.$folder."/".$className.".class.php")) {
-     require_once G_MODULESPATH.$folder."/".$className.".class.php";
-     if (class_exists($className)) {
-      $modules[$className] = new $className($user_type.".php?ctg=module&op=".$className, $folder);
-      // Got to check if this is a lesson module so as to change the moduleBasePath
-      if ($modules[$className] -> isLessonModule() && isset($GLOBALS['currentLesson'])) {
-       $modules[$className] -> moduleBaseUrl = $this -> getRole($GLOBALS['currentLesson']) .".php?ctg=module&op=".$className;
-      }
-      if (!in_array($user_type, $modules[$className] -> getPermittedRoles())) {
-       unset($modules[$className]);
+  if (!isset($this -> coreAccess['module_itself']) || $this -> coreAccess['module_itself'] != 'hidden') {
+   $modulesDB = eF_getTableData("modules","*","active = 1");
+   $modules = array();
+   isset($_SESSION['s_lesson_user_type']) && $_SESSION['s_lesson_user_type'] ? $user_type = $_SESSION['s_lesson_user_type'] : $user_type = $this -> getType();
+   // Get all modules enabled for this user type
+   foreach ($modulesDB as $module) {
+    $folder = $module['position'];
+    $className = $module['className'];
+    // If a module is to be updated then its class should not be loaded now
+    if (!($this -> getType() == "administrator" && isset($_GET['ctg']) && $_GET['ctg'] == "control_panel" && isset($_GET['op']) && $_GET['op'] == "modules" && $_GET['upgrade'] == $className)) {
+     if(is_dir(G_MODULESPATH.$folder) && is_file(G_MODULESPATH.$folder."/".$className.".class.php")) {
+      require_once G_MODULESPATH.$folder."/".$className.".class.php";
+      if (class_exists($className)) {
+       $modules[$className] = new $className($user_type.".php?ctg=module&op=".$className, $folder);
+       // Got to check if this is a lesson module so as to change the moduleBasePath
+       if ($modules[$className] -> isLessonModule() && isset($GLOBALS['currentLesson'])) {
+        $modules[$className] -> moduleBaseUrl = $this -> getRole($GLOBALS['currentLesson']) .".php?ctg=module&op=".$className;
+       }
+       if (!in_array($user_type, $modules[$className] -> getPermittedRoles())) {
+        unset($modules[$className]);
+       }
+      } else {
+       $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
+       $message_type = 'failure';
       }
      } else {
-      $message = '"'.$className .'" '. _MODULECLASSNOTEXISTSIN . ' ' .G_MODULESPATH.$folder.'/'.$className.'.class.php';
-      $message_type = 'failure';
+      eF_deleteTableData("modules","className = '".$className."'");
+      $message = _ERRORLOADINGMODULE . " " . $className . " " . _MODULEDELETED;
+      $message_type = "failure";
      }
-    } else {
-     eF_deleteTableData("modules","className = '".$className."'");
-     $message = _ERRORLOADINGMODULE . " " . $className . " " . _MODULEDELETED;
-     $message_type = "failure";
     }
    }
+   return $modules;
   }
-  return $modules;
+  return array();
  }
  /**
 	 * Get the login time for on e or all users in the specified time interval

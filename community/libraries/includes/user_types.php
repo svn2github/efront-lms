@@ -77,6 +77,7 @@ try {
                                       //"surveys"           => _SURVEYS,
                                       "control_panel" => _CONTROLPANEL,
                  "move_block" => _MOVEBLOCK,
+                  "module_itself" => _MODULEITSELF,
            "dashboard" => _DASHBOARD);
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $studentOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $studentOptions["surveys"] = _SURVEYS : null;
@@ -97,6 +98,7 @@ try {
                                       "control_panel" => _CONTROLPANEL,
            "dashboard" => _DASHBOARD,
                  "move_block" => _MOVEBLOCK,
+                  "module_itself" => _MODULEITSELF,
            "course_settings" => _COURSEOPTIONS);
 
 
@@ -117,7 +119,8 @@ try {
                                       "version_key" => _VERSIONKEY,
                                       "maintenance" => _MAINTENANCE,
                                       "backup" => _BACKUPRESTORE,
-                                      "modules" => _MODULES,
+                                      "modules" => _MODULESPANEL,
+                 "module_itself" => _MODULEITSELF,
                                       "statistics" => _STATISTICS,
                                       "archive" => _ARCHIVE,
                                       //"calendar"          => _CALENDAR,
@@ -160,8 +163,12 @@ try {
         //$form -> addRule('name', _INVALIDFIELDDATA, 'checkParameter', 'text');
         //$form -> addRule('name', _USERTYPE.' &quot;'.($form -> exportValue('name')).'&quot; '._ALREADYEXISTS, 'checkNotExist', 'user_type');
         $form -> addElement('select', 'basic_user_type', _BASICUSERTYPE, $basicTypes, 'id="basic_user_type" class = "inputSelect" onchange = "location = \'administrator.php?ctg=user_types&'.$postTarget.'&basic_type=\'+this.options[this.selectedIndex].value+\'&name=\'+document.getElementsByName(\'name\')[0].value"');
-        foreach ($options as $key => $value){
-            $form -> addElement("select", "core_access[$key]", $value, array('change' => _CHANGE, 'view' => _VIEW, 'hidden' => _HIDE));
+        foreach ($options as $key => $value) {
+         if ($key == 'module_itself') {
+          $form -> addElement("select", "core_access[$key]", $value, array('change' => _CHANGE, 'hidden' => _HIDE));
+         } else {
+             $form -> addElement("select", "core_access[$key]", $value, array('change' => _CHANGE, 'view' => _VIEW, 'hidden' => _HIDE));
+         }
         }
         $form -> setDefaults(array('basic_user_type' => $basicType, 'name' => $_GET['name']));
         if (isset($_GET['edit_user_type'])) {

@@ -4173,4 +4173,6 @@ define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous f
 define("_ALLOWUSERREDOTEST", "Have user repeat the test");
 define("_ALLSUPERVISORS","All supervisors");
 define("_REVOKECERTIFICATEFOREXPIRED","Revoke expired certificates");
+define("_MODULEITSELF", "Modules (individual)");
+define("_MODULESPANEL", "Modules (add/remove)");
 ?>

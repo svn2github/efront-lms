@@ -1,10 +1,18 @@
 function deleteProject(el, project) {
- parameters = {delete_project:project, method: 'get'};
- var url = 'professor.php?ctg=projects';
- ajaxRequest(el, url, parameters, onDeleteProject);
+	parameters = {delete_project:project, method: 'get'};
+	var url    = 'professor.php?ctg=projects';
+	ajaxRequest(el, url, parameters, onDeleteProject);	
 }
 function onDeleteProject(el, response) {
- new Effect.Fade(el.up().up());
+	new Effect.Fade(el.up().up());
+}
+function deleteComment(el, index, login) {
+	parameters = {'delete':index, 'sender':login, method: 'get'};
+	var url    = location.toString();
+	ajaxRequest(el, url, parameters, onDeleteComment);	
+}
+function onDeleteComment(el, response) {
+	new Effect.Fade(el.up().up());
 }
 
 function ajaxPost(id, el, table_id) {
@@ -12,16 +20,16 @@ function ajaxPost(id, el, table_id) {
     if (table_id == 'usersTable') {
         usersAjaxPost(id, el, table_id);
     } else if (table_id == 'resultsTable') {
-     resultsAjaxPost(1, id, el, table_id);
-    }
+    	resultsAjaxPost(1, id, el, table_id);
+    } 
 }
 
 function usersAjaxPost(login, el, table_id) {
     Element.extend(el);
     var baseUrl = 'professor.php?ctg=projects&edit_project='+editProject+'&postAjaxRequest=1';
     if (login) {
-        var checked = $('checked_'+login).checked;
-        var url = baseUrl + '&login='+login;
+        var checked  = $('checked_'+login).checked;
+        var url      = baseUrl + '&login='+login;
     } else if (table_id && table_id == 'usersTable') {
         el.checked ? url = baseUrl + '&addAll=1' : url = baseUrl + '&removeAll=1';
         if ($(table_id+'_currentFilter')) {
@@ -29,37 +37,37 @@ function usersAjaxPost(login, el, table_id) {
         }
     }
 
- parameters = {method: 'get'};
- ajaxRequest(el, url, parameters);
+	parameters = {method: 'get'};
+	ajaxRequest(el, url, parameters);	
 
-}
+}    
 
 function resultsAjaxPost(login, el, table_id) {
-
-    var baseUrl = 'professor.php?ctg=projects&project_results='+editProject+'&postAjaxRequest=1';
+	
+    var baseUrl =  'professor.php?ctg=projects&project_results='+editProject+'&postAjaxRequest=1';
     //var comments = $('comments_'+login).value;
-    var grade = $('grade_'+login).value;
+    var grade    = $('grade_'+login).value;
    // var url      = baseUrl + '&login='+login+'&grade='+grade+'&comments='+comments;
- var url = baseUrl + '&login='+login+'&grade='+grade;
+	var url      = baseUrl + '&login='+login+'&grade='+grade;
 
- parameters = {method: 'get'};
- ajaxRequest(el, url, parameters);
+	parameters = {method: 'get'};
+	ajaxRequest(el, url, parameters);	
 
 }
-
+    
 function resetUser(login, el) {
- url = location.toString();
- parameters = {reset_user:login, postAjaxRequest: 1, method: 'get'};
- ajaxRequest(el, url, parameters, onResetUser);
+	url = location.toString();
+	parameters = {reset_user:login, postAjaxRequest: 1, method: 'get'};
+	ajaxRequest(el, url, parameters, onResetUser);	
 }
 
 function onResetUser() {
- tables = sortedTables.size();
- for (var i = 0; i < tables; i++) {
-  if (sortedTables[i].id.match('resultsTable') && ajaxUrl[i]) {
-   eF_js_rebuildTable(i, 0, 'null', 'desc');
-  }
- }
+	tables = sortedTables.size();
+	for (var i = 0; i < tables; i++) {
+		if (sortedTables[i].id.match('resultsTable') && ajaxUrl[i]) {
+			eF_js_rebuildTable(i, 0, 'null', 'desc');
+		}
+	}
 }
 
 
@@ -77,3 +85,4 @@ function insertatcursor(myField, myValue) {
             myField.value += myValue;
         }
     }
+

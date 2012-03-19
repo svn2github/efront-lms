@@ -132,26 +132,27 @@ try {
 
              if (!isset($_GET['upgrade'])) {
               // Install module database
-              if ($module -> onInstall()) {
-               if (eF_insertTableData("modules", $fields)) {
+              try {
+               if ($module -> onInstall()) {
+                eF_insertTableData("modules", $fields);
                 $message = _MODULESUCCESFULLYINSTALLED;
                 $message_type = 'success';
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=modules&message=".urlencode($message)."&message_type=".$message_type."&refresh_side=1");
                } else {
-                $module -> onUninstall();
-                $message = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
+                $message = _MODULEDBERRORONINSTALL;
                 $message_type = 'failure';
 
                 $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
                 $dir -> delete();
                 //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
                }
-              } else {
-               $message = _MODULEDBERRORONINSTALL;
+              } catch (Exception $e) {
+               $module -> onUninstall();
+               $message = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
                $message_type = 'failure';
 
-               $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-               $dir -> delete();
+               //$dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+               //$dir -> delete();
                //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
               }
              } else {
@@ -358,29 +359,30 @@ if ($upload_form -> isSubmitted() && $upload_form -> validate()) {
 
 
                                 if (!isset($_GET['upgrade'])) {
-                                    // Install module database
-                                    if ($module -> onInstall()) {
-                                        if (eF_insertTableData("modules", $fields)) {
-                                            $message = _MODULESUCCESFULLYINSTALLED;
-                                            $message_type = 'success';
-                                            eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=modules&message=".urlencode($message)."&message_type=".$message_type."&refresh_side=1");
-                                        } else {
-                                            $module -> onUninstall();
-                                            $message = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
-                                            $message_type = 'failure';
+                                 // Install module database
+                                 try {
+                                  if ($module -> onInstall()) {
+                                   eF_insertTableData("modules", $fields);
+                                   $message = _MODULESUCCESFULLYINSTALLED;
+                                   $message_type = 'success';
+                                   eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=modules&message=".urlencode($message)."&message_type=".$message_type."&refresh_side=1");
+                                  } else {
+                                   $message = _MODULEDBERRORONINSTALL;
+                                   $message_type = 'failure';
 
-                                $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-           $dir -> delete();
-                                            //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
-                                        }
-                                    } else {
-                                        $message = _MODULEDBERRORONINSTALL;
-                                        $message_type = 'failure';
+                                   $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+                                   $dir -> delete();
+                                   //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
+                                  }
+                                 } catch (Exception $e) {
+                                  $module -> onUninstall();
+                                  $message = _PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS;
+                                  $message_type = 'failure';
 
-                               $dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
-          $dir -> delete();
-                                        //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
-                                    }
+                                  //$dir = new EfrontDirectory(G_MODULESPATH.$module_folder.'/');
+                                  //$dir -> delete();
+                                  //eF_deleteFolder(G_MODULESPATH.$module_folder.'/');
+                                 }
                                 } else {
 
                                     // If the module is to be installed to a different than the existing folder that

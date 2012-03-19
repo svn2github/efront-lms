@@ -282,26 +282,52 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         $message_type = 'failure';
     }
 } else if (isset($_GET['project_results']) && in_array($_GET['project_results'], array_keys($projects)) && $_professor_ && eF_checkParameter($_GET['project_results'], 'id')) {
-    $currentProject = $projects[$_GET['project_results']];
+
+ $currentProject = $projects[$_GET['project_results']];
     $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
- if (isset($_GET['login'])) {
+ if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
   $load_editor = true;
   $users = $currentProject -> getUsers();
 
   $form = new HTML_QuickForm("comment_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&login=".$_GET['login'], "", null, true);
   $form -> addElement('textarea', 'comments', _COMMENT, 'class = "simpleEditor inputTextarea"');
   $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
-  $form -> setDefaults(array('comments' => $users[$_GET['login']]['comments']));
+  //$form -> setDefaults(array('comments'    => $users[$_GET['login']]['comments']));
+  $comments =array();
+  if ($users[$_GET['login']]['comments'] != '') {
+   $comments = unserialize($users[$_GET['login']]['comments']);
+   if ($comments === false) {
+    $comments[0][$_SESSION['s_login']] = $users[$_GET['login']]['comments']; //assign the existing comment to current user
+   }
+  }
+     if (isset($_GET['delete']) && is_numeric($_GET['delete']) && isset($_GET['sender']) && eF_checkParameter($_GET['sender'], 'login')) {
+      $comment = $comments[$_GET['delete']];
+         $keys = array_keys($comment);
+         $login = $keys[0];
+         if($login == $_GET['sender']) {
+          unset($comments[$_GET['delete']]);
+          $comments_se = serialize($comments);
+    $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
+         }
+         exit;
+        }
+
+
+  //$smarty -> assign('T_COMMENTS', array_reverse($comments, true));
+  $smarty -> assign('T_COMMENTS', $comments);
+
   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
    $values = $form -> exportValues();
-
-   $result = eF_updateTableData("users_to_projects",array('comments' => $values['comments']), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
+   $comments[][$_SESSION['s_login']] = $values['comments'];
+   $comments_se = serialize($comments);
+   $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
    if ($result) {
     //eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESFULLY)."&message_type=success");
     $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
              $message_type = 'success';
    }
   }
+
   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
   $form -> accept($renderer);
   $smarty -> assign('T_PROJECT_COMMENT_FORM', $renderer -> toArray());
@@ -323,6 +349,14 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
                     $users[$key]['upload_timestamp'] = '';
                 }
             }
+         if ($users[$key]['comments'] != '') {
+    $comments = unserialize($users[$key]['comments']);
+    if ($comments !== false) {
+     $login = array_keys($comments[max(array_keys($comments))]);
+     $users[$key]['comments'] = $comments[max(array_keys($comments))][$login[0]];
+    }
+   }
+
         }
 
         isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
@@ -370,91 +404,140 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         $projectUser = $projectUser[$currentUser -> user['login']];
         $currentProject -> project['deadline'] < time() ? $currentProject -> expired = true : $currentProject -> expired = false;
 
+     if ($projectUser['comments'] != '') {
+   $comments = unserialize($projectUser['comments']);
+   if ($comments !== false) {
+    $projectUser['comments'] = $comments;
+   } else {
+    $projectUser['comments'][0] = $projectUser['comments'];
+   }
+  }
+        if (isset($_GET['delete']) && is_numeric($_GET['delete']) && isset($_GET['sender']) && eF_checkParameter($_GET['sender'], 'login')) {
+         $comment = $projectUser['comments'][$_GET['delete']];
+         $keys = array_keys($comment);
+         $login = $keys[0];
+         if($login == $_GET['sender']) {
+          unset($projectUser['comments'][$_GET['delete']]);
+          $comments_se = serialize($projectUser['comments']);
+    $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['view_project']." and users_LOGIN='".$_GET['sender']."'");
+
+         }
+         exit;
+        }
+
         if ($configuration['math_content'] && $configuration['math_images']) {
             $loadScripts[] = 'ASCIIMath2Tex';
         } elseif ($configuration['math_content']) {
             $loadScripts[] = 'ASCIIMathML';
         }
+     if ($_GET['add_comment'] == 1) {
+   $load_editor = true;
+   $form = new HTML_QuickForm("comment_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=projects&view_project=".$_GET['view_project']."&add_comment=1", "", null, true);
+   $form -> addElement('textarea', 'comments', _COMMENT, 'class = "simpleEditor inputTextarea"');
+   $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
+   //$form -> setDefaults(array('comments'    => $users[$_GET['login']]['comments']));
 
-        if ($projectUser['filename']) {
-            try {
-                $projectFile = new EfrontFile($projectUser['filename']);
-                $smarty -> assign("T_PROJECT_FILE", $projectFile);
-                if (isset($_GET['delete_file']) && !$currentProject -> expired) {
-                    $projectFile -> delete();
-                    eF_updateTableData("users_to_projects", array('filename' => '', 'upload_timestamp' => ''), "users_LOGIN='".$currentUser -> user['login']."' AND projects_ID=".$_GET['view_project']);
-                    eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=projects&view_project=".$_GET['view_project']."&message=".urlencode(_FILEDELETEDSUCCESSFULLY)."&message_type=success");
-                }
-            } catch (EfrontFileException $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                $message_type = 'failure';
-            }
-        }
+   if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
+    $values = $form -> exportValues();
+    $comments[][$_SESSION['s_login']] = $values['comments'];
+    $comments_se = serialize($comments);
+    $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['view_project']." and users_LOGIN='".$_SESSION['s_login']."'");
+    if ($result) {
+     //eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESFULLY)."&message_type=success");
+     $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+              $message_type = 'success';
+    }
+   }
 
-        $form = new HTML_QuickForm("upload_project_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=projects&view_project='.$_GET['view_project'], "", null, true);
-        if (!$projectFile) {
-            $file = $form -> addElement('file', 'filename', _FILE);
-
-            $maxFileSize = FileSystemTree :: getUploadMaxSize();
-            $form -> addRule('filename', _THEFIELD.' "'._FILE.'" '._ISMANDATORY, 'required', null, 'client');
-            $form -> setMaxFileSize($maxFileSize * 1024);
-            $form -> addElement('submit', 'submit_upload_project', _SENDPROJECT, 'class = "flatButton"');
-        }
-
-        $smarty -> assign("T_MAX_FILE_SIZE", $maxFileSize);
-        if ($form -> isSubmitted() && $form -> validate() && !$currentProject -> expired) {
-            try {
-
-                $projectDirectory = G_UPLOADPATH.$currentUser -> user['login'].'/projects';
-                if (!is_dir($projectDirectory)) {
-                    EfrontDirectory :: createDirectory($projectDirectory);
-                }
-                $projectDirectory = G_UPLOADPATH.$currentUser -> user['login'].'/projects/'.$currentProject -> project['id'];
-                if (!is_dir($projectDirectory)) {
-                    EfrontDirectory :: createDirectory($projectDirectory);
-                }
-                $filesystem = new FileSystemTree($projectDirectory);
-                $uploadedFile = $filesystem -> uploadFile('filename', $projectDirectory);
-                //$uploadedFile -> rename($uploadedFile['directory'].'/project_'.$currentProject -> project['id'].'.'.$uploadedFile['extension']);
-                $fields_update = array("filename" => $uploadedFile['id'],
-                                           "upload_timestamp" => time());
-                eF_updateTableData("users_to_projects", $fields_update, "users_LOGIN='".$currentUser -> user['login']."' AND projects_ID=".$_GET['view_project']);
+   $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+   $form -> accept($renderer);
+   //$projectUser['comments'] = array_reverse($projectUser['comments'], true);			
+   $smarty -> assign("T_PROJECT_USER_INFO", $projectUser);
+   $smarty -> assign('T_PROJECT_COMMENT_FORM', $renderer -> toArray());
+   //pr($users);
+  } else {
+         if ($projectUser['filename']) {
+             try {
+                 $projectFile = new EfrontFile($projectUser['filename']);
+                 $smarty -> assign("T_PROJECT_FILE", $projectFile);
+                 if (isset($_GET['delete_file']) && !$currentProject -> expired) {
+                     $projectFile -> delete();
+                     eF_updateTableData("users_to_projects", array('filename' => '', 'upload_timestamp' => ''), "users_LOGIN='".$currentUser -> user['login']."' AND projects_ID=".$_GET['view_project']);
+                     eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=projects&view_project=".$_GET['view_project']."&message=".urlencode(_FILEDELETEDSUCCESSFULLY)."&message_type=success");
+                 }
+             } catch (EfrontFileException $e) {
+                 $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+                 $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                 $message_type = 'failure';
+             }
+         }
 
 
-                EfrontEvent::triggerEvent(array("type" => EfrontEvent::PROJECT_SUBMISSION,
-                   "users_LOGIN" => $currentUser -> user['login'],
-                   "lessons_ID" => $currentLesson -> lesson['id'],
-                   "lessons_name" => $currentLesson -> lesson['name'],
-                   "entity_ID" => $currentProject -> project['id'],
-                   "entity_name" => $currentProject -> project['title']));
+         $form = new HTML_QuickForm("upload_project_form", "post", basename($_SERVER['PHP_SELF']).'?ctg=projects&view_project='.$_GET['view_project'], "", null, true);
+         if (!$projectFile) {
+             $file = $form -> addElement('file', 'filename', _FILE);
 
-                eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=projects&view_project=".$_GET['view_project']."&message=".urlencode(_FILEUPLOADED)."&message_type=success");
-            } catch (EfrontFileException $e) {
-                $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
-                $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
-                $message_type = 'failure';
-            }
-        } elseif ($currentProject -> expired) {
-            $message = _PROJECTEXPIRED;
-            $message_type = 'failure';
-        }
+             $maxFileSize = FileSystemTree :: getUploadMaxSize();
+             $form -> addRule('filename', _THEFIELD.' "'._FILE.'" '._ISMANDATORY, 'required', null, 'client');
+             $form -> setMaxFileSize($maxFileSize * 1024);
+             $form -> addElement('submit', 'submit_upload_project', _SENDPROJECT, 'class = "flatButton"');
+         }
 
-        $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+         $smarty -> assign("T_MAX_FILE_SIZE", $maxFileSize);
+         if ($form -> isSubmitted() && $form -> validate() && !$currentProject -> expired) {
+             try {
 
-        $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
-        $form -> setRequiredNote(_REQUIREDNOTE);
-        $form -> accept($renderer);
+                 $projectDirectory = G_UPLOADPATH.$currentUser -> user['login'].'/projects';
+                 if (!is_dir($projectDirectory)) {
+                     EfrontDirectory :: createDirectory($projectDirectory);
+                 }
+                 $projectDirectory = G_UPLOADPATH.$currentUser -> user['login'].'/projects/'.$currentProject -> project['id'];
+                 if (!is_dir($projectDirectory)) {
+                     EfrontDirectory :: createDirectory($projectDirectory);
+                 }
+                 $filesystem = new FileSystemTree($projectDirectory);
+                 $uploadedFile = $filesystem -> uploadFile('filename', $projectDirectory);
+                 //$uploadedFile -> rename($uploadedFile['directory'].'/project_'.$currentProject -> project['id'].'.'.$uploadedFile['extension']);
+                 $fields_update = array("filename" => $uploadedFile['id'],
+                                            "upload_timestamp" => time());
+                 eF_updateTableData("users_to_projects", $fields_update, "users_LOGIN='".$currentUser -> user['login']."' AND projects_ID=".$_GET['view_project']);
 
-        $smarty -> assign('T_UPLOAD_PROJECT_FORM', $renderer -> toArray());
-        $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
-        $smarty -> assign("T_PROJECT_USER_INFO", $projectUser);
 
+                 EfrontEvent::triggerEvent(array("type" => EfrontEvent::PROJECT_SUBMISSION,
+                    "users_LOGIN" => $currentUser -> user['login'],
+                    "lessons_ID" => $currentLesson -> lesson['id'],
+                    "lessons_name" => $currentLesson -> lesson['name'],
+                    "entity_ID" => $currentProject -> project['id'],
+                    "entity_name" => $currentProject -> project['title']));
+
+                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=projects&view_project=".$_GET['view_project']."&message=".urlencode(_FILEUPLOADED)."&message_type=success");
+             } catch (EfrontFileException $e) {
+                 $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+                 $message = _SOMEPROBLEMOCCURED.': '.$e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+                 $message_type = 'failure';
+             }
+         } elseif ($currentProject -> expired) {
+             $message = _PROJECTEXPIRED;
+             $message_type = 'failure';
+         }
+
+         $renderer = new HTML_QuickForm_Renderer_ArraySmarty($smarty);
+
+         $form -> setJsWarnings(_BEFOREJAVASCRIPTERROR, _AFTERJAVASCRIPTERROR);
+         $form -> setRequiredNote(_REQUIREDNOTE);
+         $form -> accept($renderer);
+
+         $smarty -> assign('T_UPLOAD_PROJECT_FORM', $renderer -> toArray());
+         $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
+   //$projectUser['comments'] = array_reverse($projectUser['comments'], true);		        
+         $smarty -> assign("T_PROJECT_USER_INFO", $projectUser);
+  }
     } catch (Exception $e) {
         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
         $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
         $message_type = 'failure';
     }
+
 } else {
     $currentProjects = array();
     $passedProjects = array();

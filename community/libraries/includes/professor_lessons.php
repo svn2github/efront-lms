@@ -8,7 +8,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $loadScripts[] = 'scriptaculous/controls';
 $loadScripts[] = 'includes/lessons';
 
-if ($GLOBALS['configuration']['disable_professor_courses']) {
+if ($GLOBALS['configuration']['disable_professor_courses'] || $_SESSION['s_type'] != 'professor') {
  eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 }
 
@@ -19,6 +19,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['delete_lesson']);
+  if ($lesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $lesson -> delete();
  } catch (Exception $e) {
   $message = _SOMEPROBLEMEMERGED.': '.$e -> getMessage().' ('.$e -> getCode().')';
@@ -32,6 +35,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
   $lesson = new EfrontLesson($_GET['archive_lesson']);
+  if ($lesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $lesson -> archive();
  } catch (Exception $e) {
   header("HTTP/1.0 500 ");
@@ -45,6 +51,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['deactivate_lesson']);
+  if ($lesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $lesson -> deactivate();
   echo "0";
  } catch (Exception $e) {
@@ -60,6 +69,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['activate_lesson']);
+  if ($lesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $lesson -> activate();
   echo "1";
  } catch (Exception $e) {
@@ -75,6 +87,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['unset_course_only']);
+  if ($lesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $lessonCourses = $lesson -> getCourses();
   if (!empty($lessonCourses)) {
    throw new Exception (_THISLESSONISPARTOFCOURSESANDCANNOTCHANGEMODE);
@@ -99,6 +114,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  }
  try {
   $lesson = new EfrontLesson($_GET['set_course_only']);
+  if ($lesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $lessonUsers = $lesson -> getUsers();
   if (!empty($lessonUsers)) {
    throw new Exception (_THISLESSONHASUSERSENROLLEDPLEASEREMOVEBEFORESWITCHINGMODE);
@@ -185,6 +203,9 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
  $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
  if (isset($_GET['edit_lesson'])) { //If we are editing a lesson, we set the default form values to the ones stored in the database
   $editLesson = new EfrontLesson($_GET['edit_lesson']);
+  if ($editLesson->lesson['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $form -> setDefaults(array('name' => $editLesson -> lesson['name'],
                                    'active' => $editLesson -> lesson['active'],
            'show_catalog' => $editLesson -> lesson['show_catalog'],

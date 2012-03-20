@@ -7,7 +7,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $loadScripts[] = 'includes/courses';
 
-if ($GLOBALS['configuration']['disable_professor_courses']) {
+if ($GLOBALS['configuration']['disable_professor_courses'] || $_SESSION['s_type'] != 'professor') {
  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 } else {
  $_change_ = true;
@@ -20,6 +20,9 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
   $course = new EfrontCourse($_GET['delete_course']);
+  if ($course->course['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $course -> delete();
  } catch (Exception $e) {
      handleAjaxExceptions($e);
@@ -31,6 +34,9 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
   $course = new Efrontcourse($_GET['archive_course']);
+  if ($course->course['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $course -> archive();
  } catch (Exception $e) {
      handleAjaxExceptions($e);
@@ -42,6 +48,9 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
   $course = new EfrontCourse($_GET['deactivate_course']);
+  if ($course->course['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $course -> course['active'] = 0;
   $course -> persist();
   echo "0";
@@ -55,6 +64,9 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
    throw new Exception(_UNAUTHORIZEDACCESS);
   }
   $course = new EfrontCourse($_GET['activate_course']);
+  if ($course->course['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $course -> course['active'] = 1;
   $course -> persist();
   echo "1";
@@ -67,6 +79,9 @@ if (isset($_GET['delete_course']) && eF_checkParameter($_GET['delete_course'], '
 else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  try {
   $editCourse = new EfrontCourse($_GET['edit_course']);
+  if ($editCourse->course['creator_LOGIN'] != $_SESSION['s_login']) {
+   throw new Exception(_UNAUTHORIZEDACCESS);
+  }
   $smarty -> assign('T_EDIT_COURSE', $editCourse);
 
   //Perform ajax operations

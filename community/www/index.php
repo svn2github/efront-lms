@@ -202,6 +202,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
   $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']);
   $currentUser -> logout(session_id());
  }
+ eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=login&message=".urlencode(_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN));
 }
 if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password']) && eF_checkParameter($_COOKIE['cookie_login'], 'login')) {
  try {

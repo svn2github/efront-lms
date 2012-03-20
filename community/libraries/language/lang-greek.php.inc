@@ -4176,4 +4176,5 @@ define("_REVOKECERTIFICATEFOREXPIRED","Ακύρωση πιστοποιητικώ
 define("_MODULEITSELF", "Αρθρώματα (καθεαυτά)");
 define("_MODULESPANEL", "Αρθρώματα (προσθήκη/αφαίρεση)");
 define("_PROFESSORSCANCREATECOURSES", "Οι καθηγητές μπορούν να φτιάχνουν μαθήματα");
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Η σύνδεσή σας έχει λήξει. Παρακαλώ μπείτε ξανά στο σύστημα");
 ?>

@@ -54,7 +54,7 @@ class module_quick_mails extends EfrontModule {
      }
      break;
     case "admin":
-     $result = eF_getTableData("users", "*", "user_type='administrator' and user_types_ID=0"); //not
+     $result = eF_getTableData("users", "*", "user_type='administrator' and user_types_ID=0 and archive = 0"); //not
      foreach($result as $value){
       $mail_recipients[] = $value['login'];
      }

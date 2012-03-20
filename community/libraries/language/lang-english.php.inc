@@ -4176,4 +4176,5 @@ define("_REVOKECERTIFICATEFOREXPIRED","Revoke expired certificates");
 define("_MODULEITSELF", "Modules (individual)");
 define("_MODULESPANEL", "Modules (add/remove)");
 define("_PROFESSORSCANCREATECOURSES", "Professors can create courses");
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Your session has expired, please sign in again");
 ?>

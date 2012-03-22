@@ -184,6 +184,7 @@ class EfrontLesson
  //'complete_next_lesson'=> 0,
           'default_positions' => '',
        'feedback' => 1,
+       'smart_content' => 1,
        'timers' => 0);
  /**
 

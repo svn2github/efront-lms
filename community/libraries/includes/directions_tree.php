@@ -6,7 +6,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 try {
 
-    if (!isset($lessons) || !$lessons) {
+    if (!isset($lessons) || (!$lessons && !is_array($lessons))) {
      $lessons = EfrontLesson :: getLessons(true);
      foreach ($lessons as $key => $lesson) {
       if ($lesson -> lesson['archive'] || !$lesson -> lesson['active']) {
@@ -14,7 +14,7 @@ try {
       }
      }
     }
-    if (!isset($courses) || !$courses) {
+    if (!isset($courses) || (!$courses && !is_array($courses))) {
      //$courses = EfrontCourse :: getCourses(true);
      $constraints = array('active' => true, 'archive' => false, 'instance' => false, 'sort' => 'name');
      $constraints['required_fields'] = array('has_instances');

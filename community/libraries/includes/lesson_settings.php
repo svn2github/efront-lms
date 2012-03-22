@@ -336,6 +336,7 @@ if ($_GET['op'] == 'reset_lesson') {
 
     $lessonSettings['scorm'] = array('text' => _SCORM, 'image' => "32x32/scorm.png", 'onClick' => 'activate(this, \'scorm\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['scorm']) && $currentLesson -> options['scorm'] ? null : 'inactiveImage');
  $lessonSettings['ims'] = array('text' => _IMS, 'image' => "32x32/autocomplete.png", 'onClick' => 'activate(this, \'ims\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['ims']) && $currentLesson -> options['ims'] ? null : 'inactiveImage');
+    $lessonSettings['smart_content'] = array('text' => _SMARTCONTENT, 'image' => "32x32/import.png", 'onClick' => 'activate(this, \'smart_content\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => !isset($currentLesson -> options['smart_content']) || $currentLesson -> options['smart_content'] ? null : 'inactiveImage');
 
     if (sizeof(eF_getTableData("files", "id", "shared=".$currentLesson -> lesson['id'])) > 0) {
         $lessonSettings['digital_library'] = array('text' => _SHAREDFILES, 'image' => "32x32/file_explorer.png", 'onClick' => 'activate(this, \'digital_library\')', 'title' => _CLICKTOTOGGLE, 'group' => 2, 'class' => isset($currentLesson -> options['digital_library']) && $currentLesson -> options['digital_library'] ? null : 'inactiveImage');
@@ -364,7 +365,7 @@ if ($_GET['op'] == 'reset_lesson') {
     $lessonSettings['show_student_cpanel'] = array('text' => _STUDENTCPANEL, 'image' => "32x32/options.png", 'onClick' => 'activate(this, \'show_student_cpanel\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => isset($currentLesson -> options['show_student_cpanel']) && $currentLesson -> options['show_student_cpanel'] ? null : 'inactiveImage');
     $lessonSettings['show_dashboard'] = array('text' => _DASHBOARD, 'image' => "32x32/generic.png", 'onClick' => 'activate(this, \'show_dashboard\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => !isset($currentLesson -> options['show_dashboard']) || $currentLesson -> options['show_dashboard'] ? null : 'inactiveImage');
 
- if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
+    if ($GLOBALS['currentTheme'] -> options['sidebar_interface'] == 1 || $GLOBALS['currentTheme'] -> options['sidebar_interface'] == 2) {
   $lessonSettings['show_horizontal_bar'] = array('text' => _SHOWHORIZONTALBAR, 'image' => "32x32/generic.png", 'onClick' => 'activate(this, \'show_horizontal_bar\')', 'title' => _CLICKTOTOGGLE, 'group' => 1, 'class' => !isset($currentLesson -> options['show_horizontal_bar']) || $currentLesson -> options['show_horizontal_bar'] ? null : 'inactiveImage');
  }
 

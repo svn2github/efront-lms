@@ -54,11 +54,6 @@ if (is_dir("install") && isset($_GET['delete_install'])) {
   echo "The installation directory could not be deleted. Please delete it manually or your system security is at risk.";
  }
 }
-
-//			$loadScripts[] = 'index';
-//$smarty -> caching 	      = $GLOBALS['configuration']['smarty_cache'];
-//$smarty -> cache_lifetime = $GLOBALS['configuration']['smarty_cache_timeout'];
-//$cacheId = md5(serialize($_GET));
 if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['smarty_caching']) {
  //Get available languages
  $languages = array();
@@ -75,13 +70,19 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
     }
     if (isset($_GET['logout']) && !isset($_POST['submit_login'])) { //If user wants to log out
         if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
-            try {
-                $user = EfrontUserFactory :: factory($_SESSION['s_login']);
+         try {
+                if ($_SESSION['s_current_branch']) {
+                 $branch = new EfrontBranch($_SESSION['s_current_branch']);
+                }
+          $user = EfrontUserFactory :: factory($_SESSION['s_login']);
                 $user -> logout(session_id());
                 if ($GLOBALS['configuration']['logout_redirect']) {
                     strpos($GLOBALS['configuration']['logout_redirect'], 'https://') === 0 || strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? header("location:".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
                 }
-            } catch (EfrontUserException $e) {
+                if ($branch) {
+                 eF_redirect(G_SERVERNAME.$branch->branch['url'], false, '', true);
+                }
+         } catch (EfrontUserException $e) {
                 unset($_SESSION);
                 session_destroy();
                 $message = $e -> getMessage();
@@ -239,7 +240,10 @@ if (isset($_GET['register_lessons'])) {
 //	setcookie('c_request', '', time() - 86400);
  $_SESSION['login_mode'] = '0';
 }
-isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = basename($_SERVER['PHP_SELF'])."?ctg=login" : $postTarget = basename($_SERVER['PHP_SELF'])."?index_page";
+isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = ($_SERVER['SCRIPT_NAME'])."?ctg=login" : $postTarget = ($_SERVER['SCRIPT_NAME'])."?index_page";
+if ($_SERVER['SCRIPT_NAME'] != $_SERVER['PHP_SELF']) {
+ $postTarget.='&domain='.$GLOBALS['branchpart'];
+}
 $form = new HTML_QuickForm("login_form", "post", $postTarget, "", "class = 'indexForm'", true);
 $form -> removeAttribute('name');
 $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
@@ -258,6 +262,14 @@ if ($form -> isSubmitted() && $form -> validate()) {
    exit;
   }
   $user -> login($form -> exportValue('password'));
+  if (isset($_GET['domain'])) {
+   //Check if the logged in user has access to the specified branch
+   $result = eF_getTableData("module_hcd_branch mb, module_hcd_employee_works_at_branch mwb", "mb.branch_ID", "mb.branch_ID=mwb.branch_ID and mwb.users_login='".$user->user['login']."' and mb.url='".eF_addSlashes($_GET['domain'])."'");
+   if (!empty($result)) {
+    $currentBranch = new EfrontBranch($result[0]['branch_ID']);
+    $_SESSION['s_current_branch'] = $currentBranch->branch['branch_ID'];
+   }
+  }
   //Check whether there are any fields that must be filled in by the user
   $result = eF_getTableData("user_profile", "name", "active=1 and mandatory = 2");
   foreach ($result as $value) {
@@ -322,6 +334,9 @@ if ($form -> isSubmitted() && $form -> validate()) {
    }
    $message = _LOGINERRORPLEASEMAKESURECAPSLOCKISOFF;
    $message_type = 'failure';
+   if (isset($_GET['domain'])) {
+    eF_redirect(G_SERVERNAME.$_GET['domain'].'/index.php?message='.urlencode($message), false, '', true);
+   }
   }
   $form -> setConstants(array("login" => $values['login'], "password" => ""));
  } catch (Exception $e) {

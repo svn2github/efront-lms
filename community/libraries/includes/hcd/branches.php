@@ -69,6 +69,18 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
     handleAjaxExceptions($e);
    }
    exit;
+  } elseif (isset($_GET['applybranchcoursestoallusers']) && $_change_) {
+   $branchCourses = $currentBranch -> getBranchCourses();
+   $branchUsers = $currentBranch -> getEmployees();
+   $users = array();
+   foreach ($branchUsers as $key => $value) {
+    $users[$key] = $value['user_types_ID'] ? $value['user_types_ID'] : $value['user_type'];
+   }
+
+   foreach ($branchCourses as $key => $course) {
+    $course -> addUsers(array_keys($users), array_values($users));
+   }
+
    // First job is to assign the jobs Assign jobs
   } else if (isset($_GET['postAjaxRequest']) && $_change_) {
    if (isset($_GET['add_lesson'])) {
@@ -103,8 +115,8 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
     /* Find all employees having this skill */
     if ($_GET['insert'] == "true") {
      echo $currentBranch -> addCoursesToBranch($_GET['add_course']);
-    } else if ($_GET['insert'] == "false") {echo "A";debug();
-    echo $currentBranch -> removeCoursesFromBranch($_GET['add_course']);
+    } else if ($_GET['insert'] == "false") {
+     echo $currentBranch -> removeCoursesFromBranch($_GET['add_course']);
     } else if (isset($_GET['addAll'])) {
      $constraints = array('archive' => false, 'active' => true, 'condition' => 'r.courses_ID is null') + createConstraintsFromSortedTable();
      $courses = $currentBranch -> getBranchCoursesIncludingUnassigned($constraints);
@@ -496,6 +508,12 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
   $target = basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&".(isset($_GET['add_branch']) ? "add_branch=1" : "edit_branch=".$_GET['edit_branch']);
   $form = new HTML_QuickForm("branch_form", "post", $target, "", null, true);
   $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
+  if ($_GET['edit_branch']) {
+   $form -> addElement('static', 'sidenote', '<img src = "images/16x16/wizard.png" alt = "'._AUTOFILL.'" title = "'._AUTOFILL.'" class = "handle" onclick = "$(\'branch_url\').value = \''.EfrontBranch::getBranchUrl($currentBranch->branch['name']).'\'"/>');
+   $form -> addElement('text', 'url', _ACCESSURL, 'class = "inputText" id = "branch_url"');
+   $form -> addRule('url', _INVALIDFIELDDATA, 'checkParameter', 'alnum'); /*mandatory me if*/
+   $form -> addElement('static', '', _THEBRANCHWILLBEACCESSIBLEWITHURL.' <b>'.G_SERVERNAME.'&lt;'._ACCESSURL.'&gt;</b>');
+  }
   $form -> addElement('text', 'branch_name', _BRANCHNAME, 'class = "inputText"');
   $form -> addRule('branch_name', _THEFIELD.' "'._BRANCHNAME.'" '._ISMANDATORY, 'required', null, 'client');
   $form -> addRule('branch_name', _INVALIDFIELDDATA, 'checkParameter', 'text'); /*mandatory me if*/
@@ -509,12 +527,15 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
    /* Set the link to the details of the father branch */
    $details_link = 'href="'.basename($_SERVER['PHP_SELF']).'?ctg=module_hcd&op=branches&edit_branch='.$currentBranch -> branch['father_branch_ID'].'"';
    $smarty -> assign("T_BRANCH_NAME", $currentBranch -> branch['name']);
-   $form -> setDefaults(array( 'branch_name' => $currentBranch -> branch['name'],
+   $form -> setDefaults(array( 'url' => $currentBranch -> branch['url'],
+          'branch_name' => $currentBranch -> branch['name'],
           'address' => $currentBranch -> branch['address'],
           'city' => $currentBranch -> branch['city'],
           'country' => $currentBranch -> branch['country'],
           'telephone' => $currentBranch -> branch['telephone'],
-          'email' => $currentBranch -> branch['email']));
+          'email' => $currentBranch -> branch['email'],
+          'themes_ID' => $currentBranch -> branch['themes_ID'],
+          'languages_NAME' => $currentBranch -> branch['languages_NAME']));
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'branchesTable') {
     $branches = $currentBranch -> getSubbranches();
     if ($_SESSION['s_type'] != "administrator") {
@@ -580,6 +601,13 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
    $first_branch = 1;
   }
   $smarty -> assign("T_FATHER_BRANCH_ID", $fatherBranchId);
+  $themes = array('' => _SELECTBRANCHTHEME);
+  foreach (themes :: getAll("themes") as $value) {
+   $themes[$value['id']] = $value['name'];
+  }
+  $languages = array('' => _SELECTBRANCHLANGUAGE) + EfrontSystem :: getLanguages(true);
+  $form -> addElement('select', 'themes_ID', _THEME, $themes);
+  $form -> addElement('select', 'languages_NAME', _LANGUAGE, $languages);
  } catch (Exception $e) {
   handleNormalFlowExceptions($e);
  }
@@ -594,9 +622,13 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
         'city' => $form -> exportValue('city'),
         'country' => $form -> exportValue('country'),
         'telephone'=> $form -> exportValue('telephone'),
-        'email' => $form -> exportValue('email'));
+        'email' => $form -> exportValue('email'),
+        'themes_ID'=> $form -> exportValue('themes_ID'),
+        'languages_NAME' => $form -> exportValue('languages_NAME'),
+        'url' => $form->exportValue('url'));
   try {
    if (isset($_GET['add_branch'])) {
+    $branch_content['url'] = EfrontBranch::getBranchUrl($branch_content['name']);
     if ($first_branch != 1) {
      $branch_content['father_branch_ID'] = $form -> exportValue('fatherBranch');
     }

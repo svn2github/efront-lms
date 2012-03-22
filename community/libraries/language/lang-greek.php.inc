@@ -4177,4 +4177,12 @@ define("_MODULEITSELF", "Αρθρώματα (καθεαυτά)");
 define("_MODULESPANEL", "Αρθρώματα (προσθήκη/αφαίρεση)");
 define("_PROFESSORSCANCREATECOURSES", "Οι καθηγητές μπορούν να φτιάχνουν μαθήματα");
 define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Η σύνδεσή σας έχει λήξει. Παρακαλώ μπείτε ξανά στο σύστημα");
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Αυτόματη ανάθεση των δεσμών του τμήματος στους χρήστες του");
+define("_APPLYTOUSERALLREADYTOBRANCH", "Εφαρμογή στους χρήστες του τμήματος");
+define("_THEME", "Θέμα");
+define("_SELECTBRANCHTHEME", "Επιλέξτε το θέμα του τμήματος");
+define("_SELECTBRANCHLANGUAGE", "Επιλέξτε τη γλώσσα του τμήματος");
+define("_ACCESSURL", "Url πρόσβασης στο τμήμα");
+define("_AUTOFILL", "Αυτόματη συμπλήρωση");
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "Το τμήμα θα είναι απευθείας προσβάσιμο από το url");
 ?>

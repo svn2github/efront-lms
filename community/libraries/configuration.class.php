@@ -175,6 +175,7 @@ class EfrontConfiguration
      'show_user_form' => '0',
      'show_unassigned_users_to_supervisors' => '1',
      'allow_users_to_delete_supervisor_files'=> '1',
+     'propagate_courses_to_branch_users' => '1',
 
      //Webserver authentication settings
      'webserver_auth' => '0',

@@ -114,6 +114,15 @@ if (!isset($_GET['checkout'])) {
   $smarty -> assign("T_ADDITIONAL_COURSE_INFO", $additionalInfo);
  }
 
+
+ if (isset($_SESSION['s_current_branch'])) {
+  $branch = new EfrontBranch($_SESSION['s_current_branch']);
+  $constraints = array('active' => true, 'archive' => false, 'instance' => false, 'sort' => 'name');
+  $courses = $branch->getBranchCourses($constraints);
+
+  $lessons = array();
+ }
+
  if ($GLOBALS['configuration']['enable_cart']) {
   $smarty -> assign("T_LAYOUT_CLASS", $currentTheme -> options['toolbar_position'] == "left" ? "hideRight" : "hideLeft"); //Whether to show the sidemenu on the left or on the right
  }

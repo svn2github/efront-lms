@@ -673,6 +673,19 @@ function onApplyToAllJobPositionUsers(el, response) {
 	new Effect.Fade(el.down());
 }
 
+function applyToAllBranchUsers(el, branch_id) {
+	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+	var url    = location.toString();
+	parameters = {applybranchcoursestoallusers:1, method: 'get'};
+	ajaxRequest(el, url, parameters, onApplyToAllBranchUsers);		
+}
+function onApplyToAllBranchUsers(el, response) {
+	el.down().src='themes/default/images/others/transparent.gif';
+	setImageSrc(el.down(), 16, 'success');
+	new Effect.Fade(el.down());
+}
+
 var __criteria_total_number = 0;
 
 //Function for inserting the new job row into the edit_user profile

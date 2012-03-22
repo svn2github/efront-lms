@@ -103,6 +103,7 @@ if ($GLOBALS['configuration']['eliminate_post_xss']) {
      }
  }
 }
+setupBranchSubdomain();
 //Language settings. $GLOBALS['loadLanguage'] can be used to exclude language files from loading, for example during certain ajax calls
 if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
     if (isset($_GET['bypass_language']) && eF_checkParameter($_GET['bypass_language'], 'filename') && is_file($path."language/lang-".$_GET['bypass_language'].".php.inc")) {
@@ -144,6 +145,9 @@ require_once $path."smarty/smarty_config.php";
 //Assign the configuration variables to smarty
 $smarty -> assign("T_CONFIGURATION", $configuration); //Assign global configuration values to smarty
 $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
+if (isset($GLOBALS['branchpart']) && $GLOBALS['branchpart']) {
+ $smarty->assign("T_BASEHREF", G_SERVERNAME.$GLOBALS['branchpart'].'/');
+}
 //Initialize languages and notify smarty on weather we have an RTL language
 $languages = EfrontSystem :: getLanguages();
 !$languages[$setLanguage]['rtl'] OR $smarty -> assign("T_RTL", 1);
@@ -278,7 +282,7 @@ function setupVersion() {
 function setDefines() {
     /*Get the build number*/
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 14160;
+    $build = 14216;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -336,6 +340,8 @@ function setDefines() {
     define("G_DEFAULT_TABLE_SIZE", "20"); //Default table size for sorted table
     define("G_TINYMCE","Tinymce 3.3.9.2");
     define("G_NEWTINYMCE", "Tinymce 3.4.2");
+}
+function setupBranchSubdomain() {
 }
 /**
  * Setup themes

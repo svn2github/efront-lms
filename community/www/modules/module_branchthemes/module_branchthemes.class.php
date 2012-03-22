@@ -143,5 +143,13 @@ class module_branchthemes extends EfrontModule
   eF_deleteTableData('module_branchthemes_branch','themes_ID='.intval($theme));
  }
 
+
+ public static function getBranchTheme($branchId) {
+  if (eF_checkParameter($branchId, 'id')) {
+   $browser=addslashes(detectBrowser());
+   $result = eF_getTableData("module_branchthemes_branch", "themes_ID", "branch_ID={$branchId} and (browser='$browser' or browser='default')");
+   return $result[0]['themes_ID'];
+  } else return false;
+ }
 }
 ?>

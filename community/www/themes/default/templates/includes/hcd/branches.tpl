@@ -269,6 +269,14 @@
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=module_hcd&op=branches&edit_branch=`$smarty.get.edit_branch`&"}
   {assign var = "_change_handles_" value = $_change_}
   {capture name ='t_branch_courses'}
+  {if !$T_CONFIGURATION.propagate_courses_to_branch_users}
+   <div class = "headerTools">
+    <span>
+     <img src = "images/16x16/go_into.png" title = "{$smarty.const._APPLYTOUSERALLREADYTOBRANCH}" alt = "{$smarty.const._APPLYTOUSERALLREADYTOBRANCH}" />
+        <a href="javascript:void(0);" id="lesson_changes_apply_to_users" onclick= "applyToAllBranchUsers(this, '{$smarty.get.edit_branch}');">{$smarty.const._APPLYTOUSERALLREADYTOBRANCH}</a>
+       </span>
+   </div>
+  {/if}
    {include file = "includes/common/courses_list.tpl"}
   {/capture}
   {/if}
@@ -310,7 +318,7 @@
 
                         </div>
     {/capture}
-    {eF_template_printBlock title = $smarty.const._BRANCHRECORD data = $smarty.capture.t_branch_properties_code image = '32x32/branch.png' options = $T_TABLE_OPTIONS}
+    {eF_template_printBlock title = $smarty.const._BRANCHRECORD|cat:"<span class='innerTableName'>&nbsp;&quot;`$T_BRANCH_NAME`&quot;</span>" data = $smarty.capture.t_branch_properties_code image = '32x32/branch.png' options = $T_TABLE_OPTIONS}
    {else}
                 {eF_template_printBlock title = $smarty.const._BRANCHRECORD data = $smarty.capture.t_branch_code image = '32x32/branch.png'}
             {/if}

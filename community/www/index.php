@@ -264,10 +264,14 @@ if ($form -> isSubmitted() && $form -> validate()) {
   $user -> login($form -> exportValue('password'));
   if (isset($_GET['domain'])) {
    //Check if the logged in user has access to the specified branch
-   $result = eF_getTableData("module_hcd_branch mb, module_hcd_employee_works_at_branch mwb", "mb.branch_ID", "mb.branch_ID=mwb.branch_ID and mwb.users_login='".$user->user['login']."' and mb.url='".eF_addSlashes($_GET['domain'])."'");
-   if (!empty($result)) {
-    $currentBranch = new EfrontBranch($result[0]['branch_ID']);
-    $_SESSION['s_current_branch'] = $currentBranch->branch['branch_ID'];
+   $result = eF_getTableData("module_hcd_branch mb left outer join module_hcd_employee_works_at_branch mwb on mb.branch_ID=mwb.branch_ID and mwb.users_login='".$user->user['login']."'", "mb.branch_ID, mwb.users_LOGIN", "mb.url='".eF_addSlashes($_GET['domain'])."'");
+   $branch = new EfrontBranch($result[0]['branch_ID']);
+   if ($result[0]['users_LOGIN']) {
+    $_SESSION['s_current_branch'] = $branch->branch['branch_ID'];
+   } else {
+    $user->logout();
+    //pr(G_SERVERNAME.$branch->branch['url']."index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));exit;
+    eF_redirect(G_SERVERNAME.$branch->branch['url']."/index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH), false, '', true);
    }
   }
   //Check whether there are any fields that must be filled in by the user

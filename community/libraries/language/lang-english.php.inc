@@ -4185,4 +4185,5 @@ define("_SELECTBRANCHLANGUAGE", "Select branch language");
 define("_ACCESSURL", "Branch access url");
 define("_AUTOFILL", "Autofill");
 define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "The branch will be directly accessible from the url");
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "You are not allowed to login because you are not a member of this branch");
 ?>

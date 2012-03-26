@@ -213,6 +213,7 @@ CREATE TABLE courses (
   languages_NAME varchar(50) NOT NULL,
   reset tinyint(1) NOT NULL default '0',
   certificate_expiration int(10) unsigned default NULL,
+  reset_interval int(10) unsigned default NULL,
   max_users int(10) unsigned default NULL,
   rules text,
   instance_source mediumint(8) unsigned default '0',

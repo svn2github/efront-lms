@@ -44,6 +44,7 @@ class EfrontConfiguration
      'logout_redirect' => '',
      'debug_mode' => '',
      'updater_period' => 100000,
+     'last_reset_certificate' => '',
         //System settings - security
      'file_black_list' => 'php,php3,jsp,asp,cgi,pl,exe,com,bat,sh,ph3,php4,ph4,php5,ph5,phtm,phtml',
         'file_white_list' => '',
@@ -207,6 +208,8 @@ class EfrontConfiguration
      //Version
         'version_key' => '',
      'version_hosted' => '0',
+     'max_online_users' => '',
+     'max_online_users_timestamp' => '',
 
         //Notifications
         'notifications_pageloads' => '10',

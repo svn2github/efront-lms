@@ -222,8 +222,9 @@
             {if !isset($T_CURRENT_USER->coreAccess.progress) || $T_CURRENT_USER->coreAccess.progress == 'change'}
              <div class = "horizontalSeparatorAbove">
               <span style = "vertical-align:middle">{$smarty.const._WITHSELECTED}:</span>
-              <img class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._SETALLTOCOMPLETED}" alt = "{$smarty.const._SETALLTOCOMPLETED}" onclick = "completeSelected(this, 'usersTable');">
+              <img id = "all_image_id" class = "ajaxHandle" src = "images/16x16/success.png" title = "{$smarty.const._SETALLTOCOMPLETED}" alt = "{$smarty.const._SETALLTOCOMPLETED}" onclick = "$('all_status_id').show();">
               <img class = "ajaxHandle" src = "images/16x16/forbidden.png" title = "{$smarty.const._SETALLTOUNCOMPLETED}" alt = "{$smarty.const._SETALLTOUNCOMPLETED}" onclick = "uncompleteSelected(this, 'usersTable');">
+              <input type="text" style="display:none" id="all_status_id" class="datepicker" name="all_status_name" value="" maxlength="10" size="7" />
              </div>
          {/if}
    <script type="text/javascript">
@@ -236,8 +237,12 @@
    });
    }
    function callbackfunction(cell, id) {
-    var login = id.replace("_status_id", "");
-    changeProgressInLesson($(id), login, $(id).value)
+    if (id != 'all_status_id') {
+     var login = id.replace("_status_id", "");
+     changeProgressInLesson($(id), login, $(id).value)
+    } else {
+     completeSelected($('all_image_id'), 'usersTable', $(id).value);
+    }
    }
    {/literal}
    </script>

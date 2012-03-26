@@ -8,7 +8,6 @@ $smarty -> assign("T_OPTION", $_GET['option']);
 
 try {
  require_once $path."includes/statistics/stats_filters.php";
-
  if (isset($_GET['sel_course'])) {
   $directionsTree = new EfrontDirectionsTree();
   $directionsPaths = $directionsTree -> toPathString();
@@ -32,7 +31,7 @@ try {
       $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
       foreach ($rolesBasic as $key => $role) {
-       $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'user_type = "'.$key.'"');
+       $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'u.user_type = "'.$key.'"');
        $numUsers = $infoCourse -> countCourseUsersAggregatingResults($constraints);
        if ($numUsers) {
         $usersPerRole[$key] = $numUsers;

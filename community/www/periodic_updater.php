@@ -25,8 +25,13 @@ if (!isset($_SESSION['s_login']) || !eF_checkParameter($_SESSION['s_login'], 'lo
  echo "No active session found";
  exit;
 }
-
 try {
+ if ($GLOBALS['configuration']['last_reset_certificate'] + 24*60*60 < time()) {
+  EfrontCourse :: checkCertificateExpire();
+  EfrontConfiguration :: setValue('last_reset_certificate', time());
+ }
+
+
  $newTime = '';
  $jsonValues = array();
  if ($_SESSION['s_login']) {

@@ -1158,7 +1158,7 @@ class EfrontLesson
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $select = "u.*, ul.lessons_ID,ul.completed,ul.score,ul.user_type as role,ul.from_timestamp as active_in_lesson, ul.to_timestamp as timestamp_completed, ul.comments, ul.done_content, 1 as has_lesson";
   $where[] = "u.login=ul.users_LOGIN and ul.lessons_ID='".$this -> lesson['id']."' and ul.archive=0";
-  $from = EfrontLesson::appendTableFiltersUserConstraints("users u JOIN users_to_lessons ul", $constraints);
+  $from = EfrontLesson::appendTableFiltersUserConstraints("users u JOIN users_to_lessons ul ON u.login=ul.users_LOGIN", $constraints);
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
@@ -1183,8 +1183,8 @@ class EfrontLesson
   !empty($constraints) OR $constraints = array('archive' => false, 'active' => true);
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $where[] = "u.login=ul.users_LOGIN and ul.lessons_ID='".$this -> lesson['id']."' and ul.archive=0";
-  $from = EfrontLesson::appendTableFiltersUserConstraints("users u JOIN users_to_lessons ul", $constraints);
-  $result = eF_countTableData($from, "u.login", implode(" and ", $where));
+  $from = EfrontLesson::appendTableFiltersUserConstraints("users u JOIN users_to_lessons ul ON u.login=ul.users_LOGIN", $constraints);
+  $result = eF_countTableData($from, "distinct(u.login)", implode(" and ", $where));
   return $result[0]['count'];
  }
  /**

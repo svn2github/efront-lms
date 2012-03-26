@@ -49,14 +49,15 @@
 <style>
 {literal}
 table#lessonUsersTable {width:100%;}
-table#lessonUsersTable td.login{width:25%;}
+table#lessonUsersTable td.login{width:20%;}
 table#lessonUsersTable td.user_type{width:10%;}
 table#lessonUsersTable td.time_in_lesson{width:10%;}
-table#lessonUsersTable td.overall_progress{width:15%;}
-table#lessonUsersTable td.test_status{width:15%;}
-table#lessonUsersTable td.project_status{width:15%;}
+table#lessonUsersTable td.overall_progress{width:10%;}
+table#lessonUsersTable td.test_status{width:10%;}
+table#lessonUsersTable td.project_status{width:10%;}
 table#lessonUsersTable td.completed{width:5%;text-align:center;}
-table#lessonUsersTable td.score{width:5%;text-align:center;}
+table#lessonUsersTable td.completedon{width:15%;text-align:center;}
+table#lessonUsersTable td.score{width:10%;text-align:center;}
 {/literal}
 </style>
 <!--ajax:lessonUsersTable-->
@@ -78,6 +79,7 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     <td class = "topTitle project_status noSort" name = "project_status">{$smarty.const._PROJECTSSCORE}</td>
    {/if}
     <td class = "topTitle completed" name = "completed">{$smarty.const._COMPLETED}</td>
+    <td class = "topTitle completedon" name = "completed">{$smarty.const._COMPLETEDON}</td>
     <td class = "topTitle score" name = "score">{$smarty.const._SCORE}</td>
    </tr>
    {foreach name = 'users_to_lessons_list' key = 'key' item = 'user' from = $T_DATA_SOURCE}
@@ -119,6 +121,10 @@ table#lessonUsersTable td.score{width:5%;text-align:center;}
     {if $user.basic_user_type != 'professor'}
      {if $user.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}</td>
     {else}<div class = "centerAlign">-</div>{/if}
+    <td class = "completedon">
+      {if $user.completed}#filter:timestamp-{$user.timestamp_completed}#{/if}
+
+    </td>
     <td class = "score">{if $user.basic_user_type != 'professor'}#filter:score-{$user.score}#%{else}<div class = "centerAlign">-</div>{/if}</td>
    </tr>
    {foreachelse}

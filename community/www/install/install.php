@@ -721,18 +721,12 @@ class Installation
 	 * @return unknown_type
 	 */
  public static function createConfigurationFile($values, $upgrade = false) {
-  if ($upgrade) {
-   $file_contents = file_get_contents($GLOBALS['path'].'configuration.php'); //Load sample configuration file
-  } else {
-   $file_contents = file_get_contents('sample_config.php'); //Load sample configuration file
-  }
   $patterns = array("/(define\(['\"]G_DBTYPE['\"], ['\"]).*(['\"]\);)/",
                        "/(define\(['\"]G_DBHOST['\"], ['\"]).*(['\"]\);)/",
                        "/(define\(['\"]G_DBUSER['\"], ['\"]).*(['\"]\);)/",
                        "/(define\(['\"]G_DBPASSWD['\"], ['\"]).*(['\"]\);)/",
                        "/(define\(['\"]G_DBNAME['\"], ['\"]).*(['\"]\);)/",
                        "/(define\(['\"]G_DBPREFIX['\"], ['\"]).*(['\"]\);)/",
-           "/(define\(['\"]G_SERVERNAME['\"], ['\"]).*(['\"]\);)/",
                        "/(define\(['\"]G_VERSION_NUM['\"], ['\"]).*(['\"]\);)/");
   dirname(dirname($_SERVER['PHP_SELF'])) != '.' ? $servername = dirname(dirname($_SERVER['PHP_SELF'])) : $servername = '';
   $servername = str_replace("\\", "/", $servername);
@@ -742,9 +736,15 @@ class Installation
                   '${1}'.$values['db_password'].'${2}',
                   '${1}'.$values['db_name'].'${2}',
                   '${1}'.$values['db_prefix'].'${2}',
-            '${1}'.'http://\'.$_SERVER["HTTP_HOST"].\''.rtrim($servername, "/").'/${2}',
                            '${1}'.G_VERSION_NUM.'${2}');
-  $new_file_contents = preg_replace($patterns, $replacements, $file_contents, -1, $count); //Replace sample settings with current settings
+  if ($upgrade) {
+   $file_contents = file_get_contents($GLOBALS['path'].'configuration.php'); //Load sample configuration file
+   $new_file_contents = preg_replace("/(define\(['\"]G_SERVERNAME['\"], ['\"]).*(['\"]\);)/", "define('G_OFFSET', '".rtrim($servername, "/").'/'."');", $file_contents, -1, $count);
+  } else {
+   $file_contents = file_get_contents('sample_config.php'); //Load sample configuration file
+   $new_file_contents = preg_replace("/define\('G_OFFSET', ''\)/", "define('G_OFFSET', '".rtrim($servername, "/").'/'."')", $file_contents, -1, $count);
+  }
+  $new_file_contents = preg_replace($patterns, $replacements, $new_file_contents, -1, $count); //Replace sample settings with current settings
   if (!file_put_contents($GLOBALS['path'].'configuration.php', $new_file_contents)) {
    throw new Exception("The configuration file could not be created");
   }

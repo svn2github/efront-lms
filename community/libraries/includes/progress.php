@@ -176,12 +176,16 @@ try {
   }
      $completeEntities = json_decode($_GET['complete']);
      if (!empty($completeEntities)) {
+      if (eF_checkParameter($_GET['date'], 'date')) {
+    $date = explode ('-', $_GET['date']);
+    $timestamp = mktime(0, 0, 0, $date[1], $date[0], $date[2]);
+   }
       $list = '"'.implode('","', $completeEntities).'"';
       $info = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,completed,score,to_timestamp,comments", "users_LOGIN IN (".$list.") and lessons_ID = ".$currentLesson -> lesson['id']);
    foreach ($info as $value) {
     if ($value['completed'] == 0) {
      $user = EfrontUserFactory :: factory($value['users_LOGIN']);
-     $user -> completeLesson($currentLesson -> lesson['id'], 100, '', time());
+     $user -> completeLesson($currentLesson -> lesson['id'], 100, '', $timestamp);
     }
    }
      }

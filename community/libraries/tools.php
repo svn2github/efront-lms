@@ -619,6 +619,9 @@ function convertTimeToDays($interval) {
 function getCertificateExpirationTimestamp($issuedTimestamp, $expirationArray){
  return mktime(0, 0, 0, date("m", $issuedTimestamp) + $expirationArray[0], date("d", $issuedTimestamp) +$expirationArray[1], date("Y", $issuedTimestamp));
 }
+function getCertificateResetTimestamp($expiredTimestamp, $resetArray){
+ return mktime(0, 0, 0, date("m", $expiredTimestamp) - $resetArray[0], date("d", $expiredTimestamp) - $resetArray[1], date("Y", $expiredTimestamp));
+}
 /**
 
  * Format an HTML table to simple text

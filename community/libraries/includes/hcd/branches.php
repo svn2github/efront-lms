@@ -511,8 +511,12 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
   if ($_GET['edit_branch']) {
    $form -> addElement('static', 'sidenote', '<img src = "images/16x16/wizard.png" alt = "'._AUTOFILL.'" title = "'._AUTOFILL.'" class = "handle" onclick = "$(\'branch_url\').value = \''.EfrontBranch::getBranchUrl($currentBranch->branch['name']).'\'"/>');
    $form -> addElement('text', 'url', _ACCESSURL, 'class = "inputText" id = "branch_url"');
-   $form -> addRule('url', _INVALIDFIELDDATA, 'checkParameter', 'alnum'); /*mandatory me if*/
-   $form -> addElement('static', '', _THEBRANCHWILLBEACCESSIBLEWITHURL.' <b>'.G_SERVERNAME.'&lt;'._ACCESSURL.'&gt;</b>');
+   $form -> addRule('url', _INVALIDFIELDDATA, 'checkParameter', 'alnum');
+   if ($currentBranch -> branch['url']) {
+    $form -> addElement('static', '', _THEBRANCHWILLBEACCESSIBLEWITHURL.' <b>'.G_SERVERNAME.$currentBranch -> branch['url'].'/</b>');
+   } else {
+    $form -> addElement('static', '', _IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL.' <b>'.G_SERVERNAME.'&lt;'._ACCESSURL.'&gt;</b>');
+   }
   }
   $form -> addElement('text', 'branch_name', _BRANCHNAME, 'class = "inputText"');
   $form -> addRule('branch_name', _THEFIELD.' "'._BRANCHNAME.'" '._ISMANDATORY, 'required', null, 'client');

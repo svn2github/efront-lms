@@ -986,6 +986,10 @@ abstract class EfrontUser
     $parsedUsers[$value['login']] = true;
    }
   }
+  if ($GLOBALS['configuration']['max_online_users'] < sizeof($result)) {
+   EfrontConfiguration::setValue('max_online_users', sizeof($result));
+   EfrontConfiguration::setValue('max_online_users_timestamp', time());
+  }
   return $usersOnline;
  }
  /**
@@ -1826,7 +1830,7 @@ abstract class EfrontLessonUser extends EfrontUser
 	 * @since 3.6.3
 	 * @access public
 	 */
- public function resetProgressInCourse($course, $resetLessons = false) {
+ public function resetProgressInCourse($course, $resetLessons = false, $keep_certificate = false) {
   if (!($course instanceOf EfrontCourse)) {
    $course = new EfrontCourse($course);
   }
@@ -1836,6 +1840,9 @@ abstract class EfrontLessonUser extends EfrontUser
           "to_timestamp" => 0,
           "completed" => 0,
           "score" => 0);
+  if ($keep_certificate) {
+   unset($tracking_info["issued_certificate"]);
+  }
   eF_updateTableData("users_to_courses", $tracking_info, "users_LOGIN='".$this -> user['login']."' and courses_ID = ".$course -> course['id']);
   if ($resetLessons) {
    foreach ($course -> getCourseLessons() as $lesson) {
@@ -1846,13 +1853,16 @@ abstract class EfrontLessonUser extends EfrontUser
    $module -> onResetProgressInCourse($course -> course['id'], $this -> user['login']);
   }
  }
- public function resetProgressInAllCourses() {
+ public function resetProgressInAllCourses($keep_certificate = false) {
   $tracking_info = array("issued_certificate" => "",
           "comments" => "",
           "from_timestamp" => time(),
           "to_timestamp" => 0,
           "completed" => 0,
           "score" => 0);
+  if ($keep_certificate) {
+   unset($tracking_info["issued_certificate"]);
+  }
   eF_updateTableData("users_to_courses", $tracking_info, "users_LOGIN='".$this -> user['login']."'");
   foreach (eF_loadAllModules(true, true) as $key => $module) {
    $module -> onResetProgressInAllCourses($this -> user['login']);

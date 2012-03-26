@@ -36,7 +36,7 @@ class EfrontBenchmark
 
 
      $GLOBALS['db'] -> queries = eF_multisort($GLOBALS['db'] -> queries, 'times', 'asc');
-  foreach ($GLOBALS['db'] -> queries as $value) {
+  foreach ($GLOBALS['db'] -> queries as $key=>$value) {
    $GLOBALS['db'] -> queries[$key]['sql'] = htmlentities($value['sql']);
    if ($value['times'] > 0.05) {
     $heavyQueries[] = $value;

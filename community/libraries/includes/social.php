@@ -40,7 +40,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden')) {
   $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
  }
- if ($GLOBALS['configuration']['disable_professor_courses'] != 1 && $_SESSION['s_type'] == 'professor')) {
+ if ($GLOBALS['configuration']['disable_professor_courses'] != 1 && $_SESSION['s_type'] == 'professor') {
   $myCoursesOptions[] = array('text' => _COURSES, 'image' => "32x32/courses.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses");
   $myCoursesOptions[] = array('text' => _LESSONS, 'image' => "32x32/lessons.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=professor_lessons");
  }

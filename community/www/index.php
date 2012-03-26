@@ -71,16 +71,10 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
     if (isset($_GET['logout']) && !isset($_POST['submit_login'])) { //If user wants to log out
         if (isset($_SESSION['s_login']) && $_SESSION['s_login']) {
          try {
-                if ($_SESSION['s_current_branch']) {
-                 $branch = new EfrontBranch($_SESSION['s_current_branch']);
-                }
           $user = EfrontUserFactory :: factory($_SESSION['s_login']);
                 $user -> logout(session_id());
                 if ($GLOBALS['configuration']['logout_redirect']) {
                     strpos($GLOBALS['configuration']['logout_redirect'], 'https://') === 0 || strpos($GLOBALS['configuration']['logout_redirect'], 'http://') === 0 ? header("location:".$GLOBALS['configuration']['logout_redirect']) : header("location:http://".$GLOBALS['configuration']['logout_redirect']);
-                }
-                if ($branch) {
-                 eF_redirect(G_SERVERNAME.$branch->branch['url'], false, '', true);
                 }
          } catch (EfrontUserException $e) {
                 unset($_SESSION);
@@ -240,10 +234,8 @@ if (isset($_GET['register_lessons'])) {
 //	setcookie('c_request', '', time() - 86400);
  $_SESSION['login_mode'] = '0';
 }
-isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = ($_SERVER['SCRIPT_NAME'])."?ctg=login" : $postTarget = ($_SERVER['SCRIPT_NAME'])."?index_page";
-if ($_SERVER['SCRIPT_NAME'] != $_SERVER['PHP_SELF']) {
- $postTarget.='&domain='.$GLOBALS['branchpart'];
-}
+isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = basename($_SERVER['PHP_SELF'])."?ctg=login" : $postTarget = basename($_SERVER['PHP_SELF'])."?index_page";
+//isset($_GET['ctg']) && $_GET['ctg'] == 'login' ? $postTarget = ($_SERVER['SCRIPT_NAME'])."?ctg=login" : $postTarget = ($_SERVER['SCRIPT_NAME'])."?index_page";
 $form = new HTML_QuickForm("login_form", "post", $postTarget, "", "class = 'indexForm'", true);
 $form -> removeAttribute('name');
 $form -> registerRule('checkParameter', 'callback', 'eF_checkParameter'); //Register this rule for checking user input with our function, eF_checkParameter
@@ -261,17 +253,16 @@ if ($form -> isSubmitted() && $form -> validate()) {
    eF_redirect("index.php?message=".urlencode(_LOCKDOWNONLYADMINISTRATORSCANLOGIN)."&message_type=failure");
    exit;
   }
+  if ($_SESSION['s_current_branch']) {
+   if ($user->user['user_type'] != 'administrator' && !$user->aspects['hcd']->isAssignedToBranch($_SESSION['s_current_branch'])) {
+    eF_redirect("index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));
+   }
+  }
   $user -> login($form -> exportValue('password'));
-  if (isset($_GET['domain'])) {
-   //Check if the logged in user has access to the specified branch
-   $result = eF_getTableData("module_hcd_branch mb left outer join module_hcd_employee_works_at_branch mwb on mb.branch_ID=mwb.branch_ID and mwb.users_login='".$user->user['login']."'", "mb.branch_ID, mwb.users_LOGIN", "mb.url='".eF_addSlashes($_GET['domain'])."'");
-   $branch = new EfrontBranch($result[0]['branch_ID']);
-   if ($result[0]['users_LOGIN']) {
-    $_SESSION['s_current_branch'] = $branch->branch['branch_ID'];
-   } else {
+  if ($_SESSION['s_current_branch']) {
+   if (!$user->aspects['hcd']->isAssignedToBranch($_SESSION['s_current_branch'])) {
     $user->logout();
-    //pr(G_SERVERNAME.$branch->branch['url']."index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));exit;
-    eF_redirect(G_SERVERNAME.$branch->branch['url']."/index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH), false, '', true);
+    eF_redirect("index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));
    }
   }
   //Check whether there are any fields that must be filled in by the user
@@ -338,9 +329,6 @@ if ($form -> isSubmitted() && $form -> validate()) {
    }
    $message = _LOGINERRORPLEASEMAKESURECAPSLOCKISOFF;
    $message_type = 'failure';
-   if (isset($_GET['domain'])) {
-    eF_redirect(G_SERVERNAME.$_GET['domain'].'/index.php?message='.urlencode($message), false, '', true);
-   }
   }
   $form -> setConstants(array("login" => $values['login'], "password" => ""));
  } catch (Exception $e) {

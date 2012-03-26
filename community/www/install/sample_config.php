@@ -17,8 +17,8 @@ define('G_DBNAME', 'efront');
 /** The database tables prefix*/
 define('G_DBPREFIX', '');
 
-/** The server name*/
-define('G_SERVERNAME', 'http://'.$_SERVER['HTTP_HOST'].'/');
+/** The servername offset */
+define('G_OFFSET', '');
 
 /**Software root path*/
 define('G_ROOTPATH', str_replace("\\", "/", dirname(dirname(__FILE__)))."/");

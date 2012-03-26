@@ -242,7 +242,9 @@ $loadScripts[] = 'includes/groups';
                  $index = array_search($login, array_keys($usersTocourses[$key]));
                  if ($index !== false) {
                   unset($groupUsers[$login]);
-                  unset($coursetypes[$login]);
+                  if (is_array($coursetypes)) {
+                   unset($coursetypes[$login]);
+                  }
                  }
                 }
             if (!empty($groupUsers)) {

@@ -54,6 +54,10 @@
                                 {/if}
                             </td>
                         </tr>
+                        <tr class = "{cycle name = 'active_users' values = 'oddRowColor, evenRowColor'}">
+                            <td class = "labelCell">{$smarty.const._MAXONLINEUSERS}:</td>
+                            <td class = "elementCell">{$T_CONFIGURATION.max_online_users} (#filter:timestamp-{$T_CONFIGURATION.max_online_users_timestamp}#)</td>
+                        </tr>
                     </table>
                     <br/>
                     <table class = "statisticsTools">

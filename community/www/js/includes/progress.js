@@ -14,14 +14,14 @@ function changeProgressInLesson(el, login, date) {
 function onChangeProgressInLesson(el, response) {
 	eF_js_redrawPage('usersTable', true);
 }
-function completeSelected(el, tableId) {
+function completeSelected(el, tableId, date) {	
 	entities = new Array();
-	$(tableId).select("input[type=checkbox]").each(function (s) {
+	$(tableId).select("input[type=checkbox]").each(function (s) {		
 		if (s.checked && s.id) {
 			entities.push(s.value);
 		}
 	});
-	parameters = {'complete':entities.toJSON(), method: 'get'};
+	parameters = {'complete':entities.toJSON(), date:date, method: 'get'};
 	ajaxRequest(el, url, parameters, oncompleteSelected);	
 }
 function uncompleteSelected(el, tableId) {
@@ -36,6 +36,7 @@ function uncompleteSelected(el, tableId) {
 }
 function oncompleteSelected(el, response) {
 	eF_js_redrawPage('usersTable', true);	
+	$('all_status_id').hide();
 }
 
 function initialization() {	

@@ -29,6 +29,7 @@ try {
     //get the lesson information
     if (isset($infoLesson)) {
         try {
+         require_once $path."includes/statistics/stats_filters.php";
          $directionsTree = new EfrontDirectionsTree();
          $directionsPaths = $directionsTree -> toPathString();
 
@@ -37,7 +38,6 @@ try {
 
       $rolesBasic = EfrontLessonUser :: getLessonsRoles();
       $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
-
       foreach ($rolesBasic as $key => $role) {
        $constraints = array('archive' => false, 'table_filters' => $stats_filters, 'condition' => 'ul.user_type = "'.$key.'"');
           $numUsers = ($infoLesson -> countLessonUsers($constraints));
@@ -69,7 +69,6 @@ try {
         } catch (Exception $e) {
          handleNormalFlowExceptions($e);
         }
-        require_once $path."includes/statistics/stats_filters.php";
 //pr($infoLesson -> getLessonStatusForUsers());exit;
         try {
          if (isset($_GET['ajax']) && $_GET['ajax'] == 'lessonUsersTable') {
@@ -84,6 +83,7 @@ try {
           }
           $totalEntries = $infoLesson -> countLessonUsers($constraints);
           $dataSource = $users;
+
           $smarty -> assign("T_TABLE_SIZE", $totalEntries);
           $tableName = $_GET['ajax'];
          }

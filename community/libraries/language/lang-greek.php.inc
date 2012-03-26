@@ -4185,5 +4185,10 @@ define("_SELECTBRANCHLANGUAGE", "Επιλέξτε τη γλώσσα του τμ�
 define("_ACCESSURL", "Url πρόσβασης στο τμήμα");
 define("_AUTOFILL", "Αυτόματη συμπλήρωση");
 define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "Το τμήμα θα είναι απευθείας προσβάσιμο από το url");
+define("_ORRESETCOURSEBEFOREEXPIRE", "Ή επανεκκινήστε τη δέσμη πριν τη λήξη του");
+define("_PROGRESSRESETSUCCESSFULLY", "Η δέσμη επανεκκινήθει  επιτυχώς");
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Επανεκκίνηση δέσμης διατηρώντας τo πιστοποιητικό");
 define("_YOUARENOTAMEMBEROFTHISBRANCH", "Δεν επιτρέπεται να μπείτε καθώς δεν ανήκετε σε αυτό το τμήμα");
+define("_MAXONLINEUSERS", "Μέγιστος αριθμός ταυτόχρονα συνδεδεμένων χρηστών");
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Αν ορίσετε ένα branch url, τότε το branch θα είναι διαθέσιμο από το url");
 ?>

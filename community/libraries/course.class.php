@@ -797,7 +797,7 @@ class EfrontCourse
    if (is_array($this -> users)) {
     foreach ($this -> users as $key => $user) {
      $users[$key] = EfrontUserFactory :: factory($key);
-    }
+     $users[$key] -> user = array_merge($users[$key]->user, $user); }
    }
    return $users;
   } else {
@@ -1073,7 +1073,7 @@ class EfrontCourse
   list($where, $limit, $orderby) = EfrontCourse :: convertCourseUserConstraintsToSqlParameters($constraints);
   $from = "users_to_courses uc, users u";
   $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
-  $select = "u.*, u.user_type as basic_user_type, uc.user_type as role, uc.from_timestamp as active_in_course, uc.score, uc.completed";
+  $select = "u.*, u.user_type as basic_user_type, uc.user_type as role, uc.from_timestamp as active_in_course, uc.score, uc.completed, uc.issued_certificate";
   $where[] = "uc.archive = 0 and uc.users_LOGIN = u.login and uc.courses_ID=".$this -> course['id'];
   $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
   foreach ($result as $value) {
@@ -1676,6 +1676,7 @@ class EfrontCourse
                         'languages_NAME' => self :: validateAndSanitize($courseFields['languages_NAME'], 'languages_foreign_key'),
                         'reset' => self :: validateAndSanitize($courseFields['reset'], 'boolean'),
                         'certificate_expiration' => self :: validateAndSanitize($courseFields['certificate_expiration'], 'integer'),
+       'reset_interval' => self :: validateAndSanitize($courseFields['reset_interval'], 'integer'),
                         'max_users' => self :: validateAndSanitize($courseFields['max_users'], 'integer'),
                         'ceu' => self :: validateAndSanitize($courseFields['ceu'], 'integer'),
       'rules' => self :: validateAndSanitize($courseFields['rules'], 'serialized'),
@@ -1707,6 +1708,7 @@ class EfrontCourse
                          'languages_NAME' => 'english',
                          'reset' => 0,
                          'certificate_expiration' => 0,
+          'reset_interval' => 0,
                          'max_users' => 0,
                          'rules' => '',
           'supervisor_LOGIN' => '',
@@ -2413,12 +2415,12 @@ class EfrontCourse
   } else {
    if ($this -> course['completed']) {
     $courseOptions['completed'] = '<img src = "images/16x16/success.png" title = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'" alt = "'._COURSECOMPLETED.': '.formatTimestamp($this -> course['to_timestamp'], 'time').'">&nbsp;';
+   }
     if ($this -> course['issued_certificate']) {
      $dateTable = unserialize($this -> course['issued_certificate']);
      $certificateExportMethod = $this->options['certificate_export_method'];
     }
     $courseString .= '<span style = "margin-left:30px">'.implode('', $courseOptions).'</span>';
-   }
   }
   $courseString .= '
                                 </td><td>';
@@ -3810,5 +3812,39 @@ class EfrontCourse
   $users = EfrontUser :: convertUserObjectsToArrays($users);
   isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
   $this -> archiveCourseUsers(array_keys($users));
+ }
+ /**
+	 * Check if a course must be reset because of certificate expiry or 'before expiry' reset
+	 *
+	 * @param mixed lesson A lesson id or an EfrontLesson object
+	 * @since 3.6.3
+	 * @access public
+	 */
+ public static function checkCertificateExpire() {
+  $courses = eF_getTableData("courses", "id,reset_interval,reset", "certificate_expiration !=0 AND (reset_interval != 0 OR reset = 1)" );
+  foreach ($courses as $value) {
+   $course = new EfrontCourse($value['id']);
+   $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != ""');
+   $users = $course -> getStudentUsers(true, $constraints);
+   foreach ($users as $user) {
+    $dateTable = unserialize($user -> user['issued_certificate']);
+    if (eF_checkParameter($dateTable['date'], 'timestamp')) { //new way that issued date saves
+     $expirationArray = convertTimeToDays($course -> course['certificate_expiration']);
+     $expirationTimestamp = getCertificateExpirationTimestamp($dateTable['date'], $expirationArray);
+     if ($course -> course['reset_interval'] != 0) {
+      $resetArray = convertTimeToDays($value['reset_interval']);
+      $resetTimestamp = getCertificateResetTimestamp($expirationTimestamp, $resetArray);
+      if ($resetTimestamp < time()) {
+       $user -> resetProgressInCourse($course, true, true);
+      }
+     }
+     if ($course -> course['reset']) {
+      if ($expirationTimestamp < time()) {
+       $user -> resetProgressInCourse($course, true);
+      }
+     }
+    }
+   }
+  }
  }
 }

@@ -577,6 +577,7 @@ function periodicUpdater(asynchronous) {
 }
 
 function onPeriodicUpdater(el, response) {
+
 	if (response.evalJSON(true).status) {
 		var entity = response.evalJSON(true).entity;
 		if (entity) {
@@ -678,8 +679,9 @@ function onPeriodicUpdater(el, response) {
 	} else if (response.evalJSON(true) && response.evalJSON(true).status == 0 && response.evalJSON(true).code == -1) {
 		location='index.php?ctg=expired';
 	} else {
-		alert(response);
+		alert(response);	
 	}
+	
 }
 
 function startUpdaterFunction() {

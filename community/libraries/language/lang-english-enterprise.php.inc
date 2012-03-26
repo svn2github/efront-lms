@@ -4171,4 +4171,24 @@ define("_YOUCANNOTUSETHISNAME","You can not use this name. Please choose another
 define("_BANUSERFAILEDLOGINS","Ban users after 5 unsuccessful login atempts");
 define("_BANUSERFAILEDLOGINSINFO","User will be deactivated after 5 contiguous failed logins atempts");
 define("_ALLOWUSERREDOTEST", "Have user repeat the test");
+define("_ALLSUPERVISORS","All supervisors");
+define("_REVOKECERTIFICATEFOREXPIRED","Revoke expired certificates");
+define("_MODULEITSELF", "Modules (individual)");
+define("_MODULESPANEL", "Modules (add/remove)");
+define("_PROFESSORSCANCREATECOURSES", "Professors can create courses");
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Your session has expired, please sign in again");
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Propagate branch courses to branch users");
+define("_APPLYTOUSERALLREADYTOBRANCH", "Propagate to users with this branch");
+define("_THEME", "Theme");
+define("_SELECTBRANCHTHEME", "Select branch theme");
+define("_SELECTBRANCHLANGUAGE", "Select branch language");
+define("_ACCESSURL", "Branch access url");
+define("_AUTOFILL", "Autofill");
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "The branch will be directly accessible from the url");
+define("_ORRESETCOURSEBEFOREEXPIRE", "Or reset course before expire");
+define("_PROGRESSRESETSUCCESSFULLY", "Course progress was reset successfully");
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset progress keeping certificate");
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "You are not allowed to login because you are not a member of this branch");
+define("_MAXONLINEUSERS", "Most users ever online");
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "If you specify a branch url, then the branch will be made directly accessible from the url");
 ?>

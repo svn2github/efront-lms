@@ -184,6 +184,16 @@ if ($_GET['op'] == 'course_info') {
    $message = _PROBLEMREVOKINGCERTIFICATE.': '.$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
    $message_type = 'failure';
   }
+ } else if (isset($_GET['reset_keep']) && in_array($_GET['reset_keep'], array_keys($users = $currentCourse -> getCourseUsers($defaultConstraints)))) {
+  try {
+   $user = EfrontUserFactory :: factory($_GET['reset_keep']);
+   $user -> resetProgressInCourse($currentCourse, true, true);
+   eF_redirect(''.basename($_SERVER['PHP_SELF']).'?'.$baseUrl.'&op=course_certificates&reset_popup=1&message='.urlencode(_PROGRESSRESETSUCCESSFULLY).'&message_type=success');
+  } catch (Exception $e) {
+   $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+   $message = _PROBLEMRESETINGPROGRESS.': '.$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+   $message_type = 'failure';
+  }
  } else if (isset($_GET['auto_complete'])) {
   try {
    if ($currentCourse -> options['auto_complete']) {

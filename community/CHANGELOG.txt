@@ -72,6 +72,8 @@
 - Added CEUs in custom reports results
 - Added ability for professor to create courses/lessons
 - Session expiration page now includes a login box
+- Fixed importing users to courses from csv with an empty type not working
+- Added Branch URLs
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

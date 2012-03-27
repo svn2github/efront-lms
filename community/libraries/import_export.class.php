@@ -649,6 +649,7 @@ class EfrontImportCsv extends EfrontImport
        foreach($courses_ID as $course_ID) {
         $data['courses_ID'] = $course_ID;
         $course = new EfrontCourse($course_ID);
+        //$course -> addUsers($data['users_login'], (isset($data['user_type']) && $data['user_type']?$data['user_type']:"student"));
         $course -> addUsers($data['users_login'], (isset($data['user_type'])?$data['user_type']:"student"));
         $where = "users_login = '" .$data['users_login']. "' AND courses_ID = " . $data['courses_ID'];
         $data['completed'] ? $data['completed'] = 1 : $data['completed'] = 0;

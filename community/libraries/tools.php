@@ -320,7 +320,7 @@ function formatLogin($login, $fields = array(), $duplicate = true) {
         $format = str_replace($tags, $replacements, $GLOBALS['configuration']['username_format']);
         return $format;
     } else {
-//pr(apc_sma_info(false));exit;
+//
      if (!isset($GLOBALS['_usernames'])) {
       $GLOBALS['_usernames'] = array();
       if (function_exists('apc_fetch') && $usernames = apc_fetch(G_DBNAME.':_usernames')) {

@@ -240,7 +240,7 @@
      {if $T_PREVIOUS_UNIT}
       {assign var = "show_content_footer" value = 1}
           <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_PREVIOUS_UNIT.id}" title = "{$T_PREVIOUS_UNIT.name}">
-           <img class = "handle" src = "images/32x32/navigate_left.png" title = "{$T_PREVIOUS_UNIT.name}" alt = "{$T_PREVIOUS_UNIT.name}" />
+           <img class = "handle" src = "images/32x32/{$T_ARROW_PREVIOUS}.png" title = "{$T_PREVIOUS_UNIT.name}" alt = "{$T_PREVIOUS_UNIT.name}" />
           </a>
      {/if}
     {/if}
@@ -294,7 +294,7 @@
      {if $T_NEXT_UNIT}
       {assign var = "show_content_footer" value = 1}
           <a href = "{$smarty.server.PHP_SELF}?view_unit={$T_NEXT_UNIT.id}" title = "{$T_NEXT_UNIT.name}">
-           <img class = "handle" src = "images/32x32/navigate_right.png" title = "{$T_NEXT_UNIT.name}" alt = "{$T_NEXT_UNIT.name}" />
+           <img class = "handle" src = "images/32x32/{$T_ARROW_NEXT}.png" title = "{$T_NEXT_UNIT.name}" alt = "{$T_NEXT_UNIT.name}" />
           </a>
      {/if}
     {/if}

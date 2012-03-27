@@ -1958,10 +1958,17 @@ class EfrontTest
         }
 //pr($testQuestions);
         if (!$done && $this -> options['onebyone']) {
+         if ($GLOBALS['rtl']) {
+          $next_question_handle = 'arrow_left.png';
+          $previous_question_handle = 'arrow_right.png';
+         } else {
+          $next_question_handle = 'arrow_right.png';
+          $previous_question_handle = 'arrow_left.png';
+         }
              $testString .= '
                          <table width = "100%">
                              <tr><td style = "text-align:center;vertical-align:middle;padding-top:50px">
-                                 <img src = "images/32x32/arrow_left.png" alt = "'._PREVIOUSQUESTION.'" title = "'._PREVIOUSQUESTION.'" border = "0" id = "previous_question_button" onclick = "showTestQuestion(\'previous\')" style = "vertical-align:middle;margin-right:10px;'.($this -> options['only_forward'] ? 'visibility:hidden' : '').'" />
+                                 <img src = "images/32x32/'.$previous_question_handle.'" alt = "'._PREVIOUSQUESTION.'" title = "'._PREVIOUSQUESTION.'" border = "0" id = "previous_question_button" onclick = "showTestQuestion(\'previous\')" style = "vertical-align:middle;margin-right:10px;'.($this -> options['only_forward'] ? 'visibility:hidden' : '').'" />
                                  <select id = "goto_question" name = "goto_question" style = "vertical-align:middle;'.($this -> options['only_forward'] ? 'display:none' : '').'" onchange = "showTestQuestion(this.options[this.selectedIndex].value)">';
              for ($i = 1; $i <= sizeof($testQuestions); $i++) {
                  $testString .= '
@@ -1969,7 +1976,7 @@ class EfrontTest
              }
              $testString .= '
                                  </select>&nbsp;
-                                 <img src = "images/32x32/arrow_right.png" alt = "'._NEXTQUESTION.'" title = "'._NEXTQUESTION.'" border = "0" id = "next_question_button" onclick = "showTestQuestion(\'next\')" style = "vertical-align:middle"/>
+                                 <img src = "images/32x32/'.$next_question_handle.'" alt = "'._NEXTQUESTION.'" title = "'._NEXTQUESTION.'" border = "0" id = "next_question_button" onclick = "showTestQuestion(\'next\')" style = "vertical-align:middle"/>
                              </td></tr>
                          </table>';
              $testString .= "

@@ -22,7 +22,12 @@ function smarty_outputfilter_eF_template_includeScripts($compiled, &$smarty) {
             sorted_translations["_SHOWINGONLYACTIVEENTITIES"] = "'._SHOWINGONLYACTIVEENTITIES.'";
             sorted_translations["_SHOWINGONLYINACTIVEENTITIES"] = "'._SHOWINGONLYINACTIVEENTITIES.'";
             sorted_translations["_SHOWINGALLENTITIES"] = "'._SHOWINGALLENTITIES.'";
-            </script>';
+            sorted_translations["_NEXT"] = "'._NEXT.'";
+            sorted_translations["_PREVIOUS"] = "'._PREVIOUS.'";
+            sorted_translations["_FIRST"] = "'._FIRST.'";
+            sorted_translations["_LAST"] = "'._LAST.'";
+            sorted_rtl = "'.$GLOBALS['rtl'].'";
+           </script>';
     }
     if (preg_match('/dhtmlgoodies_tree/', $compiled) || preg_match('/class = "calendar"/', $compiled)) {
         $basicScripts[] = 'drag-drop-folder-tree';

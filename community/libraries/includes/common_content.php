@@ -4,6 +4,16 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
+if ($GLOBALS['rtl']) {
+ $arrow_previous = 'navigate_right';
+ $arrow_next = 'navigate_left';
+} else {
+ $arrow_previous = 'navigate_left';
+ $arrow_next = 'navigate_right';
+}
+$smarty -> assign("T_ARROW_PREVIOUS", $arrow_previous);
+$smarty -> assign("T_ARROW_NEXT", $arrow_next);
+
 !isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] == 'change' ? $_change_ = 1 : $_change_ = 0;
 $smarty -> assign("_change_", $_change_);
 
@@ -636,13 +646,13 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          if ($currentUnit['options']['hide_navigation'] != 1 && $currentUnit['options']['hide_navigation'] != 2) {
           if ($previousUnit) {
               $options[] = array('text' => strip_tags($previousUnit['name']),
-                     'image' => "16x16/navigate_left.png",
+                     'image' => "16x16/$arrow_previous.png",
                      'href' => $_SERVER['PHP_SELF']."?view_unit=".$previousUnit['id'],
                                  'id' => 'navigate_previous');
           }
           if ($nextUnit) {
               $options[] = array('text' => strip_tags($nextUnit['name']),
-                     'image' => "16x16/navigate_right.png",
+                     'image' => "16x16/$arrow_next.png",
                      'href' => $_SERVER['PHP_SELF']."?view_unit=".$nextUnit['id'],
                                  'id' => 'navigate_continue');
           }

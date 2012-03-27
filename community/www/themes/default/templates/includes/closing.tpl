@@ -1,7 +1,9 @@
 
 {*Closing template functions*}
 <script>
-
+{if $T_RTL}
+var tabberOptions = {ldelim}'rtl':true{rdelim};
+{/if}
 {if $T_UNIT}var currentUnit = document.getElementById('node{$T_UNIT.id}');{else}var currentUnit = '';{/if}
   var g_servername = '{$smarty.const.G_SERVERNAME}';
 </script>

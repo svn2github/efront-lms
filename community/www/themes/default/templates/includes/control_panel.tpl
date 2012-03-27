@@ -278,7 +278,7 @@
  <tr>
      <td class = "moduleCell">
          <div id="sortableList">
-             <div style="float: right; width:49.5%;height: 100%;">
+             <div style="float: {if $T_RTL}left{else}right{/if}; width:49.5%;height: 100%;">
                  <ul class="sortable" id="secondlist" style="width:100%;">
  {foreach name=positions_first key=key item=module from=$T_POSITIONS_SECOND}
                      <li id="secondlist_{$module}">

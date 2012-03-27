@@ -4191,4 +4191,5 @@ define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Επανεκκίνηση δέσμη
 define("_YOUARENOTAMEMBEROFTHISBRANCH", "Δεν επιτρέπεται να μπείτε καθώς δεν ανήκετε σε αυτό το τμήμα");
 define("_MAXONLINEUSERS", "Μέγιστος αριθμός ταυτόχρονα συνδεδεμένων χρηστών");
 define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Αν ορίσετε ένα branch url, τότε το branch θα είναι διαθέσιμο από το url");
+define("_FIRST", "Αρχή");
 ?>

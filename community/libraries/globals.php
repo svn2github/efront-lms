@@ -167,7 +167,11 @@ if (isset($GLOBALS['branchpart']) && $GLOBALS['branchpart']) {
 */
 //Initialize languages and notify smarty on weather we have an RTL language
 $languages = EfrontSystem :: getLanguages();
-!$languages[$setLanguage]['rtl'] OR $smarty -> assign("T_RTL", 1);
+if ($languages[$setLanguage]['rtl']) {
+ $smarty -> assign("T_RTL", 1);
+ $GLOBALS['rtl'] = true;
+}
+//$smarty -> assign("T_RTL", 1);$GLOBALS['rtl'] = true;
 //Instantiate current theme
 try {
     $currentTheme = new themes(G_CURRENTTHEME);
@@ -313,10 +317,11 @@ function setDefines() {
  }
  define('G_SERVERNAME', 'http://'.$_SERVER["HTTP_HOST"].G_OFFSET.G_BRANCH_URL);
  if (defined('G_OFFSET')) {
-  $_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.str_replace(G_OFFSET, '', $_SERVER['PHP_SELF']);
+  //$_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.str_replace(G_OFFSET, '', $_SERVER['PHP_SELF']);
+  $_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.preg_replace('#^'.G_OFFSET.'#', '', $_SERVER['PHP_SELF']);
  }
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 14279;
+    $build = 14293;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

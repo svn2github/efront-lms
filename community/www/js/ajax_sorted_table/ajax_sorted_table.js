@@ -759,30 +759,25 @@ function eF_js_sortTable(el, other) {
         } 
         
 		
-        var select = document.createElement('select');                      //Create a select element that will hold the rows per page
-        //select.setAttribute('type', 'text');
-        //var option = document.createElement('option');                      //Add the first option, which is the current setting
-        //option.setAttribute('value', rowsPerPage[tableIndex]);
-        //option.innerHTML = rowsPerPage[tableIndex];
-        //select.appendChild(option);
+        var select_rows = document.createElement('select');                      //Create a select element that will hold the rows per page
         rowsPerPageArray = new Array('10', '15', '20', '50', '100', '200', '500');
         for (var i = 0; i < rowsPerPageArray.length; i++) {                                      //Append 10 values, 5,10,15, ..., 45 rows per page
             var option = document.createElement('option');
             option.setAttribute('value', rowsPerPageArray[i]);
             option.innerHTML = rowsPerPageArray[i];
-            select.appendChild(option);
+            select_rows.appendChild(option);
             if (rowsPerPage[tableIndex] == rowsPerPageArray[i]) {
             	option.setAttribute('selected', 'selected');
             }
         }
-        select.setAttribute('onchange', 'numRows = parseInt(this.options[this.selectedIndex].value);eF_js_changeRowsPerPage('+tableIndex+', numRows)');        //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
-        select.setAttribute('id', tableIndex+'_sortedTable_rowsPerPage');     //Set its id so we can retrieve its data easily
-        select.style.verticalAlign = 'middle';
+        select_rows.setAttribute('onchange', 'numRows = parseInt(this.options[this.selectedIndex].value);eF_js_changeRowsPerPage('+tableIndex+', numRows)');        //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+        select_rows.setAttribute('id', tableIndex+'_sortedTable_rowsPerPage');     //Set its id so we can retrieve its data easily
+        select_rows.style.verticalAlign = 'middle';
         
-        td.innerHTML += '<span style = "vertical-align:middle;">'+sorted_translations["rowsperpage"]+':&nbsp;</span>';
-        td.appendChild(select);                                             //Append it to the footer cell
-
-        
+        var span_rows = document.createElement('span');
+        span_rows.style.verticalAlign='middle';
+        span_rows.innerHTML = sorted_translations["rowsperpage"]+'&nbsp;';
+       
         var input = document.createElement('input');                        //Create a hidden element, that holds the current page.
         input.setAttribute('type', 'hidden');
         input.setAttribute('id', tableIndex+'_sortedTable_sortBy');
@@ -800,26 +795,81 @@ function eF_js_sortTable(el, other) {
             }
         }
         
-        var select = document.createElement('select');                      //Create a select element, that lists the pages
-        select.setAttribute('id', tableIndex+'_sortedTable_currentPage');
-        select.setAttribute('onchange', 'eF_js_changePage('+tableIndex+', this.options[this.selectedIndex].value)');      //Set an onchange event, so that changing the value fires a change on the page
+        var select_page = document.createElement('select');                      //Create a select element, that lists the pages
+        select_page.setAttribute('id', tableIndex+'_sortedTable_currentPage');
+        select_page.setAttribute('onchange', 'eF_js_changePage('+tableIndex+', this.options[this.selectedIndex].value)');      //Set an onchange event, so that changing the value fires a change on the page
         for (var i = 0; i < pages; i++) {                                   //Add an option for each page
             var option = document.createElement('option');
             option.setAttribute('value', i);
             option.innerHTML = (1 + i*rowsPerPage[tableIndex])+'-'+Math.min((i + 1)*rowsPerPage[tableIndex], table.getAttribute('size') ? table.getAttribute('size') : table.rows.length-2);
-            select.appendChild(option);
+            select_page.appendChild(option);
         }
 
-        select.style.verticalAlign = 'middle';
+        select_page.style.verticalAlign = 'middle';
                 
-        td.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["displayingresults"]+':&nbsp;</span>';
-        td.innerHTML += '<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',0)\"><img src = "js/ajax_sorted_table/images/navigate_left2.png" border = "0" style = "vertical-align:middle" /></a>&nbsp;';                //Add a \"first page\" handler
-        td.innerHTML += '<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',\'previous\')\"><img src = "js/ajax_sorted_table/images/navigate_left.png" border = "0" style = "vertical-align:middle" /></a>&nbsp;';    //Add a \"previous page\" handler
-        td.appendChild(select);
-        td.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["outof"]+'&nbsp;' + (table.getAttribute('size') ? table.getAttribute('size') : table.rows.length-2) + '</span>';
-        td.innerHTML += '&nbsp;<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+',\'next\')\"><img src = "js/ajax_sorted_table/images/navigate_right.png" border = "0" style = "vertical-align:middle" /></a>';        //Add a \"next page\" handler
-        td.innerHTML += '&nbsp;<a href = \"javascript:void(0)\" onclick = \"eF_js_changePage('+tableIndex+','+(pages - 1)+')\"><img src = "js/ajax_sorted_table/images/navigate_right2.png" border = "0" style = "vertical-align:middle" /></a>';  //Add a \"last page\" handler
+        if (!sorted_rtl) {
+	        var img_left_src = 'navigate_left';
+	        var img_right_src = 'navigate_right';
+        } else {
+	        var img_left_src = 'navigate_right';
+	        var img_right_src = 'navigate_left';
+        }
+        
+        var span_results = document.createElement('span');
+        span_results.style.verticalAlign = 'middle';
+        span_results.innerHTML = '&nbsp;'+sorted_translations["displayingresults"]+'&nbsp;';
+        var a_first_page = document.createElement('span');
+        a_first_page.style.verticalAlign = 'middle';
+        a_first_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',0)');
+        a_first_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_left_src+'2.png"  alt = "'+sorted_translations["_FIRST"]+'" title = "'+sorted_translations["_FIRST"]+'" class = "handle" />';
+        var a_previous_page = document.createElement('span');
+        a_previous_page.style.verticalAlign = 'middle';
+        a_previous_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',\'previous\')');
+        a_previous_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_left_src+'.png"  alt = "'+sorted_translations["_PREVIOUS"]+'" title = "'+sorted_translations["_PREVIOUS"]+'" class = "handle" />';
 
+        var span_outof = document.createElement('span');
+        span_outof.style.verticalAlign = 'middle';
+        span_outof.innerHTML = '&nbsp;'+sorted_translations["outof"]+'&nbsp;' + (table.getAttribute('size') ? table.getAttribute('size') : table.rows.length-2)+'&nbsp;';
+        
+        var a_next_page = document.createElement('span');
+        a_next_page.style.verticalAlign = 'middle';
+        a_next_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',\'next\')');
+        a_next_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_right_src+'.png" alt = "'+sorted_translations["_NEXT"]+'" title = "'+sorted_translations["_NEXT"]+'" class = "handle" />';
+        var a_last_page = document.createElement('span');
+        a_last_page.style.verticalAlign = 'middle';
+        a_last_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+','+(pages - 1)+')');
+        a_last_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_right_src+'2.png" alt = "'+sorted_translations["_LAST"]+'" title = "'+sorted_translations["_LAST"]+'" class = "handle" />';
+
+        if (!sorted_rtl) {
+        	td.appendChild(span_rows);
+        	td.appendChild(select_rows);                                             //Append it to the footer cell
+        	td.appendChild(span_results);
+        	td.appendChild(a_first_page);
+        	td.appendChild(a_previous_page);        
+        	td.appendChild(select_page);
+        	td.appendChild(span_outof);
+        	td.appendChild(a_next_page);
+        	td.appendChild(a_last_page);
+        } else {
+            td.appendChild(span_outof);
+            td.appendChild(select_page);
+            td.appendChild(a_previous_page);
+            td.appendChild(a_first_page);
+            td.appendChild(span_results);
+            td.appendChild(select_rows);                                             //Append it to the footer cell
+            td.appendChild(span_rows);
+        	td.appendChild(a_next_page);
+        	td.appendChild(a_last_page);
+
+        	//        	
+            //                    
+            //
+            //
+            
+            //
+        }
+        
+        
         if (!Object.isUndefined(noFooter[tableIndex]) || ((table.rows.length < minimumRows + 2 || parseInt(table.getAttribute('size')) < minimumRows) && !currentFilter[tableIndex] && !currentOffset[tableIndex] && !currentBranchFilter[tableIndex] && !currentJobFilter[tableIndex] && !activeFilter[tableIndex])) {
             tr.style.display = 'none';
             if (!Object.isUndefined(noFooter[tableIndex])) {

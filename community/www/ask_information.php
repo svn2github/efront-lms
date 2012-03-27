@@ -74,7 +74,7 @@ try {
    }
   }
   if ($string = implode("", $tooltipInfo)) {
-   echo $string;
+   echo '<html '.($GLOBALS['rtl'] ? 'dir = "rtl"' : '').' >'.$string.'</html>';
   } else {
    echo _NODATAFOUND;
   }

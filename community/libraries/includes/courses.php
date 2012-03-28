@@ -72,7 +72,12 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
   $smarty -> assign('T_EDIT_COURSE', $editCourse);
 
   //Perform ajax operations
-  if ($_GET['ajax'] == 'lessonsTable') {
+  if ($_GET['ajax'] == 'skillsTable') {
+      $skills = $editCourse -> getSkills();
+   $dataSource = $skills;
+   $tableName = 'skillsTable';
+   include("sorted_table.php");
+  } else if ($_GET['ajax'] == 'lessonsTable') {
    $courseUsers = $editCourse -> countCourseUsers(array('archive' => false));
    $smarty -> assign("T_COURSE_HAS_USERS", $courseUsers['count']);
 

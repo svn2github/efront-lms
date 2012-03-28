@@ -134,14 +134,14 @@ if ($_GET['op'] == 'course_info') {
   $form -> setDefaults(array("completed" => $user -> user['completed'],
             "score" => $user -> user['completed'] ? $user -> user['score'] : round($totalScore),
             "comments" => $user -> user['comments']));
-/*		if ($user -> user['to_timestamp']) {					
-	    	$smarty -> assign("T_TO_TIMESTAMP",   $user -> user['to_timestamp']);
-		} else {
-    		$smarty -> assign("T_TO_TIMESTAMP",   mktime(date("H"), date("i"), date("s"), date("m")+1, date("d"), date("Y")));    //One month after
-		}
-*/
+  if ($user -> user['to_timestamp']) {
+      $smarty -> assign("T_TO_TIMESTAMP", $user -> user['to_timestamp']);
+  } else {
+      $smarty -> assign("T_TO_TIMESTAMP", mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y")));
+  }
+
   if ($form -> isSubmitted() && $form -> validate()) {
-//			$toTimestamp   = mktime($_POST['to_Hour'], $_POST['to_Minute'], 0, $_POST['to_Month'],   $_POST['to_Day'],   $_POST['to_Year']);
+   $toTimestamp = mktime($_POST['completion_Hour'], $_POST['completion_Minute'], 0, $_POST['completion_Month'], $_POST['completion_Day'], $_POST['completion_Year']);
    if ($form -> exportValue('completed')) {
     $courseUser = EfrontUserFactory :: factory($_GET['edit_user'], false, 'student');
     $courseUser -> completeCourse($currentCourse -> course['id'], $form -> exportValue('score'), $form -> exportValue('comments'), $toTimestamp);
@@ -193,6 +193,19 @@ if ($_GET['op'] == 'course_info') {
    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
    $message = _PROBLEMRESETINGPROGRESS.': '.$e -> getMessage().' &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
    $message_type = 'failure';
+  }
+ } else if (isset($_GET['change_key']) && in_array($_GET['login'], array_keys($users = $currentCourse -> getCourseUsers($defaultConstraints)))) {
+  try {
+   $result = eF_getTableData("users_to_courses", "users_LOGIN,issued_certificate", "courses_ID = ".$currentCourse -> course['id']. " and users_LOGIN = '".$_GET['login']."'");
+   $issued_certificate = unserialize($result[0]['issued_certificate']);
+   if ($issued_certificate) {
+    $issued_certificate['serial_number'] = $_GET['change_key'];
+    eF_updateTableData("users_to_courses", array('issued_certificate' => serialize($issued_certificate)), "courses_ID = ".$currentCourse -> course['id']. " and users_LOGIN = '".$_GET['login']."'");
+    echo json_encode(array('key' => $_GET['change_key']));
+   }
+   exit;
+  } catch (Exception $e) {
+   handleAjaxExceptions($e);
   }
  } else if (isset($_GET['auto_complete'])) {
   try {
@@ -259,7 +272,7 @@ if ($_GET['op'] == 'course_info') {
  $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
   //pr($studentRoles);
-  $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
+  $smarty -> assign("T_DATASOURCE_COLUMNS", array('login', 'active_in_course', 'completed', 'to_timestamp', 'score', 'issued_certificate', 'expire_certificate', 'operations'));
   $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
   $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
   $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";

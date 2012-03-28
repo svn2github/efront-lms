@@ -74,6 +74,8 @@
 - Session expiration page now includes a login box
 - Fixed importing users to courses from csv with an empty type not working
 - Added Branch URLs
+- Added RTL theme
+- Added group filter in test reports
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

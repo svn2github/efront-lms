@@ -11,7 +11,7 @@ table#courseUsersTable td.completed,table#instanceUsersTable td.completed{width:
 table#courseUsersTable td.enrolled_on,table#instanceUsersTable td.enrolled_on{width:10%;text-align:center;}
 table#courseUsersTable td.to_timestamp,table#instanceUsersTable td.to_timestamp{width:10%;text-align:center;}
 table#courseUsersTable td.score,table#instanceUsersTable td.score{width:5%;text-align:center;}
-table#courseUsersTable td.issued_certificate,table#instanceUsersTable td.issued_certificate{width:5%;text-align:center;}
+table#courseUsersTable td.issued_certificate,table#instanceUsersTable td.issued_certificate{width:15%;text-align:center;}
 table#courseUsersTable td.expire_certificate,table#instanceUsersTable td.expire_certificate{width:5%;text-align:center;}
 table#courseUsersTable td.operations,table#instanceUsersTable td.operations{width:5%;text-align:center;white-space:nowrap;}
 table#courseUsersTable td.has_course,table#instanceUsersTable td.has_course{width:10%;text-align:center;}

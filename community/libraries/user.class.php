@@ -3228,13 +3228,13 @@ class EfrontStudent extends EfrontLessonUser
    //keep completed date when it is set (when only score changed for example)
    $checkCompleted = $userCourses[$course -> course['id']]['to_timestamp'];
    $fields = array('completed' => 1,
-       'to_timestamp' => $checkCompleted && !$time ? $checkCompleted : $timestamp,
+       'to_timestamp' => $timestamp,
        'score' => str_replace(',','.', $score),
        'comments' => $comments);
    $where = "users_LOGIN = '".$this -> user['login']."' and courses_ID=".$course -> course['id'];
    EfrontCourse::persistCourseUsers($fields, $where, $course -> course['id'], $this -> user['login']);
    if ($course -> options['auto_certificate']) {
-    $certificate = $course -> prepareCertificate($this -> user['login']);
+    $certificate = $course -> prepareCertificate($this -> user['login'], $time);
     $course -> issueCertificate($this -> user['login'], $certificate);
    }
    $event = array("type" => EfrontEvent::COURSE_COMPLETION,

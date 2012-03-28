@@ -1581,7 +1581,7 @@ class EfrontStats
      * @access public
      * @static
      */
-    public static function getTestInfo($tests = false, $categories = false, $show_all = false, $lesson = false) {
+    public static function getTestInfo($tests = false, $categories = false, $show_all = false, $lesson = false, $users = false) {
         if ($tests == false) {
             $tests = eF_getTableDataFlat("tests, content", "tests.id", "tests.content_ID=content.id and content.ctg_type = 'tests' and tests.lessons_ID != 0"); //This way we get tests that have a corresponding unit
             $tests = $tests['id'];
@@ -1592,16 +1592,17 @@ class EfrontStats
         $lessonNames = eF_getTableDataFlat("lessons", "id,name");
         sizeof($lessonNames) > 0 ? $lessonNames = array_combine($lessonNames['id'], $lessonNames['name']) : $lessonNames = array();
 
-        if ($lesson) {
-         $lessonUsers = eF_getTableDataFlat("users_to_lessons ul, users u", "ul.users_LOGIN", "u.login=ul.users_LOGIN and u.archive=0 and ul.lessons_ID=$lesson and ul.archive=0");
-         $users = array_combine($lessonUsers['users_LOGIN'], $lessonUsers['users_LOGIN']);
-        } else {
-         $result = eF_getTableData("users", "name, surname, login");
-         $users = array();
-         foreach ($result as $user) {
-          $users[$user['login']] = $user;
+        if (!$users) {
+         if ($lesson) {
+          $lessonUsers = eF_getTableDataFlat("users_to_lessons ul, users u", "ul.users_LOGIN", "u.login=ul.users_LOGIN and u.archive=0 and ul.lessons_ID=$lesson and ul.archive=0");
+          $users = array_combine($lessonUsers['users_LOGIN'], $lessonUsers['users_LOGIN']);
+         } else {
+          $result = eF_getTableData("users", "name, surname, login");
+          $users = array();
+          foreach ($result as $user) {
+           $users[$user['login']] = $user;
+          }
          }
-
         }
 
         if ($users) {
@@ -2244,15 +2245,21 @@ class EfrontStats
 	 * @since 3.5.2
 	 * @access public
 	 */
- public static function getQuestionsStatistics($test = false) {
+ public static function getQuestionsStatistics($test = false, $users = false) {
+  if ($users) {
+   $sql = " and ct.users_LOGIN in ('".implode("','", $users)."')";
+  } else {
+   $sql = '';
+  }
+
      if (!$test) {
-         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct, users u", "ct.*", "ct.users_LOGIN=u.login and u.archive=0 and ct.status != 'deleted' and ct.status != 'incomplete'");
+         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct, users u", "ct.*", "ct.users_LOGIN=u.login and u.archive=0 and ct.status != 'deleted' and ct.status != 'incomplete' $sql");
      } else {
          $test instanceof EfrontTest ? $testId = $test -> test['id'] : $testId = $test;
          if (!eF_checkParameter($testId, 'id')) {
              throw new EfrontTestException(_INVALIDID, EfrontLessonException :: INVALID_ID);
          }
-         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct, users u", "ct.*", "ct.users_LOGIN=u.login and u.archive=0 and ct.status != 'deleted'  and ct.status != 'incomplete' and tests_ID = $testId");
+         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct, users u", "ct.*", "ct.users_LOGIN=u.login and u.archive=0 and ct.status != 'deleted'  and ct.status != 'incomplete' and tests_ID = $testId $sql");
      }
 
      $questionStats = array();

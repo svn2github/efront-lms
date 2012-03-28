@@ -39,16 +39,22 @@ class module_BBB extends EfrontModule {
                        ) DEFAULT CHARSET=utf8;");
 
 
-        if (!($c = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server','http://yourserver.com/');"))) {
-            $c = eF_executeNew("UPDATE `configuration` SET value = 'http://yourserver.com/' WHERE name = 'module_BBB_server';");
+        try {
+         eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server','http://yourserver.com/');");
+        } catch (Exception $e) {
+            eF_executeNew("UPDATE `configuration` SET value = 'http://yourserver.com/' WHERE name = 'module_BBB_server';");
         }
 
-        if (!($d = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_salt','29ae87201c1d23f7099f3dfb92f63578');"))) {
-            $d = eF_executeNew("UPDATE `configuration` SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
+        try {
+         eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_salt','29ae87201c1d23f7099f3dfb92f63578');");
+        } catch (Exception $e) {
+         eF_executeNew("UPDATE `configuration` SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
         }
 
-        if (!($e = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server_version', '1');"))) {
-            $e = eF_executeNew("UPDATE `configuration` SET `value` = '1' WHERE `name` = 'module_BBB_server_version';");
+        try {
+         eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server_version', '1');");
+        } catch (Exception $e) {
+         eF_executeNew("UPDATE `configuration` SET `value` = '1' WHERE `name` = 'module_BBB_server_version';");
         }
 
         return $a && $b && $c && $d && $e;

@@ -7,15 +7,15 @@ function updateCoupon(el) {
 function onUpdateCoupon(el, response) {
 	try {
 		$('coupon_code').value = $('coupon_bogus').value;
-		$('total_price_string').update(response.evalJSON().price_string);
+		$('total_price_string').update(response.evalJSON(true).price_string);
 		if ($('paypal_form')) { 
 			if ($('paypal_form')['amount']) {
-				$('paypal_form')['amount'].value = response.evalJSON().price;
+				$('paypal_form')['amount'].value = response.evalJSON(true).price;
 			} else if ($('paypal_form')['a3']) {
-				$('paypal_form')['a3'].value = response.evalJSON().price;
+				$('paypal_form')['a3'].value = response.evalJSON(true).price;
 			}
 			if ($('paypal_form')['item_number']) {
-				$('paypal_form')['item_number'].value += response.evalJSON().id+',';
+				$('paypal_form')['item_number'].value += response.evalJSON(true).id+',';
 				//$('paypal_form')['item_number'].value = $('paypal_form')['item_number'].value.slice(0, -1); //Remove trailing ','
 			}
 		}
@@ -87,6 +87,7 @@ function showAll() {
 	$('catalog_hide_all').show();
 	$('catalog_show_all').hide();
 	setCookie('collapse_catalog', 0);
+	setCookie('hidden_catalog_entries', '', -1);
 }
 function hideAll() {
 	$$('tr').each(function (tr) 	  {tr.id.match(/subtree/) ? tr.hide() : null;});
@@ -99,9 +100,15 @@ function hideAll() {
 	$('catalog_hide_all').hide();
 	$('catalog_show_all').show();
 	setCookie('collapse_catalog', 1);
+	setCookie('hidden_catalog_entries', '', -1);
 }
 
-function showHideDirections(el, ids, id, mode) {	 
+function showHideDirections(el, ids, id, mode) {
+	if (readCookie('hidden_catalog_entries')) {
+		var hidden_catalog_entries = getCookie('hidden_catalog_entries').evalJSON(true);
+	} else {
+		var hidden_catalog_entries = new Array();
+	}
 	
 	Element.extend(el);		//IE intialization
 	if (mode == 'show') {
@@ -112,6 +119,8 @@ function showHideDirections(el, ids, id, mode) {
 		}
 		setImageSrc(el, 16, 'navigate_up');
 		$('subtree_img'+id) ? $('subtree_img'+id).addClassName('visible') : '';
+		var idx = hidden_catalog_entries.indexOf(id);
+		if(idx!=-1) hidden_catalog_entries.splice(idx, 1);
 	} else {
 		el.up().up().nextSiblings().each(function(s) {s.hide();});
 		if (ids) {
@@ -120,7 +129,9 @@ function showHideDirections(el, ids, id, mode) {
 		}
 		setImageSrc(el, 16, 'navigate_down.png');
 		$('subtree_img'+id) ? $('subtree_img'+id).removeClassName('visible') : '';
+		hidden_catalog_entries.push(id);
 	}
+	setCookie('hidden_catalog_entries', Object.toJSON(hidden_catalog_entries.uniq()));
 }
 function showHideCourses(el, course) {
 	Element.extend(el);
@@ -166,3 +177,7 @@ function filterTree(el, url) {
 	});
 }
 
+if (getCookie('hidden_catalog_entries').evalJSON(true)) {
+	var ids = getCookie('hidden_catalog_entries').evalJSON(true);
+	ids.each(function (s) {showHideDirections($('subtree_img'+s), $('subtree_children_'+s) ? $('subtree_children_'+s).innerHTML : '', s, 'hide')})
+}

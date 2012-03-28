@@ -2195,7 +2195,7 @@ class EfrontCourse
 	 * @since 3.5.0
 	 * @access public
 	 */
- public function prepareCertificate($login) {
+ public function prepareCertificate($login, $time = '') {
   $login = EfrontUser::convertArgumentToUserLogin($login);
   $courseUser = EfrontUserFactory :: factory($login);
   $userStats = EfrontStats :: getUsersCourseStatus($this, $login);
@@ -2205,7 +2205,7 @@ class EfrontCourse
       'user_name' => $courseUser -> user['name'],
       'serial_number' => md5(uniqid(mt_rand(), true)),
       'grade' => $userStats[$this -> course['id']][$login]['score'],
-      'date' => time());
+      'date' => $time != '' ? $time : time());
   $data = serialize($data);
   $modules = eF_loadAllModules();
   foreach ($modules as $module) {

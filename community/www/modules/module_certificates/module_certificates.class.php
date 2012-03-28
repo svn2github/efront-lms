@@ -159,7 +159,6 @@ class module_certificates extends EfrontModule {
         $currentLesson = $this -> getCurrentLesson();
         $currentUser = $this -> getCurrentUser();
         $smarty -> assign("T_MODOP", $_GET['modop']);
-
         try {
             $role = $currentUser -> getRole($this -> getCurrentLesson());
         }
@@ -354,7 +353,10 @@ class module_certificates extends EfrontModule {
    $smarty -> assign("T_CERTIFICATE_DATA", $certificate_data);
             //Get users list through ajax
             if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
-                $users = EfrontStats::getUsersLessonStatus($currentLesson);
+                //$users = EfrontStats::getUsersLessonStatus($currentLesson);
+                $users = $currentLesson->getUsers();
+                $users = EfrontStats::getUsersLessonStatus($currentLesson, array_keys($users), array('noprojects' => 1, 'notests' => 1));
+
                 $users = $users[$currentLesson -> lesson['id']];
                 foreach ($users as $key => $user) {
                     if ($user['user_type'] != 'student') {

@@ -987,13 +987,13 @@ class EfrontDirectionsTree extends EfrontTree
   }
   $treeString .= '
      <table class = "directionsTable" id = "direction_'.$current['id'].'" '.($iterator -> getDepth() >= 1 ? $display : '').'>
-      <tr class = "lessonsList">
+      <tr class = "lessonsList" onclick = "Element.extend(this);showHideDirections($(\'subtree_img'.$current['id'].'\'), \''.implode(",", $children).'\', \''.$current['id'].'\', ($(\'subtree_img'.$current['id'].'\').hasClassName(\'visible\')) ? \'hide\' : \'show\');">
        <td class = "listPadding" style = "width:1px"><div style = "width:'.(20 * $iterator -> getDepth()).'px;">&nbsp;</div></td>
        <td class = "listToggle">';
   if ($iterator -> getDepth() >= 1) {
-   $treeString .= '<img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_up.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "Element.extend(this);showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
+   $treeString .= '<img id = "subtree_img'.$current['id'].'" class = "visible" src = "images/16x16/navigate_up.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" >';
   } else {
-   $treeString .= '<img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" onclick = "Element.extend(this);showHideDirections(this, \''.implode(",", $children).'\', \''.$current['id'].'\', (this.hasClassName(\'visible\')) ? \'hide\' : \'show\');">';
+   $treeString .= '<img id = "subtree_img'.$current['id'].'" '.$classString.' src = "images/16x16/navigate_'.$imageString.'.png" alt = "'._CLICKTOTOGGLE.'" title = "'._CLICKTOTOGGLE.'" >';
   }
   $treeString .= '</td>
        <td>

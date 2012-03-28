@@ -63,8 +63,19 @@ function onSetAllUsersStatusCompleted(el, response) {
 		eF_js_redrawPage('courseUsersTable', true);
 	}
 }
+function updateCertificateKey(el, login) {
+	var url = location.toString();
+	var parameters = {login:login, change_key: $(login+'_certificate_key').value, method: 'get'};
+	ajaxRequest(el, url, parameters, onUpdateCertificateKey);
+}
 
-
+function onUpdateCertificateKey(el, response) {
+	var login = el.id.replace("_certificate_key_save", "");
+	$(login+'_certificate_key').hide();
+	$(login+'_certificate_key_span').update(response.evalJSON(true).key);
+	$(login+'_certificate_key_span').show(); 
+	$(login+'_certificate_key_save').hide();
+}
 function showEdit(id) {
 	$('add_schedule_link_'+id).hide();
 	$('schedule_dates_'+id).hide();

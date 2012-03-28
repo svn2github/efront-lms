@@ -4192,4 +4192,6 @@ define("_YOUARENOTAMEMBEROFTHISBRANCH", "You are not allowed to login because yo
 define("_MAXONLINEUSERS", "Most users ever online");
 define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "If you specify a branch url, then the branch will be made directly accessible from the url");
 define("_FIRST", "First");
+define("_ALLOWLOGINFROMDIRECTPAGE", "Users may sign in from the default URL");
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "You can only sign in from your branch's URL");
 ?>

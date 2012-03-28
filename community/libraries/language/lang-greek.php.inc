@@ -4192,4 +4192,6 @@ define("_YOUARENOTAMEMBEROFTHISBRANCH", "Δεν επιτρέπεται να μπ
 define("_MAXONLINEUSERS", "Μέγιστος αριθμός ταυτόχρονα συνδεδεμένων χρηστών");
 define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Αν ορίσετε ένα branch url, τότε το branch θα είναι διαθέσιμο από το url");
 define("_FIRST", "Αρχή");
+define("_ALLOWLOGINFROMDIRECTPAGE", "Οι χρήστες μπορούν να μπουν από το κεντρικό URL");
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Μπορείτε να μπείτε μόνο από το URL τoυ τμήματός σας");
 ?>

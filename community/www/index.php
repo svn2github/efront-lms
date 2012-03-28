@@ -257,14 +257,10 @@ if ($form -> isSubmitted() && $form -> validate()) {
    if ($user->user['user_type'] != 'administrator' && !$user->aspects['hcd']->isAssignedToBranch($_SESSION['s_current_branch'])) {
     eF_redirect("index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));
    }
+  } else if ($user->user['user_type'] != 'administrator' && !$GLOBALS['configuration']['allow_direct_login']) {
+   eF_redirect("index.php?message=".urlencode(_YOUCANONLYLOGINFROMYOURBRANCHURL));
   }
   $user -> login($form -> exportValue('password'));
-  if ($_SESSION['s_current_branch']) {
-   if (!$user->aspects['hcd']->isAssignedToBranch($_SESSION['s_current_branch'])) {
-    $user->logout();
-    eF_redirect("index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));
-   }
-  }
   //Check whether there are any fields that must be filled in by the user
   $result = eF_getTableData("user_profile", "name", "active=1 and mandatory = 2");
   foreach ($result as $value) {

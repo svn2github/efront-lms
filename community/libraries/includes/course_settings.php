@@ -393,9 +393,13 @@ if ($_GET['op'] == 'course_info') {
     $courseName = $issued_data['course_name'];
     $courseGrade = $issued_data['grade'];
     $serialNumber = $issued_data['serial_number'];
-    if(eF_checkParameter($issued_data['date'], 'timestamp'))
-    $issued_data['date'] = formatTimestamp($issued_data['date']);
-    $certificateDate = $issued_data['date'];
+    if (eF_checkParameter($issued_data['date'], 'timestamp'))
+    $certificateDate = formatTimestamp($issued_data['date']);
+    if ($course -> course['certificate_expiration'] != 0) {
+     $expirationArray = convertTimeToDays($course -> course['certificate_expiration']);
+     $expire_certificateTimestamp = getCertificateExpirationTimestamp($issued_data['date'], $expirationArray);
+     $expireDate = formatTimestamp($expire_certificateTimestamp);
+    }
     $xmlExport = new XMLExport($templateData[0]['certificate_xml']);
     $creator = $xmlExport->getCreator();
     $author = $xmlExport->getAuthor();
@@ -426,9 +430,18 @@ if ($_GET['op'] == 'course_info') {
     $xmlExport->showStudentName($pdf, $userName.' '.$userSurName);
     $xmlExport->showCourseName($pdf, $courseName);
     $xmlExport->showGrade($pdf, $courseGrade);
+    if ($course -> course['certificate_expiration'] != 0) {
+     $xmlExport->showExpireDate($pdf, $expireDate);
+    }
+    if ($course -> options['custom1'] != '') {
+     $xmlExport->showCustomOne($pdf, $course -> options['custom1']);
+    }
+    if ($course -> options['custom2'] != '') {
+     $xmlExport->showCustomTwo($pdf, $course -> options['custom2']);
+    }
     //				$fileNamePdf = "certificate_".$_GET['user'].".pdf";
     //				$pdf->Output($fileNamePdf, 'D');
-    $fileNamePdf = "certificate_".$_GET['user'].".pdf";
+    $fileNamePdf = $course -> course['name']."_".$_GET['user'].".pdf";
    }
    else{
     $tmp = explode('-', $_GET['certificate_tpl']);

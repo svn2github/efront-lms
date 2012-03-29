@@ -177,6 +177,30 @@ class XMLExport{
    $this->showLabel($pdf, $date, $date_['font'], $date_['weight'], $date_['size'], $date_['color'], $date_['x'], $date_['y']);
  }
 
+ public function showExpireDate($pdf, $expireDate){
+
+  $date_ = $this->template->certificate->expire;
+
+  if($date_)
+   $this->showLabel($pdf, $expireDate, $date_['font'], $date_['weight'], $date_['size'], $date_['color'], $date_['x'], $date_['y']);
+ }
+
+ public function showCustomOne($pdf, $custom){
+
+  $custom_ = $this->template->certificate->custom1;
+
+  if($custom_)
+   $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+ }
+
+ public function showCustomTwo($pdf, $custom){
+
+  $custom_ = $this->template->certificate->custom2;
+
+  if($custom_)
+   $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+ }
+
  public function showSerialNumber($pdf, $serial){
 
   $serial_ = $this->template->certificate->serial;

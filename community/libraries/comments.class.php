@@ -89,7 +89,11 @@ class comments extends EfrontEntity
 
      */
     public function getForm($form) {
-     $form -> addElement('textarea', 'data', _COMMENT, 'class = "simpleEditor inputTextarea"');
+     if ($_SESSION['s_type'] == 'student') {
+      $form -> addElement('textarea', 'data', _COMMENT, 'class = "inputTextarea"');
+     } else {
+      $form -> addElement('textarea', 'data', _COMMENT, 'class = "simpleEditor inputTextarea"');
+     }
      $form -> addElement('advcheckbox', 'private', _PRIVATE, null, 'class = "inputCheckbox"', array(0, 1));
      $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
      $form -> setDefaults(array('data' => $this -> comments['data'],
@@ -106,6 +110,9 @@ class comments extends EfrontEntity
     public function handleForm($form, $values = false) {
         if (!$values) {
             $values = $form -> exportValues();
+        }
+        if ($_SESSION['s_type'] == 'student') {
+         $values['data'] = strip_tags($values['data']);
         }
         if (isset($_GET['edit'])) {
             $this -> comments["data"] = $values['data'];

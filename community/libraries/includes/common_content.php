@@ -588,7 +588,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                     }
                 }
             }
-            if (isset($_GET['set_seen'])) {
+            if (isset($_GET['set_seen']) && $ruleCheck) {
                 try {
                     $currentUser -> setSeenUnit($currentUnit, $currentLesson, $_GET['set_seen']);
                     $newUserProgress = EfrontStats :: getUsersLessonStatus($currentLesson, $currentUser -> user['login']);

@@ -12,7 +12,7 @@ if ($currentEmployee -> getType() == _EMPLOYEE && isset($GLOBALS['configuration'
 }
 $loadScripts[] = 'hcd';
 if (!isset($_COOKIE['orgChartMode']) && stripos($_SERVER['HTTP_USER_AGENT'], 'msie') !== false) {
- setcookie("orgChartMode", 1);
+ setcookie("orgChartMode", 1, time()+60*60*24*30, false, false, false, true);
  $_COOKIE['orgChartMode'] = 1;
 }
 

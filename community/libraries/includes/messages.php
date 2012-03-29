@@ -277,6 +277,7 @@ try {
         if ($form -> isSubmitted() && $form -> validate()) {
             $values = $form -> exportValues();
             if ($_SESSION['s_type'] == 'student') {
+             $values['subject'] = strip_tags($values['subject']);
              $values['body'] = strip_tags($values['body']);
             }
             // The field with the recipients is no longer mandatory: we should check if it is empty
@@ -524,11 +525,11 @@ try {
             } else {
                 $sort = 'priority';
             }
+            $smarty -> assign("T_MESSAGES_SIZE", sizeof($folderMessages));
             $folderMessages = eF_multiSort($folderMessages, $_GET['sort'], $order);
             if (isset($_GET['filter'])) {
                 $folderMessages = eF_filterData($folderMessages , $_GET['filter']);
             }
-            $smarty -> assign("T_MESSAGES_SIZE", sizeof($folderMessages));
             if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
                 isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
                 $folderMessages = array_slice($folderMessages, $offset, $limit);

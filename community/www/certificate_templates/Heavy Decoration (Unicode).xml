@@ -3,9 +3,12 @@
 	<certificate>
 		<student font="Freeserif" weight="" size="35" color="#000000" x="5" y="100" align="center"></student>
 		<course font="Freeserif" weight="" size="28" color="#000000" x="5" y="133" align="center"></course>
-		<grade font="Freeserif" weight="bold" size="28" color="#000000" x="160" y="150" align="center"></grade>
-		<date font="Freeserif" weight="" size="15" color="#575757" x="208" y="170"></date>
+		<grade font="Freeserif" weight="bold" size="28" color="#000000" x="160" y="145" align="center"></grade>
+		<date font="Freeserif" weight="" size="15" color="#575757" x="193" y="170"></date>
 		<serial font="Freeserif" weight="" size="14" color="#575757" x="110" y="170"></serial>
+		<expire font="Freeserif" weight="" size="15" color="#575757" x="230" y="170"></expire>
+		<custom1 font="Times" weight="" size="16" color="#000000" x="100" y="155" align="center"></custom1>
+		<custom2 font="Times" weight="" size="16" color="#000000" x="100" y="162" align="center"></custom2>
 		<logo file="default" x="33" y="31"></logo>
 		<background file="heavy.png"></background>
 		<orientation name="landscape"></orientation>
@@ -19,10 +22,11 @@
 			<label text="Certificate of Achievement" font="Freeserif" weight="" size="50" color="#000000" x="55" y="67"></label>
 			<label text="Awarded to:" font="Freeserif" weight="" size="24" color="#000000" x="125" y="88"></label>
 			<label text="For the successful completion of:" font="Freeserif" weight="" size="22" color="#000000" x="95" y="120"></label>
-			<label text="With grade:" font="Freeserif" weight="" size="22" color="#000000" x="120" y="152"></label>
+			<label text="With grade:" font="Freeserif" weight="" size="22" color="#000000" x="120" y="147"></label>
 			<label text="Instructor" font="Freeserif" weight="" size="10" color="#000000" x="38" y="180"></label>
 			<label text="Serial Number" font="Freeserif" weight="" size="10" color="#000000" x="113" y="180"></label>
 			<label text="Date" font="Freeserif" weight="" size="10" color="#000000" x="193" y="180"></label>
+			<label text="Expire" font="Freeserif" weight="" size="10" color="#000000" x="230" y="180"></label>
 		</labels>
 		<lines>
 			<line x1="35" y1="178" x2="105" y2="178" color="#000000" thickness=".25" note="Signature Line"></line>

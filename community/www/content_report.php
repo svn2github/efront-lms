@@ -34,7 +34,7 @@ try {
     //$form -> addElement('text', 'topic', _TOPIC, 'class = "inputText"');
  //$form -> addRule('topic', _THEFIELD.' "'._TOPIC.'" '._ISMANDATORY, 'required', null, 'client');
  $form -> addElement('hidden', 'page', htmlspecialchars_decode(http_build_query($_GET)));
- $form -> addElement('textarea', 'notes', _NOTES, 'class = "simpleEditor inputTextArea" style="width:45em;height:15em;"');
+ $form -> addElement('textarea', 'notes', _NOTES, 'class = "inputTextArea" style="width:45em;height:15em;"');
  //$form -> addRule('notes', _THEFIELD.' "'._NOTES.'" '._ISMANDATORY, 'required', null, 'client');
     $form -> addElement('submit', 'submit_report', _REPORT, 'class = "flatButton"');
 
@@ -68,7 +68,7 @@ try {
             $replacements = array("\$1\$4");
             $values['page'] = preg_replace($patterns, $replacements, $values['page']);
 
-
+   $values['notes'] = strip_tags($values['notes']);
             $data = '<a href="professor.php?lessons_ID='.$_SESSION['s_lessons_ID'].'&'.$values['page'].'">'._LINKTOTOPIC.'</a><br><br>'._NOTES.':&nbsp;'.$values['notes'];
 
             $pm = new eF_PersonalMessage($_SESSION['s_login'], $recipients, $title, $data);

@@ -274,7 +274,7 @@ class cart
              } else {
                  $id = eF_insertTableData("carts", array("contents" => serialize($cart), "timestamp" => time(), "session_id" => session_id()));
              }
-             setcookie("cart", $id, time() + 3600*24);
+             setcookie("cart", $id, time() + 3600*24, false, false, false, true);
              //Delete carts older than a day
              eF_deleteTableData("carts", "timestamp < ".(time() - 86400));
          }

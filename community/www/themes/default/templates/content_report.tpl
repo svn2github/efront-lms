@@ -20,12 +20,6 @@
 <form {$T_REPORTS_FORM.attributes}>
     {$T_REPORTS_FORM.hidden}
     <table align="center">
-  <tr><td></td><td>
-   <span>
-   <img onclick = "toggledInstanceEditor = 'notes';toggleEditor('notes','simpleEditor');" class = "handle" style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
-   <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'notes';javascript:toggleEditor('notes','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
-   </span>
-  </td></tr>
   <tr><td align="right">{$T_REPORTS_FORM.notes.label}:&nbsp;</td>
   <td align="left">{$T_REPORTS_FORM.notes.html}</td></tr>
         {if $T_REPORTS_FORM.notes.error}<tr><td></td><td class = "formError">{$T_REPORTS_FORM.notes.error}</td></tr>{/if}

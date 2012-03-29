@@ -433,13 +433,17 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
      if ($_GET['add_comment'] == 1) {
    $load_editor = true;
    $form = new HTML_QuickForm("comment_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=projects&view_project=".$_GET['view_project']."&add_comment=1", "", null, true);
-   $form -> addElement('textarea', 'comments', _COMMENT, 'class = "simpleEditor inputTextarea"');
+    if ($_SESSION['s_type'] != 'student') {
+    $form -> addElement('textarea', 'comments', _COMMENT, 'class = "simpleEditor inputTextarea"');
+    } else {
+     $form -> addElement('textarea', 'comments', _COMMENT, 'class = "inputTextarea"');
+    }
    $form -> addElement("submit", "submit", _SUBMIT, 'class = "flatButton"');
    //$form -> setDefaults(array('comments'    => $users[$_GET['login']]['comments']));
 
    if ($form -> isSubmitted() && $form -> validate()) { //If the form is submitted and validated
     $values = $form -> exportValues();
-    $comments[][$_SESSION['s_login']] = $values['comments'];
+    $comments[][$_SESSION['s_login']] = strip_tags($values['comments']);
     $comments_se = serialize($comments);
     $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['view_project']." and users_LOGIN='".$_SESSION['s_login']."'");
     if ($result) {

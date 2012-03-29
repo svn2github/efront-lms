@@ -76,6 +76,11 @@
 - Added Branch URLs
 - Added RTL theme
 - Added group filter in test reports
+- Fixed possible XSS attack while sending personal messages
+- Fixed possible XSS attack while posting lesson comment
+- Fixed possible XSS attack while sending content error report
+- Added global CSRF protection
+- Fixed users bypassing lesson rules using a direct url
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

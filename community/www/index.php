@@ -14,7 +14,7 @@ session_start(); //This causes the double-login problem, where the user needs to
 
 if (!isset($_SESSION['s_login'])) {
  session_regenerate_id();
- setcookie("PHPSESSID", session_id());
+ setcookie("PHPSESSID", session_id(), 0, false, false, false, true);
 }
 
 $path = "../libraries/";
@@ -184,7 +184,7 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
     $user -> login($user -> user['password'], true);
     if (isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id')) {
     //check for valid lesson
-     setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 86400);
+     setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 86400, false, false, false, true);
     }
     loginRedirect($user -> user['user_type']);
     exit;
@@ -270,8 +270,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
   }
   if ($form -> exportValue('remember')) { //The user asked to remember login (it is implemented with cookies)
    $expire = time() + 30 * 86400; //1 month
-   setcookie("cookie_login", $_SESSION['s_login'], $expire);
-   setcookie("cookie_password", $_SESSION['s_password'], $expire);
+   setcookie("cookie_login", $_SESSION['s_login'], $expire, false, false, false, true);
+   setcookie("cookie_password", $_SESSION['s_password'], $expire, false, false, false, true);
   } else {
    setcookie("cookie_login", '', time() - 3600);
    setcookie("cookie_password", '', time() - 3600);

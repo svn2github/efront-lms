@@ -22,7 +22,7 @@ try {
    $newUser -> login($newUser -> user['password'], true);
    if ($_SESSION['s_type'] != 'administrator' && $lessonID) {
     if ($courseID) {
-                 setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID."&from_course=".$courseID, time() + 300);
+                 setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID."&from_course=".$courseID, time() + 300, false, false, false, true);
     } else {
      setcookie('c_request', $_SESSION['s_type'].'.php?lessons_ID='.$lessonID, time() + 300);
     }

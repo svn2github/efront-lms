@@ -118,11 +118,13 @@
                 <tr><td class = "labelCell">{$smarty.const._SENDASEMAILALSO}:&nbsp;</td>
                     <td class = "elementCell">{$T_ADD_MESSAGE_FORM.email.html}</td></tr>
                     {if $T_ADD_MESSAGE_FORM.email.error}<tr><td></td><td class = "formError">{$T_ADD_MESSAGE_FORM.email.error}</td></tr>{/if}
+                {if $smarty.session.s_type != 'student'}
                 <tr><td></td><td>
       <span>
        <img onclick = "toggledInstanceEditor = 'body';javascript:toggleEditor('body','simpleEditor');" class = "handle" style="vertical-align:middle" src = "images/16x16/order.png" title = "{$smarty.const._TOGGLEHTMLEDITORMODE}" alt = "{$smarty.const._TOGGLEHTMLEDITORMODE}" />&nbsp;
        <a href = "javascript:void(0)" onclick = "toggledInstanceEditor = 'body';javascript:toggleEditor('body','simpleEditor');" id = "toggleeditor_link">{$smarty.const._TOGGLEHTMLEDITORMODE}</a>
       </span></td></tr>
+    {/if}
     <tr><td class = "labelCell">{$smarty.const._BODY}:&nbsp;</td>
                     <td class = "elementCell">{$T_ADD_MESSAGE_FORM.body.html}</td></tr>
                     {if $T_ADD_MESSAGE_FORM.body.error}<tr><td></td><td class = "formError">{$T_ADD_MESSAGE_FORM.body.error}</td></tr>{/if}
@@ -229,7 +231,7 @@
     {/if}
    </div>
 <!--ajax:messagesTable-->
-            <table class = "sortedTable" width = "100%" sortBy = "0" useAjax = "1" id = "messagesTable" url="{$smarty.server.PHP_SELF}?ctg=messages&folder={$T_FOLDER}&">
+            <table class = "sortedTable" width = "100%" size = "{$T_MESSAGES_SIZE}" sortBy = "0" useAjax = "1" id = "messagesTable" url="{$smarty.server.PHP_SELF}?ctg=messages&folder={$T_FOLDER}&">
                 <tr class = "defaultRowHeight">
                 {if !isset($smarty.get.minimal_view)}
                     <td class = "topTitle centerAlign" name = "priority" style = "width:10%">{$smarty.const._PRIORITY}</td>

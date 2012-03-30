@@ -3090,6 +3090,12 @@ class EfrontProfessor extends EfrontLessonUser
 		}
 */
  }
+ public function getNextLesson($lesson, $course = false, $assumeCurrentLessonCompleted = false) {
+  return false;
+ }
+ public function setSeenUnit($unit, $lesson, $seen) {
+  return false;
+ }
 }
 /**
  * Class for student users

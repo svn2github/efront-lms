@@ -282,12 +282,18 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         $message_type = 'failure';
     }
 } else if (isset($_GET['project_results']) && in_array($_GET['project_results'], array_keys($projects)) && $_professor_ && eF_checkParameter($_GET['project_results'], 'id')) {
-
  $currentProject = $projects[$_GET['project_results']];
+ $users = $currentProject -> getUsers();
+ foreach ($users as $value) {
+      if (!empty($value['last_comment']) && $value['users_LOGIN'] == $value['last_comment']) {
+         eF_updateTableData("users_to_projects",array('last_comment' => ''), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$value['users_LOGIN']."'");
+        }
+
+ }
     $smarty -> assign("T_CURRENT_PROJECT", $currentProject);
  if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
   $load_editor = true;
-  $users = $currentProject -> getUsers();
+  //$users          = $currentProject -> getUsers();
 
   $form = new HTML_QuickForm("comment_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&login=".$_GET['login'], "", null, true);
   $form -> addElement('textarea', 'comments', _COMMENT, 'class = "simpleEditor inputTextarea"');
@@ -320,7 +326,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
    $values = $form -> exportValues();
    $comments[][$_SESSION['s_login']] = $values['comments'];
    $comments_se = serialize($comments);
-   $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
+   $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se, "last_comment" => $_SESSION['s_login']), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$_GET['login']."'");
    if ($result) {
     //eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESFULLY)."&message_type=success");
     $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
@@ -335,7 +341,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
  }
 
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'resultsTable') {
-        $users = $currentProject -> getUsers();
+        //$users          = $currentProject -> getUsers();          
         //$files          = eF_getTableDataFlat("files", "id,original_name");
         sizeof($files) > 0 ? $files = array_combine($files['id'], $files['original_name']) : $files = array();
         foreach ($users as $key => $user) {
@@ -399,9 +405,11 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
 } else if (isset($_GET['view_project']) && in_array($_GET['view_project'], array_keys($projects)) && eF_checkParameter($_GET['view_project'], 'id')) {
     try {
         $currentProject = $projects[$_GET['view_project']];
-
         $projectUser = $currentProject -> getUsers();
         $projectUser = $projectUser[$currentUser -> user['login']];
+        if (!empty($projectUser['last_comment']) && $_SESSION['s_login'] != $projectUser['last_comment']) {
+         eF_updateTableData("users_to_projects",array('last_comment' => ''), "projects_ID=".$_GET['view_project']." and users_LOGIN='".$currentUser -> user['login']."'");
+        }
         $currentProject -> project['deadline'] < time() ? $currentProject -> expired = true : $currentProject -> expired = false;
 
      if ($projectUser['comments'] != '') {
@@ -445,7 +453,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     $values = $form -> exportValues();
     $comments[][$_SESSION['s_login']] = strip_tags($values['comments']);
     $comments_se = serialize($comments);
-    $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se), "projects_ID=".$_GET['view_project']." and users_LOGIN='".$_SESSION['s_login']."'");
+    $result = eF_updateTableData("users_to_projects",array('comments' => $comments_se, "last_comment" => $_SESSION['s_login']), "projects_ID=".$_GET['view_project']." and users_LOGIN='".$_SESSION['s_login']."'");
     if ($result) {
      //eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=projects&project_results=".$_GET['project_results']."&message=".urlencode(_OPERATIONCOMPLETEDSUCCESFULLY)."&message_type=success");
      $message = _OPERATIONCOMPLETEDSUCCESSFULLY;

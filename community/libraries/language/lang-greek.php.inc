@@ -4194,4 +4194,10 @@ define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Αν ορίσ
 define("_FIRST", "Αρχή");
 define("_ALLOWLOGINFROMDIRECTPAGE", "Οι χρήστες μπορούν να μπουν από το κεντρικό URL");
 define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Μπορείτε να μπείτε μόνο από το URL τoυ τμήματός σας");
+define("_NEWCOMMENT", "Νέο σχόλιο");
+define("_ADDCUSTOMTEXT","Προσθήκη προσαρμοσμένου κειμένου");
+define("_ADDANOTHERCUSTOMTEXT","Προσθήκη πρόσθετου προσαρμοσμένου κειμένου");
+define("_VIEWLESSONASSTUDENT", "Προβολή μαθήματος ως μαθητής");
+define("_BACKTOPROFESSORMODE", "Επιστροφή σε προβολή καθηγητή");
+define("_YOUAREINSTUDENTMODE", "Βλέπετε το μάθημα σε ως μαθητής");
 ?>

@@ -4,8 +4,11 @@
 		<student font="Times" weight="" size="35" color="#000000" x="5" y="100" align="center"></student>
 		<course font="Times" weight="" size="28" color="#000000" x="5" y="133" align="center"></course>
 		<grade font="Times" weight="bold" size="28" color="#000000" x="160" y="150" align="center"></grade>
-		<date font="Times" weight="" size="15" color="#575757" x="225" y="180"></date>
+		<date font="Times" weight="" size="15" color="#575757" x="200" y="180"></date>
 		<serial font="Times" weight="" size="14" color="#575757" x="107" y="180"></serial>
+		<expire font="Times" weight="" size="15" color="#575757" x="250" y="180"></expire>
+		<custom1 font="Times" weight="" size="16" color="#000000" x="100" y="165" align="center"></custom1>
+		<custom2 font="Times" weight="" size="16" color="#000000" x="100" y="172" align="center"></custom2>
 		<logo file="default" x="136" y="10"></logo>
 		<background file="medium.png"></background>
 		<orientation name="landscape"></orientation>
@@ -23,6 +26,7 @@
 			<label text="Instructor" font="Times" weight="" size="10" color="#000000" x="20" y="190"></label>
 			<label text="Serial Number" font="Times" weight="" size="10" color="#000000" x="110" y="190"></label>
 			<label text="Date" font="Times" weight="" size="10" color="#000000" x="200" y="190"></label>
+			<label text="Expire" font="Freeserif" weight="" size="10" color="#000000" x="250" y="190"></label>
 		</labels>
 		<lines>
 			<line x1="17" y1="188" x2="97" y2="188" color="#000000" thickness=".25" note="Signature Line"></line>

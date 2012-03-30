@@ -122,12 +122,13 @@ try {
             //Projects block
             if ($currentLesson -> options['projects'] && $GLOBALS['configuration']['disable_projects'] != 1) {
                 if ($_professor_) {
-                    $result = eF_getTableData("users_to_projects as up,projects as p", "p.title,p.id,up.users_LOGIN,up.upload_timestamp", "p.lessons_ID=".$_SESSION['s_lessons_ID']." and p.id=up.projects_ID and filename!=''","up.upload_timestamp desc");
+                    $result = eF_getTableData("users_to_projects as up,projects as p", "p.title,p.id,up.users_LOGIN,up.upload_timestamp,up.last_comment", "p.lessons_ID=".$_SESSION['s_lessons_ID']." and p.id=up.projects_ID and filename!=''","up.upload_timestamp desc");
                     foreach ($result as $value) {
                         $projects[] = $value;
                     }
                 } else {
                     $projects = $currentLesson -> getProjects(false, $currentUser -> user['login']);
+
                     $projectsInControlPanel = $projects;
                     foreach ($projects as $key => $value) {
                      if ($value['deadline'] < time()) {
@@ -135,6 +136,7 @@ try {
                      }
                     }
                 }
+              //pr($projects);         
                 $smarty -> assign("T_PROJECTS", $projects);
                 $projectOptions = array(array('text' => _GOTOPROJECTS, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects"));
                 $smarty -> assign("T_PROJECTS_OPTIONS",$projectOptions);

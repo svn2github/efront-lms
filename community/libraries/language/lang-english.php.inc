@@ -4194,4 +4194,10 @@ define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "If you specif
 define("_FIRST", "First");
 define("_ALLOWLOGINFROMDIRECTPAGE", "Users may sign in from the default URL");
 define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "You can only sign in from your branch's URL");
+define("_NEWCOMMENT", "New comment");
+define("_ADDCUSTOMTEXT","Add custom text");
+define("_ADDANOTHERCUSTOMTEXT","Add another custom text");
+define("_VIEWLESSONASSTUDENT", "View lesson as student");
+define("_BACKTOPROFESSORMODE", "Back to professor mode");
+define("_YOUAREINSTUDENTMODE", "You are currently viewing this lesson as a student. ");
 ?>

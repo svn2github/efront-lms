@@ -916,14 +916,14 @@ function eF_js_sortTable(el, other) {
         		Element.extend($(tableIndex+'_sortedTable_filter')).addClassName('loadingImg').setStyle({background:'url("'+progressImg+'") center right no-repeat'});
         	}
         	
-            var str = document.getElementById(tableIndex+'_sortedTable_filter').value;        //Get the filter value, from the corresponding text box
+            var str = encodeURIComponent(document.getElementById(tableIndex+'_sortedTable_filter').value);        //Get the filter value, from the corresponding text box
             currentFilter[tableIndex] = str;
             currentOffset[tableIndex] = 0;
         	
             eF_js_rebuildTable(tableIndex, currentOffset[tableIndex], currentSort[tableIndex], currentOrder[tableIndex], currentOther[tableIndex], true);
         } else {
             var table = sortedTables[tableIndex];                                 //Get the current table
-            var str = document.getElementById(tableIndex+'_sortedTable_filter').value;        //Get the filter value, from the corresponding text box
+            var str = encodeURIComponent(document.getElementById(tableIndex+'_sortedTable_filter').value);        //Get the filter value, from the corresponding text box
             if (table.filteredRows) {                                           //If there were any previously filtered rows, append them back to the table
                 for (var i = 0; i < table.filteredRows.length; i++) {
                     table.rows[0].parentNode.insertBefore(table.filteredRows[i], table.rows[table.rows.length-1]);      //Append the rows at the bottom of the table

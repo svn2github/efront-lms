@@ -81,6 +81,7 @@
 - Fixed possible XSS attack while sending content error report
 - Added global CSRF protection
 - Fixed users bypassing lesson rules using a direct url
+- Fixed possible XSS on table grid filter
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

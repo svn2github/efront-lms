@@ -1067,6 +1067,7 @@ CREATE TABLE users_to_projects (
   grade float default NULL,
   filename varchar(255) default NULL,
   upload_timestamp int(10) unsigned default NULL,
+  last_comment varchar(100) DEFAULT NULL,
   primary key (users_LOGIN, projects_ID)
 ) DEFAULT CHARSET=utf8;
 

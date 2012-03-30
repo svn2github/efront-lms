@@ -23,6 +23,11 @@ function smarty_function_eF_template_printProjects($params, &$smarty) {
             $params['data'][$i]['title'] = mb_substr($params['data'][$i]['title'], 0, $max_title_size).'...'; //If the project title is large, cut it and append ...
         }
 
+  if ( !empty($params['data'][$i]['last_comment']) && $params['data'][$i]['last_comment'] != $_SESSION['s_login']) {
+   $last_comment = " ["._NEWCOMMENT."]";
+  } else {
+   $last_comment = "";
+  }
         $str .= '
              <tr><td>
                      <span class = "counter">'.($i + 1).'. </span>'; 
@@ -32,9 +37,9 @@ function smarty_function_eF_template_printProjects($params, &$smarty) {
 
             // Students and professors may have to change lesson session - using the new_lessons_ID parameter for this purpose
             if (isset($params['data'][$i]['show_lessons_id']) && $params['data'][$i]['show_lessons_id'] != 0 && isset($params['data'][$i]['show_lessons_name'])) {
-                $str .= '&new_lessons_ID='.$params['data'][$i]['show_lessons_id'].'&sbctg=exercises"><b>'. $params['data'][$i]['show_lessons_name'] . '</b>: ' . $params['data'][$i]['title'].'</a></td>';
+                $str .= '&new_lessons_ID='.$params['data'][$i]['show_lessons_id'].'&sbctg=exercises"><b>'. $params['data'][$i]['show_lessons_name'] . '</b>: ' . $params['data'][$i]['title'].$last_comment.'</a></td>';
             } else {
-                $str .= '">'.$params['data'][$i]['title'].'</a></td>';
+                $str .= '">'.$params['data'][$i]['title'].$last_comment.'</a></td>';
             }
 
             $str .= '<td class = "cpanelTime">#filter:user_login-'.$params['data'][$i]['creator_LOGIN'].'#, ';
@@ -47,14 +52,14 @@ function smarty_function_eF_template_printProjects($params, &$smarty) {
             }
             $str .= '</td></tr>';
         } else {
-              if (isset($params['data'][$i]['upload_timestamp'])){ //from lesson control panel
-    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&project_results='.$params['data'][$i]['id'].'">'.$params['data'][$i]['users_LOGIN'].' ('.$params['data'][$i]['title'].')</a></td>
+            if (isset($params['data'][$i]['upload_timestamp'])){ //from lesson control panel
+    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&project_results='.$params['data'][$i]['id'].'">'.$params['data'][$i]['users_LOGIN'].' ('.$params['data'][$i]['title'].')'.$last_comment.'</a></td>
                  <td class = "cpanelTime">';
 
     $str .= '<span> '.eF_convertIntervalToTime(time() - $params['data'][$i]['upload_timestamp'], true)."&nbsp;"._AGO."</span>";
     $str .= '</td></tr>';
    } else { //from social page
-    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&lessons_ID='.$params['data'][$i]['lessons_ID'].'&project_results='.$params['data'][$i]['id'].'">'.$params['data'][$i]['users_LOGIN'].' ('.$params['data'][$i]['title'].')</a></td>
+    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&lessons_ID='.$params['data'][$i]['lessons_ID'].'&project_results='.$params['data'][$i]['id'].'">'.$params['data'][$i]['users_LOGIN'].' ('.$params['data'][$i]['title'].')'.$last_comment.'</a></td>
       <td class = "cpanelTime">';
     if ($params['data'][$i]['deadline'] > time()) {
      $str .= '<span title = "'.$title2.'">'._EXPIRESIN.' '.eF_convertIntervalToTime($params['data'][$i]['deadline'] - time(), true)."</span>";

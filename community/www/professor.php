@@ -292,6 +292,21 @@ if ($_SESSION['s_lesson_user_type'] == 'student' || (!isset($_SESSION['s_lesson_
 } else {
     $_admin_ = 1;
 }
+if (isset($_GET['set_student_mode'])) {
+ if ($_GET['set_student_mode']) {
+  $_SESSION['student_mode'] = $_SESSION['s_lessons_ID'];
+ } else {
+  unset($_SESSION['student_mode']);
+ }
+}
+if ($_SESSION['student_mode']) {
+ if ($_SESSION['student_mode'] == $_SESSION['s_lessons_ID']) {
+  $_student_ = 1;
+  $_professor_ = 0;
+ } else {
+  unset($_SESSION['student_mode']); //Unset "student mode" when changing lesson
+ }
+}
 $smarty -> assign("_student_", $_student_);
 $smarty -> assign("_professor_", $_professor_);
 $smarty -> assign("_admin_", $_admin_);

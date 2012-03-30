@@ -5239,7 +5239,7 @@ class EfrontLesson
    $login = $login -> user['login'];
   }
   if ($login && eF_checkParameter($login, 'login')) {
-   !$nonExpired ? $result = eF_getTableData("projects p, users_to_projects up", "p.*, up.grade, up.comments, up.filename", "up.users_LOGIN = '$login' and up.projects_ID = p.id and p.lessons_ID=".$this -> lesson['id']) : $result = eF_getTableData("projects p, users_to_projects up", "p.*, up.grade, up.comments, up.filename", "p.deadline > ".time()." and up.users_LOGIN = '$login' and up.projects_ID = p.id and p.lessons_ID=".$this -> lesson['id']);
+   !$nonExpired ? $result = eF_getTableData("projects p, users_to_projects up", "p.*, up.grade, up.comments, up.filename,up.last_comment", "up.users_LOGIN = '$login' and up.projects_ID = p.id and p.lessons_ID=".$this -> lesson['id']) : $result = eF_getTableData("projects p, users_to_projects up", "p.*, up.grade, up.comments, up.filename, up.last_comment", "p.deadline > ".time()." and up.users_LOGIN = '$login' and up.projects_ID = p.id and p.lessons_ID=".$this -> lesson['id']);
   } else {
    !$nonExpired ? $result = eF_getTableData("projects", "*", "lessons_ID=".$this -> lesson['id']) : $result = eF_getTableData("projects", "*", "deadline > ".time()." and lessons_ID=".$this -> lesson['id']);
   }

@@ -7,8 +7,8 @@
 		<date font="Freeserif" weight="" size="15" color="#575757" x="193" y="170"></date>
 		<serial font="Freeserif" weight="" size="14" color="#575757" x="110" y="170"></serial>
 		<expire font="Freeserif" weight="" size="15" color="#575757" x="230" y="170"></expire>
-		<custom1 font="Times" weight="" size="16" color="#000000" x="100" y="155" align="center"></custom1>
-		<custom2 font="Times" weight="" size="16" color="#000000" x="100" y="162" align="center"></custom2>
+		<custom1 font="Freeserif" weight="" size="16" color="#000000" x="100" y="155" align="center"></custom1>
+		<custom2 font="Freeserif" weight="" size="16" color="#000000" x="100" y="162" align="center"></custom2>
 		<logo file="default" x="33" y="31"></logo>
 		<background file="heavy.png"></background>
 		<orientation name="landscape"></orientation>

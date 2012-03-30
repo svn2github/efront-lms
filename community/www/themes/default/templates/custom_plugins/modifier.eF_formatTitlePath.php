@@ -29,12 +29,7 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
 
  array_walk($piecesStripped, create_function('&$v, $k', '$v = str_replace("&nbsp;", "", $v);'));
  if (mb_strlen($stripped) <= $length) {
-  if ($GLOBALS['rtl']) {
-   $separator = '&laquo;';
-   $piecesStart = array_reverse($piecesStart);
-  } else {
-   $separator = '&raquo;';
-  }
+  $separator = '&raquo;';
 
   $finalString = implode("<span>&nbsp;$separator&nbsp;</span>", $piecesStart); // with tags
   $finalString = str_replace(" </a>", "</a>", $finalString);
@@ -79,12 +74,7 @@ function smarty_modifier_eF_formatTitlePath($string, $length = 80, $pathLimit = 
 
  }
 
- if ($GLOBALS['rtl']) {
-  $separator = '&laquo;';
-  $piecesFinal = array_reverse($piecesFinal);
- } else {
-  $separator = '&raquo;';
- }
+ $separator = '&raquo;';
 
  $finalString = implode("$separator&nbsp;", $piecesFinal); // with tags
  $finalString = str_replace(" </a>", "</a>", $finalString);

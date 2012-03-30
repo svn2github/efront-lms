@@ -1,4 +1,4 @@
-=== Version 3.6.10 build ===
+=== Version 3.6.10 build 14391 ===
 - Fixed importing more than one jobs on the same user and csv, having "replace" mode to "on"
 - Updated paypal sandbox address to use ssl
 - Updated notifications process to lock while it's executing
@@ -713,6 +713,7 @@ to sanitize POST parameters in admin's system settings
 - Fixed issue with php.ini when it exists in www folder by copying it to install folder
 - Fixed issue about displaying all tests in reports for a multi-roled user
 - Fixed problems with show correct answers and custom css files
+
 - Fixed issue with progress bar when user had seen a deleted unit
 - Fixed issue with active field in personal settings
 - Fixed bug in storing unit visited into logs

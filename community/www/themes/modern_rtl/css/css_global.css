@@ -375,7 +375,7 @@ table.configurationSettings {margin-bottom:20px;}
 table.configurationSettings td:first-child{width:200px;white-space:normal}
 
 /*Sorted table classes*/
-.sortedTable{visibility:hidden;}
+.sortedTable{visibility:hidden;clear:both;}
 .sortedTable .topTitle{white-space:nowrap}
 .sortTablefilter {
 width: 10%;
@@ -462,7 +462,7 @@ color: red;
 }
 
 /*The tools above table lists*/
-div.headerTools{padding:5px 0px 5px 0px}
+div.headerTools{padding:5px 0px 5px 0px;}
 div.headerTools *{vertical-align:middle}
 div.headerTools span{border-right:1px solid #bbb;padding-right:5px;padding-left:5px;float:right}
 div.headerTools span:first-child{border-right:0px solid black;padding-right:0px;}

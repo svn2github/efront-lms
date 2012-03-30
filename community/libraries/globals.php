@@ -321,7 +321,7 @@ function setDefines() {
   $_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.preg_replace('#^'.G_OFFSET.'#', '', $_SERVER['PHP_SELF']);
  }
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 14293;
+    $build = 14391;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

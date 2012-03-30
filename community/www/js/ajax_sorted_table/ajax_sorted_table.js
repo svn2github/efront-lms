@@ -851,13 +851,13 @@ function eF_js_sortTable(el, other) {
         	td.appendChild(a_next_page);
         	td.appendChild(a_last_page);
         } else {
-            td.appendChild(span_outof);
-            td.appendChild(select_page);
+            td.appendChild(span_rows);
+            td.appendChild(select_rows);                                             //Append it to the footer cell
             td.appendChild(a_previous_page);
             td.appendChild(a_first_page);
             td.appendChild(span_results);
-            td.appendChild(select_rows);                                             //Append it to the footer cell
-            td.appendChild(span_rows);
+            td.appendChild(select_page);
+            td.appendChild(span_outof);
         	td.appendChild(a_next_page);
         	td.appendChild(a_last_page);
 

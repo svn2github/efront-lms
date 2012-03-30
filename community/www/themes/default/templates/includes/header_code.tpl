@@ -74,10 +74,11 @@
   <div id = "path_title">{$title|eF_formatTitlePath}</div>
   <div id = "tab_handles_div">
    {if $T_THEME_SETTINGS->options.sidebar_interface == 0 || $T_HEADER_CLASS == 'headerHidden'}{$smarty.capture.t_path_additional_code}{/if}
+{*
   {if $smarty.session.s_lessons_ID && $smarty.session.s_lesson_user_type == 'professor'}
    <img src = "images/16x16/arrow_right.png" onclick = "window.location = window.location.toString()+'&set_student_mode=1'" class = "ajaxHandle" alt = "{$smarty.const._VIEWLESSONASSTUDENT}" title = "{$smarty.const._VIEWLESSONASSTUDENT}"/>
   {/if}
-
+*}
   </div>
   <div id = "path_language">
   {if $smarty.server.PHP_SELF|basename != 'index.php' && $T_THEME_SETTINGS->options.sidebar_interface != 0 && $smarty.session.s_login}
@@ -90,6 +91,8 @@
   {/if}
   </div>
  </div>
+{*
  {if $smarty.session.student_mode}
  <div class = "studentMode"><div>{$smarty.const._YOUAREINSTUDENTMODE}</div><a href = "javascript:void(0)" onclick = "window.location=window.location.toString()+'&set_student_mode=0'">{$smarty.const._BACKTOPROFESSORMODE}</a></div>
  {/if}
+*}

@@ -57,9 +57,6 @@
      {if !$T_USER_COURSE->user.completed}
      <tr><td></td>
       <td class = "infoCell">{$smarty.const._PROPOSEDSCOREISAVERAGELESSONSCORE}</td></tr>
-     {else}
-     <tr><td class = "labelCell">{$smarty.const._COMPLETEDON}:&nbsp;</td>
-      <td class = "elementCell">#filter:timestamp_time-{$T_USER_COURSE->user.to_timestamp}#</td></tr>
      {/if}
      {if $T_COMPLETE_COURSE_FORM.score.error}<tr><td></td><td class = "formError">{$T_COMPLETE_COURSE_FORM.score.error}</td></tr>{/if}
      <tr><td></td>

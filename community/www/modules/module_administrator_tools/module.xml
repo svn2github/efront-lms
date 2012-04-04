@@ -3,7 +3,7 @@
 	<title>Administrator tools</title>
 	<author>Periklis Venakis</author>
 	<date>2010 08 30</date>
-	<version>1.9</version>
+	<version>1.10</version>
 	<description>This module is a collection of administrator tools</description>
 	<className>module_administrator_tools</className>
 	<requires>3.6.6</requires>

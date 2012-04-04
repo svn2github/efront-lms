@@ -116,7 +116,7 @@ class EfrontEvent
     const COURSE_CERTIFICATE_REVOKE = 56; // users_LOGIN, lessons_ID, lessons_name
  const COURSE_PROGRAMMED_START = 57; // users_LOGIN, lessons_ID, lessons_name
     const COURSE_PROGRAMMED_EXPIRY = 58;
-    //const COURSE_CERTIFICATE_EXPIRY = 59;		// users_LOGIN, lessons_ID, lessons_name
+    const COURSE_CERTIFICATE_EXPIRY = 59; // users_LOGIN, lessons_ID, lessons_name
     // Test codes: [75-99]
     const TEST_CREATION = 75;
     const TEST_START = 76;
@@ -283,7 +283,7 @@ class EfrontEvent
           EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "courses"),
           EfrontEvent::COURSE_PROGRAMMED_START => array("text" => _PROGRAMMEDCOURSESTART, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
           EfrontEvent::COURSE_PROGRAMMED_EXPIRY => array("text" => _PROGRAMMEDCOURSEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
-          //EfrontEvent::COURSE_CERTIFICATE_EXPIRY => array("text" => _PROGRAMMEDCERTIFICATEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
+          EfrontEvent::COURSE_CERTIFICATE_EXPIRY => array("text" => _CERTIFICATEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
              EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC => array("text" => _NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "category" => "social"),
              EfrontEvent::DELETE_POST_FROM_LESSON_TIMELINE => array("text" => _DELETE_POST_FROM_LESSON_TIMELINE, "category" => "social"),
              EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "tests"),
@@ -1255,7 +1255,7 @@ class EfrontEvent
          } else if ($this -> event['type'] == EfrontEvent::COURSE_CERTIFICATE_REVOKE) {
              $this -> event['message'] .= _HASLOSTCERTIFICATE . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::COURSE_CERTIFICATE_EXPIRY) {
-             $this -> event['message'] .= _PROGRAMMEDCERTIFICATEEXPIRY . " <b>" . $this -> event['lessons_name'] ."</b>";
+             $this -> event['message'] .= _CERTIFICATEEXPIRY . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else {
            return false;
          }

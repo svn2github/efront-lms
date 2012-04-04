@@ -23,6 +23,10 @@
   {eF_template_printBlock title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS columns = 4 links = $T_LESSON_SETTINGS image='32x32/lessons.png' groups = $T_LESSON_SETTINGS_GROUPS}
  {/capture}
 
+ {capture name = 't_sync_course_lessons_code'}
+  {eF_template_printForm form = $T_SYNC_COURSE_LESSONS_FORM}
+ {/capture}
+
  {capture name = 't_set_course_users_code'}
             <table class = "statisticsTools statisticsSelectList" style = "margin-bottom:50px">
                 <tr><td class = "labelCell">{$smarty.const._CHOOSELESSON}:</td>
@@ -302,6 +306,7 @@
  {if $smarty.get.do == 'learning'}
   {eF_template_printBlock tabber = "global_settings" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_GLOBALLESSONSETTINGS data = $smarty.capture.t_global_settings_code absoluteImagePath=1 image=$T_MODULE_ADMINISTRATOR_TOOLS_BASELINK|cat:'images/tools.png'}
   {eF_template_printBlock tabber = "set_course_lesson_users" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SETCOURSELESSONUSERSCODE data = $smarty.capture.t_set_course_users_code image='32x32/users.png'}
+  {eF_template_printBlock tabber = "sync_course_lessons" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECOURSELESSONS data = $smarty.capture.t_sync_course_lessons_code image='32x32/courses.png'}
  {elseif $smarty.get.do == 'system'}
   {eF_template_printBlock tabber = "sql" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_SQLINTERFACE data = $smarty.capture.t_sql_code image='32x32/generic.png'}
   {eF_template_printBlock tabber = "files_encoding" title = $smarty.const._MODULE_ADMINISTRATOR_TOOLS_CHANGEFILESENCODING data = $smarty.capture.t_change_files_encoding_code image='32x32/folders.png'}

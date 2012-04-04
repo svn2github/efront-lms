@@ -28,11 +28,16 @@
 
 {/capture}
 
+{capture name = "t_demo_functions_code"}
+ {eF_template_printForm form = $T_FUNCTIONS_FORM}
+{/capture}
+
 {capture name = "t_demo_module_code"}
 This text and the data below appear from Demo module's getSmartyTpl() and module_demo_page.tpl file
 <div class = "tabber">
  {eF_template_printBlock tabber = "demo_form" title = $smarty.const._MODULE_DEMO_DEMOFORM data = $smarty.capture.t_form_block_code}
  {eF_template_printBlock tabber = "demo_data" title = $smarty.const._MODULE_DEMO_DEMODATA data = $smarty.capture.t_demo_data_code}
+ {eF_template_printBlock tabber = "demo_functions" title = $smarty.const._MODULE_DEMO_DEMOFUNCTIONS data = $smarty.capture.t_demo_functions_code}
 </div>
 {/capture}
 

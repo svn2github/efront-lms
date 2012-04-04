@@ -3821,7 +3821,7 @@ class EfrontCourse
 	 * @access public
 	 */
  public static function checkCertificateExpire() {
-  $courses = eF_getTableData("courses", "id,reset_interval,reset", "certificate_expiration !=0 AND (reset_interval != 0 OR reset = 1)" );
+  $courses = eF_getTableData("courses", "id,reset_interval,reset", "certificate_expiration !=0" );
   foreach ($courses as $value) {
    $course = new EfrontCourse($value['id']);
    $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != ""');
@@ -3838,9 +3838,22 @@ class EfrontCourse
        $user -> resetProgressInCourse($course, true, true);
       }
      }
-     if ($course -> course['reset']) {
+     if ($course -> course['reset']) { //If student completed again the course with reset_interval, he has a new expire date so he will not be reset,(so it is not elseif)
       if ($expirationTimestamp < time()) {
        $user -> resetProgressInCourse($course, true);
+       EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
+          "users_LOGIN" => $user -> user['login'],
+          "lessons_ID" => $course -> course['id'],
+          "lessons_name" => $course -> course['name']));
+      }
+     }
+     if (!$course -> course['reset'] && !$course -> course['reset_interval']) {
+      if ($expirationTimestamp < time()) {
+       eF_updateTableData("users_to_courses", array("issued_certificate" => ""), "users_LOGIN='".$user -> user['login']."' and courses_ID = ".$course -> course['id']);
+       EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
+          "users_LOGIN" => $user -> user['login'],
+          "lessons_ID" => $course -> course['id'],
+          "lessons_name" => $course -> course['name']));
       }
      }
     }

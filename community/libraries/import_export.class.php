@@ -1028,7 +1028,7 @@ class EfrontExportCsv extends EfrontExport
   foreach ($data as $info) {
          unset($info['password']);
          foreach ($info as $field => $value) {
-          if (!(strpos($field, "timestamp") === false) || $field=="hired_on" || $field=="left_on" || in_array($field, $dateFields)) {
+          if (!(strpos($field, "timestamp") === false) || !(strpos($field, "date") === false) || $field=="hired_on" || $field=="left_on" || in_array($field, $dateFields)) {
            $info[$field] = $this -> createDatesFromTimestamp($value);
           }
          }

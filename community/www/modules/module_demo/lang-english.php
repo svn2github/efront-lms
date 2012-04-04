@@ -36,6 +36,9 @@ define("_MODULE_DEMO_IMPORTEDLESSON", "Called demo module's onImportLesson() whe
 define("_MODULE_DEMO_COMPLETEDLESSON", "Called demo module's onCompleteLesson() when the user %login% completed the lesson %lesson%");
 //define("_MODULE_DEMO_SETTHEME", "Called demo module's onSetTheme() for theme %theme%");
 define("_MODULE_DEMO_DELETETHEME", "Called demo module's onDeleteTheme() for theme %theme%");
-define("_MODULE_DEMO_CALLEDINCONTENTTOOLS", "Module demo getContentToolsLink()")
-
+define("_MODULE_DEMO_CALLEDINCONTENTTOOLS", "Module demo getContentToolsLink()");
+define("_MODULE_DEMO_SENDEMAILUSINGEFMAIL", "Send email using eF_mail()");
+define("_MODULE_DEMO_SENDEMAILUSINGPM", "Send email using a personal message");
+define("_MODULE_DEMO_DEMOFUNCTIONS", "Demo functions");
+define("_MODULE_DEMO_SELECTAUSERTOEMAILTO", "Select a user to send email to");
 ?>

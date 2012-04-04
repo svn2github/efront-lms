@@ -58,7 +58,6 @@ try {
   $constraints = array('archive' => false, 'active' => true, 'sort' => 'name');
   $userCourses = $currentUser -> getUserCourses($constraints);
   foreach ($userCourses as $key => $course) {
-   //this must be here (before $userCourses assignment) in order to revoke a certificate if it is expired and/or re-assign a course to a student if needed
    if ($course -> course['start_date'] && $course -> course['start_date'] > time()) {
     $course -> course['remaining'] = null;
    } elseif ($course -> course['end_date'] && $course -> course['end_date'] < time()) {

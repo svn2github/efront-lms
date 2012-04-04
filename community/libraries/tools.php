@@ -622,6 +622,26 @@ function getCertificateExpirationTimestamp($issuedTimestamp, $expirationArray){
 function getCertificateResetTimestamp($expiredTimestamp, $resetArray){
  return mktime(0, 0, 0, date("m", $expiredTimestamp) - $resetArray[0], date("d", $expiredTimestamp) - $resetArray[1], date("Y", $expiredTimestamp));
 }
+function replaceCustomFieldsCertificate($custom, $issuedTimestamp) {
+ if (preg_match("/###([0-9]{1,100})([mdy])###/", $custom, $matches)) {
+    switch ($matches[2]) {
+     case 'd':
+                $time = 86400*$matches[1];
+                break;
+                case 'm':
+                $time = 30*86400*$matches[1];
+                break;
+                case 'y':
+                $time = 12*30*86400*$matches[1];
+                break;
+    }
+  $timeArray = convertTimeToDays($time);
+  $convertTimestamp = getCertificateExpirationTimestamp($issuedTimestamp, $timeArray);
+  $convertDate = formatTimestamp($convertTimestamp);
+  $custom = str_replace($matches[0], $convertDate, $custom);
+ }
+ return $custom;
+}
 /**
 
  * Format an HTML table to simple text

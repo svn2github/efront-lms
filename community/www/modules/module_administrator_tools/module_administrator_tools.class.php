@@ -185,6 +185,7 @@ class module_administrator_tools extends EfrontModule {
    if ($_GET['do'] == 'learning') {
     $this->doGlobalLessonSettings();
     $this->doCourseLessonUsers();
+    $this->doSynchronizeCourseLessons();
    } else if ($_GET['do'] == 'system') {
     $this->doChangeFileEncoding();
     $this->doSqlInterface();
@@ -462,6 +463,47 @@ class module_administrator_tools extends EfrontModule {
     handleAjaxExceptions($e);
    }
   }
+
+  $this -> setMessageVar($message, $message_type);
+ }
+
+ private function doSynchronizeCourseLessons() {
+  $smarty = $this -> getSmartyVar();
+  $currentUser = $this -> getCurrentUser();
+
+  $courses = array();
+  foreach (EfrontCourse::getCourses() as $value) {
+   $courses[$value['id']] = $value['name'];
+  }
+  $form = new HTML_QuickForm("file_encodings_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=sync_course_lessons&do=learning", "", null, true);
+  $form -> addElement('static', '', _MODULE_ADMINISTRATOR_TOOLS_THISWILLPROPAGATECOMPLETIONSTATUSFROMACOURSETOITSLESSONSFORALLUSERS);
+  $form -> addElement('select', 'course', _COURSE, $courses);
+  $form -> addElement('advcheckbox', 'set_completed', _MODULE_ADMINISTRATOR_TOOLS_UPDATECOMPLETEDLESSONS.'</span>');
+  $form -> addElement('static', '', _MODULE_ADMINISTRATOR_TOOLS_SETCOMPLETEDLESSONSTOTHESAMEDATE);
+  $form -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+  if ($form -> isSubmitted() && $form -> validate()) {
+   try {
+    $updates = 0;
+    $stats = EfrontStats::getUsersCourseStatus($form->exportValue('course'));
+    foreach ($stats[$form->exportValue('course')] as $value) {
+     if ($value['completed']) {
+      foreach ($value['lesson_status'] as $lesson_id => $lesson_status) {
+       if (!$lesson_status['completed'] || $form->exportValue('set_completed')) {
+        eF_updateTableData("users_to_lessons", array('completed' => 1, 'to_timestamp' => $value['completion_date'], 'score' => $value['score']), "lessons_ID=$lesson_id and users_LOGIN='".$value['login']."'");
+        $updates++;
+       }
+      }
+     }
+    }
+    $message = str_replace("%x", $updates, _MODULE_ADMINISTRATOR_TOOLS_PERFORMEDXUPDATES);
+    $message_type = 'success';
+   } catch (Exception $e) {
+    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $message_type = 'failure';
+   }
+  }
+  $smarty -> assign("T_SYNC_COURSE_LESSONS_FORM", $form -> toArray());
 
   $this -> setMessageVar($message, $message_type);
  }

@@ -611,14 +611,16 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
              }
             }
   } else if (EfrontEvent::COURSE_CERTIFICATE_EXPIRY == $event_notification['event_type']) {
-   $users_result = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, users_to_courses.issued_certificate", "users_to_courses.completed = '1' AND users_to_courses.issued_certificate <> '' and users.archive=0 and users_to_courses.archive=0");
+   $users_result = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, courses.certificate_expiration, users_to_courses.issued_certificate", "users_to_courses.completed = '1' AND users_to_courses.issued_certificate <> '' and courses.certificate_expiration !=0 and users.archive=0 and users_to_courses.archive=0");
       $users_to_notify = array();
             foreach ($users_result as $key => $user) {
-             $certificate = unserialize($user['issued_certificate']);
-             if ($certificate['date'] > $timediff) {
-              $user['timestamp'] = $certificate['date'];
-              $users_to_notify[] = $user;
-             }
+    $dateTable = unserialize($user['issued_certificate']);
+    $expirationArray = convertTimeToDays($user['certificate_expiration']);
+    $timeExpire = getCertificateExpirationTimestamp($dateTable['date'], $expirationArray);
+    //Revoke certificate if it has expired, and optionally reset access to the course as well
+    if ($timeExpire && $timeExpire < time()) {
+     $users_to_notify[] = $user;
+    }
             }
   } else if (EfrontEvent::COURSE_VISITED == abs($event_notification['event_type'])) {
             $conditions = unserialize($event_notification['send_conditions']);

@@ -3379,7 +3379,7 @@ define("_HASCERTIFICATED","πήρε το πιστοποιητικό για το"
 define("_WITHGRADE","με βαθμό");
 define("_WITHKEY","με κλειδί");
 define("_CERTIFICATEISSUE","Έκδοση πιστοποιητικού");
-define("_CERTIFICATEREVOKE","Ακύρωση/λήξη πιστοποιητικού");
+define("_CERTIFICATEREVOKE","Ακύρωση πιστοποιητικού");
 define("_HASLOSTCERTIFICATE","έχασε την πιστοποίηση");
 define("_PREVIOUSCERTIFICATES","Προηγούμενα πιστοποιητικά");
 define("_PRIVATE", "Προσωπικό");
@@ -4200,4 +4200,5 @@ define("_ADDANOTHERCUSTOMTEXT","Προσθήκη πρόσθετου προσαρ
 define("_VIEWLESSONASSTUDENT", "Προβολή μαθήματος ως μαθητής");
 define("_BACKTOPROFESSORMODE", "Επιστροφή σε προβολή καθηγητή");
 define("_YOUAREINSTUDENTMODE", "Βλέπετε το μάθημα σε ως μαθητής");
+define("_CERTIFICATEEXPIRY", "Εκπνοή πιστοποιητικού δέσμης");
 ?>

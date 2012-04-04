@@ -61,4 +61,9 @@ define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Ο χρή�
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "Δεν μπορείτε να προσπελάσετε αυτόν τον τομέα αν δεν είστε πλήρης διαχειριστής");
 define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Πολλαπλές τοποθετήσεις");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUMUSTDEFINEUSER", "Πρέπει να ορίσετε ένα νέο αναγνωριστικό");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECOURSELESSONS", "Συγχρονισμός αποτελεσμάτων στα μαθήματα των δεσμών");
+define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLPROPAGATECOMPLETIONSTATUSFROMACOURSETOITSLESSONSFORALLUSERS", "Πατώντας αποστολή, θα τεθούν ως ολοκληρωμένα όλα τα μαθήματα της δέσμης (που δεν είναι ήδη ολοκληρωμένα) για όσους χρήστες την έχουν ολοκληρώσει");
+define("_MODULE_ADMINISTRATOR_TOOLS_PERFORMEDXUPDATES", "Έγιναν %x αλλαγές");
+define("_MODULE_ADMINISTRATOR_TOOLS_UPDATECOMPLETEDLESSONS", "Ενημέρωση ολοκληρωμένων μαθημάτων");
+define("_MODULE_ADMINISTRATOR_TOOLS_SETCOMPLETEDLESSONSTOTHESAMEDATE", "Επιλέξτε αυτό για να αλλάξετε μαθήματα που είναι ήδη ολοκληρωμένα, θέτοντας το σκορ και την ημερομηνία ολοκλήρωσής τους να είναι ίδια με της δέσμης.");
 ?>

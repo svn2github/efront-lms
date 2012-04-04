@@ -59,4 +59,9 @@ define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Selected u
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "You cannot access this section; only full administrators can");
 define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Multiple placements");
 define("_MODULE_ADMINISTRATOR_TOOLS_YOUMUSTDEFINEUSER", "You must define a new login name");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECOURSELESSONS", "Synchronize results for course lessons");
+define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLPROPAGATECOMPLETIONSTATUSFROMACOURSETOITSLESSONSFORALLUSERS", "Clicking submit will set all course lessons as completed (if they're not already) for all the users that have completed the course");
+define("_MODULE_ADMINISTRATOR_TOOLS_PERFORMEDXUPDATES", "Performed %x updates");
+define("_MODULE_ADMINISTRATOR_TOOLS_UPDATECOMPLETEDLESSONS", "Update completed lessons");
+define("_MODULE_ADMINISTRATOR_TOOLS_SETCOMPLETEDLESSONSTOTHESAMEDATE", "Selecting this will force course lessons that are already completed to pick the course's completion date and score");
 ?>

@@ -10,6 +10,7 @@
 		<expire font="Times" weight="" size="13" color="#575757" x="180" y="270"></expire>
 		<custom1 font="Times" weight="" size="16" color="#000000" x="60" y="230" align="center"></custom1>
 		<custom2 font="Times" weight="" size="16" color="#000000" x="60" y="240" align="center"></custom2>
+		<custom3 font="Times" weight="" size="16" color="#000000" x="60" y="250" align="center"></custom3>
 		<logo file="default" x="14" y="14"></logo>
 		<orientation name="portrait"></orientation>
 		<creator name="LMS"></creator>

@@ -86,7 +86,7 @@ define("_PROJECTS","Проекты");//Projects
 define("_TESTS","Тесты");//Tests
 define("_PREVIOUS","&lt;Назад");//Previous
 define("_NEXT","Впередя&gt;");//Next
-define("_CANNOTACCESSTHISUNIT","Вы не можете видеть этот блок, потому что:");//You cannot see this unit because:
+define("_CANNOTACCESSTHISUNIT","Вы не можете видеть этот раздел, потому что:");//You cannot see this unit because:
 define("_SENDPERSONALMESSAGE","Отправить личное сообщение");//Send personal message
 define("_SEND","Отправить");//Send
 define("_STATISTICS","Отчеты");//Reports
@@ -111,7 +111,7 @@ define("_ANDYOUDIDITIN","и вы выполнили его в");//and you comple
 define("_TO","До");//to
 define("_DEPENDSONQUESTIONS","в зависимости от ваших ответов на открытые вопросы.");//depending on your answers on open-answer questions.
 define("_EXAMPLEANSWER","Пример ответа");//Example answer
-define("_SCORE","Балл");//Score
+define("_SCORE","Оценка");//Score
 define("_THISQUESTIONCORRECTEDPROFESSOR","Этот вопрос будет оценен преподавателем.");//This question will be corrected by the professor
 define("_RIGHTANSWER","Правильный ответ");//Correct answer
 define("_TESTSHOULDCOMPLETEIN","Этот тест должен быть завершен за");//This test must be completed in
@@ -120,7 +120,7 @@ define("_YOUCANNOTLOGINAS","Нет пользователя с именем:");/
 define("_WRONGPASSWORDTRYAGAIN","Вы ввели неправильный пароль. Пожалуйста, попробуйте еще раз.");//You gave a wrong password. Please try again.
 define("_NOTACTIVATEDACCOUNTTRYAGAINLATER","Ваша учетная запись еще не активирована. Пожалуйста, повторите попытку позже.");//Your account has not been activated yet. Please try again later.
 define("_YOUHAVEBEENEXCLUDEDBYPROFESSOR","Вы исключены преподавателем");//You are excluded by professor
-define("_MUSTFIRSTREADUNIT","Вы должны сначала прочитать блок");//You must first read unit
+define("_MUSTFIRSTREADUNIT","Вы должны сначала прочитать этот раздел");//You must first read unit
 define("_MUSTFIRSTTAKEATLEAST","Вы должны сначала пройти, по крайней мере,");//You must first take at least
 define("_YOURTIMEISUP","Ваше время истекло");//Your time is up
 define("_ATTEST","в тесте");//at test
@@ -137,7 +137,7 @@ define("_MESSAGESATFORUM","Сообщения форума");//Forum messages
 define("_PERSONALMESSAGES","Личные сообщения");//Personal messages
 define("_SOLVEDTESTS","Решенные тесты");//Solved tests
 define("_ATFORUM","На форуме");//At forum
-define("_PRINTERFRIENDLY","Печать модуля");//Print unit
+define("_PRINTERFRIENDLY","Печать раздела");//Print unit
 define("_PRINTERFRIENDLYALLCONTENT","Печатать весь материал");//Print all the content
 define("_ADDCOMMENT","Добавить комментарий");//Add comment
 define("_LESSONSELECT","Выбрать урок");//Select lesson
@@ -174,16 +174,16 @@ define("_SUCCESFULLYUPDATEDQUESTION","Вопрос был обновлен");//T
 define("_SUCCESFULLYADDEDQUESTION","Вопрос был добавлен");//The question was added successfully
 define("_QUESTIONTEXT","Текст вопроса");//Question text
 define("_SAVEQUESTION","Сохранить вопрос");//Save question
-define("_UNIT","Блок");//Unit
+define("_UNIT","Раздел");//Unit
 define("_QUESTIONTYPE","Тип вопроса");//Type
 define("_DIFFICULTY","Сложность");//Difficulty
 define("_RATEMUSTBEBETWEEN0100","Балл должен быть от 0 до 100");//The score must range between 0 and 100
 define("_ALLOFTHEM","Все пользователи");//All users
 define("_VALIDFOR","Действительно для");//Valid for
 define("_TOBEEXCLUDEDFROMUNIT","Будет исключен из модуля");//to be excluded from the unit
-define("_THEUNIT","блок");//the unit
+define("_THEUNIT","раздел");//the unit
 define("_TESTNAME","Название теста");//Test name
-define("_UNITPARENT","Родительский модуль");//Parent unit
+define("_UNITPARENT","Исходный раздел");//Parent unit
 define("_SAVETEST","Сохранить тест");//Save test
 define("_SUCCESFULLYADDEDRATE","Рейтинг был добавлен");//The rate was inserted successfully
 define("_STUDENTANSWER","Ответ студента");//Student answer
@@ -217,7 +217,7 @@ define("_ADMINSTRATOR","Администратор");//Administrator
 define("_CONTROLCENTER","Центр управления");//Control center
 define("_EXAMPLES","Примеры");//Examples
 define("_FORUM","Форум");//Forum
-define("_NOCONTENT","Блок без материала");//Unit without content
+define("_NOCONTENT","Раздел без материала");//Unit without content
 define("_INACTIVE","Неактивный блок");//Inactive
 define("_CONTENTMANAGEMENT","Материал");//Content
 define("_SCHEDULING","Расписание");//Scheduling
@@ -226,7 +226,7 @@ define("_MULTIPLECHOICEONESELECTION","Множественный выбор, о�
 define("_MULTIPLECHOICEMULTIPLESELECTIONS","Множественный выбор, несколько правильных ответов");//Multiple choices, multiple correct answers
 define("_OFMATCH","соответствия");//matching
 define("_OFEMPTYSPACES","Заполните пропуски");//Fill in the blanks
-define("_LOW","Низкий");//Low
+define("_LOW","Простой");//Low
 define("_MEDIUM","Средний");//Medium
 define("_HIGH","Высокий");//High
 define("_PERIODSPERSTUDENT","Периодов на одного учащегося");//Periods per student
@@ -262,29 +262,29 @@ define("_RENAME","Переименовать");//Rename
 define("_CLONE","Клон");//Clone
 define("_NOTESTSSETFORTHISUNIT","Тесты не найдены");//No tests found
 define("_ADDTEST","Добавить тест");//Add test
-define("_UNITANDSUBUNITSTESTS","Тесты модулей и подмодулей");//Unit and subunits tests
+define("_UNITANDSUBUNITSTESTS","Тесты разделов и подразделов");//Unit and subunits tests
 define("_NORESULTSFOUND","Результатов не найдено!");//No results found!
 define("_PAGES","страниц");//pages
 define("_UPLOADFILESANDIMAGES","Загрузить файлы и изображения");//Upload files and images
 define("_COPYFROMANOTHERLESSON","Скопировать из другого урока");//Copy from another lesson
-define("_UNITNAME","Название группы");//Unit name
+define("_UNITNAME","Название раздела");//Unit name
 define("_CONTENTTYPE","Тип материала");//Content type
 define("_CONTENT","Материал");//Content
-define("_UPDATEUNIT","Изменить модуль");//Update unit
-define("_CREATESUBUNIT","Создать подмодуль");//Create subunit
+define("_UPDATEUNIT","Изменить раздел");//Update unit
+define("_CREATESUBUNIT","Создать подраздел");//Create subunit
 define("_CREATETEST","Создать тест");//Create test
 define("_ADDPERIOD","Добавить период");//Add period
 define("_LESSONPERIODS","Периоды урока");//Lesson periods
 define("_COPY","Копировать");//Copy
 define("_EXCLUDECONSTRAINT","Исключить ограничение");//Exclusion constraint
-define("_EXCLUSIONUNIT","Исключить модуль");//Exclusion unit
+define("_EXCLUSIONUNIT","Исключить раздел");//Exclusion unit
 define("_FUNCTIONS","Функции");//Functions
 define("_THETEST","тест");//the test
 define("_WITHSCOREATLEAST","с рейтингом, по крайней мере,");//with rate at least
 define("_NOQUESTIONSTOCORRECTFORTHISLESSON","В этом уроке нет вопросов, которые можно исправить.");//No questions to correct for this lesson.
 define("_QUESTIONSTOCORRECT","Вопросы для исправления");//Questions to correct
 define("_DELETESELECTED","Удалить выбранные");//Delete selected
-define("_REDOABLE","Можно повторять тест, раз");//Test repetitions
+define("_REDOABLE","Повторное тестирование, раз");//Test repetitions
 define("_PROFESSORS","Преподаватели");//Professors
 define("_CANNOTOPENFOLDER","Папка не может быть открыта");//The folder can&#039;t be opened
 define("_CREATEFOLDER","Создать папку");//Create folder
@@ -492,7 +492,7 @@ define("_NONEWPERSONALMESSAGES","Нет новых личных сообщени
 define("_NONEWCOMMENTS","Нет новых комментариев");//No new comments
 define("_NOMATERIALINTHISLESSON","Урок в настоящее время пуст");//The lesson is currently empty
 define("_NOSOLVEDTESTSFOUND","Нерешеные тесты");//No solved tests
-define("_NORELATEDPOSTSFOUND","Нет сообщений, касающихся этого блока.");//No posts relevant to this unit.
+define("_NORELATEDPOSTSFOUND","Нет сообщений, касающихся этого раздела.");//No posts relevant to this unit.
 define("_SUCCESSFULLYCREATEDLESSON","Урок был создан успешно");//The lesson was created successfully
 define("_SORRYNEEDIFRAME","В Вашем браузере должна быть поддержка iframe для использования чата");//Sorry, you need iframe support to use the Chat
 define("_TOPICSUBJECT","Тема");//Topic subject
@@ -527,7 +527,7 @@ define("_TOTALQUESTIONS","Всего вопросов");//Total questions
 define("_DEVELOPMENT","Ответ в свободной форме");//Development
 define("_MULTIPLEONE","Множественный выбор - один правильный ответ");//Multiple choices - Single correct answer
 define("_MULTIPLEMANY","Множественный выбор - несколько правильных ответов");//Multiple choices - Many correct answers
-define("_MATCH","Совпадение");//Match
+define("_MATCH","Соответствие");//Match
 define("_EMPTYSPACES","Пропуски");//Empty spaces
 define("_LOWDIFFICULTY","Низкая сложность");//Low difficulty
 define("_MEDIUMDIFFICULTY","Средняя сложность");//Medium difficulty
@@ -723,13 +723,13 @@ define("_SEPTEMBER","Сентябрь");//September
 define("_OCTOBER","Октябрь");//October
 define("_NOVEMBER","Ноябрь");//November
 define("_DECEMBER","Декабрь");//December
-define("_MON","П");//M
-define("_TUE","В");//T
-define("_WED","С");//W
-define("_THU","Ч");//T
-define("_FRI","П");//F
-define("_SAT","С");//S
-define("_SUN","В");//S
+define("_MON","Пн");//M
+define("_TUE","Вт");//T
+define("_WED","Ср");//W
+define("_THU","Чт");//T
+define("_FRI","Пт");//F
+define("_SAT","Сб");//S
+define("_SUN","Вс");//S
 define("_VALUE","Значение");//Value
 define("_PERSONALDATACHANGESUCCESSADMIN","Личная информация изменена");//User&#039;s personal info have been successfully altered
 define("_CONTINUE","Продолжить");//Continue
@@ -777,10 +777,10 @@ define("_READ","Читать");//Read
 define("_UNREAD","Непрочитанные");//Unread
 define("_SUCCESFULLYADDEDROOM","Канал успешно добавлен");//Successfully added room
 define("_AND","и");//and
-define("_TRUEFALSE","Правда/Ложь");//True/False
+define("_TRUEFALSE","Верно/Неверно");//True/False
 define("_DROPDOWN","Выберите из списка");//Select from list
-define("_TRUE","Правда");//True
-define("_FALSE","Ложь");//False
+define("_TRUE","Верно");//True
+define("_FALSE","Неверно");//False
 define("_QUESTIONNUMBER","Номер вопроса");//Question number
 define("_QUESTIONTITLE","Заголовок вопроса");//Question title
 define("_NUMBEROFOPTIONS","Количество вариантов");//Number of options
@@ -828,9 +828,9 @@ define("_DEFAULTCONTACTMESSAGE","Я хотел бы получать инфор�
 define("_DEFAULTTERMSOFUSAGE","Условия пользования платформы eFront\n\n Каждый регистрирующийся в настоящей системе электронного обучения пользователь должен прочитать и соблюдать следующие условия надлежащего использования.\n\n 1. Запрещается использовать систему в целях, не предусматривающих процедуры обучения, как например: Продвижение товаров или услуг или любая комбинация из них, личная или рекламная деятельность третьих лиц, оскорбление других лиц, являются они зарегистрированными пользователями системы или нет");//\tTerms of usage\n\nEvery user registering to the present e-learning system must read and comply with the following terms of proper usage.\n\n1. It is forbidden to use the system for reasons other than performing a learning procedure, as for example: Promotion of products or services or any combination of these, personal or other person promotional practices, affront to other person, either registered system users or not
 define("_YOUMUSTAGREEWITHTERMSOFUSAGETOCONTINUE","Вы должны согласиться с условиями использования, чтобы продолжить работу с системой");//You must agree with the terms of usage in order to continue
 define("_INVALIDFIELDDATA","Неверные данные");//Invalid field data
-define("_SUCCESFULLYINSERTEDNEWUNIT","Новый блок добавлен");//Successfully inserted new unit
+define("_SUCCESFULLYINSERTEDNEWUNIT","Новый раздел добавлен");//Successfully inserted new unit
 define("_ACCEPTTERMS","Принять условия");//Accept terms
-define("_SUCCESFULLYUPDATEDUNIT","Блок успешно изменен");//Successfully updated unit
+define("_SUCCESFULLYUPDATEDUNIT","Раздел успешно изменен");//Successfully updated unit
 define("_ACTIVE2","Активен");//Active
 define("_ACTIVEFEM","Активен");//Active
 define("_LESSONSNUMBER","Количество уроков");//Number of lessons
@@ -888,8 +888,8 @@ define("_QUESTIONDELETEDSUCCESSFULLY","Вопрос успешно удален"
 define("_THEQUESTIONWASSUCCESSFULLYMOVED","Вопрос перемещен");//The question moved successfully
 define("_THEQUESTIONFAILEDTOBEMOVED","Вопрос не получилось перенести");//The question failed to be moved
 define("_NOSUCHOPERATION","Нет такой операции");//No such operation
-define("_SHOWDATAFORUNIT","Показать данные по блоку");//Show data for unit
-define("_ALLUNITS","Все блоки");//All units
+define("_SHOWDATAFORUNIT","Показать данные по разделу");//Show data for unit
+define("_ALLUNITS","Все разделы");//All units
 define("_YOUMUSTUPLOADFILE","Вы должны указать файл для загрузки");//You must indicate a file to upload
 define("_TOTALINSERTED","Всего вставлено");//Totally inserted
 define("_PERSONALOPTIONSFOR","Личные настройки для пользователя");//Personal options for user
@@ -899,7 +899,7 @@ define("_ROLES","Типы пользователей");//User types
 define("_TYPENAME","Имя типа");//Type name
 define("_UPDATEUSERTYPEFOR","Обновить тип пользователя для");//Update user type for
 define("_SYSTEMANNOUNCEMENTS","Системные объявления");//System announcements
-define("_CREATEUNIT","Создать модуль");//Create unit
+define("_CREATEUNIT","Создать раздел");//Create unit
 define("_DONETIMES","Время завершения");//Times completed
 define("_QUESTIONSTATISTICS","Статистика по вопросам");//Question statistics
 define("_ADDQUESTIONOFTYPE","Добавить вопрос типа");//Add question of type
@@ -908,7 +908,7 @@ define("_DURATIONINMINUTES","Продолжительность в минута�
 define("_ADDCALENDAR","Добавить событие в календарь");//Add calendar event
 define("_EVENTS","события");//events
 define("_NOEVENTSPLANNED","Нет запланированных мероприятий");//There are no events planned
-define("_UNITOPERATIONS","Операции с блоками");//Unit operations
+define("_UNITOPERATIONS","Операции с разделами");//Unit operations
 define("_LESSONINFORMATION","Информация об уроке");//Lesson information
 define("_GENERALDESCRIPTION","Описание");//General description
 define("_OBJECTIVES","Цели");//Objectives
@@ -1691,7 +1691,7 @@ define("_AREYOUSUREYOUWANTTODELETEGROUP","Вы действительно хот
 define("_GROUPDELETED","Группа удалена");//The group was deleted
 define("_GROUPFILTER","Фильтр групп");//Group filter
 define("_NOUSERSFOUND","Пользователи не найдены");//No users where found
-define("_SEPARATEALTERNATIVESEXAMPLE","Разделяйте альтернативные правильные ответы с помощью |, например: Синий|Черный|Белый");//Separate alternative correct answers with |, for example: Blue|Black|White
+define("_SEPARATEALTERNATIVESEXAMPLE","Разделяйте варианты правильных ответов с помощью |, например: Синий|Черный|Белый");//Separate alternative correct answers with |, for example: Blue|Black|White
 define("_CREATERANODOMTEST","Создать случайный тест");//Create random test
 define("_USING","Используя");//Using
 define("_EASY","Легкий");//Easy
@@ -2117,7 +2117,7 @@ define("_LOGOFILE","Файл логотипа");//Logo file
 define("_LESSONSKILLSSELECTION","Урок, на основе указанных навыков");//Select skills offered by the lesson
 define("_TOPCENTER","Вверху по центру");//Top center
 define("_BOTTOMCENTER","Внизу по центру");//Bottom center
-define("_HIDECOMPLETEUNITICON","Скрыть значок выполнения блока");//Hide complete unit icon
+define("_HIDECOMPLETEUNITICON","Скрыть значок выполнения раздела");//Hide complete unit icon
 define("_HIDENAVIGATION","Скрыть элементы навигации");//Hide navigation handles
 define("_AUTOCOMPLETEDAT","Завершено автоматически в");//Auto completed at
 define("_SECOND","сек.");//second
@@ -2332,7 +2332,7 @@ define("_TESTANALYSIS","Анализ теста");//Test analysis
 define("_THISLEVEL","Этот уровень");//This level
 define("_BELOWLEVELS","Уровни ниже");//Below levels
 define("_SUCCESSRATES","Уровень успешных");//Success rates
-define("_NOPARENT","Без родителей");//Without parent
+define("_NOPARENT","Самостоятельный раздел");//Without parent
 define("_THEUSERUNDERGOINGTESTSTARTEDAT","Этот пользователь сейчас проходит тест, который начался в");//The user is right now undergoing the test, started at
 define("_NONEXISTENTTEST","Это незавершенный тест");//This is not a completed test
 define("_FORTEST","для теста");//for test
@@ -2342,7 +2342,7 @@ define("_RESETALLTESTSSTATUS","Сбросить все статусы выпол
 define("_ADDANOTHERFILE","Добавить другой файл");//Add another file
 define("_YOUPAUSEDTHISTESTON","Вы приостановили этот тест");//You paused this test on
 define("_RESUMETEST","Возобновить тест");//Resume test
-define("_DISPLAYQUESTIONWEIGHTS","Отображать веса во время теста");//Display weights during test
+define("_DISPLAYQUESTIONWEIGHTS","Отображать баллы во время теста");//Display weights during test
 define("_UNAVAILABLEOPTION","Эта опция не доступна");//This option is not available
 define("_HOURSSHORTHAND","ч");//h
 define("_MINUTESSHORTHAND","м");//m
@@ -2834,9 +2834,9 @@ define("_RECENTINCOMINGMESSAGES","Последние входящие сообщ
 define("_GOTOMYMESSAGES","Перейти к моим сообщениям");//Go to my messages
 define("_USERINACTIVE","Эта учетная запись была деактивирована администратором");//The account has been deactivated by the administrator
 define("_TESTCORRUPTEDASKRESETEXECUTION","К сожалению, этот тест поврежден и, следовательно, недоступен. Пожалуйста, попросите вашего преподавателя сбросить выполнение этого теста");//We are sorry, but this test is corrupted and thus inaccessible. Please ask your professor to reset this test execution
-define("_LOWERHANDLES","Нижние регуляторы");//Lower handles
-define("_UPPERHANDLES","Верхние регуляторы");//Upper handles
-define("_ALLHANDLES","Все регуляторы");//All handles
+define("_LOWERHANDLES","Нижние элементы");//Lower handles
+define("_UPPERHANDLES","Верхние элементы");//Upper handles
+define("_ALLHANDLES","Все элементы");//All handles
 define("_MYPROFILE","Мой профиль");//my Profile
 define("_MYPLACEMENTS","Мои назначения");//my Placements
 define("_MYHISTORY","Моя история");//my History
@@ -2961,8 +2961,8 @@ define("_NEWTOPICFORFORUM","Новые темы для форума");//New topi
 define("_NEWTOPICPUBLISHEDINTHEFORUMOF","Новая тема была опубликована в форуме");//A new topic has been published in the forum of
 define("_NEWMESSAGEPOSTFORFORUM","Новое сообщение, опубликовано в форуме");//New message posted in the forum of
 define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","Новые сообщения были опубликованы в форуме");//A new messages has been posted in the forum of
-define("_CHANGEINUNIT","Изменения в блоке");//Change in unit
-define("_UNITTITLED" , "The unit titled");
+define("_CHANGEINUNIT","Изменения в разделе");//Change in unit
+define("_UNITTITLED" , "Заголовок раздела");//The unit titled
 define("_HASBEENMODIFIEDAS" ,"has been modified as follows");
 define("_SHOWCURRENCYSYMBOLBEFOREPRICE","Символ валюты перед суммой");//Show currency symbol before price
 define("_CERTIFICATEEXPIRED","Срок действия сертификата истек");//Certificate expired
@@ -2991,16 +2991,16 @@ define("_HASJOINEDTHESYSTEM","присоединился к системе");//h
 define("_HASBEENREMOVEDFROMTHESYSTEM","были удалены из системы");//has been removed from the system
 define("_THEPROJECT","Проект");//The project
 define("_HASEXPIRED","истек");//has expired
-define("_HASCREATEDUNIT","создал блок");//has created the unit
-define("_HASMODIFIEDUNIT","изменил блок");//has modified the unit
-define("_HASCOMPLETEDUNIT","завершил блок");//has completed the unit
+define("_HASCREATEDUNIT","создал раздел");//has created the unit
+define("_HASMODIFIEDUNIT","изменил раздел");//has modified the unit
+define("_HASCOMPLETEDUNIT","завершил раздел");//has completed the unit
 define("_HASPUBLISHEDSURVEY","опубликовал опрос");//has published the survey
 define("_HASCREATEDPROJECT","опубликовал проект");//has published project
 define("_ISSUECERTIFICATEFORCOMPLTETED","Выпуск сертификатов для выполненных");//Issue certificates for completed
 define("_COMPLETEDON","Выполнен");//Completed on
 define("_SMARTYCACHING","Использовать кэширование Smarty");//Enable Smarty caching
 define("_SMARTYCACHETIMEOUT","Время жизни кэша Smarty");//Smarty caching timeout
-define("_ESTIMATETIMETOCOMPLETE","Примерное время на выполнение");//Estimated time to complete
+define("_ESTIMATETIMETOCOMPLETE","Время на выполнение");//Estimated time to complete
 define("_TOTALDURATION","Общая продолжительность");//Total duration
 define("_CURRENTLYSELECTEDTIMEFROM","Общее время может быть от");//Total time may be from
 define("_UPDATETESTTIME","Изменить время тестирования");//Update test time
@@ -3062,7 +3062,7 @@ define("_SEARCHTEXTMUSTBENONEMPTYANDMORETHAN","Текст поиска долж�
 define("_MAXIMIZEVIEWABLEAREA","Раскрыть видимую область");//Maximize viewable area
 define("_IMAGESDISPLAY","Показ изображений");//Images display
 define("_YOUARECURRENTLYLOGGEDINAS","Вы вошли как");//You are logged in as
-define("_VERYHARD","Очень тяжело");//Very hard
+define("_VERYHARD","Очень сложный");//Very hard
 define("_CURRENTTESTHAS","Текущий тест имеет");//The current test has
 define("_QUESTIONSOFTOTALTIME","вопросов за все время");//questions of total time
 define("_WHEREARANDOMPOOLOF","где пул случайных вопросов из");//where a random pool of
@@ -3115,7 +3115,7 @@ define("_OPERATIONCOMPLETEDSUCCESSFULLY","Операция выполнена у
 define("_ONLYFORLESSONS","Только для уроков");//Only for lessons
 define("_CONTENTTOOLS","Авторские инструменты");//Content tools
 define("_TOGGLEFILEMANAGER","Показать файловый менеджер");//Toggle file manager
-define("_UNITPROPERTIES","Свойства блока");//Unit properties
+define("_UNITPROPERTIES","Свойства раздела");//Unit properties
 define("_COPYSURVEYS","Копировать опросы");//Copy surveys
 define("_COPYQUESTIONS","Копировать вопросы");//Copy questions
 define("_INSTALLTHEME","Установить тему");//Install theme
@@ -3472,7 +3472,7 @@ define("_EMBEDTYPE","Режим встриавания контента");//Embe
 define("_INLINEIFRAME","Встроенный (IFRAME)");//Inline (iframe)
 define("_NEWWINDOWPOPUP","Новое всплывающее окно (PopUp)");//New window (popup)
 define("_POPUPPARAMETERS","Параметры всплывающего окна");//Popup parameters
-define("_CLICKTOSTARTUNIT","Нажмите на кнопку, чтобы начать изучение блока материала");//Click on the button to start the unit
+define("_CLICKTOSTARTUNIT","Нажмите на кнопку, чтобы начать изучение раздела материала");//Click on the button to start the unit
 define("_STARTUNIT","Начать изучение");//Start unit
 define("_SCORM2004NOTSUPPORTED","К сожалению, SCORM 2004 не поддерживается в данном выпуске");//Unfortunately SCORM 2004 is not supported in this edition
 define("_RESTOREDEFAULTNOTIFICATIONS","Восстановить уведомления по умолчанию");//Restore default notifications
@@ -3548,12 +3548,12 @@ define("_SEATSREMAINING","Осталось мест");//Seats remaining
 define("_STARTDATE","Дата начала");//Start date
 define("_AREYOUSUREYOUWANTTODELETEINSTANCE","Вы уверены, что хотите удалить этот экземпляр?");//Are you sure you want to delete this instance?
 define("_EDITCOURSEINSTANCE","Изменить экземпляр");//Edit instance
-define("_EDITLESSONSCOURSEINSTANCE","Уроки экземпояра");//Instance lessons
+define("_EDITLESSONSCOURSEINSTANCE","Уроки экземпляра");//Instance lessons
 define("_EDITUSERSCOURSEINSTANCE","Пользователи экземпляра");//Instance users
 define("_SKILLSOFFEREDINSTANCE","Навыки экземпляра");//Instance skills
 define("_COURSEOPTIONSFORINSTANCE","Опции экземпляра");//Options for instance
 define("_JUMPTO","Перейти к");//Jump to
-define("_PARENTCOURSE","Родительский курс");//Parent Course
+define("_PARENTCOURSE","Исходный курс");//Parent Course
 define("_LOCATIONBRANCH","Месторасположение (подразделение)");//Location (branch)
 define("_SELECTBRANCH","Выберите подразделение");//Select branch
 define("_SHARED","Общие");//Shared
@@ -3756,7 +3756,7 @@ define("_COMMASEPARATEDLIST","Список, разделенный запято�
 define("_WEBSERVERAUTHENTICATION","Аутентификация вэб-сервера");//Web server authentication
 define("_USERSETTINGS","Пользовательские настройки");//User settings
 define("_THIRDPARTYTOOLS","Третья сторона инструменты");//3rd party tools
-define("_DONOTTAKEACCOUNTINCORRECTING","Не принимайте это во внимание при коррекции");//Do not take it into account in correction
+define("_DONOTTAKEACCOUNTINCORRECTING","Не учитывать при проверке");//Do not take it into account in correction
 define("_AREYOUSUREYOUWANTTOINITIALIZELESSON","Вы уверены, что вы хотите инициализировать урок? Некоторые данные будут удалены навсегда");//Are you sure you want to initialize lesson? This will permanently delete data
 define("_EXTERNALTOOLS","Внешние инструменты");//External tools
 define("_MATHSETTINGS","Математические настройки");//Math settings
@@ -3911,7 +3911,7 @@ define("_INCOMPLETECOURSES","Незавершенные курсы");//Incomplet
 define("_EDITCOLUMN","Изменить столбец");//Edit column
 define("_LESSONSFORCOURSE","Уроки для курса");//Lessons for course
 define("_TESTSFORLESSON","Тесты для урока");//Tests for lesson
-define("_SETALLUSERSSTATUSCOMPLETED","Заполнить для всех пользователей");//Complete for all users
+define("_SETALLUSERSSTATUSCOMPLETED","Выполнено для всех пользователей");//Complete for all users
 define("_LESSONTIMES","Повторов урока");//Lesson times
 define("_MINUTESPERDAY","Минут в день");//Minutes per day
 define("_LOGOUTUSERAFTERMINUTES","Выводить пользователя через (мин)");//Log out user after (minutes)
@@ -3962,8 +3962,8 @@ define("_NOTCONTAINS","Не содержит");//Does not contain
 define("_REMOVEOPTION","Удалить опцию");//Remove option
 define("_CONSIDERCORRECTWHENSCOREISGREATERTHAN","Считать правильным, когда сумма накопленных баллов больше или равна");//Consider correct when accumulated points are greater or equal to
 define("_AUTOMATIC","Автоматическая");//Automatic
-define("_AUTOCORRECTOPTIONS","Параметры автокоррекции");//Auto-correct options
-define("_QUESTIONCORRECTION","Изменение вопроса");//Question correction
+define("_AUTOCORRECTOPTIONS","Параметры автопроверки");//Auto-correct options
+define("_QUESTIONCORRECTION","Проверка вопроса");//Question correction
 define("_SEPARATEWORDSWITHPIPE","Разделяйте слова символом |");//Separate words with pipe |
 define("_POINTS","Баллов");//Points
 define("_THEUSERDOESNOTHAVETHISCOURSE","Пользователь не имеет этот курс");//The user does not have this course
@@ -3997,10 +3997,10 @@ define("_CLICKHERE","нажмите здесь");//click here
 define("_TOLOGINAGAIN","чтобы снова войти");//to login again
 define("_SESSIONEXPIRED","Сессия окончена");//Session expired
 define("_COMMASEPARATEDLISTOFUSERSOR1FORALL","Разделенный запятыми список пользователей, чтобы показать отладки информацию о, или 1 для всех пользователей");//Comma separated list of users to show debug information on, or 1 for all users
-define("_JANUARYSHORTHAND","Ян");//Jan
+define("_JANUARYSHORTHAND","Янв");//Jan
 define("_FEBRUARYSHORTHAND","Фев");//Feb
 define("_MARCHSHORTHAND","Мар");//Mar
-define("_APRILSHORTHAND","Май");//Apr
+define("_APRILSHORTHAND","Апр");//Apr
 define("_MAYSHORTHAND","Май");//May
 define("_JUNESHORTHAND","Июн");//Jun
 define("_JULYSHORTHAND","Июл");//Jul
@@ -4028,13 +4028,13 @@ define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Показать неполных в�
 define("_RETAINBESTEXECUTION","Сохранить лучший результат");//Retain best score
 define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Средняя оценка испытаний (с учетом активного выполнения каждого теста)");//Average test score (counting each test's active execution)
 define("_SCOREONACTIVEEXECUTION","Оценка на активное выполнение");//score on active execution
-define("_YOUCANUSEASTERISK","Если указать слово, которое заканчивается звездочкой (*), только ее первой части будут рассмотрены. Например, если указать 'учиться *', то как 'обучение' и 'учиться' будет считаться правильным.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
-define("_COURSELESSONSRULES","правила курс Урок");//Course lesson rules
+define("_YOUCANUSEASTERISK","Если указать слово, которое заканчивается звездочкой (*), только первая часть будет использована. Например, если указать 'учиться*', то 'обучиться' и 'учиться' будет считаться правильным.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_COURSELESSONSRULES","Правила изучения курса");//Course lesson rules
 define("_RULESBETWEENCOURSES","Правила между курсами");//Rules between courses
 define("_COURSEDEPENDSON","Конечно, зависит от");//Course depends on
 define("_YOUCANNOTSETSAMECOURSEASRULE","Вы не можете установить курс в качестве предварительного условия о себе");//You cannot set the course as a prerequisite of itself
-define("_DISPLAYALTERNATIVESINSELECTBOX","Показать альтернатив в окне выбора");//Display alternatives in select box
-define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","Проверка этого появится список всех альтернатив, а не в текстовом поле. В этом случае, только первый вариант считается правильным");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
+define("_DISPLAYALTERNATIVESINSELECTBOX","Показать варианты в окне выбора");//Display alternatives in select box
+define("_CHECKINGTHISWILLDISPLAYLISTBOXFIRSTISCORRECT","При тестировании появится список всех вариантов, а не в текстовом поле. В этом случае, только первый вариант считается правильным.");//Checking this will display a list box with all the alternatives, instead of a text box. In this case, only the first option is considered correct
 define("_SHOWANSWERSIFSTUDENTPASSED","Показать правильные ответы, только если студент прошел испытания");//Show correct answers only if student passed the test
 define("_OPTIONSCHECKER","Настройки проверки");//Settings checker
 define("_CHECKBROWSER","Проверка браузера");//Checking browser
@@ -4081,28 +4081,28 @@ define("_CLICKHERETOREDELETEOLDTOKENS","Удалить API маркеров бо
 define("_ADDNEWCONDITION","Добавить новое условие");//Add new condition
 define("_CLICKHERETOREDELETEADVANCEDREPORTVIEWS","Удалить расширенный отчет просмотров");//Delete advanced report views
 define("_STANDALONELESSONSAVERAGE","Средний балл во всех автономных уроков");//Average score in all standalone lessons (New)
-define("_SCORECALCULATIONMODE","Режим Расчет баллов");//Score calculation mode (New)
+define("_SCORECALCULATIONMODE","Тип расчета баллов");//Score calculation mode (New)
 define("_TRIGGERINGUSERS","Запуск пользователя");//Triggering user&#039;s (New)
 define("_MODIFIED","Модифицированный");//Modified (New)
 define("_USERSSELFENROLL","Пользователи могут добавлять себя");//Users can add themselves (New)
 define("_SPENTTIMEINLESSON","Время в урок");//Time in lesson (New)
 define("_TOTALTIMESPENTONTHISUNIT","Время в единицу");//Time in unit (New)
-define("_YOUMUSTSPENDXMINUTESINLESSON","Вы должны потратить минут% х изучения содержания");//You must spend %x minutes studying content (New)
-define("_MUSTSPENDXMINUTESINLESSON","Должны тратить минут% х изучения содержания");//Must spend %x minutes studying content (New)
+define("_YOUMUSTSPENDXMINUTESINLESSON","Вы должны потратить %x минут для изучения содержания");//You must spend %x minutes studying content (New)
+define("_MUSTSPENDXMINUTESINLESSON","Должны тратить %x минут изучения содержания");//Must spend %x minutes studying content (New)
 define("_TOTALTIMESPENTONTHISLESSON","Время в урок");//Time in lesson (New)
 define("_TIMERS","Таймеры");//Timers (New)
-define("_PREVIOUSUNIT","Предыдущая блок");//Previous unit (New)
-define("_NEXTUNIT","Следующий блок");//Next unit (New)
+define("_PREVIOUSUNIT","Предыдущий раздел");//Previous unit (New)
+define("_NEXTUNIT","Следующий раздел");//Next unit (New)
 define("_PREVIOUSLESSON","Предыдущий урок");//Previous lesson (New)
 define("_CONSTRAINAPIIP","IP-адреса разрешено подключаться к API");//IPs allowed to connect to the API (New)
 define("_LOGOUTUSERIFINACTIVEFORMINUTES","Выйдите из системы пользователя, если неактивны (в минутах)");//Log out user if inactive for (minutes) (New)
 define("_COMPLETEAFTERSECONDS","Полное после (в секундах)");//Complete after (seconds) (New)
-define("_APPLYFUNCTIONTOALLUNITS","Применить функцию ко всем устройствам");//Apply a function to all units (New)
+define("_APPLYFUNCTIONTOALLUNITS","Применить ко всему материалу");//Apply a function to all units (New)
 define("_SCORMSPECIFICPROPERTIES","SCORM 1.2 свойства");//SCORM 1.2 properties (New)
-define("_ALLUNITSPROPERTIES","Свойства для всех подразделений");//Properties for all units (New)
+define("_ALLUNITSPROPERTIES","Свойства для всех подразделов");//Properties for all units (New)
 define("_YOUMAYWANTTODISABLEENABLERESETPASSWORDTOO","Вы можете отключить &quot;сбросить пароль&quot; ссылку, а также, в общих настройках");//You may want to disable &quot;reset password&quot; link as well, in general settings (New)
-define("_FORTHISLESSON","Для текущих урок");//For current lesson (New)
-define("_FORANYLESSON","Для любой урок");//For any lesson (New)
+define("_FORTHISLESSON","Для текущего урока");//For current lesson (New)
+define("_FORANYLESSON","Для любого урока");//For any lesson (New)
 define("_SHAREDGLOSSARY","Общий глоссарий");//Shared glossary (New)
 define("_CHARACTERSMAX50ONLYNOSPACES","Письма только, максимальная длина 50 символов, без пробелов");//Letters only, maximum 50 characters length, without spaces (New)
 define("_MANDATORYFORUSERS","Обязательное для пользователей");//Mandatory for users (New)
@@ -4129,7 +4129,7 @@ define("_LESS","меньше");//less (New)
 define("_COURSESREGISTRATIONS","Курс регистрации");//Course registrations (New)
 define("_INACTIVEREGISTRATIONS","Неактивные регистрации");//Inactive registrations (New)
 define("_BUYBALANCE","Купить баланс");//Buy balance (New)
-define("_COMPLETEUNITOPTIONS","Группа вариантов завершения");//Unit completion options (New)
+define("_COMPLETEUNITOPTIONS","Варианты завершения");//Unit completion options (New)
 define("_COMPLETEAFTERTIMEELAPSED","Полное время, прошедшее после");//Complete after time elapsed (New)
 define("_REMEMBERLOGIN","&quot;Оставить меня в системе&quot; вариант");//&quot;Keep me logged in&quot; option (New)
 define("_PASSWORDSALT","Пароль соль");//Password salt (New)
@@ -4137,7 +4137,7 @@ define("_CEUS","CEUs");//CEUs (New)
 define("_TOTALCEUS","Всего CEUs");//Total CEUs (New)
 define("_BRANCHWITHSUBBRANCHES","Филиалы и отделения");//Branch and sub-branches (New)
 define("_KEEPMELOGGEDIN","Оставить меня в системе");//Keep me logged in (New)
-define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","У вас нет прав для доступа к данным устройством");//You are not allowed to access this unit (New)
+define("_YOAURENOTALLOWEDTOACCESSTHISUNIT","У вас нет прав для доступа к данному разделу");//You are not allowed to access this unit (New)
 define("_STARTWITHPIPEIFWANTEMPTYCHOICE","Начните с трубы | если вы хотите пустой выбор");//Start with pipe | if you want an empty choice (New)
 define("_YOUCANTADDTHISBALANCE","Вы не можете добавить этот баланс");//You cannot add this balance (New)
 define("_DISPLAYRESULTSTOSTUDENTS","Отображение результатов для студентов");//Display results to students (New)
@@ -4152,7 +4152,7 @@ define("_ACTIVELESSONTIMES","Активное раз урок");//Active lesson 
 define("_PLEASEREMEMBERTOSETUPAPASSWORD","Пожалуйста, не забудьте установить пароль");//Please remember to set up a password (New)
 define("_ISLDAPUSER","Ldap пользователей");//Ldap user (New)
 define("_REPORTSCONDITION","Состояние");//Condition (New)
-define("_USEMYSQLWILDCARDS","Вы можете использовать MySQL в подстановочных знаков,% и ");//You can use mysql's wildcard characters, % and _ (New)
+define("_USEMYSQLWILDCARDS","Вы можете использовать MySQL в подстановочных знаков, % и _");//You can use mysql's wildcard characters, % and _ (New)
 define("_LESSONTIMEREPORTS","_Отчеты Урок время");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Активное время по содержанию");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Переключение в режим активного времени, если вы хотите, чтобы система мониторинга и отчетности только раз, что пользователь действительно проходит через содержание. Переключить на общее время, если вы хотите, чтобы система докладе общего времени пользователь проводит на уроке, вне зависимости на какой странице он / она включена. <br/> <b>Внимание:</b> Переход на активное отчетный момент будет перезаписывать любые активные раз, которые были зарегистрированы до сих пор с соответствующей общей раза.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)

@@ -200,6 +200,13 @@ class XMLExport{
   if($custom_)
    $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
  }
+ public function showCustomThree($pdf, $custom){
+
+  $custom_ = $this->template->certificate->custom3;
+
+  if($custom_)
+   $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+ }
 
  public function showSerialNumber($pdf, $serial){
 

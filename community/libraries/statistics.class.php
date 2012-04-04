@@ -1100,6 +1100,7 @@ class EfrontStats
                 if ($roles[$value['user_type']] == 'student') {
                     $courseStatus['completed'] = $value['completed'];
                     $courseStatus['score'] = $value['score'];
+                 $courseStatus['completion_date'] = $value['to_timestamp'];
                     $courseStatus['comments'] = $value['comments'];
                     $courseStatus['issued_certificate'] = $value['issued_certificate'];
                     $courseStatus['total_lessons'] = sizeof($course -> countCourseLessons());

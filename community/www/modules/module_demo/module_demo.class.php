@@ -222,8 +222,9 @@ class module_demo extends EfrontModule {
         $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
         $smarty -> assign("T_MODULE_BASELINK" , $this -> moduleBaseLink);
         $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
+        $GLOBALS['load_editor'] = true;
      $form = new HTML_QuickForm("demo_form", "post", $this -> moduleBaseUrl, "", null, true);
-  $form -> addElement('text', 'data', _MODULE_DEMO_TEXTFIELD, 'class = "inputText"');
+  $form -> addElement('textarea', 'data', _MODULE_DEMO_TEXTFIELD, 'class = "mceEditor" style = "width:100%;height:300px;"');
      $options = array_merge(array('format' => getDateFormat().' H:i',
              'minYear' => date("Y") - 4,
              'maxYear' => date("Y") + 3));
@@ -249,6 +250,34 @@ class module_demo extends EfrontModule {
    }
   }
   $smarty -> assign("T_DEMO_FORM", $form -> toArray());
+     $functions_form = new HTML_QuickForm("functions_form", "post", $this -> moduleBaseUrl."&tab=demo_functions", "", null, true);
+     $result = eF_getTableData("users", "login, email");
+     foreach ($result as $value) {
+      $users[$value['login']] = formatLogin($value['login']). ' - '.$value['email'];
+     }
+     $functions_form -> addElement('select', 'login', _MODULE_DEMO_SELECTAUSERTOEMAILTO, $users);
+  $functions_form -> addElement('submit', 'send_email', _MODULE_DEMO_SENDEMAILUSINGEFMAIL, 'class = "flatButton"');
+  $functions_form -> addElement('submit', 'send_pm', _MODULE_DEMO_SENDEMAILUSINGPM, 'class = "flatButton"');
+  $functions_form -> setDefaults(array('timestamp' => time()));
+  if ($functions_form -> isSubmitted() && $functions_form -> validate()) {
+   try {
+    $values = $functions_form -> exportValues();
+    $user = EfrontUserFactory::factory($values['login']);
+    if ($values['send_email']) {
+     eF_mail($GLOBALS['configuration']['system_email'], $user->user['email'], 'Module demo email', 'This is an email sent from the Demo module');
+    } else if ($values['send_pm']) {
+     $pm = new eF_PersonalMessage($_SESSION['s_login'], $user->user['login'], 'Module demo email', 'This is an email sent from the Demo module');
+     $pm -> send(true);
+    }
+    $message = _OPERATIONCOMPLETEDSUCCESSFULLY;
+    $this -> setMessageVar($message, 'success');
+   } catch (Exception $e) {
+    $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
+    $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
+    $this -> setMessageVar($message, 'failure');
+   }
+  }
+  $smarty -> assign("T_FUNCTIONS_FORM", $functions_form -> toArray());
   try {
    if (isset($_GET['ajax']) && $_GET['ajax'] == 'demoTable') {
     $this -> getAjaxResults();

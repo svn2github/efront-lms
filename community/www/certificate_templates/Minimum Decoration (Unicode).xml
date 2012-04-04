@@ -3,13 +3,14 @@
 	<certificate>
 		<organization text="LMS" font="Freeserif" weight="bold" size="60" color="#005b7f" x="120" y="13"></organization>
 		<student font="Freeserif" weight="" size="35" color="#000000" x="5" y="95" align="center"></student>
-		<course font="Freeserif" weight="" size="28" color="#000000" x="5" y="133" align="center"></course>
-		<grade font="Freeserif" weight="bold" size="28" color="#000000" x="160" y="150" align="center"></grade>
+		<course font="Freeserif" weight="" size="28" color="#000000" x="5" y="123" align="center"></course>
+		<grade font="Freeserif" weight="bold" size="28" color="#000000" x="160" y="135" align="center"></grade>
 		<date font="Freeserif" weight="" size="15" color="#575757" x="200" y="182"></date>
 		<serial font="Freeserif" weight="" size="14" color="#575757" x="107" y="182"></serial>
 		<expire font="Freeserif" weight="" size="15" color="#575757" x="250" y="182"></expire>
-		<custom1 font="Freeserif" weight="" size="16" color="#000000" x="100" y="165" align="center"></custom1>
-		<custom2 font="Freeserif" weight="" size="16" color="#000000" x="100" y="172" align="center"></custom2>
+		<custom1 font="Freeserif" weight="" size="16" color="#000000" x="100" y="150" align="center"></custom1>
+		<custom2 font="Freeserif" weight="" size="16" color="#000000" x="100" y="160" align="center"></custom2>
+		<custom3 font="Freeserif" weight="" size="16" color="#000000" x="100" y="170" align="center"></custom3>
 		<logo file="default" x="14" y="14"></logo>
 		<orientation name="landscape"></orientation>
 		<creator name="LMS"></creator>
@@ -21,8 +22,8 @@
 			<label text="We Make e-Learning Special" font="Freeserif" weight="" size="18" color="#000000" x="110" y="51"></label>
 			<label text="Certificate of Achievement" font="Freeserif" weight="" size="35" color="#000000" x="80" y="67"></label>
 			<label text="This Certificate is Awarded to:" font="Freeserif" weight="" size="24" color="#000000" x="97" y="82"></label>
-			<label text="For the successful completion of:" font="Freeserif" weight="" size="22" color="#000000" x="95" y="120"></label>
-			<label text="With grade:" font="Freeserif" weight="" size="22" color="#000000" x="120" y="152"></label>
+			<label text="For the successful completion of:" font="Freeserif" weight="" size="22" color="#000000" x="95" y="115"></label>
+			<label text="With grade:" font="Freeserif" weight="" size="22" color="#000000" x="120" y="137"></label>
 			<label text="Instructor" font="Freeserif" weight="" size="10" color="#000000" x="20" y="192"></label>
 			<label text="Serial Number" font="Freeserif" weight="" size="10" color="#000000" x="110" y="192"></label>
 			<label text="Date" font="Freeserif" weight="" size="10" color="#000000" x="200" y="192"></label>

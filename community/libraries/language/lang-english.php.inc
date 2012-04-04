@@ -3379,7 +3379,7 @@ define("_HASCERTIFICATED","got certificate for");
 define("_WITHGRADE","with grade");
 define("_WITHKEY","with key");
 define("_CERTIFICATEISSUE","Certificate issue");
-define("_CERTIFICATEREVOKE","Certificate revoke/expire");
+define("_CERTIFICATEREVOKE","Certificate revoke");
 define("_HASLOSTCERTIFICATE","lost certificate for");
 define("_PREVIOUSCERTIFICATES","Previous ceriticates");
 define("_PRIVATE", "Private");
@@ -4200,4 +4200,5 @@ define("_ADDANOTHERCUSTOMTEXT","Add another custom text");
 define("_VIEWLESSONASSTUDENT", "View lesson as student");
 define("_BACKTOPROFESSORMODE", "Back to professor mode");
 define("_YOUAREINSTUDENTMODE", "You are currently viewing this lesson as a student. ");
+define("_CERTIFICATEEXPIRY", "Course certificate expiry");
 ?>

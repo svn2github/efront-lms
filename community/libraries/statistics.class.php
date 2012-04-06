@@ -2501,8 +2501,9 @@ class EfrontStats
  }
 
 
- public static function createViews() {
+ public static function createViews() {debug();
   try {
   } catch (Exception $e) {}
  }
 }
+//select users_to_courses.users_LOGIN as courses_login,sum(completed>0) as sum_courses,count(users_to_courses.from_timestamp) as count_courses,sum(issued_certificate != "") as certifications, sum(r.ceus) as ceus from (users_to_courses,courses) left outer join (select ucc.users_LOGIN,ucc.courses_ID,ceu as ceus from courses cc join users_to_courses ucc on ucc.courses_ID=cc.id where completed=1 group by ucc.users_LOGIN) r on users_to_courses.courses_ID=r.courses_ID and users_to_courses.users_LOGIN=r.users_LOGIN where courses.id=users_to_courses.courses_ID and courses.active=1 and courses.archive = 0 and users_to_courses.archive=0 and (users_to_courses.user_type="student" or users_to_courses.user_type in (select id from user_types where basic_user_type = "student")) group by courses_login;

@@ -214,7 +214,7 @@ z-index:10;
 .pending{color:blue;}
 
 /*The name appearing in inner tables header, when editing an entity*/
-.innerTableName{font-style:italic;}
+.innerTableName{font-style:auto;}
 
 /*Tooltip classes*/
 a.info{position:relative;z-index:24;}
@@ -448,7 +448,7 @@ tr.evenRowColor{background:#f8f8f8;}
 tr.oddRowColor:hover,tr.evenRowColor:hover{background:#C7D7F3;}
 tr.oddRowColorNoHover{background:#f1f1f1;border:1px dotted #D0D0D0;} /*NoHover is only used for forum posts*/
 tr.evenRowColorNoHover{background:#f8f8f8;}
-.emptyCategory{font-style:italic;}/*when a list does not have elements, this row appears*/
+.emptyCategory{font-style:auto;}/*when a list does not have elements, this row appears*/
 .defaultRowHeight{height:30px;}
 tr.deactivatedTableElement td, 
 tr.deactivatedTableElement td a,
@@ -492,7 +492,7 @@ white-space:nowrap;
 /*Chat classes*/
 span.chatProfessorMessages{color:yellow;}
 span.chatAdministratorMessages{color:#111111;}
-span.chatSystemMessage{color:#800080;font-style:italic;}
+span.chatSystemMessage{color:#800080;font-style:auto;}
 a.exitLink,a.exitLink:link,a.exitLink:visited,a.exitLink:hover{color:#EE82EE;}
 a.activateLink,a.activateLink:link,a.activateLink:visited,a.activateLink:hover{color:#FFA500;}
 span.chatMyMessages{color:#800080;}
@@ -1291,7 +1291,7 @@ border-width:0px;
 
 /*Social classes*/
 .trigger {position: absolute;}
-span.timeago {color:#7F7F7F;font-style:italic;}
+span.timeago {color:#7F7F7F;font-style:auto;}
 .bubbleInfo {position: relative;}
 .bubblePopup {
 position: absolute;

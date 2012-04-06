@@ -12,7 +12,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
@@ -304,10 +303,10 @@ function setDefines() {
     /*Get the build number*/
  /** The server name*/
  $request_uri = $_SERVER['REQUEST_URI'];
- if (basename($_SERVER['PHP_SELF']) != basename($_SERVER['REQUEST_URI'])) {
+ if (!is_file(dirname(G_ROOTPATH).$request_uri) && basename($_SERVER['PHP_SELF']) != basename($_SERVER['REQUEST_URI'])) {
   $request_uri .= basename($_SERVER['PHP_SELF']);
  }
- if (dirname($request_uri) != dirname($_SERVER['PHP_SELF'])) {
+ if (!is_file(dirname(G_ROOTPATH).$request_uri) && dirname($request_uri) != dirname($_SERVER['PHP_SELF'])) {
   define("G_BRANCH_URL", basename(dirname($request_uri)).'/');
  } else {
   define("G_BRANCH_URL", '');
@@ -321,7 +320,7 @@ function setDefines() {
   $_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.preg_replace('#^'.G_OFFSET.'#', '', $_SERVER['PHP_SELF']);
  }
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 14492;
+    $build = 14607;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

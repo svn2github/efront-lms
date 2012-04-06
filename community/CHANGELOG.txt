@@ -1,4 +1,4 @@
-=== Version 3.6.11 build ===
+=== Version 3.6.11 build 14607 ===
 - Fixed importing more than one jobs on the same user and csv, having "replace" mode to "on"
 - Updated paypal sandbox address to use ssl
 - Updated notifications process to lock while it's executing

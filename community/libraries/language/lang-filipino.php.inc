@@ -684,7 +684,7 @@ define("_THISFOLDERDOESNOTEXIT","Ang folder na ito ay hindi na umiiral");//This 
 define("_MODIFY","Baguhin ang");//Modify
 define("_FOLDER","Folder");//Folder
 define("_SIZE","Laki");//Size
-define("_YOUMUSTSPECIFYANACTION","Ikaw ay dapat na tukuyin ang isang aksyon");//You must specify an action
+define("_YOUMUSTSPECIFYANACTION","Ikaw ay dapat na define ang isang aksyon");//You must specify an action
 define("_ALLOWHTMLFPM","Pahintulutan ang HTML sa Forum at Personal na mga mensahe");//Allow HTML in Forum and Personal messages
 define("_ACTIVATEPOLLS","Buhayin ang mga lugar ng botohan");//Activate polls
 define("_ALLOWATTACHMENTSINF","Payagan ang mga kalakip sa forum");//Allow attachments in forum
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Ang aksyon na ito ay permanenteng tangga
 define("_SYSTEMENTITIES","Sistema ng mga nilalang");//System entities
 define("_ALLEVENTS","Lahat ng mga kaganapan");//All events
 define("_COLLAPSECATALOG","Gibain catalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Panahon ay idinagdag matagumpay");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Panahon ay idinagdag matagumpay");//Period was added successfully
 define("_THEMES","Mga tema");//Themes
 define("_CUSTOMIZATION","Pagpapasadya");//Customization
 define("_EXTERNALPAGES","Panlabas na mga pahina");//External pages
@@ -3171,9 +3171,9 @@ define("_LOGO","Logo");//Logo
 define("_FAVICON","Favicon");//Favicon
 define("_NOLOGOFOUND","Logo Walang natagpuang");//No logo found
 define("_DOWNLOADTHEME","Donwload tema");//Donwload theme
-define("_ORSPECIFYREMOTETHEME","O tukuyin ang remote tema");//Or specify remote theme
+define("_ORSPECIFYREMOTETHEME","O define ang remote tema");//Or specify remote theme
 define("_INSTALL","I-install ang");//Install
-define("_REMOTETHEMEXMLFILE","Mangyaring tukuyin ang URL ng XML paglalarawan sa remote tema ng file");//Please specify the URL of the remote theme's XML description file
+define("_REMOTETHEMEXMLFILE","Mangyaring define ang URL ng XML paglalarawan sa remote tema ng file");//Please specify the URL of the remote theme's XML description file
 define("_THEMEALREADYEXISTS","Isang tema na may parehong pangalan ay mayroon na");//A theme with the same name already exists
 define("_COMMUNICATIONWITHTHIRDPARTY","Komunikasyon sa ika-3 partido kasangkapan");//Communication with 3rd party tools
 define("_USERACTIVATIONSETTINGS","User activation / registration");//User activation/registration
@@ -3490,15 +3490,15 @@ define("_TOCREATECOURSEYOUMUSTFIRSTCREATECATEGORY","Upang lumikha ng isang kurso
 define("_LESSONBRANCHESSELECTION","Piliin ang aral na sanga");//Select lesson branches
 define("_LESSONBRANCHES","Lesson sanga");//Lesson branches
 define("_COURSEBRANCHES","Course na sanga");//Course branches
-define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Payagan ang mga mag-aaral upang tukuyin ang bilang ng mga katanungan sa bawat pagsubok pagpapatupad");//Allow students to specify number of questions in each test execution
+define("_ALLOWSTUDENTSTOSPECIFYTOTALQUESTIONS","Payagan ang mga mag-aaral upang define ang bilang ng mga katanungan sa bawat pagsubok pagpapatupad");//Allow students to specify number of questions in each test execution
 define("_MAXIMUM","Pinakamataas na");//Maximum
 define("_MINIMUM","Pinakamababang");//Minimum
 define("_REPETITIONS","Repetitions");//Repetitions
 define("_MAINTAINHISTORY","Ipanatili ang kasaysayan");//Maintain history
 define("_KEYISNOTFORTHISEDITION","Ang susi ay hindi angkop para sa edition na ito");//The key is not suitable for this edition
 define("_ILLEGALMODE","Iligal na mode");//Illegal mode
-define("_MUSTSPECIFYQUESTIONNUMBER","Dapat mong tukuyin ang bilang ng mga katanungan");//You must specify the number of questions
-define("_MUSTSPECIFYVALUEFROM","Kailangan mong tukuyin ang isang halaga mula sa");//You must specify a value from
+define("_MUSTSPECIFYQUESTIONNUMBER","Dapat mong define ang bilang ng mga katanungan");//You must specify the number of questions
+define("_MUSTSPECIFYVALUEFROM","Kailangan mong define ang isang halaga mula sa");//You must specify a value from
 define("_COURSEPROFESSORS","Course professors");//Course professors
 define("_PROFESSORSOFCOURSE","Professors ng kurso");//Professors of course
 define("_USERSUPERVISORS","User supervisors");//User supervisors
@@ -3751,7 +3751,7 @@ define("_CURRENTUSERS","Kasalukuyan");//Current
 define("_SELECTEDCOURSES","Napiling mga kurso");//Selected courses
 define("_MODULEFILESPRESENTNOTINSTALLED","Module na mga files ay kasalukuyan, ngunit hindi na ito ay nai-install");//Module files are present, but it is not installed
 define("_DISABLEPAYMENTSNOTICE","Ito ay magse-set ang lahat ng mga aralin at mga kurso sa presyo 0");//This will set all lessons and courses price to 0
-define("_SPECIFYIDFORSREENMATCHING","Tukuyin ang object id para sa screen na sukat ng pagtutugma");//Specify object id for screen matching dimensions
+define("_SPECIFYIDFORSREENMATCHING","define ang object id para sa screen na sukat ng pagtutugma");//Specify object id for screen matching dimensions
 define("_COMMASEPARATEDLIST","Na comma-separated list");//Comma separated list
 define("_WEBSERVERAUTHENTICATION","Web server authentication");//Web server authentication
 define("_USERSETTINGS","User setting");//User settings
@@ -3860,7 +3860,7 @@ define("_FORMATTEDLOGIN","Formatted na login");//Formatted login
 define("_DEFAULTSORT","Default na uri-uriin");//Default sort
 define("_ANDTAKESPRECEDENCE","&quot;and&quot; operator tumatagal ng higit na kahalagahan");//&quot;and&quot; operator takes precedence
 define("_CURREPAGEOPERATIONS","Ang kasalukuyang pahina operasyon");//Current page operations
-define("_ORSPECIFYANEWGROUPTOADDTO","O tukuyin ang isang bagong grupo upang idagdag sa");//Or specify a new group to add to
+define("_ORSPECIFYANEWGROUPTOADDTO","O define ang isang bagong grupo upang idagdag sa");//Or specify a new group to add to
 define("_ADDTO","Idagdag sa");//Add to
 define("_REMOVEFROM","Alisin mula sa");//Remove from
 define("_GROUPOPERATIONS","Grupo ng mga operasyon");//Group operations
@@ -4019,7 +4019,7 @@ define("_BLANKTOLEAVEUNCHANGED","Blangko na umalis hindi magbabago");//Blank to 
 define("_OPTIONNUMBERSTARTINGFROMZERO","Ipasok ang mga opsyon na halaga o ang mga numero, simula mula 0");//Enter the option value or its number, starting from 0
 define("_HIDESUPERVISORFROMUSERS","Itago ang mga superbisor mula sa mga gumagamit");//Hide supervisor from users
 define("_HIDEJOBFROMUSERS","Itago ang mga trabaho mula sa mga gumagamit");//Hide job from users
-define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Kailangan mong tukuyin ang isang default na halaga para sa sapilitan elemento");//You must specify a default value for mandatory elements
+define("_YOUMUSTSPECIFYADEFAULTVALUEFORMANDATORYELEMENTS","Kailangan mong define ang isang default na halaga para sa sapilitan elemento");//You must specify a default value for mandatory elements
 define("_USETHECURRENTDATE","Gamitin ang kasalukuyang petsa");//Use the current date
 define("_USERSCANCHANGEINFO","Baguhin Account");//Account change
 define("_USERSCANCHANGEPASS","Baguhin ang Password");//Password change
@@ -4116,7 +4116,7 @@ define("_SHOWGIVENANSWERSNEW","Ipakita ang mga pagsubok + ibinigay na sagot");//
 define("_SHOWRIGHTANSWERSNEW","Ipakita ang mga ibinigay na sagot sa test + + puntos + tamang sagot");//Show test + given answers + score + correct answers (New)
 define("_SHOWANSWERSIFSTUDENTPASSEDNEW","Ipakita ang pagsubok + ang mga ibinigay na sagot + puntos + tamang sagot na lamang kung mag-aaral ay naipasa ang test");//Show test + given answers + score + correct answers only if student passed the test (New)
 define("_MAXIMUMPMUSAGESPACE","Maximum na paggamit ng space sa pribadong mensahe");//Maximum usage space in private messages (New)
-define("_MAXIMUMPMUSAGESPACEINFO","Tukuyin ang user pinapayagan laki ng espasyo ng paggamit sa MB");//Define user allowed usage space size in MB (New)
+define("_MAXIMUMPMUSAGESPACEINFO","define ang user pinapayagan laki ng espasyo ng paggamit sa MB");//Define user allowed usage space size in MB (New)
 define("_YOUHAVETODELETEFILESFROMYOURSPACE","Kailangan mong tanggalin ang ilang mga malaki-laki na mensahe (na may kalakip) mula sa iyong space");//You have to delete some big-sized messages (with attachments) from your space (New)
 define("_ADDBALANCE","Magdagdag ng balanse");//Add balance (New)
 define("_CURRENTBALANCEINYOURACCOUNT","Kasalukuyang balanse sa iyong account");//Current balance in your account (New)
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Maaari mong gamitin ang MySQL wildcard character,% 
 define("_LESSONTIMEREPORTS","_Mga ulat sa Aralin oras");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktibo na oras sa nilalaman");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Lumipat sa aktibong oras kung nais mo ang system upang masubaybayan at ulat lamang ulit na ang gumagamit ay aktwal na napupunta sa pamamagitan ng nilalaman. Lumipat sa kabuuang oras kung nais mo ang system upang iulat ang kabuuang oras ang isang gumagamit spends sa isang aralin, hindi alintana kung aling pahina siya / siya ay sa. <br/> <b>Babala:</b> Paglipat sa aktibong oras-uulat ay papatungan ang anumang mga aktibong ulit na naitala sa ngayon na may kaukulang kabuuang ulit.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Lumipat sa aktibong oras kung nais mo ang sistema upang masubaybayan at ulat ng mga lamang beses na ang user na aktwal na napupunta sa pamamagitan ng nilalaman. Lumipat sa kabuuang oras kung nais mo ang system upang iulat ang kabuuang oras na ang isang gumagamit spends sa isang aralin, hindi alintana kung aling pahina siya / siya ay sa. Babala : Paglipat sa aktibong oras-uulat ay patungan ng anumang mga aktibong beses na naitala sa ngayon na may kaukulang kabuuang ulit "); 
+define("_TOGGLEQUESTIONSPOOL", "Magpalipat-lipat sa mga karaniwang katanungan pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Hindi ka pa nakapili ng isang halaga na"); 
+define("_QUESTIONSPOOL", "Mga karaniwang katanungan pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Magdagdag ng puna"); 
+define("_SHOWQUESTIONSPOOL", " Ipakita ang mga karaniwang katanungan pool "); 
+define("_SHOWLESSONQUESTIONS", "Ipakita ang mga katanungan aralin"); 
+define("_OLDPASSWORDWRONG", "Lumang password ay mali"); 
+define("_COURSETOPICS", "Course paksa"); 
+define("_FORCEDOWNLOADFILE"," Force-download ng file awtomatikong "); 
+define("_FORCEDOWNLOADFILEINFO", "Sa pamamagitan ng pagsuri na ito lamang ang isang window upang i-download ang file ay ipapakita para sa mga file ay hindi maaaring mai-embed Otherwrise isang link para sa file ay ipinasok"); 
+define("_SPAMDETECTION"," Sa kasamaang palad hindi mo ma-access ang pahinang ito upang madaling Mangyaring muling subukan sa habang. "); 
+define("_YOUCANNOTUSETHISNAME", "hindi mo maaaring gamitin ang pangalan na ito Mangyari lamang na pumili ng isa pa."); 
+define("_BANUSERFAILEDLOGINS", " gumagamit pagbawalan pagkatapos ng 5 matagumpay atempts login "); 
+define("_BANUSERFAILEDLOGINSINFO", "Gumagamit ay deactivated pagkatapos ng 5 magkadikit Nabigo ang pag-login atempts"); 
+define("_ALLOWUSERREDOTEST", "Mayroon gumagamit ulitin ang test"); 
+define("_ALLSUPERVISORS" , "Lahat ng supervisors"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Bawiin expire sertipiko"); 
+define("_MODULEITSELF", "Modules (indibidwal na)"); 
+define("_MODULESPANEL", "Modules (magdagdag / alisin)"); 
+define("_PROFESSORSCANCREATECOURSES", "Professors maaaring lumikha ng mga kurso"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Ang iyong session ay natapos na, mangyaring mag-sign in muli"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "palaganapin kurso sangay sa mga gumagamit ng sangay"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "palaganapin sa mga gumagamit na may sangay ito"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Piliin ang sangay tema"); 
+define("_SELECTBRANCHLANGUAGE", "Piliin ang sangay ng wika" ); 
+define("_ACCESSURL", "Branch access url"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "ang sangay Ang direkta mapupuntahan mula sa url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "o i-reset kurso bago mawalan ng bisa"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Course progreso ay i-reset ang matagumpay na"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "I-reset ang progreso pagsunod sertipiko"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Hindi ka pinapayagang upang mag-login dahil ikaw ay hindi isang miyembro ng sangay na ito "); 
+define("_MAXONLINEUSERS", "Karamihan sa mga gumagamit kailanman online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Kung ikaw define ang isang sangay url, pagkatapos sangay ay ginawa nang direkta mapupuntahan mula sa url "); 
+define("_FIRST", "Unang"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "mga gumagamit ay maaaring mag-sign in mula sa ang default URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Maaari ka lamang mag-sign in mula sa iyong sangay URL "); 
+define("_NEWCOMMENT", "Bagong komento"); 
+define("_ADDCUSTOMTEXT", "Magdagdag ng pasadyang teksto"); 
+define("_ADDANOTHERCUSTOMTEXT", "Magdagdag ng isa pang pasadyang teksto"); 
+define("_VIEWLESSONASSTUDENT", " Tingnan ang aralin ng mag-aaral "); 
+define("_BACKTOPROFESSORMODE", "Bumalik sa propesor mode"); 
+define("_YOUAREINSTUDENTMODE", "Kasalukuyan mong tinitingnan ang aralin na ito bilang isang mag-aaral."); 
+define("_CERTIFICATEEXPIRY", "Course sertipiko expire "); 
+define("_TEST_FAILURE", "Test kabiguan"); 
+define("_FAILEDTEST", "ay hindi nagtagumpay sa pagsubok"); 
+define("_TESTFAILUREFORLESSON", "Test kabiguan para sa aralin"); 
+define("_HASFAILEDATEST", " nabigo ang isang test ");
 ?>

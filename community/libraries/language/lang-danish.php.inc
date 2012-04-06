@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Denne aktion vil permanent slette bruger
 define("_SYSTEMENTITIES","System enheder");//System entities
 define("_ALLEVENTS","Alle begivenheder");//All events
 define("_COLLAPSECATALOG","Collapse catalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Periode blev tilføjet med succes");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Periode blev tilføjet med succes");//Period was added successfully
 define("_THEMES","Temaer");//Themes
 define("_CUSTOMIZATION","Customization");//Customization
 define("_EXTERNALPAGES","Eksterne sider");//External pages
@@ -4152,8 +4152,58 @@ define("_ACTIVELESSONTIMES","Aktiv lektion gange");//Active lesson times (New)
 define("_PLEASEREMEMBERTOSETUPAPASSWORD","Husk at oprette en adgangskode");//Please remember to set up a password (New)
 define("_ISLDAPUSER","LDAP bruger");//Ldap user (New)
 define("_REPORTSCONDITION","Betingelse");//Condition (New)
-define("_USEMYSQLWILDCARDS","Du kan bruge MySQL er jokertegn,% og ");//You can use mysql's wildcard characters, % and _ (New)
+define("_USEMYSQLWILDCARDS","Du kan bruge MySQL er jokertegn,% og");//You can use mysql's wildcard characters, % and _ (New)
 define("_LESSONTIMEREPORTS","_Lektion tid rapporter");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktiv tid i indhold");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Skift til aktiv tid, hvis du vil have systemet til at overvåge og rapportere eneste gange, at brugeren rent faktisk går igennem indholdet. Skift til den samlede tid, hvis du vil have systemet til at indberette den samlede tid, en bruger bruger på en lektion, uanset hvilken side han / hun er på. <br/> <b>Advarsel:</b> Skift til aktiv tid, rapportering vil overskrive noget aktivt gange, der er blevet konstateret indtil nu med den tilsvarende samlede gange.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Skift til aktiv tid, hvis du vil have systemet til at overvåge og rapportere eneste gange, at brugeren rent faktisk går gennem indholdet. Skift til den samlede tid, hvis du vil have systemet til at rapportere den samlede tid en bruger bruger på en lektion, uanset hvilken side han / hun er på. Advarsel : Skift til aktiv tid rapportering vil overskrive aktive gange der er blevet optaget så langt med de tilsvarende samlede tid");
+define("_TOGGLEQUESTIONSPOOL", "Toggle almindelige spørgsmål pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Du har ikke valgt en værdi"); 
+define("_QUESTIONSPOOL", "Common spørgsmål pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Tilføj kommentar");
+define("_SHOWQUESTIONSPOOL", "Vis almindelige spørgsmål pulje"); 
+define("_SHOWLESSONQUESTIONS", "Vis lektion spørgsmål");
+define("_OLDPASSWORDWRONG", "Gammel adgangskode er forkert"); 
+define("_COURSETOPICS", "Kursus emner");
+define("_FORCEDOWNLOADFILE"," Force downloade filen automatisk ");
+define("_FORCEDOWNLOADFILEINFO", "Ved at markere dette kun et vindue for at downloade filen vil blive vist for filer kan ikke være indlejret Otherwrise et link til filen indsættes");
+define("_SPAMDETECTION"," Desværre kan du ikke få adgang til denne side, så snart Prøv igen om et stykke tid.");
+define("_YOUCANNOTUSETHISNAME", "Du kan ikke bruge dette navn Vælg venligst et andet.");
+define("_BANUSERFAILEDLOGINS", " Ban brugere efter 5 mislykkede login atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Bruger vil blive deaktiveret efter 5 sammenhængende mislykkede login atempts");
+define("_ALLOWUSERREDOTEST", "Har brugeren gentage test"); 
+define("_ALLSUPERVISORS" , "Alle de tilsynsførende"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Tilbagekald udløbne certifikater"); 
+define("_MODULEITSELF", "Moduler (individuel)"); 
+define("_MODULESPANEL", "Moduler (tilføj / fjern)"); 
+define("_PROFESSORSCANCREATECOURSES", "Professors kan oprette kurser"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Din session er udløbet, skal du logge ind igen"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "udbreder branche kurser til branchen brugere"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "udbreder sig til brugere med denne gren");
+define("_THEME", "tema"); 
+define("_SELECTBRANCHTHEME", "Vælg gren tema"); 
+define("_SELECTBRANCHLANGUAGE", "Vælg gren sprog" ); 
+define("_ACCESSURL", "Branch adgang url"); 
+define("_AUTOFILL", "Auto-udfyld"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "Den gren vil være direkte adgang fra url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "eller nulstille kursus før udløb"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Kursus fremskridt nulstillet"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Nulstil fremskridt holde certifikat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Du er ikke tilladt logge ind fordi du ikke er medlem af denne filial "); 
+define("_MAXONLINEUSERS", "Flest brugere online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Hvis du angiver en filial url, så filialen vil blive gjort direkte tilgængelige fra url"); 
+define("_FIRST", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Brugere kan logge på fra standard URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Du kan kun logge på fra din afdeling har URL"); 
+define("_NEWCOMMENT", "Ny kommentar"); 
+define("_ADDCUSTOMTEXT", "Tilføj brugerdefineret tekst"); 
+define("_ADDANOTHERCUSTOMTEXT", "Tilføj en anden brugerdefineret tekst"); 
+define("_VIEWLESSONASSTUDENT", " Se lektion som studerende ");
+define("_BACKTOPROFESSORMODE", "Tilbage til professor mode"); 
+define("_YOUAREINSTUDENTMODE", "Du ser i øjeblikket denne lektion som studerende."); 
+define("_CERTIFICATEEXPIRY", "Kursusbevis udløb"); 
+define("_TEST_FAILURE", "Test fiasko"); 
+define("_FAILEDTEST", "mislykkedes i test"); 
+define("_TESTFAILUREFORLESSON", "Test fiasko til lektion"); 
+define("_HASFAILEDATEST", " ikke har en test");
 ?>

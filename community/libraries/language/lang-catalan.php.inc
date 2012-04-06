@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Això esborrarà permanentment el costum
 define("_SYSTEMENTITIES","Entitats del sistema de");//System entities
 define("_ALLEVENTS","Tots els esdeveniments");//All events
 define("_COLLAPSECATALOG","Tancar catàleg");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Període s&#39;ha afegit amb èxit");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Període s&#39;ha afegit amb èxit");//Period was added successfully
 define("_THEMES","Temes");//Themes
 define("_CUSTOMIZATION","Personalització");//Customization
 define("_EXTERNALPAGES","Pàgines externes");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Podeu utilitzar caràcters comodí de MySQL,% i ");
 define("_LESSONTIMEREPORTS","_Informes Lliçó temps");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Temps actiu en el contingut");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Canviar a temps actiu si voleu que el sistema de monitorització i informe úniques vegades que l&#39;usuari va realment a través del contingut. Canviar a temps total, si voleu que el sistema per informar del temps total que passa un usuari en una classe, sense tenir en compte que la pàgina que ell / ella està encès. <br/> <b>Advertència:</b> El canvi a informes en temps actiu sobreescriu els temps actius que s&#39;han registrat fins ara amb els temps totals corresponents.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Ves al temps d'activitat, si voleu que el sistema per supervisar i informar úniques vegades que l'usuari va realment a través del contingut. Ves al temps total, si voleu que el sistema per informar del temps total que passa un usuari en un lliçó, sense tenir en compte que la pàgina que ell / ella està encès. Advertència : El canvi als informes de temps actiu es perdran tots els temps d'actius que s'han registrat fins ara amb els temps totals corresponents. "); 
+define("_TOGGLEQUESTIONSPOOL", "Canviar la piscina pregunta comuna" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "No s'ha assignat un valor"); 
+define("_QUESTIONSPOOL", "grup de preguntes en comú"); 
+define("_ADDFEEDBACSFEEDBACK", "Afegir Comentari"); 
+define("_SHOWQUESTIONSPOOL", " Mostra preguntes piscina comú "); 
+define("_SHOWLESSONQUESTIONS", "Mostra les preguntes lliçó"); 
+define("_OLDPASSWORDWRONG", "contrasenya no està malament"); 
+define("_COURSETOPICS", "Els temes del curs"); 
+define("_FORCEDOWNLOADFILE"," Força de descarregar l'arxiu de forma automàtica "); 
+define("_FORCEDOWNLOADFILEINFO", "En comprovar això només una finestra per descarregar l'arxiu es mostrarà per als fitxers no es pot incrustar Otherwrise un vincle per a l'arxiu s'insereix."); 
+define(" _SPAMDETECTION"," Lamentablement no es pot accedir a aquesta pàgina tan aviat Torneu-ho de nou per un temps. "); 
+define("_YOUCANNOTUSETHISNAME", "No podeu utilitzar aquest nom Si us plau, escolliu un altre."); 
+define("_BANUSERFAILEDLOGINS", " Ban usuaris després de 5 atempts fallits d'ingressar "); 
+define("_BANUSERFAILEDLOGINSINFO", "L'usuari es desactivarà després de 5 inicis de sessió fallits atempts contigus"); 
+define("_ALLOWUSERREDOTEST", "tingui l'usuari repeteixi la prova"); 
+define("_ALLSUPERVISORS","Tots els supervisors"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Revocació de certificats caducats"); 
+define("_MODULEITSELF", "Mòduls (individual)"); 
+define("_MODULESPANEL", "Mòduls (afegir / esborrar)"); 
+define("_PROFESSORSCANCREATECOURSES", "Els professors poden crear cursos"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "La seva sessió ha caducat, si us plau, accedeixi de nou"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Propagar els cursos de la branca a usuaris de sucursals"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "Difondre als usuaris amb aquesta branca"); 
+define("_THEME", "Theme"); 
+define("_SELECTBRANCHTHEME", "Selecciona temes branca"); 
+define("_SELECTBRANCHLANGUAGE", "Seleccioneu l'idioma branca" ); 
+define("_ACCESSURL", "url Branca d'accés"); 
+define("_AUTOFILL", "Emplenament automàtic"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "La sucursal serà accessible directament des de la url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "¿O restablir curs abans d'expirar"); 
+define("_PROGRESSRESETSUCCESSFULLY", "el progrés del curs va ser restablert correctament"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "progrés He perdut el meu certificat de conformitat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "No se li permet per ingressar, ja que no és membre de la branca "); 
+define("_MAXONLINEUSERS", "major nombre d'usuaris connectats"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Si s'especifica una adreça URL de la branca, la branca es facilitarà l'accés directe de la url "); 
+define("_FIRST", "primer"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Els usuaris poden iniciar sessió en la URL per defecte"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Només es pot ingressar de la de la seva filial URL "); 
+define("_NEWCOMMENT", "Nou comentari"); 
+define("_ADDCUSTOMTEXT", "Afegeix un text personalitzat"); 
+define("_ADDANOTHERCUSTOMTEXT", "Afegir un altre text personalitzat"); 
+define("_VIEWLESSONASSTUDENT", " Veure la lliçó d'estudiant "); 
+define("_BACKTOPROFESSORMODE", "Tornar a manera de professor"); 
+define("_YOUAREINSTUDENTMODE", "Vostè està veient aquesta lliçó com un estudiant."); 
+define("_CERTIFICATEEXPIRY", "Certificat del curs de caducitat "); 
+define("_TEST_FAILURE", "Falla a la prova"); 
+define("_FAILEDTEST", "fracassar en la prova"); 
+define("_TESTFAILUREFORLESSON", "Falla en la prova per la lliçó"); 
+define("_HASFAILEDATEST", " ha fallat en una prova ");
 ?>

@@ -30,7 +30,7 @@ define("_TIME","时间");//Time
 define("_BACK","&larr;&nbsp;回");//&larr;&nbsp;Back
 define("_CONFIGURATIONVARIABLES","系统配置");//System settings
 define("_CHANGESITELOGO","改变网站徽标");//Site logo
-define("_ONLYONELANGUAGE","只有一个（默认）语言");//Support only one (the default) Language
+define("_ONLYONELANGUAGE","只有一个（默认)语言");//Support only one (the default) Language
 define("_YES","是");//Yes
 define("_NO","否");//No
 define("_UPDATELESSONS","课程更新");//Update lessons
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","这一操作将永久删除的自定义�
 define("_SYSTEMENTITIES","系统实体");//System entities
 define("_ALLEVENTS","所有活动");//All events
 define("_COLLAPSECATALOG","折叠产品目录");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","期间添加成功");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","期间添加成功");//Period was added successfully
 define("_THEMES","主题");//Themes
 define("_CUSTOMIZATION","个性化");//Customization
 define("_EXTERNALPAGES","外部网页");//External pages
@@ -4155,5 +4155,55 @@ define("_REPORTSCONDITION","条件");//Condition (New)
 define("_USEMYSQLWILDCARDS","您可以使用mysql的通配符％和");//You can use mysql's wildcard characters, % and _ (New)
 define("_LESSONTIMEREPORTS","_上课时间报告");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","活动时间内容");//Active time in content (New)
-define("_TIMEREPORTSEXPLANATION","切换到活动时间，如果你想系统的监测和报告，用户实际上是通过内容只有。切换到总时间，如果你想系统报告用户教训花费的总时间，无论哪一页，他/她是上。 <br/> <b>警告</b> ：切换到活动时间报告将覆盖任何与相应的总时间，到目前为止已记录的活动时间。");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","切换到活动时间,如果你想系统的监测和报告,用户实际上是通过内容只有。切换到总时间,如果你想系统报告用户教训花费的总时间,无论哪一页,他/她是上。 <br/> <b>警告</b> ：切换到活动时间报告将覆盖任何与相应的总时间,到目前为止已记录的活动时间。");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","切换到活动时间,如果你想系统的监测和报告,用户实际上是通过内容只有一个用户切换到如果你想系统报告的总时间,总时间花费教训,无论哪一页,他/她。警告：切换到活动时间报告将覆盖任何与相应的总次数,到目前为止已记录的活动时间"); 
+define("_TOGGLEQUESTIONSPOOL","切换的常见问题池" ); 
+define("_YOUHAVENOTSELECTEDAVALUE","你没有选择一个值"); 
+define("_QUESTIONSPOOL","常见问题库"); 
+define("_ADDFEEDBACSFEEDBACK","回馈"); 
+define("_SHOWQUESTIONSPOOL","显示常见问题池"); 
+define("_SHOWLESSONQUESTIONS","教训问题"); 
+define("_OLDPASSWORDWRONG","旧密码错误"); 
+define("_COURSETOPICS","课程主题"); 
+define("_FORCEDOWNLOADFILE","部队自动下载文件"); 
+define("_FORCEDOWNLOADFILEINFO","通过检查这唯一的一个窗口,下载文件将显示为文件不能被嵌入一个文件Otherwrise链接插入"); 
+define(" _SPAMDETECTION","不幸的是,你不能访问此页,这么快就请了一段时间后再试一次。"); 
+define("_YOUCANNOTUSETHISNAME","你可以不使用这个名字请选择另外一个。"); 
+define("_BANUSERFAILEDLOGINS","禁止用户后5不成 ​​功登录atempts的"); 
+define("_BANUSERFAILEDLOGINSINFO","用户将被停用后atempts 5连续登录失败"); 
+define("_ALLOWUSERREDOTEST","有用户重复测试"); 
+define("_ALLSUPERVISORS" ,"所有监事"); 
+define("_REVOKECERTIFICATEFOREXPIRED","吊销证书过期"); 
+define("_MODULEITSELF","模块(个人)"); 
+define("_MODULESPANEL","模块(添加/删除)"); 
+define("_PROFESSORSCANCREATECOURSES","教授可以创建课程"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN","您的会话已过期,请重新登录"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS","传播到分支用户的分支课程"); 
+define("_APPLYTOUSERALLREADYTOBRANCH","传播给用户与这个分支"); 
+define("_THEME","主题"); 
+define("_SELECTBRANCHTHEME","选择的分支主题"); 
+define("_SELECTBRANCHLANGUAGE","选择分支的语言" ); 
+define("_ACCESSURL","科访问URL"); 
+define("_AUTOFILL","自动填充"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","分支将直接从URL访问"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" ,"到期前或重置课程"); 
+define("_PROGRESSRESETSUCCESSFULLY","课程进度重置成功"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","复位进度保持证书"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","你不准登录,因为你不是这个分支的成员");
+define("_MAXONLINEUSERS","大多数用户永远在线"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL","如果你指定一个分支的URL,然后在该分支将直接访问从URL"); 
+define("_FIRST","第一"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","用户可以登录的默认URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL","你可以只签署在你的分支URL"); 
+define("_NEWCOMMENT","新评论"); 
+define("_ADDCUSTOMTEXT","添加自define文本"); 
+define("_ADDANOTHERCUSTOMTEXT","加入另一个自define的文本"); 
+define("_VIEWLESSONASSTUDENT","视学生的课"); 
+define("_BACKTOPROFESSORMODE","回到教授模式"); 
+define("_YOUAREINSTUDENTMODE","你正在观看作为一名学生,这个教训。"); 
+define("_CERTIFICATEEXPIRY","证书课程到期日"); 
+define("_TEST_FAILURE","测试失败"); 
+define("_FAILEDTEST","测试失败"); 
+define("_TESTFAILUREFORLESSON","试验失败的教训"); 
+define("_HASFAILEDATEST","失败测试");
 ?>

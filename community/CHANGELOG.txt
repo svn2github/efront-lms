@@ -1,4 +1,4 @@
-=== Version 3.6.10 build 14391 ===
+=== Version 3.6.11 build ===
 - Fixed importing more than one jobs on the same user and csv, having "replace" mode to "on"
 - Updated paypal sandbox address to use ssl
 - Updated notifications process to lock while it's executing
@@ -82,6 +82,48 @@
 - Added global CSRF protection
 - Fixed users bypassing lesson rules using a direct url
 - Fixed possible XSS on table grid filter
+- Upgrade videojs to last version (#2107)
+- Fixed issue about more than one spaces between words in empty space questions
+- Fixed issue about shared files with share folder lessons
+- Fixed issue about assigning selected courses or lessons to group users or users already belong to this job position where existing roles were changed (#2141)
+- Fixed issue about scorm export in case of a space in path (#2143)
+- Ability to change completed status for students by clicking on the icon in progress page
+- Fixed e-mail issue about HELO message and security filters (#2098)
+- Fixed issue about assigning selected courses or lessons to group users or users already belong to this job position where existing roles were changed (#2141)
+- Fixed issue about scoring in complete lesson when professor scores last remaining test
+- Fixed issue about displaying archived users in organization chart
+- Added ability to change lesson status from table in progress page
+- Fixed issue about unit 'Accessible with a direct URL' (#2180)
+- Fixed issue about location column in some tabs in course reports
+- Adding lms option for toggling in control panel page (like scorm)
+- Changed 'start unit' added to scorm units to a template in order to be replaced according to user language
+- Added all supervisors as option for recipients in notifications
+- Added lesson percentage column in course stats
+- Added multiple Job select in stats_filter
+- Added ability to change lesson status from table in progress page
+- Fixed issue about coreAccess in tests
+- Fixed issue about copying tests from another lesson where questions contained a file in subfolder that was already copied (from another question copy) in target lesson
+- Add option in course settings for revoke all expired certificates
+- Fixed issue about active field in users to course imports
+- Added ability to send more than one attachment in eF_mail()
+- Fixed issue about progressBar and decimal point
+- Fixed issue about check icon in lesson progress (#2270)
+- Added option about module_itself in custom user types
+- Added table escaping with `` in backup (in case there are tables from possible manually backup)
+- Added functionallity of multiple comments in project page
+- Fixed issue about links to send private messages when they are disabled
+- Fixed issue in module quick mails about sending mails to archived administrators
+- Added smart content in lesson options
+- Added reset certificate before expire option
+- Added datepicker option in complete for all students in progress
+- Fixed icon issue about 'Assign selected courses to group users'
+- Added edit certificate key
+- Added option for changing completion date in courses
+- Added ability for custom fields in certificate templates
+- Added code to handle 'New comment' info to dashboard in projects
+- Added course expiry notification
+- Added before course expiry notification
+- Added test failure notification
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

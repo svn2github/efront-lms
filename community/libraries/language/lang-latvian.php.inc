@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Šī darbība pastāvīgi svītrot custo
 define("_SYSTEMENTITIES","System vienības");//System entities
 define("_ALLEVENTS","Visi pasākumi");//All events
 define("_COLLAPSECATALOG","Savērst katalogā");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Periods bija veiksmīgi pievienots");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Periods bija veiksmīgi pievienots");//Period was added successfully
 define("_THEMES","Tēmas");//Themes
 define("_CUSTOMIZATION","Customization");//Customization
 define("_EXTERNALPAGES","Ārējās lapas");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Jūs varat izmantot MySQL aizstājējzīmes,% un ")
 define("_LESSONTIMEREPORTS","_Nodarbība laika atskaites");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktīvs laiks saturu");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Pārslēgt uz aktīvu laika, ja vēlaties sistēmu, lai uzraudzītu un ziņo tikai reizēm, ka lietotājs tiešām iet caur saturu. Pārslēgt uz kopējo laiku, ja vēlaties, lai sistēma, lai ziņotu par kopējo laiku lietotājs pavada stundu, neatkarīgi no kuras lapas viņš / viņa ir. <br/> <b>Brīdinājums:</b> Pāreja uz aktīvu laika atskaišu pārrakstīs aktīvs laiks, kuri ir reģistrēti līdz šim ar atbilstošo kopējo reizes.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Pārslēgties uz aktīvu laika, ja jūs vēlaties sistēmu, lai uzraudzītu un ziņotu tikai reizes, ka lietotājs tiešām iet caur saturu. Pārslēgt uz kopējo laiku, ja jūs vēlaties sistēma, lai ziņotu par kopējo laiku, kad lietotājs tērē 1 nodarbība, neatkarīgi kura lapa viņš / viņa ir. Uzmanību : Pāreja uz aktīvo laikā ziņot pārrakstīs visas aktīvās reizes, kuri ir reģistrēti līdz šim ar to attiecīgo kopējo laikā ");
+define("_TOGGLEQUESTIONSPOOL", "Pārslēdz kopīgs jautājums baseins" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Jūs neesat izvēlējies vērtību"); 
+define("_QUESTIONSPOOL", "kopīgs jautājums baseins"); 
+define("_ADDFEEDBACSFEEDBACK", "Pievienot atsauksmi"); 
+define("_SHOWQUESTIONSPOOL", " rādīt kopējo jautājumi baseins "); 
+define("_SHOWLESSONQUESTIONS", "Show nodarbību jautājumi"); 
+define("_OLDPASSWORDWRONG", "Vecā parole ir nepareizi"); 
+define("_COURSETOPICS", "Kursa tēmas"); 
+define("_FORCEDOWNLOADFILE"," Spēks lejupielādēt failu automātiski "); 
+define("_FORCEDOWNLOADFILEINFO", "Atzīmējot šo tikai logu, lai lejupielādētu failu, tiks parādīti faili nevar tikt iegulti Otherwrise saiti fails ir ievietots");
+define("_SPAMDETECTION"," Diemžēl jūs nevarat piekļūt šai lapai tik drīz Lūdzu, mēģiniet vēlreiz pēc brīža ");
+define("_YOUCANNOTUSETHISNAME", "Jūs nevarat lietot šo vārdu Lūdzu izvēlieties citu."); 
+define("_BANUSERFAILEDLOGINS", " Ban lietotāji pēc 5 neveiksmīgiem pieslēgšanās atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Lietotājs tiks atslēgts pēc 5 blakusesošiem neizdevās autorizācijas atempts"); 
+define("_ALLOWUSERREDOTEST", "Vai lietotājs atkārtot testu"); 
+define("_ALLSUPERVISORS","All uzraugi"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Atsaukt beidzās sertifikātus"); 
+define("_MODULEITSELF", "moduļi (individuāli)"); 
+define("_MODULESPANEL", "moduļi (pievienot / noņemt)"); 
+define("_PROFESSORSCANCREATECOURSES", "Profesors var izveidot kursus"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Jūsu sesija beidzās, lūdzu, pierakstieties vēlreiz"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "pavairot filiāle kursus filiāles lietotājiem"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "izplatīties lietotājiem ar šo darbības veidu"); 
+define("_THEME", "Tēma"); 
+define("_SELECTBRANCHTHEME", "Izvēlies filiāle tēmu"); 
+define("_SELECTBRANCHLANGUAGE", "Izvēlies filiāle valodu" ); 
+define("_ACCESSURL", "filiāle piekļuve url"); 
+define("_AUTOFILL", "Automātiskā aizpilde"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "filiāle būs tieši pieejama no url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Vai reset kursu pirms beidzas"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Kursa panākumi bija reset veiksmīgi"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset progresu uzturēšanas sertifikāts"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Tev nav atļauts lai pieteiktos, jo jūs neesat dalībnieks šajā nozarē "); 
+define("_MAXONLINEUSERS", "Lielākais lietotāju skaits tiešsaistē"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Ja jūs norādiet filiāli URL, tad nozare būs tieši pieejamiem no url "); 
+define("_FIRST", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Lietotāji var pierakstīties no noklusējuma URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Tu vari tikai pierakstīties uz jūsu filiāles URL "); 
+define("_NEWCOMMENT", "komentāru"); 
+define("_ADDCUSTOMTEXT", "Pievienot pielāgotu tekstu"); 
+define("_ADDANOTHERCUSTOMTEXT", "Pievienot citu pielāgoto tekstu"); 
+define("_VIEWLESSONASSTUDENT", " apskatīt nodarbību kā students "); 
+define("_BACKTOPROFESSORMODE", "Atpakaļ pie profesora režīmā"); 
+define("_YOUAREINSTUDENTMODE", "Tu šobrīd skatāties šo mācību kā students."); 
+define("_CERTIFICATEEXPIRY", "Kursa sertifikāts beigu "); 
+define("_TEST_FAILURE", "Test neveiksmi"); 
+define("_FAILEDTEST", "neieskaitīts pārbaudē"); 
+define("_TESTFAILUREFORLESSON", "Testa neveiksme nodarbība"); 
+define("_HASFAILEDATEST", " nav testu ");
 ?>

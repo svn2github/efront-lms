@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","このアクションを恒久的にカ�
 define("_SYSTEMENTITIES","システムのエンティティ");//System entities
 define("_ALLEVENTS","すべてのイベント");//All events
 define("_COLLAPSECATALOG","崩壊カタログ");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","期間が正常に追加されました。");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","期間が正常に追加されました。");//Period was added successfully
 define("_THEMES","テーマ");//Themes
 define("_CUSTOMIZATION","カスタマイズ");//Customization
 define("_EXTERNALPAGES","外部のページ");//External pages
@@ -4155,5 +4155,55 @@ define("_REPORTSCONDITION","条件");//Condition (New)
 define("_USEMYSQLWILDCARDS","あなたは、％および_をMySQLのワイルドカード文字を使用できます。");//You can use mysql's wildcard characters, % and _ (New)
 define("_LESSONTIMEREPORTS","レッスンの時間のレポート");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","コンテンツのアクティブな時間");//Active time in content (New)
-define("_TIMEREPORTSEXPLANATION","ユーザーが実際にコンテンツを通過することだけ時間を監視し、報告するシステムが必要な場合、アクティブな時間に切り替えます。ユーザーがレッスンに費やす合計時間を報告するシステムが必要な場合、彼/彼女が上になっているページに関係なく、合計時間に切り替えます。 <br/> <b>警告</b> ：アクティブな時間のレポートに切り替えるには、対応する合計回数をこれまでに記録されているすべてのアクティブな時間が上書きされます。");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","ユーザーが実際にコンテンツを通過することだけ時間を監視し,報告するシステムが必要な場合,アクティブな時間に切り替えます。ユーザーがレッスンに費やす合計時間を報告するシステムが必要な場合,彼/彼女が上になっているページに関係なく,合計時間に切り替えます。 <br/> <b>警告</b> ：アクティブな時間のレポートに切り替えるには,対応する合計回数をこれまでに記録されているすべてのアクティブな時間が上書きされます。");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "ユーザーが実際にコンテンツを通過する時間のみを監視し,報告するシステムが必要な場合は,アクティブな時間に切り替えます。システムは,ユーザーが費やす時間の合計を報告したい場合は合計時間に切り替えレッスンに関係なく,どのページを彼/彼女はオンになっています。警告：アクティブな時間のレポートに切り替えると,対応する合計時間でこれまでに記録されているすべてのアクティブな時間を上書きします");
+define("_TOGGLEQUESTIONSPOOL","トグルよくある質問·プールは");
+define("_YOUHAVENOTSELECTEDAVALUE","あなたは値が選択されていません"); 
+define("_QUESTIONSPOOL", "一般的な質問プール"); 
+define("_ADDFEEDBACSFEEDBACK", "フィードバックを追加します"); 
+define("_SHOWQUESTIONSPOOL","一般的な質問プールを表示する"); 
+define("_SHOWLESSONQUESTIONS","授業の質問を表示し");
+define("_OLDPASSWORDWRONG", "古いパスワードが間違っている");
+define("_COURSETOPICS","コースのトピック");
+define("_FORCEDOWNLOADFILE","自動的にファイルをダウンロードしてフォース"); 
+define("_FORCEDOWNLOADFILEINFO","ファイルは埋め込 ​​むことはできませんのためにこれをチェックして,ファイルをダウンロードするための唯一のウィンドウが表示されます, のファイルのリンクをOtherwriseが挿入されている"); 
+define("_SPAMDETECTION","残念ながら,こんなに早くこのページにアクセスすることはできませんしばらくしてから,もう一度やり直してください。"); 
+define("_YOUCANNOTUSETHISNAME", "あなたはこの名前を使用することはできません別のものを選択してください。"); 
+define("_BANUSERFAILEDLOGINS", "禁止ユーザーが5回ログインに失敗atempts後は"); 
+define("_BANUSERFAILEDLOGINSINFO", "5連続して失敗したログインがatemptsた後,ユーザーが非アクティブ化されます"); 
+define("_ALLOWUSERREDOTEST", "ユーザがテストを繰り返すことがあります"); 
+define("_ALLSUPERVISORS" , "すべての監督"); 
+define("_REVOKECERTIFICATEFOREXPIRED","有効期限が切れた証明書を失効させる"); 
+define("_MODULEITSELF", "モジュール(個人)"); 
+define("_MODULESPANEL", "モジュール(追加/削除)"); 
+define("_PROFESSORSCANCREATECOURSES", "教授は,コースを作成することができますを定義し");
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "セッションの期限が切れた場合は,再度サインインしてください"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "分岐のユーザーにブランチコースを伝播する"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "この枝を持つユーザーに伝播します"); 
+define("_THEME", "テーマ"); 
+define("_SELECTBRANCHTHEME", "分岐のテーマを選択します"); 
+define("_SELECTBRANCHLANGUAGE", "分岐の言語を選択");
+define("_ACCESSURL", "ブランチ·アクセスURL"); 
+define("_AUTOFILL", "オートフィル"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "分岐は,URLから直接アクセスできるようになります"); 
+define("_ORRESETCOURSEBEFOREEXPIRE",",または有効期限が切れる前にコースをリセット"); 
+define("_PROGRESSRESETSUCCESSFULLY","コースの進行が正常にリセットされたを定義し");
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","リセットの進行は,証明書を保持"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","あなたが許可されていないを定義このブランチのメンバーはありませんので,ログインする"); 
+define("_MAXONLINEUSERS", "ほとんどのユーザーはこれまでオンライン"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "あなたはブランチのURLを指定した場合,ブランチは直接アクセスできるようになりますからURL "); 
+define("_FIRST", "ファースト"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","ユーザーは,デフォルトのURLからサインインできます");
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "あなただけのブランチのからに署名することができますURL "); 
+define("_NEWCOMMENT", "新しいコメント"); 
+define("_ADDCUSTOMTEXT", "カスタムテキストを追加"); 
+define("_ADDANOTHERCUSTOMTEXT", "別のカスタムテキストを追加します"); 
+define("_VIEWLESSONASSTUDENTを","学生として授業を見る");
+define("_BACKTOPROFESSORMODEを","バック教授モード"); 
+define("_YOUAREINSTUDENTMODE", "現在の学生として,このレッスンを見ている"); 
+define("_CERTIFICATEEXPIRY", "コースの証明書有効期限は");
+define("_TEST_FAILURE","テストの失敗をを(定義され"); 
+define("_FAILEDTEST","テストに失敗した");
+define("_TESTFAILUREFORLESSON", "テストの失敗のレッスンのために"); 
+define("_HASFAILEDATEST", "テストを参照に失敗しました。");
 ?>

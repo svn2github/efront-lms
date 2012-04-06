@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","פעולה זו תמחק לצמיתות 
 define("_SYSTEMENTITIES","מערכת גופים");//System entities
 define("_ALLEVENTS","כל האירועים");//All events
 define("_COLLAPSECATALOG","כווץ קטלוג");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","תקופת נוספה בהצלחה");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","תקופת נוספה בהצלחה");//Period was added successfully
 define("_THEMES","ערכות נושא");//Themes
 define("_CUSTOMIZATION","התאמה אישית");//Customization
 define("_EXTERNALPAGES","דפים חיצוניים");//External pages
@@ -4028,7 +4028,7 @@ define("_SHOWINCOMPLETEQUESTIONSEACHTIME","הצג שאלות הושלם ביצו
 define("_RETAINBESTEXECUTION","לשמור על התוצאה הטובה ביותר");//Retain best score
 define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","ממוצע דירוג הבדיקה (ספירת ביצוע פעיל של כל מבחן)");//Average test score (counting each test's active execution)
 define("_SCOREONACTIVEEXECUTION","הציון על ביצוע הפעילות");//score on active execution
-define("_YOUCANUSEASTERISK","אם תציין מילה המסתיימת בכוכבית (*), רק החלק הראשון שלו ייחשב. לדוגמה, אם תציין 'ללמוד *', ואז הן 'למידה' ו 'לומדים' תחשב נכונה.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_YOUCANUSEASTERISK","אם תציין מילה המסתיימת בכוכבית (*); רק החלק הראשון שלו ייחשב. לדוגמה, אם תציין 'ללמוד *', ואז הן 'למידה' ו 'לומדים' תחשב נכונה.");//If you specify a word that ends with an asterisk (*); only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
 define("_COURSELESSONSRULES","קורס כללי השיעור");//Course lesson rules
 define("_RULESBETWEENCOURSES","כללים בין קורסים");//Rules between courses
 define("_COURSEDEPENDSON","כמובן תלוי");//Course depends on
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","אתה יכול להשתמש בתווים כללי�
 define("_LESSONTIMEREPORTS","_זמן שיעור הדיווחים");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","זמן פעיל תוכן");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","מעבר הזמן פעיל, אם אתה רוצה את המערכת כדי לפקח ולדווח פעמים רק כי המשתמש בפועל עובר התוכן. מעבר הזמן הכולל, אם אתה רוצה את המערכת כדי לדווח על סך כל הזמן משתמש מוציאה על השיעור, ללא קשר איזה דף הוא / היא על. <br/> <b>אזהרה:</b> החלפת לדיווח זמן פעיל תבטל פעמים פעיל נרשמו עד כה עם פעמים בסך הכל המקביל.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "מעבר לזמן פעיל אם אתה רוצה את המערכת כדי לפקח ולדווח הפעמים היחידות שהמשתמש באמת עובר התוכן. החלף ל סך כל הזמן אם אתה רוצה מערכת לדווח על סך כל הזמן משתמש משקיע הלקח, לא משנה איזה דף הוא / היא נמצאת. אזהרה : מעבר לדיווח הזמן פעיל תבטל הזמנים פעילים כי כבר נרשמו עד כה עם הזמנים המתאימים הכל "). 
+define("_TOGGLEQUESTIONSPOOL", "השאלה Toggle מאגר משותף");
+define("_YOUHAVENOTSELECTEDAVALUE", "לא בחרת ערך"); 
+define("_QUESTIONSPOOL", "בריכת שאלה נפוצה"); 
+define("_ADDFEEDBACSFEEDBACK", "הוסף תגובה"); 
+define("_SHOWQUESTIONSPOOL", " הצג בריכה שאלות נפוצות "); 
+define("_SHOWLESSONQUESTIONS", "הצג שאלות לקח"); 
+define("_OLDPASSWORDWRONG", "הסיסמה הישנה לא בסדר"); 
+define("_COURSETOPICS", "נושאי הקורס"); 
+define("_FORCEDOWNLOADFILE"," חיל הורדת הקובץ באופן אוטומטי "); 
+define("_FORCEDOWNLOADFILEINFO", "על ידי בדיקת זה רק חלון להורדת הקובץ יוצג על קבצים לא יכול להיות מוטבע Otherwrise קישור לקובץ מוכנס"). 
+define(" _SPAMDETECTION"," למרבה הצער לא ניתן לגשת לדף זה כל כך מהר נסה שוב בעוד זמן מה. "); 
+define("_YOUCANNOTUSETHISNAME", "אתה לא יכול להשתמש בשם זה נא לבחור שם אחר."); 
+define("_BANUSERFAILEDLOGINS", " משתמשים באן אחרי 5 atempts התחברות לא מוצלחים "); 
+define("_BANUSERFAILEDLOGINSINFO", "משתמש יהיה מנוטרל לאחר 5 כניסות כושלים רציף atempts"); 
+define("_ALLOWUSERREDOTEST", "האם המשתמש לחזור על הבדיקה"); 
+define("_ALLSUPERVISORS","כל הממונים"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "ביטול אישורים שפג תוקפם"); 
+define("_MODULEITSELF", "מודולים (פרט)"); 
+define("_MODULESPANEL", "מודולים (הוספה / הסרה)"); 
+define("_PROFESSORSCANCREATECOURSES", "הפרופסורים יכול ליצור קורסים"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "הפגישה שלך פגה, היכנס שוב"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "להפיץ קורסים הסניף משתמשים הסניף"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "הפץ למשתמשים עם ענף זה"); 
+define("_THEME", "Theme"); 
+define("_SELECTBRANCHTHEME", "בחר נושא הסניף"); 
+define("_SELECTBRANCHLANGUAGE", "בחר את השפה סניף");
+define("_ACCESSURL", "גישה url סניף"); 
+define("_AUTOFILL", "מילוי אוטומטי"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "הסניף יהיה נגיש ישירות url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "אפס או כמובן לפני לפוג"); 
+define("_PROGRESSRESETSUCCESSFULLY", "התקדמות כמובן היה לאפס בהצלחה"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "התקדמות איפוס שמירה על תעודת"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "אין לכם הרשאות להתחבר בגלל שאתה לא חבר בענף זה "); 
+define("_MAXONLINEUSERS", "מספר הגולשים הרב ביותר אי פעם"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "אם תציין כתובת הסניף, אז הסניף יהיה נגיש באופן ישיר מ url "); 
+define("_FIRST", "ראשון"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "משתמשים יכולים להתחבר מכתובת האתר ברירת המחדל"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "אתה יכול רק להיכנס מענף שלך כתובת האתר ");
+define("_NEWCOMMENT", "תגובה חדשה"); 
+define("_ADDCUSTOMTEXT", "הוסף טקסט מותאם אישית"); 
+define("_ADDANOTHERCUSTOMTEXT", "הוסף טקסט מותאם אישית"); 
+define("_VIEWLESSONASSTUDENT", " צפה בשיעור כתלמיד "); 
+define("_BACKTOPROFESSORMODE", "חזרה למצב פרופסור"); 
+define("_YOUAREINSTUDENTMODE", "הינך צופה שיעור זה כסטודנט."); 
+define("_CERTIFICATEEXPIRY", "תעודת קורס תום "); 
+define("_TEST_FAILURE", "כישלון מבחן"); 
+define("_FAILEDTEST", "נכשל במבחן"); 
+define("_TESTFAILUREFORLESSON", "כישלון מבחן לשיעור"); 
+define("_HASFAILEDATEST", " נכשל במבחן ");
 ?>

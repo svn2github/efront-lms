@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Denna åtgärd kommer att permanent rade
 define("_SYSTEMENTITIES","Systemenheter");//System entities
 define("_ALLEVENTS","Alla händelser");//All events
 define("_COLLAPSECATALOG","Komprimera katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Period lades till");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Period lades till");//Period was added successfully
 define("_THEMES","Teman");//Themes
 define("_CUSTOMIZATION","Anpassning");//Customization
 define("_EXTERNALPAGES","Externa sidor");//External pages
@@ -4028,7 +4028,7 @@ define("_SHOWINCOMPLETEQUESTIONSEACHTIME","Visa ofullständiga frågor i varje k
 define("_RETAINBESTEXECUTION","Behåll bästa poäng");//Retain best score
 define("_AVERAGETESTSCOREOFACTIVEEXECUTIONS","Genomsnittligt testresultat (räknat varje test aktiva utförande)");//Average test score (counting each test's active execution)
 define("_SCOREONACTIVEEXECUTION","poäng på aktiva utförande");//score on active execution
-define("_YOUCANUSEASTERISK","Om du anger ett ord som slutar med en asterisk (*), bara dess första del kommer att beaktas. Till exempel, om du anger 'lära *', sedan både 'lärande' och 'lära' kommer att anses korrekt.");//If you specify a word that ends with an asterisk (*), only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
+define("_YOUCANUSEASTERISK","Om du anger ett ord som slutar med en asterisk (*); bara dess första del kommer att beaktas. Till exempel, om du anger 'lära *', sedan både 'lärande' och 'lära' kommer att anses korrekt.");//If you specify a word that ends with an asterisk (*); only its first part will be considered. For example, if you specify 'learn*', then both 'learning' and 'learn' will be considered correct.
 define("_COURSELESSONSRULES","Kurs lektion regler");//Course lesson rules
 define("_RULESBETWEENCOURSES","Regler mellan kurser");//Rules between courses
 define("_COURSEDEPENDSON","Naturligtvis beror på");//Course depends on
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Du kan använda MySQL: s jokertecken,% och ");//You
 define("_LESSONTIMEREPORTS","_Lektion tidrapporter");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktiv tid i innehåll");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Växla till aktiv tid om du vill att systemet ska övervaka och rapportera enda gånger som användaren faktiskt går igenom innehållet. Växla till total tid om du vill att systemet ska rapportera den totala tiden en användare spenderar på en lektion, oavsett vilken sida han / hon är på. <br/> <b>Varning:</b> Övergång till aktiv tidrapportering kommer att skriva över alla aktiva tid som har spelats hittills med motsvarande totala tiden.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","Växla till aktivt tid om du vill att systemet för att övervaka och rapportera enda gånger som användaren verkligen går igenom innehållet. Växla till total tid om du vill att systemet ska rapportera den totala tiden en användare spenderar på en lärdom, oavsett vilken sida han / hon är på. Varning : Övergång till aktiv tidrapportering skrivs alla aktiva tider som har spelats in hittills med motsvarande totala tiden ");
+define("_TOGGLEQUESTIONSPOOL","Växla vanlig fråga pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE","Du har inte valt ett värde"); 
+define("_QUESTIONSPOOL","vanlig fråga pool"); 
+define("_ADDFEEDBACSFEEDBACK","Ge feedback"); 
+define("_SHOWQUESTIONSPOOL"," Visa vanliga frågor pool "); 
+define("_SHOWLESSONQUESTIONS","Visa lektion frågor"); 
+define("_OLDPASSWORDWRONG","Gammalt lösenord är fel"); 
+define("_COURSETOPICS","Kursämnen"); 
+define("_FORCEDOWNLOADFILE","Tvinga nedladdning filen automatiskt "); 
+define("_FORCEDOWNLOADFILEINFO","Genom att markera detta endast ett fönster för att ladda ner filen kommer att visas efter filer inte bäddas Otherwrise en länk för filen sätts in");
+define("_SPAMDETECTION","Tyvärr kan du inte komma åt denna sida så snart Försök igen om en stund. "); 
+define("_YOUCANNOTUSETHISNAME","Du kan inte använda detta namn vänlig välj en annan."); 
+define("_BANUSERFAILEDLOGINS"," Ban användare efter 5 misslyckade inloggningsförsök atempts "); 
+define("_BANUSERFAILEDLOGINSINFO","Användare kommer att inaktiveras efter 5 sammanhängande misslyckade inloggningar atempts"); 
+define("_ALLOWUSERREDOTEST","Har användaren upprepa testet"); 
+define("_ALLSUPERVISORS","samtliga handledare"); 
+define("_REVOKECERTIFICATEFOREXPIRED","Återkalla passerat certifikat"); 
+define("_MODULEITSELF","Modules (individuell)"); 
+define("_MODULESPANEL","Modules (lägg till / ta bort)"); 
+define("_PROFESSORSCANCREATECOURSES","Professorerna kan skapa banor"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN","Din session har gått ut, vänligen logga in igen"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS","propagerar gren kurser som filial användarna"); 
+define("_APPLYTOUSERALLREADYTOBRANCH","fortplanta sig till användare med denna gren"); 
+define("_THEME","Theme"); 
+define("_SELECTBRANCHTHEME","Välj bransch temat"); 
+define("_SELECTBRANCHLANGUAGE","Välj gren språk" ); 
+define("_ACCESSURL","Branch tillgång url"); 
+define("_AUTOFILL","Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","Den gren kommer att vara direkt tillgänglig från URL:"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","eller återställa kurs innan löper ut"); 
+define("_PROGRESSRESETSUCCESSFULLY","Kurs framsteg har återställts"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","Återställ framstegen hålla certifikatet"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","Du är inte tillåtna att logga in eftersom du inte är medlem i denna gren "); 
+define("_MAXONLINEUSERS","Flest användare online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL","Om du anger en filial url, då grenen kommer att göras direkt tillgängliga från url "); 
+define("_FIRST","First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","Användare kan logga in från standard URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL","Du kan bara logga in från filialens URL "); 
+define("_NEWCOMMENT","Ny kommentar"); 
+define("_ADDCUSTOMTEXT","Lägg till beställnings-text"); 
+define("_ADDANOTHERCUSTOMTEXT","Lägg till en egen text"); 
+define("_VIEWLESSONASSTUDENT"," Visa lektionen som student "); 
+define("_BACKTOPROFESSORMODE","Tillbaka till professor mode"); 
+define("_YOUAREINSTUDENTMODE","Du ser just nu den här lektionen som student."); 
+define("_CERTIFICATEEXPIRY","Kursbevis upphör "); 
+define("_TEST_FAILURE","Fel vid test"); 
+define("_FAILEDTEST","misslyckades i test"); 
+define("_TESTFAILUREFORLESSON","Fel vid test för lektionen"); 
+define("_HASFAILEDATEST","har misslyckats en test");
 ?>

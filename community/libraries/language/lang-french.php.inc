@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Cette action permettra de supprimer déf
 define("_SYSTEMENTITIES","Entités du système");//System entities
 define("_ALLEVENTS","Tous les événements");//All events
 define("_COLLAPSECATALOG","Refermer le catalogue");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Période a été ajouté avec succès");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Période a été ajouté avec succès");//Period was added successfully
 define("_THEMES","Thèmes");//Themes
 define("_CUSTOMIZATION","Personnalisation");//Customization
 define("_EXTERNALPAGES","Autres pages");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Vous pouvez utiliser des caractères génériques d
 define("_LESSONTIMEREPORTS","_Rapports en temps Leçon");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Actif dans le temps le contenu");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Passer au temps actif si vous voulez le système pour surveiller et signaler seules fois que l&#039;utilisateur va réellement à travers le contenu. Passer au temps total si vous voulez que le système le rapport du temps total un utilisateur passe sur une leçon, quelle que soit la page où il / elle est en marche. <br/> <b>Attention:</b> Le passage à des rapports temps actif va écraser toute fois actives qui ont été enregistrées jusqu&#039;à présent avec le temps total correspondant.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "passage à l'heure actif si vous voulez que le système pour surveiller et signaler seules fois que l'utilisateur va en fait à travers le contenu. Passer au temps total si vous voulez que le système de déclarer le temps total d'un utilisateur passe sur un leçon, quelle que soit la page qui il / elle est en marche. Attention : Le passage à des rapports en temps actif écrase toutes les périodes actives qui ont été enregistrés jusqu'à présent avec les temps correspondants au total ");
+define("_TOGGLEQUESTIONSPOOL", "Toggle groupe de questions commune" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Vous n'avez pas choisi une valeur"); 
+define("_QUESTIONSPOOL", "groupe de questions commune"); 
+define("_ADDFEEDBACSFEEDBACK", "Ajouter un feedback"); 
+define("_SHOWQUESTIONSPOOL", " Afficher piscine commune des questions "); 
+define("_SHOWLESSONQUESTIONS", "Afficher les questions leçon"); 
+define("_OLDPASSWORDWRONG", "Ancien mot de passe est erroné"); 
+define("_COURSETOPICS", "Les thèmes des cours"); 
+define("_FORCEDOWNLOADFILE"," Force le téléchargement de fichiers automatiquement "); 
+define("_FORCEDOWNLOADFILEINFO", "En cochant cette seule une fenêtre pour télécharger le fichier sera affiché pour les fichiers ne peuvent pas être intégrées Otherwrise un lien pour le fichier est inséré"); 
+define("_SPAMDETECTION"," Malheureusement vous ne pouvez pas accéder à cette page si vite S'il vous plaît essayez de nouveau de temps en temps. "); 
+define("_YOUCANNOTUSETHISNAME", "Vous ne pouvez pas utiliser ce nom Veuillez choisir un autre."); 
+define("_BANUSERFAILEDLOGINS", " utilisateurs Ban après 5 atempts infructueuses "); 
+define("_BANUSERFAILEDLOGINSINFO", "Utilisateur sera désactivé au bout de 5 contigus connexions qui ont échoué atempts"); 
+define("_ALLOWUSERREDOTEST", "Avez-utilisateur répéter le test"); 
+define("_ALLSUPERVISORS" , "tous les superviseurs"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Révoquer les certificats expirés"); 
+define("_MODULEITSELF", "Modules (particulier)"); 
+define("_MODULESPANEL", "Modules (ajouter / supprimer)"); 
+define("_PROFESSORSCANCREATECOURSES", "Les professeurs peuvent créer des cours"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Votre session a expiré, s'il vous plaît vous connecter à nouveau"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Propagation des cours de succursales pour les utilisateurs de branche"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "Propager aux utilisateurs de cette branche"); 
+define("_THEME", "Thème"); 
+define("_SELECTBRANCHTHEME", "Sélectionner un thème branche"); 
+define("_SELECTBRANCHLANGUAGE", "Choisissez la langue de la branche" ); 
+define("_ACCESSURL", "url d'accès Direction"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "La branche sera directement accessible à partir de l'url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Ou réinitialiser cours avant expiration"); 
+define("_PROGRESSRESETSUCCESSFULLY», «progrès cours a été réinitialisé avec succès"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE», «progrès Réinitialiser garder certificat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Vous n'êtes pas autorisé pour vous connecter parce que vous n'êtes pas un membre de cette branche "); 
+define("_MAXONLINEUSERS», «nombre d'utilisateurs en ligne"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Si vous spécifiez une URL branche, puis la branche seront rendus directement accessibles à partir de l'url "); 
+define("_First", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Les utilisateurs peuvent se connecter à partir de l'URL par défaut"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Vous ne pouvez vous connecter à partir de votre agence URL "); 
+define("_NEWCOMMENT", "Nouveau commentaire"); 
+define("_ADDCUSTOMTEXT", "Ajouter un texte personnalisé"); 
+define("_ADDANOTHERCUSTOMTEXT", "Ajouter un autre texte personnalisé"); 
+define("_VIEWLESSONASSTUDENT", " Voir leçon en tant qu'étudiant "); 
+define("_BACKTOPROFESSORMODE", "Retour au mode professeur"); 
+define("_YOUAREINSTUDENTMODE", "Vous êtes en train de regarder cette leçon comme un étudiant."); 
+define("_CERTIFICATEEXPIRY", "certificat de cours d'expiration "); 
+define("_TEST_FAILURE", "Echec du test"); 
+define("_FAILEDTEST", "a échoué au test"); 
+define("_TESTFAILUREFORLESSON", "Echec du test de la leçon"); 
+define("_HASFAILEDATEST", " a échoué à un test ");
 ?>

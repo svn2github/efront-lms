@@ -181,6 +181,7 @@ class EfrontNotification
              EfrontNotification::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "tests"),
              EfrontNotification::TEST_START => array("text" => _TEST_START, "category" => "tests"),
              EfrontNotification::TEST_COMPLETION => array("text" => _TEST_COMPLETION, "category" => "tests", "canBeNegated" => _TEST_NOT_COMPLETED),
+             EfrontNotification::TEST_FAILURE => array("text" => _TEST_FAILURE, "category" => "tests"),
              EfrontNotification::CONTENT_CREATION => array("text" => _CONTENT_CREATION, "category" => "content"),
              EfrontNotification::CONTENT_MODIFICATION => array("text" => _CONTENT_MODIFICATION, "category" => "content"),
              EfrontNotification::CONTENT_START => array("text" => _CONTENT_START, "category" => "content"),
@@ -210,6 +211,7 @@ class EfrontNotification
               (-1) * EfrontEvent::SYSTEM_VISITED,
               EfrontEvent::SYSTEM_JOIN,
               EfrontEvent::TEST_COMPLETION,
+              EfrontEvent::TEST_FAILURE,
               EfrontEvent::PROJECT_SUBMISSION,
               (-1) * EfrontEvent::PROJECT_EXPIRY,
               (-1) * EfrontEvent::LESSON_PROGRAMMED_EXPIRY,
@@ -610,17 +612,22 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
               $users_to_notify[] = $user;
              }
             }
-  } else if (EfrontEvent::COURSE_CERTIFICATE_EXPIRY == $event_notification['event_type']) {
+  } else if (EfrontEvent::COURSE_CERTIFICATE_EXPIRY == abs($event_notification['event_type'])) {
    $users_result = eF_getTableData("users_to_courses JOIN users ON users_to_courses.users_LOGIN = users.login JOIN courses ON users_to_courses.courses_ID = courses.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users_to_courses.courses_ID, courses.name as courses_name, courses.certificate_expiration, users_to_courses.issued_certificate", "users_to_courses.completed = '1' AND users_to_courses.issued_certificate <> '' and courses.certificate_expiration !=0 and users.archive=0 and users_to_courses.archive=0");
       $users_to_notify = array();
             foreach ($users_result as $key => $user) {
     $dateTable = unserialize($user['issued_certificate']);
     $expirationArray = convertTimeToDays($user['certificate_expiration']);
     $timeExpire = getCertificateExpirationTimestamp($dateTable['date'], $expirationArray);
-    //Revoke certificate if it has expired, and optionally reset access to the course as well
-    if ($timeExpire && $timeExpire < time()) {
-     $users_to_notify[] = $user;
-    }
+     if ($event_notification['after_time'] < 0) {
+      $resetArray = convertTimeToDays(abs($event_notification['after_time']));
+      $resetTimestamp = getCertificateResetTimestamp($expirationTimestamp, $resetArray);
+      if ($resetTimestamp < time() && $timeExpire > time()) {
+       $users_to_notify[] = $user;
+      }
+     } elseif ($timeExpire && $timeExpire < time()) {
+      $users_to_notify[] = $user;
+     }
             }
   } else if (EfrontEvent::COURSE_VISITED == abs($event_notification['event_type'])) {
             $conditions = unserialize($event_notification['send_conditions']);
@@ -1348,6 +1355,8 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
              $this -> notification['message'] .= _WROTEACOMMENTFORUNIT . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
          } else if ($this -> notification['type'] == EfrontNotification::TEST_COMPLETION) {
              $this -> notification['message'] .= _COMPLETEDTEST . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
+         } else if ($this -> notification['type'] == EfrontNotification::TEST_FAILURE) {
+             $this -> notification['message'] .= _FAILEDTEST . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
          } else if ($this -> notification['type'] == EfrontNotification::TEST_CREATION) {
              $this -> notification['message'] .= _CREATEDTHETEST . " <b>" . $this -> notification['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> notification['lessons_name'] ."</b>";
          } else if ($this -> notification['type'] == EfrontNotification::NEW_FORUM) {

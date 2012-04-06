@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Denne handlingen vil slette den tilpasse
 define("_SYSTEMENTITIES","System enheter");//System entities
 define("_ALLEVENTS","Alle hendelser");//All events
 define("_COLLAPSECATALOG","Collapse catalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Perioden var lagt til");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Perioden var lagt til");//Period was added successfully
 define("_THEMES","Temaer");//Themes
 define("_CUSTOMIZATION","Customization");//Customization
 define("_EXTERNALPAGES","Eksterne sider");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Du kan bruke mysql er jokertegn,% og ");//You can u
 define("_LESSONTIMEREPORTS","_Leksjon tid rapporter");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktiv tid i innhold");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Bytt til aktiv tid hvis du ønsker at systemet skal overvåke og rapportere bare ganger at brukeren faktisk går gjennom innholdet. Bytt til total tid hvis du vil at systemet skal rapportere total gang en bruker bruker på en lærepenge, uansett hvilken side han / hun er på. <br/> <b>Advarsel:</b> Bytte til aktiv tid rapportering vil overskrive alle aktive tider som er registrert så langt med tilsvarende total ganger.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Bytt til aktiv tid hvis du vil at systemet skal overvåke og rapportere eneste gangene at brukeren faktisk går gjennom innholdet. Bytt til total tid hvis du vil at systemet skal rapportere den totale tiden en bruker bruker på en leksjon, uansett hvilken side han / hun er på. Advarsel : Bytte til aktiv tid rapportering vil overskrive alle aktive tider som er registrert så langt med de tilsvarende totalt ganger ");
+define("_TOGGLEQUESTIONSPOOL", "Slå vanlig spørsmål pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Du har ikke valgt en verdi"); 
+define("_QUESTIONSPOOL", "Common spørsmål pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Feedback"); 
+define("_SHOWQUESTIONSPOOL", " Vis vanlige spørsmål pool "); 
+define("_SHOWLESSONQUESTIONS", "Vis leksjon spørsmål"); 
+define("_OLDPASSWORDWRONG", "Gammelt passord er feil"); 
+define("_COURSETOPICS", "emnene"); 
+define("_FORCEDOWNLOADFILE"," Force nedlasting filen automatisk "); 
+define("_FORCEDOWNLOADFILEINFO", "Ved å sjekke dette bare et vindu for å laste ned filen vil vises for filer ikke kan bygges Otherwrise en lenke til filen er satt");
+define("_SPAMDETECTION"," Dessverre kan du ikke tilgang til denne siden så snart Vennligst prøv igjen om en stund. "); 
+define("_YOUCANNOTUSETHISNAME", "Du kan ikke bruke dette navnet Vennligst velg en annen."); 
+define("_BANUSERFAILEDLOGINS", " Ban brukere etter 5 mislykkede login atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Brukeren vil bli deaktivert etter 5 sammenhengende mislykkede pålogginger atempts"); 
+define("_ALLOWUSERREDOTEST", "gjentar bruker Har testen"); 
+define("_ALLSUPERVISORS" , "All veiledere"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Opphev utløpte sertifikater"); 
+define("_MODULEITSELF", "Modules (individuell)"); 
+define("_MODULESPANEL", "moduler (legg til / fjern)"); 
+define("_PROFESSORSCANCREATECOURSES", "Professorene kan opprette kurs"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Din sesjon har utløpt, må du logge på igjen"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "forplantar avdelingskontorer kurs til grenen brukere"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "overføres til brukere med denne grenen"); 
+define("_THEME", "Theme"); 
+define("_SELECTBRANCHTHEME", "Velg gren tema"); 
+define("_SELECTBRANCHLANGUAGE", "Velg gren språk" ); 
+define("_ACCESSURL", "Branch tilgang url"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "Den grenen skal være direkte tilgjengelig fra URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "eller tilbakestille kurs før utløper"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Course fremgang ble tilbakestilt vellykket"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset fremgang holde sertifikat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Du har ikke lov å logge fordi du ikke er medlem av denne grenen "); 
+define("_MAXONLINEUSERS", "Flest brukere i forumet"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Hvis du angir en gren url, så filialen vil bli gjort direkte tilgjengelig fra url "); 
+define("_FIRST", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Brukere kan logge inn fra standard URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Du kan bare logge deg på fra filialens URL "); 
+define("_NEWCOMMENT", "Ny kommentar"); 
+define("_ADDCUSTOMTEXT", "Legg til egendefinert tekst"); 
+define("_ADDANOTHERCUSTOMTEXT", "Legg til en annen egendefinert tekst"); 
+define("_VIEWLESSONASSTUDENT", " Vis leksjon som student "); 
+define("_BACKTOPROFESSORMODE", "Tilbake til professor mode"); 
+define("_YOUAREINSTUDENTMODE", "Du ser denne leksjonen som student."); 
+define("_CERTIFICATEEXPIRY", "Kursbevis utløpsdato "); 
+define("_TEST_FAILURE", "Test failure"); 
+define("_FAILEDTEST", "mislyktes i test"); 
+define("_TESTFAILUREFORLESSON", "Test fiasko for leksjonen"); 
+define("_HASFAILEDATEST", " har mislyktes en test ");
 ?>

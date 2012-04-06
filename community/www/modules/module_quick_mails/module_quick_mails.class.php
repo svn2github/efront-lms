@@ -65,7 +65,8 @@ class module_quick_mails extends EfrontModule {
          $pm = new eF_PersonalMessage($_SESSION['s_login'], $mail_recipients, $values['subject'], $values['body']);
 
          if ($_FILES['attachment']['name'][0] != "") {
-             if ($_FILES['attachment']['size'][0] ==0 || $_FILES['attachment']['size'][0] > G_MAXFILESIZE ) { //If the directory could not be created, display an erro message
+          $maxFileSize = FileSystemTree :: getUploadMaxSize();
+                if ($_FILES['attachment']['size'][0] == 0 || $_FILES['attachment']['size'][0] > $maxFileSize*1024 ) { //	G_MAXFILESIZE is deprecated                                                          
                  $message = _EACHFILESIZEMUSTBESMALLERTHAN." ".G_MAXFILESIZE." Bytes";
                  $message_type = 'failure';
              }

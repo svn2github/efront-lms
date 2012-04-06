@@ -84,6 +84,7 @@ tinymceConfigs["mceEditor"] = {
     plugin_insertdate_dateFormat : "%Y-%m-%d",
     plugin_insertdate_timeFormat : "%H:%M:%S",
  content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
+ valid_elements : "#p",
     extended_valid_elements : "*[*]",
     template_external_list_url : "editor/templates_list.php"
  };

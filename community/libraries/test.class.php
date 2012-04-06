@@ -2409,6 +2409,14 @@ class EfrontCompletedTest extends EfrontTest
                 "lessons_name" => $lesson_name,
                 "entity_ID" => $this -> test['id'],
                 "entity_name" => $this -> test['name']));
+        if ($this -> completedTest['status'] == 'failed') {
+                EfrontEvent::triggerEvent(array("type" => EfrontEvent::TEST_FAILURE,
+                "users_LOGIN" => $this -> completedTest['login'],
+                "lessons_ID" => $this ->test['lessons_ID'],
+                "lessons_name" => $lesson_name,
+                "entity_ID" => $this -> test['id'],
+                "entity_name" => $this -> test['name']));
+        }
         if ($this -> options['duration'] && $this -> time['spent'] > $this -> options['duration']) {
             $this -> time['spent'] = $this -> options['duration']; //MAke sure that the spent time does not appear longer than the test duration
         }
@@ -3081,6 +3089,20 @@ class EfrontCompletedTest extends EfrontTest
            $this -> completedTest['pending'] = 1;
           }
          }
+         try {
+             $lesson = new EfrontLesson($this ->test['lessons_ID']);
+             $lesson_name = $lesson -> lesson['name'];
+            } catch (EfrontLessonException $e) {
+             $lesson_name = _SKILLGAPTESTS;
+            }
+            if ($this -> completedTest['status'] == 'failed' && $this -> completedTest['pending'] != 1) {
+                   EfrontEvent::triggerEvent(array("type" => EfrontEvent::TEST_FAILURE,
+                "users_LOGIN" => $this -> completedTest['login'],
+                "lessons_ID" => $this ->test['lessons_ID'],
+                "lessons_name" => $lesson_name,
+                "entity_ID" => $this -> test['id'],
+                "entity_name" => $this -> test['name']));
+            }
          $this -> save();
          $testUser -> setSeenUnit($this -> test['content_ID'], $this -> test['lessons_ID'], $flag);
          echo json_encode($this -> completedTest);

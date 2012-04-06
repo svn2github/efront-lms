@@ -46,7 +46,7 @@ define("_SUCCESSREGISTER","您已註冊成功");//You have registered successful
 define("_LESSONSREGISTRATION","課程註冊");//Lesson registration
 define("_YOUREMAIL","您的電子郵件");//Your Email 
 define("_MESSAGESUBJECT","標題");//Message subject
-define("_PASSWORDLEAVEBLANK","密碼（如不更改則不需填寫）");//Password (blank to leave unchanged)
+define("_PASSWORDLEAVEBLANK","密碼（如不更改則不需填寫)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","您的個人資訊已更新成功");//Your personal info has been successfully altered
 define("_REGISTRATIONDATE","註冊日期");//Registration date
 define("_SAVECHANGES","儲存");//Save
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","這一行動將永久刪除的自定義�
 define("_SYSTEMENTITIES","系統實體");//System entities
 define("_ALLEVENTS","所有活動");//All events
 define("_COLLAPSECATALOG","折疊產品目錄");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","期間添加成功");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","期間添加成功");//Period was added successfully
 define("_THEMES","主題");//Themes
 define("_CUSTOMIZATION","個性化");//Customization
 define("_EXTERNALPAGES","外部網頁");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","您可以使用mysql的通配符％和");//You can 
 define("_LESSONTIMEREPORTS","_上課時間報告");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","活動時間內容");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","切換到活動時間，如果你想系統的監測和報告，用戶實際上是通過內容只有。切換到總時間，如果你想系統報告用戶教訓花費的總時間，無論哪一頁，他/她是上。 <br/> <b>警告</b> ：切換到活動時間報告將覆蓋任何與相應的總時間，到目前為止已記錄的活動時間。");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","切換到活動時間，如果你想系統的監測和報告，用戶實際上是通過內容只有一個用戶切換到如果你想系統報告的總時間，總時間花費教訓，無論哪一頁，他/她。警告：切換到活動時間報告將覆蓋任何與相應的總次數，到目前為止已記錄的活動時間"); 
+define("_TOGGLEQUESTIONSPOOL","切換的常見問題池"); 
+define("_YOUHAVENOTSELECTEDAVALUE","你沒有選擇一個值"); 
+define("_QUESTIONSPOOL","常見問題庫"); 
+define("_ADDFEEDBACSFEEDBACK","回饋"); 
+define("_SHOWQUESTIONSPOOL","顯示常見問題池"); 
+define("_SHOWLESSONQUESTIONS","教訓問題"); 
+define("_OLDPASSWORDWRONG","舊密碼錯誤"); 
+define("_COURSETOPICS","課程主題"); 
+define("_FORCEDOWNLOADFILE","部隊自動下載文件"); 
+define("_FORCEDOWNLOADFILEINFO","通過檢查這唯一的一個窗口，下載文件將顯示為文件不能被嵌入一個文件Otherwrise鏈接插入"); 
+define("_SPAMDETECTION","不幸的是，你不能訪問此頁，這麼快就請了一段時間後再試一次。"); 
+define("_YOUCANNOTUSETHISNAME","你可以不使用這個名字請選擇另 ​​外一個。"); 
+define("_BANUSERFAILEDLOGINS","禁止用戶後5不成 ​​功登錄atempts的"); 
+define("_BANUSERFAILEDLOGINSINFO","用戶將被停用後atempts 5連續登錄失敗"); 
+define("_ALLOWUSERREDOTEST","有用戶重複測試"); 
+define("_ALLSUPERVISORS","所有監事"); 
+define("_REVOKECERTIFICATEFOREXPIRED","吊銷證書過期"); 
+define("_MODULEITSELF","模塊(個人)"); 
+define("_MODULESPANEL","模塊(添加/刪除)"); 
+define("_PROFESSORSCANCREATECOURSES","教授可以創建課程"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN","您的會話已過期，請重新登錄"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS","傳播到分支用戶的分支課程"); 
+define("_APPLYTOUSERALLREADYTOBRANCH","傳播給用戶與這個分支"); 
+define("_THEME","主題"); 
+define("_SELECTBRANCHTHEME","選擇的分支主題"); 
+define("_SELECTBRANCHLANGUAGE","選擇分支的語言" ); 
+define("_ACCESSURL","科訪問URL"); 
+define("_AUTOFILL","自動填充"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","分支將直接從URL訪問"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","到期前或重置課程"); 
+define("_PROGRESSRESETSUCCESSFULLY","課程進度重置成功"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","復位進度保持證書"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","你不准登錄，因為你不是這個分支的成員");
+define("_MAXONLINEUSERS","大多數用戶永遠在線"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL","如果你指定一個分支的URL，然後在該分支將直接訪問從URL"); 
+define("_FIRST","第一"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","用戶可以登錄的默認URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL","你可以只簽署在你的分支URL"); 
+define("_NEWCOMMENT","新評論"); 
+define("_ADDCUSTOMTEXT","添加自define文本"); 
+define("_ADDANOTHERCUSTOMTEXT","加入另一個自define的文本"); 
+define("_VIEWLESSONASSTUDENT","視學生的課"); 
+define("_BACKTOPROFESSORMODE","回到教授模式"); 
+define("_YOUAREINSTUDENTMODE","你正在觀看作為一名學生，這個教訓。"); 
+define("_CERTIFICATEEXPIRY","證書課程到期日"); 
+define("_TEST_FAILURE","測試失敗"); 
+define("_FAILEDTEST","測試失敗"); 
+define("_TESTFAILUREFORLESSON","試驗失敗的教訓"); 
+define("_HASFAILEDATEST","失敗測試");
 ?>

@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Ez a művelet véglegesen törli az egy�
 define("_SYSTEMENTITIES","System szervezetek");//System entities
 define("_ALLEVENTS","Minden esemény");//All events
 define("_COLLAPSECATALOG","Collapse katalógus");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Időszakot sikeresen hozzáadva");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Időszakot sikeresen hozzáadva");//Period was added successfully
 define("_THEMES","Themes");//Themes
 define("_CUSTOMIZATION","Testreszabási");//Customization
 define("_EXTERNALPAGES","Külső oldal");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Használhatja a MySQL helyettesítő karaktereket,%
 define("_LESSONTIMEREPORTS","_Lecke idő jelentések");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktív idő tartalma");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Váltás az aktív időt, ha a rendszer nyomon követésére és a jelentés csak idő, hogy a felhasználó valóban megy keresztül a tartalmat. Váltás a teljes időt, ha a rendszer jelenti a teljes időt a felhasználó tölt egy leckét, függetlenül attól, melyik oldalon is / ő az. <br/> <b>Figyelmeztetés:</b> A kapcsolás az aktív idő jelentések felül fog írni minden alkalommal, hogy az aktív rögzítésre került eddig a megfelelő teljes alkalommal.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Váltás az aktív időt, ha a rendszer nyomon követése és bejelentése csak idő, hogy a felhasználó valóban átmegy a tartalmat. Váltás a teljes időt, ha a rendszer a teljes jelentést, amikor egy felhasználó tölt egy leckét, függetlenül attól, melyik oldalon ő / ő is. Figyelem : az aktív kapcsolási idejű jelentések felül fog írni minden alkalommal, hogy az aktív rögzítésre került eddig a megfelelő alkalommal összesen. "); 
+define("_TOGGLEQUESTIONSPOOL", "Toggle gyakori kérdés pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Nem választott érték"); 
+define("_QUESTIONSPOOL", "Gyakori kérdés pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Visszajelzés"); 
+define("_SHOWQUESTIONSPOOL", " Mutasd gyakori kérdésekre pool "); 
+define("_SHOWLESSONQUESTIONS", "Mutasd lecke kérdések"); 
+define("_OLDPASSWORDWRONG", "Régi jelszó a baj"); 
+define("_COURSETOPICS", "pálya témák"); 
+define("_FORCEDOWNLOADFILE"," Force automatikusan letöltött fájl "); 
+define("_FORCEDOWNLOADFILEINFO", "Ha bejelöli ezt csak a fájl letöltése ablak jelenik meg a fájlokat nem lehet beilleszteni. Otherwrise egy linket a fájl egészül ki"); 
+define("_SPAMDETECTION"," Sajnos nem tudja elérni ezt az oldalt ilyen hamar. Kérjük, próbálja újra, míg "); 
+define("_YOUCANNOTUSETHISNAME", "Ön nem használhatja ezt a nevet. Kérjük, válassz egy másikat"); 
+define("_BANUSERFAILEDLOGINS", " Ban felhasználók sikertelen bejelentkezés után 5 atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Felhasználó után lehet leállítani 5 egybefüggő sikertelen bejelentkezések atempts"); 
+define("_ALLOWUSERREDOTEST", "Have felhasználó ismételje meg a vizsgálatot"); 
+define("_ALLSUPERVISORS","Minden felügyelők"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "lejárt tanúsítvány visszavonása"); 
+define("_MODULEITSELF", "modulok (egyedi)"); 
+define("_MODULESPANEL", "modulok (add / remove)"); 
+define("_PROFESSORSCANCREATECOURSES", "létrehozhat Professzorok kurzusok"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "A munkamenet lejárt, kérjük jelentkezzen be újra"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "propagálása ág tanfolyamok ága a felhasználók"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "propagálása azok számára, akik ezen ága"); 
+define("_THEME", "Theme"); 
+define("_SELECTBRANCHTHEME", "Válassza ki a témát ág"); 
+define("_SELECTBRANCHLANGUAGE", "Válasszon nyelvet ág" ); 
+define("_ACCESSURL", "url Branch hozzáférés"); 
+define("_AUTOFILL", "Automatikus kitöltés"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "Az ág lesz közvetlenül elérhető az url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Vagy vissza pályán, mielőtt lejár"); 
+define("_PROGRESSRESETSUCCESSFULLY", "haladás pálya visszaállítása sikerült"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset haladás vezetése bizonyítvány"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Ön nem engedélyezett bejelentkezni, mert nem tagja az ág "); 
+define("_MAXONLINEUSERS", "A legtöbb felhasználó"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Ha megad egy url ág, akkor az ág is közvetlenül hozzáférhetővé kell tenni az url "); 
+define("_FIRST", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "A felhasználók jelentkezzen az alapértelmezett URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Csak bejelentkezhet az Ön fióktelep URL "); 
+define("_NEWCOMMENT", "Új hozzászólás"); 
+define("_ADDCUSTOMTEXT", "Egyéni szöveget"); 
+define("_ADDANOTHERCUSTOMTEXT", "Újabb egyéni szöveg"); 
+define("_VIEWLESSONASSTUDENT", " Tekintse leckét a diák "); 
+define("_BACKTOPROFESSORMODE", "Vissza a tanár mód"); 
+define("_YOUAREINSTUDENTMODE", "éppen megjelenített ezt a leckét, mint egy diák."); 
+define("_CERTIFICATEEXPIRY", "tanfolyam tanúsítvány lejárat "); 
+define("_TEST_FAILURE", "teszt hiba"); 
+define("_FAILEDTEST", "nem sikerült a teszt"); 
+define("_TESTFAILUREFORLESSON", "teszt sikertelen lecke"); 
+define("_HASFAILEDATEST", " nem sikerült a teszt ");
 ?>

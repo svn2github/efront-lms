@@ -3822,6 +3822,8 @@ class EfrontCourse
 	 */
  public static function checkCertificateExpire() {
   $courses = eF_getTableData("courses", "id,reset_interval,reset", "certificate_expiration !=0" );
+  $notifications = eF_getTableData("event_notifications", "id,event_type,after_time,send_conditions", "event_type=-59");
+  $notifications_on_event = eF_getTableData("event_notifications", "id,event_type,after_time,send_conditions", "event_type=59");
   foreach ($courses as $value) {
    $course = new EfrontCourse($value['id']);
    $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != ""');
@@ -3841,19 +3843,55 @@ class EfrontCourse
      if ($course -> course['reset']) { //If student completed again the course with reset_interval, he has a new expire date so he will not be reset,(so it is not elseif)
       if ($expirationTimestamp < time()) {
        $user -> resetProgressInCourse($course, true);
-       EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
-          "users_LOGIN" => $user -> user['login'],
-          "lessons_ID" => $course -> course['id'],
-          "lessons_name" => $course -> course['name']));
+       foreach ($notifications_on_event as $notification) {
+        $send_conditions = unserialize($notification['send_conditions']);
+        $courses_ID = $send_conditions['courses_ID'];
+        if ($courses_ID == $value['id'] || $courses_ID == 0) {
+         if ($notification['after_time'] == 0) {
+          EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
+           "users_LOGIN" => $user -> user['login'],
+           "lessons_ID" => $course -> course['id'],
+           "lessons_name" => $course -> course['name'],
+           'create_negative' => false));
+         }
+        }
+       }
       }
      }
      if (!$course -> course['reset'] && !$course -> course['reset_interval']) {
       if ($expirationTimestamp < time()) {
        eF_updateTableData("users_to_courses", array("issued_certificate" => ""), "users_LOGIN='".$user -> user['login']."' and courses_ID = ".$course -> course['id']);
-       EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
+       foreach ($notifications_on_event as $notification) {
+        $send_conditions = unserialize($notification['send_conditions']);
+        $courses_ID = $send_conditions['courses_ID'];
+        if ($courses_ID == $value['id'] || $courses_ID == 0) {
+         if ($notification['after_time'] == 0) {
+          EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
+           "users_LOGIN" => $user -> user['login'],
+           "lessons_ID" => $course -> course['id'],
+           "lessons_name" => $course -> course['name'],
+           "create_negative" => false));
+         }
+        }
+       }
+      }
+     }
+     foreach ($notifications as $notification) {
+      $send_conditions = unserialize($notification['send_conditions']);
+      $courses_ID = $send_conditions['courses_ID'];
+      if ($courses_ID == $value['id'] || $courses_ID == 0) {
+       if ($notification['after_time'] < 0) {
+        $resetArray = convertTimeToDays(abs($notification['after_time']));
+        $resetTimestamp = getCertificateResetTimestamp($expirationTimestamp, $resetArray);
+        // in order notification to be sent one (not every day after $resetTimestamp)	
+        if ($GLOBALS['configuration']['last_reset_certificate'] < $resetTimestamp && $resetTimestamp < time() && $expirationTimestamp > time()) {
+         EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::COURSE_CERTIFICATE_EXPIRY,
           "users_LOGIN" => $user -> user['login'],
           "lessons_ID" => $course -> course['id'],
-          "lessons_name" => $course -> course['name']));
+          "lessons_name" => $course -> course['name'],
+          "create_negative" => false));
+        }
+       }
       }
      }
     }

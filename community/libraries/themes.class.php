@@ -212,6 +212,7 @@ class themes extends EfrontEntity
 
      */
     public function persist() {
+     unset($this->layout['positions']['comment']);
         $this -> {$this -> entity}['options'] = serialize($this -> options);
         $this -> {$this -> entity}['layout'] = serialize($this -> layout);
         parent :: persist();

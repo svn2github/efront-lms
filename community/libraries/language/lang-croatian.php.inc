@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Ova akcija će trajno izbrisati custom h
 define("_SYSTEMENTITIES","Sustav subjekata");//System entities
 define("_ALLEVENTS","Svi događaji");//All events
 define("_COLLAPSECATALOG","Collapse catalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Razdoblje je uspješno dodan");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Razdoblje je uspješno dodan");//Period was added successfully
 define("_THEMES","Teme");//Themes
 define("_CUSTOMIZATION","Prilagođavanje");//Customization
 define("_EXTERNALPAGES","Vanjske stranice");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Možete koristiti MySQL-a zamjenske znakove,% i ");
 define("_LESSONTIMEREPORTS","_Lekcija vrijeme izvješća");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktivno vrijeme na sadržaj");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Prebacite se na aktivne vrijeme, ako želite sustava za praćenje i izvješće samo puta da korisnik zapravo prolazi kroz sadržaj. Prebacite se na ukupno vrijeme, ako želite prijaviti sustavu ukupnog vremena potroši se na korisnik lekciju, bez obzira na kojoj stranici je on / ona je na. <br/> <b>Upozorenje:</b> Prebacivanje na aktivni vrijeme izvještavanja će prebrisati bilo aktivno puta da je zabilježeno do sada s odgovarajućim ukupne puta.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Prebaci na aktivno vrijeme, ako želite da sustav za praćenje i izvještavanje samo puta da je korisnički zapravo ide kroz sadržaj. Prebaci na ukupno vrijeme, ako želite da se sustav izvještavanja ukupni put kad korisnik potroši na pouka, bez obzira koja je stranica on / ona je na. Upozorenje : Prebacivanje aktivne vrijeme izvješćivanja će prebrisati sve aktivne puta koje su snimljene do sada s odgovarajućim ukupno vrijeme ");
+define("_TOGGLEQUESTIONSPOOL", "Izmijeni zajednički pitanje bazen" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Niste odabrali vrijednost"); 
+define("_QUESTIONSPOOL", "uobičajeno pitanje bazen"); 
+define("_ADDFEEDBACSFEEDBACK", "Dodaj komentar"); 
+define("_SHOWQUESTIONSPOOL", " Prikaži zajednički bazen pitanja "); 
+define("_SHOWLESSONQUESTIONS", "Prikaži nastavne pitanja"); 
+define("_OLDPASSWORDWRONG", "Stari Lozinka je neispravna"); 
+define("_COURSETOPICS", "tečaj teme"); 
+define("_FORCEDOWNLOADFILE"," Force preuzimanje datoteka automatski "); 
+define("_FORCEDOWNLOADFILEINFO", "Označavanjem ove samo prozor za preuzimanje datoteka će se prikazati datoteka ne može biti ugrađen Otherwrise vezu za datoteke se umeće"); 
+define("_SPAMDETECTION"," Nažalost, ne možete pristupiti ovoj stranici tako brzo Pokušajte ponovno za neko vrijeme. "); 
+define("_YOUCANNOTUSETHISNAME", "Ne možete koristiti ovo ime Molim odaberite drugu."); 
+define("_BANUSERFAILEDLOGINS", " Ban korisnici nakon 5 neuspjelih login atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Korisnik će biti isključen nakon 5 neuspjelih prijavljivanja susjednoga atempts"); 
+define("_ALLOWUSERREDOTEST", "Jeste korisnički ponoviti test"); 
+define("_ALLSUPERVISORS","Svi nadzornici"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Opoziv istekao certifikate"); 
+define("_MODULEITSELF", "modula (pojedinac)"); 
+define("_MODULESPANEL", "Moduli (dodati / ukloniti)"); 
+define("_PROFESSORSCANCREATECOURSES", "profesori mogu kreirati kolegije"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Vaša sesija je istekla, molimo Vas da se ponovo prijavite"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "propagira grane na granu tečajeve korisnika"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "propagandom za korisnike s ovim grani"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Odaberite podružnice teme"); 
+define("_SELECTBRANCHLANGUAGE", "Odaberite podružnice jezik" ); 
+define("_ACCESSURL", "Podružnica pristup url"); 
+define("_AUTOFILL", "AutoFill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "Podružnica će biti izravno pristupiti iz URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Ili reset tečaj prije isteka"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Tečaj napredak je ponovno uspješno"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset napredak imajući certifikat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Nemate ovlasti za prijavu, jer niste član ovog roda "); 
+define("_MAXONLINEUSERS", "Većina korisnika uvijek online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Ako navedete podružnice url, onda grana će biti izravno dostupni iz url "); 
+define("_FIRST", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Korisnici mogu se prijaviti od zadanog URL-a"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Vi samo možete se prijaviti iz vaše podružnice URL "); 
+define("_NEWCOMMENT", "Novi komentar"); 
+define("_ADDCUSTOMTEXT", "Dodavanje prilagođenog teksta"); 
+define("_ADDANOTHERCUSTOMTEXT", "Dodaj još prilagođeni tekst"); 
+define("_VIEWLESSONASSTUDENT", " Pogledajte lekciju kao student "); 
+define("_BACKTOPROFESSORMODE", "Povratak na profesora način"); 
+define("_YOUAREINSTUDENTMODE", "Vi ste trenutno pregledavate ovu lekciju kao student."); 
+define("_CERTIFICATEEXPIRY", "Tečaj certifikat isteka "); 
+define("_TEST_FAILURE", "Test neuspjeh"); 
+define("_FAILEDTEST", "nije u test"); 
+define("_TESTFAILUREFORLESSON", "Test neuspjeh za sat"); 
+define("_HASFAILEDATEST", "nije test");
 ?>

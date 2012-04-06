@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Deze actie zal de aangepast koptekst (vo
 define("_SYSTEMENTITIES","Systeem entiteiten");//System entities
 define("_ALLEVENTS","Alle gebeurtenissen");//All events
 define("_COLLAPSECATALOG","Uitklappen catalogus");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Periode werd toegevoegd");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Periode werd toegevoegd");//Period was added successfully
 define("_THEMES","Thema&#39;s");//Themes
 define("_CUSTOMIZATION","Verdere aanpassingen");//Customization
 define("_EXTERNALPAGES","Externe pagina&#39;s");//External pages
@@ -4152,8 +4152,58 @@ define("_ACTIVELESSONTIMES","Actieve lestijden");//Active lesson times (New)
 define("_PLEASEREMEMBERTOSETUPAPASSWORD","Vergeet niet om het opzetten van een wachtwoord");//Please remember to set up a password (New)
 define("_ISLDAPUSER","Ldap gebruiker");//Ldap user (New)
 define("_REPORTSCONDITION","Voorwaarde");//Condition (New)
-define("_USEMYSQLWILDCARDS","U kunt gebruik maken van jokertekens MySQL,% en ");//You can use mysql's wildcard characters, % and _ (New)
+define("_USEMYSQLWILDCARDS","U kunt gebruik maken van jokertekens MySQL,% en");//You can use mysql's wildcard characters, % and _ (New)
 define("_LESSONTIMEREPORTS","_Les time rapporten");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Actieve tijd in de inhoud");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Schakel over naar actieve tijd als je wilt dat het systeem controleren en rapporteren enige keer dat de gebruiker daadwerkelijk gaat door de inhoud. Schakelaar om de totale tijd als je wilt dat het systeem de totale tijd die een gebruiker doorbrengt op een les rapport, ongeacht welke pagina hij / zij is. <br/> <b>Waarschuwing:</b> Overstappen naar actieve tijd rapportage overschrijft alle actieve tijden die tot nu toe opgenomen met de overeenkomstige totale keer.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Schakel over naar de actieve tijd als u wilt dat het systeem te bewaken en te rapporteren enige keer dat de gebruiker daadwerkelijk gaat door de inhoud. Switch om de totale tijd als je wilt dat het systeem de totale tijd van een gebruiker besteedt aan een les, ongeacht welke pagina hij / zij is. Waarschuwing : overschakelen naar actieve tijd rapportage zal overschrijven actieve tijden die zijn tot nu toe opgenomen met de overeenkomstige totale keer");
+define("_TOGGLEQUESTIONSPOOL", "Toggle veel voorkomende vraag pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Je hebt niet gekozen voor een waarde"); 
+define("_QUESTIONSPOOL", "veel voorkomende vraag pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Feedback"); 
+define("_SHOWQUESTIONSPOOL", " Toon algemene vragen pool"); 
+define("_SHOWLESSONQUESTIONS", "Laat les vragen"); 
+define("_OLDPASSWORDWRONG", "Oude wachtwoord is onjuist"); 
+define("_COURSETOPICS", "Course onderwerpen"); 
+define("_FORCEDOWNLOADFILE"," Force downloaden bestand automatisch"); 
+define("_FORCEDOWNLOADFILEINFO", "Aan de hand van dit alleen een venster te downloaden bestand wordt weergegeven voor-bestanden kunnen niet worden ingesloten Otherwrise een link naar het bestand is geplaatst");
+define("_SPAMDETECTION"," Helaas kunt u geen toegang tot deze pagina zo snel Probeer het later nog een keer."); 
+define("_YOUCANNOTUSETHISNAME", "Je kunt niet deze naam te gebruiken voor je andere."); 
+define("_BANUSERFAILEDLOGINS", " Ban gebruikers na 5 mislukte login atempts"); 
+define("_BANUSERFAILEDLOGINSINFO", "Gebruiker wordt gedeactiveerd na 5 opeenvolgende mislukte aanmeldingen atempts"); 
+define("_ALLOWUSERREDOTEST", "Heb gebruiker herhaal de test"); 
+define("_ALLSUPERVISORS" , "Alle toezichthouders"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Intrekken verlopen certificaten"); 
+define("_MODULEITSELF", "Modules (individuele)"); 
+define("_MODULESPANEL", "Modules (toevoegen / verwijderen)"); 
+define("_PROFESSORSCANCREATECOURSES", "Docenten kunnen cursussen maken"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Uw sessie is verlopen, dan kunt u opnieuw aan te melden in"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Propagate tak tot tak cursussen gebruikers"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "om gebruikers Propagate met deze tak"); 
+define("_THEME", "Thema"); 
+define("_SELECTBRANCHTHEME", "Selecteer tak thema"); 
+define("_SELECTBRANCHLANGUAGE", "Selecteer tak taal" ); 
+define("_ACCESSURL", "Branch toegang url"); 
+define("_AUTOFILL", "Vul automatisch"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "De branche zal rechtstreeks bereikbaar via de url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Of reset koers voordat verlopen"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Course vooruitgang geboekt werd met succes opnieuw in te stellen"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset vooruitgang te houden certificaat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Het is niet toegestaan om in te loggen want je bent geen lid van deze tak"); 
+define("_MAXONLINEUSERS", "Het grootste aantal gebruikers online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Als u een tak url, dan is de branche zal worden rechtstreeks toegankelijk gemaakt van de url"); 
+define("_FIRST", "eerst"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Gebruikers kunnen ondertekenen van de standaard URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Je kunt alleen aanmelden in uw kantoor's URL"); 
+define("_NEWCOMMENT", "Wil je een reactie"); 
+define("_ADDCUSTOMTEXT", "Add aangepaste tekst"); 
+define("_ADDANOTHERCUSTOMTEXT", "Voeg nog een aangepaste tekst"); 
+define("_VIEWLESSONASSTUDENT", " Bekijk les als student"); 
+define("_BACKTOPROFESSORMODE", "Terug naar professor-modus"); 
+define("_YOUAREINSTUDENTMODE", "U bekijkt nu deze les als student."); 
+define("_CERTIFICATEEXPIRY", "Cursus certificaat verstrijken"); 
+define("_TEST_FAILURE", "Test failure"); 
+define("_FAILEDTEST", "gefaald in test"); 
+define("_TESTFAILUREFORLESSON", "Test niet voor de les"); 
+define("_HASFAILEDATEST", " is gezakt voor een test");
 ?>

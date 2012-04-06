@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Diese Aktion wird den benutzerdefinierte
 define("_SYSTEMENTITIES","System-Einheiten");//System entities
 define("_ALLEVENTS","Alle Ereignisse");//All events
 define("_COLLAPSECATALOG","Katalog zuklappen");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Zeitraum wurde erfolgreich hinzugefügt");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Zeitraum wurde erfolgreich hinzugefügt");//Period was added successfully
 define("_THEMES","Templates");//Themes
 define("_CUSTOMIZATION","Anpassung");//Customization
 define("_EXTERNALPAGES","Externe Seiten");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Sie können die MySQL-Platzhalterzeichen% und ");//
 define("_LESSONTIMEREPORTS","_Lesson Zeit Berichte");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktive Zeit im Inhalt");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Wechseln Sie zu aktiver Zeit, wenn Sie das System zur Überwachung und Berichterstattung erst mal, dass der Benutzer tatsächlich geht durch den Inhalt wollen. Wechseln Sie zu insgesamt Zeit, wenn Sie das System auf die gesamte Zeit ein Benutzer verbringt eine Lektion berichten wollen, egal auf welcher Seite er / sie eingeschaltet ist. <br/> <b>Warnung:</b> Die Umstellung auf aktive Zeit Berichterstattung werden alle aktiven Zeiten, die aufgenommen wurden bisher mit den entsprechenden insgesamt mal zu überschreiben.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Wechseln Sie zur aktiven Zeit, wenn Sie wollen das System zur Überwachung und Berichterstattung nur mal, dass der Benutzer tatsächlich geht durch den Inhalt. Switch to Gesamtzeit, wenn Sie das System auf die gesamte Zeit berichten wollen ein Benutzer auf ein verbringt Lektion, unabhängig davon, welche Seite er / sie ist auf. Warnung : Das Umschalten auf aktiven Zeit Berichterstattung wird alle aktiven Zeiten, die aufgezeichnet wurden bisher mit den entsprechenden Gesamt-mal überschreiben "); 
+define("_TOGGLEQUESTIONSPOOL", "Toggle häufig gestellte Frage pool" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Sie haben keinen Wert ausgewählt"); 
+define("_QUESTIONSPOOL", "häufig gestellte Frage Pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Feedback"); 
+define("_SHOWQUESTIONSPOOL", " Zeigen Sie häufig gestellte Fragen-Pool "); 
+define("_SHOWLESSONQUESTIONS", "Zeige Lektion Fragen"); 
+define("_OLDPASSWORDWRONG", "Altes Passwort ist falsch"); 
+define("_COURSETOPICS", "Kursthemen"); 
+define("_FORCEDOWNLOADFILE"," Force Download-Datei automatisch "); 
+define("_FORCEDOWNLOADFILEINFO", "Durch die Aktivierung dieses nur ein Fenster zum Download-Datei für Dateien wird angezeigt kann nicht eingebettet werden Otherwrise einen Link für die Datei eingefügt wird."); 
+define("_SPAMDETECTION"," Leider kann man nicht Zugriff auf diese Seite so bald Bitte versuchen Sie es später noch einmal. "); 
+define("_YOUCANNOTUSETHISNAME", "Sie können nicht diesen Namen mit einem anderen Emailadresse."); 
+define("_BANUSERFAILEDLOGINS", " Ban Benutzer nach 5 fehlgeschlagenen Login atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Benutzer deaktiviert wird nach 5 zusammenhängenden fehlgeschlagene Logins atempts werden"); 
+define("_ALLOWUSERREDOTEST", "Haben Anwender den Test wiederholen"); 
+define("_ALLSUPERVISORS","Alle Vorgesetzten"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Widerrufen abgelaufene Zertifikate"); 
+define("_MODULEITSELF", "Module (individuell)"); 
+define("_MODULESPANEL", "Module (hinzufügen / entfernen)"); 
+define("_PROFESSORSCANCREATECOURSES", "Professoren Kurse schaffen kann"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Propagieren Zweig zu Zweig Kurse Benutzer"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "zu propagieren Benutzer mit diesem Zweig"); 
+define("_THEME", "Theme"); 
+define("_SELECTBRANCHTHEME", "Select Filiale Thema"); 
+define("_SELECTBRANCHLANGUAGE", "Select Filiale Sprache" ); 
+define("_ACCESSURL", "Branch-Zugriffs-URL"); 
+define("_AUTOFILL", "Automatisch füllen"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "wird die Niederlassung direkt erreichbar über die URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE",", oder setzen Sie natürlich vor expire"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Kurs Fortschritt wurde erfolgreich zurückgesetzt"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset Fortschritt halten Zertifikat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Es ist nicht erlaubt anmelden, da Sie kein Mitglied dieser Branche sind "); 
+define("_MAXONLINEUSERS", "Der Rekord liegt bei"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Wenn Sie einen Zweig URL, so wird der Zweig wird direkt zugänglich gemacht werden aus der URL "); 
+define("_First", "Erster"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Die Benutzer können in der Standard-URL unterschreiben"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Sie können nur in Ihrer Zweigstelle-Zeichen URL "); 
+define("_NEWCOMMENT", "Neuer Kommentar"); 
+define("_ADDCUSTOMTEXT", "Add Text"); 
+define("_ADDANOTHERCUSTOMTEXT", "Fügen Sie eine weitere benutzerdefinierte Text"); 
+define("_VIEWLESSONASSTUDENT", " Alle Lektion als Student "); 
+define("_BACKTOPROFESSORMODE", "Zurück zu Professor Modus"); 
+define("_YOUAREINSTUDENTMODE", "Du siehst gerade diese Lektion als Student."); 
+define("_CERTIFICATEEXPIRY", "Kurs Zertifikat Ablauf "); 
+define("_TEST_FAILURE", "Test fehlgeschlagen"); 
+define("_FAILEDTEST", "scheiterte im Test"); 
+define("_TESTFAILUREFORLESSON", "Test Ausfall für die Lektion"); 
+define("_HASFAILEDATEST", " ausgefallen ist ein Test ");
 ?>

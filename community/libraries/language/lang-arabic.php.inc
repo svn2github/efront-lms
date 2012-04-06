@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","يمكنك استخدام أحرف البدل في 
 define("_LESSONTIMEREPORTS","تقارير الدرس الوقت [جديد]");//Lesson time reports											
 define("_ACTIVETIMEINCONTENT","الوقت الذي قضاه المستخدم للمحتوى.");//Active time in content											
 define("_TIMEREPORTSEXPLANATION","التبديل إلى وقت التفعيل، إذا كنت تريد نظام لرصد وتقديم تقرير مرات إلا أن المستخدم ينتقل فعليا من خلال المحتوى. التبديل إلى إجمالي الوقت إذا كنت تريد نظام لتقرير الوقت الإجمالي للمستخدم تنفق على الدرس ، بغض النظر عن الصفحة التي هو / هي عليه. <br/> <b>تحذير</b> : التحول إلى ابلاغ الوقت نشط، سيقوم بالكتابة فوق أي الأوقات النشطة التي تم تسجيلها حتى الأن مع أضعاف مجموع المقابلة.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times.											
+define("_TIMEREPORTSEXPLANATION", "التبديل إلى وقت نشط إذا كنت ترغب في نظام للرصد والإبلاغ مرات فقط أن المستخدم يذهب في الواقع من خلال المحتوى. تحويل للمرة مجموع إذا كنت ترغب في نظام الإبلاغ عن الوقت الإجمالي للمستخدم تنفق على الدرس، بغض النظر عن الصفحة التي هو / هي في. تحذير : التحول إلى الإبلاغ وقت نشط سيقوم بالكتابة فوق أي الأوقات النشطة التي تم تسجيلها حتى الآن مع أضعاف مجموع المطابق ");
+define("_TOGGLEQUESTIONSPOOL", "تبديل تجمع مسألة مشتركة" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "لم تقم بتحديد قيمة"); 
+define("_QUESTIONSPOOL", "تجمع مسألة مشتركة"); 
+define("_ADDFEEDBACSFEEDBACK", "اضافة ملاحظات"); 
+define("_SHOWQUESTIONSPOOL", " عرض مشترك الأسئلة بركة "); 
+define("_SHOWLESSONQUESTIONS", "عرض الأسئلة الدرس"); 
+define("_OLDPASSWORDWRONG", "كلمة المرور غير صحيح"); 
+define("_COURSETOPICS", "موضوعات الدورة"); 
+define("_FORCEDOWNLOADFILE"," قوة تحميل الملف تلقائيا "); 
+define("_FORCEDOWNLOADFILEINFO", "من خلال فحص هذا فقط نافذة لتحميل وسيتم عرض ملف عن ملفات تكون جزءا لا يتجزأ Otherwrise وجود صلة للملف يتم إدراج");
+define("_SPAMDETECTION"," لسوء الحظ لا يمكنك الوصول إلى هذه الصفحة قريبا جدا الرجاء المحاولة مرة أخرى في فترة من الوقت. "); 
+define("_YOUCANNOTUSETHISNAME", "لا يمكنك استخدام هذا الاسم يرجى اختيار اسم آخر."); 
+define("_BANUSERFAILEDLOGINS", " حظر المستخدمين بعد 5 atempts الدخول غير ناجح "); 
+define("_BANUSERFAILEDLOGINSINFO", "سوف يتم إيقاف العضو بعد 5 متجاورة تسجيلات فشل atempts"); 
+define("_ALLOWUSERREDOTEST", "هل المستخدم كرر الاختبار"); 
+define("_ALLSUPERVISORS" , "جميع المشرفين"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "إلغاء شهادات صلاحية"); 
+define("_MODULEITSELF", "وحدات (الفردية)"); 
+define("_MODULESPANEL", "وحدات (إضافة / إزالة)"); 
+define("_PROFESSORSCANCREATECOURSES", "الأساتذة يمكن أن تخلق دورات"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "جلستك انتهت, الرجاء تسجيل الدخول مرة أخرى"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "نشر الدورات فرع لمستخدمي فرع"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "نشر إلى المستخدمين مع هذا الفرع"); 
+define("_THEME", "الموضوع"); 
+define("_SELECTBRANCHTHEME", "حدد موضوع فرع"); 
+define("_SELECTBRANCHLANGUAGE", "اختيار اللغة فرع");
+define("_ACCESSURL", "فرع وصول"); 
+define("_AUTOFILL", "التدوين الآلي"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","فرع ستكون متاحة بصورة مباشرة من عنوان الموقع"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","و إعادة تعيين مسار قبل انتهاء صلاحية"); 
+define("_PROGRESSRESETSUCCESSFULLY","التقدم بطبيعة الحال, كان إعادة بنجاح"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "تقدم إعادة حفظ شهادة"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "لا يسمح لك للدخول لأنك لست عضوا في هذا الفرع "); 
+define("_MAXONLINEUSERS","معظم مستخدمي الانترنت من أي وقت مضى"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "إذا قمت بتحديد URL فرع، وبعد ذلك يتم فرع للوصول مباشرة من عنوان الموقع "); 
+define("_FIRST", "الأولى"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "ويمكن للمستخدمين تسجيل الدخول من عنوان URL الافتراضي"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "يمكنك الدخول فقط في من فرع لديك URL "); 
+define("_NEWCOMMENT", "تعليق جديد"); 
+define("_ADDCUSTOMTEXT", "إضافة نص مخصص"); 
+define("_ADDANOTHERCUSTOMTEXT", "إضافة نص آخر مخصص"); 
+define("_VIEWLESSONASSTUDENT", " عرض الدرس كما طالب "); 
+define("_BACKTOPROFESSORMODE", "العودة الى وضع أستاذ"); 
+define("_YOUAREINSTUDENTMODE", "انت الآن في هذا الدرس كطالب."); 
+define("_CERTIFICATEEXPIRY", "شهادة المقرر انتهاء "); 
+define("_TEST_FAILURE", "فشل اختبار"); 
+define("_FAILEDTEST", "فشل في الاختبار"); 
+define("_TESTFAILUREFORLESSON", "فشل اختبار لدرس"); 
+define("_HASFAILEDATEST", " فشل اختبار ");
 ?>

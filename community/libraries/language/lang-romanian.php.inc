@@ -848,7 +848,7 @@ define("_INSERTMULTIPLEQUESTIONS","Introduceţi opţiunile multiple");//Insert t
 define("_INSERTEXPLANATION","Introduceti o explicaţie");//Insert explanation
 define("_THISQUESTIONIS","Această întrebare este");//This question is
 define("_CREATEEMPTYSPACES","Creaţi spaţii libere");//Create empty spaces
-define("_EMPTYSPACESEXPLANATION","Scriţi textul întrebării şi oriunde aveţi nevoie să inseraţi un spaţiu gol, introduceţi ###. Când aţi terminat, faceţi clic pe butonul de mai jos \"Creare spatii libere\" ");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
+define("_EMPTYSPACESEXPLANATION","Scriţi textul întrebării şi oriunde aveţi nevoie să inseraţi un spaţiu gol, introduceţi ###. Când aţi terminat, faceţi clic pe butonul de mai jos \"Creare spatii libere\",");//Write the question text and wherever you need to insert a blank space, insert ###. If you want to specify a specific size for text boxes, you can enter its size (in pixels) next to the hashes. For example, ###300 will create a text box 300px wide. When you are done, click on the &quot;Create empty spaces&quot; button below
 define("_INSERTMATCHCOUPLES","Inserare perechi de potrivire");//Insert matching pairs
 define("_ADDOPTION","Adăugare opţiune");//Add option
 define("_GOTOCALENDAR","Du-te la calendar");//Go to calendar
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Această acţiune va şterge definitiv a
 define("_SYSTEMENTITIES","Entităţile sistemului");//System entities
 define("_ALLEVENTS","Toate evenimentele");//All events
 define("_COLLAPSECATALOG","Restrângere catalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Perioada a fost adaugată cu succes");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Perioada a fost adaugată cu succes");//Period was added successfully
 define("_THEMES","Teme");//Themes
 define("_CUSTOMIZATION","Personalizare");//Customization
 define("_EXTERNALPAGES","Pagini externe");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Aveţi posibilitatea să utilizaţi metacaractere M
 define("_LESSONTIMEREPORTS","_Timp Lecţii de rapoarte");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Timp activă în conţinut");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","A comuta la timp activă dacă doriţi ca sistemul să monitorizeze şi să raporteze ori numai ca ghidul de fapt, trece prin conţinut. A comuta la timpul total dacă doriţi ca sistemul să raporteze timpul total de un utilizator petrece pe o lectie, indiferent de pagina pe care el / ea este pe. <br/> <b>Atenţie:</b> Trecerea la ora de raportare activă va rescrie orice moment active care au fost înregistrate până în prezent cu vremurile totale corespunzătoare.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Switch to timpul activ, dacă doriţi ca sistemul să monitorizeze şi să raporteze ori doar că utilizatorul de fapt trece prin conţinut. Comutare la timp total, dacă doriţi ca sistemul să raporteze timpul total de un utilizator petrece pe o lecţie, indiferent de pagina pe care el / ea este. Atenţie : Trecerea la ora de raportare activă va suprascrie orice moment, active care au fost înregistrate până în prezent, cu vremurile totale corespunzătoare ");
+define("_TOGGLEQUESTIONSPOOL", "bazin Comutare cauză comună" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Nu ati selectat o valoare"); 
+define("_QUESTIONSPOOL", "pool cauză comună"); 
+define("_ADDFEEDBACSFEEDBACK", "Adauga parere"); 
+define("_SHOWQUESTIONSPOOL", " Arată comun piscina întrebări "); 
+define("_SHOWLESSONQUESTIONS", "Afiseaza întrebări lectie"); 
+define("_OLDPASSWORDWRONG", "Parola veche este greşit"); 
+define("_COURSETOPICS", "Curs de subiecte"); 
+define("_FORCEDOWNLOADFILE"," Forţa de descărcarea automat fişierul "); 
+define("_FORCEDOWNLOADFILEINFO", "Prin verificarea aceasta doar o fereastră pentru a descărca fişierul va fi afişat pentru fişiere nu pot fi încorporate Otherwrise un link pentru fişierul se introduce");
+define("_SPAMDETECTION"," Din păcate, nu puteţi accesa această pagină atât de repede Vă rugăm să încercaţi din nou într-un timp ");
+define("_YOUCANNOTUSETHISNAME", "Nu puteţi folosi acest nume Vă rugăm să alegeţi altul."); 
+define("_BANUSERFAILEDLOGINS", " Utilizatorii Ban după 5 atempts nereuşite de conectare "); 
+define("_BANUSERFAILEDLOGINSINFO", "Manual de utilizare va fi dezactivat după 5 conectări învecinate au eşuat atempts"); 
+define("_ALLOWUSERREDOTEST", "Au utilizator repeta testul"); 
+define("_ALLSUPERVISORS" , "toate autorităţile de supraveghere"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "revocare a certificatelor de a expirat"); 
+define("_MODULEITSELF", "Module (individuale)"); 
+define("_MODULESPANEL", "Module (adauga / elimina)"); 
+define("_PROFESSORSCANCREATECOURSES", "profesorii pot crea cursuri"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Sesiunea a expirat, vă rugăm să semneze din nou"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "propagă cursuri interprofesionale pentru utilizatorii de ramură"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "propaga pentru a utilizatorilor cu această ramură"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Selectaţi tema sucursală"); 
+define("_SELECTBRANCHLANGUAGE", "Selectaţi limba sucursală" ); 
+define("_ACCESSURL", "acces url Branch"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "filiala va fi accesibil direct de la url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Sau reseta curs înainte de expira"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Curs de progres a fost resetat cu succes"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "progrese Reset păstrarea certificat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Tu nu sunt permise sa te autentifici pentru că nu sunteţi un membru al acestei ramuri "); 
+define("_MAXONLINEUSERS", "Cei mai multi utilizatori online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Dacă specificaţi un URL ramură, atunci ramura se va face direct accesibile de la url "); 
+define("_FIRST", "Prima"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Utilizatorii pot semna în din URL-ul implicit"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Puteţi semna numai în de la sucursala dvs. URL-ul "); 
+define("_NEWCOMMENT", "comentariu nou"); 
+define("_ADDCUSTOMTEXT", "Adăugarea de text personalizat"); 
+define("_ADDANOTHERCUSTOMTEXT", "Adauga un alt text personalizat"); 
+define("_VIEWLESSONASSTUDENT", " Vezi lecţie ca student "); 
+define("_BACKTOPROFESSORMODE", "Inapoi la modul de profesor"); 
+define("_YOUAREINSTUDENTMODE", "Sunteţi de vizionare în prezent, această lecţie ca un student."); 
+define("_CERTIFICATEEXPIRY", "certificat de Curs expirare "); 
+define("_TEST_FAILURE", "test eşec"); 
+define("_FAILEDTEST", "a eşuat la testul"); 
+define("_TESTFAILUREFORLESSON", "eşecul de încercare pentru lectie"); 
+define("_HASFAILEDATEST", " nu a reuşit un test ");
 ?>

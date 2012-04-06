@@ -789,7 +789,7 @@ define("_ORSELECTONEFROMLIST","یا یکی از لیست انتخاب کنید")
 define("_EXPLANATION","توضیح");//Explanation
 define("_QUESTION","سوال");//Question
 define("_CHANGESTYLE","تغییر تم");//Change theme
-define("_PREDEFINED","از پیش تعریف شده");//Predefined
+define("_PREdefineD","از پیش تعریف شده");//Predefined
 define("_SELECTNEWSTYLE","تم های جدید را انتخاب کنید");//Select new theme
 define("_SETSTYLE","تم تنظیم");//Set theme
 define("_NOPREVIEWIMAGEFOUND","تصویر پیش نمایش یافت نشد");//Preview image not found
@@ -1399,7 +1399,7 @@ define("_MOSTACTIVEUSERS","فعال ترین کاربران");//Most active user
 define("_5MOSTACTIVEUSERS","5 فعال ترین کاربران");//5 most active users
 define("_NOUSERFORTHISSURVEYYET","هیچ کاربر برای این بررسی نشده است.");//No users for this survey yet.
 define("_SHOWALLUSERS","نمایش تمام کاربران");//Show all users
-define("_THEREARENOLESSONSDEFINEDFORTHEUSERLANGUAGE","هیچ تعریف شده را برای درس های زبان کاربران وجود دارد");//There are no lessons defined for the users&#39;s language
+define("_THEREARENOLESSONSdefineDFORTHEUSERLANGUAGE","هیچ تعریف شده را برای درس های زبان کاربران وجود دارد");//There are no lessons defined for the users&#39;s language
 define("_VIEWUSERLESSONPROGRESS","مشاهده پیشرفت دانش آموزان در طول درس");//View the student progress throughout the lesson
 define("_USERCAPITAL","کاربر");//User
 define("_USERSDATA","واردات و صادرات کاربران");//Import/Export users
@@ -1680,7 +1680,7 @@ define("_PRINT","نسخه قابل چاپ");//Print
 define("_NOSPECIFICJOB","هیچ موقعیت شغلی خاص");//No specific job position
 define("_GROUPS","گروههای کاربری");//User groups
 define("_NEWGROUP","گروه جدید");//New group
-define("_NOGROUPSDEFINED","هیچ گروه های تعریف شده");//No groups defined
+define("_NOGROUPSdefineD","هیچ گروه های تعریف شده");//No groups defined
 define("_UPDATEGROUPS","گروه های به روز رسانی");//Update groups
 define("_GROUPDEACTIVATED","این گروه غیر فعال شده بود");//The group was deactivated
 define("_GROUPACTIVATED","این گروه فعال شد");//The group was activated
@@ -1727,7 +1727,7 @@ define("_EDUCATIONALROLE","نقش آموزشی");//Educational role
 define("_ORGANIZATIONALROLE","نقش سازمانی");//Organizational role
 define("_TYPEOFUSER","نوع کاربری");//User type
 define("_MESSAGEBODY","متن پیام");//Message body
-define("_ONLYRECIPIENTSDEFINEDBELOW","فقط گیرندگان تعریف در زمینه های زیر را");//Only recipients defined in the field below
+define("_ONLYRECIPIENTSdefineDBELOW","فقط گیرندگان تعریف در زمینه های زیر را");//Only recipients defined in the field below
 define("_NORECIPIENTSHAVEBEENSELECTED","هیچ گیرندگان انتخاب شده اند");//No recipients have been selected
 define("_NORECIPIENTSHAVEBEENFOUND","هیچ گیرنده شده اند در بر داشت");//No recipients have been found
 define("_CHANGELESSON","درس تغییر");//Change lesson
@@ -1938,7 +1938,7 @@ define("_COMPLETIONDATE","تاریخ اتمام");//Completion date
 define("_YEAR","سال");//Year
 define("_NOTASSIGNED","اختصاص داده نشده است");//Not assigned yet 
 define("_NEWSEARCHCRITERIUM","اضافه کردن criterium جستجو");//Add search criterium
-define("_NOSEARCHCRITERIADEFINED","هیچ تعریف معیارهای جستجو");//No search criteria defined
+define("_NOSEARCHCRITERIAdefineD","هیچ تعریف معیارهای جستجو");//No search criteria defined
 define("_ERRORSAVINGTREE","خطا در ذخیره درخت");//Error saving tree
 define("_MAXEXECUTIONTIME","حداکثر زمان اجرا");//Maximum execution time
 define("_MEMORYLIMIT","محدود کردن حافظه");//Memory limit
@@ -2169,7 +2169,7 @@ define("_YOUMUSTPROVIDELOGINLINK","شما باید یک لینک وارد شوی
 define("_FONTSIZE","اندازه قلم");//Font size
 define("_FONTSTYLE","سبک قلم");//Font style
 define("_PROBLEMINSERTINGPARSEDXMLVALUESORMODULEEXISTS","مشکل با قرار دادن مقادیر XML تجزیه به پایگاه داده. لطفا فایل توضیحات خود و یا آیا ماژول قبلا نصب شده است.");//Problem inserting the parsed XML values to the database. Please check your description file or whether the module is already installed
-define("_NOMODULEPERMITTEDROLESDEFINED","هیچ واحد مجاز نقشهای تعریف شده. getPermittedRoles اتمام تابع ()");//No module permitted roles defined. Check function getPermittedRoles()
+define("_NOMODULEPERMITTEDROLESdefineD","هیچ واحد مجاز نقشهای تعریف شده. getPermittedRoles اتمام تابع ()");//No module permitted roles defined. Check function getPermittedRoles()
 define("_MODULECLASSNOTEXISTSIN","کلاس ماژول تعریف شده است که نه در");//module class is not defined in
 define("_MODULEDBERRORONINSTALL","خطا در بانک اطلاعاتی از اعدام onInstall تابع برای ماژول");//Database error during the execution of function onInstall for the module
 define("_MODULEISALREADYINSTALLED","ماژول قبلا نصب شده است.");//The module is already installed
@@ -2531,8 +2531,8 @@ define("_SELECTASSOCIATEDSKILLSORSKILLCATEGORIES","مهارت ها را انتخ
 define("_NEWSELECTION","انتخاب جدید");//New selection
 define("_SELECTQUESTIONSBASEDONLESSONS","سوال را انتخاب کنید بر اساس درس");//Select questions based on lessons
 define("_SELECTQUESTIONSBASEDONSKILLS","سوال را انتخاب کنید را بر اساس مهارت");//Select questions based on skills
-define("_NOQUESTIONSDEFINEDFORTHISLESSON","هیچ پرسش های تعریف شده برای این درس");//No questions defined for this lesson
-define("_NOQUESTIONSDEFINEDFORTHISSKILL","هیچ پرسش های تعریف شده برای این مهارت");//No questions defined for this skill
+define("_NOQUESTIONSdefineDFORTHISLESSON","هیچ پرسش های تعریف شده برای این درس");//No questions defined for this lesson
+define("_NOQUESTIONSdefineDFORTHISSKILL","هیچ پرسش های تعریف شده برای این مهارت");//No questions defined for this skill
 define("_ADDITIONALACCOUNTS","حساب Mapped");//Mapped accounts
 define("_ADDACCOUNT","اضافه کردن حساب");//Add account
 define("_DELETEACCOUNT","حذف حساب کاربری");//Delete account
@@ -2860,7 +2860,7 @@ define("_COMMENTSWALL","نظرات / دیوار");//Comments/Wall
 define("_AREYOUSUREYOUWANTTODELETETHISCOMMENT","آیا مطمئن هستید که می خواهید پاک کنید این نظر؟");//Are you sure you want to delete this comment?
 define("_COULDNOTRETRIEVEEMPLOYEESJOBS","کاربر می تواند شغل نیستید");//Could not retrieve user's jobs
 define("_ADDTEXTTEMPLATE","اضافه کردن متن الگو");//Add text template
-define("_NONOTIFICATIONRECIPIENTSDEFINED","بدون اطلاع دریافت کنندگان تعریف شده");//No notification recipients defined
+define("_NONOTIFICATIONRECIPIENTSdefineD","بدون اطلاع دریافت کنندگان تعریف شده");//No notification recipients defined
 define("_HIDESIDEBARIMAGES","مخفی کردن تصاویر sidebar");//Hide sidebar images
 define("_RECIPIENTSSURNAME","نام خانوادگی گیرنده");//Recipient&#039;s surname
 define("_MESSAGESQUEUE","صف");//Messages queue
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","این عمل بطور دائم به ه�
 define("_SYSTEMENTITIES","اشخاص سیستم");//System entities
 define("_ALLEVENTS","همه خبرها");//All events
 define("_COLLAPSECATALOG","فروشگاه بستن");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","دوره با موفقیت اضافه شد");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","دوره با موفقیت اضافه شد");//Period was added successfully
 define("_THEMES","تم ها");//Themes
 define("_CUSTOMIZATION","سفارشی");//Customization
 define("_EXTERNALPAGES","صفحات خارجی");//External pages
@@ -3512,7 +3512,7 @@ define("_SUPERVISORTOACTIVATE","برای فعال توسط سرپرست می ش�
 define("_NOSUPERVISORSFOUND","بدون ناظران شعبه یافت نشد");//No branch supervisors found
 define("_PRINTCONTENT","محتوای نسخه قابل چاپ");//Print content
 define("_VERIFYFOLLOWINGINFOISCORRECT","لطفا اطلاعات زیر را که درست است نسخه متنی]");//Please verify that the following information is correct
-define("_NOCATEGORIESDEFINED","هیچ دسته بندی تعریف شده وجود دارد.");//There are no categories defined
+define("_NOCATEGORIESdefineD","هیچ دسته بندی تعریف شده وجود دارد.");//There are no categories defined
 define("_SUPERVISORMAILUSERACTIVATION","استاد راهنما ایمیل فعال سازی حساب کاربری");//Supervisor email activation
 define("_EMPLOYEEACCOUNTACTIVATIONMAILSUBJECT","کارمند حساب ایمیل فعال سازی حساب کاربری");//Employee account activation email
 define("_EMPLOYEEACCOUNTACTIVATIONMAILBODY","این ایمیل شما را قادر به فعال کردن سیستم کاربر جدید");//This email enables you to activate the new system user
@@ -3599,7 +3599,7 @@ define("_COURSESTARTSAT","دوره شروع می شود در تاریخ");//The 
 define("_COURSEENDSAT","البته در تاریخ به پایان می رسد");//The course ends on
 define("_ENDDATE","تاریخ پایان");//End date
 define("_SELECTSKILLCATEGORY","انتخاب گروه : مهارت");//Select skill category
-define("_NOHEADERROWISDEFINEDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","بدون ردیف هدر یا سرآیند تعریف شده بود با نوع واردات سازگار نیست");//No header row was defined or header not compatible with import type
+define("_NOHEADERROWISdefineDORHEADERROWNOTCOMPATIBLEWITHIMPORTTYPE","بدون ردیف هدر یا سرآیند تعریف شده بود با نوع واردات سازگار نیست");//No header row was defined or header not compatible with import type
 define("_IMPORTEDUSER","کاربر وارداتی");//Imported user
 define("_USERSTOCOURSES","اعضا به دوره");//Users to courses
 define("_USERSTOGROUPS","گروه های اعضا");//Users to groups
@@ -3868,7 +3868,7 @@ define("_CERTIFICATEOPERATIONS","عملیات مدرک");//Certificate operation
 define("_LESSONOPERATIONS","عملیات درس");//Lesson operations
 define("_COURSEOPERATIONS","عملیات رشته");//Course operations
 define("_EXPORTTOCSV","صادرات به csv");//Export to csv
-define("_NOEVENTCODEDEFINED","هیچ یک از کدهای رویداد تعریف شده");//No event code defined
+define("_NOEVENTCODEdefineD","هیچ یک از کدهای رویداد تعریف شده");//No event code defined
 define("_FILESIMPORTEDSUCCESSFULLY","فایلها وارد موفقیت");//Files imported successfully
 define("_CONVERTFOLDERSTOHIERARCHY","تبدیل پوشه به سلسله مراتب تودرتو");//Convert folders to nested hierarchy
 define("_UNCOMPRESSRECURSIVELYIMPORT","فشرده فایل زیپ (ها) و مطالب واردات");//Uncompress zip file(s) and import contents
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","شما می توانید کاراکتر کلمات 
 define("_LESSONTIMEREPORTS","درس گزارش زمان");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","مدت زمان فعال در محتوا");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","تغییر زمان فعال اگر شما می خواهید سیستم را نظارت و گزارش تنها بار که کاربر در واقع از طریق محتوا می رود. تغییر به مجموع مدت زمان اگر شما می خواهید سیستم به گزارش مجموع مدت زمان یک کاربر در یک درس صرف ، بدون در نظر گرفتن که در صفحه او / او. <br/> <b>هشدار</b> : تعویض به گزارش مدت زمان فعال خواهد شد هر بار فعال شده اند که تا کنون با بار متناظر با کل ثبت بازنویسی .");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "تغییر مدت زمان فعال اگر می خواهید سیستم را نظارت و گزارش بار که کاربر از طریق محتوا می رود. تغییر به مجموع مدت زمان اگر شما می خواهید این سیستم را به گزارش مجموع مدت زمان یک کاربر صرف درس، بدون در نظر گرفتن که در صفحه او / او در است. هشدار : تعویض به گزارش مدت زمان فعال خواهد شد هر بار فعال شده اند که تا کنون با بار متناظر با تعداد ثبت بازنویسی "); 
+define("_TOGGLEQUESTIONSPOOL", "تعویض استخر سوال مشترک");
+define("_YOUHAVENOTSELECTEDAVALUE", "شما باید یک مقدار انتخاب شده"); 
+define("_QUESTIONSPOOL", "استخر سوال مشترک"); 
+define("_ADDFEEDBACSFEEDBACK", "اضافه کردن بازخورد"); 
+define("_SHOWQUESTIONSPOOL", " نمایش سوالات رایج استخر "); 
+define("_SHOWLESSONQUESTIONS", "پرسش های درس را نشان بده"); 
+define("_OLDPASSWORDWRONG", "رمز عبور اشتباه است"); 
+define("_COURSETOPICS", "موضوعات البته"); 
+define("_FORCEDOWNLOADFILE"," نیروی دانلود فایل به طور خودکار "); 
+define("_FORCEDOWNLOADFILEINFO", "با چک کردن این تنها یک پنجره برای دانلود فایل برای فایل های نمایش داده خواهد شد می تواند نمی شود جاسازی شده Otherwrise لینک برای فایل درج شده است"); 
+define("_SPAMDETECTION"," متاسفانه شما می توانید این صفحه دسترسی داشته باشید خیلی زود لطفا سعی کنید دوباره در حالی که"); 
+define("_YOUCANNOTUSETHISNAME", "شما می توانید این نام استفاده نمی دیگری بنویسید."); 
+define("_BANUSERFAILEDLOGINS", " کاربران بان کی مون پس از 5 atempts ورود ناموفق "); 
+define("_BANUSERFAILEDLOGINSINFO", "کاربر غیر فعال بعد از 5 باری هم پیوسته شکست خورده atempts"); 
+define("_ALLOWUSERREDOTEST","آیا کاربر تکرار آزمون");
+define("_ALLSUPERVISORS", "همه ناظران");
+define("_REVOKECERTIFICATEFOREXPIRED", "لغو گواهی منقضی شده"); 
+define("_MODULEITSELF", "ماژول های (فردی)"); 
+define("_MODULESPANEL", "ماژول های (اضافه کردن / حذف)"); 
+define("_PROFESSORSCANCREATECOURSES", "اساتید می تواند دوره های ایجاد"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "جلسه شما منقضی شده است، لطفا دوباره وارد شوید"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "انتشارات دوره های شاخه به شاخه کاربران"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "با این شاخه به کاربران انتشارات");
+define("_THEME", "تم"); 
+define("_SELECTBRANCHTHEME", "تم شاخه را انتخاب کنید"); 
+define("_SELECTBRANCHLANGUAGE", "زبان شاخه را انتخاب کنید");
+define("_ACCESSURL", "شعبه آدرس دسترسی");
+define("_AUTOFILL", "پرکن"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "شعبه به طور مستقیم در دسترس خواهد بود از آدرس"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","و یا تنظیم مجدد دوره قبل از منقضی");
+define("_PROGRESSRESETSUCCESSFULLY", "پیشرفت های درس شد ریست شد"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "پیشرفت ریست نگه داشتن گواهی"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "شما مجاز نیست برای ورود به دلیل این که شما یک عضو از این شاخه "); 
+define("_MAXONLINEUSERS", "بیشترین کاربران آنلاین در"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "اگر یک آدرس شعبه مشخص می کنید، و سپس شاخه خواهد شد به طور مستقیم در دسترس از آدرس "); 
+define("_FIRST", "اول"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "کاربران می توانند از آدرس پیش فرض ثبت نام"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "شما فقط می تواند در از شعبه خود را ثبت نام URL "); 
+define("_NEWCOMMENT", "نظر جدید"); 
+define("_ADDCUSTOMTEXT", "اضافه کردن متن دلخواه"); 
+define("_ADDANOTHERCUSTOMTEXT", "اضافه کردن متن دلخواه دیگری");
+define("_VIEWLESSONASSTUDENT", " نمایش درس به عنوان دانشجوی "); 
+define("_BACKTOPROFESSORMODE", "برگشت به حالت استاد");
+define("_YOUAREINSTUDENTMODE", "شما در حال مشاهده این درس به عنوان یک دانش آموز است."); 
+define("_CERTIFICATEEXPIRY", "گواهینامه دوره انقضاء "); 
+define("_TEST_FAILURE", "نارسایی تست"); 
+define("_FAILEDTEST", "شکست خورده در آزمون");
+define("_TESTFAILUREFORLESSON", "نارسایی تست برای درس");
+define("_HASFAILEDATEST", " شکست خورده است آزمون ");
 ?>

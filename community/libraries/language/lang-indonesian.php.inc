@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Tindakan ini akan menghapus kustomisasi 
 define("_SYSTEMENTITIES","Entitas sistem");//System entities
 define("_ALLEVENTS","Semua even");//All events
 define("_COLLAPSECATALOG","Tutup katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Periode ditambahkan berhasil");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Periode ditambahkan berhasil");//Period was added successfully
 define("_THEMES","Tema");//Themes
 define("_CUSTOMIZATION","Kustomisasi");//Customization
 define("_EXTERNALPAGES","Halaman eksternal");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Anda dapat menggunakan karakter sembarang mysql, % 
 define("_LESSONTIMEREPORTS","Laporan waktu pelajaran");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Waktu aktif dalam konten");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Beralih ke waktu aktif jika Anda ingin sistem memantau dan melaporkan hanya pada waktu pengguna benar-benar menjelajahi konten. Beralih ke total waktu jika Anda ingin sistem melaporkan total waktu yang dihabiskan oleh pengguna di pelajaran, tanpa memperhatikan di halaman mana dia berada. <br/><b>Peringatan:</b> Pengalihan ke pelaporan waktu aktif akan menimpa semua waktu aktif yang telah dicatat sampai saat ini dengan total waktu.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Beralih ke waktu aktif jika Anda ingin sistem untuk memantau dan melaporkan kali hanya bahwa pengguna benar-benar berjalan melalui konten. Beralih ke total waktu jika Anda ingin sistem untuk melaporkan total waktu pengguna menghabiskan pada pelajaran, tanpa halaman yang dia / dia aktif. Peringatan : Beralih ke waktu pelaporan aktif akan menimpa kali aktif yang telah tercatat sejauh ini dengan kali total yang sesuai ");
+define("_TOGGLEQUESTIONSPOOL", "kolam pertanyaan Toggle umum" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Anda belum memilih sebuah nilai"); 
+define("_QUESTIONSPOOL", "kolam pertanyaan umum"); 
+define("_ADDFEEDBACSFEEDBACK", "Tambah tanggapan"); 
+define("_SHOWQUESTIONSPOOL", " Tampilkan kolam pertanyaan umum "); 
+define("_SHOWLESSONQUESTIONS", "Tampilkan pertanyaan pelajaran"); 
+define("_OLDPASSWORDWRONG", "password Lama adalah salah"); 
+define("_COURSETOPICS", "Topik Kursus"); 
+define("_FORCEDOWNLOADFILE"," Angkatan men-download file secara otomatis "); 
+define("_FORCEDOWNLOADFILEINFO", "Dengan memeriksa jendela ini hanya untuk men-download file akan ditampilkan untuk file tidak dapat tertanam Otherwrise link untuk file yang dimasukkan");
+define("_SPAMDETECTION"," Sayangnya Anda tidak dapat mengakses halaman ini sehingga segera Silakan coba lagi dalam beberapa saat ");
+define("_YOUCANNOTUSETHISNAME", "Anda tidak dapat menggunakan nama ini Silakan pilih satu lagi."); 
+define("_BANUSERFAILEDLOGINS", " Ban pengguna setelah 5 atempts login yang gagal "); 
+define("_BANUSERFAILEDLOGINSINFO", "User akan dinonaktifkan setelah 5 login gagal berdekatan atempts"); 
+define("_ALLOWUSERREDOTEST", "Apakah pengguna mengulang ujian"); 
+define("_ALLSUPERVISORS" , "Semua pengawas"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Mencabut sertifikat kadaluarsa"); 
+define("_MODULEITSELF", "Modul (individu)"); 
+define("_MODULESPANEL", "Modul (menambah / menghapus)"); 
+define("_PROFESSORSCANCREATECOURSES", "Guru dapat membuat kursus"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Sesi Anda telah berakhir, silahkan masuk lagi"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Menyebarluaskan program cabang untuk pengguna cabang"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "Menyebarluaskan untuk pengguna dengan cabang ini"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Pilih tema cabang"); 
+define("_SELECTBRANCHLANGUAGE", "Pilih bahasa cabang" ); 
+define("_ACCESSURL", "Cabang url akses"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "cabang ini akan langsung dapat diakses dari url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Atau ulang saja sebelum berakhir"); 
+define("_PROGRESSRESETSUCCESSFULLY", "kemajuan Kursus ini ulang berhasil"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "kemajuan ulang menjaga sertifikat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Anda tidak diizinkan untuk login karena Anda bukan anggota cabang ini "); 
+define("_MAXONLINEUSERS", "User online terbanyak"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Jika Anda menetapkan url cabang, maka cabang akan dibuat langsung dapat diakses dari url "); 
+define("_First", "Pertama"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Pengguna dapat masuk dari URL default"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Anda hanya dapat masuk dari cabang Anda URL "); 
+define("_NEWCOMMENT", "Komentar baru"); 
+define("_ADDCUSTOMTEXT", "Tambah teks kustom"); 
+define("_ADDANOTHERCUSTOMTEXT", "Tambah teks kustom"); 
+define("_VIEWLESSONASSTUDENT", " Lihat pelajaran sebagai mahasiswa "); 
+define("_BACKTOPROFESSORMODE", "Kembali ke mode profesor"); 
+define("_YOUAREINSTUDENTMODE", "Anda saat ini melihat pelajaran ini sebagai mahasiswa."); 
+define("_CERTIFICATEEXPIRY", "Sertifikat Kursus kadaluwarsa "); 
+define("_TEST_FAILURE", "kegagalan Test"); 
+define("_FAILEDTEST", "gagal dalam tes"); 
+define("_TESTFAILUREFORLESSON", "Test gagal untuk pelajaran"); 
+define("_HASFAILEDATEST", " telah gagal tes ");
 ?>

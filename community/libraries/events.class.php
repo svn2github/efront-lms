@@ -121,6 +121,7 @@ class EfrontEvent
     const TEST_CREATION = 75;
     const TEST_START = 76;
     const TEST_COMPLETION = 77; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=test_ID), entity_name (=test name)
+    const TEST_FAILURE = 78; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=test_ID), entity_name (=test name)
     // Content [100-124]
     const CONTENT_CREATION = 100;
     const CONTENT_MODIFICATION = 101;
@@ -283,12 +284,13 @@ class EfrontEvent
           EfrontEvent::COURSE_CERTIFICATE_REVOKE => array("text" => _CERTIFICATEREVOKE, "category" => "courses"),
           EfrontEvent::COURSE_PROGRAMMED_START => array("text" => _PROGRAMMEDCOURSESTART, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
           EfrontEvent::COURSE_PROGRAMMED_EXPIRY => array("text" => _PROGRAMMEDCOURSEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
-          EfrontEvent::COURSE_CERTIFICATE_EXPIRY => array("text" => _CERTIFICATEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
+          EfrontEvent::COURSE_CERTIFICATE_EXPIRY => array("text" => _CERTIFICATEEXPIRY, "category" => "courses", "canBePreceded" => 1, "priority" => 1),
              EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC => array("text" => _NEW_POST_FOR_LESSON_TIMELINE_TOPIC, "category" => "social"),
              EfrontEvent::DELETE_POST_FROM_LESSON_TIMELINE => array("text" => _DELETE_POST_FROM_LESSON_TIMELINE, "category" => "social"),
              EfrontEvent::TEST_CREATION => array("text" => _TEST_CREATION, "category" => "tests"),
              //EfrontEvent::TEST_START => array("text" => _TEST_START, "category" => "tests"),
              EfrontEvent::TEST_COMPLETION => array("text" => _TEST_COMPLETION, "category" => "tests", "canBeNegated" => _TEST_NOT_COMPLETED),
+          EfrontEvent::TEST_FAILURE => array("text" => _TEST_FAILURE, "category" => "tests"),
              EfrontEvent::CONTENT_CREATION => array("text" => _CONTENT_CREATION, "category" => "content"),
              EfrontEvent::CONTENT_MODIFICATION => array("text" => _CONTENT_MODIFICATION, "category" => "content"),
              //EfrontEvent::CONTENT_START => array("text" => _CONTENT_START, "category" => "content"),
@@ -1183,6 +1185,8 @@ class EfrontEvent
              $this -> event['message'] .= _STARTEDTEST . " <b>" . $this -> event['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::TEST_COMPLETION) {
              $this -> event['message'] .= _COMPLETEDTEST . " <b>" . $this -> event['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b>";
+         } else if ($this -> event['type'] == EfrontEvent::TEST_FAILURE) {
+             $this -> event['message'] .= _FAILEDTEST . " <b>" . $this -> event['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::NEW_FORUM) {
              $this -> event['message'] .= _CREATEDTHENEWFORUM . " <b>" . $this -> event['entity_name'] ."</b> " . _FORTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::NEW_TOPIC) {

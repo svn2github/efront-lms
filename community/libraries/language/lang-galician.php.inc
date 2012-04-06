@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Esta acción suprimirá permanentemente 
 define("_SYSTEMENTITIES","Entidades del sistema de");//System entities
 define("_ALLEVENTS","Todos los eventos");//All events
 define("_COLLAPSECATALOG","Cerrar catálogo");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Período se ha añadido con éxito");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Período se ha añadido con éxito");//Period was added successfully
 define("_THEMES","Temas");//Themes
 define("_CUSTOMIZATION","Personalización");//Customization
 define("_EXTERNALPAGES","Páginas externas");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Podes usar caracteres curinga MySQL,% e ");//You ca
 define("_LESSONTIMEREPORTS","_Informes do tempo da lección");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Tempo activo no contido");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Cambia a tempo activo se queres que o sistema monitorice e informe só as veces que o usuario avanza no contido. Cambia a tempo total se queres que o sistema informe o tempo total que a persoa usuaria pasa na lección, independentemente de en que páxina está. <br/> <b>Atención:</b> Cambiar a informes en tempo activo substituirá todas as veces activos que se rexistraron até agora cos tempos correspondentes total.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Cambiar a tempo activo se quere que o sistema para monitorizar e informar únicas veces que o usuario realmente atravesa o contido. Cambiar a tempo total se quere que o sistema saber o tempo total que un usuario gasta nunha lección, independentemente de cal páxina el / ela está ligada. Aviso : Cambiar a informes en tempo activo substituirá todas as veces activos que se rexistraron ata o momento cos tempos totais correspondentes ");
+define("_TOGGLEQUESTIONSPOOL", "pool cuestión de alternancia común" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Non seleccionou un valor"); 
+define("_QUESTIONSPOOL", "pool cuestión común"); 
+define("_ADDFEEDBACSFEEDBACK", "Engadir feedback"); 
+define("_SHOWQUESTIONSPOOL", " Amosar piscina preguntas común "); 
+define("_SHOWLESSONQUESTIONS", "Mostrar temas lección"); 
+define("_OLDPASSWORDWRONG", "Contrasinal antigo está mal"); 
+define("_COURSETOPICS", "Os temas do curso"); 
+define("_FORCEDOWNLOADFILE"," Forza de subida automaticamente "); 
+define("_FORCEDOWNLOADFILEINFO", "Ao sinalar esta só unha fiestra para descargar o arquivo aparecerá para os ficheiros non pode ser incorporado Otherwrise un enlace para o arquivo engádese");
+define("_SPAMDETECTION"," Por desgraza, non pode acceder a páxina tan pronto Por favor, inténteo de novo en vez. "); 
+define("_YOUCANNOTUSETHISNAME", "Non pode usar este nome por favor, escolla outro."); 
+define("_BANUSERFAILEDLOGINS", " banear usuarios despois de 5 atempts login sen éxito "); 
+define("_BANUSERFAILEDLOGINSINFO", "Usuario será desactivado despois de 5 contiguos logins fallos atempts"); 
+define("_ALLOWUSERREDOTEST", "Algunha usuario repetir a proba"); 
+define("_ALLSUPERVISORS","Todos os supervisores"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Revogar certificados caducados"); 
+define("_MODULEITSELF", "Módulos (individual)"); 
+define("_MODULESPANEL", "Módulos (engadir / eliminar)"); 
+define("_PROFESSORSCANCREATECOURSES", "Os profesores poden crear cursos"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "A súa sesión caducou, por favor, poñerse de novo"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "propagar sector de cursos para os usuarios de filiais"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "propagar a usuarios con este sector"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Seleccionar tema sector"); 
+define("_SELECTBRANCHLANGUAGE", "Seleccione Idioma da rama" ); 
+define("_ACCESSURL", "url acceso Branch"); 
+define("_AUTOFILL", "Enchido automático"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "O sector será directamente accesible desde a url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Ou redefinir curso antes de expirar"); 
+define("_PROGRESSRESETSUCCESSFULLY", "progreso Curso foi reiniciar con éxito"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "progreso Restablecer mantendo certificado"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Non está autorizado para entrar, porque non é un membro deste sector "); 
+define("_MAXONLINEUSERS", "A maior cantidade de usuarios en liña"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Se só se especifica un URL sector, entón o sector será feito directamente accesible a partir da url "); 
+define("_FIRST", "primeiro"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Os usuarios poden entrar desde a URL default"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Só se pode entrar no seu sector de URL "); 
+define("_NEWCOMMENT", "Novo comentario"); 
+define("_ADDCUSTOMTEXT", "Engadir texto personalizado"); 
+define("_ADDANOTHERCUSTOMTEXT", "Engadir outro texto feito baixo pedido"); 
+define("_VIEWLESSONASSTUDENT", " Ver clase como alumno "); 
+define("_BACKTOPROFESSORMODE", "Volver ao modo de profesor"); 
+define("_YOUAREINSTUDENTMODE", "Está a ver esta lección como un estudante."); 
+define("_CERTIFICATEEXPIRY", "Certificado de curso caducidade "); 
+define("_TEST_FAILURE", "Non a proba"); 
+define("_FAILEDTEST", "fallou a proba"); 
+define("_TESTFAILUREFORLESSON", "Non a proba da pregunta"); 
+define("_HASFAILEDATEST", " fallou unha proba ");
 ?>

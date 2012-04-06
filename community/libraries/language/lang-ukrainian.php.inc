@@ -148,7 +148,7 @@ define("_ADDYOURCOMMENT","Додати свій коментар");//Add your co
 define("_SUCCESFULLYADDEDCOMMENT","Коментар додано успішно");//The comment was added successfully
 define("_SUCCESFULLYUPDATEDCOMMENT","Коментар оновлено успішно");//The comment was updated successfully
 define("_SUCCESFULLYDELETEDFILEWINDOWCLOSE5SECONDS","Файл видалено. Це вікно автоматично закриєтсья через 5 секунд.");//The file was deleted. This window will automatically close in 5 seconds.
-define("_SUCCESFULLYDELETEDFOLDERWINDOWCLOSE5SECONDS","Теку видалено. ");//The folder was deleted. This window will automatically close in 5 seconds.
+define("_SUCCESFULLYDELETEDFOLDERWINDOWCLOSE5SECONDS","Теку видалено.");//The folder was deleted. This window will automatically close in 5 seconds.
 define("_NOTSUCCESFULLYDELETEDFOLDERWINDOWCLOSE5SECONDS","Теку не видалено. Щоб її видалити, потрібно спочатку видалити всі файли та теки, які вона містить. Це вікно автоматично закриєтсья через 5 секунд.");//The folder was not deleted. It must not contain any files or folders to be deleted. This window will automatically close in 5 seconds.
 define("_SUCCESFULLYCREATEDFOLDERWINDOWCLOSE5SECONDS","Тека створена. Це вікно автоматично закриєтсья через 5 секунд.");//The folder was created. This window will automatically close in 5 seconds.
 define("_FOLDERNAME","Назва теки");//Folder name
@@ -493,7 +493,7 @@ define("_NONEWCOMMENTS","Немає нових комментарів");//No new
 define("_NOMATERIALINTHISLESSON","Заняття в даний момент порожнє");//The lesson is currently empty
 define("_NOSOLVEDTESTSFOUND","Невирішені тести");//No solved tests
 define("_NORELATEDPOSTSFOUND","Немає поідомлень, які відносяся до цього блоку.");//No posts relevant to this unit.
-define("_SUCCESSFULLYCREATEDLESSON","Заняття успішно створене ");//The lesson was created successfully
+define("_SUCCESSFULLYCREATEDLESSON","Заняття успішно створене");//The lesson was created successfully
 define("_SORRYNEEDIFRAME","На жаль, у Вашому браузері повинна бути підтримка iframe для використання чату");//Sorry, you need iframe support to use the Chat
 define("_TOPICSUBJECT","Тема");//Topic subject
 define("_SEARCHRESULTS","Результати пошуку");//Search results
@@ -613,7 +613,7 @@ define("_PRIVATECONVERSATIONWITH","Особиста бесіда з");//Private 
 define("_TORESPOND","відповісти ...");//to respond...
 define("_TOAPRIVATECONVERSATION","до особистої бесіди");//to a private conversation
 define("_INVITESYOUTOPRIVATECONVERSATION","запрошує Вас на особисту розмову");//is inviting you to a private conversation
-define("_DOYOU","Ви ");//Do you
+define("_DOYOU","Ви");//Do you
 define("_QUESTIONMARK","?");//?
 define("_CONVERSATIONINVITATIONACCEPTED","Запрошення прийнято");//The conversation invitation was accepted
 define("_CONVERSATIONINVITATIONDENIED","Запрошення відхилено");//The conversation invitation was denied
@@ -768,7 +768,7 @@ define("_DEFINITION","Визначення");//Definition
 define("_NODEFINITIONSFOUNDFORTHISLESSON","Не знайдено визначень для цього заняття");//No definitions found for this lesson
 define("_CHOOSEWHATTOEXPORT","Вкажіть, що необхідно експортувати (крім змісту)");//Choose what to export (apart from content)
 define("_CREATED","Створено");//Created
-define("_CANCELTEST","Відмінити тест ");//Cancel test
+define("_CANCELTEST","Відмінити тест");//Cancel test
 define("_DELETEEXISTINGDATAFROM","Видалити наявні дані з:");//Delete existing data from:
 define("_CLOSE","Закрити");//Close
 define("_SHOWHIDE","Показати/Сховати");//Show/Hide
@@ -901,7 +901,7 @@ define("_UPDATEUSERTYPEFOR","Обновити тип користувача дл
 define("_SYSTEMANNOUNCEMENTS","Системні оголошення");//System announcements
 define("_CREATEUNIT","Створити модуль");//Create unit
 define("_DONETIMES","Час завершення");//Times completed
-define("_QUESTIONSTATISTICS","Статистика по ");//Question statistics
+define("_QUESTIONSTATISTICS","Статистика по");//Question statistics
 define("_ADDQUESTIONOFTYPE","Додати запитання типу");//Add question of type
 define("_NOSYSTEMANNOUNCEMENTSPOSTED","Немає системних оголошень");//No system announcements posted
 define("_DURATIONINMINUTES","Тривалість у хвилинах");//Duration in minutes
@@ -1219,7 +1219,7 @@ define("_ISSUE","Випуск");//Issue
 define("_PROBLEMISSUINGCERTIFICATE","Сертифікат не може бути виданий");//The certificate could not be issued
 define("_REVOKECERTIFICATE","Анулювати сертифікат");//Revoke certificate
 define("_VIEWCERTIFICATE","Переглянути сертифікат");//View certificate
-define("_CERTIFICATEREVOKED","Сертифікат анульований ");//The certificate was revoked successfully
+define("_CERTIFICATEREVOKED","Сертифікат анульований");//The certificate was revoked successfully
 define("_PROBLEMREVOKINGCERTIFICATE","Сертифікат не може бути анульований");//The certificate could not be revoked
 define("_CHECKFORUPDATES","Перевірка наявності оновлень");//Check for updates
 define("_MODULEUPDATE","Оновити модуль");//Update module
@@ -1298,7 +1298,7 @@ define("_DUPLICATESARENOTALLOWED","За правилами, Ви не может
 define("_TIMEINLESSON","Час на занятті");//Time in lesson
 define("_ACCOUNTACTIVATIONMAILSUBJECT","Повідомлення активації по електронній пошті");//Account activation email
 define("_YOUWILLRECEIVEMAILFORACCOUNTACTIVATION","Ви отримаєте електронне повідомлення для активації акаунта");//You will receive an email to activate your account
-define("_ACCOUNTACTIVATIONMAILBODY","Будь ласка, перейдіть за посиланням нижче для активації вашого облікового запису: ");//Please, follow link below to activate your account:
+define("_ACCOUNTACTIVATIONMAILBODY","Будь ласка, перейдіть за посиланням нижче для активації вашого облікового запису:");//Please, follow link below to activate your account:
 define("_ACCOUNTSUCCESSFULLYACTIVATED","Ваш обліковий запис активовано");//Your account was successfully activated
 define("_SUCCESSFULLYINSERTEDVALUES","Значення додано");//Successfully inserted values
 define("_NEWFORUM","Новий форум");//New forum
@@ -1380,8 +1380,8 @@ define("_OPTIONSUSERTYPEFOR","Параметри типу користувача
 define("_NEWUSERTYPE","Новий тип користувача");//New user type
 define("_BASICUSERTYPE","Основний тип користувач");//Basic user type
 define("_AREYOUSUREYOUWANTTODELETEUSERTYPE","Ви дійсно хочете видалити тип користувача?");//Are you sure you want to delete user type?
-define("_SUCCESFULLYUPDATEDUSERTYPE","Тип користувача оновлено ");//User type was updated successfully
-define("_SUCCESFULLYADDEDUSERTYPE","Тип користувача додано ");//User type was added successfully
+define("_SUCCESFULLYUPDATEDUSERTYPE","Тип користувача оновлено");//User type was updated successfully
+define("_SUCCESFULLYADDEDUSERTYPE","Тип користувача додано");//User type was added successfully
 define("_USERSMANAGEMENT","Керування користувачами");//Users management
 define("_AREYOUSUREYOUWANTTODELETEUSER","Ви дійсно хочете видалити користувача?");//Are you sure you want to delete user?
 define("_USERTYPEDELETED","Тип користувача видалений");//User type deleted
@@ -1481,14 +1481,14 @@ define("_HCD","Розвиток людського капіталу");//Human Ca
 define("_ORGANISATIONCHART","Організаційна діаграма");//Organization chart
 define("_CANDIDATES","Кандидати");//Candidates
 define("_SUCCSSFULLYCREATEDBRANCH","Підрозділ створено");//Branch was successfully created
-define("_ATBRANCH"," в підрозділі ");// at branch 
+define("_ATBRANCH"," в підрозділі");// at branch 
 define("_FATHERBRANCHCOULDNOTBESET","Зазначений підрозділ не може бути встановлено вищим, тому що він нижчий в структурі організації");//Target father branch could not be set, because it is inferior to this branch in the hierarchy
 define("_JOBSASSIGNED","Посада призначена");//Jobs assigned
 define("_AREYOUSUREYOUWANTTOREMOVETHATSKILL","Ви дійсно хочете видалити цей навик з переліку?");//Are you sure you want to remove that skill from the list?
 define("_SKILLDATA","Дані про навичку");//Skill data
 define("_NEWSKILL","Нова навичка");//New skill
 define("_SKILLDESCRIPTION","Опис навички");//Skill description
-define("_HAVINGSKILL"," з навичкою ");// having the skill 
+define("_HAVINGSKILL"," з навичкою");// having the skill 
 define("_EMPLOYEESWITHTHATSKILL","Співробітники з навичкою");//Users with skill
 define("_UPDATESKILLS","Оновити дані про навички");//Update skills
 define("_THISSKILLSELEMENTSCOULDNOTBEDELETED","Ця навичка не може бути видалена");//This skill could not be deleted
@@ -1504,8 +1504,8 @@ define("_CURRENTLYEMPLOYEED","Зараз співробітників");//Curren
 define("_VACANCIES","Вільні ставки");//Available placements
 define("_AREYOUSUREYOUWANTTOREMOVETHATJOBDESCRIPTION","Ви дійсно хочете видалити цю посаду?");//Are you sure you want to remove that job position?
 define("_JOBDESCRIPTIONDATA","Інформація про посаду");//Job position data
-define("_HAVINGJOBDESCRIPTION","з посадою ");// having the job position 
-define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" , "No users are currently assigned to this job position");
+define("_HAVINGJOBDESCRIPTION","з посадою");// having the job position 
+define("_NOEMPLOYEESPOSSESSJOBDESCRIPTION" ,"No users are currently assigned to this job position");
 define("_SUCCESSFULLYCREATEDJOBDESCRIPTION","Посада створена");//Successfully created job position
 define("_JOBDESCRIPTIONCOULDNOTBECREATED","Посада не може бути створена");//Job position could not be created
 define("_JOBDESCRIPTIONDATAUPDATED","Інформація про посаду була змінена");//Job position data were successfully updated
@@ -1582,7 +1582,7 @@ define("_EMPLOYEEWASRELEASEDFROMDJOB","Співробітник звільнен
 define("_EMPLOYEEWASASSIGNEDSKILL","Зі співробітником асоційована навичка");//User was assigned skill
 define("_WASRELEASEDFROMEMPLOYEE","відкріплений від співробітника");//was released from user
 define("_EMPLOYEESSKILLSPECIFICATIONSFORSKILL","Опис досвіду співробітника для оцінки навички");//User&#039;s skill specifications for skill
-define("_WERECHANGEDTO"," були змінені на ");//were changed to
+define("_WERECHANGEDTO"," були змінені на");//were changed to
 define("_FIRED","Звільнено");//Fired
 define("_NOHISTORYREGARDINGTHISEMPLOYEE","Немає даних про історію, що стосується співробітника");//No history regarding this user recorded
 define("_HISTORYOFEMPLOYEE","Історія співробітника");//History of user
@@ -1621,7 +1621,7 @@ define("_ALLBRANCHES","Всі підрозділи");//All branches
 define("_ANSWERS","Відповіді");//Answers
 define("_GROUPDOESNOTEXIST","Така група не існує");//The group doesn&#039;t exist
 define("_SUBBRANCHES","Підрозділи");//Sub-branches
-define("_OFBRANCH"," в підрозділі ");// of branch 
+define("_OFBRANCH"," в підрозділі");// of branch 
 define("_NEWSUBBRANCH","Новий підрозділ");//New sub-branch
 define("_SMTPTIMEOUT","Таймаут SMTP");//SMTP timeout
 define("_ILLEGALPATH","Неправильний шлях");//Illegal path
@@ -1965,7 +1965,7 @@ define("_DCRIGHTS","Права");//Rights
 define("_NOENTRYFOUNDFOR","Записів не знайдено для");//No entry found for
 define("_FIELD","поле");//field
 define("_COURSECERTIFICATES","Сертифікати курсу");//Course certificates
-define("_LDAPUSERMUSTCONTACTADMIN","Ваш обліковий запис використовує LDAP сервер. Будь ласка, зв&#39;яжіться з системним адміністратором ");//Your account is accessed through the LDAP server. Please contact the system administrator at 
+define("_LDAPUSERMUSTCONTACTADMIN","Ваш обліковий запис використовує LDAP сервер. Будь ласка, зв&#39;яжіться з системним адміністратором");//Your account is accessed through the LDAP server. Please contact the system administrator at 
 define("_COURSEMETADATA","Метадані курсу");//Course metadata
 define("_COURSESTATUS","Статус курсу");//Course status
 define("_LESSONSCOMPLETED","Виконані заняття");//Completed lessons
@@ -2226,7 +2226,7 @@ define("_NOCOURSESPROPOSEDACCORDINGTOANALYSIS","Немає запропонов�
 define("_CERTIFICATETEMPLATE","Шаблон сертифікату (формат RTF)");//Certificate template (rtf format)
 define("_COMMANDS","Команди");//Commands
 define("_SEARCHRESULTSCOMMANDS","Результати пошуку в командах");//Search results in commands
-define("_TOGGLEHTMLEDITORMODE","Переключити редактор/HTML режим ");//Toggle editor/html mode
+define("_TOGGLEHTMLEDITORMODE","Переключити редактор/HTML режим");//Toggle editor/html mode
 define("_UPLOADFILEFROMURL","Завантажити файл з URL");//Upload file from url
 define("_OPENCLOSEFILEMANAGER","Відкрити/закрити менеджер файлів");//Open/close file manager
 define("_INSERTEDITOR","Вставити в редактор");//Insert to editor
@@ -2234,14 +2234,14 @@ define("_AUTOMATICALLYASSIGNTOALLNEWSTUDENTS","Автоматично призн
 define("_SKILLGAPTESTSTOBECOMPLETED","Тести на наявність навичок, які необхідно виконати");//Skill gap tests to be completed
 define("_SKILLGAPTESTCOMPLETEDSUCCESSFULLY","Тест на наявність навичок виконано");//Skill gap test completed successfully
 define("_RELEVANCE","Відповідність");//Relevance
-define("_KNOWLEDGEOFLESSON" , "Knowledge of lesson");
+define("_KNOWLEDGEOFLESSON" ,"Knowledge of lesson");
 define("_KNOWLEDGEOFCOURSE","Знання матеріалу курсу");//Knowledge of course
 define("_NOSKILLSCORRELATEDWITHTHETESTSQUESTIONS","Немає навичок, які корелюють з питаннями тесту");//No skills correlated with the test&#039;s questions
 define("_OPENFILEMANAGER","Відкрити менеджер файлів");//Open file manager
 define("_CLOSEFILEMANAGER","Закрити менеджер файлів");//Close file manager
 define("_CLICKFORHELP","Натисніть для виклику довідки");//Click for help
 define("_NOSKILLGAPTESTSASSIGNEDTOYOU","Немає призначених тестів на наявність навичок");//No skill gap tests assigned to you
-define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" , "Test solved: View skill gap analysis");
+define("_TESTSOLVEDVIEWTOSEESKILLGAPANALYSIS" ,"Test solved: View skill gap analysis");
 define("_GENERALTHRESHOLD","Загальний поріг");//General Threshold
 define("_UPLOADPDFFORCONTENT","Перемкнути PDF/звичайний матеріал");//Toggle pdf/custom content
 define("_PDFFILE","Завантажити новий файл PDF");//Upload new pdf file
@@ -2483,8 +2483,8 @@ define("_ADMINISTRATIONGROUP","Адміністративна група");//The
 define("_CHANGEFONTSIZE","Змінити розмір шрифту");//Change font size
 define("_SHOWEMPLOYEESFROMSUBBRANCHES","Показати співробітників з підлеглих підрозділівй");//Show users from subbranches
 define("_ANDSUBBRANCHES","і його підлеглі підрозділи");//and its subbranches
-define("_WITHTHEJOBDESCRIPTION"," з посадою ");//with the job position
-define("_FORTHEJOBDESCRIPTION"," для посади ");//for the job position
+define("_WITHTHEJOBDESCRIPTION"," з посадою");//with the job position
+define("_FORTHEJOBDESCRIPTION"," для посади");//for the job position
 define("_ADMINISTRATORSNOJOBDESCRIPTIONS","Адміністратори не можуть бути призначені на роботу");//Administrators can not be assigned with jobs
 define("_SUGGESTSKILLSACCORDINGTOLESSONS","Запропонувати навички, відповідно до заняття, в які входить питання");//Suggest skills according to the lessons the question belongs
 define("_NOSKILLSTOPROPOSE","Не знайдені навички для пропозиції");//No skills were found for suggestion
@@ -2699,7 +2699,7 @@ define("_DELETEMESSAGEFORLESSONTIMELINETOPIC","Видалити повідомл
 define("_DELETEDAPOSTFORLESSONTOPIC","Видалено повідомлення в темі заняття");//Deleted a post for lesson topic
 define("_TOPICPOSTDOESNOTEXISTANYMORE","Тема заняття більше не існує");//Lesson topic post does not exist any more
 define("_LESSONTIMELINETOPICDELETED","Тема заняття успішно видалена");//Lesson topic successfully deleted
-define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" , "Are you sure you want to delete the topic and all posts of lesson topic");
+define("_AREYOUSUREYOUWANTTODISMISSTHISLESSONTIMELINETOPIC" ,"Are you sure you want to delete the topic and all posts of lesson topic");
 define("_GOTOCOMPLETESYSTEMTIMELINE","Перейти до системної стрічки часу");//Goto complete system timeline
 define("_SYSTEMTIMELINE","Системна стрічка часу");//System timeline
 define("_LOGOWIDTH","Ширина логотипу");//Logo width
@@ -2962,7 +2962,7 @@ define("_NEWTOPICPUBLISHEDINTHEFORUMOF","Нова тема була опублі
 define("_NEWMESSAGEPOSTFORFORUM","Нове повідомлення, опубліковане в форумі");//New message posted in the forum of
 define("_NEWMESSAGEPOSTPUBLISHEDINTHEFORUMOF","Нові повідомлення були розміщені в форумі");//A new messages has been posted in the forum of
 define("_CHANGEINUNIT","Зміни в блоці");//Change in unit
-define("_UNITTITLED" , "The unit titled");
+define("_UNITTITLED" ,"The unit titled");
 define("_HASBEENMODIFIEDAS" ,"has been modified as follows");
 define("_SHOWCURRENCYSYMBOLBEFOREPRICE","Символ валюти перед числом");//Show currency symbol before price
 define("_CERTIFICATEEXPIRED","Термін дії сертифіката минув");//Certificate expired
@@ -3010,7 +3010,7 @@ define("_TOTALQUESTIONSOFWHICH","Загальна кількість запит�
 define("_CHOOSEUNITS","Вкажіть блоки");//Choose units
 define("_CHOOSENUMBERANDTYPEOFQUESTIONS","Вкажіть кількість і тип запитань,");//Choose number and type of questions
 define("_SETTOTALDURATION","Встановіть загальну тривалість");//Set total duration
-define("_CLICKWILLCREATEATESTWITH","Натискання \"Випадеово \" створить тест з ");//Clicking Randomize will create a test with
+define("_CLICKWILLCREATEATESTWITH","Натискання \"Випадеово \" створить тест з");//Clicking Randomize will create a test with
 define("_SELECTEDUNITS","Вибрані модулі");//Selected units
 define("_RANDOMIZATION","Випадковий вибір");//Randomization
 define("_DRAGNDROP","Перетягуйте");//Drag and drop
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Ця дія видалить корис�
 define("_SYSTEMENTITIES","Системний об&#39;єкт");//System entities
 define("_ALLEVENTS","Всі події");//All events
 define("_COLLAPSECATALOG","Згорнути каталог");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Період додано");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Період додано");//Period was added successfully
 define("_THEMES","Теми");//Themes
 define("_CUSTOMIZATION","Налаштування");//Customization
 define("_EXTERNALPAGES","Зовнішні сторінки");//External pages
@@ -3139,7 +3139,7 @@ define("_FACEBOOKEXTERNALLOGGING","Зовнішній вхід через Facebo
 define("_FACEBOOKCONNECT","Зв&#39;язок з Facebook");//Connection with Facebook
 define("_FACEBOOKPROFILE","Профіль Facebook");//Facebook profile
 define("_YOUARENOTCONNECTEDTOFACEBOOK","Ви не підключені до Facebook. Підключіться натиснувши");//You are not connected to Facebook. Connect by clicking
-define("_NOUSERFOUNDWITHTHISFACEBOOKIDPLEASELOGIN","Ви успішно підключились до Facebook, але жоден користувач системи не пов&#39;язаний з ним. Будь ласка, увійдіть в eFront, щоб зв&#39;язати два облікові записи ");//You have been successfully connected to your Facebook account, but no eFront user could be linked with it. Please login into eFront to link the two accounts now
+define("_NOUSERFOUNDWITHTHISFACEBOOKIDPLEASELOGIN","Ви успішно підключились до Facebook, але жоден користувач системи не пов&#39;язаний з ним. Будь ласка, увійдіть в eFront, щоб зв&#39;язати два облікові записи");//You have been successfully connected to your Facebook account, but no eFront user could be linked with it. Please login into eFront to link the two accounts now
 define("_EXPORTCURRENTTHEME","Експортувати поточні налаштування, як тему");//Export current settings as theme
 define("_SOCIALMODULEOPTIONS","Параметри соціального модуля");//Social module options
 define("_FACEBOOKAPIKEY","Facebook API ключ");//Facebook API key
@@ -3595,7 +3595,7 @@ define("_USERREDOWRONG","Переробити тільки неправильн�
 define("_DEFAULTTHEMECANNOTBEIMPORTED","Стандартна тема не може бути імпортована");//Default theme cannot be imported
 define("_ACCESSEXPIRED","Доступ минув");//Access expired
 define("_LESSONSCHEDULE","Розклад занять");//Lessons schedule
-define("_COURSESTARTSAT","Курс починається ");//The course starts on
+define("_COURSESTARTSAT","Курс починається");//The course starts on
 define("_COURSEENDSAT","Курс закінчується");//The course ends on
 define("_ENDDATE","Дата закінчення терміну");//End date
 define("_SELECTSKILLCATEGORY","Виберіть категорію навички");//Select skill category
@@ -3833,7 +3833,7 @@ define("_SELECTCONDITION","Оберіть умову");//Select condition
 define("_ISNOT","не є");//is not
 define("_HASCOMPLETEDALLASSIGNEDLESSONS","Завершив усі призначені заняття");//Has completed all assigned lessons
 define("_HASCOMPLETEDALLASSIGNEDCOURSES","Завершив усі призначені курси");//Has completed all assigned courses
-define("_HAS"," ");//Has
+define("_HAS","");//Has
 define("_HASNOT","Не");//Has not
 define("_ENROLLEDTO","Записати в");//Enrolled to
 define("_BETWEEN","Між");//Between
@@ -4152,8 +4152,58 @@ define("_ACTIVELESSONTIMES","Активне раз урок");//Active lesson ti
 define("_PLEASEREMEMBERTOSETUPAPASSWORD","Будь ласка, не забудьте встановити пароль");//Please remember to set up a password (New)
 define("_ISLDAPUSER","Ldap користувачів");//Ldap user (New)
 define("_REPORTSCONDITION","Стан");//Condition (New)
-define("_USEMYSQLWILDCARDS","Ви можете використовувати MySQL в символів узагальнення,% і ");//You can use mysql's wildcard characters, % and _ (New)
+define("_USEMYSQLWILDCARDS","Ви можете використовувати MySQL в символів узагальнення,% і");//You can use mysql's wildcard characters, % and _ (New)
 define("_LESSONTIMEREPORTS","_Звіти Урок час");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Активне час за змістом");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Переключення в режим активного часу, якщо ви хочете, щоб система моніторингу та звітності лише раз, що користувач дійсно проходить через зміст. Переключити на загальний час, якщо ви хочете, щоб система доповіді загального часу користувач проводить на уроці, незалежно на якій сторінці він / вона включена. <br/> <b>Увага:</b> Перехід на активну звітний момент буде перезаписувати будь-які активні разів, які були зареєстровані до сих пір з відповідної загальної рази.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","Перехід до активного час, якщо ви хочете, щоб система моніторингу та звітності лише раз, що користувач насправді проходить через зміст. Переключити на загальний час, якщо ви хочете, щоб система повідомляють загального часу користувач витрачає на урок, незалежно на якій сторінці він / вона включена. Попередження : Переключення активної звітності часом замінить будь-який активний раз, які були зареєстровані до сих пір з відповідними загальний час");
+define("_TOGGLEQUESTIONSPOOL","Переключити загальний пул питання" ); 
+define("_YOUHAVENOTSELECTEDAVALUE","Ви не вибрали значення"); 
+define("_QUESTIONSPOOL","Загальний басейн питання"); 
+define("_ADDFEEDBACSFEEDBACK","Додати відгук"); 
+define("_SHOWQUESTIONSPOOL"," Показати загальний пул питань"); 
+define("_SHOWLESSONQUESTIONS","Показати урок питання"); 
+define("_OLDPASSWORDWRONG","Старий пароль невірний"); 
+define("_COURSETOPICS","Теми курсу"); 
+define("_FORCEDOWNLOADFILE","Силове завантаження файл автоматично"); 
+define("_FORCEDOWNLOADFILEINFO","Встановивши цей тільки вікно для завантаження файлу буде відображатися файли не можуть бути впроваджені Otherwrise посилання на файл вставляється");
+define("_SPAMDETECTION","На жаль, ви не можете отримати доступ до цієї сторінки, щоб незабаром Повторіть спробу через деякий час."); 
+define("_YOUCANNOTUSETHISNAME","Ви не можете використовувати це ім'я Будь ласка, виберіть інший."); 
+define("_BANUSERFAILEDLOGINS"," Заборона користувачам після 5 невдалих atempts входу"); 
+define("_BANUSERFAILEDLOGINSINFO","Користувач буде відключений після 5 послідовних невдалих спроб atempts"); 
+define("_ALLOWUSERREDOTEST","У користувача повторити тест"); 
+define("_ALLSUPERVISORS","Всі керівники"); 
+define("_REVOKECERTIFICATEFOREXPIRED","Відкликати прострочені сертифікати"); 
+define("_MODULEITSELF","модулі (окремі)"); 
+define("_MODULESPANEL","модулі (додати / видалити)"); 
+define("_PROFESSORSCANCREATECOURSES","Професори можуть створювати курси"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN","Час сеансу минув, будь ласка, зареєструйтесь знову"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS","Поширити філія курсів філії користувачів");
+define("_APPLYTOUSERALLREADYTOBRANCH","поширюється на користувачів з цією галуззю"); 
+define("_THEME","Тема"); 
+define("_SELECTBRANCHTHEME","Виберіть філія теми"); 
+define("_SELECTBRANCHLANGUAGE","Оберіть галузь мови"); 
+define("_ACCESSURL","URL-адресу відділення доступу"); 
+define("_AUTOFILL","Автозаповнення"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","галузь будуть доступні прямо з URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Або скинути хід до закінчення"); 
+define("_PROGRESSRESETSUCCESSFULLY","Курс прогрес був успішно скинути"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","Reset прогрес зберігання сертифікатів"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","Вам ​​не дозволено увійти, тому що ви не є членом цієї галузі"); 
+define("_MAXONLINEUSERS","Найбільше відвідувачів"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL","Якщо ви вкажете адресу філії, то галузь буде прямий доступ з адреси"); 
+define("_First","Перший"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","Користувачі можуть увійти в за замовчуванням URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL","Ви можете увійти в с вашого філії URL"); 
+define("_NEWCOMMENT","Новий коментар"); 
+define("_ADDCUSTOMTEXT","Додати довільний текст"); 
+define("_ADDANOTHERCUSTOMTEXT","Додати ще один свій текст"); 
+define("_VIEWLESSONASSTUDENT"," Переглянути урок, як студент"); 
+define("_BACKTOPROFESSORMODE","Назад в режим професор"); 
+define("_YOUAREINSTUDENTMODE","Ви зараз переглядаєте цей урок в якості студента."); 
+define("_CERTIFICATEEXPIRY","Свідоцтво про закінчення курсу термін"); 
+define("_TEST_FAILURE","Тест невдачі"); 
+define("_FAILEDTEST","не в тест"); 
+define("_TESTFAILUREFORLESSON","Тест для відмови урок"); 
+define("_HASFAILEDATEST"," не вдалося тест");
 ?>

@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Ši veikla bus ištrinti nestandartiniu 
 define("_SYSTEMENTITIES","Sistemos subjektai");//System entities
 define("_ALLEVENTS","Visi renginiai");//All events
 define("_COLLAPSECATALOG","Sutraukti katalogas");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Laikotarpis buvo sėkmingai pridėtas");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Laikotarpis buvo sėkmingai pridėtas");//Period was added successfully
 define("_THEMES","Temos");//Themes
 define("_CUSTOMIZATION","Customization");//Customization
 define("_EXTERNALPAGES","Išorės puslapių");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Galite naudoti MySQL pakaitos simbolius,% ir ");//Y
 define("_LESSONTIMEREPORTS","_Pamoka laiko ataskaitos");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktyvus laikas turinio");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Perjungti į aktyvų laiko, jei norite, kad sistema stebėti ir pranešti tik kartų, kad vartotojas iš tiesų eina per turinio. Perjungti į visas laikas, jei norite, kad sistema ataskaitą apie bendrą visų vartotojo išleidžia pamoką, nesvarbu, kuris puslapis jis / ji yra. <br/> <b>Įspėjimas:</b> Perėjimas prie aktyvaus laiko ataskaitų perrašyti jokios aktyvios kartų iki šiol buvo įrašyti atitinkamą bendrą kartus.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Perjungti į aktyvią metu, jei norite sistemą stebėti ir pranešti tik kartų, kad vartotojas iš tiesų eina per turinio. Perjungti į viso laiko, jei norite, sistema praneša apie visą laiką, kai vartotojas išleidžia pamoka, nepriklausomai kurį puslapį jis / ji yra. Įspėjimas : Perėjimas prie aktyvaus laiko ataskaitas, bus perrašyti visus aktyvius kartų, kurie buvo iki šiol užregistruotus su atitinkamomis visų kartų "); 
+define("_TOGGLEQUESTIONSPOOL", "Perjungti bendras klausimas, baseinas" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Jūs nepasirinkote vertę"); 
+define("_QUESTIONSPOOL", "bendras klausimas, baseinas"); 
+define("_ADDFEEDBACSFEEDBACK", "Pridėti atsiliepimą"); 
+define("_SHOWQUESTIONSPOOL", " Rodyti bendrą klausimai baseinas "); 
+define("_SHOWLESSONQUESTIONS", "Rodyti pamokų klausimus"); 
+define("_OLDPASSWORDWRONG", "Senas slaptažodis yra neteisingas"); 
+define("_COURSETOPICS", "Kurso temos"); 
+define("_FORCEDOWNLOADFILE","pajėgų atsisiųsti failą automatiškai"); 
+define("_FORCEDOWNLOADFILEINFO", "patikrinti, ar tai tik langą atsisiųsti failas bus rodomas failų negali būti įtrauktas, įterpiama Sekdami nuoroda Otherwrise failo"); 
+define("_SPAMDETECTION"," Deja, jūs negalite pasiekti šį puslapį taip greitai, o bandykite dar kartą. "); 
+define("_YOUCANNOTUSETHISNAME", "Jūs galite ne naudoti šį pavadinimą, prašome pasirinkti kitą."); 
+define("_BANUSERFAILEDLOGINS", " Ban po 5 nesėkmingų prisijungimo atempts,, vartotojai "); 
+define("_BANUSERFAILEDLOGINSINFO", "Vartotojas bus išjungtas po 5 gretimi nesėkmingų prisijungimų atempts"); 
+define("_ALLOWUSERREDOTEST", "Ar vartotojas pakartokite bandymą"); 
+define("_ALLSUPERVISORS" , "Visi prižiūrėtojai"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Atšaukti pažymėjimų galiojimas pasibaigęs"); 
+define("_MODULEITSELF", "moduliai (individas)"); 
+define("_MODULESPANEL", "moduliai (pridėti / pašalinti)"); 
+define("_PROFESSORSCANCREATECOURSES", "profesoriai gali sukurti kursai"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Jūsų sesija baigėsi, prisijunkite iš naujo"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "propaguoti filialas kursus filialų vartotojams"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "Paplitimas vartotojams su šios šakos"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Pasirinkite filialą temą"); 
+define("_SELECTBRANCHLANGUAGE", "Pasirinkite filialą kalbą" ); 
+define("_ACCESSURL", "filialas prieiga url"); 
+define("_AUTOFILL", "Automatinis"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "filialas bus patekti tiesiai iš URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Ar naujo kursą prieš baigiasi"); 
+define("_PROGRESSRESETSUCCESSFULLY", "kursai pažanga buvo sėkmingai nustatyti iš naujo"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Reset pažangą palaikymo pažymėjimą"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Jūs neleidžiama prisijungti nes nesate filialo narys "); 
+define("_MAXONLINEUSERS", "Bot"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Jei nurodysite filialą URL, tada filialas bus tiesiogiai prieinami iš URL "); 
+define("_FIRST", "Pirmas"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Vartotojai gali prisijungti į numatytąjį URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Jūs galite tik pasirašyti iš jūsų filialas URL "); 
+define("_NEWCOMMENT", "Naujas komentaras"); 
+define("_ADDCUSTOMTEXT", "Pridėti pasirinktinį tekstą"); 
+define("_ADDANOTHERCUSTOMTEXT", "Pridėti kitą pasirinktinį tekstą"); 
+define("_VIEWLESSONASSTUDENT", " Peržiūrėti pamoką kaip studentas "); 
+define("_BACKTOPROFESSORMODE", "Atgal į profesoriaus režimu"); 
+define("_YOUAREINSTUDENTMODE", "Jūs dabar žiūrite šią pamoką kaip studentas."); 
+define("_CERTIFICATEEXPIRY", "kursai sertifikatas galiojimo "); 
+define("_TEST_FAILURE", "Test nepakankamumas"); 
+define("_FAILEDTEST", "nepavyko bandymą"); 
+define("_TESTFAILUREFORLESSON", "Bandymo nepakankamumas apie pamoką"); 
+define("_HASFAILEDATEST"," nepavyko bandymas");
 ?>

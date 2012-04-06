@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Este ação vai excluir permanentemente 
 define("_SYSTEMENTITIES","Entidades do sistema");//System entities
 define("_ALLEVENTS","Todos os eventos");//All events
 define("_COLLAPSECATALOG","Fechar catálogo");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Período adicionado com sucesso");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Período adicionado com sucesso");//Period was added successfully
 define("_THEMES","Modelos");//Themes
 define("_CUSTOMIZATION","Adaptação");//Customization
 define("_EXTERNALPAGES","Páginas externas");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Você pode usar caracteres curinga do mysql,% e ");
 define("_LESSONTIMEREPORTS","_Relatórios em tempo lição");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Tempo ativo no conteúdo");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Mude para o tempo ativo se você deseja que o sistema para monitorar e relatar únicas vezes que o usuário realmente atravessa o conteúdo. Mude para o tempo total se você deseja que o sistema para relatar o tempo total que um usuário gasta em uma aula, independentemente de qual página ele / ela está ligada. <br/> <b>Atenção:</b> Mudar para relatórios em tempo ativa irá substituir todas as vezes activos que tenham sido registrados até agora com os tempos correspondentes total.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Mudar para o tempo ativo se você deseja que o sistema para monitorar e relatar únicas vezes que o usuário realmente atravessa o conteúdo. Mudar para tempo total se você deseja que o sistema informar o tempo total que um usuário gasta em uma lição, independentemente de qual página ele / ela está ligada. Aviso : Mudar para relatórios em tempo ativo substituirá todas as vezes activos que tenham sido registrados até agora com os tempos totais correspondentes ");
+define("_TOGGLEQUESTIONSPOOL", "pool questão de alternância comum" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Você não selecionou um valor"); 
+define("_QUESTIONSPOOL", "pool questão comum"); 
+define("_ADDFEEDBACSFEEDBACK", "Adicionar feedback"); 
+define("_SHOWQUESTIONSPOOL", " Mostrar piscina perguntas comum "); 
+define("_SHOWLESSONQUESTIONS", "Mostrar questões lição"); 
+define("_OLDPASSWORDWRONG", "Senha antiga está errado"); 
+define("_COURSETOPICS", "Os temas do curso"); 
+define("_FORCEDOWNLOADFILE"," Força de download de arquivos automaticamente "); 
+define("_FORCEDOWNLOADFILEINFO", "Ao assinalar esta apenas uma janela para baixar o arquivo será exibido para os arquivos não pode ser incorporado Otherwrise um link para o arquivo é inserido");
+define("_SPAMDETECTION"," Infelizmente, você não pode acessar essa página tão logo Por favor, tente novamente em quando. "); 
+define("_YOUCANNOTUSETHISNAME", "Você não pode usar este nome por favor escolha outro."); 
+define("_BANUSERFAILEDLOGINS", " banir usuários após 5 atempts de login sem sucesso "); 
+define("_BANUSERFAILEDLOGINSINFO", "Usuário será desativado após 5 contíguos logins falhos atempts"); 
+define("_ALLOWUSERREDOTEST", "Alguma usuário repetir o teste"); 
+define("_ALLSUPERVISORS","Todos os supervisores"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Revogar certificados expirados"); 
+define("_MODULEITSELF", "Módulos (individual)"); 
+define("_MODULESPANEL", "Módulos (adicionar / remover)"); 
+define("_PROFESSORSCANCREATECOURSES", "Os professores podem criar cursos"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Sua sessão expirou, por favor, entrar novamente"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Propagar ramo de cursos para usuários de filiais"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "Propagar a usuários com esse ramo"); 
+define("_THEME", "Tema"); 
+define("_SELECTBRANCHTHEME", "Selecionar tema ramo"); 
+define("_SELECTBRANCHLANGUAGE", "Selecione o idioma ramo" ); 
+define("_ACCESSURL", "url acesso Branch"); 
+define("_AUTOFILL", "Preenchimento automático"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "O ramo será directamente acessível a partir da url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Ou redefinir curso antes de expirar"); 
+define("_PROGRESSRESETSUCCESSFULLY", "progresso Curso foi reiniciado com sucesso"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "progresso Redefinir mantendo certificado"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Você não tem permissão para entrar, porque você não é um membro deste ramo "); 
+define("_MAXONLINEUSERS", "O recorde de usuários on-line"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Se você especificar uma url ramo, então o ramo será feito diretamente acessível a partir da url "); 
+define("_FIRST", "primeiro"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Os usuários podem entrar a partir da URL default"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Você só pode entrar em seu ramo de URL "); 
+define("_NEWCOMMENT", "Novo comentário"); 
+define("_ADDCUSTOMTEXT", "Adicionar texto personalizado"); 
+define("_ADDANOTHERCUSTOMTEXT", "Adicionar outro texto feito sob encomenda"); 
+define("_VIEWLESSONASSTUDENT", " Ver aula como aluno "); 
+define("_BACKTOPROFESSORMODE", "Voltar para o modo de professor"); 
+define("_YOUAREINSTUDENTMODE", "Você está vendo esta lição como um estudante."); 
+define("_CERTIFICATEEXPIRY", "Certificado de Curso caducidade "); 
+define("_TEST_FAILURE", "Falha no teste"); 
+define("_FAILEDTEST", "falhou no teste"); 
+define("_TESTFAILUREFORLESSON", "Falha no teste para a aula"); 
+define("_HASFAILEDATEST", " falhou um teste ");
 ?>

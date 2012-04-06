@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Bu eylem kalıcı özel başlık (altbil
 define("_SYSTEMENTITIES","Sistem taraf");//System entities
 define("_ALLEVENTS","Tüm Etkinlikler");//All events
 define("_COLLAPSECATALOG","Kataloğu Daralt");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Dönem Başarıyla Eklendi");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Dönem Başarıyla Eklendi");//Period was added successfully
 define("_THEMES","Temalar");//Themes
 define("_CUSTOMIZATION","Özelleştirme");//Customization
 define("_EXTERNALPAGES","Harici Sayfalar");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Mysql joker karakterler,% ve _ kullanabilirsiniz");
 define("_LESSONTIMEREPORTS","Ders süresi raporları");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktif içerik");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Kullanıcı aslında içerik geçer yalnızca izlemek ve rapor etmek sistemi istiyorsanız aktif zaman açın. Bir kullanıcı bir ders harcadığı toplam süre rapor sistemi istiyorsanız o / o hangi sayfa ne olursa olsun, toplam süre geçin. <br/> <b>Uyarı:</b> aktif zamanlı raporlama geçiş karşılık gelen toplam kez şimdiye kadar kaydedilmiş herhangi bir aktif kez üzerine yazılır.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","Eğer bir sistem istiyorsanız, kullanıcı gerçekte içeriği üzerinden gittiğini sadece zaman izlemek ve rapor etmek etkin zaman geçer. toplam zamana Switch sisteminin toplam süre rapor etmek istiyorsanız bir kullanıcı bir harcadığı ders olursa olsun, hangi sayfada o / o açık. Uyarı : aktif zamanlı raporlama geçiş karşılık gelen toplam kez şimdiye kadar kaydedilmiş olan herhangi bir aktif kat üzerine yazılır ");
+define("_TOGGLEQUESTIONSPOOL","Toggle ortak bir soru havuzu"); 
+define("_YOUHAVENOTSELECTEDAVALUE","Bir değer seçmediniz"); 
+define("_QUESTIONSPOOL","Ortak soru havuzu"); 
+define("_ADDFEEDBACSFEEDBACK","Yorum Ekle"); 
+define("_SHOWQUESTIONSPOOL","tanımlamak genel sorular havuzu göster"); 
+define("_SHOWLESSONQUESTIONS","ders soruları göster");
+define("_OLDPASSWORDWRONG","Eski şifre yanlış");
+define("_COURSETOPICS","Ders konuları"); 
+define("_FORCEDOWNLOADFILE","otomatik dosya indirme Force"); 
+define("_FORCEDOWNLOADFILEINFO","dosya dosyaları gösterilir indirmek için bu sadece bir pencere kontrol ederek , gömülü edilemez dosyası bağlantısı Otherwrise eklenir");
+define("_SPAMDETECTION","Ne yazık ki bu kadar kısa sürede bu sayfayı erişemiyor bir süre sonra tekrar deneyin. "); 
+define("_YOUCANNOTUSETHISNAME","Bu ismi kullanamazsınız başka bir tane seçiniz."); 
+define("_BANUSERFAILEDLOGINS"," Ban kullanıcıları 5 başarısız giriş atempts sonra "); 
+define("_BANUSERFAILEDLOGINSINFO","5 bitişik başarısız giriş atempts sonra Kullanıcı bırakır"); 
+define("_ALLOWUSERREDOTEST","kullanıcı testi tekrar mı"); 
+define("_ALLSUPERVISORS" ,"Tüm denetçiler"); 
+define("_REVOKECERTIFICATEFOREXPIRED","süresi dolan sertifikaları geçersiz kılma"); 
+define("_MODULEITSELF","Modülleri (bireysel)"); 
+define("_MODULESPANEL","Modüller (ekleme / kaldırma)"); 
+define("_PROFESSORSCANCREATECOURSES","Profesörler dersler oluşturabilir");
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN","Oturumunuz zaman aşımına uğradı, tekrar oturum açın"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS","şube kullanıcılara şube kursları Propagate"); 
+define("_APPLYTOUSERALLREADYTOBRANCH","Bu şube ile kullanıcılara Propagate"); 
+define("_THEME","Tema"); 
+define("_SELECTBRANCHTHEME","şube tema seçin"); 
+define("_SELECTBRANCHLANGUAGE","şube dili seçin" ); 
+define("_ACCESSURL","Şube erişim url"); 
+define("_AUTOFILL","Otomatik Doldur"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","şube url doğrudan erişilebilir olacak");
+define("_ORRESETCOURSEBEFOREEXPIRE","Ya sona ermeden önce tabii sıfırlamak"); 
+define("_PROGRESSRESETSUCCESSFULLY","Ders ilerleme başarıyla sıfırlandı"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","sertifika tutmak Reset ilerleme"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","Siz izin verilmez  Bu şubesi üyesi değildir çünkü giriş "); 
+define("_MAXONLINEUSERS","Bugüne kadar en çok"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL","sen bir şube url belirler, sonra şube doğrudan erişilebilir olacaktır gelen url "); 
+define("_FIRST","İlk"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","Kullanıcılar varsayılan URL'den oturum açabilir"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL","Siz sadece şubenin gelen oturum açabilirsiniz URL");
+define("_NEWCOMMENT","Yeni yorum"); 
+define("_ADDCUSTOMTEXT","özel metin ekle"); 
+define("_ADDANOTHERCUSTOMTEXT","başka bir özel metin ekleyin"); 
+define("_VIEWLESSONASSTUDENT","öğrenci olarak ders bilgileri"); 
+define("_BACKTOPROFESSORMODE","Geri profesörü moduna"); 
+define("_YOUAREINSTUDENTMODE","Şu anda bir öğrenci olarak bu dersi incelemekte"); 
+define("_CERTIFICATEEXPIRY","Ders belgesi Son kullanma"); 
+define("_TEST_FAILURE","Test yetmezliği"); 
+define("_FAILEDTEST","sınavından başarısız"); 
+define("_TESTFAILUREFORLESSON","Test başarısız dersi için"); 
+define("_HASFAILEDATEST","Bir test başarısız oldu");
 ?>

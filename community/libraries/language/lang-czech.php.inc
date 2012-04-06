@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Tato akce trvale odstraní vlastní nast
 define("_SYSTEMENTITIES","Systém subjektů");//System entities
 define("_ALLEVENTS","Všechny akce");//All events
 define("_COLLAPSECATALOG","Collapse Katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Období bylo úspěšně přidáno");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Období bylo úspěšně přidáno");//Period was added successfully
 define("_THEMES","Témata");//Themes
 define("_CUSTOMIZATION","Přizpůsobení");//Customization
 define("_EXTERNALPAGES","Externí stránky");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Můžete použít zástupné znaky MySQL,% a ");//Y
 define("_LESSONTIMEREPORTS","_Zprávy lekce čas");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktivní čas v obsahu");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Přepnout na aktivní čas, pokud chcete, aby systém pro monitorování a vykazování pouze časy, které uživatel skutečně prochází obsah. Přepnout na celkový čas, pokud chcete, aby systém pro zprávu o celkovém času stráví uživatel na hodinu, bez ohledu na to, která strana on / ona je na. <br/> <b>Upozornění:</b> Přechod na aktivní časové hlášení přepíše aktivní časy, které byly zaznamenány zatím s celkovou časy.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Přepnout do aktivního času, pokud chcete, aby systém pro monitorování a vykazování pouze časy, které uživatel skutečně prochází obsah. Přejít na celkový čas, pokud chcete systém hlášení celkového času stráví uživatel na lekce, bez ohledu na to, která strana on / ona je na. Upozornění : Přepnutí do doby aktivace hlášení přepíše všechny aktivní časy, které byly zaznamenány zatím s celkovou doby ");
+define("_TOGGLEQUESTIONSPOOL", "Přepnout častá otázka bazén" ); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Nezvolili jste hodnotu"); 
+define("_QUESTIONSPOOL", "společný bazén dotaz"); 
+define("_ADDFEEDBACSFEEDBACK", "Přidat názor"); 
+define("_SHOWQUESTIONSPOOL", " Zobrazit společný bazén otázky "); 
+define("_SHOWLESSONQUESTIONS", "Zobrazit lekce otázky"); 
+define("_OLDPASSWORDWRONG", "Staré heslo je špatně"); 
+define("_COURSETOPICS", "Témata kurzu"); 
+define("_FORCEDOWNLOADFILE"," Síla stažení souboru automaticky "); 
+define("_FORCEDOWNLOADFILEINFO", "Aktivací pouze okno pro stažení souboru se zobrazí soubory nelze vkládat Otherwrise odkaz na soubor, který zní");
+define("_SPAMDETECTION"," bohužel nemůžete přístup k této stránce tak brzy, prosím, zkuste to za chvíli. "); 
+define("_YOUCANNOTUSETHISNAME", "není možné použít tento název si prosím vybrat jinou."); 
+define("_BANUSERFAILEDLOGINS", " Ban uživatelé po 5 neúspěšných přihlášení atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Uživatel bude deaktivován po 5 neúspěšných přihlášení souvislé atempts"); 
+define("_ALLOWUSERREDOTEST", "Už uživatel opakujte test"); 
+define("_ALLSUPERVISORS","Všechny orgány dohledu"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Odvolání neplatné osvědčení"); 
+define("_MODULEITSELF", "Moduly (individuální)"); 
+define("_MODULESPANEL", "moduly (přidat / odebrat)"); 
+define("_PROFESSORSCANCREATECOURSES", "Profesoři mohou vytvářet kurzy"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Vaše relace již vypršela, prosím přihlaste se znovu"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "propagují větev kurzy pobočky uživatele"); 
+define("_APPLYTOUSERALLREADYTOBRANCH", "Rozšířit uživatelům tohoto oboru"); 
+define("_THEME", "téma"); 
+define("_SELECTBRANCHTHEME", "Vyberte pobočku téma"); 
+define("_SELECTBRANCHLANGUAGE", "Vyberte jazyk větev" ); 
+define("_ACCESSURL", "pobočka přístup url"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "pobočka bude přístupná přímo z URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Nebo nastavit kurz, než vyprší"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Kurz pokrok byl úspěšně obnovit"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Obnovit pokrok vedení osvědčení"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Není dovoleno se přihlásit, protože nejste členem této větve "); 
+define("_MAXONLINEUSERS", "Nejvíce uživatelů online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Zadáte-li pobočku URL, pak pobočka bude přímo přístupné z url "); 
+define("_FIRST", "první"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Uživatelé se mohou přihlásit z výchozí URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Můžete se přihlásit z vaší pobočky je URL "); 
+define("_NEWCOMMENT", "Nový komentář"); 
+define("_ADDCUSTOMTEXT", "Přidat vlastní text"); 
+define("_ADDANOTHERCUSTOMTEXT", "Přidat další vlastní text"); 
+define("_VIEWLESSONASSTUDENT", " Zobrazit lekci jako student "); 
+define("_BACKTOPROFESSORMODE", "Návrat do režimu profesor"); 
+define("_YOUAREINSTUDENTMODE", "Prohlížíte si tuto lekci jako student."); 
+define("_CERTIFICATEEXPIRY", "Kurz certifikátu platnosti "); 
+define("_TEST_FAILURE", "Zkušební selhání"); 
+define("_FAILEDTEST", "neprospěl v testu"); 
+define("_TESTFAILUREFORLESSON", "Zkušební selhání o lekci"); 
+define("_HASFAILEDATEST", " selhal test ");
 ?>

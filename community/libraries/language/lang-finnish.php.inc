@@ -395,7 +395,7 @@ define("_TOTALTIME","Yhteensä (aika)");//Total time
 define("_MINSCORE","Pienin pistemäärä");//Minimum score
 define("_MAXSCORE","Korkein pistemäärä");//Maximum score
 define("_FINALSCORE","Lopullinen pistemäärä");//Final score
-define("_TOCAPITAL"," ");//To
+define("_TOCAPITAL",",");//To
 define("_NOTEPUBLICROOMSARESTOREDANDACCESSED","Huomautus: keskustelut julkisissa huoneissa tallentuvat ja ovat kaikkien käyttäjien saatavilla");//Note: Conversations in public rooms are recorded and made available to all users
 define("_PRIVATEROOM","Yksityinen huone");//Private room
 define("_ENTEREDROOM","astui huoneeseen");//entered the room
@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","Tämä poistaa lopullisesti oman alatunn
 define("_SYSTEMENTITIES","Järjestelmäkohteet");//System entities
 define("_ALLEVENTS","Kaikki tapahtumat");//All events
 define("_COLLAPSECATALOG","Kutista katalogi");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Kausi on lisätty onnistuneesti");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Kausi on lisätty onnistuneesti");//Period was added successfully
 define("_THEMES","Teemat");//Themes
 define("_CUSTOMIZATION","Kustomointi");//Customization
 define("_EXTERNALPAGES","Ulkoiset sivut");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Voit käyttää MySQL: n yleismerkkejä,% ja ");//Y
 define("_LESSONTIMEREPORTS","_Oppitunti time reports");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktiivista aikaa sisällön");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Vaihda aktiivista aikaa, jos haluat järjestelmän seurata ja raportoida vain kertaa, että käyttäjä todella menee läpi sisältöä. Vaihda kokonaisaika jos haluat järjestelmän ilmoittaa kokonaisaika käyttäjä käyttää rahaa oppitunti, riippumatta mikä sivu hän / hän on. <br/> <b>Varoitus:</b> Siirtyminen aktiiviseen aikaan raportointia korvaa kaikki aktiiviset kertaa on kirjattu tähän mennessä vastaavaa kokonaispinta kertaa.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION", "Vaihda aktiivista aikaa, jos haluat järjestelmän seurata ja raportoida vain kertaa, että käyttäjä todella menee läpi sisältöä. Switch koko aikaa, jos haluat järjestelmä ilmoittaa kokonaisaika käyttäjä kuluttaa opetus, riippumatta siitä millä sivulla hän / hän on. Varoitus : Siirtyminen aktiiviseen aikaan raportoinnin korvaa kaikki aktiiviset ajat, jotka on kirjattu tähän mennessä vastaavia koko ajan. "); 
+define("_TOGGLEQUESTIONSPOOL", "Toggle yleinen kysymys pool"); 
+define("_YOUHAVENOTSELECTEDAVALUE", "Et ole valinnut arvo"); 
+define("_QUESTIONSPOOL", "yhteinen kysymys pool"); 
+define("_ADDFEEDBACSFEEDBACK", "Add palaute"); 
+define("_SHOWQUESTIONSPOOL", " Näytä yleisiin kysymyksiin pool "); 
+define("_SHOWLESSONQUESTIONS", "Näytä opetus kysymyksiä"); 
+define("_OLDPASSWORDWRONG", "Vanha salasana on väärin"); 
+define("_COURSETOPICS", "Course aiheet"); 
+define("_FORCEDOWNLOADFILE"," Force ladata tiedoston automaattisesti "); 
+define("_FORCEDOWNLOADFILEINFO", "Rastittamalla tämän vain ikkunan ladata tiedosto näytetään tiedostoja voi upottaa. Otherwrise linkin tiedostoon lisätään"); 
+define("_SPAMDETECTION"," Valitettavasti et voi käyttää tätä sivua niin pian. Yritä uudelleen, kun "); 
+define("_YOUCANNOTUSETHISNAME", "Et voi käyttää tätä nimeä. Valitse toinen"); 
+define("_BANUSERFAILEDLOGINS", " Ban käyttäjät jälkeen 5 hävinnyt login atempts "); 
+define("_BANUSERFAILEDLOGINSINFO", "Käyttäjä deaktivoidaan kuluttua 5 peräkkäisiä epäonnistui kirjautumiset atempts"); 
+define("_ALLOWUSERREDOTEST", "Onko käyttäjä toista testi"); 
+define("_ALLSUPERVISORS","Kaikki valvojat"); 
+define("_REVOKECERTIFICATEFOREXPIRED", "Peruuta vanhentunut todistukset"); 
+define("_MODULEITSELF", "Modules (yksittäisiä)"); 
+define("_MODULESPANEL", "Modules (lisää / poista)"); 
+define("_PROFESSORSCANCREATECOURSES", "Professorit voivat luoda kurssit"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN", "Istunto on vanhentunut, kirjaudu uudelleen"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS", "Välitetyt haara kursseja haara käyttäjille");
+define ("_APPLYTOUSERALLREADYTOBRANCH", "Välitetyt käyttäjille tämän haara"); 
+define("_THEME", "Theme"); 
+define("_SELECTBRANCHTHEME", "Valitse sivukonttori teema"); 
+define("_SELECTBRANCHLANGUAGE", "Valitse haara kieli");
+define("_ACCESSURL", "sivuliikkeellä pääsy url"); 
+define("_AUTOFILL", "Autofill"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL", "sivuliikkeen päästävä suoraan url"); 
+define("_ORRESETCOURSEBEFOREEXPIRE","Tai palauta kurssi ennen päättyy"); 
+define("_PROGRESSRESETSUCCESSFULLY", "Kurssi eteni palauttaa onnistuneesti"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE", "Nollaa edistys pitää todistus"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH", "Sinun ei ole sallittu kirjautua, koska et ole jäsen, sivukonttorin "); 
+define("_MAXONLINEUSERS", "Eniten käyttäjiä online"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL", "Jos määrittelet haara url, niin sivuliikkeen asetettava suoraan saataville alkaen url "); 
+define("_FIRST", "First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE", "Käyttäjät voivat kirjautua myös oletuksena URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL", "Voit kirjautua sisään omasta sivuliikkeen URL "); 
+define("_NEWCOMMENT", "Uusi kommentti"); 
+define("_ADDCUSTOMTEXT", "Lisää mukautettu teksti"); 
+define("_ADDANOTHERCUSTOMTEXT", "Lisää toinen muokattua tekstiä"); 
+define("_VIEWLESSONASSTUDENT", " Näytä opetus opiskelija "); 
+define("_BACKTOPROFESSORMODE", "Back to professori mode"); 
+define("_YOUAREINSTUDENTMODE", "You are currently viewing tämän läksyn kuin opiskelija."); 
+define("_CERTIFICATEEXPIRY", "Course todistus päättymisen "); 
+define("_TEST_FAILURE", "Test epäonnistuminen"); 
+define("_FAILEDTEST", "epäonnistui testissä"); 
+define("_TESTFAILUREFORLESSON", "Test epäonnistuminen oppitunti"); 
+define("_HASFAILEDATEST", " on epäonnistunut koe ");
 ?>

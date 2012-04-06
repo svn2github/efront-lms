@@ -3045,7 +3045,7 @@ define("_DELETECUSTOMHEADERAREYOUSURE","To dejanje bo trajno izbrisati uporabni�
 define("_SYSTEMENTITIES","Sistem subjekti");//System entities
 define("_ALLEVENTS","Vsi dogodki");//All events
 define("_COLLAPSECATALOG","Strni katalog");//Collapse catalog
-define("_PERIODWASADDEDSUCCESSFULLY ","Obdobje je bilo uspešno dodano");//Period was added successfully
+define("_PERIODWASADDEDSUCCESSFULLY","Obdobje je bilo uspešno dodano");//Period was added successfully
 define("_THEMES","Teme");//Themes
 define("_CUSTOMIZATION","Prilagajanje");//Customization
 define("_EXTERNALPAGES","Zunanje strani");//External pages
@@ -4156,4 +4156,54 @@ define("_USEMYSQLWILDCARDS","Uporabite lahko nadomestne znake v mysql,% in ");//
 define("_LESSONTIMEREPORTS","_Lekcija time reports");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","Aktivni čas v vsebini");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","Preklopite na aktivni čas, če želite, da sistem za spremljanje in poročanje le čas, da uporabnik dejansko gre skozi vsebino. Preklopite na skupni čas, če želite, da se sistem za poročanje skupni čas uporabnik preživi na lekcijo, ne glede na kateri strani on / ona je on. <br/> <b>Opozorilo:</b> Preklop na aktivni času prijave bo prepiše vse aktivne čase, ki so bile zabeležene do zdaj z ustreznim skupnim krat.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_TIMEREPORTSEXPLANATION","Preklopi na aktivno preživljanje, če želite, da sistem za spremljanje in poročanje le čas, da uporabnik dejansko gre skozi vsebino. Preklopi na skupni čas, če želite, da sistem za poročanje skupni čas uporabnik preživi na lekcija, ne glede na to, katera stran on / ona je naprej. Opozorilo : Prehod na aktivno poročanju časa bo prepisalo vse aktivne čase, ki so bile posnete doslej z ustreznimi skupnih časov ");
+define("_TOGGLEQUESTIONSPOOL","Preklopi baza vprašanje" ); 
+define("_YOUHAVENOTSELECTEDAVALUE","niste izbrali vrednost"); 
+define("_QUESTIONSPOOL","baza vprašanje"); 
+define("_ADDFEEDBACSFEEDBACK","Add povratne informacije"); 
+define("_SHOWQUESTIONSPOOL"," Prikaži pogosta vprašanja bazen "); 
+define("_SHOWLESSONQUESTIONS","Prikaži učnih vprašanja"); 
+define("_OLDPASSWORDWRONG","Staro geslo je napačno"); 
+define("_COURSETOPICS","predmeta teme"); 
+define("_FORCEDOWNLOADFILE","Force prenos datoteke avtomatsko "); 
+define("_FORCEDOWNLOADFILEINFO","S preverjanjem to samo okno za prenos datoteke bodo prikazane za datoteke ni mogoče vgrajeni Otherwrise povezavo za datoteko vstavi");
+define(" _SPAMDETECTION","Na žalost vam ne morejo dostopati do te strani tako kmalu Poskusite znova čez nekaj časa. "); 
+define("_YOUCANNOTUSETHISNAME","Ne morete uporabiti to ime Prosim izberite drugo."); 
+define("_BANUSERFAILEDLOGINS"," Ban uporabniki po 5 neuspešnih prijavo atempts "); 
+define("_BANUSERFAILEDLOGINSINFO","Uporabnik se izključi po 5 sosednje neuspešne prijave atempts"); 
+define("_ALLOWUSERREDOTEST","Ali si ponovite test"); 
+define("_ALLSUPERVISORS","Vse nadzorniki"); 
+define("_REVOKECERTIFICATEFOREXPIRED","Prekliči potekle certifikate"); 
+define("_MODULEITSELF","Moduli (posameznik)"); 
+define("_MODULESPANEL","Moduli (dodaj / odstrani)"); 
+define("_PROFESSORSCANCREATECOURSES","lahko ustvarite Profesorji tečaje"); 
+define("_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN","Vaša seja je potekla, prosim prijavi se še enkrat"); 
+define("_AUTOMATICALLYPROPAGATEBRANCHCOURSESTOUSERS","širijo podružnice tečaje na izpostavah uporabnikov"); 
+define("_APPLYTOUSERALLREADYTOBRANCH","Promovirati uporabnikom s to vejo"); 
+define("_THEME","Theme"); 
+define("_SELECTBRANCHTHEME","Izberi podružnico temo"); 
+define("_SELECTBRANCHLANGUAGE","Izberi podružnico jezik" ); 
+define("_ACCESSURL","Branch dostop url"); 
+define("_AUTOFILL","Samozapolni"); 
+define("_THEBRANCHWILLBEACCESSIBLEWITHURL","bo veja neposredno dostopni z URL"); 
+define("_ORRESETCOURSEBEFOREEXPIRE" , "Ali prikrivati ​​tečaj, preden poteče"); 
+define("_PROGRESSRESETSUCCESSFULLY","Course napredek je bil uspešno prikrivati"); 
+define("_RESETPROGRESSDATAKEEPCERTIFICATE","Reset napredek vodenje certifikat"); 
+define("_YOUARENOTAMEMBEROFTHISBRANCH","Niste dovoljeno za prijavo, ker niste član te podružnice "); 
+define("_MAXONLINEUSERS","Največ obiskovalcev na forumu"); 
+define("_IFYOUSPECIFYABRANCHURLTHEBRANCHWILLBEACCESSIBLEWITHURL","Če določite podružnico url, bo panoga, so neposredno dostopni od url "); 
+define("_FIRST","First"); 
+define("_ALLOWLOGINFROMDIRECTPAGE","Uporabniki lahko prijavite v od privzetega URL"); 
+define("_YOUCANONLYLOGINFROMYOURBRANCHURL","Lahko samo prijavite s je tvoj veja URL "); 
+define("_NEWCOMMENT","Nov komentar"); 
+define("_ADDCUSTOMTEXT","Dodaj besedilo po meri"); 
+define("_ADDANOTHERCUSTOMTEXT","Dodaj še eno besedilo po meri"); 
+define("_VIEWLESSONASSTUDENT"," Oglejte si lekcijo kot študent "); 
+define("_BACKTOPROFESSORMODE","Nazaj v načinu profesor"); 
+define("_YOUAREINSTUDENTMODE","Trenutno ste to lekcijo kot študent."); 
+define("_CERTIFICATEEXPIRY","Course potrdilo izteka roka "); 
+define("_TEST_FAILURE","test popuščanje"); 
+define("_FAILEDTEST","ni v testu"); 
+define("_TESTFAILUREFORLESSON","Test neuspeh za lekcijo"); 
+define("_HASFAILEDATEST"," ni test ");
 ?>

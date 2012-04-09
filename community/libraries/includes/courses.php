@@ -81,10 +81,12 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
    $courseUsers = $editCourse -> countCourseUsers(array('archive' => false));
    $smarty -> assign("T_COURSE_HAS_USERS", $courseUsers['count']);
 
-      $constraints = array('archive' => false) + createConstraintsFromSortedTable();
-      $lessons = $editCourse -> getCourseLessonsIncludingUnassigned($constraints);
+      //$constraints   = array('archive' => false) + createConstraintsFromSortedTable();
+      $constraints = array('archive' => false, 'return_objects' => false);
+      $dataSource = $editCourse -> getCourseLessonsIncludingUnassigned($constraints);
+
       $totalEntries = $editCourse -> countCourseLessonsIncludingUnassigned($constraints);
-   $dataSource = EfrontLesson :: convertLessonObjectsToArrays($lessons);
+   //$dataSource    = EfrontLesson :: convertLessonObjectsToArrays($lessons);
 
       $directionsTree = new EfrontDirectionsTree();
       $directionsPaths = $directionsTree -> toPathString();
@@ -105,9 +107,8 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
     $totalEntries--;
    }
 
-
    $tableName = $_GET['ajax'];
-   $alreadySorted = 1;
+   //$alreadySorted = 1;
    $smarty -> assign("T_TABLE_SIZE", $totalEntries);
    include("sorted_table.php");
 

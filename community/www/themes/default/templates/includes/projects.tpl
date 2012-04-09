@@ -225,30 +225,32 @@
 
                         {if ($T_PROJECT_USER_INFO.grade != '')}
                                 <tr><td style = "color:red;">{$smarty.const._YOURPROJECTSCOREIS}:&nbsp;{$T_PROJECT_USER_INFO.grade|formatScore}</td></tr>
-                            {if ($T_PROJECT_USER_INFO.comments)}
-                             <tr><td><fieldset class = "fieldsetSeparator"><legend>{$smarty.const._COMMENTS}</legend></fieldset></td></tr>
-       {foreach name = 'comments_list' key = 'index' item = 'entry' from = $T_PROJECT_USER_INFO.comments}
-          {foreach name = 'commentlist' key = 'login' item = 'comment' from = $entry}
-           <tr width = "100%" class = "{cycle values = "oddRowColor, evenRowColor"}">
-          <td>
+                        {/if}
+
+      {if ($T_PROJECT_USER_INFO.comments)}
+                           <tr><td><fieldset class = "fieldsetSeparator"><legend>{$smarty.const._COMMENTS}</legend></fieldset></td></tr>
+      {foreach name = 'comments_list' key = 'index' item = 'entry' from = $T_PROJECT_USER_INFO.comments}
+         {foreach name = 'commentlist' key = 'login' item = 'comment' from = $entry}
+          <tr width = "100%" class = "{cycle values = "oddRowColor, evenRowColor"}">
+         <td>
 
 
-           <div style = "float:right">
-           {if $login === $T_CURRENT_USER->user.login}
-            <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteComment(this, '{$index}', '{$login}')"/>
-           {/if}
-           </div>
-           {if !$login|@is_numeric} #filter:login-{$login}#:{/if} {$comment}
+          <div style = "float:right">
+          {if $login === $T_CURRENT_USER->user.login}
+           <img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title = "{$smarty.const._DELETE}" onclick = "if (confirm ('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteComment(this, '{$index}', '{$login}')"/>
+          {/if}
+          </div>
+          {if !$login|@is_numeric} #filter:login-{$login}#:{/if} {$comment}
 
-         </td></tr>
-                         {/foreach}
-         {/foreach}
-
-                            {/if}
+        </td></tr>
+                        {/foreach}
+        {/foreach}
 
                         {/if}
+
+
                          <tr><td>
-                         <a href = "{$smarty.server.PHP_SELF}?ctg=projects&view_project={$smarty.get.view_project}&add_comment=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOMMENT}', 3)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._REPLY}" alt = "{$smarty.const._REPLY}" />&nbsp;{$smarty.const._REPLY}</a>
+                         <a href = "{$smarty.server.PHP_SELF}?ctg=projects&view_project={$smarty.get.view_project}&add_comment=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOMMENT}', 3)" target = "POPUP_FRAME" ><img style="vertical-align:middle" src = "images/16x16/edit.png" title = "{$smarty.const._COMMENT}" alt = "{$smarty.const._COMMENT}" />&nbsp;{$smarty.const._COMMENT}</a>
                           </td></tr>
                         </table>
 

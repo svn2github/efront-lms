@@ -1,4 +1,4 @@
-=== Version 3.6.11 build 14607 ===
+=== Version 3.6.11 build 14713 ===
 - Fixed importing more than one jobs on the same user and csv, having "replace" mode to "on"
 - Updated paypal sandbox address to use ssl
 - Updated notifications process to lock while it's executing
@@ -109,7 +109,6 @@
 - Fixed issue about progressBar and decimal point
 - Fixed issue about check icon in lesson progress (#2270)
 - Added option about module_itself in custom user types
-- Added table escaping with `` in backup (in case there are tables from possible manually backup)
 - Added functionallity of multiple comments in project page
 - Fixed issue about links to send private messages when they are disabled
 - Fixed issue in module quick mails about sending mails to archived administrators

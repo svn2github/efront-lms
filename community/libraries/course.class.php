@@ -3822,8 +3822,8 @@ class EfrontCourse
 	 */
  public static function checkCertificateExpire() {
   $courses = eF_getTableData("courses", "id,reset_interval,reset", "certificate_expiration !=0" );
-  $notifications = eF_getTableData("event_notifications", "id,event_type,after_time,send_conditions", "event_type=-59");
-  $notifications_on_event = eF_getTableData("event_notifications", "id,event_type,after_time,send_conditions", "event_type=59");
+  $notifications = eF_getTableData("event_notifications", "id,event_type,after_time,send_conditions", "event_type=-59 and active=1");
+  $notifications_on_event = eF_getTableData("event_notifications", "id,event_type,after_time,send_conditions", "event_type=59 and active=1");
   foreach ($courses as $value) {
    $course = new EfrontCourse($value['id']);
    $constraints = array('archive' => false, 'active' => true, 'condition' => 'issued_certificate != ""');

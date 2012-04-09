@@ -2501,7 +2501,7 @@ class EfrontStats
  }
 
 
- public static function createViews() {debug();
+ public static function createViews() {
   try {
   } catch (Exception $e) {}
  }

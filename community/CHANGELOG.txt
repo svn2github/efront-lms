@@ -1,9 +1,66 @@
 === Version 3.6.11 build 14713 ===
-- Fixed importing more than one jobs on the same user and csv, having "replace" mode to "on"
-- Updated paypal sandbox address to use ssl
-- Updated notifications process to lock while it's executing
-- Changed scheme for encoding mail headers from 'Q' to 'B'
+- Added ability for professor to create courses/lessons
+- Added RTL theme
+- Added global CSRF protection
+- Added functionallity of multiple comments in project page
+- Added datepicker option in complete for all students in progress
+- Added code to handle 'New comment' info to dashboard in projects
+- Added test failure notification
+- Added checkSpam functionality for denying access to IPs that use outside forms (contact,sign up, reset password) very often
+- Added option to deactivate users after five contiguous unsuccessful login atempts
+- Added option for professor to allow users to repeat test
+- Added option about module_itself in custom user types, to disallow sub-type users from accessing modules
+- Added option for changing completion date in courses
+- Added check for mysql reserved words in custom user field creation
 - Added a warning in case a file is uploaded with the same name as an existing one that has not write permissions
+- Added more buttons in tinyMCE editor
+- Added lesson percentage column in course stats
+- Added ability to change lesson status from table in progress page
+- Added group filter in test reports
+- Added ability to send more than one attachment in eF_mail()
+- Added ability to change completed status for students by clicking on the icon in progress page
+- Added smart content in lesson options (Enterprise/Educational edition)
+- Added reset certificate before expire option (Enterprise/Educational edition)
+- Added ims option for toggling in control panel page (like scorm) (Enterprise/Educational edition)
+- Added option in course settings for revoke all expired certificates (Enterprise/Educational edition)
+- Added CEUs in custom reports results (Enterprise/Educational edition)
+- Added ability for custom fields in certificate templates (Enterprise/Educational edition)
+- Added course expiry notification (Enterprise/Educational edition)
+- Added before course expiry notification (Enterprise/Educational edition)
+- Added edit certificate key (Enterprise/Educational edition)
+- Added user role selection field when assigning lessons/courses in reports generator (Enterprise/Educational edition)
+- Added Branch URLs (Enterprise edition)
+- Added "all supervisors" as option for recipients in notifications (Enterprise edition)
+- Added multiple Job select in stats_filter (Enterprise edition)
+- Added onAddUserPlacement() module function (Enterprise edition)
+- Added time option in skill gap tests (Enterprise edition)
+- Updated user profile to include skill categories, along with skill names (Enterprise edition)
+- Updated paypal sandbox address to use ssl (Enterprise/Educational edition)
+- Updated notifications process to lock while it's executing
+- Upgrade videojs to last version (#2107)
+- Extended characters converting to space when adding in EfrontSearch :: insertText
+- Extended smart content functionality to create units with other file types (Enterprise/Educational edition)
+- Extended XML API with "show users who completed lesson" and "show users that submitted a test" functions
+- Changed 'start unit' added to scorm units to a template in order to be replaced according to user language
+- Changed scheme for encoding mail headers from 'Q' to 'B'
+- Changed link for doing the survey to be active in notifications
+- Removed share files column from filemanager when adding unit if digital library option for lesson is inactive
+- Removed submit button in course rules if course has only one lesson
+- Converted org chart to perform ajax-based loading (Enterprise edition)
+- Allow user to change his own profile when "Users" option in user types is set to "View"
+- Prevented accessing a lesson when in a course that depends on another course, which is not part of the student's curriculum
+- Module installation fail now calls module's uninstall() method
+- Session expiration page now includes a login box
+- Display invisible custom profile fields when creating user from admin page
+- Updating from_timestamp value when re-assigning user to course if course is not completed (#1908)
+- Implementing a common question pool (between lessons) (Enterprise/Educational edition)
+- Exclude google view pdf links from being transformed to view_file.php?file format
+- Display lessons/courses sorted in reports generator when assigning to users
+- Default sorting by last post in forum page
+- Filter php_self for xss attacks
+- Fixed issue about folders with quote in name (') when navigating into folder from file manager
+- Fixed issue about insert to editor flv files
+- Fixed importing more than one jobs on the same user and csv, having "replace" mode to "on"
 - Fixed showing a success message in "contact us", even if the email was not sent
 - Fixed "more info" link not displaying as link
 - Fixed scorm export for packets with non-english files
@@ -11,37 +68,20 @@
 - Fixed issue about access forum page in lesson with instance_source
 - Fixed issue about uploading avatar with same name more than one times
 - Fixed issues about logo loading
-- Extended characters converting to space when adding in EfrontSearch :: insertText
 - Fixed issues in getting possible recipients for messages
-- Display invisible custom profile fields when creating user from admin page
 - Fixed errors displayed in time constraint reports when page submitted without selecting a course/lesson/project/test value
 - Fixes for test analysis page
 - Fixed issue about not allowing file name to contain quotes when renaming file from interface
-- Updating from_timestamp value when re-assigning user to course if course is not completed (#1908)
-- Implementing a common question pool (between lessons) for enterprise/educational editions
 - Fixed issue with counting questions in feedback page
 - Fixed changing of registration date when editing user
 - Fixed issue about shared files with share folder lessons
 - Fixed issue about complete lesson and decimal point db error
 - Fixed issue about displaying inactive users in recipients list
-- Small api extension
 - Fixed issue about editing account as sub-admin where user was sub-admin too (#1952)
 - Fixed language issues about first login change password
 - Fixed issue about course not completed notification
 - Fixed issue about assigning proper user type when assigning users to group via reports generator
 - Fixed issue about course completing by admin for a professor with student role to the course
-- Exclude google view pdf links from being transformed to view_file.php?file format
-- Added user role selection field when assigning lessons/courses in reports generator
-- Display lessons/courses sorted in reports generator when assigning to users
-- Removed share files column from filemanager when adding unit if digital library option for lesson is inactive
-- Default sorting by last post in forum page
-- Changed link for doing the survey to be active in notifications
-- Fixed issue about folders with quote in name (') when navigating into folder from file manager
-- Extended smart content functionality to create units with other file types
-- Added time option in skill gap tests
-- Added more buttons in tinyMCE editor
-- Fixed issue about insert to editor flv files
-- Filter php_self for xss attacks
 - Fixed issue about students showing skill gap tests after entering a lesson
 - Fixed issue about last projects block in control panel of professor
 - Fixed issue about title path (Breadcrumb) with / and () characters and &rarr; in title of anchors (#2042)
@@ -49,80 +89,39 @@
 - Fixed visual issue in Chrome about lesson initialization and import page(id conflict with chat) (#2060)
 - Fixed issue about custom user type and view value in progress
 - Fixed chat issues about word wrap and chatbox titles with @
-- Removed submit button in course rules if course has only one lesson
 - Fixed js issues in file manager and IE about files with '
-- Added checkSpam functionality for denying access to IPs that use outside forms (contact,sign up, reset password) very often
-- Added check for mysql reserved words in custom user field creation
 - Fixed add to cart issue with hash in url (#2075)
-- Added option to deactivate users after five contiguous unsuccessful login atempts
 - Fixed issue about trying to directly access topics from forums that did not be enrolled to users
 - Fixed paypal not accepting comma in prices
-- Converted org chart to perform ajax-based loading
-- Added onAddUserPlacement() module function
 - Fixed lesson statistics not displaying test score when "active score" is not set
 - Fixed redirection when resuming test for certain IE clients
-- Allow user to change his own profile when Users option in user types is set to View
-- Prevented accessing a lesson when in a course that depends on another course, which is not part of the student's curriculum
-- Added option for professor to allow users to repeat test
 - Fixed users losing their ldap status when updating their profile
-- Updated user profile to include skill categories, along with skill names (Enterprise edition)
 - Fixed cart contents not being retained when server time is unsynchronized with client time
 - Fixed drag and drop question results displaying out of order for wrong answers
-- Module installation fail now calls module's uninstall() method
-- Added CEUs in custom reports results
-- Added ability for professor to create courses/lessons
-- Session expiration page now includes a login box
 - Fixed importing users to courses from csv with an empty type not working
-- Added Branch URLs
-- Added RTL theme
-- Added group filter in test reports
 - Fixed possible XSS attack while sending personal messages
 - Fixed possible XSS attack while posting lesson comment
 - Fixed possible XSS attack while sending content error report
-- Added global CSRF protection
 - Fixed users bypassing lesson rules using a direct url
 - Fixed possible XSS on table grid filter
-- Upgrade videojs to last version (#2107)
 - Fixed issue about more than one spaces between words in empty space questions
 - Fixed issue about shared files with share folder lessons
 - Fixed issue about assigning selected courses or lessons to group users or users already belong to this job position where existing roles were changed (#2141)
 - Fixed issue about scorm export in case of a space in path (#2143)
-- Ability to change completed status for students by clicking on the icon in progress page
 - Fixed e-mail issue about HELO message and security filters (#2098)
 - Fixed issue about assigning selected courses or lessons to group users or users already belong to this job position where existing roles were changed (#2141)
 - Fixed issue about scoring in complete lesson when professor scores last remaining test
 - Fixed issue about displaying archived users in organization chart
-- Added ability to change lesson status from table in progress page
 - Fixed issue about unit 'Accessible with a direct URL' (#2180)
 - Fixed issue about location column in some tabs in course reports
-- Adding lms option for toggling in control panel page (like scorm)
-- Changed 'start unit' added to scorm units to a template in order to be replaced according to user language
-- Added all supervisors as option for recipients in notifications
-- Added lesson percentage column in course stats
-- Added multiple Job select in stats_filter
-- Added ability to change lesson status from table in progress page
 - Fixed issue about coreAccess in tests
 - Fixed issue about copying tests from another lesson where questions contained a file in subfolder that was already copied (from another question copy) in target lesson
-- Add option in course settings for revoke all expired certificates
 - Fixed issue about active field in users to course imports
-- Added ability to send more than one attachment in eF_mail()
 - Fixed issue about progressBar and decimal point
 - Fixed issue about check icon in lesson progress (#2270)
-- Added option about module_itself in custom user types
-- Added functionallity of multiple comments in project page
 - Fixed issue about links to send private messages when they are disabled
 - Fixed issue in module quick mails about sending mails to archived administrators
-- Added smart content in lesson options
-- Added reset certificate before expire option
-- Added datepicker option in complete for all students in progress
 - Fixed icon issue about 'Assign selected courses to group users'
-- Added edit certificate key
-- Added option for changing completion date in courses
-- Added ability for custom fields in certificate templates
-- Added code to handle 'New comment' info to dashboard in projects
-- Added course expiry notification
-- Added before course expiry notification
-- Added test failure notification
 
 === Version 3.6.10 build 12151 ===
 - Added visible option functionality in custom user profile fields

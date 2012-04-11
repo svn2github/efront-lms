@@ -37,8 +37,11 @@ try {
   if (strpos($url, 'http') !== 0) { //Otherwise, depending on the QUERY_STRING, parse_url() may not work
    $url = G_PROTOCOL.'://'.$_SERVER["HTTP_HOST"].$url;
   }
+
   $urlParts = parse_url($url);
+
   $filePath = G_ROOTPATH.'www/'.str_replace(G_SERVERNAME, '', G_PROTOCOL.'://'.$_SERVER['HTTP_HOST'].$urlParts['path']);
+
   try {
    $file = new EfrontFile(urldecode($filePath));
   } catch (Exception $e) {
@@ -84,6 +87,9 @@ try {
      $file -> sendFile(false);
     }
 } catch (EfrontFileException $e) {
+ if ($e->getCode() == EfrontFileException::FILE_NOT_EXIST) {
+  header("HTTP/1.0 404");
+ }
     echo EfrontSystem :: printErrorMessage($e -> getMessage());
 }
 

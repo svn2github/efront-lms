@@ -231,10 +231,11 @@ abstract class EfrontEntity
      }
     }
     public static function createDateElement($form, $elementName, $elementLabel, $options = array()) {
-     $options = array_merge(array('format' => getDateFormat().' H:i',
+     $options = array_merge(array('format' => (isset($options['include_time']) && $options['include_time']? getDateFormat().' H:i': getDateFormat()),
              'minYear' => date("Y") - 4,
              'maxYear' => date("Y") + 3,
              'addEmptyOption' => false), $options);
+     unset($options['include_time']);
      $el = $form -> createElement("date", $elementName, $elementLabel, $options);
      for ($i = 0; $i < 12; $i++) {
       //$el -> _locale['en']['months_long'][$i] = iconv(_CHARSET, 'UTF-8', strftime("%B", mktime(0, 0, 0, $i+1, 1, 2000)));

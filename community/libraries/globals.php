@@ -103,21 +103,6 @@ if ($GLOBALS['configuration']['eliminate_post_xss']) {
      }
  }
 }
-if (G_BRANCH_URL && !$_SESSION['s_current_branch']) {
- try {
-  $branch = EfrontBranch::getBranchByUrl(G_BRANCH_URL);
-  $_SESSION['s_current_branch'] = $branch->branch['branch_ID'];
-  if ($branch->branch['languages_NAME'] && in_array($branch->branch['languages_NAME'], array_keys(EfrontSystem::getLanguages(true, true)))) {
-   $_SESSION['s_language'] = $branch->branch['languages_NAME'];
-  }
-  if ($theme = $branch->branch['themes_ID']) {
-   $theme = new themes($theme);
-   $_SESSION['s_theme'] = $theme -> {$theme -> entity}['id'];
-  }
- } catch (Exception $e) {
-  //do nothing, simply ignore failed branch assignments 
- }
-}
 //setupBranchSubdomain();
 //Language settings. $GLOBALS['loadLanguage'] can be used to exclude language files from loading, for example during certain ajax calls
 if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
@@ -160,11 +145,6 @@ require_once $path."smarty/smarty_config.php";
 //Assign the configuration variables to smarty
 $smarty -> assign("T_CONFIGURATION", $configuration); //Assign global configuration values to smarty
 $smarty -> assign("T_MAX_FILE_SIZE", FileSystemTree :: getUploadMaxSize());
-/*
-if (isset($GLOBALS['branchpart']) && $GLOBALS['branchpart']) {
-	$smarty->assign("T_BASEHREF", G_SERVERNAME.$GLOBALS['branchpart'].'/');
-}
-*/
 //Initialize languages and notify smarty on weather we have an RTL language
 $languages = EfrontSystem :: getLanguages();
 if ($languages[$setLanguage]['rtl']) {
@@ -307,7 +287,7 @@ function setDefines() {
  if (!is_file(dirname(G_ROOTPATH).$request_uri) && basename($_SERVER['PHP_SELF']) != basename($_SERVER['REQUEST_URI'])) {
   $request_uri .= basename($_SERVER['PHP_SELF']);
  }
- if (!is_file(dirname(G_ROOTPATH).$request_uri) && dirname($request_uri) != dirname($_SERVER['PHP_SELF'])) {
+ if (!is_file(dirname(G_ROOTPATH).$request_uri) && dirname($request_uri) != dirname($_SERVER['PHP_SELF']) && strpos($request_uri, 'content/lessons') === false) {
   define("G_BRANCH_URL", basename(dirname($request_uri)).'/');
  } else {
   define("G_BRANCH_URL", '');
@@ -321,7 +301,7 @@ function setDefines() {
   $_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.preg_replace('#^'.G_OFFSET.'#', '', $_SERVER['PHP_SELF']);
  }
     preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 14714;
+    $build = 14805;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

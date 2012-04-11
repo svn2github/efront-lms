@@ -1,3 +1,9 @@
+=== Version 3.6.11 build ===
+- Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)
+- A file not found (404) header is sent for missing files
+- Fixed file requests overlapping with branch urls in certain cases
+- Members logged in through a specific branch url are only viewing their organization's Org chart part
+
 === Version 3.6.11 build 14713 ===
 - Added ability for professor to create courses/lessons
 - Added RTL theme

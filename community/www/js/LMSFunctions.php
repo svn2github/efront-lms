@@ -52,7 +52,7 @@ echo $SCOState;
 //}
 
 /*LMS Initializations. Among many operations, we attach LMS functions to the API adapter and initialize data model (cmi).*/
-var _DEBUG = 0;
+var _DEBUG = '<?php echo $GLOBALS['configuration']['debug_mode'] != false ?>';
 var _TEMP = '';
 var _TEMP2 = '';
 
@@ -112,7 +112,7 @@ function LMSInitialize(parameter)
     } catch(e) {
         myErrorHandler(e);
     } finally {
-        if (_DEBUG) alert("Function: LMSInitialize \nArgument: '"+parameter+"' \nReturnes: '"+return_value+"'");
+        if (_DEBUG) console.log("Function: LMSInitialize \nArgument: '"+parameter+"' \nReturnes: '"+return_value+"'");
         //alert('LMSInitialize Error code: '+myErrorNumber);
         return return_value;
     }
@@ -130,7 +130,7 @@ function LMSFinish(parameter)
     } catch(e) {
         myErrorHandler(e);
     } finally {
-        if (_DEBUG) alert("Function: LMSFinish \nArgument: '"+parameter+"' \nReturnes: '"+return_value+"'");
+        if (_DEBUG) console.log("Function: LMSFinish \nArgument: '"+parameter+"' \nReturnes: '"+return_value+"'");
         //alert('LMSFinish Error code: '+myErrorNumber);
         return return_value;
     }
@@ -144,7 +144,7 @@ function LMSGetValue(parameter)
 {
     myInitError();
     return_value = myGetValues(parameter);
-    if (_DEBUG) alert("Function: LMSGetValue \nArgument: '"+parameter+"' \nReturns: '"+return_value+"'");
+    if (_DEBUG) console.log("Function: LMSGetValue \nArgument: '"+parameter+"' \nReturns: '"+return_value+"'");
     //alert('LMSGetValue Error code: '+myErrorNumber);
     return return_value;
 }
@@ -158,7 +158,7 @@ function LMSSetValue(parameter, value)
     //if (parameter == 'cmi.interactions.2.latency' && value = '03:01:39:52') _DEBUG = 1;
     myInitError();
     return_value = mySetValues(parameter, value);
-    if (_DEBUG) alert("Function: LMSSetValue \nArgument: '"+parameter+"' \nSet Value: '"+value+"' \nReturns: '"+return_value+"'");
+    if (_DEBUG) console.log("Function: LMSSetValue \nArgument: '"+parameter+"' \nSet Value: '"+value+"' \nReturns: '"+return_value+"'");
     //alert('LMSSetValue Error code: '+myErrorNumber);
     return return_value;
 }
@@ -171,7 +171,7 @@ function LMSCommit(parameter)
 {
     myInitError();
     return_value = myCommit(parameter);
-    if (_DEBUG) alert("Commit! Parameter: "+parameter+" Returnes value: "+return_value);
+    if (_DEBUG) console.log("Commit! Parameter: "+parameter+" Returnes value: "+return_value);
     //alert('LMSCommit Error code: '+myErrorNumber);
     return return_value;
 }
@@ -182,7 +182,7 @@ function LMSCommit(parameter)
 */
 function LMSGetLastError()
 {
-    if (_DEBUG) alert("GetLastError: "+myErrorNumber);
+    if (_DEBUG) console.log("GetLastError: "+myErrorNumber);
     return myErrorNumber;
 }
 /**
@@ -192,7 +192,7 @@ function LMSGetLastError()
 */
 function LMSGetErrorString(errorNumber)
 {
-    if (_DEBUG) alert("GetErrorString");
+    if (_DEBUG) console.log("GetErrorString");
     return myGetErrorString(errorNumber);
 }
 /**
@@ -202,7 +202,7 @@ function LMSGetErrorString(errorNumber)
 */
 function LMSGetDiagnostic(errorNumber)
 {
-    if (_DEBUG) alert("LMSGetDiagnostic with errorNumber: "+errorNumber);
+    if (_DEBUG) console.log("LMSGetDiagnostic with errorNumber: "+errorNumber);
     if (errorNumber == "") {
         return myErrorDiagnostic;
     } else {

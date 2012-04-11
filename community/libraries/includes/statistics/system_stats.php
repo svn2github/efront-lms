@@ -48,8 +48,8 @@ try {
                 $result[$key]['content_name'] = $contentNames[$value['comments']];
             }
         }
-
-        $smarty -> assign("T_SYSTEM_LOG", $result);
+  $analytic_log = $result;
+        $smarty -> assign("T_SYSTEM_LOG", $analytic_log);
     }
 
     $users = array();
@@ -257,6 +257,27 @@ if (isset($_GET['excel'])) {
      $time = EfrontTimes::formatTimeForReporting($value['seconds']);
      $workSheet -> write($row++, 3, $time['time_string'], $fieldCenterFormat);
     }
+    $workSheet = & $workBook -> addWorkSheet("Analytic log");
+    $workSheet -> setInputEncoding('utf-8');
+    $workSheet -> setColumn(0, 0, 5);
+    $workSheet -> write(1, 1, _ANALYTICLOG, $headerFormat);
+    $workSheet -> mergeCells(1, 1, 1, 7);
+    $workSheet -> setColumn(1, 6, 30);
+    $workSheet -> write(2, 1, _LOGIN, $fieldLeftFormat);
+    $workSheet -> write(2, 2, _LESSON, $fieldLeftFormat);
+    $workSheet -> write(2, 3, _UNIT, $fieldLeftFormat);
+    $workSheet -> write(2, 4, _ACTION, $fieldLeftFormat);
+    $workSheet -> write(2, 5, _TIME, $fieldLeftFormat);
+    $workSheet -> write(2, 6, _IPADDRESS, $fieldLeftFormat);
+    $row=3;
+        foreach ($analytic_log as $value) {
+            $workSheet -> write($row, 1, formatLogin($value['users_LOGIN']), $fieldLeftFormat);
+            $workSheet -> write($row, 2, $value['lesson_name'], $fieldCenterFormat);
+            $workSheet -> write($row, 3, $value['content_name'], $fieldLeftFormat);
+            $workSheet -> write($row, 4, $actions[$value['action']], $fieldLeftFormat);
+            $workSheet -> write($row, 5, formatTimestamp($value['timestamp'], 'time'), $fieldLeftFormat);
+         $workSheet -> write($row++, 6, eF_decodeIP($value['session_ip']), $fieldLeftFormat);
+        }
     $workBook -> send('system_reports.xls');
     $workBook -> close();
     exit(0);

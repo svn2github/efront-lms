@@ -246,6 +246,7 @@ $form -> addElement('password', 'password', _PASSWORD, 'class = "inputText" tabi
 $form -> addRule('password', _THEFIELD.' "'._PASSWORD.'" '._ISMANDATORY, 'required', null, 'client');
 $form -> addElement('checkbox', 'remember', _KEEPMELOGGEDIN, null, 'class = "inputCheckbox" style = "vertical-align:middle"');
 $form -> addElement('submit', 'submit_login', _ENTER, 'class = "flatButton"');
+$form->disable_csrf = true;
 if ($form -> isSubmitted() && $form -> validate()) {
  try {
   $user = EfrontUserFactory :: factory(trim($form -> exportValue('login')));

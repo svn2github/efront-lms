@@ -1971,7 +1971,7 @@ class HTML_QuickForm extends HTML_Common
             }
         }
         //added for CSRF protection
-        if(!isset($this->_submitValues['qfS_csrf']) || $this->_submitValues['qfS_csrf']!=$_SESSION[$this->_sessionTokenKey]){
+        if (!$this->disable_csrf && (!isset($this->_submitValues['qfS_csrf']) || $this->_submitValues['qfS_csrf']!=$_SESSION[$this->_sessionTokenKey])) {
             $this->setElementError("qfS_csrf", "Anti-CSRF token does not match");
         }
         return (0 == count($this->_errors));

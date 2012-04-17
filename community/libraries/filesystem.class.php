@@ -3059,7 +3059,6 @@ class FileSystemTree extends EfrontTree
                 $name = $_FILES[$fieldName]['name'];
                 $tmp_name = $_FILES[$fieldName]['tmp_name'];
             }
-            $this -> checkFile($name);
             if ($error) {
                 switch ($error) {
                     case UPLOAD_ERR_INI_SIZE :
@@ -3092,18 +3091,7 @@ class FileSystemTree extends EfrontTree
             } elseif (!eF_checkParameter($name, 'filename')) {
                 throw new EfrontFileException(_ILLEGALFILENAME, EfrontFileException :: ILLEGAL_FILE_NAME);
             } else {
-                //$id      = eF_insertTableData("files", array('file' => 'temp'));                        //Insert bogus entry
-                /*
-
-                 if (FileSystemTree :: mustTranslate($name)) {
-
-                 $newName = $id;
-
-                 pathinfo($name, PATHINFO_EXTENSION) ? $newName .= '.'.pathinfo($name, PATHINFO_EXTENSION) : null;    //Append the file extension, only if the file has one
-
-                 }
-
-                 */
+             $this -> checkFile($name);
                 $newName = EfrontFile :: encode($name);
                 $ok = move_uploaded_file($tmp_name, $destinationDirectory['path'].'/'.$newName);
                 if ($ok !== false) {

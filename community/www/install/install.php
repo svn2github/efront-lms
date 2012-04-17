@@ -180,6 +180,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
   $form -> setDefaults($currentVersion);
   $form -> setDefaults(array('old_db_name' => $currentVersion['db_name']));
  }
+ $form->disable_csrf = true;
  if (($form -> isSubmitted() && $form -> validate()) || isset($_GET['unattended'])) {
   try {
    if (function_exists('apc_clear_cache')) {

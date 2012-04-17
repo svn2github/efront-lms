@@ -89,7 +89,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   if ($GLOBALS['configuration']['disable_projects'] != 1 && !empty($lessons_list)) {
    if ($currentUser -> getType() == "student") {
     // See projects assigned to you
-    $not_expired_projects = eF_getTableData("projects p, users_to_projects up, lessons", "p.*, up.grade, up.comments, up.filename, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "up.users_LOGIN = '$login' AND up.projects_ID = p.id AND p.lessons_ID = lessons.id AND lessons.id IN ('" . implode("','", $lessons_list). "') AND p.deadline > ".time()." ORDER BY p.deadline ASC LIMIT 5");
+    $not_expired_projects = eF_getTableData("projects p, users_to_projects up, lessons", "p.*, up.grade, up.comments, up.filename, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "up.users_LOGIN = '".$currentUser->user['login']."' AND up.projects_ID = p.id AND p.lessons_ID = lessons.id AND lessons.id IN ('" . implode("','", $lessons_list). "') AND p.deadline > ".time()." ORDER BY p.deadline ASC LIMIT 5");
    } else {
     // See projects related to your lessons
     $not_expired_projects = eF_getTableData("projects p, lessons", "p.*, lessons.name as show_lessons_name, lessons.id as show_lessons_id", "p.lessons_ID = lessons.id AND lessons.id IN ('" . implode("','", $lessons_list). "') AND p.deadline > ".time()." ORDER BY p.deadline ASC LIMIT 5");

@@ -174,6 +174,6 @@ if (!usingHorizontalInterface) {
 </script>
 {if $T_CONFIGURATION.load_videojs == 1}
 <script type="text/javascript" charset="utf-8">
- VideoJS.setupAllWhenReady();
+document.observe("dom:loaded", VideoJS.setupAllWhenReady);
 </script>
 {/if}

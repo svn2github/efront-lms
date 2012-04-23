@@ -608,11 +608,11 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
 ?>';
     file_put_contents($path."phplivedocx_config.php", $phplivedocxConfig);
     Installation :: addModules();
-    EfrontStats::createViews();
     if (is_file('post_install.php')) {
      include('post_install.php');
      runPostInstallationFunctions();
     }
+    EfrontStats::createViews();
     if (!isset($_GET['unattended'])) {
      header("location:".$_SERVER['PHP_SELF']."?finish=1");
      exit;

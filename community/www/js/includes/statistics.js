@@ -369,9 +369,9 @@ $(type+'_row').show();
 
 function appendSelection (ob) {
 	selected = new Array(); 
-	for (var i = 0; i < ob.options.length; i++) {
-		if (ob.options[ i ].selected) {
-			selected.push(ob.options[ i ].value);
+	for (var i = 0; i < $(ob).options.length; i++) {
+		if ($(ob).options[ i ].selected) {
+			selected.push($(ob).options[ i ].value);
 		}
 	}
 	return selected.toString();

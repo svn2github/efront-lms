@@ -29,7 +29,7 @@ sizeof($result) ? $SCOValues = $result[0] : $SCOValues = array();
 $SCOState = 'var SCOState = new Array();';
 foreach ($SCOValues as $key => $value)
 {
-    $SCOState .= "SCOState['$key'] = '$value';";//echo "alert('LMS User Set: SCOState[$key] = $value');";
+    $SCOState .= "SCOState['$key'] = '".addslashes($value)."';";//echo "alert('LMS User Set: SCOState[$key] = $value');";
 }
 
 foreach ($LMSToSCOValues as $key => $value)
@@ -38,7 +38,7 @@ foreach ($LMSToSCOValues as $key => $value)
     if ($key == 'score') {
         $value = 0;
     }
-    $SCOState .= "SCOState['$key'] = '".str_replace("'", "\'", $value)."';";//echo "alert('LMS Set: SCOState[$key] = $value');";
+    $SCOState .= "SCOState['$key'] = '".addslashes($value)."';";//echo "alert('LMS Set: SCOState[$key] = $value');";
 }
 
 error_reporting(E_ERROR);

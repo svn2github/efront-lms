@@ -479,7 +479,14 @@ if (isset($_GET['excel']) && $_GET['excel'] == 'lesson') {
         if ($GLOBALS['configuration']['disable_projects'] != 1) {
             $workSheet -> write($row, 10, formatScore($user['project_status']['mean_score'])."%", $fieldCenterFormat);
         }
-        $workSheet -> write($row, 11, $user['completed'] ? _YES : _NO, $fieldCenterFormat);
+     if ($user['completed'] && $user['timestamp_completed']) {
+   $completedString = _YES.', '._ON.' '.formatTimestamp($user['timestamp_completed']);
+  } elseif ($user['completed']) {
+   $completedString = _YES;
+  } else {
+   $completedString = _NO;
+  }
+        $workSheet -> write($row, 11, $completedString, $fieldCenterFormat);
         $workSheet -> write($row, 12, formatScore($user['score'])."%", $fieldCenterFormat);
         $row++;
     }

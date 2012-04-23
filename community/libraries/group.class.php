@@ -983,7 +983,7 @@ class EfrontGroup
          as has_instances,
        (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
          as num_lessons,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and c.archive=0 and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and uc.user_type IN ('".implode("','", array_keys(EfrontLessonUser::getStudentRoles()))."'))
          as num_students";
   $where[] = "c.id=cg.courses_ID and cg.groups_ID=".$this -> group['id'];
      $result = eF_getTableData("courses c, courses_to_groups cg", $select, implode(" and ", $where), $orderby, $groupby, $limit);
@@ -1040,7 +1040,7 @@ class EfrontGroup
          as has_instances,
        (select count( * ) from lessons_to_courses cl, lessons l where cl.courses_ID=c.id and l.archive=0 and l.id=cl.lessons_ID)
          as num_lessons,
-       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and u.archive=0 and u.login=uc.users_LOGIN and u.user_type='student')
+       (select count( * ) from users_to_courses uc, users u where uc.courses_ID=c.id and c.archive=0 and u.archive=0 and uc.archive=0 and u.login=uc.users_LOGIN and uc.user_type IN ('".implode("','", array_keys(EfrontLessonUser::getStudentRoles()))."'))
          as num_students";
      $result = eF_getTableData("courses c left outer join (select courses_ID from courses_to_groups where groups_ID=".$this -> group['id'].") r on c.id=r.courses_ID", $select,
          implode(" and ", $where), $orderby, $groupby, $limit);

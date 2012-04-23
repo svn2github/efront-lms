@@ -48,7 +48,7 @@ define("_YOUREMAIL","Votre e-mail");//Your Email
 define("_MESSAGESUBJECT","Sujet du message");//Message subject
 define("_PASSWORDLEAVEBLANK","Mot de passe (blanc pour laisser inchangé)");//Password (blank to leave unchanged)
 define("_PERSONALDATACHANGESUCCESS","Vos informations personnelles ont été modifiées avec succès");//Your personal info has been successfully altered
-define("_REGISTRATIONDATE","Date d&#039;enregistrement");//Registration date
+define("_REGISTRATIONDATE","Date d'enregistrement");//Registration date
 define("_SAVECHANGES","Sauvegarder les modifications");//Save
 define("_PERSONALDATA","Informations personnelles");//Personal info
 define("_LESSONOPTIONS","Options de Leçon");//Lesson options
@@ -453,7 +453,7 @@ define("_LDAPCONFIGURATION","Configuration LDAP");//LDAP configuration
 define("_LDAPBASEDN","LDAP Base DN");//LDAP Base DN
 define("_YOUHAVEALREADYCORRECTEDTHISQUESTION","Vous avez déjà corrigé cette question");//You have already corrected this question
 define("_SHOWALL","Afficher tout");//Show all
-define("_TOTALLOGINS","L&#039;ensemble des connexions au système");//Total system logins
+define("_TOTALLOGINS","L'ensemble des connexions au système");//Total system logins
 define("_ALLOWEDIPS","Adresse IP autorisée");//Allowed IPs
 define("_COMMASEPARATEDLISTASTERISKEXAMPLE","Séparer les listes par des virgules. L&#039;astérisque * est autorisé. Exemple: 192.168.0 .*, 192.168.1.1, 192.168.1.100");//Comma separated list. The asterisk * is allowed. Example: 192.168.0.*, 192.168.1.1, 192.168.1.100
 define("_DISALLOWEDIPS","Adresse IP rejetée");//Disallowed IPs
@@ -1333,7 +1333,7 @@ define("_ALLSYSTEMUSERS","Tous les utilisateurs du système");//All system users
 define("_USERSCONNECTEDTOSPECIFICCOURSE","Les utilisateurs responsables de cours");//Users involved with specific course
 define("_USERSCONNECTEDTOSPECIFICLESSON","Les utilisateurs responsables de leçon");//Users involved with specific lesson
 define("_SPECIFICTYPEUSERS","Type d&#039;utilisateurs spécifiques");//Specific type of users
-define("_USERTYPE","Type de l&#039;utilisateur");//User type
+define("_USERTYPE","Type de l'utilisateur");//User type
 define("_ACTIVEUSER","Participation active des utilisateurs");//Active user
 define("_USERDELETED","L&#039;utilisateur a été supprimé.");//User deleted.
 define("_THEUSER","Utilisateur");//The user
@@ -1347,11 +1347,11 @@ define("_INVALIDUSER","Nom de l&#039;utilisateur non valide");//Invalid user nam
 define("_REPLACEEXISTINGUSERS","Remplacer les doubles utilisateurs");//Replace duplicate users
 define("_KEEPEXISTINGUSERS","Garder les doubles utilisateurs");//Don't update duplicate users
 define("_NOOTHERUSERSONLINE","Pas d&#039;autres utilisateurs actuellement connectés");//No other users currently online
-define("_USERNAME","Nom de l&#039;utilisateur");//User name
+define("_USERNAME","Nom de l'utilisateur");//User name
 define("_STATISTICSFORUSER","Rapports des utilisateurs");//Reports for user
 define("_GENERALUSERINFO","Informations générales des utilisateurs");//General user information
-define("_USERCOMMUNICATIONINFO","Données d&#039;utilisateurs sur la communication");//User information on communication
-define("_USERUSAGEINFO","Informations sur l&#039;utilisation du système par l&#039;utilisateur");//User information on system usage
+define("_USERCOMMUNICATIONINFO","Données d'utilisateurs sur la communication");//User information on communication
+define("_USERUSAGEINFO","Informations sur l'utilisation du système par l'utilisateur");//User information on system usage
 define("_THEUSERHASNOTDONEANYTESTSINTHISLESSON","L&#039;utilisateur n&#039;a pas terminé tous les tests de cette leçon");//The user has not completed any tests in this lesson
 define("_USERSTATISTICS","Rapports utilisateur");//User reports
 define("_REPORTSFORUSER","Rapports des utilisateurs");//Reports for user

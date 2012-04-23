@@ -1970,7 +1970,7 @@ define("_COURSEMETADATA", "Course metadata");
 define("_COURSESTATUS", "Course status");
 define("_LESSONSCOMPLETED", "Completed lessons");
 define("_COURSESCORE", "Course score");
-define("_VIEWUSERCOURSEPROGRESS", "View the user progress throughout the course");
+define("_VIEWUSERCOURSEPROGRESS", "View/Change user progress throughout the course");
 define("_COURSERULES", "Course rules");
 define("_INFORMATIONFORCOURSE", "Information for course");
 define("_CERTIFICATESFORCOURSE", "Certificates for course");

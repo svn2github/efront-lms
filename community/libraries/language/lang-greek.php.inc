@@ -1970,7 +1970,7 @@ define("_COURSEMETADATA", "Μεταδεδομένα δέσμης");
 define("_COURSESTATUS", "Κατάσταση δέσμης");
 define("_LESSONSCOMPLETED", "Ολοκληρωμένα μαθήματα");
 define("_COURSESCORE", "Βαθμολογία δέσμης");
-define("_VIEWUSERCOURSEPROGRESS", "Προβολή της προόδου του μαθητή στη δέσμη");
+define("_VIEWUSERCOURSEPROGRESS", "Προβολή/Αλλαγή της προόδου του μαθητή στη δέσμη");
 define("_COURSERULES", "Κανόνες δέσμης");
 define("_INFORMATIONFORCOURSE", "Πληροφορίες δέσμης");
 define("_CERTIFICATESFORCOURSE", "Πιστοποιητικά για τη δέσμη");

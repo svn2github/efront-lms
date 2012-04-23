@@ -2057,6 +2057,12 @@ class EfrontContentTree extends EfrontTree
      $newUnit['name'] = $sourceUnit -> offsetGet('name');
         $newUnit['ctg_type'] = $sourceUnit -> offsetGet('ctg_type');
         $newUnit['data'] = $sourceUnit -> offsetGet('data');
+        $options = $sourceUnit -> offsetGet('options');
+        $newOptions['complete_unit_setting'] = $options['complete_unit_setting'];
+        $newOptions['hide_navigation'] = $options['hide_navigation'];
+        $newOptions['maximize_viewport'] = $options['maximize_viewport'];
+        $newOptions['object_ids'] = $options['object_ids'];
+        $newUnit['options'] = serialize($newOptions);
         $newUnit['lessons_ID'] = $this -> lessonId;
         if ($targetUnit) {
             if ($targetUnit instanceOf EfrontUnit) {

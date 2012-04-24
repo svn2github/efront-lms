@@ -102,7 +102,6 @@ if ($GLOBALS['configuration']['eliminate_post_xss']) {
      }
  }
 }
-//setupBranchSubdomain();
 //Language settings. $GLOBALS['loadLanguage'] can be used to exclude language files from loading, for example during certain ajax calls
 if (!isset($GLOBALS['loadLanguage']) || $GLOBALS['loadLanguage']) {
     if (isset($_GET['bypass_language']) && eF_checkParameter($_GET['bypass_language'], 'filename') && is_file($path."language/lang-".$_GET['bypass_language'].".php.inc")) {
@@ -280,27 +279,10 @@ function setupVersion() {
  * @since 3.6.0
  */
 function setDefines() {
+  define('G_SERVERNAME', 'http://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
- /** The server name*/
- $request_uri = $_SERVER['REQUEST_URI'];
- if (!is_file(dirname(G_ROOTPATH).$request_uri) && basename($_SERVER['PHP_SELF']) != basename($_SERVER['REQUEST_URI'])) {
-  $request_uri .= basename($_SERVER['PHP_SELF']);
- }
- if (!is_file(dirname(G_ROOTPATH).$request_uri) && dirname($request_uri) != dirname($_SERVER['PHP_SELF']) && strpos($request_uri, 'content/lessons') === false) {
-  define("G_BRANCH_URL", basename(dirname($request_uri)).'/');
- } else {
-  define("G_BRANCH_URL", '');
- }
- if (basename($_SERVER['PHP_SELF']) == 'index.php' && basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) != basename($_SERVER['PHP_SELF']) && mb_substr(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), -1) != '/') {
-  header("location:".parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH).'/index.php');
- }
- define('G_SERVERNAME', 'http://'.$_SERVER["HTTP_HOST"].G_OFFSET.G_BRANCH_URL);
- if (defined('G_OFFSET')) {
-  //$_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.str_replace(G_OFFSET, '', $_SERVER['PHP_SELF']);
-  $_SERVER['PHP_SELF'] = G_OFFSET.G_BRANCH_URL.preg_replace('#^'.G_OFFSET.'#', '', $_SERVER['PHP_SELF']);
- }
-    preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 15045;
+ preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
+    $build = 15059;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

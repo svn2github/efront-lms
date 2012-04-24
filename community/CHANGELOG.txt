@@ -1,11 +1,13 @@
-=== Version 3.6.11 build ===
+=== Version 3.6.11 build 15018 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)
+- Properly escaped LMS-to-SCORM communication
 - A file not found (404) header is sent for missing files
-- Fixed file requests overlapping with branch urls in certain cases
 - Members logged in through a specific branch url are only viewing their organization's Org chart part
 - Excluded login block and installation form from CSRF filtering
+- Fixed file requests overlapping with branch urls in certain cases
 - Fixed user profile page showing an error when updating and there's a files white list set
 - Fixed projects list not appearing in student's dashboard
+- Fixed percentages in "Adjust questions" options to correctly calculate total questions
 
 === Version 3.6.11 build 14713 ===
 - Added ability for professor to create courses/lessons

@@ -1102,10 +1102,12 @@ class EfrontTest
       foreach ($questions as $key => $question) {
        $total[$question -> question['content_ID']]++;
       }
-      //Calculate the how many questions we should get from each unit, based on percentages
+      //Calculate how many questions we should get from each unit, based on percentages
       foreach ($reqs['percentage'] as $unit => $percentage) {
-       $unitQuestions[$unit] = round($percentage*$total[$unit]/100);
+       //$unitQuestions[$unit] = round($percentage*$total[$unit]/100);
+       $unitQuestions[$unit] = round($percentage*sizeof($questions)/100);
       }
+      //pr($unitQuestions);exit;
       //Get these questions from the total questions
       foreach ($questions as $key => $question) {
        $unit = $question -> question['content_ID'];

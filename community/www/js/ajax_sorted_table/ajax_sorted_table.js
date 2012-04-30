@@ -639,7 +639,7 @@ function eF_js_sortTable(el, other) {
         //input.setAttribute('onkeypress', 'if (event.which == 13) eF_js_filterData('+tableIndex+')');
         input.setAttribute('onkeypress', 'if (event.which == 13 || event.keyCode == 13) {eF_js_filterData('+tableIndex+'); return false;}');       //Set an onkeypress event, so that pressing \"enter\" fires the function. We put the return false here, so that if the table is inside a form, enter will not submit it 
         if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
-        	input.setAttribute("value", currentFilter[tableIndex]);
+        	input.setAttribute("value", decodeURIComponent(currentFilter[tableIndex]));
         	
         	if (currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
         		div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentFilter">' + currentFilter[tableIndex]+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'')+'</span>';
@@ -922,8 +922,9 @@ function eF_js_sortTable(el, other) {
         	
             eF_js_rebuildTable(tableIndex, currentOffset[tableIndex], currentSort[tableIndex], currentOrder[tableIndex], currentOther[tableIndex], true);
         } else {
+        	
             var table = sortedTables[tableIndex];                                 //Get the current table
-            var str = encodeURIComponent(document.getElementById(tableIndex+'_sortedTable_filter').value);        //Get the filter value, from the corresponding text box
+            var str = (document.getElementById(tableIndex+'_sortedTable_filter').value);        //Get the filter value, from the corresponding text box
             if (table.filteredRows) {                                           //If there were any previously filtered rows, append them back to the table
                 for (var i = 0; i < table.filteredRows.length; i++) {
                     table.rows[0].parentNode.insertBefore(table.filteredRows[i], table.rows[table.rows.length-1]);      //Append the rows at the bottom of the table

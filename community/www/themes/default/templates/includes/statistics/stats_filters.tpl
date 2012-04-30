@@ -17,5 +17,5 @@
         </select>
     </td>
  <td>
-  <input class = "flatButton" type = "button" value = "submit" value="{$smarty.const._SUBMIT}" onclick = "document.location='{$smarty.server.PHP_SELF}?ctg=statistics&option={$smarty.get.option}{if (isset($smarty.get.tab))}&tab={$smarty.get.tab}{/if}&sel_{$smarty.get.option}={$T_STATS_ENTITY_ID}&branch_filter='+appendSelection('group_branch')+'&group_filter='+$('group_filter').options[$('group_filter').selectedIndex].value+'&job_filter='+appendSelection('group_job')+'&subbranches='+($('includes_subbranches').checked ? 1:0) +'&user_filter='+$('user_filter').options[$('user_filter').selectedIndex].value+'{$dates_url}';">
+  <input class = "flatButton" type = "button" value="{$smarty.const._SUBMIT}" onclick = "document.location='{$smarty.server.PHP_SELF}?ctg=statistics&option={$smarty.get.option}{if (isset($smarty.get.tab))}&tab={$smarty.get.tab}{/if}&sel_{$smarty.get.option}={$T_STATS_ENTITY_ID}&branch_filter='+appendSelection('group_branch')+'&group_filter='+$('group_filter').options[$('group_filter').selectedIndex].value+'&job_filter='+appendSelection('group_job')+'&subbranches='+($('includes_subbranches').checked ? 1:0) +'&user_filter='+$('user_filter').options[$('user_filter').selectedIndex].value+'{$dates_url}';">
  </td>

@@ -451,7 +451,7 @@
                                              <td>{if $topic.last_post}
                 #filter:timestamp_time-{$topic.last_post.timestamp}#
                 <br/> {$smarty.const._BY} #filter:user_loginNoIcon-{$topic.last_post.users_LOGIN}#
-                <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$topic.last_post.id}&view_message={$topic.last_post.id}">&raquo;</a>
+                <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$topic.id}&view_message={$topic.last_post.id}">&raquo;</a>
                 {/if}
                                              </td>
                                              <td class = "centerAlign">

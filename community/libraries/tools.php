@@ -1687,6 +1687,7 @@ function vd($ar) {
 
 */
 function eF_filterData($data, $filter) {
+ //$filter = urldecode($filter);
  $filter = trim(mb_strtolower($filter), '||');
  if ($filter) {
      foreach ($data as $key => $value) {

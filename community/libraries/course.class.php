@@ -3233,7 +3233,7 @@ class EfrontCourse
    }
   }
   if (isset($constraints['filter']) && eF_checkParameter($constraints['filter'], 'text')) {
-   $constraints['filter'] = trim($constraints['filter'], "||||");
+   $constraints['filter'] = trim(urldecode($constraints['filter']), "||||");
    $result = eF_describeTable("courses");
    $tableFields = array();
    foreach ($result as $value) {
@@ -3665,7 +3665,7 @@ class EfrontCourse
      $evalString .= $completedLessons[$lessonRules['lesson'][$i]].' '.($lessonRules['condition'][$i+1] == 'and' ? '&' : '|');
     }
     $evalString = $evalString.' '.$completedLessons[$lessonRules['lesson'][$i]];
-    if (!empty($completedLessons)) {
+    if (!empty($completedLessons) && $completedLessons[$lessonRules['lesson'][$i]]) {
      eval("\$allowed[$lessonId] = $evalString;");
     }
    }

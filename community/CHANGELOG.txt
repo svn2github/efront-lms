@@ -1,3 +1,7 @@
+=== Version 3.6.11 build ===
+- Fixed SCORM times not being taken correctly into account when calculating active lesson times
+- Updated message displayed to users trying to self-register, when the maximum allowed users number is reached
+
 === Version 3.6.11 build 15059 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)
 - Properly escaped LMS-to-SCORM communication

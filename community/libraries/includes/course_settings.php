@@ -434,15 +434,15 @@ if ($_GET['op'] == 'course_info') {
      $xmlExport->showExpireDate($pdf, $expireDate);
     }
     if ($course -> options['custom1'] != '') {
-     $course -> options['custom1'] = replaceCustomFieldsCertificate($course -> options['custom1'], $issued_data['date']);
+     $course -> options['custom1'] = replaceCustomFieldsCertificate($course -> options['custom1'], $issued_data['date'], $_GET['user']);
      $xmlExport->showCustomOne($pdf, $course -> options['custom1']);
     }
     if ($course -> options['custom2'] != '') {
-     $course -> options['custom2'] = replaceCustomFieldsCertificate($course -> options['custom2'], $issued_data['date']);
+     $course -> options['custom2'] = replaceCustomFieldsCertificate($course -> options['custom2'], $issued_data['date'], $_GET['user']);
      $xmlExport->showCustomTwo($pdf, $course -> options['custom2']);
     }
     if ($course -> options['custom3'] != '') {
-     $course -> options['custom3'] = replaceCustomFieldsCertificate($course -> options['custom3'], $issued_data['date']);
+     $course -> options['custom3'] = replaceCustomFieldsCertificate($course -> options['custom3'], $issued_data['date'], $_GET['user']);
      $xmlExport->showCustomThree($pdf, $course -> options['custom3']);
     }
     //				$fileNamePdf = "certificate_".$_GET['user'].".pdf";

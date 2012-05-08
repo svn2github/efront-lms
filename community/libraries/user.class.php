@@ -302,9 +302,9 @@ abstract class EfrontUser
    $userProperties['user_types_ID'] = 0;
   }
   //!isset($userProperties['user_type']) || !in_array($userProperties['user_type'], EfrontUser::getRoles())	  ? $userProperties['user_type']	  = 'student'									 : null;
-  isset($userProperties['password']) ? $passwordNonTransformed = $userProperties['password'] : $passwordNonTransformed = $userProperties['login'];
+  isset($userProperties['password']) && $userProperties['password'] != '' ? $passwordNonTransformed = $userProperties['password'] : $passwordNonTransformed = $userProperties['login'];
   if ($userProperties['password'] != 'ldap') {
-   !isset($userProperties['password']) ? $userProperties['password'] = EfrontUser::createPassword($userProperties['login']) : $userProperties['password'] = self :: createPassword($userProperties['password']);
+   !isset($userProperties['password']) || $userProperties['password'] == '' ? $userProperties['password'] = EfrontUser::createPassword($userProperties['login']) : $userProperties['password'] = self :: createPassword($userProperties['password']);
    if ($GLOBALS['configuration']['force_change_password']) {
     $userProperties['need_pwd_change'] = 1;
    }
@@ -323,6 +323,7 @@ abstract class EfrontUser
    $userProperties['archive'] = time();
    $userProperties['active'] = 0;
   }
+  !isset($userProperties['timezone']) || $userProperties['timezone'] == '' ? $userProperties['timezone'] = $GLOBALS['configuration']['time_zone'] :null;
   eF_insertTableData("users", $userProperties);
   // Assign to the new user all skillgap tests that should be automatically assigned to every new student
   $newUser = EfrontUserFactory :: factory($userProperties['login']);

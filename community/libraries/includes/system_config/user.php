@@ -29,11 +29,6 @@ $userMainForm -> addElement("static", "", _USERNAMEFORMATINFO);
 $userMainForm -> addElement("text", "pm_space", _MAXIMUMPMUSAGESPACE, 'size = "5"');
 $userMainForm -> addElement("static", "",_MAXIMUMPMUSAGESPACEINFO);
 $userMainForm -> addRule('pm_space', _INVALIDFIELDDATA, 'checkParameter', 'id');
-
-
-
-
-
 $userMainForm -> setDefaults($GLOBALS['configuration']);
 if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAccess['configuration'] != 'change') {
  $userMainForm -> freeze();
@@ -61,7 +56,6 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_USER_MAIN_FORM", $userMainForm -> toArray());
-
 $userMultipleLoginsForm = new HTML_QuickForm("user_multiple_logins_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=user&tab=multiple_logins", "", null, true);
 $userMultipleLoginsForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $groups = array();
@@ -89,8 +83,6 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
  }
 }
 $smarty -> assign("T_USER_MULTIPLE_LOGINS_FORM", $userMultipleLoginsForm -> toArray());
-
-
 $userWebserverAuthenticationForm = new HTML_QuickForm("user_webserver_authentication_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=user&tab=webserver_authentication", "", null, true);
 $userWebserverAuthenticationForm -> registerRule('checkParameter', 'callback', 'eF_checkParameter');
 $userWebserverAuthenticationForm -> addElement("advcheckbox", "webserver_auth", _WEBSERVERAUTHENTICATION, null, 'class = "inputCheckBox"', array(0, 1));
@@ -115,5 +107,4 @@ if (isset($currentUser -> coreAccess['configuration']) && $currentUser -> coreAc
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=system_config&op=user&tab=webserver_authentication&message=".urlencode(_SUCCESFULLYUPDATECONFIGURATION)."&message_type=success");
  }
 }
-
 $smarty -> assign("T_USER_WEBSERVER_AUTHENTICATION_FORM", $userWebserverAuthenticationForm -> toArray());

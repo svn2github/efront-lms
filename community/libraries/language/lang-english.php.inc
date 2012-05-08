@@ -4205,4 +4205,7 @@ define("_TEST_FAILURE", "Test failure");
 define("_FAILEDTEST", "failed in test");
 define("_TESTFAILUREFORLESSON", "Test failure for lesson");
 define("_HASFAILEDATEST", "has failed a test");
+define("_MAXIMUMUSERSLIMITREACHEDCONTACTUS", "The maximum users limit is reached. Please contact us if you need access.");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHED", "I want to signup but the maximum users limit is reached");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHEDBODY", "I am trying to signup but the system reports that the maximum users limit is reached.");
 ?>

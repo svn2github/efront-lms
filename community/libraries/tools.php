@@ -622,7 +622,8 @@ function getCertificateExpirationTimestamp($issuedTimestamp, $expirationArray){
 function getCertificateResetTimestamp($expiredTimestamp, $resetArray){
  return mktime(0, 0, 0, date("m", $expiredTimestamp) - $resetArray[0], date("d", $expiredTimestamp) - $resetArray[1], date("Y", $expiredTimestamp));
 }
-function replaceCustomFieldsCertificate($custom, $issuedTimestamp) {
+function replaceCustomFieldsCertificate($custom, $issuedTimestamp, $login = '') {
+ $result = eF_getTableData("users", "*", "login='".$login."'");
  if (preg_match("/###([0-9]{1,100})([mdy])###/", $custom, $matches)) {
     switch ($matches[2]) {
      case 'd':
@@ -639,6 +640,14 @@ function replaceCustomFieldsCertificate($custom, $issuedTimestamp) {
   $convertTimestamp = getCertificateExpirationTimestamp($issuedTimestamp, $timeArray);
   $convertDate = formatTimestamp($convertTimestamp);
   $custom = str_replace($matches[0], $convertDate, $custom);
+ }
+ if ($login != '') {
+  $userProfile = eF_getTableDataFlat("user_profile", "*", "active=1 AND type <> 'branchinfo' AND type <> 'groupinfo'");
+  foreach ($userProfile['name'] as $key => $value) {
+   if (preg_match("/###".$value."###/", $custom, $matches)) {
+    $custom = str_replace($matches[0], $result[0][$value], $custom);
+   }
+  }
  }
  return $custom;
 }
@@ -2766,6 +2775,7 @@ function eF_getUserBasicType($login = false, $lessons_ID = false){
 }
 function convertTimeToSeconds($time) {
  $time_parts = explode(":", $time);
+ $time_parts[2] = round(str_replace(",", ".", $time_parts[2]));
  $seconds = round($time_parts[2] + $time_parts[1]*60 + $time_parts[0]*60*60);
  return $seconds;
 }

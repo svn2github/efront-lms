@@ -5751,9 +5751,10 @@ class EfrontLesson
    }
   }
   //Calculate SCORM times, as these are not counted by the system
-  $result = eF_getTableData("scorm_data", "users_LOGIN, sum(total_time) as total_time", "content_ID in (select id from content where lessons_ID=".$this->lesson['id']." and active=1 and (ctg_type='scorm' or ctg_type='scorm_test'))", "", "users_LOGIN");
+  $result = eF_getTableData("scorm_data", "users_LOGIN, total_time", "content_ID in (select id from content where lessons_ID=".$this->lesson['id']." and active=1 and (ctg_type='scorm' or ctg_type='scorm_test'))");
   foreach($result as $value) {
    if (isset($lessonUsers[$value['users_LOGIN']])) {
+    $value['total_time'] = convertTimeToSeconds($value['total_time']);
     $lessonUsers[$value['users_LOGIN']] += $value['total_time'];
    }
   }

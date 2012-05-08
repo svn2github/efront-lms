@@ -433,7 +433,7 @@ if (isset($_POST['search_text'])) {
                                 }
                         }
      } elseif ($results[$i]['table_name'] != 'f_topics') { //it was simple else : changed my makriria to exclude topics 2008/11/4
-      if (!isset($GLOBALS['currentUser'] -> coreAccess['forum']) || $GLOBALS['currentUser'] -> coreAccess['forum'] != 'hidden') {
+      if ((!isset($GLOBALS['currentUser'] -> coreAccess['forum']) || $GLOBALS['currentUser'] -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['forum']) {
        if ($lesson[0]['id'] != "") {
         $lessonTemp = new EfrontLesson($lesson[0]['id']);
        } else {

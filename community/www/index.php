@@ -727,6 +727,9 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
  //$form -> addRule('message_subject', _INVALIDFIELDDATA, 'checkParameter', 'text');
  $form -> addElement('textarea', 'message_body', _TEXT, 'class = "inputText" id = "contact"');
  $form -> addElement('submit', 'submit_contact', _SUBMIT, 'class = "flatButton"');
+ if ($_GET['limit_reached']) {
+  $form->setDefaults(array('message_subject' => _IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHED, 'message_body' => _IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHEDBODY));
+ }
  if ($form -> isSubmitted()) {
   $fields_insert = array('users_LOGIN' => 'visitor',
         'timestamp' => time(),

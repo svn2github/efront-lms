@@ -48,6 +48,10 @@
                     <td class = "labelCell">{$smarty.const._PRICE}:</td>
                     <td class = "elementCell">{$T_CURRENT_COURSE->course.price_string}</td></tr>
                 </tr>
+                <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
+                    <td class = "labelCell">{$smarty.const._TRAININGHOURS}:</td>
+                    <td class = "elementCell">{$T_CURRENT_COURSE->options.training_hours}</td></tr>
+                </tr>
    </table>
 
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?ctg=statistics&option=course&sel_course=`$smarty.get.sel_course``$T_STATS_FILTERS_URL`&"}

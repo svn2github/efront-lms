@@ -149,6 +149,8 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  } else {
      $customBlocks = array();
  }
+ //Uncomment the line below if you want custom blocks to be sorted alphabetically in Links block 
+ //$customBlocks = eF_multiSort($customBlocks, 'title');
  foreach ($customBlocks as $key => $block) {
   $blocks[$key] = array('title' => $block['title'], 'image' => '32x32/generic.png');
  }
@@ -656,7 +658,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
              }
           $newUser = EfrontUser :: createUser($user_data);
           $encrypted = true; //needed for autologin
-          EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REGISTER, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
+          EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REGISTER, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname'], "entity_name" => $user_data['password']));
           // send not-visited notifications for the newly registered user
           EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
           //pr($self_registered_jobs);

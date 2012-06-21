@@ -89,3 +89,6 @@ if ($GLOBALS['configuration']['social_modules_activated'] & FB_FUNC_CONNECT) {
  }
  $smarty -> assign("T_FACEBOOK_ENABLED", 1);
 }
+if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_USERSTATUS) {
+ $smarty -> assign("T_SHOW_USERSTATUS",1);
+}

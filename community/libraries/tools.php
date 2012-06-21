@@ -622,8 +622,10 @@ function getCertificateExpirationTimestamp($issuedTimestamp, $expirationArray){
 function getCertificateResetTimestamp($expiredTimestamp, $resetArray){
  return mktime(0, 0, 0, date("m", $expiredTimestamp) - $resetArray[0], date("d", $expiredTimestamp) - $resetArray[1], date("Y", $expiredTimestamp));
 }
-function replaceCustomFieldsCertificate($custom, $issuedTimestamp, $login = '') {
- $result = eF_getTableData("users", "*", "login='".$login."'");
+function replaceCustomFieldsCertificate($custom, $issuedTimestamp, $login = '', $ceu = '', $hours = '') {
+ if ($login != '') {
+  $result = eF_getTableData("users", "*", "login='".$login."'");
+ }
  if (preg_match("/###([0-9]{1,100})([mdy])###/", $custom, $matches)) {
     switch ($matches[2]) {
      case 'd':
@@ -647,6 +649,16 @@ function replaceCustomFieldsCertificate($custom, $issuedTimestamp, $login = '') 
    if (preg_match("/###".$value."###/", $custom, $matches)) {
     $custom = str_replace($matches[0], $result[0][$value], $custom);
    }
+  }
+ }
+ if ($ceu) {
+  if (preg_match("/###ceu###/", $custom, $matches)) {
+   $custom = str_replace($matches[0], $ceu, $custom);
+  }
+ }
+ if ($hours) {
+  if (preg_match("/###training_hours###/", $custom, $matches)) {
+   $custom = str_replace($matches[0], $hours, $custom);
   }
  }
  return $custom;
@@ -1248,7 +1260,8 @@ function eF_checkMysqlReservedWords ($parameter) {
  }
 }
 function strip_script_tags($str) {
-    $str = preg_replace("/<script>(.*)<\/script>/i", "$1", $str);
+    $str = preg_replace("/<script>(.*)<\/script>/im", "$1", $str);
+    $str = preg_replace(htmlentities("/<script>(.*)<\/script>/im"), "$1", $str);
     return $str;
 }
 /**

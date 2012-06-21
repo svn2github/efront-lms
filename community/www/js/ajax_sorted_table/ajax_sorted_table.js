@@ -205,7 +205,7 @@
 
     		if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
     			//url = url + '&filter='+currentFilter[tableIndex]+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
-    		 url = url + '&filter='+encodeURIComponent(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])? encodeURIComponent(currentBranchFilter[tableIndex]):'')+'||||'+((currentJobFilter[tableIndex])?encodeURIComponent(currentJobFilter[tableIndex]):'');
+    		 url = url + '&filter='+(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])? (currentBranchFilter[tableIndex]):'')+'||||'+((currentJobFilter[tableIndex])?(currentJobFilter[tableIndex]):'');
     		}
 
     		var loadingDiv = $('loading_'+sortedTables[tableIndex].id);
@@ -916,7 +916,7 @@ function eF_js_sortTable(el, other) {
         		Element.extend($(tableIndex+'_sortedTable_filter')).addClassName('loadingImg').setStyle({background:'url("'+progressImg+'") center right no-repeat'});
         	}
         	
-            var str = encodeURIComponent(document.getElementById(tableIndex+'_sortedTable_filter').value);        //Get the filter value, from the corresponding text box
+            var str = (document.getElementById(tableIndex+'_sortedTable_filter').value);        //Get the filter value, from the corresponding text box
             currentFilter[tableIndex] = str;
             currentOffset[tableIndex] = 0;
         	

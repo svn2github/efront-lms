@@ -504,10 +504,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             }
    if (isset($_GET['print'])) {
     $currentUnit['data'] = preg_replace("#<script.*?>.*?</script>#", "&lt;script removed&gt;", $currentUnit['data']);
-    $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><t><th><td><font><em><i><strong><u><b><blockquote><big><center><code>');
+    $currentUnit['data'] = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><tbody><tr><th><td><font><em><i><strong><u><b><blockquote><big><center><code>');
    }
    //in case unit is simply an iframe,do not load the print it button
-     $contentStripped = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><t><th><td><font><em><i><strong><u><b><blockquote><big><center><code>');
+     $contentStripped = strip_tags($currentUnit['data'],'<img><applet><iframe><div><br><p><ul><li><ol><span><sub><sup><hr><h1><h2><h3><h4><h5><h6><table><tbody><tr><th><td><font><em><i><strong><u><b><blockquote><big><center><code>');
          if ($contentStripped == "<p></p>" || $contentStripped == "" ) {
     $smarty -> assign("T_DISABLEPRINTUNIT", true);
    }

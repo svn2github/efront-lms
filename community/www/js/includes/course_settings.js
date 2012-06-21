@@ -63,6 +63,19 @@ function onSetAllUsersStatusCompleted(el, response) {
 		eF_js_redrawPage('courseUsersTable', true);
 	}
 }
+function resetAllUsers(el) {
+	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+	parameters = {reset_all:1, method: 'get'};	
+	ajaxRequest(el, location.toString(), parameters, onResetAllUsers);
+}
+function onResetAllUsers(el, response) {
+	if (response.evalJSON(true).status) {
+		el.down().remove();
+		eF_js_redrawPage('courseUsersTable', true);
+	}
+}
+
 function updateCertificateKey(el, login) {
 	var url = location.toString();
 	var parameters = {login:login, change_key: $(login+'_certificate_key').value, method: 'get'};

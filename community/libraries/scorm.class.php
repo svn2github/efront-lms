@@ -371,7 +371,7 @@ class EfrontScorm
             //$this_id = $tree[sizeof($tree) - 1]['id'];
             foreach ($total_fields as $key => $value) {
                 if (isset($value['ctg_type'])) {
-                    $total_fields[$key]['previous_content_ID'] = $this_id;
+                 $total_fields[$key]['previous_content_ID'] = $this_id;
                     if (!isset($total_fields[$key]['parent_content_ID'])) {
                         $total_fields[$key]['parent_content_ID'] = 0;
                     }
@@ -419,20 +419,24 @@ class EfrontScorm
                     eF_updateTableData("content", array("ctg_type" => "scorm_test"), "id=".$value['content_ID']);
                 }
             }
-            foreach ($prerequisites as $key => $value) {
-                foreach ($tagArray as $key2 => $value2) {
-                    if (isset($value2['attributes']['IDENTIFIER']) && $value2['attributes']['IDENTIFIER'] == $value) {
-                        unset($fields_insert);
-                        $fields_insert['users_LOGIN'] = "*";
-                        $fields_insert['content_ID'] = $tagArray[$tagArray[$key]['parent_index']]['this_id'];
-                        $fields_insert['rule_type'] = "hasnot_seen";
-                        $fields_insert['rule_content_ID'] = $value2['this_id'];
-                        $fields_insert['rule_option'] = 0;
-                        eF_insertTableData("rules", $fields_insert);
-                    }
-                }
+            foreach ($prerequisites as $key => $parts) {
+             foreach (explode("&", $parts) as $value) {
+              foreach ($tagArray as $key2 => $value2) {
+               if (isset($value2['attributes']['IDENTIFIERREF']) && $value2['attributes']['IDENTIFIERREF'] == $value) {
+                //pr($value2);
+                unset($fields_insert);
+                $fields_insert['users_LOGIN'] = "*";
+                $fields_insert['content_ID'] = $tagArray[$tagArray[$key]['parent_index']]['this_id'];
+                $fields_insert['rule_type'] = "hasnot_seen";
+                $fields_insert['rule_content_ID'] = $value2['this_id'];
+                $fields_insert['rule_option'] = 0;
+                eF_insertTableData("rules", $fields_insert);
+               }
+              }
+             }
             }
         }
+        //exit;
     }
     /**
 

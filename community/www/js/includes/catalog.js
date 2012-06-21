@@ -7,7 +7,7 @@ function updateCoupon(el) {
 function onUpdateCoupon(el, response) {
 	try {
 		$('coupon_code').value = $('coupon_bogus').value;
-		$('total_price_string').update(response.evalJSON(true).price_string);
+		$('total_price_string').update(response.evalJSON(true).price_string);	
 		if ($('paypal_form')) { 
 			if ($('paypal_form')['amount']) {
 				$('paypal_form')['amount'].value = response.evalJSON(true).price;
@@ -23,6 +23,10 @@ function onUpdateCoupon(el, response) {
 			$('enter_coupon_link').update(translations['_COUPON'] + ': ' + $('coupon_bogus').value);
 		} else {
 			$('enter_coupon_link').update(translations['_CLICKTOENTERDISCOUNTCOUPON']);
+		}
+		if (response.evalJSON(true).price == 0) {
+			$('free_registration_hidden').show();
+			$('submit_checkout_paypal').hide();
 		}
 		eF_js_showDivPopup('', '', 'coupon_table');
 	} catch (e) {alert(e);}

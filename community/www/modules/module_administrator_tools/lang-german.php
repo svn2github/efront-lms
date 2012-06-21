@@ -37,4 +37,31 @@ define("_MODULE_ADMINISTRATOR_TOOLS_DEACTIVATEALLUSERS","Deaktivieren Sie alle B
 define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLDEACTIVATEALLUSERSAREYOUSURE","Dieser deaktiviert alle Benutzer zurückgegeben, die den ausgewählten Kriterien! Sind Sie sicher?");//This will deactivate all users returned matching the selected criteria! Are you sure?
 define("_MODULE_ADMINISTRATOR_TOOLS_TOGGLESTATUS","Toggle-Status");//Toggle status
 define("_MODULE_ADMINISTRATOR_TOOLS_LAST3MONTHS","Letzte 3 Monate");//Last 3 months
+define("_MODULE_ADMINISTRATOR_TOOLS_OTHEROPTIONS", "Andere Optionen");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECASE", "Fix Groß / Kleinschreibung Ungereimtheiten");
+define("_MODULE_ADMINISTRATOR_TOOLS_JOBCOURSES", "Job-Kurse");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTIONTOALLSIMILARJOBS", "Das wird den ausgewählten Job-Studiengängen an allen Arbeitsplätzen mit dem gleichen Namen zu kopieren, deren bestehende Auswahl");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYCOURSESELECTION", "Auswahl kopieren");
+define("_MODULE_ADMINISTRATOR_TOOLS_SUCCESSFULLYASSIGNEDCOURSESTOJOBS", "Erfolgreich zugeordnet% y% x Kurse zu Jobs");
+define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKSORDER", "Blöcke Ordnung");
+define("_MODULE_ADMINISTRATOR_TOOLS_COPYBLOCKSORDERFROMLESSON", "Kopieren von Blöcken, um die Lektion");
+define("_MODULE_ADMINISTRATOR_TOOLS_BLOCKORDERCOPIED", "Blöcke, um erfolgreich kopiert wurde");
+define("_MODULE_ADMINISTRATOR_TOOLS_CHANGEFILESENCODING", "Ändern von Dateien kodieren");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTENCODINGCONVERSION", "Wählen Sie die Codierung konvertiert");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTSOURCEUSERTYPE", "Select source Benutzertyp");
+define("_MODULE_ADMINISTRATOR_TOOLS_SELECTTARGETUSERTYPE", "Wähle Ziel-User-Typ");
+define("_MODULE_ADMINISTRATOR_TOOLS_CHANGEUSERTYPES", "Benutzer wechseln Arten");
+define("_MODULE_ADMINISTRATOR_TOOLS_CHANGETYPEINCOURSESASWELL", "Benutzer wechseln Typ in Kurse / Unterricht sowie");
+define("_MODULE_ADMINISTRATOR_TOOLS_BASICTYPESMUSTMATCH", "Basic-Typen müssen übereinstimmen");
+define("_MODULE_ADMINISTRATOR_TOOLS_IMPERSONATE", "Verbinden Sie sich als Benutzer");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEADMIN", "Du kannst nicht als Admin verbinden");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER", "Ausgewählte Benutzer nicht aktiv ist");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUCANNOTACCESSTHISSECTION", "Sie können nicht auf diesen Abschnitt; nur Volladministratoren können");
+define("_MODULE_ADMINISTRATOR_TOOLS_MULTIPLEPLACEMENTS", "Mehrere Placements");
+define("_MODULE_ADMINISTRATOR_TOOLS_YOUMUSTDEFINEUSER", "Sie müssen einen neuen Login-Namen");
+define("_MODULE_ADMINISTRATOR_TOOLS_SYNCHRONIZECOURSELESSONS", "Synchronisieren Ergebnisse für Lektionen");
+define("_MODULE_ADMINISTRATOR_TOOLS_THISWILLPROPAGATECOMPLETIONSTATUSFROMACOURSETOITSLESSONSFORALLUSERS","Mit einem Klick vorlegen werden, setzen Sie alle Lektionen als abgeschlossen (wenn sie es nicht sind bereits) für alle Nutzer, die den Kurs abgeschlossen haben");
+define("_MODULE_ADMINISTRATOR_TOOLS_PERFORMEDXUPDATES", "Performed% x-Updates");
+define("_MODULE_ADMINISTRATOR_TOOLS_UPDATECOMPLETEDLESSONS", "Update abgeschlossen Lektionen");
+define("_MODULE_ADMINISTRATOR_TOOLS_SETCOMPLETEDLESSONSTOTHESAMEDATE", "Auswahl dieser Option wird Lektionen, die bereits abgeschlossen sind auf den Verlauf der Fertigstellungstermin und Punktzahl holen zwingen");
 ?>

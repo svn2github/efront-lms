@@ -848,8 +848,8 @@ class EfrontDirectionsTree extends EfrontTree
     $treeLesson -> lesson['completed'] ? $icon = 'success' : $icon = 'semi_success';
     $treeString .= '
      <td class = "lessonProgress">
-      <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
-      <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/'.$icon.'.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
+      <span class = "progressNumber completedLessonProgress" style = "width:50px;">&nbsp;</span>
+      <span class = "progressBar completedLessonProgress" style = "width:50px;text-align:center"><img src = "images/16x16/'.$icon.'.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
       &nbsp;&nbsp;
      </td>';
    } else {
@@ -861,8 +861,8 @@ class EfrontDirectionsTree extends EfrontTree
    if ($treeLesson->options['show_percentage'] != 0) {
     $treeString .= '
     <td class = "lessonProgress">
-     <span class = "progressNumber" style = "width:50px;">'.$treeLesson -> lesson['overall_progress']['percentage'].'%</span>
-     <span class = "progressBar" style = "width:'.($treeLesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
+     <span class = "progressNumber incompletedLessonProgress" style = "width:50px;">'.$treeLesson -> lesson['overall_progress']['percentage'].'%</span>
+     <span class = "progressBar incompletedLessonProgress" style = "width:'.($treeLesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
      &nbsp;&nbsp;
     </td>';
    } else {

@@ -11,20 +11,12 @@
        </span>
     {/if}
        <span class = "leftOption">#filter:login-{$T_CURRENT_USER->user.login}#&nbsp;</span>
-
-
-
-
-
-
-
       </td>
      </tr>
     </table>
    {/capture}
    {$smarty.capture.t_status_change_interface}
   {/if}
-
   {include file = "social.tpl"}
  {elseif $T_OP == 'profile' || $T_OP == 'user_groups' || $T_OP == 'mapped_accounts' || $T_OP == 'payments'}
   <div class = "tabber">

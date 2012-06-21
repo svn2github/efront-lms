@@ -81,7 +81,7 @@ class calendar extends EfrontEntity
   $sidenote = '<a href = "javascript:void(0)" onclick = "Element.extend(this).up().select(\'select\').each(function (s) {if (s.name.match(/\[H\]/) || s.name.match(/\[i\]/)) {s.options.selectedIndex=0;}})">'._ALLDAY.'</a>';
 
   $form -> addElement('static', 'sidenote', $sidenote);
-  $form -> addElement($this -> createDateElement($form, 'timestamp', _DATE, array('addEmptyOption' => array('H' => true, 'i' => true))));
+  $form -> addElement($this -> createDateElement($form, 'timestamp', _DATE, array('addEmptyOption' => array('H' => true, 'i' => true),'include_time' => true)));
   $form -> addElement('static', 'toggle_editor_code', 'toggleeditor_link');
   $form -> addElement('textarea', 'data', _EVENT, 'class = "simpleEditor inputTextarea" style = "width:98%;height:200px;"');
   $form -> addElement('select', 'type', _EVENTTYPE, $calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');

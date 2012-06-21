@@ -16,7 +16,7 @@ abstract class EfrontImport
 	 * @var string
 	 * @access private
 	 */
- protected $fileContents;
+ public $fileContents;
 
  /**
 	 * Various options like duplicates handling are stored in the options array
@@ -25,7 +25,7 @@ abstract class EfrontImport
 	 * @var array
 	 * @access private
 	 */
- protected $options;
+ public $options;
 
 
  /**
@@ -418,7 +418,9 @@ class EfrontImportCsv extends EfrontImport
           $value['user_type'] = 'student';
           $value['user_types_ID'] = 0;
          }
-         if (in_array($value['languages_NAME'], array_keys($languages)) === false) {
+         if ($value['languages_NAME'] == "") {
+          unset($value['languages_NAME']);
+         } elseif (in_array($value['languages_NAME'], array_keys($languages)) === false) {
           $value['languages_NAME'] = $GLOBALS['configuration']['default_language'];
          }
          $this -> updateExistingData($key+2, $type, $value);

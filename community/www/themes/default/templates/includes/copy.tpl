@@ -3,7 +3,7 @@
 {capture name = "moduleCopyContent"}
  <tr><td class = "moduleCell">
      {capture name = 't_copy_content_code'}
-         <table>
+         <table style = "width:100%">
 <!-- <tr><td class = "labelCell">{$smarty.const._SELECTLESSONTOCOPYFROM}:&nbsp;</td>
                  <td class = "elementCell">
                  <select name = 'user_lessons' onchange = "document.location='{$smarty.server.PHP_SELF}?ctg=copy&from='+this.options[this.selectedIndex].value">

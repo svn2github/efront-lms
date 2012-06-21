@@ -41,8 +41,10 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   $myCoursesOptions[] = array('text' => _CALENDAR, 'image' => "32x32/calendar.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=calendar");
  }
  if ($GLOBALS['configuration']['disable_professor_courses'] != 1 && $_SESSION['s_type'] == 'professor') {
-  $myCoursesOptions[] = array('text' => _COURSES, 'image' => "32x32/courses.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses");
-  $myCoursesOptions[] = array('text' => _LESSONS, 'image' => "32x32/lessons.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=professor_lessons");
+  if ($currentUser -> coreAccess['professor_courses'] != 'hidden') {
+   $myCoursesOptions[] = array('text' => _COURSES, 'image' => "32x32/courses.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses");
+   $myCoursesOptions[] = array('text' => _LESSONS, 'image' => "32x32/lessons.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=professor_lessons");
+  }
  }
  foreach ($loadedModules as $module) {
   if ($linkInfo = $module->getToolsLinkInfo()) {

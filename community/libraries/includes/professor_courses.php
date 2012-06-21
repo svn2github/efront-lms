@@ -7,7 +7,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 
 $loadScripts[] = 'includes/courses';
 
-if ($GLOBALS['configuration']['disable_professor_courses'] || $_SESSION['s_type'] != 'professor') {
+if ($GLOBALS['configuration']['disable_professor_courses'] || $_SESSION['s_type'] != 'professor' || $currentUser -> coreAccess['professor_courses'] == 'hidden') {
  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
 } else {
  $_change_ = true;

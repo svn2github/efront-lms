@@ -94,6 +94,10 @@
      <img src = "images/16x16/success.png" title = "{$smarty.const._SETALLUSERSSTATUSCOMPLETED}" alt = "{$smarty.const._SETALLUSERSSTATUSCOMPLETED}"/>
      <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "setAllUsersStatusCompleted(this)" {/if}>{$smarty.const._SETALLUSERSSTATUSCOMPLETED}</a>
     </span>
+    <span>
+     <img src = "images/16x16/refresh.png" title = "{$smarty.const._RESETALLUSERS}" alt = "{$smarty.const._RESETALLUSERS}"/>
+     <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) resetAllUsers(this)" {/if}>{$smarty.const._RESETALLUSERS}</a>
+    </span>
    </div>
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?`$T_BASE_URL`&op=course_certificates&"}
    {assign var = "_change_handles_" value = false}

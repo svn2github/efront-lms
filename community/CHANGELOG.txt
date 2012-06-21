@@ -1,6 +1,10 @@
 === Version 3.6.11 build ===
 - Fixed SCORM times not being taken correctly into account when calculating active lesson times
 - Updated message displayed to users trying to self-register, when the maximum allowed users number is reached
+- Fixed handling upload error when sending pm as email
+- Fixed properly stripping <script> tags when in multiline or encoded content
+- Fixed grid filtering regression introduced in 3.6.11 for international characters
+- Added "reset course progress for all users" option
 
 === Version 3.6.11 build 15059 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)

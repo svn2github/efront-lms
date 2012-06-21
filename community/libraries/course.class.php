@@ -2450,8 +2450,8 @@ class EfrontCourse
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
        <td class = "lessonProgress">
-                                <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
-                                <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
+                                <span class = "progressNumber completedLessonProgress" style = "width:50px;">&nbsp;</span>
+                                <span class = "progressBar completedLessonProgress" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" /></span>
                                 &nbsp;&nbsp;
                             </td>';
       } else {
@@ -2463,8 +2463,8 @@ class EfrontCourse
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
        <td class = "lessonProgress">
-                                <span class = "progressNumber" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
-                                <span class = "progressBar" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
+                                <span class = "progressNumber incompletedLessonProgress" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
+                                <span class = "progressBar incompletedLessonProgress" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
                                 &nbsp;&nbsp;
                             </td>';
       } else {
@@ -2493,8 +2493,8 @@ class EfrontCourse
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
        <td class = "lessonProgress">
-                                <span class = "progressNumber" style = "width:50px;">&nbsp;</span>
-                                <span class = "progressBar" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
+                                <span class = "progressNumber completedLessonProgress" style = "width:50px;">&nbsp;</span>
+                                <span class = "progressBar completedLessonProgress" style = "width:50px;text-align:center"><img src = "images/16x16/success.png" alt = "'._LESSONCOMPLETE.'" title = "'._LESSONCOMPLETE.'" style = "vertical-align:middle" /></span>
                                 &nbsp;&nbsp;
                             </td>';
       } else {
@@ -2506,8 +2506,8 @@ class EfrontCourse
       if ($lesson->options['show_percentage'] != 0) {
        $courseString .= '
        <td class = "lessonProgress">
-                                <span class = "progressNumber" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
-                                <span class = "progressBar" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
+                                <span class = "progressNumber incompletedLessonProgress" style = "width:50px;">'.$lesson -> lesson['overall_progress']['percentage'].'%</span>
+                                <span class = "progressBar incompletedLessonProgress" style = "width:'.($lesson -> lesson['overall_progress']['percentage'] / 2).'px;">&nbsp;</span>
                                 &nbsp;&nbsp;
                             </td>';
       } else {
@@ -2735,10 +2735,14 @@ class EfrontCourse
    $newFileName = $file['name'];
   }
         $newFileName = str_replace(array('"', '>', '<', '*', '?', ':'), array('&quot;', '&gt;', '&lt;', '&#42;', '&#63;', '&#58;'), $newFileName);
-  $file -> rename($userTempDir['path'].'/'.$newFileName, true);
+  //$file -> rename($userTempDir['path'].'/'.$newFileName, true);
+  //changed because of checkFile in rename
+        rename($file['path'], $userTempDir['path'].'/'.$newFileName);
+  FileSystemTree :: importFiles($userTempDir['path'].'/'.$newFileName);
+  $returnFile = new EfrontFile($userTempDir['path'].'/'.$newFileName);
   //$file   -> rename($userTempDir['path'].'/'.EfrontFile :: encode($this -> course['name']).'.zip', true);
   $courseTempDir -> delete();
-  return $file;
+  return $returnFile;
  }
  /**
 	 * Import course

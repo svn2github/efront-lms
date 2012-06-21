@@ -268,6 +268,19 @@ if ($_GET['op'] == 'course_info') {
    handleAjaxExceptions($e);
   }
   exit;
+ } else if (isset($_GET['reset_all'])) {
+  try {
+   $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+   $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
+   $users = $currentCourse -> getCourseUsers($constraints);
+   foreach ($users as $user) {
+    $user -> resetProgressInCourse($currentCourse, true);
+   }
+   echo json_encode(array('status' => true));
+  } catch (Exception $e) {
+   handleAjaxExceptions($e);
+  }
+  exit;
  }
  $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'courseUsersTable') {
@@ -434,15 +447,15 @@ if ($_GET['op'] == 'course_info') {
      $xmlExport->showExpireDate($pdf, $expireDate);
     }
     if ($course -> options['custom1'] != '') {
-     $course -> options['custom1'] = replaceCustomFieldsCertificate($course -> options['custom1'], $issued_data['date'], $_GET['user']);
+     $course -> options['custom1'] = replaceCustomFieldsCertificate($course -> options['custom1'], $issued_data['date'], $_GET['user'], $course -> course['ceu'], $course ->options['training_hours']);
      $xmlExport->showCustomOne($pdf, $course -> options['custom1']);
     }
     if ($course -> options['custom2'] != '') {
-     $course -> options['custom2'] = replaceCustomFieldsCertificate($course -> options['custom2'], $issued_data['date'], $_GET['user']);
+     $course -> options['custom2'] = replaceCustomFieldsCertificate($course -> options['custom2'], $issued_data['date'], $_GET['user'], $course -> course['ceu'], $course ->options['training_hours']);
      $xmlExport->showCustomTwo($pdf, $course -> options['custom2']);
     }
     if ($course -> options['custom3'] != '') {
-     $course -> options['custom3'] = replaceCustomFieldsCertificate($course -> options['custom3'], $issued_data['date'], $_GET['user']);
+     $course -> options['custom3'] = replaceCustomFieldsCertificate($course -> options['custom3'], $issued_data['date'], $_GET['user'], $course -> course['ceu'], $course ->options['training_hours']);
      $xmlExport->showCustomThree($pdf, $course -> options['custom3']);
     }
     //				$fileNamePdf = "certificate_".$_GET['user'].".pdf";

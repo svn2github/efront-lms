@@ -255,14 +255,34 @@ if (isset($_GET['fct'])) {
                      $coupon -> useCoupon($currentUser, $payment, array('lessons' => $nonFreeLessons, 'courses' => $nonFreeCourses));
                     }
                 } else {
-                    //Assign new lessons as inactive
-                    if (sizeof($nonFreeLessons) > 0) {
-                        $currentUser -> addLessons($nonFreeLessons, array_fill(0, sizeof($nonFreeLessons), 'student'), false);
+                   if ($form -> exportValue('coupon') && $coupon = new coupons($form -> exportValue('coupon'), true)) {
+         if (!$coupon -> checkEligibility()) {
+          throw new Exception(_INVALIDCOUPON);
+         }
+         if (!$GLOBALS['configuration']['paypalbusiness']) { //If we have paypal, the reduction is already done
+                      $totalPrice = $totalPrice * (1 - $coupon -> {$coupon -> entity}['discount'] / 100);
+         }
                     }
-                    if (sizeof($nonFreeCourses) > 0) {
-                        $currentUser -> addCourses($nonFreeCourses, array_fill(0, sizeof($nonFreeCourses), 'student'), false);
-                    }
-                    $message = _ADMINISTRATORCONFIRMENROLLED;
+                    //in case of 100% discount
+                 if ($totalPrice == 0) {
+                  //Assign new lessons as inactive
+                     if (sizeof($nonFreeLessons) > 0) {
+                         $currentUser -> addLessons($nonFreeLessons, array_fill(0, sizeof($nonFreeLessons), 'student'), true);
+                     }
+                     if (sizeof($nonFreeCourses) > 0) {
+                         $currentUser -> addCourses($nonFreeCourses, array_fill(0, sizeof($nonFreeCourses), 'student'), true);
+                     }
+                     $message = _SUCCESSFULLYENROLLED;
+                 } else {
+                     //Assign new lessons as inactive
+                     if (sizeof($nonFreeLessons) > 0) {
+                         $currentUser -> addLessons($nonFreeLessons, array_fill(0, sizeof($nonFreeLessons), 'student'), false);
+                     }
+                     if (sizeof($nonFreeCourses) > 0) {
+                         $currentUser -> addCourses($nonFreeCourses, array_fill(0, sizeof($nonFreeCourses), 'student'), false);
+                     }
+                     $message = _ADMINISTRATORCONFIRMENROLLED;
+                 }
                 }
             }
             cart :: storeCart($cart);

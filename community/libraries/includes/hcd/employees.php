@@ -14,7 +14,11 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
 
 	 *****************************************************/
  if ($currentEmployee -> isSupervisor()) {
-  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect($currentEmployee->supervisesBranches));
+  $filter_branches = array();
+  foreach ($currentEmployee->supervisesBranches as $value) {
+   $filter_branches[$value]['branch_ID'] = $value;
+  }
+  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect($filter_branches));
  } else {
   $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
  }
@@ -37,6 +41,7 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
    exit;
   }
   $smarty -> assign("T_ROLES", EfrontUser :: getRoles(true));
+
   isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'uint') ? $limit = $_GET['limit'] : $limit = G_DEFAULT_TABLE_SIZE;
 
   if (isset($_GET['sort']) && eF_checkParameter($_GET['sort'], 'text')) {

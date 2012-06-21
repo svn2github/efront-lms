@@ -352,7 +352,7 @@ class EfrontConfiguration
             eF_insertTableData("configuration", array('name' => $name, 'value' => $value));
         } catch (Exception $e) {
          //If exists, update it
-         eF_updateTableData("configuration", array('value' => $value), "name = '$name'", "name = '$name'");
+         eF_updateTableData("configuration", array('value' => $value), "name = '$name'");
         }
         $GLOBALS['configuration'][$name] = $value;
      if (function_exists('apc_delete')) {

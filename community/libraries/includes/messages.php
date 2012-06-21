@@ -442,14 +442,14 @@ try {
                     $filesystem = new FileSystemTree($user_dir);
                     try {
                         $uploadedFile = $filesystem -> uploadFile('attachment', $user_dir, 0);
+                     $pm -> sender_attachment_fileId = $uploadedFile['id'];
+                     $pm -> setAttachment($uploadedFile['path']);
                     } catch (EfrontFileException $e) {
                         //echo $e -> getMessage();
                         $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
                         $message = $e -> getMessage()."<br />";
                         $message_type = 'failure';
                     }
-                    $pm -> sender_attachment_fileId = $uploadedFile['id'];
-                    $pm -> setAttachment($uploadedFile['path']);
                 }
                 if ($pm -> send($values['email'], $values)) {
                     $message .= _MESSAGEWASSENT;

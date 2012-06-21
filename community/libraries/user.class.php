@@ -1505,7 +1505,9 @@ abstract class EfrontUser
    $result = eF_describeTable("users");
    $tableFields = array();
    foreach ($result as $value) {
-    $tableFields[] = "u.".$value['Field'].' like "%'.$constraints['filter'].'%"';
+    if ($value['Field'] != 'password' && $value['Field'] != 'timestamp') {
+     $tableFields[] = "u.".$value['Field'].' like "%'.$constraints['filter'].'%"';
+    }
    }
    $where[] = "(".implode(" OR ", $tableFields).")";
   }
@@ -1789,6 +1791,7 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."' and tests_ID in (select id from tests where lessons_ID='".$lesson -> lesson['id']."')");
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
   eF_deleteTableData("users_to_content", "users_LOGIN = '".$this -> user['login']."' and content_ID in (select id from content where lessons_ID='".$lesson -> lesson['id']."')");
+  eF_deleteTableData("user_times", "users_LOGIN = '".$this -> user['login']."' and lessons_ID=".$lesson -> lesson['id']);
  }
  public function changeProgressInLesson($lesson, $timestamp = false) {
   if (!($lesson instanceOf EfrontLesson)) {
@@ -1822,6 +1825,7 @@ abstract class EfrontLessonUser extends EfrontUser
   eF_deleteTableData("completed_tests", "users_LOGIN = '".$this -> user['login']."'");
   eF_deleteTableData("scorm_data", "users_LOGIN = '".$this -> user['login']."'");
   eF_deleteTableData("users_to_content", "users_LOGIN = '".$this -> user['login']."'");
+  eF_deleteTableData("user_times", "users_LOGIN = '".$this -> user['login']."'");
  }
  /**
 	 * Reset the user's progress in the specified course
@@ -3312,7 +3316,7 @@ class EfrontStudent extends EfrontLessonUser
   eF_updateTableData("users_to_lessons", array('done_content' => $doneContent, 'current_unit' => $current_unit), "users_LOGIN='".$this -> user['login']."' and lessons_ID=".$lesson);
 //		$cacheKey = "user_lesson_status:lesson:".$lesson."user:".$this -> user['login'];
 //		Cache::resetCache($cacheKey);
-  if ($current_unit) {
+  if ($current_unit && $seen) {
    EfrontEvent::triggerEvent(array("type" => EfrontEvent::CONTENT_COMPLETION, "users_LOGIN" => $this -> user['login'], "lessons_ID" => $lesson, "entity_ID" => $current_unit));
   }
   //Set the lesson as complete, if it can be.

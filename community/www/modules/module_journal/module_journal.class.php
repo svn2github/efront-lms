@@ -694,6 +694,7 @@ class module_journal extends EfrontModule{
    }
   }
   else{
+   $smarty = $this -> getSmartyVar();
    $currentLesson = $this->getCurrentLesson();
    $currentUserRole = $currentUser->getRole($currentLesson);
    $onClick = "location='".$currentUserRole.".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();";
@@ -701,7 +702,7 @@ class module_journal extends EfrontModule{
    if(isset($_GET['check_students_journals'])){
 
     return array(
-     array('title' => _MYCOURSES, 'onclick' => $onClick),
+     array('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
      array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
      array('title' => _JOURNAL_NAME, 'link' => $this->moduleBaseUrl),
      array('title' => _JOURNAL_STUDENTS_JOURNAL, 'link' => $_SERVER['REQUEST_URI'])
@@ -710,7 +711,7 @@ class module_journal extends EfrontModule{
    else{
 
     return array(
-     array('title' => _MYCOURSES, 'onclick' => $onClick),
+     array('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
      array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
      array('title' => _JOURNAL_NAME, 'link' => $this->moduleBaseUrl)
     );

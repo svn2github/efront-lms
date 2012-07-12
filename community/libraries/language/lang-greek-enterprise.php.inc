@@ -4205,4 +4205,10 @@ define("_TEST_FAILURE", "Αποτυχία αξιολόγησης");
 define("_FAILEDTEST", "απέτυχε στην αξιολόγηση");
 define("_TESTFAILUREFORLESSON", "Αποτυχία αξιολόγησης για το μάθημα");
 define("_HASFAILEDATEST", "απέτυχε σε αξιολόγηση");
+define("_MAXIMUMUSERSLIMITREACHEDCONTACTUS", "Ο μέγιστος αριθμός χρηστών έχει συμπληρωθεί. Παρακαλούμε επικοινωνήστε μαζί με αν χρειάζεστε πρόσβαση");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHED", "Προσπαθώ να συνδεθώ αλλά ο μέγιστος αριθμός χρηστών έχει συμπληρωθεί");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHEDBODY", "Προσπαθώ να συνδεθώ αλλά το σύστημα αναφέρει πως ο μέγιστος αριθμός χρηστών έχει συμπληρωθεί.");
+define("_PROFESSORCREATECOURSES", "Προσθήκη δέσμης/μαθήματος");
+define("_RESETALLUSERS", "Αρχικοποίηση προόδου για όλους τους χρήστες");
+define("_MYROLE", "Ο ρόλος μου");
 ?>

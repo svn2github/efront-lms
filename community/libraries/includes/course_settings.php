@@ -67,25 +67,25 @@ if ($_GET['op'] == 'course_info') {
   $smarty -> assign("T_COURSE_METADATA_HTML", $metadata -> toHTML($form, true, false));
  }
 
- if (isset($_GET['postAjaxRequest'])) {
-  if (in_array($_GET['dc'], array_keys($information -> metadataAttributes))) {
-   if ($_GET['value']) {
-    $courseInformation[$_GET['dc']] = urldecode($_GET['value']);
+ if (isset($_POST['postAjaxRequest'])) {
+  if (in_array($_POST['dc'], array_keys($information -> metadataAttributes))) {
+   if ($_POST['value']) {
+    $courseInformation[$_POST['dc']] = urldecode($_POST['value']);
    } else {
-    unset($courseInformation[$_GET['dc']]);
+    unset($courseInformation[$_POST['dc']]);
    }
    $currentCourse -> course['info'] = serialize($courseInformation);
-  } elseif (in_array($_GET['dc'], array_keys($metadata -> metadataAttributes))) {
-   if ($_GET['value']) {
-    $courseMetadata[$_GET['dc']] = urldecode($_GET['value']);
+  } elseif (in_array($_POST['dc'], array_keys($metadata -> metadataAttributes))) {
+   if ($_POST['value']) {
+    $courseMetadata[$_POST['dc']] = urldecode($_POST['value']);
    } else {
-    unset($courseMetadata[$_GET['dc']]);
+    unset($courseMetadata[$_POST['dc']]);
    }
    $currentCourse -> course['metadata'] = serialize($courseMetadata);
   }
 
   $currentCourse -> persist();
-  $value = htmlspecialchars(rawurldecode($_GET['value']));
+  $value = htmlspecialchars(rawurldecode($_POST['value']));
   $value = str_replace ("\n","<br />", $value);
   echo $value;
   exit;
@@ -648,16 +648,22 @@ if ($_GET['op'] == 'course_info') {
 			 */
    exit;
   } else if (isset($_GET['set_schedule']) && $_GET['set_schedule'] == 0) {
+   $previous_start_date = $currentCourse -> course['start_date'];
+   $previous_end_date = $currentCourse -> course['end_date'];
    $fromTimestamp = mktime($_GET['from_Hour'], $_GET['from_Minute'], 0, $_GET['from_Month'], $_GET['from_Day'], $_GET['from_Year']);
    $toTimestamp = mktime($_GET['to_Hour'], $_GET['to_Minute'], 0, $_GET['to_Month'], $_GET['to_Day'], $_GET['to_Year']);
    if ($fromTimestamp < $toTimestamp) {
     $currentCourse -> course['start_date'] = $fromTimestamp;
     $currentCourse -> course['end_date'] = $toTimestamp;
     $currentCourse -> persist();
-    eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_START . "_" . $currentCourse -> course['id']. "'");
-    eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_EXPIRY . "_" . $currentCourse -> course['id']. "'");
-    EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_START, "timestamp" => $currentCourse -> course['start_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
-    EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_EXPIRY, "timestamp" => $currentCourse -> course['end_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
+    if ($previous_start_date != $currentCourse -> course['start_date']) {
+     eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_START . "_" . $currentCourse -> course['id']. "'");
+     EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_START, "timestamp" => $currentCourse -> course['start_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
+    }
+    if ($previous_end_date != $currentCourse -> course['end_date']) {
+     eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_EXPIRY . "_" . $currentCourse -> course['id']. "'");
+     EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_EXPIRY, "timestamp" => $currentCourse -> course['end_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
+    }
     echo _FROM.' '.formatTimestamp($fromTimestamp, 'time_nosec').' '._TO.' '.formatTimestamp($toTimestamp, 'time_nosec').'&nbsp;';
    } else {
     header("HTTP/1.0 500");

@@ -995,7 +995,7 @@ class module_workbook extends EfrontModule{
  }
 
  public function getNavigationLinks(){
-
+  $smarty = $this -> getSmartyVar();
   $currentUser = $this->getCurrentUser();
   $currentLesson = $this->getCurrentLesson();
   $currentUserRole = $currentUser->getRole($currentLesson);
@@ -1004,7 +1004,7 @@ class module_workbook extends EfrontModule{
   if(isset($_GET['add_item'])){
 
    return array(
-    array('title' => _MYCOURSES, 'onclick' => $onClick),
+    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
     array('title' => _WORKBOOK_NAME, 'link' => $this->moduleBaseUrl),
     array('title' => _WORKBOOK_ADD_ITEM, 'link' => $_SERVER['REQUEST_URI'])
@@ -1013,7 +1013,7 @@ class module_workbook extends EfrontModule{
   else if(isset($_GET['edit_item'])){
 
    return array(
-    array('title' => _MYCOURSES, 'onclick' => $onClick),
+    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
     array('title' => _WORKBOOK_NAME, 'link' => $this->moduleBaseUrl),
     array('title' => _WORKBOOK_EDIT_ITEM, 'link' => $_SERVER['REQUEST_URI'])
@@ -1022,7 +1022,7 @@ class module_workbook extends EfrontModule{
   else if(isset($_GET['check_workbook_progress'])){
 
    return array(
-    array('title' => _MYCOURSES, 'onclick' => $onClick),
+    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
     array('title' => _WORKBOOK_NAME, 'link' => $this->moduleBaseUrl),
     array('title' => _WORKBOOK_CHECK_PROGRESS, 'link' => $_SERVER['REQUEST_URI'])
@@ -1030,7 +1030,7 @@ class module_workbook extends EfrontModule{
   }
   else{
    return array(
-    array('title' => _MYCOURSES, 'onclick' => $onClick),
+    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
     array('title' => _WORKBOOK_NAME, 'link' => $this->moduleBaseUrl)
    );

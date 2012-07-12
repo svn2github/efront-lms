@@ -168,6 +168,8 @@ class EfrontModuleException extends Exception
 
  * - onNewLesson($lessonId)
 
+ * - onCreateInstance($lessonId)
+
  * - onDeleteLesson($lessonId)
 
  * - onExportLesson($lessonId)
@@ -1546,6 +1548,22 @@ abstract class EfrontModule
 
      */
     public function onNewLesson($lessonId) {
+        return false;
+    }
+    /**
+
+     * Code to execute when a new instance is created
+
+     *
+
+     * @param int $lessonId The id of the lesson
+
+     * @since 3.5.0
+
+     * @access public
+
+     */
+    public function onCreateInstance($lessonId) {
         return false;
     }
     /**

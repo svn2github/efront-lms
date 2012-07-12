@@ -81,10 +81,11 @@ class module_billboard extends EfrontModule {
     }
 
     public function getNavigationLinks() {
+     $smarty = $this -> getSmartyVar();
   $currentLesson = $this -> getCurrentLesson();
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getRole($this -> getCurrentLesson()) == 'professor') {
-            return array ( array ('title' => _MYLESSONS, 'onclick' => "location='professor.php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+            return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => "professor.php?ctg=control_panel"),
        array ('title' => _BILLBOARD, 'link' => $this -> moduleBaseUrl));
         }

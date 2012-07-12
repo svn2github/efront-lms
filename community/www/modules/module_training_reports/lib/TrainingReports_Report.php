@@ -382,7 +382,7 @@ class TrainingReports_Report {
         $users = eF_getTableData($tables, $fields, $where, '', $group);
         $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
         $lessonUsers = $supervisedUsers = array();
-        if ($currentUser->aspects['hcd']->isSupervisor()) {
+        if ($currentUser->aspects['hcd'] && $currentUser->aspects['hcd']->isSupervisor()) {
          $supervisedUsers = $currentUser->aspects['hcd']->getSupervisedEmployees();
         }
         $userLessons = $currentUser -> getLessons(false, 'professor');

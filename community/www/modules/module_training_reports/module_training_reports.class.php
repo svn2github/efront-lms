@@ -83,6 +83,7 @@ class module_training_reports extends EFrontModule {
     }
 
     public function getNavigationLinks() {
+  $smarty = $this -> getSmartyVar();
 
         require_once($this->moduleBaseDir . '/lib/TrainingReports_Report.php');
 
@@ -95,7 +96,13 @@ class module_training_reports extends EFrontModule {
 
         $breadcrumbs[] = array(
             'title' => _HOME,
-            'link' => $role . '.php?ctg=control_panel');
+            'link' => $smarty->get_template_vars('T_HOME_LINK'));
+
+     if ($lesson = $this->getCurrentLesson()) {
+         $breadcrumbs[] = array(
+             'title' => $lesson->lesson['name'],
+             'link' => $_SERVER['PHP_SELF']);
+     }
 
         $breadcrumbs[] = array(
             'title' => _TRAININGREPORTS,
@@ -128,7 +135,7 @@ class module_training_reports extends EFrontModule {
             'image' => $this->moduleBaseDir . 'assets/images/logo32.png',
             'link' => $this->moduleBaseUrl);
 
-        if ($this->getCurrentUser()->aspects['hcd']->isSupervisor() || $_SESSION['s_lesson_user_type'] == 'professor') {
+        if ( ($this->getCurrentUser()->aspects['hcd'] && $this->getCurrentUser()->aspects['hcd']->isSupervisor()) || $_SESSION['s_lesson_user_type'] == 'professor') {
          return $link;
         } else {
          return false;

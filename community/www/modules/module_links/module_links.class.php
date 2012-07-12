@@ -90,9 +90,10 @@ class module_links extends EfrontModule {
     }
 
     public function getNavigationLinks() {
+     $smarty = $this -> getSmartyVar();
         $currentUser = $this -> getCurrentUser();
   $currentLesson = $this -> getCurrentLesson();
-        return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+        return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
       array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getType() . ".php?ctg=control_panel"),
       array ('title' => _LINKS_LINKS, 'link' => $this -> moduleBaseUrl));
     }

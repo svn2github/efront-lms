@@ -378,7 +378,7 @@ abstract class EfrontInformation
     function submitField(el, key, action) {
      //action == 'delete' ? el = $('delete_'+key) : el = $('cancel_'+key);
                     var url = '".$_SERVER['REQUEST_URI']."';
-                    parameters = {postAjaxRequest:1, dc:key, value:encodeURIComponent($(key).value), method: 'get'};
+                    parameters = {postAjaxRequest:1, dc:key, value:encodeURIComponent($(key).value), method: 'post'};
                     ajaxRequest(el, url, parameters, onSubmitField);
                 }
                 function onSubmitField(el, response) {

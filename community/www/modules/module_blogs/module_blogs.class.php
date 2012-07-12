@@ -520,11 +520,12 @@ class module_blogs extends EfrontModule {
     }
 
  public function getNavigationLinks() {
+  $smarty = $this -> getSmartyVar();
         $currentUser = $this -> getCurrentUser();
   $currentLesson = $this -> getCurrentLesson();
         if (isset($_GET['view_blog'])){
    $res = eF_getTableData("module_blogs","name","id=".$_GET['view_blog']);
-            return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+            return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
        array ('title' => _BLOGS_BLOG, 'link' => $this -> moduleBaseUrl),
        array ('title' => $res[0]['name'], 'link' => $this -> moduleBaseUrl."&view_blog=".$_GET['view_blog']));
@@ -532,19 +533,19 @@ class module_blogs extends EfrontModule {
   elseif (isset($_GET['view_article'])){
    $resArticle = eF_getTableData("module_blogs_articles","title,blogs_ID","id=".$_GET['view_article']);
    $resBlog = eF_getTableData("module_blogs","name","id=".$resArticle[0]['blogs_ID']);
-            return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+            return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
        array ('title' => _BLOGS_BLOG, 'link' => $this -> moduleBaseUrl),
        array ('title' => $resBlog[0]['name'], 'link' => $this -> moduleBaseUrl."&view_blog=".$resArticle[0]['blogs_ID']),
        array ('title' => $resArticle[0]['title'], 'link' => $this -> moduleBaseUrl."&view_article=".$_GET['view_article']));
   } elseif (isset($_GET['add_blog']) || isset($_GET['edit_blog'])) {
-    return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+    return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
        array ('title' => _BLOGS_BLOG, 'link' => $this -> moduleBaseUrl),
        array ('title' => _BLOGS_EDITBLOG, 'link' => $_SERVER['REQUEST_URI']));
   }elseif (isset($_GET['add_article']) || isset($_GET['edit_article'])) {
    $resBlog = eF_getTableData("module_blogs","name","id=".$_GET['blog_id']);
-   return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+   return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
        array ('title' => _BLOGS_BLOG, 'link' => $this -> moduleBaseUrl),
        array ('title' => $resBlog[0]['name'], 'link' => $this -> moduleBaseUrl."&view_blog=".$_GET['blog_id']),
@@ -552,7 +553,7 @@ class module_blogs extends EfrontModule {
   } elseif (isset($_GET['add_comment']) || isset($_GET['edit_comment'])) {
    $resArticle = eF_getTableData("module_blogs_articles","title,blogs_ID","id=".$_GET['article_id']);
    $resBlog = eF_getTableData("module_blogs","name","id=".$resArticle[0]['blogs_ID']);
-   return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+   return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
        array ('title' => _BLOGS_BLOG, 'link' => $this -> moduleBaseUrl),
        array ('title' => $resBlog[0]['name'], 'link' => $this -> moduleBaseUrl."&view_blog=".$resArticle[0]['blogs_ID']),
@@ -560,7 +561,7 @@ class module_blogs extends EfrontModule {
        array ('title' => _BLOGS_EDITCOMMENT, 'link' => $_SERVER['REQUEST_URI']));
   }
         else{
-   return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+   return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
        array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($currentLesson).".php?ctg=control_panel"),
        array ('title' => _BLOGS_BLOG, 'link' => $this -> moduleBaseUrl));
   }

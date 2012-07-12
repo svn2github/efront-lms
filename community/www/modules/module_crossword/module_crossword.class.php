@@ -425,16 +425,17 @@ class module_crossword extends EfrontModule {
  }
 
  public function getNavigationLinks() {
+  $smarty = $this -> getSmartyVar();
   $currentUser = $this -> getCurrentUser();
   $currentLesson = $this -> getCurrentLesson();
   if (isset($_GET['view_list'])){
    $res = eF_getTableData("content","name","id=".$_GET['view_list']);
-   return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+   return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
    array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
    array ('title' => _CROSSWORD_CROSSWORD, 'link' => $this -> moduleBaseUrl),
    array ('title' => $res[0]['name'], 'link' => $this -> moduleBaseUrl."&view_list=".$_GET['view_list']));
   } else{
-   return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+   return array ( array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
    array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($currentLesson).".php?ctg=control_panel"),
    array ('title' => _CROSSWORD_CROSSWORD, 'link' => $this -> moduleBaseUrl));
   }

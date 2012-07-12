@@ -279,10 +279,13 @@ function setupVersion() {
  * @since 3.6.0
  */
 function setDefines() {
-  define('G_SERVERNAME', 'http://'.$_SERVER["HTTP_HOST"].G_OFFSET);
+ isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? $protocol = 'https' : $protocol = 'http';
+    /** The protocol currently used*/
+    define ("G_PROTOCOL", $protocol);
+  define('G_SERVERNAME', $protocol.'://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
  preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 16710;
+    $build = 17186;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -310,9 +313,6 @@ function setDefines() {
     define("G_MD5KEY", 'cDWQR#$Rcxsc');
     /** The themes path*/
     define("G_THEMESPATH", G_ROOTPATH."www/themes/");
-    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? $protocol = 'https' : $protocol = 'http';
-    /** The protocol currently used*/
-    define ("G_PROTOCOL", $protocol);
     /** @deprecated The relative path (URL) to the content folder*/
     define("G_RELATIVECONTENTLINK", "content/");
     /** @deprecated The relative path (URL) to the admin folder*/

@@ -24,6 +24,7 @@ try {
 }
 
 eF_checkParameter($_POST['preffix'], 'text') OR $_POST['preffix'] = '%';
+$_POST['preffix'] = mysql_escape_string($_POST['preffix']);
 
 switch ($_GET['ask_type']) {
  case 'users': askUsers(); break;
@@ -494,9 +495,9 @@ function askGroups() {
 function askCourses() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
  if ($_SESSION['s_type'] == "administrator") {
-  //$result = eF_getTableData("courses", "id, name, directions_ID","active=1 AND name like '%$preffix%'");
-  $constraints = array("return_objects" => false, 'archive' => false, 'active' => true, 'filter' => $preffix);
-  $result = EfrontCourse :: getAllCourses($constraints);
+  $result = eF_getTableData("courses", "id, name, directions_ID","active=1 AND archive=0 and name like '%$preffix%'");
+  //$constraints = array("return_objects" => false, 'archive' => false, 'active' => true, 'filter' => $preffix);
+  //$result 	 = EfrontCourse :: getAllCourses($constraints);
   //$result 	 = EfrontCourse :: convertCourseObjectsToArrays($courses);
  } else {
   $result = eF_getTableData("courses c, users_to_courses uc", "c.id, c.name, c.directions_ID", "(uc.user_type = 'professor' or uc.user_type in (select id from user_types where basic_user_type = 'professor')) AND c.active=1 AND c.id = uc.courses_ID AND uc.archive=0 and c.archive=0 AND uc.users_LOGIN='".$_SESSION['s_login']."' AND c.name like '%$preffix%'");

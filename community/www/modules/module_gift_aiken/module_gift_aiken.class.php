@@ -52,9 +52,13 @@ class module_gift_aiken extends EfrontModule {
     public function getNavigationLinks() {
         $currentUser = $this -> getCurrentUser();
   $currentLesson = $this -> getCurrentLesson();
-        return array ( array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
-      array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
-      array ('title' => _GIFTAIKENQUESTIONSTITLE, 'link' => $this -> moduleBaseUrl));
+     $smarty = $this -> getSmartyVar();
+     $links[] = array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK'));
+     if ($currentLesson) {
+      $links[] = array ('title' => $currentLesson->lesson['name'], 'link' => $_SERVER['PHP_SELF']);
+     }
+     $links[] = array ('title' => _GIFTAIKENQUESTIONSTITLE, 'link' => $this -> moduleBaseUrl);
+        return $links;
     }
  public function getModuleJs() {
   return $this->moduleBaseDir."gift_aiken.js";

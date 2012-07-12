@@ -230,7 +230,7 @@
                     <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_certificates"><img class = "handle" alt="Course certificates" title="Course certificates" src="images/16x16/autocomplete.png"/></a>
                     <a href = "{$smarty.session.s_type}.php?ctg=courses&course={$item.id}&op=course_rules"><img class = "handle" alt="Course Rules" title="Course Rules" src="images/16x16/order.png"/></a>
                     <a href = "{$smarty.session.s_type}.php?ctg=courses&edit_course={$item.id}" class = "editLink"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
-                    <a href = "a{$smarty.session.s_type}.php?ctg=courses&delete_course=1" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETECOURSE}')" class = "deleteLink"><img class = "handle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
+                    <a href = "{$smarty.session.s_type}.php?ctg=courses&delete_course=1" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETECOURSE}')" class = "deleteLink"><img class = "handle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" /></a>
                 {/if}
                 </div>
                 </div>

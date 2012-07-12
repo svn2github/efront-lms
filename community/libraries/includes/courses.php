@@ -213,7 +213,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
 
  $form -> addElement('advcheckbox', 'active', _ACTIVEFEM, null, null, array(0, 1));
  $form -> addElement('advcheckbox', 'show_catalog', _SHOWCOURSEINCATALOG, null, null, array(0, 1));
- $form -> addElement('text', 'price', _PRICE, 'class = "inputText" style = "width:50px"');
+ $form -> addElement('text', 'price', _PRICE, 'class = "inputText" style = "width:100px"');
  //$form -> addElement('text', 'course_code', _COURSECODE, 'class = "inputText" style = "width:50px"');
  $form -> addElement('text', 'training_hours', _TRAININGHOURS, 'class = "inputText" style = "width:50px"');
 
@@ -234,6 +234,7 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
  if (isset($_GET['edit_course'])) {
   $editCourse = new EfrontCourse($_GET['edit_course']);
   $smarty -> assign('T_EDIT_COURSE', $editCourse);
+  $editCourse -> course['price'] = number_format($editCourse -> course['price'], 2, '.', '');
    $form -> setDefaults($editCourse -> options);
    $form -> setDefaults($editCourse -> course);
   $form -> setDefaults(array($editCourse -> options['recurring'].'_duration' => $editCourse -> options['recurring_duration']));

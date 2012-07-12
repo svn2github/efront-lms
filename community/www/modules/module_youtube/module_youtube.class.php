@@ -83,10 +83,10 @@ class module_youtube extends EfrontModule {
     }
 
     public function getNavigationLinks() {
-
+  $smarty = $this -> getSmartyVar();
         $currentUser = $this -> getCurrentUser();
   $currentLesson = $this -> getCurrentLesson();
-        $basicNavArray = array (array ('title' => _MYLESSONS, 'onclick' => "location='".$currentUser -> getRole($currentLesson).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+        $basicNavArray = array (array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
         array ('title' => $currentLesson -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
                  array ('title' => _YOUTUBE, 'link' => $this -> moduleBaseUrl));
         if (isset($_GET['edit_youtube'])) {

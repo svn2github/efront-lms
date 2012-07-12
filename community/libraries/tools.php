@@ -647,7 +647,11 @@ function replaceCustomFieldsCertificate($custom, $issuedTimestamp, $login = '', 
   $userProfile = eF_getTableDataFlat("user_profile", "*", "active=1 AND type <> 'branchinfo' AND type <> 'groupinfo'");
   foreach ($userProfile['name'] as $key => $value) {
    if (preg_match("/###".$value."###/", $custom, $matches)) {
-    $custom = str_replace($matches[0], $result[0][$value], $custom);
+    if ($userProfile['type'][$key] == 'date'){
+     $custom = str_replace($matches[0], formatTimestamp($result[0][$value]), $custom);
+    } else {
+     $custom = str_replace($matches[0], $result[0][$value], $custom);
+    }
    }
   }
  }

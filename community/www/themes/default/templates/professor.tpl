@@ -2,7 +2,7 @@
 {if $smarty.session.s_lessons_ID}
  {assign var=lessonName value=$T_CURRENT_LESSON->lesson.name}
  {if $T_NO_HORIZONTAL_MENU}{assign var = "title_onclick" value = "top.sideframe.hideAllLessonSpecific();"}{/if}
-  {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._CHANGELESSON`' href = '`$smarty.server.PHP_SELF`?ctg=lessons' onclick = '`$title_onclick`'>`$smarty.const._MYCOURSES`</a>"}
+  {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._HOME`' href = '`$T_HOME_LINK`' onclick = '`$title_onclick`'>`$smarty.const._HOME`</a>"}
   {if isset($T_CURRENT_COURSE_NAME)}
   {*We use &nbsp;&raquo;&nbsp; for text in title path but &nbsp;&rarr;&nbsp; for onmouseover info in order to preserve eF_formatTitlePath*}
    {assign var = "titleCourse" value = $T_CURRENT_COURSE_NAME|replace:"&nbsp;&raquo;&nbsp;":"&nbsp;&rarr;&nbsp;"}

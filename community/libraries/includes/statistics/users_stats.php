@@ -243,7 +243,9 @@ if (isset($_GET['sel_user'])) {
    //pr($infoUser -> getUserStatusInLessons());
    $timesReport = new EfrontTimes();
    if ($GLOBALS['configuration']['time_reports']) {
-    $userTraffic = $infoUser->getLessonsActiveTimeForUser();
+    if ($infoUser instanceof EfrontLessonUser) {
+     $userTraffic = $infoUser->getLessonsActiveTimeForUser();
+    }
    } else {
     $result = $timesReport -> getUserSessionTimeInLessons($infoUser -> user['login']);
     foreach ($result as $value) {

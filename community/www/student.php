@@ -227,6 +227,15 @@ try {
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
 }
+$redirectPage = $GLOBALS['configuration']['login_redirect_page'];
+if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
+ $location = "student.php?ctg=personal&user=".$_SESSION['s_login']."&op=dashboard";
+} elseif (strpos($redirectPage, "module") !== false) {
+ $location = "student.php?ctg=landing_page";
+} else {
+ $location = "student.php";
+}
+$smarty->assign("T_HOME_LINK", $location);
 ///MODULE1: Import
 try {
  $loadedModules = $currentUser -> getModules();

@@ -200,6 +200,15 @@ if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
  }
  exit;
 }
+$redirectPage = $GLOBALS['configuration']['login_redirect_page'];
+if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
+ $location = "professor.php?ctg=personal&user=".$_SESSION['s_login']."&op=dashboard";
+} elseif (strpos($redirectPage, "module") !== false) {
+ $location = "professor.php?ctg=landing_page";
+} else {
+ $location = "professor.php";
+}
+$smarty->assign("T_HOME_LINK", $location);
 try {
  ///MODULE1: Import
  $loadedModules = $currentUser -> getModules();

@@ -64,6 +64,9 @@ if (isset($_COOKIE['c_request']) && $_COOKIE['c_request']) {
     }
 }
 
+
+$smarty->assign("T_HOME_LINK", "administrator.php"); //leave here for modules to know
+
 try {
  $loadedModules = $currentUser -> getModules();
  $module_css_array = array();

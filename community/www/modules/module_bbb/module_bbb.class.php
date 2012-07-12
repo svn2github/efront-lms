@@ -136,7 +136,7 @@ class module_BBB extends EfrontModule {
     }
 
     public function getNavigationLinks() {
-
+  $smarty = $this -> getSmartyVar();
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getRole() == "administrator") {
             $basicNavArray = array (array ('title' => _HOME, 'link' => "administrator.php?ctg=control_panel"),
@@ -144,7 +144,7 @@ class module_BBB extends EfrontModule {
 
         } else {
             $basicNavArray = array (
-                                    array ('title' => _MYCOURSES, 'onclick' => "location='".$currentUser -> getRole($this -> getCurrentLesson()).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
+                                    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
                                     array ('title' => $this->getCurrentLesson() -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
                                     array ('title' => _BBB, 'link' => $this -> moduleBaseUrl));
          if (isset($_GET['edit_BBB'])) {

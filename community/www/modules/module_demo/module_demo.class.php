@@ -543,8 +543,13 @@ class module_demo extends EfrontModule {
 
      */
     public function getNavigationLinks() {
-        return array (array ('title' => _HOME, 'link' => $_SERVER['PHP_SELF']),
-                      array ('title' => $this -> getName(), 'link' => $this -> moduleBaseUrl));
+     $smarty = $this -> getSmartyVar();
+     $links[] = array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK'));
+     if ($lesson = $this->getCurrentLesson()) {
+      $links[] = array ('title' => $lesson->lesson['name'], 'link' => $_SERVER['PHP_SELF']);
+     }
+     $links[] = array ('title' => $this -> getName(), 'link' => $this -> moduleBaseUrl);
+        return $links;
     }
     /**
 

@@ -523,13 +523,13 @@ class module_gradebook extends EfrontModule{
  }
 
  public function getNavigationLinks(){
-
+  $smarty = $this -> getSmartyVar();
   $currentUser = $this->getCurrentUser();
 
   if($currentUser->getType() == 'administrator'){
 
    return array(
-    array('title' => _HOME, 'link' => $currentUser->getType().".php?ctg=control_panel"),
+    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
     array('title' => _GRADEBOOK_NAME, 'link' => $this->moduleBaseUrl)
    );
   }
@@ -539,7 +539,7 @@ class module_gradebook extends EfrontModule{
    $onClick = "location='".$currentUserRole.".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();";
 
    return array(
-    array('title' => _MYCOURSES, 'onclick' => $onClick),
+    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
     array('title' => $currentLesson->lesson['name'], 'link' => $currentUser->getType().".php?ctg=control_panel"),
     array('title' => _GRADEBOOK_NAME, 'link' => $this->moduleBaseUrl)
    );

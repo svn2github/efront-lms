@@ -73,7 +73,9 @@ try {
     }
 
     $filesystem = new FileSystemTree($directory['path']);
-    $directory != $rootDir ? $tree = $filesystem -> seekNode($directory['path']) : $tree = $filesystem -> tree;
+
+    //$directory != $rootDir ? $tree = $filesystem -> seekNode($directory['path']) : $tree = $filesystem -> tree; // Changed because of #2634
+    $tree = $filesystem -> tree;
     foreach (new EfrontDirectoryOnlyFilterIterator(new EfrontNodeFilterIterator(new ArrayIterator($tree, RecursiveIteratorIterator :: SELF_FIRST))) as $key => $value) {
         $value['image'] = $value -> getTypeImage();
         $folders[] = (array)$value;

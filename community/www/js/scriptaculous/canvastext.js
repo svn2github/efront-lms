@@ -1,7 +1,7 @@
 /**
  * This code is released to the public domain by Jim Studt, 2007.
  * He may keep some sort of up to date copy at http://www.federated.com/~jim/canvastext/
- * It as been modified by Fabien M√©nager to handle font style like size, weight, color and rotation. 
+ * It as been modified by Fabien MÈnager to handle font style like size, weight, color and rotation. 
  * A partial support for special characters has been added too.
  */
 var CanvasText = {
@@ -52,7 +52,7 @@ var CanvasText = {
     'F': { width: 18, points: [[4,21],[4,0],null,[4,21],[17,21],null,[4,11],[12,11]] },
     'G': { width: 21, points: [[18,16],[17,18],[15,20],[13,21],[9,21],[7,20],[5,18],[4,16],[3,13],[3,8],[4,5],[5,3],[7,1],[9,0],[13,0],[15,1],[17,3],[18,5],[18,8],null,[13,8],[18,8]] },
     'H': { width: 22, points: [[4,21],[4,0],null,[18,21],[18,0],null,[4,11],[18,11]] },
-    'I': { width: 8, points: [[4,21],[4,0]] },
+    'I': { width: 8,  points: [[4,21],[4,0]] },
     'J': { width: 16, points: [[12,21],[12,5],[11,2],[10,1],[8,0],[6,0],[4,1],[3,2],[2,5],[2,7]] },
     'K': { width: 21, points: [[4,21],[4,0],null,[18,21],[4,7],null,[9,12],[18,0]] },
     'L': { width: 17, points: [[4,21],[4,0],null,[4,0],[16,0]] },
@@ -84,10 +84,10 @@ var CanvasText = {
     'f': { width: 12, points: [[10,21],[8,21],[6,20],[5,17],[5,0],null,[2,14],[9,14]] },
     'g': { width: 19, points: [[15,14],[15,-2],[14,-5],[13,-6],[11,-7],[8,-7],[6,-6],null,[15,11],[13,13],[11,14],[8,14],[6,13],[4,11],[3,8],[3,6],[4,3],[6,1],[8,0],[11,0],[13,1],[15,3]] },
     'h': { width: 19, points: [[4,21],[4,0],null,[4,10],[7,13],[9,14],[12,14],[14,13],[15,10],[15,0]] },
-    'i': { width: 8, points: [[3,21],[4,20],[5,21],[4,22],[3,21],null,[4,14],[4,0]] },
+    'i': { width: 8,  points: [[3,21],[4,20],[5,21],[4,22],[3,21],null,[4,14],[4,0]] },
     'j': { width: 10, points: [[5,21],[6,20],[7,21],[6,22],[5,21],null,[6,14],[6,-3],[5,-6],[3,-7],[1,-7]] },
     'k': { width: 17, points: [[4,21],[4,0],null,[14,14],[4,4],null,[8,8],[15,0]] },
-    'l': { width: 8, points: [[4,21],[4,0]] },
+    'l': { width: 8,  points: [[4,21],[4,0]] },
     'm': { width: 30, points: [[4,14],[4,0],null,[4,10],[7,13],[9,14],[12,14],[14,13],[15,10],[15,0],null,[15,10],[18,13],[20,14],[23,14],[25,13],[26,10],[26,0]] },
     'n': { width: 19, points: [[4,14],[4,0],null,[4,10],[7,13],[9,14],[12,14],[14,13],[15,10],[15,0]] },
     'o': { width: 19, points: [[8,14],[6,13],[4,11],[3,8],[3,6],[4,3],[6,1],[8,0],[11,0],[13,1],[15,3],[16,6],[16,8],[15,11],[13,13],[11,14],[8,14]] },
@@ -103,107 +103,107 @@ var CanvasText = {
     'y': { width: 16, points: [[2,14],[8,0],null,[14,14],[8,0],[6,-4],[4,-6],[2,-7],[1,-7]] },
     'z': { width: 17, points: [[14,14],[3,0],null,[3,14],[14,14],null,[3,0],[14,0]] },
     '{': { width: 14, points: [[9,25],[7,24],[6,23],[5,21],[5,19],[6,17],[7,16],[8,14],[8,12],[6,10],null,[7,24],[6,22],[6,20],[7,18],[8,17],[9,15],[9,13],[8,11],[4,9],[8,7],[9,5],[9,3],[8,1],[7,0],[6,-2],[6,-4],[7,-6],null,[6,8],[8,6],[8,4],[7,2],[6,1],[5,-1],[5,-3],[6,-5],[7,-6],[9,-7]] },
-    '|': { width: 8, points: [[4,25],[4,-7]] },
+    '|': { width: 8,  points: [[4,25],[4,-7]] },
     '}': { width: 14, points: [[5,25],[7,24],[8,23],[9,21],[9,19],[8,17],[7,16],[6,14],[6,12],[8,10],null,[7,24],[8,22],[8,20],[7,18],[6,17],[5,15],[5,13],[6,11],[10,9],[6,7],[5,5],[5,3],[6,1],[7,0],[8,-2],[8,-4],[7,-6],null,[8,8],[6,6],[6,4],[7,2],[8,1],[9,-1],[9,-3],[8,-5],[7,-6],[5,-7]] },
     '~': { width: 24, points: [[3,6],[3,8],[4,11],[6,12],[8,12],[10,11],[14,8],[16,7],[18,7],[20,8],[21,10],null,[3,8],[4,10],[6,11],[8,11],[10,10],[14,7],[16,6],[18,6],[20,7],[21,10],[21,12]] },
-
+    
     // Lower case Latin-1
-    '√†': { diacritic: '`', letter: 'a' },
-    '√°': { diacritic: '¬¥', letter: 'a' },
-    '√¢': { diacritic: '^', letter: 'a' },
-    '√§': { diacritic: '¬®', letter: 'a' },
-    '√£': { diacritic: '~', letter: 'a' },
+    '‡': { diacritic: '`', letter: 'a' },
+    '·': { diacritic: '¥', letter: 'a' },
+    '‚': { diacritic: '^', letter: 'a' },
+    '‰': { diacritic: '®', letter: 'a' },
+    '„': { diacritic: '~', letter: 'a' },
+    
+    'Ë': { diacritic: '`', letter: 'e' },
+    'È': { diacritic: '¥', letter: 'e' },
+    'Í': { diacritic: '^', letter: 'e' },
+    'Î': { diacritic: '®', letter: 'e' },
+    
+    'Ï': { diacritic: '`', letter: 'i' },
+    'Ì': { diacritic: '¥', letter: 'i' },
+    'Ó': { diacritic: '^', letter: 'i' },
+    'Ô': { diacritic: '®', letter: 'i' },
+    
+    'Ú': { diacritic: '`', letter: 'o' },
+    'Û': { diacritic: '¥', letter: 'o' },
+    'Ù': { diacritic: '^', letter: 'o' },
+    'ˆ': { diacritic: '®', letter: 'o' },
+    'ı': { diacritic: '~', letter: 'o' },
 
-    '√®': { diacritic: '`', letter: 'e' },
-    '√©': { diacritic: '¬¥', letter: 'e' },
-    '√™': { diacritic: '^', letter: 'e' },
-    '√´': { diacritic: '¬®', letter: 'e' },
-
-    '√¨': { diacritic: '`', letter: 'i' },
-    '√≠': { diacritic: '¬¥', letter: 'i' },
-    '√Æ': { diacritic: '^', letter: 'i' },
-    '√Ø': { diacritic: '¬®', letter: 'i' },
-
-    '√≤': { diacritic: '`', letter: 'o' },
-    '√≥': { diacritic: '¬¥', letter: 'o' },
-    '√¥': { diacritic: '^', letter: 'o' },
-    '√∂': { diacritic: '¬®', letter: 'o' },
-    '√µ': { diacritic: '~', letter: 'o' },
-
-    '√π': { diacritic: '`', letter: 'u' },
-    '√∫': { diacritic: '¬¥', letter: 'u' },
-    '√ª': { diacritic: '^', letter: 'u' },
-    '√º': { diacritic: '¬®', letter: 'u' },
-
-    '√Ω': { diacritic: '¬¥', letter: 'y' },
-    '√ø': { diacritic: '¬®', letter: 'y' },
-
-    '√ß': { diacritic: '¬∏', letter: 'c' },
-    '√±': { diacritic: '~', letter: 'n' },
+    '˘': { diacritic: '`', letter: 'u' },
+    '˙': { diacritic: '¥', letter: 'u' },
+    '˚': { diacritic: '^', letter: 'u' },
+    '¸': { diacritic: '®', letter: 'u' },
+    
+    '˝': { diacritic: '¥', letter: 'y' },
+    'ˇ': { diacritic: '®', letter: 'y' },
+    
+    'Á': { diacritic: '∏', letter: 'c' },
+    'Ò': { diacritic: '~', letter: 'n' },
 
     // Upper case Latin-1
-    '√Ä': { diacritic: '`', letter: 'A' },
-    '√Å': { diacritic: '¬¥', letter: 'A' },
-    '√Ç': { diacritic: '^', letter: 'A' },
-    '√Ñ': { diacritic: '¬®', letter: 'A' },
-    '√É': { diacritic: '~', letter: 'A' },
+    '¿': { diacritic: '`', letter: 'A' },
+    '¡': { diacritic: '¥', letter: 'A' },
+    '¬': { diacritic: '^', letter: 'A' },
+    'ƒ': { diacritic: '®', letter: 'A' },
+    '√': { diacritic: '~', letter: 'A' },
+    
+    '»': { diacritic: '`', letter: 'E' },
+    '…': { diacritic: '¥', letter: 'E' },
+    ' ': { diacritic: '^', letter: 'E' },
+    'À': { diacritic: '®', letter: 'E' },
 
-    '√à': { diacritic: '`', letter: 'E' },
-    '√â': { diacritic: '¬¥', letter: 'E' },
-    '√ä': { diacritic: '^', letter: 'E' },
-    '√ã': { diacritic: '¬®', letter: 'E' },
-
-    '√å': { diacritic: '`', letter: 'I' },
-    '√ç': { diacritic: '¬¥', letter: 'I' },
-    '√é': { diacritic: '^', letter: 'I' },
-    '√è': { diacritic: '¬®', letter: 'I' },
-
-    '√í': { diacritic: '`', letter: 'O' },
-    '√ì': { diacritic: '¬¥', letter: 'O' },
-    '√î': { diacritic: '^', letter: 'O' },
-    '√ñ': { diacritic: '¬®', letter: 'O' },
-    '√ï': { diacritic: '~', letter: 'O' },
-
-    '√ô': { diacritic: '`', letter: 'U' },
-    '√ö': { diacritic: '¬¥', letter: 'U' },
-    '√õ': { diacritic: '^', letter: 'U' },
-    '√ú': { diacritic: '¬®', letter: 'U' },
-
-    '√ù': { diacritic: '¬¥', letter: 'Y' },
-
-    '√á': { diacritic: '¬∏', letter: 'C' },
-    '√ë': { diacritic: '~', letter: 'N' }
+    'Ã': { diacritic: '`', letter: 'I' },
+    'Õ': { diacritic: '¥', letter: 'I' },
+    'Œ': { diacritic: '^', letter: 'I' },
+    'œ': { diacritic: '®', letter: 'I' },
+    
+    '“': { diacritic: '`', letter: 'O' },
+    '”': { diacritic: '¥', letter: 'O' },
+    '‘': { diacritic: '^', letter: 'O' },
+    '÷': { diacritic: '®', letter: 'O' },
+    '’': { diacritic: '~', letter: 'O' },
+    
+    'Ÿ': { diacritic: '`', letter: 'U' },
+    '⁄': { diacritic: '¥', letter: 'U' },
+    '€': { diacritic: '^', letter: 'U' },
+    '‹': { diacritic: '®', letter: 'U' },
+    
+    '›': { diacritic: '¥', letter: 'Y' },
+    
+    '«': { diacritic: '∏', letter: 'C' },
+    '—': { diacritic: '~', letter: 'N' }
   },
-
+  
   specialchars: {
     'pi': { width: 19, points: [[6,14],[6,0],null,[14,14],[14,0],null,[2,13],[6,16],[13,13],[17,16]] }
   },
-
+  
   /** Diacritics, used to draw accentuated letters */
   diacritics: {
-    '¬∏': { entity: 'cedil', points: [[6,-4],[4,-6],[2,-7],[1,-7]] },
-    '¬¥': { entity: 'acute', points: [[8,19],[13,22]] },
+    '∏': { entity: 'cedil', points: [[6,-4],[4,-6],[2,-7],[1,-7]] },
+    '¥': { entity: 'acute', points: [[8,19],[13,22]] },
     '`': { entity: 'grave', points: [[7,22],[12,19]] },
-    '^': { entity: 'circ', points: [[5.5,19],[9.5,23],[12.5,19]] },
-    '¬®': { entity: 'trema', points: [[5,21],[6,20],[7,21],[6,22],[5,21],null,[12,21],[13,20],[14,21],[13,22],[12,21]] },
+    '^': { entity: 'circ',  points: [[5.5,19],[9.5,23],[12.5,19]] },
+    '®': { entity: 'trema', points: [[5,21],[6,20],[7,21],[6,22],[5,21],null,[12,21],[13,20],[14,21],[13,22],[12,21]] },
     '~': { entity: 'tilde', points: [[4,18],[7,22],[10,18],[13,22]] }
   },
-
+  
   /** The default font styling */
   style: {
-    size: 8, // font height in pixels
-    font: null, // not yet implemented
-    color: '#000000', // font color
-    weight: 1, // float, 1 for 'normal'
-    textAlign: 'left', // left, right, center
+    size: 8,            // font height in pixels
+    font: null,         // not yet implemented
+    color: '#000000',   // font color
+    weight: 1,          // float, 1 for 'normal'
+    textAlign: 'left',  // left, right, center
     textBaseline: 'bottom', // top, middle, bottom 
     adjustAlign: false, // modifies the alignments if the angle is different from 0 to make the spin point always at the good position
-    angle: 0, // in radians, anticlockwise
-    tracking: 1, // space between the letters, float, 1 for 'normal'
+    angle: 0,           // in radians, anticlockwise
+    tracking: 1,        // space between the letters, float, 1 for 'normal'
     boundingBoxColor: '#ff0000', // color of the bounding box (null to hide), can be used for debug and font drawing
-    originPointColor: '#000000' // color of the bounding box (null to hide), can be used for debug and font drawing
+    originPointColor: '#000000'  // color of the bounding box (null to hide), can be used for debug and font drawing
   },
-
+  
   debug: false,
   _bufferLexemes: {},
 
@@ -221,21 +221,21 @@ var CanvasText = {
   letter: function(ch) {
     return CanvasText.letters[ch];
   },
-
+  
   parseLexemes: function(str) {
-    if (CanvasText._bufferLexemes[str])
+    if (CanvasText._bufferLexemes[str]) 
       return CanvasText._bufferLexemes[str];
-
+    
     var i, c, matches = str.match(/&[A-Za-z]{2,5};|\s|./g),
         result = [], chars = [];
-
+        
     for (i = 0; i < matches.length; i++) {
       c = matches[i];
-      if (c.length == 1)
+      if (c.length == 1) 
         chars.push(c);
       else {
         var entity = c.substring(1, c.length-1);
-        if (CanvasText.specialchars[entity])
+        if (CanvasText.specialchars[entity]) 
           chars.push(entity);
         else
           chars = chars.concat(c.toArray());
@@ -246,7 +246,7 @@ var CanvasText = {
       if (c = CanvasText.letters[c] || CanvasText.specialchars[c]) result.push(c);
     }
     for (i = 0; i < result.length; i++) {
-      if (result === null || typeof result === 'undefined')
+      if (result === null || typeof result === 'undefined') 
       delete result[i];
     }
     return CanvasText._bufferLexemes[str] = result;
@@ -259,7 +259,7 @@ var CanvasText = {
     style = style || CanvasText.style;
     return (style.size || CanvasText.style.size);
   },
-
+  
   /** Get the font descent for a given style 
    * @param {Object} style - The reference style
    * */
@@ -267,7 +267,7 @@ var CanvasText = {
     style = style || CanvasText.style;
     return 7.0*(style.size || CanvasText.style.size)/25.0;
   },
-
+  
   /** Measure the text horizontal size 
    * @param {String} str - The text
    * @param {Object} style - Text style
@@ -275,7 +275,7 @@ var CanvasText = {
   measure: function(str, style) {
     if (!str) return;
     style = style || CanvasText.style;
-
+    
     var i, width, lexemes = CanvasText.parseLexemes(str),
         total = 0;
 
@@ -286,21 +286,21 @@ var CanvasText = {
     }
     return total;
   },
-
+  
   getDimensions: function(str, style) {
     style = style || CanvasText.style;
-
+    
     var width = CanvasText.measure(str, style),
         height = style.size || CanvasText.style.size,
         angle = style.angle || CanvasText.style.angle;
 
     if (style.angle == 0) return {width: width, height: height};
     return {
-      width: Math.abs(Math.cos(angle) * width) + Math.abs(Math.sin(angle) * height),
+      width:  Math.abs(Math.cos(angle) * width) + Math.abs(Math.sin(angle) * height),
       height: Math.abs(Math.sin(angle) * width) + Math.abs(Math.cos(angle) * height)
     }
   },
-
+  
   /** Draws serie of points at given coordinates 
    * @param {Canvas context} ctx - The canvas context
    * @param {Array} points - The points to draw
@@ -311,7 +311,7 @@ var CanvasText = {
   drawPoints: function (ctx, points, x, y, mag, offset) {
     var i, a, penUp = true, needStroke = 0;
     offset = offset || {x:0, y:0};
-
+    
     ctx.beginPath();
     for (i = 0; i < points.length; i++) {
       a = points[i];
@@ -330,7 +330,7 @@ var CanvasText = {
     ctx.stroke();
     ctx.closePath();
   },
-
+  
   /** Draws a text at given coordinates and with a given style
    * @param {String} str - The text to draw
    * @param {Number} xOrig - The X coordinate
@@ -340,39 +340,39 @@ var CanvasText = {
   draw: function(str, xOrig, yOrig, style) {
     if (!str) return;
     CanvasText.extend(style, CanvasText.style);
-
+    
     var i, c, total = 0,
         mag = style.size / 25.0,
         x = 0, y = 0,
         lexemes = CanvasText.parseLexemes(str),
-        offset = {x: 0, y: 0},
+        offset = {x: 0, y: 0}, 
         measure = CanvasText.measure(str, style),
         align;
-
+        
     if (style.adjustAlign) {
       align = CanvasText.getBestAlign(style.angle, style);
       CanvasText.extend(style, align);
     }
-
+        
     switch (style.textAlign) {
       case 'left': break;
       case 'center': offset.x = -measure / 2; break;
-      case 'right': offset.x = -measure; break;
+      case 'right':  offset.x = -measure; break;
     }
-
+    
     switch (style.textBaseline) {
       case 'bottom': break;
       case 'middle': offset.y = style.size / 2; break;
-      case 'top': offset.y = style.size; break;
+      case 'top':    offset.y = style.size; break;
     }
-
+    
     this.save();
     this.translate(xOrig, yOrig);
     this.rotate(style.angle);
     this.lineCap = "round";
     this.lineWidth = 2.0 * mag * (style.weight || CanvasText.style.weight);
     this.strokeStyle = style.color || CanvasText.style.color;
-
+    
     for (i = 0; i < lexemes.length; i++) {
       c = lexemes[i];
       if (c.width == -1) {
@@ -380,10 +380,10 @@ var CanvasText = {
         y = style.size * 1.4;
         continue;
       }
-
+    
       var points = c.points,
           width = c.width;
-
+          
       if (c.diacritic) {
         var dia = CanvasText.diacritics[c.diacritic],
             character = CanvasText.letter(c.letter);
@@ -394,14 +394,14 @@ var CanvasText = {
       }
 
       CanvasText.drawPoints(this, points, x, y, mag, offset);
-
+      
       if (CanvasText.debug) {
         this.save();
         this.lineJoin = "miter";
         this.lineWidth = 0.5;
         this.strokeStyle = (style.boundingBoxColor || CanvasText.style.boundingBoxColor);
         this.strokeRect(x+offset.x, y+offset.y, width*mag, -style.size);
-
+        
         this.fillStyle = (style.originPointColor || CanvasText.style.originPointColor);
         this.beginPath();
         this.arc(0, 0, 1.5, 0, Math.PI*2, true);
@@ -409,7 +409,7 @@ var CanvasText = {
         this.closePath();
         this.restore();
       }
-
+      
       x += width*mag*(style.tracking || CanvasText.style.tracking);
     }
     this.restore();
@@ -421,9 +421,9 @@ var CanvasText = {
 CanvasText.proto = window.CanvasRenderingContext2D ? window.CanvasRenderingContext2D.prototype : document.createElement('canvas').getContext('2d').__proto__;
 
 if (CanvasText.proto) {
-  CanvasText.proto.drawText = CanvasText.draw;
-  CanvasText.proto.measure = CanvasText.measure;
+  CanvasText.proto.drawText      = CanvasText.draw;
+  CanvasText.proto.measure       = CanvasText.measure;
   CanvasText.proto.getTextBounds = CanvasText.getDimensions;
-  CanvasText.proto.fontAscent = CanvasText.ascent;
-  CanvasText.proto.fontDescent = CanvasText.descent;
+  CanvasText.proto.fontAscent    = CanvasText.ascent;
+  CanvasText.proto.fontDescent   = CanvasText.descent;
 }

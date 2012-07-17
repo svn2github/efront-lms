@@ -413,15 +413,35 @@ class EfrontGroup
         }
   eF_insertTableDataMultiple("users_to_groups", $fields);
         foreach ($this -> getCourses(true, true) as $course) {
-         $course -> addUsers($users, $userTypeInCourses, 1);
+         try {
+          $course -> addUsers($users, $userTypeInCourses, 1);
+         } catch (Exception $e) {
+          if ($e->getCode() == EfrontCourseException :: MAX_USERS_LIMIT) {
+           $max_users_errors[] = $e->getMessage();
+          } else {
+           $errors[] = $e->getMessage();
+          }
+         }
         }
         foreach ($this -> getLessons(true, true) as $lesson) {
-         $lesson -> addUsers($users, $userTypeInCourses, 1);
+         try {
+          $lesson -> addUsers($users, $userTypeInCourses, 1);
+         } catch (Exception $e) {
+          if ($e->getCode() == EfrontCourseException :: MAX_USERS_LIMIT) {
+           $max_users_errors[] = $e->getMessage();
+          } else {
+           $errors[] = $e->getMessage();
+          }
+         }
         }
         if (!empty($errors)) {
          throw new EfrontGroupException(implode("<br>", $errors), EfrontGroupException :: ASSIGNMENT_ERROR);
         }
-  return true;
+        if (!empty($max_users_errors)) {
+         $_SESSION['s_message'] = _YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP."<br>".implode("<br>", $max_users_errors);
+         $_SESSION['s_message_type'] = 'success';
+        }
+        return true;
     }
     /**
 
@@ -634,7 +654,7 @@ class EfrontGroup
      */
     public function getLessons($returnObjects = false, $refresh = false) {
         if ($this -> lessons === false || $refresh) { //Make a database query only if the variable is not initialized, or it is explicitly asked
-            $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.id, l.name, l.active", "l.archive=0 and lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
+            $result = eF_getTableData("lessons_to_groups lg, lessons l", "lg.*, l.*", "l.archive=0 and lg.lessons_ID = l.id and lg.groups_ID=".$this -> group['id']);
             $this -> lessons = array();
             foreach ($result as $value) {
              if ($returnObjects) {

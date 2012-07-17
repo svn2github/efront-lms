@@ -26,6 +26,12 @@ try {
   }
   $lesson -> lesson['price'] ? $priceString = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true) : $priceString = false;
   $lessonInformation['price_string'] = $priceString;
+
+  if ($lesson->lesson['max_users']) {
+   $lessonInformation['max_users'] = $lesson->lesson['max_users'];
+   $lessonInformation['seats_remaining'] = $lesson -> lesson['max_users'] - sizeof($lesson -> getStudentUsers());
+   $lessonInformation['seats_remaining'] >= 0 OR $lessonInformation['seats_remaining'] = 0;
+  }
   //    if (!$lessonInformation['price']) {
   //        unset($lessonInformation['price_string']);
   //    }
@@ -69,6 +75,7 @@ try {
      case 'other_info' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>"; break;
      case 'price_string' : !$lesson -> lesson['course_only'] ? $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>" : null; break;
      case 'lesson_courses' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PARTOFCOURSES."</span><span>: $value</span></div>"; break;
+     case 'max_users' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._MAXIMUMUSERS."</span><span>: $value</span></div>";$tooltipInfo[] = '<div class = "infoEntry"><span>'._SEATSREMAINING."</span><span>: ".$lessonInformation['seats_remaining']."</span></div>"; break;
      default: break;
     }
    }
@@ -94,6 +101,11 @@ try {
 
   $course -> course['price'] ? $priceString = formatPrice($course -> course['price'], array($course -> options['recurring'], $course -> options['recurring_duration']), true) : $priceString = false;
   $courseInformation['price_string'] = $priceString;
+  if ($course->course['max_users']) {
+   $courseInformation['max_users'] = $course->course['max_users'];
+   $courseInformation['seats_remaining'] = $courseInformation['max_users'] - sizeof($course -> getStudentUsers());
+   $courseInformation['seats_remaining'] >= 0 OR $courseInformation['seats_remaining'] = 0;
+  }
   foreach ($courseInformation as $key => $value) {
    if ($value) {
     $value = str_replace ("\n","<br />", $value);
@@ -109,6 +121,7 @@ try {
      case 'resources' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._RESOURCES."</span><span>: $value</span></div>"; break;
      case 'other_info' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._OTHERINFO."</span><span>: $value</span></div>"; break;
      case 'price_string' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._PRICE."</span><span>: $value</span></div>"; break;
+     case 'max_users' : $tooltipInfo[] = '<div class = "infoEntry"><span>'._MAXIMUMUSERS."</span><span>: $value</span></div>";$tooltipInfo[] = '<div class = "infoEntry"><span>'._SEATSREMAINING."</span><span>: ".$courseInformation['seats_remaining']."</span></div>"; break;
      default: break;
     }
    }

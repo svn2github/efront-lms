@@ -4210,5 +4210,6 @@ define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHED", "I want to signup but the ma
 define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHEDBODY", "I am trying to signup but the system reports that the maximum users limit is reached.");
 define("_PROFESSORCREATECOURSES", "Create courses/lessons");
 define("_RESETALLUSERS", "Reset progress for all users");
-define("_MYROLE", "My role");
+define("_MYROLE", "Role");
+define("_MAXSEATSDEPLEATED", "The %y seats available for '%x' are taken. Contact %z for more info");
 ?>

@@ -1284,7 +1284,7 @@ class EfrontCourse
    $roleInCourse = $userRoles[$key];
    $roles[$roleInCourse] == 'student' ? $isStudentRoleInCourse = true : $isStudentRoleInCourse = false;
    if ($this -> course['max_users'] && $isStudentRoleInCourse && $this -> course['max_users'] <= $courseStudents++) {
-    throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORCOURSE, EfrontCourseException :: MAX_USERS_LIMIT);
+    throw new EfrontCourseException(str_replace(array("%x", "%y", "%z"), array($this->course['name'], $this->course['max_users'], $GLOBALS['configuration']['system_email']), _MAXSEATSDEPLEATED), EfrontCourseException :: MAX_USERS_LIMIT);
    }
    if (!isset($courseUsers[$user])) {
     $newUsers[] = array('users_LOGIN' => $user,

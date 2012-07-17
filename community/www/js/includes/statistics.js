@@ -1,3 +1,19 @@
+function deleteUser(el, user) {
+	parameters = {delete_user:user, method: 'get'};	
+	var url    = location.toString();
+	ajaxRequest(el, url, parameters, onDeleteUser);	
+}
+function onDeleteUser(el, response) {
+	new Effect.Fade(el.up().up());
+}
+function archiveUser(el, user) {
+	parameters = {archive_user:user, method: 'get'};	
+	var url    = location.toString();
+	ajaxRequest(el, url, parameters, onArchiveUser);	
+}
+function onArchiveUser(el, response) {
+	new Effect.Fade(el.up().up());
+}
 function setPeriod(el) {
 	Element.extend(el);
 	//alert(el.value);

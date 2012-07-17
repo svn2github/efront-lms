@@ -10,7 +10,7 @@ var Canvas2Image = (function() {
       sc = String.fromCharCode,
       strDownloadMime = "image/octet-stream",
       bReplaceDownloadMime = false;
-
+  
   // no canvas, bail out.
   if (!oCanvas.getContext) {
     return {
@@ -34,7 +34,7 @@ var Canvas2Image = (function() {
   // base64 encodes either a string or an array of charcodes
   var encodeData = function(data) {
     var i, aData, strData = "";
-
+    
     if (typeof data == "string") {
       strData = data;
     } else {
@@ -53,7 +53,7 @@ var Canvas2Image = (function() {
         iHeight = oData.height;
 
     strHeader += 'BM';
-
+  
     var iFileSize = iWidth*iHeight*4 + 54; // total header size = 54 bytes
     strHeader += sc(iFileSize % 256); iFileSize = Math.floor(iFileSize / 256);
     strHeader += sc(iFileSize % 256); iFileSize = Math.floor(iFileSize / 256);
@@ -68,29 +68,29 @@ var Canvas2Image = (function() {
     strHeader += sc(iImageWidth % 256); iImageWidth = Math.floor(iImageWidth / 256);
     strHeader += sc(iImageWidth % 256); iImageWidth = Math.floor(iImageWidth / 256);
     strHeader += sc(iImageWidth % 256);
-
+  
     var iImageHeight = iHeight;
     strHeader += sc(iImageHeight % 256); iImageHeight = Math.floor(iImageHeight / 256);
     strHeader += sc(iImageHeight % 256); iImageHeight = Math.floor(iImageHeight / 256);
     strHeader += sc(iImageHeight % 256); iImageHeight = Math.floor(iImageHeight / 256);
     strHeader += sc(iImageHeight % 256);
-
+  
     strHeader += sc(1, 0, 32, 0); // num of planes & num of bits per pixel
     strHeader += sc(0, 0, 0, 0); // compression = none
-
-    var iDataSize = iWidth*iHeight*4;
+  
+    var iDataSize = iWidth*iHeight*4; 
     strHeader += sc(iDataSize % 256); iDataSize = Math.floor(iDataSize / 256);
     strHeader += sc(iDataSize % 256); iDataSize = Math.floor(iDataSize / 256);
     strHeader += sc(iDataSize % 256); iDataSize = Math.floor(iDataSize / 256);
-    strHeader += sc(iDataSize % 256);
-
+    strHeader += sc(iDataSize % 256); 
+  
     strHeader += sc(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); // these bytes are not used
-
+  
     var aImgData = oData.data,
         strPixelData = "",
         c, x, y = iHeight,
         iOffsetX, iOffsetY, strPixelRow;
-
+    
     do {
       iOffsetY = iWidth*(y-1)*4;
       strPixelRow = "";
@@ -99,8 +99,8 @@ var Canvas2Image = (function() {
         strPixelRow += sc(
           aImgData[iOffsetY + iOffsetX + 2], // B
           aImgData[iOffsetY + iOffsetX + 1], // G
-          aImgData[iOffsetY + iOffsetX], // R
-          aImgData[iOffsetY + iOffsetX + 3] // A
+          aImgData[iOffsetY + iOffsetX],     // R
+          aImgData[iOffsetY + iOffsetX + 3]  // A
         );
       }
       strPixelData += strPixelRow;
@@ -130,7 +130,7 @@ var Canvas2Image = (function() {
   var scaleCanvas = function(oCanvas, iWidth, iHeight) {
     if (iWidth && iHeight) {
       var oSaveCanvas = document.createElement("canvas");
-
+      
       oSaveCanvas.width = iWidth;
       oSaveCanvas.height = iHeight;
       oSaveCanvas.style.width = iWidth+"px";
@@ -139,7 +139,7 @@ var Canvas2Image = (function() {
       var oSaveCtx = oSaveCanvas.getContext("2d");
 
       oSaveCtx.drawImage(oCanvas, 0, 0, oCanvas.width, oCanvas.height, 0, 0, iWidth, iWidth);
-
+      
       return oSaveCanvas;
     }
     return oCanvas;
@@ -148,11 +148,11 @@ var Canvas2Image = (function() {
   return {
     saveAsPNG : function(oCanvas, bReturnImg, iWidth, iHeight) {
       if (!bHasDataURL) return false;
-
+      
       var oScaledCanvas = scaleCanvas(oCanvas, iWidth, iHeight),
           strMime = "image/png",
           strData = oScaledCanvas.toDataURL(strMime);
-
+        
       if (bReturnImg) {
         return makeImageObject(strData);
       } else {
@@ -167,7 +167,7 @@ var Canvas2Image = (function() {
       var oScaledCanvas = scaleCanvas(oCanvas, iWidth, iHeight),
           strMime = "image/jpeg",
           strData = oScaledCanvas.toDataURL(strMime);
-
+  
       // check if browser actually supports jpeg by looking for the mime type in the data uri. if not, return false
       if (strData.indexOf(strMime) != 5) return false;
 
@@ -186,7 +186,7 @@ var Canvas2Image = (function() {
           strMime = "image/bmp",
           oData = readCanvasData(oScaledCanvas),
           strImgData = createBMP(oData);
-
+        
       if (bReturnImg) {
         return makeImageObject(makeDataURI(strImgData, strMime));
       } else {

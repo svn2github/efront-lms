@@ -1242,7 +1242,7 @@ class EfrontLesson
  }
  //TO REPLACE getUsers
  public function getLessonUsersOld($returnObjects = false) {
-  if (sizeof($this -> users) == 0) {
+  if ($this -> users === false) {
    $this -> initializeUsers();
   }
   if ($returnObjects) {
@@ -1584,7 +1584,7 @@ class EfrontLesson
    $roleInLesson = $roles[$key];
    if ($roleInLesson != 'administrator') {
     if ($this -> lesson['max_users'] && $this -> lesson['max_users'] <= $count++ && EfrontUser::isStudentRole($roleInLesson)) {
-     throw new EfrontCourseException(_MAXIMUMUSERSREACHEDFORLESSON, EfrontCourseException :: MAX_USERS_LIMIT);
+     throw new EfrontCourseException(str_replace(array("%x", "%y", "%z"), array($this->lesson['name'], $this->lesson['max_users'], $GLOBALS['configuration']['system_email']), _MAXSEATSDEPLEATED), EfrontCourseException :: MAX_USERS_LIMIT);
     }
     if (!in_array($user, $lessonUsers)) { //added this to avoid adding existing user when admin changes his role
      $usersToAddToLesson[] = array('login' => $user, 'role' => $roleInLesson, 'confirmed' => $confirmed);

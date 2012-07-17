@@ -12,7 +12,7 @@
    {assign var = "title" value = "`$title`<span>&nbsp;&raquo;&nbsp;</span><a class = 'titleLink' title = '`$T_CURRENT_CATEGORY_PATH`&nbsp;&rarr;&nbsp;`$titleCourse`&nbsp;&rarr;&nbsp;`$T_CURRENT_LESSON->lesson.name`' href ='`$smarty.server.PHP_SELF`?ctg=control_panel'>`$lessonName`</a>"}
   {/if}
 {else}
- {assign var = "title" value = '<a class = "titleLink" title = "'|cat:$smarty.const._HOME|cat:'" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=control_panel">'|cat:$smarty.const._HOME|cat:'</a>'}
+ {assign var = "title" value = "<a class = 'titleLink' title = '`$smarty.const._HOME`' href = '`$T_HOME_LINK`'>`$smarty.const._HOME`</a>"}
 {/if}
 
 {* Making the previously loaded current lesson options appear again *}
@@ -695,7 +695,7 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
   {elseif $T_OP == 'user_courses' || $T_OP == 'user_lessons' || $T_OP == 'certificates' || $T_OP == 'user_form'}
    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=user_courses'>`$smarty.const._LEARNING`</a>"}
   {elseif $T_OP == 'placements' || $T_OP == 'history' || $T_OP == 'skills' || $T_OP == 'evaluations' || $T_OP =='org_form'}
-   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=placements'>`$smarty.const._ORGANIZATION`</a>"}
+   {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=placements'>`$smarty.const._MYROLE`</a>"}
   {elseif $T_OP == 'files'}
    {assign var = 'title' value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=personal&user=`$smarty.get.user`&op=files'>`$smarty.const._FILES`</a>"}
   {/if}

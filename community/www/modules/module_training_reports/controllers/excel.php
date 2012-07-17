@@ -10,6 +10,7 @@ if (TrainingReports_Report::isValid($id) == false) {
 }
 
 $report = new TrainingReports_Report($id);
+
 $workBook = new TrainingReports_ExcelWriter();
 $workBook->write($report);
 $workBook->send($report->getName().'.xls');

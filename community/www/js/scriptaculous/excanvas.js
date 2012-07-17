@@ -183,7 +183,7 @@ if (!document.createElement('canvas').getContext) {
         el.style.width = el.attributes.width.nodeValue + 'px';
         // In IE8 this does not trigger onresize.
         if (el.firstChild) {
-          el.firstChild.style.width = el.clientWidth + 'px';
+          el.firstChild.style.width =  el.clientWidth + 'px';
         }
         break;
       case 'height':
@@ -199,7 +199,7 @@ if (!document.createElement('canvas').getContext) {
   function onResize(e) {
     var el = e.srcElement;
     if (el.firstChild) {
-      el.firstChild.style.width = el.clientWidth + 'px';
+      el.firstChild.style.width =  el.clientWidth + 'px';
       el.firstChild.style.height = el.clientHeight + 'px';
     }
   }
@@ -240,23 +240,23 @@ if (!document.createElement('canvas').getContext) {
   }
 
   function copyState(o1, o2) {
-    o2.fillStyle = o1.fillStyle;
-    o2.lineCap = o1.lineCap;
-    o2.lineJoin = o1.lineJoin;
-    o2.lineWidth = o1.lineWidth;
-    o2.miterLimit = o1.miterLimit;
-    o2.shadowBlur = o1.shadowBlur;
-    o2.shadowColor = o1.shadowColor;
+    o2.fillStyle     = o1.fillStyle;
+    o2.lineCap       = o1.lineCap;
+    o2.lineJoin      = o1.lineJoin;
+    o2.lineWidth     = o1.lineWidth;
+    o2.miterLimit    = o1.miterLimit;
+    o2.shadowBlur    = o1.shadowBlur;
+    o2.shadowColor   = o1.shadowColor;
     o2.shadowOffsetX = o1.shadowOffsetX;
     o2.shadowOffsetY = o1.shadowOffsetY;
-    o2.strokeStyle = o1.strokeStyle;
-    o2.globalAlpha = o1.globalAlpha;
-    o2.font = o1.font;
-    o2.textAlign = o1.textAlign;
-    o2.textBaseline = o1.textBaseline;
-    o2.arcScaleX_ = o1.arcScaleX_;
-    o2.arcScaleY_ = o1.arcScaleY_;
-    o2.lineScale_ = o1.lineScale_;
+    o2.strokeStyle   = o1.strokeStyle;
+    o2.globalAlpha   = o1.globalAlpha;
+    o2.font          = o1.font;
+    o2.textAlign     = o1.textAlign;
+    o2.textBaseline  = o1.textBaseline;
+    o2.arcScaleX_    = o1.arcScaleX_;
+    o2.arcScaleY_    = o1.arcScaleY_;
+    o2.lineScale_    = o1.lineScale_;
   }
 
   var colorData = {
@@ -694,8 +694,13 @@ if (!document.createElement('canvas').getContext) {
     var yEnd = aY + ms(aEndAngle) * aRadius - Z2;
 
     // IE won't render arches drawn counter clockwise if xStart == xEnd.
-    if (xStart == xEnd && !aClockwise) {
+    if ((abs(xStart - xEnd) < 10e-8) && !aClockwise) {
       xStart += 0.125; // Offset xStart by 1/80 of a pixel. Use something
+                       // that can be represented in binary
+    }
+    // IE won't render arches drawn clockwise if yStart is very close to yEnd.
+    if ((abs(yStart - yEnd) < 10e-8) && aClockwise) {
+      yStart -= 0.125; // Offset yStart by 1/80 of a pixel. Use something
                        // that can be represented in binary
     }
 
@@ -1034,7 +1039,7 @@ if (!document.createElement('canvas').getContext) {
           y: (p0.y - min.y) / height
         };
 
-        width /= arcScaleX * Z;
+        width  /= arcScaleX * Z;
         height /= arcScaleY * Z;
         var dimension = m.max(width, height);
         shift = 2 * fillStyle.r0_ / dimension;
@@ -1148,8 +1153,8 @@ if (!document.createElement('canvas').getContext) {
 
   contextPrototype.translate = function(aX, aY) {
     var m1 = [
-      [1, 0, 0],
-      [0, 1, 0],
+      [1,  0,  0],
+      [0,  1,  0],
       [aX, aY, 1]
     ];
 
@@ -1161,9 +1166,9 @@ if (!document.createElement('canvas').getContext) {
     var s = ms(aRot);
 
     var m1 = [
-      [c, s, 0],
+      [c,  s, 0],
       [-s, c, 0],
-      [0, 0, 1]
+      [0,  0, 1]
     ];
 
     setM(this, matrixMultiply(m1, this.m_), false);
@@ -1173,9 +1178,9 @@ if (!document.createElement('canvas').getContext) {
     this.arcScaleX_ *= aX;
     this.arcScaleY_ *= aY;
     var m1 = [
-      [aX, 0, 0],
-      [0, aY, 0],
-      [0, 0, 1]
+      [aX, 0,  0],
+      [0,  aY, 0],
+      [0,  0,  1]
     ];
 
     setM(this, matrixMultiply(m1, this.m_), true);
@@ -1185,7 +1190,7 @@ if (!document.createElement('canvas').getContext) {
     var m1 = [
       [m11, m12, 0],
       [m21, m22, 0],
-      [dx, dy, 1]
+      [dx,  dy,  1]
     ];
 
     setM(this, matrixMultiply(m1, this.m_), true);
@@ -1195,7 +1200,7 @@ if (!document.createElement('canvas').getContext) {
     var m = [
       [m11, m12, 0],
       [m21, m22, 0],
-      [dx, dy, 1]
+      [dx,  dy,  1]
     ];
 
     setM(this, m, true);

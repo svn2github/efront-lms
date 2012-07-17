@@ -1730,14 +1730,40 @@ abstract class EfrontModule
 
      * @param int $courseId The id of the course
 
-     * @param array $users The users added to the course
+     * @param array $users The users added to the course in this format
+
+     * 				$newUsers[] = array('users_LOGIN'    => $user,
+
+									'courses_ID'     => $this -> course['id'],
+
+									'active'         => 1,
+
+									'archive'        => 0,
+
+									'from_timestamp' => $confirmed ? time() : 0,
+
+									'user_type'      => $roleInCourse,
+
+									'completed'		 => 0,
+
+									'score'			 => 0,
+
+									'issued_certificate' => '',
+
+									'comments'		 => '',
+
+									'to_timestamp'	 => 0);
+
+									
+
+	 * @param array $lessonUsers As above an array with corresponding users to lesson entries			
 
      * @since 3.6.10
 
      * @access public
 
      */
-    public function onAddUsersToCourse($courseId, $users) {
+    public function onAddUsersToCourse($courseId, $users, $lessonUsers) {
      return false;
     }
     /**

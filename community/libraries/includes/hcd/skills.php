@@ -4,6 +4,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 
+$_change_ = true;
+if ((isset($currentUser -> coreAccess['organization']) && $currentUser -> coreAccess['organization'] == 'view') || (!$currentEmployee->isSupervisor() && $currentUser -> getType() != "administrator")) {
+ $_change_ = false;
+}
+$smarty -> assign("_change_", $_change_);
 
 try {
     /* Check permissions: only admins have add/edit privileges. supervisors may only see skills */

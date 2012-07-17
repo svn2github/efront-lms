@@ -13,6 +13,13 @@
      {if $T_ADDITIONAL_LESSON_INFO.projects}{if $T_ADDITIONAL_LESSON_INFO.content || $T_ADDITIONAL_LESSON_INFO.tests},{/if} <span class = "infoTitle">{$smarty.const._PROJECTS}:</span> {$T_ADDITIONAL_LESSON_INFO.projects}{/if}
      {/strip}</div>
     {/if}
+   {if $T_LESSON->lesson.max_users}
+    <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._MAXIMUMUSERS}:</span>
+    {$T_LESSON->lesson.max_users} ({$T_LESSON->lesson.seats_remaining} {$smarty.const._SEATSREMAINING})
+    </div>
+   {/if}
+
+
          {if $T_CONTENT_TREE}
           <fieldset class = "fieldsetSeparator">
               <legend>{$smarty.const._LESSONCONTENT}</legend>
@@ -21,25 +28,27 @@
          {/if}
   {if !$T_LESSON->lesson.course_only && (!$T_CURRENT_USER || $T_CURRENT_USER->user.user_type == 'student')}
           <div id = "buy">
-      {if $T_LESSON->lesson.price}
-          {if $T_HAS_LESSON}
-              <span>{$T_LESSON->lesson.price_string}</span>
-              <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
-             {else}
-              <span>{$T_LESSON->lesson.price_string}</span>
-              <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
-             {/if}
-         {else}
-          {if $T_HAS_LESSON}
-              <span>{$T_LESSON->lesson.price_string}</span>
-              <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
-             {elseif !$T_CONFIGURATION.disable_payments}
-              <span>{$smarty.const._FREEOFCHARGE}</span>
-              <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
-             {else}
-              <span>{$smarty.const._ENROLL}</span>
-              <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
-             {/if}
+         {if !$T_LESSON->lesson.max_users || $T_LESSON->lesson.seats_remaining}
+       {if $T_LESSON->lesson.price}
+           {if $T_HAS_LESSON}
+               <span>{$T_LESSON->lesson.price_string}</span>
+               <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
+              {else}
+               <span>{$T_LESSON->lesson.price_string}</span>
+               <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ADDTOCART}" alt = "{$smarty.const._ADDTOCART}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
+              {/if}
+          {else}
+           {if $T_HAS_LESSON}
+               <span>{$T_LESSON->lesson.price_string}</span>
+               <img class = "ajaxHandle inactiveImage" src = "images/32x32/{$cart_image}" title = "{$smarty.const._YOUALREADYHAVETHISLESSON}" alt = "{$smarty.const._YOUALREADYHAVETHISLESSON}" onclick = "alert('{$smarty.const._YOUALREADYHAVETHISLESSON}')">
+              {elseif !$T_CONFIGURATION.disable_payments}
+               <span>{$smarty.const._FREEOFCHARGE}</span>
+               <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
+              {else}
+               <span>{$smarty.const._ENROLL}</span>
+               <img class = "ajaxHandle" src = "images/32x32/{$cart_image}" title = "{$smarty.const._ENROLL}" alt = "{$smarty.const._ENROLL}" onclick = "addToCart(this, '{$T_LESSON->lesson.id}', 'lesson');{if !$T_CONFIGURATION.enable_cart}location=redirectLocation{/if}">
+              {/if}
+          {/if}
          {/if}
           </div>
         {elseif $T_LESSON->lesson.course_only}
@@ -76,7 +85,8 @@
     {elseif $T_COURSE_INFO}
 
   {capture name = "t_buy_course_code"}
-         {if !$T_HAS_COURSE}
+
+         {if !$T_HAS_COURSE && (!$T_COURSE->course.max_users || $T_COURSE->course.seats_remaining)}
               <div id = "buy">
           {if $T_COURSE->course.price}
               {if $T_HAS_COURSE}
@@ -118,7 +128,7 @@
 
    {if $T_COURSE->course.max_users}
     <div class = "lessonInfo"><span class = "infoTitle">{$smarty.const._MAXIMUMUSERS}:</span>
-    {$T_COURSE->course.max_users} {if $T_COURSE->course.seats_remaining}({$T_COURSE->course.seats_remaining} {$smarty.const._SEATSREMAINING}){/if}
+    {$T_COURSE->course.max_users} ({$T_COURSE->course.seats_remaining} {$smarty.const._SEATSREMAINING})
     </div>
    {/if}
 

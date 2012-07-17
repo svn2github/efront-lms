@@ -646,11 +646,11 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
             }
         } else if (EfrontEvent::NEW_SURVEY == $event_notification['event_type']) {
             $conditions = unserialize($event_notification['send_conditions']);
-            if ($conditions['lessons_ID'] != 0) {
-                $extra_condition .= " projects.lessons_ID = " . $conditions['lessons_ID'] . " AND ";
-            }
+           // if ($conditions['lessons_ID'] != 0) {
+           //     $extra_condition .= " projects.lessons_ID = " . $conditions['lessons_ID'] . " AND ";
+           // }
             $timestamp_column = "surveys.start_date";
-            $users_to_notify = eF_getTableData("surveys JOIN users ON surveys.author = users.login JOIN lessons ON lessons.id = surveys.lessons_ID", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, surveys.lessons_ID, lessons.name as lessons_name, surveys.id as entity_ID, surveys.name as entity_name, ". $timestamp_column ." as timestamp", $extra_condition . $timestamp_column . "> " . $timediff);
+            $users_to_notify = eF_getTableData("surveys JOIN users ON surveys.author = users.login JOIN lessons ON lessons.id = surveys.lessons_ID JOIN users_to_surveys ON users_to_surveys.surveys_ID=surveys.id", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, surveys.lessons_ID, lessons.name as lessons_name, surveys.id as entity_ID, surveys.name as entity_name, ". $timestamp_column ." as timestamp", " users_to_surveys.users_LOGIN=users.login and users_to_surveys.last_post = '' and ". $extra_condition . $timestamp_column . "> " . $timediff);
         }
         global $currentUser;
         if (sizeof($users_to_notify) > 0) {
@@ -884,15 +884,20 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         } else if (isset($this -> recipients['entity_ID']) && isset($this -> recipients['entity_category'])) {
          if ($this -> recipients['entity_category'] == "survey") {
           $recipients = eF_getTableData("users_to_surveys JOIN users ON users_LOGIN = users.login", "users.*", "users.active=1 and users.archive=0 and surveys_ID = '".$this -> recipients["entity_ID"]."'");
-       $resDone = eF_getTableDataFlat("users_to_done_surveys", "users_LOGIN", "surveys_ID=".$this -> recipients["entity_ID"]);
+       $notified = eF_getTableDataFlat("users_to_surveys JOIN users ON users_LOGIN = users.login", "users.*", "users.active=1 and users.archive=0 and users_to_surveys.last_post > 1 and surveys_ID = '".$this -> recipients["entity_ID"]."'");
+          //$resDone		= eF_getTableDataFlat("users_to_done_surveys", "users_LOGIN", "surveys_ID=".$this -> recipients["entity_ID"]);
           $usersToSent = array();
-          if (!empty($resDone['users_LOGIN'])){
+          if (!empty($notified['login'])) {
         foreach ($recipients as $key => $value) {
-         if (!in_array($value['login'], $resDone['users_LOGIN'])){
+         if (!in_array($value['login'], $notified['login'])){
           $usersToSent[] = $value;
+          //eF_updateTableData("users_to_surveys", array("last_post" => time()), "users_LOGIN='".$value['login']."' and surveys_ID='".$this -> recipients["entity_ID"]."'");
          }
         }
         $recipients = $usersToSent;
+          }
+          foreach ($recipients as $key => $value ) { // in order to include case empty($notified['login']
+           eF_updateTableData("users_to_surveys", array("last_post" => time()), "users_LOGIN='".$value['login']."' and surveys_ID='".$this -> recipients["entity_ID"]."'");
           }
          } else if ($this -> recipients['entity_category'] == "projects") {
        $recipients = eF_getTableData("users_to_projects JOIN users ON users_LOGIN = users.login", "users.*", "users.active=1 and users.archive=0 and projects_ID = '".$this -> recipients["entity_ID"]."'");

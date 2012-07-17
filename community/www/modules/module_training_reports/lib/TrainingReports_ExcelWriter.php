@@ -173,12 +173,13 @@ class TrainingReports_ExcelWriter extends Spreadsheet_Excel_Writer {
                     $courseData = $user['courses'][$course];
                     $from = $courseData['first_access'];
                     $to = $courseData['to_timestamp'];
+                    $completed = $courseData['completed'];
 
 
                     /* If user has completed */
-                    if ($from != null && ($to > $periodStart && $to < $periodEnd) || ($to > 0 && $to < $periodStart)) {
-                        $string = _TRAININGREPORTS_STARTED . " - " . _TRAININGREPORTS_ENDED . "\n" .
-                                formatTimestamp($from) . ' - ' . formatTimestamp($to);
+                    if ($from != null && ($to > $periodStart && $to < $periodEnd) || ($to > 0 && $to < $periodStart) || $completed) {
+                     $to ? $to_date = formatTimestamp($to) : $to_date = 'N/A';
+                        $string = _TRAININGREPORTS_STARTED . " - " . _TRAININGREPORTS_ENDED . "\n" . formatTimestamp($from) . ' - ' . $to_date;
                         $formatName = 'completed';
                     } else if ($from != null && $from > $periodStart && $from < $periodEnd) {
                         $string = _TRAININGREPORTS_STARTED . "\n" . formatTimestamp($from);

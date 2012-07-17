@@ -11,14 +11,20 @@
    <tr><td class = "labelCell">{$T_SKILLS_FORM.category.label}:&nbsp;</td>
     <td class = "elementCell">
      {$T_SKILLS_FORM.category.html}
-     <a href="{$smarty.session.s_type}.php?ctg=module_hcd&op=skill_cat&add_skill_cat=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDSKILLCATEGORY}', 2)" target = "POPUP_FRAME"><img src='images/16x16/add.png' title= '{$smarty.const._ADDSKILLCATEGORY}' alt = '{$smarty.const._ADDSKILLCATEGORY}' border='0' /></a>
-       <a id = "edit_skill_cat" href="{$smarty.session.s_type}.php?ctg=module_hcd&op=skill_cat&edit_skill_cat={$T_DEFAULT_CATEGORY}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITSKILLCATEGORY}', 2)" target = "POPUP_FRAME" {if $T_DEFAULT_CATEGORY == ""}style="visibility:hidden"{/if}><img src='images/16x16/edit.png' title= '{$smarty.const._EDITSKILLCATEGORY}' alt = '{$smarty.const._EDITSKILLCATEGORY}' border='0' /></a>
-       <a id = "del_skill_cat" href="{$smarty.session.s_type}.php?ctg=module_hcd&op=skill_cat&del_skill_cat={$T_DEFAULT_CATEGORY}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODISMISSTHISSKILLCATEGORY}')" {if $T_DEFAULT_CATEGORY == ""}style="visibility:hidden"{/if}><img src='images/16x16/error_delete.png' title= '{$smarty.const._DELETESKILLCATEGORY}' alt = '{$smarty.const._DELETESKILLCATEGORY}' border='0' /></a>
+     {if $_change_}
+      <a href="{$smarty.session.s_type}.php?ctg=module_hcd&op=skill_cat&add_skill_cat=1&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._ADDSKILLCATEGORY}', 2)" target = "POPUP_FRAME"><img src='images/16x16/add.png' title= '{$smarty.const._ADDSKILLCATEGORY}' alt = '{$smarty.const._ADDSKILLCATEGORY}' border='0' /></a>
+        <a id = "edit_skill_cat" href="{$smarty.session.s_type}.php?ctg=module_hcd&op=skill_cat&edit_skill_cat={$T_DEFAULT_CATEGORY}&popup=1" onclick = "eF_js_showDivPopup('{$smarty.const._EDITSKILLCATEGORY}', 2)" target = "POPUP_FRAME" {if $T_DEFAULT_CATEGORY == ""}style="visibility:hidden"{/if}><img src='images/16x16/edit.png' title= '{$smarty.const._EDITSKILLCATEGORY}' alt = '{$smarty.const._EDITSKILLCATEGORY}' border='0' /></a>
+        <a id = "del_skill_cat" href="{$smarty.session.s_type}.php?ctg=module_hcd&op=skill_cat&del_skill_cat={$T_DEFAULT_CATEGORY}" onclick = "return confirm('{$smarty.const._AREYOUSUREYOUWANTTODISMISSTHISSKILLCATEGORY}')" {if $T_DEFAULT_CATEGORY == ""}style="visibility:hidden"{/if}><img src='images/16x16/error_delete.png' title= '{$smarty.const._DELETESKILLCATEGORY}' alt = '{$smarty.const._DELETESKILLCATEGORY}' border='0' /></a>
+     {/if}
     </td>
    </tr>
    <tr><td></td>
     <td class = "submitCell">
-    {$T_SKILLS_FORM.submit_skill_details.html}</td>
+    {if $_change_}
+     {$T_SKILLS_FORM.submit_skill_details.html}
+    {/if}
+    </td>
+
    </tr>
    </table>
   </form>
@@ -53,12 +59,16 @@
      <td class = "centerAlign">{if $user.score}{$user.score}%{/if}</td>
      <td class = "centerAlign">
       <a href="{$smarty.session.s_type}.php?ctg=statistics&option=user&sel_user={$user.login}"><img border = "0" src = "images/16x16/reports.png" title = "{$smarty.const._STATISTICS}" alt = "{$smarty.const._STATISTICS}" /></a>
+     {if $_change_}
       {if $user.active == 1}
        <a href = "{$smarty.session.s_type}.php?ctg=personal&user={$user.login}&op=profile&tab=skills" class = "editLink"><img border = "0" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
       {else}
        <img class="handle" src = "images/16x16/edit.png" class = "inactiveImage" title = "{$smarty.const._UNPRIVILEGEDATTEMPT}" alt = "{$smarty.const._UNPRIVILEGEDATTEMPT}" />
       {/if}
-      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "removeSkillFromUser(this, '{$user.login}', '{$smarty.get.edit_skill}')"/>
+     {/if}
+      {if $_change_}
+       <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "removeSkillFromUser(this, '{$user.login}', '{$smarty.get.edit_skill}')"/>
+      {/if}
      </td>
     </tr>
    {/if}
@@ -104,7 +114,7 @@
        <input class="inputText" type="text" id="spec_skill_score_{$user.login}" value="{if $user.score}{$user.score}{else}100{/if}" onchange="ajaxSkillUserPost('{$user.login}', this);" style="width:30px;{if $user.skill_ID != $smarty.get.edit_skill}display:none{/if}">
       </td>
       <td class = "centerAlign">
-       <input type = "checkbox" class = "inputCheckBox" name = "{$user.login}" id="skill_to_{$user.login}" onclick="$('spec_skill_{$user.login}').toggle();$('spec_skill_score_{$user.login}').toggle(); ajaxSkillUserPost('{$user.login}', this);" {if $user.skill_ID == $smarty.get.edit_skill}checked{/if}>
+       <input type = "checkbox" class = "inputCheckBox" name = "{$user.login}" id="skill_to_{$user.login}" {if $_change_} onclick="$('spec_skill_{$user.login}').toggle();$('spec_skill_score_{$user.login}').toggle(); ajaxSkillUserPost('{$user.login}', this);"{else}disabled{/if} {if $user.skill_ID == $smarty.get.edit_skill}checked{/if}>
       </td>
      </tr>
     {/if}
@@ -146,10 +156,12 @@
  {capture name = 't_skills_code'}
   {if $smarty.session.s_type == "administrator"}
   <div class = "headerTools">
-   <span>
-    <img src = "images/16x16/add.png" title = "{$smarty.const._NEWSKILL}" alt = "{$smarty.const._NEWSKILL}" >
-    <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=skills&add_skill=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWSKILL}', 2)">{$smarty.const._NEWSKILL}</a>
-   </span>
+   {if $_change_}
+    <span>
+     <img src = "images/16x16/add.png" title = "{$smarty.const._NEWSKILL}" alt = "{$smarty.const._NEWSKILL}" >
+     <a href = "{$smarty.server.PHP_SELF}?ctg=module_hcd&op=skills&add_skill=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWSKILL}', 2)">{$smarty.const._NEWSKILL}</a>
+    </span>
+   {/if}
   </div>
   {/if}
 
@@ -165,12 +177,16 @@
 
   {foreach name = 'skill_list' key = 'key' item = 'skill' from = $T_DATA_SOURCE}
   <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
-   <td><a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=skills&edit_skill={$skill.skill_ID}" class = "editLink">{$skill.description}</a></td>
+   <td>
+    <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=skills&edit_skill={$skill.skill_ID}" class = "editLink">{$skill.description}</a>
+   </td>
    <td align = "left"> {$skill.category_description}</td>
    <td class = "centerAlign"> {$skill.Employees}</td>
    <td class = "centerAlign">
+   {if $_change_}
     <a href = "{$smarty.session.s_type}.php?ctg=module_hcd&op=skills&edit_skill={$skill.skill_ID}" class = "editLink"><img class="handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
     <img class="ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTOREMOVETHATSKILL}')) deleteSkill(this, '{$skill.skill_ID}')"/>
+   {/if}
    </td>
   </tr>
   {foreachelse}

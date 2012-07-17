@@ -776,6 +776,9 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
     }
     $lesson = new EfrontLesson($_GET['lessons_ID']);
     $lesson -> lesson['price_string'] = formatPrice($lesson -> lesson['price'], array($lesson -> options['recurring'], $lesson -> options['recurring_duration']), true);
+    $lesson -> lesson['num_students'] = sizeof($lesson -> getStudentUsers());
+    $lesson -> lesson['seats_remaining'] = $lesson -> lesson['max_users'] - $lesson -> lesson['num_students'];
+    $lesson -> lesson['seats_remaining'] >= 0 OR $lesson -> lesson['seats_remaining'] = 0;
     $smarty -> assign("T_LESSON", $lesson);
     $lessonInformation = $lesson -> getInformation();
     $content = new EfrontContentTree($lesson);

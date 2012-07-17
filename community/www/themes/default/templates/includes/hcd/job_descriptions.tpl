@@ -207,10 +207,12 @@
 {if $smarty.session.s_type == "administrator"}
  {capture name = 't_job_to_lessons'}
  <div class = "headerTools">
+ {if $_change_}
   <span>
    <img src = "images/16x16/go_into.png" title = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" alt = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" />
       <a href="javascript:void(0);" id="lesson_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</a>
      </span>
+    {/if}
  </div>
 <!--ajax:lessonsTable-->
 
@@ -231,7 +233,7 @@
     </a>
    </td>
   <td class = "centerAlign">
-   <input class = "inputCheckBox" type = "checkbox" id="lesson_{$lesson.id}" name = "lesson" onclick = "ajaxPost('{$lesson.id}', this);"
+   <input class = "inputCheckBox" type = "checkbox" id="lesson_{$lesson.id}" name = "lesson" {if $_change_} onclick = "ajaxPost('{$lesson.id}', this);" {else}disabled{/if}
    {if $lesson.has_lesson}
     checked
    {/if}
@@ -247,13 +249,17 @@
 
  {capture name = 't_job_to_courses'}
  <div class = "headerTools">
+ {if $_change_}
   <span>
    <img src = "images/16x16/go_into.png" title = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" alt = "{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}" />
       <a href="javascript:void(0);" id="course_changes_apply_to_users" onclick= "applyToAllJobPositionUsers(this, '{$smarty.get.edit_job_description}');">{$smarty.const._APPLYTOUSERALLREADYTOJOBPOSITION}</a>
      </span>
+    {/if}
  </div>
   {assign var = "courses_url" value = "`$smarty.server.PHP_SELF`?ctg=module_hcd&op=job_descriptions&edit_job_description=`$smarty.get.edit_job_description`&"}
-  {assign var = "_change_handles_" value = true}
+  {if $_change_}
+   {assign var = "_change_handles_" value = true}
+  {/if}
   {include file = "includes/common/courses_list.tpl"}
  {/capture}
 
@@ -265,6 +271,7 @@
      var orConst = '{$smarty.const._OR}';
      </script>
      <div class = "headerTools">
+      {if $_change_}
       <span>
        <img id="add_training_img" src = "images/16x16/add.png" title = "{$smarty.const._NEWREQUIREDTRAININGCOURSE}" alt = "{$smarty.const._NEWREQUIREDTRAININGCOURSE}" />
           <a href="javascript:void(0);" onclick="add_job_prerequisite('{$T_PREREQUISITES_SIZE}');">{$smarty.const._NEWREQUIREDTRAININGCOURSE}</a>
@@ -273,6 +280,7 @@
           {$smarty.const._APPLYTOALLDESCRIPTIONSWITHDESCRIPTION|cat:$T_JOB_DESCRIPTION_NAME}
           <input class = "inputCheckBox" type = "checkbox" id="training_changes_apply_to_all" name = "training_changes_apply_to" onclick= "ajaxPostRequiredTraining();" />
          </span>
+         {/if}
      </div>
 
      <table style = "width:100%" class = "sortedTable" id = "prerequisitesTable" noFooter="true">
@@ -298,7 +306,7 @@
          {$T_JOB_DESCRIPTIONS_FORM.$condition.html}
          {/foreach}
          </td>
-         <td align="center"><a id="training_add_{$row}" href="javascript:void(0);" onclick="add_prerequisite_alternative('{$row}', this);" class = "editLink"><img class="handle" src = "images/16x16/add.png" alt = "{$smarty.const._ADDALTERNATIVETRAINING}" title= "{$smarty.const._ADDALTERNATIVETRAINING}"/></a>&nbsp;<a id="training_{$row}" href="javascript:void(0);" onclick="delete_job_prerequisite('{$row}', this);" class = "deleteLink"><img class="handle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title= "{$smarty.const._DELETE}"/></a></td>
+         <td align="center"><a id="training_add_{$row}" href="javascript:void(0);" {if $_change_} onclick="add_prerequisite_alternative('{$row}', this);" {else}disabled{/if} class = "editLink"><img class="handle" src = "images/16x16/add.png" alt = "{$smarty.const._ADDALTERNATIVETRAINING}" title= "{$smarty.const._ADDALTERNATIVETRAINING}"/></a>&nbsp;<a id="training_{$row}" href="javascript:void(0);" {if $_change_} onclick="delete_job_prerequisite('{$row}', this);" {else}disabled{/if} class = "deleteLink"><img class="handle" src = "images/16x16/error_delete.png" alt = "{$smarty.const._DELETE}" title= "{$smarty.const._DELETE}"/></a></td>
         </tr>
         {/foreach}
 

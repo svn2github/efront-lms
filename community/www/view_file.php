@@ -37,7 +37,6 @@ try {
   if (strpos($url, 'http') !== 0) { //Otherwise, depending on the QUERY_STRING, parse_url() may not work
    $url = G_PROTOCOL.'://'.$_SERVER["HTTP_HOST"].$url;
   }
-
   $urlParts = parse_url($url);
 
   $filePath = G_ROOTPATH.'www/'.str_replace(G_SERVERNAME, '', G_PROTOCOL.'://'.$_SERVER['HTTP_HOST'].$urlParts['path']);
@@ -84,6 +83,8 @@ try {
     if (isset($_GET['action']) && $_GET['action'] == 'download') {
      $file -> sendFile(true);
     } else {
+  cacheHeaders(lastModificationTime(filemtime($file['path'])));
+
      $file -> sendFile(false);
     }
 } catch (EfrontFileException $e) {
@@ -92,5 +93,33 @@ try {
  }
     echo EfrontSystem :: printErrorMessage($e -> getMessage());
 }
+
+
+function cacheHeaders($lastModifiedDate) {
+ if ($lastModifiedDate) {
+  if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $lastModifiedDate) {
+   if (php_sapi_name()=='CGI') {
+    Header("Status: 304 Not Modified");
+   } else {
+    Header("HTTP/1.0 304 Not Modified");
+   }
+   exit;
+  } else {
+   $gmtDate = gmdate("D, d M Y H:i:s \G\M\T",$lastModifiedDate);
+   header('Last-Modified: '.$gmtDate);
+  }
+ }
+}
+
+// This function uses a static variable to track the most recent
+// last modification time
+function lastModificationTime($time=0) {
+ static $last_mod ;
+ if (!isset($last_mod) || $time > $last_mod) {
+  $last_mod = $time ;
+ }
+ return $last_mod ;
+}
+
 
 ?>

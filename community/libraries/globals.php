@@ -12,7 +12,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-
 //Used for debugging purposes only
 $debug_TimeStart = microtime(true);
 
@@ -286,7 +285,7 @@ function setDefines() {
   define('G_SERVERNAME', $protocol.'://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
  preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 17349;
+    $build = 17355;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

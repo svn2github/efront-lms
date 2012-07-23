@@ -693,12 +693,16 @@ class EfrontUnit extends ArrayObject
         $filesId = $matchesId[1];
         preg_match_all("#(".G_SERVERNAME.")*content/lessons/(.*)\"#U", $data, $matchesPath);
         $filesPath = $matchesPath[2];
-        foreach ($filesId as $file) {
-         $file = trim($file, "';");
-            $returnObjects ? $files[] = new EfrontFile($file) : $files[] = $file;
-        }
-        foreach ($filesPath as $file) {
-            $returnObjects ? $files[] = new EfrontFile(G_LESSONSPATH.html_entity_decode(urldecode($file))) : $files[] = G_LESSONSPATH.html_entity_decode(urldecode($file));
+        try {
+         foreach ($filesId as $file) {
+          $file = trim($file, "';");
+             $returnObjects ? $files[] = new EfrontFile($file) : $files[] = $file;
+         }
+         foreach ($filesPath as $file) {
+             $returnObjects ? $files[] = new EfrontFile(G_LESSONSPATH.html_entity_decode(urldecode($file))) : $files[] = G_LESSONSPATH.html_entity_decode(urldecode($file));
+         }
+        } catch (Exception $e) {
+         //don't halt for non-existing files
         }
         return $files;
     }
@@ -975,7 +979,7 @@ class EfrontContentTree extends EfrontTree
             $tree = array($tree);
         }
         isset($tree[0]) ? $tree = $tree[0] : $tree = array();
-        if (sizeof($rejected) > 0) { //Append rejected nodes to the end of the tree array, updating their parent/previous information
+        if (sizeof($rejected) > 0) { //Append rejected nodes to the end of the tree array, updating their parent/previous information			
             foreach (new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($tree), RecursiveIteratorIterator :: SELF_FIRST)) as $lastUnit); //Advance to the last tree node
             isset($lastUnit) ? $previousId = $lastUnit['id'] : $previousId = 0; //There is a chance that no normal units exist in the tree. In this case, there will be no $lastUnit
             foreach ($rejected as $id => $node) { //Update broken nodes

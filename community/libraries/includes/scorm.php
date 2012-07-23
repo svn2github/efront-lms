@@ -96,9 +96,11 @@ if ($_GET['scorm_review']) {
         $form -> addElement('text', 'url_upload', _UPLOADFILEFROMURL, 'class = "inputText"');
         $form -> addElement('select', 'embed_type', _EMBEDTYPE, array('iframe' => _INLINEIFRAME, 'popup'=> _NEWWINDOWPOPUP), 'class = "inputSelect"');
         $form -> addElement('text', 'popup_parameters', _POPUPPARAMETERS, 'class = "inputText" style = "width:600px"');
+        $form -> addElement('text', 'iframe_parameters', _IFRAMEPARAMETERS, 'class = "inputText" style = "width:600px"');
         $form -> addElement('submit', 'submit_upload_scorm', _SUBMIT, 'class = "flatButton"');
 
-        $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"'));
+        $form -> setDefaults(array('popup_parameters' => 'width=800,height=600,scrollbars=no,resizable=yes,status=yes,toolbar=no,location=no,menubar=no,top="+(parseInt(parseInt(screen.height)/2) - 300)+",left="+(parseInt(parseInt(screen.width)/2) - 400)+"',
+               'iframe_parameters' => 'height = "100%"  width = "100%" frameborder = "no"'));
 
         //@todo: url upload, if not exists, report a human-readable error!
         $timestamp = time();
@@ -153,7 +155,7 @@ if ($_GET['scorm_review']) {
                     $resources = array();
 
                     $manifestFile = new EfrontFile($scormPath.'imsmanifest.xml');
-                    EfrontScorm :: import($currentLesson, $manifestFile, $scormFolderName, array('embed_type' => $values['embed_type'], 'popup_parameters' => $values['popup_parameters']));
+                    EfrontScorm :: import($currentLesson, $manifestFile, $scormFolderName, array('embed_type' => $values['embed_type'], 'popup_parameters' => $values['popup_parameters'], 'iframe_parameters' => $values['iframe_parameters']));
                 }
                 eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=scorm&message=".urlencode(_SUCCESSFULLYIMPORTEDSCORMFILE)."&message_type=success");
             } catch (Exception $e) {

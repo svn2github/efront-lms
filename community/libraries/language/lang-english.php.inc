@@ -4212,4 +4212,6 @@ define("_PROFESSORCREATECOURSES", "Create courses/lessons");
 define("_RESETALLUSERS", "Reset progress for all users");
 define("_MYROLE", "Role");
 define("_MAXSEATSDEPLEATED", "The %y seats available for '%x' are taken. Contact %z for more info");
+define("_IFRAMEPARAMETERS", "iframe parameters");
+define("_HEIGHTREFERSTOINITIALHEIGHT", "Dimensions may dynamically change after loading of the content, you can set enforce explicit values under the SCORM unit's properties window");
 ?>

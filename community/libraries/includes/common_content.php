@@ -95,7 +95,11 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
   $form = new HTML_QuickForm("create_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=content".(isset($_GET['add']) ? '&add=1' : '&edit='.$_GET['edit']), "", null, true);
      $form -> addElement('text', 'name', _UNITNAME, 'class = "inputText"');
      $form -> addElement('text', 'pdf_content', _CURRENTPDFFILE, 'class = "inputText inactive" readonly');
-     $form -> addElement('textarea', 'data', _CONTENT, 'id = "editor_content_data" class = "inputContentTextarea mceEditor" style = "width:100%;height:50em;"'); //The unit content itself
+     if (strpos($currentUnit['ctg_type'], 'scorm') !== false) {
+      $form -> addElement('textarea', 'data', _CONTENT, 'id = "editor_content_data" class = "inputContentTextarea" style = "width:100%;height:10em;"'); //The unit content itself
+     } else {
+      $form -> addElement('textarea', 'data', _CONTENT, 'id = "editor_content_data" class = "inputContentTextarea mceEditor" style = "width:100%;height:50em;"'); //The unit content itself
+     }
      //For deleting data from editor when toggling pdf content in editing unit. In order to write data again (#1034)
      $form -> addElement('hidden', 'content_toggle', null, 'id="content_toggle"');
      $form -> addElement('advcheckbox', 'indexed', _DIRECTLYACCESSIBLE, null, 'class = "inputCheckbox"', array(0, 1));
@@ -241,7 +245,9 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
               if (strpos($currentUnit['ctg_type'], 'scorm') === false) {
                   $currentUnit['data'] = applyEditorOffset($values['data']);
               } else {
-      if ($values['embed_type'] == 'iframe' && strpos($currentUnit['data'], 'window.open') !== false) {
+               if ($values['data'] != $currentUnit['data']) {
+                $currentUnit['data'] = $values['data'];
+               } elseif ($values['embed_type'] == 'iframe' && strpos($currentUnit['data'], 'window.open') !== false) {
        preg_match("/window.open\(.*,/U", $currentUnit['data'], $matches);
        $scormValue = str_replace(array('window.open("', '",'),"",$matches[0]);
        $currentUnit['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$scormValue. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';

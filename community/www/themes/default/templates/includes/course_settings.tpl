@@ -50,7 +50,7 @@
 
      <tr><td class = "labelCell">{$smarty.const._COMPLETEDON}:&nbsp;</td>
       <td class = "elementCell">{if !$T_USER_COURSE->user.completed}#filter:timestamp_time-{$T_USER_COURSE->user.to_timestamp}#{/if}
-      {eF_template_html_select_date prefix="completion_" time = $T_TO_TIMESTAMP start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="completion_" time = $T_TO_TIMESTAMP display_seconds = false}
+      {eF_template_html_select_date prefix="completion_" time = $T_TO_TIMESTAMP start_year="-5" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="completion_" time = $T_TO_TIMESTAMP display_seconds = false}
      </td></tr>
 
      <tr><td class = "labelCell">{$T_COMPLETE_COURSE_FORM.score.label}&nbsp;</td><td>{$T_COMPLETE_COURSE_FORM.score.html}</td></tr>

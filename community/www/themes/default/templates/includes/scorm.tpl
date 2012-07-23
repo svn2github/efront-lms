@@ -72,6 +72,10 @@
                                             <td class = "elementCell">{$T_UPLOAD_SCORM_FORM.embed_type.html}</td></tr>
                                         <tr><td class = "labelCell">{$T_UPLOAD_SCORM_FORM.popup_parameters.label}:
                                             <td class = "elementCell">{$T_UPLOAD_SCORM_FORM.popup_parameters.html}</td></tr>
+                                        <tr><td class = "labelCell">{$T_UPLOAD_SCORM_FORM.iframe_parameters.label}:
+                                            <td class = "elementCell">{$T_UPLOAD_SCORM_FORM.iframe_parameters.html}</td></tr>
+                                        <tr><td class = "labelCell"></td>
+                                            <td class = "infoCell">{$smarty.const._HEIGHTREFERSTOINITIALHEIGHT}</td></tr>
                                         <tr><td class = "labelCell"></td>
                                             <td class = "submitCell">{$T_UPLOAD_SCORM_FORM.submit_upload_scorm.html}</td></tr>
                                     </table>

@@ -696,13 +696,17 @@ function replaceCustomFieldsCertificate($custom, $issuedTimestamp, $login = '', 
  * @return string The date in human-readable format
 
  */
-function formatHTMLTableToText($table) {
+function formatHTMLTableToText($table, $exclude_span = false) {
  $result = str_replace("<tr>", "<tr>\n", $table);
  $result = str_replace("<br>", "\n", $result);
  $result = str_replace("<td>", "<td>\t", $result);
  $result = str_replace("&nbsp;", " ", $result);
  $result = str_replace("&rarr;", "-->", $result);
- $result = strip_tags($result);
+ if ($exclude_span) {
+  $result = strip_tags($result,"<span>");
+ } else {
+  $result = strip_tags($result);
+ }
  return $result;
 }
 /**

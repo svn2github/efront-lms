@@ -95,7 +95,7 @@ class EfrontScorm
      * @return unknown_type
 
      */
-    public static function import($lesson, $manifestFile, $scormFolderName, $parameters) {
+    public static function import($lesson, $manifestFile, $scormFolderName, $parameters, $iframe_parameters) {
         if ($lesson instanceof EfrontLesson) {
             $currentLesson = $lesson;
         } else {
@@ -356,7 +356,7 @@ class EfrontScorm
                     //$total_fields[$key]['data'] = eF_postProcess(str_replace("'","&#039;",$data));
                     if ($parameters['embed_type'] == 'iframe') {
                         //$total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref].'" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
-                     $total_fields[$key]['data'] = '<iframe height = "100%"  width = "100%" frameborder = "no" name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS']. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
+                     $total_fields[$key]['data'] = '<iframe '.$parameters['iframe_parameters'].' name = "scormFrameName" id = "scormFrameID" src = "'.$currentLesson -> getDirectoryUrl()."/".$scormFolderName.'/'.$primitive_hrefs[$ref]. $value['PARAMETERS']. '" onload = "if (window.eF_js_setCorrectIframeSize) {eF_js_setCorrectIframeSize();} else {setIframeSize = true;}"></iframe>';
                     } else {
                         $total_fields[$key]['data'] = '
                             <div style = "text-align:center;height:300px">

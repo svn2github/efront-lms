@@ -35,6 +35,8 @@ if (typeof(currentUserLogin) == 'undefined') var currentUserLogin ='';
 
 
 
+
+
 {if in_array('operations', $T_DATASOURCE_COLUMNS)} <td class = "topTitle operations noSort">{$smarty.const._OPERATIONS}</td>{/if}
 {if in_array('has_course', $T_DATASOURCE_COLUMNS)} <td class = "topTitle has_course" name = "has_course">{$smarty.const._CHECK}</td>{/if}
   </tr>

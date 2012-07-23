@@ -5,8 +5,8 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  exit;
 }
 
+
 try {
- //debug();
  //pr($_POST);pr($_GET);
  unset($_POST['_']);
 
@@ -105,6 +105,6 @@ try {
  //pr($trackActivityInfo);
  echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, $scormState, $redirectTo, $trackActivityInfo));
 } catch (Exception $e) {
- //pr($e);
+ echo json_encode(array('error' => $e->getMessage()));
 }
 exit;

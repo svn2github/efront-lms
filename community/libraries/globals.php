@@ -285,7 +285,7 @@ function setDefines() {
   define('G_SERVERNAME', $protocol.'://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
  preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 17355;
+    $build = 17361;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

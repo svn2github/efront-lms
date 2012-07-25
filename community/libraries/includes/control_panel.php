@@ -102,16 +102,16 @@ try {
         if ($_admin_) {
             //New users block (Admin block)
             if (!isset($currentUser -> coreAccess['users']) || $currentUser -> coreAccess['users'] != 'hidden') {
-                $users = eF_getTableData("users", "login, surname, name, timestamp", "pending=1 and archive=0", "timestamp DESC"); //Find every user that is not active... new way
+                $users = eF_getTableData("users", "login, surname, name, timestamp", "pending=1 and archive=0", "timestamp DESC", "", "100"); //Find every user that is not active... new way
                 $smarty -> assign("T_INACTIVE_USERS", $users); //Assign them to smarty, to be displayed at the first page
                 $smarty -> assign("T_INACTIVE_USERS_LINK", basename($_SERVER['PHP_SELF'])."?ctg=users");
             }
             //New lessons block (Admin block)
             if (!isset($currentUser -> coreAccess['lessons']) || $currentUser -> coreAccess['lessons'] != 'hidden') {
-                $lessons = eF_getTableData("users_to_lessons ul, lessons l, users u", "DISTINCT users_LOGIN,  count(lessons_ID) AS count", "ul.users_LOGIN=u.login and u.archive=0 and ul.archive=0 and l.archive=0 and ul.lessons_ID = l.id and l.course_only = 0 and ul.from_timestamp=0", "", "users_LOGIN"); //Get the new lesson registrations
+                $lessons = eF_getTableData("users_to_lessons ul, lessons l, users u", "DISTINCT users_LOGIN,  count(lessons_ID) AS count", "ul.users_LOGIN=u.login and u.archive=0 and ul.archive=0 and l.archive=0 and ul.lessons_ID = l.id and l.course_only = 0 and ul.from_timestamp=0", "", "users_LOGIN", "100"); //Get the new lesson registrations
                 $smarty -> assign("T_NEW_LESSONS", $lessons); //Assign the list to smarty, to be displayed at the first page
 
-                $constraints = array('archive' => false, 'active' => true);
+                $constraints = array('archive' => false, 'active' => true, 'limit' => 100);
                 $courses = EfrontCourse :: getCoursesWithPendingUsers($constraints);
                 $smarty -> assign("T_NEW_COURSES", $courses); //Assign the list to smarty, to be displayed at the first page
             }

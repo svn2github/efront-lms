@@ -6,6 +6,7 @@
 - Fixed grid filtering regression introduced in 3.6.11 for international characters
 - Added "reset course progress for all users" option
 - "maximum users" restrictions handling is more user-friendly
+- added upper limits (100) on inactive user/course registrations
 
 === Version 3.6.11 build 15059 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)

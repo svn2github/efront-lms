@@ -235,7 +235,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         }
         if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
             isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-            $users = array_slice($users, $offset, $limit);
+            $users = array_slice($users, $offset, $limit, true);
         }
 
         $smarty -> assign("T_CURRENT_USER", $currentUser);
@@ -422,7 +422,7 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         }
         if (isset($_GET['limit']) && eF_checkParameter($_GET['limit'], 'int')) {
             isset($_GET['offset']) && eF_checkParameter($_GET['offset'], 'int') ? $offset = $_GET['offset'] : $offset = 0;
-            $users = array_slice($users, $offset, $limit);
+            $users = array_slice($users, $offset, $limit, true);
         }
 
         $smarty -> assign("T_CURRENT_USER", $currentUser);

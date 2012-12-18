@@ -106,7 +106,13 @@ try {
  $newConditionsPassed = $newUserProgress[$scoLesson -> lesson['id']][$scoUser -> user['login']]['conditions_passed'];
  $newLessonPassed = $newUserProgress[$scoLesson -> lesson['id']][$scoUser -> user['login']]['lesson_passed'];
  //pr($trackActivityInfo);
- echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, $scormState, $redirectTo, $trackActivityInfo));
+ if ($scoLesson -> lesson['course_only']) {
+  $res = eF_getTableData("users_to_courses","issued_certificate","courses_ID=".$_SESSION['s_courses_ID']." and users_LOGIN='".$_SESSION['s_login']."'");
+  if ($res[0]['issued_certificate'] != "") {
+   $courseCertified = true;
+  }
+ }
+ echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, $scormState, $redirectTo, $trackActivityInfo, $courseCertified));
 } catch (Exception $e) {
  echo json_encode(array('error' => $e->getMessage()));
 }

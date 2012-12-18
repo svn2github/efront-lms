@@ -273,6 +273,13 @@ try {
                     $smarty -> assign("T_LESSON_COMPLETED", $userProgress['completed']);
                     $headerOptions[] = array('text' => _LESSONCOMPLETE, 'image' => '32x32/success.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=progress&popup=1', 'onclick' => "eF_js_showDivPopup('"._LESSONINFORMATION."', 2)", 'target' => 'POPUP_FRAME');
                 }
+    if ($currentLesson -> lesson['course_only']) {
+     $res = eF_getTableData("users_to_courses","issued_certificate","courses_ID=".$_SESSION['s_courses_ID']." and users_LOGIN='".$_SESSION['s_login']."'");
+     $current_course = new EfrontCourse($_SESSION['s_courses_ID']);
+     if ($res[0]['issued_certificate'] != "") {
+      $headerOptions[] = array('text' => _VIEWCOURSECERTIFICATE, 'image' => '32x32/certificate.png', 'href' => basename($_SERVER['PHP_SELF']).'?ctg=lessons&course='.$_SESSION['s_courses_ID'].'&export='.$current_course -> options['certificate_export_method'].'&user='.$_SESSION['s_login']);
+     }
+    }
                 if ($userProgress['current_unit']) { //If there exists a value within the 'current_unit' attribute, it means that the student was in the lesson before. Seek the first unit that he hasn't seen yet
                     $firstUnseenUnit = $currentContent -> getFirstNode($firstNodeIterator);
                     //Get to the first unseen unit

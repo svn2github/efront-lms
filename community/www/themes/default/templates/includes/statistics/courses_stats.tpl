@@ -52,6 +52,12 @@
                     <td class = "labelCell">{$smarty.const._TRAININGHOURS}:</td>
                     <td class = "elementCell">{$T_CURRENT_COURSE->options.training_hours}</td></tr>
                 </tr>
+                {if $T_AVERAGE_COMPLETION_TIME}
+                <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
+                    <td class = "labelCell">{$smarty.const._AVERAGECOMPLETIONTIME}:</td>
+                    <td class = "elementCell">{$T_AVERAGE_COMPLETION_TIME.time_string}</td></tr>
+                </tr>
+                {/if}
    </table>
 
    {assign var = "courseUsers_url" value = "`$smarty.server.PHP_SELF`?ctg=statistics&option=course&sel_course=`$smarty.get.sel_course``$T_STATS_FILTERS_URL`&"}

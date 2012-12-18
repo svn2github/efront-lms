@@ -235,6 +235,7 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       }
       $db -> Execute($query);
      } catch (Exception $e) {
+      pr($e);
       $failed_tables[] = $e -> msg; //Each failed query will not halt the execution, but will be recorded to this table
      }
     }
@@ -1330,7 +1331,9 @@ php_value register_globals Off
  }
  public static function dropTableIfExists($table, $driver = 'mysql') {
   if ($driver == 'mysql') {
+   $GLOBALS['db'] -> Execute("set foreign_key_checks=0");
    $GLOBALS['db'] -> Execute("drop table if exists ".$table);
+   $GLOBALS['db'] -> Execute("set foreign_key_checks=1");
   } elseif ($driver == 'mssql') {
    $GLOBALS['db'] -> Execute("IF EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table') DROP TABLE $table;");
   }

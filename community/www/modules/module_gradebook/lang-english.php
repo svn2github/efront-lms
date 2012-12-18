@@ -35,4 +35,6 @@ define("_GRADEBOOK_EXPORT_EXCEL_ONE", "Only this lesson");
 define("_GRADEBOOK_ALL_LESSONS", "All my lessons");
 define("_GRADEBOOK_SWITCH_TO", "Switch to");
 define("_GRADEBOOK_NOT_PUBLISHED", "Your Grade Book is not published yet");
+define("_GRADEBOOK_TOGGLEPUBLISH", "Toggle publish status");
+define("_GRADEBOOK_COMPLETELESSON", "Complete lesson");
 ?>

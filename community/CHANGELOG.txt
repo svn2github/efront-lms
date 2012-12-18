@@ -1,4 +1,4 @@
-=== Version 3.6.11 build ===
+=== Version 3.6.12 build ===
 - Extended branches reports
 - Fixed issue about going into forum message from forum list inside a lesson
 - Fixed importing users where password was set to header but was empty in data rows
@@ -85,6 +85,40 @@
 - Fixed groups list not showing entries with the same name
 - Updated paypal's ipn to conform with the http 1.1 protocol
 - Fixed new line character parsing in paypal response, causing sandbox not working
+- Added csv export for payments (Commercial editions)
+- Added time option in announcements
+- Added code in random pool tests for selecting questions (about selecting on each execution) depending on lessons_ID frequency in the pool
+- Added tooltip for displaying all branches in course location column in courses list
+- Fixed issue about displaying tests in content tree when tests are disabled for lesson
+- Fixed displaying formatted usernames in projects block of control panel
+- Fixed issue about reloading files table after deleting an internal folder
+- Fixed issue about downloading certificates for course with names containing slashes
+- Fixed issue about collapsing content tree when deleted a test in some cases
+- Added ability to center align the label tags in xml certificates
+- Fixed sorting results by dates in certificate reports
+- Changed the way for printing a test unit
+- Changed "Please login to access this resource" message to be shown user friendly
+- Fixed issue about deleting folders containing slash
+- Fixed broken link about viewing certificate from user page as supervisor
+- Fixed issue about not allowing files without users_LOGIN to be deleted
+- Fixed issue about displaying inactive units for students
+- Fixed link in projects block leading to project results
+- Fixed issue about a link not worked with encrypt url (#3048)
+- Added getSideCatalogModule() to module class and module_demo
+- Fixed issue in Find Users about sending job description in the request that cause issues occasionally (german IE9 for description with Umlaut) #3112
+- Fixed issues about sorting lessons in traffic tab of users reports(alphabetically) and course lessons (order in course)
+- Added project assignment notification and project name and id in substitution array
+- Fixed issue about wrongly removed access to professors in lessons because of available after xxx days
+- Fixed issue with folders contained single quotes in editor
+- Fixed issue about not showing correctly words that are a substring of another word both defined in glossary
+- Fixed issue allowing professors to delete students posts in forum
+- Fixed issue about displaying archived users in professor Users reports
+- Added option for setting certificate issue date as completion date
+- Added option for downloading certificate inside course for students
+- Changed get ajax request to post for lesson info and files metadata because of an issue in size
+- Fixed issue about copying questions (associated with units) in another lesson about changing question paths
+
+
 
 === Version 3.6.11 build 15059 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)

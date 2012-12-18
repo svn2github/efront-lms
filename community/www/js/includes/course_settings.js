@@ -8,6 +8,18 @@ function issueCertificateAll(el) {
 function onIssueCertificateAll(el, response) {
 	location.reload();
 }
+
+
+function setCertificateDate(el) {
+	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+	parameters = {set_certificate_date:1, method: 'get'};	
+	var url    = location.toString();
+	ajaxRequest(el,url, parameters, onSetCertificateDate);
+}
+function onSetCertificateDate(el, response) {
+	location.reload();
+}
+
 function revokeExpiredCertificates(el) {
 	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
 	parameters = {revoke_all_expired:1, method: 'get'};	
@@ -63,6 +75,13 @@ function onSetAllUsersStatusCompleted(el, response) {
 		eF_js_redrawPage('courseUsersTable', true);
 	}
 }
+function setShownUsersStatusCompleted(el) {
+	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
+
+	parameters = {set_all_completed:1, only_shown:1, method: 'get'};	
+	ajaxRequest(el, location.toString(), parameters, onSetAllUsersStatusCompleted);
+}
+
 function resetAllUsers(el) {
 	Element.extend(el).insert(new Element('img', {src:'themes/default/images/others/progress1.gif'}).addClassName('handle'));
 

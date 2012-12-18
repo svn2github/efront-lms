@@ -494,7 +494,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
         if (EfrontEvent::SYSTEM_JOIN == $event_notification['event_type']) {
             $users_to_notify = eF_getTableData("users", "login as users_LOGIN, name as users_name, surname as users_surname, timestamp", "timestamp > " . $timediff);
         } else if (EfrontEvent::SYSTEM_VISITED == abs($event_notification['event_type'])) {
-            $users_result = eF_getTableData("logs JOIN users ON logs.users_LOGIN = users.login", "distinct users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, logs.timestamp", "action = 'login' AND logs.timestamp > " . $timediff, "users.login ASC, logs.timestamp DESC");
+            $users_result = eF_getTableData("logs JOIN users ON logs.users_LOGIN = users.login", "distinct users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, logs.timestamp", "action = 'login' AND users.active=1 AND logs.timestamp > " . $timediff, "users.login ASC, logs.timestamp DESC");
             // Removing duplicates to keep only last record of each user - since the list is sorted this will work
             $previous_user = "";
             $users_to_notify = array();
@@ -506,7 +506,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
                     $users_having_entered[] = $user['users_LOGIN'];
                 }
             }
-            $users_never_entered = eF_getTableData("users", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users.timestamp", "login NOT IN ('".implode("','", $users_having_entered) ."') AND timestamp > " . $timediff);
+            $users_never_entered = eF_getTableData("users", "users.login as users_LOGIN, users.name as users_name, users.surname as users_surname, users.timestamp", "active=1 AND login NOT IN ('".implode("','", $users_having_entered) ."') AND timestamp > " . $timediff);
             foreach ($users_never_entered as $key => $user) {
                 $users_to_notify[] = $user;
             }

@@ -265,10 +265,28 @@ if ($_GET['op'] == 'course_info') {
    handleAjaxExceptions($e);
   }
   exit;
+ } else if (isset($_GET['set_certificate_date'])) {
+  try {
+   $users = $currentCourse -> getCourseUsers($defaultConstraints);
+   foreach ($users as $key => $value) {
+    if ($value -> user['issued_certificate']) {
+     $unserialized_data = unserialize($value -> user['issued_certificate']);
+     $unserialized_data['date'] = $value -> user['to_timestamp'];
+     eF_updateTableData('users_to_courses', array("issued_certificate" => serialize($unserialized_data)), "courses_ID=".$currentCourse -> course['id']." and users_LOGIN='".$key."'");
+    }
+   }
+  } catch (Exception $e) {
+   handleAjaxExceptions($e);
+  }
+  exit;
  } else if (isset($_GET['revoke_all_expired'])) {
  } else if (isset($_GET['set_all_completed'])) {
   try {
-   $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+   if ($_GET['only_shown']) {
+    $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+   } else {
+    $constraints = array('archive' => false, 'active' => true);
+   }
    if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
     $stats_filters = array();
     $branches = array($_SESSION['s_current_branch']);

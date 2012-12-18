@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Idle users</title>
+	<author>Periklis Venakis</author>
+	<date>2012 11 18</date>
+	<version>1.1</version>
+	<description>A module to display idle users, per branch</description>
+	<className>module_idle_users</className>
+	<requires>3.6.11</requires>
+</module>

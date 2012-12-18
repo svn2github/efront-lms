@@ -41,6 +41,8 @@
           <td class = "infoCell">{$smarty.const._EMPTYSPACESEXPLANATION}</td></tr>
         {/if}
  {if $smarty.get.question_type == 'raw_text'}
+   <tr><td class = "labelCell">{$T_QUESTION_FORM.input_type.label}:&nbsp;</td>
+             <td class = "elementCell">{$T_QUESTION_FORM.input_type.html}</td></tr>
    <tr><td class = "labelCell">{$T_QUESTION_FORM.force_correct.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.force_correct.html}</td></tr>
   {if $T_QUESTION_FORM.force_correct.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.force_correct.error}</td></tr>{/if}

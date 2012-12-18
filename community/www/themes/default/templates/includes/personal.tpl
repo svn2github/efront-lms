@@ -61,7 +61,6 @@
    <div class = "tabbertab {if $T_OP=='org_form'}tabbertabdefault{/if}" title = "{$smarty.const._ORGANIZATIONALDATA}">{include file = "includes/personal/org_form.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='placements'}tabbertabdefault{/if}" title = "{$smarty.const._PLACEMENTS}">{include file = "includes/personal/placements.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='skills'}tabbertabdefault{/if}" title = "{$smarty.const._SKILLS}">{include file = "includes/personal/skills.tpl"}</div>
-   <div class = "tabbertab {if $T_OP=='quals'}tabbertabdefault{/if}" title = "Qualifications">{include file = "includes/SDMS_qualifications.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='evaluations'}tabbertabdefault{/if}" title = "{$smarty.const._EVALUATIONS}">{include file = "includes/personal/evaluations.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='history'}tabbertabdefault{/if}" title = "{$smarty.const._HISTORY}">{include file = "includes/personal/history.tpl"}</div>
   </div>

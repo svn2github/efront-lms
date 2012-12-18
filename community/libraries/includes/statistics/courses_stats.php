@@ -25,6 +25,11 @@ try {
      $smarty -> assign("T_STATS_ENTITY_ID", $_GET['sel_course']);
 
      try {
+      $result = eF_getTableData("user_times ut join users_to_courses uc on ut.users_LOGIN=uc.users_LOGIN and ut.courses_ID=uc.courses_ID", "sum(time) as sum, count(distinct uc.users_LOGIN) as count", "completed=1 and uc.archive=0 and ut.courses_ID=".$infoCourse->course['id'], "", "");
+      if ($result[0]['sum']) {
+       $smarty->assign("T_AVERAGE_COMPLETION_TIME", EfrontTimes::formatTimeForReporting($result[0]['sum']/$result[0]['count']));
+      }
+
       $roles = EfrontLessonUser :: getLessonsRoles(true);
       $smarty -> assign("T_ROLES_ARRAY", $roles);
 

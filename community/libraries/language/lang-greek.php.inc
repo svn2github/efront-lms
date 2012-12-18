@@ -4230,4 +4230,16 @@ define("_SENDREMINDER", "Αποστολή υπενθύμισης");
 define("_PROJECTASSIGNMENT", "Ανάθεση εργασίας");
 define("_PROJECTID", "Αναγνωριστικό εργασίας");
 define("_DEAR", "Αγαπητέ/ή");
+define("_SETCERTIFICATEDATEFORCOMPLTETED","Ημερομηνία πιστοποιητικού ίδια με ημερομηνία ολοκλήρωσης");
+define("_VIEWCOURSECERTIFICATE","Πιστοποιητικό δέσμης");
+define("_SETSHOWNUSERSSTATUSCOMPLETED", "Ολοκλήρωσε για τους εμφανιζόμενους χρήστες");
+define("_FREETEXTFILEUPLOAD", "Ελεύθερης ανάπτυξης / ανέβασμα αρχείου");
+define("_FREETEXTINPUTTYPE", "Πεδίο απάντησης");
+define("_TEXTAREAANDUPLOAD", "Περιοχή κειμένου (textarea) και ανέβασμα αρχείου");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMIT", "Πλησιάζετε στο όριο της συνδρομής σας");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMITBODY", "Αγαπητέ/ή %w,<br/>έχετε φτάσει στο %x% της συνδρομής σας για το %y στο %z");
+define("_THANKYOUFORCONTACTINGUS", "Ευχαριστούμε για την επικοινωνία");
+define("_THANKYOUFORCONTACTINGUSBODY", "Έχουμε λάβει το email σας και θα έρθουμε σε επαφή μαζί σας το συντομότερο. Ακολουθεί ένα αντίγραφο του email σας.");
+define("_INCLUDETIME", "Εμφάνιση και ώρας");
+define("_AVERAGECOMPLETIONTIME", "Μέσος χρόνος ολοκλήρωσης");
 ?>

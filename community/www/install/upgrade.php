@@ -88,6 +88,31 @@ try {
 } catch (Exception $e) {
  $failed_queries[] = $e->getMessage();
 }
+try {
+ $db->Execute("alter table user_profile add field_order int(10) default null");
+} catch (Exception $e) {
+ $failed_queries[] = $e->getMessage();
+}
+try {
+ $db->Execute("alter table completed_tests engine=innodb");
+ $db->Execute("
+CREATE TABLE `completed_tests_blob` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `completed_tests_ID` mediumint(8) unsigned NOT NULL,
+  `test` longblob,
+  PRIMARY KEY (`id`),
+  KEY `ibfk_completed_tests_blob_1` (`completed_tests_ID`),
+  CONSTRAINT `ibfk_completed_tests_blob_1` FOREIGN KEY (`completed_tests_ID`) REFERENCES `completed_tests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8");	
+ $db->Execute("insert into completed_tests_blob (completed_tests_ID, test) select id, test from completed_tests");
+ $db->Execute("alter table completed_tests drop test");
+} catch (Exception $e) {
+ $failed_queries[] = $e->getMessage();
+}
+try {
+} catch (Exception $e) {
+ $failed_queries[] = $e->getMessage();
+}
 //Finally, change the version number and clear apc cache
 try {
  $db->Execute("update configuration set value = '".G_VERSION_NUM."' where name = 'database_version'");
@@ -102,7 +127,8 @@ $new_file_contents = preg_replace("/(define\(['\"]G_VERSION_NUM['\"], ['\"]).*([
 if (!file_put_contents($GLOBALS['path'].'configuration.php', $new_file_contents)) {
  throw new Exception("The configuration file could not be created");
 }
-var_dump($failed_queries);
+//echo "<pre>";
+pr($failed_queries);
 /*
 EfrontConfiguration :: setValue('database_version', G_VERSION_NUM);
 

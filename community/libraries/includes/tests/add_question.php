@@ -241,13 +241,15 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
 
     case 'raw_text':
   $form -> addElement('select', 'force_correct', _QUESTIONCORRECTION, array('manual' => _MANUALLY, 'auto' => _AUTOMATIC, 'none' => _DONOTTAKEACCOUNTINCORRECTING), 'onchange = "if (this.options[this.options.selectedIndex].value==\'auto\') {$(\'autocorrect\').show();} else {$(\'autocorrect\').hide();}"');
+  $form -> addElement('select', 'input_type', _FREETEXTINPUTTYPE, array('both' => _TEXTAREAANDUPLOAD, 'textarea' => _TEXTAREA, 'upload' => _UPLOAD));
         $form -> addElement('textarea', 'example_answer', _EXAMPLEANSWER, 'class = "inputTextarea_QuestionExample" style = "width:100%" ');
 
         if ($form -> isSubmitted() || isset($currentQuestion)) {
 
          if (isset($currentQuestion) && !$form -> isSubmitted()) {
                 $form -> setDefaults(array('example_answer' => $currentQuestion -> question['answer'],
-                         'force_correct' => $currentQuestion -> settings['force_correct']));
+                         'force_correct' => $currentQuestion -> settings['force_correct'],
+                         'input_type' => $currentQuestion -> settings['input_type']));
                 if ($currentQuestion -> settings['force_correct'] == 'auto') {
                  $smarty -> assign("T_QUESTION_SETTINGS", $currentQuestion -> settings);
                 }
@@ -270,6 +272,7 @@ switch ($_GET['question_type']) { //Depending on the question type, the user mig
              $settings['force_correct'] = $form -> exportValue('force_correct');
              $settings['threshold'] = is_numeric($_POST['autocorrect_threshold']) ? $_POST['autocorrect_threshold'] : 0;
              $settings['autocorrect'] = $autocorrect;
+             $settings['input_type'] = $form->exportValue('input_type');
 
                 $question_values = array('type' => 'raw_text',
                                          'options' => '',

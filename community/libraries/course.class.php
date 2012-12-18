@@ -3821,8 +3821,8 @@ class EfrontCourse
   if (sizeof($users) <= self::MAX_MASS_OPERATION_SIZE) {
    $this -> addUsers(array_keys($users), $userTypes);
   } else {
-   $users = array_slice($users, 0, self::MAX_MASS_OPERATION_SIZE);
-   $userTypes = array_slice($userTypes, 0, self::MAX_MASS_OPERATION_SIZE);
+   $users = array_slice($users, 0, self::MAX_MASS_OPERATION_SIZE, true);
+   $userTypes = array_slice($userTypes, 0, self::MAX_MASS_OPERATION_SIZE, true);
    $this -> addUsers(array_keys($users), $userTypes);
    throw new EfrontCourseException(str_replace("%x", self::MAX_MASS_OPERATION_SIZE, _ONLYXCANBEAPPLIEDATATIME), EfrontCourseException :: PARTIAL_IMPORT);
   }

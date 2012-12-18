@@ -49,6 +49,11 @@ class EfrontUserException extends Exception
 abstract class EfrontUser
 {
  /**
+	 * Percentage above which we notify the account holder for license reasons
+	 */
+ const NOTIFY_THRESHOLD = 0.8;
+
+ /**
 	 * A caching variable for user types
 	 *
 	 * @since 3.5.3
@@ -337,6 +342,7 @@ abstract class EfrontUser
    $currentUser = $newUser;
   }
   EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_JOIN, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname'], "entity_name" => $passwordNonTransformed));
+  EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" =>$newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname']));
   ///MODULES1 - Module user add events
   // Get all modules (NOT only the ones that have to do with the user type)
   if (!self::$cached_modules) {
@@ -2917,7 +2923,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $users = array();
   $result = eF_getTableDataFlat("users_to_lessons", "lessons_ID", "archive=0 and users_LOGIN='".$this->user['login']."' and user_type in ('".implode("','", array_keys(EfrontLessonUser::getProfessorRoles()))."')");
   if (!empty($result['lessons_ID'])) {
-   $result = eF_getTableDataFlat("users_to_lessons", "distinct users_LOGIN", "archive=0 and user_type in ('".implode("','", array_keys(EfrontLessonUser::getStudentRoles()))."') and lessons_ID in (".implode(",", $result['lessons_ID']).")");
+   $result = eF_getTableDataFlat("users_to_lessons as ul, users as u", "distinct ul.users_LOGIN", "ul.users_LOGIN=u.login and u.active=1 and ul.archive=0 and ul.user_type in ('".implode("','", array_keys(EfrontLessonUser::getStudentRoles()))."') and ul.lessons_ID in (".implode(",", $result['lessons_ID']).")");
    $users = array_unique($result['users_LOGIN']);
   }
   return $users;

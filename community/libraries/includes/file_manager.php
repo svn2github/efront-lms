@@ -25,18 +25,18 @@ try {
         } else {
             $smarty -> assign("T_FILE_METADATA_HTML", $metadata -> toHTML($form, true, false));
         }
-        if (isset($_GET['postAjaxRequest'])) {
-            if (in_array($_GET['dc'], array_keys($metadata -> metadataAttributes))) {
-             $_GET['value'] = urldecode($_GET['value']);
-                if ($_GET['value']) {
-                    $fileMetadata[$_GET['dc']] = $_GET['value'];
+        if (isset($_POST['postAjaxRequest'])) {
+            if (in_array($_POST['dc'], array_keys($metadata -> metadataAttributes))) {
+             $_POST['value'] = urldecode($_POST['value']);
+                if ($_POST['value']) {
+                    $fileMetadata[$_POST['dc']] = $_POST['value'];
                 } else {
-                    unset($fileMetadata[$_GET['dc']]);
+                    unset($fileMetadata[$_POST['dc']]);
                 }
                 $file['metadata'] = serialize($fileMetadata);
                 $file -> persist();
             }
-            echo $_GET['value'];
+            echo $_POST['value'];
             exit;
         }
     } else if (isset($_GET['insert_editor_file'])) {

@@ -981,7 +981,7 @@ CREATE TABLE completed_tests (
   id mediumint(8) unsigned NOT NULL auto_increment,
   users_LOGIN varchar(100) default NULL,
   tests_ID mediumint(8) unsigned NOT NULL default '0',
-  test longblob,
+-- test longblob,
   status varchar(255),
   timestamp int(10) unsigned NOT NULL default 0,
   archive tinyint(1) NOT NULL default 0,
@@ -998,7 +998,16 @@ CREATE TABLE completed_tests (
   key score (score),
   key pending (pending),
   primary key (id)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE completed_tests_blob (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `completed_tests_ID` mediumint(8) unsigned NOT NULL,
+  `test` longblob,
+  PRIMARY KEY (`id`),
+  KEY `ibfk_completed_tests_blob_1` (`completed_tests_ID`),
+  CONSTRAINT `ibfk_completed_tests_blob_1` FOREIGN KEY (`completed_tests_ID`) REFERENCES `completed_tests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table 'users'
@@ -1396,6 +1405,7 @@ CREATE TABLE user_profile (
   visible tinyint(1) NOT NULL default '1',
   mandatory tinyint(1) NOT NULL default '1',
   languages_NAME varchar(50) NOT NULL,
+  field_order int default null,
   PRIMARY KEY (name)
 ) DEFAULT CHARSET=utf8;
 

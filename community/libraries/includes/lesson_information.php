@@ -73,30 +73,30 @@ if ($_GET['edit_info'] && $_change_ && !$_student_) {
         }
 
 */
-        if (isset($_GET['postAjaxRequest'])) {
+        if (isset($_POST['postAjaxRequest'])) {
             if (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] != 'change') {
                 header("HTTP/1.0 500 ");
                 echo (_UNAUTHORIZEDACCESS);
                 exit;
             }
-            if (in_array($_GET['dc'], array_keys($information -> metadataAttributes))) {
-                if ($_GET['value']) {
-                    $lessonInformation[$_GET['dc']] = htmlspecialchars(rawurldecode($_GET['value']));
+            if (in_array($_POST['dc'], array_keys($information -> metadataAttributes))) {
+                if ($_POST['value']) {
+                    $lessonInformation[$_POST['dc']] = htmlspecialchars(rawurldecode($_POST['value']));
                 } else {
-                    unset($lessonInformation[$_GET['dc']]);
+                    unset($lessonInformation[$_POST['dc']]);
                 }
                 $currentLesson -> lesson['info'] = serialize($lessonInformation);
-            } elseif (in_array($_GET['dc'], array_keys($metadata -> metadataAttributes))) {
-                if ($_GET['value']) {
-                    $lessonMetadata[$_GET['dc']] = htmlspecialchars(rawurldecode($_GET['value']));
+            } elseif (in_array($_POST['dc'], array_keys($metadata -> metadataAttributes))) {
+                if ($_POST['value']) {
+                    $lessonMetadata[$_POST['dc']] = htmlspecialchars(rawurldecode($_POST['value']));
                 } else {
-                    unset($lessonMetadata[$_GET['dc']]);
+                    unset($lessonMetadata[$_POST['dc']]);
                 }
                 $currentLesson -> lesson['metadata'] = serialize($lessonMetadata);
             }
             try {
                 $currentLesson -> persist();
-    $value = htmlspecialchars(rawurldecode($_GET['value']));
+    $value = htmlspecialchars(rawurldecode($_POST['value']));
     $value = str_replace ("\n","<br />", $value);
                 echo $value;
             } catch (Exception $e) {

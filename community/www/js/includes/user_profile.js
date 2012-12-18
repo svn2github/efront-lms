@@ -18,6 +18,16 @@ function onActivateField(el, response) {
         el.up().up().removeClassName('deactivatedTableElement');
     }
 }
+function moveField(el, field, direction) {
+	parameters = {move_field:field, method: 'get', direction:direction};
+	var url    = location.toString();
+	ajaxRequest(el, url, parameters, onMoveField);
+}
+function onMoveField(el, response) {
+	eF_js_redrawPage('fieldsTable', true);
+}
+
+
 
 function deleteField(el, field) {
 	parameters = {delete_field:field, method: 'get'};

@@ -397,7 +397,7 @@ if ($('autocomplete_users')) {
 	new Ajax.Autocompleter("autocomplete", 
 						   "autocomplete_users", 
 						   "ask.php?ask_type=users", {paramName: "preffix", 
-													afterUpdateElement : function (t, li) {document.location=document.location+'&sel_user='+li.id;}, 
+													afterUpdateElement : function (t, li) {document.location=document.location.toString().replace(/&sel_user=\w*/, '')+'&sel_user='+li.id;}, 
 													indicator : "busy"}); 
 }
 if ($('autocomplete_lessons')) { 

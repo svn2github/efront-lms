@@ -1885,8 +1885,8 @@ class EfrontContentTree extends EfrontTree
          foreach ($testQuestions as $key => $oldQuestion){
           $questionData[$key]['content_ID'] = $newUnit -> offsetGet('id');
           $questionData[$key]['lessons_ID'] = $newUnit -> offsetGet('lessons_ID');
-          $questionData[$key]['text'] = $this -> copyQuestionFiles($questionData[$key]['text'], $oldUnit['lessons_ID']);
-          $questionData[$key]['explanation'] = $this -> copyQuestionFiles($questionData[$key]['explanation'], $oldUnit['lessons_ID']);
+          $questionData[$key]['text'] = replaceQuestionPaths($questionData[$key]['text'], $oldUnit['lessons_ID'], $newUnit -> offsetGet('lessons_ID'));
+          $questionData[$key]['explanation'] = replaceQuestionPaths($questionData[$key]['explanation'], $oldUnit['lessons_ID'], $newUnit -> offsetGet('lessons_ID'));
           $newQuestion = Question :: createQuestion($questionData[$key]);
           $qid = $newQuestion -> question['id'];
           $newQuestions[$qid] = $oldTest -> getAbsoluteQuestionWeight($oldQuestion -> question['id']);
@@ -1902,47 +1902,100 @@ class EfrontContentTree extends EfrontTree
         }
         return $newUnit;
     }
- public function copyQuestionFiles($data, $sourceId) {
-  //$data = $question['text'];
-  preg_match_all("/view_file\.php\?file=(\d+)/", $data, $matchesId);
+// moved in tools.php as replaceQuestionPaths with a third argument in order to be used in copySimpleUnit more correctly
+/*
+
+	public function copyQuestionFiles($data, $sourceId) {
+
+		//$data = $question['text'];
+
+
+
+		preg_match_all("/view_file\.php\?file=(\d+)/", $data, $matchesId);
+
         $filesId = $matchesId[1];
+
         preg_match_all("#(".G_SERVERNAME.")*content/lessons/(.*)\"#U", $data, $matchesPath);
+
         $filesPath = $matchesPath[2];
+
+
+
         foreach ($filesId as $file) {
+
             $files[] = $file;
+
         }
+
         foreach ($filesPath as $file) {
+
             $files[] = G_LESSONSPATH.html_entity_decode($file);
+
         }
+
+
+
         $lesson = new EfrontLesson($this -> lessonId);
+
         //$data   = $unit -> offsetGet('data');
+
         foreach ($files as $file){
-         try {
-          $sourceFile = new EfrontFile($file);
-          $sourceFileOffset = preg_replace("#".G_LESSONSPATH."#", "", $sourceFile['directory']);
-          $position = strpos($sourceFileOffset, "/"); //check case that the file is in a subfolder of the lesson
-          if ($position !== false) {
-           $sourceLink = mb_substr($sourceFileOffset, $position+1);
-           mkdir($lesson -> getDirectory().$sourceLink.'/', 0755, true);
-     $destinationPath = $lesson -> getDirectory().$sourceLink.'/'.basename($sourceFile['path']);
-           $copiedFile = $sourceFile -> copy($lesson -> getDirectory().$sourceLink.'/'.basename($sourceFile['path']), false);
-          } else {
-           $destinationPath = $lesson -> getDirectory().basename($sourceFile['path']);
-           $copiedFile = $sourceFile -> copy($lesson -> getDirectory().basename($sourceFile['path']), false);
-          }
-          str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
-          $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceId."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data);
-         } catch (EfrontFileException $e) {
-          if ($e -> getCode() == EfrontFileException :: FILE_ALREADY_EXISTS) {
-           $copiedFile = new EfrontFile($destinationPath);
-           str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
-           $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceId."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data, -1, $count);
-          }
-         } //this means that the file already exists
+
+        	try {
+
+        		$sourceFile = new EfrontFile($file);
+
+        		$sourceFileOffset =  preg_replace("#".G_LESSONSPATH."#", "", $sourceFile['directory']);
+
+        		$position = strpos($sourceFileOffset, "/");   //check case that the file is in a subfolder of the lesson
+
+        		if ($position !== false) {
+
+        			$sourceLink = mb_substr($sourceFileOffset, $position+1);
+
+        			mkdir($lesson -> getDirectory().$sourceLink.'/', 0755, true);
+
+					$destinationPath = $lesson -> getDirectory().$sourceLink.'/'.basename($sourceFile['path']);
+
+        			$copiedFile = $sourceFile -> copy($lesson -> getDirectory().$sourceLink.'/'.basename($sourceFile['path']), false);
+
+        		} else {
+
+        			$destinationPath = $lesson -> getDirectory().basename($sourceFile['path']);
+
+        			$copiedFile = $sourceFile -> copy($lesson -> getDirectory().basename($sourceFile['path']), false);
+
+        		}
+
+        		str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
+
+        		$data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceId."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data);
+
+        	} catch (EfrontFileException $e) {
+
+        		if ($e -> getCode() == EfrontFileException :: FILE_ALREADY_EXISTS) {
+
+        			$copiedFile = new EfrontFile($destinationPath);
+
+        			str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
+
+        			$data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceId."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data, -1, $count);
+
+        		}
+
+        	} //this means that the file already exists
+
         }
+
         //$question['text'] = $data;
-  return $data;
- }
+
+		return $data;
+
+
+
+	}
+
+*/
     /**
 
      * Copy unit
@@ -2132,6 +2185,8 @@ class EfrontContentTree extends EfrontTree
   if ($copyQuestions) {
    $questions = eF_getTableData("questions","*","content_ID=".$sourceUnit -> offsetGet('id'));
    for ($k = 0; $k < sizeof($questions); $k++) {
+    $questions[$k]['text'] = replaceQuestionPaths($questions[$k]['text'], $questions[$k]['lessons_ID'], $unit-> offsetGet('lessons_ID'));
+          $questions[$k]['explanation'] = replaceQuestionPaths($questions[$k]['explanation'], $questions[$k]['lessons_ID'], $unit-> offsetGet('lessons_ID'));
     $questions[$k]['content_ID'] = $unit-> offsetGet('id');
     $questions[$k]['lessons_ID'] = $unit-> offsetGet('lessons_ID');
     unset($questions[$k]['id']);

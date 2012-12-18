@@ -813,6 +813,9 @@ function checkQuestions() {
     		} else {
     			r.select('textarea').each(function (s) {s.value ? finished[count] = 1 : null;});
     		}
+    		
+    		r.select('input').each(function (s) {s.value ? finished[count] = 1 : null;});	//check if a file is picked for upload
+    		
     	} else if (r.hasClassName('dragDropQuestion')) {
     		r.select('td.dragDropTarget').each(function (s) {s.childElements().length ? finished[count] = 1 : null;});
     	} 						        								        	

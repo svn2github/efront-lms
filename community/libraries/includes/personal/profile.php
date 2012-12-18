@@ -192,6 +192,7 @@ if ($form -> isSubmitted() && $form -> validate()) {
   }
   if (isset($_GET['add_user'])) {
    $editedUser = EfrontUser :: createUser($userProperties);
+   //EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $userProperties['login'], "users_name" => $userProperties['name'], "users_surname" => $userProperties['surname']));
   } else {
    unset($userProperties['timestamp']);
    !$editedUser->user['pending'] OR $editedUser->user['pending'] = !$userProperties['active']; //If the user was pending, then set his status as the opposite of 			

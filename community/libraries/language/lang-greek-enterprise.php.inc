@@ -4212,7 +4212,7 @@ define("_PROFESSORCREATECOURSES", "Προσθήκη δέσμης/μαθήματ�
 define("_RESETALLUSERS", "Αρχικοποίηση προόδου για όλους τους χρήστες");
 define("_MYROLE", "Ρόλος");
 define("_MAXSEATSDEPLEATED", "Οι %y διαθέσιμες θέσεις για το '%x' είναι κατηλειμμένες. Επικοινωνήστο με το %z για πληροφορίες");
-define("_IFRAMEPARAMETERS", "iframe parameters");
+define("_IFRAMEPARAMETERS", "Παράμετροι iframe");
 define("_HEIGHTREFERSTOINITIALHEIGHT", "Οι διαστάσεις μπορεί να αλλάξουν δυναμικά μόλις φορτώσει το περιεχόμενο. Μπορείτε να επιβάλετε ρητές τιμές στις ιδιότητες της ενότητας SCORM");
 define("_COURSESTARTDATE", "Ημερομηνία έναρξης δέσμης");
 define("_COURSEENDDATE", "Ημερομηνία λήξης δέσμης");
@@ -4224,4 +4224,22 @@ define("_ACCESSDEPLETED", "Δεν μπορείτε να δείτε αυτό το
 define("_ACCESSESREMAINING", "Μπορείτε να δείτε αυτό το μάθημα %x φορές ακόμα");
 define("_REMAININGVACANCIES", "Εναπομείνασες θέσεις εργασίας");
 define("_YOUWHEREADDEDTOTHEGROUPBUTSOMEERRORSOCCURED", "Προστεθήκατε στην ομάδα αλλά προέκυψαν κάποια σφάλματα:");
+define("_SURVEYREMINDER", "Υπενθύμιση ερωτηματολογίου");
+define("_THISISAREMINDERTOCOMPLETETHEFOLLOWINGSURVEY", "Αυτό το email είναι μία υπενθύμιση για τη συμπλήρωση του παρακάτω ερωτηματολογίου");
+define("_SENDREMINDER", "Αποστολή υπενθύμισης");
+define("_PROJECTASSIGNMENT", "Ανάθεση εργασίας");
+define("_PROJECTID", "Αναγνωριστικό εργασίας");
+define("_DEAR", "Αγαπητέ/ή");
+define("_SETCERTIFICATEDATEFORCOMPLTETED","Ημερομηνία πιστοποιητικού ίδια με ημερομηνία ολοκλήρωσης");
+define("_VIEWCOURSECERTIFICATE","Πιστοποιητικό δέσμης");
+define("_SETSHOWNUSERSSTATUSCOMPLETED", "Ολοκλήρωσε για τους εμφανιζόμενους χρήστες");
+define("_FREETEXTFILEUPLOAD", "Ελεύθερης ανάπτυξης / ανέβασμα αρχείου");
+define("_FREETEXTINPUTTYPE", "Πεδίο απάντησης");
+define("_TEXTAREAANDUPLOAD", "Περιοχή κειμένου (textarea) και ανέβασμα αρχείου");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMIT", "Πλησιάζετε στο όριο της συνδρομής σας");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMITBODY", "Αγαπητέ/ή %w,<br/>έχετε φτάσει στο %x% της συνδρομής σας για το %y στο %z");
+define("_THANKYOUFORCONTACTINGUS", "Ευχαριστούμε για την επικοινωνία");
+define("_THANKYOUFORCONTACTINGUSBODY", "Έχουμε λάβει το email σας και θα έρθουμε σε επαφή μαζί σας το συντομότερο. Ακολουθεί ένα αντίγραφο του email σας.");
+define("_INCLUDETIME", "Εμφάνιση και ώρας");
+define("_AVERAGECOMPLETIONTIME", "Μέσος χρόνος ολοκλήρωσης");
 ?>

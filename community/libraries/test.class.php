@@ -1365,7 +1365,7 @@ class EfrontTest
             $user = EfrontUserFactory :: factory($login, false, 'student');
         }
         $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
-  $check_redoOnlyWrong = EfrontCompletedTest::retrieveCompletedTest("completed_tests","test","archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $check_redoOnlyWrong = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID","ctb.test","ct.archive=0 AND ct.tests_ID=".($this -> test['id'])." and ct.users_LOGIN='".$login."'");
   $testObject = unserialize($check_redoOnlyWrong[0]['test']);
   if ($testObject -> redoOnlyWrong == 1) {
    unset($testObject -> redoOnlyWrong);
@@ -1393,7 +1393,7 @@ class EfrontTest
             $user = EfrontUserFactory :: factory($login, false, 'student');
         }
         $user -> setSeenUnit($this -> test['content_ID'], key($this -> getLesson()), 0);
-  $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
+  $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.test", "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
   $testObject = unserialize($result[0]['test']);
   $testObject -> redoOnlyWrong = true;
         EfrontCompletedTest::updateCompletedTest("completed_tests", array("test" => serialize($testObject), "archive" => 1), "archive=0 AND tests_ID=".($this -> test['id'])." and users_LOGIN='".$login."'");
@@ -1461,7 +1461,7 @@ class EfrontTest
          if (!eF_checkParameter($instance, 'id')) {
           throw new EfrontTestException(_INVALIDID.': '.$instance, EfrontTestException :: INVALID_ID);
          }
-         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "users_LOGIN='".$login."' and id = ".$instance);
+         $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*,ctb.test", "users_LOGIN='".$login."' and ct.id = ".$instance);
          if (sizeof($result) == 0) {
           throw new EfrontTestException(_USERHASNOTDONETEST.': '.$login, EfrontTestException :: NOT_DONE_TEST);
          }
@@ -1581,7 +1581,7 @@ class EfrontTest
 //        $completedTest -> completedTest['archive'] = '0';                              //The test just started; So set its status to 'incomplete'
         $testQuestions = $this -> getQuestions(true);
   // lines added for redo only wrong questions
-  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
   $recentlyCompleted = unserialize($resultCompleted[0]['test']);
         //1. Get the random pool questions
         if ($this -> options['random_pool']) {
@@ -1755,9 +1755,9 @@ class EfrontTest
             $login = $user;
         }
         if ($onlySolved) {
-            $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != '' and status != 'incomplete' and status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+            $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*, ctb.test", "status != '' and status != 'incomplete' and status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         } else {
-            $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
+            $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*, ctb.test", "status != 'deleted' and users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         }
         $timesDone = eF_getTableData("completed_tests", "count(*)", "users_LOGIN = '$login' and tests_ID=".($this -> test['id']), "id");
         $timesDone = $timesDone[0]['count(*)'];
@@ -1860,7 +1860,7 @@ class EfrontTest
   //$allTestQuestionsFilter = $allTestQuestions;
   // lines added for redo only wrong questions
   $allTestQuestionsFilter = array();
-  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
+  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc");
   $recentlyCompleted = unserialize($resultCompleted[0]['test']);
   if ($recentlyCompleted -> redoOnlyWrong == true && !$done) {
    foreach ($recentlyCompleted -> questions as $key => $value) {
@@ -2403,7 +2403,7 @@ class EfrontCompletedTest extends EfrontTest
 
      */
     public function complete($userAnswers) {
-  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc", "", "1");
+  $resultCompleted = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.test", "archive=1 AND users_LOGIN='".$_SESSION['s_login']."' AND tests_ID=".$this -> test['id'], "timestamp desc", "", "1");
   $recentlyCompleted = unserialize($resultCompleted[0]['test']);
   //Assign user answers to each question object, as a member
         foreach ($userAnswers as $id => $answer) {
@@ -3385,37 +3385,45 @@ class EfrontCompletedTest extends EfrontTest
      if ($GLOBALS['configuration']['compress_tests'] && function_exists('gzdeflate') && isset($fields['test'])) {
    $fields['test'] = gzdeflate($fields['test']);
      }
+     $fields_blob = $fields['test'];
+     unset($fields['test']);
      $id = eF_insertTableData($table, $fields);
+     eF_insertTableData("completed_tests_blob", array("completed_tests_ID" => $id, "test" => $fields_blob));
      return $id;
     }
     public static function updateCompletedTest($table, $fields, $where) {
+     //pr(debug_backtrace());    	
      if (isset($fields['score']) && $fields['score']) {
       $fields['score'] = str_replace(",", ".", $fields['score']);
      }
      if ($GLOBALS['configuration']['compress_tests'] && function_exists('gzdeflate') && isset($fields['test'])) {
    $fields['test'] = gzdeflate($fields['test']);
      }
-     $id = eF_updateTableData($table, $fields, $where);
-     return $id;
+     $fields_blob = $fields['test'];
+     unset($fields['test']);
+     $result = eF_getTableData("completed_tests", "id", $where); //must be before update, or else $where may not return the same entry
+  eF_updateTableData("completed_tests", $fields, $where);
+     eF_updateTableData("completed_tests_blob", array('test' => $fields_blob), "completed_tests_ID = ".$result[0]['id']);
+     return true;
     }
     public static function compressTests() {
      if (function_exists('gzdeflate')) {
-      $completedTests = eF_getTableData("completed_tests", "id", "test != ''");
+      $completedTests = eF_getTableData("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.id", "ctb.test != ''");
       foreach ($completedTests as $value) {
-       $result = eF_getTableData("completed_tests", "test", "id=".$value['id']);
+       $result = eF_getTableData("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.test", "ct.id=".$value['id']);
        if (unserialize($result[0]['test'])) {
-        eF_updateTableData("completed_tests", array("test" => gzdeflate($result[0]['test'])), "id=".$value['id']);
+        eF_updateTableData("completed_tests_blob", array("test" => gzdeflate($result[0]['test'])), "completed_tests_ID=".$value['id']);
        }
       }
      }
     }
     public static function uncompressTests() {
      if (function_exists('gzinflate')) {
-      $completedTests = eF_getTableData("completed_tests", "id", "test != ''");
+      $completedTests = eF_getTableData("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.id", "ctb.test != ''");
       foreach ($completedTests as $value) {
-       $result = eF_getTableData("completed_tests", "test", "id=".$value['id']);
+       $result = eF_getTableData("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.test", "ct.id=".$value['id']);
        if (unserialize(gzinflate($result[0]['test']))) {
-        eF_updateTableData("completed_tests", array("test" => gzinflate($result[0]['test'])), "id=".$value['id']);
+        eF_updateTableData("completed_tests_blob", array("test" => gzinflate($result[0]['test'])), "completed_tests_ID=".$value['id']);
        }
       }
      }
@@ -4978,7 +4986,6 @@ class EmptySpacesQuestion extends Question implements iQuestion
     public function correct() {
         $results['score'] = 0;
         $factor = 1 / sizeof($this -> userAnswer); //If the question has 4 options, then the factor is 1/4.
-        //pr($this -> userAnswer);exit;
         for ($i = 0; $i < sizeof($this -> userAnswer); $i++) {
          $userAnswer = mb_strtolower(trim(preg_replace("/\s+/", " ", $this -> userAnswer[$i])));
             //$this -> answer[$i] = explode("|", $this -> answer[$i]);
@@ -4990,19 +4997,28 @@ class EmptySpacesQuestion extends Question implements iQuestion
             $results['correct'][$i] = false;
             if (isset($this -> answer[$i])) {
              if (in_array($userAnswer, $answers)) {
-                 $results['score'] += $factor;
-                 $results['correct'][$i] = true; //Use this variable in order for the template to know how to color the answers (green/red)
+              $results['score'] += $factor;
+              $results['correct'][$i] = true; //Use this variable in order for the template to know how to color the answers (green/red)
              } else {
               foreach ($answers as $value) {
                $matches = array();
-               if (preg_match('/^(.*)\*$/', $value, $matches) && mb_substr($userAnswer, 0, mb_strlen($matches[1])) == $matches[1]) {
+               if (preg_match('/^(.*)\*$/', $value, $matches) && mb_substr($userAnswer, 0, mb_strlen($matches[1])) == $matches[1]) { //check against a possible value of <string>*
                 $results['score'] += $factor;
-                $results['correct'][$i] = true; //Use this variable in order for the template to know how to color the answers (green/red)
+                $results['correct'][$i] = true;
+               } elseif (is_numeric($value) && is_numeric($userAnswer) && floatval($value) == floatval($userAnswer)) { //if you have different forms of the same, possibly float, number
+                $results['score'] += $factor;
+                $results['correct'][$i] = true;
+               } else {
+                if (preg_match('/^-?(.*)-(.*)$/', $value, $matches) && is_numeric($matches[1]) && is_numeric($matches[2])) { //meaning we have a range
+                 if ($matches[1] <= $userAnswer && $matches[2] >= $userAnswer) { //The user answer falls within the range
+                  $results['score'] += $factor;
+                  $results['correct'][$i] = true;
+                 }
+                }
                }
               }
              }
             }
-            //$this -> answer[$i] = implode(" "._OR." ", $this -> answer[$i]);
         }
         return $results;
     }
@@ -5501,8 +5517,14 @@ class RawTextQuestion extends Question implements iQuestion
     public function toHTMLQuickForm(&$form) {
      global $load_editor;
   $load_editor = true;
-        $elements[] = $form -> createElement("textarea", "question[".$this -> question['id']."]", null, 'cols="80" rows="5" class = "simpleEditor" style = "width:100%;height:100px;"');
-        $elements[] = $form -> createElement("file", "file_".$this -> question['id'].'[0]', null, 'class = "inputText" id = "file_'.$this -> question['id'].'[0]" style = "display:none"');
+  if ($this->settings['input_type'] == 'textarea') {
+   $elements[] = $form -> createElement("textarea", "question[".$this -> question['id']."]", null, 'cols="80" rows="5" class = "simpleEditor" style = "width:100%;height:100px;"');
+  } else if ($this->settings['input_type'] == 'upload') {
+   $elements[] = $form -> createElement("file", "file_".$this -> question['id'].'[0]', null, 'class = "inputText" id = "file_'.$this -> question['id'].'[0]"');
+  } else {
+         $elements[] = $form -> createElement("textarea", "question[".$this -> question['id']."]", null, 'cols="80" rows="5" class = "simpleEditor" style = "width:100%;height:100px;"');
+         $elements[] = $form -> createElement("file", "file_".$this -> question['id'].'[0]', null, 'class = "inputText" id = "file_'.$this -> question['id'].'[0]" style = "display:none"');
+  }
         if ($this -> userAnswer !== false) {
              $form -> setDefaults(array("question[".$this -> question['id']."]" => $this -> userAnswer));
         }
@@ -5558,14 +5580,21 @@ class RawTextQuestion extends Question implements iQuestion
                 $filesString .= '<br/><span id = "file_'.$file['id'].'">'._UPLOADEDFILE.': <a href = "view_file.php?file='.$file['id'].'&action=download" style = "font-weight:bold">'.$file['name'].'</a>&nbsp;<a href = "javascript:void(0)" onclick = "deleteFile(this, '.$file['id'].')"><img src = "images/16x16/error_delete.png" title = "'._DELETE.'" alt = "'._DELETE.'" style = "vertical-align:middle" ></a></span>';
             } catch (Exception $e) {}
         }
+        $style = '';
+        if ($this->settings['input_type'] != 'textarea' && $this->settings['input_type'] != 'upload') {
+         $style = 'display:none';
+         $upload_link = '<a href = "javascript:void(0)" onclick = "Element.extend(this).hide();$(\'file_'.$this -> question['id'].'[0]\').show();$(\'add_another_'.$this -> question['id'].'\').show()">('._SENDFILEASANSWER.')</a>';
+        } else if ($this->settings['input_type'] == 'textarea') {
+         $style = 'display:none';
+        }
         $questionString = '
                     <table class = "unsolvedQuestion rawTextQuestion">
                         <tr><td>'.glossary :: applyGlossary($this -> question['text'], $this -> question['lessons_ID']).' '.$this -> getCounter().'</td></tr>
                         <tr><td>
-                                '.$formArray['question'][$this -> question['id']]['html'].'<div></div>&nbsp;<img id = "add_another_'.$this -> question['id'].'" src = "images/16x16/add.png" alt = "'._ADDANOTHERFILE.'" title = "'._ADDANOTHERFILE.'" style = "display:none" onclick = "addAnotherFile'.$this -> question['id'].'(this)">
+                                '.$formArray['question'][$this -> question['id']]['html'].'<div></div>&nbsp;<img id = "add_another_'.$this -> question['id'].'" src = "images/16x16/add.png" alt = "'._ADDANOTHERFILE.'" title = "'._ADDANOTHERFILE.'" style = "'.$style.'" onclick = "addAnotherFile'.$this -> question['id'].'(this)">
                         </td></tr>
                         <tr><td>
-                                <a href = "javascript:void(0)" onclick = "Element.extend(this).hide();$(\'file_'.$this -> question['id'].'[0]\').show();$(\'add_another_'.$this -> question['id'].'\').show()">('._SENDFILEASANSWER.')</a>
+                                '.$upload_link.'
                                 <br/>'.$filesString.'
                             </td></tr>
                     </table>
@@ -6330,7 +6359,7 @@ abstract class Question
 
      */
     public static $questionTypes = array('empty_spaces' => _EMPTYSPACES,
-                                         'raw_text' => _FREETEXT,
+                                         'raw_text' => _FREETEXTFILEUPLOAD,
                                          'multiple_one' => _MULTIPLEONE,
                                          'multiple_many' => _MULTIPLEMANY,
                                          'match' => _MATCH,

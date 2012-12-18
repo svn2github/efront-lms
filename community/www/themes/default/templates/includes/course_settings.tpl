@@ -95,6 +95,10 @@
      <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "setAllUsersStatusCompleted(this)" {/if}>{$smarty.const._SETALLUSERSSTATUSCOMPLETED}</a>
     </span>
     <span>
+     <img src = "images/16x16/success.png" title = "{$smarty.const._SETSHOWNUSERSSTATUSCOMPLETED}" alt = "{$smarty.const._SETSHOWNUSERSSTATUSCOMPLETED}"/>
+     <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "setShownUsersStatusCompleted(this)" {/if}>{$smarty.const._SETSHOWNUSERSSTATUSCOMPLETED}</a>
+    </span>
+    <span>
      <img src = "images/16x16/refresh.png" title = "{$smarty.const._RESETALLUSERS}" alt = "{$smarty.const._RESETALLUSERS}"/>
      <a href = "javascript:void(0)" {if !$T_CURRENT_USER->coreAccess.course_settings == 'change' || $T_CURRENT_USER->coreAccess.course_settings == 'change'} onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) resetAllUsers(this)" {/if}>{$smarty.const._RESETALLUSERS}</a>
     </span>

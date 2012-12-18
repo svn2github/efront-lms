@@ -529,7 +529,7 @@ class module_gift_aiken extends EfrontModule {
 
             } else if ($question['type'] == "raw_text") {
 
-                $questionString .= "(" . _RAWTEXT . ")<BR>";
+                $questionString .= "(" . _FREETEXTFILEUPLOAD . ")<BR>";
 
             } else if ($question['type'] == "no_answer_error") {
                 $questionString .= "<span class = 'orderedList' style='color:red;font-weight:bold;'>". _GIFTAIKEN_NOCORRECTANSWERGIVENORCORRECTANSWERDOESNOTEXIST. "</span><BR>";

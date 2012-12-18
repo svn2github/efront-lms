@@ -18,18 +18,20 @@
 
                           {assign var = "change_fields" value = "1"}
                         {/if}
-                                <table width = "100%" class = "sortedTable">
+<!--ajax:fieldsTable-->
+        <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" id = "fieldsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=user_profile&">
                                     <tr class = "topTitle defaultRowHeight">
-                                        <td class = "topTitle">{$smarty.const._FIELDNAME}</td>
-                                        <td class = "topTitle">{$smarty.const._DESCRIPTION}</td>
-                                        <td class = "topTitle">{$smarty.const._TYPE}</td>
-                                        <td class = "topTitle">{$smarty.const._LANGUAGE}</td>
-                                        <td class = "topTitle centerAlign">{$smarty.const._STATUS}</td>
+                                        <td class = "topTitle" name = "name">{$smarty.const._FIELDNAME}</td>
+                                        <td class = "topTitle" name = "description">{$smarty.const._DESCRIPTION}</td>
+                                        <td class = "topTitle" name = "type">{$smarty.const._TYPE}</td>
+                                        <td class = "topTitle" name = "language">{$smarty.const._LANGUAGE}</td>
+                                        <td class = "topTitle centerAlign" name = "active">{$smarty.const._STATUS}</td>
+                                        <td class = "topTitle centerAlign" name = "field_order">{$smarty.const._ORDER}</td>
                                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
-                                        <td class = "topTitle centerAlign">{$smarty.const._OPERATIONS}</td>
+                                        <td class = "topTitle centerAlign noSort">{$smarty.const._OPERATIONS}</td>
                                     {/if}
                                     </tr>
-                    {foreach name = 'fields_list' key = "key" item = "field" from = $T_PROFILE_FIELDS}
+                    {foreach name = 'fields_list' key = "key" item = "field" from = $T_DATA_SOURCE}
                                     <tr id="row_{$field.name}" class = "{cycle values = "oddRowColor, evenRowColor"} {if !$field.active}deactivatedTableElement{/if}">
                                         <td>
                                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
@@ -55,6 +57,14 @@
                                                 <img class = "ajaxHandle" src = "images/16x16/trafficlight_red.png" alt = "{$smarty.const._ACTIVATE}" title = "{$smarty.const._ACTIVATE}" {if $change_fields}onclick = "activateField(this, '{$field.name}')"{/if}>
                                             {/if}
                                         </td>
+                                        <td class = "centerAlign">
+                                         {if $smarty.foreach.fields_list.total > 1 && $field.field_order > 0}
+                                            <img class = "ajaxHandle" src = "images/16x16/navigate_up.png" title = "{$smarty.const._UP}" alt = "{$smarty.const._UP}" onclick = "moveField(this, '{$field.name}', 'up');"/>
+                                            {/if}
+                                            {if $smarty.foreach.fields_list.total > 1 && $field.field_order < $smarty.foreach.fields_list.total-1}
+                                            <img class = "ajaxHandle" src = "images/16x16/navigate_down.png" title = "{$smarty.const._DOWN}" alt = "{$smarty.const._DOWN}" onclick = "moveField(this, '{$field.name}', 'down');"/>
+                                            {/if}
+                                        </td>
                                     {if !isset($T_CURRENT_USER->coreAccess.configuration) || $T_CURRENT_USER->coreAccess.configuration == 'change'}
                                         <td class = "centerAlign">
                                             <a href = "administrator.php?ctg=user_profile&edit_field={$field.name}&type={$field.type}"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
@@ -66,6 +76,7 @@
                                     <tr class = "defaultRowHeight oddRowColor"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
                     {/foreach}
                                 </table>
+<!--/ajax:fieldsTable-->
                         {/capture}
                         {eF_template_printBlock title = $smarty.const._CUSTOMIZEUSERSPROFILE data = $smarty.capture.t_fields_list image = '32x32/profile_add.png' help = 'Extend_user_profile'}
                 {/if}

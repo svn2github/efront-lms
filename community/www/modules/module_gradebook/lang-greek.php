@@ -35,4 +35,6 @@ define("_GRADEBOOK_EXPORT_EXCEL_ONE", "Τρέχον μάθημα");
 define("_GRADEBOOK_ALL_LESSONS", "Όλα τα μαθήματα μου");
 define("_GRADEBOOK_SWITCH_TO", "Μετάβαση σε");
 define("_GRADEBOOK_NOT_PUBLISHED", "Το βαθμολόγιό σας δεν έχει δημοσιευθεί ακόμη");
+define("_GRADEBOOK_TOGGLEPUBLISH", "Θέσε κατάσταση δημοσίευσης");
+define("_GRADEBOOK_COMPLETELESSON", "Ολοκλήρωση μαθήματος");
 ?>

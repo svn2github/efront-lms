@@ -84,7 +84,7 @@ try {
     }
 
     if (!isset($_GET['showusers'])) {
-        $users = array_slice($users, 0, 20);
+        $users = array_slice($users, 0, 20, true);
     }
 
     $smarty -> assign("T_ACTIVE_USERS", $users);

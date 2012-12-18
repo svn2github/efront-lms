@@ -5,7 +5,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     exit;
 }
 
-        $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and id=".$_GET['show_solved_test']);
+        $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*, ctb.test", "ct.status != 'deleted' and ct.id=".$_GET['show_solved_test']);
         if (sizeof($result) == 0) {
             throw new EfrontTestException(_NONEXISTENTTEST.': '.$_GET['show_solved_test'], EfrontTestException :: NOT_DONE_TEST);
         }
@@ -364,7 +364,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
                 }
 
                 // We change a bit the following typical query to acquire the latest options values for the test - in case a threshold has been changed
-                $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests JOIN tests ON tests.id = completed_tests.tests_ID", "completed_tests.*, tests.options", "completed_tests.status != 'deleted' and completed_tests.id = '".$_GET['show_solved_test']."'");
+                $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct JOIN completed_tests_blob ctb on ct.id=ctb.completed_tests_ID JOIN tests t ON t.id = ct.tests_ID", "ct.*, ctb.test, t.options", "ct.status != 'deleted' and ct.id = '".$_GET['show_solved_test']."'");
                 $completedTest = unserialize($result[0]['test']);
 
                 // Take the most recent set general threshold for this test

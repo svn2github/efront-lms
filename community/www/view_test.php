@@ -26,16 +26,16 @@ try {
 try {
     if (isset($_GET['test_id']) && eF_checkParameter($_GET['test_id'], 'id') && eF_checkParameter($_GET['user'], 'login')) {
         $test = new EfrontTest($_GET['test_id']);
-        $doneTests = EfrontCompletedTest::retrieveCompletedTest( "completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
+        $doneTests = EfrontCompletedTest::retrieveCompletedTest( "completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*,ctb.test", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
 //        $test -> setDone($_GET['user']);
     } else if (isset($_GET['content_id']) && eF_checkParameter($_GET['content_id'], 'id') && eF_checkParameter($_GET['user'], 'login')) {
         $test = new EfrontTest($_GET['content_id'], true);
-        $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
+        $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*,ctb.test", "status != 'deleted' and users_LOGIN = '".$_GET['user']."' and tests_ID=".$test -> test['id']);
 //        $test -> setDone($_GET['user']);
     } else if (isset($_GET['done_test_id']) && eF_checkParameter($_GET['done_test_id'], 'id')) {
-        $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and id=".$_GET['done_test_id']);
+        $result = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*,ctb.test", "status != 'deleted' and ct.id=".$_GET['done_test_id']);
         $test = new EfrontTest($result[0]['tests_ID']);
-        $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests", "*", "status != 'deleted' and users_LOGIN = '".$result[0]['users_LOGIN']."' and tests_ID=".$test -> test['id']);
+        $doneTests = EfrontCompletedTest::retrieveCompletedTest("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ct.*,ctb.test", "status != 'deleted' and users_LOGIN = '".$result[0]['users_LOGIN']."' and tests_ID=".$test -> test['id']);
 
         $_GET['user'] = $result[0]['users_LOGIN'];
         //        $test -> setDone($result[0]['users_LOGIN']);
@@ -56,7 +56,8 @@ try {
     } else if (isset($_GET['done_test_id']) && in_array($_GET['done_test_id'], array_keys($doneTests)) && eF_checkParameter($_GET['done_test_id'], 'id')) {
         $showTest = unserialize($doneTests[$_GET['done_test_id']]['test']);
     } else {
-        $showTest = unserialize($doneTests[key($doneTests)]['test']); //Take the first in the row
+     $lastTest = end($doneTests);
+     $showTest = unserialize($lastTest['test']); //Take the last in the row
     }
     if ($showTest -> test['content_ID']) {
   $result = eF_getTableData("content", "ctg_type","id=".$showTest -> test['content_ID']);

@@ -28,18 +28,18 @@ try {
             handleNormalFlowExceptions($e);
         }
 
-        if (isset($_GET['postAjaxRequest'])) {
-            if (in_array($_GET['dc'], array_keys($metadata -> metadataAttributes))) {
-                if ($_GET['value']) {
-                    $contentMetadata[$_GET['dc']] = urldecode($_GET['value']);
+        if (isset($_POST['postAjaxRequest'])) {
+            if (in_array($_POST['dc'], array_keys($metadata -> metadataAttributes))) {
+                if ($_POST['value']) {
+                    $contentMetadata[$_POST['dc']] = urldecode($_POST['value']);
                 } else {
-                    unset($contentMetadata[$_GET['dc']]);
+                    unset($contentMetadata[$_POST['dc']]);
                 }
                 $currentUnit['metadata'] = serialize($contentMetadata);
             }
             try {
                 $currentUnit -> persist();
-                echo urldecode($_GET['value']);
+                echo urldecode($_POST['value']);
             } catch (Exception $e) {
     handleAjaxExceptions($e);
             }

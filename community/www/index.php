@@ -668,7 +668,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
           $encrypted = true; //needed for autologin
           EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_REGISTER, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname'], "entity_name" => $user_data['password']));
           // send not-visited notifications for the newly registered user
-          EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
+          //EfrontEvent::triggerEvent(array("type" => (-1) * EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user_data['login'], "users_name" => $user_data['name'], "users_surname" => $user_data['surname']));
           //pr($self_registered_jobs);
     if ($configuration['activation'] == 0) {
      if ($configuration['mail_activation'] == 1){
@@ -753,6 +753,8 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'contact') { //The user asked to disp
    $subject = $form -> exportValue("message_subject");
    $body = $form -> exportValue("message_body")."\r\n\r\n(".$subject." ["._FROM.": ".$to."])";
    if (eF_mail($to, $GLOBALS['configuration']['system_email'], $subject." ["._FROM.": ".$to."]", $body, false, true)) {
+    $copied_body = _THANKYOUFORCONTACTINGUSBODY."<br/><hr/><br/>".$form -> exportValue("message_body");
+    eF_mail($GLOBALS['configuration']['system_email'], $to, _THANKYOUFORCONTACTINGUS, $copied_body, false, false);
     $message = _SENDSUCCESS;
     $message_type = 'success';
     eF_redirect(basename($_SERVER['PHP_SELF']).'?message='.urlencode($message).'&message_type='.$message_type);

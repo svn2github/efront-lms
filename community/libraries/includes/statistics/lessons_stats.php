@@ -28,7 +28,12 @@ try {
     //get the lesson information
     if (isset($infoLesson)) {
         try {
-         require_once $path."includes/statistics/stats_filters.php";
+         $result = eF_getTableData("user_times ut join users_to_lessons ul on ut.users_LOGIN=ul.users_LOGIN and ut.lessons_ID=ul.lessons_ID", "sum(time) as sum, count(distinct ul.users_LOGIN) as count", "completed=1 and ul.archive=0 and ut.lessons_ID=".$infoLesson->lesson['id'], "", "");
+      if ($result[0]['sum']) {
+       $smarty->assign("T_AVERAGE_COMPLETION_TIME", EfrontTimes::formatTimeForReporting($result[0]['sum']/$result[0]['count']));
+      }
+
+      require_once $path."includes/statistics/stats_filters.php";
          $directionsTree = new EfrontDirectionsTree();
          $directionsPaths = $directionsTree -> toPathString();
 

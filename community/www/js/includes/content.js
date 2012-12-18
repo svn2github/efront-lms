@@ -68,6 +68,9 @@ function onSetSeenUnit(el, response) {
             	if (results[2] == true) {
             		$('lesson_passed').down().removeClassName('failure').addClassName('success');
             		$('completed_block').show();
+					if (results[6] == true) {
+						$('show_certificate_block').show();
+					}
 					Effect.ScrollTo('completed_block');
             	} else {
             		$('lesson_passed').down().removeClassName('success').addClassName('failure');
@@ -202,10 +205,11 @@ function updateProgress(obj) {
 	}
 	
 	try {
-		var progress 	  = obj[0];
-		var conditions 	  = obj[1];
-		var lesson_passed = obj[2];
-		var unitStatus	  = obj[5];
+		var progress 	  		= obj[0];
+		var conditions 	  		= obj[1];
+		var lesson_passed 		= obj[2];
+		var unitStatus	  		= obj[5];
+		var certified_course	= obj[6];
 		
 	    if (w.$('progress_bar')) {
 	    	w.$('progress_bar').select('span.progressNumber')[0].update(parseFloat(progress) + '%');
@@ -217,6 +221,9 @@ function updateProgress(obj) {
 				if (lesson_passed == true) {
 					w.$('lesson_passed').down().removeClassName('failure').addClassName('success')
 					w.$('completed_block').show();
+					if (certified_course == true) {
+						w.$('show_certificate_block').show();
+					}
 					//Effect.ScrollTo('completed_block');
 				} else {
 					w.$('lesson_passed').down().removeClassName('success').addClassName('failure');
@@ -458,6 +465,9 @@ function onCheckLessonConditions(el, response) {
     	if (results[2] == true) {
     		$('lesson_passed').down().removeClassName('failure').addClassName('success');
     		$('completed_block').show();
+			if (results[6] == true) {
+				$('show_certificate_block').show();
+			}
 			Effect.ScrollTo('completed_block');
     	} 
     }	

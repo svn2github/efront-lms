@@ -593,6 +593,14 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          //if ( $userProgress['lesson_passed'] && $userProgress['completed']) {	
           $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID'], true);
           $smarty -> assign("T_NEXTLESSON", $nextLesson);
+    if ($currentLesson -> lesson['course_only']) {
+     $res = eF_getTableData("users_to_courses","issued_certificate","courses_ID=".$_SESSION['s_courses_ID']." and users_LOGIN='".$_SESSION['s_login']."'");
+     $current_course = new EfrontCourse($_SESSION['s_courses_ID']);
+     $smarty -> assign("T_CERTIFICATE_EXPORT_METHOD", $current_course -> options['certificate_export_method']);
+     if($res[0]['issued_certificate'] != ""){
+      $smarty -> assign("T_CERTIFICATE_DOWNLOAD", true);
+     }
+    }
          //}
             if ($currentUnit['options']['complete_unit_setting'] == EfrontUnit::COMPLETION_OPTIONS_COMPLETEWITHQUESTION && $currentUnit['options']['complete_question'] && (!in_array($currentUnit['id'], array_keys($seenContent)) || sizeof($_POST) > 0) ) {
                 $lessonQuestions = $currentLesson -> getQuestions();
@@ -622,7 +630,13 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                     $newConditionsPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['conditions_passed'];
                     $newLessonPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['lesson_passed'];
                     $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
-                    echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, false, false, false));
+                    if ($currentLesson -> lesson['course_only']) {
+      $res = eF_getTableData("users_to_courses","issued_certificate","courses_ID=".$_SESSION['s_courses_ID']." and users_LOGIN='".$_SESSION['s_login']."'");
+      if ($res[0]['issued_certificate'] != "") {
+       $courseCertified = true;
+      }
+     }
+     echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, false, false, false, $courseCertified));
                 } catch (Exception $e) {
                  handleAjaxExceptions($e);
                 }
@@ -635,7 +649,13 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
                     $newConditionsPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['conditions_passed'];
                     $newLessonPassed = $newUserProgress[$currentLesson -> lesson['id']][$currentUser -> user['login']]['lesson_passed'];
                     $nextLesson = $currentUser -> getNextLesson($currentLesson, $_SESSION['s_courses_ID']);
-                    echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, false, false, false));
+     if ($currentLesson -> lesson['course_only']) {
+      $res = eF_getTableData("users_to_courses","issued_certificate","courses_ID=".$_SESSION['s_courses_ID']." and users_LOGIN='".$_SESSION['s_login']."'");
+      if ($res[0]['issued_certificate'] != "") {
+       $courseCertified = true;
+      }
+     }
+                    echo json_encode(array($newPercentage, $newConditionsPassed, $newLessonPassed, false, false, false, $courseCertified));
                 } catch (Exception $e) {
                  handleAjaxExceptions($e);
                 }

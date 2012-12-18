@@ -198,6 +198,8 @@ class TinyMCE_Compressor {
    return;
   }
   // Set base URL for where tinymce is loaded from
+  //$_SERVER["REDIRECT_URL"] ? $uri = $_SERVER["REDIRECT_URL"] : $uri = $_SERVER["PHP_SELF"];//added this in order to properly handle branch urls
+  //$buffer = "var tinyMCEPreInit={base:'" . dirname($uri) . "',suffix:''};";		
   $buffer = "var tinyMCEPreInit={base:'" . dirname($_SERVER["SCRIPT_NAME"]) . "',suffix:''};";
   // Load all tinymce script files into buffer
   foreach ($allFiles as $file) {

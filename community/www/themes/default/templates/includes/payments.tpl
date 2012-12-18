@@ -182,6 +182,10 @@
      <a href = "view_file.php?file={$T_TRANSACTIONS_LOG_FILE}&download=1" title = "{$smarty.const._VIEWTRANSACTIONLOGFILE}" >{$smarty.const._VIEWTRANSACTIONLOGFILE}</a>
     </span>
     {/if}
+    <span>
+     <img src = "images/file_types/xls.png" title = "{$smarty.const._EXPORTTOCSV}" alt = "{$smarty.const._EXPORTTOCSV}">
+     <a href = "{$smarty.server.PHP_SELF}?ctg=payments&export=1" target = "_new" title = "{$smarty.const._EXPORTTOCSV}" >{$smarty.const._EXPORTTOCSV}</a>
+    </span>
    </div>
 <!--ajax:paymentsTable-->
    <table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "paymentsTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=payments&">

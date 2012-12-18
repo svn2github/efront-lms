@@ -41,6 +41,12 @@
                     <td class = "labelCell">{$smarty.const._USERS}:</td>
                     <td class = "elementCell">{if $T_CURRENT_LESSON_INFO->lesson.num_users}{$T_CURRENT_LESSON_INFO->lesson.num_users} ({foreach name = "user_types_list" item ="item" key = "key" from = $T_CURRENT_LESSON_INFO->lesson.users_per_role}{$T_ROLES_ARRAY[$key]}: {$item}{if !$smarty.foreach.user_types_list.last}, {/if}{/foreach}){else}0{/if}</td>
                 </tr>
+                {if $T_AVERAGE_COMPLETION_TIME}
+                <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
+                    <td class = "labelCell">{$smarty.const._AVERAGECOMPLETIONTIME}:</td>
+                    <td class = "elementCell">{$T_AVERAGE_COMPLETION_TIME.time_string}</td></tr>
+                </tr>
+                {/if}
             </table>
 
             <div class = "tabber">
@@ -93,7 +99,7 @@ table#lessonUsersTable td.score{width:10%;text-align:center;}
     <td class = "time_in_lesson"><span style = "display:none">{$user.time_in_lesson.total_seconds}&nbsp;</span>{$user.time_in_lesson.time_string}</td>
     {/if}
     <td class = "progressCell overall_progress">
-     {if $user.basic_user_type != 'professor'}
+     {if $user.role != 'professor'}
      <span style = "display:none">{$user.overall_progress.completed+1000}</span>
      <span class = "progressNumber">#filter:score-{$user.overall_progress.percentage}#%</span>
      <span class = "progressBar" style = "width:{$user.overall_progress.percentage}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -101,7 +107,7 @@ table#lessonUsersTable td.score{width:10%;text-align:center;}
     </td>
     {if !$T_CONFIGURATION.disable_tests}
      <td class = "progressCell test_status">
-     {if $user.test_status && $user.basic_user_type != 'professor'}
+     {if $user.test_status && $user.role != 'professor'}
       <span style = "display:none">{$user.test_status.mean_score+1000}</span>
       <span class = "progressNumber">#filter:score-{$user.test_status.mean_score}#% ({$user.test_status.completed}/{$user.test_status.total})</span>
       <span class = "progressBar" style = "width:{$user.test_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -110,7 +116,7 @@ table#lessonUsersTable td.score{width:10%;text-align:center;}
     {/if}
     {if !$T_CONFIGURATION.disable_projects}
      <td class = "progressCell project_status">
-     {if $user.project_status && $user.basic_user_type != 'professor'}
+     {if $user.project_status && $user.role != 'professor'}
       <span style = "display:none">{$user.project_status.mean_score+1000}</span>
       <span class = "progressNumber">#filter:score-{$user.project_status.mean_score}#% ({$user.project_status.completed}/{$user.project_status.total})</span>
       <span class = "progressBar" style = "width:{$user.project_status.mean_score}px;">&nbsp;</span>&nbsp;&nbsp;
@@ -118,14 +124,14 @@ table#lessonUsersTable td.score{width:10%;text-align:center;}
      </td>
     {/if}
     <td class = "completed">
-    {if $user.basic_user_type != 'professor'}
+    {if $user.role != 'professor'}
      {if $user.completed}<img src = "images/16x16/success.png" alt = "{$smarty.const._YES}" title = "{$smarty.const._YES}"/>{else}<img src = "images/16x16/forbidden.png" alt = "{$smarty.const._NO}" title = "{$smarty.const._NO}"/>{/if}</td>
     {else}<div class = "centerAlign">-</div>{/if}
     <td class = "completedon">
       {if $user.completed}#filter:timestamp-{$user.timestamp_completed}#{/if}
 
     </td>
-    <td class = "score">{if $user.basic_user_type != 'professor'}#filter:score-{$user.score}#%{else}<div class = "centerAlign">-</div>{/if}</td>
+    <td class = "score">{if $user.role != 'professor'}#filter:score-{$user.score}#%{else}<div class = "centerAlign">-</div>{/if}</td>
    </tr>
    {foreachelse}
    <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "100%">{$smarty.const._NODATAFOUND}</td></tr>
@@ -241,7 +247,7 @@ table#lessonUsersTable td.score{width:10%;text-align:center;}
                             <td class = "centerAlign">
 
                                 {if $question.type == 'match'} <img src = "images/16x16/question_type_match.png" title = "{$smarty.const._MATCH}" alt = "{$smarty.const._MATCH}" />
-                                {elseif $question.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._RAWTEXT}" alt = "{$smarty.const._RAWTEXT}" />
+                                {elseif $question.type == 'raw_text'} <img src = "images/16x16/question_type_free_text.png" title = "{$smarty.const._FREETEXTFILEUPLOAD}" alt = "{$smarty.const._RAWTEXT}" />
                                 {elseif $question.type == 'multiple_one'} <img src = "images/16x16/question_type_one_correct.png" title = "{$smarty.const._MULTIPLEONE}" alt = "{$smarty.const._MULTIPLEONE}" />
                                 {elseif $question.type == 'multiple_many'} <img src = "images/16x16/question_type_multiple_correct.png" title = "{$smarty.const._MULTIPLEMANY}" alt = "{$smarty.const._MULTIPLEMANY}" />
                                 {elseif $question.type == 'true_false'} <img src = "images/16x16/question_type_true_false.png" title = "{$smarty.const._TRUEFALSE}" alt = "{$smarty.const._TRUEFALSE}" />

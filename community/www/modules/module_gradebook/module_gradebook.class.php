@@ -358,11 +358,23 @@ class module_gradebook extends EfrontModule{
    $form->accept($renderer);
    $smarty->assign('T_GRADEBOOK_ADD_COLUMN_FORM', $renderer->toArray());
   }
-  else if(isset($_GET['edit_publish']) && isset($_GET['uid']) && isset($_GET['publish']) &&
-     eF_checkParameter($_GET['uid'], 'id') && in_array($_GET['uid'], array_keys($allUsers))){
+  else if(isset($_GET['edit_publish']) && isset($_GET['uid']) && isset($_GET['publish']) && eF_checkParameter($_GET['uid'], 'id') && in_array($_GET['uid'], array_keys($allUsers))){
    try{
-    eF_updateTableData("module_gradebook_users", array("publish" => $_GET['publish']),
-        "uid=".$_GET['uid']);
+    $publish = !$allUsers[$_GET['uid']]['publish'];
+    eF_updateTableData("module_gradebook_users", array("publish" => $publish), "uid=".$_GET['uid']);
+    echo json_encode(array('publish' => $publish));
+   }
+   catch(Exception $e){
+    handleAjaxExceptions($e);
+   }
+
+   exit;
+  }
+  else if(isset($_GET['complete_lesson']) && isset($_GET['uid']) && eF_checkParameter($_GET['uid'], 'id') && in_array($_GET['uid'], array_keys($allUsers))){
+   try{
+    $user = $allUsers[$_GET['uid']];
+    eF_updateTableData("users_to_lessons", array("completed" => 1, 'score' => $user['score']), "lessons_ID= ".$user['lessons_ID']." and users_LOGIN='".$user['users_LOGIN']."'");
+    echo json_encode(array('completed' => 1));
    }
    catch(Exception $e){
     handleAjaxExceptions($e);
@@ -377,13 +389,14 @@ class module_gradebook extends EfrontModule{
    try{
     if($newGrade != ''){
 
-     if(eF_checkParameter($newGrade, 'uint') === false || $newGrade > 100)
+     if(!is_numeric($newGrade) || $newGrade > 100)
       throw new EfrontContentException(_GRADEBOOK_INVALID_GRADE.': "'.$newGrade.'". '._GRADEBOOK_VALID_GRADE_SPECS,
            EfrontContentException :: INVALID_SCORE);
     }
     else
      $newGrade = -1;
 
+    $newGrade = str_replace(',', '.', $newGrade);
     eF_updateTableData("module_gradebook_grades", array("grade" => $newGrade), "gid=".$_GET['change_grade']);
    }
    catch(Exception $e){
@@ -446,12 +459,20 @@ class module_gradebook extends EfrontModule{
     /* End */
 
     $lessonColumns = $this->getLessonColumns($currentLessonID);
-    $allUsers = $this->getLessonUsers($currentLessonID, $lessonColumns);
+    //$allUsers = $this->getLessonUsers($currentLessonID, $lessonColumns);	//we got this earlier
     $gradeBookLessons = $this->getGradebookLessons($currentUser->getLessons(false, 'professor'), $currentLessonID);
 
     $smarty->assign("T_GRADEBOOK_LESSON_COLUMNS", $lessonColumns);
-    $smarty->assign("T_GRADEBOOK_LESSON_USERS", $allUsers);
     $smarty->assign("T_GRADEBOOK_GRADEBOOK_LESSONS", $gradeBookLessons);
+
+    if ($_GET['ajax'] == 'usersTable') {
+     list($tableSize, $allUsers) = filterSortPage($allUsers);
+     $smarty -> assign("T_SORTED_TABLE", $_GET['ajax']);
+     $smarty -> assign("T_TABLE_SIZE", $tableSize);
+     $smarty -> assign("T_DATA_SOURCE", $allUsers);
+    }
+
+    //$smarty->assign("T_DATA_SOURCE", $allUsers);
    }
    else if($currentUser->getRole($this->getCurrentLesson()) == 'student'){
 
@@ -602,7 +623,7 @@ class module_gradebook extends EfrontModule{
   $t3 = eF_executeNew("CREATE TABLE IF NOT EXISTS `module_gradebook_grades` (
      `gid` int(11) NOT NULL AUTO_INCREMENT,
      `oid` int(11) NOT NULL,
-     `grade` int(3) NOT NULL,
+     `grade` float NOT NULL,
      `users_LOGIN` varchar(255) NOT NULL,
      PRIMARY KEY (`gid`)
      ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
@@ -619,6 +640,10 @@ class module_gradebook extends EfrontModule{
      ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
 
   return($t1 && $t2 && $t3 && $t4);
+ }
+
+ public function onUpgrade(){
+  eF_executeNew("alter table module_gradebook_grades change grade grade float not null");
  }
 
  public function onUninstall(){
@@ -657,14 +682,12 @@ class module_gradebook extends EfrontModule{
 
  private function getLessonUsers($lessonID, $objects){
 
-  $result = eF_getTableData("module_gradebook_users", "*", "lessons_ID=".$lessonID, "uid");
+  $result = eF_getTableData("module_gradebook_users gu, users u, users_to_lessons ul", "gu.*, u.active, ul.completed as lesson_completed", "ul.users_LOGIN=gu.users_LOGIN and ul.lessons_ID=gu.lessons_ID and u.login=gu.users_LOGIN and u.archive=0 and gu.lessons_ID=".$lessonID, "uid");
   $users = array();
 
   foreach($result as $value){
 
    $grades = array();
-   $active = eF_getTableData("users", "active", "login='".$value['users_LOGIN']."'"); // active or not ?
-   $value['active'] = $active[0]['active'];
 
    if($value['score'] == -1)
     $value['score'] = '-';
@@ -928,7 +951,7 @@ class module_gradebook extends EfrontModule{
 
   if($divisionBy != 0){
 
-   $overallScore = round((float)($sum/$divisionBy));
+   $overallScore = round((float)($sum/$divisionBy), 2);
    $overallGrade = '-1'; // if no range found
 
    foreach($ranges as $range){

@@ -4230,4 +4230,16 @@ define("_SENDREMINDER", "Send reminder");
 define("_PROJECTASSIGNMENT", "Project assignment");
 define("_PROJECTID", "Project id");
 define("_DEAR", "Dear");
+define("_SETCERTIFICATEDATEFORCOMPLTETED","Set certificate date same as completed date");
+define("_VIEWCOURSECERTIFICATE","Course certificate");
+define("_SETSHOWNUSERSSTATUSCOMPLETED", "Complete for shown users");
+define("_FREETEXTFILEUPLOAD", "Free text / file upload");
+define("_FREETEXTINPUTTYPE", "Input type");
+define("_TEXTAREAANDUPLOAD", "Textarea and upload field");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMIT", "You are reaching your subscription limit");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMITBODY", "Dear %w,<br/>You have reached %x% of your subscription limit for %y at %z");
+define("_THANKYOUFORCONTACTINGUS", "Thank you for contacting us");
+define("_THANKYOUFORCONTACTINGUSBODY", "We have received your email and will get back to you shortly. Below is a copy of your original email.");
+define("_INCLUDETIME", "Include time");
+define("_AVERAGECOMPLETIONTIME", "Average completion time");
 ?>

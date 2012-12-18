@@ -39,45 +39,40 @@
 
 {else}
 {capture name = 't_gradebook_professor_code'}
-
-<table>
- <tr>
-  <td>
+ <div class = "headerTools">
+  <span>
    <img src="{$T_GRADEBOOK_BASELINK|cat:'images/add.png'}" alt="{$smarty.const._GRADEBOOK_ADD_COLUMN}" title="{$smarty.const._GRADEBOOK_ADD_COLUMN}" style="vertical-align:middle">
    <a href="{$T_GRADEBOOK_BASEURL}&add_column=1&popup=1" target="POPUP_FRAME" onclick="eF_js_showDivPopup('{$smarty.const._GRADEBOOK_ADD_COLUMN}', 0)">{$smarty.const._GRADEBOOK_ADD_COLUMN}</a>&nbsp;
-  </td>
-  <td style="border-right: 1px solid #333333;"></td>
-  <td>
-   &nbsp;<img src="{$T_GRADEBOOK_BASELINK|cat:'images/compute_score.png'}" alt="{$smarty.const._GRADEBOOK_COMPUTE_SCORE_GRADE}" title="{$smarty.const._GRADEBOOK_COMPUTE_SCORE_GRADE}" style="vertical-align:middle">
+  </span>
+  <span>
+   <img src="{$T_GRADEBOOK_BASELINK|cat:'images/compute_score.png'}" alt="{$smarty.const._GRADEBOOK_COMPUTE_SCORE_GRADE}" title="{$smarty.const._GRADEBOOK_COMPUTE_SCORE_GRADE}" style="vertical-align:middle">
    <a href="{$T_GRADEBOOK_BASEURL}&compute_score_grade=1">{$smarty.const._GRADEBOOK_COMPUTE_SCORE_GRADE}</a>&nbsp;
-  </td>
-  <td style="border-right: 1px solid #333333;"></td>
-  <td>
-   &nbsp;<img src="{$T_GRADEBOOK_BASELINK|cat:'images/xls.png'}" alt="{$smarty.const._GRADEBOOK_EXPORT_EXCEL}" title="{$smarty.const._GRADEBOOK_EXPORT_EXCEL}" style="vertical-align:middle">
+  </span>
+  <span>
+   <img src="{$T_GRADEBOOK_BASELINK|cat:'images/xls.png'}" alt="{$smarty.const._GRADEBOOK_EXPORT_EXCEL}" title="{$smarty.const._GRADEBOOK_EXPORT_EXCEL}" style="vertical-align:middle">
    <a href="javascript:void(0)" onclick="location=('{$T_GRADEBOOK_BASEURL}&export_excel='+Element.extend(this).next().options[this.next().options.selectedIndex].value)">{$smarty.const._GRADEBOOK_EXPORT_EXCEL}</a>
    <select id="excel" name="excel">
     <option value="one">{$smarty.const._GRADEBOOK_EXPORT_EXCEL_ONE}</option>
     <option value="all">{$smarty.const._GRADEBOOK_ALL_LESSONS}</option>
    </select>&nbsp;
-  </td>
+  </span>
 {if sizeof($T_GRADEBOOK_GRADEBOOK_LESSONS) != 0}
-  <td style="border-right: 1px solid #333333;"></td>
-  <td>
-   &nbsp;<img src="{$T_GRADEBOOK_BASELINK|cat:'images/arrow_right.png'}" alt="{$smarty.const._GRADEBOOK_SWITCH_TO}" title="{$smarty.const._GRADEBOOK_SWITCH_TO}" style="vertical-align:middle">
+  <span>
+   <img src="{$T_GRADEBOOK_BASELINK|cat:'images/arrow_right.png'}" alt="{$smarty.const._GRADEBOOK_SWITCH_TO}" title="{$smarty.const._GRADEBOOK_SWITCH_TO}" style="vertical-align:middle">
    <a href="javascript:void(0)" onclick="location=('{$T_GRADEBOOK_BASEURL}&switch_lesson='+Element.extend(this).next().options[this.next().options.selectedIndex].value)">{$smarty.const._GRADEBOOK_SWITCH_TO}</a>
    <select id="switch_lesson" name="switch_lesson">
 {foreach name = 'lessons_loop' key = "id" item = "lesson" from = $T_GRADEBOOK_GRADEBOOK_LESSONS}
     <option value="{$lesson.id}">{$lesson.name}</option>
 {/foreach}
    </select>
-  </td>
+  </span>
 {/if}
- </tr>
-</table>
+ </div>
 
 <div style="clear: both; height: 5px;"></div>
 
-<table class="sortedTable" style="width:100%">
+<!--ajax:usersTable-->
+<table style = "width:100%" class = "sortedTable" size = "{$T_TABLE_SIZE}" sortBy = "0" id = "usersTable" useAjax = "1" activeFilter = 1 rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$T_GRADEBOOK_BASEURL}&">
  <tr>
   <td class="topTitle">{$smarty.const._GRADEBOOK_STUDENT_NAME}</td>
 {foreach name = 'columns_loop' key = "id" item = "column" from = $T_GRADEBOOK_LESSON_COLUMNS}
@@ -96,8 +91,9 @@
   <td class="topTitle centerAlign">{$smarty.const._GRADEBOOK_SCORE}</td>
   <td class="topTitle centerAlign noSort">{$smarty.const._GRADEBOOK_GRADE}</td>
   <td class="topTitle centerAlign noSort">{$smarty.const._GRADEBOOK_PUBLISH}</td>
+  <td class="topTitle centerAlign noSort">{$smarty.const._LESSONSTATUS}</td>
  </tr>
-{foreach name = 'users_loop' key = "id" item = "user" from = $T_GRADEBOOK_LESSON_USERS}
+{foreach name = 'users_loop' key = "id" item = "user" from = $T_DATA_SOURCE}
  <tr id="row_{$user.uid}" class="{cycle values = "oddRowColor, evenRowColor"} {if !$user.active}deactivatedTableElement{/if}">
   <td>#filter:login-{$user.users_LOGIN}#</td>
 {foreach name = 'grades_loop' key = "id_" item = "grade" from = $user.grades}
@@ -111,7 +107,10 @@
   <td class="centerAlign">{$user.score}</td>
   <td class="centerAlign">{$user.grade}</td>
   <td class="centerAlign">
-   <input class="inputCheckbox" type="checkbox" name="checked_{$user.uid}" id="checked_{$user.uid}" onclick="publishGradebook('{$user.uid}', this);" {if ($user.publish == 1)} checked="checked"{/if} />
+   <img class="ajaxHandle" id="checked_{$user.uid}" onclick="publishGradebook('{$user.uid}', this);" alt= "{$smarty.const._GRADEBOOK_TOGGLEPUBLISH}" title = "{$smarty.const._GRADEBOOK_TOGGLEPUBLISH}" src = "{if ($user.publish == 1)}images/16x16/success.png{else}images/16x16/forbidden.png{/if}" />
+  </td>
+  <td class="centerAlign">
+   <img class="ajaxHandle" onclick="gradebook_completeLesson('{$user.uid}', this);" alt= "{$smarty.const._GRADEBOOK_COMPLETELESSON}" title = "{$smarty.const._GRADEBOOK_COMPLETELESSON}" src = "{if ($user.lesson_completed == 1)}images/16x16/success.png{else}images/16x16/forbidden.png{/if}" />
   </td>
  </tr>
 {foreachelse}
@@ -120,6 +119,7 @@
  </tr>
 {/foreach}
 </table>
+<!--/ajax:usersTable-->
 {/capture}
 
 {eF_template_printBlock title=$smarty.const._GRADEBOOK_NAME data=$smarty.capture.t_gradebook_professor_code image=$T_GRADEBOOK_BASELINK|cat:'images/gradebook_logo.png' absoluteImagePath = 1 help = 'Gradebook'}
@@ -175,33 +175,15 @@
 	}*/
 
  function publishGradebook(uid, el){
+  Element.extend(el);
+  var parameters = {edit_publish:1, uid:uid, ajax:'ajax', publish:1, method:'get'}
+  ajaxRequest(el, location.toString(), parameters, function(el, response) {if (response.evalJSON(true).publish) {el.src='images/16x16/success.png'} else {el.src='images/16x16/forbidden.png'}});
+ }
 
-  var url = '{/literal}{$T_GRADEBOOK_BASEURL}{literal}&edit_publish=1&uid='+uid;
-  var checked = $('checked_'+uid).checked;
-  checked ? url += '&publish=1' : url += '&publish=0';
-
-  var img_id = 'img_'+uid;
-  var position = eF_js_findPos(el);
-  var img = document.createElement("img");
-
-  img.style.position = 'absolute';
-  img.style.top = Element.positionedOffset(Element.extend(el)).top + 'px';
-  img.style.left = Element.positionedOffset(Element.extend(el)).left + 6 + Element.getDimensions(Element.extend(el)).width + 'px';
-
-  img.setAttribute("id", img_id);
-  img.setAttribute('src', '{/literal}{$T_GRADEBOOK_BASELINK}{literal}images/progress1.gif');
-  el.parentNode.appendChild(img);
-
-  new Ajax.Request(url, {
-   method: 'get',
-   asynchronous: true,
-   onSuccess: function (transport) {
-    img.style.display = 'none';
-    img.setAttribute('src', '{/literal}{$T_GRADEBOOK_BASELINK}{literal}images/success.png');
-    new Effect.Appear(img_id);
-    window.setTimeout('Effect.Fade("'+img_id+'")', 1500);
-   }
-  });
+ function gradebook_completeLesson(uid, el){
+  Element.extend(el);
+  var parameters = {complete_lesson:1, uid:uid, ajax:'ajax', method:'get'}
+  ajaxRequest(el, location.toString(), parameters, function(el, response) {if (response.evalJSON(true).completed) {el.src='images/16x16/success.png'} else {el.src='images/16x16/forbidden.png'}});
  }
 
  function changeGrade(gid, el){

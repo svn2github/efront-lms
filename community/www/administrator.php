@@ -330,6 +330,9 @@ try {
 } catch (Exception $e) {
  handleNormalFlowExceptions($e);
 }
+if (detectBrowser() == 'mobile') {
+ $load_editor = false;
+}
 $smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
 if (isset($_GET['refresh']) || isset($_GET['refresh_side'])) {
     $smarty -> assign("T_REFRESH_SIDE","true");

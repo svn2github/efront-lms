@@ -923,7 +923,7 @@ class EfrontDirectionsTree extends EfrontTree
   $courseLink = $options['courses_link'];
   $href = str_replace("#user_type#", $roleBasicType, $courseLink).$treeCourse -> shouldDisplayInCatalog();
   if (isset($options['buy_link'])) {
-   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances']) || !$treeCourse -> course['has_instances']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
+   if ($options['buy_link'] && (!isset($treeCourse -> course['has_instances_show_in_catalog']) || !$treeCourse -> course['has_instances_show_in_catalog']) && (!isset($treeCourse -> course['has_course']) || !$treeCourse -> course['has_course']) && (!isset($treeCourse -> course['reached_max_users']) || !$treeCourse -> course['reached_max_users']) && (!isset($_SESSION['s_type']) || $_SESSION['s_type'] != 'administrator')) {
     $action = 'addToCart(this, '.$treeCourse -> course['id'].', \'course\');';
     if (!$GLOBALS['configuration']['enable_cart'] || $GLOBALS['configuration']['disable_payments']) {
      if (!$GLOBALS['configuration']['enable_cart']) {
@@ -1038,11 +1038,27 @@ class EfrontDirectionsTree extends EfrontTree
     if ($roleBasicType) {
      $lessonsString .= $this -> printProgressBar($treeLesson, $roleBasicType);
     }
+    $accessLimitString = '';
+    if (isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student') {
+     $accessLimitString .= eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING);
+    }
+    if (isset($treeLesson -> lesson['access_limit']) && $treeLesson -> lesson['access_limit'] && !is_null($treeLesson -> lesson['access_counter']) && $roles[$treeLesson -> lesson['user_type']] == 'student') {
+     if ($treeLesson -> lesson['access_counter'] >= $treeLesson -> lesson['access_limit']) {
+      $accessLimitString = _ACCESSEXPIRED;
+      $treeLesson -> lesson['active_in_lesson'] = false;
+     } else {
+      !$accessLimitString OR $accessLimitString .= ', ';
+      $accessLimitString .= str_replace('%x', $treeLesson -> lesson['access_limit'] - $treeLesson -> lesson['access_counter'], _ACCESSESREMAINING);
+     }
+    }
+    if ($accessLimitString) {
+     $accessLimitString = '<span class = "infoCell">('.$accessLimitString.')</span>';
+    }
     $lessonsString .= '<td>';
     $lessonsString .= $this -> printLessonBuyLink($treeLesson, $options);
     $lessonsString .= $this -> printLessonLink($treeLesson, $options, $roleBasicType);
-    $lessonsString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'
-           '.(isset($treeLesson -> lesson['remaining']) && !is_null($treeLesson -> lesson['remaining']) && $roles[$treeLesson -> lesson['user_type']] == 'student' ? '<span class = "">('.eF_convertIntervalToTime($treeLesson -> lesson['remaining'], true).' '.mb_strtolower(_REMAINING).')</span>' : '').'
+    $lessonsString .= (isset($treeLesson -> lesson['different_role']) && $treeLesson -> lesson['different_role'] ? '&nbsp;<span class = "courseRole">('.$roleNames[$treeLesson -> lesson['user_type']].')</span>' : '').'								   
+           '.$accessLimitString.'
           </td>
          </tr>';
    //}

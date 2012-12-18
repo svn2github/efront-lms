@@ -1,4 +1,77 @@
 === Version 3.6.11 build ===
+- Extended branches reports
+- Fixed issue about going into forum message from forum list inside a lesson
+- Fixed importing users where password was set to header but was empty in data rows
+- Fixed issue with counting users in groups
+- Added custom user profile into custom certificate fields
+- Set default timezone when creating user if not defined
+- Do not show forum results in search when forum is disabled
+- Allow only one depth recursive uncompress when smart content import contains zip files
+- Fixed issue about white listed files checking in course export
+- Fixed issue about unassigning inactive course from a branch
+- Delete user times entries while reseting user progress
+- Fixed issue about content completion triggerEvent
+- Do not retrieve timestamp value from db while filtering users
+- Added new_password template for SYSTEM_REGISTER notification
+- Fixed issue about adding 100% discount coupon
+- Fixed issue about displaying user status when it was disabled as option.
+- Fixed issue about displaying also time in calendar
+- Added classes to progress bars for completed and uncompleted lessons
+- Fixed issue with branch urls and session (#2544)
+- Fixed issue with print content and tr tag
+- Changed get ajax request to post for course info description because of an issue in size
+- Extend range for certificate expire in 120 months
+- Fixed issue about ceus in custom reports
+- Fixed issue in user reports about admin and time reports
+- Fixed replacing date-type custom user profile value in certificates
+- Fixed course price being displayed in scientific format when editing course
+- Fixed an issue about proto chart and IE9
+- Fixed issue about skills custom user types permissions
+- Fixed issue about sending notifications for survey multiple times
+- Fixed issue about deleting/archiving user from branch reports page
+- Fixed issue in excel export of tests reports about marking the correct answer in some cases
+- Exclude inactive users from displaying in organization chart
+- Fixed issue about creating new user with same login (case insensitive)
+- Fixed issue about allowing users from subbranches to login to father branch url
+- Fixed issue about redo only wrong answered questions and show only thank you message
+- Fixed issue about mapped accounts and ldap accounts. Switching was not working for ldap accounts.
+- Removed dollar sign in checkParameter for path (in order to be allowed)
+- Fixed issue about assigned lessons/courses of group to group users when they were archived there
+- Fixed issue about Learning Tab not appearing for new users (#2776)
+- Added new tinymce class for messages (about absolute paths in e-mails)
+- Added custom user option for insert group key
+- Fixed issue about not displaying Learning Tab when there was missing fields in admin
+- Fixed js issue about filter stats in non-Enterprise editions
+- Fixed issue about assigning users to courses from groups (already assigned users) (#2808)
+- Added ###course_start_date### and ###course_end_date### in notifications for course scheduling event
+- Fixed issue about editor and branch url
+- Fixed issue about cutting unit title when editing unit
+- Fixed issue about course instances displayed to catalog even if show catalog is not set
+- Fixed issue about course completion notification
+- Fixed issue about non editable first name in profile
+- Fixed issue about displaying certificate for view permissions in course options for custom user type
+- Fixed order of courses being displayed alphabetically inside categories
+- Added ###forum_id### for forum id, topic id or message id in notifications
+- Fixed issue with forum title in notifications
+- Fixed issue about importing new users/ updating users via import when login are numeric values
+- Fixed issue about adding search tables entries
+- Added ability to go to a unit with a simple link index.php?autologin=<autologin>&view_unit=<view_unit>
+- Fixed issue about copying from another lesson a feedback unit
+- Fixed issue about displaying inactive tests in User status page
+- Fixed issue about showing a unit that contains a file with direct link
+- Added import from url option in import lesson page
+- Added time fields in creating announcements
+- Fixed course displaying sorted by name in user reports page and user to course page
+- Fixed advlink plugin of editor to show also empty units
+- Fixed issue about copying feedback/test unit and questions order (#2962) where order was not preserved if source unit was reordered
+- Fixed issue about a link not worked with encrypt url (#3048)
+- Added ability to access a forum post with url like ?ctg=forum&post_id=###forum_id###
+- Fixed issue about copying from another lesson that shares folder with the source lesson
+- Fixed issue about courses returned in supervisesCourses()
+- Fixed issue about profile page and custom user type
+- Fixed issue about not triggering the SYSTEM_VISITED event in force password change case
+- Fixed issue in administrator tools module about changing user types
+- Display full category path to groups lesson
 - Fixed SCORM times not being taken correctly into account when calculating active lesson times
 - Updated message displayed to users trying to self-register, when the maximum allowed users number is reached
 - Fixed handling upload error when sending pm as email
@@ -6,7 +79,12 @@
 - Fixed grid filtering regression introduced in 3.6.11 for international characters
 - Added "reset course progress for all users" option
 - "maximum users" restrictions handling is more user-friendly
-- added upper limits (100) on inactive user/course registrations
+- Added upper limits (100) on inactive user/course registrations
+- Fixed when paying through paypal and using discount coupons, a small balance being credited
+- Fixed showing "balance" link even when balance is deactivated
+- Fixed groups list not showing entries with the same name
+- Updated paypal's ipn to conform with the http 1.1 protocol
+- Fixed new line character parsing in paypal response, causing sandbox not working
 
 === Version 3.6.11 build 15059 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)

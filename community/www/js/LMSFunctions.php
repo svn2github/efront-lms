@@ -55,6 +55,10 @@ echo $SCOState;
 
 /*LMS Initializations. Among many operations, we attach LMS functions to the API adapter and initialize data model (cmi).*/
 var _DEBUG = '<?php echo $GLOBALS['configuration']['debug_mode'] != false ?>';
+if (_DEBUG) {
+ if (!window.console) window.console = {};
+ if (!window.console.log) window.console.log = function () { };
+}
 var _TEMP = '';
 var _TEMP2 = '';
 
@@ -883,9 +887,10 @@ function myCmi()
             <?php
                 /*Get the user name from the database*/
                 $result = eF_getTableData('users', 'name, surname', 'login="' .$_SESSION['s_login']. '"');
-                $student_name = $result[0]['surname'].' '.$result[0]['name'];
+                $student_name = $result[0]['surname'].', '.$result[0]['name'];
             ?>
             var value = "<?php echo $student_name; ?>";
+            //alert(value);
         }
         /**
 

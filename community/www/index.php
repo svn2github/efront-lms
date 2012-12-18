@@ -188,6 +188,11 @@ if (isset($_GET['autologin']) && eF_checkParameter($_GET['autologin'], 'hex')) {
     //check for valid lesson
      setcookie('c_request', $user -> user['user_type'].'.php?lessons_ID='.$_GET['lessons_ID'], time() + 86400, false, false, false, true);
     }
+    if (isset($_GET['view_unit']) && eF_checkParameter($_GET['view_unit'], 'id')) {
+    //check for valid lesson
+     setcookie('c_request', $user -> user['user_type'].'.php?view_unit='.$_GET['view_unit'], time() + 86400, false, false, false, true);
+    }
+    EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
     loginRedirect($user -> user['user_type']);
     exit;
    }
@@ -201,7 +206,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == "expired") {
  }
  eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=login&message=".urlencode(_YOURSESSIONHASEXPIREDPLEASELOGINAGAIN));
 }
-if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password']) && eF_checkParameter($_COOKIE['cookie_login'], 'login')) {
+if (isset($_COOKIE['cookie_login']) && isset($_COOKIE['cookie_password']) && eF_checkParameter($_COOKIE['cookie_login'], 'login') && $_GET['ctg'] != 'agreement') {
  try {
   $user = EfrontUserFactory :: factory($_COOKIE['cookie_login']);
   $user -> login($_COOKIE['cookie_password'], true);
@@ -257,7 +262,9 @@ if ($form -> isSubmitted() && $form -> validate()) {
    exit;
   }
   if ($_SESSION['s_current_branch']) {
-   if ($user->user['user_type'] != 'administrator' && !$user->aspects['hcd']->isAssignedToBranch($_SESSION['s_current_branch'])) {
+   $branch = new EfrontBranch($_SESSION['s_current_branch']);
+   $branchUsers = $branch -> getBranchTreeUsers();
+   if ($user->user['user_type'] != 'administrator' && (empty($branchUsers) || in_array($user -> user['login'], array_keys($branchUsers)) === false)) {
     eF_redirect("index.php?message=".urlencode(_YOUARENOTAMEMBEROFTHISBRANCH));
    }
   } else if ($user->user['user_type'] != 'administrator' && !$GLOBALS['configuration']['allow_direct_login']) {
@@ -321,8 +328,8 @@ if ($form -> isSubmitted() && $form -> validate()) {
         'action' => 'failed_login',
         'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
     eF_insertTableData("logs", $fields_insert);
-    $res_ban = eF_getTableData("logs", "count(*) as ct", "users_LOGIN='".$user -> user['login']."' and action='failed_login'");
-    if ($res_ban[0]['ct'] == 5 && $user -> user['user_type'] != 'admin') {
+    $res_ban = eF_getTableData("logs", "count(id) as ct", "users_LOGIN='".$user -> user['login']."' and action='failed_login'");
+    if ($res_ban[0]['ct'] >= 5 && $user -> user['user_type'] != 'administrator') {
      $user -> deactivate();
     }
    }
@@ -401,6 +408,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'agreement' && $_SESSION['s_login']) 
     if ($GLOBALS['configuration']['show_license_note'] && $user -> user['viewed_license'] == 0) {
      eF_redirect("index.php?ctg=agreement");
     } else {
+     EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $user -> user['login'], "users_name" => $user -> user['name'], "users_surname" => $user -> user['surname']));
      loginRedirect($user -> user['user_type']);
     }
    }
@@ -690,6 +698,7 @@ if (isset($_GET['ctg']) && ($_GET['ctg'] == "signup") && $configuration['signup'
      } else if ($_SESSION['login_mode']) {
          eF_redirect("index.php?ctg=checkout&checkout=1&message=".urlencode($message)."&message_type=".$message_type);
      } else {
+      EfrontEvent::triggerEvent(array("type" => EfrontEvent::SYSTEM_VISITED, "users_LOGIN" => $newUser -> user['login'], "users_name" => $newUser -> user['name'], "users_surname" => $newUser -> user['surname']));
       loginRedirect($newUser -> user['user_type'], urlencode($message), $message_type);
      }
     }
@@ -827,7 +836,7 @@ if (isset($_GET['ctg']) && $_GET['ctg'] == 'lesson_info') { //The user asked to 
                 $smarty -> assign("T_CONTENT_TREE", $contentTree);
                 $smarty -> assign("T_LANGUAGES", EfrontSystem :: getLanguages(true));
     $smarty -> assign("T_COURSE_LESSONS", $lessons);
-    $constraints = array('archive' => false, 'active' => true, 'sort' => 'name');
+    $constraints = array('archive' => false, 'active' => true, 'sort' => 'name', 'condition' => 'show_catalog=1');
     if ($course -> course['instance_source']) {
      $parentCourse = new EfrontCourse($course -> course['instance_source']);
      $instances = $parentCourse -> getInstances($constraints);

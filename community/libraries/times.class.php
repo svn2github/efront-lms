@@ -87,19 +87,7 @@ class EfrontTimes
   return $scormSeconds + $seconds;
  }
 
- public function getUsersSessionTimeInLessonContent($lesson) {
-  $result = eF_getTableData("user_times", "users_LOGIN, sum(time) as time", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)", "", "users_LOGIN");
-  return $result;
- }
 
- public function getUsersSessionTimeInLessonsContent() {
-  $result = eF_getTableData("content", "id, lessons_ID", "active=1");
-  $contentIdsPerLesson = array();
-  foreach ($result as $value) {
-   $contentIdsPerLesson[$value['lessons_ID']] = $value['id'];
-  }
-  $result = eF_getTableData("user_times", "users_LOGIN, sum(time) as time", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and entity='unit' and entity_ID in (select id from content where lessons_ID=$lesson and active=1)", "", "users_LOGIN");
- }
 
  public function getUserSessionTimeInUnit($user, $unit) {
   $result = eF_getTableData("user_times", "sum(time)", "session_timestamp < ".$this -> toTimestamp." and session_timestamp > ".$this -> fromTimestamp." and users_LOGIN = '".$user."' and entity = 'unit' and entity_ID = ".$unit);

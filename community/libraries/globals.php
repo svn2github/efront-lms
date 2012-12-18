@@ -6,6 +6,8 @@ $LastChangedRevision$
 * This file is used to perform configuration and inclusion tasks.
 * @package eFront
 */
+define("G_VERSIONTYPE_CODEBASE", 'enterprise');
+define("G_VERSIONTYPE", 'enterprise');
 
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
@@ -43,10 +45,10 @@ set_include_path($path.'../PEAR/'
                 . PATH_SEPARATOR . $path
                 . PATH_SEPARATOR . get_include_path());
 
-//Set global defines for the system
-setDefines();
 //Fix IIS bug by setting the request URI
 setRequestURI();
+//Set global defines for the system
+setDefines();
 //Set default exception handler to be defaultExceptionHandler() function
 set_exception_handler('defaultExceptionHandler');
 register_shutdown_function('shutdownFunction');
@@ -155,6 +157,8 @@ try {
     $currentTheme = new themes(G_CURRENTTHEME);
     $smarty -> assign("T_THEME_SETTINGS", $currentTheme);
     if ($configuration['use_logo'] == 2 && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
+     $smarty -> assign("T_LOGO", 'images/logo/logo.png');
+    } else if (G_BRANCH_URL && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
      $smarty -> assign("T_LOGO", 'images/logo/logo.png');
     } else if ($configuration['use_logo'] > 0) { //meaning that either we have 'use site logo' (1) or 'use theme logo' (2) but that does not exist
      $logoFile = new EfrontFile($configuration['site_logo']);
@@ -285,7 +289,7 @@ function setDefines() {
   define('G_SERVERNAME', $protocol.'://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
  preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 17361;
+    $build = 17655;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');
@@ -473,6 +477,7 @@ function defaultExceptionHandler($e) {
  * @since 3.6.6
  */
 function shutDownFunction() {
+ session_write_close();
  if (function_exists('error_get_last')) {
   $error = error_get_last();
   if ($error['type'] == E_ERROR || $error['type'] == E_COMPILE_ERROR || $error['type'] == E_CORE_ERROR) {
@@ -537,6 +542,7 @@ function Efront_Autoload($className) {
         require_once("times.class.php");
     } else if (strpos($className, "efrontsearch") !== false) {
         require_once("search.class.php");
+        require_once("external/xapian.class.php");
     } else if (strpos($className, "efrontcourse") !== false) {
         require_once("course.class.php");
     } else if (strpos($className, "efrontdirection") !== false) {

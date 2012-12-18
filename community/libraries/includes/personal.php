@@ -43,7 +43,7 @@ if ($currentUser -> user['login'] == $editedUser -> user['login']) {
   $accountOperations[] = 'mapped_accounts';
  }
 }
-if (isset($_GET['add_user']) || $_SESSION['missing_fields']) {
+if (isset($_GET['add_user']) || ($_SESSION['missing_fields'] && $currentUser -> user['login'] == $editedUser -> user['login'])) {
  $accountOperations = array('profile');
 }
 $smarty -> assign("T_ACCOUNT_OPERATIONS", $accountOperations);
@@ -77,7 +77,7 @@ $options['account'] = array('image' => '16x16/user.png', 'title' => _ACCOUNT, 'l
 if ($editedUser->user['user_type'] != 'administrator') {
  $options['learning'] = array('image' => '16x16/courses.png', 'title' => _LEARNING, 'link' => basename($_SERVER['PHP_SELF']).'?ctg=personal&user='.$editedUser->user['login']."&op=user_courses", 'selected' => isset($_GET['op']) && in_array($_GET['op'], $learningOperations) ? true : false);
 }
-if (!isset($_GET['add_user']) && !$_GET['popup'] && !isset($_SESSION['missing_fields'])) { //When inside a popup, we don't want the menu
+if (!isset($_GET['add_user']) && !$_GET['popup'] && (!isset($_SESSION['missing_fields']) || $currentUser -> user['login'] != $editedUser -> user['login'])) { //When inside a popup, we don't want the menu
  $smarty -> assign("T_TABLE_OPTIONS", $options);
 }
 // Set facebook template variables

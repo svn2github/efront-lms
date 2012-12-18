@@ -69,7 +69,7 @@ try {
   }
 
  }
-
+ $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
  if (isset($_GET['ajax']) && $_GET['ajax'] == 'toggle_user' && $_GET['type'] == 'course') {
   $response = array('status' => 1);
   $editCourse = new EfrontCourse($_GET['id']);
@@ -105,6 +105,7 @@ try {
     $courseLessons[$key] = $value;
    }
    $lessons = EfrontLesson :: convertLessonObjectsToArrays($courseLessons);
+   $alreadySorted = true;
    $dataSource = $lessons;
   }
 
@@ -141,7 +142,6 @@ try {
      $totalEntries = $editedUser -> countUserCourses($constraints);
     }
    }
-
    $alreadySorted = true;
    $dataSource = $courses;
    $smarty -> assign("T_SHOW_COURSE_LESSONS", true);

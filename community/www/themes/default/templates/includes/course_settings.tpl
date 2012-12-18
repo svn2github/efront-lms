@@ -206,8 +206,8 @@
       {/if}&nbsp;
       </span>
       <table id = "schedule_dates_form_0" style = "display:none">
-       <tr><td>{$smarty.const._FROM}&nbsp;</td><td>{eF_template_html_select_date prefix="from_" time=$start_date start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $start_date display_seconds = false}&nbsp;</td></tr>
-       <tr><td>{$smarty.const._TO}&nbsp;</td><td>{eF_template_html_select_date prefix="to_" time=$end_date start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $end_date display_seconds = false}&nbsp;</td></tr>
+       <tr><td>{$smarty.const._FROM}&nbsp;</td><td>{eF_template_html_select_date prefix="from_" time=$start_date start_year="-5" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $start_date display_seconds = false}&nbsp;</td></tr>
+       <tr><td>{$smarty.const._TO}&nbsp;</td><td>{eF_template_html_select_date prefix="to_" time=$end_date start_year="-5" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $end_date display_seconds = false}&nbsp;</td></tr>
       </table>
      </td>
      <td>
@@ -241,8 +241,8 @@
       {/if}&nbsp;
       </span>
       <table id = "schedule_dates_form_{$id}" style = "display:none">
-       <tr><td>{$smarty.const._FROM}&nbsp;</td><td>{eF_template_html_select_date prefix="from_" time=$start_date start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $start_date display_seconds = false}&nbsp;</td></tr>
-       <tr><td>{$smarty.const._TO}&nbsp;</td><td>{eF_template_html_select_date prefix="to_" time=$end_date start_year="-2" end_year="+2" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $end_date display_seconds = false}&nbsp;</td></tr>
+       <tr><td>{$smarty.const._FROM}&nbsp;</td><td>{eF_template_html_select_date prefix="from_" time=$start_date start_year="-5" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="from_" time = $start_date display_seconds = false}&nbsp;</td></tr>
+       <tr><td>{$smarty.const._TO}&nbsp;</td><td>{eF_template_html_select_date prefix="to_" time=$end_date start_year="-5" end_year="+5" field_order = $T_DATE_FORMATGENERAL} {$smarty.const._TIME}: {html_select_time prefix="to_" time = $end_date display_seconds = false}&nbsp;</td></tr>
       </table>
      </td>
      <td>

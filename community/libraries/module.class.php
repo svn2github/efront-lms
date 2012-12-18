@@ -134,6 +134,10 @@ class EfrontModuleException extends Exception
 
  * - getCatalogSmartyTpl()
 
+ * - getSideCatalogModule()
+
+ * - getSideCatalogSmartyTpl()
+
  * - getLandingPageModule()
 
  * - getLandingPageSmartyTpl()
@@ -1029,6 +1033,39 @@ abstract class EfrontModule
     }
     /**
 
+     * This is the function for the php code of the module page that may
+
+     * appear in the side of the catalog
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function getSideCatalogModule() {
+        return false;
+    }
+    /**
+
+     * This is the template code returned for the side catalog
+
+     *
+
+     * @since 3.6.0
+
+     * @access public
+
+     */
+    public function getSideCatalogSmartyTpl() {
+        $smarty = $this->getSmartyVar();
+        $smarty -> assign("T_MODULE_BASEDIR" , $this -> moduleBaseDir);
+        $smarty -> assign("T_MODULE_BASEURL" , $this -> moduleBaseUrl);
+        return false;
+    }
+    /**
+
      * This is the code executed when a module is set as "landing page" and the
 
      * user logs in
@@ -1658,6 +1695,28 @@ abstract class EfrontModule
     }
     /**
 
+     * Code to execute right before a XML certificate template is created
+
+     * 
+
+     * @param array $issued_data Data related to the certificate 
+
+     * @param array $templateData The certificate template
+
+     * @param EfrontCourse $course The course tha the certificate is created for
+
+     * @param string $login The user that the certificate is created for
+
+     * @since 3.6.12
+
+     * @access public
+
+     */
+    public function onXMLExportCourseCertificate(&$issued_data, &$templateData, &$course, &$login) {
+     return false;
+    }
+    /**
+
      * Code to execute when a course is exported
 
      *
@@ -2064,6 +2123,22 @@ abstract class EfrontModule
 
      */
     public function onBeforeShowContent(&$unit) {
+     return false;
+    }
+    /**
+
+     * Code to execute right before printing the courses list
+
+     * 
+
+     * @param array $lessons
+
+     * @param array $courses
+
+     * @param array $progress
+
+     */
+    public function onBeforeShowCoursesTree(&$lessons, &$courses, &$progress) {
      return false;
     }
     /**

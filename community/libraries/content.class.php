@@ -1881,6 +1881,7 @@ class EfrontContentTree extends EfrontTree
            unset($questionData[$value['id']]['id']);
           }
          }
+   $ids_mapping = array();
          foreach ($testQuestions as $key => $oldQuestion){
           $questionData[$key]['content_ID'] = $newUnit -> offsetGet('id');
           $questionData[$key]['lessons_ID'] = $newUnit -> offsetGet('lessons_ID');
@@ -1889,7 +1890,14 @@ class EfrontContentTree extends EfrontTree
           $newQuestion = Question :: createQuestion($questionData[$key]);
           $qid = $newQuestion -> question['id'];
           $newQuestions[$qid] = $oldTest -> getAbsoluteQuestionWeight($oldQuestion -> question['id']);
+          $ids_mapping[$oldQuestion -> question['id']] = $qid;
          }
+   //code for sorting $newQuestions based on $oldQuestion in order to be copied in same order(#2962)
+         $newQuestionsSorted = array();
+         foreach ($testQuestions as $key => $oldQuestion){
+          $newQuestionsSorted[$ids_mapping[$key]] = $newQuestions[$ids_mapping[$key]];
+         }
+         $newQuestions = $newQuestionsSorted;
          $newTest -> addQuestions($newQuestions);
         }
         return $newUnit;
@@ -1974,7 +1982,7 @@ class EfrontContentTree extends EfrontTree
         if (!($sourceUnit instanceof EfrontUnit)) {
             $sourceUnit = new EfrontUnit($sourceUnit);
         }
-        if ($sourceUnit -> offsetGet('ctg_type') == 'tests') {
+        if ($sourceUnit -> offsetGet('ctg_type') == 'tests' || $sourceUnit -> offsetGet('ctg_type') == 'feedback' ) {
             $tid = eF_getTableData("tests, content", "tests.id as id", "tests.content_ID = content.id and content.id =".$sourceUnit -> offsetGet('id'));
             $testUnit = $this -> copyTest($tid[0]['id'], $targetUnit);
             return $testUnit;
@@ -2102,12 +2110,14 @@ class EfrontContentTree extends EfrontTree
       $copiedFile = $sourceFile -> copy($destinationPath, false);
      }
                     str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
-                    $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data);
+                    $folderId = $lesson -> lesson['share_folder'] ? $lesson -> lesson['share_folder'] : $lesson -> lesson['id'];
+                    $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$folderId.'/${2}', $data);
                 } catch (EfrontFileException $e) {
                     if ($e -> getCode() == EfrontFileException :: FILE_ALREADY_EXISTS) {
                         $copiedFile = new EfrontFile($destinationPath);
                         str_replace("view_file.php?file=".$file, "view_file.php?file=".$copiedFile -> offsetGet('id'), $data);
-                        $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$this -> lessonId.'/${2}', $data, -1, $count);
+                        $folderId = $lesson -> lesson['share_folder'] ? $lesson -> lesson['share_folder'] : $lesson -> lesson['id'];
+                        $data = preg_replace("#(".G_SERVERNAME.")*content/lessons/".$sourceUnit['lessons_ID']."/(.*)#", "content/lessons/".$folderId.'/${2}', $data, -1, $count);
                     }
                 } //this means that the file already exists
             }
@@ -2648,20 +2658,28 @@ class EfrontContentTree extends EfrontTree
         $unit = $this -> getLastNode();
         $created = array();
         $treeStructure = array();
-        for ($i = 0; $i < $maxSize; $i++) {
-            //First get the elements that have index 0, meaning they are on the top, then the 1 etc
-         foreach ($structure as $key => $value) {
-             if (isset($value[$i]) && !in_array($value[$i], $created)) {
-              $fields = array('name' => $value[$i],
-                              'lessons_ID' => $lessons_ID,
-                              'data' => '',
-                              'parent_content_ID' => array_search($value[$i-1], $created) ? array_search($value[$i-1], $created) : 0);
-              $unit = $this -> insertNode($fields);
-              $created[$unit['id']] = $value[$i];
-             }
-             if ($value[$i]) {
-                 $treeStructure[$key][$unit['id']] = $value[$i];
-             }
+        $created = array();
+        foreach ($structure as $key => $value) {
+         $name = end($value);
+         $path = implode("/", $value);
+         array_pop($value);
+         $parent_path = implode("/", $value);
+         $fields = array(
+           'name' => $name,
+           'lessons_ID' => $lessons_ID,
+           'data' => '',
+           'parent_content_ID' => in_array($parent_path, array_keys($created)) ? $created[$parent_path] : 0);
+         $unit = $this -> insertNode($fields);
+         $created[$path] = $unit['id'];
+         //The important thing here is to loop through the array and assigning each entry its new id.
+         //Quite complicated but couldn't figure out a simpler way. Check out ticket #2987 for what this 
+         //tries to fix
+         for ($i=0;$i<sizeof($structure[$key]);$i++) {
+          $slice = array_slice($structure[$key], 0, $i+1);
+          $p = implode("/", $slice);
+          if ($i == sizeof($slice)-1) {
+           $treeStructure[$key][$created[$p]] = $structure[$key][$i];
+          }
          }
         }
         return $treeStructure;

@@ -18,9 +18,9 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
   foreach ($currentEmployee->supervisesBranches as $value) {
    $filter_branches[$value]['branch_ID'] = $value;
   }
-  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect($filter_branches));
+  //$smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect($filter_branches));
  } else {
-  $smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
+  //$smarty -> assign("T_BRANCHES_FILTER", eF_createBranchesFilterSelect());
  }
  $smarty -> assign("T_JOBS_FILTER", eF_createJobFilterSelect());
  // Create ajax enabled table for employees
@@ -52,16 +52,16 @@ if (isset($_SESSION['s_login']) && ($_SESSION['s_type'] == 'administrator' || $c
   }
 
   $smarty -> assign("T_LANGUAGES", EfrontSystem :: getLanguages(true));
+
   if ($_GET['ajax'] == "unattachedUsersTable" && $currentEmployee -> isSupervisor()) {
    // Supervisors are allowed to see only the data of the employees that work in the braches they supervise
 
-   $unattached_employee = eF_getTableData("users LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN","users.*" , " users.user_type <> 'administrator' AND users.archive = 0 AND (EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) and users.active=1 GROUP BY login", "login");
+   $unattached_employee = eF_getTableData("
+     users
+      LEFT OUTER JOIN module_hcd_employee_has_job_description ON users.login = module_hcd_employee_has_job_description.users_LOGIN
+      LEFT OUTER JOIN module_hcd_employee_works_at_branch ON users.login = module_hcd_employee_works_at_branch.users_LOGIN",
+     "users.*" , " users.user_type <> 'administrator' AND users.archive = 0 AND (EXISTS (select module_hcd_employees.users_login from module_hcd_employees LEFT OUTER JOIN module_hcd_employee_works_at_branch ON module_hcd_employee_works_at_branch.users_login = module_hcd_employees.users_login where users.login=module_hcd_employees.users_login AND module_hcd_employee_works_at_branch.branch_ID IS NULL)) and users.active=1 GROUP BY login", "login");
 
-   $result = eF_getTableDataFlat("logs", "users_LOGIN, timestamp", "action = 'login'", "timestamp");
-   $lastLogins = array_combine($result['users_LOGIN'], $result['timestamp']);
-   foreach ($unattached_employee as $key => $value) {
-    $unattached_employee[$key]['last_login'] = $lastLogins[$value['login']];
-   }
    $smarty -> assign("T_UNATTACHED_EMPLOYEES_SIZE", sizeof($unattached_employee));
 
    $unattached_employee = eF_multiSort($unattached_employee, $_GET['sort'], $order);

@@ -1648,7 +1648,8 @@ class EfrontLesson
     $updateFields = array('active' => 1,
           'archive' => 0,
           'from_timestamp' => $value['confirmed'] ? time() : 0,
-          'user_type' => $value['role']);
+          'user_type' => $value['role'],
+          'access_counter' => 0);
     eF_updateTableData("users_to_lessons", $updateFields, "users_LOGIN='".$value['login']."' and lessons_ID=".$this -> lesson['id']);
    } else {
     $newUsers[] = $value['login'];
@@ -2202,7 +2203,9 @@ class EfrontLesson
    $units[] = $key;
   }
   $usersTimes = $this -> getLessonTimesForUsers();
-  $activeUsersTimes = $this -> getActiveLessonTimesForUsers();
+  foreach($this->getUsersActiveTimeInLesson() as $key => $value) {
+   $activeUsersTimes[$key] = EfrontTimes::formatTimeForReporting($value);
+  }
   foreach ($lessonUsers as $key => $user) {
    if ((!$user['user_types_ID'] && $user['role'] != $user['user_type']) || ($user['user_types_ID'] && $user['role'] != $user['user_types_ID'])) {
     $user['different_role'] = 1;
@@ -2223,14 +2226,6 @@ class EfrontLesson
   $result = $timesReport -> getLessonSessionTimesForUsers($this -> lesson['id']);
   foreach ($result as $value) {
    $usersTimes[$value['users_LOGIN']] = $timesReport -> formatTimeForReporting($value['time']);
-  }
-  return $usersTimes;
- }
- public function getActiveLessonTimesForUsers() {
-  $usersTimes = array();
-  $result = eF_getTableData("users_to_content", "users_LOGIN, sum(total_time)", "lessons_ID=".$this->lesson['id'], "", "users_LOGIN");
-  foreach ($result as $value) {
-   $usersTimes[$value['users_LOGIN']] = EfrontTimes::formatTimeForReporting($value['sum(total_time)']);
   }
   return $usersTimes;
  }
@@ -2424,6 +2419,21 @@ class EfrontLesson
   $direction = $this -> getDirection();
   $info['students'] = $this -> getUsers('student');
   $info['professors'] = $this -> getUsers('professor');
+  if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+   require_once 'module_hcd_tools.php';
+   $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+   $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+   foreach ($info['students'] as $key => $value) {
+    if (!in_array($value['login'], $branchTreeUsers)) {
+     unset($info['students'][$key]);
+    }
+   }
+   foreach ($info['professors'] as $key => $value) {
+    if (!in_array($value['login'], $branchTreeUsers)) {
+     unset($info['professors'][$key]);
+    }
+   }
+  }
   $info['tests'] = sizeof($testIds);
   $info['theory'] = sizeof($theoryIds);
   $info['examples'] = sizeof($exampleIds);
@@ -5091,6 +5101,7 @@ class EfrontLesson
                         'price' => str_replace($localeSettings['decimal_point'], '.', $this -> lesson['price']),
                         'active' => $this -> lesson['active'],
                         'duration' => $this -> lesson['duration'] ? $this -> lesson['duration'] : 0,
+      'access_limit' => $this -> lesson['access_limit'] ? $this -> lesson['access_limit'] : 0,
                   'share_folder' => $this -> lesson['share_folder'] ? $this -> lesson['share_folder'] : 0,
       'show_catalog' => $this -> lesson['course_only'] ? 1 : $this -> lesson['show_catalog'], //if lesson is available only via course, it can not be hidden from catalog
                         'options' => serialize($this -> options),

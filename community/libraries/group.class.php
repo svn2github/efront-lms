@@ -438,8 +438,7 @@ class EfrontGroup
          throw new EfrontGroupException(implode("<br>", $errors), EfrontGroupException :: ASSIGNMENT_ERROR);
         }
         if (!empty($max_users_errors)) {
-         $_SESSION['s_message'] = _YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP."<br>".implode("<br>", $max_users_errors);
-         $_SESSION['s_message_type'] = 'success';
+         return $max_users_errors;
         }
         return true;
     }
@@ -599,10 +598,19 @@ class EfrontGroup
   if ($this -> group['key_max_usage'] && $this -> group['key_max_usage'] <= $this -> group['key_current_usage']) {
    throw new Exception(_MAXIMUMKEYUSAGESREACHED, EfrontGroupException::ASSIGNMENT_ERROR);
   }
-  $this -> addUsers($user, $this -> group['user_types_ID'] ? $this -> group['user_types_ID'] : 'student');
+  $max_users_errors = $this -> addUsers($user, $this -> group['user_types_ID'] ? $this -> group['user_types_ID'] : 'student');
   if ($this -> group['key_max_usage']) {
    $this -> group['key_current_usage']++;
    $this -> persist();
+  }
+  if (is_array($max_users_errors) && !empty($max_users_errors)) {
+   $_SESSION['s_message'] = _YOUWHEREADDEDTOTHEGROUPBUTSOMEERRORSOCCURED.'<br/>'.implode("<br>", $max_users_errors);
+   $_SESSION['s_message_type'] = 'failure';
+   return false;
+  } else {
+   $_SESSION['s_message'] = _YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP;
+   $_SESSION['s_message_type'] = 'success';
+   return true;
   }
     }
     /**

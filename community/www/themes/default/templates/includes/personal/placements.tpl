@@ -13,7 +13,7 @@
    <div class = "headerTools">
     <span>
      <img src = "images/16x16/add.png" alt = "{$smarty.const._NEWJOBPLACEMENT}" title = "{$smarty.const._NEWJOBPLACEMENT}"/>
-     <a href="{$smarty.server.REQUEST_URI}&add_placement=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWJOBPLACEMENT}', 2)">{$smarty.const._NEWJOBPLACEMENT}</a>
+     <a href="{$smarty.server.PHP_SELF}?ctg=personal&user={$smarty.get.user}&op=org_form&add_placement=1&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._NEWJOBPLACEMENT}', 2)">{$smarty.const._NEWJOBPLACEMENT}</a>
     </span>
    </div>
   {/if}
@@ -47,7 +47,7 @@
   {if $_change_placements_}
     <td class = "centerAlign">
     {if $smarty.session.s_type == 'administrator' || in_array($placement.branch_ID, $T_SUPERVISES_BRANCHES)}
-     <a href = "{$smarty.server.REQUEST_URI}&edit_placement={$placement.job_description_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._EDITJOBPLACEMENT}', 2)"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
+     <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$smarty.get.user}&op=org_form&edit_placement={$placement.job_description_ID}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._EDITJOBPLACEMENT}', 2)"><img class = "handle" src = "images/16x16/edit.png" title = "{$smarty.const._EDIT}" alt = "{$smarty.const._EDIT}" /></a>
      <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._IRREVERSIBLEACTIONAREYOUSURE}')) deleteJob(this, '{$placement.job_description_ID}')"/>
     {/if}
     </td>

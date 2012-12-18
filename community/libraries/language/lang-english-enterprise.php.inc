@@ -4214,4 +4214,14 @@ define("_MYROLE", "Role");
 define("_MAXSEATSDEPLEATED", "The %y seats available for '%x' are taken. Contact %z for more info");
 define("_IFRAMEPARAMETERS", "iframe parameters");
 define("_HEIGHTREFERSTOINITIALHEIGHT", "Dimensions may dynamically change after loading of the content, you can set enforce explicit values under the SCORM unit's properties window");
+define("_COURSESTARTDATE", "Course start date");
+define("_COURSEENDDATE", "Course end date");
+define("_SEARCHRESULTSINFILESYSTEM", "Search results in filesystem");
+define("_FILESYSTEM", "Filesystem");
+define("_PATH", "Path");
+define("_TIMESAFTERREGISTRATION", "times after registration");
+define("_ACCESSDEPLETED", "You can no longer access this lesson");
+define("_ACCESSESREMAINING", "You can access this lesson %x times more");
+define("_REMAININGVACANCIES", "Remaining vacancies");
+define("_YOUWHEREADDEDTOTHEGROUPBUTSOMEERRORSOCCURED", "You where added to the group but some errors occured:");
 ?>

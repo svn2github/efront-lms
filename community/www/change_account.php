@@ -19,6 +19,7 @@ try {
    $lessonID = $_SESSION['s_lessons_ID'];
    $courseID = $_SESSION['s_courses_ID'];
    $currentUser -> logout(session_id());
+   $newUser -> isLdapUser = false; // in order to work for ldap users
    $newUser -> login($newUser -> user['password'], true);
    if ($_SESSION['s_type'] != 'administrator' && $lessonID) {
     if ($courseID) {

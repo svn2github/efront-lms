@@ -105,6 +105,7 @@ class EfrontEvent
  const LESSON_PROGRAMMED_START = 39; // users_LOGIN, lessons_ID, lessons_name
  const LESSON_PROGRAMMED_EXPIRY = 40;
     const PROJECT_EXPIRY = 41; // users_LOGIN, lessons_ID, lessons_name, entity_ID = project_ID, entity_name = project_name
+ const PROJECT_ASSIGNMENT = 42; // users_LOGIN, lessons_ID, lessons_name, entity_ID = project_ID, entity_name = project_name
     // Course codes: [50-74] - IMPORTANT KEEP COURSE-EVENTS STRICTLY WITHIN THESE LIMITS
                // 	For courses we have lessons_name -> courses_name
     const COURSE_ACQUISITION_AS_STUDENT = 50; // users_LOGIN, lessons_ID, lessons_name
@@ -130,11 +131,11 @@ class EfrontEvent
     const NEW_COMMENT_WRITING = 104; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=content_ID), entity_name (=unit name)
     // Forum codes: [125-149]
     const NEW_FORUM = 125; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=forum_ID), entity_name (=forum name)
-    const NEW_TOPIC = 32; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=forum_ID), entity_name (=forum name)
-    const NEW_POLL = 33; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=forum_ID), entity_name (=forum name)
+    const NEW_TOPIC = 32; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=topic_ID), entity_name (=forum name)
+    const NEW_POLL = 33; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=poll_ID), entity_name (=forum name)
   const NEW_POST_FOR_LESSON_TIMELINE_TOPIC = 34; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=topics_ID), entity_name (=array("id" => post id, "data" => post text)
     const DELETE_POST_FROM_LESSON_TIMELINE = 35; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=topics_ID), entity_name (=topic_title)
-  const NEW_FORUM_MESSAGE_POST = 38; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=forum_ID), entity_name (=forum name)
+  const NEW_FORUM_MESSAGE_POST = 38; // users_LOGIN, lessons_ID, lessons_name, entity_ID (=message_ID), entity_name (=forum name)
     // Personal information codes: [150-174]
     const STATUS_CHANGE = 150; // users_LOGIN, entity_name (=new status)
     const AVATAR_CHANGE = 151; // users_LOGIN, entity_id (=new img file id)
@@ -275,6 +276,7 @@ class EfrontEvent
              EfrontEvent::LESSON_PROGRAMMED_START => array("text" => _PROGRAMMEDLESSONSTART, "category" => "lessons", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
              EfrontEvent::LESSON_PROGRAMMED_EXPIRY => array("text" => _PROGRAMMEDLESSONEXPIRY, "category" => "lessons", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
              EfrontEvent::PROJECT_EXPIRY => array("text" => _PROJECTEXPIRY, "category" => "projects", "canBePreceded" => 1, "priority" => 1, "afterEvent" => 1),
+          EfrontEvent::PROJECT_ASSIGNMENT => array("text" => _PROJECTASSIGNMENT, "category" => "projects", "priority" => 1, "afterEvent" => 1),
              EfrontEvent::COURSE_ACQUISITION_AS_STUDENT => array("text" => _COURSE_ACQUISITION_AS_STUDENT, "category" => "courses", "afterEvent" => 1),
              EfrontEvent::COURSE_ACQUISITION_AS_PROFESSOR => array("text" => _COURSE_ACQUISITION_AS_PROFESSOR, "category" => "courses", "afterEvent" => 1),
              //EfrontEvent::COURSE_VISITED => array("text" => _COURSE_VISITED, "category" => "courses", "canBeNegated" => _COURSE_NOT_VISITED),
@@ -596,7 +598,7 @@ class EfrontEvent
               $fields['users_name'] = $GLOBALS['currentUser'] -> user['name'];
               $fields['users_surname'] = $GLOBALS['currentUser'] -> user['surname'];
           } else {
-           $fields['users_LOGIN'] = $_SESSION['s_login'];
+            $fields['users_LOGIN'] = $_SESSION['s_login'];
           }
         }
         // If a users login is defined, but without any name/surname fields, then get them from the DB
@@ -749,6 +751,10 @@ class EfrontEvent
         if ($this -> event['type'] == EfrontEvent::SYSTEM_REGISTER) {
       $subst_array['new_password'] = $this -> event['entity_name'];
      }
+     if ($this -> event['type'] == EfrontEvent::COURSE_PROGRAMMED_START || $this -> event['type'] == EfrontEvent::COURSE_PROGRAMMED_EXPIRY) {
+      $subst_array['course_start_date'] = formatTimestamp($this -> event['entity_ID'], 'time');
+      $subst_array['course_end_date'] = formatTimestamp($this -> event['entity_name'], 'time');
+     }
      if (isset($event_types[abs($this -> event['type'])])) {
       $type = $event_types[abs($this -> event['type'])];
       //echo $type . "***";
@@ -778,6 +784,7 @@ class EfrontEvent
       }
          if ($type['category'] == "forum") {
        $subst_array['forum_name'] = $this -> event['entity_name'];
+       $subst_array['forum_id'] = $this -> event['entity_ID']; // with ###forum_ID### we take either forum_id or topic_id or message_id depending on event
       }
       if ($type['category'] == "news") {
        $subst_array['announcement_title'] = $this -> event['entity_name'];
@@ -793,6 +800,10 @@ class EfrontEvent
        if ($survey[0]['survey_name']) {
         $subst_array['survey_name'] = $survey[0]['survey_name'];
        }
+      }
+      if ($type['category'] == "projects") {
+       $subst_array['project_name'] = $this -> event['entity_name'];
+       $subst_array['project_id'] = $this -> event['entity_ID'];
       }
          if ($type['category'] == "content") {
        $content = eF_getTableData("content", "name, data", "id = '". $this -> event['entity_ID'] ."'");
@@ -875,8 +886,8 @@ class EfrontEvent
          $event_notification['event_type'] = (-1) * $event_notification['event_type'];
          // in that case delete the corresponding record in the table (if such exists)
          eF_deleteTableData("notifications", "id_type_entity= '".$event_notification['id_type_entity'] . "' AND recipient = '". $this -> event['users_LOGIN'] ."'");
-         if ($this -> event['type'] == EfrontEvent::COURSE_COMPLETION || $this -> event['type'] == EfrontEvent::LESSON_COMPLETION) { //for these 2 notifications, we don't want them to be re-scheduled		
-          return true;
+         if (($this -> event['type'] == (-1)*EfrontEvent::COURSE_COMPLETION && $event_notification['event_type'] < 0) || ($this -> event['type'] == EfrontEvent::COURSE_COMPLETION && $event_notification['event_type'] > 0) || ($this -> event['type'] == (-1)*EfrontEvent::LESSON_COMPLETION && $event_notification['event_type'] < 0) || ($this -> event['type'] == EfrontEvent::LESSON_COMPLETION && $event_notification['event_type'] > 0)) { //for these 2 notifications, we don't want them to be re-scheduled		
+          continue;
          }
         }
         if ($delete_negative) {
@@ -1147,6 +1158,8 @@ class EfrontEvent
              $this -> event['message'] .= _SCHEDULEDEXPIRYOFLESSON . " <b>" . $this -> event['lessons_name'] ."</b>";
          } else if ($this -> event['type'] == EfrontEvent::PROJECT_EXPIRY) {
              $this -> event['message'] .= _THEPROJECT . " <b>" . $this -> event['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b> " . _HASEXPIRED;
+         } else if ($this -> event['type'] == EfrontEvent::PROJECT_ASSIGNMENT) {
+             $this -> event['message'] .= _THEPROJECT . " <b>" . $this -> event['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b> " . _WASASSIGNEDTO ." ". $this -> event['users_LOGIN'];
          } else if ($this -> event['type'] == EfrontEvent::NEW_LESSON_ANNOUNCEMENT) {
              $this -> event['message'] .= _HASPUBLISHEDTHEANNOUNCEMENT. " <b>" . $this -> event['entity_name'] ."</b> " . _OFTHELESSON . " <b>" . $this -> event['lessons_name'] ."</b> ";
          } else if ($this -> event['type'] == EfrontEvent::SYSTEM_NEW_PASSWORD_REQUEST) {

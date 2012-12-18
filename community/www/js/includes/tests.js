@@ -786,6 +786,7 @@ function showTestQuestion(question_num) {
 }
 
 function checkQuestions() {
+	
 	var finished = new Array();
 	var count = 0;
 	$$('.unsolvedQuestion').each(function (r) {
@@ -803,12 +804,15 @@ function checkQuestions() {
     		r.select('input[type=text]').each(function (s) {s.value ? finished[count] = 1 : null;});
     		r.select('select').each(function (s) {s.value ? finished[count] = 1 : null;});
     	} else if (r.hasClassName('rawTextQuestion')) {
-    		for (var i = 0; i <  tinyMCE.editors.length; i++) {
-    			if (tinyMCE.editors[i].getContent()) {
-    				finished[count] = 1;
-    			}
-    		};
-    		//r.select('textarea').each(function (s) {s.value ? finished[count] = 1 : null;});
+    		if (typeof(tinyMCE) != 'undefined') {
+    			for (var i = 0; i <  tinyMCE.editors.length; i++) {
+    				if (tinyMCE.editors[i].getContent()) {
+    					finished[count] = 1;
+    				}
+    			};
+    		} else {
+    			r.select('textarea').each(function (s) {s.value ? finished[count] = 1 : null;});
+    		}
     	} else if (r.hasClassName('dragDropQuestion')) {
     		r.select('td.dragDropTarget').each(function (s) {s.childElements().length ? finished[count] = 1 : null;});
     	} 						        								        	

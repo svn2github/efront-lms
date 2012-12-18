@@ -345,11 +345,15 @@ function changeTemplates(mode) {
 		addValueToSelect ("lessons_name", lessonsNameConst, select_item);
 		addValueToSelect (allLessonEventRecipients, allLessonUsersConst, recipients_select_item);
 		addValueToSelect (lessonProf, lessonProfessorsConst, recipients_select_item);
-		addValueToSelect (lessonNotCompleted, lessonNotCompletedConst, recipients_select_item);			
+		if ($('event_types').options[$('event_types').options.selectedIndex].value != '42_projects') { 
+			addValueToSelect (lessonNotCompleted, lessonNotCompletedConst, recipients_select_item);		
+		}
 	} 
 	
 	if (mode == "courses") {
 		addValueToSelect ("courses_name", courseNameConst, select_item);
+		addValueToSelect ("course_start_date", courseStartDateConst, select_item);
+		addValueToSelect ("course_end_date", courseEndDateConst, select_item);
 		addValueToSelect (allCourseEventRecipients, allCourseUsersConst, recipients_select_item);
 		addValueToSelect (courseProf, courseProfessorsConst, recipients_select_item);
 	}
@@ -377,8 +381,12 @@ function changeTemplates(mode) {
 	}
 
 	if (mode == "projects") {
-		addValueToSelect (expicitlySelected, expicitlySelectedConst, recipients_select_item);
-		new Effect.Appear('explicitlySelectedHelp');
+		addValueToSelect("project_name", projectNameConst, select_item);
+		addValueToSelect("project_id", projectIdConst, select_item);
+		if ($('event_types').options[$('event_types').options.selectedIndex].value != '42_projects') { 
+			addValueToSelect (expicitlySelected, expicitlySelectedConst, recipients_select_item);
+			new Effect.Appear('explicitlySelectedHelp');
+		}
 	}
 	
 	if (mode == "branch" || mode == "job") {

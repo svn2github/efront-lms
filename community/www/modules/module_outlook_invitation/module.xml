@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Outlook invitation Module</title>
+	<author>Michael Makrigiannakis</author>
+	<date>2012 07 04</date>
+	<version>1.1.6</version>
+	<description>This module allows you to create events attached to a specific course. Whenever a user is assigned to a course with an attached Event, eFront will automatically send him an outlook calendar event</description>
+	<className>module_outlook_invitation</className>
+	<requires>3.6.11</requires>
+</module>

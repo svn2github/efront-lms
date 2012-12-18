@@ -1358,7 +1358,7 @@ class EfrontDirectory extends ArrayObject
     public function delete() {
         $it = new EfrontREFilterIterator(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this['path']), RecursiveIteratorIterator :: SELF_FIRST), array('/.svn/'), false);
         $files = array();
-        $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, '', $this['path'])."%'");
+        $result = eF_getTableData("files", "*", "path like '".str_replace(G_ROOTPATH, '', eF_addSlashes($this['path']))."%'");
         foreach ($result as $file) {
             $files[G_ROOTPATH.$file['path']] = $file;
         }
@@ -2114,10 +2114,12 @@ class FileSystemTree extends EfrontTree
         $urlUpload = $form -> exportValue('url_upload');
         if ($urlUpload != "" ) {
             $this -> checkFile($urlUpload);
-            $urlArray = explode("/", $urlUpload);
-            $urlFile = urldecode($urlArray[sizeof($urlArray) - 1]);
+            //$urlArray	 = explode("/", $urlUpload);
+            //$urlFile	 = urldecode($urlArray[sizeof($urlArray) - 1]);
+            $urlArray = parse_url($urlUpload);
+            $urlFile = basename($urlArray['path']);
             //copy() does not like names with spaces, so we split the $urlUpload to dirname() and basename() and we urlencode() the latter
-            if (!copy(dirname($urlUpload).'/'.rawurlencode(basename($urlUpload)), $curDir."/".$urlFile)) {
+            if (!copy(dirname($urlUpload).'/'.rawurlencode($urlFile).($urlArray['query'] ? '?'.$urlArray['query'] : ''), $curDir."/".$urlFile)) {
                 throw new Exception(_PROBLEMUPLOADINGFILE);
             } else {
                 $uploadedFile = new EfrontFile($curDir."/".$urlFile);
@@ -2708,7 +2710,7 @@ class FileSystemTree extends EfrontTree
                 if ($options['edit'] && ($_SESSION['s_type'] == 'administrator' || (($value['users_LOGIN'] == $_SESSION['s_login'] || in_array($value['users_LOGIN'], $supervisedLogins)) && isset($value['users_LOGIN'])) || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
                     $toolsString .= '<img class = "ajaxHandle edit" src = "images/16x16/edit.png" alt = "'._EDIT.'" title = "'._EDIT.'" onclick = "toggleEditBox(this, \''.urlencode($identifier).'\')"/>&nbsp;';
                 }
-                if ($options['delete'] && ($_SESSION['s_type'] == 'administrator' || (($value['users_LOGIN'] == $_SESSION['s_login'] ||in_array($value['users_LOGIN'], $supervisedLogins)) && isset($value['users_LOGIN'])) || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
+                if ($options['delete'] && ($_SESSION['s_type'] == 'administrator' || (($value['users_LOGIN'] == $_SESSION['s_login'] ||in_array($value['users_LOGIN'], $supervisedLogins)) || $value['users_LOGIN'] == "") || ($GLOBALS['configuration']['allow_users_to_delete_supervisor_files'] == 1))) {
                     $toolsString .= '<img class = "ajaxHandle" src = "images/16x16/error_delete.png" alt = "'._DELETE.'" title = "'._DELETE.'" onclick = "if (confirm(\''._IRREVERSIBLEACTIONAREYOUSURE.'\')) {deleteFile(this, $(\'span_'.urlencode($identifier).'\').innerHTML)}"/></a>&nbsp;';
                 }
             } else if (is_dir($value['path'])) {

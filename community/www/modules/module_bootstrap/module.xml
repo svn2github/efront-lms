@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<module>
+	<title>Module Bootstap</title>
+	<author>Periklis Venakis</author>
+	<date>2012 10 01</date>
+	<version>1.0</version>
+	<description>Bootstrap module quickly sets up a new module by putting together the minimum code required</description>
+	<className>module_bootstrap</className>
+	<requires>3.6.11</requires>
+</module>

@@ -49,6 +49,17 @@ if ($_GET['scorm_review']) {
             $sort = 'login';
         }
         $scormData = eF_multiSort($scormData, $sort, $order);
+        if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to branch urls
+         $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+         $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+         foreach ($scormData as $key => $value) {
+          if ($value['type'] != 'global' && !in_array($value['users_LOGIN'], $branchTreeUsers)) {
+           unset($scormData[$key]);
+          }
+         }
+         $scormData = array_values($scormData);
+        }
+
         $smarty -> assign("T_USERS_SIZE", sizeof($scormData));
         if (isset($_GET['filter'])) {
             $scormData = eF_filterData($scormData, $_GET['filter']);

@@ -13,14 +13,19 @@
                     {foreach name = 'users_list' key = 'key' item = "item" from = $T_COURSE_CERTIFICATED}
         <tr class = "{cycle name = 'users_list' values = 'oddRowColor, evenRowColor'}">
                             <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$item.login}">#filter:login-{$item.login}#</a></td>
-       <td align="center">#filter:timestamp_time-{$item.date}#</td>
+       <td align="center"><span style = "display:none">{$item.date}</span>#filter:timestamp_time-{$item.date}#</td>
        <td align="center">{$item.grade}</td>
-       <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
+       <td align="center"><span style = "display:none">{$item.expire_certificate}</span>#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$smarty.post.course_id_certificated}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
-                                                                        </a>
+       <td align="center">
+       {if $smarty.session.s_type == 'administrator'}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$smarty.post.course_id_certificated}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+       {else}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$smarty.post.course_id_certificated}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+       {/if}
+                                  <img class = "handle" src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}"/>
+                                 </a>
        </td>
       </tr>
                     {foreachelse}
@@ -62,14 +67,19 @@
         <tr class = "{cycle name = 'users_list' values = 'oddRowColor, evenRowColor'}">
        <td>{$item.name}</td>
                             <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$item.login}">#filter:login-{$item.login}#</a></td>
-       <td align="center">#filter:timestamp_time-{$item.date}#</td>
+       <td align="center"><span style = "display:none">{$item.date}</span>#filter:timestamp_time-{$item.date}#</td>
        <td align="center">{$item.grade}</td>
-       <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
+       <td align="center"><span style = "display:none">{$item.expire_certificate}</span>#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
-                                                                        </a>
+       <td align="center">
+       {if $smarty.session.s_type == 'administrator'}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+                            {else}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+                            {/if}
+                                 <img class = "handle" src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" />
+                                </a>
        </td>
       </tr>
                     {foreachelse}
@@ -110,14 +120,19 @@
         <tr class = "{cycle name = 'users_list' values = 'oddRowColor, evenRowColor'}">
        <td>{$item.name}</td>
                             <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$item.login}">#filter:login-{$item.login}#</a></td>
-       <td align="center">#filter:timestamp_time-{$item.date}#</td>
+       <td align="center"><span style = "display:none">{$item.date}</span>#filter:timestamp_time-{$item.date}#</td>
        <td align="center">{$item.grade}</td>
-       <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
+       <td align="center"><span style = "display:none">{$item.expire_certificate}</span>#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
-                                                                        </a>
+       <td align="center">
+       {if $smarty.session.s_type == 'administrator'}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+       {else}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&op=course_certificates&export={$item.certificate_export_method}&user={$item.login}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+       {/if}
+                                 <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
+                                </a>
        </td>
       </tr>
                     {foreachelse}
@@ -144,14 +159,19 @@
         <tr class = "{cycle name = 'users_list' values = 'oddRowColor, evenRowColor'}">
        <td>{$item.issued_certificate.course_name}</td>
                             <td><a href = "{$T_BASIC_TYPE}.php?ctg=statistics&option=user&sel_user={$item.users_LOGIN}">#filter:login-{$item.users_LOGIN}#</a></td>
-       <td align="center">#filter:timestamp_time-{$item.issued_certificate.date}#</td>
+       <td align="center"><span style = "display:none">{$item.issued_certificate.date}</span>#filter:timestamp_time-{$item.issued_certificate.date}#</td>
        <td align="center">{$item.issued_certificate.grade}</td>
-       <td align="center">#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
+       <td align="center"><span style = "display:none">{$item.expire_certificate}</span>#filter:timestamp_time_nosec-{$item.expire_certificate}#</td>
        <td align="center">{$item.issued_certificate.serial_number}</td>
        <td align="center">{if $item.reset == 1} {$smarty.const._YES}{else}{$smarty.const._NO} {/if}</td>
-       <td align="center"> <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.users_LOGIN}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
-                                                                            <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
-                                                                        </a>
+       <td align="center">
+       {if $smarty.session.s_type == 'administrator'}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$item.certificate_export_method}&user={$item.users_LOGIN}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+       {else}
+        <a href = "{$smarty.server.PHP_SELF}?ctg=lessons&op=course_certificates&export={$item.certificate_export_method}&user={$item.users_LOGIN}&course={$item.id}" target="_blank" title = "{$smarty.const._VIEWCERTIFICATE}">
+       {/if}
+                                 <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" border = "0"/>
+                                </a>
        </td>
       </tr>
                     {foreachelse}

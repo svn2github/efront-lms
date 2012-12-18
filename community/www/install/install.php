@@ -429,6 +429,8 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       }
      }
     }
+    if (version_compare($dbVersion, '3.6.12') == -1) {
+    }
     $options = EfrontConfiguration :: getValues();
     //This means that the version upgrading from is 3.5
     if ($dbVersion == '3.5') {

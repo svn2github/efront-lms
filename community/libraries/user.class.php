@@ -267,10 +267,14 @@ abstract class EfrontUser
   if (!isset($userProperties['login']) || !eF_checkParameter($userProperties['login'], 'login')) {
    throw new EfrontUserException(_INVALIDLOGIN.': '.$userProperties['login'], EfrontUserException :: INVALID_LOGIN);
   }
-  if (in_array(mb_strtolower($userProperties['login']), array_keys($archived), true)) {
+  $archived_keys = array_combine(array_keys($archived),array_keys($archived));
+  if (isset($archived_keys[mb_strtolower($userProperties['login'])])) {
+  //if (in_array(mb_strtolower($userProperties['login']), array_keys($archived), true) !== false) {	
    throw new EfrontUserException(_USERALREADYEXISTSARCHIVED.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);
   }
-  if (in_array(mb_strtolower($userProperties['login']), array_keys($users), true) > 0) {
+  $user_keys = array_combine(array_keys($users),array_keys($users));
+  if (isset($user_keys[mb_strtolower($userProperties['login'])])) {
+  //if (in_array(mb_strtolower($userProperties['login']), array_keys($users), true) !== false) {
    throw new EfrontUserException(_USERALREADYEXISTS.': '.$userProperties['login'], EfrontUserException :: USER_EXISTS);
   }
   if ($userProperties['email'] && !eF_checkParameter($userProperties['email'], 'email')) {
@@ -813,6 +817,7 @@ abstract class EfrontUser
    foreach ($_SESSION as $key => $value) {
     unset($_SESSION[$key]);
    }
+   //session_destroy();
   }
   return true;
  }
@@ -837,6 +842,11 @@ abstract class EfrontUser
   if ($this -> isLoggedIn()) {
    //If the user is logged in right now on the same pc with the same session, return true (nothing to do)
    if ($this -> isLoggedIn(session_id())) {
+    if (!$encrypted && EfrontUser::createPassword($password) != $this -> user['password']) {
+     throw new EfrontUserException(_INVALIDPASSWORD, EfrontUserException :: INVALID_PASSWORD);
+    } else if ($encrypted && $password != $this -> user['password']) {
+     throw new EfrontUserException(_INVALIDPASSWORD, EfrontUserException :: INVALID_PASSWORD);
+    }
     return true;
    } elseif (!$this -> allowMultipleLogin()) {
     $this -> logout();
@@ -1978,8 +1988,8 @@ abstract class EfrontLessonUser extends EfrontUser
 	 */
  private function initializeLessons() {
   $result = eF_getTableData("users_to_lessons ul, lessons l",
-          "ul.*, ul.to_timestamp as timestamp_completed, ul.from_timestamp as active_in_lesson, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options,l.to_timestamp,l.from_timestamp, l.active, 1 as has_lesson",
-          "l.archive = 0 and ul.archive = 0 and l.id=ul.lessons_ID and ul.users_LOGIN='".$this -> user['login']."'");
+          "ul.*, ul.to_timestamp as timestamp_completed, ul.from_timestamp as active_in_lesson, l.id, l.name, l.directions_ID, l.course_only, l.instance_source, l.duration,l.options,l.to_timestamp,l.from_timestamp, l.active, 1 as has_lesson, l.access_limit",
+          "l.archive = 0 and ul.archive = 0 and l.id=ul.lessons_ID and ul.users_LOGIN='".$this -> user['login']."'","l.name");
   if (empty($result)) {
    $this -> lessons = array();
   } else {
@@ -2100,7 +2110,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $where[] = "c.id=uc.courses_ID and uc.users_LOGIN='".$this -> user['login']."' and uc.archive=0";
   //$result  = eF_getTableData("courses c, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
   $sql = prepareGetTableData("courses c, users_to_courses uc", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
-  $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id");
+  $result = eF_getTableData("courses, ($sql) t", "courses.*, t.*", "courses.id=t.id", "name");
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontCourse :: convertDatabaseResultToCourseObjects($result);
   } else {
@@ -2337,7 +2347,7 @@ abstract class EfrontLessonUser extends EfrontUser
    $lesson -> lesson['remaining'] = null;
   }
   //Check whether the lesson registration is expired. If so, set $value['from_timestamp'] to false, so that the effect is to appear disabled
-  if ($lesson -> lesson['duration'] && $lesson -> lesson['active_in_lesson'] && $lesson -> lesson['duration'] * 3600 * 24 + $lesson -> lesson['active_in_lesson'] < time()) {
+  if (EfrontUser::isStudentRole($lesson -> lesson['user_type']) && $lesson -> lesson['duration'] && $lesson -> lesson['active_in_lesson'] && $lesson -> lesson['duration'] * 3600 * 24 + $lesson -> lesson['active_in_lesson'] < time()) {
    $lesson -> archiveLessonUsers($lesson -> lesson['users_LOGIN']);
   }
   return $lesson;

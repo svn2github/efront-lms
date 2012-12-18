@@ -195,7 +195,7 @@ class EfrontSystem
    throw new Exception (_INCOMPATIBLEVERSIONS.'<br/> '._BACKUPVERSION.':'.$backupVersion.' / '._CURRENTVERSION.': '.G_VERSION_NUM, EfrontSystemException::INCOMPATIBLE_VERSIONS);
   }
   $sql = file_get_contents($tempDir.'db_backup/sql.txt');
-  $sql = explode(";", $sql);
+  $sql = explode(";\n", $sql);
   $node = $filesystem -> seekNode($tempDir.'db_backup');
   for ($i = 0; $i < sizeof($sql); $i+=2) {
    preg_match("/drop table (.+)/", $sql[$i], $matches);
@@ -833,17 +833,18 @@ class EfrontSystem
    $workBook -> send('export.xls');
   }
  }
- public static function exportToCsv($data, $file = false) {
+ public static function exportToCsv($data, $download = false, $name = "data.csv") {
   $currentUser = EfrontUserFactory::factory($_SESSION['s_login']);
-  $fp = fopen($currentUser->getDirectory().'file.csv', 'w');
-  fputcsv($fp, current($data));
-  foreach ($list as $fields) {
+  $fp = fopen($currentUser->getDirectory().$name, 'w');
+  foreach ($data as $fields) {
    fputcsv($fp, $fields);
   }
   fclose($fp);
-  $file = new EfrontFile($currentUser->getDirectory().'file.csv');
-  if (!$file) {
+  $file = new EfrontFile($currentUser->getDirectory().$name);
+  if ($download) {
    $file -> sendFile(true);
+  } else {
+   return $file;
   }
  }
  /**

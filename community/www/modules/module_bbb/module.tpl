@@ -20,7 +20,7 @@
                 </form>
     {/capture}
 
-    {eF_template_printBlock title=$smarty.const._BBB_BBBSERVER data=$smarty.capture.t_BBB_server absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' help = 'BigBlueButton'}
+    {eF_template_printBlock title=$smarty.const._BBB_BBBSERVER data=$smarty.capture.t_BBB_server absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png'}
 
 {else}
     {if $smarty.get.add_BBB || $smarty.get.edit_BBB}
@@ -93,8 +93,8 @@
                     <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "0" id = "BBBUsersTable" useAjax = "1" rowsPerPage = "20" url = "{$T_BBB_MODULE_BASEURL}&edit_BBB={$smarty.get.edit_BBB}&">
                         <tr class = "topTitle">
                             <td class = "topTitle" name="login">{$smarty.const._LOGIN}</td>
-                            <td class = "topTitle" name="name">{$smarty.const._FIRSTNAME}</td>
-                            <td class = "topTitle" name="surname">{$smarty.const._LASTNAME}</td>
+                            <td class = "topTitle" name="name">{$smarty.const._NAME}</td>
+                            <td class = "topTitle" name="surname">{$smarty.const._SURNAME}</td>
                             <td class = "topTitle" name="email">{$smarty.const._EMAIL}</td>
                             <td class = "topTitle noSort" name="login" align="center">{$smarty.const._CHECK}</td>
                         </tr>
@@ -208,7 +208,7 @@
                 {/if}
             </div>
         {/capture}
-        {eF_template_printBlock title=$smarty.const._BBB_BBBMEETINGDATA data=$smarty.capture.t_BBB_tabber absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' help = 'BigBlueButton'}
+        {eF_template_printBlock title=$smarty.const._BBB_BBBMEETINGDATA data=$smarty.capture.t_BBB_tabber absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png'}
     {else}
         {capture name = 't_BBB_list_code'}
             {if $T_BBB_CURRENTLESSONTYPE == "professor"}
@@ -270,6 +270,6 @@
         {/capture}
 
 
-        {eF_template_printBlock title=$smarty.const._BBB_BBBLIST data=$smarty.capture.t_BBB_list_code absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png' help = 'BigBlueButton'}
+        {eF_template_printBlock title=$smarty.const._BBB_BBBLIST data=$smarty.capture.t_BBB_list_code absoluteImagePath=1 image=$T_BBB_MODULE_BASELINK|cat:'images/BBB32.png'}
     {/if}
 {/if}

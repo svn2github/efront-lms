@@ -35,7 +35,7 @@ if (isset($_SESSION['s_login']) && $_SESSION['s_password']) {
 $loadScripts = array('scriptaculous/prototype', 'EfrontScripts', 'drag-drop-folder-tree');
 
 $contentTree = new EfrontContentTree($_SESSION['s_lessons_ID']);
-$visitableIterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
+$visitableIterator = new EfrontVisitableAndEmptyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($contentTree -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
 $html = $contentTree -> toHTML($visitableIterator, false, array('noclick' => true, 'onclick' => 'setLink(this)'));
 
 $mainScripts = getMainScripts();

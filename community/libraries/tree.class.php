@@ -778,7 +778,7 @@ class EfrontNodeFilterIterator extends FilterIterator
                     $this -> evaluate ? $accepted = false : $accepted = true;
                 }
             }
-            return $this -> current() instanceof ArrayObject & $accepted;
+            return $accepted && ($this -> current() instanceof ArrayObject);
         } else {
             return $this -> current() instanceof ArrayObject;
         }

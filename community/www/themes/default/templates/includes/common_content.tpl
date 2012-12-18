@@ -417,7 +417,11 @@
 
   {capture name = 't_unit_operations'}
    {if $T_CURRENT_LESSON->options.print_content && !$T_SCORM}
-    <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=content&view_unit={$T_UNIT.id}&popup=1&print=1", onclick = "eF_js_showDivPopup('{$smarty.const._PRINTERFRIENDLY}', 2)" target = "POPUP_FRAME">{$smarty.const._PRINTERFRIENDLY}</a></div>
+    {if $T_UNIT.ctg_type != 'tests'}
+     <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=content&view_unit={$T_UNIT.id}&popup=1&print=1", onclick = "eF_js_showDivPopup('{$smarty.const._PRINTERFRIENDLY}', 2)" target = "POPUP_FRAME">{$smarty.const._PRINTERFRIENDLY}</a></div>
+    {else}
+     <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=tests&show_test={$T_UNIT_TEST_ID}&popup=1&print=1", onclick = "eF_js_showDivPopup('{$smarty.const._PRINTERFRIENDLY}', 2)" target = "POPUP_FRAME">{$smarty.const._PRINTERFRIENDLY}</a></div>
+    {/if}
    {/if}
    {if $T_CONFIGURATION.disable_comments != 1 && $T_CURRENT_LESSON->options.comments && $_change_ && !$T_RULE_CHECK_FAILED}
     <div>{counter name = "unit_operations"}. <a href = "{$smarty.server.PHP_SELF}?ctg=comments&view_unit={$T_UNIT.id}&add=1&popup=1", onclick = "eF_js_showDivPopup('{$smarty.const._ADDCOMMENT}', 1)" target = "POPUP_FRAME">{$smarty.const._ADDCOMMENT}</a></div>
@@ -483,7 +487,7 @@
      <td id = "centerColumn">
         {if $smarty.get.print}
          {if !$T_DISABLEPRINTUNIT}
-         <p style = "text-align:center"><input class = "flatButton" type = "submit" onClick = "window.print()" value = "{$smarty.const._PRINTIT}"/></p>
+         <p style = "text-align:center"><input id = "print_button" class = "flatButton" type = "submit" onClick = "$('print_button').hide();window.print()" value = "{$smarty.const._PRINTIT}"/></p>
       {/if}
       {if $T_UNIT.ctg_type == 'tests' || $T_UNIT.ctg_type == 'feedback'}
        {include file = "includes/tests/show_unsolved_test.tpl"}

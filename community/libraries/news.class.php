@@ -188,9 +188,9 @@ class news extends EfrontEntity
      $form -> addRule('title', _THEFIELD.' "'._ANNOUNCEMENTTITLE.'" '._ISMANDATORY, 'required', null, 'client');
      $form -> addElement('static', 'toggle_editor_code', 'toggleeditor_link');
      $form -> addElement('textarea', 'data', _ANNOUNCEMENTBODY, 'class = "simpleEditor inputTextarea" style = "width:98%;height:7em;"');
-        $form -> addElement($this -> createDateElement($form, 'timestamp', _VISIBLEFROM));
+        $form -> addElement($this -> createDateElement($form, 'timestamp', _DATE, array('addEmptyOption' => array('H' => true, 'i' => true),'include_time' => true)));
      $form -> addElement('static', 'sidenote', $sidenote);
-        $form -> addElement($this -> createDateElement($form, 'expire', _EXPIRESAT, array('addEmptyOption' => true)));
+        $form -> addElement($this -> createDateElement($form, 'expire', _EXPIRESAT, array('addEmptyOption' => true ,'include_time' => true)));
         if ($GLOBALS['configuration']['disable_calendar'] != 1 && (!isset($GLOBALS['currentUser'] -> coreAccess['calendar']) || $GLOBALS['currentUser'] -> coreAccess['calendar'] != 'hidden')) {
       $form -> addElement('checkbox', 'calendar', _CREATECALENDAREVENT, null, 'class = "inputCheckBox"');
         }

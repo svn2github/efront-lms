@@ -420,10 +420,12 @@
                         {if ( $T_DONE_SURVEY[t_users]=='true' ) }
                             <td align="center" valign="middle" style="white-space:nowrap">
                                 <a href="professor.php?ctg=survey&action=survey_preview&user={$T_SURVEY_USERS[t_users].users_LOGIN}&surveys_ID={$smarty.get.surveys_ID}"><img src='images/16x16/search.png' border='0px' title='{$smarty.const._PREVIEW}'></a>&nbsp;
-                                <a href="professor.php?ctg=survey&action=view_users&preview_action=delete_user&user={$T_SURVEY_USERS[t_users].users_LOGIN}&surveys_ID={$smarty.get.surveys_ID}"><img src='images/16x16/error_delete.png' border='0px' title='{$smarty.const._DELETE}' />
+                                <a href="professor.php?ctg=survey&action=view_users&preview_action=delete_user&user={$T_SURVEY_USERS[t_users].users_LOGIN}&surveys_ID={$smarty.get.surveys_ID}"><img src='images/16x16/error_delete.png' border='0px' title='{$smarty.const._DELETE}' /></a>
                             </td>
                         {else}
-                            <td class="emptyClass" align="center"> - </td>
+                            <td class="emptyClass" align="center">
+                             <img class = "ajaxHandle" src='images/16x16/mail.png' title='{$smarty.const._SENDREMINDER}' alt='{$smarty.const._SENDREMINDER}' onclick = "sendSurveyReminder(this, '{$smarty.get.surveys_ID}', '{$T_SURVEY_USERS[t_users].users_LOGIN}')"/>
+       </td>
                         {/if}
                     </tr>
                     {/section}
@@ -431,6 +433,16 @@
             {else}
                 <table><tr><td class="emptyCategory">{$smarty.const._NOUSERFORTHISSURVEYYET}</td></tr></table>
             {/if}
+            <script>
+            {literal}
+            function sendSurveyReminder(el, survey, user) {
+             Element.extend(el);
+    parameters = {survey:survey, user:user, method: 'get'};
+    var url = 'professor.php?ctg=survey&action=reminder';
+    ajaxRequest(el, url, parameters);
+            }
+            {/literal}
+            </script>
         {/capture}
             {eF_template_printBlock title=$smarty.const._DONESURVEYUSERS data=$smarty.capture.t_view_users image='32x32/surveys.png' help = 'Surveys'}
     {/if}

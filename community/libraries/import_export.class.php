@@ -336,7 +336,7 @@ class EfrontImportCsv extends EfrontImport
 	 * Update the data of an existing record
 	 */
  protected function updateExistingData($line, $type, $data) {
-  $this -> cleanUpEmptyValues(&$data);
+  $this -> cleanUpEmptyValues($data);
   try {
    switch($type) {
     case "users":
@@ -395,7 +395,7 @@ class EfrontImportCsv extends EfrontImport
       } catch (Exception $e) {
        if ($this -> options['replace_existing']) {
         if ($this -> isAlreadyExistsException($e->getCode(), $type)) {
-         if (!in_array($value['login'], $existingUsers['login'])) { //For case-insensitive matches
+         if (!in_array($value['login'], $existingUsers['login'], true)) {//For case-insensitive matches
           foreach ($existingUsers['login'] as $login) {
            if (mb_strtolower($value['login']) == mb_strtolower($login)) {
             $value['login'] = $login;
@@ -759,7 +759,7 @@ class EfrontImportCsv extends EfrontImport
    // Pairs of values <Csv column header> => <eFront DB field>
    $this -> types = EfrontImport::getTypes($type);
    // Pairs of values <eFront DB field> => <import file column>
-   $this -> mappings = $this -> parseHeaderLine(&$headerLine);
+   $this -> mappings = $this -> parseHeaderLine($headerLine);
    $result = eF_getTableDataFlat("user_profile", "name", "active=1 AND type ='date'"); //Get admin-defined form fields for user registration
    if (!empty($result)) {
     $this->dateFields = $result['name'];

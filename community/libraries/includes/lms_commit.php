@@ -30,6 +30,9 @@ try {
   exit;
  }
  if ($_GET['scorm_version'] != '2004') {
+  if ($fields['lesson_status'] == 'browsed') {
+   $fields['lesson_status'] = 'completed';
+  }
   $trackActivityInfo[$fields['content_ID']]['completion_status'] = strtolower($fields['lesson_status']);
   $trackActivityInfo[$fields['content_ID']]['success_status'] = strtolower($fields['lesson_status']);
   unset($fields['objectives']);

@@ -4214,4 +4214,14 @@ define("_MYROLE", "Ρόλος");
 define("_MAXSEATSDEPLEATED", "Οι %y διαθέσιμες θέσεις για το '%x' είναι κατηλειμμένες. Επικοινωνήστο με το %z για πληροφορίες");
 define("_IFRAMEPARAMETERS", "iframe parameters");
 define("_HEIGHTREFERSTOINITIALHEIGHT", "Οι διαστάσεις μπορεί να αλλάξουν δυναμικά μόλις φορτώσει το περιεχόμενο. Μπορείτε να επιβάλετε ρητές τιμές στις ιδιότητες της ενότητας SCORM");
+define("_COURSESTARTDATE", "Ημερομηνία έναρξης δέσμης");
+define("_COURSEENDDATE", "Ημερομηνία λήξης δέσμης");
+define("_SEARCHRESULTSINFILESYSTEM", "Αποτελέσματα στο σύστημα αρχείων");
+define("_FILESYSTEM", "Σύστημα αρχείων");
+define("_PATH", "Διαδρομή");
+define("_TIMESAFTERREGISTRATION", "φορές μετά την εγγραφή");
+define("_ACCESSDEPLETED", "Δεν μπορείτε να δείτε αυτό το μάθημα πλέον");
+define("_ACCESSESREMAINING", "Μπορείτε να δείτε αυτό το μάθημα %x φορές ακόμα");
+define("_REMAININGVACANCIES", "Εναπομείνασες θέσεις εργασίας");
+define("_YOUWHEREADDEDTOTHEGROUPBUTSOMEERRORSOCCURED", "Προστεθήκατε στην ομάδα αλλά προέκυψαν κάποια σφάλματα:");
 ?>

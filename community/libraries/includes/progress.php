@@ -91,7 +91,7 @@ if (isset($_GET['edit_user']) && eF_checkParameter($_GET['edit_user'], 'login'))
         }
     }
 
-    $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and c.ctg_type='tests' and c.lessons_ID=".$currentLesson -> lesson['id']);
+    $testNames = eF_getTableDataFlat("tests t, content c", "t.id, c.name", "c.id=t.content_ID and t.active=1 and c.ctg_type='tests' and c.lessons_ID=".$currentLesson -> lesson['id']);
     $testNames = array_combine($testNames['id'], $testNames['name']);
 
 
@@ -213,11 +213,26 @@ try {
   foreach (EfrontLessonUser :: getLessonsRoles() as $key => $value) {
    $value != 'student' OR $studentRoles[] = $key;
   }
+
+  if ($_SESSION['s_current_branch']) {
+   $branches = array($_SESSION['s_current_branch']);
+   $branchesTree = new EfrontBranchesTree();
+   $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_SESSION['s_current_branch'])), RecursiveIteratorIterator :: SELF_FIRST));
+   foreach($iterator as $key => $value) {
+    $branches[] = $key;
+   }
+
+   $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+     "joinField" => "filter_eb.users_LOGIN",
+     "condition" => "(filter_eb.branch_ID in (" . implode(",", $branches) . ") AND filter_eb.assigned = 1)");
+   $constraints['table_filters'] = $stats_filters;
+  }
   $constraints['condition'] = "ul.user_type in ('".implode("','", $studentRoles)."')";
+
   $users = $currentLesson -> getLessonStatusForUsers($constraints);
   $totalEntries = $currentLesson -> countLessonUsers($constraints);
   $dataSource = $users;
-//pr($dataSource);		
+
   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
  }
  $tableName = $_GET['ajax'];

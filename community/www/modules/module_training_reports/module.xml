@@ -3,7 +3,7 @@
     <title>Training reports</title>
     <author>Manos Dimitrakis</author>
     <date>15/02/2011</date>
-    <version>1.4.2</version>
+    <version>1.4.3</version>
     <description>Online training reports module</description>
     <className>module_training_reports</className>
 </module>

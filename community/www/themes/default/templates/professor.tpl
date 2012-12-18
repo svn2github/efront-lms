@@ -270,8 +270,8 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
  {if $smarty.get.add}
   {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=content&add=1">'|cat:$smarty.const._ADDCONTENT|cat:'</a>'}
  {elseif $smarty.get.edit}
-  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=content&view_unit=`$smarty.get.edit`'>`$T_ENTITY_FORM.name.value`</a>"}
-  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=content&edit='|cat:$smarty.get.edit|cat:'">'|cat:$smarty.const._EDITCONTENT|cat:'&nbsp;<span class="innerTableName">&quot;'|cat:$T_ENTITY_FORM.name.value|cat:'&quot;</span></a>'}
+  {assign var = "title" value = "`$title`&nbsp;&raquo;&nbsp;<a class = 'titleLink' href ='`$smarty.server.PHP_SELF`?ctg=content&view_unit=`$smarty.get.edit`'>`$T_CURRENT_CONTENT_NAME`</a>"}
+  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;'|cat:'<a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=content&edit='|cat:$smarty.get.edit|cat:'">'|cat:$smarty.const._EDITCONTENT|cat:'&nbsp;<span class="innerTableName">&quot;'|cat:$T_CURRENT_CONTENT_NAME|cat:'&quot;</span></a>'}
  {elseif $smarty.get.type == 'theory'}
   {assign var = "title" value = $title|cat:' &raquo; <a class = "titleLink" href ="'|cat:$smarty.server.PHP_SELF|cat:'?ctg=content&type=theory">'|cat:$smarty.const._THEORY|cat:'</a>'}
  {elseif $smarty.get.type == 'examples'}
@@ -738,6 +738,8 @@ if (top.sideframe && top.sideframe.document.getElementById('hasLoaded')) {
 
 
 
+ {elseif $smarty.get.option == 'certificate'}
+  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=certificate">'|cat:$smarty.const._CERTIFICATESTATISTICS|cat:'</a>'}
  {elseif $smarty.get.option == 'course'}
   {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=course">'|cat:$smarty.const._COURSESTATISTICS|cat:'</a>'}
   {if isset($smarty.get.sel_course)}

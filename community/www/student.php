@@ -79,6 +79,10 @@ try {
   } elseif ($_GET['package_ID']) {
    $unit = new EfrontUnit($_GET['package_ID']);
   }
+  if (!$unit['active'] && $_SESSION['s_lesson_user_type'] == "student") {
+   $message = _YOUCANNOTACCESSTHISPAGE;
+            eF_redirect("student.php?message=".urlencode($message)."&message_type=failure");
+  }
   $currentLesson = new EfrontLesson($unit['lessons_ID']);
   $_SESSION['s_lessons_ID'] = $currentLesson -> lesson['id'];
   //$_SESSION['s_time_target'] = array($_SESSION['s_lessons_ID'] => 'lesson');
@@ -204,6 +208,15 @@ try {
         $currentContent = new EfrontContentTree($currentLesson); //Initialize content
         $currentContent -> markSeenNodes($currentUser);
 
+        if ($currentLesson->lesson['access_limit']) {
+         $result = eF_getTableData("users_to_lessons", "access_counter", "users_LOGIN='".$currentUser->user['login']."' and lessons_ID='".$currentLesson->lesson['id']."'");
+         if ($result[0]['access_counter'] >= $currentLesson->lesson['access_limit']) {
+          eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=lessons&message=".urlencode(_ACCESSDEPLETED)."&message_type=failure");
+         } else {
+          eF_updateTableData("users_to_lessons", array('access_counter' => $result[0]['access_counter']+1), "users_LOGIN='".$currentUser->user['login']."' and lessons_ID='".$currentLesson->lesson['id']."'");
+         }
+        }
+
         if ($currentUser -> coreAccess['content'] == 'hidden') {
             eF_redirect("".basename($_SERVER['PHP_SELF'])."?ctg=control_panel&message=".urlencode(_UNAUTHORIZEDACCESS)."&message_type=failure");
         }
@@ -233,7 +246,7 @@ if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
 } elseif (strpos($redirectPage, "module") !== false) {
  $location = "student.php?ctg=landing_page";
 } else {
- $location = "student.php";
+ $location = "student.php?ctg=lessons";
 }
 $smarty->assign("T_HOME_LINK", $location);
 ///MODULE1: Import
@@ -283,7 +296,7 @@ if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
   $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
   if (sizeof($result) > 0) {
    $group = new EfrontGroup($result[0]);
-   $group -> useKeyForUser($currentUser);
+   echo json_encode($group -> useKeyForUser($currentUser));
   } else {
    throw new Exception(_INVALIDKEY.': '.$_GET['group_key']);
   }
@@ -539,6 +552,9 @@ try {
     }
 
 */
+ if (detectBrowser() == 'mobile') {
+  $load_editor = false;
+ }
     $smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
  /*
 

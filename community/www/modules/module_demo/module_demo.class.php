@@ -476,6 +476,26 @@ class module_demo extends EfrontModule {
 
 	 * (non-PHPdoc)
 
+	 * @see libraries/EfrontModule#getCatalogModule()
+
+     */
+    public function getSideCatalogModule() {
+        return true;
+    }
+    /**
+
+	 * (non-PHPdoc)
+
+	 * @see libraries/EfrontModule#getCatalogSmartyTpl()
+
+     */
+    public function getSideCatalogSmartyTpl() {
+     return $this -> moduleBaseDir."module_demo_side_catalog.tpl";
+    }
+    /**
+
+	 * (non-PHPdoc)
+
 	 * @see libraries/EfrontModule#getLandingPageModule()
 
      */
@@ -523,7 +543,9 @@ class module_demo extends EfrontModule {
 
      */
     public function getModuleJS() {
-        return $this->moduleBaseDir."module_demo.js";
+     if (strpos(decryptUrl($_SERVER['REQUEST_URI']), $this -> moduleBaseUrl) !== false) { //load only under the context of this module
+      return $this->moduleBaseDir."module_demo.js";
+     }
     }
     /**
 
@@ -946,6 +968,18 @@ class module_demo extends EfrontModule {
      */
     public function onAddUsersToCourse($courseId, $users, $lessonAssignments) {
      return true;
+    }
+    /**
+
+     * (non-PHPdoc)
+
+     * @see EfrontModule::onBeforeShowCoursesTree()
+
+     */
+    public function onBeforeShowCoursesTree(&$lessons, &$courses, &$progress) {
+     foreach ($courses as $key => $value) {
+      $courses[$key]->course['name'] .= ' (The demo module added this!)';
+     }
     }
     private function fooBar() {
      //Do nothing!

@@ -243,7 +243,7 @@
 {/if}
 
 {if $smarty.get.checkout}
- {assign var = "title" value = "`$title`<a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=checkout&checkout=1'>`$smarty.const._REVIEWANDCHECKOUT`</a>"}
+ {assign var = "title" value = "`$title` &raquo; <a class='titleLink' href = '`$smarty.server.PHP_SELF`?ctg=checkout&checkout=1'>`$smarty.const._REVIEWANDCHECKOUT`</a>"}
     {capture name = "center_code"}
         {if $T_MESSAGE && !$T_FACEBOOK_ACCOUNT_MERGE_POPUP}
           {eF_template_printMessageBlock content = $T_MESSAGE type = $T_MESSAGE_TYPE}

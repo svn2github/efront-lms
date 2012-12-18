@@ -22,7 +22,7 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
  if ($currentUser->user['user_type'] != 'administrator') {
   $myCoursesOptions[] = array('text' => _MYCOURSES, 'image' => "32x32/courses.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons");
  }
- if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['insert_group_key']) {
+ if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['insert_group_key'] && (!isset($currentUser -> coreAccess['insert_group_key']) || $currentUser -> coreAccess['insert_group_key'] != 'hidden')) {
   $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
  }
  if ($currentUser->user['user_type'] != 'administrator' && $GLOBALS['configuration']['lessons_directory']) {
@@ -142,7 +142,16 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   /*Comments list*/
   if (!empty($lessons_list)) {
    $comments = eF_getTableData("comments cm JOIN content c JOIN lessons l ON c.lessons_ID = l.id", "cm.id AS id, cm.data AS data, cm.users_LOGIN AS users_LOGIN, cm.timestamp AS timestamp, c.name AS content_name, c.id AS content_ID, c.ctg_type AS content_type, l.name as show_lessons_name, l.id as show_lessons_id", "c.lessons_ID IN ('".implode("','", $lessons_list)."') AND cm.content_ID=c.id AND c.active=1 AND cm.active=1 AND cm.private=0", "cm.timestamp DESC LIMIT 5");
-   $smarty -> assign("T_LESSON_COMMENTS", $comments); //Assign to smarty
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+    $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    foreach ($comments as $key => $value) {
+     if (!in_array($value['users_LOGIN'], $branchTreeUsers)) {
+      unset($comments[$key]);
+     }
+    }
+   }
+   $smarty -> assign("T_LESSON_COMMENTS", array_values($comments)); //Assign to smarty
   }
   /* Calendar */
   if (!isset($currentUser -> coreAccess['calendar']) || $currentUser -> coreAccess['calendar'] != 'hidden') {
@@ -158,6 +167,16 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    $smarty -> assign("T_CALENDAR_LINK", basename($_SERVER['PHP_SELF'])."?ctg=calendar");
    isset($_GET['add_another']) ? $smarty -> assign('T_ADD_ANOTHER', "1") : null;
    $events = calendar :: getCalendarEventsForUser($currentUser);
+   $events = calendar :: getCalendarEventsForUser($currentUser);
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to branch urls
+    $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+    $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    foreach ($events as $key => $value) {
+     if ($value['type'] != 'global' && !in_array($value['users_LOGIN'], $branchTreeUsers)) {
+      unset($events[$key]);
+     }
+    }
+   }
    $events = calendar :: sortCalendarEventsByTimestamp($events);
    $smarty -> assign("T_CALENDAR_EVENTS", $events); //Assign events and specific day timestamp to smarty, to be used from calendar
    $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
@@ -220,6 +239,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_PEOPLE) {
    // Generally needed for the next social modules
    $all_related_users = $currentUser ->getRelatedUsers();
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+    $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    foreach ($all_related_users as $key => $value) {
+     if (!in_array($value, $branchTreeUsers)) {
+      unset($all_related_users[$key]);
+     }
+    }
+   }
    $related_users_count = sizeof($all_related_users);
    $max_related_users_to_show = 5;
    if ($related_users_count > $max_related_users_to_show) {
@@ -252,6 +280,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   if ($GLOBALS['configuration']['social_modules_activated'] & SOCIAL_FUNC_SYSTEM_TIMELINES) {
    // Generally needed for the next social modules
    $all_related_users = $currentUser ->getRelatedUsers();
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+    $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    foreach ($all_related_users as $key => $value) {
+     if (!in_array($value, $branchTreeUsers)) {
+      unset($all_related_users[$key]);
+     }
+    }
+   }
    $events = array();
    $myEvents = EfrontEvent::getEvents($all_related_users, true, 5);
    $allModules = eF_loadAllModules();
@@ -399,6 +436,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    } else {
     $all_related_users = $currentUser ->getRelatedUsers();
    }
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+    $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    foreach ($all_related_users as $key => $value) {
+     if (!in_array($value, $branchTreeUsers)) {
+      unset($all_related_users[$key]);
+     }
+    }
+   }
    $temp_related_users = eF_getTableData("users", "login, name, surname, avatar, status", "login IN ('".implode("','", $all_related_users)."')");
    $my_related_users = array();
    foreach ($temp_related_users as $user) {
@@ -469,6 +515,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
     //pr($all_related_users);
    } else {
     $all_related_users = $currentUser ->getRelatedUsers();
+   }
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+    $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    foreach ($all_related_users as $key => $value) {
+     if (!in_array($value, $branchTreeUsers)) {
+      unset($all_related_users[$key]);
+     }
+    }
    }
    //$my_related_users = eF_getTableData("users", "login, name, surname, avatar, status", "login IN ('".implode("','", $all_related_users)."')");
    /*
@@ -758,6 +813,15 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
    }
    if ($_SESSION['s_type'] != 'administrator') {
     $all_related_users = $currentUser ->getRelatedUsers();
+    if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+     $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+     $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+     foreach ($all_related_users as $key => $value) {
+      if (!in_array($value, $branchTreeUsers)) {
+       unset($all_related_users[$key]);
+      }
+     }
+    }
     if (isset($_GET['ajax'])) {
      $result = eF_getTableData("users", "login, avatar", "login IN ('".implode("','", $all_related_users). "')");
      $users_avatars = array();

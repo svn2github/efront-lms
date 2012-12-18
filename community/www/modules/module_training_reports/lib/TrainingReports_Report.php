@@ -325,7 +325,6 @@ class TrainingReports_Report {
                 }
             }
 
-            $user['last_login'] = $this->getUserLastLogin($login);
             $user['completed'] = ($countCompleted == sizeof(array_unique($this->courses)));
             $user['courses'] = $coursesData;
 
@@ -349,6 +348,9 @@ class TrainingReports_Report {
         $usersFields = array_intersect($this->fields, $usersTableFields);
         if (in_array('login', $usersFields) == false) {
             $usersFields[] = 'login';
+        }
+        if (in_array('last_login', $usersFields) == false) {
+         $usersFields[] = 'last_login';
         }
         $fields = implode(',', $usersFields);
         if ($this->branches) {
@@ -409,12 +411,6 @@ class TrainingReports_Report {
         $where = 'users_LOGIN =\'' . $login . '\' AND courses_ID IN (' . implode(',', $this->courses) . ')';
         $results = eF_getTableData('users_to_courses', $fields, $where);
         return $results;
-    }
-    private function getUserLastLogin($login) {
-        $where = 'users_LOGIN = "' . $login . '"';
-        $fields = 'MAX(session_timestamp) AS last_login';
-        $users = eF_getTableData('user_times', $fields, $where);
-        return $users[0]['last_login'];
     }
     public function getPeriods() {
         $periods;

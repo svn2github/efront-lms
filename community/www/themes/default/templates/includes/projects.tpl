@@ -296,7 +296,7 @@
                                         <tr><td class = "topTitle">{$smarty.const._TITLE}</td>
                                             <td class = "topTitle">{$smarty.const._DEADLINE}</td>
                                             <td class = "topTitle">{$smarty.const._TIMEREMAIN}</td>
-                                            <td class = "topTitle">{$smarty.const._CREATOR}</td>
+
                         {if $_student_}
                                             <td class = "topTitle centerAlign">{$smarty.const._GRADE}</td>
                                             <td class = "topTitle centerAlign noSort">{$smarty.const._STATUS}</td>
@@ -310,7 +310,7 @@
                                             <td><a href = "{$smarty.server.PHP_SELF}?ctg=projects&{if $_student_}view_project{else}edit_project{/if}={$project->project.id}">{$project->project.title}</a></td>
                                             <td><span style = "display:none">{$project->project.deadline}</span>#filter:timestamp_time_nosec-{$project->project.deadline}#</td>
                                             <td><span style = "display:none">{$project->project.deadline}</span>{$project->timeRemaining}</td>
-                                            <td>#filter:login-{$project->project.creator_LOGIN}#</td>
+
                         {if $_student_}
                                             <td class = "centerAlign">{$project->project.grade}</td>
                                             <td class = "centerAlign">
@@ -347,7 +347,7 @@
          <table class = "sortedTable" width = "100%">
                                         <tr><td class = "topTitle">{$smarty.const._TITLE}</td>
                                             <td class = "topTitle">{$smarty.const._DEADLINE}</td>
-                                            <td class = "topTitle">{$smarty.const._CREATOR}</td>
+
                         {if $_student_}
                                             <td class = "topTitle centerAlign">{$smarty.const._GRADE}</td>
                                             <td class = "topTitle centerAlign noSort">{$smarty.const._STATUS}</td>
@@ -360,7 +360,7 @@
                                         <tr class = "{cycle values = "oddRowColor, evenRowColor"}">
                                             <td><a href = "{$smarty.server.PHP_SELF}?ctg=projects&{if $_student_}view_project{else}edit_project{/if}={$project->project.id}">{$project->project.title}</a></td>
                                             <td><span style = "display:none">{$project->project.deadline}</span>#filter:timestamp_time_nosec-{$project->project.deadline}#</td>
-                                            <td>#filter:login-{$project->project.creator_LOGIN}#</td>
+
                         {if $_student_}
                                             <td class = "centerAlign">{$project->project.grade}</td>
                                             <td class = "centerAlign">

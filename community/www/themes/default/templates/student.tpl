@@ -190,6 +190,8 @@
 
 
 
+ {elseif $smarty.get.option == 'certificate'}
+  {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=certificate">'|cat:$smarty.const._CERTIFICATESTATISTICS|cat:'</a>'}
     {elseif $smarty.get.option == 'advanced_user_reports'}
         {assign var = "title" value = $title|cat:'&nbsp;&raquo;&nbsp;<a class = "titleLink" href = "'|cat:$smarty.server.PHP_SELF|cat:'?ctg=statistics&option=advanced_user_reports">'|cat:$smarty.const._ADVANCEDUSERREPORTS|cat:'</a>'}
     {elseif $smarty.get.option == 'course'}

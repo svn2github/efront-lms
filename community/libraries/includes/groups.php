@@ -141,6 +141,8 @@ $loadScripts[] = 'includes/groups';
                 $lessons[$lesson['id']] = $lesson;
                }
               }
+     $directionsTree = new EfrontDirectionsTree();
+     $smarty -> assign("T_DIRECTION_PATHS", $directionsTree->toPathString());
               $dataSource = $lessons;
               $tableName = $_GET['ajax'];
               include("sorted_table.php");
@@ -171,7 +173,7 @@ $loadScripts[] = 'includes/groups';
                 $currentGroup -> addUsers($user, $user -> user['user_types_ID'] ? $user -> user['user_types_ID'] : $user -> user['user_type']);
                }
               } else if (isset($_GET['addAll']) && $_GET['table'] == "usersTable") {
-               $constraints = array('archive' => false, 'return_objects' => false);// + createConstraintsFromSortedTable();
+               $constraints = array('archive' => false, 'return_objects' => false, 'filter' => $_GET['filter']);// + createConstraintsFromSortedTable();
                $usersToAdd = array();
                foreach ($currentGroup -> getGroupUsersIncludingUnassigned($constraints) as $key => $user) {
                 if (!$user['has_group']) {
@@ -179,6 +181,7 @@ $loadScripts[] = 'includes/groups';
                  $user['user_types_ID'] ? $userTypes[] = $user['user_types_ID'] : $userTypes[] = $user['user_type'];
                 }
                }
+               //pr($usersToAdd);exit;
                $currentGroup -> addUsers($usersToAdd, $userTypes);
               } else if (isset($_GET['removeAll'])) {
                $currentGroup -> removeAllUsers();
@@ -231,24 +234,25 @@ $loadScripts[] = 'includes/groups';
                } else {
                 $userRoles = $currentGroup -> group['user_types_ID'];
                }
-               $result2 = eF_getTableData("users_to_courses", "users_LOGIN,courses_ID,user_type");
+               $result2 = eF_getTableData("users_to_courses", "users_LOGIN,courses_ID,user_type", "archive=0");
                   $usersTocourses = array();
                foreach ($result2 as $value) {
                 $usersTocourses[$value['courses_ID']][$value['users_LOGIN']] = $value['user_type'];
                }
                foreach ($currentGroup -> getGroupCourses() as $key => $course) {
+          $groupUsers_ = $groupUsers; // because unset was done wrongly for all courses(#2808)
                 $coursetypes = $userRoles;
-                foreach ($groupUsers as $login => $user) {
+                foreach ($groupUsers_ as $login => $user) {
                  $index = array_search($login, array_keys($usersTocourses[$key]));
                  if ($index !== false) {
-                  unset($groupUsers[$login]);
+                  unset($groupUsers_[$login]);
                   if (is_array($coursetypes)) {
                    unset($coursetypes[$login]);
                   }
                  }
                 }
-            if (!empty($groupUsers)) {
-                 $course -> addUsers($groupUsers, $coursetypes, true);
+            if (!empty($groupUsers_)) {
+                 $course -> addUsers($groupUsers_, $coursetypes, true);
             }
                }
               } else if (isset($_GET['assign_to_all_users']) && $_GET['assign_to_all_users'] == "lessons") {
@@ -256,7 +260,7 @@ $loadScripts[] = 'includes/groups';
                $groupUsers = array_merge($groupUsers['professor'], $groupUsers['student']);
                $groupLessons = $currentGroup -> getLessons();
                $lessonIds = array_keys($groupLessons);
-                     $result = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,user_type");
+                     $result = eF_getTableData("users_to_lessons", "users_LOGIN,lessons_ID,user_type", "archive=0");
                $usersTolessons = array();
                foreach ($result as $value) {
                 $usersTolessons[$value['users_LOGIN']][$value['lessons_ID']] = $value['user_type'];
@@ -292,7 +296,7 @@ $loadScripts[] = 'includes/groups';
         }
     } else {
         if (isset($_GET['ajax']) && $_GET['ajax'] == "groupsTable") {
-         $dataSource = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "","g.name");
+         $dataSource = eF_getTableData("groups g LEFT OUTER JOIN (select ug.groups_ID from users_to_groups ug, users u where u.login=ug.users_LOGIN and u.archive=0) c ON g.id=c.groups_ID", "g.*, count(c.groups_ID) as num_users", "g.dynamic=0", "g.name", "g.id");
          $tableName = $_GET['ajax'];
          include("sorted_table.php");
         }

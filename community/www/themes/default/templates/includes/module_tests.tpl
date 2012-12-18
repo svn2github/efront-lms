@@ -661,6 +661,7 @@ var quickformSkillQuestCount = '{$T_QUICKTEST_FORM.skill_questions_count_row.htm
      {/if}
      <tr><td id = "singleColumn">
      {if $smarty.get.print}
+     <p style = "text-align:center"><input id = "print_button" class = "flatButton" type = "submit" onClick = "$('print_button').hide();window.print()" value = "{$smarty.const._PRINTIT}"/></p>
       {literal}
       <style>.rawTextQuestion {width:100%;height:400px;}/*For print version, display larger textareas*/</style>
    <script>

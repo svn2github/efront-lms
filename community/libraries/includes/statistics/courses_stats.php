@@ -7,8 +7,9 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 $smarty -> assign("T_OPTION", $_GET['option']);
 
 try {
- require_once $path."includes/statistics/stats_filters.php";
  if (isset($_GET['sel_course'])) {
+  require_once $path."includes/statistics/stats_filters.php";
+
   $directionsTree = new EfrontDirectionsTree();
   $directionsPaths = $directionsTree -> toPathString();
 

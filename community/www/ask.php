@@ -42,7 +42,7 @@ switch ($_GET['ask_type']) {
 function highlightSearch($search_results, $search_criteria, $bgcolor='Yellow'){
  $start_tag = '<span style="vertical-align:top;background-color: '.$bgcolor.'">';
  $end_tag = '</span>';
- $search_results = str_ireplace($search_criteria, $start_tag . $search_criteria . $end_tag, $search_results);
+ $search_results = str_ireplace($search_criteria, $start_tag . $search_criteria . $end_tag, html_entity_decode($search_results)); //html_entity_decode(), otherwise searching for 's' for example, will catch &nbsp; as well
  return $search_results;
 }
 
@@ -136,7 +136,16 @@ function askUsers() {
    //pr($users);
   }
  }
- $str = '<ul>';
+ if (G_VERSIONTYPE == 'enterprise' && $_SESSION['s_current_branch'] && $_SESSION['s_type'] != 'administrator') {
+  $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+  $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+  foreach ($users as $key => $value) {
+   if (!in_array($value['login'], $branchTreeUsers)) {
+    unset($users[$key]);
+   }
+  }
+  $users = array_values($users);
+ }
  for ($k = 0; $k < sizeof($users); $k++){
   /*$hilogin = highlightSearch($users[$k]['login'], $preffix);
 
@@ -163,11 +172,13 @@ function askUsers() {
    }
   }
  }
+ $strs = array();
+ $strs[] = '<ul>';
  for ($k = 0; $k < sizeof($users); $k++){
-  $str = $str.'<li id='.$users[$k]['login'].'>'.$formattedLogins[$users[$k]['login']].'</li>';
+  $strs[] = '<li id='.$users[$k]['login'].'>'.$formattedLogins[$users[$k]['login']].'</li>';
  }
- $str = $str.'</ul>';
- echo $str;
+ $strs[] = '</ul>';
+ echo implode("", $strs);
 }
 function askTests() {
  $preffix = $_POST['preffix'];
@@ -457,12 +468,13 @@ function askLessons() {
           'path_string' => $pathString);
  }
  $lessons = array_values(eF_multisort($lessons, 'path_string', 'asc')); //Sort results based on path string
- $str = '<ul>';
+ $strs = array();
+ $strs[] = '<ul>';
  for ($k = 0; $k < sizeof($lessons); $k++){
-  $str = $str.'<li id='.$lessons[$k]['id'].'>'.$lessons[$k]['path_string'].'</li>';
+  $strs[] = '<li id='.$lessons[$k]['id'].'>'.$lessons[$k]['path_string'].'</li>';
  }
- $str .= '</ul>';
- echo $str;
+ $strs[] = '</ul>';
+ echo implode("", $strs);
 }
 function askGroups() {
  eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
@@ -526,30 +538,36 @@ function askBranches() {
   eF_checkParameter($_POST['preffix'], 'text') ? $preffix = $_POST['preffix'] : $preffix = '%';
   if ($_SESSION['s_type'] == "administrator") {
    $result = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.branch_ID, module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees, branch1.branch_ID as father_ID, branch1.name as father, supervisor","");
-  } else {
+  } elseif ($_SESSION['supervises_branches']) {
    $result = eF_getTableData("(module_hcd_branch LEFT OUTER JOIN (module_hcd_employee_works_at_branch JOIN users ON module_hcd_employee_works_at_branch.users_LOGIN = users.login) ON module_hcd_branch.branch_ID = module_hcd_employee_works_at_branch.branch_ID AND module_hcd_employee_works_at_branch.assigned = '1') LEFT OUTER JOIN module_hcd_branch as branch1 ON module_hcd_branch.father_branch_ID = branch1.branch_ID WHERE module_hcd_branch.branch_ID IN (".$_SESSION['supervises_branches'].") GROUP BY module_hcd_branch.branch_ID ORDER BY branch1.branch_ID", "module_hcd_branch.name, module_hcd_branch.city, module_hcd_branch.address,  sum(CASE WHEN users.active=1 THEN 1 END) as employees, sum(CASE WHEN users.active=0 THEN 1 END) as inactive_employees,  module_hcd_branch.branch_ID, branch1.branch_ID as father_ID, branch1.name as father","");
+  } else {
+   $result = array();
   }
   $branches = array();
   foreach ($result as $value) {
    $branches[$value['branch_ID']] = $value;
   }
   $tree = new EfrontBranchesTree();
+  $branchKeys = array_keys($branches);
+  $branchKeys = array_combine($branchKeys, $branchKeys);
   foreach ($tree -> toPathString() as $key => $branch) {
-   if (in_array($key, array_keys($branches))) {
+   if (isset($branchKeys[$key])) {
     if ($preffix == '%' || stripos($branch, $preffix) !== false) {
-     $hiname = highlightSearch(eF_truncatePath($branch, 80, 6, "...", "&nbsp;&rarr;&nbsp;"), $preffix);
+     $truncated = eF_truncatePath($branch, 80, 6, "...", "&nbsp;&rarr;&nbsp;");
+     $hiname = highlightSearch($truncated, $preffix);
      $branches[$key] = array('branch_ID' => $key,
             'name' => $branch,
             'path_string' => $hiname);
     }
    }
   }
-  $str = '<ul>';
+  $strs = array();
+  $strs[] = '<ul>';
   foreach ($branches as $key => $branch) {
-   $str = $str.'<li id='.$key.'>'.$branch['path_string'].'</li>';
+   $strs[] = '<li id='.$key.'>'.$branch['path_string'].'</li>';
   }
-  $str .= '</ul>';
-  echo $str;
+  $strs[] = '</ul>';
+  echo implode("", $strs);
  } catch (Exception $e) {
   handleAjaxExceptions($e);
  }

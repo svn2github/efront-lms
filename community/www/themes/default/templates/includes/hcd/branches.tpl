@@ -58,7 +58,7 @@
 
   {capture name = 't_branch_code'}
    {eF_template_printForm form=$T_BRANCH_FORM}
-
+{*
       {if $smarty.get.edit_branch}
           {literal}
           <script>
@@ -77,6 +77,7 @@
           </script>
           {/literal}
       {/if}
+*}
   {/capture}
 
   {if $smarty.get.edit_branch}
@@ -207,7 +208,7 @@
               <tr class = "topTitle">
                   <td class = "topTitle">{$smarty.const._JOBDESCRIPTION}</td>
                   <td class = "topTitle centerAlign" >{$smarty.const._CURRENTLYEMPLOYEED}</td>
-                  <td class = "topTitle centerAlign" >{$smarty.const._VACANCIES}</td>
+                  <td class = "topTitle centerAlign" >{$smarty.const._REMAININGVACANCIES}</td>
                   <td class = "topTitle centerAlign" >{$smarty.const._SKILLSREQUIRED}</td>
                   <td class = "topTitle noSort centerAlign" >{$smarty.const._OPERATIONS}</td>
               </tr>

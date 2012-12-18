@@ -260,11 +260,11 @@ class cart
      */
     public static function storeCart($cart = false) {
         if (!$cart) {
-            setcookie("cart", false);
+            setcookie("cart", false, 1, "/");
         } else {
          $cart = self :: compactCart($cart);
          if ($cart === false) {
-             setcookie("cart", false);
+             setcookie("cart", false, 1, "/");
          } else {
              //Check whether a cart for this session id exists and if yes update, otherwise create
              $result = eF_getTableData("carts", "id", "session_id='".session_id()."'");
@@ -274,7 +274,7 @@ class cart
              } else {
                  $id = eF_insertTableData("carts", array("contents" => serialize($cart), "timestamp" => time(), "session_id" => session_id()));
              }
-             setcookie("cart", $id, time() + 3600*24, false, false, false, true);
+             setcookie("cart", $id, time() + 3600*24, "/", false, false, true);
              //Delete carts older than a day
              eF_deleteTableData("carts", "timestamp < ".(time() - 86400));
          }

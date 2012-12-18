@@ -87,6 +87,13 @@ try {
   }
  }
 
+ if (isset($_GET['courses_ID']) && eF_checkParameter($_GET['courses_ID'], 'id') && $_GET['type'] == 'branches') {
+  $result = eF_getTableDataFlat("module_hcd_course_to_branch mb, module_hcd_branch b", "mb.branches_ID, b.name", "b.branch_ID=mb.branches_ID and mb.courses_ID=".$_GET['courses_ID']);
+  $tooltipInfo = '<div class = "infoEntry"><span>'.implode(", ", $result['name'])."</span><span></span></div>";
+  echo $tooltipInfo;
+  exit;
+
+ }
 
  if (isset($_GET['courses_ID']) && eF_checkParameter($_GET['courses_ID'], 'id')) {
   $course = new EfrontCourse($_GET['courses_ID']);

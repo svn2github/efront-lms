@@ -1038,3 +1038,11 @@ function propagateCourse(el, course) {
 	var url    = location.toString();
 	ajaxRequest(el, url, parameters);	
 }
+
+if ($('autocomplete_branches')) {
+	new Ajax.Autocompleter("autocomplete", 
+						   "autocomplete_branches", 
+						   "ask.php?ask_type=branches", {paramName: "preffix", 
+													afterUpdateElement : function (t, li) {$('fatherBranch_value').value = li.id;}, 
+													indicator : "busy"}); 
+}

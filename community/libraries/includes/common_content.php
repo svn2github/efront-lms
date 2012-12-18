@@ -50,6 +50,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
          //The content tree does not hold data, so assign this unit its data
          $unitData = new EfrontUnit($_GET['edit']);
          $currentUnit['data'] = $unitData['data'];
+         $currentUnitName = $unitData['name'];
      } else {
          unset($currentUnit); //Needed because we might have the &view_unit specified in the parameters
      }
@@ -111,7 +112,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      $form -> addElement('select', 'hide_navigation', _HIDENAVIGATION, array(0 => _NO, 1 => _ALLHANDLES, 2 => _UPPERHANDLES, 3 => _LOWERHANDLES));
      $form -> addElement('select', 'ctg_type', _CONTENTTYPE, array('theory' => _THEORY, 'examples'=> _EXAMPLES), 'class = "inputSelect"'); //A select drop down for content type.... Exercises went away in version 3 (2007/07/10) makriria
      //in order to display inactive parent units (#903)
-     $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)); //Default iterator excludes non-active units
+     $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)); //Default iterator excludes non-active units	    
      $form -> addElement('select', 'parent_content_ID', _UNITPARENT, array(0 => _NOPARENT)+$currentContent -> toHTMLSelectOptions($iterator));
      $form -> addElement('file', 'pdf_upload', _PDFFILE, null);
      $form -> addElement('submit', 'submit_insert_content', _SAVECHANGES, 'class = "flatButton"');
@@ -164,12 +165,13 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
      }
   ksort($completeUnitSelect);
      $form -> addElement('select', 'complete_unit_setting', _COMPLETEUNITOPTIONS, $completeUnitSelect, 'onchange = "setUnitCompletionOptions(this)"');
+  $smarty -> assign("T_CURRENT_CONTENT_NAME", $currentUnit['name']); // added because of #2870
      //Set elements default values
      $form -> setDefaults($currentUnit['options']);
      preg_match("/eF_js_setCorrectIframeSize\((.*)\)/", $currentUnit['data'], $matches);
      $form -> setDefaults(array('scorm_size' => isset($matches[1]) ? $matches[1] : null,
                                 'data' => $currentUnit['data'],
-              'name' => $currentUnit['name'],
+              'name' => $currentUnitName, // changed because of #2870
               'ctg_type' => $currentUnit['ctg_type'],
                  'complete_question' => $currentUnit['options']['complete_question'],
               'complete_time' => $currentUnit['options']['complete_time'] ? $currentUnit['options']['complete_time'] : '',
@@ -420,8 +422,12 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     try {
   $log_comments = $currentUnit['id']; //in order to store unit into logs
         //This is the basic content iterator, including even inactive, unpublished or empty units
-        $visitableIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
-        $treeOptions = array('truncateNames' => 25, 'selectedNode' => $currentUnit['id']);
+  if ($GLOBALS['configuration']['disable_tests'] != 1 && $currentLesson -> options['tests'] == 1) {
+   $visitableIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));
+  } else {
+   $visitableIterator = new EfrontNoTestsFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST)));
+  }
+  $treeOptions = array('truncateNames' => 25, 'selectedNode' => $currentUnit['id']);
         //$_professor_ ? $treeOptions['edit'] = 1 : $treeOptions['edit'] = 0;
         $ruleCheck = true;
         if ($_student_ && $_change_ && $currentLesson -> options['tracking']) {
@@ -503,6 +509,7 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
             }
             //Replace inner links. Inner links are created when linking from one unit to another, so they must point either to professor.php or student.php, depending on the user viewing the content
             $currentUnit['data'] = str_replace("##EFRONTINNERLINK##", $_SESSION['s_lesson_user_type'], $currentUnit['data']);
+            $currentUnit['data'] = str_replace(array("##USER_NAME##", "##USER_LAST_NAME##"), array($currentUser->user['name'], $currentUser->user['surname']), $currentUnit['data']);
             if ($currentUnit['ctg_type'] == 'tests' || $currentUnit['ctg_type'] == 'feedback') {
                 $loadScripts[] = 'scriptaculous/dragdrop';
                 $loadScripts[] = 'includes/tests';
@@ -521,6 +528,10 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
     if (isset($currentLesson -> options[$module -> className]) && $currentLesson -> options[$module -> className] == 1) {
      $module -> onBeforeShowContent($currentUnit);
     }
+   }
+         if ($currentUnit['ctg_type'] == 'tests') {
+    $test_id = eF_getTableData("tests","id", "content_ID=".$currentUnit['id']);
+    $smarty -> assign("T_UNIT_TEST_ID", $test_id[0]['id']);
    }
    $smarty -> assign("T_UNIT", $currentUnit);
    $info = array('student_name' => $currentUser->user['name'],
@@ -565,6 +576,15 @@ if (isset($_GET['add']) || (isset($_GET['edit']) && in_array($_GET['edit'], $leg
        //$user = EfrontUserFactory :: factory($value['users_LOGIN']);
        //$comments[$key]['avatar'] = $user -> getAvatar();
    }
+                     if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+              $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+              $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+              foreach ($comments as $key => $value) {
+               if (!in_array($value['users_LOGIN'], $branchTreeUsers)) {
+                unset($comments[$key]);
+               }
+              }
+             }
             $smarty -> assign("T_COMMENTS", array_values($comments));
         } else {
             $smarty -> assign("T_UNIT", array());

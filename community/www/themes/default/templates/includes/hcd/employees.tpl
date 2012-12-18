@@ -18,7 +18,7 @@
 
 <!--ajax:usersTable-->
 
- <table style = "width:100%" class = "sortedTable" sortBy = "0" size = "{$T_TABLE_SIZE}" id = "usersTable" useAjax = "1" branchFilter="{$T_BRANCHES_FILTER}" jobFilter="{$T_JOBS_FILTER}" activeFilter = 1 rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=users&">
+ <table style = "width:100%" class = "sortedTable" sortBy = "0" size = "{$T_TABLE_SIZE}" id = "usersTable" useAjax = "1" branchFilter="true" jobFilter="{$T_JOBS_FILTER}" activeFilter = 1 rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" url = "{$smarty.server.PHP_SELF}?ctg=users&">
   <tr class = "topTitle">
    <td class = "topTitle" name = "login">{$smarty.const._USER}</td>
    <td class = "topTitle" name = "user_type">{$smarty.const._USERTYPE}</td>

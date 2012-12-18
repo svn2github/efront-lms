@@ -197,6 +197,21 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'usersTable') {
         $users = $currentLesson -> getUsers('student');
         $projectUsers = $currentProject -> getUsers();
+        if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+         $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+         $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+         foreach ($users as $key => $value) {
+          if (!in_array($key, $branchTreeUsers)) {
+           unset($users[$key]);
+          }
+         }
+         foreach ($projectUsers as $key => $value) {
+          if (!in_array($key, $branchTreeUsers)) {
+           unset($projectUsers[$key]);
+          }
+         }
+        }
+
         foreach ($users as $key => $user) {
             $users[$key]['checked'] = 0;
             if (in_array($key, array_keys($projectUsers))) { //Set the checked status, depending on whether the user has this project
@@ -233,11 +248,28 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
         try {
             $users = $currentLesson -> getUsers('student');
             $projectUsers = $currentProject -> getUsers();
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+             $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+             $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+             foreach ($users as $key => $value) {
+              if (!in_array($key, $branchTreeUsers)) {
+               unset($users[$key]);
+              }
+             }
+             foreach ($projectUsers as $key => $value) {
+              if (!in_array($key, $branchTreeUsers)) {
+               unset($projectUsers[$key]);
+              }
+             }
+            }
+
             if (isset($_GET['login']) && eF_checkParameter($_GET['login'], 'login')) {
                 if (in_array($_GET['login'], array_keys($projectUsers))) { //The user has the project, so remove him
                     $currentProject -> removeUsers($_GET['login']);
                 } elseif (in_array($_GET['login'], array_keys($users))) { //The user doesn't have the project, so add him
                     $currentProject -> addUsers($_GET['login']);
+                     EfrontEvent::triggerEvent(array("users_LOGIN" => $_GET['login'], "type" => EfrontEvent::PROJECT_ASSIGNMENT, "timestamp" => time(), "lessons_ID" => $currentLesson -> lesson['id'], "lessons_name" => $currentLesson -> lesson['name'], "entity_ID" => $currentProject -> project['id'], "entity_name" => $currentProject -> project['title']));
+
                 }
             } else if (isset($_GET['addAll'])) {
                 isset($_GET['filter']) ? $users = eF_filterData($users, $_GET['filter']) : null;
@@ -284,6 +316,16 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
 } else if (isset($_GET['project_results']) && in_array($_GET['project_results'], array_keys($projects)) && $_professor_ && eF_checkParameter($_GET['project_results'], 'id')) {
  $currentProject = $projects[$_GET['project_results']];
  $users = $currentProject -> getUsers();
+ if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+  $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+  $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+  foreach ($users as $key => $value) {
+   if (!in_array($key, $branchTreeUsers)) {
+    unset($users[$key]);
+   }
+  }
+ }
+
  foreach ($users as $value) {
       if (!empty($value['last_comment']) && $value['users_LOGIN'] == $value['last_comment']) {
          eF_updateTableData("users_to_projects",array('last_comment' => ''), "projects_ID=".$_GET['project_results']." and users_LOGIN='".$value['users_LOGIN']."'");
@@ -554,9 +596,26 @@ if (isset($_GET['delete_project']) && in_array($_GET['delete_project'], array_ke
     $currentProjects = array();
     $passedProjects = array();
 
+    if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+     $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+     $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+    }
+
     foreach ($projects as $project) {
         //getUsers() initializes user information for the specified projects
         $projectUsers = $project -> getUsers();
+        if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+         foreach ($projectUsers as $key => $value) {
+          if (!in_array($key, $branchTreeUsers)) {
+           if ($value['filename']) {
+            $project->doneUsers--;
+           } else {
+            $project->pendingUsers--;
+           }
+          }
+         }
+        }
+
   time() < $project -> project['deadline'] ? $currentProjects[] = $project : $passedProjects[] = $project;
     }
     unset($project);

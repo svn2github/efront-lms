@@ -33,6 +33,25 @@ tinymceConfigs["simpleEditor"] = {
  extended_valid_elements : "*[*]"
     };
 
+tinymceConfigs["messageEditor"] = {
+    mode : "specific_textareas",
+    editor_selector : "messageEditor",
+    theme : "advanced",
+    language : "'.$langFile.'",
+ theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,link,unlink,separator,bullist,numlist,separator,undo,redo'.$vkeyboard.'",
+    theme_advanced_buttons2 : "",
+    theme_advanced_buttons3 : "",
+    entity_encoding : "raw",
+    force_p_newlines : false,
+ plugins : "media,Jsvk",
+ convert_urls : true,
+ relative_urls : false,
+ remove_script_host : false,
+ document_base_url:"'.G_SERVERNAME.'",
+ content_css : "'.G_CURRENTTHEMEURL.'css/css_global.css? + new Date().getTime()",
+ extended_valid_elements : "*[*]"
+    };
+
 tinymceConfigs["digestEditor"] = {
     mode : "specific_textareas",
     editor_selector : "digestEditor",
@@ -129,6 +148,10 @@ tinymceConfigs["templateEditor"] = {
 
 tinyMCE.init(
 tinymceConfigs["simpleEditor"]
+);
+
+tinyMCE.init(
+tinymceConfigs["messageEditor"]
 );
 
 tinyMCE.init(

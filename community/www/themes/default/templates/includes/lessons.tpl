@@ -50,7 +50,7 @@
     </span>
    </div>
 <!--ajax:usersTable-->
-   <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "4" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" {if isset($T_BRANCHES_FILTER)}branchFilter="{$T_BRANCHES_FILTER}"{/if} {if isset($T_JOBS_FILTER)}jobFilter="{$T_JOBS_FILTER}"{/if} url = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$smarty.get.edit_lesson}&">
+   <table style = "width:100%" class = "sortedTable" size = "{$T_USERS_SIZE}" sortBy = "4" id = "usersTable" useAjax = "1" rowsPerPage = "{$smarty.const.G_DEFAULT_TABLE_SIZE}" {if isset($T_JOBS_FILTER)}branchFilter="true" jobFilter="{$T_JOBS_FILTER}"{/if} url = "{$smarty.server.PHP_SELF}?ctg=lessons&edit_lesson={$smarty.get.edit_lesson}&">
     <tr class = "topTitle">
      <td class = "topTitle" name = "login">{$smarty.const._LOGIN}</td>
      <td class = "topTitle" name = "role">{$smarty.const._USERROLEINLESSON}</td>

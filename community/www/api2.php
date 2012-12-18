@@ -355,7 +355,7 @@ In case of error it returns also a message entity with description of the error 
                             $userProfile = eF_getTableData("user_profile", "*", "active=1");
        foreach ($userProfile as $value) {
         if (isset($_GET[$value['name']]) && eF_checkParameter($_GET[$value['name']], 'text') !== false) {
-         if ($value['type'] == "select" && in_array($_GET[$value['name']], unserialize($value['options'])) === false) {
+         if ($value['type'] == "select" && in_array($_GET[$value['name']], array_keys(unserialize($value['options']))) === false) {
           echo "<xml>";
           echo "<status>error</status>";
           echo "<message>Invalid value for ".$_GET[$value['name']]."</message>";

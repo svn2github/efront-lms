@@ -204,8 +204,8 @@
     		url = ajaxUrl[tableIndex]+'ajax='+sortedTables[tableIndex].id+'&limit='+rowsPerPage[tableIndex]+'&offset='+offset+'&sort='+column_name+'&order='+order+'&other='+other;
 
     		if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
-    			//url = url + '&filter='+currentFilter[tableIndex]+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'');
-    		 url = url + '&filter='+(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])? (currentBranchFilter[tableIndex]):'')+'||||'+((currentJobFilter[tableIndex])?(currentJobFilter[tableIndex]):'');
+    		 //url = url + '&filter='+(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])? (currentBranchFilter[tableIndex]):'')+'||||'+((currentJobFilter[tableIndex])?(currentJobFilter[tableIndex]):'');
+    		 url = url + '&filter='+encodeURIComponent(currentFilter[tableIndex])+'||||'+((currentBranchFilter[tableIndex])? encodeURIComponent(currentBranchFilter[tableIndex]):'')+'||||'+((currentJobFilter[tableIndex])?encodeURIComponent(currentJobFilter[tableIndex]):'');
     		}
 
     		var loadingDiv = $('loading_'+sortedTables[tableIndex].id);
@@ -637,9 +637,17 @@ function eF_js_sortTable(el, other) {
         input.setAttribute('id', tableIndex+'_sortedTable_filter');           //Set its id to retrieve it easily
         //input.setAttribute('size', '10');           //Added by mpaltas **But removed from venakis due to IE incompatibility (sic)** to avoid overlapping - using a new table inside the td might be a better idea
         //input.setAttribute('onkeypress', 'if (event.which == 13) eF_js_filterData('+tableIndex+')');
-        input.setAttribute('onkeypress', 'if (event.which == 13 || event.keyCode == 13) {eF_js_filterData('+tableIndex+'); return false;}');       //Set an onkeypress event, so that pressing \"enter\" fires the function. We put the return false here, so that if the table is inside a form, enter will not submit it 
+        //input.setAttribute('onkeypress', 'if (event.which == 13 || event.keyCode == 13) {eF_js_filterData('+tableIndex+'); return false;}');       //Set an onkeypress event, so that pressing \"enter\" fires the function. We put the return false here, so that if the table is inside a form, enter will not submit it
+        input.onkeypress = function(e) {
+        	var e = e || event;
+        	if (e.which == 13 || e.keyCode == 13) {
+        		eF_js_filterData(tableIndex); 
+        		return false;
+    		}
+        }
+        
         if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
-        	input.setAttribute("value", decodeURIComponent(currentFilter[tableIndex]));
+        	input.setAttribute("value", (currentFilter[tableIndex]));
         	
         	if (currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
         		div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentFilter">' + currentFilter[tableIndex]+'||||'+((currentBranchFilter[tableIndex])?currentBranchFilter[tableIndex]:'')+'||||'+((currentJobFilter[tableIndex])?currentJobFilter[tableIndex]:'')+'</span>';
@@ -654,7 +662,12 @@ function eF_js_sortTable(el, other) {
         
         //div.innerHTML += '<span style = "vertical-align:middle">&nbsp;'+sorted_translations["filter"]+':&nbsp;</span>';
         div.appendChild(input);                                              //Append it to the footer cell
-        input.setAttribute('onclick', 'if (this.value.match("'+sorted_translations["filter"]+'...'+'")) this.value = "";'); 
+        //input.setAttribute('onclick', 'if (this.value.match("'+sorted_translations["filter"]+'...'+'")) this.value = "";'); 
+        input.onclick = function() {
+        	if (this.value.match(sorted_translations["filter"]+'...')) {
+        		this.value = "";
+        	}
+        }
 
 
         if (activeFilter[tableIndex]) {
@@ -666,7 +679,7 @@ function eF_js_sortTable(el, other) {
 	        	div.appendChild(new Element('img', {src:'js/ajax_sorted_table/images/trafficlight_on.png', alt:sorted_translations['_SHOWINGALLENTITIES'], title:sorted_translations['_SHOWINGALLENTITIES'], onclick:'toggleActive(this, '+tableIndex+')'}).addClassName('ajaxHandle'));
 	        }
         }
-        
+/*        
 		// Enterprise filters
 		if (branchFilter[tableIndex]) {
 	        var selectBranch = document.createElement('select');                      //Create a select element that will hold the rows per page
@@ -699,7 +712,7 @@ function eF_js_sortTable(el, other) {
 	        }
 	        div.appendChild(selectBranch);
 		}
-		
+*/		
 		if (jobFilter[tableIndex]) {
 	        var selectJob = document.createElement('select');                      //Create a select element that will hold the rows per page
 		       
@@ -727,8 +740,19 @@ function eF_js_sortTable(el, other) {
                      	        
 	        
             selectJob.setAttribute('class', 'inputSelectMed');
-            selectJob.setAttribute('onchange', 'eF_js_filterData('+tableIndex+'); return false;');        //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
-            selectJob.setAttribute('onfocus', 'if ($(\''+tableIndex+'_sortedTable_filter\').value.match("'+sorted_translations["filter"]+'...'+'")) $(\''+tableIndex+'_sortedTable_filter\').value = "";');
+            //selectJob.setAttribute('onchange', 'eF_js_filterData('+tableIndex+'); return false;');        //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+            selectJob.onchange = function() {
+        		eF_js_filterData(tableIndex); 
+        		return false;
+            }
+
+            //selectJob.setAttribute('onfocus', 'if ($(\''+tableIndex+'_sortedTable_filter\').value.match("'+sorted_translations["filter"]+'...'+'")) $(\''+tableIndex+'_sortedTable_filter\').value = "";');
+            selectJob.onfocus = function() {
+            	if ($(tableIndex+'_sortedTable_filter').value.match(sorted_translations["filter"]+'...')) {
+            		$(tableIndex+'_sortedTable_filter').value = "";
+            	}
+            }
+            
 	        selectJob.setAttribute('id', tableIndex+'_sortedTable_jobFilter');     //Set its id so we can retrieve its data easily						
 	        if (currentJobFilter[tableIndex]) {
 	        	div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentJobFilter">'+currentJobFilter[tableIndex]+'</span>';	        	
@@ -738,7 +762,37 @@ function eF_js_sortTable(el, other) {
 	        selectJob.selectedIndex = selectedValueIndex;
 		}        
       
-        
+
+		if (branchFilter[tableIndex]) {
+	        var textBranch = document.createElement('input');
+	        textBranch.setAttribute('type', 'text');
+	        
+            textBranch.style.width='300px';
+            textBranch.style.color='gray';
+            textBranch.value = sorted_translations['_ALLBRANCHES'];
+	        textBranch.setAttribute('id', 'autocomplete');     //Set its id so we can retrieve its data easily
+	        //textBranch.setAttribute('onfocus', 'this.value="";if ($(\''+tableIndex+'_sortedTable_filter\').value.match("'+sorted_translations["filter"]+'...'+'")) $(\''+tableIndex+'_sortedTable_filter\').value = "";');
+	        textBranch.onfocus = function() {
+	        	this.value="";
+            }
+	        
+	        if (currentBranchFilter[tableIndex]) {
+	        	div.innerHTML += '<span style = "display:none" id = "'+table.id+'_currentBranchFilter">'+currentBranchFilter[tableIndex]+'</span>';	        	
+	        }
+	        div.appendChild(textBranch);
+	        
+	        var hidden_value = document.createElement('input');
+	        hidden_value.setAttribute('type', 'hidden');
+	        hidden_value.setAttribute('id', tableIndex+'_sortedTable_branchFilter');
+	        div.appendChild(hidden_value);
+
+	        var div_inner = document.createElement('div');
+	        div_inner.setAttribute('class', 'autocomplete');
+	        div_inner.style.textAlign='left';
+	        div_inner.setAttribute('id', 'autocomplete_branches_table');
+	        div.appendChild(div_inner);
+		}
+		        
         
         div.className = 'sortTablefilter';
         td.appendChild(div);
@@ -770,7 +824,12 @@ function eF_js_sortTable(el, other) {
             	option.setAttribute('selected', 'selected');
             }
         }
-        select_rows.setAttribute('onchange', 'numRows = parseInt(this.options[this.selectedIndex].value);eF_js_changeRowsPerPage('+tableIndex+', numRows)');        //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+        //select_rows.setAttribute('onchange', 'numRows = parseInt(this.options[this.selectedIndex].value);eF_js_changeRowsPerPage('+tableIndex+', numRows)');        //If we ommit parseInt, then rowsPerPage becomes string. So, if for example rowsPerPage is 10 and we add 5, it becoomes 105 instead of 15
+        select_rows.onchange = function() {
+        	numRows = parseInt(this.options[this.selectedIndex].value);
+        	eF_js_changeRowsPerPage(tableIndex, numRows);
+        }
+        
         select_rows.setAttribute('id', tableIndex+'_sortedTable_rowsPerPage');     //Set its id so we can retrieve its data easily
         select_rows.style.verticalAlign = 'middle';
         
@@ -797,7 +856,11 @@ function eF_js_sortTable(el, other) {
         
         var select_page = document.createElement('select');                      //Create a select element, that lists the pages
         select_page.setAttribute('id', tableIndex+'_sortedTable_currentPage');
-        select_page.setAttribute('onchange', 'eF_js_changePage('+tableIndex+', this.options[this.selectedIndex].value)');      //Set an onchange event, so that changing the value fires a change on the page
+        //select_page.setAttribute('onchange', 'eF_js_changePage('+tableIndex+', this.options[this.selectedIndex].value)');      //Set an onchange event, so that changing the value fires a change on the page
+        select_page.onchange = function() {
+        	eF_js_changePage(tableIndex, this.options[this.selectedIndex].value);
+        }
+        
         for (var i = 0; i < pages; i++) {                                   //Add an option for each page
             var option = document.createElement('option');
             option.setAttribute('value', i);
@@ -820,11 +883,19 @@ function eF_js_sortTable(el, other) {
         span_results.innerHTML = '&nbsp;'+sorted_translations["displayingresults"]+'&nbsp;';
         var a_first_page = document.createElement('span');
         a_first_page.style.verticalAlign = 'middle';
-        a_first_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',0)');
+        //a_first_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',0)');
+        a_first_page.onclick = function() {
+        	eF_js_changePage(tableIndex,0);
+        }
+        
         a_first_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_left_src+'2.png"  alt = "'+sorted_translations["_FIRST"]+'" title = "'+sorted_translations["_FIRST"]+'" class = "handle" />';
         var a_previous_page = document.createElement('span');
         a_previous_page.style.verticalAlign = 'middle';
-        a_previous_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',\'previous\')');
+        //a_previous_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',\'previous\')');
+        a_previous_page.onclick = function() {
+        	eF_js_changePage(tableIndex,'previous');
+        }
+        
         a_previous_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_left_src+'.png"  alt = "'+sorted_translations["_PREVIOUS"]+'" title = "'+sorted_translations["_PREVIOUS"]+'" class = "handle" />';
 
         var span_outof = document.createElement('span');
@@ -833,11 +904,19 @@ function eF_js_sortTable(el, other) {
         
         var a_next_page = document.createElement('span');
         a_next_page.style.verticalAlign = 'middle';
-        a_next_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',\'next\')');
+        //a_next_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+',\'next\')');
+        a_next_page.onclick = function() {
+        	eF_js_changePage(tableIndex,'next');
+        }
+        
         a_next_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_right_src+'.png" alt = "'+sorted_translations["_NEXT"]+'" title = "'+sorted_translations["_NEXT"]+'" class = "handle" />';
         var a_last_page = document.createElement('span');
         a_last_page.style.verticalAlign = 'middle';
-        a_last_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+','+(pages - 1)+')');
+        //a_last_page.setAttribute('onclick', 'eF_js_changePage('+tableIndex+','+(pages - 1)+')');
+        a_last_page.onclick = function() {
+        	eF_js_changePage(tableIndex,(pages - 1));
+        }
+        
         a_last_page.innerHTML = '<img src = "js/ajax_sorted_table/images/'+img_right_src+'2.png" alt = "'+sorted_translations["_LAST"]+'" title = "'+sorted_translations["_LAST"]+'" class = "handle" />';
 
         if (!sorted_rtl) {
@@ -879,6 +958,13 @@ function eF_js_sortTable(el, other) {
 
         table.toolsCell = td;                                               //Assign the current cell to a global variable
 
+        if (branchFilter[tableIndex]) {
+	        new Ajax.Autocompleter('autocomplete', 
+		      		   "autocomplete_branches_table", 
+		      		   "ask.php?ask_type=branches", {paramName: "preffix", 
+		      									afterUpdateElement : function (t, li) {$(tableIndex+'_sortedTable_branchFilter').value=li.id;eF_js_filterData(tableIndex); return false;}}); 
+        }
+        
         if (!useAjax[tableIndex]) {
             eF_js_changePage(tableIndex, 0);                                      //Display the first page
 	        table.style.visibility = 'visible';                                 		//The table is not visible by default (to avoid displaying effects). Make the table visible

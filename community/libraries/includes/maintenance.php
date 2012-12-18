@@ -202,7 +202,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
      $smarty -> assign("T_APC", true);
     }
 
-    $logSize = eF_countTableData("logs");
+    $logSize = eF_getTableData("logs", "count(id) as count");
     $smarty -> assign("T_LOG_SIZE", $logSize[0]['count']);
     $lastLogEntry = eF_getTableData("logs", "timestamp", "", "timestamp", false, 1);
     $smarty -> assign("T_LAST_LOG_ENTRY", $lastLogEntry[0]['timestamp']);
@@ -279,7 +279,7 @@ if (!isset($currentUser -> coreAccess['maintenance']) || $currentUser -> coreAcc
            eF_executeNew("drop view if exists users_view");
            eF_executeNew("drop view if exists lessons_status_view");
            eF_executeNew("drop view if exists courses_status_view");
-           eF_executeNew("drop view if exists logins_view");
+           //eF_executeNew("drop view if exists logins_view");
            eF_executeNew("drop view if exists skills_view");
            eF_executeNew("drop view if exists employees_view");
            eF_executeNew("drop view if exists works_at_branch_view");

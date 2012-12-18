@@ -91,6 +91,7 @@ if (isset($_GET['sel_user'])) {
    }
    $smarty -> assign("T_DATASOURCE_COLUMNS", array('name', 'location', 'user_type', 'num_lessons', 'status', 'completed', 'score', 'operations', 'sort_by_column' => 4));
    $smarty -> assign("T_DATASOURCE_OPERATIONS", array('progress'));
+   $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
    if ($_GET['ajax'] == 'coursesTable' || $_GET['ajax'] == 'instancesTable') {
     $tableName = $_GET['ajax'];
     if (isset($_GET['ajax']) && $_GET['ajax'] == 'coursesTable') {

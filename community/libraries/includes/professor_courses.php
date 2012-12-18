@@ -133,6 +133,13 @@ else if (isset($_GET['ajax']) && isset($_GET['edit_course']) && $_change_) {
          $smarty -> assign("T_BASIC_ROLES_ARRAY", $rolesBasic);
 
          $constraints = array('archive' => false, 'active' => 1, 'return_objects' => false) + createConstraintsFromSortedTable();
+         if ($_SESSION['s_current_branch']) {
+          $branch = new EfrontBranch($_SESSION['s_current_branch']);
+          $branches = $branch->getAllSubbranches();
+          $branches[] = $_SESSION['s_current_branch'];
+          $constraints['branch'] = $branches;
+         }
+
    $users = $editCourse -> getCourseUsersIncludingUnassigned($constraints);
    $totalEntries = $editCourse -> countCourseUsersIncludingUnassigned($constraints);
    $dataSource = $users;

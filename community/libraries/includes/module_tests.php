@@ -235,6 +235,19 @@ try {
             $doneTests[$currentTest -> test['id']][$user]['name'] = $all_users[$user]['name'];
         }
 
+        if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //when under a branch url, exclude users not belonging to it
+         $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+         $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+
+         foreach ($doneTests as $key => $value) {
+          foreach ($value as $k=>$v) {
+           if (!in_array($k, $branchTreeUsers)) {
+            unset($doneTests[$key][$k]);
+           }
+          }
+         }
+        }
+
         $smarty -> assign("T_DONE_TESTS", $doneTests[$currentTest -> test['id']]);
         $smarty -> assign("T_TEST", $currentTest);
 
@@ -250,6 +263,7 @@ try {
             exit;
         } else if (isset($_GET['ajax']) && $_GET['reset_all_for_all'] == 1) {
             try {
+
           foreach ($doneTests[$currentTest -> test['id']] as $user => $done_test) {
            $currentTest -> undo($user);
           }
@@ -495,6 +509,16 @@ try {
 
             if (isset($_GET['filter'])) {
                 $recentTests = eF_filterData($recentTests, $_GET['filter']);
+            }
+
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+             $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+             $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+             foreach ($recentTests as $key => $value) {
+              if (!in_array($value['users_LOGIN'], $branchTreeUsers)) {
+               unset($recentTests[$key]);
+              }
+             }
             }
 
             $smarty -> assign("T_PENDING_SIZE", sizeof($recentTests));

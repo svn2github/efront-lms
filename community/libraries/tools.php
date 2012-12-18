@@ -1239,7 +1239,7 @@ function eF_checkParameter($parameter, $type, $correct = false)
             }
        break;
        case 'path':
-           if (preg_match("/^.*[$\"]+.*$/", $parameter)) {
+           if (preg_match("/^.*[\"]+.*$/", $parameter)) {
                 return false;
             }
        break;
@@ -2172,12 +2172,16 @@ function eF_dateFormat($returnSpaces = true, $format = false)
     return $output;
 }
 function eF_assignSupervisorMissingSubBranchesRecursive() {
+ if ($_SESSION['s_branches_fixed']) { //This ensures that this function is only called once per session - more would be pointless
+  return true;
+ }
  $count = 0;
  $fixed = true;
  while ($fixed && $count++ < 10) {
   $fixed = eF_assignSupervisorMissingSubBranches();
   eF_getRights();
  }
+ $_SESSION['s_branches_fixed'] = true;
  //exit;
 }
 function eF_assignSupervisorMissingSubBranches() {
@@ -2459,7 +2463,11 @@ function eF_redirect($url, $js = false, $target = 'top', $retainUrl = false) {
      } else {
          $parts['query'] = '';
      }
-     $url = G_SERVERNAME.basename($parts['path']).$parts['query'];
+     if ($parts['fragment'] == "") {
+      $url = G_SERVERNAME.basename($parts['path']).$parts['query'];
+     } else {
+      $url = G_SERVERNAME.basename($parts['path']).$parts['query'].'#'.$parts['fragment'];
+     }
  }
  session_write_close();
     if ($js) {

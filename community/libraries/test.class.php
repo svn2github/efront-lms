@@ -243,7 +243,15 @@ class EfrontTest
         eF_deleteTableData("tests_to_questions", "tests_ID=".$this -> test['id']);
         eF_deleteTableData("done_tests", "tests_ID=".$this -> test['id']);
         eF_deleteTableData("completed_tests", "tests_ID=".$this -> test['id']);
+        //Added code to prevent content tree from collapsing
+        $result = eF_getTableData("content", "previous_content_ID", "id=".$this -> test['content_ID']);
+        $previousOfDeleted = $result[0]['previous_content_ID'];
+        $result2 = eF_getTableData("content", "id", "previous_content_ID=".$this -> test['content_ID']);
+        $idOfNext = $result2[0]['id'];
         eF_deleteTableData("content", "id=".$this -> test['content_ID']);
+        if ($idOfNext != '') {
+         eF_updateTableData("content", array("previous_content_ID" => $previousOfDeleted), "id=".$idOfNext);
+        }
         eF_deleteTableData("tests", "id=".$this -> test['id']);
         Cache::resetCache('test:'.$this -> test['id']);
         return true;
@@ -1597,12 +1605,52 @@ class EfrontTest
       }
      }
     }
-    $testQuestions = array_slice($testQuestions, 0, $poolSize);
-    $temp = array();
-    foreach ($testQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
+    // Code for selecting questions depending on lessons_ID frequency
+    $lesson_count = array();
+    $questions_per_lesson = array();
+    foreach ($testQuestions as $value) {
+     $lesson_count[$value -> question['lessons_ID']] += 1;
+     $questions_per_lesson[$value -> question['lessons_ID']][$value -> question['id']] = $value;
+    }
+    $questionsTemp = array();
+    $randomQuestions = array();
+    foreach (array_keys($questions_per_lesson) as $key) {
+     $questionsTemp = $questions_per_lesson[$key];
+     shuffle($questionsTemp);
+     $questionsTemp = array_slice($questionsTemp, 0, floor($lesson_count[$key]*$poolSize/array_sum($lesson_count)), true);
+     $randomQuestions = array_merge($randomQuestions, $questionsTemp);
+    }
+             $temp = array();
+    foreach ($randomQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
      $temp[$value -> question['id']] = $value;
     }
-    $completedTest -> questions = $temp;
+    $randomQuestions = $temp;
+             $temp2 = array();
+    foreach ($testQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
+     $temp2[$value -> question['id']] = $value;
+    }
+    $testQuestions = $temp2;
+    foreach ($randomQuestions as $key => $value) {
+     unset($testQuestions[$key]);
+    }
+    if (sizeof($randomQuestions) < $poolSize) {
+     $additionalQuestions = array_slice($testQuestions, 0, $poolSize-sizeof($randomQuestions));
+    }
+    $temp = array();
+    foreach ($additionalQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
+     $temp[$value -> question['id']] = $value;
+    }
+    $additionalQuestions = $temp;
+    if (!empty($additionalQuestions)) {
+     $randomQuestions = array_merge($randomQuestions, $additionalQuestions);
+    }
+    $temp = array();
+    foreach ($randomQuestions as $value) { //Shuffling reindexed array, so we need to put back the correct keys
+     $temp[$value -> question['id']] = $value;
+    }
+    $randomQuestions = $temp;
+    $completedTest -> questions = $randomQuestions;
+    //End of code for selecting questions depending on lessons_ID frequency
    } else {
     $completedTest -> questions = $recentlyCompleted -> questions; //when redoing wrong answered, same questions must be selected
    }
@@ -1825,7 +1873,7 @@ class EfrontTest
   }
         // If we have a random pool of question then get a random sub-array of the questions
         if ($this -> options['random_pool'] > 0 && $this -> options['random_pool'] < sizeof($allTestQuestions)) {
-   $rand_questions = array_rand($allTestQuestions, $this -> options['random_pool']);
+         $rand_questions = array_rand($allTestQuestions, $this -> options['random_pool']);
             $testQuestions = array();
             foreach ($rand_questions as $question) {
                 $testQuestions[$question] = $allTestQuestions[$question];
@@ -5453,7 +5501,7 @@ class RawTextQuestion extends Question implements iQuestion
     public function toHTMLQuickForm(&$form) {
      global $load_editor;
   $load_editor = true;
-        $elements[] = $form -> createElement("textarea", "question[".$this -> question['id']."]", null, 'class = "simpleEditor" style = "width:100%;height:100px;"');
+        $elements[] = $form -> createElement("textarea", "question[".$this -> question['id']."]", null, 'cols="80" rows="5" class = "simpleEditor" style = "width:100%;height:100px;"');
         $elements[] = $form -> createElement("file", "file_".$this -> question['id'].'[0]', null, 'class = "inputText" id = "file_'.$this -> question['id'].'[0]" style = "display:none"');
         if ($this -> userAnswer !== false) {
              $form -> setDefaults(array("question[".$this -> question['id']."]" => $this -> userAnswer));

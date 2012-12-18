@@ -15,6 +15,46 @@
 
 {else}
 
+ {*moduleNewUsersApplications: The list of inactive users, waiting for activation*}
+ {if $T_INACTIVE_USERS}
+  {capture name = "moduleNewUsersApplications"}
+      <tr><td class = "moduleCell">
+          {capture name = 't_inactive_users_code'}
+              {section name = 'inactive_users_list' loop = $T_INACTIVE_USERS}
+         <div {if $smarty.section.inactive_users_list.iteration>10}class = "hidden_user_registrations" style="display:none"{/if}>{counter name = "users"}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_INACTIVE_USERS[inactive_users_list].login}&op=profile">#filter:login-{$T_INACTIVE_USERS[inactive_users_list].login}#</a></div>
+              {sectionelse}
+         <span class = "emptyCategory">{$smarty.const._NONEWAPPLICATIONS}</span>
+              {/section}
+                 {if sizeof($T_INACTIVE_USERS) > 10}
+                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_user_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_INACTIVE_USERS|@sizeof}{$total-10} {$smarty.const._MORE}</a></div>
+                  <div class = "hidden_user_registrations" style = "display:none"><a href = "javascript:void(0)" onclick = "$$('div.hidden_user_registrations').each(function (s) {ldelim}s.hide(){rdelim});Element.extend(this).up().previous().show();">{$T_INACTIVE_USERS|@sizeof} {$smarty.const._LESS}</a></div>
+     {/if}
+          {/capture}
+
+          {eF_template_printBlock title = $smarty.const._NEWUSERS data = $smarty.capture.t_inactive_users_code image = '32x32/users.png' array = $T_INACTIVE_USERS link=$T_INACTIVE_USERS_LINK}
+      </td></tr>
+  {/capture}
+ {/if}
+
+ {*moduleNewsList: A list with system announcements*}
+ {if $T_CONFIGURATION.disable_news != 1 && $T_CURRENT_USER->coreAccess.news != 'hidden' && ($_admin_ || $T_CURRENT_LESSON->options.news)}
+        {capture name = "moduleNewsList"}
+   <tr><td class = "moduleCell">
+          {capture name='t_news_code'}
+           <table class = "cpanelTable">
+           {foreach name = 'news_list' item = "item" key = "key" from = $T_NEWS}
+            <tr><td>{$smarty.foreach.news_list.iteration}. <a title = "{$item.title}" href = "{$smarty.server.PHP_SELF}?ctg=news&view={$item.id}&popup=1" target = "POPUP_FRAME" onclick = "eF_js_showDivPopup('{$smarty.const._ANNOUNCEMENT}', 1);">{$item.title}</a></td>
+             <td class = "cpanelTime">#filter:user_login-{$item.users_LOGIN}#, <span title = "#filter:timestamp_time-{$item.timestamp}#">{$item.time_since}</span></td></tr>
+           {foreachelse}
+            <tr><td class = "emptyCategory">{$smarty.const._NOANNOUNCEMENTSPOSTED}</td></tr>
+           {/foreach}
+           </table>
+          {/capture}
+
+          {eF_template_printBlock title = $smarty.const._ANNOUNCEMENTS content = $smarty.capture.t_news_code image = '32x32/announcements.png' options = $T_NEWS_OPTIONS link = $T_NEWS_LINK expand = $T_POSITIONS_VISIBILITY.moduleNewsList}
+   </td></tr>
+        {/capture}
+ {/if}
 
     {*moduleCalendar: Display the calendar innertable*}
     {if $T_CONFIGURATION.disable_calendar != 1 && $T_CURRENT_USER->coreAccess.calendar != 'hidden' && ($_admin_ || $T_CURRENT_LESSON->options.calendar)}
@@ -39,7 +79,7 @@
                      <div {if $smarty.section.new_lessons_list.iteration>10}class = "hidden_lesson_registrations" style="display:none"{/if}>{counter name = "lessons"}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_NEW_LESSONS[new_lessons_list].users_LOGIN}&op=user_courses">#filter:login-{$T_NEW_LESSONS[new_lessons_list].users_LOGIN}# ({$T_NEW_LESSONS[new_lessons_list].count} {if $T_NEW_LESSONS[new_lessons_list].count == 1}{$smarty.const._LESSON}{else}{$smarty.const._LESSONS}{/if})</a></div>
                  {/section}
                  {if sizeof($T_NEW_LESSONS) > 10}
-                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_lesson_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_NEW_LESSONS|@sizeof}{$total-10} {$smarty.const._MORE}</a></div>
+                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_lesson_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_NEW_LESSONS|@sizeof}{$total-10}{if $total==100}+{/if} {$smarty.const._MORE}</a></div>
                   <div class = "hidden_lesson_registrations" style = "display:none"><a href = "javascript:void(0)" onclick = "$$('div.hidden_lesson_registrations').each(function (s) {ldelim}s.hide(){rdelim});Element.extend(this).up().previous().show();">{$total-10} {$smarty.const._LESS}</a></div>
      {/if}
      {if $T_NEW_COURSES && $T_NEW_LESSONS}<br/>{$smarty.const._COURSESREGISTRATIONS}:{/if}
@@ -47,7 +87,7 @@
                   <div {if $smarty.section.new_courses_list.iteration>10}class = "hidden_course_registrations" style="display:none"{/if}>{counter name = "courses"}. <a href = "{$smarty.server.PHP_SELF}?ctg=personal&user={$T_NEW_COURSES[new_courses_list].users_LOGIN}&op=user_courses">#filter:login-{$T_NEW_COURSES[new_courses_list].users_LOGIN}# ({$T_NEW_COURSES[new_courses_list].name}{if $T_NEW_COURSES[new_courses_list].supervisor_LOGIN} - {$smarty.const._SUPERVISORAPPROVAL}{/if})</a></div>
                  {/section}
                  {if sizeof($T_NEW_COURSES) > 10}
-                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_course_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_NEW_COURSES|@sizeof}{$total-10} {$smarty.const._MORE}</a></div>
+                  <div><a href = "javascript:void(0)" onclick = "$$('div.hidden_course_registrations').each(function (s) {ldelim}s.show(){rdelim});Element.extend(this).up().hide();">{assign var = "total" value = $T_NEW_COURSES|@sizeof}{$total-10}{if $total==100}+{/if} {$smarty.const._MORE}</a></div>
                   <div class = "hidden_course_registrations" style = "display:none"><a href = "javascript:void(0)" onclick = "$$('div.hidden_course_registrations').each(function (s) {ldelim}s.hide(){rdelim});Element.extend(this).up().previous().show();">{$total-10} {$smarty.const._LESS}</a></div>
      {/if}
              {/capture}

@@ -8,6 +8,7 @@
 */
 //General initialization and parameters
 session_cache_limiter('none');
+session_id($_COOKIE['parent_sid']);
 session_start();
 $path = "../../libraries/";
 /** Configuration file.*/

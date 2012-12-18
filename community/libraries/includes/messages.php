@@ -154,6 +154,19 @@ try {
             $courses = eF_getTableDataFlat("courses JOIN users_to_courses", "id,name", "users_to_courses.archive=0 and courses.archive=0 and courses.active=1 and courses.id = users_to_courses.courses_ID AND users_LOGIN = '".$currentUser->user['login']."'", "name");
         }
 
+        //If in a branch url, remove unrelated courses
+        if (G_VERSIONTYPE == 'enterprise' && defined("G_BRANCH_URL") && G_BRANCH_URL) {
+         $branch = new EfrontBranch($_SESSION['s_current_branch']);
+         $result = eF_getTableDataFlat("module_hcd_course_to_branch", "courses_ID", "branches_ID=".$branch->branch['branch_ID']);
+         foreach ($courses['id'] as $key => $value) {
+
+          if (!in_array($value, $result['courses_ID'])) {
+           unset($courses['id'][$key]);
+           unset($courses['name'][$key]);
+          }
+         }
+        }
+
         //This code is for excluding lessons that belong to inactive courses and they do not belong to any other active course
         $lessons_excluded = eF_getTableData("courses c,lessons l, lessons_to_courses lc", "l.id,l.name,SUM(c.active) as active", "l.id=lc.lessons_ID and c.id=lc.courses_ID  AND l.course_only=1", "", "l.id");
         foreach ($lessons_excluded as $key => $value) {
@@ -239,9 +252,9 @@ try {
   //$form->addElement('hidden','recipient',null,'id = "recipient"');
   $form -> addElement('text', 'subject', _SUBJECT, 'id = "msg_subject" class = "inputText" style = "width:400px"');
         $form -> addElement('file', 'attachment[0]', _ATTACHMENT, null, 'class = "inputText"');
-        $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
+        $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'id = "send_as_email" class = "inputCheckBox"');
         if ($_SESSION['s_type'] != 'student') {
-         $form -> addElement('textarea', 'body', _BODY, 'class = "simpleEditor" style = "width:100%;height:200px"');
+         $form -> addElement('textarea', 'body', _BODY, 'class = "messageEditor" style = "width:100%;height:200px"');
         } else {
          $form -> addElement('textarea', 'body', _BODY, 'style = "width:100%;height:200px"');
         }
@@ -414,6 +427,15 @@ try {
                     break;
                 default:
                     break;
+            }
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+             $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+             $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+             foreach ($result['login'] as $key => $value) {
+              if (!in_array($value, $branchTreeUsers)) {
+               unset($result['login'][$key]);
+              }
+             }
             }
             // Using this approach to enable the merging of the two arrays
             if (!empty($result)) {

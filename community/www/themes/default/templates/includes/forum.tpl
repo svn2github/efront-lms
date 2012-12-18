@@ -212,8 +212,10 @@
     <table class = "forumMessageTable" style = "width:100%">
                 {section name = 'messages_list' loop = $T_POSTS}
                     {assign var = "message_user" value = $T_POSTS[messages_list].users_LOGIN}
+
      <tr class = "{cycle values = "oddRowColorNoHover, evenRowColorNoHover"}">
                      <td>
+                     <a name="message_{$T_POSTS[messages_list].id}"></a>
                       <div class = "blockHeader">{$T_POSTS[messages_list].title}</div>
                       <div class = "forumMessageInfo">{$smarty.const._POSTEDBY}<span> #filter:user_loginNoIcon-{$T_POSTS[messages_list].users_LOGIN}# </span>{$smarty.const._ON} #filter:timestamp_time-{$T_POSTS[messages_list].timestamp}# {if $T_POSTS[messages_list].replyto}{$smarty.const._INREPLYTO}: <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$smarty.get.topic}&view_message={$T_POSTS[messages_list].replyto}#{$T_POSTS[messages_list].replyto}">{$T_POSTS[messages_list].reply_title}</a>{/if}</div>
                       <p>{$T_POSTS[messages_list].body}</p>

@@ -32,10 +32,8 @@ if ($currentUser->user['user_type'] != 'administrator' || $currentUser->user['us
 
 $constrainAccess = array();
 if (!isset($_GET['add_user'])) {
- if ((isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change')) {
-  if ($editedUser->user['login'] != $currentUser->user['login']) {
-   $constrainAccess = 'all';
-  }
+ if ( $editedUser->user['login'] != $currentUser->user['login'] && (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['users'] != 'change')) {
+  $constrainAccess = 'all';
  } else {
   $constrainAccess = array();
   $constrainAccess[] = 'login';
@@ -50,7 +48,6 @@ if (!isset($_GET['add_user'])) {
    $constrainAccess[] = 'passrepeat';
    $constrainAccess[] = 'password_';
   }
-
   if ($editedUser->user['login'] == $currentUser->user['login']) { //A user can't change his own type, nor deactivate himself
    $constrainAccess[] = 'user_type';
    $constrainAccess[] = 'active';
@@ -145,8 +142,24 @@ if ($contrainAllButPassword) {
  $allFields = $form -> _elementIndex;
  unset($allFields['password_']);
  unset($allFields['passrepeat']);
- $constrainAccess = $constrainAccess + array_keys($allFields);
+ if (is_array($constrainAccess)) {
+  $constrainAccess = array_merge($constrainAccess, array_keys($allFields));
+ } else {
+  $constrainAccess = array_keys($allFields);
+ }
+ //$constrainAccess = $constrainAccess + array_keys($allFields);	// this excluded name because it keeps indexes of $constrainAccess
 }
+/*
+foreach ($userProfile as $key => $field) {
+	if ($field['mandatory'] == 2 && $currentUser->user['login'] == $editedUser->user['login'] && $editedUser->user[$field['name']] == '') {
+		unset($allFields[$field['name']]);
+		//pr($field['name']);
+	} 
+}
+
+$constrainAccess = $constrainAccess + array_keys($allFields);	
+*/
+//vd($constrainAccess);
 if ($constrainAccess != 'all') {
  $form -> addElement('submit', 'submit_personal_details', _SUBMIT, 'class = "flatButton"');
  $form -> freeze($constrainAccess);

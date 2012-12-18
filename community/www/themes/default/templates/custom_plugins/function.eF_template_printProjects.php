@@ -42,7 +42,7 @@ function smarty_function_eF_template_printProjects($params, &$smarty) {
                 $str .= '">'.$params['data'][$i]['title'].$last_comment.'</a></td>';
             }
 
-            $str .= '<td class = "cpanelTime">#filter:user_login-'.$params['data'][$i]['creator_LOGIN'].'#, ';
+            $str .= '<td class = "cpanelTime">';
             $title2 = _DEADLINE.': #filter:timestamp_time-'.$params['data'][$i]['deadline'].'#';
             if ($params['data'][$i]['deadline'] > time()) {
                 $str .= '<span title = "'.$title2.'">'._EXPIRESIN.' '.eF_convertIntervalToTime($params['data'][$i]['deadline'] - time(), true)."</span>";
@@ -53,13 +53,13 @@ function smarty_function_eF_template_printProjects($params, &$smarty) {
             $str .= '</td></tr>';
         } else {
             if (isset($params['data'][$i]['upload_timestamp'])){ //from lesson control panel
-    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&project_results='.$params['data'][$i]['id'].'">'.$params['data'][$i]['users_LOGIN'].' ('.$params['data'][$i]['title'].')'.$last_comment.'</a></td>
+    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&project_results='.$params['data'][$i]['id'].'">#filter:login-'.$params['data'][$i]['users_LOGIN'].'# ('.$params['data'][$i]['title'].')'.$last_comment.'</a></td>
                  <td class = "cpanelTime">';
 
     $str .= '<span> '.eF_convertIntervalToTime(time() - $params['data'][$i]['upload_timestamp'], true)."&nbsp;"._AGO."</span>";
     $str .= '</td></tr>';
    } else { //from social page
-    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&lessons_ID='.$params['data'][$i]['lessons_ID'].'&project_results='.$params['data'][$i]['id'].'">'.$params['data'][$i]['users_LOGIN'].' ('.$params['data'][$i]['title'].')'.$last_comment.'</a></td>
+    $str .= '<a title="'.$title_message.'" href = "professor.php?ctg=projects&lessons_ID='.$params['data'][$i]['lessons_ID'].'&project_results='.$params['data'][$i]['id'].'">#filter:user_login-'.$params['data'][$i]['users_LOGIN'].'# ('.$params['data'][$i]['title'].')'.$last_comment.'</a></td>
       <td class = "cpanelTime">';
     if ($params['data'][$i]['deadline'] > time()) {
      $str .= '<span title = "'.$title2.'">'._EXPIRESIN.' '.eF_convertIntervalToTime($params['data'][$i]['deadline'] - time(), true)."</span>";

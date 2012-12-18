@@ -26,11 +26,26 @@ $load_editor = true;
 
  if ($_admin_) {
      $news = news :: getNews(0);
- } else if ($_professor_) {
-     $news = news :: getNews(0, true) + news :: getNews($lessonId, false);
- } else if ($_student_) {
-     $news = news :: getNews(0, true) + news :: getNews($lessonId, true);
+ } else if ($_professor_ || $_student_) {
+  $news = news :: getNews(0, true);
+  if ($_professor_) {
+   $lessonNews = news :: getNews($lessonId, false);
+  } else if ($_student_) {
+   $lessonNews = news :: getNews($lessonId, true);
+  }
+  if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to branch urls
+   $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+   $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+   foreach ($lessonNews as $key => $value) {
+    if ($value['type'] != 'global' && !in_array($value['users_LOGIN'], $branchTreeUsers)) {
+     unset($lessonNews[$key]);
+    }
+   }
+  }
+  $news = $news + $lessonNews;
  }
+
+
  $smarty -> assign("T_NEWS", $news);
 
  //An array of legal ids for editing entries

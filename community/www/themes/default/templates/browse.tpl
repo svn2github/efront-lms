@@ -27,18 +27,20 @@
     <tr><td colspan = "100%" class = "emptyCategory">{$smarty.const._NOFILESFOUND}</td></tr>
 {/foreach}
 </table>
+
+{assign var="t_offset_escaped" value=$T_OFFSET|replace:"'":"\'"}
 <script>
 {literal}
 function setValue(id, name) { //with new version of editor top.document changed to parent.document
     if (parent.document.getElementById('src')) {
-        parent.document.getElementById('src').value='{/literal}{$T_OFFSET}{literal}'+name;
+        parent.document.getElementById('src').value='{/literal}{$t_offset_escaped}{literal}'+name;
     } else if (parent.document.getElementById('href')) {
-        parent.document.getElementById('href').value='{/literal}{$T_OFFSET}{literal}'+name;
+        parent.document.getElementById('href').value='{/literal}{$t_offset_escaped}{literal}'+name;
     } else if (parent.document.getElementById('file')) {
         parent.document.getElementById('file').value=name;
-        parent.document.getElementById('codebase').value='{/literal}{$T_OFFSET}{literal}';
+        parent.document.getElementById('codebase').value='{/literal}{$t_offset_escaped}{literal}';
     } else if (parent.document.getElementById('document')) {
-        parent.document.getElementById('document').value='{/literal}{$T_OFFSET}{literal}'+name;
+        parent.document.getElementById('document').value='{/literal}{$t_offset_escaped}{literal}'+name;
     }
 }
 {/literal}

@@ -1147,11 +1147,6 @@ class EfrontStats
       $lessonId = $lesson;
      }
 
-/*
-    	foreach ($times->getUsersSessionTimeInLessonContent($lessonId) as $value) {
-    		$usersTimesInLessonContent[$value['users_LOGIN']] = $value['time'];
-    	}    	
-*/
      //$usersTimesInLessonContent[$user] = $times->getUserSessionTimeInLessonContent($user, $lessonId);
      $usersTimesInLessonContent[$user] = EfrontLesson::getUserActiveTimeInLesson($user, $lessonId);
 

@@ -4,7 +4,6 @@
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
     exit;
 }
-
 $smarty -> assign("T_OPTION", $_GET['option']);
 try {
     if ($currentUser -> user['user_type'] == 'administrator') {
@@ -101,6 +100,7 @@ try {
         try {
          $constraints = array('archive' => false, 'return_objects' => false, 'table_filters' => $stats_filters);
          $statsFiltersUsers = $infoLesson -> getLessonStatusForUsers($constraints, true);
+         $statsFiltersUsersKeys = array_keys($statsFiltersUsers);
          $lessonTests = $infoLesson -> getTests(true);
          $scormTests = $infoLesson -> getScormTests();
             if (sizeof($lessonTests) > 0 || sizeof($scormTests) > 0) {
@@ -114,7 +114,7 @@ try {
                 }
 
 
-    $statsFiltersUsersKeys = array_keys($statsFiltersUsers);
+
           foreach ($testsInfo as $id => $test) {
            foreach ($test['done'] as $key => $value) {
             if (!in_array($value['users_LOGIN'], $statsFiltersUsersKeys)) {
@@ -163,7 +163,15 @@ try {
         try {
             $lessonProjects = $infoLesson -> getProjects(true, false, false);
             if (sizeof($lessonProjects) > 0) {
-                $projectsInfo = EfrontStats :: getProjectInfo(array_keys($lessonProjects));
+             $projectsInfo = EfrontStats :: getProjectInfo(array_keys($lessonProjects));
+             foreach ($projectsInfo as $key => $project) {
+              foreach ($project['done'] as $k => $value) {
+               if (!in_array($value['users_LOGIN'], $statsFiltersUsersKeys)) {
+                unset($projectsInfo[$key]['done'][$k]);
+               }
+              }
+             }
+
                 $smarty -> assign("T_PROJECTS_INFORMATION", $projectsInfo);
             }
         } catch (Exception $e) {

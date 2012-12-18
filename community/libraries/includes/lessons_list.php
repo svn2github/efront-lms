@@ -87,15 +87,22 @@ try {
                   'catalog' => false,
          'only_progress_link' => true,
          'collapse' => $GLOBALS['configuration']['collapse_catalog']);
+  foreach ($loadedModules as $module) {
+   $module->onBeforeShowCoursesTree($userLessons, $userCourses, $userProgress);
+  }
   if (sizeof ($userLessons) > 0 || sizeof($userCourses) > 0) {
    $smarty -> assign("T_DIRECTIONS_TREE", $directionsTree -> toHTML(false, $userLessons, $userCourses, $userProgress, $options));
   }
   $innertable_modules = array();
+  $side_innertable_modules = array();
   foreach ($loadedModules as $module) {
    unset($InnertableHTML);
+   unset($side_InnertableHTML);
      $centerLinkInfo = $module -> getCenterLinkInfo();
     $InnertableHTML = $module -> getCatalogModule();
     $InnertableHTML ? $module_smarty_file = $module -> getCatalogSmartyTpl() : $module_smarty_file = false;
+    $side_InnertableHTML = $module -> getSideCatalogModule();
+    $side_InnertableHTML ? $module_side_smarty_file = $module -> getSideCatalogSmartyTpl() : $module_side_smarty_file = false;
    // If the module has a lesson innertable
    if ($InnertableHTML) {
     // Get module html - two ways: pure HTML or PHP+smarty
@@ -109,11 +116,26 @@ try {
      $innertable_modules[$module->className] = array('html_code' => $InnertableHTML);
     }
    }
+   if ($side_InnertableHTML) {
+    // Get module html - two ways: pure HTML or PHP+smarty
+    // If no smarty file is defined then false will be returned
+    if ($module_side_smarty_file) {
+     // Execute the php code -> The code has already been executed by above (**HERE**)
+     // Let smarty know to include the module smarty file
+     $side_innertable_modules[$module->className] = array('smarty_file' => $module_side_smarty_file);
+    } else {
+     // Present the pure HTML cod
+     $side_innertable_modules[$module->className] = array('html_code' => $side_InnertableHTML);
+    }
+   }
   }
   if (!empty($innertable_modules)) {
    $smarty -> assign("T_INNERTABLE_MODULES", $innertable_modules);
   }
-  if ($GLOBALS['configuration']['insert_group_key']) {
+  if (!empty($side_innertable_modules)) {
+   $smarty -> assign("T_SIDE_INNERTABLE_MODULES", $side_innertable_modules);
+  }
+  if ($GLOBALS['configuration']['insert_group_key'] && (!isset($currentUser -> coreAccess['insert_group_key']) || $currentUser -> coreAccess['insert_group_key'] != 'hidden')) {
    $myCoursesOptions[] = array('text' => _ENTERGROUPKEY, 'image' => "32x32/key.png", 'href' => "javascript:void(0)", 'onclick' => "eF_js_showDivPopup('"._ENTERGROUPKEY."', 0, 'group_key_enter')");
   }
   if ($GLOBALS['configuration']['lessons_directory']) {

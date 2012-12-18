@@ -598,9 +598,18 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
    if (!$details_link || !$fatherBranchId || ($_GET['add_branch'] && !$_GET['add_branch_to']) || $forbidden_link) {
     $handleVisibility = ' style="visibility:hidden"';
    }
-   $handle = '<a id = "details_link" name = "details_link" '.$details_link.$handleVisibility.'><img src = "images/16x16/search.png" class = "handle" title="'._DETAILS.'" alt="'._DETAILS.'" ></a>';
+   //$handle = '<a id = "details_link" name = "details_link" '.$details_link.$handleVisibility.'><img src = "images/16x16/search.png" class = "handle" title="'._DETAILS.'" alt="'._DETAILS.'" ></a>';
+   $handle = '<img id = "busy" src = "images/16x16/clock.png" style = "display:none;" alt = "{$smarty.const._LOADING}" title = "{$smarty.const._LOADING}"/><div id = "autocomplete_branches" class = "autocomplete"></div>&nbsp;&nbsp;&nbsp;';
    $form -> addElement('static', 'sidenote', $handle);
-   $form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches, $only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
+   //$form -> addElement('select', 'fatherBranch' , _FATHERBRANCH, eF_createBranchesTreeSelect($father_branches, $only_existing),'class = "inputText"  id="fatherBranch" onchange="javascript:change_branch(\'fatherBranch\',\'details_link\',\''.$forbidden_link.'\')"');
+   $form -> addElement('text', 'fatherBranch_autoselect', _FATHERBRANCH, 'class = "inputText" id = "autocomplete"');
+   $form -> addElement('static', '', _STARTTYPINGFORRELEVENTMATCHES);
+   if ($fatherBranchId) {
+    $fatherBranch = new EfrontBranch($fatherBranchId);
+    $form->setDefaults(array('fatherBranch_autoselect' => $fatherBranch->branch['name']));
+   }
+   //$form -> addElement('static', 'st', '<div id = "autocomplete_branches" class = "autocomplete"></div>&nbsp;&nbsp;&nbsp;');
+   $form -> addElement('hidden', 'fatherBranch', '', 'id = "fatherBranch_value"');
   } else {
    $first_branch = 1;
   }

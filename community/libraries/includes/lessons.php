@@ -183,6 +183,8 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
 
  $form -> addElement('text', 'duration', _AVAILABLEFOR, 'style = "width:50px;"');
  $form -> addRule('duration', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
+ $form -> addElement('text', 'access_limit', _AVAILABLEFOR, 'style = "width:50px;"');
+ $form -> addRule('access_limit', _THEFIELD.' "'._AVAILABLEFOR.'" '._MUSTBENUMERIC, 'numeric', null, 'client');
  if (isset($_GET['edit_lesson'])) { //If we are editing a lesson, we set the default form values to the ones stored in the database
   $editLesson = new EfrontLesson($_GET['edit_lesson']);
   $form -> setDefaults(array('name' => $editLesson -> lesson['name'],
@@ -192,6 +194,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                    'directions_ID' => $editLesson -> lesson['directions_ID'],
                                    'languages_NAME' => $editLesson -> lesson['languages_NAME'],
                                    'duration' => $editLesson -> lesson['duration'] ? $editLesson -> lesson['duration'] : '',
+           'access_limit' => $editLesson -> lesson['access_limit'] ? $editLesson -> lesson['access_limit'] : '',
                  'share_folder' => $editLesson -> lesson['share_folder'] ? $editLesson -> lesson['share_folder'] : 0,
                                    'max_users' => $editLesson -> lesson['max_users'] ? $editLesson -> lesson['max_users'] : null,
                                    'price' => $editLesson -> lesson['price'],
@@ -231,6 +234,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                        'directions_ID' => $values['directions_ID'],
                                        'active' => $values['active'],
                                        'duration' => $values['duration'] ? $values['duration'] : 0,
+            'access_limit' => $values['access_limit'] ? $values['access_limit'] : 0,
                                        'share_folder' => $values['share_folder'] ? $values['share_folder'] : 0,
                                        'max_users' => $values['max_users'] ? $values['max_users'] : null,
                         'show_catalog' => $values['show_catalog'],
@@ -286,6 +290,7 @@ if (isset($_GET['delete_lesson']) && eF_checkParameter($_GET['delete_lesson'], '
                                        'languages_NAME' => $languages_NAME,
                                        'active' => $values['active'],
                                        'duration' => $values['duration'] ? $values['duration'] : 0,
+            'access_limit' => $values['access_limit'] ? $values['access_limit'] : 0,
                                        'share_folder' => $values['share_folder'] ? $values['share_folder'] : 0,
                                        'max_users' => $values['max_users'] ? $values['max_users'] : null,
             'show_catalog' => $values['show_catalog'],

@@ -77,13 +77,6 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
     {/if}
    </td>
 {/if}
-
-
-
-
-
-
-
 {if in_array('directions_name', $T_DATASOURCE_COLUMNS)}
          <td class = "directions_name">
           {$course.directions_name}
@@ -122,13 +115,6 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
     {$course.num_lessons}
    </td>
 {/if}
-
-
-
-
-
-
-
 {if in_array('price', $T_DATASOURCE_COLUMNS) && $T_CONFIGURATION.disable_payments != 1}
    <td class = "price">
     {if $course.price == 0}-{else}{$course.price_string}{/if}
@@ -204,16 +190,7 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
  {/if}
  {if !isset($T_DATASOURCE_OPERATIONS) || in_array('delete', $T_DATASOURCE_OPERATIONS)}
   {if $_change_handles_}
-
-
-
-
-
-
-
     <img class = "ajaxHandle" src = "images/16x16/error_delete.png" title = "{$smarty.const._DELETE}" alt = "{$smarty.const._DELETE}" onclick = "if (confirm('{$smarty.const._AREYOUSUREYOUWANTTODELETECOURSE}')) deleteCourse(this, '{$course.id}');"/>
-
-
   {/if}
  {/if}
    {/strip}</td>
@@ -233,7 +210,6 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
         <img src = "images/16x16/success.png" alt = "{$smarty.const._COURSEUSER}" title = "{$smarty.const._COURSEUSER}">
               {/if}
        {/if}
-
          </td>
 {/if}
      </tr>
@@ -241,7 +217,6 @@ table#coursesTable td.has_course,table#instancesTable td.has_course{width:10%;te
      <tr class = "defaultRowHeight oddRowColor"><td class = "emptyCategory" colspan = "{$T_DATASOURCE_COLUMNS|@sizeof}">{$smarty.const._NODATAFOUND}</td></tr>
   {/foreach}
 {/capture}
-
 {capture name = 'lessons_list'}
 <style>
 {literal}
@@ -379,7 +354,6 @@ table#lessonsTable td.has_lesson,table#courseLessons td.has_lesson{width:5%;text
        {else}
         <img src = "images/16x16/success.png" alt = "{$smarty.const._LESSONUSER}" title = "{$smarty.const._LESSONUSER}">
        {/if}
-
          </td>
 {/if}
   </tr>

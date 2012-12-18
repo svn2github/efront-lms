@@ -150,7 +150,19 @@ try {
           }
           isset($_GET['filter']) ? $filter = $_GET['filter'] : $filter = false;
           isset($_GET['other']) ? $other = $_GET['other'] : $other = '';
+/*        		    		
 
+        		if (mb_strpos(realpath($_GET['other']), realpath($basedir) ) !== false) {
+
+        			isset($_GET['other'])  ? $other  = $_GET['other']  : $other  = '';
+
+        		} else {
+
+        			throw new EfrontFileException(_YOUCANNOTACCESSTHEREQUESTEDRESOURCE, EfrontFileException::UNAUTHORIZED_ACTION);
+
+        		}
+
+*/
           $ajaxOptions = array('sort' => $sort, 'order' => $order, 'limit' => $limit, 'offset' => $offset, 'filter' => $filter);
           //$extraFileTools = array(array('image' => 'images/16x16/arrow_right.png', 'title' => _INSERTEDITOR, 'action' => 'insert_editor'));
           $filesystemCode = $filesystem -> toHTML($url, $other, $ajaxOptions, $options, $extraFileTools, $extraDirectoryTools, $extraHeaderOptions, $filesystemIterator, false, $extraColumns);

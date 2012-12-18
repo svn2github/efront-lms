@@ -31,6 +31,8 @@
  var courseProfessorsConst = "{$smarty.const._COURSEPROFESSORS}";
  var allCourseEventRecipients = "{$T_COURSE_EVENT_RECIPIENTS.allcourse}";
  var allCourseUsersConst = "{$smarty.const._ALLCOURSEUSERS}";
+ var courseStartDateConst = "{$smarty.const._COURSESTARTDATE}";
+ var courseEndDateConst = "{$smarty.const._COURSEENDDATE}";
 
  var lessonsNameConst = "{$smarty.const._LESSONNAME}";
  var courseNameConst = "{$smarty.const._COURSENAME}";
@@ -42,6 +44,8 @@
  var surveyNameConst = "{$smarty.const._SURVEYNAME}";
  var surveyIdConst = "{$smarty.const._SURVEYID}";
  var surveyMessageConst = "{$smarty.const._SURVEYMESSAGE}";
+ var projectNameConst = "{$smarty.const._PROJECTNAME}";
+ var projectIdConst = "{$smarty.const._PROJECTID}";
 
  var branchNameConst = "{$smarty.const._BRANCHNAME}";
  var jobNameConst = "{$smarty.const._JOBDESCRIPTIONNAME}";

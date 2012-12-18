@@ -11,12 +11,20 @@
        </span>
     {/if}
        <span class = "leftOption">#filter:login-{$T_CURRENT_USER->user.login}#&nbsp;</span>
+
+
+
+
+
+
+
       </td>
      </tr>
     </table>
    {/capture}
    {$smarty.capture.t_status_change_interface}
   {/if}
+
   {include file = "social.tpl"}
  {elseif $T_OP == 'profile' || $T_OP == 'user_groups' || $T_OP == 'mapped_accounts' || $T_OP == 'payments'}
   <div class = "tabber">
@@ -48,11 +56,12 @@
    <div class = "tabbertab {if $T_OP=='user_form'}tabbertabdefault{/if}" title = "{$smarty.const._USERFORM}">{include file = "includes/personal/user_form.tpl"}</div>
   {/if}
   </div>
- {elseif $T_OP == 'placements' || $T_OP == 'history' || $T_OP == 'skills' || $T_OP == 'evaluations' || $T_OP == 'org_form'}
+ {elseif $T_OP == 'placements' || $T_OP == 'history' || $T_OP == 'skills' || $T_OP == 'evaluations' || $T_OP == 'org_form' || $T_OP == 'quals'}
   <div class = "tabber">
    <div class = "tabbertab {if $T_OP=='org_form'}tabbertabdefault{/if}" title = "{$smarty.const._ORGANIZATIONALDATA}">{include file = "includes/personal/org_form.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='placements'}tabbertabdefault{/if}" title = "{$smarty.const._PLACEMENTS}">{include file = "includes/personal/placements.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='skills'}tabbertabdefault{/if}" title = "{$smarty.const._SKILLS}">{include file = "includes/personal/skills.tpl"}</div>
+   <div class = "tabbertab {if $T_OP=='quals'}tabbertabdefault{/if}" title = "Qualifications">{include file = "includes/SDMS_qualifications.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='evaluations'}tabbertabdefault{/if}" title = "{$smarty.const._EVALUATIONS}">{include file = "includes/personal/evaluations.tpl"}</div>
    <div class = "tabbertab {if $T_OP=='history'}tabbertabdefault{/if}" title = "{$smarty.const._HISTORY}">{include file = "includes/personal/history.tpl"}</div>
   </div>

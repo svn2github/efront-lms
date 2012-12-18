@@ -948,7 +948,7 @@ class module_gradebook extends EfrontModule{
  }
 
     public function getModuleIcon() {
-        return $this -> moduleBaseLink.'images/gradebook_logo32.png';
+        return $this -> moduleBaseLink.'images/gradebook_logo.png';
     }
 }
 

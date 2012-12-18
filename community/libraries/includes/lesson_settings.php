@@ -127,6 +127,8 @@ if ($_GET['op'] == 'reset_lesson') {
 
     $form -> addElement('file', 'file_upload', null, 'class = "inputText"'); //Lesson file
     $form -> setMaxFileSize(FileSystemTree :: getUploadMaxSize() * 1024); //getUploadMaxSize returns size in KB
+
+    $form -> addElement('text', 'url_upload', _UPLOADFILEFROMURL, 'class = "inputText"');
     $form -> addElement('submit', 'submit_import_lesson', _SUBMIT, 'class = "flatButton"');
 
     $smarty -> assign("T_MAX_FILESIZE", FileSystemTree :: getUploadMaxSize());
@@ -137,9 +139,22 @@ if ($_GET['op'] == 'reset_lesson') {
             $currentLesson -> initialize(array_keys($values['options']));
 
             $filesystem = new FileSystemTree($currentLesson -> getDirectory());
-            $uploadedFile = $filesystem -> uploadFile('file_upload', $currentLesson -> getDirectory());
-            $currentLesson -> import($uploadedFile);
-
+            $urlUpload = $values['url_upload'];
+            if ($urlUpload != "" ) {
+             FileSystemTree :: checkFile($urlUpload);
+             $urlArray = explode("/", $urlUpload);
+                $urlFile = urldecode($urlArray[sizeof($urlArray) - 1]);
+                if (!copy($urlUpload, $currentLesson -> getDirectory().$urlFile)) {
+                    $error = error_get_last();
+                    throw new Exception(_PROBLEMUPLOADINGFILE.': '.$error['message']);
+                } else {
+                 $uploadedFile = new EfrontFile($currentLesson -> getDirectory().$urlFile);
+                    $currentLesson -> import($uploadedFile);
+                }
+            } else {
+             $uploadedFile = $filesystem -> uploadFile('file_upload', $currentLesson -> getDirectory());
+             $currentLesson -> import($uploadedFile);
+            }
             $smarty -> assign("T_REFRESH_SIDE", 1);
 
             $message = _LESSONIMPORTEDSUCCESFULLY;

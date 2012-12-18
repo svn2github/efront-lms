@@ -108,11 +108,11 @@ function onUncompressFile(el, response) {
 	eF_js_rebuildTable($("filename_"+tableId).down().getAttribute("tableIndex"), 0, "", "desc", $(tableId).getAttribute("currentDir"));
 }
 function deleteFolder(el, id) {
-	parameters = {delete_folder:id, method: 'get'};
+	parameters = {delete_folder:id, method: 'get'};	
 	ajaxRequest(el, url, parameters, onDeleteFolder);	
 } 
 function onDeleteFolder(el, response) {
-	eF_js_rebuildTable($("filename_"+tableId).down().getAttribute("tableIndex"), 0, "", "desc", "");
+	eF_js_rebuildTable($("filename_"+tableId).down().getAttribute("tableIndex"), 0, "", "desc", $(tableId).getAttribute("currentDir"));
 }
 function addUploadBox(el) {
 	Element.extend(el);

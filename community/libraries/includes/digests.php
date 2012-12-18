@@ -229,6 +229,9 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
               $basic_templates_array["survey_name"] = _SURVEYNAME;
               $basic_templates_array["survey_id"] = _SURVEYID;
               $basic_templates_array["survey_message"] = _SURVEYMESSAGE;
+             } else if ($mode == "project") {
+              $basic_templates_array["project_name"] = _PROJECTNAME;
+              $basic_templates_array["project_id"] = _PROJECTID;
              }
             }
             $form -> addElement('select', 'templ_add' , _ADDTEMPLATIZEDTEXT, $basic_templates_array, "id = 'template_add' class = 'inputSelectMed' onChange= 'addTemplatizedText(this)'");
@@ -366,11 +369,15 @@ if ($_GET['op'] == "preview" && eF_checkParameter($_GET['sent_id'], 'id') ) {
               //continue
              } else if ($mode != "system") {
               if ($mode == "survey" || $mode == "projects" || $mode == "job") {
-               $basic_event_recipients[EfrontNotification::EXPLICITLYSEL] = _EXPLICITLYSELECTED;
-               $smarty -> assign("T_SHOW_EXPLICITLY_HELP", 1);
+               if ($event_notification[0]['event_type'] != EfrontEvent::PROJECT_ASSIGNMENT) {
+                $basic_event_recipients[EfrontNotification::EXPLICITLYSEL] = _EXPLICITLYSELECTED;
+                $smarty -> assign("T_SHOW_EXPLICITLY_HELP", 1);
+               }
               }
               $basic_event_recipients[EfrontNotification::ALLLESSONUSERS] = _ALLLESSONUSERS;
-              $basic_event_recipients[EfrontNotification::LESSONUSERSNOTCOMPLETED] = _LESSONUSERSNOTCOMPLETED;
+              if ($event_notification[0]['event_type'] != EfrontEvent::PROJECT_ASSIGNMENT) {
+               $basic_event_recipients[EfrontNotification::LESSONUSERSNOTCOMPLETED] = _LESSONUSERSNOTCOMPLETED;
+              }
               $basic_event_recipients[EfrontNotification::LESSONPROFESSORS] = _LESSONPROFESSORS;
              }
             }

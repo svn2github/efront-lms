@@ -878,7 +878,23 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
          } else {
           $completed_condition = "";
          }
-         $recipients = eF_getTableData("users_to_courses uc, users u", "u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID, uc.user_type as role", "u.active=1 and u.archive=0 and uc.archive=0 and uc.users_LOGIN = u.login and uc.courses_ID=". $this -> recipients["courses_ID"] . $completed_condition);
+         if ($this->recipients['supervisor']) {
+          if ($this -> recipients['users_login']) {
+           $editedUser = EfrontUserFactory :: factory($this -> recipients['users_login']); //new EfrontUser();
+           $editedEmployee = $editedUser -> aspects['hcd'];
+           $supervisors = $editedEmployee -> getSupervisors();
+           $recipients = array();
+           foreach ($supervisors as $supervisor) {
+            $recipients[$supervisor] = array("login" => $supervisor);
+           }
+          } else {
+           $query = "select distinct u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID from module_hcd_employee_works_at_branch ewb join users u on u.login=ewb.users_login where supervisor=1 and u.active=1 and u.archive=0 and branch_ID in (select branch_ID from module_hcd_employee_works_at_branch ewb, users_to_courses uc where uc.users_LOGIN=ewb.users_login and uc.courses_ID=". $this -> recipients["courses_ID"]." and uc.archive=0)"; //get course users' supervisors
+           $result = eF_executeNew($query);
+           $recipients = $result->getAll();
+          }
+         } else {
+          $recipients = eF_getTableData("users_to_courses uc, users u", "u.login, u.name, u.surname, u.email, u.user_type as basic_user_type, u.active, u.user_types_ID, uc.user_type as role", "u.active=1 and u.archive=0 and uc.archive=0 and uc.users_LOGIN = u.login and uc.courses_ID=". $this -> recipients["courses_ID"] . $completed_condition);
+         }
         } else if (isset($this -> recipients['user_type'])) {
          $recipients = eF_getTableData("users", "*", "active=1 and archive=0 and user_type = '". $this -> recipients['user_type']."'");
         } else if (isset($this -> recipients['entity_ID']) && isset($this -> recipients['entity_category'])) {
@@ -1051,9 +1067,7 @@ h) Enhmerwsh ana X meres gia shmantika gegonota sto eFront (auto prepei na to sy
       $pm->send();
       $result = $smtp -> send($recipient['email'], $header, $message);
      }
-     //ssssssssssssssssssssss
      if ($result) {
-     //if (true) {  echo $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ") " . $message ."<BR>";  // for debugging
      // put into sent_notifications table
          eF_insertTableData("sent_notifications", array("timestamp" => time(),
                      "recipient" => $recipient['email'] . " (" .$recipient['name'] . " " . $recipient['surname'] . ")",

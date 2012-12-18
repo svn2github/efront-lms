@@ -1,7 +1,9 @@
 <?php
 
 session_cache_limiter('none');
+session_id($_COOKIE['parent_sid']);
 session_start();
+
 
 $path = "../../../../../libraries/";
 
@@ -13,7 +15,6 @@ if ($_SESSION['s_lessons_ID']) {
 } elseif (strpos($_SERVER['HTTP_REFERER'], "themes") !== false) {
     $iframeUrl = G_SERVERNAME.'editor/browse.php?for_type=image&mode=external';
 }
-
 
 
 ?>

@@ -325,8 +325,8 @@ class module_administrator_tools extends EfrontModule {
     } elseif (!$user->user['active'] || $user->user['archive']) {
      throw new Exception(_MODULE_ADMINISTRATOR_TOOLS_YOUCANTIMPERSONATEINACTIVEUSER);
     } else {
-     $user->login($user->user['password'], true);
-     eF_redirect("userpage.php");
+     $this->login($user);
+     eF_redirect("userpage.php", true);
     }
    } catch (Exception $e) {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
@@ -336,9 +336,72 @@ class module_administrator_tools extends EfrontModule {
    }
   }
  }
+ private function login($user, $password, $encrypted = false) {
+   //If we are logged in as another user, log him out
+   if (isset($_SESSION['s_login']) && $_SESSION['s_login'] != $user -> user['login']) {
+    try {
+     EfrontUserFactory :: factory($_SESSION['s_login']) -> logout(session_id());
+    } catch (Exception $e) {
+    }
+   }
+   //Empty session without destroying it
+   foreach ($_SESSION as $key => $value) {
+    if ($key != 'login_mode' && strpos($key, "facebook") === false) { //'login_mode' is used to facilitate lesson registrations
+     unset($_SESSION[$key]);
+    }
+   }
+   if ($user -> user['pending']) {
+    throw new EfrontUserException(_USERPENDING, EfrontUserException :: USER_PENDING);
+   }
+   if (!$user -> user['active']) {
+    throw new EfrontUserException(_USERINACTIVE, EfrontUserException :: USER_INACTIVE);
+   }
+   //if user language is deactivated or deleted, login user with system default language
+   if ($GLOBALS['configuration']['onelanguage']) {
+    $loginLanguage = $GLOBALS['configuration']['default_language'];
+   } else {
+    $activeLanguages = array_keys(EfrontSystem::getLanguages(true, true));
+    if (in_array($user -> user['languages_NAME'], $activeLanguages)) {
+     $loginLanguage = $user -> user['languages_NAME'];
+    } else {
+     $loginLanguage = $GLOBALS['configuration']['default_language'];
+    }
+   }
+   //Assign session variables
+   $_SESSION['s_login'] = $user -> user['login'];
+   $_SESSION['s_password'] = $user -> user['password'];
+   $_SESSION['s_type'] = $user -> user['user_type'];
+   $_SESSION['s_language'] = $loginLanguage;
+   $_SESSION['s_custom_identifier'] = sha1(microtime().$user -> user['login']);
+   $_SESSION['s_time_target'] = array(0 => 'system'); //'s_time_target' is used to signify which of the system's area the user is currently accessing. It is a id => entity pair
+   //$_SESSION['last_action_timestamp'] = time();	//Initialize first action
+   //Insert log entry
+   $fields_insert = array('users_LOGIN' => $user -> user['login'],
+     'timestamp' => time(),
+     'action' => 'login',
+     'comments' => session_id(),
+     'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
+   eF_insertTableData("logs", $fields_insert);
+   if ($GLOBALS['configuration']['ban_failed_logins']) {
+    eF_deleteTableData("logs","users_LOGIN='".$user -> user['login']."' and action='failed_login'");
+   }
+   //Insert user times entry
+   $fields = array("session_timestamp" => time(),
+     "session_id" => session_id(),
+     "session_custom_identifier" => $_SESSION['s_custom_identifier'],
+     "session_expired" => 0,
+     "users_LOGIN" => $_SESSION['s_login'],
+     "timestamp_now" => time(),
+     "time" => 0,
+     "entity" => 'system',
+     "entity_id" => 0);
+   eF_insertTableData("user_times", $fields);
+   return true;
+ }
  private function doGlobalLessonSettings() {
   $smarty = $this -> getSmartyVar();
   $currentUser = $this -> getCurrentUser();
+
   $lessonSettings = $this -> getLessonSettings();
   $smarty -> assign("T_LESSON_SETTINGS", $lessonSettings);
   $smarty -> assign("T_LESSON_SETTINGS_GROUPS", array(1 => _LESSONOPTIONS, 2 => _LESSONMODULES, 3 => _MODULES));
@@ -350,9 +413,11 @@ class module_administrator_tools extends EfrontModule {
     $this -> toggleSetting($_GET['deactivate'], 0);
     exit;
    } elseif ($_GET['tab'] == "global_settings" && isset($_GET['lessons_ID']) && eF_checkParameter($_GET['lessons_ID'], 'id') && isset($_GET['copy_block_order'])) {
+
     $res = eF_getTableData("lessons","id,options", "id=".$_GET['lessons_ID']);
     $options = unserialize($res[0]["options"]);
     $order = unserialize($options['default_positions']);
+
     //pr($order);exit;
     $result = eF_getTableData("lessons","id,options");
     foreach ($result as $key => $value) {
@@ -366,14 +431,18 @@ class module_administrator_tools extends EfrontModule {
   } catch (Exception $e) {
    handleAjaxExceptions($e);
   }
+
   $this -> setMessageVar($message, $message_type);
  }
+
  private function doSqlInterface() {
   $smarty = $this -> getSmartyVar();
   $currentUser = $this -> getCurrentUser();
+
   $sqlForm = new HTML_QuickForm("sql_form", "post", basename($_SERVER['PHP_SELF'])."?ctg=module&op=module_administrator_tools&tab=sql&do=system", "", null, true);
   $sqlForm -> addElement('text', 'sql_command', _MODULE_ADMINISTRATOR_TOOLS_SQLCOMMAND, 'style = "width:600px"' );
   $sqlForm -> addElement('submit', 'submit', _SUBMIT, 'class = "flatButton"');
+
   if ($sqlForm -> isSubmitted() && $sqlForm -> validate()) {
    try {
     $values = $sqlForm -> exportValues();
@@ -390,6 +459,7 @@ class module_administrator_tools extends EfrontModule {
       $result[] = $recordSet->fields;
       $recordSet->MoveNext();
      }
+
      $smarty -> assign("T_SQL_RESULT", $result);
     } catch (Exception $e) {
      $smarty -> assign("T_SQL_RESULT", $e->getMessage());
@@ -401,8 +471,10 @@ class module_administrator_tools extends EfrontModule {
    }
   }
   $smarty -> assign("T_SQL_FORM", $sqlForm -> toArray());
+
   $this -> setMessageVar($message, $message_type);
  }
+
  private function doCourseLessonUsers() {
   $smarty = $this -> getSmartyVar();
   $currentUser = $this -> getCurrentUser();
@@ -590,7 +662,7 @@ class module_administrator_tools extends EfrontModule {
    try {
     $values = $changeUserTypeForm -> exportValues();
     if ($userTypesMapping[$values['from_type']] == $userTypesMapping[$values['to_type']]) {
-     eF_updateTableData("users", array("user_type" => $values['to_type']), "user_type='".$values['from_type']."'");
+     eF_updateTableData("users", array("user_types_ID" => $values['to_type']), "user_types_ID='".$values['from_type']."' and user_type='".$userTypesMapping[$values['from_type']]."'");
      if ($values['change_courses']) {
       eF_updateTableData("users_to_lessons", array("user_type" => $values['to_type']), "user_type='".$values['from_type']."'");
       eF_updateTableData("users_to_courses", array("user_type" => $values['to_type']), "user_type='".$values['from_type']."'");

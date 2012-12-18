@@ -31,7 +31,7 @@ class XMLExport{
   if($author)
    return $author['name'];
   else
-   return 'eFront';
+   return 'LMS';
  }
 
  public function getSubject($studentName){
@@ -105,7 +105,12 @@ class XMLExport{
  public function showLabels($pdf){
 
   foreach($this->template->certificate->labels->label as $label)
-   $this->showLabel($pdf, $label['text'], $label['font'], $label['weight'], $label['size'], $label['color'], $label['x'], $label['y']);
+
+   if($label['align']) {
+    $this->showLabelAligned($pdf, $label['text'], $label['font'], $label['weight'], $label['size'], $label['color'], $label['x'], $label['y'], $label['align']);
+   } else {
+    $this->showLabel($pdf, $label['text'], $label['font'], $label['weight'], $label['size'], $label['color'], $label['x'], $label['y']);
+   }
  }
 
  public function showImages($pdf){
@@ -189,23 +194,38 @@ class XMLExport{
 
   $custom_ = $this->template->certificate->custom1;
 
-  if($custom_)
-   $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+  if($custom_) {
+   if($custom_['align']) {
+    $this->showLabelAligned($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y'],$custom_['align']);
+   } else {
+    $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+   }
+  }
  }
 
  public function showCustomTwo($pdf, $custom){
 
   $custom_ = $this->template->certificate->custom2;
 
-  if($custom_)
-   $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+  if($custom_) {
+   if($custom_['align']) {
+    $this->showLabelAligned($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y'],$custom_['align']);
+   } else {
+    $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+   }
+  }
  }
  public function showCustomThree($pdf, $custom){
 
   $custom_ = $this->template->certificate->custom3;
 
-  if($custom_)
-   $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+  if($custom_) {
+   if($custom_['align']) {
+    $this->showLabelAligned($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y'],$custom_['align']);
+   } else {
+    $this->showLabel($pdf, $custom, $custom_['font'], $custom_['weight'], $custom_['size'], $custom_['color'], $custom_['x'], $custom_['y']);
+   }
+  }
  }
 
  public function showSerialNumber($pdf, $serial){
@@ -263,14 +283,14 @@ class XMLExport{
 
   $align = (($a == 'Center' || $a == 'center') ? 'C' : (($a == 'Left' || $a == 'left') ? 'L' : ($a == 'Right' || $a == 'right') ? 'R' : ''));
   $rgb = $this->setColor($color);
+  if($font_weight != ''){
+   switch($font_weight){
 
-  switch($font_weight){
-
-   case($font_weight == 'Bold' || $font_weight == 'bold' || $font_weight == 'BOLD'): $fw = 'B'; break;
-   case($font_weight == 'Italic' || $font_weight == 'italic' || $font_weight == 'ITALIC'): $fw = 'I'; break;
-   case($font_weight == 'Bold|Italic' || $font_weight == 'bold|italic' || $font_weight == 'BOLD|ITALIC'): $fw = 'BI'; break;
+    case($font_weight == 'Bold' || $font_weight == 'bold' || $font_weight == 'BOLD'): $fw = 'B'; break;
+    case($font_weight == 'Italic' || $font_weight == 'italic' || $font_weight == 'ITALIC'): $fw = 'I'; break;
+    case($font_weight == 'Bold|Italic' || $font_weight == 'bold|italic' || $font_weight == 'BOLD|ITALIC'): $fw = 'BI'; break;
+   }
   }
-
   $p->SetFont('');
   $p->SetFont($font, $fw, floatval($font_size));
   $p->SetY($y);

@@ -39,22 +39,16 @@ class module_BBB extends EfrontModule {
                        ) DEFAULT CHARSET=utf8;");
 
 
-        try {
-         eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server','http://yourserver.com/');");
-        } catch (Exception $e) {
-            eF_executeNew("UPDATE `configuration` SET value = 'http://yourserver.com/' WHERE name = 'module_BBB_server';");
+        if (!($c = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server','http://yourserver.com/');"))) {
+            $c = eF_executeNew("UPDATE `configuration` SET value = 'http://yourserver.com/' WHERE name = 'module_BBB_server';");
         }
 
-        try {
-         eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_salt','29ae87201c1d23f7099f3dfb92f63578');");
-        } catch (Exception $e) {
-         eF_executeNew("UPDATE `configuration` SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
+        if (!($d = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_salt','29ae87201c1d23f7099f3dfb92f63578');"))) {
+            $d = eF_executeNew("UPDATE `configuration` SET value = '29ae87201c1d23f7099f3dfb92f63578' WHERE name = 'module_BBB_salt';");
         }
 
-        try {
-         eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server_version', '1');");
-        } catch (Exception $e) {
-         eF_executeNew("UPDATE `configuration` SET `value` = '1' WHERE `name` = 'module_BBB_server_version';");
+        if (!($e = eF_executeNew("INSERT INTO `configuration` VALUES ('module_BBB_server_version', '1');"))) {
+            $e = eF_executeNew("UPDATE `configuration` SET `value` = '1' WHERE `name` = 'module_BBB_server_version';");
         }
 
         return $a && $b && $c && $d && $e;
@@ -136,7 +130,7 @@ class module_BBB extends EfrontModule {
     }
 
     public function getNavigationLinks() {
-  $smarty = $this -> getSmartyVar();
+
         $currentUser = $this -> getCurrentUser();
         if ($currentUser -> getRole() == "administrator") {
             $basicNavArray = array (array ('title' => _HOME, 'link' => "administrator.php?ctg=control_panel"),
@@ -144,7 +138,7 @@ class module_BBB extends EfrontModule {
 
         } else {
             $basicNavArray = array (
-                                    array ('title' => _HOME, 'link' => $smarty->get_template_vars('T_HOME_LINK')),
+                                    array ('title' => _MYCOURSES, 'onclick' => "location='".$currentUser -> getRole($this -> getCurrentLesson()).".php?ctg=lessons';top.sideframe.hideAllLessonSpecific();"),
                                     array ('title' => $this->getCurrentLesson() -> lesson['name'], 'link' => $currentUser -> getRole($this -> getCurrentLesson()) . ".php?ctg=control_panel"),
                                     array ('title' => _BBB, 'link' => $this -> moduleBaseUrl));
          if (isset($_GET['edit_BBB'])) {
@@ -370,11 +364,11 @@ class module_BBB extends EfrontModule {
         /*** Ajax Methods - Add/remove skills/jobs***/
         if (isset($_GET['postAjaxRequest'])) {
             /** Post skill - Ajax skill **/
-            if ($_GET['insert'] == "true" && eF_checkParameter($_GET['user'], 'login') && eF_checkParameter($_GET['edit_BBB'], 'id')) {
+            if ($_GET['insert'] == "true") {
                 eF_insertTableData("module_BBB_users_to_meeting", array('users_LOGIN' => $_GET['user'], 'meeting_ID' => $_GET['edit_BBB']));
-            } else if ($_GET['insert'] == "false" && eF_checkParameter($_GET['user'], 'login') && eF_checkParameter($_GET['edit_BBB'], 'id')) {
+            } else if ($_GET['insert'] == "false") {
                 eF_deleteTableData("module_BBB_users_to_meeting", "users_LOGIN = '". $_GET['user'] . "' AND meeting_ID = '".$_GET['edit_BBB']."'");
-            } else if (isset($_GET['addAll']) && eF_checkParameter($_GET['edit_BBB'], 'id')) {
+            } else if (isset($_GET['addAll'])) {
                 $users = eF_getTableData("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_BBB_users_to_meeting ON users.login = module_BBB_users_to_meeting.users_LOGIN","users.login, users.name, users.surname, meeting_ID","users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND (meeting_ID <> '".$_GET['edit_BBB']."' OR meeting_ID IS NULL)");
 
                 $users_attending = eF_getTableDataFlat("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_BBB_users_to_meeting ON users.login = module_BBB_users_to_meeting.users_LOGIN","users.login","users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND meeting_ID = '".$_GET['edit_BBB']."'");
@@ -388,7 +382,7 @@ class module_BBB extends EfrontModule {
                         $users_attending[] = $user['login'];
                     }
                 }
-            } else if (isset($_GET['removeAll']) && eF_checkParameter($_GET['edit_BBB'], 'id')) {
+            } else if (isset($_GET['removeAll'])) {
                 $users_attending = eF_getTableData("users JOIN users_to_lessons ON users.login = users_to_lessons.users_LOGIN LEFT OUTER JOIN module_BBB_users_to_meeting ON users.login = module_BBB_users_to_meeting.users_LOGIN","users.login","users_to_lessons.lessons_ID = '".$_SESSION['s_lessons_ID']."' AND meeting_ID = '".$_GET['edit_BBB']."'");
                 //$users_attending = $users_attending['login'];
                 isset($_GET['filter']) ? $users_attending = eF_filterData($users_attending, $_GET['filter']) : null;
@@ -398,7 +392,7 @@ class module_BBB extends EfrontModule {
                     $users_to_delete[] = $user['login'];
                 }
                 eF_deleteTableData("module_BBB_users_to_meeting", "meeting_ID = '".$_GET['edit_BBB']."' AND users_LOGIN IN ('".implode("','", $users_to_delete)."')");
-            } else if (isset($_GET['mail_users']) && $_GET['mail_users'] == 1 && eF_checkParameter($_GET['edit_BBB'], 'id')) {
+            } else if (isset($_GET['mail_users']) && $_GET['mail_users'] == 1) {
                 $currentLesson = $this ->getCurrentLesson();
                 $meeting_users = eF_getTableData("module_BBB_users_to_meeting JOIN users ON module_BBB_users_to_meeting.users_LOGIN = users.login", "users.login, users.name, users.surname, users.email", "meeting_ID = ".$_GET['edit_BBB'] . " AND users.login <> '". $currentUser -> user['login'] ."'");
 
@@ -794,10 +788,6 @@ public function getLessonModule() {
         } else {
             return false;
         }
-    }
-
-    public function getModuleIcon() {
-        return $this -> moduleBaseLink.'images/bbb32.png';
     }
 }
 ?>

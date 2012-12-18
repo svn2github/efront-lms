@@ -21,7 +21,7 @@
       {if $T_EDITEDUSER->user.login == $smarty.session.s_login}
       <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" class = "ajaxHandle" onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=lessons&course={$certificate.courses_ID}&export={$certificate.export_method}&user={$T_EDITEDUSER->user.login}')"/>
       {else}
-      <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" class = "ajaxHandle" onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&export={$certificate.export_method}&user={$T_EDITEDUSER->user.login}&course={$certificate.courses_ID}')"/>
+      <img src = "images/16x16/certificate.png" title = "{$smarty.const._VIEWCERTIFICATE}" alt = "{$smarty.const._VIEWCERTIFICATE}" class = "ajaxHandle" onclick = "window.open('{$smarty.server.PHP_SELF}?ctg=lessons&op=course_certificates&export={$certificate.export_method}&user={$T_EDITEDUSER->user.login}&course={$certificate.courses_ID}')"/>
       {/if}
       {if $_change_certificates_}
       <a href = "{$smarty.server.PHP_SELF}?ctg=courses&op=course_certificates&revoke_certificate={$T_EDITEDUSER->user.login}&course={$certificate.courses_ID}" title = "{$smarty.const._REVOKECERTIFICATE}">

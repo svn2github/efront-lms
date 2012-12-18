@@ -954,7 +954,9 @@ class EfrontCourse
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   $select = "u.*, uc.courses_ID,uc.completed,uc.score,uc.user_type as role,uc.from_timestamp as active_in_course, uc.to_timestamp, uc.comments, uc.issued_certificate, 1 as has_course";
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
-  $result = eF_getTableData("users u, users_to_courses uc", $select, implode(" and ", $where), $orderby, false, $limit);
+  $from = "users_to_courses uc,users u";
+  $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
+  $result = eF_getTableData($from, $select, implode(" and ", $where), $orderby, false, $limit);
   if (!isset($constraints['return_objects']) || $constraints['return_objects'] == true) {
    return EfrontUser :: convertDatabaseResultToUserObjects($result);
   } else {
@@ -973,7 +975,9 @@ class EfrontCourse
   list($where, $limit, $orderby) = EfrontUser :: convertUserConstraintsToSqlParameters($constraints);
   //$select  = "u.*, uc.courses_ID,uc.completed,uc.score,uc.user_type,uc.from_timestamp as active_in_course, 1 as has_course";
   $where[] = "u.login=uc.users_LOGIN and uc.courses_ID='".$this -> course['id']."' and uc.archive=0";
-  $result = eF_countTableData("users u, users_to_courses uc", "u.login", implode(" and ", $where));
+  $from = "users_to_courses uc,users u";
+  $from = EfrontCourse :: appendTableFiltersUserConstraints($from, $constraints);
+  $result = eF_countTableData($from, "u.login", implode(" and ", $where));
   return $result[0]['count'];
  }
  /**
@@ -1348,6 +1352,7 @@ class EfrontCourse
           'user_type' => $roleInCourse,
           'from_timestamp' => time());
      }
+     $fields['access_counter'] = 0;
      //!$courseLessonsToUsers[$id][$user]['archive'] OR $fields['to_timestamp'] = 0;
      $confirmed OR $fields['from_timestamp'] = 0;
      eF_updateTableData("users_to_lessons", $fields, "users_LOGIN='".$user."' and lessons_ID=".$id);
@@ -2651,6 +2656,16 @@ class EfrontCourse
     $information['professors'][$key] = $user;
    }
   }
+  if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+   require_once 'module_hcd_tools.php';
+   $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+   $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+   foreach ($information['professors'] as $key => $value) {
+    if (!in_array($value['login'], $branchTreeUsers)) {
+     unset($information['professors'][$key]);
+    }
+   }
+  }
   if (sizeof($instances = $this -> getInstances()) > 1) {
    $information['instances'] = sizeof($instances);
   } else {
@@ -2738,8 +2753,9 @@ class EfrontCourse
   //$file -> rename($userTempDir['path'].'/'.$newFileName, true);
   //changed because of checkFile in rename
         rename($file['path'], $userTempDir['path'].'/'.$newFileName);
-  FileSystemTree :: importFiles($userTempDir['path'].'/'.$newFileName);
-  $returnFile = new EfrontFile($userTempDir['path'].'/'.$newFileName);
+        //FileSystemTree :: importFiles($userTempDir['path'].'/'.$newFileName);
+        eF_updateTableData("files", array("path" => str_replace(G_ROOTPATH, '', $userTempDir['path'].'/'.$newFileName)), "id=".$file['id']);
+  $returnFile = new EfrontFile($file['id']);
   //$file   -> rename($userTempDir['path'].'/'.EfrontFile :: encode($this -> course['name']).'.zip', true);
   $courseTempDir -> delete();
   return $returnFile;
@@ -3099,6 +3115,7 @@ class EfrontCourse
   if (in_array('has_instances', array_keys($select))) {
    unset($select['has_instances']);
    $from[] = "(select count(id) from courses c1 where c1.instance_source=courses.id and c1.archive=0) as has_instances";
+   $from[] = "(select count(id) from courses c1 where c1.instance_source=courses.id and c1.archive=0 and c1.active=1 and c1.show_catalog=1) as has_instances_show_in_catalog";
   }
   $sql = prepareGetTableData("courses c", implode(",", $select), implode(" and ", $where), $orderby, false, $limit);
   $result = eF_getTableData("courses, ($sql) t", implode(",", $from), "courses.id=t.id");

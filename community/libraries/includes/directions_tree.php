@@ -19,6 +19,24 @@ try {
      $constraints = array('active' => true, 'archive' => false, 'instance' => false, 'sort' => 'name');
      $constraints['required_fields'] = array('has_instances');
      $courses = EfrontCourse :: getAllCourses($constraints);
+
+     if ($_SESSION['s_current_branch']) { //filter out courses that don't belong to the current branch url
+      $stats_filters = array();
+      $branches = array($_SESSION['s_current_branch']);
+      $branchesTree = new EfrontBranchesTree();
+      $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_SESSION['s_current_branch'])), RecursiveIteratorIterator :: SELF_FIRST));
+      foreach($iterator as $key => $value) {
+       $branches[] = $key;
+      }
+      $result = eF_getTableDataFlat("module_hcd_course_to_branch", "courses_ID", "branches_ID in (".implode(",", $branches).")");
+      foreach ($courses as $key => $value) {
+       if (!in_array($key, $result['courses_ID'])) {
+        unset($courses[$key]);
+       }
+      }
+
+     }
+
     }
 
  //Mark the lessons and courses that the user already has, so that they can't be selected

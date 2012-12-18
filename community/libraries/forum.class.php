@@ -201,7 +201,7 @@ class f_forums extends EfrontEntity
                    "lessons_ID" => isset($GLOBALS['currentLesson']) ? $GLOBALS['currentLesson'] -> lesson['id'] : null,
                    "lessons_name" => isset($GLOBALS['currentLesson']) ? $GLOBALS['currentLesson'] -> lesson['name'] : null,
                    "entity_ID" => $new_id,
-                   "entity_name" => $fields['name']));
+                   "entity_name" => $fields['title']));
     }
     /**
 

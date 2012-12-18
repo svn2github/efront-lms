@@ -63,7 +63,17 @@ try {
             $news = news :: getNews(0, true);
             if (!$_admin_) {
                 //Get lesson news as well
-                $news = array_merge($news, news :: getNews($currentLesson -> lesson['id'], true));
+             $lessonNews = news :: getNews($currentLesson -> lesson['id'], true);
+             if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to branch urls
+              $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+              $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+              foreach ($lessonNews as $key => $value) {
+               if ($value['type'] != 'global' && !in_array($value['users_LOGIN'], $branchTreeUsers)) {
+                unset($lessonNews[$key]);
+               }
+              }
+             }
+                $news = array_merge($news, $lessonNews);
             }
             if (!$_student_ && (!isset($currentUser -> coreAccess['news']) || $currentUser -> coreAccess['news'] == 'change')) {
              $newsOptions[] = array('text' => _ANNOUNCEMENTADD, 'image' => "16x16/add.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=news&add=1&popup=1", 'onClick' => "eF_js_showDivPopup('"._ANNOUNCEMENTADD."', 1)", 'target' => 'POPUP_FRAME');
@@ -92,7 +102,16 @@ try {
             isset($_GET['add_another']) ? $smarty -> assign('T_ADD_ANOTHER', "1") : null;
 
             $events = calendar :: getCalendarEventsForUser($currentUser);
-   $events = calendar :: sortCalendarEventsByTimestamp($events);
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to branch urls
+             $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+             $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+             foreach ($events as $key => $value) {
+              if ($value['type'] != 'global' && !in_array($value['users_LOGIN'], $branchTreeUsers)) {
+               unset($events[$key]);
+              }
+             }
+            }
+            $events = calendar :: sortCalendarEventsByTimestamp($events);
 
             $smarty -> assign("T_CALENDAR_EVENTS", $events); //Assign events and specific day timestamp to smarty, to be used from calendar
             $smarty -> assign("T_VIEW_CALENDAR", $view_calendar);
@@ -136,7 +155,7 @@ try {
                      }
                     }
                 }
-              //pr($projects);         
+
                 $smarty -> assign("T_PROJECTS", $projects);
                 $projectOptions = array(array('text' => _GOTOPROJECTS, 'image' => "16x16/go_into.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=projects"));
                 $smarty -> assign("T_PROJECTS_OPTIONS",$projectOptions);
@@ -165,18 +184,37 @@ try {
 
             //Comments block
             if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] != 'hidden') {
-                $comments = comments :: getComments(false, false, false, 5);
-                $smarty -> assign("T_COMMENTS", $comments);
+             $comments = comments :: getComments(false, false, false, 5);
+             if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+              $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+              $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+              foreach ($comments as $key => $value) {
+               if (!in_array($value['users_LOGIN'], $branchTreeUsers)) {
+                unset($comments[$key]);
+               }
+              }
+             }
+
+                $smarty -> assign("T_COMMENTS", array_values($comments));
             }
         }
         //Professor specific blocks
         if ($_professor_) {
-            //Completed tests list
-            if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] != 'hidden') {
-                $testIds = $currentLesson -> getTests(false, true);
-                if (sizeof($testIds) > 0) {
-                    $result = eF_getTableData("completed_tests ct, tests t", "ct.id, ct.users_LOGIN, ct.timestamp, ct.status, t.name", "ct.status != 'deleted' and ct.pending=1 and ct.status != 'incomplete' and ct.archive = 0 and ct.tests_ID = t.id and ct.tests_ID in (".implode(",", $testIds).")", "", "ct.timestamp DESC limit 10");
-                    $smarty -> assign("T_COMPLETED_TESTS", $result);
+         //Completed tests list
+         if (!isset($currentUser -> coreAccess['content']) || $currentUser -> coreAccess['content'] != 'hidden') {
+          $testIds = $currentLesson -> getTests(false, true);
+          if (sizeof($testIds) > 0) {
+           $result = eF_getTableData("completed_tests ct, tests t", "ct.id, ct.users_LOGIN, ct.timestamp, ct.status, t.name", "ct.status != 'deleted' and ct.pending=1 and ct.status != 'incomplete' and ct.archive = 0 and ct.tests_ID = t.id and ct.tests_ID in (".implode(",", $testIds).")", "", "ct.timestamp DESC limit 10");
+           if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+            $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+            $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+            foreach ($result as $key => $value) {
+             if (!in_array($value['users_LOGIN'], $branchTreeUsers)) {
+              unset($result[$key]);
+             }
+            }
+           }
+                    $smarty -> assign("T_COMPLETED_TESTS", array_values($result));
                 }
             }
         }
@@ -185,12 +223,12 @@ try {
             $currentContent = new EfrontContentTree($currentLesson);
             $currentContent -> markSeenNodes($currentUser);
             //Content tree block
-            if ($GLOBALS['configuration']['disable_tests'] != 1) {
+            if ($GLOBALS['configuration']['disable_tests'] != 1 && $currentLesson -> options['tests'] == 1) {
                 $iterator = new EfrontVisitableAndEmptyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));
                 $firstNodeIterator = new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1)));
             } else {
-                $iterator = new EfrontTheoryFilterIterator(new EfrontVisitableAndEmptyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
-    $firstNodeIterator = new EfrontTheoryFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
+                $iterator = new EfrontNoTestsFilterIterator(new EfrontVisitableAndEmptyFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
+                $firstNodeIterator = new EfrontNoTestsFilterIterator(new EfrontVisitableFilterIterator(new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($currentContent -> tree), RecursiveIteratorIterator :: SELF_FIRST), array('active' => 1))));
             }
   /*	$hideFeedback = false;
 

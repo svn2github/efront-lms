@@ -40,6 +40,15 @@ $smarty->assign("T_SHOW_INTERVAL", $showInterval);
 $events = calendar :: getCalendarEventsForUser($currentUser);
 $smarty -> assign("T_CALENDAR_TYPES", calendar :: $calendarTypes);
 
+if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to branch urls
+ $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+ $branchTreeUsers = array_keys($currentBranch->getBranchTreeUsers());
+ foreach ($events as $key => $value) {
+  if ($value['type'] != 'global' && !in_array($value['users_LOGIN'], $branchTreeUsers)) {
+   unset($events[$key]);
+  }
+ }
+}
 if (isset($_GET['ajax'])) {
  try {
   if ($_GET['ajax'] == "calendarTable") {

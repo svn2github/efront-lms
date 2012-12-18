@@ -4206,4 +4206,13 @@ define("_TEST_FAILURE", "Test fehlgeschlagen");
 define("_FAILEDTEST", "scheiterte im Test"); 
 define("_TESTFAILUREFORLESSON", "Test Ausfall für die Lektion"); 
 define("_HASFAILEDATEST", " ausgefallen ist ein Test ");
+define("_MAXIMUMUSERSLIMITREACHEDCONTACTUS", "Die maximale Benutzer Limit erreicht ist Bitte kontaktieren Sie uns, wenn Sie Zugang benötigen.");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHED", "Ich möchte, um sich anzumelden, aber die maximale Benutzer Limit erreicht");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHEDBODY", "Ich versuche zu registrieren, aber das System meldet, dass die maximale Benutzer Limit erreicht ist.");
+define("_PROFESSORCREATECOURSES", "Erstellen Kurse / Lektionen");
+define("_RESETALLUSERS", "Reset Fortschritt für alle Benutzer");
+define("_MYROLE", "Rolle");
+define("_MAXSEATSDEPLEATED", "% y Die verfügbaren Plätze für '% x' getroffen werden Kontakt% z für weitere Informationen.");
+define("_IFRAMEPARAMETERS", "iframe Parameter");
+define("_HEIGHTREFERSTOINITIALHEIGHT", "dynamisch Abmessungen können nach dem Laden des Inhalts zu ändern, können Sie erzwingen expliziten Werte unter dem SCORM-Einheit der Eigenschaften-Fenster");
 ?>

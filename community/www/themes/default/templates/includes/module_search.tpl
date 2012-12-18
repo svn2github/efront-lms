@@ -210,6 +210,24 @@
     </table>
 {/capture}
 
+{capture name = 't_filesystem_results_code'}
+ <table width = "100%" bgcolor="#f4f4f4">
+ {foreach key=key item=item from=$T_SEARCH_RESULTS_FILESYSTEM}
+        <tr><td>
+        <div class="searchResults">
+         <div class="resultsTitle">
+          <img class = "handle" tyle = "vertical-align:middle;" src="{$item.icon}" />
+          <a href="view_file.php?action=download&file={if $item.id != -1}{$item.id}{else}{$smarty.const.G_ROOTPATH|cat:$item.path}{/if}">{$item.name}</a>
+             ({$item.score|string_format:"%.0f"}%)
+             <div class="small">({$smarty.const._PATH}:{$item.path}</a>)</div>
+         </div>
+            {$item.content}
+        </div>
+        </td></tr>
+    {/foreach}
+ </table>
+{/capture}
+
 
 
 {capture name = 't_courses_search_results_code'}
@@ -307,9 +325,14 @@
             {eF_template_printBlock title=$smarty.const._SEARCHRESULTSINUSERS data=$smarty.capture.t_users_search_results_code image='32x32/search.png'}
         </div>
     {/if}
-     {if sizeof($T_SEARCH_RESULTS_GLOSSARY) >0 && $smarty.session.s_type != 'administrator'}
+    {if sizeof($T_SEARCH_RESULTS_GLOSSARY) >0 && $smarty.session.s_type != 'administrator'}
         <div class = "tabbertab" title = "{$smarty.const._GLOSSARY}">
             {eF_template_printBlock title=$smarty.const._SEARCHRESULTSINGLOSSARY data=$smarty.capture.t_glossary_search_results_code image='32x32/search.png'}
+        </div>
+    {/if}
+    {if sizeof($T_SEARCH_RESULTS_FILESYSTEM) >0}
+        <div class = "tabbertab" title = "{$smarty.const._FILESYSTEM}">
+            {eF_template_printBlock title=$smarty.const._SEARCHRESULTSINFILESYSTEM data=$smarty.capture.t_filesystem_results_code image='32x32/search.png'}
         </div>
     {/if}
 

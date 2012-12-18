@@ -203,10 +203,16 @@ try {
         $smarty -> assign('T_CONFIGURATION_FORM', $renderer -> toArray()); //Assign the form to the template
 
     } else {
+     if (isset($_GET['post_id']) && eF_checkParameter($_GET['post_id'], 'id')) {
+      $topic = eF_getTableData("f_messages", "*", "id=".$_GET['post_id']);
+      //$_GET['topic'] = $topic[0]['f_topics_ID']; 
+      eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=forum&topic=".$topic[0]['f_topics_ID']."#message_".$_GET['post_id']);
+      exit;
+     }
+
         if (isset($_GET['topic']) && eF_checkParameter($_GET['topic'], 'id')) {
             $topic = eF_getTableData("f_topics", "*", "id=".$_GET['topic']);
             $user_posts = eF_getTableDataFlat("f_messages, users", "distinct login, count(f_messages.id) as num", "users.login = f_messages.users_LOGIN group by login");
-//pr($user_posts);
             $user_posts = array_combine($user_posts['login'], $user_posts['num']);
             $posts = eF_getTableData("f_messages, users", "users.avatar, users.user_type, f_messages.*", "users.login = f_messages.users_LOGIN and f_topics_ID=".$_GET['topic'], "timestamp");
 

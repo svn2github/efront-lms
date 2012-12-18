@@ -28,6 +28,7 @@ if (!isset($_GET['reset_popup']) && (isset($_GET['popup']) || isset($_POST['popu
     $smarty -> assign("T_POPUP_MODE", true);
     $popup = 1;
 }
+setcookie("parent_sid", session_id(), time()+3600, "/"); //We use this for the editor, in order to work with branch urls. See also browse.php, image.php on how it's used
 $message = '';$message_type = ''; //Initialize messages, because if register_globals is turned on, some messages will be displayed twice
 try {
  $currentUser = EfrontUser :: checkUserAccess(false, 'professor');
@@ -191,7 +192,7 @@ if (isset($_GET['ajax']) && isset($_GET['group_key'])) {
   $result = eF_getTableData("groups", "*", "unique_key = '" . $_GET['group_key'] . "'");
   if (sizeof($result) > 0) {
    $group = new EfrontGroup($result[0]);
-   $group -> useKeyForUser($currentUser);
+   echo json_encode($group -> useKeyForUser($currentUser));
   } else {
    throw new Exception(_INVALIDKEY.': '.$_GET['group_key']);
   }
@@ -206,7 +207,7 @@ if ($redirectPage == "user_dashboard" && $user_type != "administrator") {
 } elseif (strpos($redirectPage, "module") !== false) {
  $location = "professor.php?ctg=landing_page";
 } else {
- $location = "professor.php";
+ $location = "professor.php?ctg=lessons";
 }
 $smarty->assign("T_HOME_LINK", $location);
 try {
@@ -566,6 +567,9 @@ try {
     $smarty -> assign("T_EXCEPTION_TRACE", $e -> getTraceAsString());
     $message = $e -> getMessage().' ('.$e -> getCode().') &nbsp;<a href = "javascript:void(0)" onclick = "eF_js_showDivPopup(\''._ERRORDETAILS.'\', 2, \'error_details\')">'._MOREINFO.'</a>';
     $message_type = 'failure';
+}
+if (detectBrowser() == 'mobile') {
+ $load_editor = false;
 }
 $smarty -> assign("T_HEADER_EDITOR", $load_editor); //Specify whether we need to load the editor
 if (isset($_GET['refresh']) || isset($_GET['refresh_side'])) {

@@ -78,7 +78,8 @@ try {
                                       "control_panel" => _CONTROLPANEL,
                  "move_block" => _MOVEBLOCK,
                   "module_itself" => _MODULEITSELF,
-           "dashboard" => _DASHBOARD);
+           "dashboard" => _DASHBOARD,
+                 "insert_group_key" => _VIEWINSERTGROUPKEY);
   $GLOBALS['configuration']['disable_calendar'] != 1 ? $studentOptions["calendar"] = _CALENDAR : null;
   $GLOBALS['configuration']['disable_surveys'] != 1 ? $studentOptions["surveys"] = _SURVEYS : null;
   $GLOBALS['configuration']['disable_news'] != 1 ? $studentOptions["news"] = _ANNOUNCEMENTS : null;
@@ -100,7 +101,8 @@ try {
                  "move_block" => _MOVEBLOCK,
                   "module_itself" => _MODULEITSELF,
                  "professor_courses" => _PROFESSORCREATECOURSES,
-           "course_settings" => _COURSEOPTIONS);
+           "course_settings" => _COURSEOPTIONS,
+                 "insert_group_key" => _VIEWINSERTGROUPKEY);
 
 
 
@@ -165,7 +167,7 @@ try {
         //$form -> addRule('name', _USERTYPE.' &quot;'.($form -> exportValue('name')).'&quot; '._ALREADYEXISTS, 'checkNotExist', 'user_type');
         $form -> addElement('select', 'basic_user_type', _BASICUSERTYPE, $basicTypes, 'id="basic_user_type" class = "inputSelect" onchange = "location = \'administrator.php?ctg=user_types&'.$postTarget.'&basic_type=\'+this.options[this.selectedIndex].value+\'&name=\'+document.getElementsByName(\'name\')[0].value"');
         foreach ($options as $key => $value) {
-         if ($key == 'module_itself' || $key == 'professor_courses') {
+         if ($key == 'module_itself' || $key == 'professor_courses' || $key == 'insert_group_key') {
           $form -> addElement("select", "core_access[$key]", $value, array('change' => _CHANGE, 'hidden' => _HIDE));
          } else {
              $form -> addElement("select", "core_access[$key]", $value, array('change' => _CHANGE, 'view' => _VIEW, 'hidden' => _HIDE));

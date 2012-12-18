@@ -10,7 +10,8 @@ function smarty_outputfilter_eF_template_includeScripts($compiled, &$smarty) {
         $basicScripts[] = 'tabber';
     }
     if (preg_match('/sortedTable/', $compiled)) {
-        $basicScripts[] = 'ajax_sorted_table/ajax_sorted_table';
+        $basicScripts[] = 'scriptaculous/controls';
+     $basicScripts[] = 'ajax_sorted_table/ajax_sorted_table';
         $compiled .= '<script language="JavaScript" type="text/javascript">
             var sorted_translations = new Array();
             sorted_translations["loadingdata"] = "'._LOADINGDATA.'";
@@ -26,6 +27,7 @@ function smarty_outputfilter_eF_template_includeScripts($compiled, &$smarty) {
             sorted_translations["_PREVIOUS"] = "'._PREVIOUS.'";
             sorted_translations["_FIRST"] = "'._FIRST.'";
             sorted_translations["_LAST"] = "'._LAST.'";
+            sorted_translations["_ALLBRANCHES"] = "'._ALLBRANCHES.'";
             sorted_rtl = "'.$GLOBALS['rtl'].'";
            </script>';
     }

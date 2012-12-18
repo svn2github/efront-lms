@@ -33,6 +33,8 @@
                                                 <tr><td class = "labelCell">{$smarty.const._LESSONDATAFILE}:&nbsp;</td>
                                                     <td>{$T_IMPORT_LESSON_FORM.file_upload.html}</td></tr>
                                                 <tr><td></td><td class = "infoCell">{$smarty.const._EACHFILESIZEMUSTBESMALLERTHAN} <b>{$T_MAX_FILESIZE}</b> {$smarty.const._KB}</td></tr>
+                                                <tr><td class = "labelCell">{$smarty.const._UPLOADFILEFROMURL}:&nbsp;</td>
+                                                    <td>{$T_IMPORT_LESSON_FORM.url_upload.html}</td></tr>
                                                 <tr><td colspan = "2">&nbsp;</td></tr>
                                                 <tr><td></td><td>{$T_IMPORT_LESSON_FORM.submit_import_lesson.html}</td></tr>
                                             </table>

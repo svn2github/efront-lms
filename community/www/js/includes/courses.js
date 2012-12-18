@@ -218,3 +218,11 @@ function onResetProgress(el, response) {
 	setImageSrc(el, 16, 'success');
 	new Effect.Fade(el, {afterFinish:function (s) {setImageSrc(el, 16, 'refresh');el.show();}});			
 }
+
+if ($('autocomplete_branches')) {
+	new Ajax.Autocompleter("autocomplete", 
+						   "autocomplete_branches", 
+						   "ask.php?ask_type=branches", {paramName: "preffix", 
+													afterUpdateElement : function (t, li) {$('branches_ID_value').value = li.id;}, 
+													indicator : "busy"}); 
+}

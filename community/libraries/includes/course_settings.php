@@ -95,7 +95,20 @@ if ($_GET['op'] == 'course_info') {
  $load_editor = 1;
  $defaultConstraints = array('active' => true, 'instance' => false);
  //$users = $currentCourse -> getCourseUsers($constraints);
+ if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+  $stats_filters = array();
+  $branches = array($_SESSION['s_current_branch']);
+  $branchesTree = new EfrontBranchesTree();
+  $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_SESSION['s_current_branch'])), RecursiveIteratorIterator :: SELF_FIRST));
+  foreach($iterator as $key => $value) {
+   $branches[] = $key;
+  }
 
+  $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+    "joinField" => "filter_eb.users_LOGIN",
+    "condition" => "(filter_eb.branch_ID in (" . implode(",", $branches) . ") AND filter_eb.assigned = 1)");
+  $defaultConstraints['table_filters'] = $stats_filters;
+ }
  $smarty->assign('T_CERTIFICATE_EXPORT_METHOD', $currentCourse->options['certificate_export_method']);
  /*
 		$users = EfrontStats::getUsersCourseStatus($currentCourse);
@@ -256,6 +269,19 @@ if ($_GET['op'] == 'course_info') {
  } else if (isset($_GET['set_all_completed'])) {
   try {
    $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $stats_filters = array();
+    $branches = array($_SESSION['s_current_branch']);
+    $branchesTree = new EfrontBranchesTree();
+    $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_SESSION['s_current_branch'])), RecursiveIteratorIterator :: SELF_FIRST));
+    foreach($iterator as $key => $value) {
+     $branches[] = $key;
+    }
+    $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+      "joinField" => "filter_eb.users_LOGIN",
+      "condition" => "(filter_eb.branch_ID in (" . implode(",", $branches) . ") AND filter_eb.assigned = 1)");
+    $constraints['table_filters'] = $stats_filters;
+   }
    $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
    $users = $currentCourse -> getCourseUsers($constraints);
    foreach ($users as $user) {
@@ -271,6 +297,19 @@ if ($_GET['op'] == 'course_info') {
  } else if (isset($_GET['reset_all'])) {
   try {
    $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $stats_filters = array();
+    $branches = array($_SESSION['s_current_branch']);
+    $branchesTree = new EfrontBranchesTree();
+    $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_SESSION['s_current_branch'])), RecursiveIteratorIterator :: SELF_FIRST));
+    foreach($iterator as $key => $value) {
+     $branches[] = $key;
+    }
+    $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+      "joinField" => "filter_eb.users_LOGIN",
+      "condition" => "(filter_eb.branch_ID in (" . implode(",", $branches) . ") AND filter_eb.assigned = 1)");
+    $constraints['table_filters'] = $stats_filters;
+   }
    $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
    $users = $currentCourse -> getCourseUsers($constraints);
    foreach ($users as $user) {
@@ -289,6 +328,19 @@ if ($_GET['op'] == 'course_info') {
   $smarty -> assign("T_DATASOURCE_SORT_BY", 0);
   $constraints = array('archive' => false, 'active' => true) + createConstraintsFromSortedTable();
   $constraints['condition'] = "uc.user_type in ('".implode("','", $studentRoles)."')";
+  if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+   $stats_filters = array();
+   $branches = array($_SESSION['s_current_branch']);
+   $branchesTree = new EfrontBranchesTree();
+   $iterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($branchesTree -> getNodeChildren($_SESSION['s_current_branch'])), RecursiveIteratorIterator :: SELF_FIRST));
+   foreach($iterator as $key => $value) {
+    $branches[] = $key;
+   }
+   $stats_filters[] = array("table" => "module_hcd_employee_works_at_branch as filter_eb",
+     "joinField" => "filter_eb.users_LOGIN",
+     "condition" => "(filter_eb.branch_ID in (" . implode(",", $branches) . ") AND filter_eb.assigned = 1)");
+   $constraints['table_filters'] = $stats_filters;
+  }
   $users = $currentCourse -> getCourseUsers($constraints);
   $totalEntries = $currentCourse -> countCourseUsers($constraints);
   $smarty -> assign("T_TABLE_SIZE", $totalEntries);
@@ -401,6 +453,9 @@ if ($_GET['op'] == 'course_info') {
     }
     $issued_data = unserialize($result[0]['issued_certificate']);
     $templateData = eF_getTableData("certificate_templates", "certificate_xml", "id=".$certificate_tpl_id);
+    foreach (eF_loadAllModules() as $module) {
+     $module -> onXMLExportCourseCertificate($issued_data, $templateData, $course, $_GET['user']);
+    }
     $userName = $issued_data['user_name'];
     $userSurName = $issued_data['user_surname'];
     $courseName = $issued_data['course_name'];
@@ -428,6 +483,9 @@ if ($_GET['op'] == 'course_info') {
     $xmlExport->setBackground($pdf);
     $pdf->SetAutoPageBreak(false);
     $pdf->setFontSubsetting(false);
+    //Line for adding a high resolution image in background as full certificate image. 
+    //Change PDF_IMAGE_SCALE_RATIO with a scale factor e.g. 4.15 (#3278)
+    //$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO); 
     $pdf->AddPage();
     //				$pdf->AddFont('Garamond','', K_PATH_FONTS.'gara.php');
     //				$pdf->AddFont('Garamond','B', K_PATH_FONTS.'garabd.php');
@@ -481,6 +539,9 @@ if ($_GET['op'] == 'course_info') {
     $xmlExport->setBackground($pdf);
     $pdf->SetAutoPageBreak(false);
     $pdf->setFontSubsetting(false);
+    //Line for adding a high resolution image in background as full certificate image. 
+    //Change PDF_IMAGE_SCALE_RATIO with a scale factor e.g. 4.15 (#3278)
+    //$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO); 
     $pdf->AddPage();
     $xmlExport->drawLines($pdf);
     $xmlExport->showLabels($pdf);
@@ -509,8 +570,8 @@ if ($_GET['op'] == 'course_info') {
     $fileNamePdf = "certificate_preview.pdf";
    }
    $output = $pdf->Output('', 'S');
-   file_put_contents($currentUser->getDirectory().$fileNamePdf, $output);
-   $file = new EfrontFile($currentUser->getDirectory().$fileNamePdf, $output);
+   file_put_contents($currentUser->getDirectory().str_replace('/', '_', $fileNamePdf), $output);
+   $file = new EfrontFile($currentUser->getDirectory(). str_replace('/', '_', $fileNamePdf), $output);
    $file -> sendFile();
   }
  }
@@ -656,13 +717,36 @@ if ($_GET['op'] == 'course_info') {
     $currentCourse -> course['start_date'] = $fromTimestamp;
     $currentCourse -> course['end_date'] = $toTimestamp;
     $currentCourse -> persist();
+    $courseUsers = $currentCourse->getCourseUsers(array('archive' => false, 'active' => true, 'return_objects' => false));
     if ($previous_start_date != $currentCourse -> course['start_date']) {
      eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_START . "_" . $currentCourse -> course['id']. "'");
-     EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_START, "timestamp" => $currentCourse -> course['start_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
+     foreach ($courseUsers as $user) {
+      $event = array("type" => EfrontEvent::COURSE_PROGRAMMED_START,
+        "users_LOGIN" => $user['login'],
+        "users_name" => $user['name'],
+        "users_surname" => $user['surname'],
+        "timestamp" => $currentCourse -> course['start_date'],
+        "lessons_ID" => $currentCourse -> course['id'],
+        "lessons_name" => $currentCourse -> course['name'],
+        "entity_ID" => $currentCourse -> course['start_date'],
+        "entity_name" => $currentCourse -> course['end_date']);
+      EfrontEvent::triggerEvent($event);
+     }
     }
     if ($previous_end_date != $currentCourse -> course['end_date']) {
      eF_deleteTableData("notifications", "id_type_entity LIKE '%_". (-1) * EfrontEvent::COURSE_PROGRAMMED_EXPIRY . "_" . $currentCourse -> course['id']. "'");
-     EfrontEvent::triggerEvent(array("type" => EfrontEvent::COURSE_PROGRAMMED_EXPIRY, "timestamp" => $currentCourse -> course['end_date'], "lessons_ID" => $currentCourse -> course['id'], "lessons_name" => $currentCourse -> course['name']));
+     foreach ($courseUsers as $user) {
+      $event = array("type" => EfrontEvent::COURSE_PROGRAMMED_EXPIRY,
+        "users_LOGIN" => $user['login'],
+        "users_name" => $user['name'],
+        "users_surname" => $user['surname'],
+        "timestamp" => $currentCourse -> course['end_date'],
+        "lessons_ID" => $currentCourse -> course['id'],
+        "lessons_name" => $currentCourse -> course['name'],
+        "entity_ID" => $currentCourse -> course['start_date'],
+        "entity_name" => $currentCourse -> course['end_date']);
+      EfrontEvent::triggerEvent($event);
+     }
     }
     echo _FROM.' '.formatTimestamp($fromTimestamp, 'time_nosec').' '._TO.' '.formatTimestamp($toTimestamp, 'time_nosec').'&nbsp;';
    } else {

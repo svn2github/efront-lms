@@ -114,17 +114,14 @@ if (isset($_POST['search_text'])) {
  foreach (array_keys($command_array) as $key => $command){
 
   $index = strpos($_POST['search_text'], $command);
-  //pr($index);
   if($index !== false){
    $right_key = $key;
-   //pr($right_key);
   }
  }
- //echo $right_key;
+
  if(isset($right_key)){
- //pr($query_array[0]);pr($command_array_keys[$right_key]);return;
   if (strcmp($query_array[0], $command_array_keys[$right_key]) == 0){
-   eF_redirect("".$command_array_values[$right_key]);return;
+   eF_redirect($command_array_values[$right_key]);return;
   }else{
 
    $argument = mb_substr($query_array[0], -(mb_strlen($query_array[0])- mb_strlen($command_array_keys[$right_key]))+1);
@@ -245,7 +242,7 @@ if (isset($_POST['search_text'])) {
  //Added to avoid problems with strings that contained single quotes
  $searchText = htmlspecialchars($_POST['search_text'], ENT_QUOTES);
     $results = EfrontSearch :: searchFull($searchText);
-//pr($results);exit;
+
     $lessons_have = $courses_have = null;
     $currentUser = EfrontUserFactory :: factory($_SESSION['s_login']); //Get active lessons of this user
  $currentUser -> applyRoleOptions();
@@ -273,7 +270,7 @@ if (isset($_POST['search_text'])) {
             $search_results_data[] = $results_users;
         }
     }
-//pr($results);
+
     if ($results) {
         for ($i = 0; $i < sizeof($results); $i++) {
             if ($results[$i]['table_name'] == "comments") {
@@ -477,7 +474,6 @@ if (isset($_POST['search_text'])) {
      try {
          $file = new EfrontFile($res1[0]['id']);
          $fileIcon = $file -> getTypeImage();
-    //echo $res1[0]['shared'];
          if ($_SESSION['s_type'] == 'student' && in_array($lessonID, $lessons_have) && $res1[0]['shared'] != 0) {
           $search_results_files[] = array ('id' => $res1[0]['id'],
                   'path' => $res1[0]['path'],
@@ -512,6 +508,39 @@ if (isset($_POST['search_text'])) {
     foreach ($search_results_lessons as $key => $value) {
   $search_results_lessons[$key] = eF_multiSort($search_results_lessons[$key], 'score', 'asc', true);
  }
+/*	
+
+	// This part of code added to sort the maximum score between lessons (#2912)
+
+	$scores = array();
+
+	foreach ($search_results_lessons as $key => $value) {
+
+		foreach ($value as $unit) {
+
+			if ($unit['score'] > $scores[$key]) {
+
+				$scores[$key] = $unit['score'];
+
+			}
+
+		}
+
+	}	
+
+	arsort($scores, SORT_NUMERIC);		
+
+	$result = array();	
+
+	foreach ($scores as $key => $value) {
+
+		$result[$key] = $search_results_lessons[$key];
+
+	}
+
+	$search_results_lessons = $result;
+
+*/
  foreach ($search_results_current_lesson as $key => $value) {
   $search_results_current_lesson[$key] = eF_multiSort($search_results_current_lesson[$key], 'score', 'asc', true);
  }
@@ -519,7 +548,31 @@ if (isset($_POST['search_text'])) {
   $search_results_courses[$key] = eF_multiSort($search_results_courses[$key], 'score', 'asc', true);
  }
  $search_results_forum = eF_multiSort($search_results_forum, 'body', 'desc');
-//pr($search_results_lessons);
+ if (extension_loaded('xapian')) {
+  $results_filesystem = EfrontXapian::getInstance()->search($_POST['search_text']);
+  if ($currentUser->user['user_type'] != 'administrator') { //non-admins don't have access to files outside their lessons
+   $paths = array();
+   foreach ($currentUser->getLessons(true) as $lesson) {
+    if ($lesson->lesson['active'] && !$lesson->lesson['archive']) {
+     $paths[] = str_replace(G_ROOTPATH, '', $lesson->getDirectory());
+    }
+   }
+   foreach ($results_filesystem as $key=>$value) {
+    $keep = false;
+    foreach ($paths as $path) {
+     if (strpos($value['path'], $path) !== false) {
+      $keep = true;
+     }
+    }
+    if (!$keep) {
+     unset($results_filesystem[$key]);
+    }
+   }
+  }
+  foreach ($results_filesystem as $key=>$value) {
+   $results_filesystem[$key]['content'] = EfrontSearch :: resultsTextLimit($value['content'], $cr, 'resultsText', 500);
+  }
+ }
  //highlight_search(word_limiter(substr($text,strpos($text, "Breathing"),1000), 20), $cr);
     $smarty -> assign("T_SEARCH_RESULTS_USERS", $results_users);
     $smarty -> assign("T_SEARCH_RESULTS", $search_results_data);
@@ -532,8 +585,8 @@ if (isset($_POST['search_text'])) {
     $smarty -> assign("T_SEARCH_RESULTS_COURSES", $search_results_courses);
  $smarty -> assign("T_SEARCH_RESULTS_FILES", $search_results_files);
  $smarty -> assign("T_SEARCH_RESULTS_GLOSSARY",$search_results_glossary);
-
-    if (!$search_results_data AND !$search_results_glossary AND !$search_results_forum AND !$search_results_pmsgs AND !$search_results_courses AND !$result_command AND !$search_results_files) {
+ $smarty -> assign("T_SEARCH_RESULTS_FILESYSTEM", $results_filesystem);
+    if (!$search_results_data AND !$search_results_glossary AND !$search_results_forum AND !$search_results_pmsgs AND !$search_results_courses AND !$result_command AND !$search_results_files AND !$results_filesystem) {
         $message = _NOSEARCHRESULTSFOUND;
         if (sizeof(explode("?", $_POST['current_location'])) > 1) { //Check if there is a query string after the url, so we can append the message using a '&' or a '?'
             eF_redirect($_POST['current_location']."&message=".urlencode($message));

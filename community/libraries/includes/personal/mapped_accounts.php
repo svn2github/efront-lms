@@ -26,7 +26,17 @@ if (isset($_GET['ajax']) && $_GET['ajax'] == 'additional_accounts') {
     if (in_array($_GET['login'], $additionalAccounts)) {
      throw new Exception(_ADDITIONALACCOUNTALREADYEXISTS);
     }
-    $newAccount = EfrontUserFactory::factory($_GET['login'], EfrontUser::createPassword($_GET['pwd']));
+    //handle ldap users
+    try {
+     $newAccount = EfrontUserFactory::factory($_GET['login'], EfrontUser::createPassword($_GET['pwd']));
+    } catch (Exception $e){
+     if ($e -> getCode() ==EfrontUserException :: INVALID_PASSWORD){
+      $newAccount = EfrontUserFactory::factory($_GET['login']);
+      if ($newAccount -> user['password'] != 'ldap' || $_GET['pwd'] != 'ldap') {
+       handleAjaxExceptions($e);
+      }
+     }
+    }
     $additionalAccounts[] = $newAccount -> user['login'];
 
     unserialize($newAccount -> user['additional_accounts']) ? $additionalAccounts2 = unserialize($newAccount -> user['additional_accounts']) : $additionalAccounts2 = array();

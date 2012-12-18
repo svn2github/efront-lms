@@ -329,10 +329,10 @@ class module_gift_aiken extends EfrontModule {
                     $matches['question_specs'] = trim($temp[0]);
 
                     if ($matches['question_specs'] == "T" || $matches['question_specs'] == "TRUE") {
-                        $question['answer'] = array("0" => "1");
+                        $question['answer'] = "1";
                         $is_true = 1;
                     } else if ($matches['question_specs'] == "F" || $matches['question_specs'] == "FALSE") {
-                        $question['answer'] = array("0" => "0");
+                        $question['answer'] = "0";
                         $is_true = 0;
                     } else {
                         $question['type'] = "error";
@@ -507,7 +507,7 @@ class module_gift_aiken extends EfrontModule {
             $questionString .= '<tr><td><b>'.($count+1).". ". $question['text'] .'</b></td></tr><tr><td>';
 
             if ($question['type'] == "true_false") {
-                if ($question['answer'][0] == 1) {
+                if ($question['answer'] == 1) {
                     $questionString .= "<span class = 'orderedList' style='color:green;font-weight:bold;'>". _TRUE. "</span><BR><span class = 'orderedList'>"._FALSE. "</span><BR>";
                 } else {
                     $questionString .= "<span class = 'orderedList'>". _TRUE. "</span><BR><span class = 'orderedList' style='color:green;font-weight:bold;'>"._FALSE. "</span><BR>";

@@ -180,12 +180,30 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
                             <table class = "singleColumnData">
                                 {$smarty.capture.$module_name}
                             </table>
-
-
-
-
        {/foreach}
+
+
        {capture name = "moduleSideOperations"}
+
+       {foreach name = 'module_inner_tables_list' key = key item = moduleItem from = $T_SIDE_INNERTABLE_MODULES}
+           {capture name = $key|replace:"_":""} {*We cut off the underscore, since scriptaculous does not seem to like them*}
+               <tr><td class = "moduleCell">
+                   {if $moduleItem.smarty_file}
+                       {include file = $moduleItem.smarty_file}
+                   {else}
+                       {$moduleItem.html_code}
+                   {/if}
+               </td></tr>
+           {/capture}
+       {/foreach}
+
+       {foreach name = 'module_inner_tables_list' key = key item = module from = $T_SIDE_INNERTABLE_MODULES}
+           {assign var = module_name value = $key|replace:"_":""}
+                           <tr><td id = "sideColumn">
+                                {$smarty.capture.$module_name}
+                            </td></tr>
+       {/foreach}
+
     <tr>
      <td id = "sideColumn">
          {eF_template_printBlock title=$smarty.const._TOOLS columns=2 links=$T_COURSES_LIST_OPTIONS image='32x32/options.png'}

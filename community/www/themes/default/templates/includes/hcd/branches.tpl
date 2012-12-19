@@ -47,7 +47,7 @@
                     </td>
                 </tr>
             {foreachelse}
-             <tr class = "defaultRowHeight oddRowColor"><td colspan = "6" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
+             <tr class = "defaultRowHeight oddRowColor"><td colspan = "100%" class = "emptyCategory">{$smarty.const._NODATAFOUND}</td></tr>
             {/foreach}
             </table>
 <!--/ajax:branchesTable-->

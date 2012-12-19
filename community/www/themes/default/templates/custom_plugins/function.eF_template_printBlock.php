@@ -214,10 +214,10 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
     }
     if (!$nohandle) {
         if ($cookieValue == 'hidden' || (!$cookieValue && isset($expand) && !$expand)) {
-            $handleString .= '<img class = "close" src = "images/16x16/navigate_down.png" alt = "'._EXPANDCOLLAPSEBLOCK.'" title = "'._EXPANDCOLLAPSEBLOCK.'" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
+            $handleString .= '<img class = "close open-close-handle" src = "images/16x16/navigate_down.png" alt = "'._EXPANDCOLLAPSEBLOCK.'" title = "'._EXPANDCOLLAPSEBLOCK.'" onclick = "toggleBlock(this, \''.$cookieString.'\')" id = "'.urlencode($params['title']).'_image">';
             $showContent = 'display:none';
         } else {
-            $handleString .= '<img class = "open" src = "images/16x16/navigate_up.png" alt = "'._EXPANDCOLLAPSEBLOCK.'" title = "'._EXPANDCOLLAPSEBLOCK.'" onclick = "toggleBlock(this, \''.$cookieString.'\')"  id = "'.urlencode($params['title']).'_image">';
+            $handleString .= '<img class = "open open-close-handle" src = "images/16x16/navigate_up.png" alt = "'._EXPANDCOLLAPSEBLOCK.'" title = "'._EXPANDCOLLAPSEBLOCK.'" onclick = "toggleBlock(this, \''.$cookieString.'\')"  id = "'.urlencode($params['title']).'_image">';
             $showContent = '';
         }
     }
@@ -250,21 +250,3 @@ function smarty_function_eF_template_printBlock($params, &$smarty) {
         return $str;
  }
 }
-/*
-
-    <div class = "block content">
-
-		<span class = "title">'.$params['title'].'</span>
-
-		<span class = "toggle open" onclick = "toggleBlock(this)"></span>
-
-		<span class = "subtitle">'.$params['sub_title'].'</span>
-
-		<div class = "content">'.$params['content'].'</div>
-
-		<span style = "display:none">&nbsp;</span>
-
-	</div>
-
- */
-?>

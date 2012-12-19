@@ -674,11 +674,12 @@ class EfrontDirectionsTree extends EfrontTree
    $lessons = $parsedLessons;
    $courses = $parsedCourses;
   }
+  $totalEntries = sizeof($parsedLessons)+sizeof($parsedCourses);
   $iterator = $this -> initializeIterator($iterator, $lessons, $courses, $options);
   $current = $iterator -> current();
   $treeString = '
       <div id = "directions_tree">';
-  list($display, $display_lessons, $imageString, $classString) = $this -> getTreeDisplaySettings($options);
+  list($display, $display_lessons, $imageString, $classString) = $this -> getTreeDisplaySettings($options, $totalEntries);
   $lessonsString = $coursesString = '';
   while ($iterator -> valid()) {
    $lessonsString = $this -> printCategoryLessons($iterator, $display_lessons, $options, $lessons);
@@ -691,7 +692,7 @@ class EfrontDirectionsTree extends EfrontTree
    $iterator -> next();
   }
   if ($options['tree_tools']) {
-   $treeString = $this -> printTreeTools($options).$treeString; //This is put at the end, so that $this -> hasLessonsAsStudent is populated
+   $treeString = $this -> printTreeTools($options, $totalEntries).$treeString; //This is put at the end, so that $this -> hasLessonsAsStudent is populated
   }
   return $treeString;
  }
@@ -810,7 +811,7 @@ class EfrontDirectionsTree extends EfrontTree
   }
   return $iterator;
  }
- private function printTreeTools($options) {
+ private function printTreeTools($options, $totalEntries) {
   if (!isset($_COOKIE['display_all_courses'])) {
    setcookie('display_all_courses', 1);
   }
@@ -828,12 +829,18 @@ class EfrontDirectionsTree extends EfrontTree
   } else {
    $hideExpandAll = 'style = "display:none"';
   }
+  if ($totalEntries <= 10) {
+   $hideCollapseAll = $hideExpandAll = 'style = "display:none"';
+  }
   $treeString .= '
      <a href = "javascript:void(0)" onclick = "showAll()" id = "catalog_show_all" '.$hideExpandAll.'>'._EXPANDALL.'</a>
      <a href = "javascript:void(0)" onclick = "hideAll()" id = "catalog_hide_all" '.$hideCollapseAll.'>'._COLLAPSEALL.'</a>';
   if ($options['only_progress_link'] && $this -> hasLessonsAsStudent) {
+   if ($totalEntries > 10) {
+    $treeString .= ' | ';
+   }
    $treeString .= '
-     | <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
+     <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
       <option value = "0">'._MATERIALINPROGRESS.'</option>
       <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLMATERIAL.'</option>
      </select>
@@ -1003,8 +1010,8 @@ class EfrontDirectionsTree extends EfrontTree
       </tr>';
   return $treeString;
  }
- private function getTreeDisplaySettings($options) {
-  if (($options['collapse'] && !isset($_COOKIE['collapse_catalog'])) || ($options['collapse'] && $_COOKIE['collapse_catalog'] == 1) || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog'])) {
+ private function getTreeDisplaySettings($options, $totalEntries) {
+  if ($totalEntries > 10 && (($options['collapse'] && !isset($_COOKIE['collapse_catalog'])) || ($options['collapse'] && $_COOKIE['collapse_catalog'] == 1) || (isset($_COOKIE['collapse_catalog']) && $_COOKIE['collapse_catalog']))) {
    $display = 'style = "display:none"';
    $display_lessons = 'style = "display:none"';
    $imageString = 'down';

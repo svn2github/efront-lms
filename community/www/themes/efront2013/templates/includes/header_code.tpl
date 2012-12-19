@@ -66,12 +66,14 @@
   {if $T_THEME_SETTINGS->options.sidebar_interface != 0 && $T_HEADER_CLASS == 'header'}{$smarty.capture.t_path_additional_code}{/if}
  </div>
  {/if}
- {if $T_CONFIGURATION.motto_on_header}
+
+ {*{if $T_CONFIGURATION.motto_on_header}
   <div id = "info">
    <div id = "site_name" class= "headerText">{$T_CONFIGURATION.site_name}</div>
    <div id = "site_motto" class= "headerText">{$T_CONFIGURATION.site_motto}</div>
   </div>
- {/if}
+ {/if}*}
+
  <div id = "path">
   <div id = "path_title">{$title|eF_formatTitlePath}</div>
   <div id = "tab_handles_div">
@@ -82,7 +84,7 @@
   {/if}
 *}
   </div>
-  {*<div id = "path_language">
+  <div id = "path_language">
   {if $smarty.server.PHP_SELF|basename != 'index.php' && $T_THEME_SETTINGS->options.sidebar_interface != 0 && $smarty.session.s_login}
             <form action = "{$smarty.server.PHP_SELF}?ctg={if $smarty.session.s_type == 'administrator'}control_panel{else}lessons{/if}&op=search" method = "post">
     <input type = "text" name = "search_text" value = "{$smarty.const._SEARCH}" onclick="if(this.value=='{$smarty.const._SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}';" class = "searchBox" />
@@ -91,7 +93,7 @@
   {else}
    {$smarty.capture.header_language_code}
   {/if}
-  </div>*}
+  </div>
  </div>
 {*
  {if $smarty.session.student_mode}

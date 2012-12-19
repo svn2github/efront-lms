@@ -3,7 +3,6 @@
 
 html {
 height:100%;
-margin:0;
 }
 
 body {
@@ -17,12 +16,12 @@ max-width:1200px;
 min-width:800px;
 text-align:left;
 line-height:1.5em;
-margin:0 auto;
-padding:5px;
+margin:0px auto;
+padding:0px;
 }
 
 .titleLink,a.titleLink,a.titleLink:link,a.titleLink:visited,a.titleLink:hover {
-color:#111;
+color:#111	;
 font-size:1.1em;
 text-shadow:0 1px 0px #e5e5e5;
 margin:5px;
@@ -247,9 +246,9 @@ clear:right;
 
 table.pageLayout td.header #path {
 clear:left;
-padding-top:6px;
+padding-top:4px;
 padding-bottom:6px;
-height:25px;
+height:28px;
 border-top:0 solid #CCC;
 border-bottom:0px solid #ccc;
 background:#ddd; /*#0362A9;*/
@@ -261,13 +260,14 @@ border-radius:5px;
 table.pageLayout td.header #path #path_title {
 float:left;
 margin-left: 10px;
-padding-top: 2px;
+padding-top: 5px;
 /*color:#fff;*/
 }
 
 table.pageLayout td.header #path #path_language {
 float:right;
 padding-right:4px;
+padding-top:0px;
 }
 
 table.pageLayout td.footer {
@@ -503,7 +503,7 @@ padding:5px;
 
 input,select,textarea {
 border:1px solid #ccc;
-margin-top:6px;
+/*margin-top:6px;*/
 background:#fff;
 font-size:13px;
 font-weight:normal;
@@ -1757,13 +1757,19 @@ padding:8px;
 padding-bottom:6px;
 }
 
+.tabbertab div.block .title {
+	display:none;
+}
+
 div.block .title img {
 vertical-align:middle;
 margin-right:10px;
 }
-
+div.block .open-close-handle {
+	display:none;
+}
 div.block .subtitle {
-display:block;
+display:none;
 font-size:11px;
 color:#666;
 border:solid 1px #CCC;
@@ -1799,7 +1805,9 @@ border-radius:3px;
 background:#fff;
 padding:10px;
 }
-
+.tabbertab div.block .content {
+	border-width:0px;
+}
 div.block .toolbar {
 white-space:nowrap;
 background-color:#dae2e9;

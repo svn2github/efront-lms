@@ -122,7 +122,7 @@
                 </td></tr>
             <tr id = "empty_spaces_last_node"><td colspan = "2" ></td></tr>
             <tr><td></td>
-                <td class = "infoCell">{$smarty.const._SEPARATEALTERNATIVESEXAMPLE}. {$smarty.const._YOUCANUSEASTERISK}</td></tr>
+                <td class = "infoCell">{$smarty.const._SEPARATEALTERNATIVESEXAMPLE}. {$smarty.const._YOUCANUSEASTERISK} {$smarty.const._YOUCANUSENUMBERRANGE}</td></tr>
    <tr><td class = "labelCell">{$T_QUESTION_FORM.select_list.label}:&nbsp;</td>
              <td class = "elementCell">{$T_QUESTION_FORM.select_list.html}</td></tr>
    {if $T_QUESTION_FORM.select_list.error}<tr><td colspan = "2" class = "formError">{$T_QUESTION_FORM.select_list.error}</td></tr>{/if}

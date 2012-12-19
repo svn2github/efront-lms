@@ -48,7 +48,7 @@
      {$T_ENTITY_FORM.javascript}
      <form {$T_ENTITY_FORM.attributes}>
       {$T_ENTITY_FORM.hidden}
-      <table class = "formElements" width="100%">
+      <table class = "formElements" style = "width:100%">
        <tr><td class = "labelCell">{$T_ENTITY_FORM.name.label}:&nbsp;</td>
         <td class = "elementCell">{$T_ENTITY_FORM.name.html}</td>
        </tr>

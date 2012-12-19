@@ -23,7 +23,8 @@
     <a href = "javascript:void(0)" onclick = "setErrorReporting(this)" title = "error reporting level">Error reporting: {if $smarty.session.error_level == 'warning'}Warning{elseif $smarty.session.error_level == 'all'}All{else}Off{/if}</a>
    </span>
   </div>
-  {include file = "includes/check_status.tpl"}
+  {include file = "includes/check_status.tpl" assign = "check_status"}
+  {$smarty.capture.t_check_status_code}
 
   <div style = "text-align:right"><input type = "submit" name = "next_step" value = "Continue &raquo;" onclick = "{if $T_MISSING_SETTINGS}if (confirm('Some mandatory elements were not found. Are you sure you want to continue?')){/if}window.location = '{$smarty.server.PHP_SELF}?step=2{if $smarty.get.upgrade}&upgrade=1{/if}'" class = "flatButton {if $T_MISSING_SETTINGS}inactiveElement{/if}"></div>
   {/capture}
@@ -102,9 +103,6 @@
                 <div class = "formRow">
                  <div class = "formLabel">
                   <div class = "header">Database name:&nbsp;</div>
- {if $smarty.get.upgrade}
-                  <div class = "explanation">Upgrading to a different database is safer (leaving old data intact) but may be very slow</div>
- {/if}
                  </div>
                  <div class = "formElement">
                   <div class = "field">{$T_DATABASE_FORM.db_name.html}</div>
@@ -155,7 +153,7 @@
                  </div>
                 </div>
  {else}
-                <div class = "formRow">
+                <div class = "formRow" style = "display:none">
                  <div class = "formLabel">
                   <div class = "header">Upgrade from database:&nbsp;</div>
                  </div>

@@ -1,7 +1,6 @@
 /*Basic classes*/
 html{
 height:100%;
-margin:4px;
 /*padding:2px;*/ /*commented out because it causes scrollbar to popups and sideeffects to editor*/
 }
 body{
@@ -9,7 +8,7 @@ font-size:12px;
 font-family:"Lucida Grande","Lucida Sans Unicode",helvetica,arial,verdana,sans-serif;
 background:#E2E2E2 url('../images/css_images/page_bg.gif');  /* moved here to avoid scrolling issue in editor*/
 height:99%;
-margin:0px auto 0px auto;
+margin:4px auto 0px auto;
 width:96%;
 max-width: 1180px;
 min-width: 750px;
@@ -748,7 +747,7 @@ color: green;
 }
 .resultsTitle .small a:hover{text-decoration: underline;}
 .resultsTitleBold{font-weight: bold;}
-.searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; padding-left:18px; padding-top:2px;padding-bottom:2px;margin:0px;width:134px;}
+.searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; padding-left:18px; padding-top:2px;padding-bottom:2px;margin:0px;width:134px;background-image:url('../images/css_images/search.png');}
 
 /*Progress bar classes*/
 div#progress_bar a{display:block;margin-top:10px;}

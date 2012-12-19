@@ -56,7 +56,7 @@ if (is_file($path."smarty/smarty_config.php") && is_file($path."language/lang-en
     define("G_DEFAULTTHEMEPATH", G_THEMESPATH."default/");
     /** The default theme url*/
     define("G_DEFAULTTHEMEURL", "themes/default/");
-    $currentTheme = "modern";
+    $currentTheme = "efront2013";
  /**The current theme path*/
  define("G_CURRENTTHEMEPATH", G_THEMESPATH.$currentTheme."/");
  /**The current theme url*/
@@ -235,7 +235,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       }
       $db -> Execute($query);
      } catch (Exception $e) {
-      pr($e);
       $failed_tables[] = $e -> msg; //Each failed query will not halt the execution, but will be recorded to this table
      }
     }
@@ -256,235 +255,248 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     } else {
      $dbVersion = '3.5';
     }
-    Installation :: createTable('themes', $file_contents);
     //Include old configuration file in order to perform the automatic backup, use database functions, etc
     require_once($path."configuration.php");
-    //Get all the database tables, except for the temporary installation tables
-    $result = $db -> Execute("show table status"); //Get the database tables
-    while (!$result->EOF) {
-     if (strpos($result -> fields['Name'], 'install_') !== 0) {
-      $tables[] = $result -> fields['Name'];
-     }
-     $result -> MoveNext();
-    }
-    //We are upgrading onto the same database.
-    if ($values['old_db_name'] == $values['db_name']) {
-     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
-     $db -> Execute("SET NAMES 'UTF8'");
-     //ini_set("memory_limit", "-1");
-     if ($values['backup'] || isset($_GET['unattended'])) {
-      $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
-     }
-     //Delete old temporary installation tables
-     foreach ($tables as $table) {
-      try {
-       $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
-      } catch (Exception $e) {} //If the table could not be deleted, it doesn't exist
-     }
-     //Create temporary tables with the 'install_' prefix
-     foreach ($file_contents as $query) {
-      //Apply the selected prefix to table names
-      $matches = array();
-      preg_match('/CREATE TABLE (\w+) .*/', $query, $matches);
-      $queryCreate = preg_replace('/CREATE TABLE (\w+) (.*)/', 'CREATE TABLE if not exists '.$values['db_prefix'].'$1 $2', $query);
-      $queryCreateTemp = preg_replace('/(.*CREATE TABLE )(\w+)( .*)/', '$1 '.$values['db_prefix'].'install_$2 $3', $query); //Use temporary installation tables
-      try {
-       $db -> Execute($queryCreateTemp);
-       $db -> Execute($queryCreate);
-       $newTables[] = $matches[1];
-      } catch (Exception $e) {
-       $failed_tables[] = $e -> msg; //Each failed query will not halt the execution, but will be recorded to this table
+    if (version_compare($dbVersion, '3.6.11') == -1) {
+     Installation :: createTable('themes', $file_contents);
+     //Get all the database tables, except for the temporary installation tables
+     $result = $db -> Execute("show table status"); //Get the database tables
+     while (!$result->EOF) {
+      if (strpos($result -> fields['Name'], 'install_') !== 0) {
+       $tables[] = $result -> fields['Name'];
       }
+      $result -> MoveNext();
      }
-     if (isset($failed_tables)) { //If there were any errors, assign them to smarty to be displayed
-      $smarty -> assign('T_FAILED_TABLES', 1);
-      throw new Exception(implode(', ', $failed_tables));
-     }
-     $existingTables = array_diff($tables, $newTables); //These are tables pre-existing in the database, which should remain intact
-     $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
-    } else {
-     //The inclusion of configuration.php triggered the creation of a new configuration file. Truncate it in the new database
-     $result = $db -> Execute("truncate configuration");
-     //Special handling of modules table
-     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['old_db_name']);
-     $db -> Execute("SET NAMES 'UTF8'");
-     $existingTables = $db -> GetCol("show tables");
-     $moduleTables = array_diff($existingTables, $tables);
-     $moduleTableQueries = array();
-     foreach ($moduleTables as $table) {
-      $result = $db -> execute("show create table ".$table);
-      $moduleTableQueries[$table] = $result -> getAll();
-      $tables[] = $table;
-     }
-     $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
-     $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
-     $db -> Execute("SET NAMES 'UTF8'");
-     //Delete old temporary installation tables
-     foreach ($tables as $key => $table) {
-      try {
-       $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
-      } catch (Exception $e) {} //If the table could not be deleted, it doesn't exist
-      if (preg_match("/^.*_view$/", $table)) {
-       unset($tables[$key]);
-      }
-     }
-     //Create missing tables in the target database
-     foreach ($moduleTableQueries as $query) {
-      if (isset($query[0]['Create Table'])) {
-       $db -> Execute($query[0]['Create Table']);
-      }
-     }
-     //For every table that already exists in the target database, we must empty otherwise we may end up with duplicate values
-     $commonTables = array_intersect($existingTables, $tables);
-     foreach ($commonTables as $table) {
-      try {
-       $db -> Execute("truncate table $table");
-      } catch (Exception $e) {/*Do nothing, if for example it's views we are trying to truncate*/}
-     }
-    }
-    for ($i = 0; $i < sizeof($userProfile); $i++) {
-     $userProfile[$i]['mandatory'] ? $mandatory = "NOT NULL" : $mandatory = "NULL";
-     $userProfile[$i]['default_value'] ? $default = $userProfile[$i]['default_value'] : $default = false;
-     try {
-      if ($values['old_db_name'] == $values['db_name']) {
-       $db -> Execute("ALTER TABLE install_users ADD ".$userProfile[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
-      } else {
-       $db -> Execute("ALTER TABLE users ADD ".$userProfile[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
-      }
-     } catch (Exception $e) {
-      $failed_updates[] = $e -> msg;
-     }
-    }
-    unset($tables['userpage']); //deprecated table
-    $upgradedTables = array();
-    foreach ($tables as $table) {
+     //We are upgrading onto the same database.
      if ($values['old_db_name'] == $values['db_name']) {
-      if (!in_array($table, $existingTables)) {
-       //Installation :: updateDBTable($table, "install_".$table);
-       if (Installation :: quickUpgrade($table)) {
-        $upgradedTables[] = $table;
+      $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
+      $db -> Execute("SET NAMES 'UTF8'");
+      //ini_set("memory_limit", "-1");
+      if ($values['backup'] || isset($_GET['unattended'])) {
+       $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
+      }
+      //Delete old temporary installation tables
+      foreach ($tables as $table) {
+       try {
+        $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
+       } catch (Exception $e) {
+       } //If the table could not be deleted, it doesn't exist
+      }
+      //Create temporary tables with the 'install_' prefix
+      foreach ($file_contents as $query) {
+       //Apply the selected prefix to table names
+       $matches = array();
+       preg_match('/CREATE TABLE (\w+) .*/', $query, $matches);
+       $queryCreate = preg_replace('/CREATE TABLE (\w+) (.*)/', 'CREATE TABLE if not exists '.$values['db_prefix'].'$1 $2', $query);
+       $queryCreateTemp = preg_replace('/(.*CREATE TABLE )(\w+)( .*)/', '$1 '.$values['db_prefix'].'install_$2 $3', $query); //Use temporary installation tables
+       try {
+        $db -> Execute($queryCreateTemp);
+        $db -> Execute($queryCreate);
+        $newTables[] = $matches[1];
+       } catch (Exception $e) {
+        $failed_tables[] = $e -> msg; //Each failed query will not halt the execution, but will be recorded to this table
        }
       }
+      if (isset($failed_tables)) { //If there were any errors, assign them to smarty to be displayed
+       $smarty -> assign('T_FAILED_TABLES', 1);
+       throw new Exception(implode(', ', $failed_tables));
+      }
+      $existingTables = array_diff($tables, $newTables); //These are tables pre-existing in the database, which should remain intact
+      $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
      } else {
-      $oldDB = array('db_host' => $values['db_host'], 'db_user' => $values['db_user'], 'db_password' => $values['db_password'], 'db_name' => $values['old_db_name']);
-      $newDB = array('db_host' => $values['db_host'], 'db_user' => $values['db_user'], 'db_password' => $values['db_password'], 'db_name' => $values['db_name']);
-      Installation :: updateDBTable($table, $table, $oldDB, $newDB);
-     }
-    }
-    //In any case, Restore connection to the normal database
-    $GLOBALS['db'] -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
-    $GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
-    //The upgrade completed successfully, so delete old tables and rename temporary install_ tables to its original names
-    if ($values['old_db_name'] == $values['db_name']) {
-     foreach ($upgradedTables as $table) {
-      if (!in_array($table, $existingTables)) {
-       $db -> Execute("drop table $table");
-       $db -> Execute("RENAME TABLE install_$table TO $table");
+      //The inclusion of configuration.php triggered the creation of a new configuration file. Truncate it in the new database
+      $result = $db -> Execute("truncate configuration");
+      //Special handling of modules table
+      $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['old_db_name']);
+      $db -> Execute("SET NAMES 'UTF8'");
+      $existingTables = $db -> GetCol("show tables");
+      $moduleTables = array_diff($existingTables, $tables);
+      $moduleTableQueries = array();
+      foreach ($moduleTables as $table) {
+       $result = $db -> execute("show create table ".$table);
+       $moduleTableQueries[$table] = $result -> getAll();
+       $tables[] = $table;
       }
-     }
-     foreach ($tables as $table) {
-      if (!in_array($table, $existingTables)) {
+      $userProfile = eF_getTableData("user_profile", "*"); //Get any additional user profile fields
+      $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
+      $db -> Execute("SET NAMES 'UTF8'");
+      //Delete old temporary installation tables
+      foreach ($tables as $key => $table) {
        try {
-        $db -> Execute("drop table install_$table");
-       } catch (Exception $e) {}
+        $result = $db -> Execute("drop table install_$table"); //Delete temporary installation tables, if such exist
+       } catch (Exception $e) {
+       } //If the table could not be deleted, it doesn't exist
+       if (preg_match("/^.*_view$/", $table)) {
+        unset($tables[$key]);
+       }
+      }
+      //Create missing tables in the target database
+      foreach ($moduleTableQueries as $query) {
+       if (isset($query[0]['Create Table'])) {
+        $db -> Execute($query[0]['Create Table']);
+       }
+      }
+      //For every table that already exists in the target database, we must empty otherwise we may end up with duplicate values
+      $commonTables = array_intersect($existingTables, $tables);
+      foreach ($commonTables as $table) {
+       try {
+        $db -> Execute("truncate table $table");
+       } catch (Exception $e) {/*Do nothing, if for example it's views we are trying to truncate*/
+       }
       }
      }
-    }
-    Installation :: createConfigurationFile($values, true);
-    if ($values['upgrade_search']) {
-     //EfrontSearch::reBuiltIndex();
-    }
-    if (version_compare($dbVersion, '3.6.7') == -1) {
-     $courses = eF_getTableData("courses","*");
-     foreach ($courses as $key => $value) {
-      $options = unserialize($value['options']);
-      if (!isset($options['certificate_export_method'])) {
+     for ($i = 0; $i < sizeof($userProfile); $i++) {
+      $userProfile[$i]['mandatory'] ? $mandatory = "NOT NULL" : $mandatory = "NULL";
+      $userProfile[$i]['default_value'] ? $default = $userProfile[$i]['default_value'] : $default = false;
+      try {
+       if ($values['old_db_name'] == $values['db_name']) {
+        $db -> Execute("ALTER TABLE install_users ADD ".$userProfile[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
+       } else {
+        $db -> Execute("ALTER TABLE users ADD ".$userProfile[$i]['name']." varchar(255) ".$mandatory." DEFAULT '".$default."'");
+       }
+      } catch (Exception $e) {
+       $failed_updates[] = $e -> msg;
+      }
+     }
+     unset($tables['userpage']); //deprecated table
+     $upgradedTables = array();
+     foreach ($tables as $table) {
+      if ($values['old_db_name'] == $values['db_name']) {
+       if (!in_array($table, $existingTables)) {
+        //Installation :: updateDBTable($table, "install_".$table);
+        if (Installation :: quickUpgrade($table)) {
+         $upgradedTables[] = $table;
+        }
+       }
+      } else {
+       $oldDB = array('db_host' => $values['db_host'], 'db_user' => $values['db_user'], 'db_password' => $values['db_password'], 'db_name' => $values['old_db_name']);
+       $newDB = array('db_host' => $values['db_host'], 'db_user' => $values['db_user'], 'db_password' => $values['db_password'], 'db_name' => $values['db_name']);
+       Installation :: updateDBTable($table, $table, $oldDB, $newDB);
+      }
+     }
+     //In any case, Restore connection to the normal database
+     $GLOBALS['db'] -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
+     $GLOBALS['db'] -> Execute("SET NAMES 'UTF8'");
+     //The upgrade completed successfully, so delete old tables and rename temporary install_ tables to its original names
+     if ($values['old_db_name'] == $values['db_name']) {
+      foreach ($upgradedTables as $table) {
+       if (!in_array($table, $existingTables)) {
+        $db -> Execute("drop table $table");
+        $db -> Execute("RENAME TABLE install_$table TO $table");
+       }
+      }
+      foreach ($tables as $table) {
+       if (!in_array($table, $existingTables)) {
+        try {
+         $db -> Execute("drop table install_$table");
+        } catch (Exception $e) {
+        }
+       }
+      }
+     }
+     Installation :: createConfigurationFile($values, true);
+     if ($values['upgrade_search']) {
+      //EfrontSearch::reBuiltIndex();
+     }
+     if (version_compare($dbVersion, '3.6.7') == -1) {
+      $courses = eF_getTableData("courses","*");
+      foreach ($courses as $key => $value) {
+       $options = unserialize($value['options']);
+       if (!isset($options['certificate_export_method'])) {
         $options['certificate_export_method'] = 'rtf';
         eF_updateTableData('courses',array('options' => serialize($options)),'id='.$value['id']);
+       }
       }
+      EfrontTimes :: upgradeFromUsersOnline();
      }
-     EfrontTimes :: upgradeFromUsersOnline();
-    }
-    if (version_compare($dbVersion, '3.6.10') == -1) {
-     $result = eF_getTableData("users_to_projects", "*");
-     foreach ($result as $value) {
-      if (isset($value['filename']) && $value['filename'] != '') {
-       try {
-        $file = new EfrontFile($value['filename']);
-        if ($file['directory'] == G_UPLOADPATH.$value['users_LOGIN'].'/projects') {
+     if (version_compare($dbVersion, '3.6.10') == -1) {
+      $result = eF_getTableData("users_to_projects", "*");
+      foreach ($result as $value) {
+       if (isset($value['filename']) && $value['filename'] != '') {
+        try {
+         $file = new EfrontFile($value['filename']);
+         if ($file['directory'] == G_UPLOADPATH.$value['users_LOGIN'].'/projects') {
           $projectDirectory = G_UPLOADPATH.$value['users_LOGIN'].'/projects/'.$value['projects_ID'].'/';
-                      if (!is_dir($projectDirectory)) {
-                          EfrontDirectory :: createDirectory($projectDirectory);
-                      }
-         $file -> rename($projectDirectory.$file['physical_name']);
+          if (!is_dir($projectDirectory)) {
+           EfrontDirectory :: createDirectory($projectDirectory);
+          }
+          $file -> rename($projectDirectory.$file['physical_name']);
+         }
+        } catch (Exception $e) {
         }
-       } catch (Exception $e) {}
+       }
+      }
+      //change flv path with offset because of the tinymce 3.4.2
+      $result = eF_getTableData("content", "*", "data like '%flvToPlay%'");
+      foreach ($result as $value) {
+       if (mb_strpos($value['data'], "flvToPlay=../../../../../") !== false) {
+        $value['data'] = str_replace("flvToPlay=../../../../../", "flvToPlay=##EFRONTEDITOROFFSET##", $value['data']);
+        eF_updateTableData("content", array('data' => $value['data']), "id=".$value['id']);
+       }
       }
      }
-     //change flv path with offset because of the tinymce 3.4.2
-     $result = eF_getTableData("content", "*", "data like '%flvToPlay%'");
-     foreach ($result as $value) {
-      if (mb_strpos($value['data'], "flvToPlay=../../../../../") !== false) {
-       $value['data'] = str_replace("flvToPlay=../../../../../", "flvToPlay=##EFRONTEDITOROFFSET##", $value['data']);
-       eF_updateTableData("content", array('data' => $value['data']), "id=".$value['id']);
+     $options = EfrontConfiguration :: getValues();
+     //This means that the version upgrading from is 3.5
+     if ($dbVersion == '3.5') {
+      //Try to restore custom blocks
+      try {
+       if ($options['custom_blocks']) {
+        $basedir = G_EXTERNALPATH;
+        if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
+         throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
+        }
+        $blocks = unserialize($options['custom_blocks']);
+        foreach ($blocks as $value) {
+         $value['name'] = rand().time(); //Use a random name
+         $block = array('name' => $value['name'],
+           'title' => $value['title']);
+         file_put_contents($basedir.$value['name'].'.tpl', $value['content']);
+         isset($customBlocks) && sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
+        }
+        $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
+        $currentSetTheme -> layout['custom_blocks'] = $customBlocks;
+        $currentSetTheme -> persist();
+       }
+      } catch (Exception $e) {
       }
+      //Try to restore custom logo
+      try {
+       $logoFile = new EfrontFile($options['logo']);
+       if (strpos($logoFile['path'], G_LOGOPATH) === false) {
+        copy ($logoFile['path'], G_LOGOPATH.$logoFile['name']);
+       }
+      } catch (Exception $e) {
+      }
+      //Try to restore custom favicon
+      try {
+       if (strpos($faviconFile['path'], G_LOGOPATH) === false) {
+        $faviconFile = new EfrontFile($options['logo']);
+       }
+       copy ($faviconFile['path'], G_LOGOPATH.$faviconFile['name']);
+      } catch (Exception $e) {
+      }
+      //Try to restore paypalbusiness addres
+      try {
+       $result = eF_getTableData("paypal_configuration", "paypalbusiness");
+       if (!empty($result)) {
+        EfrontConfiguration :: setValue('paypalbusiness', $result[0]['paypalbusiness']);
+       }
+      } catch (Exception $e) {
+      }
+      //Reset certain version options
+      try {
+       if ($options['version_type'] == 'standard') {
+        EfrontConfiguration :: setValue('version_type', 'community');
+       }
+      } catch (Exception $e) {
+      }
+      //Add default notifications to 3.5
+      EfrontNotification::addDefaultNotifications();
      }
     }
-    if (version_compare($dbVersion, '3.6.12') == -1) {
-    }
-    $options = EfrontConfiguration :: getValues();
-    //This means that the version upgrading from is 3.5
-    if ($dbVersion == '3.5') {
-     //Try to restore custom blocks
-     try {
-      if ($options['custom_blocks']) {
-       $basedir = G_EXTERNALPATH;
-       if (!is_dir($basedir) && !mkdir($basedir, 0755)) {
-        throw new EfrontFileException(_COULDNOTCREATEDIRECTORY.': '.$fullPath, EfrontFileException :: CANNOT_CREATE_DIR);
-       }
-       $blocks = unserialize($options['custom_blocks']);
-       foreach ($blocks as $value) {
-        $value['name'] = rand().time(); //Use a random name
-        $block = array('name' => $value['name'],
-                             'title' => $value['title']);
-        file_put_contents($basedir.$value['name'].'.tpl', $value['content']);
-        isset($customBlocks) && sizeof($customBlocks) > 0 ? $customBlocks[] = $block : $customBlocks = array($block);
-       }
-       $currentSetTheme = new themes($GLOBALS['configuration']['theme']);
-       $currentSetTheme -> layout['custom_blocks'] = $customBlocks;
-       $currentSetTheme -> persist();
-      }
-     } catch (Exception $e) {}
-     //Try to restore custom logo
-     try {
-      $logoFile = new EfrontFile($options['logo']);
-      if (strpos($logoFile['path'], G_LOGOPATH) === false) {
-       copy ($logoFile['path'], G_LOGOPATH.$logoFile['name']);
-      }
-     } catch (Exception $e) {}
-     //Try to restore custom favicon
-     try {
-      if (strpos($faviconFile['path'], G_LOGOPATH) === false) {
-       $faviconFile = new EfrontFile($options['logo']);
-      }
-      copy ($faviconFile['path'], G_LOGOPATH.$faviconFile['name']);
-     } catch (Exception $e) {}
-     //Try to restore paypalbusiness addres
-     try {
-      $result = eF_getTableData("paypal_configuration", "paypalbusiness");
-      if (!empty($result)) {
-       EfrontConfiguration :: setValue('paypalbusiness', $result[0]['paypalbusiness']);
-      }
-     } catch (Exception $e) {}
-     //Reset certain version options
-     try {
-      if ($options['version_type'] == 'standard') {
-       EfrontConfiguration :: setValue('version_type', 'community');
-      }
-     } catch (Exception $e) {}
-     //Add default notifications to 3.5
-     EfrontNotification::addDefaultNotifications();
-    }
+    //Now upgrade to 3.6.12
+    //include ("upgrade.php");
+    pr($failed_queries);
     //the following lines remove some old editor files that prevent editor from loading in version 3.6
     $removedDir = array();
     //$removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';
@@ -582,9 +594,9 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
     addLanguagesDB();
     //modern is the default theme
     try {
-     $file = new EfrontFile(G_THEMESPATH."modern/theme.xml");
+     $file = new EfrontFile(G_THEMESPATH."efront2013/theme.xml");
      themes :: create(themes :: parseFile($file));
-     $currentTheme = new themes('modern');
+     $currentTheme = new themes('efront2013');
      EfrontConfiguration :: setValue('theme', $currentTheme -> {$currentTheme -> entity}['id']);
     } catch (Exception $e) {}
     //Create the default system users and lessons

@@ -280,7 +280,9 @@ class f_topics extends EfrontEntity
         $fmid = eF_getTableDataFlat("f_messages", "id", "f_topics_ID=".$this -> {$this -> entity}['id']);
         eF_deleteTableData("f_messages", "f_topics_ID=".$this -> {$this -> entity}['id']);
         parent :: delete();
-        EfrontSearch :: removeText('f_messages', implode(",", $fmid['id']), '', true);
+        if (sizeof($fmid['id']) > 0) {
+         EfrontSearch :: removeText('f_messages', implode(",", $fmid['id']), '', true);
+        }
         EfrontSearch :: removeText('f_topics', $this -> {$this -> entity}['id'], '');
     }
     /**

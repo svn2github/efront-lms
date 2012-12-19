@@ -1,5 +1,11 @@
 /*Font family*/
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src:	url('fonts/DroidSans.ttf') format('truetype'), 
+		url('fonts/DroidSans.woff') format('woff');
+}
 
 html {
 height:100%;
@@ -582,6 +588,7 @@ td.labelCell {
 text-align:right;
 white-space:nowrap;
 width:10%;
+padding:6px;
 }
 
 td.labelCellTop {
@@ -1761,6 +1768,10 @@ padding-bottom:6px;
 	display:none;
 }
 
+.tabbertab div.block div.block .title{
+	display:inline;
+}
+
 div.block .title img {
 vertical-align:middle;
 margin-right:10px;
@@ -1805,14 +1816,17 @@ border-radius:3px;
 background:#fff;
 padding:10px;
 }
+
 .tabbertab div.block .content {
 	border-width:0px;
 }
+
 div.block .toolbar {
 white-space:nowrap;
 background-color:#dae2e9;
 margin:0;
 padding:10px 0;
+border-top:1px solid #ddd;
 }
 
 div.block .toolbar span {
@@ -2042,7 +2056,7 @@ margin:3px;
 }
 
 .headerText {
-color:#ccc;
+color:#333;
 }
 
 a.headerText,a.headerText:link,a.headerText:visited,a.headerText:active {

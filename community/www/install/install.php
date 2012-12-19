@@ -394,7 +394,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
        }
       }
      }
-     Installation :: createConfigurationFile($values, true);
      if ($values['upgrade_search']) {
       //EfrontSearch::reBuiltIndex();
      }
@@ -495,8 +494,8 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
      }
     }
     //Now upgrade to 3.6.12
-    //include ("upgrade.php");
-    pr($failed_queries);
+    include ("upgrade.php");
+    Installation :: createConfigurationFile($values, true);
     //the following lines remove some old editor files that prevent editor from loading in version 3.6
     $removedDir = array();
     //$removedDir[] = G_ROOTPATH.'www/editor/tiny_mce/themes/advanced/langs';

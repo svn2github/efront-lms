@@ -16,16 +16,19 @@ function addLanguagesDB() {
  $langsArray[] = array('name' => 'czech', 'active' => (setlocale(LC_ALL, "czech") == "") ? 0:1, 'translation' => 'Česky');
  $langsArray[] = array('name' => 'danish', 'active' => (setlocale(LC_ALL, "danish") == "") ? 0:1, 'translation' => 'Dansk');
  $langsArray[] = array('name' => 'dutch', 'active' => (setlocale(LC_ALL, "dutch") == "") ? 0:1, 'translation' => 'Nederlands');
- $langsArray[] = array('name' => 'english', 'active' => 1, 'translation' => 'English');
- $langsArray[] = array('name' => 'english-enterprise', 'active' => 1, 'translation' => 'English');
+
+
+
+
+  $langsArray[] = array('name' => 'greek', 'active' => (setlocale(LC_ALL, "greek") == "") ? 0:1, 'translation' => 'Eλληνικά');
+  $langsArray[] = array('name' => 'english', 'active' => 1, 'translation' => 'English');
+
  $langsArray[] = array('name' => 'filipino', 'active' => (setlocale(LC_ALL, "filipino") == "") ? 0:1, 'translation' => 'Filipino');
  $langsArray[] = array('name' => 'finnish', 'active' => (setlocale(LC_ALL, "finnish") == "") ? 0:1, 'translation' => 'Suomi');
  $langsArray[] = array('name' => 'french', 'active' => (setlocale(LC_ALL, "french") == "") ? 0:1, 'translation' => 'Français');
  $langsArray[] = array('name' => 'galician', 'active' => (setlocale(LC_ALL, "galician") == "") ? 0:1, 'translation' => 'Galego');
  $langsArray[] = array('name' => 'georgian', 'active' => (setlocale(LC_ALL, "georgian") == "") ? 0:1, 'translation' => 'ქართული');
  $langsArray[] = array('name' => 'german', 'active' => (setlocale(LC_ALL, "german") == "") ? 0:1, 'translation' => 'Deutsch');
- $langsArray[] = array('name' => 'greek', 'active' => (setlocale(LC_ALL, "greek") == "") ? 0:1, 'translation' => 'Eλληνικά');
- $langsArray[] = array('name' => 'greek-enterprise', 'active' => (setlocale(LC_ALL, "greek") == "") ? 0:1, 'translation' => 'Eλληνικά');
  $langsArray[] = array('name' => 'hebrew', 'active' => (setlocale(LC_ALL, "hebrew") == "") ? 0:1, 'translation' => 'עברית');
  $langsArray[] = array('name' => 'hindi', 'active' => (setlocale(LC_ALL, "hindi") == "") ? 0:1, 'translation' => 'हिन्दी');
  $langsArray[] = array('name' => 'hungarian', 'active' => (setlocale(LC_ALL, "hungarian") == "") ? 0:1, 'translation' => 'Magyar');
@@ -57,7 +60,7 @@ function addLanguagesDB() {
  foreach ($langsArray as $value) {
   eF_insertTableData("languages", $value);
  }
- eF_updateTableData("languages",array('name' => 'english'),"name='English'");
+  eF_updateTableData("languages",array('name' => 'english'),"name='English'");
  }catch (Exception $e) {}
 }
 ?>

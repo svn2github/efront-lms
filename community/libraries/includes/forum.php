@@ -93,8 +93,18 @@ try {
         exit;
     } else if ($_GET['type'] == 'message' && isset($_GET['delete']) && in_array($_GET['delete'], $legalMessageValues)) {
         try {
-            $forum = new f_messages($_GET['delete']);
-            $forum -> delete();
+
+            $msg = new f_messages($_GET['delete']);
+            $topic = new f_topics($msg->f_messages['f_topics_ID']);
+            $result = eF_getTableData("f_messages", "count(id) as count", "f_topics_ID=".$topic->f_topics['id']);
+            if ($result[0]['count'] == 1) {
+             $topic->delete();
+             echo json_encode(array('success' => true, 'deleted_topic' => true, 'redirect_url' => basename($_SERVER['PHP_SELF'])."?ctg=forum&forum=".$topic->f_topics['f_forums_ID']));
+            } else {
+             $msg -> delete();
+             echo json_encode(array('success' => true, 'deleted_topic' => false));
+            }
+
         } catch (Exception $e) {
             header("HTTP/1.0 500 ");
             echo rawurlencode($e -> getMessage()).' ('.$e -> getCode().')';

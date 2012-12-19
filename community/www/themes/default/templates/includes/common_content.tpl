@@ -258,7 +258,7 @@
     {/if}
          </td>
          <td class = "completeUnitHandle">
-     {if $T_UNIT.options.complete_unit_setting == 0 && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback'}{assign var = "hideStyle" value = ''}{assign var = "show_content_footer" value = 1}{else}{assign var = "hideStyle" value = 'style = "visibility:hidden"'}{/if}
+     {if $T_UNIT.options.complete_unit_setting == 0 && $T_UNIT.ctg_type != 'tests' && $T_UNIT.ctg_type != 'feedback' && !$_professor_}{assign var = "hideStyle" value = ''}{assign var = "show_content_footer" value = 1}{else}{assign var = "hideStyle" value = 'style = "visibility:hidden"'}{/if}
      {if $T_QUESTION}
       {assign var = "show_content_footer" value = 1}
           <div class = "unitQuestionArea">
@@ -455,6 +455,9 @@
    <div>
     <p class = "smallHeader">{$smarty.const._FINISHLESSONMESSAGE}</p>
     <p class = "smallHeader">
+     <span id = "show_certificate_block" {if !$T_CERTIFICATE_DOWNLOAD} style = "display:none" {/if}>
+      <input type = "button" class = "flatButton" value = "{$smarty.const._VIEWCOURSECERTIFICATE}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=lessons&export={$T_CERTIFICATE_EXPORT_METHOD}&user={$smarty.session.s_login}&course={$smarty.session.s_courses_ID}'">
+     </span>
      {if $T_NEXTLESSON != false}
       <input type = "button" class = "flatButton" value = "{$smarty.const._NEXTLESSON}" onclick = "nextLesson(this)">
               {/if}
@@ -462,9 +465,6 @@
      <input type = "button" class = "flatButton" value = "{$smarty.const._CONTROLPANEL}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=control_panel'">
     {/if}
      <input type = "button" class = "flatButton" value = "{$smarty.const._MYCOURSES}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=lessons'">
-    <span id = "show_certificate_block" {if !$T_CERTIFICATE_DOWNLOAD} style = "display:none" {/if}>
-     <input type = "button" class = "flatButton" value = "{$smarty.const._VIEWCOURSECERTIFICATE}" onclick = "location='{$smarty.server.PHP_SELF}?ctg=lessons&export={$T_CERTIFICATE_EXPORT_METHOD}&user={$smarty.session.s_login}&course={$smarty.session.s_courses_ID}'">
-    </span>
     </p>
     <p class = "smallHeader"><a href = "javascript:void(0)" onclick = "setCookie('hide_complete_lesson_{$T_CURRENT_LESSON->lesson.id}', true);new Effect.Fade($('completed_block').down());" class = "infoCell">{$smarty.const._HIDE}</a></p>
    </div>

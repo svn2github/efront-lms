@@ -1,124 +1,229 @@
 === Version 3.6.12 build ===
-- Extended branches reports
-- Fixed issue about going into forum message from forum list inside a lesson
-- Fixed importing users where password was set to header but was empty in data rows
-- Fixed issue with counting users in groups
+
+Performance:
+- Replaced branches lists with autocompleters
+- Speeded up last login calculations
+- Splitted completed tests table to speed up queries
+- Maintenance page now loads considerably faster
+
+Custom user profile:
+- Custom user profile fields can now be ordered
 - Added custom user profile into custom certificate fields
-- Set default timezone when creating user if not defined
-- Do not show forum results in search when forum is disabled
-- Allow only one depth recursive uncompress when smart content import contains zip files
-- Fixed issue about white listed files checking in course export
-- Fixed issue about unassigning inactive course from a branch
-- Delete user times entries while reseting user progress
-- Fixed issue about content completion triggerEvent
-- Do not retrieve timestamp value from db while filtering users
-- Added new_password template for SYSTEM_REGISTER notification
-- Fixed issue about adding 100% discount coupon
-- Fixed issue about displaying user status when it was disabled as option.
-- Fixed issue about displaying also time in calendar
-- Added classes to progress bars for completed and uncompleted lessons
-- Fixed issue with branch urls and session (#2544)
-- Fixed issue with print content and tr tag
-- Changed get ajax request to post for course info description because of an issue in size
-- Extend range for certificate expire in 120 months
-- Fixed issue about ceus in custom reports
-- Fixed issue in user reports about admin and time reports
-- Fixed replacing date-type custom user profile value in certificates
-- Fixed course price being displayed in scientific format when editing course
-- Fixed an issue about proto chart and IE9
-- Fixed issue about skills custom user types permissions
-- Fixed issue about sending notifications for survey multiple times
-- Fixed issue about deleting/archiving user from branch reports page
-- Fixed issue in excel export of tests reports about marking the correct answer in some cases
-- Exclude inactive users from displaying in organization chart
-- Fixed issue about creating new user with same login (case insensitive)
-- Fixed issue about allowing users from subbranches to login to father branch url
-- Fixed issue about redo only wrong answered questions and show only thank you message
-- Fixed issue about mapped accounts and ldap accounts. Switching was not working for ldap accounts.
-- Removed dollar sign in checkParameter for path (in order to be allowed)
-- Fixed issue about assigned lessons/courses of group to group users when they were archived there
-- Fixed issue about Learning Tab not appearing for new users (#2776)
-- Added new tinymce class for messages (about absolute paths in e-mails)
-- Added custom user option for insert group key
+- Date fields can now optionally include time
 - Fixed issue about not displaying Learning Tab when there was missing fields in admin
-- Fixed js issue about filter stats in non-Enterprise editions
-- Fixed issue about assigning users to courses from groups (already assigned users) (#2808)
-- Added ###course_start_date### and ###course_end_date### in notifications for course scheduling event
-- Fixed issue about editor and branch url
-- Fixed issue about cutting unit title when editing unit
-- Fixed issue about course instances displayed to catalog even if show catalog is not set
-- Fixed issue about course completion notification
-- Fixed issue about non editable first name in profile
-- Fixed issue about displaying certificate for view permissions in course options for custom user type
-- Fixed order of courses being displayed alphabetically inside categories
-- Added ###forum_id### for forum id, topic id or message id in notifications
-- Fixed issue with forum title in notifications
+
+Modules:
+- New module: Extended branch reports (Commercial editions)
+- New module: Course reports
+- New module: Outlook Invitations
+- New module: Bootstrap
+- New module: Leaflet
+- New module: Content reports
+- New module: Export unit
+- New module: Idle users
+- Removed deprecated "branch themes" module
+- Gradebook module updates
+- Added onBeforeShowCoursesTree() module function
+- Added onXMLExportCourseCertificate module function
+- Added getSideCatalogModule() to module class and module_demo
+- Fixed issue in administrator tools module about changing user types
+- Fixed "training reports" module not working for course completions that do not include a date
+
+Users:
+- Set default timezone when creating user if not defined
+- Uer times entries while reseting user progress are now deleted as well
+- "maximum users" restrictions handling is now more user-friendly
+- Fixed importing users where password was set to header but was empty in data rows
 - Fixed issue about importing new users/ updating users via import when login are numeric values
-- Fixed issue about adding search tables entries
-- Added ability to go to a unit with a simple link index.php?autologin=<autologin>&view_unit=<view_unit>
+- Fixed issue about non editable first name in profile
+- Fixed issue about skills custom user types permissions
+- Fixed issue about creating new user with same login (case insensitive)
+- Fixed issue about mapped accounts and ldap accounts. Switching was not working for ldap accounts.
+- Fixed retrieving timestamp value from db while filtering users
+
+Tests:
+- Added code in random pool tests for selecting questions (about selecting on each execution) depending on lessons_ID frequency in the pool
+- Added option to toggle raw text questions to display only textarea/file upload
+- Added numeric evaluation of "empty spaces" answers
+- Added numeric ranges in "empty spaces" answers
+- Changed the way a test unit can be printed
+- Fixed issue about displaying tests in content tree when tests are disabled for lesson
+- Fixed issue about copying feedback/test unit and questions order (#2962) where order was not preserved if source unit was reordered
 - Fixed issue about copying from another lesson a feedback unit
 - Fixed issue about displaying inactive tests in User status page
-- Fixed issue about showing a unit that contains a file with direct link
-- Added import from url option in import lesson page
-- Added time fields in creating announcements
-- Fixed course displaying sorted by name in user reports page and user to course page
-- Fixed advlink plugin of editor to show also empty units
-- Fixed issue about copying feedback/test unit and questions order (#2962) where order was not preserved if source unit was reordered
-- Fixed issue about a link not worked with encrypt url (#3048)
-- Added ability to access a forum post with url like ?ctg=forum&post_id=###forum_id###
-- Fixed issue about copying from another lesson that shares folder with the source lesson
-- Fixed issue about courses returned in supervisesCourses()
-- Fixed issue about profile page and custom user type
-- Fixed issue about not triggering the SYSTEM_VISITED event in force password change case
-- Fixed issue in administrator tools module about changing user types
-- Display full category path to groups lesson
-- Fixed SCORM times not being taken correctly into account when calculating active lesson times
-- Updated message displayed to users trying to self-register, when the maximum allowed users number is reached
-- Fixed handling upload error when sending pm as email
-- Fixed properly stripping <script> tags when in multiline or encoded content
-- Fixed grid filtering regression introduced in 3.6.11 for international characters
+- Fixed issue about redo only wrong answered questions and show only thank you message
+
+Courses:
 - Added "reset course progress for all users" option
-- "maximum users" restrictions handling is more user-friendly
-- Added upper limits (100) on inactive user/course registrations
-- Fixed when paying through paypal and using discount coupons, a small balance being credited
-- Fixed showing "balance" link even when balance is deactivated
+- Added tooltip for displaying all branches in course location column in courses list (Enterprise edition)
+- Added course instances to professor courses
+- Fixed issue about white listed files checking in course export
+- Fixed issue about course instances displayed to catalog even if show catalog is not set
+
+Search:
+- Full-text search to all files is now available through the XAPIAN integration (Commercial editions)
+- Do not show forum results in search when forum is disabled
+- Fixed issue about adding search tables entries
+- Deleting the last message of a forum topic now deletes the topic itself as well
+
+Branches: (Enterprise edition)
+- Branch URL restrictions now prevent any non-related information to be displayed to students, professors and supervisors
+- Exclude inactive users from displaying in organization chart
+- Fixed issue about unassigning inactive course from a branch
+- Fixed issue about allowing users from subbranches to login to father branch url
+- Fixed issue with branch urls and session (#2544)
+
+Editor:
+- Added new tinymce class for messages (about absolute paths in e-mails)
+- Fixed issue with folders contained single quotes in editor
+- Fixed advlink plugin of editor to show also empty units
+- Fixed issue about editor and branch url
+
+Groups:
+- Added custom user option for insert group key
 - Fixed groups list not showing entries with the same name
-- Updated paypal's ipn to conform with the http 1.1 protocol
-- Fixed new line character parsing in paypal response, causing sandbox not working
-- Added csv export for payments (Commercial editions)
-- Added time option in announcements
-- Added code in random pool tests for selecting questions (about selecting on each execution) depending on lessons_ID frequency in the pool
-- Added tooltip for displaying all branches in course location column in courses list
-- Fixed issue about displaying tests in content tree when tests are disabled for lesson
+- Fixed issue with counting users in groups
+- Fixed issue about assigning users to courses from groups (already assigned users) (#2808)
+- Fixed issue about assigned lessons/courses of group to group users when they were archived there
+
+Content:
+- Added ##USER_NAME## and ##USER_SURNAME## variables to content, that are substitued in real time
+- Added ability to go to a unit with a simple link index.php?autologin=<autologin>&view_unit=<view_unit>
+- Allow only one depth recursive uncompress when smart content import contains zip files
+- Fixed issue about collapsing content tree when deleted a test in some cases
+- Fixed changing question paths when copying questions (associated with units) to another lesson
+- Fixed issue about displaying inactive units for students
+- Fixed properly stripping <script> tags when in multiline or encoded content
+- Fixed issue about copying from another lesson that shares folder with the source lesson
+- Fixed issue about showing a unit that contains a file with direct link
+- Fixed issue about cutting unit title when editing unit
+- Fixed issue with print content and tr tag
+- Fixed uploading from a url containing query string
+- Fixed smart content importing units with the same name
+
+Lessons:
+- Added new limit based on total accesses, so that a student can only access a lesson a specific number of times
+- Added import from url option in import lesson page
+- Fixed issue about wrongly removed access to professors in lessons because of available after xxx days
+
+Announcements:
+- Added time fields in creating announcements
+
+Forum:
+- Added ability to access a forum post with url like ?ctg=forum&post_id=###forum_id###
+- Fixed issue allowing professors to delete students posts in forum
+- Fixed issue about going into forum message from forum list inside a lesson
+
+SCORM:
+- Added ability to edit SCORM code and change iframe parameters upon import
+- Added handling for invalid "browse" mode for SCORM content
+- SCORM API update for escaping new lines
+- SCORM API update to properly format student name
+- Fixed SCORM times not being taken correctly into account when calculating active lesson times
+- Fixed scorm prerequisites not being imported correctly
+- Fixed issue with latest firefox not always showing scorm content when under a branch url
+
+UI:
+- Added new theme, efront2013
+- Added upper limits (100) on inactive user/course registrations
+- Added classes to progress bars for completed and uncompleted lessons
+- Display full category path to groups lesson
+- Updated message displayed to users trying to self-register, when the maximum allowed users number is reached
+- Switched ajax request to POST for lesson info, course info and files metadata to allow for unlimited request size
+- Lessons/courses tooltip now mentions maximum/available seats
+- Branch themes always use branch theme logo, if existing (Enterprise edition)
+- Changed "Please login to access this resource" message to something more user friendly
+- Changed "My courses" links to "Home" and enforced respecting of landing page setting
+- Changed "organization" tab label to "my role"
 - Fixed displaying formatted usernames in projects block of control panel
 - Fixed issue about reloading files table after deleting an internal folder
-- Fixed issue about downloading certificates for course with names containing slashes
-- Fixed issue about collapsing content tree when deleted a test in some cases
-- Added ability to center align the label tags in xml certificates
-- Fixed sorting results by dates in certificate reports
-- Changed the way for printing a test unit
-- Changed "Please login to access this resource" message to be shown user friendly
-- Fixed issue about deleting folders containing slash
-- Fixed broken link about viewing certificate from user page as supervisor
-- Fixed issue about not allowing files without users_LOGIN to be deleted
-- Fixed issue about displaying inactive units for students
 - Fixed link in projects block leading to project results
-- Fixed issue about a link not worked with encrypt url (#3048)
-- Added getSideCatalogModule() to module class and module_demo
-- Fixed issue in Find Users about sending job description in the request that cause issues occasionally (german IE9 for description with Umlaut) #3112
+- Fixed some links that did not work properly when encrypt url was enabled (#3048)
+- Fixed grid filtering regression introduced in 3.6.11 for international characters
+- Fixed issue about profile page and custom user type
+- Fixed course displaying sorted by name in user reports page and user to course page
+- Fixed order of courses being displayed alphabetically inside categories
+- Fixed course price being displayed in scientific format when editing course
 - Fixed issues about sorting lessons in traffic tab of users reports(alphabetically) and course lessons (order in course)
+- Fixed issue about displaying also time in calendar
+- Fixed issue about displaying user status when it was disabled as option.
+- Fixed issue about Learning Tab not appearing for new users (#2776)
+- Fixed progress bar glitch in chrome
+- Fixed redirection problem when using "Keep me logged in" alongside "license note"
+- Fixed textareas in tests not working for ipads
+
+Surveys:
+- Added survey reminders
+
+Payments:
+- Added csv export for payments (Commercial editions)
+- Updated paypal's ipn to conform with the http 1.1 protocol
+- Fixed when paying through paypal and using discount coupons, a small balance being credited
+- Fixed showing "balance" link even when balance is deactivated
+- Fixed new line character parsing in paypal response, causing sandbox not working
+- Fixed issue about adding 100% discount coupon
+- Fixed showing button to buy balance using balance
+
+Notifications/emails:
+- Added ###forum_id### for forum id, topic id or message id in notifications
 - Added project assignment notification and project name and id in substitution array
-- Fixed issue about wrongly removed access to professors in lessons because of available after xxx days
-- Fixed issue with folders contained single quotes in editor
-- Fixed issue about not showing correctly words that are a substring of another word both defined in glossary
-- Fixed issue allowing professors to delete students posts in forum
-- Fixed issue about displaying archived users in professor Users reports
+- Added ###course_start_date### and ###course_end_date### in notifications for course scheduling event
+- Added new_password template for SYSTEM_REGISTER notification
+- A user now receives a copy of his/her own email when using the "contact us" form
+- The administrator will be notified with an email when the system is approaching its license limit (commercial editions)
+- Fixed issue about content completion triggerEvent
+- Fixed issue about not triggering the SYSTEM_VISITED event in force password change case
+- Fixed issue with forum title in notifications
+- Fixed issue about course completion notification
+- Fixed issue about sending notifications for survey multiple times
+- Fixed notifications directed to supervisors not working
+
+Certificates:
+- Added ability to center align the label tags in xml certificates
 - Added option for setting certificate issue date as completion date
 - Added option for downloading certificate inside course for students
-- Changed get ajax request to post for lesson info and files metadata because of an issue in size
-- Fixed issue about copying questions (associated with units) in another lesson about changing question paths
+- Extend range for certificate expire in 120 months
+- Fixed issue about downloading certificates for course with names containing slashes
+- Fixed broken link about viewing certificate from user page as supervisor
+- Fixed issue about displaying certificate for view permissions in course options for custom user type
+- Fixed replacing date-type custom user profile value in certificates
 
+IE9-related fixes:
+- Fixed issue in Find Users about sending job description in the request that cause issues occasionally (german IE9 for description with Umlaut) #3112
+- Fixed an issue about proto chart and IE9
 
+Reports:
+- Added export button for participation stats
+- Added certificate reports to supervisor
+- Added course/lesson average completion times statistics
+- Branch reports extensions
+- Fixed sorting results by dates in certificate reports
+- Fixed js issue about filter stats in non-Enterprise editions
+- Fixed issue about ceus in custom reports
+- Fixed issue in user reports about admin and time reports
+- Fixed issue about deleting/archiving user from branch reports page
+- Fixed issue in excel export of tests reports about marking the correct answer in some cases
+- Fixed issue about displaying archived users in professor Users reports
+
+Glossary:
+- Fixed issue about not showing correctly words that are a substring of another word both defined in glossary
+
+Filesystem:
+- Paths can now include the dollar sign
+- Fixed issue about deleting folders containing slash
+- Fixed issue about not allowing files without users_LOGIN to be deleted
+- Fixed downloading own project/test files
+
+Personal messages:
+- Fixed handling upload error when sending pm as email
+
+System:
+- Added caching for restricted files
+- IIS compatibility fix
+- Upgraded smarty to version 2.6.27
+- Upgrade procedure totally revamped
+- Fixed HTTPS automatic handling
+- Fixed PHP 5.4 compatibility issues
 
 === Version 3.6.11 build 15059 ===
 - Updated SCORM debug mode to be set from the configuration and log to the console (instead of alert)

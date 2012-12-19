@@ -327,7 +327,7 @@
                       {assign var = "has_subforums" value = true}
                                          <tr class = "{cycle name = $key values = "oddRowColor,evenRowColor"}">
                                              <td>
-             <img class = "forumIcon" src = "images/32x32/forum.png" alt = "{$smarty.const._FORUM}" title = "{$smarty.const._FORUM}"/>
+             <img class = "ajaxHandle forumIcon" src = "images/32x32/forum.png" alt = "{$smarty.const._FORUM}" title = "{$smarty.const._FORUM}" onclick = "window.location = '{$smarty.server.PHP_SELF}?ctg=forum&forum={$subforum.id}'"/>
                                                  <div>
                                                   <a href = "{$smarty.server.PHP_SELF}?ctg=forum&forum={$subforum.id}" >{$subforum.title}</a>
                                                   <p>{$subforum.comments}</p>
@@ -402,7 +402,7 @@
                      {foreach name = "polls_list" item = "poll" key = "key2" from = $T_FORUM_POLLS}
                                          <tr class = "{cycle name = "polls" values = "oddRowColor,evenRowColor"}">
                                              <td>
-                                              <img class = "forumIcon" src = "images/32x32/polls.png" alt = "{$smarty.const._POLL}" title = "{$smarty.const._POLL}"/>
+                                              <img class = "ajaxHandle forumIcon" src = "images/32x32/polls.png" alt = "{$smarty.const._POLL}" title = "{$smarty.const._POLL}" onclick = "window.location = '{$smarty.server.PHP_SELF}?ctg=forum&poll={$poll.id}'"/>
                                                  <div>
                                                   <a href = "{$smarty.server.PHP_SELF}?ctg=forum&poll={$poll.id}" class = "smallHeader" style = "white-space:normal">{$poll.title}</a>
                                                   <p>{$poll.question|eF_truncate:50}</p>
@@ -443,7 +443,7 @@
                          {if $smarty.session.s_type == 'administrator' || $topic.status != '3' || $topic.users_LOGIN == $smarty.session.s_login}
                                          <tr class = "{cycle name = "topics" values = "oddRowColor,evenRowColor"}">
                                              <td>
-                                              <img class = "forumIcon" src = "images/32x32/message.png" alt = "{$smarty.const._TOPIC}" title = "{$smarty.const._TOPIC}"/>
+                                              <img class = "ajaxHandle forumIcon" src = "images/32x32/message.png" alt = "{$smarty.const._TOPIC}" title = "{$smarty.const._TOPIC}" onclick = "window.location='{$smarty.server.PHP_SELF}?ctg=forum&topic={$topic.id}'"/>
                                               <div>
                                                   <a href = "{$smarty.server.PHP_SELF}?ctg=forum&topic={$topic.id}" class = "smallHeader" style = "white-space:normal">{$topic.title}</a>
                                                   <p>{$topic.first_message|eF_truncate:50}</p>
@@ -504,7 +504,7 @@
                         {if $subforum.parent_id == 0 && ($subforum.status != '3' || $smarty.session.s_type == 'administrator')}
                         <tr class = "{cycle name = $key values = "oddRowColor,evenRowColor"}">
                             <td>
-                             <img class = "forumIcon" src = "images/32x32/forum.png" alt = "{$smarty.const._FORUM}" title = "{$smarty.const._FORUM}" />
+                             <img class = "ajaxHandle forumIcon" src = "images/32x32/forum.png" alt = "{$smarty.const._FORUM}" title = "{$smarty.const._FORUM}" onclick = "window.location='{$smarty.server.PHP_SELF}?ctg=forum&forum={$subforum.id}'"/>
                              <div>
                                  <a href = "{$smarty.server.PHP_SELF}?ctg=forum&forum={$subforum.id}">{$subforum.title}</a>
                                  <p>{$subforum.comments}</p>

@@ -1924,7 +1924,7 @@ define("_CANNOTADDUSERTOLESSON", "Cannot add user to lesson");
 define("_UNKNOWNUSER", "Unknown user");
 define("_DEPENDSON", "Depends on");
 define("_COURSEINFORMATION", "Course information");
-define("_NODATAFOUND", "Empty");
+define("_NODATAFOUND", "-");
 define("_ERROROPENINGATTACHMENT", "Error opening attachment");
 define("_USERAVERAGESCOREFORLESSON", "User&#039;s average score for lesson");
 define("_LESSONSINFO", "Lessons info");

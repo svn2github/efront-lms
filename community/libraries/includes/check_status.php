@@ -181,8 +181,13 @@ $permissions['libraries/language'] = array('writable' => is_writable($path.'lang
                                                     'help' => 'This directory needs to be writable, in order to be able to upload new language files or modify existing ones');
 $permissions['libraries/smarty/themes_cache']= array('writable' => is_writable($path.'smarty/themes_cache'),
                                                     'help' => 'This directory needs to writable, in order for smarty to compile templates');
+/*
+
 $permissions['libraries/language/lang-english.php.inc'] = array('writable' => is_writable($path.'language/lang-english.php.inc'),
-                                                    'help' => 'This file needs to writable, in order to set locales correctly');
+
+                                                    'help'     => 'This file needs to writable, in order to set locales correctly');
+
+*/
 $permissions['backups'] = array('writable' => is_writable($path.'../backups'),
                                                     'help' => 'In this directory all the system backups are stored');
 $permissions['upload'] = array('writable' => is_writable($path.'../upload'),
@@ -193,15 +198,12 @@ if (file_exists($path.'phplivedocx_config.php')) {
  $permissions['libraries/phplivedocx_config.php'] = array('writable' => is_writable($path.'phplivedocx_config.php'),
                                                     'help' => 'This file needs to be writable, in order to save phplivedocx account');
 }
-
 foreach ($permissions as $key => $value) {
     if (isset($exclude_normal) && $exclude_normal && $value['writable']) { //Use $exclude_normal in order to not list sections without problem
         unset($permissions[$key]);
     }
 }
-
 $smarty -> assign("T_PERMISSIONS", $permissions);
-
 $pear['PEAR.php'] = array('exists' => ($f = fopen ('PEAR.php', 'r', true)) ? true : false,
                                                          'help' => 'PEAR libraries are mandatory in order for the system to function');
 $pear['HTML/QuickForm.php'] = array('exists' => ($f = fopen ('HTML/QuickForm.php', 'r', true)) ? true : false,

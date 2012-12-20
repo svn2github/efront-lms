@@ -2035,7 +2035,7 @@ abstract class EfrontLessonUser extends EfrontUser
   $roles = self :: getLessonsRoles();
   $roleNames = self :: getLessonsRoles(true);
   foreach ($userCourses as $course) {
-   $eligible = $course -> checkRules($this -> user['login'], $userLessons);
+   $eligible = $course -> checkRules($this -> user['login']);
    foreach ($eligible as $lessonId => $value) {
     if (!$value) {
      unset($userLessons[$lessonId]);

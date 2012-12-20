@@ -340,6 +340,7 @@ class EfrontLesson
   //'description'               => self :: validateAndSanitize($lessonFields['description'], 			'text'),
             'price' => self :: validateAndSanitize($lessonFields['price'], 'float'),
       'duration' => self :: validateAndSanitize($lessonFields['duration'], 'integer'),
+      'access_limit' => self :: validateAndSanitize($lessonFields['access_limit'], 'integer'),
             'show_catalog' => self :: validateAndSanitize($lessonFields['show_catalog'], 'boolean'),
             'publish' => self :: validateAndSanitize($lessonFields['publish'], 'boolean'),
             'directions_ID' => self :: validateAndSanitize($lessonFields['directions_ID'], 'directions_foreign_key'),

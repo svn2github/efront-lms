@@ -637,7 +637,8 @@ function eF_js_sortTable(el, other) {
         input.setAttribute('id', tableIndex+'_sortedTable_filter');           //Set its id to retrieve it easily
         //input.setAttribute('size', '10');           //Added by mpaltas **But removed from venakis due to IE incompatibility (sic)** to avoid overlapping - using a new table inside the td might be a better idea
         //input.setAttribute('onkeypress', 'if (event.which == 13) eF_js_filterData('+tableIndex+')');
-        //input.setAttribute('onkeypress', 'if (event.which == 13 || event.keyCode == 13) {eF_js_filterData('+tableIndex+'); return false;}');       //Set an onkeypress event, so that pressing \"enter\" fires the function. We put the return false here, so that if the table is inside a form, enter will not submit it
+        input.setAttribute('onkeypress', 'if (event.which == 13 || event.keyCode == 13) {eF_js_filterData('+tableIndex+'); return false;}');       //Set an onkeypress event, so that pressing \"enter\" fires the function. We put the return false here, so that if the table is inside a form, enter will not submit it
+/*        
         input.onkeypress = function(e) {
         	var e = e || event;
         	if (e.which == 13 || e.keyCode == 13) {
@@ -645,7 +646,7 @@ function eF_js_sortTable(el, other) {
         		return false;
     		}
         }
-        
+*/        
         if (currentFilter[tableIndex] || currentBranchFilter[tableIndex] || currentJobFilter[tableIndex]) {
         	input.setAttribute("value", (currentFilter[tableIndex]));
         	

@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<module>
-	<title>Complete test</title>
-	<author>Periklis Venakis</author>
-	<date>2009/06/29</date>
-	<version>1.0</version>
-	<description>A module for completing a test on behalf of a user</description>
-	<className>module_complete_test</className>
-</module>

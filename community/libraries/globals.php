@@ -6,8 +6,8 @@ $LastChangedRevision$
 * This file is used to perform configuration and inclusion tasks.
 * @package eFront
 */
-define("G_VERSIONTYPE_CODEBASE", 'enterprise');
-define("G_VERSIONTYPE", 'enterprise');
+//define("G_VERSIONTYPE_CODEBASE", 'enterprise');
+//define("G_VERSIONTYPE", 'enterprise');
 
 //This file cannot be called directly, only included.
 if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME']) {
@@ -289,7 +289,7 @@ function setDefines() {
   define('G_SERVERNAME', $protocol.'://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
  preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 17655;
+    $build = 17676;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

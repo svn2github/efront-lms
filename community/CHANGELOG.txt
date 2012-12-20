@@ -64,7 +64,6 @@ Search:
 - Full-text search to all files is now available through the XAPIAN integration (Commercial editions)
 - Do not show forum results in search when forum is disabled
 - Fixed issue about adding search tables entries
-- Deleting the last message of a forum topic now deletes the topic itself as well
 
 Branches: (Enterprise edition)
 - Branch URL restrictions now prevent any non-related information to be displayed to students, professors and supervisors
@@ -111,6 +110,7 @@ Announcements:
 
 Forum:
 - Added ability to access a forum post with url like ?ctg=forum&post_id=###forum_id###
+- Deleting the last message of a forum topic now deletes the topic itself as well
 - Fixed issue allowing professors to delete students posts in forum
 - Fixed issue about going into forum message from forum list inside a lesson
 

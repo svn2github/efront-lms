@@ -165,8 +165,13 @@ try {
             //New forum messages block
             if ((!isset($currentUser -> coreAccess['forum']) || $currentUser -> coreAccess['forum'] != 'hidden') && $GLOBALS['configuration']['disable_forum'] != 1) {
                 //changed  l.name as show_lessons_name to l.name as lessons_name
-    $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID = '".$currentLesson -> lesson['id']."'", "fm.timestamp desc LIMIT 5");
-                $forum_lessons_ID = eF_getTableData("f_forums", "id", "lessons_ID=".$_SESSION['s_lessons_ID']);
+             if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+              $forum_messages = eF_getTableData("module_hcd_employee_works_at_branch ewb, f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ewb.users_login = fm.users_LOGIN and ewb.branch_ID=".$_SESSION['s_current_branch']." and ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID = '".$currentLesson -> lesson['id']."'", "fm.timestamp desc LIMIT 5");
+             } else {
+              $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID = '".$currentLesson -> lesson['id']."'", "fm.timestamp desc LIMIT 5");
+             }
+             $forum_lessons_ID = eF_getTableData("f_forums", "id", "lessons_ID=".$_SESSION['s_lessons_ID']);
+
                 $smarty -> assign("T_FORUM_MESSAGES", $forum_messages);
                 $smarty -> assign("T_FORUM_LESSONS_ID", $forum_lessons_ID[0]['id']);
 

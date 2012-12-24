@@ -8,10 +8,6 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
 }
 $loadScripts[] = 'includes/personal';
 
-if ($currentUser -> coreAccess['users'] == 'hidden') {
- eF_redirect(basename($_SERVER['PHP_SELF']));
-}
-
 if (!isset($_GET['user'])) {
  if ($currentUser->coreAccess['dashboard'] != 'hidden') {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$currentUser->user['login']."&op=dashboard");
@@ -24,6 +20,10 @@ if (!isset($_GET['user'])) {
  } else {
   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=personal&user=".$_GET['user']."&op=profile");
  }
+}
+
+if ($currentUser -> coreAccess['users'] == 'hidden' && $_GET['user'] != $currentUser->user['login']) {
+ eF_redirect(basename($_SERVER['PHP_SELF']));
 }
 
 $editedUser = EfrontUserFactory :: factory($_GET['user']);

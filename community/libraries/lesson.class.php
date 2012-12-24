@@ -322,6 +322,11 @@ class EfrontLesson
   } else {
    $this -> lesson['price_string'] = formatPrice(0);
   }
+  if (mb_strlen($this->lesson['name']) > 100) {
+   $this->lesson['formatted_name'] = mb_substr($this->lesson['name'], 0, 100).'...';
+  } else {
+   $this->lesson['formatted_name'] = $this->lesson['name'];
+  }
  }
  private static function validateAndSanitizeLessonFields($lessonFields) {
   $lessonFields = self :: setDefaultLessonValues($lessonFields);
@@ -5822,8 +5827,14 @@ class EfrontLesson
   if ($topic_ID) {
    // only current lesson users
    $users = $this -> getUsers();
-   $users_logins = array_keys($users); // don't mix with course events - with courses_ID = $this->lesson['id']
-   $related_events = eF_getTableData("events", "*", "type = '".EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC. "' AND entity_ID = '".$topic_ID."' AND lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."') AND (type < 50 OR type >74)", "timestamp desc", "", $limit ? $limit*5 : null);
+   $users_logins = array_keys($users);
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    // don't mix with course events - with courses_ID = $this->lesson['id']
+    $related_events = eF_getTableData("events, module_hcd_employee_works_at_branch ewb", "events.*", "ewb.branch_ID= ".$_SESSION['s_current_branch']." and events.users_LOGIN=ewb.users_login and type = '".EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC. "' AND entity_ID = '".$topic_ID."' AND lessons_ID = '". $this->lesson['id']."' AND events.users_LOGIN IN ('".implode("','", $users_logins)."') AND (type < 50 OR type >74)", "timestamp desc", "", $limit ? $limit*5 : null);
+   } else {
+    // don't mix with course events - with courses_ID = $this->lesson['id']
+    $related_events = eF_getTableData("events, module_hcd_employee_works_at_branch ewb", "events.*", "ewb.branch_ID= ".$_SESSION['s_current_branch']." and events.users_LOGIN=ewb.users_login and type = '".EfrontEvent::NEW_POST_FOR_LESSON_TIMELINE_TOPIC. "' AND entity_ID = '".$topic_ID."' AND lessons_ID = '". $this->lesson['id']."' AND events.users_LOGIN IN ('".implode("','", $users_logins)."') AND (type < 50 OR type >74)", "timestamp desc", "", $limit ? $limit*5 : null);
+   }
   } else {
    // only current lesson users
    $users = $this -> getUsers();
@@ -5832,7 +5843,7 @@ class EfrontLesson
    //    			$related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')", "timestamp desc LIMIT " . $limit);
    //
    //    		} else {
-   $related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc", "", $limit ? $limit*5 : null);
+   $related_events = eF_getTableData("events, module_hcd_employee_works_at_branch ewb", "events.*", "ewb.branch_ID= ".$_SESSION['s_current_branch']." and events.users_LOGIN=ewb.users_login and lessons_ID = '". $this->lesson['id']."' AND events.users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc", "", $limit ? $limit*5 : null);
    //    		}
   }
   if (!isset($avatarSize) || $avatarSize <= 0) {

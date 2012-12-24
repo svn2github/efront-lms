@@ -257,6 +257,9 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
     }
     //Include old configuration file in order to perform the automatic backup, use database functions, etc
     require_once($path."configuration.php");
+    if ($values['backup'] || isset($_GET['unattended'])) {
+     $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
+    }
     if (version_compare($dbVersion, '3.6.11') == -1) {
      Installation :: createTable('themes', $file_contents);
      //Get all the database tables, except for the temporary installation tables
@@ -272,9 +275,6 @@ if ((isset($_GET['step']) && $_GET['step'] == 2) || isset($_GET['unattended'])) 
       $db -> NConnect($values['db_host'], $values['db_user'], $values['db_password'], $values['db_name']);
       $db -> Execute("SET NAMES 'UTF8'");
       //ini_set("memory_limit", "-1");
-      if ($values['backup'] || isset($_GET['unattended'])) {
-       $backupFile = EfrontSystem :: backup($values['db_name'].'_'.time().'.zip'); //Auto backup database
-      }
       //Delete old temporary installation tables
       foreach ($tables as $table) {
        try {
@@ -874,24 +874,31 @@ class Installation
 	 * @static
 	 */
  public static function addModules($upgrade = false) {
-  $modulesToInstall = array("billboard",
-             "blogs",
-             "bbb",
-             "faq",
-             "flashcards",
-             "links",
-             "quick_mails",
-             "quote",
-             "rss",
-          "security",
-             "youtube",
-             "gradebook",
-             "journal",
-             "workbook",
-             "crossword",
-          "chat",
-          "gift_aiken",
-             "administrator_tools");
+  $modulesToInstall = array(
+    "administrator_tools",
+    "bbb",
+    "billboard",
+    "blogs",
+    "bootstrap",
+    "chat",
+    "crossword",
+    "export_unit",
+    "faq",
+    "flashcards",
+    "gift_aiken",
+    "gradebook",
+    "idle_users",
+    "info_kiosk",
+    "journal",
+    "links",
+    "outlook_invitation",
+    "quick_mails",
+    "quote",
+    "rss",
+    "security",
+    "workbook",
+    "youtube",
+    );
   $modulesList = eF_getTableData("modules", "*");
   foreach ($modulesList as $module) {
    $existingModules[] = $module['className'];

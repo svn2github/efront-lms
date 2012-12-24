@@ -1481,3 +1481,54 @@ CREATE TABLE carts (
   contents text,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Table 'coupons'
+--
+-- This table is used to store discount coupons.
+-- Fields:
+-- id (primary key): A numerical identifier
+-- code (unique): A unique, human-defined code for the coupon
+-- max_uses: The maximum number of times this coupon may be used
+-- max_user_uses: The maximum number of times this coupon may be used by a single user
+-- duration: The duration, in seconds, that the coupon will be valid
+-- discount: The discount percentage of the coupon
+-- description: An extended description of the coupon, that is send with the notification
+-- active: Whether the coupon is active (1) or inactive (0)
+-- from_timestamp: A 10-digit number representing the date when the coupon will become valid
+CREATE TABLE coupons (
+  id int(10) unsigned NOT NULL auto_increment,
+  code varchar(150) NOT NULL,
+  max_uses int(10) unsigned NOT NULL default 0,
+  max_user_uses int(10) unsigned NOT NULL default 0,
+  duration int(10) unsigned NOT NULL default 30,
+  discount int(10) unsigned NOT NULL default 0,
+  description text,
+  active tinyint(1) unsigned NOT NULL default 1,
+  from_timestamp int(10) unsigned NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE(code)
+) DEFAULT CHARSET=utf8;
+
+--
+-- Table 'users_to_coupons'
+--
+-- This table is used to store the relationship between users and coupons
+-- Fields:
+-- id (primary key): A numerical identifier
+-- users_ID: The id of the user that used the coupon
+-- coupons_ID: The id of the coupon used
+-- payments_ID: The id of the corresponding entry in the payments table
+-- products_list: A serialized array that describes the courses/lessons bought with this coupon
+-- timestamp: A 10-digit number representing the date when the coupon was used
+CREATE TABLE users_to_coupons (
+  id int(10) unsigned NOT NULL auto_increment,
+  users_ID int(10) unsigned NOT NULL,
+  coupons_ID int(10) unsigned NOT NULL,
+  payments_ID int (10) unsigned NOT NULL,
+  products_list text,
+  timestamp int(10) unsigned NOT NULL,
+  PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;

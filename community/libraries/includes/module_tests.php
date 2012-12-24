@@ -1100,7 +1100,7 @@ try {
                                         'description' => $form -> exportValue('description'),
                                         'options' => serialize($testOptions),
                                         'name' => $form -> exportValue('name'),
-                                        'publish' => 0,
+                                        'publish' => 1,
                                         'keep_best' => 0,
                       'mastery_score' => 0);
                 try {

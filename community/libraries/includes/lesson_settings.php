@@ -30,6 +30,11 @@ if (isset($currentUser -> coreAccess['users']) && $currentUser -> coreAccess['us
 $options = array_values($options);
 
 $smarty -> assign("T_TABLE_OPTIONS", $options);
+if ($_SESSION['s_type'] == 'administrator') {
+ $smarty -> assign("T_LESSON_OPTIONS", array(array('text' => _EDITLESSON, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=lessons&edit_lesson=".$_GET['lesson_settings'])));
+} else {
+ $smarty -> assign("T_LESSON_OPTIONS", array(array('text' => _EDITLESSON, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=professor_lessons&edit_lesson=".$_GET['lesson_settings'])));
+}
 
 if ($_GET['op'] == 'reset_lesson') {
     if (isset($currentUser -> coreAccess['content']) && $currentUser -> coreAccess['content'] != 'change') {

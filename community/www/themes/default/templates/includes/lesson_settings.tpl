@@ -318,5 +318,5 @@
         {eF_template_printBlock title = "`$smarty.const._LAYOUTFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" data = $smarty.capture.t_layout_code image = '32x32/layout.png' main_options = $T_TABLE_OPTIONS help = 'Administration'}
     {else}
         {*moduleLessonSettings: Left options list in the Lesson settings page*}
-        {eF_template_printBlock title = "`$smarty.const._OPTIONSFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" columns = 4 links = $T_LESSON_SETTINGS image='32x32/lessons.png' main_options = $T_TABLE_OPTIONS groups = $T_LESSON_SETTINGS_GROUPS help = 'Administration'}
+        {eF_template_printBlock title = "`$smarty.const._OPTIONSFORLESSON`<span class = 'innerTableName'>&nbsp;&quot;`$T_CURRENT_LESSON->lesson.name`&quot;</span>" columns = 4 links = $T_LESSON_SETTINGS image='32x32/lessons.png' main_options = $T_TABLE_OPTIONS groups = $T_LESSON_SETTINGS_GROUPS help = 'Administration' options = $T_LESSON_OPTIONS}
     {/if}

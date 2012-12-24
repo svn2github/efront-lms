@@ -103,7 +103,11 @@ if (str_replace(DIRECTORY_SEPARATOR, "/", __FILE__) == $_SERVER['SCRIPT_FILENAME
   /*Forum messages list*/
   // Users see forum messages from the system forum and their own lessons while administrators for all
   if (!empty($lessons_list)) {
-   $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID IN ('0', '".implode("','", $lessons_list)."')", "fm.timestamp desc LIMIT 5");
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $forum_messages = eF_getTableData("module_hcd_employee_works_at_branch ewb, f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ewb.users_login = fm.users_LOGIN and ewb.branch_ID=".$_SESSION['s_current_branch']." and ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID IN ('0', '".implode("','", $lessons_list)."')", "fm.timestamp desc LIMIT 5");
+   } else {
+    $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id AND ff.lessons_ID IN ('0', '".implode("','", $lessons_list)."')", "fm.timestamp desc LIMIT 5");
+   }
   } elseif ($_SESSION['s_type'] == 'administrator') { //This is the admin speaking
    $forum_messages = eF_getTableData("f_messages fm JOIN f_topics ft JOIN f_forums ff LEFT OUTER JOIN lessons l ON ff.lessons_ID = l.id", "fm.title, fm.id, ft.id as topic_id, fm.users_LOGIN, fm.timestamp, l.name as show_lessons_name, lessons_id as show_lessons_id", "ft.f_forums_ID=ff.id AND fm.f_topics_ID=ft.id", "fm.timestamp desc LIMIT 5");
   }

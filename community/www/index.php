@@ -160,6 +160,12 @@ if (!$smarty -> is_cached('index.tpl', $cacheId) || !$GLOBALS['configuration']['
  $smarty -> assign("T_CUSTOM_BLOCKS", $customBlocks);
  $smarty -> assign("T_BLOCKS", $blocks);
  $smarty -> assign("T_POSITIONS", $GLOBALS['currentTheme'] -> layout['positions']);
+ if (isset($_SESSION['s_current_branch'])) {
+  $branch = new EfrontBranch($_SESSION['s_current_branch']);
+  $constraints = array('active' => true, 'archive' => false, 'instance' => false, 'sort' => 'name');
+  $courses = $branch->getBranchCourses($constraints);
+  $lessons = array();
+ }
     $directionsTree = new EfrontDirectionsTree();
  $options = array('lessons_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&lessons_ID=',
        'courses_link' => basename($_SERVER['PHP_SELF']).'?ctg=lesson_info&courses_ID=',

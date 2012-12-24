@@ -267,7 +267,7 @@
     <table class = "horizontalBlock">
                  <tr><td>
                   <a class = "rightOption" href="javascript:void(0);" onclick="location='{$smarty.server.PHP_SELF}?ctg=lessons';{if $T_NO_HORIZONTAL_MENU}top.sideframe.hideAllLessonSpecific();{/if}"><img src = "images/32x32/go_back.png" alt = "{$smarty.const._CHANGELESSON}" title = "{$smarty.const._CHANGELESSON}" class = "handle"></a>
-                        <span class = "leftOption">{$T_CURRENT_LESSON->lesson.name}</span>
+                        <span class = "leftOption">{$T_CURRENT_LESSON->lesson.formatted_name}</span>
                         {foreach name = 'header_options_list' item = "item" key = "key" from = $T_HEADER_OPTIONS}
                          <a class = "leftOption" href = "{$item.href}" target = "{$item.target}"><img src = "images/{$item.image}" alt = "{$item.text}" title = "{$item.text}" onclick = "{$item.onClick}" class = "handle"></a>
                         {/foreach}

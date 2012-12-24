@@ -102,7 +102,7 @@ try {
             if (sizeof($currentContent -> tree) == 0) {
                 $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator, 'dhtmlTargetTree', array('noclick' => true, 'drag' => false, 'tree_root' => true)));
             } else {
-                $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator, 'dhtmlTargetTree', array('noclick' => true, 'drag' => false, 'expand' => true)));
+                $smarty -> assign("T_CONTENT_TREE", $currentContent -> toHTML($iterator, 'dhtmlTargetTree', array('noclick' => true, 'drag' => false, 'expand' => true, 'truncateNames' => EfrontUnit::MAXIMUM_NAME_LENGTH)));
             }
             $sourceContent = new EfrontContentTree($_GET['from'], true);
             $sourceIterator = new EfrontNodeFilterIterator(new RecursiveIteratorIterator(new RecursiveArrayIterator($sourceContent -> tree), RecursiveIteratorIterator :: SELF_FIRST));

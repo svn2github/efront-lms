@@ -44,9 +44,7 @@ $smarty -> assign("T_MODULE_COURSE_SETTINGS_TABPAGES", $moduleTabPages);
 
 $smarty -> assign("T_TABLE_OPTIONS", $options);
 
-if ($currentUser -> user['user_type'] == 'administrator') {
- $smarty -> assign("T_COURSE_OPTIONS", array(array('text' => _EDITCOURSE, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses&edit_course=".$_GET['course'])));
-}
+$smarty -> assign("T_COURSE_OPTIONS", array(array('text' => _EDITCOURSE, 'image' => "16x16/edit.png", 'href' => basename($_SERVER['PHP_SELF'])."?ctg=courses&edit_course=".$_GET['course'])));
 
 if ($_GET['op'] == 'course_info') {
  $form = new HTML_QuickForm("empty_form", "post", null, null, null, true);

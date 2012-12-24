@@ -8,6 +8,11 @@ if (!$currentUser -> coreAccess['forum'] || $currentUser -> coreAccess['forum'] 
 }
 
 try {
+
+ if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+  $currentBranch = new EfrontBranch($_SESSION['s_current_branch']);
+ }
+
     if ($GLOBALS['configuration']['disable_forum'] == 1) {
         eF_redirect("".basename($_SERVER['PHP_SELF']));
     }
@@ -222,9 +227,15 @@ try {
 
         if (isset($_GET['topic']) && eF_checkParameter($_GET['topic'], 'id')) {
             $topic = eF_getTableData("f_topics", "*", "id=".$_GET['topic']);
-            $user_posts = eF_getTableDataFlat("f_messages, users", "distinct login, count(f_messages.id) as num", "users.login = f_messages.users_LOGIN group by login");
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+             $user_posts = eF_getTableDataFlat("f_messages, users, module_hcd_employee_works_at_branch", "distinct login, count(f_messages.id) as num", "module_hcd_employee_works_at_branch.users_login=users.login and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']." and users.login = f_messages.users_LOGIN group by login");
+             $posts = eF_getTableData("f_messages, users, module_hcd_employee_works_at_branch", "users.avatar, users.user_type, f_messages.*", "module_hcd_employee_works_at_branch.users_login=users.login and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']." and users.login = f_messages.users_LOGIN and f_topics_ID=".$_GET['topic'], "timestamp");
+            } else {
+             $user_posts = eF_getTableDataFlat("f_messages, users", "distinct login, count(f_messages.id) as num", "users.login = f_messages.users_LOGIN group by login");
+             $posts = eF_getTableData("f_messages, users", "users.avatar, users.user_type, f_messages.*", "users.login = f_messages.users_LOGIN and f_topics_ID=".$_GET['topic'], "timestamp");
+            }
+
             $user_posts = array_combine($user_posts['login'], $user_posts['num']);
-            $posts = eF_getTableData("f_messages, users", "users.avatar, users.user_type, f_messages.*", "users.login = f_messages.users_LOGIN and f_topics_ID=".$_GET['topic'], "timestamp");
 
             foreach ($posts as $key => $post) {
              $posts[$key]['body'] = preg_replace("/\[quote\](.*)\[\/quote\]/", "<div class = 'quote'><b>"._QUOTE.":</b><div class = 'quoteBody'>\$1</div></div>", $post['body']);
@@ -327,20 +338,35 @@ try {
 
 
         } else {
-            $messages = eF_getTableDataFlat("f_messages", "f_topics_ID"); //Get all the forum messages
+         if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only		//calculate counters for current branch users only
+             $messages = eF_getTableDataFlat("f_messages, module_hcd_employee_works_at_branch", "f_topics_ID", "module_hcd_employee_works_at_branch.users_login=f_messages.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']);
+             $forum_topics = eF_getTableDataFlat("f_topics, module_hcd_employee_works_at_branch", "f_forums_ID", "module_hcd_employee_works_at_branch.users_login=f_topics.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']);
+         } else {
+             $messages = eF_getTableDataFlat("f_messages", "f_topics_ID"); //Get all the forum messages
+             $forum_topics = eF_getTableDataFlat("f_topics", "f_forums_ID"); //Get all the forum topics
+         }
             $messages = array_count_values($messages['f_topics_ID']); //Count the messages contained in each topic
-            $forum_topics = eF_getTableDataFlat("f_topics", "f_forums_ID"); //Get all the forum topics
             $count = 0;
             foreach ($messages as $key => $value) { //This way we may calculate the number of messages contained in each topic, without further queries
                 $forum_messages[$forum_topics['f_forums_ID'][$count++]] += $value;
             }
             $forum_topics = array_count_values($forum_topics['f_forums_ID']); //Count the number of topics contained in each forum
-            $forum_polls = eF_getTableDataFlat("f_poll", "f_forums_ID"); //Get all the forum polls
+
+            //calculate counters for current branch users only
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only		
+             $forum_polls = eF_getTableDataFlat("f_poll, module_hcd_employee_works_at_branch", "f_forums_ID", "module_hcd_employee_works_at_branch.users_login=f_poll.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']); //Get all the forum polls
+            } else {
+             $forum_polls = eF_getTableDataFlat("f_poll", "f_forums_ID"); //Get all the forum polls
+            }
             $forum_polls = array_count_values($forum_polls['f_forums_ID']); //Count the number of polls contained in each forum
 
             foreach ($forumTree as $key => $value) { //Find the last post for each forum
                 if ($key) {
-                    $result = eF_getTableData("f_topics, f_messages", "f_messages.*", "f_topics.id=f_messages.f_topics_ID and f_topics.f_forums_ID=$key", "timestamp desc limit 1");
+                 if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+                  $result = eF_getTableData("f_topics, f_messages, module_hcd_employee_works_at_branch", "f_messages.*", "f_topics.id=f_messages.f_topics_ID and f_topics.f_forums_ID=$key and module_hcd_employee_works_at_branch.users_login=f_messages.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID'], "timestamp desc limit 1");
+                 } else {
+                     $result = eF_getTableData("f_topics, f_messages", "f_messages.*", "f_topics.id=f_messages.f_topics_ID and f_topics.f_forums_ID=$key", "timestamp desc limit 1");
+                 }
                     sizeof($result) > 0 ? $last_post[$key] = $result[0] : '';
                 }
             }
@@ -370,6 +396,7 @@ try {
 
             //pr($forums);
         $dataSource = $forums;
+
      $tableName = 'forumsTable';
      /**Handle sorted table's sorting and filtering*/
      include("sorted_table.php");
@@ -379,25 +406,39 @@ try {
             $smarty -> assign("T_PARENT_FORUM", $parent_forum);
             $smarty -> assign("T_HAS_SUBFORUMS", sizeof($forumTree[$_GET['forum']]));
 
-            $polls = eF_getTableData("f_poll", "*", "f_forums_ID=".$parent_forum);
-            $topics = eF_getTableData("f_topics", "*", "f_forums_ID=".$parent_forum);
-            foreach ($topics as &$topic) {
-                $result = eF_getTableDataFlat("f_messages", "users_LOGIN, id, timestamp, body", "f_topics_ID=".$topic['id']);
-                $topic['messages'] = sizeof($result['timestamp']);
+            if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+             $polls = eF_getTableData("f_poll, module_hcd_employee_works_at_branch", "*", "f_forums_ID=".$parent_forum." and module_hcd_employee_works_at_branch.users_login=f_poll.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']);
+             $topics = eF_getTableData("f_topics, module_hcd_employee_works_at_branch", "*", "f_forums_ID=".$parent_forum." and module_hcd_employee_works_at_branch.users_login=f_topics.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']);
+            } else {
+             $polls = eF_getTableData("f_poll", "*", "f_forums_ID=".$parent_forum);
+             $topics = eF_getTableData("f_topics", "*", "f_forums_ID=".$parent_forum);
+            }
+
+            foreach ($topics as $k => $topic) {
+             if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+                 $result = eF_getTableDataFlat("f_messages, module_hcd_employee_works_at_branch", "f_messages.users_LOGIN, f_messages.id, f_messages.timestamp, f_messages.body", "f_topics_ID=".$topic['id']." and module_hcd_employee_works_at_branch.users_login=f_messages.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']);
+             } else {
+              $result = eF_getTableDataFlat("f_messages", "users_LOGIN, id, timestamp, body", "f_topics_ID=".$topic['id']);
+             }
+                $topics[$k]['messages'] = sizeof($result['timestamp']);
                 if (sizeof($result) > 0) { //find the topic's last post
                     arsort($result['timestamp']);
                     $key = key($result['timestamp']);
-                    $topic['last_post'] = array('id' => $result['id'][$key], 'users_LOGIN' => $result['users_LOGIN'][$key], 'timestamp' => $result['timestamp'][$key]);
-                    $topic['last_post_timestamp'] = $result['timestamp'][$key];
-                    $topic['first_message'] = strip_tags($result['body'][0]);
+                    $topics[$k]['last_post'] = array('id' => $result['id'][$key], 'users_LOGIN' => $result['users_LOGIN'][$key], 'timestamp' => $result['timestamp'][$key]);
+                    $topics[$k]['last_post_timestamp'] = $result['timestamp'][$key];
+                    $topics[$k]['first_message'] = strip_tags($result['body'][0]);
                 }
                 $last_posts[] = $topic['last_post']['timestamp']; //This array will be used for sorting according to last post
             }
             array_multisort($last_posts, SORT_DESC , $topics); //Sort topics so that those with most recent messages are displayed first
 
-            foreach ($polls as &$poll) {
-                $result = eF_getTableDataFlat("f_users_to_polls", "count(*)", "vote != 0 and f_poll_ID=".$poll['id']);
-                $poll['votes'] = $result['count(*)'][0];
+            foreach ($polls as $k => $poll) {
+             if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+              $result = eF_getTableDataFlat("f_users_to_polls, module_hcd_employee_works_at_branch", "f_users_to_polls.count(*)", "vote != 0 and f_poll_ID=".$poll['id']." and module_hcd_employee_works_at_branch.users_login=f_poll.users_LOGIN and module_hcd_employee_works_at_branch.branch_ID=".$currentBranch->branch['branch_ID']);
+             } else {
+                 $result = eF_getTableDataFlat("f_users_to_polls", "count(*)", "vote != 0 and f_poll_ID=".$poll['id']);
+             }
+                $polls[$k]['votes'] = $result['count(*)'][0];
             }
 
 

@@ -48,10 +48,12 @@
                     <td class = "labelCell">{$smarty.const._PRICE}:</td>
                     <td class = "elementCell">{$T_CURRENT_COURSE->course.price_string}</td></tr>
                 </tr>
+                {if $T_CURRENT_COURSE->options.training_hours}
                 <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._TRAININGHOURS}:</td>
                     <td class = "elementCell">{$T_CURRENT_COURSE->options.training_hours}</td></tr>
                 </tr>
+                {/if}
                 {if $T_AVERAGE_COMPLETION_TIME}
                 <tr class = "{cycle name = 'course_common_info' values = 'oddRowColor, evenRowColor'}">
                     <td class = "labelCell">{$smarty.const._AVERAGECOMPLETIONTIME}:</td>

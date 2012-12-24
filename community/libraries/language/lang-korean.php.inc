@@ -4156,4 +4156,44 @@ define("_USEMYSQLWILDCARDS","당신은 MySQL의 와일드 카드 문자, %와 _�
 define("_LESSONTIMEREPORTS","수업 시간 보고서");//Lesson time reports (New)
 define("_ACTIVETIMEINCONTENT","콘텐츠 활성 시간");//Active time in content (New)
 define("_TIMEREPORTSEXPLANATION","당신은 사용자가 실제로 콘텐츠를 통해 이뤄지는 것이 유일한 시간을 모니터링하고보고하는 시스템을 원한다면 적극적으로 시간을 전환합니다. 당신은 사용자가 수업에 대한 지출의 전체 시간을보고하는 시스템을 원한다면 그 / 그녀가있는 페이지에 관계없이, 총 시간으로 전환. <br/> <b>경고</b> : 활성 시간보고로 전환하면 해당 총 시대까지 기록되었습니다 활성 시간을 덮어 쓰게됩니다.");//Switch to active time if you want the system to monitor and report only times that the user actually goes through the content. Switch to total time if you want the system to report the total time a user spends on a lesson, regardless which page he/she is on. <br/><b>Warning</b>: Switching to active time reporting will overwrite any active times that have been recorded so far with the corresponding total times. (New)
+define("_MAXIMUMUSERSLIMITREACHEDCONTACTUS", "The maximum users limit is reached. Please contact us if you need access.");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHED", "I want to signup but the maximum users limit is reached");
+define("_IWANTTOSIGNUPBUTMAXIMUMUSERSLIMITREACHEDBODY", "I am trying to signup but the system reports that the maximum users limit is reached.");
+define("_PROFESSORCREATECOURSES", "Create courses/lessons");
+define("_RESETALLUSERS", "Reset progress for all users");
+define("_MYROLE", "Role");
+define("_MAXSEATSDEPLEATED", "The %y seats available for '%x' are taken. Contact %z for more info");
+define("_IFRAMEPARAMETERS", "iframe parameters");
+define("_HEIGHTREFERSTOINITIALHEIGHT", "Dimensions may dynamically change after loading of the content, you can set enforce explicit values under the SCORM unit's properties window");
+define("_COURSESTARTDATE", "Course start date");
+define("_COURSEENDDATE", "Course end date");
+define("_SEARCHRESULTSINFILESYSTEM", "Search results in filesystem");
+define("_FILESYSTEM", "Filesystem");
+define("_PATH", "Path");
+define("_TIMESAFTERREGISTRATION", "times after registration");
+define("_ACCESSDEPLETED", "You can no longer access this lesson");
+define("_ACCESSESREMAINING", "You can access this lesson %x time(s) more");
+define("_REMAININGVACANCIES", "Remaining placements");
+define("_YOUWHEREADDEDTOTHEGROUPBUTSOMEERRORSOCCURED", "You where added to the group but some errors occured:");
+define("_SURVEYREMINDER", "Survey reminder");
+define("_THISISAREMINDERTOCOMPLETETHEFOLLOWINGSURVEY", "This email is a reminder that you where asked to complete the following survey");
+define("_SENDREMINDER", "Send reminder");
+define("_PROJECTASSIGNMENT", "Project assignment");
+define("_PROJECTID", "Project id");
+define("_DEAR", "Dear");
+define("_SETCERTIFICATEDATEFORCOMPLTETED","Set certificate date same as completed date");
+define("_VIEWCOURSECERTIFICATE","Course certificate");
+define("_SETSHOWNUSERSSTATUSCOMPLETED", "Complete for shown users");
+define("_FREETEXTFILEUPLOAD", "Free text / file upload");
+define("_FREETEXTINPUTTYPE", "Input type");
+define("_TEXTAREAANDUPLOAD", "Textarea and upload field");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMIT", "You are reaching your subscription limit");
+define("_YOUAREREACHINGYOURSUBSCRIPTIONLIMITBODY", "Dear %w,<br/>You have reached %x% of your subscription limit for %y at %z");
+define("_THANKYOUFORCONTACTINGUS", "Thank you for contacting us");
+define("_THANKYOUFORCONTACTINGUSBODY", "We have received your email and will get back to you shortly. Below is a copy of your original email.");
+define("_INCLUDETIME", "Include time");
+define("_AVERAGECOMPLETIONTIME", "Average completion time");
+define("_YOUCANUSENUMBERRANGE", "You can also use number range: For example, if you use 1-10 for the correct answer, then any number from 1 to 10 will be considered correct");
+define("_SETALLTOCOMPLETED", "Set all as completed");
+define("_SETALLTOUNCOMPLETED", "Set all as incomplete");
 ?>

@@ -43,7 +43,7 @@ if (!isset($_GET['checkout'])) {
   $lessonInformation = $lesson -> getInformation();
   $content = new EfrontContentTree($lesson);
   if (sizeof($content -> tree) > 0) {
-   $smarty -> assign("T_CONTENT_TREE", $content -> toHTML(false, 'dhtml_content_tree', array('noclick' => 1)));
+   $smarty -> assign("T_CONTENT_TREE", $content -> toHTML(false, 'dhtml_content_tree', array('noclick' => 1, 'truncateNames' => EfrontUnit::MAXIMUM_NAME_LENGTH)));
   }
   $lessonInfo = new LearningObjectInformation(unserialize($lesson -> lesson['info']));
   $smarty -> assign("T_LESSON_INFO", $lessonInfo);

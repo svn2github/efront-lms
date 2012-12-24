@@ -84,21 +84,23 @@ class calendar extends EfrontEntity
   $form -> addElement($this -> createDateElement($form, 'timestamp', _DATE, array('addEmptyOption' => array('H' => true, 'i' => true),'include_time' => true)));
   $form -> addElement('static', 'toggle_editor_code', 'toggleeditor_link');
   $form -> addElement('textarea', 'data', _EVENT, 'class = "simpleEditor inputTextarea" style = "width:98%;height:200px;"');
+  if (sizeof($calendarTypes) > 1) {
   $form -> addElement('select', 'type', _EVENTTYPE, $calendarTypes, 'id = "select_type" onChange = "toggleAutoComplete(this.options[this.options.selectedIndex].value)"');
   $form -> addElement('static', 'sidenote', '<img id = "busy" src = "images/16x16/clock.png" style="display:none;" alt = "'._LOADING.'" title = "'._LOADING.'"/>');
-  if ($this -> calendar['type'] || isset($_GET['course'])) {
-   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" onkeypress = "$(\'foreign_ID\').value = \'\'" class = "autoCompleteTextBox" style = "width:400px"' );
-   if ($this -> calendar['foreign_ID'] && eF_checkParameter($this -> calendar['foreign_ID'], 'id')) {
-    switch($this -> calendar['type']) {
-     case 'lesson': $selection = eF_getTableData("lessons", "name", "id=".$this -> calendar['foreign_ID']); break;
-     case 'course': $selection = eF_getTableData("courses", "name", "id=".$this -> calendar['foreign_ID']); break;
-     case 'group' : $selection = eF_getTableData("groups", "name", "id=".$this -> calendar['foreign_ID']); break;
-     case 'branch': case 'sub_branch': $selection = eF_getTableData("module_hcd_branch", "name", "branch_ID=".$this -> calendar['foreign_ID']); break;
-     default:break;
+   if ($this -> calendar['type'] || isset($_GET['course'])) {
+    $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" onkeypress = "$(\'foreign_ID\').value = \'\'" class = "autoCompleteTextBox" style = "width:400px"' );
+    if ($this -> calendar['foreign_ID'] && eF_checkParameter($this -> calendar['foreign_ID'], 'id')) {
+     switch($this -> calendar['type']) {
+      case 'lesson': $selection = eF_getTableData("lessons", "name", "id=".$this -> calendar['foreign_ID']); break;
+      case 'course': $selection = eF_getTableData("courses", "name", "id=".$this -> calendar['foreign_ID']); break;
+      case 'group' : $selection = eF_getTableData("groups", "name", "id=".$this -> calendar['foreign_ID']); break;
+      case 'branch': case 'sub_branch': $selection = eF_getTableData("module_hcd_branch", "name", "branch_ID=".$this -> calendar['foreign_ID']); break;
+      default:break;
+     }
     }
+   } else {
+    $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" onkeypress = "$(\'foreign_ID\').value = \'\'" class = "autoCompleteTextBox inactiveElement" style = "width:400px" disabled' );
    }
-  } else {
-   $form -> addElement('text', 'selection', _SELECT, 'id = "autocomplete" onkeypress = "$(\'foreign_ID\').value = \'\'" class = "autoCompleteTextBox inactiveElement" style = "width:400px" disabled' );
   }
   $form -> addElement('static', 'autocomplete_note', _STARTTYPINGFORRELEVENTMATCHES);
   $form -> addElement('hidden', 'foreign_ID', '' , 'id="foreign_ID"');
@@ -156,14 +158,14 @@ class calendar extends EfrontEntity
   if (isset($_GET['edit'])) {
    $this -> calendar["data"] = $values['data'];
    $this -> calendar["timestamp"] = $timestamp;
-   $this -> calendar["type"] = $values['type'] ? $values['type'] : 'global';
+   $this -> calendar["type"] = $values['type'] ? $values['type'] : 'private';
    $this -> calendar["foreign_ID"] = $values['foreign_ID'];
 
    $this -> persist();
   } else {
    $fields = array("data" => $values['data'],
                             "timestamp" => $timestamp,
-                "type" => $values['type'] ? $values['type'] : 'global',
+                "type" => $values['type'] ? $values['type'] : 'private',
                 "foreign_ID" => $values['foreign_ID'],
                             "users_LOGIN" => $_SESSION['s_login']);
 

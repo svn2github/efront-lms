@@ -4243,4 +4243,6 @@ define("_THANKYOUFORCONTACTINGUSBODY", "We have received your email and will get
 define("_INCLUDETIME", "Include time");
 define("_AVERAGECOMPLETIONTIME", "Average completion time");
 define("_YOUCANUSENUMBERRANGE", "You can also use number range: For example, if you use 1-10 for the correct answer, then any number from 1 to 10 will be considered correct");
+define("_SETALLTOCOMPLETED", "Set all as completed");
+define("_SETALLTOUNCOMPLETED", "Set all as incomplete");
 ?>

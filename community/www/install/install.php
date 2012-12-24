@@ -600,6 +600,34 @@ define("PHPLIVEDOCXAPI","'.$defaultConfig['phplivedocx_server'].'");
     } catch (Exception $e) {}
     //Create the default system users and lessons
     if (isset($values['default_data']) && $values['default_data']) {
+/*					
+					//The new db itself
+
+					foreach (explode(";\r\n", file_get_contents(G_LIBRARIESPATH.'enterprise.sql')) as $command) {
+
+						if (trim($command)) {
+
+							$db -> execute(trim($command));
+
+						}
+
+					}					
+					$db -> Execute($sql);
+					$fields = array('password' => EfrontUser::createPassword($values['admin_password']),
+							'email' => $values['admin_email'],
+							'timestamp' => time());
+					eF_updateTableData("users", $fields);
+					$fields = array('login' => $values['admin_name']);
+
+					eF_updateTableData("users", $fields, "login='admin'");
+					$fields = array('created' => time());
+
+					eF_updateTableData("courses", $fields);
+					eF_updateTableData("lessons", $fields);
+					$fields = array('from_timestamp' => time());
+					eF_updateTableData("users_to_courses", $fields);
+					eF_updateTableData("users_to_lessons", $fields);
+*/
      $result = Installation :: createDefaultUsers($values);
      foreach ($result as $value) {
       if ($value -> user['user_type'] != 'administrator') {
@@ -771,56 +799,71 @@ class Installation
 	 * @return unknown_type
 	 */
  public static function createDefaultLessons($values, $users) {
-  //Check if any lessons were created in a previous attempt
-  $result = eF_getTableData("lessons", "*");
-  foreach ($result as $value) {
-   $lesson = new EfrontLesson($value);
-   $lesson -> delete();
-  }
-  //Check if any courses were created in a previous attempt
-  $result = eF_getTableData("courses", "id");
-  foreach ($result as $value) {
-   $course = new EfrontLesson($value);
-   $course -> delete();
-  }
-  //Check if any categories were created in a previous attempt
-  $result = eF_getTableDataFlat("directions", "id");
-  if (sizeof($result) > 0) {
-   foreach ($result['id'] as $id) {
-    EfrontDirection::deleteDirection($id);
+  foreach (explode("\n", file_get_contents('sample_data.sql')) as $command) {
+   if (trim($command)) {
+    $GLOBALS['db'] -> execute(trim($command));
    }
   }
-  //Create default categories
-  $ancientCivId = eF_insertTableData("directions", array('name' => 'Ancient Civilizations', 'active' => 1));
-  $ProgrammingId = eF_insertTableData("directions", array('name' => 'Programming', 'active' => 1));
-  try {
-   //Create "Greedy Algorithms" lesson
-   $fields = array('directions_ID' => $ProgrammingId, 'active' => 1, 'course_only' => 0);
-   $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Greedy_algorithms.zip');
-   $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Greedy algorithms'), $fields));
-   $file = $file -> copy($lesson -> getDirectory());
-   $lesson -> import($file);
-   $lesson -> addUsers(array_keys($users), array_values($users));
-  } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
-  try {
-   //Create "Maya civilization" lesson
-   $fields = array('directions_ID' => $ancientCivId, 'active' => 1, 'course_only' => 0);
-   $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Maya_civilization.zip');
-   $lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Maya civilization'), $fields));
-   $file = $file -> copy($lesson -> getDirectory());
-   $lesson -> import($file);
-   $lesson -> addUsers(array_keys($users), array_values($users));
-  } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
-  try {
-   //Create "How to be a programmer" course
-   $fields = array('directions_ID' => $ProgrammingId, 'active' => 1);
-   $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/How_to_be_a_programmer.zip');
-   $course = EfrontCourse :: createCourse(array_merge(array('name' => 'How to be a programmer'), $fields));
-   $file = $file -> copy($lesson -> getDirectory()); //$lesson is put here on purpose, since $course does not have a directory
-   $course -> import($file);
-   $course -> addUsers(array('student'), 'student');
-   $course -> addUsers(array('professor'), 'professor');
-  } catch (Exception $e) {/*do nothing, just move on to the next lesson*/}
+  $file = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/lessons.zip');
+  $newFile = $file->copy(G_LESSONSPATH, true);
+  $newFile->uncompress();
+  $newFile->delete();
+/*		
+		//Check if any lessons were created in a previous attempt
+		$result = eF_getTableData("lessons", "*");
+		foreach ($result as $value) {
+			$lesson = new EfrontLesson($value);
+			$lesson -> delete();
+		}
+		//Check if any courses were created in a previous attempt
+		$result = eF_getTableData("courses", "id");
+		foreach ($result as $value) {
+			$course = new EfrontLesson($value);
+			$course -> delete();
+		}
+		//Check if any categories were created in a previous attempt
+		$result = eF_getTableDataFlat("directions", "id");
+		if (sizeof($result) > 0) {
+			foreach ($result['id'] as $id) {
+				EfrontDirection::deleteDirection($id);
+			}
+		}
+
+		//Create default categories
+		$ancientCivId  = eF_insertTableData("directions", array('name' => 'Ancient Civilizations', 'active' => 1));
+		$ProgrammingId = eF_insertTableData("directions", array('name' => 'Programming', 'active' => 1));
+
+		try {
+			//Create "Greedy Algorithms" lesson
+			$fields = array('directions_ID'  => $ProgrammingId, 'active' => 1, 'course_only' => 0);
+			$file   = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Greedy_algorithms.zip');
+			$lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Greedy algorithms'), $fields));
+			$file   = $file -> copy($lesson -> getDirectory());
+			$lesson -> import($file);
+			$lesson -> addUsers(array_keys($users), array_values($users));
+		} catch (Exception $e) {}//do nothing, just move on to the next lesson
+
+		try {
+			//Create "Maya civilization" lesson
+			$fields = array('directions_ID'  => $ancientCivId, 'active' => 1, 'course_only' => 0);
+			$file   = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/Maya_civilization.zip');
+			$lesson = EfrontLesson :: createLesson(array_merge(array('name' => 'Maya civilization'), $fields));
+			$file   = $file -> copy($lesson -> getDirectory());
+			$lesson -> import($file);
+			$lesson -> addUsers(array_keys($users), array_values($users));
+		} catch (Exception $e) {}//do nothing, just move on to the next lesson
+
+		try {
+			//Create "How to be a programmer" course
+			$fields = array('directions_ID'  => $ProgrammingId, 'active' => 1);
+			$file   = new EfrontFile(EfrontDirectory :: normalize(getcwd()).'/How_to_be_a_programmer.zip');
+			$course = EfrontCourse :: createCourse(array_merge(array('name' => 'How to be a programmer'), $fields));
+			$file   = $file -> copy($lesson -> getDirectory());        //$lesson is put here on purpose, since $course does not have a directory
+			$course -> import($file);
+			$course -> addUsers(array('student'), 'student');
+			$course -> addUsers(array('professor'), 'professor');
+		} catch (Exception $e) {}//do nothing, just move on to the next lesson
+*/
  }
  /**
 	 *

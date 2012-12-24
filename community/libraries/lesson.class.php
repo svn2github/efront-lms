@@ -5843,7 +5843,11 @@ class EfrontLesson
    //    			$related_events = eF_getTableData("events", "*", "lessons_ID = '". $this->lesson['id']."' AND users_LOGIN IN ('".implode("','", $users_logins)."')", "timestamp desc LIMIT " . $limit);
    //
    //    		} else {
-   $related_events = eF_getTableData("events, module_hcd_employee_works_at_branch ewb", "events.*", "ewb.branch_ID= ".$_SESSION['s_current_branch']." and events.users_LOGIN=ewb.users_login and lessons_ID = '". $this->lesson['id']."' AND events.users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc", "", $limit ? $limit*5 : null);
+   if ($_SESSION['s_type'] != 'administrator' && $_SESSION['s_current_branch']) { //this applies to supervisors only
+    $related_events = eF_getTableData("events, module_hcd_employee_works_at_branch ewb", "events.*", "ewb.branch_ID= ".$_SESSION['s_current_branch']." and events.users_LOGIN=ewb.users_login and lessons_ID = '". $this->lesson['id']."' AND events.users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc", "", $limit ? $limit*5 : null);
+   } else {
+    $related_events = eF_getTableData("events", "events.*", "lessons_ID = '". $this->lesson['id']."' AND events.users_LOGIN IN ('".implode("','", $users_logins)."')  AND (type < 50 OR type >74)	", "timestamp desc", "", $limit ? $limit*5 : null);
+   }
    //    		}
   }
   if (!isset($avatarSize) || $avatarSize <= 0) {

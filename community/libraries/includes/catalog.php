@@ -150,6 +150,7 @@ if (isset($_GET['fct'])) {
         $cancelReturn = G_SERVERNAME.'studentpage.php?message='.urlencode(_YOUHAVECANCELLEDTHETRANSACTION);
     }
     $form = new HTML_QuickForm("my_checkout_form", "post", $target, "", 'style = "display:inline"', true);
+    $form -> addElement('text', 'coupon', null, 'style = "display:none" id = "coupon_code"');
         if ($totalPrice > 0) {
             $form -> addElement('submit', 'submit_order', _ENROLL, 'class = "flatButton"');
         } else {

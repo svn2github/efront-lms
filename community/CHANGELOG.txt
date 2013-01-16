@@ -1,8 +1,7 @@
-=== Version 3.6.12.3 ===
+=== Version 3.6.12.3 - build 17731 ===
 - Fixed SCORM2004 not initializing sessions
 - Fixed error when changing current user in user reports
-
-=== Version 3.6.12.2 ===
+- Fixed automatic upgrade errors
 - Fixed performance issues when a user is enrolled to many courses
 - Fixed indefinite messages list in users' dashboard
 - Fixed issue about themes logo

@@ -28,7 +28,7 @@ class module_quick_mails extends EfrontModule {
   $form -> addElement('hidden', 'recipients', $_GET['rec']);
   $form -> addElement('text', 'subject', _SUBJECT, 'class = "inputText" style = "width:400px"');
   $form -> addElement('textarea', 'body', _BODY, 'class = "simpleEditor" style = "width:100%;height:200px"');
-  $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'class = "inputCheckBox"');
+  $form -> addElement('checkbox', 'email', _SENDASEMAILALSO, null, 'id = "send_as_email" class = "inputCheckBox"');
   $form -> addRule('subject', _THEFIELD.' "'._SUBJECT.'" '._ISMANDATORY, 'required', null, 'client');
   $form -> addRule('recipients', _THEFIELD.' "'._RECIPIENTS.'" '._ISMANDATORY, 'required', null, 'client');
   $form -> addElement('file', 'attachment[0]', _ATTACHMENT, null, 'class = "inputText"');

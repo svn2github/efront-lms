@@ -23,8 +23,8 @@ try {
  exit;
 }
 
-eF_checkParameter($_POST['preffix'], 'text') OR $_POST['preffix'] = '%';
-$_POST['preffix'] = mysql_escape_string($_POST['preffix']);
+eF_checkParameter(trim($_POST['preffix']), 'text') OR $_POST['preffix'] = '%';
+$_POST['preffix'] = mysql_escape_string(trim($_POST['preffix']));
 
 switch ($_GET['ask_type']) {
  case 'users': askUsers(); break;
@@ -52,7 +52,7 @@ function askUsers() {
   if (mb_strpos($_POST['preffix'], ";") === false) {
    $user = $_POST['preffix'];
   } else {
-   $user = mb_substr(strrchr($_POST['preffix'], ";"), 1);
+   $user = trim(mb_substr(strrchr($_POST['preffix'], ";"), 1));
   }
  }
  //pr($_SESSION);

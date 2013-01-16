@@ -206,7 +206,7 @@ translations['_YOUHAVEBEENSUCCESSFULLYADDEDTOTHEGROUP'] = '{$smarty.const._YOUHA
                                          <tr><td class = "moduleCell">
                                           {capture name = 't_messages'}
 <!--ajax:messagesTable-->
-                                            <table class = "sortedTable" width = "100%" height="40px" noFooter="true" size = "{$T_MESSAGES_SIZE}" sortBy = "0" useAjax = "1" id = "messagesTable" rowsPerPage="20" limit="100" url="{$smarty.server.PHP_SELF}?ctg=messages&folder={$T_FOLDER}&p_message={$T_VIEWINGMESSAGE}&minimal_view=1&" style="white-space:nowrap;">
+                                            <table class = "sortedTable" width = "100%" height="40px" size = "{$T_MESSAGES_SIZE}" sortBy = "0" useAjax = "1" id = "messagesTable" rowsPerPage="10" limit="100" url="{$smarty.server.PHP_SELF}?ctg=messages&folder={$T_FOLDER}&p_message={$T_VIEWINGMESSAGE}&minimal_view=1&" style="white-space:nowrap;">
                                                 <tr class = "defaultRowHeight">
                                                  <td class = "topTitle" name="priority" style = "width:7%;text-align:center;">{$smarty.const._FLAG}</td>
                                                     <td class = "topTitle" name="viewed" style = "width:7%;text-align:center;">{$smarty.const._STATUS}</td>

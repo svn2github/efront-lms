@@ -3687,6 +3687,9 @@ class EfrontCourse
     }
     $evalString = $evalString.' '.$completedLessons[$lessonRules['lesson'][$i]];
     if (!empty($completedLessons) && !$completedLessons[$lessonRules['lesson'][$i]]) {
+     if (trim($evalString) == '') {
+      $evalString = 'false';
+     }
      eval("\$allowed[$lessonId] = $evalString;");
     }
    }

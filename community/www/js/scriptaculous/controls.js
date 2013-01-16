@@ -67,6 +67,7 @@ Autocompleter.Base = Class.create({
           update.style.position = 'absolute';
           Position.clone(element, update, {
             setHeight: false,
+            setLeft: false,
             offsetTop: element.offsetHeight
           });
         }

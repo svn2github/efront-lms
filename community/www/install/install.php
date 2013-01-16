@@ -84,7 +84,7 @@ if (is_file($path."configuration.php")) {
  $smarty -> assign("T_CONFIGURATION_EXISTS", true);
 }
 if ((isset($_GET['step']) && $_GET['step'] == 1) || isset($_GET['unattended'])) {
- if (is_file('../php.ini') && !is_file('php.ini') && copy('../php.ini', 'php.ini')) {
+ if (is_file('../php.ini') && !is_file('php.ini') && copy('../php.ini', 'php.ini') && !isset($_GET['unattended'])) {
   header("location:".$_SERVER['PHP_SELF']."?step=1".(isset($_GET['upgrade']) ? '&upgrade=1' : ''));
  }
  $exclude_normal = true;
@@ -799,6 +799,10 @@ class Installation
 	 * @return unknown_type
 	 */
  public static function createDefaultLessons($values, $users) {
+  //Content is now taken from a file called sample_data.sql. To produce an up-to-date version of this file,
+  //call the following command from the command line:
+  //mysqldump -u periklis -p <db_name> lessons courses users_to_lessons users_to_courses search_keywords search_invertedindex tests_to_questions tests rules questions lesson_conditions glossary f_forums lessons_to_courses directions content --no-create-info --compact --single-transaction > ~/sample_data.sql
+  //Replacing <db_name> with the database that will provide the data
   foreach (explode("\n", file_get_contents('sample_data.sql')) as $command) {
    if (trim($command)) {
     $GLOBALS['db'] -> execute(trim($command));

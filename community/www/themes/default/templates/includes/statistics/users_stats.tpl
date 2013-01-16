@@ -257,7 +257,7 @@
      <table>
       <tr class = "{cycle name = 'common_user_info' values = 'oddRowColor, evenRowColor'}">
        <td class = "labelCell">{$smarty.const._USERNAME}:</td>
-       <td class = "elementCell">{$T_USER_INFO.general.fullname}</td>
+       <td class = "elementCell">#filter:user_login-{$T_USER_INFO.general.login}#</td>
       </tr>
       <tr class = "{cycle name = 'common_user_info' values = 'oddRowColor, evenRowColor'}">
        <td class = "labelCell">{$smarty.const._USERTYPE}:</td>

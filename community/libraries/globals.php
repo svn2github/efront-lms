@@ -156,9 +156,9 @@ if ($languages[$setLanguage]['rtl']) {
 try {
     $currentTheme = new themes(G_CURRENTTHEME);
     $smarty -> assign("T_THEME_SETTINGS", $currentTheme);
-    if ($configuration['use_logo'] == 2 && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
+    if ($configuration['use_logo'] == 2 && defined('G_BRANCH_URL') && G_BRANCH_URL && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
      $smarty -> assign("T_LOGO", 'images/logo/logo.png');
-    } else if (G_BRANCH_URL && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
+    } else if ($configuration['use_logo'] == 2 && is_file(G_CURRENTTHEMEPATH.'images/logo/logo.png')) {
      $smarty -> assign("T_LOGO", 'images/logo/logo.png');
     } else if ($configuration['use_logo'] > 0) { //meaning that either we have 'use site logo' (1) or 'use theme logo' (2) but that does not exist
      $logoFile = new EfrontFile($configuration['site_logo']);
@@ -289,7 +289,7 @@ function setDefines() {
   define('G_SERVERNAME', $protocol.'://'.$_SERVER["HTTP_HOST"].G_OFFSET);
     /*Get the build number*/
  preg_match("/(\d+)/", '$LastChangedRevision$', $matches);
-    $build = 17712;
+    $build = 17726;
     defined("G_BUILD") OR define("G_BUILD", $build);
     /*Define default encoding to be utf-8*/
     mb_internal_encoding('utf-8');

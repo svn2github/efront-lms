@@ -1882,11 +1882,13 @@ class EfrontContentTree extends EfrontTree
           }
          }
    $ids_mapping = array();
+   $lesson = new EfrontLesson($newUnit -> offsetGet('lessons_ID'));
+   $folderId = $lesson -> lesson['share_folder'] ? $lesson -> lesson['share_folder'] : $lesson -> lesson['id'];
          foreach ($testQuestions as $key => $oldQuestion){
           $questionData[$key]['content_ID'] = $newUnit -> offsetGet('id');
           $questionData[$key]['lessons_ID'] = $newUnit -> offsetGet('lessons_ID');
-          $questionData[$key]['text'] = replaceQuestionPaths($questionData[$key]['text'], $oldUnit['lessons_ID'], $newUnit -> offsetGet('lessons_ID'));
-          $questionData[$key]['explanation'] = replaceQuestionPaths($questionData[$key]['explanation'], $oldUnit['lessons_ID'], $newUnit -> offsetGet('lessons_ID'));
+          $questionData[$key]['text'] = replaceQuestionPaths($questionData[$key]['text'], $oldUnit['lessons_ID'], $folderId);
+          $questionData[$key]['explanation'] = replaceQuestionPaths($questionData[$key]['explanation'], $oldUnit['lessons_ID'], $folderId);
           $newQuestion = Question :: createQuestion($questionData[$key]);
           $qid = $newQuestion -> question['id'];
           $newQuestions[$qid] = $oldTest -> getAbsoluteQuestionWeight($oldQuestion -> question['id']);
@@ -2184,9 +2186,10 @@ class EfrontContentTree extends EfrontTree
   // copying questions that belong to this unit
   if ($copyQuestions) {
    $questions = eF_getTableData("questions","*","content_ID=".$sourceUnit -> offsetGet('id'));
+   $folderId = $lesson -> lesson['share_folder'] ? $lesson -> lesson['share_folder'] : $lesson -> lesson['id'];
    for ($k = 0; $k < sizeof($questions); $k++) {
-    $questions[$k]['text'] = replaceQuestionPaths($questions[$k]['text'], $questions[$k]['lessons_ID'], $unit-> offsetGet('lessons_ID'));
-          $questions[$k]['explanation'] = replaceQuestionPaths($questions[$k]['explanation'], $questions[$k]['lessons_ID'], $unit-> offsetGet('lessons_ID'));
+    $questions[$k]['text'] = replaceQuestionPaths($questions[$k]['text'], $questions[$k]['lessons_ID'], $folderId);
+          $questions[$k]['explanation'] = replaceQuestionPaths($questions[$k]['explanation'], $questions[$k]['lessons_ID'], $folderId);
     $questions[$k]['content_ID'] = $unit-> offsetGet('id');
     $questions[$k]['lessons_ID'] = $unit-> offsetGet('lessons_ID');
     unset($questions[$k]['id']);

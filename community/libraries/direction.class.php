@@ -694,6 +694,7 @@ class EfrontDirectionsTree extends EfrontTree
   if ($options['tree_tools']) {
    $treeString = $this -> printTreeTools($options, $totalEntries).$treeString; //This is put at the end, so that $this -> hasLessonsAsStudent is populated
   }
+  $treeString .= "</div>";
   return $treeString;
  }
  private function parseTreeOptions($options) {
@@ -843,10 +844,9 @@ class EfrontDirectionsTree extends EfrontTree
      <select onchange = "setCookie(\'display_all_courses\', this.options[this.options.selectedIndex].value);location=location">
       <option value = "0">'._MATERIALINPROGRESS.'</option>
       <option value = "1" '.($_COOKIE['display_all_courses'] == '1' ? 'selected' : '').'>'._ALLMATERIAL.'</option>
-     </select>
-    </div>';
+     </select>';
   }
-  return $treeString;
+  return $treeString.'</div>';
  }
  private function printProgressBar($treeLesson, $roleBasicType) {
   $treeString = '';

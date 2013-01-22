@@ -713,7 +713,7 @@ color: green;
 .resultsTitle .small a:hover{text-decoration: underline;}
 .resultsTitleBold{font-weight: bold;}
 .searchBox{background-repeat:no-repeat; padding-left:18px;}
-
+.searchBox_catalog{background-repeat:no-repeat; padding-left:18px;}
 /*Progress bar classes*/
 div#progress_bar a{display:block;margin-top:10px;}
 .progressCell{

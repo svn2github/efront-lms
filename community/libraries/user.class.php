@@ -914,6 +914,7 @@ abstract class EfrontUser
           'comments' => session_id(),
           'session_ip' => eF_encodeIP($_SERVER['REMOTE_ADDR']));
   eF_insertTableData("logs", $fields_insert);
+  eF_updateTableData("users", array('last_login' => time()), "login='{$this -> user['login']}'");
   if ($GLOBALS['configuration']['ban_failed_logins']) {
    eF_deleteTableData("logs","users_LOGIN='".$this -> user['login']."' and action='failed_login'");
   }

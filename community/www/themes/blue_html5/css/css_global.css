@@ -740,6 +740,7 @@ color: green;
 .resultsTitle .small a:hover{text-decoration: underline;}
 .resultsTitleBold{font-weight: bold;}
 .searchBox{background-repeat:no-repeat; border:1px solid #CCCCCC; padding-left:18px; padding-top:0px;padding-bottom:0px;width:134px;background-image:url('../images/css_images/search.png');}
+.searchBox_catalog{background-repeat:no-repeat; border:1px solid #CCCCCC; padding-left:18px; padding-top:0px;padding-bottom:0px;width:134px;background-image:url('../images/css_images/search.png');}
 
 /*Progress bar classes*/
 div#progress_bar a{display:block;margin-top:10px;}

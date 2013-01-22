@@ -83,7 +83,7 @@
   <div id = "path_language">
   {if $smarty.server.PHP_SELF|basename != 'index.php' && $T_THEME_SETTINGS->options.sidebar_interface != 0 && $smarty.session.s_login}
             <form action = "{$smarty.server.PHP_SELF}?ctg={if $smarty.session.s_type == 'administrator'}control_panel{else}lessons{/if}&op=search" method = "post">
-    <input type = "text" name = "search_text" value = "{$smarty.const._SEARCH}" onclick="if(this.value=='{$smarty.const._SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}';" class = "searchBox"/>
+    <input type = "text" name = "search_text" value = "{$smarty.const._SEARCH}" onclick="if(this.value=='{$smarty.const._SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{$smarty.const._SEARCH}';" class = "searchBox"/ style="margin-top:0">
     <input type = "hidden" name = "current_location" id = "current_location" />
    </form>
   {else}

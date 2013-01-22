@@ -529,9 +529,9 @@
                                 <input type="hidden" name="user_email[{$smarty.section.survey_users.index}]" value="{$T_LESSON_USERS[survey_users].email}"/>
                                 <input type="hidden" name="user_login[{$smarty.section.survey_users.index}]" value="{$T_LESSON_USERS[survey_users].login}"/>
                                 {if ($T_EXISTS[survey_users] == 'true')}
-                                    <input type="checkbox" name="selection[{$smarty.section.survey_users.index}]" checked/>
+                                    <input type="checkbox" class = "publish_survey" name="selection[{$smarty.section.survey_users.index}]" checked/>
                                 {else}
-                                    <input type="checkbox" name="selection[{$smarty.section.survey_users.index}]"/>
+                                    <input type="checkbox" class = "publish_survey" name="selection[{$smarty.section.survey_users.index}]"/>
                             {/if}
                         </td>
                     </tr>
@@ -539,6 +539,9 @@
                 </table>
                 <table width="100%" align="center">
                     <tr><td>&nbsp;</td></tr>
+
+                    <tr><td class="labelCell">{$smarty.const._SELECTALL}</td><td><input type="checkbox" name="select_all" id = "select_all" onclick = "selectallstudents()" /></td></tr>
+
                     <tr><td class="horizontalSeparator" colspan="2"></td></tr>
                     <tr><td>&nbsp;</td></tr>
                     <tr>

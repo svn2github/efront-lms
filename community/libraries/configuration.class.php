@@ -178,6 +178,7 @@ class EfrontConfiguration
      'allow_users_to_delete_supervisor_files'=> '1',
      'propagate_courses_to_branch_users' => '1',
      'allow_direct_login' => '1',
+     'mod_rewrite_bypass' => '0',
 
      //Webserver authentication settings
      'webserver_auth' => '0',

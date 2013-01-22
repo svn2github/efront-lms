@@ -1022,6 +1022,16 @@ class module_administrator_tools extends EfrontModule {
   if ($table == 'surveys' || $table == 'module_hcd_events') {
    eF_updateTableData($table, array("author" => $newLogin), "author = '".$oldLogin."'");
   }
+  if ($table == 'completed_tests') {
+   $result = eF_getTableData("completed_tests ct join completed_tests_blob ctb on ct.id=ctb.completed_tests_ID", "ctb.*", "ct.users_LOGIN='{$newLogin}'"); //We use newLogin, because completed_tests has already changed
+   foreach ($result as $value) {
+    $test = unserialize($value['test']);
+    if ($test) {
+     $test->completedTest['login'] = $newLogin;
+     eF_updateTableData("completed_tests_blob", array('test' => serialize($test)), "id = {$value['id']}");
+    }
+   }
+  }
  }
 
  private function toggleSetting($setting, $enable) {

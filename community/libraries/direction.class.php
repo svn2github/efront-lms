@@ -818,7 +818,7 @@ class EfrontDirectionsTree extends EfrontTree
   }
   $searchString = '';
   if ($options['search']) {
-   $searchString = '<input type = "text" name = "search_text" value = "'._SEARCH.'" onclick="if(this.value==\''._SEARCH.'\')this.value=\'\';" onblur="if(this.value==\'\')this.value=\''._SEARCH.'\';" class = "searchBox" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}" />';
+   $searchString = '<input type = "text" name = "search_text" value = "'._SEARCH.'" onclick="if(this.value==\''._SEARCH.'\')this.value=\'\';" onblur="if(this.value==\'\')this.value=\''._SEARCH.'\';" class = "searchBox_catalog" onKeyPress = "if (event.keyCode == 13) {filterTree(this, \''.$options['url'].'\')}" />';
   }
   $treeString = '
     <div style = "padding-top:12px;padding-bottom:12px" class = "lessons_list">

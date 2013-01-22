@@ -67,8 +67,8 @@ function assignToGroupUsers(el, category) {
 	ajaxRequest(el, url, parameters, onAssignToGroupUsers);	    
 }
 function onAssignToGroupUsers(el, response) {
-	eF_js_redrawPage('coursesTable', true);
 	 el.down().src='themes/default/images/others/transparent.gif';  
 	 el.down().className='sprite16 sprite16-success';  
 	 Effect.Fade(el.down(), {afterFinish:function() {el.down().remove()}});
+	 
 }

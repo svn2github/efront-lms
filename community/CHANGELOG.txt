@@ -1,3 +1,9 @@
+=== Version 3.6.12.4 - build ===
+- Fixed "last login" not being recorded problem
+- Fixed javascript issue when clicking on "assign selected courses to group users" link and a course's instances where expanded
+- Fixed "change username" functionality in administrator tools not changing usernames inside completed tests
+- Added "select all users" option in publishing surveys
+
 === Version 3.6.12.3 - build 17731 ===
 - Fixed SCORM2004 not initializing sessions
 - Fixed error when changing current user in user reports

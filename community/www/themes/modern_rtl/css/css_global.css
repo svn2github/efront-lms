@@ -748,7 +748,8 @@ color: green;
 }
 .resultsTitle .small a:hover{text-decoration: underline;}
 .resultsTitleBold{font-weight: bold;}
-.searchBox{background-repeat:no-repeat;background-position: right; border:1px solid #CCCCCC; padding-right:18px; padding-top:2px;padding-bottom:2px;margin:0px;width:134px;background-image:url('../images/css_images/search.png');}
+.searchBox_catalog{background-repeat:no-repeat;background-position: right; border:1px solid #CCCCCC; padding-right:18px; padding-top:2px;padding-bottom:2px;margin:0px;width:134px;background-image:url('../images/css_images/search.png');}
+
 .lessons_list .searchBox{float:left;clear:left;margin-bottom:4px;}
 
 /*Progress bar classes*/

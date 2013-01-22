@@ -652,7 +652,18 @@ if (isset($_GET['delete_branch']) && $_change_) { //The administrator asked to d
     $currentBranch -> updateBranchData($branch_content);
     $message = _BRANCHDATAUPDATED;
    }
-   eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=".$currentBranch -> branch['branch_ID']."&message=". urlencode($message) . "&message_type=success");
+   if (function_exists('apache_get_modules')) {
+    $modules = apache_get_modules();
+    $mod_rewrite = in_array('mod_rewrite', $modules);
+   } else {
+    $mod_rewrite = getenv('HTTP_MOD_REWRITE')=='On' ? true : false ;
+   }
+   if ($mod_rewrite || $GLOBALS['configuration']['mod_rewrite_bypass']) { //Set it to 1 in db if mod_rewrite is enabled but php could not detect it (php runs as cgi for example)
+    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=".$currentBranch -> branch['branch_ID']."&message=". urlencode($message) . "&message_type=success");
+   } else {
+    $message = _MODREWRITENOTENABLED;
+    eF_redirect(basename($_SERVER['PHP_SELF'])."?ctg=module_hcd&op=branches&edit_branch=".$currentBranch -> branch['branch_ID']."&message=". urlencode($message) . "&message_type=failure");
+   }
    exit;
   } catch (EfrontBranchException $e) {
    handleNormalFlowExceptions($e);
